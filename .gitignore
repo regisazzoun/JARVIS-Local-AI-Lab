@@ -1,0 +1,20 @@
+# Secrets et données d'exécution
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+id_ed25519*
+*.db
+*.sqlite*
+*.log
+*.tar
+*.tar.gz
+*.zst
+*.zip
+__pycache__/
+node_modules/
+venv/
+.venv/
+*-preuves/
+*sauvegarde*/
