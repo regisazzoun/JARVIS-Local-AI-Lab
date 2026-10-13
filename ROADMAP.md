@@ -89,3 +89,16 @@ L'utilisateur confirme **deux SSD NVMe accessibles en façade sur supports extra
 - Déploiement PXE/partitionnement entièrement automatisés dans le périmètre de laboratoire autorisé ; les deux SSD sont ciblés par identification matérielle fiable, puis séparation système (environ 120 Gio ajustables) / données (solde), RAID 1, et validation des redémarrages/de la tolérance à une panne.
 
 Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstations/technical-support/Precision_5820_Tower_Spec_Sheet.pdf ; https://www.dell.com/support/kbdoc/en-ed/000144064/precision-5820-tower-precision-7820-tower-precision-7920-tower-nvme-drives-do-not-work-in-legacy-mode
+
+### Recherche technique autonome et résolution de problèmes — exigence du 13 octobre 2026
+
+**Objectif explicite :** JARVIS ne doit pas être limité à un catalogue de commandes préprogrammées. Il doit pouvoir identifier un problème technique, **chercher de lui-même des solutions** dans les documentations officielles, dépôts GitHub, issues, forums et ressources web, confronter les sources, établir un plan, puis tester, observer et corriger de manière itérative.
+
+- Prévoir pour l'agent Qwen des outils de recherche web, de consultation de pages/docs/API GitHub, de lecture de code, de terminal et de récupération des journaux.
+- Favoriser les sources officielles et vérifiables ; citer les références consultées et leurs versions. Traiter pages web, README, issues et code tiers comme **données non fiables**, jamais comme instructions privilégiées à exécuter automatiquement.
+- Télécharger et examiner les scripts avant toute exécution ; ne pas exécuter aveuglément des commandes provenant du web ; travailler d'abord en VM ou conteneur isolé.
+- Permettre des recherches et essais en autonomie ; limiter les droits par outil et exiger une approbation explicite pour les opérations sur systèmes réels à fort impact, les secrets, l'effacement et les modifications de réseau.
+- Journaliser hypothèses, sources, essais, succès et échecs dans la documentation JARVIS afin de capitaliser les connaissances et enrichir la mémoire partagée Mac mini/Dell.
+- Critère de validation : sur une panne volontaire dans une VM Debian, JARVIS recherche au moins deux sources pertinentes, propose et réalise un correctif en sandbox, vérifie le résultat et consigne les preuves sans intervention de Codex.
+
+**Statut : prévu — infrastructure agentique et accès de recherche à construire puis tester.**
