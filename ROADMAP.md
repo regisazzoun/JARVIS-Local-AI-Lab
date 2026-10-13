@@ -134,6 +134,20 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 **Statut : prévu ; aucune validation iPhone/macOS encore constatée.**
 
 
+## Mission 13D — Accès distant sécurisé SSH / Tailscale (EN ATTENTE)
+
+**Statut au 14 octobre 2026 : EN ATTENTE, non exécutée dans cette séquence.** Cette mission est indépendante de 13E et doit rester visible comme jalon à part entière.
+
+**Objectif :** sécuriser et fiabiliser l'administration distante du Mac mini Debian depuis le MacBook, en préservant les accès existants et en préparant l'administration future du Dell.
+
+**Périmètre prévu :** diagnostiquer l'authentification SSH par clé du compte dédié `adminjarvis`, contrôler les permissions et les clés publiques autorisées sans exposer de clé privée ; vérifier Tailscale sur les deux machines ; employer des clés distinctes par poste ; prévoir `tmux`, reconnexion, tests d'accès et procédure de retour arrière. Ne pas modifier le pare-feu, la configuration SSH ou les accès actifs sans inventaire, sauvegarde et validation adaptée au risque de verrouillage.
+
+**Constat disponible :** le journal de diagnostic précédent montre une connexion TCP au port 22 et une négociation SSH réussies, suivies d'un rejet de la clé publique présentée (`Permission denied (publickey)`). La cause exacte n'est pas encore établie ; l'accès distant opérationnel n'est donc pas validé.
+
+**Critères de réception futurs :** connexion par clé depuis le MacBook via Tailscale ; reprise d'une session `tmux` après déconnexion ; maintien d'un accès de secours ; vérification des permissions, journaux et absence de régression. Conserver des preuves expurgées de secrets.
+
+**Décision :** ne pas intégrer ces changements à la mission 13E. Reprendre 13D par une intervention distincte lorsque l'utilisateur le décide.
+
 ## Point de synchronisation — 14 octobre 2026 (missions 12 à 13E)
 
 **Convention :** « roadmap » et « feuille de route » désignent ce fichier `ROADMAP.md`, source de référence du suivi. Toute nouvelle mission doit y ajouter son état, ses décisions, ses preuves, ses blocages et sa prochaine étape. Les états historiques ci-dessus restent des instantanés datés et ne doivent pas être lus comme l'état courant.
