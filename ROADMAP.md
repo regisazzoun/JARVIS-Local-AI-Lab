@@ -115,3 +115,20 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 - Pour le Dell, combiner PXE automatisé, inventaire du RAID/NVMe, stratégie de repli, test préalable approprié et preuves de récupération. L'objectif est un déploiement JARVIS autonome, pas une procédure manuelle déguisée.
 
 **Position recommandée :** à intégrer à la première mission d'agent autonome, après l'intégration voix/mémoire (missions 13B/13C), et avant le premier déploiement PXE du Dell. **Statut : prévu.**
+
+### Mission 13E — Accès vocal JARVIS sur iPhone et macOS : guide et paramètres (prévu)
+
+**Objectif :** produire une documentation reproductible et une liste de paramètres pour échanger à la voix avec le même moteur JARVIS depuis un iPhone et un Mac sous macOS, sur le réseau local comme à distance. Open WebUI reste une interface facultative, non une dépendance de l'intelligence, des outils ou de la mémoire JARVIS.
+
+**Livrables attendus :**
+1. Guide pas-à-pas **iPhone (iOS)** : connexion distante sécurisée (Tailscale ou équivalent), URL HTTPS accessible, connexion utilisateur, permissions microphone, lancement d'une conversation et écoute de la réponse ; préciser les éventuelles contraintes Safari/iOS et le comportement en arrière-plan.
+2. Guide pas-à-pas **macOS** : navigateur compatible, permissions micro/son, paramètres réseau et authentification, usage local et distant, dépannage audio.
+3. **Tableau de configuration** sans secrets : hôte et URL publique/interne, ports, TLS/certificats, authentification, accès VPN, origine CORS si nécessaire, STT Whisper (langue, modèle, API), endpoint Ollama/JARVIS, TTS Piper (voix, format audio), choix des périphériques, latence et timeouts. Documenter où régler chaque paramètre et ses valeurs d'exemple (sans divulguer d'adresses ni de jetons réels).
+4. Comparatif et procédure de test pour **deux clients** : mode vocal Open WebUI intégré (si l'intégration Whisper/Piper locale est effectivement opérationnelle) et interface vocale JARVIS indépendante. Les deux doivent utiliser une API JARVIS centrale et une mémoire cohérente (mission 13C), pas deux assistants divergents.
+5. Checklist de validation : conversation audio complète depuis iPhone en Wi-Fi puis en réseau mobile distant, et depuis macOS ; contrôle des permissions, sécurité, latence, qualité de transcription/réponse et persistance de conversation ; guide de dépannage.
+
+**Dépendances :** mission 13A (Whisper/Piper installés), 13B (chaîne vocale fonctionnelle), 13C (mémoire persistante). Le client distant et sa documentation peuvent être préparés en parallèle ; valider l'intégration réelle avant de déclarer 13E terminée.
+
+**Sécurité :** ne pas exposer directement les API d'administration, Ollama, Whisper ou Piper sur Internet ; privilégier VPN privé et HTTPS, authentification et droits limités. Les commandes à effet sur les serveurs suivent la politique d'autonomie et d'évaluation des risques définie dans cette roadmap.
+
+**Statut : prévu ; aucune validation iPhone/macOS encore constatée.**
