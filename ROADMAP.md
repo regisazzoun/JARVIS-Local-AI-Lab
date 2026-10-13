@@ -148,6 +148,14 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 
 **Décision :** ne pas intégrer ces changements à la mission 13E. Reprendre 13D par une intervention distincte lorsque l'utilisateur le décide.
 
+## À REPRENDRE SUR INSTRUCTION — Audit et redocumentation des anciennes missions
+
+**Décision du 14 octobre 2026 : tâche différée, non autorisée à l'exécution pour l'instant.** Lors d'un prochain échange, rappeler à l'utilisateur de donner explicitement le feu vert avant de commencer.
+
+**Travail à réaliser après validation :** reprendre toutes les missions historiques de cette roadmap, comparer leurs objectifs, décisions, états, livrables, blocages et preuves avec les discussions JARVIS et les rapports disponibles ; corriger les omissions, donner à chaque mission un titre clairement repérable, distinguer prévu / exécuté / simulé / vérifié, et conserver une chronologie lisible. Ne pas inventer de résultats, signaler les pièces ou échanges manquants et ne pas écraser l'historique sans traçabilité. Documenter dans `ROADMAP.md` et, si nécessaire, dans des rapports de mission dédiés. Exclure secrets et informations sensibles.
+
+**Déclencheur :** instruction explicite de l'utilisateur. **Rappel à programmer séparément** selon la date ou le délai choisi par l'utilisateur.
+
 ## Point de synchronisation — 14 octobre 2026 (missions 12 à 13E)
 
 **Convention :** « roadmap » et « feuille de route » désignent ce fichier `ROADMAP.md`, source de référence du suivi. Toute nouvelle mission doit y ajouter son état, ses décisions, ses preuves, ses blocages et sa prochaine étape. Les états historiques ci-dessus restent des instantanés datés et ne doivent pas être lus comme l'état courant.
