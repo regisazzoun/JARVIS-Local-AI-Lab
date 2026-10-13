@@ -78,3 +78,14 @@ Référence : documentation constructeur sur les configurations RAID de Precisio
 - Si le contrôleur Intel ne permet pas un miroir exploitable et fiable sous Debian, basculer vers `mdadm` RAID 1 natif : documenter le motif et comparer les performances réelles au lieu d'affirmer une supériorité théorique du matériel.
 - Préparer un partitionnement automatique adapté aux capacités réelles des SSD : ESP sur chaque disque, système RAID1 (cible initiale 100 à 150 Gio si espace disponible), données RAID1 sur le solde (p. ex. `/srv/jarvis`), ajustements après inventaire. Prévoir installation UEFI, supervision du RAID et test de redémarrage sur un SSD.
 - Le programme PXE peut effacer les deux SSD **uniquement après identification fiable des deux disques cibles, vérification de sauvegardes/données existantes et autorisation du périmètre destructif pour cette machine**. Journaux et résultats seront intégrés à la documentation GitHub, sans secrets.
+
+### Précision matérielle : deux SSD NVMe extractibles (13 octobre 2026)
+
+L'utilisateur confirme **deux SSD NVMe accessibles en façade sur supports extractibles (FlexBay)**. La fiche Dell du Precision 5820 décrit précisément deux NVMe M.2/U.2 FlexBay pris en charge via **Intel VROC/VMD** (RAID 0/1 en option selon clé) et, sur certaines configurations, un contrôleur distinct **Broadcom MegaRAID 9460-16i** assurant un véritable RAID matériel NVMe. Bien que l'utilisateur indique un contrôleur Intel, identifier sa référence par PCI/BIOS avant de sélectionner les modules Debian : hypothèse privilégiée **Intel VROC/VMD**, non confirmée à 100 %.
+
+- Conserver le **mode UEFI** : Dell documente l'incompatibilité du NVMe VMD avec le mode Legacy ; si VMD est désactivé, les NVMe deviennent directement visibles mais Dell indique que le hot-plug n'est alors plus pris en charge.
+- Vérifier présence de la clé/licence VROC, configuration firmware RAID1, modules noyau Debian (`vmd`, `nvme`, `md` et outils VROC selon support), reconnaissance et boot sur volume miroir **avant** figer le plan PXE/preseed.
+- RAID Intel VROC est du **RAID firmware/CPU**, pas une carte RAID matérielle dédiée : ne pas annoncer de gain de latence sans mesures. En cas d'incompatibilité, documenter le repli vers Linux `mdadm`.
+- Déploiement PXE/partitionnement entièrement automatisés dans le périmètre de laboratoire autorisé ; les deux SSD sont ciblés par identification matérielle fiable, puis séparation système (environ 120 Gio ajustables) / données (solde), RAID 1, et validation des redémarrages/de la tolérance à une panne.
+
+Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstations/technical-support/Precision_5820_Tower_Spec_Sheet.pdf ; https://www.dell.com/support/kbdoc/en-ed/000144064/precision-5820-tower-precision-7820-tower-precision-7920-tower-nvme-drives-do-not-work-in-legacy-mode
