@@ -132,3 +132,33 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 **Sécurité :** ne pas exposer directement les API d'administration, Ollama, Whisper ou Piper sur Internet ; privilégier VPN privé et HTTPS, authentification et droits limités. Les commandes à effet sur les serveurs suivent la politique d'autonomie et d'évaluation des risques définie dans cette roadmap.
 
 **Statut : prévu ; aucune validation iPhone/macOS encore constatée.**
+
+
+## Point de synchronisation — 14 octobre 2026 (missions 12 à 13E)
+
+**Convention :** « roadmap » et « feuille de route » désignent ce fichier `ROADMAP.md`, source de référence du suivi. Toute nouvelle mission doit y ajouter son état, ses décisions, ses preuves, ses blocages et sa prochaine étape. Les états historiques ci-dessus restent des instantanés datés et ne doivent pas être lus comme l'état courant.
+
+### État consolidé (selon rapports reçus, sans nouvelle vérification machine)
+
+| Mission | État | Résultat acquis / reste à faire |
+| --- | --- | --- |
+| 12 — étude voix et mémoire | Terminée : GO sous conditions | faster-whisper small CPU/int8, Piper Tom provisoire, SQLite/FTS5 avec validation explicite ; essais de fichiers et mémoire fictive, pas de microphone réel ni d'intégration complète. |
+| 13A — socle vocal durable | Réussie dans son périmètre | Whisper Small et Piper Tom installés dans `/opt/jarvis/voice`, tests synthèse/transcription sur fichiers réussis, isolation CPU et préservation des installations vérifiées ; pas de service résident ni de test micro. |
+| 13B — interface vocale | GO PARTIEL (bilan communiqué) | Interface Push-to-Talk, backend vocal et accès Ollama livrés ; microphone physique, navigateur, lecture et interruption audio, HTTP et génération Ollama réels restent à confirmer. |
+| 13C — mémoire partagée | GO PARTIEL (bilan communiqué) | SQLite/FTS5, validations explicites, sauvegarde/restauration et scripts livrés ; partage entre trois moteurs testé avec simulations, non prouvé avec trois moteurs réels. |
+| **13D — accès distant sécurisé** | **EN ATTENTE — ne pas démarrer avec 13E** | Finaliser SSH par clés, Tailscale Mac mini/MacBook, clés par machine, tmux, reconnexion et retour arrière. Un log SSH antérieur indique connexion TCP et négociation réussies mais rejet de la clé publique : `Permission denied (publickey)`. À diagnostiquer sans modifier l'accès existant à l'aveugle. |
+| **13E — intégration vocale réelle** | **À PRÉPARER, NON EXÉCUTÉE** | Tests réels micro/navigateur, STT → Ollama → TTS, lecture/interruption, HTTP local, mémoire validée, persistance et démarrage contrôlé ; tests et critères d'acceptation à définir avant exécution. |
+
+### Ordre et limites décidés
+
+1. Maintenir **13D en attente** ; ne pas y glisser de changements SSH/Tailscale lors de 13E.
+2. Préparer **13E comme mission Codex autonome et bornée**, pouvant tourner la nuit, mais sans présumer que les validations nécessitant une personne (micro physique, écoute, approbations) peuvent être obtenues en son absence.
+3. Préserver Ollama, Open WebUI, modèles, configurations, conversations et données existantes ; sauvegarde avant modification autorisée, vérification après, aucun effacement ou mise à niveau globale implicite.
+4. Distinguer systématiquement **livré**, **testé avec simulation**, **testé réellement** et **validé par l'utilisateur** ; pas de GO complet sans preuves.
+5. Conserver une seule autorité de mémoire JARVIS : SQLite/FTS5 via passerelle, avec validation humaine des nouveaux souvenirs ; ne pas activer une seconde mémoire concurrente dans Open WebUI.
+6. Dell Precision : chantier distinct, futur serveur d'inférence ; pas de déploiement PXE, RAID ou modification destructive dans 13E. Les règles et décisions Dell détaillées plus haut restent applicables.
+7. En fin de mission, produire rapport, résultats, incidents, tests, points en attente et proposition de mise à jour de cette roadmap. Ne publier aucun secret, clé privée, sauvegarde sensible ou journal contenant des données personnelles.
+
+### Prochain jalon
+
+**13E :** rédiger le cahier d'exécution détaillé à remettre à Codex, en commençant par l'inventaire en lecture seule des livrables 13B/13C et la vérification de l'environnement. Autoriser les essais non destructifs automatiques ; laisser en attente les validations humaines et les opérations sensibles. Revenir à 13D séparément.
