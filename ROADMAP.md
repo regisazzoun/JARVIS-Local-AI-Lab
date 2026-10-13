@@ -102,3 +102,16 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 - Critère de validation : sur une panne volontaire dans une VM Debian, JARVIS recherche au moins deux sources pertinentes, propose et réalise un correctif en sandbox, vérifie le résultat et consigne les preuves sans intervention de Codex.
 
 **Statut : prévu — infrastructure agentique et accès de recherche à construire puis tester.**
+
+### Autonomie fondée sur l'évaluation des risques — exigence du 13 octobre 2026
+
+**Décision :** avant chaque installation, mise à jour ou déploiement, JARVIS évalue lui-même les risques et sélectionne une stratégie de test proportionnée, puis réalise le déploiement sans pilotage humain étape par étape quand il entre dans un périmètre autorisé.
+
+- Établir automatiquement un diagnostic préalable : cible, dépendances, privilèges, risque de perte de données, indisponibilité, exposition réseau, sécurité, probabilité et gravité d'un échec, possibilité de restauration.
+- Produire une estimation du risque (**faible / modéré / élevé / critique**) avec justification et niveau de confiance ; ne pas confondre une estimation avec une garantie.
+- Choisir de façon autonome un banc d'essai approprié : vérification statique, simulation/dry-run, conteneur, VM avec snapshot, déploiement pilote ou essai direct sur machine expérimentale selon les risques et la fidélité du test.
+- Préparer un mécanisme de retour arrière et des critères de réussite ; vérifier les résultats et corriger de manière itérative ; journaliser sources, commandes, erreurs, mesures et décisions pour apprentissage documentaire.
+- **Autonomie opérationnelle par défaut dans le laboratoire explicitement autorisé** pour actions réversibles et installations non destructives ; escalade vers validation humaine pour effacement de données non sauvegardées, modification RAID/firmware, clés/secrets, exposition de services, ou risques dépassant le périmètre autorisé. Autoriser éventuellement à l'avance des scénarios destructifs de laboratoire précisément délimités, plutôt que demander une approbation à chaque étape.
+- Pour le Dell, combiner PXE automatisé, inventaire du RAID/NVMe, stratégie de repli, test préalable approprié et preuves de récupération. L'objectif est un déploiement JARVIS autonome, pas une procédure manuelle déguisée.
+
+**Position recommandée :** à intégrer à la première mission d'agent autonome, après l'intégration voix/mémoire (missions 13B/13C), et avant le premier déploiement PXE du Dell. **Statut : prévu.**
