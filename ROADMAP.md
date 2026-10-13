@@ -29,3 +29,17 @@ Ce registre complète la feuille de route historique. Statuts : **prévu**, **en
 - Faire progresser l'expérimentation sans être bloqué par les anomalies mineures non critiques ; conserver les garde-fous pour les actions risquées.
 - Consigner chaque changement de statut avec sa mission Codex ou un lien de preuve lorsqu'il existe.
 - Ne jamais publier de clés, identifiants, adresses privées ou journaux sensibles.
+
+## Déploiement PXE du Dell Precision — prévu (13 octobre 2026)
+
+Objectif : permettre à JARVIS sur le Mac mini de déployer Debian sur le Dell Precision 5820 par démarrage réseau UEFI/PXE, puis de configurer le serveur via SSH/Ansible (pilotes NVIDIA, CUDA, Ollama, etc.).
+
+Étapes proposées :
+1. Vérifier le support PXE/UEFI du Dell, la topologie Ethernet et le DHCP existant ; ne pas perturber le réseau de production.
+2. Préparer sur le Mac mini les services de démarrage et l'installation automatisée Debian 13 (netboot/iPXE selon faisabilité, preseed), et les configurations réseau adaptées.
+3. Tester entièrement la chaîne PXE sur une VM avant tout déploiement physique.
+4. Valider explicitement le disque cible et le partitionnement avant toute opération destructive.
+5. Démarrer le Dell sur le réseau, installer Debian, sécuriser SSH puis déployer les composants IA par Ansible.
+6. Documenter les essais, erreurs, corrections et résultats ; ne marquer validé qu'après test réel sur le Dell.
+
+La voix et la mémoire complète de JARVIS ne sont pas des prérequis techniques pour ce pilote : les premières opérations peuvent être réalisées par un agent outillé supervisé. Maintenir l'approche expérimentale et des validations humaines pour les opérations critiques.
