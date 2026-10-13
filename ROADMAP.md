@@ -184,3 +184,16 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 ### Prochain jalon
 
 **13E :** rédiger le cahier d'exécution détaillé à remettre à Codex, en commençant par l'inventaire en lecture seule des livrables 13B/13C et la vérification de l'environnement. Autoriser les essais non destructifs automatiques ; laisser en attente les validations humaines et les opérations sensibles. Revenir à 13D séparément.
+
+
+## Mission 13E — intégration réelle déployée, 14 octobre 2026
+
+**État : GO AVEC RÉSERVES.** Passerelle installée sous `/opt/jarvis/conversation`, service dédié actif et activé, authentification locale, identité versionnée, mémoire SQLite/FTS5 canonique et sauvegarde quotidienne. Chaîne Whisper CPU → Ollama réel → Piper Tom CPU → lecture Chromium validée, dont envoi automatique après transcription. Quinze tests automatisés et huit essais navigateur réussis. Trois modèles réels retrouvent le même souvenir fictif approuvé ; correction/suppression, redémarrage de passerelle et sauvegarde/restauration testés. Qwen appelle un diagnostic local borné et propose un souvenir pending sans l'approuver.
+
+Latence mesurée : premier flux court 20,44 s, flux sur service déployé avec Qwen chaud 7,01 s. Aucun changement des unités/données Ollama et Open WebUI, modèles, SSH/Tailscale, pare-feu ou pilotes ; 22 empreintes protégées identiques avant/après, API WebUI toujours saine.
+
+**Réserves :** microphone du navigateur alimenté par WAV fictif ; capture ALSA physique quasi silencieuse sans parole humaine de recette ; Safari/iPhone/macOS physiques et écoute humaine non validés. HTTPS privé préparé, pas activé. Accès actuel sur localhost, tunnel SSH existant lorsque fonctionnel. **13D reste EN ATTENTE**, aucune correction d'accès effectuée. Dell/PXE/RAID restent hors périmètre.
+
+Documents : [Rapport](platforms/mac-mini/mission13e/MISSION-13E-RAPPORT.md), [Installation](platforms/mac-mini/mission13e/MISSION-13E-INSTALLATION.md), [Utilisation](platforms/mac-mini/mission13e/MISSION-13E-UTILISATION.md), [Tests](platforms/mac-mini/mission13e/MISSION-13E-TESTS.md), [Incidents](platforms/mac-mini/mission13e/MISSION-13E-INCIDENTS.md), [Architecture](platforms/mac-mini/mission13e/MISSION-13E-ARCHITECTURE.md), [Reprise](platforms/mac-mini/mission13e/MISSION-13E-REPRISE.md). Preuves et sauvegardes restent privées sur l'hôte ; seuls documents expurgés proposés par PR.
+
+**Prochaine étape :** recette humaine voix sur localhost/macOS, puis reprendre 13D séparément et activer HTTPS privé pour iPhone avec certificat reconnu. Autonomie modificatrice, Ansible et installation du Dell à développer dans une mission ultérieure explicitement autorisée.
