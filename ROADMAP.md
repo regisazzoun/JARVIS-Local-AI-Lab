@@ -55,3 +55,17 @@ Information matérielle communiquée par le propriétaire : le Dell Precision (m
 - Adapter ensuite la configuration PXE/preseed aux disques logiques effectivement présentés et tester le scénario sur une VM lorsque possible.
 
 Référence : documentation constructeur sur les configurations RAID de Precision 5820/7820/7920 (le contrôleur installé reste à identifier).
+
+### Architecture cible des deux SSD : miroir RAID 1 (recherche du 13 octobre 2026)
+
+**Décision utilisateur :** privilégier un miroir RAID 1 entre les deux SSD du Dell, avec séparation du système et des données. Le modèle précis du Dell et du contrôleur Intel reste à confirmer avant installation destructive.
+
+**Identification documentée :** pour le Dell Precision 5820, Dell indique un contrôleur Intel **RSTe** intégré au chipset C422 pour les disques SATA, et une solution **Intel VROC/VMD** pour certains SSD NVMe (fonctionnalités RAID NVMe soumises selon configuration à une clé/licence). Il ne faut donc pas confondre pilotes Windows Intel RSTe/VROC et prise en charge de Debian.
+
+**Choix Linux provisoire recommandé :** si les deux SSD sont exposés individuellement au noyau Debian, préférer le RAID logiciel Linux **mdadm RAID 1** avec métadonnées Linux et modules du noyau, plutôt qu'imposer un volume Intel firmware RAID ; confirmer d'abord que l'installeur voit les deux disques et que le mode contrôleur n'exige pas d'autre configuration. En cas de volume Intel RAID préexistant, ne rien reconfigurer sans inspection et décision explicite ; étudier les alternatives et la compatibilité Debian.
+
+**Schéma cible à étudier/valider avant de produire preseed :** table GPT sur les deux SSD ; partitions système EFI sur **chacun** (maintien des chargeurs UEFI des deux côtés, test de démarrage après perte d'un disque) ; partitions équivalentes sur les deux SSD assemblées en RAID 1 pour le système (montage `/`) ; autre miroir RAID 1 pour les données (montage `/data` ou `/srv/jarvis`). Option LVM à évaluer selon souplesse souhaitée ; tailles et swap non fixés avant capacités réelles des SSD.
+
+**Contrôles bloquants avant déploiement PXE :** relever la référence exacte Dell et les identifiants PCI (`lspci -nn`), mode BIOS RAID/AHCI/VMD, type SATA/NVMe, capacité des deux SSD, métadonnées RAID actuelles (`lsblk -o NAME,MODEL,SIZE,TYPE,FSTYPE`, `mdadm --examine` en lecture seule si applicable), présence de données à sauvegarder ; vérifier les modules intégrés à l'installateur Debian 13. Tester le démarrage UEFI sur un disque à la fois. Ne pas lancer de preseed destructif ni basculer le BIOS sans validation humaine.
+
+**Sources :** Dell Precision 5820 Tower Spec Sheet : https://i.dell.com/sites/doccontent/shared-content/data-sheets/en/Documents/Precision-5820-Tower-Spec-Sheet.pdf ; Debian Installer RAID/preseed : https://www.debian.org/releases/bookworm/i386/apbs04.en.html (documentation d'exemple Debian 12, procédure à adapter et vérifier pour Debian 13).
