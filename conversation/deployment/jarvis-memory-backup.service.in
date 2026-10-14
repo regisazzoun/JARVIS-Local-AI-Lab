@@ -1,0 +1,16 @@
+[Unit]
+Description=Sauvegarde privée de la mémoire JARVIS
+
+[Service]
+Type=oneshot
+User=@JARVIS_USER@
+Group=@JARVIS_USER@
+WorkingDirectory=/opt/jarvis/conversation
+ExecStart=/opt/jarvis/conversation/scripts/backup-now
+Environment=PYTHONDONTWRITEBYTECODE=1
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/jarvis/conversation/runtime

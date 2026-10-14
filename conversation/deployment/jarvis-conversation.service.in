@@ -1,0 +1,30 @@
+[Unit]
+Description=JARVIS conversation, voix CPU et mémoire canonique
+After=jarvis-ollama.service
+Wants=jarvis-ollama.service
+
+[Service]
+Type=simple
+User=@JARVIS_USER@
+Group=@JARVIS_USER@
+WorkingDirectory=/opt/jarvis/conversation
+ExecStart=/opt/jarvis/conversation/.venv/bin/python -m jarvis.server --config /opt/jarvis/conversation/config/13e.json
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=210
+KillMode=control-group
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/jarvis/conversation/runtime
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+CapabilityBoundingSet=
+TasksMax=128
+MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target
