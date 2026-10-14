@@ -270,3 +270,8 @@ Sources Apple : https://developer.apple.com/help/account/basics/about-your-devel
 - [Mission 15B — Cahier Codex iOS](docs/missions/MISSION-15B-IOS-CODEX.md) : **prêt, non lancé** ; installation gratuite Xcode / Personal Team.
 - Les deux branches peuvent avancer en parallèle, après définition du contrat API partagé et inventaire des réserves 13F. Ne pas modifier les services Mac mini pour lancer ces prototypes.
 - **Cette décision remplace** la section historique « Mission 15 (provisoire) — REPORTÉE » et l'ancien ordre « 13F → 14 → 15 ». La mission 14 est indépendante et non bloquante.
+
+
+### Projet parallèle JL — JARVIS Launcher (14 octobre 2026)
+
+**JL — JARVIS Launcher** est un projet annexe autonome, non bloquant pour les missions JARVIS 13F, 14, 15A et 15B. **JL-01** (lanceur web/macOS de terminaux SSH, Codex et tmux) a été lancé dans Codex par l'utilisateur ; résultat à vérifier. **JL-02** (Qwen/Ollama texte et voix, ChatGPT restant dans sa fenêtre séparée) est une phase ultérieure, non lancée. Toutes les spécifications, étapes et décisions JL sont suivies exclusivement dans la [roadmap dédiée JARVIS Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md), à transférer au dépôt autonome lorsqu'il sera disponible.
