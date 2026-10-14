@@ -3,7 +3,7 @@
 **Projet parallèle autonome** au projet JARVIS Local AI Lab — suivi établi le 14 octobre 2026.
 **Identifiant :** JL (JARVIS Launcher). **Missions :** JL-01, JL-02.
 **Dépôt cible :** `regisazzoun/JARVIS-Launcher` (non encore accessible/constaté sur GitHub au 14/10/2026).
-**Emplacement temporaire de suivi :** ce document ; transférer dans le dépôt autonome après sa création, en conservant un lien depuis le dépôt principal.
+**Emplacement temporaire de suivi :** ce document. **Décision : le transfert est reporté à JL-02**, même si le dépôt autonome est créé avant. Conserver un simple lien depuis le dépôt principal après migration.
 
 ## Vision et limites
 Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis le MacBook Pro ou le Mac mini. ChatGPT reste dans sa propre fenêtre indépendante. Launcher rassemble la connexion au serveur JARVIS, les raccourcis Terminal et, dans une deuxième phase, Qwen/Ollama avec interaction vocale. Les profils Mac représentent les **postes clients**, pas les serveurs distants.
@@ -24,6 +24,7 @@ Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis
 ## JL-02 — Qwen, Ollama et interface vocale (phase 2, cadrage uniquement)
 **Statut : idée cadrée ; aucun nouveau prompt Codex lancé ; pas de développement demandé à ce stade.**
 
+- [ ] **Migration GitHub en JL-02 :** auditer le dépôt et les livrables JL-01, puis transférer le code initial, la documentation et cette roadmap vers le nouveau dépôt autonome `regisazzoun/JARVIS-Launcher` (à créer si absent). Vérifier l'historique, les liens et GitHub Pages, éviter d'écraser les travaux Codex, puis ne conserver qu'un renvoi dans la roadmap générale JARVIS.
 - [ ] Garder ChatGPT dans une fenêtre distincte, sans intégration forcée du site ChatGPT dans Launcher.
 - [ ] Intégrer dans Launcher un espace de conversation textuelle avec **Qwen via Ollama** sur JARVIS : prompts, historique selon stockage autorisé, état de connexion.
 - [ ] Ajouter un espace voix : capture micro avec consentement, transcription, envoi au modèle et synthèse/réponse audio ; réutiliser les services JARVIS existants quand ils seront vérifiés.
@@ -37,7 +38,7 @@ Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis
 | --- | --- | --- |
 | JL-M1 | Rapport et dépôt Codex JL-01 examinés | En attente |
 | JL-M2 | MVP Launcher installé et testé MacBook Pro + Mac mini | À vérifier |
-| JL-M3 | Architecture JL-02 révisée selon les résultats JL-01 | Prévu |
+| JL-M3 | Architecture JL-02 révisée et migration des livrables JL-01 vers le dépôt autonome planifiée | Prévu |
 | JL-M4 | Prompt Codex JL-02 validé par l'utilisateur | Non lancé |
 | JL-M5 | Qwen texte + voix intégrés et testés | Prévu |
 
@@ -46,3 +47,4 @@ Projet **annexe et non bloquant** pour les missions 13F, 14, 15A et 15B. Les dé
 
 ## Journal
 - **2026-10-14 :** JL-01 confirmé en cours d'exécution dans Codex ; JL-02 réservé à l'intégration future de Qwen/Ollama et de la voix ; ChatGPT reste indépendant ; suivi JL séparé.
+- **2026-10-14 :** décision de ne pas migrer maintenant ; migration du dépôt/code initial JL-01 et de la roadmap dédiée inscrite explicitement dans le périmètre JL-02.
