@@ -33,6 +33,20 @@ Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis
 - [ ] Choisir sur la base de JL-01 entre web + compagnon macOS et application macOS légère ; documenter les contraintes navigateur (micro, intégration ChatGPT, ouverture Terminal).
 - [ ] Réaliser des tests de sécurité, d'ergonomie et de fonctionnement avant toute validation.
 
+## JL-02 — Socle obligatoire d'identité et d'authentification
+
+**Décision du 14 octobre 2026 : exigence impérative et critère bloquant pour la validation de JL-02.** L'objectif est un bureau de travail fluide avec réutilisation sécurisée des authentifications, sans promettre une connexion unique universelle entre des protocoles indépendants.
+
+- [ ] Auditer les mécanismes d'authentification réels de JL-01, SSH, Codex, tmux, Qwen/Open WebUI ou interface Ollama, API voix et profils Mac ; identifier les différences entre MacBook Pro et Mac mini.
+- [ ] Utiliser les clés SSH existantes et `ssh-agent`/Trousseau macOS lorsque pertinent ; ne jamais copier les clés privées vers le site ou le dépôt ; documenter installation des clés publiques côté JARVIS, droits, révocation et rotation.
+- [ ] Définir une identité/session pour la passerelle privée de JARVIS, avec authentification vérifiée côté serveur, expiration, déconnexion et révocation ; protéger les accès Qwen/Ollama et voix au travers de cette passerelle, sans accès direct public.
+- [ ] Réutiliser les sessions d'outils autorisées lorsque techniquement possible ; respecter les authentifications natives de Codex et SSH, sans contournement, collecte de mots de passe ou stockage de jetons non chiffrés.
+- [ ] Limiter les actions de Launcher à une liste blanche locale ; permissions minimales ; confirmation supplémentaire pour les scripts d'administration, changements système ou actions sensibles.
+- [ ] N'enregistrer aucun secret sur GitHub Pages, dans son JavaScript, son stockage web, les liens de protocole, les logs ou dans Git ; mettre les secrets nécessaires dans un magasin sécurisé approprié (Trousseau macOS ou stockage chiffré côté JARVIS).
+- [ ] Assurer un transport chiffré et un accès réseau privé (par exemple Tailscale + TLS selon architecture), avec contrôles anti-rejeu/CSRF et validation d'origine si un service local HTTP est retenu.
+- [ ] Documenter l'expérience de première connexion, reconnexion, perte de session, poste non autorisé et perte/rotation de clé ; prévoir des tests sur les deux Macs.
+- [ ] Critère d'acceptation : aucun accès Qwen/voix ni lancement d'action sensible sans autorisation vérifiée ; aucune fuite de secret ; déconnexion et révocation testées ; fonctionnement multi-postes testé. **NO-GO JL-02 si ces exigences critiques échouent.**
+
 ## Jalons de pilotage
 | Jalon | Livrable | État |
 | --- | --- | --- |
@@ -40,11 +54,12 @@ Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis
 | JL-M2 | MVP Launcher installé et testé MacBook Pro + Mac mini | À vérifier |
 | JL-M3 | Architecture JL-02 révisée et migration des livrables JL-01 vers le dépôt autonome planifiée | Prévu |
 | JL-M4 | Prompt Codex JL-02 validé par l'utilisateur | Non lancé |
-| JL-M5 | Qwen texte + voix intégrés et testés | Prévu |
+| JL-M5 | Qwen texte + voix intégrés et testés | Prévu |\n| JL-M6 | Authentification sécurisée, permissions et révocation testées sur les deux Macs (bloquant) | Prévu |
 
 ## Relations avec JARVIS principal
 Projet **annexe et non bloquant** pour les missions 13F, 14, 15A et 15B. Les développements et décisions détaillés appartiennent à **cette roadmap JL**, et non à la roadmap générale. Aucun changement du socle JARVIS principal n'est implicite.
 
 ## Journal
+- **2026-10-14 :** authentification unifiée autant que possible ajoutée à JL-02 comme obligation bloquante (SSH, clés, Codex, Qwen/Ollama, voix, scripts sensibles) ; JL-01 inchangée.
 - **2026-10-14 :** JL-01 confirmé en cours d'exécution dans Codex ; JL-02 réservé à l'intégration future de Qwen/Ollama et de la voix ; ChatGPT reste indépendant ; suivi JL séparé.
 - **2026-10-14 :** décision de ne pas migrer maintenant ; migration du dépôt/code initial JL-01 et de la roadmap dédiée inscrite explicitement dans le périmètre JL-02.
