@@ -2,6 +2,10 @@
 
 Ce répertoire propose une **navigation thématique** sans déplacement ni suppression des documents historiques. Le statut des missions est documentaire et reflète les preuves retrouvées, pas l'état instantané des machines.
 
+## Fil unique de discussion ChatGPT
+
+- **[Index central de nos échanges JARVIS](../indexes/ECHANGES_CHATGPT.md)** : les dix blocs thématiques, les décisions déjà prises, les priorités et les liens vers les preuves, sans multiplier les conversations.
+
 ## Accès rapides
 
 | Besoin | Document |
