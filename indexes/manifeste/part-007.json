@@ -1,0 +1,2432 @@
+[
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/config-0000:7c:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "28e55d8c0eb65dbd800abe79f160735a5994339859592f1d7394b92a7616671b",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/config-0000:7c:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "8b53a6199fcf4b7814d6eb9e0c4569815659645e796d31915146468bbca0036a",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/config-0000:7c:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "c68a4c5c22d98362c287324a735e2d2e4724e73c2503a47e51360ca721f0fc28",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/connexions.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/connexions.json",
+    "taille": 2496,
+    "sha256": "5fcd64af1fc33e467922a5a6a56e1187faf45cf4e1f774e3bc853fcd46eafa57",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/connexions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/dmi.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json",
+    "taille": 552,
+    "sha256": "432c7264fa31451ee1da1cbe3c3d6d760e635787aa2c0aea370ba4d1dab35c5d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/ecoutes.json",
+    "taille": 903,
+    "sha256": "fb32373fea0227299d3d5aace1da330693b78226326d6abc82c4e79d87ea125d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/ecoutes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/identite.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json",
+    "taille": 116,
+    "sha256": "05bf9d6dde7b88949a5b23899b5e95ba5efa05b023ba4da0644fd865aae9d001",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/journal-bolt.json",
+    "taille": 5151,
+    "sha256": "8de301ef54f4a3b38578ba1daf0c5266453d7d9d17767b9b3b2c3f1015922567",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/journal-noyau.json",
+    "taille": 153028,
+    "sha256": "04e81fabd634d9dda981ece845b5f9757e2aca84dd9dfa619ba1051a5ba46a98",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/journal-systeme.json",
+    "destination": "",
+    "taille": 357932,
+    "sha256": "02990bae03830bb76bdae7e991bba38761b252c54365974f5ef2898132dbcb79",
+    "mission": "04L",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/lectures.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/lectures.json",
+    "taille": 11208,
+    "sha256": "36fe1b447fd67932b6727157363edb0bacf9e562e0397b020b0f2a5b774f1960",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/montages.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/montages.json",
+    "taille": 4490,
+    "sha256": "8664b4b46d18ea2033a369658d14baea34fe0b159a0aed24e242dcb67fcfdab4",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/nvme-sante.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/nvme-sante.json",
+    "taille": 2156,
+    "sha256": "e2dc6eef101f849cf6b107a1923750111e01a17e020b9f68fce57d9575128dce",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/nvme-sante.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/pci-sysfs.json",
+    "taille": 50642,
+    "sha256": "368c243fbd682fd994a7007446c5259ca5bdec0eb8f0f117ab45018e3c65af61",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/pci.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/pci.json",
+    "taille": 142275,
+    "sha256": "4ad717384f3cff42cab32759f69f1ed16e07a71d2a6806133f851a745e0128af",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_cmdline.txt",
+    "taille": 193,
+    "sha256": "aa3c226ec9d69e228c5c30a4fe318feb6dc2c645471e72fd762ad67be43e3e5f",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_iomem.txt",
+    "taille": 4931,
+    "sha256": "98cec9c75824eee167511c3146e7367dc5aee67a69aa547d791b8e0933daabb0",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_modules.txt",
+    "taille": 10642,
+    "sha256": "ff23e41f8b211515a340b3db4503edddee2a32d214058c871c16ac6bedb60d66",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/proc_self_status.txt",
+    "taille": 1476,
+    "sha256": "50464333e82db8d58ea0e5c5a7be0a3f42716cfc6e6b2d289ada834085879ed4",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/processus.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/processus.json",
+    "taille": 23991,
+    "sha256": "86c36262dfe40e274aa3afcdfae093c06e115b071f8a9242cd52f1d4a21c7bd5",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/reseau.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/reseau.json",
+    "taille": 2520,
+    "sha256": "c134c2debd9aa02f5bf6407f3cd45e3cc011062410c28b30c41f37aeefeea2bb",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json",
+    "taille": 247,
+    "sha256": "50e3b5c157cebf8bc5ec929057d30dcdf8dbb39ea664671597d1f8620d5f140b",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/services.json",
+    "destination": "",
+    "taille": 4013,
+    "sha256": "f48b542274d4bdbd0a004ae1f3f948f3b84492bb00a7a168e85218385f564392",
+    "mission": "04L",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/sessions.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sessions.json",
+    "taille": 365,
+    "sha256": "9b235f7bea53bfb2db238a6969345be1a67bf3a82b6c9e215538ce1097b1608e",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json",
+    "taille": 668,
+    "sha256": "116c4352521dda088a68f1fc3a48dd33fb6c06877ec3aa394ab6854dfe839d88",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-221729/sys_class_dmi_id_product_name.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt",
+    "taille": 11,
+    "sha256": "ce365579718d8d298efb3b1a89ec5e07cbf94bd4de1d5c68c5df34258fca5ef1",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/46_jarvis_t2_egpu_reallocation_ciblee",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/46_jarvis_t2_egpu_reallocation_ciblee",
+    "taille": 707,
+    "sha256": "f70a056431638a92cf3c18c37760a25a7db7b7efcbccaeb4a18869234b3c262d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/46_jarvis_t2_egpu_reallocation_ciblee"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/boot-id-avant.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/boot-id-fin.txt",
+    "taille": 37,
+    "sha256": "f4be56278022e9fe32dc22d4f60be9d7be62db498b71d0b2b3c14a1ed5ec508a",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/boot-id-fin.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/cmdline-avant.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_cmdline.txt",
+    "taille": 193,
+    "sha256": "aa3c226ec9d69e228c5c30a4fe318feb6dc2c645471e72fd762ad67be43e3e5f",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/diff-grub.patch",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/diff-grub.patch",
+    "taille": 973,
+    "sha256": "5b7810626f81ee2578089e418a84a60d288c39bcf6aad1fe022ae9538e18240b",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/diff-grub.patch"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/empreintes-avant.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/empreintes-avant.json",
+    "taille": 5381,
+    "sha256": "7ccd4e519f9bab0f3f9d67c85f951ddf98ae8760e4d31d6d8fd5beaa2006f4b6",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/empreintes-avant.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/entree-candidate.cfg",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/entree-candidate.cfg",
+    "taille": 676,
+    "sha256": "aa1a1598e73eef6b9c664f1cbe7521e5b8c8a91438436de313b5d5c9393a8199",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/entree-candidate.cfg"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/generation-meta.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/generation-meta.json",
+    "taille": 525,
+    "sha256": "2ecfd207b33685d078b07d47abb043ae51c10fb6c1066f2299730f9bde8b05cc",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/generation-meta.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/generer-isole.sh",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/installation-20261011-213406/generer-isole.sh",
+    "taille": 378,
+    "sha256": "f5b60929683b68907d0668e7da87ca5b515eb1a0d929a69a0a5332252400d1b0",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.cfg-avant",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/grub.cfg-candidat",
+    "taille": 11270,
+    "sha256": "81be6b6101d1916fb9c62de50444959ee19b8a3dbbf714c8eb9c368f2919054d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/grub.cfg-candidat"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.cfg-genere",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/grub.cfg-genere",
+    "taille": 12073,
+    "sha256": "f770d88776a678b6a23880afb63b3c515e80bfdd43aff2c7d26ce49d56f3b97e",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/grub.cfg-genere"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/00_header",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/00_header",
+    "taille": 10080,
+    "sha256": "a38c74e6b33fecc1c7cb3497204f7838ee8312eb58dd3a4b0ab11f394dd124a3",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/00_header"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/05_debian_theme",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04E-preparation/grub.d-test/05_debian_theme",
+    "taille": 6404,
+    "sha256": "908b4247b4f4dd88f6ee323794d1d1b3a6ed5f8b63bc23183edaba6637e5257d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04E-preparation/grub.d-test/05_debian_theme"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/10_linux",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/10_linux",
+    "taille": 13908,
+    "sha256": "92955722e0e7544ad9dd1d2a022c83c6ea42aa2f0330a29970ea3755b5c53c25",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/10_linux"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/20_linux_xen",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/20_linux_xen",
+    "taille": 14565,
+    "sha256": "ec87f1fffabc6d913f5f659439d195419dbccf71f9dcf569988e5ab8ba35ca68",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/20_linux_xen"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/25_bli",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/25_bli",
+    "taille": 786,
+    "sha256": "42e04f5bac1965535cb6bdb30c62bb199b1ba21d1ec6b22d0da159dfc925b8bb",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/25_bli"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/30_os-prober",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_os-prober",
+    "taille": 12661,
+    "sha256": "735a1995a02d08caa73735556014c69b90ffba28bb41ceae19d77555438023cd",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_os-prober"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/30_uefi-firmware",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_uefi-firmware",
+    "taille": 1174,
+    "sha256": "09b6f70999eb043f858a7eccac1f70bd1bddf00cdde4d6e67c417756f63ad389",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_uefi-firmware"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/35_fwupd",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/35_fwupd",
+    "taille": 744,
+    "sha256": "34080626c1baa6be96b7be1c23bed576a61bd174347c17bcd383ea70c5fe1eff",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/35_fwupd"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/40_custom",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/40_custom",
+    "taille": 214,
+    "sha256": "894dd8e4ca1bb62e055f674f9390a39c4643ebdd1014702feef000c47e36a003",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/40_custom"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/41_custom",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/41_custom",
+    "taille": 215,
+    "sha256": "44b8dc291dc04537f5d9a8fec7f6ebb209fbfa3101d5b1085230ace35b7f6c31",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/41_custom"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/42_jarvis_t2",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-proposition/42_jarvis_t2",
+    "taille": 569,
+    "sha256": "92c47b912308b62d92e1b3327f95af51b4e81c0688360469275095533b9482a6",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-proposition/42_jarvis_t2"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/43_jarvis_t2_egpu_diagnostic",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04C-preparation/43_jarvis_t2_egpu_diagnostic",
+    "taille": 594,
+    "sha256": "bed81d0853788c08b841adb8175c9c4a8e4261f549c3089cd47e28cba69a4916",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04C-preparation/43_jarvis_t2_egpu_diagnostic"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/44_jarvis_t2_egpu_reallocation",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04E-preparation/44_jarvis_t2_egpu_reallocation",
+    "taille": 604,
+    "sha256": "9a60feff5af3f2a3217aed18a74c45da0490cadd2b209e1a90d46658a84c32c1",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04E-preparation/44_jarvis_t2_egpu_reallocation"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/45_jarvis_t2_egpu_reserve_512m",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/45_jarvis_t2_egpu_reserve_512m",
+    "taille": 628,
+    "sha256": "8b0995d48fc73723dddbee54b7a0ac8e8f9c5ac0e03ac0bccd5148daaecbeda0",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/45_jarvis_t2_egpu_reserve_512m"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/46_jarvis_t2_egpu_reallocation_ciblee",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/46_jarvis_t2_egpu_reallocation_ciblee",
+    "taille": 707,
+    "sha256": "f70a056431638a92cf3c18c37760a25a7db7b7efcbccaeb4a18869234b3c262d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/46_jarvis_t2_egpu_reallocation_ciblee"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/grub.d-test/README",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/README",
+    "taille": 483,
+    "sha256": "cd72738c7dfd3b205e4e91528c0d25169bb3e8e6ebeec11c916662d8d0c3e47c",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/README"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/installation-resultat.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/installation-resultat.json",
+    "taille": 1824,
+    "sha256": "707fe01b6c43e05e29fb24dae9a187baa5f251b99664f0965f06b40eef29f2f1",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/installation-resultat.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/installer.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/installer.py",
+    "taille": 2912,
+    "sha256": "4879f0d158322e41dc8e4f3fc6bb3f8f4009643f463974bc32fc128b4a60ddbd",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/rapport-04L-avant-installation.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/rapport-04L-avant-installation.md",
+    "taille": 24588,
+    "sha256": "4f7c6f38d8f8f0cc5d9bc9f6efa332068af90ecd6d16a73a48a5c62035148238",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/retour-arriere.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/retour-arriere.py",
+    "taille": 1674,
+    "sha256": "e94fa2d66c3ded1c9b7281292ec118bb6393c9ad49df8048d58a5ca3b7659232",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.12.107+deb13-amd64",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.12.107+deb13-amd64",
+    "taille": 83,
+    "sha256": "f47b4c00d87f4b5378487972ded9d447074d4771bea98af3f852220ee34392e5",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.12.107+deb13-amd64"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.12.111+deb13-amd64",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.12.107+deb13-amd64",
+    "taille": 83,
+    "sha256": "f47b4c00d87f4b5378487972ded9d447074d4771bea98af3f852220ee34392e5",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.12.107+deb13-amd64"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.12.107+deb13-amd64",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.12.107+deb13-amd64",
+    "taille": 283337,
+    "sha256": "9b460f1003db4d417288e9c14caecfa14245dab07186df948fef0f3661e38ceb",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.12.107+deb13-amd64"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.12.111+deb13-amd64",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.12.111+deb13-amd64",
+    "taille": 283542,
+    "sha256": "7264f6c17e856bf18ec53085a01be10d8e466f32a8dcb13c08c4e705d3b2c35b",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.12.111+deb13-amd64"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/grub/.background_cache.png",
+    "destination": "",
+    "taille": 236298,
+    "sha256": "ad3c176218a7be7e7e198fc08924349a9901e436b256407016a99c2f8bfb5b02",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/grub/grub.cfg",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/grub.cfg-candidat",
+    "taille": 11270,
+    "sha256": "81be6b6101d1916fb9c62de50444959ee19b8a3dbbf714c8eb9c368f2919054d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/grub.cfg-candidat"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/boot/grub/grubenv",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/boot/grub/grubenv",
+    "taille": 1024,
+    "sha256": "f64122858064885ef0733e42c6a3d2d3fd642671f714db0d974b880c0f087430",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/boot/grub/grubenv"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/default/grub",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/default/grub",
+    "taille": 1534,
+    "sha256": "c66d2a33a22dcce1d39759640f9d0832b40bf505c0970babf926db852ea0bb0d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/default/grub"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/default/grub.d/99-jarvis-t2.cfg",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-proposition/99-jarvis-t2.cfg",
+    "taille": 318,
+    "sha256": "8e347a7e9a5b6a21f90caaa2ad27ab52ab24ab0e87a0d00d1b539d444782a617",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-proposition/99-jarvis-t2.cfg"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/00_header",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/00_header",
+    "taille": 10080,
+    "sha256": "a38c74e6b33fecc1c7cb3497204f7838ee8312eb58dd3a4b0ab11f394dd124a3",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/00_header"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/05_debian_theme",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/05_debian_theme",
+    "taille": 6400,
+    "sha256": "a3b68466edb11cf5e8298751214eae1e7699daa207e2a514369a071ed1caa9d9",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/05_debian_theme"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/10_linux",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/10_linux",
+    "taille": 13908,
+    "sha256": "92955722e0e7544ad9dd1d2a022c83c6ea42aa2f0330a29970ea3755b5c53c25",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/10_linux"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/20_linux_xen",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/20_linux_xen",
+    "taille": 14565,
+    "sha256": "ec87f1fffabc6d913f5f659439d195419dbccf71f9dcf569988e5ab8ba35ca68",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/20_linux_xen"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/25_bli",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/25_bli",
+    "taille": 786,
+    "sha256": "42e04f5bac1965535cb6bdb30c62bb199b1ba21d1ec6b22d0da159dfc925b8bb",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/25_bli"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/30_os-prober",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_os-prober",
+    "taille": 12661,
+    "sha256": "735a1995a02d08caa73735556014c69b90ffba28bb41ceae19d77555438023cd",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_os-prober"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/30_uefi-firmware",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_uefi-firmware",
+    "taille": 1174,
+    "sha256": "09b6f70999eb043f858a7eccac1f70bd1bddf00cdde4d6e67c417756f63ad389",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_uefi-firmware"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/35_fwupd",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/35_fwupd",
+    "taille": 744,
+    "sha256": "34080626c1baa6be96b7be1c23bed576a61bd174347c17bcd383ea70c5fe1eff",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/35_fwupd"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/40_custom",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/40_custom",
+    "taille": 214,
+    "sha256": "894dd8e4ca1bb62e055f674f9390a39c4643ebdd1014702feef000c47e36a003",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/40_custom"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/41_custom",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/41_custom",
+    "taille": 215,
+    "sha256": "44b8dc291dc04537f5d9a8fec7f6ebb209fbfa3101d5b1085230ace35b7f6c31",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/41_custom"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/42_jarvis_t2",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-proposition/42_jarvis_t2",
+    "taille": 569,
+    "sha256": "92c47b912308b62d92e1b3327f95af51b4e81c0688360469275095533b9482a6",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-proposition/42_jarvis_t2"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/43_jarvis_t2_egpu_diagnostic",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04C-preparation/43_jarvis_t2_egpu_diagnostic",
+    "taille": 594,
+    "sha256": "bed81d0853788c08b841adb8175c9c4a8e4261f549c3089cd47e28cba69a4916",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04C-preparation/43_jarvis_t2_egpu_diagnostic"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/44_jarvis_t2_egpu_reallocation",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04E-preparation/44_jarvis_t2_egpu_reallocation",
+    "taille": 604,
+    "sha256": "9a60feff5af3f2a3217aed18a74c45da0490cadd2b209e1a90d46658a84c32c1",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04E-preparation/44_jarvis_t2_egpu_reallocation"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/45_jarvis_t2_egpu_reserve_512m",
+    "destination": "archives/preuves-controlees/part-004.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/45_jarvis_t2_egpu_reserve_512m",
+    "taille": 628,
+    "sha256": "8b0995d48fc73723dddbee54b7a0ac8e8f9c5ac0e03ac0bccd5148daaecbeda0",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/45_jarvis_t2_egpu_reserve_512m"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/sauvegarde/etc/grub.d/README",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/README",
+    "taille": 483,
+    "sha256": "cd72738c7dfd3b205e4e91528c0d25169bb3e8e6ebeec11c916662d8d0c3e47c",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/README"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/validation-apres.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/validation-apres.json",
+    "taille": 426,
+    "sha256": "61ef4b9165516f9a63d0b7c3189a8f3f7d85aa86f3997e17e1de0bef9bfab534",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/validation-apres.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/validation-candidat.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/validation-candidat.json",
+    "taille": 258,
+    "sha256": "a5d83268f3d23c07f79634500e0e69047cf4dcbfa4fd6472bd0d6c4f415a6685",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/validation-candidat.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/installation-20261011-221528/verification-finale.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/verification-finale.json",
+    "taille": 449,
+    "sha256": "910cb207b860d4652c6f7a6ba18ab0cf679ca7b90bed80a9394f48e5a9c3742c",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/installation-20261011-221528/verification-finale.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/integrite-fin.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/integrite-fin.json",
+    "taille": 383,
+    "sha256": "c5c08611669a8939d9b3e388f99f4ecb2617fad70d534284ac164258c243ce56",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/integrite-fin.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/journal-allocation-extraits.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/journal-allocation-extraits.txt",
+    "taille": 11425,
+    "sha256": "dae7d13674abe06db0565c21da9ff1743411ee4dcf457703d8ee9965e39f1df2",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/journal-allocation-extraits.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/journal-erreurs-contexte.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/journal-erreurs-contexte.txt",
+    "taille": 9049,
+    "sha256": "e75f3be2347596bc74f9adf474d1918b16030a703a7c50bf53f5a18a6bc2b0d0",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/journal-erreurs-contexte.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/ligne-grub-temporaire.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/ligne-grub-temporaire.txt",
+    "taille": 252,
+    "sha256": "3c341bcd1fd87988d28a94bce4b70ff2bfafec80c5e48242372bbf4f23c70ec8",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/ligne-grub-temporaire.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/acpica-tools_20250404-1_amd64.deb",
+    "destination": "",
+    "taille": 865580,
+    "sha256": "eea598bdb5d10ae51801f7c586a51f33335c60d964f5f18203cdda47fd5ab069",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/acpibin",
+    "destination": "",
+    "taille": 48128,
+    "sha256": "7f60ed4e0289a824796ad621112b3667a379007dcdacbff71b585e8b5251262b",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/acpidump",
+    "destination": "",
+    "taille": 52328,
+    "sha256": "03f9d90540a2bccf97055aa5b9209b65ea0b48a0e61363cd55472ab0b6a70ac6",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/acpiexec",
+    "destination": "",
+    "taille": 667904,
+    "sha256": "6b18a7065b0598a43ed5771ab78b7e63f393d867673c25a5b6fbfe7e21e219b2",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/acpihelp",
+    "destination": "",
+    "taille": 226080,
+    "sha256": "ffe8cc63c155820562e931f2df59e5ed8053bb1e1519862e49fb7e649e5ba3ac",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/acpisrc",
+    "destination": "",
+    "taille": 109344,
+    "sha256": "948c53efc5da88c9b479d136e965c0958e6ccc509657586e2b28ae9b55739508",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/acpixtract",
+    "destination": "",
+    "taille": 35776,
+    "sha256": "dff869a6da36378c87b72e85f83790196bbd365c5049f03114f1d8780f7b8c89",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/bin/iasl",
+    "destination": "",
+    "taille": 1317696,
+    "sha256": "bbc9710408dfd0551549d2d1528e4d9514a8782ae5b5117fc7b3d5488ce42f07",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/README",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/README",
+    "taille": 1896,
+    "sha256": "9352b2fa248eb39264fbd32535b1c945945ea0d397944095c95afebfd479bf22",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/README"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/README.Debian",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/README.Debian",
+    "taille": 2022,
+    "sha256": "fdf3cd7582b8d253e9b6dd4d21c1bf120d7c250ebf1ee32b336c4e1fca2bd63b",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/README.Debian"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/changelog.Debian.gz",
+    "destination": "",
+    "taille": 2873,
+    "sha256": "621d1924c8193bcfb4e70493c03054262be8742896f5052633470a465b5d46da",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/changelog.gz",
+    "destination": "",
+    "taille": 218998,
+    "sha256": "91ac6904ee3aeb366d246bccae4bf91cfa08141f11d877fd74e214f101ff38d6",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/copyright",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/copyright",
+    "taille": 2803,
+    "sha256": "4687242adc51a98d761de78a4ea5568a04f2e2c07f726d0dd120e85dd8931e1e",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/outils/extrait/usr/share/doc/acpica-tools/copyright"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpibin.1.gz",
+    "destination": "",
+    "taille": 901,
+    "sha256": "a941b5ebd9f5370ffc121b18b0f30e862b77242055588f410bf21365340fff31",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpidump.1.gz",
+    "destination": "",
+    "taille": 1097,
+    "sha256": "4a1f022be1007562d223d504033d0ae3beebc6b0474315d269b20246af3dbe91",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpiexamples.1.gz",
+    "destination": "",
+    "taille": 876,
+    "sha256": "ed9b9dff6ab0bdf399655031ed09fcb148a5e8eae6df70dfc03daaee83e68d1e",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpiexec.1.gz",
+    "destination": "",
+    "taille": 1195,
+    "sha256": "f1ae837fac11928d56714c383534b3fd369cf96fe271535986340c717f239605",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpihelp.1.gz",
+    "destination": "",
+    "taille": 1102,
+    "sha256": "daabeff0d0f6d6c4ef3dd7c6b908397dbcdbd4e6f16020c810d69ee67624ef8d",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpisrc.1.gz",
+    "destination": "",
+    "taille": 987,
+    "sha256": "c81b34d887148ccb5d736cf81722b1b4176ba599ea99702693ccb63746d89fd3",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/acpixtract.1.gz",
+    "destination": "",
+    "taille": 899,
+    "sha256": "af7786a895736c6b34e70ce5385e2a33cfc4a973ac5605f01cbf31fb0c2564b9",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/outils/extrait/usr/share/man/man1/iasl.1.gz",
+    "destination": "",
+    "taille": 2051,
+    "sha256": "bdc15de20447370b8be2cd603f5f5462e6cce4e8058a25597d3f7ca7a54dd223",
+    "mission": "04L",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/rapport-mission04L.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/rapport-mission04L.md",
+    "taille": 30302,
+    "sha256": "24e140b18ed9e3cbc6e64a16f4aa46c060d81f3570cf83f39ec1c864ac17304e",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/ressources-protegees.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/ressources-protegees.json",
+    "taille": 3977,
+    "sha256": "2477160216a84714ab92978bf7aab3af49ea4afe0681d11056f1b358a49fdd3c",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/ressources-protegees.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/secours-preuves.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/secours-preuves.json",
+    "taille": 6607,
+    "sha256": "598b2ae28671b0907062fb5137397dfbe86c471b4fece0afb9cbd14b842a4d94",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/secours-preuves.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/chaines-parser.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/chaines-parser.json",
+    "taille": 203,
+    "sha256": "8c93b34ff1e631b36d5c11af183fd4ef49abc6435ab8c7f7b9f6bd354acb4b25",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/chaines-parser.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/extraction.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/extraction.json",
+    "taille": 178,
+    "sha256": "bea548371b8be366f4135bdf091ab55b082ac5ea49a827c8b75a6befce2641e2",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/extraction.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/kernel-parameters.txt",
+    "destination": "",
+    "taille": 308200,
+    "sha256": "92eee7ecd93185f2fc4418b153fb7ab53778d0cce7271de5cd537951f5bd384d",
+    "mission": "04L",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci.c",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/pci.c",
+    "taille": 182016,
+    "sha256": "858f1d4755bc6d914b805f60e80f67bb63f324932114b869e887d5b794c68897",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/pci.c"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_dev_str_match-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_dev_str_match-disassembly-annote.txt",
+    "taille": 13069,
+    "sha256": "fa41ce8e98987505be3c70b12584c0d8b9f7884fe8e23565d632c4d86be91d09",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_dev_str_match-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_dev_str_match-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_dev_str_match-disassembly.txt",
+    "taille": 12821,
+    "sha256": "d74581aef6cd1813c0174fb61c8cfa707e55a8150eb6cbaf753b0e54e1089501",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_dev_str_match-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_device_add-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_device_add-disassembly-annote.txt",
+    "taille": 24881,
+    "sha256": "31b989fe77d504638ca25383f3a4e6b27cbfd59e57d79d568116d7c6c79c61fa",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_device_add-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_device_add-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_device_add-disassembly.txt",
+    "taille": 23648,
+    "sha256": "b35df45241c7cc10fda906a07761f2ce5b428eb0c7c58e338f19394f3baadb8c",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_device_add-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_disable_bridge_window-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_disable_bridge_window-disassembly-annote.txt",
+    "taille": 2452,
+    "sha256": "5022522bb7485710f4b5a364e8bf4874e3decf328df5547943b86abf56940bb5",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_disable_bridge_window-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_disable_bridge_window-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_disable_bridge_window-disassembly.txt",
+    "taille": 2305,
+    "sha256": "cd3343410fde85a4b115131ae9b29f87c14b04d4c77695535f572ef59aad57c3",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_disable_bridge_window-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_reassigndev_resource_alignment-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment-disassembly-annote.txt",
+    "taille": 11951,
+    "sha256": "d7dd22f74a8161018f5c62c28e6531c4200ebf3ec574c3945665a08849f76c32",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_reassigndev_resource_alignment-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment-disassembly.txt",
+    "taille": 11588,
+    "sha256": "979078380c53ec863426b4ae1a4036bdb50b0eaabf4cbc4f6a0da04b51857531",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_reassigndev_resource_alignment.cold-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment.cold-disassembly-annote.txt",
+    "taille": 3547,
+    "sha256": "eb6e90ff03e844afe7e020c51fb33e8e129980d2e1bd70d72c6308f293d7f4d8",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment.cold-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_reassigndev_resource_alignment.cold-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment.cold-disassembly.txt",
+    "taille": 3392,
+    "sha256": "387c18cebd98c54ecc72526320606621fa3976ecf3d10999277929aa5aefaa35",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_reassigndev_resource_alignment.cold-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_setup-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup-disassembly-annote.txt",
+    "taille": 18117,
+    "sha256": "b4813616efa7318c73fbf573a75dc9d084ff9e9e903ef4be700bb6e2090c438d",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_setup-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup-disassembly.txt",
+    "taille": 17399,
+    "sha256": "b987984ca4cccf1faf6dcdb3f0833d6fc80334074e0ca0c23ebfc755d8e8de22",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_setup_device-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup_device-disassembly-annote.txt",
+    "taille": 42315,
+    "sha256": "4a58ce5acaf198103fd73067223069ab98f265e1bee828913acc711d44ae05a8",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup_device-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pci_setup_device-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup_device-disassembly.txt",
+    "taille": 40397,
+    "sha256": "b46e2f822ff617c09698fb3a32865464f9b07c06276075eb37a1f152baf17a74",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pci_setup_device-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pcibios_default_alignment-disassembly-annote.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pcibios_default_alignment-disassembly-annote.txt",
+    "taille": 452,
+    "sha256": "e2653119e0e36e5ecb9abda760ab769cafded92627db49cfb7c3e2790a1edb27",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pcibios_default_alignment-disassembly-annote.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/pcibios_default_alignment-disassembly.txt",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pcibios_default_alignment-disassembly.txt",
+    "taille": 418,
+    "sha256": "87d2299561a4ea4bb7f3ca2cfce97072143e844b4b3594f173f92ee95083a2e9",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/pcibios_default_alignment-disassembly.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/probe.c",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/probe.c",
+    "taille": 95021,
+    "sha256": "bdd405b1c2c3aecd1d77bdbd0722d2796083c77777e5e9f43b6d27c08a0ae1dd",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/sources/probe.c"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/sources/setup-bus.c",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/setup-bus.c",
+    "taille": 66744,
+    "sha256": "cdeedde8be618b5e268e2ee9cb3ecde87ad808b32a63623377f8f6b37c984ad4",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/setup-bus.c"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/syntaxe-grub.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/syntaxe-grub.json",
+    "taille": 182,
+    "sha256": "b509b306c4dbd00ff24f3032fb1124701a0c2ea974f82fd441f8aa0836969cb2",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/syntaxe-grub.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/validation-reserve-actuelle.json",
+    "destination": "archives/preuves-controlees/part-007.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/validation-reserve-actuelle.json",
+    "taille": 5395,
+    "sha256": "27b247a837f6f5a3e7b578d33d3d2dd89b524e033ca519f8e8844a3d51f63385",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/validation-reserve-actuelle.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz::mission04L-preparation/verifier-reserve.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/verifier-reserve.py",
+    "taille": 4370,
+    "sha256": "7bef9f20ccb5b8d0313ae31b4dc732cec22621b514d00d32404d36b9ae075316",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz",
+    "destination": "",
+    "taille": 7194073,
+    "sha256": "cb320e8b6eac757446936b32e56ccbb3da485049f648c21d01747824388f7d09",
+    "mission": "04L",
+    "statut": "ARCHIVE_ORIGINALE_LOCALE_MEMBRES_INDEXES",
+    "date_mtime": "2026-10-11T20:20:35.508186+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz.sha256",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz.sha256",
+    "taille": 96,
+    "sha256": "2d31677aafbfc693039b5a73cfc9efd98fc9884dfaca4cff973925b0cd6fc60c",
+    "mission": "04L",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:20:35.526677+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation.tar.gz.sha256"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04L.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/rapport-mission04L.md",
+    "taille": 30302,
+    "sha256": "24e140b18ed9e3cbc6e64a16f4aa46c060d81f3570cf83f39ec1c864ac17304e",
+    "mission": "04L",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:18:35.768321+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/SHA256SUMS",
+    "taille": 14954,
+    "sha256": "a18508122aff12ad3ad93a17441c99c7b6ca9dede71573fc9d6beff1ccc63581",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:37.678787+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/acces-complementaires.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/acces-complementaires.json",
+    "taille": 6365,
+    "sha256": "26b56b51e886b34a5425342b3d8693297b006fcc77344cac60da43526df32e7d",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:28:09.085846+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/acces-complementaires.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/analyse-finale.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/analyse-finale.json",
+    "taille": 5605,
+    "sha256": "a7d5adf7d6e000026c4230ca0045abc180363eaecdbd3a7b040e8cfb7b45c94f",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:37.611906+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/analyse-finale.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/analyse-initiale.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/analyse-initiale.json",
+    "taille": 5605,
+    "sha256": "955aee1d426032a2ba6f68465f7597ac76078f72d65c17529c46297a5faac46b",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:31.177238+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/analyse-initiale.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-complementaire.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-complementaire.py",
+    "taille": 2417,
+    "sha256": "6144f4a17211715b834fc7a16dad766882314a68394f18324aab5437bb8f7df7",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:54.395868+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-final.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-final.json",
+    "taille": 52415,
+    "sha256": "fd67bc0aa0345c9b895f954b308b0d5b767e9b32923543aca061c916e0f03d34",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:37.638058+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-final.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-initial.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-final.json",
+    "taille": 52415,
+    "sha256": "fd67bc0aa0345c9b895f954b308b0d5b767e9b32923543aca061c916e0f03d34",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:54.419882+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/audit-final.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/collecte-hote.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04L-preparation/collecte-hote.py",
+    "taille": 5409,
+    "sha256": "75652db548609fc92eac57f2198a991695225c283a205721ac05beaba74b1af9",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.020693+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/collecte-restreinte.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/collecte-restreinte.py",
+    "taille": 5345,
+    "sha256": "f615af556304ea13059ce86895d2727e9c84ea369556709ecc418c7f69589792",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.021206+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/commandes-terminal-privilegie.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/commandes-terminal-privilegie.txt",
+    "taille": 1805,
+    "sha256": "a7845f85db431c5c6e6ee293bfac260d60f610f4928f59f3a00a0fc950719eb7",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:29:39.503186+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/commandes-terminal-privilegie.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/construire-rapport.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/construire-rapport.py",
+    "taille": 10439,
+    "sha256": "fa0e493a8ccbe58554ba485bf895fd672a5836846234a3ade047bfbb4644e4c6",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:29:39.508158+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/debut-observation.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/debut-observation.json",
+    "taille": 78,
+    "sha256": "65b5e03b3343c5ac46d3719badef0c2d47906799478bdc55f4a9f1c2b13b8625",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.021744+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/debut-observation.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/execution-initiale.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/execution-initiale.txt",
+    "taille": 252,
+    "sha256": "f888367da31539ddc4c9e39927e842786ae8c9ecf9609390e6d07678f68b3709",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.284527+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/execution-initiale.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/SHA256SUMS",
+    "taille": 3925,
+    "sha256": "e46db4604c58719ff114050975ebcf290793fdd1e441395d5090bf4cd769c2b1",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.280128+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.234661+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/arbre.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/arbre.json",
+    "taille": 2203,
+    "sha256": "f8447a0acf6952cddf240d8c2be49213a309a16d14e6e4890b6c2678ff7e1d6a",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.106673+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/arbre.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/bolt-domaines.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/bolt-domaines.json",
+    "taille": 208,
+    "sha256": "17d7812b584d5a56b3fdf2342d2f962eed1cd26e703f24263ecb7e57a930c5c5",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.175565+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/bolt-domaines.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/bolt.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/bolt.json",
+    "taille": 205,
+    "sha256": "cad3f1e658fe0f4ffecc7818eca45ca382b17d3dc6e8fe55c8cdc9fee15420be",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.172522+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/collecte.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/collecte.json",
+    "taille": 4338,
+    "sha256": "f50b4a7f436fb2613194206543307e10f31b16856cf21f4179e7c8da02679b63",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.262482+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/collecte.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:00:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "434bddb0e6c81864823c412e5a2c4350f6567dc147d49ad65738b471704176af",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.184591+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:00:01.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "c2b8404caaa1490051e66d13b2a7a8b1aae90c3c31a21f70764a05526c7f790e",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.185070+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:00:01.2.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "8cb7cf7c44e428c641ba30f9463d57bec4b74b66838c3cf7396bbf793df81813",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.185592+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:00:1b.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0524b4512003fe3e31f8035c8ed6a318473c406230043a6dd985716e36adcfa5",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.187872+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:00:1c.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "16523ecdb40250c5d1db6651661cb151d7f603f3d8411a8c6f90545a376fa050",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.188353+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:00:1c.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a636ec68656446fe2cc6911809cd0da25568b8aa6dfb159a5ed9f52845a3989e",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.188828+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:05:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a8d3b4895b390dc6cfe471f1c76ee40e6ba8f7fd47c2de33e1c878eb5b9e90e5",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.192960+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:06:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "72f76c9887279690a01e1849039386d1b227e7c6a367a15cd6dbc893b60a6cbf",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.193483+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:06:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3cd6fb86ea19a0b069777b9a9a74bfb85b79676729053d8c0eb664885900a41c",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.193998+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:06:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "2cccd7772b5ba485ed47490dfb21c1fed896a01f9db8b01aac1eb354393598eb",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.194561+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:06:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "771ec78dab732a44bafb6cc302127ab0fd8f02f5796b087c6fe236fdaf20f57a",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.195067+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:7b:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "4b2b11888e6923eb8d761ada7645fafcdd49d3302fc6e0f6a4c3ce663e2d708b",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.196361+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:7c:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0b81ddc60c90d91b7c331ecb5b3f81626c7e8a927b692f63d31de383a8235e73",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.196862+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:7c:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "543106bdc8ee0f8f931d29c43a00506697155128445a2c9e433fb132cb5db48b",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.197348+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:7c:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "89a34ee271ad6f77973c702d6cd85df24e85f5c93e8224a64f8ba93ce0b0dce2",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.203320+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-0000:7c:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3e28541febc51bf17b1e1fcad7fb6150fa3763c3522aea32ba2f220598aa82b5",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:27:15.203933+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.237457+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/connexions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/connexions.json",
+    "taille": 206,
+    "sha256": "e8d71c0f4bc2dbfe3bc2a7de9296caab3a08adc9331fa3ea5cdc7db8a86601c5",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.159330+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/connexions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/dmi.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/dmi.json",
+    "taille": 125,
+    "sha256": "551c5ac618659fa3037c75fa7787c584fcf6db7e8a81e7c43847f2679d18570b",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.182205+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sockets.json",
+    "taille": 207,
+    "sha256": "e6f14437748dbf63c5d14bb69bfd5eff38082e341cc1c5524908cd75bc5fb449",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.151115+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sockets.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/identite.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/identite.json",
+    "taille": 161,
+    "sha256": "3c61a1e6241c34c013e76e70cd7e09c505581259ed6cb8dfa8cd4d3a93dec396",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.063111+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-bolt.json",
+    "taille": 382,
+    "sha256": "cec0c76b83318736e4c748e56c7bdbede4af8d932301d628cec9fe747b7f0157",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.129469+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-noyau.json",
+    "taille": 370,
+    "sha256": "a5e59a43b5c3b3c22b30e092d389ff956bc4cc53d37eb536a94cfe87b77a7e19",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.112497+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-systeme.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-systeme.json",
+    "taille": 52746,
+    "sha256": "1668acaf76720891a6532cc07968628a71980cce979fd05757ad74f2f1e485bf",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.122624+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-systeme.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/lectures.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/lectures.json",
+    "taille": 10781,
+    "sha256": "e848125f39c3bc1b8dba8cb36e408b5dd55ba28674c5b2c21e3829c4f44b579d",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.262300+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/montages.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/montages.json",
+    "taille": 9770,
+    "sha256": "f51ddb64b2814783caea9b1311e34cf1838b48ffd5d88d405eaeddd67d236b5b",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.168513+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.064188+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json",
+    "taille": 50660,
+    "sha256": "5624bd1d50a04dd1f5da4b1869cc611786e56388b93fe3199062114bf17afcd3",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.205107+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci.json",
+    "taille": 30702,
+    "sha256": "b054ffee3fb99a923588c5ec0d450323f079d383508ce8bac22e08417e23b6bc",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.090095+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt",
+    "taille": 255,
+    "sha256": "165dc07e1314b88cb48b31506789ce322b62122adb70b57e25c3b91fa8e7a90a",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.182352+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_iomem.txt",
+    "taille": 4887,
+    "sha256": "224212a615de97b40d06a16b4748e97a74946acb21e1e65255d42e55e506e189",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.182526+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_modules.txt",
+    "taille": 10547,
+    "sha256": "29c4352042a365fe79a404a81e0341fb7e9b3462569b88506f269f6f719c03d7",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.183104+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_self_status.txt",
+    "taille": 1553,
+    "sha256": "f03b94d2a0d1320073269cb2fc5577900d1313e367b09b0cb0108e2d8923172a",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.183225+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/processus.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/processus.json",
+    "taille": 43681,
+    "sha256": "d4eb0f11fca14dddec2603dd5da9799bb9936fee4f5858825db01a8e4e6a6440",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.181273+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/reseau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/reseau.json",
+    "taille": 160,
+    "sha256": "8e17b1bd74a1a8aa094525a6b5aabb542ff4b939c35c788d09f02bee96d27ba8",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.140704+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/routes.json",
+    "taille": 142,
+    "sha256": "3b5c3f109f013e9c9d0bbd140e9f3f32e76d244784b9afd6a96576ceb92cf7ec",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.142214+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/services.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/services.json",
+    "taille": 346,
+    "sha256": "5e3db239f89f682098065b0ae2e41fb4f2ed3f95ae244c0c0bdf52883e54163e",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.133980+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/services.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sessions.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sessions.json",
+    "taille": 266,
+    "sha256": "50a5f4323764857f715c6eeb340da1d11b7d250869aa7104996be11e5c115ce8",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.139101+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/nvme.json",
+    "taille": 420,
+    "sha256": "4f8377c0819c4ea35d7ab869c9d07ab25b9db850d41ec6968ab802c4de0fb226",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.164786+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/nvme.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "taille": 39,
+    "sha256": "24d36c4808150ae6585d3e107debb88c22bae430d26b09791522f81da01439cc",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:27:15.183322+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_class_dmi_id_product_name.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt",
+    "taille": 11,
+    "sha256": "ce365579718d8d298efb3b1a89ec5e07cbf94bd4de1d5c68c5df34258fca5ef1",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:27:15.183420+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/SHA256SUMS",
+    "taille": 3925,
+    "sha256": "93b022c424d2ead8cc5d6d4675a1f92f3904dbb6f5d471d2b04b3de89e8de883",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:21.396962+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.354172+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/arbre.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/arbre.json",
+    "taille": 2203,
+    "sha256": "f8447a0acf6952cddf240d8c2be49213a309a16d14e6e4890b6c2678ff7e1d6a",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.271634+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/arbre.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/bolt-domaines.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/bolt-domaines.json",
+    "taille": 208,
+    "sha256": "17d7812b584d5a56b3fdf2342d2f962eed1cd26e703f24263ecb7e57a930c5c5",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.315794+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/bolt-domaines.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/bolt.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/bolt.json",
+    "taille": 205,
+    "sha256": "cad3f1e658fe0f4ffecc7818eca45ca382b17d3dc6e8fe55c8cdc9fee15420be",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.313433+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/collecte.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/collecte.json",
+    "taille": 4338,
+    "sha256": "b0b53930e0464b7b37ac6e2c401ef3b3d5d53b1f6f12c9c8bdb247fcb974e7b7",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:21.378487+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/collecte.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:00:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "434bddb0e6c81864823c412e5a2c4350f6567dc147d49ad65738b471704176af",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.321841+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:00:01.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "c2b8404caaa1490051e66d13b2a7a8b1aae90c3c31a21f70764a05526c7f790e",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.322183+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:00:01.2.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "8cb7cf7c44e428c641ba30f9463d57bec4b74b66838c3cf7396bbf793df81813",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.322518+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:00:1b.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0524b4512003fe3e31f8035c8ed6a318473c406230043a6dd985716e36adcfa5",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.324138+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:00:1c.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "16523ecdb40250c5d1db6651661cb151d7f603f3d8411a8c6f90545a376fa050",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.324512+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:00:1c.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a636ec68656446fe2cc6911809cd0da25568b8aa6dfb159a5ed9f52845a3989e",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.324888+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:05:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a8d3b4895b390dc6cfe471f1c76ee40e6ba8f7fd47c2de33e1c878eb5b9e90e5",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.328004+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:06:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "72f76c9887279690a01e1849039386d1b227e7c6a367a15cd6dbc893b60a6cbf",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.328375+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:06:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3cd6fb86ea19a0b069777b9a9a74bfb85b79676729053d8c0eb664885900a41c",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.328747+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:06:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "2cccd7772b5ba485ed47490dfb21c1fed896a01f9db8b01aac1eb354393598eb",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.329116+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:06:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "771ec78dab732a44bafb6cc302127ab0fd8f02f5796b087c6fe236fdaf20f57a",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.329484+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:7b:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "4b2b11888e6923eb8d761ada7645fafcdd49d3302fc6e0f6a4c3ce663e2d708b",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.330420+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:7c:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0b81ddc60c90d91b7c331ecb5b3f81626c7e8a927b692f63d31de383a8235e73",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.330794+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:7c:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "543106bdc8ee0f8f931d29c43a00506697155128445a2c9e433fb132cb5db48b",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.331206+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:7c:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "89a34ee271ad6f77973c702d6cd85df24e85f5c93e8224a64f8ba93ce0b0dce2",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.331595+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-0000:7c:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3e28541febc51bf17b1e1fcad7fb6150fa3763c3522aea32ba2f220598aa82b5",
+    "mission": "04M",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:32:21.331976+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.356693+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/connexions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/connexions.json",
+    "taille": 206,
+    "sha256": "e8d71c0f4bc2dbfe3bc2a7de9296caab3a08adc9331fa3ea5cdc7db8a86601c5",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.306085+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/connexions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/dmi.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/dmi.json",
+    "taille": 125,
+    "sha256": "551c5ac618659fa3037c75fa7787c584fcf6db7e8a81e7c43847f2679d18570b",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.320348+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sockets.json",
+    "taille": 207,
+    "sha256": "e6f14437748dbf63c5d14bb69bfd5eff38082e341cc1c5524908cd75bc5fb449",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.300340+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sockets.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/identite.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/identite.json",
+    "taille": 161,
+    "sha256": "3c61a1e6241c34c013e76e70cd7e09c505581259ed6cb8dfa8cd4d3a93dec396",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.240099+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-bolt.json",
+    "taille": 382,
+    "sha256": "cec0c76b83318736e4c748e56c7bdbede4af8d932301d628cec9fe747b7f0157",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.285702+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-noyau.json",
+    "taille": 370,
+    "sha256": "a5e59a43b5c3b3c22b30e092d389ff956bc4cc53d37eb536a94cfe87b77a7e19",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.275316+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/journal-systeme.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/journal-systeme.json",
+    "taille": 54174,
+    "sha256": "849418e1d8a0924d1dae2bc350833f8d94fbe9968c2a7c973fed0cc4c540cb83",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:21.282151+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/journal-systeme.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/lectures.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/lectures.json",
+    "taille": 10781,
+    "sha256": "2697084c04137c0559c5603fc5a69ad1219e266130bcf3613c33ab1170835cea",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:21.378309+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/montages.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/montages.json",
+    "taille": 9770,
+    "sha256": "f51ddb64b2814783caea9b1311e34cf1838b48ffd5d88d405eaeddd67d236b5b",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.310952+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.240903+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json",
+    "taille": 50660,
+    "sha256": "5624bd1d50a04dd1f5da4b1869cc611786e56388b93fe3199062114bf17afcd3",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.332847+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/pci.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci.json",
+    "taille": 30702,
+    "sha256": "b054ffee3fb99a923588c5ec0d450323f079d383508ce8bac22e08417e23b6bc",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.259196+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt",
+    "taille": 255,
+    "sha256": "165dc07e1314b88cb48b31506789ce322b62122adb70b57e25c3b91fa8e7a90a",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.320452+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_iomem.txt",
+    "taille": 4887,
+    "sha256": "224212a615de97b40d06a16b4748e97a74946acb21e1e65255d42e55e506e189",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.320581+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_modules.txt",
+    "taille": 10547,
+    "sha256": "29c4352042a365fe79a404a81e0341fb7e9b3462569b88506f269f6f719c03d7",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.320771+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/proc_self_status.txt",
+    "taille": 1553,
+    "sha256": "0140764f98e3c24bdefb8001e7c1aa9e4ea213e04d4fc0796dd9ee5708225fdf",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:21.320853+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/processus.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/processus.json",
+    "taille": 39878,
+    "sha256": "0d83cb0c8838527264561144cf58089c62e0d68fd5f5749b38f9d7d231f945db",
+    "mission": "04M",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:32:21.319984+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/reseau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/reseau.json",
+    "taille": 160,
+    "sha256": "8e17b1bd74a1a8aa094525a6b5aabb542ff4b939c35c788d09f02bee96d27ba8",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.293394+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/routes.json",
+    "taille": 142,
+    "sha256": "3b5c3f109f013e9c9d0bbd140e9f3f32e76d244784b9afd6a96576ceb92cf7ec",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.294523+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/services.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/services.json",
+    "taille": 346,
+    "sha256": "5e3db239f89f682098065b0ae2e41fb4f2ed3f95ae244c0c0bdf52883e54163e",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.288895+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/services.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/sessions.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sessions.json",
+    "taille": 266,
+    "sha256": "50a5f4323764857f715c6eeb340da1d11b7d250869aa7104996be11e5c115ce8",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.292152+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/nvme.json",
+    "taille": 420,
+    "sha256": "4f8377c0819c4ea35d7ab869c9d07ab25b9db850d41ec6968ab802c4de0fb226",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.309012+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/nvme.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223221/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "taille": 39,
+    "sha256": "24d36c4808150ae6585d3e107debb88c22bae430d26b09791522f81da01439cc",
+    "mission": "04M",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:32:21.320922+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt"
+  }
+]

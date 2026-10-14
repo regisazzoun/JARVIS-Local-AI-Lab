@@ -1,0 +1,683 @@
+# Skills / Tools
+
+This directory contains 80+ built-in executable tools, Tool Builder output under
+`auto-tools/`, and optional private tools under `personal/`. Each tool is a Python
+script paired with a JSON definition file.
+
+---
+
+## Directory Structure
+
+```
+skills/
+├── *.py              # Tool scripts (executable)
+├── *.tool.json       # Tool definitions (schema, permissions)
+├── auto-tools/       # Tools created by Tool Builder
+│   ├── *.py
+│   ├── *.tool.json
+│   └── *.report.json # Build audit reports
+├── personal/         # Private tools and supporting files (gitignored)
+│   ├── README.md     # Tracked setup guide
+│   ├── *.py
+│   └── *.tool.json
+└── profiles/         # Tool profile overlays (tracked baselines + examples/)
+```
+
+### Tool profiles (optional)
+
+Each profile is `skills/profiles/<name>.json` with `{"description": "...", "overrides": {"tool_name": false}}`. Keys in `overrides` win over the `enabled` flag in `*.tool.json`. Omit a tool to leave the file’s setting unchanged.
+
+Set **`JARVIS_TOOL_PROFILE`** in `config/local.env` or `config/cloud.env` to the
+profile **name** (stem of the file under `skills/profiles/`, default: `default`).
+Tracked ready-to-use baselines include **`default.json`**, **`openai_only.json`**,
+**`docker.json`**, and **`docker-mcp.json`**. Other custom profile JSON files in
+`skills/profiles/` are gitignored. **Copy-paste templates** live in
+**`skills/profiles/examples/`** (tracked); copy one to
+`skills/profiles/<name>.json` and set `JARVIS_TOOL_PROFILE=<name>`. For Docker,
+see the tracked **`docker.json`** profile and
+[docs/docker/README.md](../docs/docker/README.md).
+
+After changing profile: restart Jarvis services, then run `./bin/sync-tools.py local` or `./bin/sync-tools.py cloud`. Inspect: `./bin/manage-tools.py profile show`.
+
+For a new OpenAI cloud install with only `OPENAI_API_KEY`, select
+`JARVIS_TOOL_PROFILE=openai_only`. It keeps OpenAI-backed tools and useful
+credential-free tools, while disabling integrations that need another
+credential, personal configuration, or external service. The profile does not
+select the LLM provider; keep `LLM_PROVIDER=openai` in `config/cloud.env`.
+
+Example custom profile you can copy to `skills/profiles/<your_name>.json` and
+edit (custom names are gitignored; the ready-to-use baselines are listed above):
+
+```json
+{
+  "description": "Short note for yourself (optional).",
+  "overrides": {
+    "workflow": false,
+    "weather": false,
+    "serpapi_amazon_search": false,
+    "mcp_fetch_fetch": false,
+    "mcp_brave_search_brave_web_search": false
+  }
+}
+```
+
+- Only tools listed under `overrides` are changed; every other tool still follows its `*.tool.json` `enabled` flag.
+- If a tool is already **`"enabled": false`** in its `*.tool.json`, you do not need to repeat **`"tool_name": false`** in a profile for the same effect (unless you like documenting intent).
+- Overrides may include **names that are not registered** (missing MCP server, typo, removed skill); they are **harmless** and do not raise—only registered tools read those entries.
+- Use `true` to force-enable a tool that is disabled in the tool file (uncommon).
+- Discover exact tool names (including `mcp_*`): `./bin/manage-tools.py list` or `./bin/manage-tools.py profile export` while the tools you care about are registered.
+
+`tool_search` and `workflow` follow the same profile rules as every other tool. They are mandatory **discovery candidates only when they remain in the effective registry**; neither is force-enabled. Setting either name to `false` removes it from normal Tool RAG routing after services restart.
+
+Disabling `workflow` here disables the autonomous `workflow(search|describe|run)` meta-tool. It does not disable the independent explicit slash-command or scheduled-workflow entry points. Those continue to validate every component tool against the active registry/profile before execution.
+
+**Known gap:** profiles control which tools the router can *call*, and
+tool-specific Intelligence insights are filtered against the effective live
+registry. Meta Q&A (“what can you do?”) may still overstate disabled
+capabilities from broad static prompt prose that is not generated from the
+effective tool set. See [Runtime-Aware Capability Narration (Q&A)](../docs/ADVANCED_AI_TECHNIQUES.md#design-note-runtime-aware-capability-narration-qa).
+
+CLI reference: `./bin/manage-tools.py -h` and the usage block at the top of `bin/manage-tools.py`.
+
+---
+
+## Email command inbox (optional)
+
+The `email_inbox` app entry point checks the dedicated Gmail account for
+authenticated requests from operator-approved senders in `config/contacts.json`.
+It is disabled until the `jarvis_email` section opts in. A regular scheduled
+workflow drives polling; approved requests use normal Tool RAG with a restricted
+tool set and receive sender-only replies. Named attachments are saved to Stash
+before orchestration; downstream actions still require your permitted tools. See the
+[setup, permissions and recovery guide](../docs/tools/email-inbox-tool/README.md).
+
+## Docling document conversion (optional)
+
+`docling_convert` connects to an authenticated Docling Serve deployment on a
+LAN or remote HTTPS host. Set `DOCLING_BASE_URL` and `DOCLING_API_KEY` in each
+mode that should expose it. It supports OCR, layout/table-preserving exports
+to Stash, background observation and task collection. See
+[Docling setup and usage](../docs/tools/docling-tool/README.md).
+
+## YouTube extraction runtime and transcript fallback
+
+`youtube_transcript` and `youtube_video` use yt-dlp from the active Python
+environment, with a standalone executable fallback when the module is absent.
+Install `yt-dlp[default]` so yt-dlp's matching EJS helper updates with it. Native
+installs need Deno 2.3+ or Node.js 22+ on `PATH`; the tools enable an installed
+runtime explicitly. Docker includes Node 22, so rebuild the image for this setup
+change. No JavaScript components are downloaded dynamically by Jarvis.
+
+`bin/update-yt-dlp` upgrades the yt-dlp lock entry and installs the default
+extras with both yt-dlp and EJS pinned to their resolved lockfile versions.
+It verifies both installed versions without running a full `uv sync` against
+the operator environment. Its optional `--smoke-url` test enables the same JS
+runtime and checks native yt-dlp extraction directly; it does not use SerpApi.
+YouTube rate limits can still fail that test after packages installed correctly.
+The updater refuses a dirty lockfile unless explicitly overridden. The scheduled
+`yt_dlp_release_watch` workflow continues watching the published stable `yt-dlp`
+version; it reports releases and does not install updates or test local runtime
+health. No separate EJS watch is needed to install the helper required by each
+locked yt-dlp release.
+
+The tools honor their proxy policy. A direct attempt explicitly disables
+inherited proxies; `require` never attempts direct access. yt-dlp and its JS
+children receive runtime/TLS settings without Jarvis API keys. Transcript title
+and subtitles are obtained in one yt-dlp request per route, reducing duplicate
+extraction. YouTube can still rate-limit public subtitles even with the latest
+version and a working JS runtime. Updating yt-dlp does not guarantee access.
+
+`SERPAPI_YOUTUBE_FALLBACK=false` is the default. If explicitly set to `true`,
+`youtube_transcript` automatically tries SerpApi after yt-dlp routes fail, but
+only with `SERP_API_KEY` configured and `serpapi_youtube` enabled by its manifest
+and active profile. This consumes API credits; a clone without the key/opt-in
+never makes a paid request. The nested call uses the SerpApi tool's own proxy
+policy and saves SRT and Markdown through the transcript tool's normal Stash
+path. Results identify the retrieval provider. All API segments and their start
+timestamps are retained in Markdown. API-generated SRT cue ends are inferred
+from the next start (last cue: three seconds); `srt_timing` discloses this.
+Failure or empty API captions never produce a successful artifact receipt.
+The existing `youtube_video` setting remains a metadata/transcript fallback
+hint; SerpApi is not used to download video media.
+
+No account cookies are enabled by these changes. For account-only material,
+the video downloader's existing cookie options remain operator-controlled;
+never put a password/cookie into a tool argument, tracked config, or logs.
+See [yt-dlp's cookie guidance](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies)
+before choosing authenticated extraction.
+
+## Tool Discovery
+
+Tools are automatically discovered when they have:
+1. A Python script: `toolname.py`
+2. A JSON definition: `toolname.tool.json`
+3. Executable permission: `chmod +x toolname.py`
+
+The orchestrator loads tools from `skills/`, `skills/auto-tools/`, and
+`skills/personal/`. Personal tools use the same manifest, execution, and Tool RAG
+sync paths. See [personal tool setup](personal/README.md) for adding a private tool
+and refreshing discovery.
+
+`ToolRegistry.list_tools()` returns the names that survived manifest enablement,
+the active profile, mode-specific availability, and credential/config checks.
+It is not a raw list of every `*.tool.json`. Web/request blocks are applied
+after registry construction for that surface.
+
+General public-web search tools can set top-level `"web_search": true` in
+their manifest. The router uses this Boolean only to list currently callable
+search tools in a short availability hint; it does not enable the tool, change
+Tool RAG ranking, or require search. Omit the field for other tools. MCP tools
+use per-tool `tool_metadata` in `config/mcp-servers.json` instead.
+
+---
+
+## Tool Definition Format
+
+Every tool needs a `.tool.json` file:
+
+```json
+{
+  "enabled": true,
+  "name": "weather",
+  "description": "Get current weather and forecast for a location",
+  "script": "weather.py",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "location": {
+        "type": "string",
+        "description": "City name or location"
+      }
+    },
+    "required": ["location"]
+  },
+  "permissions": {
+    "dangerous": false,
+    "network": true,
+    "filesystem": false,
+    "bash": false,
+    "auto_approve": true
+  }
+}
+```
+
+`prerequisite_tools` is optional. Use it when a downstream tool needs an ID,
+URL, or other value that another registered tool must discover first. Tool RAG
+adds up to three enabled, non-blocked prerequisites to the same bounded schema
+shortlist; the normal mode/request Tool RAG cap still applies. Do not use it for
+merely related tools—keep those in `complementary_tools`.
+
+```json
+{
+  "prerequisite_tools": ["serpapi_search_index"]
+}
+```
+
+### Availability (credential requirements)
+
+Tools with hard configuration requirements declare them in an optional
+`availability` block. The tool stays `"enabled": true` in git; at runtime
+`lib/tool_availability.py` checks env keys, config files, and webhook registry
+entries against the active mode. Tools with unmet requirements are excluded
+from the registry and Tool RAG (shown as "needs config" in the Web UI) and
+come back automatically after configuration is added and services restart or
+`./bin/sync-tools.py <mode>` runs.
+
+```json
+{
+  "availability": {
+    "all_of_env": ["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID"],
+    "enabled_env": "OPTIONAL_SERVICE_ENABLED",
+    "requires_tools": ["mcp_service_required_tool"],
+    "any_of_env": ["BRAVE_API_KEY", "BRAVE_SEARCH_API_KEY"],
+    "config_files": ["data/.spotify_cache"],
+    "webhook_registry": ["send_email"],
+    "provider_setting": "IMAGE_TOOL_PROVIDER",
+    "provider_default": "gemini",
+    "provider_requirements": {
+      "gemini": {"all_of_env": ["GEMINI_API_KEY"]},
+      "openai": {"all_of_env": ["OPENAI_API_KEY"]}
+    },
+    "setup_hint": "Set the key in the active mode env file."
+  }
+}
+```
+
+Rules:
+- All keys are optional; omit the block entirely for tools with no requirements.
+- `enabled_env`: a Boolean enable flag must be true (`true`, `1`, `yes`, or `on`).
+  Having credentials does not imply that an optional service is enabled.
+- `requires_tools`: all exact tool names must exist in the callable catalog.
+  The registry checks these after local/MCP discovery and reapplies them after
+  MCP recovery; profile-disabled or globally blocked dependencies do not qualify.
+  Request exclusions and allowlists also hide dependents. Self-dependencies and
+  closed cycles cannot establish availability. Web settings inspect an existing
+  mode's live registry without starting new connections; cached Tool RAG rows
+  do not prove discovery. A check without a catalog reports unknown availability.
+  This is a hard dependency, separate from `prerequisite_tools` discovery hints.
+- `all_of_env`: every key must be set. `any_of_env`: at least one key must be set.
+- `config_files`: every listed path must be a non-empty regular file. Relative
+  paths resolve from the project root; `~` and absolute paths are supported.
+  File contents are never read or returned by the evaluator.
+- `webhook_registry`: each named entry in `config/webhook_registry.json` must
+  exist, not be explicitly disabled (`enabled: false`), and have a non-blank
+  URL after `${ENV_VAR}` substitution. URL values are never logged.
+- `provider_requirements`: the tool is available when at least ONE provider's
+  keys are configured (used by multi-provider tools like `generate_image`).
+- Only presence is checked — secret values and file contents are never read into
+  logs or the UI.
+- A malformed block or unknown field fails closed (that tool is treated as unavailable) and is
+  reported by `./bin/manage-tools.py --mode <mode> list` and sync-tools output.
+- Availability runs AFTER profile resolution: a profile cannot force-enable a
+  tool whose hard requirement is missing.
+
+### Local tool child environment
+
+The code running on your machine is the main trust question. A reviewed Jarvis
+script calling a familiar API is usually lower concern than an unfamiliar
+GitHub script or package, regardless of which API it calls. New local tools and
+materially refactored local tools should use a restricted child environment
+after reviewing the settings and paths they need.
+
+| How it runs | Environment variables passed to the child |
+| --- | --- |
+| Normal local tool | Jarvis's process environment with the selected mode's settings. |
+| Local tool with `child_environment` | Only its declared settings and common runtime settings. |
+| Background `local_skill_v1` | A trusted production allowlist when configured; otherwise the worker environment. A tool with `child_environment` needs a production allowlist before background admission. |
+| Local MCP server | Only variables named in `config/mcp-servers.json`, plus proxy settings when configured. Remote MCP servers do not launch a local server process. |
+
+The `child_environment` setting affects local tools launched by
+`ToolExecutor`. It does not change MCP servers. MCP command arguments and
+remote HTTP headers can also carry explicitly configured values; review those
+separately. A reviewed local tool can opt in with its manifest:
+
+```json
+{
+  "availability": {"all_of_env": ["SERVICE_API_KEY"]},
+  "child_environment": {
+    "mode": "restricted",
+    "from_availability": true,
+    "allow": ["SERVICE_OPTIONAL_SETTING"]
+  }
+}
+```
+
+`from_availability` includes names in `all_of_env` and `any_of_env`; all
+declared alternatives are passed when present. `allow` adds optional settings
+that availability cannot describe. A tool with provider-specific requirements
+must list its child environment names explicitly in `allow`. Jarvis centrally
+supplies Python runtime, TLS certificate, mode, session, and applicable proxy
+settings, applies selected-mode overrides, and gives the child a temporary
+empty home directory. Scripts can keep calling `load_config()`; it returns the
+restricted process environment instead of rereading the mode file.
+
+Before enabling this for an existing tool, review its direct and indirect
+config reads, optional features, external programs, and fallback paths in both
+modes. Put required optional paths and settings such as `STASH_DIR`, data
+directories, or GPU settings in `allow` after that review. Availability records
+hard prerequisites, not every setting a tool may use. An absent
+`child_environment` block keeps the existing launch behavior.
+This policy reduces accidental secret exposure through environment inheritance;
+it is not a sandbox. A process running as the Jarvis user can still read files
+that user can access, including local env files. MCP servers have their own
+launch path.
+
+Background `local_skill_v1` uses the trusted allowlists in
+`lib/background_tasks/production.py`, including argument-dependent keys such
+as `use_profile`. It does not use the manifest's `child_environment` at launch.
+A tool declaring `child_environment` cannot be admitted as a background skill
+without a trusted background policy. Review any additions to `allow` as access
+changes; do not assume a foreground policy also protects a background adapter.
+See [Tool Builder](../docs/TOOL_BUILDER.md) before applying this to generated
+code; its verification run has a separate environment path.
+
+### Schema Rules For Reliable Tool Calling
+
+For best cross-provider compatibility, keep the top-level `parameters` schema simple:
+- `"type": "object"`
+- `"properties": { ... }`
+- optional `"required": [...]`
+- optional `"additionalProperties": false`
+
+Do **not** rely on these at the top level of `parameters`:
+- `allOf`
+- `anyOf`
+- `oneOf`
+- `not`
+- `if` / `then` / `else`
+- `dependentSchemas`
+- top-level `enum`
+
+Why:
+- OpenAI tool calling is stricter than full JSON Schema and can reject the entire request if one tool has unsupported top-level schema constructs.
+- Anthropic may accept more, but the safest shared subset is still plain object + properties.
+- Jarvis now sanitizes some unsupported OpenAI schema keywords before sending tools, but new tools should still be authored in the strict subset first.
+
+If you need conditional validation, do it in the tool script itself:
+- accept the input schema at the tool-calling layer
+- validate combinations like “`group_ids` required when `action=apply`” inside Python
+- return a structured error message if inputs are invalid
+
+---
+
+## Tool Contract
+
+### Input
+JSON object passed as command line argument:
+```bash
+./weather.py '{"location": "Portland, OR"}'
+```
+
+### Output
+JSON object printed to stdout:
+```json
+{
+  "ok": true,
+  "speech": "It's 72 degrees and sunny in Portland",
+  "data": {
+    "temp": 72,
+    "condition": "sunny",
+    "location": "Portland, OR"
+  }
+}
+```
+
+### Exit Code
+- `0`: Success
+- Non-zero: Error (with error message in output)
+
+---
+
+## Available Tools (80+)
+
+### Memory
+| Tool | Description |
+|------|-------------|
+| `remember` | Store facts, preferences, technical info |
+| `recall` | Retrieve specific memories by category/key |
+| `search_memory` | FTS5 full-text keyword search |
+| `semantic_recall` | AI-powered conceptual search |
+| `update_memory` | Modify existing memories |
+| `forget` | Delete memories |
+| `deep_memory_search` | Multi-source search (memory, canvas, stash, intel) |
+
+### Conversations
+| Tool | Description |
+|------|-------------|
+| `get_recent_conversations` | Access conversation history |
+| `search_conversations` | Search past interactions |
+
+### Media & Content
+| Tool | Description |
+|------|-------------|
+| `generate_image` | AI image generation and editing with Gemini, OpenAI, or xAI |
+| `analyze_image` | Vision analysis (Grok/Claude/GPT-4o) |
+| [`document_ocr`](../docs/tools/document-ocr-tool/README.md) | Optional OVIS OCR and structured extraction for scanned PDFs/images |
+| [`generate_music`](../docs/tools/generate-music-tool/README.md) | Catalog-backed AI music creation with ElevenLabs or Gemini Lyria |
+| `pdf_create` | Generate PDFs from content |
+| `pdf_read` | Extract text/images from PDFs |
+| [`craft_image`, `craft_pdf`, `craft_photos`, `craft_video`, `craft_motion`, `craft_inspect`](../jarvis-craft-tools/README.md) | Optional self-hosted Craft edits, project artifacts, job inspection and collection; includes a standalone installer and agent setup skill |
+| `screenshot_url` | Full-page screenshots with AI analysis |
+| `crawl_url` | Web scraping with Crawl4AI |
+
+### Storage & Output
+| Tool | Description |
+|------|-------------|
+| `stash` | Artifact storage, including strict `image_url` ingestion for untrusted public raster images |
+| `canvas` | Visual knowledge pages |
+| `printer` | Print from stash/files (CUPS) |
+
+### Communication
+| Tool | Description |
+|------|-------------|
+| `send_email` | Email with HTML templates |
+| `send_webhook` | Trigger webhooks (Slack, Discord, APIs) |
+| `phone_call` | AI phone calls (Vapi.ai) |
+
+### System & Network
+| Tool | Description |
+|------|-------------|
+| `ssh_remote` | SSH into remote hosts |
+| `network_tools` | Ping, DNS, port checks, traceroute |
+| `system_monitor` | CPU, RAM, disk, processes |
+| `gpu_hot_status` | Remote GPU Hot GPU, process, and host metrics |
+| `speaker_volume` | Audio volume control |
+
+### Integrations
+| Tool | Description |
+|------|-------------|
+| `weather` | Weather forecasts (OpenWeatherMap) |
+| `crypto_price` | Cryptocurrency prices |
+| `stock_price` | Stock/futures/forex prices |
+| `searxng_search` | Search a configured SearXNG JSON instance for current sources with optional reverse-proxy auth |
+| `serpapi_amazon_search` | Amazon listing discovery and focused ASIN/product details through SerpApi |
+| `serpapi_search_index` | Structured indexed-web source discovery with standard/deep recall, snippets, exact URLs, and workflow-ready pagination |
+| `serpapi_google_images_light` | Existing web-image discovery with full-size URLs, thumbnails, source pages, dimensions, filters, follow-up references, and optional strict top-result Stash download |
+| `serpapi_google_news_light` | Fast topic-specific Google News discovery with headlines, sources, snippets, grouped Top Stories, and exact article URLs |
+| `serpapi_google_immersive_product` | Rich exact-product specifications, review insights, media, variants, and expanded store offers using a Google Shopping Light handoff token |
+| `serpapi_google_trends` | Query-driven Google Trends time series, regional comparisons, and rising/top related queries or topics |
+| `serpapi_google_trending_now` | Seedless current-trend discovery with volume/growth signals and explicit selected-trend news drill-down |
+| `serpapi_google_sports` | Google Sports schedules, scores, direct-game line or period scores, box scores, viewing options, recap links, standings, players, brackets, league stats, and rankings with optional query-to-KGMID resolution |
+| `serpapi_ebay_search` | eBay listing discovery with prices, condition, shipping, images, and product IDs |
+| `serpapi_ebay_product` | Focused eBay listing details by numeric product ID |
+| `serpapi_home_depot` | SerpApi Home Depot product search with store/ZIP filters |
+| `serpapi_google_events` | Upcoming local or virtual Google Events using an explicit or active-mode default location, with dates, venues, ticket links, public maps, images, and date filters |
+| `serpapi_google_local` | Google Local business discovery using explicit or mode-default location, with ratings, hours, service options, sponsored listings, related searches, and pagination |
+| `serpapi_google_local_services` | Screened US professional-service providers from Google Local Services, with Google badges, contact/availability data, provider detail drill-down, and visible one- or two-search CID resolution |
+| `serpapi_maps_search` | SerpApi Google Maps place and local business search |
+| `serpapi_hotel_search` | Future Google Hotels options, cheapest-first stay pricing, and filters |
+| `serpapi_travel_explore` | Flexible destination discovery with suggested dates, headline flight/hotel planning prices, and airport handoffs |
+| `flight_search` | Future flight options and prices via SerpApi Google Flights or a keyless fallback |
+| `serpapi_youtube` | SerpApi YouTube video details and transcript fallback |
+| `serpapi_youtube_search` | SerpApi YouTube video search by keywords |
+| `serpapi_yelp_search` | Yelp place discovery with local rating/review sorting, attrs, links, and optional review excerpts |
+| `serpapi_open_table_reviews` | Paginated OpenTable diner reviews, category ratings, summaries, responses, and photos by restaurant ID or URL, with JSON/HTML/Markdown output |
+| `serpapi_tripadvisor` | Tripadvisor discovery plus place details, nearby suggestions, and filtered review drill-down by place ID |
+| `trakt_movies` | Public Trakt movie discovery, related-title recommendations, current lists, metadata, and trailer/video links; requires a Trakt application Client ID |
+| `trakt_account` | Optional read-only Trakt OAuth context: personalized recommendations, deterministic night-workflow watched filtering, watchlist, history, ratings, favorites, personal/smart lists, and up-next; requires Client Secret plus `./bin/trakt-auth` |
+| `tmdb_movies` | Standalone TMDB movie search/discovery, rich details, posters/backdrops/logos, credits, videos, and recommendations; requires a TMDB API Read Access Token or v3 API key |
+| `trakt_tv_shows` | Public Trakt TV-show discovery, related-series recommendations, current lists, local excluded-genre filtering, typical episode runtime, metadata, and trailer/video links; requires a Trakt application Client ID |
+| `tmdb_tv_shows` | Standalone TMDB TV search/discovery with included/excluded genres and future first-air windows, rich series details, posters/backdrops/logos, aggregate credits, seasons, and recommendations; requires a TMDB API Read Access Token or v3 API key |
+| `spotify` | Music playback control |
+| `opencode` | Autonomous coding agent |
+| `calculator` | Math, stats, unit conversions |
+
+All 23 `serpapi_*` tools require `SERP_API_KEY` in the active mode env and are
+excluded from that mode's callable registry and Tool RAG sync when it is absent.
+`flight_search` can instead use its keyless fallback. See the full
+[SerpApi tools guide](../docs/tools/serp-api-tool/README.md).
+
+### Proactive System
+| Tool | Description |
+|------|-------------|
+| `create_reminder` | Time-based reminders |
+| `list_reminders` | View scheduled reminders |
+| `acknowledge_reminders` | Clear reminders |
+| `list_alerts` | View active alerts |
+| `acknowledge_alerts` | Dismiss alerts |
+
+### Development
+| Tool | Description |
+|------|-------------|
+| `tool_search` | Discover enabled tools by summary first, then follow exact tool names |
+| `workflow` | Discover, describe, and synchronously run an eligible deterministic workflow |
+| `check_tool_logs` | View tool/workflow execution logs |
+| `check_opencode_sessions` | Monitor OpenCode progress |
+| `query_service_logs` | Check background service status |
+| `ingest_intel` | Bulk import knowledge files |
+| `manage_intel` | Create/manage intel files |
+
+---
+
+## Auto-Tools (Tool Builder)
+
+The `auto-tools/` directory contains tools created by the terminal Tool Builder.
+It is an optional way to sketch a simple tool. It does not complete the wider
+Jarvis integration for you:
+
+| Tool | Description |
+|------|-------------|
+| `network_tools` | Network diagnostics suite |
+| `system_monitor` | System resource monitoring |
+| `text_summarizer` | Text processing and analysis |
+| `youtube_transcript` | Download YouTube transcripts |
+| `status_recap` | Daily status aggregator |
+| `generate_password` | Secure password generation |
+
+Each auto-tool includes a `.report.json` with build audit information.
+
+---
+
+## Managing Tools
+
+### Enable/Disable Tools
+```bash
+# List all tools
+./bin/manage-tools.py list
+
+# Disable a tool
+./bin/manage-tools.py disable crypto_price
+
+# Enable a tool
+./bin/manage-tools.py enable crypto_price
+```
+
+### Sync Tools to LLM Context
+```bash
+# Sync for cloud mode
+./bin/sync-tools.py cloud
+
+# Sync for local mode
+./bin/sync-tools.py local
+```
+
+---
+
+## Creating New Tools
+
+For a complete Jarvis tool, work through the script and manifest in the IDE.
+Depending on the tool, also wire its runtime timeout, Tool RAG description,
+follow-up context, Web or Canvas result display, documentation, and focused
+tests. A short script and a passing sample input alone do not cover those
+surfaces.
+
+### Optional: generate a starter with Tool Builder
+
+Tool Builder runs in the terminal; there is no Jarvis Web creation flow. Use it
+to get a basic script and manifest, then review and extend them in the IDE.
+See the [Tool Builder guide](../docs/TOOL_BUILDER.md) for its verification and
+environment behavior.
+
+```bash
+./bin/build-tool --mode cloud build "Check if a URL is accessible"
+```
+
+### Create the script and manifest directly
+
+**Create the script (`skills/mytool.py`):**
+```python
+#!/usr/bin/env python3
+import sys
+import json
+
+def main():
+    # Parse input from command line
+    input_data = json.loads(sys.argv[1]) if len(sys.argv) > 1 else {}
+    param = input_data.get("param", "default")
+    
+    # Do work...
+    result = f"Processed: {param}"
+    
+    # Return JSON
+    print(json.dumps({
+        "ok": True,
+        "speech": result,
+        "data": {"param": param}
+    }))
+
+if __name__ == "__main__":
+    main()
+```
+
+**Create the definition (`skills/mytool.tool.json`):**
+```json
+{
+  "enabled": true,
+  "name": "mytool",
+  "description": "What the tool does - be specific for Tool RAG",
+  "script": "mytool.py",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "param": {
+        "type": "string",
+        "description": "Parameter description"
+      }
+    },
+    "required": ["param"]
+  },
+  "permissions": {
+    "dangerous": false,
+    "network": false,
+    "filesystem": false,
+    "bash": false,
+    "auto_approve": true
+  }
+}
+```
+
+**Make executable and sync:**
+```bash
+chmod +x skills/mytool.py
+./bin/sync-tools.py cloud
+```
+
+## Note
+
+Every enabled local tool and every currently discovered MCP tool must have a
+representative result payload in `tests/test_followup_tool_coverage.py`. The
+bounded default extractor handles safe scalar handles and compact result lists.
+Add a dedicated adapter or `FOLLOWUP_FIELDS` entry in
+`jarvis-web/server/services/followup_extractor.py` when a tool returns nested
+artifacts, content bodies, or another shape that needs special compaction.
+Follow-up payloads must round-trip as strict JSON. Shortened text needs an
+explicit `truncated for follow-up context` marker; shortened dictionaries and
+lists need `_followup_truncated` metadata rather than sliced serialized JSON.
+
+Print statements must have in tool *.py files file=sys.stderr so they are not printed to the console.
+
+---
+
+## Testing Tools
+
+```bash
+# Direct execution
+./skills/weather.py '{"location": "Seattle"}'
+
+# Via orchestrator
+./orchestrator/orchestrator_v2.py cloud "What's the weather in Seattle?"
+
+# Check tool logs
+./orchestrator/orchestrator_v2.py cloud "show recent tool logs"
+```
+
+---
+
+## Tool RAG Integration
+
+Tools are discovered dynamically using semantic search:
+- Only relevant tools are loaded per query (reduces context)
+- Tool descriptions are embedded for similarity matching
+- Configured ghost tools are prioritized inside the final schema cap
+- `tool_search` and `workflow` are mandatory discovery candidates when enabled
+- Profile-disabled, manifest-disabled, unavailable, and request-blocked tools are never resurrected by the Tool RAG database
+
+---
+
+## Related Documentation
+
+- **[TOOL_CALLING_SYSTEM.md](../docs/TOOL_CALLING_SYSTEM.md)** - How tool routing works
+- **[TOOL_MANAGEMENT.md](../docs/TOOL_MANAGEMENT.md)** - Enable/disable tools
+- **[TOOL_RAG_STRATEGY.md](../docs/TOOL_RAG_STRATEGY.md)** - Dynamic tool discovery
+- **[TOOL_BUILDER.md](../docs/TOOL_BUILDER.md)** - Automatic tool creation
+- **[STASH_SYSTEM.md](../docs/STASH_SYSTEM.md)** - Artifact storage for tools

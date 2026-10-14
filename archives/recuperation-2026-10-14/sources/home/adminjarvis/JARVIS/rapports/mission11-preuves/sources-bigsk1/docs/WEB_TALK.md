@@ -1,0 +1,133 @@
+# Hands-free Talk in Jarvis Web
+
+Click **Talk** beside the message input, allow microphone access, and speak a question.
+After a short pause, Jarvis sends the transcript, answers aloud, and listens for
+your next question in the same conversation. The transcript and reply appear in
+ordinary chat history, including tool results and progress.
+
+Talk is separate from the microphone button, which records an editable draft.
+Talk sends speech automatically. Finish or clear an existing draft or attachment
+before starting. The Talk button is also available in the mobile composer.
+
+## Controls
+
+- **Pause** releases the microphone and stops playback. A submitted task can
+  finish in chat. **Resume** starts listening again without replaying its answer.
+- **Interrupt to speak** stops the current answer. If Jarvis is still working,
+  it requests cancellation and waits for that task to settle before listening.
+- **Speak to interrupt** is optional and off by default. Enable it in the Talk
+  panel to speak over a reply without a trigger phrase. Playback stops after
+  sustained sound is detected, and your buffered utterance is sent after about
+  1.2 seconds of silence. It stays in the same conversation and uses ordinary
+  model/tool routing. Any unfinished task must confirm cancellation before the
+  next turn is submitted; completed tool actions cannot be undone.
+- **End Talk**, **Esc**, or the Talk button ends the session and requests
+  cancellation of any unfinished Talk task. This cannot undo completed actions.
+- Say **“end talk”**, **“stop listening”**, or **“goodbye”** as a complete utterance
+  while listening to end the session without sending that utterance to chat.
+
+The panel always shows whether Jarvis is listening, transcribing, working,
+speaking, or paused. The microphone track is disabled while transcribing and
+working. During playback it is enabled only with **Speak to interrupt** available
+and enabled. The preference is saved in this browser, but never starts Talk or
+the microphone after reload. Turning it off during an interruption discards the
+unfinished recording and pauses Talk.
+
+Interruption uses a local AudioWorklet with a short pre-roll buffer, a sustained
+audio-level threshold, and playback-reference rejection alongside browser echo
+cancellation. It does not recognize keywords or identify the speaker. Nearby
+voices, music, and sustained noise can interrupt; very short or quiet speech can
+be missed. Headphones help. The microphone must report enabled echo cancellation
+and the browser must support AudioWorklet; otherwise a notice explains why the
+manual Interrupt button is needed. Microphone audio is never played through
+the speakers. Only a detected, completed utterance is uploaded for transcription.
+If an interruption contains no transcribable speech (for example, a cough), Talk
+returns to listening without sending a chat turn or replaying the stopped answer.
+The STT response remains HTTP 400 with `code: no_speech`; this is distinct from a
+service failure, which pauses Talk. Normal listening still pauses after 30 seconds
+without speech and requires Resume.
+
+When a Web tool requires approval, Talk pauses with the microphone off and shows
+**Allow once** and **Don't run** in the Talk panel. Choose one there or in the
+chat approval card. **Don't run** stops that tool sequence and leaves completed
+results in chat for follow-up; **Allow once** runs only the pending call. Ending
+Talk or pressing Stop while approval is pending cancels the turn. A new request
+can propose the tool again and asks for a new approval.
+Talk speaks the declined or expired approval reply, then resumes listening. Stop
+pauses Talk as before.
+
+Changing conversations, hiding the page, or losing the connection ends capture
+and playback. Already submitted work may finish in chat and can be recovered
+through [task recovery](WEB_TASK_RECOVERY.md). Starting a new chat or changing
+mode requests cancellation of the current Talk task. Reloading or reconnecting
+never restarts the microphone automatically. If another task starts in the same
+conversation, Talk pauses until you resume it.
+
+## Providers and configuration
+
+Talk uses the selected local/cloud mode, configured STT and TTS providers, and
+ordinary Web model and tool settings. Selected tool hints and **Chat only** remain
+effective. It works with a browser connected to native or Docker Jarvis; the
+microphone belongs to the browser device, not the server.
+
+No new server settings, models, dependencies, or database migrations are needed. Both
+speech services must already work in the selected mode. Talk plays its own
+answers even when ordinary chat audio is off, suppresses competing status/answer
+audio, and leaves the audio toggle unchanged. It reuses server-generated answer
+audio when present. Talk requests use the existing `casual` response formatter
+with the selected mode's `JARVIS_QA_WORD_LIMIT` and `JARVIS_MULTI_TURN_WORD_LIMIT`.
+Saved per-mode Web word limits take precedence over the mode's `.env` values;
+the normal defaults are 75 words each when no value is configured. These are
+formatting targets, and direct tool speech or formatting fallbacks may be longer.
+Ordinary text responses keep your saved formatting preferences.
+
+The browser requires microphone access, MediaRecorder, and Web Audio. Use HTTPS
+or localhost; remote plain HTTP generally does not expose microphone APIs.
+Browser requirements are documented in
+[MDN getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
+and [Web Audio guidance](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices).
+
+## Limits and troubleshooting
+
+- A turn ends after about 1.2 seconds of silence, or 45 seconds of recording.
+  Thirty seconds without sustained sound pauses Talk. The detector measures
+  audio level; steady loud background noise can be mistaken for speech.
+- Recordings are bounded to 10 MB. STT/TTS browser requests have a 90-second
+  deadline. Service errors pause the session and leave completed replies in chat.
+  Resume explicitly after correcting the cause; there is no automatic retry loop.
+- If microphone access is denied, allow it in the browser and press Resume. If
+  playback is suspended or the input device disconnects, the panel explains how
+  to resume. Close an unanswered permission prompt yourself after ending Talk;
+  late permission grants are discarded and their tracks stopped.
+- Raw microphone clips use the existing temporary STT upload path and are removed
+  after transcription. Talk does not archive recordings. Transcripts and answers
+  follow ordinary chat persistence. Aborting a browser speech request cannot undo
+  processing already underway at the configured service.
+- Interruption capture is bounded to 45 seconds plus pre-roll. If cancellation
+  does not settle within 90 seconds after recording, Talk pauses and the clip is
+  discarded. It cannot cancel tool effects that already happened.
+- Web speech conversion and Faster-Whisper run with restricted child environments
+  and temporary scratch homes. Only reviewed runtime, proxy, local STT/device,
+  and cache settings pass through; unrelated provider credentials do not. Existing
+  Hugging Face model cache locations are retained without forwarding `HF_TOKEN`.
+
+## Quick check
+
+1. Load the updated Web server and refresh the browser. Select the intended mode.
+2. With an empty composer, click Talk and ask “What time is it in UTC?” Let the
+   pause send it. Check the transcript, tool result, spoken answer, then Listening.
+3. Ask a follow-up. Confirm both turns appear in the same conversation.
+4. Try Pause/Resume, Interrupt during an answer, and End Talk. Check the browser's
+   microphone indicator clears after Pause/End. Reload: Talk must stay off.
+5. Try the ordinary microphone button or type a message. Dictation should still
+   require Send, and ordinary audio/formatting preferences should be unchanged.
+6. Enable **Speak to interrupt**, ask for a longer spoken answer, then say
+   “And tomorrow?” while it plays. Confirm playback stops, the first syllable is
+   preserved, and exactly one follow-up appears in the same chat. No “wait” or
+   “stop” is required. Try both a normal answer and a tool-backed request.
+7. Let several replies finish without speaking. Try a brief click/cough, speaker
+   playback, headphones, and your usual room noise. Note missed interruptions
+   or false alarms for tuning. Pause/End while cutting in: capture must stop and
+   no follow-up may be sent. Disable the option and check the original Talk loop.
+8. Repeat in the other configured mode. Reload: the checkbox may persist, but
+   Talk and the microphone must remain off until you explicitly start them.
