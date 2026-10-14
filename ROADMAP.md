@@ -134,6 +134,8 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 **Statut : prévu ; aucune validation iPhone/macOS encore constatée.**
 
 
+> **RAPPEL PRIORITAIRE — décision du 14 octobre 2026 :** à la prochaine reprise des travaux de sécurisation JARVIS, proposer d'attaquer **13D en premier** : inventaire des clés SSH publiques et des accès existants, diagnostic du rejet `Permission denied (publickey)`, vérification des comptes/permissions, Tailscale MacBook ↔ Mac mini, tests de reconnexion/tmux et plan de secours. **Statut : en attente de lancement explicite** ; ne pas modifier les authentifications déjà en place ni lancer d'opérations sensibles sans validation. Faire le lien avec les prérequis de JL-02 et les clients 15A/15B.
+
 ## Mission 13D — Accès distant sécurisé SSH / Tailscale (EN ATTENTE)
 
 **Statut au 14 octobre 2026 : EN ATTENTE, non exécutée dans cette séquence.** Cette mission est indépendante de 13E et doit rester visible comme jalon à part entière.
