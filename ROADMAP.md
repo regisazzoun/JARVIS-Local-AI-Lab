@@ -184,3 +184,40 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 ### Prochain jalon
 
 **13E :** rédiger le cahier d'exécution détaillé à remettre à Codex, en commençant par l'inventaire en lecture seule des livrables 13B/13C et la vérification de l'environnement. Autoriser les essais non destructifs automatiques ; laisser en attente les validations humaines et les opérations sensibles. Revenir à 13D séparément.
+
+## Plan opérationnel — 14 octobre 2026
+
+### Mission 13F — Finalisation du Mac mini JARVIS (EN COURS)
+
+**État : EN COURS — mission définie et priorisée, exécution technique non attestée par cette mise à jour.**
+
+**Objectif :** consolider l'assistant JARVIS existant avant de lui confier le déploiement autonome du Dell.
+
+1. Fiabiliser la chaîne vocale réelle (microphone, Whisper, Ollama, Piper Tom), la qualité de transcription et la restitution audio ; mesurer les latences.
+2. Améliorer les conversations : réponses orales brèves avec détails écrits, détection de fin de parole, réduction des manipulations Push-to-Talk dans les limites de l'interface actuelle, interruption de la synthèse si faisable.
+3. Ajouter une mémoire contextuelle automatique pour consignes et préférences durables non sensibles ; conserver la validation explicite pour les informations sensibles, avec traçabilité, correction et suppression possibles. Vérifier la persistance et le rappel réel.
+4. Vérifier la mémoire SQLite/FTS5 commune aux moteurs et éviter les doublons ou statuts contradictoires ; tester sauvegarde et restauration.
+5. Préparer et tester les outils agentiques nécessaires à la mission Dell : diagnostic, documentation/recherche, terminal, journalisation, planification, essais isolés et correction itérative. Ne pas confondre capacité annoncée et capacité testée.
+6. Vérifier le redémarrage des services et l'absence de régression ; livrer rapport Codex avec preuves et limites.
+
+**Hors périmètre :** mission 13D SSH/Tailscale reportée ; applications natives Apple reportées ; aucune installation ni effacement du Dell pendant 13F.
+
+### Mission 14 — Baptême du feu : déploiement autonome du Dell Precision (PRÉVUE)
+
+**Objectif :** faire réaliser à JARVIS lui-même, et non à Codex, l'installation du Dell Precision 5820 en environnement laboratoire. ChatGPT prépare les consignes, objectifs et critères de réception ; JARVIS diagnostique, planifie, exécute, vérifie et documente ; l'utilisateur supervise.
+
+- Reprendre l'inventaire matériel déjà effectué ; intégrer seulement les dernières informations communiquées par l'utilisateur, sans refaire inutilement l'étude.
+- Préparer les prompts d'exécution et le cadre de droits de JARVIS, ainsi que les tests PXE en VM et le plan de récupération.
+- Autoriser une autonomie étendue **sur le Dell identifié uniquement** : installation Debian, RAID 1 selon compatibilité vérifiée, pilotes NVIDIA, Ollama et services, avec journalisation et tests.
+- Les actions irréversibles (notamment effacement des deux SSD, modification RAID/firmware) nécessitent une autorisation préalable explicite, spécifique à la cible et au périmètre ; une fois cette autorisation accordée, ne pas redemander une confirmation pour chaque commande incluse. Aucun droit implicite sur le Mac mini, les autres machines ou le réseau de production.
+- Tester installation, redémarrage, RAID, GPU, services, inférence et capacité de reprise ; documenter les erreurs et corrections autonomes. Ne déclarer la mission validée qu'avec preuves.
+
+**État : PRÉVUE — ne pas lancer avant la réception de 13F et la validation du périmètre destructif.**
+
+### Mission 15 (provisoire) — Applications natives macOS / iPhone (REPORTÉE)
+
+**Objectif :** clients SwiftUI macOS et iOS pour JARVIS, connexion privée via Tailscale, conversation vocale naturelle, interruption vocale et mémoire centrale partagée. macOS : activation vocale envisageable ; iOS : intégration Siri/Raccourcis/bouton Action selon les limitations réelles d'Apple, sans promettre d'écoute permanente en arrière-plan. Conserver l'interface web en secours.
+
+**État : REPORTÉE — à replanifier après stabilisation du Mac mini et déploiement du Dell. Estimation exploratoire : prototype en 3 à 7 jours de développement, à réévaluer.**
+
+**Ordre retenu :** 13F → 14 → 15. La 13D reste en attente indépendante. Les autorisations destructives font partie de la mission 14 et ne constituent pas une mission séparée.
