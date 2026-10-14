@@ -221,3 +221,27 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 **État : REPORTÉE — à replanifier après stabilisation du Mac mini et déploiement du Dell. Estimation exploratoire : prototype en 3 à 7 jours de développement, à réévaluer.**
 
 **Ordre retenu :** 13F → 14 → 15. La 13D reste en attente indépendante. Les autorisations destructives font partie de la mission 14 et ne constituent pas une mission séparée.
+
+
+## Décision de pilotage — 14 octobre 2026 : séparation de la mission 15
+
+**État communiqué :** mission **13F finalisée — GO AVEC RÉSERVES**. Les réserves restent à inventorier et à vérifier avant de déclarer validées les fonctions concernées.
+
+La mission 15 est divisée en **deux chantiers indépendants, réalisables en parallèle** :
+
+| Mission | Périmètre | Sous-missions | Dépendances |
+| --- | --- | --- | --- |
+| **15A — Application macOS** | Application native Mac mini / MacBook | 15A.1 Architecture/UI ; 15A.2 Connexion sécurisée ; 15A.3 Texte, voix et mémoire ; 15A.4 Pilotage agents/missions ; 15A.5 Packaging et validation | API JARVIS et vérification des réserves 13F pertinentes |
+| **15B — Application iOS** | Application native iPhone, évolutive iPad | 15B.1 Architecture/UI ; 15B.2 Accès distant sécurisé ; 15B.3 Voix et conversation ; 15B.4 Mémoire, notifications et approbations ; 15B.5 Déploiement/tests/validation | API JARVIS et vérification des réserves 13F pertinentes |
+| **14 — Dell Precision** | Second nœud IA et déploiement automatisé | Phases techniques à suivre séparément | **Non bloquante** pour 15A et 15B |
+
+### Architecture cible commune 15A / 15B
+
+- Privilégier **Swift / SwiftUI** avec composants partagés lorsque possible, tout en conservant des expériences adaptées à macOS et iOS.
+- Passer par une **API JARVIS versionnée**, indépendante de l'interface et du serveur physique ; ne pas coder en dur le Mac mini.
+- Rendre configurable le serveur cible : Mac mini initialement, puis Dell quand la mission 14 sera réellement validée.
+- Authentification, transport chiffré, séparation des permissions et approbations explicites pour actions sensibles.
+- Définir des contrats communs pour conversation, voix, mémoire, opérations agentiques et statuts, sans présumer que toutes les capacités 13F sont déjà validées.
+- Les missions 15A et 15B peuvent progresser **en parallèle** ; elles n'attendent pas le déploiement du Dell. Vérifier les API, la voix et la mémoire concernées par les réserves 13F avant tests d'intégration.
+
+**Statut au 14 octobre 2026 :** cadrage acté, développement et validation de 15A/15B non encore documentés ici. Les anciennes mentions génériques de « mission 15 » désignent désormais le programme commun 15A + 15B.
