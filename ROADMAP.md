@@ -277,3 +277,18 @@ Sources Apple : https://developer.apple.com/help/account/basics/about-your-devel
 ### Projet parallèle JL — JARVIS Launcher (14 octobre 2026)
 
 **JL — JARVIS Launcher** est un projet annexe autonome, non bloquant pour les missions JARVIS 13F, 14, 15A et 15B. **JL-01** (lanceur web/macOS de terminaux SSH, Codex et tmux) a été lancé dans Codex par l'utilisateur ; résultat à vérifier. **JL-02** (Qwen/Ollama texte et voix, ChatGPT restant dans sa fenêtre séparée) est une phase ultérieure, non lancée. Toutes les spécifications, étapes et décisions JL sont suivies exclusivement dans la [roadmap dédiée JARVIS Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md), à transférer au dépôt autonome lorsqu'il sera disponible.
+
+
+## Priorité impérative de pilotage — décision du 14 octobre 2026 (état courant)
+
+**Décision utilisateur : priorité validée, exécution technique non présumée.** Ce bloc fait autorité pour les prochains arbitrages et remplace les priorités contradictoires des instantanés historiques ci-dessus, sans effacer leur traçabilité.
+
+1. **Mission 13D — sécurité d'abord (jalon bloquant)** : diagnostiquer et valider les accès SSH par clés et Tailscale entre MacBook et Mac mini, le compte dédié et ses permissions, l'accès de secours, les reprises de session et la journalisation. Vérifier les accès sans risquer un verrouillage. **État : à exécuter / à valider**, ne pas confondre la décision de priorité avec un GO technique.
+2. **Mission 14A — aptitude agentique de JARVIS (après 13D)** : tester sur un périmètre isolé l'inventaire, la planification, l'exécution par outils autorisés, la recherche documentaire, la détection et correction d'erreurs, la vérification des résultats et la restitution de preuves. Décider GO / GO avec réserves / NO GO sur des essais réels documentés.
+3. **Mission 14 — déploiement du Dell Precision par JARVIS (après les validations requises de 13D et 14A)** : JARVIS, et non Codex opérant à sa place, prépare et conduit sous supervision le déploiement Debian / PXE, RAID, NVIDIA / CUDA, Ollama et intégration. Maintenir les garde-fous existants : inventaire matériel et données, sauvegardes et secours, simulation préalable, droits minimaux, autorisation explicite et ciblée pour effacement SSD, RAID/firmware ou modification réseau sensible. Une autorisation couvrant précisément le périmètre expérimental permet l'automatisation des étapes prévues, sans demander confirmation à chaque commande.
+
+**Missions 15A (macOS) et 15B (iOS)** : cahiers déjà préparés, développement indépendant et techniquement parallèle possible, **mais priorité d'exécution inférieure** à 13D → 14A → 14. Ne pas laisser les applications ou les améliorations de l'interface retarder les jalons de sécurité et d'autonomie. **JARVIS Launcher / JL-02** : chantier parallèle ; toute mise en service impliquant des accès ou des commandes distantes doit respecter les validations de sécurité 13D.
+
+**Règle permanente de rappel :** si une prochaine instruction semble inverser cet ordre, rappeler d'abord la séquence **13D → 14A → 14**, ses motifs (sécurité, aptitude démontrée, supervision humaine et protection des données), puis demander seulement si le changement de priorité est bien volontaire lorsqu'il est nécessaire à l'arbitrage. Une modification explicite de la stratégie par l'utilisateur reste possible ; ne jamais présenter la présente décision comme une interdiction absolue.
+
+**Critères de passage :** pas de déploiement distant autorisé sans preuve de l'accès sécurisé et du retour arrière ; pas de GO agentique sans tests ; pas d'opération destructive sur le Dell sans accord ciblé et vérification préalable. Consigner preuves, réserves et décision à chaque jalon.
