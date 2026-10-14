@@ -33,6 +33,16 @@ Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis
 - [ ] Choisir sur la base de JL-01 entre web + compagnon macOS et application macOS légère ; documenter les contraintes navigateur (micro, intégration ChatGPT, ouverture Terminal).
 - [ ] Réaliser des tests de sécurité, d'ergonomie et de fonctionnement avant toute validation.
 
+## Prérequis JL-02 — Préservation des authentifications du projet JARVIS
+
+**Obligatoire avant toute modification d'accès :** dresser en lecture seule l'inventaire des authentifications, clés publiques, comptes, profils SSH/Tailscale, sessions et jetons déjà configurés, ainsi que des mécanismes prévus mais non encore validés. Préserver ces accès et ne pas générer ni remplacer de clés, changer `authorized_keys`, désactiver des comptes, modifier SSH/Tailscale ou révoquer des jetons sans diagnostic, sauvegarde et approbation explicite. Ne jamais recopier les clés privées ni les secrets dans les rapports.
+
+**Référence de pilotage vérifiée :** la mission **13D — Accès distant sécurisé SSH/Tailscale** demeure **EN ATTENTE** dans `ROADMAP.md`. Elle porte précisément sur les clés SSH par poste, le compte d'administration dédié, les permissions `authorized_keys`, la connectivité Tailscale, le repli et les tests de reconnexion/tmux. Un ancien diagnostic mentionne `Permission denied (publickey)` : incident consigné, non déclaré résolu. JL-02 ne doit ni contourner ni accomplir implicitement 13D.
+
+**Lien avec mission 15 :** 15A.2 (macOS) et 15B.2 (iOS) traitent de la connexion sécurisée **des applications clientes**, trousseau et transport HTTPS/tunnel privé ; elles ne remplacent pas la remise en état de SSH prévue en 13D. Réutiliser les contrats et mécanismes attestés sans présumer de leur état opérationnel.
+
+**Condition d'intégration :** si un accès nécessaire à JL-02 dépend de 13D encore non résolue, consigner la dépendance et bloquer seulement l'intégration concernée jusqu'à sa validation distincte. Le développement hors connexion peut continuer. Aucun test réel ou authentification unifiée ne doit être déclaré acquis sans preuves sur les deux Macs.
+
 ## JL-02 — Socle obligatoire d'identité et d'authentification
 
 **Décision du 14 octobre 2026 : exigence impérative et critère bloquant pour la validation de JL-02.** L'objectif est un bureau de travail fluide avec réutilisation sécurisée des authentifications, sans promettre une connexion unique universelle entre des protocoles indépendants.
