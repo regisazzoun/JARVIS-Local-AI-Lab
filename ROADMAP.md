@@ -262,3 +262,11 @@ Objectif : application native SwiftUI utilisée sur l'iPhone du propriétaire, s
 **Décision validée — 14 octobre 2026 : solution gratuite pour l'instant.** Développer l'application native SwiftUI et l'installer sur l'iPhone personnel depuis Xcode avec un compte Apple gratuit (Personal Team). Prévoir le renouvellement périodique de la signature/provisioning (généralement 7 jours), sans abonnement Apple Developer à ce stade. Conserver une PWA comme accès de secours si la réinstallation devient contraignante. Ad Hoc et TestFlight restent des pistes ultérieures, non retenues pour la phase actuelle. La compilation/signature est distincte du serveur JARVIS, qui reste accessible via API chiffrée et authentifiée.
 
 Sources Apple : https://developer.apple.com/help/account/basics/about-your-developer-account ; https://help.apple.com/xcode/mac/current/en.lproj/dev7ccaf4d3c.html ; https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/ ; https://developer.apple.com/fr/support/web-distribution-eu/ .
+
+
+### Exécution Codex — missions 15A et 15B (préparées le 14 octobre 2026)
+
+- [Mission 15A — Cahier Codex macOS](docs/missions/MISSION-15A-MACOS-CODEX.md) : **prêt, non lancé**.
+- [Mission 15B — Cahier Codex iOS](docs/missions/MISSION-15B-IOS-CODEX.md) : **prêt, non lancé** ; installation gratuite Xcode / Personal Team.
+- Les deux branches peuvent avancer en parallèle, après définition du contrat API partagé et inventaire des réserves 13F. Ne pas modifier les services Mac mini pour lancer ces prototypes.
+- **Cette décision remplace** la section historique « Mission 15 (provisoire) — REPORTÉE » et l'ancien ordre « 13F → 14 → 15 ». La mission 14 est indépendante et non bloquante.
