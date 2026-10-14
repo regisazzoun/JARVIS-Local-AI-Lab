@@ -31,3 +31,14 @@ Documenter les tests reproductibles, les échecs, les contournements et les limi
 ## Sources et confidentialité
 
 Synthèse initiale des rapports de mission Codex reçus. Les preuves brutes, logs et données privées ne sont pas importés dans le dépôt. Chaque résultat reste à confronter au rapport source avant de publier un guide reproductible.
+
+## Pilotage — 14 octobre 2026
+
+- Mission 13F : GO AVEC RÉSERVES.
+- Mission 14 : déploiement Dell Precision, indépendant des applications.
+- Mission 15A : application native macOS (Mac mini et MacBook).
+- Mission 15B : application native iOS (iPhone et éventuellement iPad).
+- Missions 15A et 15B réalisables en parallèle, avec API JARVIS commune.
+- Installation iOS : Xcode pour les tests, Ad Hoc ou TestFlight à évaluer pour la diffusion privée ; PWA en solution alternative.
+
+Les détails et les critères de validation sont décrits dans [ROADMAP.md](ROADMAP.md).
