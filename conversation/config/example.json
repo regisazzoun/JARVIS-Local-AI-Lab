@@ -1,0 +1,36 @@
+{
+  "port": 8767,
+  "ollama_url": "http://127.0.0.1:11434",
+  "default_model": "qwen3.5:27b-q4_K_M",
+  "models": [
+    "qwen3.5:27b-q4_K_M",
+    "ministral-3:14b-instruct-2512-q4_K_M",
+    "llama3.1:8b"
+  ],
+  "ollama_timeout": 180,
+  "voice_timeout": 120,
+  "max_record_seconds": 45,
+  "max_audio_bytes": 8000000,
+  "max_text_chars": 16000,
+  "retention_days": 30,
+  "history_messages": 24,
+  "voice_python": "/opt/jarvis/voice/venv/bin/python",
+  "voice_root": "/opt/jarvis/voice",
+  "context_chars": 14000,
+  "num_ctx": 8192,
+  "num_predict": 1100,
+  "tool_rounds": 32,
+  "identity_file": "/opt/jarvis/conversation/identity/JARVIS-v2.md",
+  "auth_file": "/opt/jarvis/conversation/runtime/auth.json",
+  "allowed_hosts": [
+    "localhost:8767",
+    "127.0.0.1:8767"
+  ],
+  "allowed_origins": [
+    "http://localhost:8767",
+    "http://127.0.0.1:8767"
+  ],
+  "lab_enabled": false,
+  "voice_length": "short",
+  "voice_summary": true
+}

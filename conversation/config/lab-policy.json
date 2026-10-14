@@ -1,0 +1,16 @@
+{
+  "mission": "13F",
+  "target": "mac-mini/bubblewrap-lab",
+  "enabled": true,
+  "writable": "/work dedicated runtime/lab",
+  "read_only": "/usr",
+  "network": false,
+  "host_admin": false,
+  "timeout_seconds": 25,
+  "dell_enabled": false,
+  "irreversible_authorizations": [],
+  "max_workspace_bytes": 134217728,
+  "max_workspace_files": 4096,
+  "service_memory_limit": "2G",
+  "service_tasks_limit": 128
+}

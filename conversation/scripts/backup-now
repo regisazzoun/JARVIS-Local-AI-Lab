@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu
+ROOT=$(cd -- "$(dirname -- "$0")/.." && pwd)
+cd "$ROOT"
+umask 077
+exec "$ROOT/.venv/bin/python" - <<'PY'
+from jarvis.memory import Memory
+from pathlib import Path
+from datetime import datetime,timezone
+folder=Path('runtime/backups');folder.mkdir(exist_ok=True)
+target=folder/(datetime.now(timezone.utc).strftime('memory-%Y%m%dT%H%M%S%fZ')+'.sqlite')
+Memory('runtime/memory.sqlite').backup(target)
+print('Sauvegarde SQLite créée :',target.name,target.stat().st_size,'octets')
+PY

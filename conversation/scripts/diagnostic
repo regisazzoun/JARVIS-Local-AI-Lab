@@ -1,0 +1,5 @@
+#!/bin/bash
+set -u
+systemctl status jarvis-conversation.service jarvis-ollama.service jarvis-open-webui.service --no-pager
+curl --max-time 5 -fsS http://localhost:8765/api/health
+nvidia-smi --query-gpu=name,memory.used,utilization.gpu --format=csv

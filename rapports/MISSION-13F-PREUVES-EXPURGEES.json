@@ -1,0 +1,184 @@
+{
+  "status": "GO AVEC RESERVES",
+  "unit_tests_passed": 27,
+  "api_integration_checks_passed": 8,
+  "browser_checks_passed": 8,
+  "browser_microphone": "artificial WAV; not human acoustic validation",
+  "final_checks_passed": 6,
+  "model_selected_autonomy": {
+    "autonomy": [
+      {
+        "run": "autonomy-attempt5.json",
+        "seconds": 113.66626947899931,
+        "model": "qwen3.5:27b-q4_K_M",
+        "tool_calls": 18,
+        "fetched_urls": [
+          "https://docs.python.org/3.13/library/configparser.html",
+          "https://docs.python.org/3/library/configparser.html"
+        ],
+        "http_health_ok_observed": true,
+        "recorded_report": true,
+        "failed_operations": []
+      },
+      {
+        "run": "autonomy-retry-final.json",
+        "seconds": 198.32699865999166,
+        "model": "qwen3.5:27b-q4_K_M",
+        "tool_calls": 16,
+        "fetched_urls": [],
+        "http_health_ok_observed": true,
+        "recorded_report": true,
+        "failed_operations": [
+          {
+            "tool": "lab_terminal",
+            "error": null,
+            "returncode": 1,
+            "stdout": "HEALTH_FAILED\nTraceback (most recent call last):\n  File \"/work/incident13f_retry/service.py\", line 3, in <module>\n    config=configparser.ConfigParser();config.read('settings.ini');port=config.getint('server','port')\n                                                                        ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/configparser.py\", line 849, in getint\n    return sel"
+          },
+          {
+            "tool": "lab_terminal",
+            "error": null,
+            "returncode": 1,
+            "stdout": "cp: cannot copy a directory, '.', into itself, 'incident13f_backup'\n"
+          }
+        ]
+      },
+      {
+        "run": "autonomy-sources-final.json",
+        "seconds": 125.50579870000365,
+        "model": "qwen3.5:27b-q4_K_M",
+        "tool_calls": 17,
+        "fetched_urls": [
+          "https://docs.python.org/3/library/configparser.html",
+          "https://docs.python.org/3/library/http.server.html"
+        ],
+        "http_health_ok_observed": true,
+        "recorded_report": true,
+        "failed_operations": []
+      }
+    ],
+    "incident13f_retry_scripts_unchanged": true,
+    "incident13f_sources_scripts_unchanged": true
+  },
+  "pre_existing_records_preserved": {
+    "conversations": 2,
+    "messages": 14,
+    "memories": 1
+  },
+  "sqlite_integrity": "ok",
+  "fts_integrity": "3 indexes checked",
+  "backup_and_new_target_restore": true,
+  "mission14_started": false,
+  "final_model_tool_receipts": [
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "ls -la /work/incident13f_sources/",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cat /work/incident13f_sources/README.txt",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cat /work/incident13f_sources/service.py",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cat /work/incident13f_sources/check.py",
+      "returncode": 0,
+      "health_evidence": [
+        "print('HEALTH_OK' if success else 'HEALTH_FAILED');print(Path('service.log').read_text());sys.exit(0 if success else 1)"
+      ]
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cat /work/incident13f_sources/settings.ini",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "python3 /work/incident13f_sources/check.py 2>&1 || echo \"ECHEU_EXECUTION\"",
+      "returncode": 0,
+      "health_evidence": [
+        "HEALTH_FAILED",
+        "/usr/bin/python3: can't open file '/work/service.py': [Errno 2] No such file or directory"
+      ]
+    },
+    {
+      "tool": "web_search",
+      "ok": true
+    },
+    {
+      "tool": "web_search",
+      "ok": true
+    },
+    {
+      "tool": "web_fetch",
+      "ok": true,
+      "url": "https://docs.python.org/3/library/configparser.html"
+    },
+    {
+      "tool": "web_fetch",
+      "ok": true,
+      "url": "https://docs.python.org/3/library/http.server.html"
+    },
+    {
+      "tool": "web_fetch",
+      "ok": true,
+      "url": "https://docs.python.org/3/library/configparser.html#basic-usage"
+    },
+    {
+      "tool": "web_fetch",
+      "ok": true,
+      "url": "https://docs.python.org/3/library/http.server.html#http.server.BaseHTTPRequestHandler"
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cd /work/incident13f_sources && cp settings.ini settings.ini.backup",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cd /work/incident13f_sources && sed -i 's/808O/8080/' settings.ini && cat settings.ini",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cd /work/incident13f_sources && python3 check.py && echo \"SUCCESS\" || echo \"FAILED\"",
+      "returncode": 0,
+      "health_evidence": [
+        "HEALTH_OK",
+        "127.0.0.1 - - [14/Oct/2026 10:24:17] \"GET /health HTTP/1.1\" 200 -"
+      ]
+    },
+    {
+      "tool": "lab_terminal",
+      "ok": true,
+      "command": "cd /work/incident13f_sources && cat settings.ini.backup",
+      "returncode": 0,
+      "health_evidence": []
+    },
+    {
+      "tool": "intervention_report",
+      "ok": true
+    }
+  ]
+}

@@ -221,3 +221,22 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 **État : REPORTÉE — à replanifier après stabilisation du Mac mini et déploiement du Dell. Estimation exploratoire : prototype en 3 à 7 jours de développement, à réévaluer.**
 
 **Ordre retenu :** 13F → 14 → 15. La 13D reste en attente indépendante. Les autorisations destructives font partie de la mission 14 et ne constituent pas une mission séparée.
+
+
+## Réception Mission 13F — 14 octobre 2026
+
+**Statut : GO AVEC RÉSERVES.** Cette réception remplace l'état « EN COURS » du plan ci-dessus sans supprimer les décisions historiques. Installation et tests réellement exécutés sur le Mac mini ; aucune installation Dell.
+
+- Voix : AudioWorklet/VAD léger, fin sur silence, deux échanges successifs et interruption vocale testés avec microphone WAV artificiel. Push-to-Talk conservé. Acoustique humaine/écho/bruit et Safari/iPhone/macOS physiques restent à valider.
+- Réponse écrite détaillée et synthèse orale séparée, longueur persistante, détails supplémentaires pour un seul tour.
+- SQLite/FTS5 canonique v3 : préférences et habitudes non sensibles du catalogue enregistrées automatiquement, remplacements/suppressions/audit transactionnels. Validation conservée hors périmètre automatique. Rappel réel par Qwen, Ministral et Llama ; sauvegarde/restauration/restart vérifiés.
+- Outils et laboratoire : diagnostics réels, journaux propres, recherche et lecture HTTPS, terminal Bubblewrap sans données personnelles, réseau hôte ou droits administrateur. Qwen sélectionne ses commandes, corrige des services HTTP isolés, reprend après échec et vérifie HTTP 200. Dernier essai : 17 appels, 125,51 secondes, deux documents officiels distincts effectivement lus.
+- 27 tests backend passent ; 8 contrôles API réels, 8 contrôles navigateur (dont silence simulé et viewport mobile émulé), 6 contrôles finaux. Données initiales identiques : 2 conversations, 14 messages, 1 souvenir. Ollama/WebUI préservés.
+- Réserves : VAD acoustique physique, catalogue mémoire limité, interprétations parfois approximatives du modèle, journaux Unix restreints, aucune validation VM UEFI/PXE/RAID/Dell ni reprise de mission longue après reboot.
+
+Rapports : [réception](rapports/MISSION-13F-RAPPORT.md), [tests](rapports/MISSION-13F-TESTS.md), [installation](rapports/MISSION-13F-INSTALLATION.md), [architecture](rapports/MISSION-13F-ARCHITECTURE.md), [incidents](rapports/MISSION-13F-INCIDENTS.md), [utilisation](rapports/MISSION-13F-UTILISATION.md), [reprise](rapports/MISSION-13F-REPRISE.md). Code et templates sans configuration privée sous conversation/. Preuves publiques limitées à un résumé expurgé ; bases, journaux détaillés, identifiants, poids et sauvegardes exclus.
+
+**Préparation de 14 : aptitude démontrée à raisonner et agir dans un laboratoire borné, pas encore à installer le Dell avec les droits actuels.** Prévoir transport/exécution ciblés, outils PXE/Ansible, VM UEFI et snapshots, contrôleur de mission persistant et autorisation du périmètre destructif sur les deux NVMe FlexBay précisément identifiés. Reprendre l'étude déjà effectuée : RAID 1 Intel VROC/VMD en priorité si compatible et fiable sous Debian 13, repli mdadm après vérification. La mission 14 sera réalisée par JARVIS, pas par Codex. Aucun PXE, RAID, firmware ni disque Dell modifié.
+
+13D reste **EN ATTENTE** ; 14 **NON DÉMARRÉE** ; 15 **REPORTÉE**. Publication via branche et PR dédiée, validation humaine avant fusion selon le workflow existant.
+
