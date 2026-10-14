@@ -1,0 +1,2368 @@
+[
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/dmi.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json",
+    "taille": 552,
+    "sha256": "432c7264fa31451ee1da1cbe3c3d6d760e635787aa2c0aea370ba4d1dab35c5d",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.682898+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/ecoutes.json",
+    "taille": 903,
+    "sha256": "1ea79d5d584393ab5cdd3488508f77dcc2fb235ab366ea2e48a2ae96a7307a17",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.620496+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/ecoutes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/identite.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json",
+    "taille": 116,
+    "sha256": "05bf9d6dde7b88949a5b23899b5e95ba5efa05b023ba4da0644fd865aae9d001",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.326166+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/journal-bolt.json",
+    "taille": 5151,
+    "sha256": "f806b7b0b452f7d2238a8188c724cdffb8f2286833e37d436184633276e124c3",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.576090+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/journal-noyau.json",
+    "taille": 155365,
+    "sha256": "b640ab9e6666a31e7154b86ed5e6136a7ad1ee6834560e461959a5741ddad51d",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.547778+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/journal-systeme.json",
+    "destination": "",
+    "taille": 343903,
+    "sha256": "756f781f5e6696ad8bfb812338f302bd432ff9c70f914b3a6760ceab4c6c25ba",
+    "mission": "04N",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-11T20:58:15.571574+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/lectures.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/lectures.json",
+    "taille": 11209,
+    "sha256": "c5c23bb42551c7ecb738854a28bf3cd21fea9f54ff27ea46670fb3c56cd57d95",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.758622+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/montages.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/montages.json",
+    "taille": 4490,
+    "sha256": "38c8f86042666146a8e9d5a98e784659eb08a10dcc968c56f78bb03837999671",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.653164+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.327038+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/nvme-sante.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/nvme-sante.json",
+    "taille": 2166,
+    "sha256": "ea164abd5a422d92f5cfeca7e18239feac308d7a7d46999af91e61d48a7971c5",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.758437+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/nvme-sante.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/pci-sysfs.json",
+    "taille": 50660,
+    "sha256": "318095c7c6e8c01e690a9fa16872baa3e391c7ff8db3b4a16ccba5d57504b5ae",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.702498+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/pci.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/pci.json",
+    "taille": 142283,
+    "sha256": "c066fea2eaccf1290c7811d69adb62fdfb3a4ef5f02047b9fb57de8eb1262d7d",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.494821+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_cmdline.txt",
+    "taille": 274,
+    "sha256": "966c34cd763d0798ee772402da896ddb632cde31022cd3394c8adc35cbba5604",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.683005+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_iomem.txt",
+    "taille": 4947,
+    "sha256": "222e65467563fc3d394d5ff5c8434f1e8289900f5001efc8f365753dbd1b1070",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.683136+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_modules.txt",
+    "taille": 10642,
+    "sha256": "9cce1700f876c3b20c739d60352dbd7949f8f347d59e75ca04d01784d773fbbb",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.683343+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/proc_self_status.txt",
+    "taille": 1476,
+    "sha256": "27983aa6a40da9198c11ad1424353fa2752627b55040b76d181bddf48fc66594",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.683428+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/processus.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/processus.json",
+    "taille": 24251,
+    "sha256": "511636a9b2d376b3f40e1b06801298010be273bd8c7529c47b039ad8316e5209",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.682121+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/reseau.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/reseau.json",
+    "taille": 2520,
+    "sha256": "f78b0d5705394dd0f9101ec8293a6b789b7673d6e92f32b5768ee18025b21e09",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.593592+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json",
+    "taille": 247,
+    "sha256": "50e3b5c157cebf8bc5ec929057d30dcdf8dbb39ea664671597d1f8620d5f140b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.594762+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/services.json",
+    "destination": "",
+    "taille": 4705,
+    "sha256": "c251c7861af72c06989f96841faa6f8ca311669751a17d406684c075b053e0ac",
+    "mission": "04N",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-11T20:58:15.588080+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json",
+    "taille": 483,
+    "sha256": "ea610af9131146c575dacca24b433fca2579b215d132b163c8d0ad87705ee00c",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:58:15.592260+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json",
+    "taille": 668,
+    "sha256": "116c4352521dda088a68f1fc3a48dd33fb6c06877ec3aa394ab6854dfe839d88",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.651401+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "taille": 39,
+    "sha256": "24d36c4808150ae6585d3e107debb88c22bae430d26b09791522f81da01439cc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.683496+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sys_class_dmi_id_product_name.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt",
+    "taille": 11,
+    "sha256": "ce365579718d8d298efb3b1a89ec5e07cbf94bd4de1d5c68c5df34258fca5ef1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:58:15.683565+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/SHA256SUMS",
+    "taille": 5972,
+    "sha256": "5c78a80ed6f6bad5909a9f94a9167ff2fc0cf6fcb289dfc8119add48d5cb2b8c",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.199786+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.145237+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-APIC.bin",
+    "destination": "",
+    "taille": 300,
+    "sha256": "7e4434cb22ce0e9314c4c514e34d1eb7044961e26af0bbe29032d9fb8bdded4c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128441+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-DMAR.bin",
+    "destination": "",
+    "taille": 136,
+    "sha256": "c850357949ebacfd336701917a4ac3c1bb7675d13f1531f2bb8486c842d84b0a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129338+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-DSDT.bin",
+    "destination": "",
+    "taille": 28758,
+    "sha256": "eab6fda0a323dcf1b6b0efd45d601fbbebf5634b71c1f7520876dd3887f76723",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128802+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-ECDT.bin",
+    "destination": "",
+    "taille": 83,
+    "sha256": "dd607cfc6be4b74e219119c7d9a9fca5beb0cd5b979d501b4186b9dda8f6cd40",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128512+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-FACP.bin",
+    "destination": "",
+    "taille": 244,
+    "sha256": "ef958085d6e9cc56c51f2227fc9e8e2cac3e71be32bbce96be91db0584a49546",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129410+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-FACS.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "44341977e5b1ae7e1bee5be50d27b4881a24dab6c04801b34945c3e241c68cb9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129801+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-HPET.bin",
+    "destination": "",
+    "taille": 56,
+    "sha256": "9f3a519a22aa9f78ba444b0851ee32d2dfa0d857a81053973a88ec442d71ed86",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129628+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-MCFG.bin",
+    "destination": "",
+    "taille": 60,
+    "sha256": "4f7409724617652379b1dbc33c1e6e157cfea2800bf07f4a0a6d201236f548c3",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128366+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SBST.bin",
+    "destination": "",
+    "taille": 48,
+    "sha256": "9c817321042117fed401370a9a72d8d04f101aa2c4775b8a9df03b35924b8be9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128952+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT1.bin",
+    "destination": "",
+    "taille": 1607,
+    "sha256": "96937732ebc72b5f75e90397cc6632ece67450571ebf44f6cb5685729dcdcedd",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129483+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT10.bin",
+    "destination": "",
+    "taille": 184,
+    "sha256": "8e247586fab3d95c0d7ccfce2fd782e5d4f7e2cc58c29b89925f55237fc9b307",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129196+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT11.bin",
+    "destination": "",
+    "taille": 53192,
+    "sha256": "bdc7b1f9f0a476585a73349004f72f9d730ee6f2d5bbe2f77928deb28e028004",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129986+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT12.bin",
+    "destination": "",
+    "taille": 3721,
+    "sha256": "dcdb1a111ff5f05f485e212be58a49671c4cb91882c12d224a376a953b642878",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129034+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT2.bin",
+    "destination": "",
+    "taille": 1532,
+    "sha256": "db57967a7c708c7e2c30de6e61e5fca61a28f07f1c960af627aa0f8e38f016f9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128587+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT3.bin",
+    "destination": "",
+    "taille": 880,
+    "sha256": "fcbe9918a7929e30b69a0a07f3d5b8faae2537ba773327d768a8f6a326848073",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129268+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT4.bin",
+    "destination": "",
+    "taille": 586,
+    "sha256": "9780d815d141a8669fe47ac0d9e3311d462dca360b6ba49459e58ba14a555f79",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128286+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT5.bin",
+    "destination": "",
+    "taille": 7117,
+    "sha256": "29999512f8364316e34f545545a1ae4771aeea05aafacda9f70f20bf14dfb221",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129123+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT6.bin",
+    "destination": "",
+    "taille": 12742,
+    "sha256": "19a5efdd4bfd9073a4397b73b6ed4ef7b2ef49359640f24c9a4900a7e6180338",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129724+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT7.bin",
+    "destination": "",
+    "taille": 36,
+    "sha256": "f6968adfe8e9e42c5ab886c0e4b21123b2976fb33911f018282a6430782b014d",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128882+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT8.bin",
+    "destination": "",
+    "taille": 49,
+    "sha256": "939dd78b8a9c509b7455502658b7dae5c8fa2b0bae0d71a58dc54209db04cd54",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.129558+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/acpi-SSDT9.bin",
+    "destination": "",
+    "taille": 81,
+    "sha256": "fac4b37205dbfa44e7937532e689ad7fa01e2123001e9b3c65e1fea1b14ccfe5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.128669+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/arbre.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/arbre.json",
+    "taille": 2883,
+    "sha256": "91c3140d1b15e04ee56fbf608492670a817b8896f0b8c425e6d37a090049f692",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:24.933224+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/arbre.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/bolt-domaines.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt-domaines.json",
+    "taille": 284,
+    "sha256": "639cc792281d9fac1b0eac789bc0d547d00cd4d3e5f7d8d4a909ca65ce28868b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.080593+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt-domaines.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/bolt.json",
+    "taille": 705,
+    "sha256": "d82bc38be048f270edff4091da8882233348983d54804ab43b5e71c48bcbb4f4",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.073675+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/collecte.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/collecte.json",
+    "taille": 3117,
+    "sha256": "f6f022749a6d3c581078636d722033621c878a5030d2418e423d496725e9420b",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.180090+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/collecte.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:00:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "434bddb0e6c81864823c412e5a2c4350f6567dc147d49ad65738b471704176af",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.096764+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:00:01.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "c2b8404caaa1490051e66d13b2a7a8b1aae90c3c31a21f70764a05526c7f790e",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.097253+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:00:01.2.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "7f77111370b29556c8fce838f1944f7d731058515b9bb8d5c8a0da3d7f5ba474",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.097728+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:00:1b.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0524b4512003fe3e31f8035c8ed6a318473c406230043a6dd985716e36adcfa5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.099869+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:00:1c.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "16523ecdb40250c5d1db6651661cb151d7f603f3d8411a8c6f90545a376fa050",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.100805+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:00:1c.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a636ec68656446fe2cc6911809cd0da25568b8aa6dfb159a5ed9f52845a3989e",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.101741+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:05:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a8d3b4895b390dc6cfe471f1c76ee40e6ba8f7fd47c2de33e1c878eb5b9e90e5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.105102+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:06:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "72f76c9887279690a01e1849039386d1b227e7c6a367a15cd6dbc893b60a6cbf",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.106009+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:06:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3cd6fb86ea19a0b069777b9a9a74bfb85b79676729053d8c0eb664885900a41c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.106909+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:06:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "2cccd7772b5ba485ed47490dfb21c1fed896a01f9db8b01aac1eb354393598eb",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.107808+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:06:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "771ec78dab732a44bafb6cc302127ab0fd8f02f5796b087c6fe236fdaf20f57a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.108715+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:7b:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "fd5032734edbd326964337ae12b091e67c71bd2816736b5b331b57afec074572",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.110141+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:7c:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0b81ddc60c90d91b7c331ecb5b3f81626c7e8a927b692f63d31de383a8235e73",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.111042+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:7c:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3438230a0debd170ef6870f5c7ea3f9a32077c4b4cb6a868c986096b128d00eb",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.111952+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:7c:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "8be4b220402948a9c75c34f8c230ad8219d1cb603bbffb82c038fb880e9b4b86",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.112864+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:7c:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "4403e39e9e14367250d6998b85ef12b9bbcb2ace337e54613bb77da98dc2407c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.113769+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:7f:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "65362a1d25ec7e690eeeec775c001649eb97fbacee4a7f1aea2d11cee658674b",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.116317+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:80:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "b8950b2fcbc1c662e51788662a8d5c5936c04d83083810998c12156c25e0ee3f",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.118409+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-0000:80:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "fec27c29373f98331dd357bc7666d21f9fe99db4eac8f90d68493ee3d6a9e157",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:03:25.120489+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.147306+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/connexions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/connexions.json",
+    "taille": 2500,
+    "sha256": "935eda9beebacab48311c3b09fd36e34c5ec43a5239df7607f4694d139c767dd",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.060062+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/connexions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/dmi.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json",
+    "taille": 552,
+    "sha256": "432c7264fa31451ee1da1cbe3c3d6d760e635787aa2c0aea370ba4d1dab35c5d",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.095094+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/ecoutes.json",
+    "taille": 903,
+    "sha256": "1ea79d5d584393ab5cdd3488508f77dcc2fb235ab366ea2e48a2ae96a7307a17",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.031977+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/ecoutes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/identite.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json",
+    "taille": 116,
+    "sha256": "05bf9d6dde7b88949a5b23899b5e95ba5efa05b023ba4da0644fd865aae9d001",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:24.714176+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-bolt.json",
+    "taille": 6936,
+    "sha256": "993ef9a0de0f23f0d2983d4ba2158aa5e69da04c3a7c9ce13867598e0f90adb6",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:24.986080+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-noyau.json",
+    "taille": 183536,
+    "sha256": "96234e689aad96f746ea8d0957cbca8b961a185187d7c2ef58a1add53a5cc1f7",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:24.951186+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-systeme.json",
+    "destination": "",
+    "taille": 380535,
+    "sha256": "3b00c06ce8f37d4527751fe7ef1e88f97adfcfe9adf858bec298661aa0e2a989",
+    "mission": "04N",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-11T21:03:24.981382+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/lectures.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/lectures.json",
+    "taille": 12269,
+    "sha256": "8546bd4f500ef089503ca6afb0c1c85a39ac880d119cac92c59a5447843319bd",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.179908+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/montages.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/montages.json",
+    "taille": 4490,
+    "sha256": "38c8f86042666146a8e9d5a98e784659eb08a10dcc968c56f78bb03837999671",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.065150+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:24.716026+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/nvme-sante.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/nvme-sante.json",
+    "taille": 2166,
+    "sha256": "e7cbace063d3f6273b16ce4590f5ebc1345dbd930fea77b609cbc04dd9422309",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.179731+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/nvme-sante.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci-sysfs.json",
+    "taille": 61612,
+    "sha256": "624a4780c9586c226ee0ec9d10b29dd6f467621d7e603d10169d45fb486a5eea",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.122067+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci.json",
+    "taille": 179623,
+    "sha256": "766c31ca85782528a4b6ac1501bc2e60d6295c607d94c44d0cdde36efc37ee27",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:24.895227+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_cmdline.txt",
+    "taille": 274,
+    "sha256": "966c34cd763d0798ee772402da896ddb632cde31022cd3394c8adc35cbba5604",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.095201+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_iomem.txt",
+    "taille": 5759,
+    "sha256": "183b53cb730067d445d6131c3c1a57ffe6f25a04328ab339449863d2d5a95819",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.095339+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_modules.txt",
+    "taille": 11138,
+    "sha256": "727a10c04106a3911597e6d244461df08bdc1dc8b844fa8d6fd1ba6b9bbbe2d2",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.095535+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_self_status.txt",
+    "taille": 1476,
+    "sha256": "b5a14d4b9258cd17054092193e0c6a143855cd6739dd1b230beec0e106ab0ebe",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.095616+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/processus.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/processus.json",
+    "taille": 25180,
+    "sha256": "ddfaae0823810d4b5b90d888d6935a391c65e99e22ef7b451db599025fe96e7e",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.094296+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/reseau.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/reseau.json",
+    "taille": 2945,
+    "sha256": "dbdd7e8a249919c32dfadc016399ae76e425fbfe17da545fec3dff3344dc767c",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:03:25.004028+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json",
+    "taille": 247,
+    "sha256": "50e3b5c157cebf8bc5ec929057d30dcdf8dbb39ea664671597d1f8620d5f140b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.005196+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/services.json",
+    "destination": "",
+    "taille": 4708,
+    "sha256": "145110f7098af4b68e394e407d9676dc43ee6051438c27d6740b34c43c189753",
+    "mission": "04N",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-11T21:03:24.998387+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/sessions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json",
+    "taille": 483,
+    "sha256": "ea610af9131146c575dacca24b433fca2579b215d132b163c8d0ad87705ee00c",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.002691+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json",
+    "taille": 668,
+    "sha256": "116c4352521dda088a68f1fc3a48dd33fb6c06877ec3aa394ab6854dfe839d88",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.063429+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "taille": 39,
+    "sha256": "24d36c4808150ae6585d3e107debb88c22bae430d26b09791522f81da01439cc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.095687+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/sys_class_dmi_id_product_name.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt",
+    "taille": 11,
+    "sha256": "ce365579718d8d298efb3b1a89ec5e07cbf94bd4de1d5c68c5df34258fca5ef1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:03:25.095756+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/SHA256SUMS",
+    "taille": 5972,
+    "sha256": "75ab4a4ed5cf98d8b42870390c4c9ae3b5e7c16199a9e39a892c7e87bac3f545",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:02.098849+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:02.043534+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-APIC.bin",
+    "destination": "",
+    "taille": 300,
+    "sha256": "7e4434cb22ce0e9314c4c514e34d1eb7044961e26af0bbe29032d9fb8bdded4c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026521+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-DMAR.bin",
+    "destination": "",
+    "taille": 136,
+    "sha256": "c850357949ebacfd336701917a4ac3c1bb7675d13f1531f2bb8486c842d84b0a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027494+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-DSDT.bin",
+    "destination": "",
+    "taille": 28758,
+    "sha256": "eab6fda0a323dcf1b6b0efd45d601fbbebf5634b71c1f7520876dd3887f76723",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026894+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-ECDT.bin",
+    "destination": "",
+    "taille": 83,
+    "sha256": "dd607cfc6be4b74e219119c7d9a9fca5beb0cd5b979d501b4186b9dda8f6cd40",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026596+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-FACP.bin",
+    "destination": "",
+    "taille": 244,
+    "sha256": "ef958085d6e9cc56c51f2227fc9e8e2cac3e71be32bbce96be91db0584a49546",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027564+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-FACS.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "44341977e5b1ae7e1bee5be50d27b4881a24dab6c04801b34945c3e241c68cb9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027952+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-HPET.bin",
+    "destination": "",
+    "taille": 56,
+    "sha256": "9f3a519a22aa9f78ba444b0851ee32d2dfa0d857a81053973a88ec442d71ed86",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027779+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-MCFG.bin",
+    "destination": "",
+    "taille": 60,
+    "sha256": "4f7409724617652379b1dbc33c1e6e157cfea2800bf07f4a0a6d201236f548c3",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026444+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SBST.bin",
+    "destination": "",
+    "taille": 48,
+    "sha256": "9c817321042117fed401370a9a72d8d04f101aa2c4775b8a9df03b35924b8be9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027067+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT1.bin",
+    "destination": "",
+    "taille": 1607,
+    "sha256": "96937732ebc72b5f75e90397cc6632ece67450571ebf44f6cb5685729dcdcedd",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027637+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT10.bin",
+    "destination": "",
+    "taille": 184,
+    "sha256": "8e247586fab3d95c0d7ccfce2fd782e5d4f7e2cc58c29b89925f55237fc9b307",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027350+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT11.bin",
+    "destination": "",
+    "taille": 53192,
+    "sha256": "bdc7b1f9f0a476585a73349004f72f9d730ee6f2d5bbe2f77928deb28e028004",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.028133+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT12.bin",
+    "destination": "",
+    "taille": 3721,
+    "sha256": "dcdb1a111ff5f05f485e212be58a49671c4cb91882c12d224a376a953b642878",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027186+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT2.bin",
+    "destination": "",
+    "taille": 1532,
+    "sha256": "db57967a7c708c7e2c30de6e61e5fca61a28f07f1c960af627aa0f8e38f016f9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026671+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT3.bin",
+    "destination": "",
+    "taille": 880,
+    "sha256": "fcbe9918a7929e30b69a0a07f3d5b8faae2537ba773327d768a8f6a326848073",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027424+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT4.bin",
+    "destination": "",
+    "taille": 586,
+    "sha256": "9780d815d141a8669fe47ac0d9e3311d462dca360b6ba49459e58ba14a555f79",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026364+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT5.bin",
+    "destination": "",
+    "taille": 7117,
+    "sha256": "29999512f8364316e34f545545a1ae4771aeea05aafacda9f70f20bf14dfb221",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027274+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT6.bin",
+    "destination": "",
+    "taille": 12742,
+    "sha256": "19a5efdd4bfd9073a4397b73b6ed4ef7b2ef49359640f24c9a4900a7e6180338",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027874+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT7.bin",
+    "destination": "",
+    "taille": 36,
+    "sha256": "f6968adfe8e9e42c5ab886c0e4b21123b2976fb33911f018282a6430782b014d",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026995+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT8.bin",
+    "destination": "",
+    "taille": 49,
+    "sha256": "939dd78b8a9c509b7455502658b7dae5c8fa2b0bae0d71a58dc54209db04cd54",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.027710+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/acpi-SSDT9.bin",
+    "destination": "",
+    "taille": 81,
+    "sha256": "fac4b37205dbfa44e7937532e689ad7fa01e2123001e9b3c65e1fea1b14ccfe5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.026747+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/arbre.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/arbre.json",
+    "taille": 2883,
+    "sha256": "91c3140d1b15e04ee56fbf608492670a817b8896f0b8c425e6d37a090049f692",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.837435+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/arbre.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/bolt-domaines.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt-domaines.json",
+    "taille": 284,
+    "sha256": "639cc792281d9fac1b0eac789bc0d547d00cd4d3e5f7d8d4a909ca65ce28868b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.978377+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt-domaines.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/bolt.json",
+    "taille": 705,
+    "sha256": "d82bc38be048f270edff4091da8882233348983d54804ab43b5e71c48bcbb4f4",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.971545+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/collecte.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/collecte.json",
+    "taille": 3117,
+    "sha256": "9de356964918c6d7aa87e244cbb6ce5e0020274bbaac4dbda1ecdbe6dc046856",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:02.078634+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/collecte.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:00:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "434bddb0e6c81864823c412e5a2c4350f6567dc147d49ad65738b471704176af",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:01.994394+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:00:01.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "c2b8404caaa1490051e66d13b2a7a8b1aae90c3c31a21f70764a05526c7f790e",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:01.994957+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:00:01.2.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "7f77111370b29556c8fce838f1944f7d731058515b9bb8d5c8a0da3d7f5ba474",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:01.995432+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:00:1b.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0524b4512003fe3e31f8035c8ed6a318473c406230043a6dd985716e36adcfa5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:01.997579+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:00:1c.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "16523ecdb40250c5d1db6651661cb151d7f603f3d8411a8c6f90545a376fa050",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:01.998514+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:00:1c.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a636ec68656446fe2cc6911809cd0da25568b8aa6dfb159a5ed9f52845a3989e",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:01.999452+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:05:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a8d3b4895b390dc6cfe471f1c76ee40e6ba8f7fd47c2de33e1c878eb5b9e90e5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.003013+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:06:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "72f76c9887279690a01e1849039386d1b227e7c6a367a15cd6dbc893b60a6cbf",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.004047+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:06:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3cd6fb86ea19a0b069777b9a9a74bfb85b79676729053d8c0eb664885900a41c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.004968+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:06:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "2cccd7772b5ba485ed47490dfb21c1fed896a01f9db8b01aac1eb354393598eb",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.005871+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:06:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "771ec78dab732a44bafb6cc302127ab0fd8f02f5796b087c6fe236fdaf20f57a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.006774+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:7b:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "fd5032734edbd326964337ae12b091e67c71bd2816736b5b331b57afec074572",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.008165+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:7c:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0b81ddc60c90d91b7c331ecb5b3f81626c7e8a927b692f63d31de383a8235e73",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.009086+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:7c:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3438230a0debd170ef6870f5c7ea3f9a32077c4b4cb6a868c986096b128d00eb",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.009994+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:7c:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "8be4b220402948a9c75c34f8c230ad8219d1cb603bbffb82c038fb880e9b4b86",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.010921+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:7c:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "4403e39e9e14367250d6998b85ef12b9bbcb2ace337e54613bb77da98dc2407c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.011828+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:7f:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "65362a1d25ec7e690eeeec775c001649eb97fbacee4a7f1aea2d11cee658674b",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.014389+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:80:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "b8950b2fcbc1c662e51788662a8d5c5936c04d83083810998c12156c25e0ee3f",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.016472+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-0000:80:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "fec27c29373f98331dd357bc7666d21f9fe99db4eac8f90d68493ee3d6a9e157",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T21:04:02.018554+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:02.045596+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/connexions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/connexions.json",
+    "taille": 2500,
+    "sha256": "e73d387b5796136eb9f87a1679a45e7365166eb9d3d635302bce197ef6665a35",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:01.957195+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/connexions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/dmi.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json",
+    "taille": 552,
+    "sha256": "432c7264fa31451ee1da1cbe3c3d6d760e635787aa2c0aea370ba4d1dab35c5d",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.992534+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/ecoutes.json",
+    "taille": 903,
+    "sha256": "1ea79d5d584393ab5cdd3488508f77dcc2fb235ab366ea2e48a2ae96a7307a17",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.929415+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/ecoutes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/identite.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json",
+    "taille": 116,
+    "sha256": "05bf9d6dde7b88949a5b23899b5e95ba5efa05b023ba4da0644fd865aae9d001",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.625400+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-bolt.json",
+    "taille": 6936,
+    "sha256": "993ef9a0de0f23f0d2983d4ba2158aa5e69da04c3a7c9ce13867598e0f90adb6",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.884388+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/journal-noyau.json",
+    "taille": 183725,
+    "sha256": "3e1e9d5b7d1aefca8ef0142a189e672b673956f3cce7a0b11da554fcb4493115",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:01.851701+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/journal-systeme.json",
+    "destination": "",
+    "taille": 382002,
+    "sha256": "5be353ab8634a94d7e8ad454422c3259ee2cd740175136751aa5c0aacd19ade2",
+    "mission": "04N",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-11T21:04:01.879362+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/lectures.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/lectures.json",
+    "taille": 12269,
+    "sha256": "b44d477d39452affde7e6e8be4c0ea8ecc2ca2124eb0dcdb3fa64a9b38f1b8a4",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:02.078454+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/montages.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/montages.json",
+    "taille": 4490,
+    "sha256": "38c8f86042666146a8e9d5a98e784659eb08a10dcc968c56f78bb03837999671",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.962377+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.626222+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/nvme-sante.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/nvme-sante.json",
+    "taille": 2166,
+    "sha256": "91715d9ab8bd2b59e9c35d8835932afd71f534f562372ba5a91ba012d110c9c4",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:02.078274+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/nvme-sante.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci-sysfs.json",
+    "taille": 61612,
+    "sha256": "624a4780c9586c226ee0ec9d10b29dd6f467621d7e603d10169d45fb486a5eea",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:02.020103+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/pci.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci.json",
+    "taille": 179623,
+    "sha256": "766c31ca85782528a4b6ac1501bc2e60d6295c607d94c44d0cdde36efc37ee27",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.804193+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_cmdline.txt",
+    "taille": 274,
+    "sha256": "966c34cd763d0798ee772402da896ddb632cde31022cd3394c8adc35cbba5604",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.992659+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225304/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_iomem.txt",
+    "taille": 5759,
+    "sha256": "183b53cb730067d445d6131c3c1a57ffe6f25a04328ab339449863d2d5a95819",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.992798+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_modules.txt",
+    "taille": 11138,
+    "sha256": "727a10c04106a3911597e6d244461df08bdc1dc8b844fa8d6fd1ba6b9bbbe2d2",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.992993+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230324/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/proc_self_status.txt",
+    "taille": 1476,
+    "sha256": "4b7d64826693254de5289ef7a25ad20428406989dc472d915d45273d61647c71",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:01.993073+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/processus.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/processus.json",
+    "taille": 25049,
+    "sha256": "f66b37430f5dc65e032b99146f09796a7cd609303cd067f71e44404b9382d4f4",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:01.991794+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/reseau.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/reseau.json",
+    "taille": 2945,
+    "sha256": "08c4c6e290e06b9bcdc18309c9eefb2d410ea0603f2c2558d339f13e6e7786e1",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T21:04:01.902194+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json",
+    "taille": 247,
+    "sha256": "50e3b5c157cebf8bc5ec929057d30dcdf8dbb39ea664671597d1f8620d5f140b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.903405+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/services.json",
+    "destination": "",
+    "taille": 4708,
+    "sha256": "bd69a58ec760e2f4660de7849d2e9d2dad9d243870f8960bcb5e777fabd9504b",
+    "mission": "04N",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-11T21:04:01.896459+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/sessions.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json",
+    "taille": 483,
+    "sha256": "ea610af9131146c575dacca24b433fca2579b215d132b163c8d0ad87705ee00c",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.900829+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-225815/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json",
+    "taille": 668,
+    "sha256": "116c4352521dda088a68f1fc3a48dd33fb6c06877ec3aa394ab6854dfe839d88",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.960196+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "taille": 39,
+    "sha256": "24d36c4808150ae6585d3e107debb88c22bae430d26b09791522f81da01439cc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.993140+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b70d6ac9-b00b-4a16-b60f-ba2dcd09b376-20261011-230401/sys_class_dmi_id_product_name.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt",
+    "taille": 11,
+    "sha256": "ce365579718d8d298efb3b1a89ec5e07cbf94bd4de1d5c68c5df34258fca5ef1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T21:04:01.993211+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/SHA256SUMS",
+    "taille": 5702,
+    "sha256": "5f3175eb6ade78412aa04910c1160f3e510bf5d3e35e5fd84d9c1a0def9a880f",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.278075+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.223111+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-APIC.bin",
+    "destination": "",
+    "taille": 300,
+    "sha256": "7e4434cb22ce0e9314c4c514e34d1eb7044961e26af0bbe29032d9fb8bdded4c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206165+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-DMAR.bin",
+    "destination": "",
+    "taille": 136,
+    "sha256": "c850357949ebacfd336701917a4ac3c1bb7675d13f1531f2bb8486c842d84b0a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207069+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-DSDT.bin",
+    "destination": "",
+    "taille": 28758,
+    "sha256": "eab6fda0a323dcf1b6b0efd45d601fbbebf5634b71c1f7520876dd3887f76723",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206522+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-ECDT.bin",
+    "destination": "",
+    "taille": 83,
+    "sha256": "dd607cfc6be4b74e219119c7d9a9fca5beb0cd5b979d501b4186b9dda8f6cd40",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206236+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-FACP.bin",
+    "destination": "",
+    "taille": 244,
+    "sha256": "ef958085d6e9cc56c51f2227fc9e8e2cac3e71be32bbce96be91db0584a49546",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207141+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-FACS.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "44341977e5b1ae7e1bee5be50d27b4881a24dab6c04801b34945c3e241c68cb9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207549+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-HPET.bin",
+    "destination": "",
+    "taille": 56,
+    "sha256": "9f3a519a22aa9f78ba444b0851ee32d2dfa0d857a81053973a88ec442d71ed86",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207369+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-MCFG.bin",
+    "destination": "",
+    "taille": 60,
+    "sha256": "4f7409724617652379b1dbc33c1e6e157cfea2800bf07f4a0a6d201236f548c3",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206091+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SBST.bin",
+    "destination": "",
+    "taille": 48,
+    "sha256": "9c817321042117fed401370a9a72d8d04f101aa2c4775b8a9df03b35924b8be9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206671+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT1.bin",
+    "destination": "",
+    "taille": 1607,
+    "sha256": "96937732ebc72b5f75e90397cc6632ece67450571ebf44f6cb5685729dcdcedd",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207220+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT10.bin",
+    "destination": "",
+    "taille": 184,
+    "sha256": "8e247586fab3d95c0d7ccfce2fd782e5d4f7e2cc58c29b89925f55237fc9b307",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206910+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT11.bin",
+    "destination": "",
+    "taille": 53192,
+    "sha256": "bdc7b1f9f0a476585a73349004f72f9d730ee6f2d5bbe2f77928deb28e028004",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207732+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT12.bin",
+    "destination": "",
+    "taille": 3721,
+    "sha256": "dcdb1a111ff5f05f485e212be58a49671c4cb91882c12d224a376a953b642878",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206748+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT2.bin",
+    "destination": "",
+    "taille": 1532,
+    "sha256": "db57967a7c708c7e2c30de6e61e5fca61a28f07f1c960af627aa0f8e38f016f9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206316+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT3.bin",
+    "destination": "",
+    "taille": 880,
+    "sha256": "fcbe9918a7929e30b69a0a07f3d5b8faae2537ba773327d768a8f6a326848073",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206981+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT4.bin",
+    "destination": "",
+    "taille": 586,
+    "sha256": "9780d815d141a8669fe47ac0d9e3311d462dca360b6ba49459e58ba14a555f79",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206013+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT5.bin",
+    "destination": "",
+    "taille": 7117,
+    "sha256": "29999512f8364316e34f545545a1ae4771aeea05aafacda9f70f20bf14dfb221",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206833+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT6.bin",
+    "destination": "",
+    "taille": 12742,
+    "sha256": "19a5efdd4bfd9073a4397b73b6ed4ef7b2ef49359640f24c9a4900a7e6180338",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207470+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT7.bin",
+    "destination": "",
+    "taille": 36,
+    "sha256": "f6968adfe8e9e42c5ab886c0e4b21123b2976fb33911f018282a6430782b014d",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206601+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT8.bin",
+    "destination": "",
+    "taille": 49,
+    "sha256": "939dd78b8a9c509b7455502658b7dae5c8fa2b0bae0d71a58dc54209db04cd54",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.207297+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/acpi-SSDT9.bin",
+    "destination": "",
+    "taille": 81,
+    "sha256": "fac4b37205dbfa44e7937532e689ad7fa01e2123001e9b3c65e1fea1b14ccfe5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.206391+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/arbre.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/arbre.json",
+    "taille": 2203,
+    "sha256": "f8447a0acf6952cddf240d8c2be49213a309a16d14e6e4890b6c2678ff7e1d6a",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:05.985649+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04J-preuves/a5d47772-9fed-4f51-8d99-ffe75be725b1/arbre.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/bolt-domaines.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt-domaines.json",
+    "taille": 284,
+    "sha256": "639cc792281d9fac1b0eac789bc0d547d00cd4d3e5f7d8d4a909ca65ce28868b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.166433+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt-domaines.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/bolt.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt.json",
+    "taille": 521,
+    "sha256": "c47655cadb9699bfa89e974af3706a611b18c99270dcd0e04bfba55dac394e1c",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.159487+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/collecte.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/collecte.json",
+    "taille": 3117,
+    "sha256": "a9e346dfd353503d578038e126520e4070dee8a48ad60c55178b2154aa8b038c",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.258368+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/collecte.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:00:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "434bddb0e6c81864823c412e5a2c4350f6567dc147d49ad65738b471704176af",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.183875+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:00:01.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "c2b8404caaa1490051e66d13b2a7a8b1aae90c3c31a21f70764a05526c7f790e",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.184355+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:00:01.2.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "8cb7cf7c44e428c641ba30f9463d57bec4b74b66838c3cf7396bbf793df81813",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.184827+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:00:1b.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0524b4512003fe3e31f8035c8ed6a318473c406230043a6dd985716e36adcfa5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.186929+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:00:1c.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "16523ecdb40250c5d1db6651661cb151d7f603f3d8411a8c6f90545a376fa050",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.187878+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:00:1c.1.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a636ec68656446fe2cc6911809cd0da25568b8aa6dfb159a5ed9f52845a3989e",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.188813+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:05:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "a8d3b4895b390dc6cfe471f1c76ee40e6ba8f7fd47c2de33e1c878eb5b9e90e5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.192210+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:06:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "72f76c9887279690a01e1849039386d1b227e7c6a367a15cd6dbc893b60a6cbf",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.193215+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:06:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3cd6fb86ea19a0b069777b9a9a74bfb85b79676729053d8c0eb664885900a41c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.194186+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:06:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "2cccd7772b5ba485ed47490dfb21c1fed896a01f9db8b01aac1eb354393598eb",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.195331+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:06:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "771ec78dab732a44bafb6cc302127ab0fd8f02f5796b087c6fe236fdaf20f57a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.196254+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:7b:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "4b2b11888e6923eb8d761ada7645fafcdd49d3302fc6e0f6a4c3ce663e2d708b",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.197657+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:7c:00.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "0b81ddc60c90d91b7c331ecb5b3f81626c7e8a927b692f63d31de383a8235e73",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.198562+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:7c:01.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "543106bdc8ee0f8f931d29c43a00506697155128445a2c9e433fb132cb5db48b",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.199469+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:7c:02.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "89a34ee271ad6f77973c702d6cd85df24e85f5c93e8224a64f8ba93ce0b0dce2",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.200365+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-0000:7c:04.0.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "3e28541febc51bf17b1e1fcad7fb6150fa3763c3522aea32ba2f220598aa82b5",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:38:06.201267+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/config-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie",
+    "taille": 288757,
+    "sha256": "740d59d8344203c298011a2ea1bf4102b020951045e761bd4b4e23e5994993c1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.225154+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/config-6.18.54-1-t2-trixie"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/connexions.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/connexions.json",
+    "taille": 1814,
+    "sha256": "743f9ac379eb1131ce0845c16395b11c48d3d31455ddb0d9fc0b1cfed9132b1c",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.146148+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/connexions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/dmi.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json",
+    "taille": 552,
+    "sha256": "432c7264fa31451ee1da1cbe3c3d6d760e635787aa2c0aea370ba4d1dab35c5d",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.182248+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/dmi.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/ecoutes.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/ecoutes.json",
+    "taille": 903,
+    "sha256": "da88e662112d2ef0717ae0dd1bafa835ea864e702a8430fa4aaa73566bffe437",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.113717+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/ecoutes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/identite.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json",
+    "taille": 116,
+    "sha256": "05bf9d6dde7b88949a5b23899b5e95ba5efa05b023ba4da0644fd865aae9d001",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:05.777830+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/identite.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-bolt.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-bolt.json",
+    "taille": 5151,
+    "sha256": "6762260ffe694efa35baade20343ad9d8a5de9a69faa5173544e912616982700",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.042747+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-bolt.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-noyau.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-noyau.json",
+    "taille": 155029,
+    "sha256": "b08bd482c5e154225f65e54c800bad7ddc4c8a62d99fe52cb91fba9228313997",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.004721+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-systeme.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-systeme.json",
+    "taille": 347554,
+    "sha256": "91bd65be21b72c26adba5919a6fc0a42bfbadcc5a88ce370f92dfedc3669b6de",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.033269+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/journal-systeme.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/lectures.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/lectures.json",
+    "taille": 11209,
+    "sha256": "86fa47d13ed6bf9a7c4c91c1a2e3a011dd20853411b0cfbfde22d8003a7277f7",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.258203+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/lectures.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/montages.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/montages.json",
+    "taille": 4475,
+    "sha256": "e54d6fea20ed1f181a45c09ecec12f9de14ab14d10d35a307135c0008a0605c6",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.151393+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/montages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/noyau.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json",
+    "taille": 201,
+    "sha256": "5fc02005334613c6a1dcb6dc3d1898a068d76c54946ee39730119705bf15e0fc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:05.778697+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/noyau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/nvme-sante.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/nvme-sante.json",
+    "taille": 2166,
+    "sha256": "b77b43104343241a494eaa5b68cfc1c4160065fa62afc1a1f2ee2e1c5cfab7e9",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.258040+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/nvme-sante.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/pci-sysfs.json",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json",
+    "taille": 50660,
+    "sha256": "5624bd1d50a04dd1f5da4b1869cc611786e56388b93fe3199062114bf17afcd3",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.202045+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/pci-sysfs.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/pci.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/pci.json",
+    "taille": 142279,
+    "sha256": "b57c75447a9ea4ff314049f0bbf5ea5e2eed8a501fee25b0eca3f3e193cb60dc",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:05.948632+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/pci.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_cmdline.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt",
+    "taille": 255,
+    "sha256": "165dc07e1314b88cb48b31506789ce322b62122adb70b57e25c3b91fa8e7a90a",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.182357+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/proc_cmdline.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_iomem.txt",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_iomem.txt",
+    "taille": 4947,
+    "sha256": "c7d84f4ac0521482d70c6f6a919cc57dba8229c09f4dc2589c8c94159e17581f",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.182492+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_iomem.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_modules.txt",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_modules.txt",
+    "taille": 10642,
+    "sha256": "b265778c8941d4e2ab111d7288f7c0ffc79eb14357562e5bfe0b9b325399abcf",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.182688+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_modules.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_self_status.txt",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_self_status.txt",
+    "taille": 1476,
+    "sha256": "475497cd13aa00d8e40618652202c3c5f575677ff795fc6b36c205bf67595a9a",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.182769+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/proc_self_status.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/processus.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/processus.json",
+    "taille": 25216,
+    "sha256": "26b57dbc21c87255276d42dfd804b3a39bf02394cd0298c53425f5ffd47c7bc6",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.179963+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/processus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/reseau.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/reseau.json",
+    "taille": 2522,
+    "sha256": "82e7854eaaa79aa90b63083ab6379781aded40e8e2b35346589564a71ab9a50c",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.065737+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/reseau.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/routes.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json",
+    "taille": 247,
+    "sha256": "50e3b5c157cebf8bc5ec929057d30dcdf8dbb39ea664671597d1f8620d5f140b",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.066880+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/routes.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/services.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/services.json",
+    "taille": 3685,
+    "sha256": "14c1c58976b8b96ceda98f5cc9936410597ac7c4444c90b5c3f3ccfe5dd4b90f",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.059292+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/services.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/sessions.json",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/sessions.json",
+    "taille": 306,
+    "sha256": "9ee285af1425e53ee6aba3178af0d9922ac97b60197a9bf4de6f3ec5ac472a78",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:38:06.063436+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/sessions.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/stockage.json",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json",
+    "taille": 668,
+    "sha256": "116c4352521dda088a68f1fc3a48dd33fb6c06877ec3aa394ab6854dfe839d88",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.149665+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/stockage.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/sys_bus_pci_resource_alignment.txt",
+    "destination": "archives/preuves-controlees/part-008.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt",
+    "taille": 39,
+    "sha256": "24d36c4808150ae6585d3e107debb88c22bae430d26b09791522f81da01439cc",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.182837+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04M-preuves/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-222715/sys_bus_pci_resource_alignment.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-223805/sys_class_dmi_id_product_name.txt",
+    "destination": "archives/preuves-controlees/part-006.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt",
+    "taille": 11,
+    "sha256": "ce365579718d8d298efb3b1a89ec5e07cbf94bd4de1d5c68c5df34258fca5ef1",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:38:06.182905+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04K-preparation/hote-a5d47772-9fed-4f51-8d99-ffe75be725b1-20261011-215637/sys_class_dmi_id_product_name.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-009.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/SHA256SUMS",
+    "taille": 5702,
+    "sha256": "80e986fd5b9e97c23fe9ed826922f97c0db89d88c8949ba7e5364feeebe16744",
+    "mission": "04N",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T20:46:34.855220+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/System.map-6.18.54-1-t2-trixie",
+    "destination": "archives/preuves-controlees/part-005.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map",
+    "taille": 7742629,
+    "sha256": "f9970dbf485401bf5830d6b1a542e15cfe6f9e29dd7b6d15489d5e9b8b0fa222",
+    "mission": "04N",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T20:46:34.800751+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I-preparation/sources/System.map"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-APIC.bin",
+    "destination": "",
+    "taille": 300,
+    "sha256": "7e4434cb22ce0e9314c4c514e34d1eb7044961e26af0bbe29032d9fb8bdded4c",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.783858+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-DMAR.bin",
+    "destination": "",
+    "taille": 136,
+    "sha256": "c850357949ebacfd336701917a4ac3c1bb7675d13f1531f2bb8486c842d84b0a",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.784732+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-DSDT.bin",
+    "destination": "",
+    "taille": 28758,
+    "sha256": "eab6fda0a323dcf1b6b0efd45d601fbbebf5634b71c1f7520876dd3887f76723",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.784210+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-ECDT.bin",
+    "destination": "",
+    "taille": 83,
+    "sha256": "dd607cfc6be4b74e219119c7d9a9fca5beb0cd5b979d501b4186b9dda8f6cd40",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.783929+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-FACP.bin",
+    "destination": "",
+    "taille": 244,
+    "sha256": "ef958085d6e9cc56c51f2227fc9e8e2cac3e71be32bbce96be91db0584a49546",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.784807+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-FACS.bin",
+    "destination": "",
+    "taille": 64,
+    "sha256": "44341977e5b1ae7e1bee5be50d27b4881a24dab6c04801b34945c3e241c68cb9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.785198+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-HPET.bin",
+    "destination": "",
+    "taille": 56,
+    "sha256": "9f3a519a22aa9f78ba444b0851ee32d2dfa0d857a81053973a88ec442d71ed86",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.785022+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-MCFG.bin",
+    "destination": "",
+    "taille": 60,
+    "sha256": "4f7409724617652379b1dbc33c1e6e157cfea2800bf07f4a0a6d201236f548c3",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.783785+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-SBST.bin",
+    "destination": "",
+    "taille": 48,
+    "sha256": "9c817321042117fed401370a9a72d8d04f101aa2c4775b8a9df03b35924b8be9",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.784358+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-SSDT1.bin",
+    "destination": "",
+    "taille": 1607,
+    "sha256": "96937732ebc72b5f75e90397cc6632ece67450571ebf44f6cb5685729dcdcedd",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.784879+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission04N-preparation/hote-b88dab5b-c58b-49fb-85a1-9fd50b9e9716-20261011-224634/acpi-SSDT10.bin",
+    "destination": "",
+    "taille": 184,
+    "sha256": "8e247586fab3d95c0d7ccfce2fd782e5d4f7e2cc58c29b89925f55237fc9b307",
+    "mission": "04N",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T20:46:34.784591+00:00"
+  }
+]

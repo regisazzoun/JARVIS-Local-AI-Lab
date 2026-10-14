@@ -1,0 +1,2252 @@
+[
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/intel-vsec_tpmi.ko.xz",
+    "destination": "",
+    "taille": 20616,
+    "sha256": "4fd4ab5076eebe90da63e55c45ea5ad760a5456d06c61ad7f8cc49cbc3a08890",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmc/intel_pmc_core.ko.xz",
+    "destination": "",
+    "taille": 46760,
+    "sha256": "85adad93adc74ff13a494de0d73ca03b3c398b7c209c7c5dccd658e809925e52",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmc/intel_pmc_core_pltdrv.ko.xz",
+    "destination": "",
+    "taille": 9928,
+    "sha256": "2ee4bbf8647b1011448d345a4821340e51d8c84f04a698aacae0fb52643a20b3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmc/intel_pmc_ssram_telemetry.ko.xz",
+    "destination": "",
+    "taille": 12368,
+    "sha256": "2bc00efa5804b665cc9a82b77cf3a6c7f7249096c63c01d2de2516da0f084f75",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmt/pmt_class.ko.xz",
+    "destination": "",
+    "taille": 14224,
+    "sha256": "b0bef9d57a2f09a390ceb0d09cb4baebae9cb72c73f8f1469656b6af62b9ef45",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmt/pmt_crashlog.ko.xz",
+    "destination": "",
+    "taille": 13788,
+    "sha256": "6a5fa3d011bf5c149c398703b7dcd1e0d017d74b5d59a8307abfe397b114aaf1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmt/pmt_discovery.ko.xz",
+    "destination": "",
+    "taille": 16452,
+    "sha256": "85d2213252c4206d145b0ba5b6472051748441744cfc9f6a3c1d6a38a18ddcef",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/pmt/pmt_telemetry.ko.xz",
+    "destination": "",
+    "taille": 15188,
+    "sha256": "a1205bbec286a372a8cf7641ef2c1458bc39e03fbc00afafbdc9557199ed5689",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/speed_select_if/isst_if_common.ko.xz",
+    "destination": "",
+    "taille": 17468,
+    "sha256": "43b8c42c395caca98604c2e25c494c6602182a1b8fe2aeff258c1b99fc096511",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/speed_select_if/isst_if_mbox_msr.ko.xz",
+    "destination": "",
+    "taille": 14380,
+    "sha256": "c866f03933cc535a0a73138bbda58b484823dba67c104651b7ce45a8b7a368c9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/speed_select_if/isst_if_mbox_pci.ko.xz",
+    "destination": "",
+    "taille": 12180,
+    "sha256": "32b85a2583172c06c861662df0c134c0a7ed01977e338edd6e97bdbaaaefb426",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/speed_select_if/isst_if_mmio.ko.xz",
+    "destination": "",
+    "taille": 12148,
+    "sha256": "4a1ccc0c11123ada6177ab15f2c1b33b35586d24722b89847c2b5686b1b96fbc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/speed_select_if/isst_tpmi.ko.xz",
+    "destination": "",
+    "taille": 9568,
+    "sha256": "ea8528a3550f04427d068f55ce1bbac58e36e730b7f1bb76934c2db77c6c5328",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/speed_select_if/isst_tpmi_core.ko.xz",
+    "destination": "",
+    "taille": 17940,
+    "sha256": "584f1b06d77b96f00b7ad758586bf4a05a6e9a0b3bf035bcc634a7f5f9e73f23",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/uncore-frequency/intel-uncore-frequency-common.ko.xz",
+    "destination": "",
+    "taille": 12816,
+    "sha256": "8fe5a73eb0b16f1d5f35f943762cf2fa2e6ee18ae38c8ac564950a7b15d900bd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/uncore-frequency/intel-uncore-frequency-tpmi.ko.xz",
+    "destination": "",
+    "taille": 13460,
+    "sha256": "12079a89689db88174b5a2f2048104a337255d2a507bdec5331d6c77b817f78f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/uncore-frequency/intel-uncore-frequency.ko.xz",
+    "destination": "",
+    "taille": 15212,
+    "sha256": "0ffb1d92ad936cb53967817e14281d9d2d5c041631b1a5e57ac8a2cdae552fa6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel/wmi/intel-wmi-thunderbolt.ko.xz",
+    "destination": "",
+    "taille": 10284,
+    "sha256": "d1cf6e5bce78269ff901639a1544f241e4585f84ffd6c5737047554501ce8169",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/intel_ips.ko.xz",
+    "destination": "",
+    "taille": 19192,
+    "sha256": "8aaf28c29f35920b8b38a3ab2129d188368150c7c9fcd62b70e37645332007c7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/lenovo/ideapad-laptop.ko.xz",
+    "destination": "",
+    "taille": 31708,
+    "sha256": "1851512515cb46389f68fe309d44d17db3370de778268d72ef492127cce9f984",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/lenovo/lenovo-ymc.ko.xz",
+    "destination": "",
+    "taille": 11680,
+    "sha256": "f824dc24a6738e51f03153e9730105b15e6b08035416074f5e96b211701d355a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/lenovo/think-lmi.ko.xz",
+    "destination": "",
+    "taille": 22436,
+    "sha256": "44265c169a278690692ca5907df17ca3d4136de64d9a3ec8bcd94b99181e066a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/lenovo/thinkpad_acpi.ko.xz",
+    "destination": "",
+    "taille": 83460,
+    "sha256": "250bc2f5211a8ca1ef5ca9106049499c56abdd5bfb2f4685e070c4f15df9c738",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/lg-laptop.ko.xz",
+    "destination": "",
+    "taille": 17820,
+    "sha256": "2cc0a0eb7f88766d83ecc6526fb37ddc2bc1c89569425fe8975a9f1417c1d352",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/msi-ec.ko.xz",
+    "destination": "",
+    "taille": 12912,
+    "sha256": "07429fb50ffadb8cad87d84013243091efde9761a904720c42a89fa7cc008be2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/msi-laptop.ko.xz",
+    "destination": "",
+    "taille": 21128,
+    "sha256": "233abe2900131086c029bcec81f2d84ced6c5522ad72b57e1cee7125cd155d18",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/msi-wmi.ko.xz",
+    "destination": "",
+    "taille": 16852,
+    "sha256": "673d84080f076d18f5939eaae6863f57247f1e15214340010e8c5539b2d4b0f6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/mxm-wmi.ko.xz",
+    "destination": "",
+    "taille": 8748,
+    "sha256": "a28da34a232ad76013159353618e97e6f5d86dfa04e02ea60fb5389784663318",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/nvidia-wmi-ec-backlight.ko.xz",
+    "destination": "",
+    "taille": 14504,
+    "sha256": "36eb3c91b89813fe5ff88f5a60fd7ff6d6ab7d6abaad56d83c066649b9edeb37",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/panasonic-laptop.ko.xz",
+    "destination": "",
+    "taille": 21212,
+    "sha256": "436c0c189617b3e2f0e23a76cfb4daf52ea07be559d1afc82f6fbed4b4859cac",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/pcengines-apuv2.ko.xz",
+    "destination": "",
+    "taille": 11052,
+    "sha256": "c91fdf3a7aadf8851b98dc58eca447485ef9d9de580afe7e6f57a6d348f8d73d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/samsung-laptop.ko.xz",
+    "destination": "",
+    "taille": 24316,
+    "sha256": "dab1d24f71089deb8fcf7a8246e96ba403be43133571205b6514917585da2f58",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/samsung-q10.ko.xz",
+    "destination": "",
+    "taille": 14436,
+    "sha256": "6ba9114d446cd7b2886913a8de35e34a8ac3af5c61c61b0269dc16a60e555b98",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/serial-multi-instantiate.ko.xz",
+    "destination": "",
+    "taille": 18304,
+    "sha256": "1670bf35b673998c5277d28de529b98605d3fc876330df094a643adecd16633b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/siemens/simatic-ipc-batt-apollolake.ko.xz",
+    "destination": "",
+    "taille": 9324,
+    "sha256": "34a9773761378fced3b834e5a1aa429cf361ada29cb2be8224c317f2e2e58fd2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/siemens/simatic-ipc-batt-elkhartlake.ko.xz",
+    "destination": "",
+    "taille": 9336,
+    "sha256": "eb7205c8c2a82f1dd941659c3d2c27aaa561a2793757604d948e062f9ecc4a7e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/siemens/simatic-ipc-batt-f7188x.ko.xz",
+    "destination": "",
+    "taille": 9596,
+    "sha256": "ead0b99c88fce53f93bf51b0aacdfbf268685a86d9c05a13c27b552a8d713104",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/siemens/simatic-ipc-batt.ko.xz",
+    "destination": "",
+    "taille": 11484,
+    "sha256": "787e26c0fc4e7f488564649f27fe08a3e92f4264355d782725f829898655826e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/siemens/simatic-ipc.ko.xz",
+    "destination": "",
+    "taille": 10692,
+    "sha256": "9b8744c47dba8ac70c2df9d24bb15670b2c90b3fae3a8db8d0bbabbcfd1aaa56",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/sony-laptop.ko.xz",
+    "destination": "",
+    "taille": 43116,
+    "sha256": "6e878a87513ee379fd6ceba028ee5e801c10aaad379f86e7368b94dcde298dd7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/system76_acpi.ko.xz",
+    "destination": "",
+    "taille": 15960,
+    "sha256": "57dc707137f4fc89d037a09019c344764cf1524fc6d49ebe0ecd003ffed7834d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/topstar-laptop.ko.xz",
+    "destination": "",
+    "taille": 12992,
+    "sha256": "c5ecd4c2b537e95dfb12cef42cf82a0ae0e6cdfa7ff00f26bfe33363054984f0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/toshiba-wmi.ko.xz",
+    "destination": "",
+    "taille": 10660,
+    "sha256": "4bc30542ec5b87d69e5bd8e27fcfd8f8aa371c4d5d9372f2590460cf36ab7eba",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/toshiba_acpi.ko.xz",
+    "destination": "",
+    "taille": 38712,
+    "sha256": "4564792b3497562d02ae35857e1598ae578ea8c156c6485c388c818f0aa9bbf9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/toshiba_bluetooth.ko.xz",
+    "destination": "",
+    "taille": 12204,
+    "sha256": "fdbf00393e63b173afb6b41e678951905db63a8ac8735f9efd954087ecb2af68",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/toshiba_haps.ko.xz",
+    "destination": "",
+    "taille": 11968,
+    "sha256": "61dca0308d79a6cc44be5d9aa1f43ef6261b91a2f18b47c09acb8d8c45411173",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/wmi-bmof.ko.xz",
+    "destination": "",
+    "taille": 10132,
+    "sha256": "ad01b3dce6f1ba3858004512c10fd0fbe6b2c578bf72b61d9b9da31f6008f735",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/wmi.ko.xz",
+    "destination": "",
+    "taille": 19188,
+    "sha256": "1965036038f408ef0f3f59f0ac1dc0e9b7e1f82ecd683eaf6454469f2f224cca",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/x86-android-tablets/vexia_atla10_ec.ko.xz",
+    "destination": "",
+    "taille": 16248,
+    "sha256": "3bf2d681c9b6d019ee188eec4c76775049994075bebe3e9d2e50169099c4f19f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/x86-android-tablets/x86-android-tablets.ko.xz",
+    "destination": "",
+    "taille": 41304,
+    "sha256": "c2fb041e180ed81f0c8aee1287a6ff5c1522b3d05dcb0b7324e242e9176343e3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/platform/x86/xiaomi-wmi.ko.xz",
+    "destination": "",
+    "taille": 10680,
+    "sha256": "3cd216d42ca2f0fbab9073a6200edbd36ef546b33384c13e44e5beef4f63f469",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/axp288_charger.ko.xz",
+    "destination": "",
+    "taille": 20136,
+    "sha256": "e4a926ad4cb1a1d9fee8fbfb0ea235ba79d8309f99714f4aad6616b756c1d0c0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/axp288_fuel_gauge.ko.xz",
+    "destination": "",
+    "taille": 15280,
+    "sha256": "3546208ff922b1c1049a8030d9ecc38f34125fda36572bcc0e49c5bd6f45dc6c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/bq24190_charger.ko.xz",
+    "destination": "",
+    "taille": 27288,
+    "sha256": "cbd4ec4943776f880da23fe2a47efc5463b8d76a5f522a072db033eb942d5fa0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/bq27xxx_battery.ko.xz",
+    "destination": "",
+    "taille": 20368,
+    "sha256": "98263a04a23444eeefb82a5e7b671e39dda3d5aef86906998b1e8d5e83b27814",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/bq27xxx_battery_hdq.ko.xz",
+    "destination": "",
+    "taille": 11388,
+    "sha256": "d196ac8851c6cdfa0ca24aaf1354289c14dcd96645946df1421337462d4705a4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/cros_charge-control.ko.xz",
+    "destination": "",
+    "taille": 13104,
+    "sha256": "d2c050d6fdd83e302187ee01e6598426481d890de3c6f0486ff8075a56a5a032",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/cros_peripheral_charger.ko.xz",
+    "destination": "",
+    "taille": 13640,
+    "sha256": "fca3fb6f6ed908bec6561877cbfa7c4f9f092c3ba84bc8202856d017fe40b1c0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/cros_usbpd-charger.ko.xz",
+    "destination": "",
+    "taille": 15784,
+    "sha256": "8467474fe6655c7cf3d91b01bb806593c8ebaeffc8ebaf9093ed6d3d4ccff620",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/ds2760_battery.ko.xz",
+    "destination": "",
+    "taille": 19040,
+    "sha256": "ef662aabdf50592d4c4e681a51967747aa989966a6cdadfd6d12ce0bc9f21667",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/max17042_battery.ko.xz",
+    "destination": "",
+    "taille": 21856,
+    "sha256": "91946f50ff5a73f8c4396a91e727944ff7915f7ef4044ab6eed24d2c567136c8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/sbs-battery.ko.xz",
+    "destination": "",
+    "taille": 22120,
+    "sha256": "dfda1dca1a0a215a5d1de7359bf125e86ec1ef6bbbc600dc0aab16794b4a4796",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/surface_battery.ko.xz",
+    "destination": "",
+    "taille": 16776,
+    "sha256": "3d1872d2ae6a2b6440fede468f54c08f73e8a8fa8881c1380679cc5608310460",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/surface_charger.ko.xz",
+    "destination": "",
+    "taille": 13396,
+    "sha256": "d5b2c1bf4ec93ea3da091b9df85b7711e56e33409320a7ff1fcd601abd819a41",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/power/supply/wilco-charger.ko.xz",
+    "destination": "",
+    "taille": 10728,
+    "sha256": "d1c15e0bda11f1f4717a04a3b485703a3124d1b6ffc379e2c74ac2d4be0ad5d1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/powercap/intel_rapl_common.ko.xz",
+    "destination": "",
+    "taille": 32564,
+    "sha256": "a76067ef62bc5b678baba4baa008698e30bf2b778073a3e82f0e00f6c371d758",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/powercap/intel_rapl_msr.ko.xz",
+    "destination": "",
+    "taille": 16188,
+    "sha256": "c1e154121057d8320b3354a5986664111b02523aad870fecf211651bd1e267e4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/powercap/intel_rapl_tpmi.ko.xz",
+    "destination": "",
+    "taille": 13536,
+    "sha256": "e4e6ac2eed99cb018c71cc379aefede50f2802ef168e8878fb2fce036be5256d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/pps/clients/pps-ldisc.ko.xz",
+    "destination": "",
+    "taille": 11816,
+    "sha256": "5cc563a5c2fd04c4635ed07469a7a9be7eb60f3d5b31ed7309d2ce97fe10b227",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/pps/clients/pps_parport.ko.xz",
+    "destination": "",
+    "taille": 12964,
+    "sha256": "a5167635310f83e87ebc3ac4001609dcd317b9ee0533b33a766426b377a0766c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_clockmatrix.ko.xz",
+    "destination": "",
+    "taille": 24372,
+    "sha256": "0c87dcfbb1a9cec6e4d128accfab09b3508769c09fe342bb0b2d1077752a33e6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_idt82p33.ko.xz",
+    "destination": "",
+    "taille": 20644,
+    "sha256": "07b08f542b939356b90a4b2f7d45c859696c83085e95bb88b9b5402fab930df7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_ines.ko.xz",
+    "destination": "",
+    "taille": 29324,
+    "sha256": "a7040cd0dda98bc52e8f7dfab208b9b51e4c4dfab236c50f757b7fc99a37f595",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_kvm.ko.xz",
+    "destination": "",
+    "taille": 12812,
+    "sha256": "f73bdd6715037f0aeeffa30e0238c6930a48e4678ce02b6b037dfc2364fb0608",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_ocp.ko.xz",
+    "destination": "",
+    "taille": 54908,
+    "sha256": "c7d27a52ccab62a848a7d974dab814110585b2398479d5c3af1aeba8391b2843",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_vmclock.ko.xz",
+    "destination": "",
+    "taille": 15412,
+    "sha256": "760ed02f63a73de14d6e1e119879642366ff6419861b1c94862163747854f404",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ptp/ptp_vmw.ko.xz",
+    "destination": "",
+    "taille": 11492,
+    "sha256": "98c2142544751ab6fe7432ebf0456271b47918ecfa853e4c68633d61b95cc68e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/pwm/pwm-cros-ec.ko.xz",
+    "destination": "",
+    "taille": 13284,
+    "sha256": "3e81e49052f7d6d532425928ac8afce88bc2b9fb031eda9535e688f15b8f88f7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/pwm/pwm-lpss-platform.ko.xz",
+    "destination": "",
+    "taille": 9828,
+    "sha256": "e25b5e2b0487ecb37234b4a3ed9ad71a19846c28b8bc0b6dad1c0aa7e7dfc9d3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/pwm/pwm-lpss.ko.xz",
+    "destination": "",
+    "taille": 12516,
+    "sha256": "0fd1a2a3182af654574ed0145ac6de17169df0a30de1f237b8b43ed30dab97e2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ras/amd/atl/amd_atl.ko.xz",
+    "destination": "",
+    "taille": 29004,
+    "sha256": "cdb3ee62525b08f86e0211e62c50d4905dcaf983fd667a3e16ed26e074271f45",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ras/amd/fmpm.ko.xz",
+    "destination": "",
+    "taille": 16368,
+    "sha256": "f2ddce4830ddc5566e543bbf86ed4663da70cedaf00fd1f75491552d3b7ec2f1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/rtc/rtc-cros-ec.ko.xz",
+    "destination": "",
+    "taille": 13400,
+    "sha256": "11d95de84deae7e04d906fd06ceaca52b3116154a09d1100452e3ea85c181c50",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/rtc/rtc-wilco-ec.ko.xz",
+    "destination": "",
+    "taille": 11004,
+    "sha256": "5f1d30e4df4ff8f73bc7a88953995f6077f9be531f6bb3d0cce3bce267a43bd9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/3w-9xxx.ko.xz",
+    "destination": "",
+    "taille": 34804,
+    "sha256": "22cda0a7cefe0ccfc77ee1d3baec660f6f1d61defea2862860f24888f4995990",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/3w-sas.ko.xz",
+    "destination": "",
+    "taille": 30028,
+    "sha256": "db0b7c67732abb4c1f71ac624a1af203647cbfe0da47ebc6264da577136f218e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/3w-xxxx.ko.xz",
+    "destination": "",
+    "taille": 29104,
+    "sha256": "540659d84d158acb8cfdf12df63200dbdd0cc33823fd2dad09fc1ae7896e167a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/BusLogic.ko.xz",
+    "destination": "",
+    "taille": 39660,
+    "sha256": "e8ed4b3fc4bba5d97fc6826f1a3949e5f7570124be47def48ae0a31937a0d391",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/a100u2w.ko.xz",
+    "destination": "",
+    "taille": 21604,
+    "sha256": "cc6a559a9e29113f6ee2e863d17cd235ae50ae8e144cb4f1edf7870ec7605fb3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/aacraid/aacraid.ko.xz",
+    "destination": "",
+    "taille": 93744,
+    "sha256": "af78811b2f0b25ced5dca3bdb0fdb4c626eb1860e45fd7f9d09664e597bf395c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/advansys.ko.xz",
+    "destination": "",
+    "taille": 49740,
+    "sha256": "08bd7aa0eb34bcfefecc682cec1e6dea1f3dcd0948a15ef9653c5145ac114e9d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/aic7xxx/aic79xx.ko.xz",
+    "destination": "",
+    "taille": 106012,
+    "sha256": "2659bd027dee9d35b35f9ebab312b1be3929a61799ee7b69e9645683d256a0e0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/aic7xxx/aic7xxx.ko.xz",
+    "destination": "",
+    "taille": 91888,
+    "sha256": "b8df953c34f1d00ad43cfdbc73571194eace49e4ee4aae69d9d0856738fb8d4f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/aic94xx/aic94xx.ko.xz",
+    "destination": "",
+    "taille": 70624,
+    "sha256": "7c842aec463427c1cbec211849f28168e98b6f3c95d6847beab2a5c20fb1447c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/am53c974.ko.xz",
+    "destination": "",
+    "taille": 18716,
+    "sha256": "d34af8caf9be53e038a3e8c524cd3fa35460b5c67d48c7b0a154b6750aa2d6a1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/arcmsr/arcmsr.ko.xz",
+    "destination": "",
+    "taille": 44344,
+    "sha256": "e11d45d23f06cc0edc25d46362861ec989e048d168dc595f5ca8a0ae3c7ed230",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/atp870u.ko.xz",
+    "destination": "",
+    "taille": 26972,
+    "sha256": "c9dd96a20584d05a58226a1855d635cf1435df4024bfa874d5c451ce7beb5cff",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/be2iscsi/be2iscsi.ko.xz",
+    "destination": "",
+    "taille": 96608,
+    "sha256": "925d36acd45508343936c1c3ef9409d7465e7e5d320d7e8c115bdc1be61646da",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/bfa/bfa.ko.xz",
+    "destination": "",
+    "taille": 272408,
+    "sha256": "641876b6cb71dc42075832fa9315c6ccb9ae90c94f4500f45e07bdc9408912e8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/bnx2fc/bnx2fc.ko.xz",
+    "destination": "",
+    "taille": 90272,
+    "sha256": "6308339079692e07679d5795e2bde4cc596fea5d3fa91bed91a7d5833c058fd5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/bnx2i/bnx2i.ko.xz",
+    "destination": "",
+    "taille": 60480,
+    "sha256": "54041ba14c46c6bba36ce67e8061fc3c7ee0534af4fd6307b62b0dc61da9185c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/ch.ko.xz",
+    "destination": "",
+    "taille": 23596,
+    "sha256": "dfe30d1a906970faefc4d2f5a85fc538590229be88dd0e04543b9ad56b8450c2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/csiostor/csiostor.ko.xz",
+    "destination": "",
+    "taille": 106744,
+    "sha256": "8ebef56c741e80d182bcb1e0739d1eb176e020dda9198fbd1b220395252bba41",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/cxgbi/cxgb3i/cxgb3i.ko.xz",
+    "destination": "",
+    "taille": 55024,
+    "sha256": "aa17c64c924a173924646c6f29634a5977d0268331e5475fd9d4c0043042e5d6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/cxgbi/cxgb4i/cxgb4i.ko.xz",
+    "destination": "",
+    "taille": 66336,
+    "sha256": "c15a675cf21b2da4a3af98211d18826bbf1477d929676e5fd8367a1d5308fa5d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/cxgbi/libcxgbi.ko.xz",
+    "destination": "",
+    "taille": 66344,
+    "sha256": "7296ea08560d37c6508dccb7fbf06ae25ae69b399341d068aacf37b6aff35018",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/dc395x.ko.xz",
+    "destination": "",
+    "taille": 34468,
+    "sha256": "cacd391fa30c3a7b0dae12108a01104f8ae66fa54e37d698e65c5ee087f523c1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/device_handler/scsi_dh_alua.ko.xz",
+    "destination": "",
+    "taille": 22848,
+    "sha256": "f3fd62e7419172556f25018dcb351a4e8b2e7cfb6b66d3d7ad43ab04bc5b3617",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/device_handler/scsi_dh_emc.ko.xz",
+    "destination": "",
+    "taille": 16636,
+    "sha256": "524b446bba548fe2faf79f253afca631df67536a512a14ac7ce61a52ac940802",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/device_handler/scsi_dh_hp_sw.ko.xz",
+    "destination": "",
+    "taille": 15160,
+    "sha256": "73e04ea060a37163cf4d4fc99cba11d7b368e16941db9c044df4e3c0bd244f41",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/device_handler/scsi_dh_rdac.ko.xz",
+    "destination": "",
+    "taille": 18796,
+    "sha256": "026908346a68307b49fe21f82ccf7903140b30ac3ba41d45d72611e088088832",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/dmx3191d.ko.xz",
+    "destination": "",
+    "taille": 25220,
+    "sha256": "f60674f8bfbc35122bea7adc1bdc3a4178e58c5a6b4ee78d49371844b65f3c68",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/esas2r/esas2r.ko.xz",
+    "destination": "",
+    "taille": 74164,
+    "sha256": "482c3e376de929720591c4eceb1640991113aa3cd8da794ab237a87ee8fb7b4b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/esp_scsi.ko.xz",
+    "destination": "",
+    "taille": 32596,
+    "sha256": "09e63a38ecab0f5b416a319d207c2df58f28ca7310e71e18d1caef6795d97714",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/fcoe/fcoe.ko.xz",
+    "destination": "",
+    "taille": 46216,
+    "sha256": "ee6dc65719ec98e5474f407ce7e5ea07541f94174077ee380ecc2e94b0fa765e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/fcoe/libfcoe.ko.xz",
+    "destination": "",
+    "taille": 63588,
+    "sha256": "bf45a64d5514256f071b102d85bb5272c3ad24633b661f26148eea2044b8c069",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/fnic/fnic.ko.xz",
+    "destination": "",
+    "taille": 162896,
+    "sha256": "6e1bfbfd3010c13d2f4e49013d13fbda692e09ad24fa1d54f7ed85addcbe40b3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/hpsa.ko.xz",
+    "destination": "",
+    "taille": 73096,
+    "sha256": "f84bf475131f5cd4bebac26479d57ecdd676f15a565469f05cbf766a05b39aa5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/hptiop.ko.xz",
+    "destination": "",
+    "taille": 27772,
+    "sha256": "7be3d54cdc8a761937b92c49742024aa05ac3e1596d32c4cc94ec8828f3f1072",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/initio.ko.xz",
+    "destination": "",
+    "taille": 28432,
+    "sha256": "682c21cb84a6fe538b0956ea4b9b4d3903374b6a540b9736949b991ddbaecb67",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/ipr.ko.xz",
+    "destination": "",
+    "taille": 78124,
+    "sha256": "e947eb8d914f129d7b20165db234782fed27e851dfa43a598b1559f92e09e8b0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/ips.ko.xz",
+    "destination": "",
+    "taille": 45780,
+    "sha256": "b09e14f08db371b46f04a4ddfc4745b967dadcf0d31fcf3d15489d97708a9064",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/isci/isci.ko.xz",
+    "destination": "",
+    "taille": 104436,
+    "sha256": "200154118929bac993968dce8be57818061656a1c33841c1335a0fe9cb3282a4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/iscsi_boot_sysfs.ko.xz",
+    "destination": "",
+    "taille": 11956,
+    "sha256": "95c20ced66a917ba4ec3269c864a04171e2225c1dd064c6bc404eb8bf004ef8e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/iscsi_tcp.ko.xz",
+    "destination": "",
+    "taille": 41996,
+    "sha256": "dc9a4a4c77ea1cc2caf81eca01e0c62e5b9dc45a87dbc2eb6a3207c4f8e42a3d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/libfc/libfc.ko.xz",
+    "destination": "",
+    "taille": 92256,
+    "sha256": "16ea5e5a47226f5f40ea0e35c24b8dffa3cc50f85be8d966b10865515925f86a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/libiscsi.ko.xz",
+    "destination": "",
+    "taille": 61908,
+    "sha256": "73f700b52e7c33209dd9a32f3e318f86749223a7bdcd2357ff18915da6591f0d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/libiscsi_tcp.ko.xz",
+    "destination": "",
+    "taille": 43232,
+    "sha256": "4b4c5d76db35427e653f54d5c83a895671bfe308faa7a130109d6e6efd0cd56e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/libsas/libsas.ko.xz",
+    "destination": "",
+    "taille": 74556,
+    "sha256": "d94cf2a02a1d332cbc2a1049056ab8f9e847d73f3c233318015e63d60506b2ac",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/lpfc/lpfc.ko.xz",
+    "destination": "",
+    "taille": 556976,
+    "sha256": "8e554cc0d20f07aed6e63497b713acae9c59f45e656f65b8b626238c86fbc355",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/megaraid/megaraid_mbox.ko.xz",
+    "destination": "",
+    "taille": 35980,
+    "sha256": "e858bb9dc9a58fccca3cca7a309e33f7737f943c2d31b686986442997293edef",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/megaraid/megaraid_mm.ko.xz",
+    "destination": "",
+    "taille": 18372,
+    "sha256": "9e868d91f63d81f09df206d0253b365a80d5af4b6430618d1112ba8956feff62",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/megaraid/megaraid_sas.ko.xz",
+    "destination": "",
+    "taille": 107880,
+    "sha256": "ed032e87a5f58b9e24988b690b2c9e9d64fddee7ef0c33736df5db3e0159812e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/megaraid.ko.xz",
+    "destination": "",
+    "taille": 39860,
+    "sha256": "61082c234319aa0e5d07429c9cd3ea1b4f66796d60d4994e301512744024f9b8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/mpi3mr/mpi3mr.ko.xz",
+    "destination": "",
+    "taille": 123636,
+    "sha256": "36021facd278bfc49456fab1aa9a71678456cf90545a13b8c2c861d5642ee980",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/mpt3sas/mpt3sas.ko.xz",
+    "destination": "",
+    "taille": 185672,
+    "sha256": "93897c123526f2acfdfff21758993646ad3512d12518bc73ca25493f40a65b77",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/mvsas/mvsas.ko.xz",
+    "destination": "",
+    "taille": 61196,
+    "sha256": "b82af52f004033f73bc5832e8d65c301e641abc24919edffc406f3960cb4146e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/mvumi.ko.xz",
+    "destination": "",
+    "taille": 36048,
+    "sha256": "856959997905b54f73cd911885bc60a89f618830ddb15e0898b9601b79b3496a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/myrb.ko.xz",
+    "destination": "",
+    "taille": 42888,
+    "sha256": "ad60d5dacd12fca3ef68a5613b73544ccadd72eb71edc9950c169cc0a89f45e2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/myrs.ko.xz",
+    "destination": "",
+    "taille": 41528,
+    "sha256": "237f1be7e44e754dfe96011d499d137bcbbf116c5428d2bec2c157a513e97158",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/pcmcia/aha152x_cs.ko.xz",
+    "destination": "",
+    "taille": 36916,
+    "sha256": "9a42d72ef45f2d53046f460a4fb94359d5c028c45382d2db93978e19bc2a728b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/pcmcia/qlogic_cs.ko.xz",
+    "destination": "",
+    "taille": 19412,
+    "sha256": "14cc6a476db7b7708f8628cfcc333134466c9e62531b2cffb1b6e9941c46535a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/pcmcia/sym53c500_cs.ko.xz",
+    "destination": "",
+    "taille": 21784,
+    "sha256": "e560855ad6e9aa097aa453ea20878203b5605c8be2fbb0d9a683354e04a9b85f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/pm8001/pm80xx.ko.xz",
+    "destination": "",
+    "taille": 125296,
+    "sha256": "b416854a8ec0abc674243fe6f43a5d22ed9a83ec4428bc0e2df4e9152c271e6a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/pmcraid.ko.xz",
+    "destination": "",
+    "taille": 57976,
+    "sha256": "1f87db0c0a5b0326356d02be65dbd4c9edf9e8da81cbe79f6b51bd373a09079a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qedf/qedf.ko.xz",
+    "destination": "",
+    "taille": 105644,
+    "sha256": "7c9e1ca14882af9320d492067d06b2d186a26c6874c73408b5adccd067ba0948",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qedi/qedi.ko.xz",
+    "destination": "",
+    "taille": 91896,
+    "sha256": "4e32cde8304c8673c40309bcda673899003772579bf54cc575b3e4018aaa9732",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qla1280.ko.xz",
+    "destination": "",
+    "taille": 32876,
+    "sha256": "8a4f57ac0ad49e32ad4794831f76971bdfb157c728b4a5bf218dd9f6b7bb9a5b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qla2xxx/qla2xxx.ko.xz",
+    "destination": "",
+    "taille": 489096,
+    "sha256": "313894c275fe5cf52383fc5fb7c060a84c7259dc82c8745c47f5ce661da7cdcd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qla2xxx/tcm_qla2xxx.ko.xz",
+    "destination": "",
+    "taille": 57908,
+    "sha256": "1ace51b4d4483d5b565c3f633baeac94c77af21c4a40257a273b8a93c02d0b1d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qla4xxx/qla4xxx.ko.xz",
+    "destination": "",
+    "taille": 170888,
+    "sha256": "47bafdb65d6bcec028e97bd1f0a246a164b0b980295fb6ebaf5add07272be198",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/qlogicfas408.ko.xz",
+    "destination": "",
+    "taille": 18968,
+    "sha256": "2124b6c4c51d9101d777e3f0ae5156ebd12e38debd120ed83c3e0e711fa6d13e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/raid_class.ko.xz",
+    "destination": "",
+    "taille": 16624,
+    "sha256": "1a902c85445f105fa3857fde5738f9925f0f507bab7b4cdedab5827684a98368",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_common.ko.xz",
+    "destination": "",
+    "taille": 10176,
+    "sha256": "45bf3887af944d2e97457aef5301c109f7fa1dfe3fc7f6b4f578fe9a7ab32f24",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_debug.ko.xz",
+    "destination": "",
+    "taille": 78120,
+    "sha256": "782d6c7573e2d421672d6b43b24d76452ecda043dbf622b4cb874321f8ea7583",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_mod.ko.xz",
+    "destination": "",
+    "taille": 144856,
+    "sha256": "4ddc85f0a416b84fd018dc6f1a6c0ee96c5819077bc4b40d1aaa3087a12d9516",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_transport_fc.ko.xz",
+    "destination": "",
+    "taille": 50664,
+    "sha256": "fde2d4309f35ec776608099fc4b6fe06546e3a71e4078f2f740510f30c4957fd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_transport_iscsi.ko.xz",
+    "destination": "",
+    "taille": 78688,
+    "sha256": "a780f4bf3de1053136d201e14e3d975b582378cd02d767ddc775855c4e6327f6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_transport_sas.ko.xz",
+    "destination": "",
+    "taille": 30728,
+    "sha256": "28a015a726bfd4b13d6780bfd96cc6e19c6bc4a8f28f76e3d593dbdb6cd1a69c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_transport_spi.ko.xz",
+    "destination": "",
+    "taille": 32200,
+    "sha256": "53fc3e649fb81cfd251b5e3d7a856b59bf631f8be47c6f605e30b1479f03e647",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/scsi_transport_srp.ko.xz",
+    "destination": "",
+    "taille": 22328,
+    "sha256": "47ad0a03c2a8a313dc8e2ae34003a3a5b478852fbd2ec68984f57f2c70e0848c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/sd_mod.ko.xz",
+    "destination": "",
+    "taille": 59252,
+    "sha256": "4ae32a4900d632cb11a36916fd5bd8cc0a8a42649c09f67104dff3cc24a54e2f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/ses.ko.xz",
+    "destination": "",
+    "taille": 21008,
+    "sha256": "25ccdb606bb21eec66e2beb884460db60ffbafb5fb7dc28c1d43267f5408d115",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/sg.ko.xz",
+    "destination": "",
+    "taille": 33952,
+    "sha256": "7996c4d4f7780b39d6137dbafbde572683ea948980f55e6c215f2b2d8839bc23",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/smartpqi/smartpqi.ko.xz",
+    "destination": "",
+    "taille": 79076,
+    "sha256": "a2f12cdf74da36418684ddcff4fcb5337770bfac2cbd12e86e300a1a021a367c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/snic/snic.ko.xz",
+    "destination": "",
+    "taille": 72480,
+    "sha256": "7cc7b4507823a8735621b9a989c348881a4f9e9c256c1c0316eaaf3166b34b43",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/sr_mod.ko.xz",
+    "destination": "",
+    "taille": 27272,
+    "sha256": "0b988c103e3e801b2a7e9a8c90a9dc2a43ddd2f08f37238748039d73a582e24a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/st.ko.xz",
+    "destination": "",
+    "taille": 47332,
+    "sha256": "efb18a77622a5e8b8d85d9ec06f511d6c74df5431180bb1cb5d979306310cc27",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/stex.ko.xz",
+    "destination": "",
+    "taille": 28236,
+    "sha256": "00ae4e2c9fb9d010a3b0b52f6eca0ab987c2e396d1862e02ad6db55f7c32a361",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/sym53c8xx_2/sym53c8xx.ko.xz",
+    "destination": "",
+    "taille": 64176,
+    "sha256": "ae36b67de14213730f3028dcdc410e22205080213ed032d80662044df34560ad",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/virtio_scsi.ko.xz",
+    "destination": "",
+    "taille": 24916,
+    "sha256": "861872f504509d1cd6fe279c96d86b7b377cb1613b600c9f80a3e016074f0a77",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/vmw_pvscsi.ko.xz",
+    "destination": "",
+    "taille": 28120,
+    "sha256": "ef28f164025f49ea40e1c474e15e712eb1205ecd950275d35a69373863a6bdba",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/wd719x.ko.xz",
+    "destination": "",
+    "taille": 24452,
+    "sha256": "6ad171faeb5ecab384fc09acef430e7a92bd7860b2b8312c00a3bde7c22ceed4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/scsi/xen-scsifront.ko.xz",
+    "destination": "",
+    "taille": 27272,
+    "sha256": "ea19554044e7520d0284eb38f4efacaf47dee8eec89d6130e3ccf234f9ad355c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/slimbus/slimbus.ko.xz",
+    "destination": "",
+    "taille": 20424,
+    "sha256": "8baa3c16cb2a0c4ca4a33e0a14c2e0b0db6ff4d2a4682b026129e967107c1fec",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/soc/qcom/qmi_helpers.ko.xz",
+    "destination": "",
+    "taille": 32160,
+    "sha256": "be40a055a3a823142883fae50fb90c6c69b8ac79dec7eb04cf5ceff751ce3495",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/soundwire/soundwire-bus.ko.xz",
+    "destination": "",
+    "taille": 68088,
+    "sha256": "914776a23301ce182289fd2361ac2e1d914bca6d62682aac37cc9728f213de22",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/soundwire/soundwire-cadence.ko.xz",
+    "destination": "",
+    "taille": 37280,
+    "sha256": "d32ae0a7376fe93dd2e6b3747c0834c13c45f6a9650ca58286f7ca7b33086f5b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/soundwire/soundwire-generic-allocation.ko.xz",
+    "destination": "",
+    "taille": 16476,
+    "sha256": "6fd4cafd7fb352bfa175ab9fdda13410862485ac432aa62a71286ae417a1557c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/soundwire/soundwire-intel.ko.xz",
+    "destination": "",
+    "taille": 49052,
+    "sha256": "c2c59bed61768f3f7a41e33982a832a0aafbe4ccd18cf03ba6da4edad2b683b8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/soundwire/soundwire-qcom.ko.xz",
+    "destination": "",
+    "taille": 28624,
+    "sha256": "5d42f1182456817bd21d852619e0e0e13af1488a94085ce2a46ccac91a54488b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-bitbang.ko.xz",
+    "destination": "",
+    "taille": 13280,
+    "sha256": "c010ca1a75eef7c453c1b10587b0cf3a3c8505d42c637c61727444c4306bf1a0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-butterfly.ko.xz",
+    "destination": "",
+    "taille": 13820,
+    "sha256": "25529b965160dfe170dcee81f11e65da4b4708afbd59d9ba1ec09821fd7384e7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-cs42l43.ko.xz",
+    "destination": "",
+    "taille": 18172,
+    "sha256": "5de70e8b30d2edb6f0cc8035d6b203c808ec9e05edd7cdd265662e6c6dfa3f4a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-ljca.ko.xz",
+    "destination": "",
+    "taille": 12488,
+    "sha256": "9475c144983bd7928eab5ae35d707216a0faa43181ad1fb74a6b3c8f5e98a172",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-lm70llp.ko.xz",
+    "destination": "",
+    "taille": 13540,
+    "sha256": "9e132ae543dfed4f6c21fe6236bcc10ca51886d93ca76a794871b49b36512894",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-pxa2xx-core.ko.xz",
+    "destination": "",
+    "taille": 20928,
+    "sha256": "d8773124fcd74f45e585d734dcac9649119f54172083fe17ceed1d1faad50289",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-pxa2xx-pci.ko.xz",
+    "destination": "",
+    "taille": 14208,
+    "sha256": "b9fa1a06255f034050ddb396a3702a61640a650e0a9dd711236a844df09c6a3f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/spi/spi-pxa2xx-platform.ko.xz",
+    "destination": "",
+    "taille": 12472,
+    "sha256": "afba21d0dc7f7fcd8310ad518423b8cf33c2067e8e2b89a76c4599bec96cb5fb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ssb/ssb.ko.xz",
+    "destination": "",
+    "taille": 66168,
+    "sha256": "1fa95539f6bba687e5d412ce76887f67d03a3dcfc4f1b269c6718f7ee2f4576a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/media/av7110/dvb-ttpci.ko.xz",
+    "destination": "",
+    "taille": 104008,
+    "sha256": "dc3f6bba3c5e7de8a41d4a647917abf129415c985e8f955305fd26a7fcf97ea6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/media/av7110/sp8870.ko.xz",
+    "destination": "",
+    "taille": 21424,
+    "sha256": "8f713e689a44be2dbeb93b165bb5fa8a90d02789302bb65d213796b2490a154e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/media/ipu3/ipu3-imgu.ko.xz",
+    "destination": "",
+    "taille": 111128,
+    "sha256": "cfa777c239ff7c5dc01577376ced1e921da37d7f0f9a4429dd8ec43142888526",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/rtl8723bs/r8723bs.ko.xz",
+    "destination": "",
+    "taille": 303768,
+    "sha256": "e04b6f35961ceb850fef8d367af88e35208f3ef009e4e56c1b088219fc18d51c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/t2bce/t2bce_audio/t2bce_audio.ko.xz",
+    "destination": "",
+    "taille": 38596,
+    "sha256": "596bfd89e1590cc5ba330990865e221b122d4b1ef028675e14fe38ab2cb88206",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/t2bce/t2bce_ave/t2bce_ave.ko.xz",
+    "destination": "",
+    "taille": 61572,
+    "sha256": "f0a71df2bcd3ff306feb629dd5b3e48bd058954b2352b7190913248f9ea93e0d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/t2bce/t2bce_core/t2bce_core.ko.xz",
+    "destination": "",
+    "taille": 26460,
+    "sha256": "6d07005a5646a047bfe74c05f5fddc484c86bd93aa54d46ce825b4a6788a8178",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/t2bce/t2bce_dma/t2bce_dma.ko.xz",
+    "destination": "",
+    "taille": 18664,
+    "sha256": "01f2881f1b009680ded47a42e2f16357b1f11ea014e545929f3ce3ea8ced8110",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/staging/t2bce/t2bce_vhci/t2bce_vhci.ko.xz",
+    "destination": "",
+    "taille": 38792,
+    "sha256": "6ea497079edaa2579a4eb15f9d52940dffaad10343c347fd4a50a4e492f1437d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/iscsi/cxgbit/cxgbit.ko.xz",
+    "destination": "",
+    "taille": 81892,
+    "sha256": "0f8d573862da652dad398a323ea527df7bd4009980a5baea6557b79c95dbdbb0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/iscsi/iscsi_target_mod.ko.xz",
+    "destination": "",
+    "taille": 174808,
+    "sha256": "5f3944956dc70f4791d75033b7591accacaf88a6054ef74fad395226ff7b245d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/loopback/tcm_loop.ko.xz",
+    "destination": "",
+    "taille": 29372,
+    "sha256": "a817fcee08b23bed56a86975dcc645c0b3c79e1812d9ce399c7f000d1c051f38",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/sbp/sbp_target.ko.xz",
+    "destination": "",
+    "taille": 33524,
+    "sha256": "88fe01d28ad190fd982811e4b4f3169d4d9dd617467105e281d5b4b75007203b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/target_core_file.ko.xz",
+    "destination": "",
+    "taille": 24356,
+    "sha256": "37bce0e6ee4a0ace25ff21f0e855d49fd88cc92b75b30e452649e9e4eeb6085f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/target_core_iblock.ko.xz",
+    "destination": "",
+    "taille": 26384,
+    "sha256": "fa4211f298b2b42196076fd154a5c130d2d36ddbfe7771f2f28e3cc21199e0e3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/target_core_mod.ko.xz",
+    "destination": "",
+    "taille": 204856,
+    "sha256": "60c01ef70371efd82f776991b188b440e5f70c288662e70d20d3aeae2be89ee6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/target_core_pscsi.ko.xz",
+    "destination": "",
+    "taille": 29408,
+    "sha256": "13d30e895f9b5eadcb9312676ad879ab0f9a37493f2cc610f32cbfa0704be8b5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/target_core_user.ko.xz",
+    "destination": "",
+    "taille": 49180,
+    "sha256": "900b5215ae14a9abcb508e8dbe38d5553e01d3401a5e49628340d3b5240000df",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/target/tcm_fc/tcm_fc.ko.xz",
+    "destination": "",
+    "taille": 42528,
+    "sha256": "5adfda4b7ed2f540f8afdccfb76f3c7dc8f453fb46a4a5275058ebd994ddae68",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tee/amdtee/amdtee.ko.xz",
+    "destination": "",
+    "taille": 20088,
+    "sha256": "0010ed6f5fc2d5a14cfabb8c43df8ede666ced0ff373c052a8fb19a5fd179343",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tee/tee.ko.xz",
+    "destination": "",
+    "taille": 29748,
+    "sha256": "e02fce6b485de8137a2f31837a87b105231a3e6730ff7f0e19f4d4aa32f4146d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/acpi_thermal_rel.ko.xz",
+    "destination": "",
+    "taille": 14616,
+    "sha256": "d74afd03fd4ce0e17bdc4aad71017a8c3a0ac85a5b4a8666bcb446e700f61abb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/int3400_thermal.ko.xz",
+    "destination": "",
+    "taille": 15880,
+    "sha256": "65f2a9c0fd1ef5bb3d98befe0f4220630f2cdec949780a952efdad825f596f72",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/int3401_thermal.ko.xz",
+    "destination": "",
+    "taille": 10888,
+    "sha256": "109e6b0f59068255cc5f8719dc051e38d6430b9d03527865d6d561a955ac0ade",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/int3402_thermal.ko.xz",
+    "destination": "",
+    "taille": 10484,
+    "sha256": "2c5d618fdd5e99c3289661ec4e30f588de490056310419295b60451bf29b11dd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/int3403_thermal.ko.xz",
+    "destination": "",
+    "taille": 12048,
+    "sha256": "ff1523d7976b4f89bc24e186b389943e14bf8d7bf839c7cd116db281b0fa1f7e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/int3406_thermal.ko.xz",
+    "destination": "",
+    "taille": 15324,
+    "sha256": "69ed1ad39eb15a6471ee55b83667c2b88940ae755648a6962a91ca945295de36",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/int340x_thermal_zone.ko.xz",
+    "destination": "",
+    "taille": 12224,
+    "sha256": "064891ecccd8daf401523b4f9dd0ca69c69cb9da91581fb8e1c02cefad47b187",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/platform_temperature_control.ko.xz",
+    "destination": "",
+    "taille": 13768,
+    "sha256": "c07545b66349903359c56e0ac26ae47b92d7a0bf0e76c2b7a0ad9d6592c22aec",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_device.ko.xz",
+    "destination": "",
+    "taille": 16800,
+    "sha256": "54cc46a935d41ba00760d83b9c0070401e5a47170dd44a016bfee9b7d5635eb0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_device_pci.ko.xz",
+    "destination": "",
+    "taille": 15832,
+    "sha256": "15b32e7a24d796849be8c228820adabf66c36568a41bea53a15aeefeea7b0a43",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_device_pci_legacy.ko.xz",
+    "destination": "",
+    "taille": 13048,
+    "sha256": "3510795ed582c37e22bf1cbb685429f4f3505a7205d36bb2c25e0ec7ce011fc2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_mbox.ko.xz",
+    "destination": "",
+    "taille": 11900,
+    "sha256": "0db3e4ae629ccc647e37f80d86ff0159a7d49cd5517c79e71402a49fc5d0fef6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_power_floor.ko.xz",
+    "destination": "",
+    "taille": 11532,
+    "sha256": "efe6e27799b47b742aca120b953744f173e570f1f238277964259b17cdd54ce4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_rapl.ko.xz",
+    "destination": "",
+    "taille": 12596,
+    "sha256": "0b457b5087550b0d02b8a948032a67da095d0311cbbe9ce5bc4662204d5bc8a4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_rfim.ko.xz",
+    "destination": "",
+    "taille": 15688,
+    "sha256": "abbd3d71f978a84d3a6682442263e8954f40eb5c1141c666a3858cfc63c77e79",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_soc_slider.ko.xz",
+    "destination": "",
+    "taille": 12744,
+    "sha256": "8e5015732a71a96067a095ae16a890a7437a546cd745460901427e0d49a6bd53",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_wt_hint.ko.xz",
+    "destination": "",
+    "taille": 12636,
+    "sha256": "65faa4377466692c49964f6fa690d0de8ce0e38373cef9b732b775a6d2a77851",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/int340x_thermal/processor_thermal_wt_req.ko.xz",
+    "destination": "",
+    "taille": 12136,
+    "sha256": "1bf47b6537ca54031c28f4c5e4e2893994fb3a64346d5f8e500539a2e29b55e4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/intel_bxt_pmic_thermal.ko.xz",
+    "destination": "",
+    "taille": 11096,
+    "sha256": "d7f9d9d622e2aafe77bfaf54716761381336397351d23c85dbf867cc41f8f384",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/intel_pch_thermal.ko.xz",
+    "destination": "",
+    "taille": 17328,
+    "sha256": "a42a912ce154fa55c7236988e6bfcd027ab84024282a227945e0a3e9df9210c2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/intel_powerclamp.ko.xz",
+    "destination": "",
+    "taille": 16084,
+    "sha256": "30c240564f3cf6a7e65d3d47656596f13d370cc167618f61ec23de7ee0a52499",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/intel_soc_dts_iosf.ko.xz",
+    "destination": "",
+    "taille": 12500,
+    "sha256": "c723b99ccb9b15f1e6bfd9cadde69a9d7c6f22f69a18d5d90c94d9bb8c80a4cf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/intel_soc_dts_thermal.ko.xz",
+    "destination": "",
+    "taille": 10460,
+    "sha256": "7c7ee62816dc11d41d40c752fb712121c925202067a48e63513d3691e5dca052",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thermal/intel/x86_pkg_temp_thermal.ko.xz",
+    "destination": "",
+    "taille": 14388,
+    "sha256": "cae598ff46112447b063d4abcaebaebf396ac071b4794c6632f7aeeef1ee9efd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/thunderbolt/thunderbolt.ko.xz",
+    "destination": "",
+    "taille": 211912,
+    "sha256": "534054d73ca30fdf561e8c6aa544f8bdfe867ce83bf7df5c57c895e0e9ad06a9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/ipwireless/ipwireless.ko.xz",
+    "destination": "",
+    "taille": 44356,
+    "sha256": "fe86f6c3ffdf025f303941e51613db856d8ac0928ea028403aeda7ea5f6027dd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/moxa.ko.xz",
+    "destination": "",
+    "taille": 23092,
+    "sha256": "5a8df2f35f92525a5c76806c4b52030a5452034276bc3d9eb1c26cc1c272819e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/mxser.ko.xz",
+    "destination": "",
+    "taille": 22800,
+    "sha256": "a940d21ba07bbcaff9bbce8bb31fc9717dc71cc05420562eda72af2dd12e20b7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/n_hdlc.ko.xz",
+    "destination": "",
+    "taille": 16112,
+    "sha256": "ce98b586f89e94a71a72941259de41a063fe2790be4333547464fca4a2580c0b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/nozomi.ko.xz",
+    "destination": "",
+    "taille": 25160,
+    "sha256": "eb55de9ce0084a7f6680127df12d265e52453027c394b332ebed97807d0cd945",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/serial/8250/8250_exar.ko.xz",
+    "destination": "",
+    "taille": 21612,
+    "sha256": "9b0d44c87f2d59b2b9cf0eff7ebd1572e539bd231530054904a57599534fe1e1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/serial/8250/8250_lpss.ko.xz",
+    "destination": "",
+    "taille": 16300,
+    "sha256": "a3a8e0bb2ce2221674dab079efce3aa7944a1948a9f44388a64c14cb66fee25a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/serial/8250/serial_cs.ko.xz",
+    "destination": "",
+    "taille": 23676,
+    "sha256": "b9cb154e8246d63088e04184f64ab7f5131ca7c002a233f8768fef17c864a464",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/serial/jsm/jsm.ko.xz",
+    "destination": "",
+    "taille": 32032,
+    "sha256": "65b856909ab0a401cca47211e44fca1b20c2ce0d9707ad3336dbd1a0153ee5f9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/tty/serial/rp2.ko.xz",
+    "destination": "",
+    "taille": 18188,
+    "sha256": "9dd5f6238e51afe6b9b9904c562675fc440cad85f2598875c0106d2fba00de41",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ufs/core/ufshcd-core.ko.xz",
+    "destination": "",
+    "taille": 136552,
+    "sha256": "7805f1b85f2f69176c25c2463aca09caca780ade6b4432f4933900013953d6a4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/ufs/host/ufshcd-pci.ko.xz",
+    "destination": "",
+    "taille": 29868,
+    "sha256": "babff22eaac9a4b18270f7204f320b8627f1c76930bf7e112f2bcae2501a34ec",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/uio/uio.ko.xz",
+    "destination": "",
+    "taille": 18368,
+    "sha256": "5d165b6a495047cfdd85e543edd18a0ecb844b5baaf50f7adc21a19e0fac0241",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/drivers/uio/uio_aec.ko.xz",
+    "destination": "",
+    "taille": 12040,
+    "sha256": "6605e2bd42014ce83b0f74a572ec09538bea3fbd12009dd022bad660116219a1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  }
+]

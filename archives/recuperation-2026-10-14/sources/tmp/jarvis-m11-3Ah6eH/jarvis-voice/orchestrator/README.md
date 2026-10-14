@@ -1,0 +1,200 @@
+# Orchestrator
+
+The orchestrator is the "brain" of Jarvis that:
+1. **Routes** user queries via LLM analysis
+2. **Executes** tools/skills with multi-turn support
+3. **Runs** deterministic workflow pipelines
+4. **Formats** responses for voice/text output
+
+---
+
+## Architecture
+
+```
+User Query
+    ↓
+┌───────────────────────────────────────────────┐
+│              orchestrator_v2.py               │
+│  (main coordinator / dispatch layer)          │
+└───────────────────────────────────────────────┘
+    ↓
+┌───────────────────┐     ┌─────────────────────┐
+│context_assembler.py│    │response_formatter.py│
+│(history + previews)│    │(final speech output)│
+└───────────────────┘     └─────────────────────┘
+    ↓
+┌───────────────────┐     ┌─────────────────────┐
+│  Workflow Check   │────→│  pipeline_executor  │
+│  (explicit /cmd)  │     │  (deterministic)    │
+└───────────────────┘     └─────────────────────┘
+    ↓ (if not workflow)
+┌───────────────────┐
+│    router_v2.py   │
+│  (LLM analysis)   │
+└───────────────────┘
+    ↓
+┌─────────┬─────────┐
+│  Tool   │   Q&A   │
+│  Call   │Response │
+└─────────┴─────────┘
+    ↓
+┌───────────────────┐
+│   executor.py     │
+│  (runs skills/)   │
+└───────────────────┘
+```
+
+---
+
+## Components
+
+### `orchestrator_v2.py` (Main Entry Point)
+The primary orchestration script. Handles:
+- Mode selection (cloud/local)
+- Workflow detection and execution
+- LLM routing for tool selection
+- Multi-turn orchestration (chains tools automatically)
+- Intelligence layer integration
+- Cost tracking and logging
+- Delegation into helper modules for context assembly and response formatting
+
+```bash
+# Usage
+./orchestrator/orchestrator_v2.py cloud "What time is it?"
+./orchestrator/orchestrator_v2.py local "Search for Python tutorials"
+./orchestrator/orchestrator_v2.py cloud "/crypto"  # Triggers workflow
+```
+
+### `router_v2.py` (LLM-Based Router)
+Analyzes user queries and determines:
+- Whether to call a tool or respond directly
+- Which tool(s) to use
+- Parameters to extract from the query
+- Uses Tool RAG for dynamic tool discovery
+
+Returns routing decisions with tool selections and arguments.
+
+### `context_assembler.py` (Conversation Context Builder)
+Owns the context-prep logic that used to live inline in the orchestrator:
+- DB-backed auto-context assembly for CLI/TUI
+- Web `conversation_history` formatting
+- Multi-turn turn-context construction
+- Tool-result preview shaping for follow-up turns
+
+### `turn_state.py` (In-Flight Request State)
+Owns the tool loop's request-local results, history, trace, call counters,
+duplicate guards, usage, and provider continuation metadata. Tool-failure retries
+reuse the same `TurnState` and advance its remaining turn budget. Each new
+`process()` call starts with fresh state; the object is neither persisted nor
+stored on the orchestrator. Routing, approval, execution, and response formatting
+remain in `orchestrator_v2.py`.
+
+Native provider continuation submits the latest executed tool result, including
+failures. Missing continuation metadata falls back to the full text context.
+Routing errors return the request's retained results, trace, and usage so earlier
+work remains available even when the final provider call fails.
+
+### `response_formatter.py` (Final Speech Formatter)
+Owns final answer shaping after the LLM/tool loop:
+- Direct tool-result condensation for short confirmations
+- Casual/auto/detailed speech formatting helpers
+- Multi-turn summary formatting
+- QA prompt override application for final-response synthesis
+
+### `executor.py` (Tool Executor)
+Executes tools/skills from `skills/`, `skills/auto-tools/`, and the ignored
+`skills/personal/` folder:
+- Manages timeouts and error handling
+- Handles JSON I/O with tools
+- Supports MCP server tools
+- Returns: `{ok, speech, data}`
+
+### `pipeline_executor.py` (Workflow Engine)
+Executes deterministic workflow pipelines:
+- Loads workflow definitions from `data/workflows/*.json`
+- Runs tools in predefined sequence
+- Handles variable substitution between steps
+- LLM parameter filling for dynamic values
+- Content validation and retry logic
+- Bypasses normal LLM routing
+
+### `workflow_loader.py` (Workflow Loader)
+Loads and validates workflow JSON definitions:
+- Discovers workflows from `data/workflows/`
+- Validates required fields (id, trigger, steps)
+- Provides workflow metadata for API/UI
+
+---
+
+## Two Execution Paths
+
+### 1. LLM Routing (Default)
+For general queries, the LLM analyzes and selects tools:
+
+```
+"What's the weather?" → router_v2 → weather tool → response
+"Build a Flask API"  → router_v2 → opencode → multi-turn → response
+```
+
+### 2. Workflow Pipelines (Explicit Commands)
+For `/commands`, deterministic execution:
+
+```
+"/crypto"     → pipeline_executor → [get_time, crypto_price, search, ...] → response
+"/archive X"  → pipeline_executor → [crawl_url, stash, remember, canvas] → response
+```
+
+---
+
+## Usage Examples
+
+### CLI Queries
+```bash
+# Cloud mode (xAI/Anthropic/OpenAI)
+./orchestrator/orchestrator_v2.py cloud "What time is it?"
+./orchestrator/orchestrator_v2.py cloud "Remember my server IP is 192.168.1.100"
+
+# Local mode (Ollama)
+./orchestrator/orchestrator_v2.py local "Search for Python tutorials"
+
+# With debug output
+./orchestrator/orchestrator_v2.py cloud "What's the weather?" --debug
+```
+
+### Workflow Execution
+```bash
+# Crypto market report
+./orchestrator/orchestrator_v2.py cloud "/crypto"
+
+# Web archive
+./orchestrator/orchestrator_v2.py cloud "/archive https://example.com"
+
+# Deep research
+./orchestrator/orchestrator_v2.py cloud "/research AI trends 2026"
+
+# Quick note
+./orchestrator/orchestrator_v2.py cloud "/note Remember to check logs"
+
+# Server health (SSH)
+./orchestrator/orchestrator_v2.py cloud "/health vps2"
+```
+
+
+**Exit Code**: 0 for success, non-zero for error
+
+---
+
+## Configuration
+
+Key environment variables (in `config/cloud.env` or `config/local.env`):
+
+
+---
+
+## Related Documentation
+
+- **[WORKFLOW_ORCHESTRATION.md](../docs/WORKFLOW_ORCHESTRATION.md)** - Full workflow system
+- **[TOOL_CALLING_SYSTEM.md](../docs/TOOL_CALLING_SYSTEM.md)** - How tool routing works
+- **[JARVIS_WORKFLOW.md](../docs/JARVIS_WORKFLOW.md)** - Complete request flow
+- **[INTELLIGENCE_LAYER.md](../docs/INTELLIGENCE_LAYER.md)** - Self-learning system
+- **[api/WORKFLOWS.md](../docs/api/WORKFLOWS.md)** - Workflows API reference

@@ -1,0 +1,2433 @@
+[
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-finale.log",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-finale.log",
+    "taille": 49,
+    "sha256": "25b4dc43ed58d0d4905e117f782606e371f978db80dd2b913932ed210f9f5b96",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:35:52.250282+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-finale.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-llama.log",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-llama.log",
+    "taille": 324,
+    "sha256": "281079947c64903fd45c8c563f59b838739a1cb44caa5bc530f85420740dc685",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T17:57:35.898675+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-llama.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-mistral.log",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-mistral.log",
+    "taille": 645,
+    "sha256": "ddc4d0f9a601032a7e883b3baf4d012fee92837ff28fa11456212a8b47674162",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:11:59.662462+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/progression-mistral.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/prompt-reference.txt",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/prompt-reference.txt",
+    "taille": 2008,
+    "sha256": "c4c653be3f2974b26621402331ce8102132e8482b89871308bde4c3d224d99e0",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T17:53:55.831742+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/prompt-reference.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/pull.log",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/pull.log",
+    "taille": 1328721,
+    "sha256": "75e6da05670fcb2107330abafe94a5ea5c97e3ca63b66c7d1a74228198fa3b45",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:07:29.023965+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/pull.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/rediger-rapport.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/rediger-rapport.py",
+    "taille": 17479,
+    "sha256": "cb3869b530c97d065300d9e0644beaaac9ba2328e5189cb03309afb4293f016b",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:37:18.716117+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-candidats.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-candidats.json",
+    "taille": 8795,
+    "sha256": "d5b031a2ad85f265897d271517cad4236be549e3c630f7e5497138380600e58a",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T17:53:34.788814+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-candidats.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-llama-plafond-initial.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-llama-plafond-initial.json",
+    "taille": 84090,
+    "sha256": "3f55b845b9fecbafa09986f71d90c1c700b1af010688cb5edfde98489b4c6606",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T17:57:35.898675+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-llama-plafond-initial.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-llama.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-llama.json",
+    "taille": 88099,
+    "sha256": "a32dddb23889f1b480d6918c88b44b65210f40aff3c1b6e42f450894cf6f7621",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:15:49.648906+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-llama.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-mistral-plafond-initial.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-mistral-plafond-initial.json",
+    "taille": 30099,
+    "sha256": "970d5c629430eca6433dff1a277c538899e83fd0e9f1089657a6ba87edb02f6a",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:11:59.662462+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-mistral-plafond-initial.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-mistral.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-mistral.json",
+    "taille": 121677,
+    "sha256": "ba0e28dceb86d949a300e2f120e64a407252d85b6c5ec438aeb163f49b47cf31",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:20:52.359147+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-mistral.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-origine.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-origine.json",
+    "taille": 335,
+    "sha256": "c8108d69c9c788cd68a3bd3968b3717707ef917b3fbb438c9dc2e7fecbb3b27f",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T17:55:00.094642+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reference-origine.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/reponses-et-notes.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/reponses-et-notes.md",
+    "taille": 67410,
+    "sha256": "f116bbe58d2757090abd7e455eeea8cd9382a6b437de0d54d86d154ea91c457c",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:34:36.917795+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/ressources-llama-resident.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/ressources-llama-resident.json",
+    "taille": 1715,
+    "sha256": "499b39011d4ace4325cf33f7387299e247bb7399004a89d287222a599910fcc7",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:04:20.563998+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/ressources-llama-resident.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/retour-arriere.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/retour-arriere.py",
+    "taille": 2040,
+    "sha256": "f001001d5d504c2bad92c33302d8a2313bad82a98b972af85768564877fdd754",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:34:36.839455+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/systeme-llama-reference.txt",
+    "destination": "archives/preuves-controlees/part-023.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission07-preuves/instruction-renforcee.txt",
+    "taille": 2265,
+    "sha256": "3e6711233d65fcc2ef1a30fd1a89bb95ee4b944a1e67a93ac496baef2524b4ed",
+    "mission": "08",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T17:55:00.094487+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission07-preuves/instruction-renforcee.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/unites-avant.txt",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/unites-avant.txt",
+    "taille": 1155,
+    "sha256": "3a95c12335fff1241c6710a023a618be8a9e00401e73546d319981424864fa80",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T17:55:00.101753+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/unites-avant.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-finale.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-finale.py",
+    "taille": 787,
+    "sha256": "404863e1a64239610267807614ef5b7326c499cca17eb587b33d2c349ce7e8ab",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:33:44.872033+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-python.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-python.json",
+    "taille": 1189,
+    "sha256": "5fea4fcf3c6e58339fcac1f8b67773d096e8875b059ad8b88b2ab29c47d74c6c",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:33:44.898535+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-python.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-webui.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-webui.json",
+    "taille": 3920,
+    "sha256": "774bee7a92cb60260c9919f632f68cdb7fc08099aa2d33bd8835ff2abd63eede",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:33:13.717025+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/validation-webui.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/verification-finale.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/verification-finale.json",
+    "taille": 525,
+    "sha256": "db92489c14d8ef0825af5395e8a73ea0694013e527521d96c1741c2cb8867bc6",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:38:33.416105+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/verification-finale.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08-preuves/verification-garde-finale.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/verification-garde-finale.json",
+    "taille": 26283,
+    "sha256": "20eed7482372223268c1b4d338b2448995be63f1c33c56b6c5aa387c2b49ea29",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:35:52.250282+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/verification-garde-finale.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission08.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08.md",
+    "taille": 17782,
+    "sha256": "061fd71514a933dbe6a317b3909da9543c2d11d9bcd1b3ee994e277d16eb9eb4",
+    "mission": "08",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T18:38:33.254195+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission09.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission09.md",
+    "taille": 1300,
+    "sha256": "8fcfb362a522e5478d12c2391d52f90db94959c552965ec46c852275130c9a86",
+    "mission": "09",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:11:47.342246+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission09B-sauvegardes/20261012-221425/jarvis-ollama.service",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/jarvis-ollama-apres.service",
+    "taille": 673,
+    "sha256": "afc91ef77983ea86bf5af178b374372708fbc941145d95db08833c8be3a9dae2",
+    "mission": "09B",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T18:32:40.791600+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/jarvis-ollama-apres.service"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission09B.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission09B.md",
+    "taille": 962,
+    "sha256": "43ed312936dbd48b8cc6d64163a287c6521d2e2b3b85b0d54ea50446eaac8334",
+    "mission": "09B",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:16:25.041740+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document-reponse.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document-reponse.md",
+    "taille": 5055,
+    "sha256": "88d526fc1a7a2f4c852b0b714778f1f509784fd298faf7b0b125543fcf59f307",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:53:36.991089+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document-thinking.txt",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document-thinking.txt",
+    "taille": 3554,
+    "sha256": "a35fe219a233eb1b1fd14b42ca8e51a7f6ab527583afa58dc07833fad683206e",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:53:36.991158+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document-thinking.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document.json",
+    "taille": 59703,
+    "sha256": "4eda2ba45f4939a177507aa313ed56691325a4dfb331d0e966b9546c10796520",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:53:36.990927+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document.jsonl",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document.jsonl",
+    "taille": 296105,
+    "sha256": "84bda5afcfa7e8f4c424f1bc5e92af82f8598d11b98a21f573f83b1d9522d4bb",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:53:36.950227+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/avec-document.jsonl"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/evaluations-qwen.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/evaluations-qwen.json",
+    "taille": 2137,
+    "sha256": "7bf4d94f5ce58147b01b1eabd2c0fc6a9860cc92ba8dd12e630f2812a5813425",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:51.448194+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/evaluations-qwen.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court-reponse.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court-reponse.md",
+    "taille": 207,
+    "sha256": "40f683f9891dfc98c0aa8f7ff6bd63cec8dbd8b7042acce83cf0954868df043f",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:50:38.778311+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court-thinking.txt",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "10",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T20:50:38.778311+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court.json",
+    "destination": "archives/preuves-controlees/part-028.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court.json",
+    "taille": 34600,
+    "sha256": "9d1e04254efe0e9c3d8d487a121dfbee64519bfa0997d55b72ab0296b15fd198",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:50:38.777817+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court.jsonl",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court.jsonl",
+    "taille": 8318,
+    "sha256": "cf53f3a31485f43c4d0698669fed90720f9c602ea043b4f8ea323539dd0325d5",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:50:38.725662+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/gpu-court.jsonl"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/mesures-synthese.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/mesures-synthese.json",
+    "taille": 686,
+    "sha256": "cabe007d13586f7e0343db0a29dd845eed21c01d5f36b29b0071cc10f493a9a3",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:55:19.068963+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/mesures-synthese.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/mission06-reference.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission06.md",
+    "taille": 9994,
+    "sha256": "4de4d0547da58dad58dd5c58592c9922e69a8f36c9c0dcb1a637a6072b51fd90",
+    "mission": "10",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T20:24:04.909507+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/model-show.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/model-show.json",
+    "taille": 28433,
+    "sha256": "1416d87dac7af6c88c89c3a9111d43ddff5027c9fd2ffc1b50e39786a0848248",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:49:41.959421+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/model-show.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/modeles-webui.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/modeles-webui.json",
+    "taille": 5753,
+    "sha256": "5cf2a959a594c360e3234e95005cac1ad483555f34e9ff70dfba846f8f57eb3e",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:01.079870+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/modeles-webui.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/ollama-tests.log",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/ollama-tests.log",
+    "taille": 57585,
+    "sha256": "ee4ca802537c024b6e42cc580b6c40ac68e031f5299bb957fbbfb5f656e3db67",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:01.954858+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/ollama-tests.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-qwen-cree.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-qwen-cree.json",
+    "taille": 3914,
+    "sha256": "ff6c6b2137dc1e1ac5e77bf24fdfd13931b1444964c54d5b9f3dca85c0898d47",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:01.061209+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-qwen-cree.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-qwen-requete.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-qwen-requete.json",
+    "taille": 3549,
+    "sha256": "87b39781358cd1e53493b3428259669ae40e6a3156a83889881b240987bf804b",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:01.050142+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-qwen-requete.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-webui.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profil-webui.py",
+    "taille": 2473,
+    "sha256": "75eb41280884b4f1fe6d225aca3eadbe0172cf1b006014cb8822dc2bbb3fa741",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:26:38.781411+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-apres.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-apres.json",
+    "taille": 11001,
+    "sha256": "be855b1d40260fcd9a05e1d5d1634ffcd00e80f51e02839bb7480faaf57c4b2e",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:01.066658+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-apres.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-avant.json",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/profils-apres-redemarrage.json",
+    "taille": 7019,
+    "sha256": "02937d6089e4d913a5cdf63191f617fa3d6ccef123ac098fd767968d56fcda17",
+    "mission": "10",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T20:25:26.781999+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/profils-apres-redemarrage.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-verifies-finaux.json",
+    "destination": "archives/preuves-controlees/part-029.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-apres.json",
+    "taille": 11001,
+    "sha256": "be855b1d40260fcd9a05e1d5d1634ffcd00e80f51e02839bb7480faaf57c4b2e",
+    "mission": "10",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T20:55:31.817829+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/profils-apres.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/prompt-reference.txt",
+    "destination": "archives/preuves-controlees/part-027.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/prompt-reference.txt",
+    "taille": 2008,
+    "sha256": "c4c653be3f2974b26621402331ce8102132e8482b89871308bde4c3d224d99e0",
+    "mission": "10",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T20:24:04.908638+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08-preuves/prompt-reference.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/pull.jsonl",
+    "destination": "archives/preuves-controlees/part-030.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/pull.jsonl",
+    "taille": 4063082,
+    "sha256": "e7865a60f7e42033cc19d13df31d0273ac3b6f09cb36ccef9589d914e21dea0b",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:49:37.500059+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/pull.jsonl"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/reponses-et-notes.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/reponses-et-notes.md",
+    "taille": 11959,
+    "sha256": "6148edf5e95ffe4e298665d66aef56a1b75d1dda289036f5915b9390cc2d55d3",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:51.448390+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document-reponse.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document-reponse.md",
+    "taille": 5102,
+    "sha256": "e5cf26c5644f402559cafaffc9030d1816ee86d041c783d82df1702925cdbfb8",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:51:43.948820+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document-thinking.txt",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document-thinking.txt",
+    "taille": 3291,
+    "sha256": "91aab4df651fc96241a8e5080099031508c1e1b8870cf8f2887bdd71a540689b",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:51:43.948870+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document-thinking.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document.json",
+    "taille": 46351,
+    "sha256": "087896d1744cbf01dd39814138a64874ab16e62dd8d79f86a9564daa8550726e",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:51:43.948742+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document.jsonl",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document.jsonl",
+    "taille": 276786,
+    "sha256": "aac056cf3850aec3b8c352affa3a180e4395e31c86ae0db38d58108a85c9dfa0",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:51:43.907347+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sans-document.jsonl"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/sources.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sources.json",
+    "taille": 212,
+    "sha256": "cb67fd7c8a713c0faac30063f0d5576e37ca3e18e21fe91decfb60bbf91c0d04",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:24:04.909608+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/sources.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/systeme-llama-reference.txt",
+    "destination": "archives/preuves-controlees/part-023.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission07-preuves/instruction-renforcee.txt",
+    "taille": 2265,
+    "sha256": "3e6711233d65fcc2ef1a30fd1a89bb95ee4b944a1e67a93ac496baef2524b4ed",
+    "mission": "10",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T20:24:04.909428+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission07-preuves/instruction-renforcee.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/test-qwen.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/test-qwen.py",
+    "taille": 4856,
+    "sha256": "2bb3723ed8d1c7284d28948fcfe1167fd8872aeef8ac5f078a7732db6ee8ee1e",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:25:08.487082+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui-budget-profil.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui-budget-profil.json",
+    "taille": 8264,
+    "sha256": "b83d9e2dd8e203d01206b9a243b855c86704d16c93c4b81138a6599dcad0ca8b",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:55:31.812664+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui-budget-profil.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui-complete.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui-complete.json",
+    "taille": 5269,
+    "sha256": "f0c9b6f9e273a9b4611f6086bba3bf6a7985288cc1cc83b944871a211d2b1b5d",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:34.423500+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui-complete.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui.json",
+    "taille": 1190,
+    "sha256": "7e1c416f0ad3cafc67f547cd8fece70245a5eca91694a60bee01da0741a13aa8",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:54:03.830476+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10-preuves/validation-webui.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission10.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10.md",
+    "taille": 3797,
+    "sha256": "ec2232187b50009ed28649dad140515fb1f775880e7ef82c621a0300382a17e8",
+    "mission": "10",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T20:56:02.639567+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/Priler-jarvis-metadata.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/Priler-jarvis-metadata.json",
+    "taille": 473,
+    "sha256": "099a3d147aecfd7b790c918b6d6307f3d59fbf9eeca208f4718f25640b09bb08",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:17.049678+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/Priler-jarvis-metadata.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/README.md",
+    "taille": 2309,
+    "sha256": "1721c1ab4e5537db5099bceb09f52e2222efe5060a16e7c24e2b5b7993150790",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:03:02.016302+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/SHA256SUMS",
+    "taille": 6208,
+    "sha256": "a96dcab0fd65bb12a8b5bfe869f8e4e1ab34f2dd00dad4808728381b3c4b7816",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:03:02.022902+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/Sp33dyFoX-jarvis-voice-metadata.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/Sp33dyFoX-jarvis-voice-metadata.json",
+    "taille": 483,
+    "sha256": "1372fdb264fadc748df5b0871c588f84cefa94c306d24e2db2e8bf3a2b679f1c",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:16.519043+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/Sp33dyFoX-jarvis-voice-metadata.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/activite-bigsk1.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/activite-bigsk1.json",
+    "taille": 2551,
+    "sha256": "6802ef47a588719adeee21cf3852b1a9d69541062def5ff51ea20cea6be89a5e",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:18.136968+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/activite-bigsk1.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/bigsk1-jarvis-voice-metadata.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/bigsk1-jarvis-voice-metadata.json",
+    "taille": 477,
+    "sha256": "1bbc199907fe03c19fa22f406e8fe341114c74d7ad964faee421b5f48494a01d",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:16.222268+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/bigsk1-jarvis-voice-metadata.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/extraits-code.txt",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/extraits-code.txt",
+    "taille": 3307,
+    "sha256": "6201216d3f88b2f09b45028b87d8e3b4d00dbdbf112290405ad9b1e2331b24b5",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:03:02.010901+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/extraits-code.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/faster-whisper-README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/faster-whisper-README.md",
+    "taille": 15249,
+    "sha256": "43efe4a6eb9046d5ba4dcdcf2abcc27ad9e021f3edfc00bd6eb4913a9abe065b",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:17.655807+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/kokoro-fastapi-README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/kokoro-fastapi-README.md",
+    "taille": 37465,
+    "sha256": "de8de613f375a6d2f3f6b2d7a28f53a4f01eebdbb2c5a50e73e29a22d60f7c64",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.516157+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/kokoro-voices.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/kokoro-voices.md",
+    "taille": 7625,
+    "sha256": "ec7e4941ad7e194af61e3455928528a9ff5360c7c505e412efab27d6a69ea106",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.310707+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/maintenance-summary.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/maintenance-summary.json",
+    "taille": 74,
+    "sha256": "f7def8ad79dc701a165a01f6c3fa87d86c08fcb7b159d8b2a9ff5bbdca23a908",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:05.630951+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/maintenance-summary.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/manifest-sources.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/manifest-sources.json",
+    "taille": 10414,
+    "sha256": "273bbeaa0bd7ba2eccb07e8b87754a8a3eb1dde24a44c5944cc78fd0edb8edb0",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.550024+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/manifest-sources.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/notes-techniques.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/notes-techniques.md",
+    "taille": 5436,
+    "sha256": "6cfe6e7bcc4e92b42981a4c5bcdfbc47857aa5353a17afd1d53e054632400d4b",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:03:02.005212+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/ollama-tags.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/ollama-tags.json",
+    "taille": 254,
+    "sha256": "0c4e655ddb8b6d4b9e4e8a6e7cd2c99b39f000471c0b404a036321a6d6118cd8",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:05.221764+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/ollama-tags.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/ollama-version.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/ollama-version.json",
+    "taille": 25,
+    "sha256": "c3adf4eb9dc029faa608d3b6d0e846164c26c24236d6e6f9c8ee180dbafb0d31",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:05.219491+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/ollama-version.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/openwebui-backend-open_webui-routers-audio-__init__.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/openwebui-backend-open_webui-routers-audio-__init__.py",
+    "taille": 67464,
+    "sha256": "fc7eb3eb40f6fba0059c608928886a87854108212694c0c8f0f937ce9416de4a",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:44.163012+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/openwebui-backend-open_webui-routers-audio-realtime.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/openwebui-backend-open_webui-routers-audio-realtime.py",
+    "taille": 26701,
+    "sha256": "41060d2a2dd0728e25065440eaa6c18ad597fa79db0656bee1fa8230999f7392",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:44.381435+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/openwebui-memories.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/openwebui-memories.py",
+    "taille": 19805,
+    "sha256": "925af0ef9bae1131a17ddc4d7b80853c85a762fb6d1ac16c233941b5b0802bf5",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:17.492342+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/piper-README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/piper-README.md",
+    "taille": 2853,
+    "sha256": "a73f576020071a1d58701a40026a451385ef4dad4c9ba0a2499544d988d06e84",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:17.816869+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/piper-siwis-model-card.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/piper-siwis-model-card.md",
+    "taille": 284,
+    "sha256": "bd8b8d079d4d3d2c4cc20345889bbcd586d72f021a132f93357a763eb5232cce",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:44.717429+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/Dockerfile",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/Dockerfile",
+    "taille": 1519,
+    "sha256": "116f50a88f8cdbc6d5cf66b0f4d9c5cfafdc13c09b532581a2743af9e6b899ed",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835625+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/Dockerfile"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/LICENSE",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/LICENSE",
+    "taille": 3835,
+    "sha256": "7f12b0e7342652a64a1b5f1e440fe7ddcf63b9de2b10a7291a6bd8eefeb111d8",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.833401+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/README.md",
+    "destination": "",
+    "taille": 134759,
+    "sha256": "edf6a4703abf83800455b7631a705d1db1267af05252a89f6fd8c515a53dc570",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:58:41.160734+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/api/routes/voice.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/api/routes/voice.py",
+    "taille": 5528,
+    "sha256": "78000a5525082075d13d6262d1e1e839ca2d85c65670abe7f7d42c63c6f7a75b",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.838468+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/api/routes/voice.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/question-orchestrator-local.sh",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/question-orchestrator-local.sh",
+    "taille": 4739,
+    "sha256": "2d2b8e357db753f3f4f23f0662a7ecb6ce1a4c904e60573a6bf9246d4880726e",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835881+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/question-orchestrator-local.sh"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/reconcile-profile",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/reconcile-profile",
+    "taille": 5167,
+    "sha256": "da408ac8adb39a0a902674ae627fd669cbd20b17ac4461f52945b6605af4730b",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.160121+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/reconcile-profile"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/say-local.sh",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/say-local.sh",
+    "taille": 4175,
+    "sha256": "d1dd16f27b02bb8d2b667b98713c6b1e0b7bfa03da24f3fe7eb14fb05d2188a4",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835799+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/say-local.sh"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/stt.py",
+    "destination": "",
+    "taille": 4598,
+    "sha256": "2d3b285f75a7d1568a489fe6898133f4c72558b392e67c7324ee54f178fd7656",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:57:15.835716+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/sync-memory-db.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/sync-memory-db.py",
+    "taille": 18948,
+    "sha256": "38ab3a7acc298588715912313270502b9edf2ee229208a88df4b97f3a757cd69",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.160038+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/bin/sync-memory-db.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docker-compose.yml",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docker-compose.yml",
+    "taille": 5551,
+    "sha256": "2e7f25b13c6c067071510ab3f772b85a061126e558a995bc9382de89b2b682e5",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835542+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docker-compose.yml"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/DUAL_DATABASE_SYSTEM.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/DUAL_DATABASE_SYSTEM.md",
+    "taille": 4476,
+    "sha256": "55b2e71dac21ac5c120d6b48474cbf5c56029ced26b08c150727891056be3f57",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.160636+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/INSTALL_GUIDE.md",
+    "destination": "",
+    "taille": 38937,
+    "sha256": "2dab23eb62930d4a81f2e964332d278b20e23424c9f9651b12951e5a227e1aba",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:57:15.838978+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/MEMORY_SYSTEM.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/MEMORY_SYSTEM.md",
+    "taille": 13080,
+    "sha256": "d0c87280143675136f32ceae970426204f4bbc85b67fc00d27369c548a71be33",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.838562+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/SECURITY_HARDENING.md",
+    "destination": "",
+    "taille": 15951,
+    "sha256": "ef28d22fa72d8816886618d3e29d58cd2f61df8e07436a925e077966bc049ba7",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:57:15.839129+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/SYNC_ARCHITECTURE.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/SYNC_ARCHITECTURE.md",
+    "taille": 30914,
+    "sha256": "431235ba2b670d288798e73722af747c794e334f83fdd54365748e401c9c941d",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.838755+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/USER_PROFILE_SYSTEM.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/USER_PROFILE_SYSTEM.md",
+    "taille": 8680,
+    "sha256": "7ee4607ebfdb19e7ce3f33dda96742a44d4fd316fb849e179765f9505dd54c5f",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.160542+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/WEB_TALK.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/WEB_TALK.md",
+    "taille": 8755,
+    "sha256": "bfe6835a731cb4cc05f7be1a8f31ff387f090793bef068e5491af9c7adbe7e6d",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.838886+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/ollama/README.md",
+    "destination": "",
+    "taille": 32086,
+    "sha256": "93172449d7a7cf0c2d7e675c4dcd5fff79b885a1d41017666c7975068aa7aef8",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:58:41.160460+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/qwen3-tts/QWEN3_TTS_INTEGRATION_GUIDE.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/docs/qwen3-tts/QWEN3_TTS_INTEGRATION_GUIDE.md",
+    "taille": 11982,
+    "sha256": "8283f2c14e38bfbd4072e218916ab6f08a5569acaf26bd9121e6c5377c91a254",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.839243+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/install-system-deps.sh",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/install-system-deps.sh",
+    "taille": 1461,
+    "sha256": "a95ca31b44dcd807138ca52216bfb1522c5005c4cfb649b551ada8bbf75c77ef",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835382+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/install-system-deps.sh"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/install.sh",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/install.sh",
+    "taille": 9915,
+    "sha256": "11eaa8b39ec9f5efbcf7b7ea5504f14633655c3d34a50e3442e124fc402ad22d",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835276+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/install.sh"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/jarvis-web/client/js/talk.js",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/jarvis-web/client/js/talk.js",
+    "taille": 29378,
+    "sha256": "da8af236ce4e74ea2a46ea1bd2e1a495d6ab6f6c54b767e610f3de6d7a30b7ef",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.838258+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/jarvis-web/client/js/talk.js"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/auto_sync_memory.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/auto_sync_memory.py",
+    "taille": 3117,
+    "sha256": "de325dc3e48b7539ee4fc3576ed668a9b44c99fa04d6e50a2433d80bbf4beddc",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.159948+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/auto_sync_memory.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/embeddings.py",
+    "destination": "",
+    "taille": 18371,
+    "sha256": "bf90cbd626ec57b659f83c5e93728d491bd3b9655959bd46ce08c9034d7b97a8",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:57:15.836262+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence.py",
+    "taille": 153820,
+    "sha256": "d15388131c29313189e196ec1b638f832af66f6f3f7d33f694bda78716534977",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.160243+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence_hooks.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence_hooks.py",
+    "taille": 68284,
+    "sha256": "b5001d9952bf701f97be61298d8b7bd7c2f39151699a15455fdad1b169d7520c",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.160362+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence_hooks.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/llm_provider.py",
+    "destination": "",
+    "taille": 124769,
+    "sha256": "19a14ce65cbc6a0ebfecbb1dcfb141b88e839ebd177df0954c99d18147d8d537",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:57:15.836416+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/memory_db.py",
+    "destination": "",
+    "taille": 91006,
+    "sha256": "a9edfe845f3dcf1427c9212340f6fe238b7cdc153ac64041640a96d8637933d0",
+    "mission": "11",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:57:15.836008+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/ollama_utils.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/ollama_utils.py",
+    "taille": 13813,
+    "sha256": "3bbdcd3ad7bb034dff7e5d084921c3acf69e0c4acec5d4f5593de949853b3968",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.836723+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/ollama_utils.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/source_library.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/source_library.py",
+    "taille": 60336,
+    "sha256": "f98a42e47cf2a011840b91bcc876ed8131c9c7691aab938add363216df63166b",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.836919+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/source_library.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_profiles.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_profiles.py",
+    "taille": 4119,
+    "sha256": "97144bd4934ce96bc81e991bd7311c927bdaafe4d77bfec408aeddd0aca043f4",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.159877+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_profiles.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_schema.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_schema.py",
+    "taille": 52733,
+    "sha256": "83e37be9610ead70bff0b0e440cc62063febb0b1194ff188d18e5a11dd7a7725",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.159757+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_schema.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/user_profile.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/user_profile.py",
+    "taille": 9929,
+    "sha256": "3bf98ecf822d65e0d02e2f575156caf777bcce23ca708f6ee28847aa0813e4b9",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.836823+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/user_profile.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/context_assembler.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/context_assembler.py",
+    "taille": 158883,
+    "sha256": "6bb43aaa30b8ca682936987acd9ddd493d029dbbaaab86ac2ef34bba34776124",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.837821+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/context_assembler.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/executor.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/executor.py",
+    "taille": 41684,
+    "sha256": "46f8b7b05437e708f2985908dc89f30a9003f2f7c1bb54c50bf40ad7bb4b5b40",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.837118+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/executor.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/orchestrator_v2.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/orchestrator_v2.py",
+    "taille": 205479,
+    "sha256": "4292562da44ab7054623090eafe50567a80a5993b4ac8ff6b29218e5b8ce2c19",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.837306+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/orchestrator_v2.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/response_formatter.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/response_formatter.py",
+    "taille": 14698,
+    "sha256": "b99550e41f8ac14ab106d711b2d5cc8431f8db9ccaa9b5d703aa93da9c4a90a1",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:41.159624+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/response_formatter.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/pyproject.toml",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/pyproject.toml",
+    "taille": 2892,
+    "sha256": "34011d0b1dedfd411b7802f0c05d08b26d1ca0a1639da3bdeb399c8bf67f7aa0",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.833542+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/pyproject.toml"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/setup.sh",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/setup.sh",
+    "taille": 5106,
+    "sha256": "983bfaf3fefee260863425ca639c58c8820e9272133d44f63c46748d70e3cd0d",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.835458+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/setup.sh"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/uv.lock",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/uv.lock",
+    "taille": 642312,
+    "sha256": "355a4e78ff2325366ff79effbbfa66f71102200ff0b7c0cdb24dfd6573cd188a",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:15.833878+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/uv.lock"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/sp33dyfox-LICENSE",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sp33dyfox-LICENSE",
+    "taille": 6010,
+    "sha256": "0542373dc206e39bba31c53e0038b7a21e739133b332dbedf1179bd1361eafed",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:45.208461+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sp33dyfox-LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/strognoff-jarvis-voice-metadata.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/strognoff-jarvis-voice-metadata.json",
+    "taille": 362,
+    "sha256": "d1e219e0c6d7e4fde9b1858f09a79478578c1c7a2ebd60dc2ea8ee03e99bc2b8",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:57:16.776981+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/strognoff-jarvis-voice-metadata.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11-preuves/verification-locale.txt",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/verification-locale.txt",
+    "taille": 941,
+    "sha256": "1fc40b16c784c2470665cf498d712ace0436a10c33423edd03c198ef2fe11fdf",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:58:05.676299+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/verification-locale.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission11.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11.md",
+    "taille": 35144,
+    "sha256": "c8cc342bee135f8b95761aeb81574cc2f37dd8fce94202edc2b23f7422bedc8a",
+    "mission": "11",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:01:55.950177+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/README.md",
+    "taille": 2697,
+    "sha256": "74a33c6aa357fbfaa74d6fca2d4718d44580fece5dcbdc1a23b03783570a71fd",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:35:33.161586+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/SHA256SUMS",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/SHA256SUMS",
+    "taille": 29201,
+    "sha256": "abe9924d7d87aaae0177ba14c4fc41c02254144c1ba2b059108c9cad5297b055",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:35:33.187448+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/SHA256SUMS"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/after.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/after.json",
+    "taille": 777,
+    "sha256": "3e3c41d6623c9bb686866e04d09dbce997e391372e5c48bc4216090d53240e44",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.860126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/after.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/kokoro-ff_siwis-accueil.wav",
+    "destination": "",
+    "taille": 357420,
+    "sha256": "dfd7df1524488d55e4e542defa7c910cde830b51e28ae1c8d923a77e88b4f609",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:24:21.019273+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/kokoro-ff_siwis-memoire.wav",
+    "destination": "",
+    "taille": 446508,
+    "sha256": "57638c8d25e9cde9e9f205b6424df10ca5c566b29b5aceb32cdc3099cfd007de",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:24:25.114285+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/kokoro-ff_siwis-quebec_lexique.wav",
+    "destination": "",
+    "taille": 395308,
+    "sha256": "009e2882e93c1923bd9dbb1a87cea70d39d493abfc7ec71c6e1a3c1ef7b86e5f",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:24:28.792531+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/piper-siwis-accueil.wav",
+    "destination": "",
+    "taille": 313900,
+    "sha256": "fc194660f14de1438915710364b2b2f661e73ffc2a512b3aa40b43327e804ffa",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:23:28.672963+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/piper-siwis-memoire.wav",
+    "destination": "",
+    "taille": 389164,
+    "sha256": "afaa49c5e94b12d8078e0f692c764cc86cc20ca5d5da04690489dc8c98e8582d",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:23:29.096976+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/piper-siwis-quebec_lexique.wav",
+    "destination": "",
+    "taille": 368684,
+    "sha256": "0bb7bbaaaa16e08849665471c8760c7df4ed75d70359b91a4dcd97817c60adab",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:23:29.500989+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/piper-tom-accueil.wav",
+    "destination": "",
+    "taille": 689708,
+    "sha256": "26eba56f7488259b9c302755b95ed8c40dc698e412af6e4ff9f881c896eb7678",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:24:00.169947+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/piper-tom-memoire.wav",
+    "destination": "",
+    "taille": 888364,
+    "sha256": "37e5dc5dac0b07ad471918d1a14a2fd2235bf07290a61f8db467dbd56881cc3b",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:24:01.081975+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio/piper-tom-quebec_lexique.wav",
+    "destination": "",
+    "taille": 818220,
+    "sha256": "9052c4326734e8909734f44f2ffb98eb087bd2253080d58bf6032169105861d8",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:24:01.926001+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio-validation.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio-validation.json",
+    "taille": 2607,
+    "sha256": "9c01364fed977cdbc39962ddbbb7a82ad7cbe697ca79823f823c513a608ff641",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.905149+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio-validation.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio_worker.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/audio_worker.py",
+    "taille": 5397,
+    "sha256": "7d9b87b9aef01c18f2e55a0816562d0378481b8579c553115549a255b2a4018c",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841614+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/av-pin-download.log",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/av-pin-download.log",
+    "taille": 439,
+    "sha256": "adc995dc17d632a951a9950d61189693a06bbbf65d16dda60d68c35372ed7035",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904684+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/av-pin-download.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/av-pin-install.log",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/av-pin-install.log",
+    "taille": 343,
+    "sha256": "ea40bde70e684be0a3dc6bdb274ab8bdb77ea77e56c27baeadc36d10b4c22dce",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904588+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/av-pin-install.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/av15-metadata.txt",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/av15-metadata.txt",
+    "taille": 4620,
+    "sha256": "9ac27bdb13e15e236547d233094ae6eabf0b2fa0e8c100fd1be2e95272aa0f42",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904810+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/av15-metadata.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/before.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/before.json",
+    "taille": 688,
+    "sha256": "94add3e221704fb3db88a43abefcb8178071d78c84de678ffab04c290870d796",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.903660+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/before.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/corpus.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/corpus.json",
+    "taille": 497,
+    "sha256": "da7473210243bbe818bdfc2574969a0ba5b1b94f144ecffd880513373e439008",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.903429+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/corpus.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/download-manifest.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/download-manifest.json",
+    "taille": 5229,
+    "sha256": "8b94434b1312f1a26fb8ea811362f864b8b5075746c090d324969404865c8b18",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841455+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/download-manifest.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/ecoute.html",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/ecoute.html",
+    "taille": 4018,
+    "sha256": "269023de1589abac22cc80e7a1b2cc89c154070bd9ea946f1414209db6f6f72e",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:35:33.154269+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/ecoute.html"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/fts-benchmark-fictif.sqlite",
+    "destination": "",
+    "taille": 827392,
+    "sha256": "fc31541c9f5746fb37c84da73eeed61751be5825a1cd2d8f7a1529822010a4cf",
+    "mission": "12",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T22:28:00.905344+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/installed-temporary-packages.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/installed-temporary-packages.json",
+    "taille": 6411,
+    "sha256": "7ec8472d2b3f46107de6a544ffff7d8a78a8b0de0eeae24931062f5c90c02668",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:38.083101+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/installed-temporary-packages.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-guard.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-guard.json",
+    "taille": 162,
+    "sha256": "8b90e9576232ce188b5165312baaa051d770ea42067288cc2a1b3fc0900fc6a0",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.837376+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-results.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-results.json",
+    "taille": 871,
+    "sha256": "18180850465e6acf133657647f7efa3a2a9bf105fd283f16715616820dcc126a",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.837301+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-results.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-run.log",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-run.log",
+    "taille": 872,
+    "sha256": "87424fe9acb8cf5d09782c64336afe9d742c9f365b253044b9ecfb97e9f04b8b",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.837451+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/kokoro-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/measurements-summary.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/measurements-summary.json",
+    "taille": 1600,
+    "sha256": "17b49b3e924545c6a20a4a51ecc55781b06c39da1b53e1bce68d5bb6e20bbbae",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841815+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/measurements-summary.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-demo-fictive.sqlite",
+    "destination": "",
+    "taille": 61440,
+    "sha256": "5e7c4fe5bb138e5c569391a515b555ae85a9fa1e0427be91b3de76f2794c0e47",
+    "mission": "12",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T22:28:00.905237+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-results.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-results.json",
+    "taille": 2831,
+    "sha256": "cbd83bbb8f5cec4f8b980e5aa574cf56c0c6f6445202a7929166fd1d98eb576b",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.901088+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-results.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-run.log",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-run.log",
+    "taille": 2832,
+    "sha256": "330793cb1847b99e9898fd15d28c5e652054e016e61a69f555a25ed2d26e71b1",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.902582+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory_demo.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/memory_demo.py",
+    "taille": 9919,
+    "sha256": "6f0543cd8535f6557903f0ef89b8e88b47cdc6f08c1c66b009438a611e8a95d9",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.903778+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/OHF-Voice-piper1-gpl.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/OHF-Voice-piper1-gpl.json",
+    "taille": 388,
+    "sha256": "bf7ac90057da9cb21f3548aa65e516ad97648d83bdfccd731f8daf3365d3a5cf",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.927028+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/OHF-Voice-piper1-gpl.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/faster-whisper.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/faster-whisper.json",
+    "taille": 652,
+    "sha256": "85b0a615876f5f586fffe3f29dd91f75fbfeb57d357122be43426bf09101fc87",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.924557+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/faster-whisper.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/ggml-org-whisper.cpp.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/ggml-org-whisper.cpp.json",
+    "taille": 359,
+    "sha256": "5c9401ac374eae72cafd4004c2d5fdf8dc67c6c3bd1551b37dc49a1c14d3b14e",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.926575+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/ggml-org-whisper.cpp.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/kokoro-assets.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/kokoro-assets.json",
+    "taille": 1108,
+    "sha256": "f717e9a1ed31f750fa877ff992069658624cba56e503b56d74c74afedc2916b3",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.906342+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/kokoro-assets.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/kokoro-onnx.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/kokoro-onnx.json",
+    "taille": 528,
+    "sha256": "fdc0f24b0e076f212bece862ebb9a199e8f4917e23c20444cc554ae55e8c8e4f",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.924203+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/kokoro-onnx.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/letta-ai-letta.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/letta-ai-letta.json",
+    "taille": 377,
+    "sha256": "4ae7da0a1ffc62d0403421d6b177931697c7e7493fb05c344aaada9e5acba818",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.926693+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/letta-ai-letta.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/mem0ai-mem0.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/mem0ai-mem0.json",
+    "taille": 376,
+    "sha256": "a9172dad08aa298317118aeaba673f93a0aa225349e84d85ee76facee3bd4a95",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.926810+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/mem0ai-mem0.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/onnx-community-Kokoro-82M-v1.0-ONNX-hf.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/onnx-community-Kokoro-82M-v1.0-ONNX-hf.json",
+    "taille": 1986,
+    "sha256": "eecfaf6aab26c9827b47312d900b652aaa1c98fb99c8dd7f6a1456580909c754",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.906524+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/onnx-community-Kokoro-82M-v1.0-ONNX-hf.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/pip.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/pip.json",
+    "taille": 291,
+    "sha256": "597a1e6ce45959f3cadca0847a56e9855ecc5bca07b70bcbfb565c63552a3c6b",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.926448+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/pip.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/piper-tts.json",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/piper-tts.json",
+    "taille": 2467,
+    "sha256": "07ab2369e7648a1d66872336cbe7377d486d232d2482785a07bdd8a8def567f3",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.924974+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/piper-tts.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/rhasspy-piper-voices-hf.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/rhasspy-piper-voices-hf.json",
+    "taille": 176923,
+    "sha256": "5e9c69eb08c7825e87e7db27ea98c85e1ef7beab4d38308f39d9221446b061ae",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.919339+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/rhasspy-piper-voices-hf.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/thewh1teagle-kokoro-onnx.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/thewh1teagle-kokoro-onnx.json",
+    "taille": 359,
+    "sha256": "20116ba299696d79ad5f78d5fe0974822a2686b65e77b9e5c41da64bcd6b8cc1",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.926919+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/thewh1teagle-kokoro-onnx.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/tontate-f5-tts-quebec-french-finetune-hf.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/tontate-f5-tts-quebec-french-finetune-hf.json",
+    "taille": 619080,
+    "sha256": "66210c879989be0fe1d7c1d584a96f8f763ec38fda52c355f1387df77cedabe4",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.915028+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/tontate-f5-tts-quebec-french-finetune-hf.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/whisper-base-hf.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/whisper-base-hf.json",
+    "taille": 261,
+    "sha256": "8f7c986fe0cc8d75a0b4fc2b4d4b635708b8161d37128eb6d8cbeed1662a561f",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.906128+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/whisper-base-hf.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/whisper-small-hf.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/whisper-small-hf.json",
+    "taille": 262,
+    "sha256": "8510aee8cabbb2aaf4e8890a10757bcc0150a774d2e3db117f5cdc7b814d189c",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.905971+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/metadata/whisper-small-hf.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/model-download.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/model-download.log",
+    "taille": 411,
+    "sha256": "9236d79264231b8fe34e9f33edf9f27e459af1334713be346be41df2dee83487",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904935+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/model-download.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/notes-techniques.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/notes-techniques.md",
+    "taille": 5253,
+    "sha256": "3427a934dc00cffa9c1ca6c1029afb79c0ad2b0657691fa45ca9110a5e1ac8ee",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:35:33.161527+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/pip-download.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/pip-download.log",
+    "taille": 11403,
+    "sha256": "9f24a56f9d063441888ffdfabb25d97063ed105316ceaff39cbe49a5b5e609ae",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904348+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/pip-download.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/pip-install.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/pip-install.log",
+    "taille": 5027,
+    "sha256": "73938ac126a5e684319a92b20fe6aade7467202298f9fa11d55e9a57a66433ad",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904249+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/pip-install.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-guard.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-guard.json",
+    "taille": 167,
+    "sha256": "104629418f6fcbcd9fa90ed7521739c28ef9df532e9797360ea1b656a613a4d0",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.836681+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-results.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-results.json",
+    "taille": 868,
+    "sha256": "c69e337f5b353f2975b5560e15517cdb4da02da2381e6dae66e4b63436209192",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.836560+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-results.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-run.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-run.log",
+    "taille": 869,
+    "sha256": "f8c242da43cf4d817a15de2c38102d5fd5710eaffeb28fc54b88cb5d5151ee62",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.836768+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-siwis-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-guard.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-guard.json",
+    "taille": 163,
+    "sha256": "6d10798d2fb004a5ab958f965e343389c802fa48a079f736f8bf637240f00d87",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.837044+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-results.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-results.json",
+    "taille": 857,
+    "sha256": "3506f36e49253ffcbc8462ad3cf247921f11b4ecc5e4bf1ec7b1683403d09b22",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.836962+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-results.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-run.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-run.log",
+    "taille": 858,
+    "sha256": "37912a387a9e8999cc0e2bad8ac0a71838e541eb0f4269ff46cb342073c0c493",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.837123+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/piper-tom-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/requirements-tested-cp313-linux.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/requirements-tested-cp313-linux.txt",
+    "taille": 3070,
+    "sha256": "62213efc6ff0b1bd8ee3e96a203d068b328af123c951fc010762123b681d58f2",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:38.083174+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/requirements-tested-cp313-linux.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/run_guarded.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/run_guarded.py",
+    "taille": 1253,
+    "sha256": "9b67f5e0d67c969a8b8c45523f752fa54356f11ee5c9da2d87b994d785e00770",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.904005+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/silence-fixture.wav",
+    "destination": "",
+    "taille": 64044,
+    "sha256": "20eaebffe1816e0ffa6f7f854f5ef4ea80d5349faaf0ce1fec1b713e7fde58fa",
+    "mission": "12",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-12T22:29:13.841700+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/small-download.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/small-download.log",
+    "taille": 138,
+    "sha256": "a92549787c4ea42c2a7e4327d4fac51c55fc01204cf85e2ca2870c5fef4fa5a6",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841538+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/small-download.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/source-manifest.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/source-manifest.json",
+    "taille": 11716,
+    "sha256": "fe3ddc0cb9a62702d4e2e0cd529c422a152eab0e0b2b15898dff2eba8ba55ebe",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:35:33.161458+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/source-manifest.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/pyproject.toml",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/pyproject.toml",
+    "taille": 171,
+    "sha256": "3d8c160ff055260d06c2606caa6e5c90cc46fb5f72c9d49e42c3b050dc24ab43",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:11.807683+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/pyproject.toml"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/revision.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/revision.txt",
+    "taille": 40,
+    "sha256": "d1a1579d2f50e732b4e986e47ff363b43b59ebecbeb5f146d8d5ed83c07eb4a3",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:11.601222+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/revision.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/src/piper/__main__.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/src/piper/__main__.py",
+    "taille": 8841,
+    "sha256": "30401f01b3b266542339fdca28023cf61fa6baf52b99341cfea3a3c2b8d7b802",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:12.246248+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/src/piper/__main__.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/src/piper/voice.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/src/piper/voice.py",
+    "taille": 20458,
+    "sha256": "a4fdcc9fe03e090e5d591d49f2009803b9a20e63eca1c84ef8cbf94d9ea5258f",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:12.012236+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/OHF-Voice-piper1-gpl/src/piper/voice.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/f5-quebec-model-card.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/f5-quebec-model-card.md",
+    "taille": 6033,
+    "sha256": "af460b36adce112211f1c053262f5e44cb0c5b6b95f2f5e483c8783c14cd0cae",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:25:34.282321+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/LICENSE",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/LICENSE",
+    "taille": 10759,
+    "sha256": "984c6db99fc6609803108dfc196762118662cd94b82a456dd9217583f18f3612",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:10.958783+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/README.md",
+    "taille": 1574,
+    "sha256": "1d624e8fd383c1198c8d42da87b055d591a5760e19607692eb46bbbfe2a58f03",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:11.168827+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/revision.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/revision.txt",
+    "taille": 40,
+    "sha256": "39b0f551060058a6d6aefcf1217cd1d44078c0d28c71518d6ee69240c7f2b934",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:10.759926+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta/revision.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/LICENSE",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/LICENSE",
+    "taille": 11092,
+    "sha256": "036e78b9d7dd33ae5b378fdda973b4aad7901c8d8371a0ae40fae1f6659a89d0",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:54.092849+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/README.md",
+    "taille": 9696,
+    "sha256": "61811b022086eeb9d0bdab91cce960f193e9b1bec544c36f64cf6a1f5eb9382c",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:53.909166+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/package.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/package.json",
+    "taille": 9599,
+    "sha256": "d48adedacd987af40ef2fb54284b69f31104932818e0154bcd25fe8d5af53ee3",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:54.304752+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/package.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/revision.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/revision.txt",
+    "taille": 40,
+    "sha256": "69929db658ad7bed02625b4385fcd2663aedb486ae03755261d7ff6ff2919f38",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:53.705048+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/revision.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-conflict-repair.ts",
+    "destination": "",
+    "taille": 7506,
+    "sha256": "d45b77562bb6954e3d265a804803de32d424f6faf31b0c5940bc8ed109d9589e",
+    "mission": "12",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T22:19:55.048366+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-constraints.ts",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-constraints.ts",
+    "taille": 8402,
+    "sha256": "590958b1fb1ef18938bfe4f81d17850cf309ecab5a4f65c7f4ba79d7205e6692",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:54.817207+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-constraints.ts"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-filesystem.ts",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-filesystem.ts",
+    "taille": 22353,
+    "sha256": "a2884fd2e467af615a7a56584ccf9df520e470c6eef39930a98ec7dc10bfe628",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:55.984416+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory-filesystem.ts"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory.ts",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory.ts",
+    "taille": 3120,
+    "sha256": "69091e54edee542996c9aa4614a13ddf66f748e2c1c4a871464a659317b69da4",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:54.595716+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/memory.ts"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/prompts/memory_filesystem.mdx",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/prompts/memory_filesystem.mdx",
+    "taille": 105,
+    "sha256": "c0ccac8154b5cca6126a39e910f478691b11a8b14f1c8522eb2effc61bf43a2b",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:55.770070+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/agent/prompts/memory_filesystem.mdx"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/backend/dev/pi-ollama-provider.ts",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/backend/dev/pi-ollama-provider.ts",
+    "taille": 16667,
+    "sha256": "75302c8e3e838396f64e4a0182e4aee66a064f8a93d3e5721e0b406eb182b13c",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:55.289031+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/backend/dev/pi-ollama-provider.ts"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/tools/impl/memory.ts",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/tools/impl/memory.ts",
+    "taille": 13602,
+    "sha256": "0f50e3b2f5a9a4ac27eaead3195af808eca1086f702ea021cc29c9eddfab318f",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:55.533365+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/letta-ai-letta-code/src/tools/impl/memory.ts"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0-config.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0-config.py",
+    "taille": 3275,
+    "sha256": "8bc0431f599c13ab2aff887e7b6eecc2688f8f4d070d76f029b3b55e37169b33",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:25:35.110546+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0-config.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0-telemetry.py",
+    "destination": "",
+    "taille": 9024,
+    "sha256": "89f36bd0b87059fa0710adcccfbd9639ab4d5c4a762d875a1caceaf688aca687",
+    "mission": "12",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T22:25:35.361591+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/LICENSE",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/LICENSE",
+    "taille": 11349,
+    "sha256": "0bbcbe931c353293a2fafce08326181dfeea0e568c566afd4ce8337a70f5e219",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:08.630315+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/README.md",
+    "taille": 11914,
+    "sha256": "7509347d34a767a2ef37ceb6cf6c714de9e8d84fe66ad5eea92bbae824a8fbeb",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:08.868250+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/configs/prompts.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/configs/prompts.py",
+    "taille": 64064,
+    "sha256": "10bc8a34b3b5f0ce24560a2a3190c9112b979a891b981f48393bbd168d915a5c",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:09.981241+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/configs/prompts.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/embeddings/ollama.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/embeddings/ollama.py",
+    "taille": 2550,
+    "sha256": "94257bb2e73d82e5fd0f0b0bb1f4b2f4e7886a2e4068e88beec5d1872469b3bb",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:09.745553+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/embeddings/ollama.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/llms/ollama.py",
+    "destination": "",
+    "taille": 5260,
+    "sha256": "72b0f52b7d99dbfa854bbb1a8c706fd56396e53da89b5c75c439db599a2cf2c5",
+    "mission": "12",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T22:19:09.546049+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/memory/main.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/memory/main.py",
+    "taille": 169881,
+    "sha256": "f329ca4a17af1fbefb32ac10d4cc7ae7ddbdb7435a87eb74c30915cff98b8b7c",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:09.302150+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/memory/main.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/memory/storage.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/memory/storage.py",
+    "taille": 12886,
+    "sha256": "5f5ecdadd2b260fd14f36a0f338336eb760275465dd1056a99a47e1ef07702bd",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:10.495029+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/memory/storage.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/vector_stores/qdrant.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/vector_stores/qdrant.py",
+    "taille": 25105,
+    "sha256": "da570579d5cad69e6f123fdfe32b725235a25604e70047666bec763ba6e2bf43",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:10.243018+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/mem0/vector_stores/qdrant.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/pyproject.toml",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/pyproject.toml",
+    "taille": 3394,
+    "sha256": "d4bc078a05cc7b9d677bbf4d0b262cfc532495b5aadeded053ac84fd90b6e974",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:09.080563+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/pyproject.toml"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/revision.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/revision.txt",
+    "taille": 40,
+    "sha256": "421111869f6f73d7c4461d2cea7972c994bde7564973cadb0e9f72d80860f898",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:08.408438+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/mem0ai-mem0/revision.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/LICENSE",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/LICENSE",
+    "taille": 2819,
+    "sha256": "5f1bd74c48bf13ab0f82e177ad9e637313b92533d20ead2593d49347a47fc232",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:23:55.612678+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/models/memories.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/models/memories.py",
+    "taille": 10404,
+    "sha256": "e71f5e96f99573d339dd1d0b41846cf1e3ee4d37ea003a35d20c0fdbaa8356dd",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:23:54.954742+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/models/memories.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/routers/chats.py",
+    "destination": "",
+    "taille": 80716,
+    "sha256": "510269b6f69c8f634d2d93a6dc0605453fd5ececebf55c3ef3575532b3bc5eb3",
+    "mission": "12",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T22:23:55.379879+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/utils/memory.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/utils/memory.py",
+    "taille": 21502,
+    "sha256": "42634689be6065043372b33823bca3931d31da8d2f965c1d17dcdf80ed2ff724",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:23:54.728066+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/utils/memory.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/utils/middleware.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission07-preuves/middleware.py",
+    "taille": 311560,
+    "sha256": "a0f6d33dd7e657347a4b4e639a237e0f940823a018dd4ec62291f31bcde2209a",
+    "mission": "12",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T22:23:55.169248+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/openwebui-v0.12.0/backend/open_webui/utils/tools.py",
+    "destination": "",
+    "taille": 74379,
+    "sha256": "b7b223831f68cdf7d8ee8d21b9ff31a38d20cad4e8038c342d89deb3a5a977db",
+    "mission": "12",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T22:23:55.824271+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/pip-pip-__main__.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/pip-pip-__main__.py",
+    "taille": 874,
+    "sha256": "ace651b6b5e30c1cd8db89e26b14e777d6471d62fb07411ac1574ba09de723a7",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:13.462925+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/pip-pip-__main__.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/pip-pip-_internal-cli-main.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/pip-pip-_internal-cli-main.py",
+    "taille": 3209,
+    "sha256": "3b5d20bb306a176332900699628eacb9ad3dedd5ea0b79e8ccaa1db533a91c37",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:13.463136+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/pip-pip-_internal-cli-main.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/sqlite-license.html",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/sqlite-license.html",
+    "taille": 8351,
+    "sha256": "44ca9f793055c8e32fc65f65a4f5bcf813a33f5bdaaa084067dd617a4ed3cc70",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:25:34.873955+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/sqlite-license.html"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/LICENSE",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/LICENSE",
+    "taille": 1080,
+    "sha256": "f61fdd0217de9ece8fa699912848d91187d84879fc2e689f0906d0c1299e955e",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:53.415423+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/LICENSE"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/README.md",
+    "taille": 2706,
+    "sha256": "26c1abe64de52f1c22fe17e95b45c5aa3767604ab704ee851994d22c7c4e6582",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:13.256687+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/pyproject.toml",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/pyproject.toml",
+    "taille": 1365,
+    "sha256": "4085de96efab577acaf47c6fe7be8a795be03eda21eb8cfd758fd1e920bd8269",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:12.684534+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/pyproject.toml"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/revision.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/revision.txt",
+    "taille": 40,
+    "sha256": "8bbc454d6f3580f82080c93ec5c7b03d2e54c4f06fcaa5be5fc1d66f6f427299",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:52.330712+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/revision.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/__init__.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/__init__.py",
+    "taille": 15552,
+    "sha256": "32602bee21b14ed161fdfd3c8b921b267782ad143a49c3ebd256c16c473808f5",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:52.705267+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/__init__.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/config.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/config.py",
+    "taille": 1412,
+    "sha256": "0f50f15f7c362a04ec62345f6ec53535194136417cea39912d412fef70661f11",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:53.164537+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/config.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/tokenizer.py",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/tokenizer.py",
+    "taille": 3547,
+    "sha256": "fc77a61f5ebb0f09d337bbe66d19984b1d1e96a67ebbd2a8f026b084eaf48dab",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:19:52.978742+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/sources/thewh1teagle-kokoro-onnx/src/kokoro_onnx/tokenizer.py"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/static-review.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/static-review.json",
+    "taille": 799,
+    "sha256": "098c1b6392d5c75a5d71ecb701e683064e470b3fe2a28bb5324063c4278afa9d",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.903547+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/static-review.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-first-attempt-stt-guard.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-first-attempt-stt-guard.json",
+    "taille": 158,
+    "sha256": "7e888e19f58b5d1f260bb47073d430b75f826e6c9b91dc0cfbac3d2004ce0161",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.901536+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-first-attempt-stt-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-first-attempt-stt-run.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-first-attempt-stt-run.log",
+    "taille": 640,
+    "sha256": "8262c0c514e379083c920036ec6ff91fc35628c1b8dc8e6c95b84cd105ccbbd5",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.902304+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-first-attempt-stt-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-guard.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-guard.json",
+    "taille": 158,
+    "sha256": "7c6ccc6d35a610b61dd5d8fdf7dc2f29dbaeb5d2aca1c6fbde24f6e04fdbf1e1",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.839245+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-results.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-results.json",
+    "taille": 5766,
+    "sha256": "315f656ea0c4ebb5dcc40275e9419bd0695c9b25bbbd665c91e16e5beda4c3d4",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.839155+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-results.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-run.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-run.log",
+    "taille": 5209,
+    "sha256": "b0440c0645c06d0a68fb55adda8c484379e9d8bd0e03b9b0dc78c7a29ee98f32",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.839327+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-second-attempt-stt-guard.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-second-attempt-stt-guard.json",
+    "taille": 159,
+    "sha256": "5cf5298380ab39fb2593411fa98b0d3fc9b6ca9132b52392614ce63c90500a5b",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.901442+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-second-attempt-stt-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-second-attempt-stt-run.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-second-attempt-stt-run.log",
+    "taille": 1086,
+    "sha256": "ed432bbe1fa74d578fb5c5964e51538b16891c807e2747352db78b5123e3252a",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:00.902214+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-second-attempt-stt-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-guard.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-guard.json",
+    "taille": 166,
+    "sha256": "ed396e3b6019e9195ea72599b187f07323eb59bcdab76f7f333c57d95693c1b2",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841243+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-guard.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-results.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-results.json",
+    "taille": 5947,
+    "sha256": "186f87c07dc94bd13280a6273177e0001cc2d3ba666f14ac138351b549ad2941",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841156+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-results.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-run.log",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-run.log",
+    "taille": 5406,
+    "sha256": "ebd8e36c21d992eb0115d10b0664c23eeaae34c12d1c2b982f3de4f2a68d5c2f",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:29:13.841310+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/stt-small-run.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-manifest.json",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-manifest.json",
+    "taille": 5816,
+    "sha256": "679effceb70beaf646bd9aeeb973c0feef876f3eb919557108b34c9c8dad23a8",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:28:01.447494+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-manifest.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/anyio-4.15.1-py3-none-any/anyio-4.15.1.dist-info/METADATA",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/anyio-4.15.1-py3-none-any/anyio-4.15.1.dist-info/METADATA",
+    "taille": 4733,
+    "sha256": "043aecb571af7189e8a6c528f5d8e32545f1b2cdfaaf761d51e6d5b67ea3ca81",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:20:07.689539+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/anyio-4.15.1-py3-none-any/anyio-4.15.1.dist-info/METADATA"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/anyio-4.15.1-py3-none-any/anyio-4.15.1.dist-info/entry_points.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/anyio-4.15.1-py3-none-any/anyio-4.15.1.dist-info/entry_points.txt",
+    "taille": 39,
+    "sha256": "fdde98bbaba269998d7b40b2768c22ac4f429a0ef350bda0d3cb50a684b742f7",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:20:07.689610+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/anyio-4.15.1-py3-none-any/anyio-4.15.1.dist-info/entry_points.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/attrs-26.1.0-py3-none-any/attrs-26.1.0.dist-info/METADATA",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/attrs-26.1.0-py3-none-any/attrs-26.1.0.dist-info/METADATA",
+    "taille": 8754,
+    "sha256": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:20:07.681991+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/attrs-26.1.0-py3-none-any/attrs-26.1.0.dist-info/METADATA"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/av-19.0.1-cp312-abi3-manylinux_2_28_x86_64/av-19.0.1.dist-info/METADATA",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/av-19.0.1-cp312-abi3-manylinux_2_28_x86_64/av-19.0.1.dist-info/METADATA",
+    "taille": 4993,
+    "sha256": "5964cb0b9d0e59f4b4f06962f06e93d73a6c2f6af3d066e2a753ecf28423f760",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:20:07.689148+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/av-19.0.1-cp312-abi3-manylinux_2_28_x86_64/av-19.0.1.dist-info/METADATA"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/av-19.0.1-cp312-abi3-manylinux_2_28_x86_64/av-19.0.1.dist-info/entry_points.txt",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/av-19.0.1-cp312-abi3-manylinux_2_28_x86_64/av-19.0.1.dist-info/entry_points.txt",
+    "taille": 42,
+    "sha256": "dd731d337d2287aef79cb4915730ec1cb066198365b7bc10d71c96f31a070338",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:20:07.689220+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/av-19.0.1-cp312-abi3-manylinux_2_28_x86_64/av-19.0.1.dist-info/entry_points.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/click-8.5.0-py3-none-any/click-8.5.0.dist-info/METADATA",
+    "destination": "archives/preuves-controlees/part-032.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/click-8.5.0-py3-none-any/click-8.5.0.dist-info/METADATA",
+    "taille": 2567,
+    "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+    "mission": "12",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T22:20:07.690756+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12-preuves/wheel-review/click-8.5.0-py3-none-any/click-8.5.0.dist-info/METADATA"
+  }
+]

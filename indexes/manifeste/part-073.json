@@ -1,0 +1,2435 @@
+[
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/config/web_config.json.example",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/config/web_config.json.example",
+    "taille": 2408,
+    "sha256": "433ba782a03022976d8346301449f631e1fe0adc3948eac6e228c0318a5e4a1e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.330126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/config/web_config.json.example"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/2v_voices_only.md",
+    "destination": "",
+    "taille": 1083,
+    "sha256": "93f4726c7640ba9eda1ab1280c440b7c5013aa1f30ddccb349b499cbd54988ca",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333933+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/blog_post.md",
+    "destination": "",
+    "taille": 1504,
+    "sha256": "af457a95de4ba4b487c8fa8d808d9bf8be91883f57ddba005b27c9b8b926059b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/code_review.md",
+    "destination": "",
+    "taille": 1254,
+    "sha256": "8595c36091034cf1393d888db2ed7b114e3fceeba8b83857e42b0f968bf2cba4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/compare.md",
+    "destination": "",
+    "taille": 1706,
+    "sha256": "44a7478c65c41c0afbec4fa1a4d6ee6b15bbd9cee9011d7f6e3e947595c47e1b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/debug.md",
+    "destination": "",
+    "taille": 942,
+    "sha256": "88a12285267bd50fcffd0a83f3ae7285cf103c6185102869e68c7620ff9d61c0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/email.md",
+    "destination": "",
+    "taille": 1091,
+    "sha256": "1fbc5d21b0d8d44ce311d41e5f9da5c200293071ab6fa7bbd9c079b2d95cb37d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/explain.md",
+    "destination": "",
+    "taille": 2153,
+    "sha256": "c1802fad2f0df3234a850e721f9564aa9846a209a65fcd87b9447e6f9a90324a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/generate_music.md",
+    "destination": "",
+    "taille": 3193,
+    "sha256": "dadd01ce83cfe7c3877125c4b185c68abaaee5aabb90ef2de5e6eec7d912c032",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/grounding_search.md",
+    "destination": "",
+    "taille": 917,
+    "sha256": "ea11a711331499ac3486c48ba33260501cb110d2081e3c2937e2c1ccdec5c05b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/i2v_face_consistency.md",
+    "destination": "",
+    "taille": 1573,
+    "sha256": "44c326707a3a2cd81691c5b425f62e9e0091a5976325b6a309f81ea794817ad1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/imdb.md",
+    "destination": "",
+    "taille": 3346,
+    "sha256": "c1c02ad3ec604673bd08cceec5a1ed1304afd5788cd69214ad2bb09841f2fa33",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/jarvis_docs.md",
+    "destination": "",
+    "taille": 1812,
+    "sha256": "e8bb7bac8eeda07485d2b517b2e86b601099702af2c85a7caf24f0b0ebebde23",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/personal/README.md",
+    "destination": "",
+    "taille": 3516,
+    "sha256": "888041168e8bbaafae69c431c1c9550f881ef5ded9238a26630835c18513fff1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/quick.md",
+    "destination": "",
+    "taille": 785,
+    "sha256": "be8c1f5100ff442658e9b1018414fcf3e4ea858afa63d168068c563bbaf8079b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/research.md",
+    "destination": "",
+    "taille": 1471,
+    "sha256": "925d81450bd67d58d032e91aa028f2e39bb8d74b8b896f006e4013507b6fe1f4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/step_by_step.md",
+    "destination": "",
+    "taille": 847,
+    "sha256": "62c61b4aea610f0a3aeb1ef9b618f65e8f00f216e0c5a859178abe4f295d194a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/data/prompts/summary.md",
+    "destination": "",
+    "taille": 2081,
+    "sha256": "88209c69258ba8bc38fd31f12965e5e9df6efebd88a7e3db70a8dab2a7c36afe",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/pyrefly.toml",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/pyrefly.toml",
+    "taille": 381,
+    "sha256": "2e9357f66e4df548076ed4f664aa9cfe063fcc2c7affe12abd118c9aead71182",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/pyrefly.toml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/requirements.txt",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/requirements.txt",
+    "taille": 319,
+    "sha256": "0b3dc834da1fb5b65c2e28d608f409c08a0b17011ffa4cd1ee21eeaa42224ddf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/requirements.txt"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/__init__.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/__init__.py",
+    "taille": 21,
+    "sha256": "7eac114203b2f89d7d74602fa5bd8d6383fe95e9368627064f2ff4ac810fa97b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.333973+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/app.py",
+    "destination": "",
+    "taille": 10796,
+    "sha256": "d5e6b2e8f3c9983813300782e8e868b81d3d47038a2d32fb20494b1e6df76442",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.334331+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/config.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/config.py",
+    "taille": 3702,
+    "sha256": "58141c712cbfa70e340c23d9182d851a42b456ca508be98115d2731903dee9a7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.334331+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/config.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/__init__.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-memory/server/routes/__init__.py",
+    "taille": 18,
+    "sha256": "444fafa71ded49f189bd6324bf9c11b200d922c629290de26f8b7298107cb7af",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.334331+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-memory/server/routes/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/api.py",
+    "destination": "",
+    "taille": 167170,
+    "sha256": "6d67ad12232dc269644ff0356f5d41e7991798a86134c80ac4296cc3ebc1d350",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.334428+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/auth.py",
+    "destination": "",
+    "taille": 2337,
+    "sha256": "d33a5a5b8fa00d33ec43fe3673e8663f69a5162a9ff39b409ba63b021b2daee1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.334428+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/background_tasks.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/background_tasks.py",
+    "taille": 17463,
+    "sha256": "31387f39ff4f4e0e2bc708dca9c5b49c23141577e1407e4eb8dfdbe77529ed33",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.334428+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/background_tasks.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/library.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/library.py",
+    "taille": 11521,
+    "sha256": "71a5456094c2ebe8d38817af81611fbb3a5d715e2d9566d2e57af9f8deac5a1c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.334428+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/library.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/task_integrations.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/task_integrations.py",
+    "taille": 3828,
+    "sha256": "bf80c742b0cbe28aa2e5c5ab3ec783305eceb171f35648ff84b92e9b791ab57b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.334428+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/routes/task_integrations.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/__init__.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-memory/server/services/__init__.py",
+    "taille": 20,
+    "sha256": "f9f3f3a64b4e52395d6dc9fa9ba770e71bd35c9e1cd62904d42a2731d4156ffd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.334428+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-memory/server/services/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/attachment_bundle.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/attachment_bundle.py",
+    "taille": 7079,
+    "sha256": "eb82737906e5054087b161ff8a1610110aa71b220647ed5982282cd6d42d43ad",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/attachment_bundle.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/audio_upload.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/audio_upload.py",
+    "taille": 19483,
+    "sha256": "3bb38d1eae279aece4e448ff564b0084d3e70cb1d9f9751e82b3607038586d57",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/audio_upload.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/background_tasks.py",
+    "destination": "",
+    "taille": 35651,
+    "sha256": "0a7455845d33be33bb28223073a8e43bb507b499224f349bfb4df0ac3c8afd5b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/chat_runs.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/chat_runs.py",
+    "taille": 12197,
+    "sha256": "0bfd9792cebc6499c370c8865e7f53eae67ec5f1651dac8df91997ed2a1d8c3f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/chat_runs.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/completion_guard.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/completion_guard.py",
+    "taille": 29179,
+    "sha256": "f1869c11bcdf4d1cb6200e2aed263a22f820db6748ceab9dfa51a3259ddcc688",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/completion_guard.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/conversation_store.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/conversation_store.py",
+    "taille": 41185,
+    "sha256": "f4df962235362240914f541f1dca24a1c6be6d2a3c57b3b2b5b1a3dc95c30f29",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/conversation_store.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/__init__.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/__init__.py",
+    "taille": 154,
+    "sha256": "07f5695f613ff2e745776ba0a3657dd6b776e602d13b2d9d2d28904e51679811",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335068+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/local_travel.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/local_travel.py",
+    "taille": 23743,
+    "sha256": "a623701a7ed9d86380ec5ecc1f6136e9cd465c8580e59e9931139eb6cd703a9c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/local_travel.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/media.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/media.py",
+    "taille": 5326,
+    "sha256": "8e8658d78207173cb67083403bff6644e6938501e97b2ea35f3722d56da1eaf2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/media.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/search.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/search.py",
+    "taille": 21577,
+    "sha256": "58414b27c3adea5e344ca7925c29e2082e2bf7a1b160b42d9cec7ccdc56c12ec",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/search.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/shopping.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/shopping.py",
+    "taille": 18129,
+    "sha256": "5bc664749a69c182ce08a4ce200d7e5c424077fa8cd93a1217c396819da6aa20",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup/shopping.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup_extractor.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup_extractor.py",
+    "taille": 131294,
+    "sha256": "fb4647606fc70563658d92469c51387dfcba390e55dafaaf86df0f0d1f3fddd4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/followup_extractor.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/log_explorer.py",
+    "destination": "",
+    "taille": 17552,
+    "sha256": "4383c00c95171f5f1f0502cc4daff00277d318abc33017864b9c6a6bfc0737fe",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/log_streamer.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/log_streamer.py",
+    "taille": 18492,
+    "sha256": "331434c1ac3897dbda360963fb82958f048692415382bfef7d6de149bf1c1f50",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/log_streamer.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/ntfy_status.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/ntfy_status.py",
+    "taille": 5514,
+    "sha256": "5e6db9a8563385fea00238c4c75a0e55a571d59c20ea175f25aef0a3fa82eecf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/ntfy_status.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/pdf_upload.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/pdf_upload.py",
+    "taille": 15902,
+    "sha256": "cdeffc74ae8cc493274c689c047756620f3b3ff555caec73138244a06cbd4f16",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/pdf_upload.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/proactive_service.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/proactive_service.py",
+    "taille": 8626,
+    "sha256": "e0a26c7ab7409ae691f154d1e508d512cfaec4097a667ada5c25be497ae98a94",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/proactive_service.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/profile_appearance.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/profile_appearance.py",
+    "taille": 3997,
+    "sha256": "dc7b0dc90212dfc80596e2790bb96a9104ede53916b0b572406cdabf60788b59",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/profile_appearance.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/prompt_library.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/prompt_library.py",
+    "taille": 13469,
+    "sha256": "b6a9c30d840cd6f8382132b5a9e1c67775d93e0e359a27589233b0da3be7844d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/prompt_library.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/settings_manager.py",
+    "destination": "",
+    "taille": 90647,
+    "sha256": "5bbb46335079aa3fb719c705ad7d098cdb55613afccd1ea5f26e3847742e95fa",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tailscale_status.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tailscale_status.py",
+    "taille": 9447,
+    "sha256": "b35c9d3d10726132be724243468d810890e9a23c4552b8470e89da108699b9d2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tailscale_status.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/text_upload.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/text_upload.py",
+    "taille": 12319,
+    "sha256": "bb8d50471b6e951f9174c23aa15f8f1ee6eb28bf1878c0a5b87e282498af1133",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/text_upload.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tool_approvals.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tool_approvals.py",
+    "taille": 13463,
+    "sha256": "68436c3f287d9161256e8c8e0b2ecc7e0f59911b5f8534005d83ba3155a67b7f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tool_approvals.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tool_discovery.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tool_discovery.py",
+    "taille": 13271,
+    "sha256": "5c3f0da93b61e89dc4fd409d094ab99c1ce1786c4c237e75be01206d45f438e7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/tool_discovery.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/usage_metadata.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/usage_metadata.py",
+    "taille": 1988,
+    "sha256": "e8fbfb383a96f9ceb7e91640ae38326bf2a2d62616f84d3bcdf33161f84d15c1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/usage_metadata.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/user_profile_service.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/user_profile_service.py",
+    "taille": 6664,
+    "sha256": "2a867ec8af2ede770dadba696a7df1322ed7be5ffa606ac9298681f8db817747",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/user_profile_service.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/video_upload.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/video_upload.py",
+    "taille": 4704,
+    "sha256": "3c1afb4ee2e4fb688eb361b603a041e73c0f0b05d268670a6106f0651a6ea862",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/services/video_upload.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/socket_auth.py",
+    "destination": "",
+    "taille": 6630,
+    "sha256": "b06137316720573d03493ac7e405c8a658062a599c333fe618cbeb3239454a09",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/sockets/__init__.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/sockets/__init__.py",
+    "taille": 19,
+    "sha256": "1c4862b0e68210b3e6236d98137fd8ef0d6b7baa264ccbbd80f8d6020d95795e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.335577+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/sockets/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/jarvis-web/server/sockets/chat.py",
+    "destination": "",
+    "taille": 278546,
+    "sha256": "43ca0ee7821144852da425bfffd3b5efa36103a8640d8ad2bea367a9069c456b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.337089+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/anthropic_model_audit.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/anthropic_model_audit.py",
+    "taille": 6863,
+    "sha256": "bf8ab1f361215c8c0f6c387df137c9ac8fe16e41ae7b8cfc6d440689e16fe61c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.337089+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/anthropic_model_audit.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/audio_catalog.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/audio_catalog.py",
+    "taille": 4504,
+    "sha256": "4d1d0c2a5730ddebd1898b564b9f959b497bb6ad6124813fc555d52db16e379c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.337850+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/audio_catalog.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/audio_transcription.py",
+    "destination": "",
+    "taille": 23379,
+    "sha256": "d1dd4f2a96820390ee374a7ac9bd1902cd992d8cfb066c127ba6ca0d7913184b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.337850+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/auto_sync_memory.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/auto_sync_memory.py",
+    "taille": 3117,
+    "sha256": "de325dc3e48b7539ee4fc3576ed668a9b44c99fa04d6e50a2433d80bbf4beddc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.337850+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/auto_sync_memory.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/__init__.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/__init__.py",
+    "taille": 773,
+    "sha256": "c3b78717a6da85ab1212cda5d2c10ed692f1b6710f30330bdc44106d79a7538f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.337850+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/admission.py",
+    "destination": "",
+    "taille": 20113,
+    "sha256": "6be746042e4fca0146a68a1c9d5bacc207f30c266ee67f821b14b5afb50ca5a4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/browser_followup.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/browser_followup.py",
+    "taille": 2583,
+    "sha256": "157df0b148f59a95cf999fa552ce5f9810dd57e451505c7203858d6d5e9a5537",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/browser_followup.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/child.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/child.py",
+    "taille": 1730,
+    "sha256": "3dac1ac51b534687d47915d9caed153c5debe862886e3c6d4ba6b0a933f0098a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/child.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/cli.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/cli.py",
+    "taille": 7209,
+    "sha256": "cd417c39d8990c3e0c6987bf9f423e8bae7ca1556f90d440eaf97573a781a011",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/cli.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/delivery.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/delivery.py",
+    "taille": 13506,
+    "sha256": "a629791f0afe5b599e6841bffa7c6d664f499598bb559db2ca38988575041fcf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/delivery.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/events.py",
+    "destination": "",
+    "taille": 5229,
+    "sha256": "0b764298bc4970304a8de4c6623dc5a0e8927eaa63490fc3edbfe34a94ea4eb8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/local_contract.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/local_contract.py",
+    "taille": 2216,
+    "sha256": "a7061421348d8b1b06ff903c9b08d024fe71f1d7e76a94d742da188ff0546444",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/local_contract.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/local_skill.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/local_skill.py",
+    "taille": 15543,
+    "sha256": "3082e6c22fd01903e390b4cda66b3eb45e2a56fdde4c054c539720e9ab8e4e14",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338014+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/local_skill.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/management.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/management.py",
+    "taille": 12154,
+    "sha256": "bae0f5a9e289f0f7706067368faec639b68e55f7f91526c15da0e89361b8c659",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/management.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/migrations.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/migrations.py",
+    "taille": 7046,
+    "sha256": "e5b1155d0c094de877b95014f05e16ecef9e14f182e47334aaf90a61f8aa51e9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/migrations.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/models.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/models.py",
+    "taille": 5143,
+    "sha256": "c728bc95aedd9f8bf1405f6c2efa257314a7931bfdedaa1e557061ab8484ed42",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/models.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/production.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/production.py",
+    "taille": 6424,
+    "sha256": "2f674e9a895535afcdd13803179f3307c10e72eb9483a1dd36c7c513bb7fd442",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/production.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/store.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/store.py",
+    "taille": 33497,
+    "sha256": "7b7161ea7de4533d82a5f9de381843d1035f3143ba40a2805f7be5e23d85fb88",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/store.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/worker.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/worker.py",
+    "taille": 18049,
+    "sha256": "150611639b21babc626bec8ba8fed2ba3d04c2c0284dfc1236add5b960f00af4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/background_tasks/worker.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/browser_agent.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/browser_agent.py",
+    "taille": 26298,
+    "sha256": "0eac3b1771ebdce6c60da1a2431560687208e989ff1c0ef9ea0daed5c3ac4e1b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/browser_agent.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/bug_hunt.py",
+    "destination": "",
+    "taille": 59828,
+    "sha256": "7a664b51dfbcf2fc4dc8f8bdda77d151f90a27e61fa14571574c6361a950f63d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/canvas_content.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/canvas_content.py",
+    "taille": 3170,
+    "sha256": "123c0f635c21fa87c864aecf902df8d779678538f8b075117c6dd7592825d089",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/canvas_content.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/canvas_page_ids.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/canvas_page_ids.py",
+    "taille": 437,
+    "sha256": "93bbb6ef25f3a555c825bd59b86717bc6797fa4a13264b6f0b56ea5dcf3bed8f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/canvas_page_ids.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/catalog_lock.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/catalog_lock.py",
+    "taille": 407,
+    "sha256": "deedf797b91e40476a3939bfae20cbb73de8960a4759ffc22a65df867ea867a6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/catalog_lock.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/config_loader.py",
+    "destination": "",
+    "taille": 11958,
+    "sha256": "7e790028b1d5c77bd83f7b60db88ff5a9edab22b1c5792353e7e3dbf52b66b04",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/config_loader.sh",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/config_loader.sh",
+    "taille": 800,
+    "sha256": "fb67332812cb05f31469780485fd0f211171515ad78e6ce047527feec8cd8ab3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/config_loader.sh"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/cost_estimator.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/cost_estimator.py",
+    "taille": 13727,
+    "sha256": "7618f54e98028fefeeec9230e0ea0079f6bdd13c6b4b3f1952013f89593d54b1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/cost_estimator.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/craft_client.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/craft_client.py",
+    "taille": 7934,
+    "sha256": "c5e9f9c000591a843a98754caa2a711a698fceb1412c0b4e8b73b14537598e24",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/craft_client.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/craft_tools.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/craft_tools.py",
+    "taille": 11955,
+    "sha256": "c31ab673346782e0b4f260624d7ddc05e2c85b3e518efa91304c4a5d02c72131",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/craft_tools.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/deepwiki.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/deepwiki.py",
+    "taille": 12450,
+    "sha256": "a30afefcd7dd2336e2e60036df9f4329b0f8f070e75e6399e0f316533452f3e9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/deepwiki.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/deepwiki_context.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/deepwiki_context.py",
+    "taille": 9403,
+    "sha256": "8f9d3abf169d6f6ea3d3c9d4be3da06b8131cda56c8046e2c4b643cf640c245d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/deepwiki_context.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_contacts.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_contacts.py",
+    "taille": 7393,
+    "sha256": "7ce449a5dece64ae4f0f00bba09314c7cca20fdf3553a76da4657522eb2748d1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_contacts.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_inbox.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_inbox.py",
+    "taille": 51676,
+    "sha256": "3ab3336ce1b3bde6af978485b2247ae54b3cbdb5ae0107503c1efdf403f725ec",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_inbox.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_inbox_cli.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_inbox_cli.py",
+    "taille": 3306,
+    "sha256": "a5a1b0f725e664a0a600704d061aadce9ac02c363fd8adcf23c99e03ab0d9b18",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/email_inbox_cli.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embedding_inputs.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embedding_inputs.py",
+    "taille": 2331,
+    "sha256": "6ef49ef363349bef9132effd876f7f4aa8115271620cabfcfc26d9b0717ebe8c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embedding_inputs.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embedding_metadata.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embedding_metadata.py",
+    "taille": 9620,
+    "sha256": "b71e0cdde5b3308e8b8070feacff2b0ca16348fdf0569bf43638041e4d482064",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embedding_metadata.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/embeddings.py",
+    "destination": "",
+    "taille": 18371,
+    "sha256": "bf90cbd626ec57b659f83c5e93728d491bd3b9655959bd46ce08c9034d7b97a8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/feedback.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/feedback.py",
+    "taille": 32260,
+    "sha256": "36bb4b1ecd838ac7b1f2f9c2d845bd8b30db4feef48efc0038bfc27eb957b79f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/feedback.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/flask_error_logger.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/flask_error_logger.py",
+    "taille": 3904,
+    "sha256": "4e66de09657dac33e59c65f45857b2f7d860d685500c28e1e8021b284a7b59d8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/flask_error_logger.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/generated_image_cleanup.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/generated_image_cleanup.py",
+    "taille": 2775,
+    "sha256": "e249745ff78092d744f2a2824b0b21f3b85e7e40d917487158066a663cd7c998",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/generated_image_cleanup.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/google_workspace.py",
+    "destination": "",
+    "taille": 28601,
+    "sha256": "62ff35e6b266d243c4e85da982f7d18662532641977afa50998ea24d93f14979",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/google_workspace_setup.py",
+    "destination": "",
+    "taille": 13054,
+    "sha256": "063912e1060412ae5b63d6fb7c819240f56e43c1de4cb9af0f46de9e716d654c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/gpu_hot_client.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/gpu_hot_client.py",
+    "taille": 14009,
+    "sha256": "86367129153aea52b0e477cce8fb0561ec671ac78a6fe036b5a78850cc813ab4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/gpu_hot_client.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/head_events.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/head_events.py",
+    "taille": 2888,
+    "sha256": "6e61735c748659fb3ca3f3b3ef6dae575515f8dcdb3741721026c7eb8df7f184",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/head_events.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/helper_task_prompts.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/helper_task_prompts.py",
+    "taille": 1266,
+    "sha256": "587cccdbaa271cfa12a363341e00d39f3324a0df502eaa4e83cf9fe8aa8aa619",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/helper_task_prompts.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/http_client.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/http_client.py",
+    "taille": 19998,
+    "sha256": "16f1d8366cadeff24481d1a3c61114fc6665e10bcc46f51f160f0ec8834d9ba5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/http_client.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/hybrid_retrieval.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/hybrid_retrieval.py",
+    "taille": 13218,
+    "sha256": "a1208ec28a5a7fdd4a9a9ca77b0b32334846d1f618ca5f3ef79cb24854c5ce89",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/hybrid_retrieval.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/image_catalog.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/image_catalog.py",
+    "taille": 2377,
+    "sha256": "5ae841707051b78d534af2c13274984aa060b2c3b0d9ce8ed43323719484a90c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/image_catalog.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intel_content.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intel_content.py",
+    "taille": 2415,
+    "sha256": "cee50d5efeceb596240a213520bb5d58e03ec8bb8769fa1b060f0ae995ee02d9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intel_content.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intel_filename.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intel_filename.py",
+    "taille": 1511,
+    "sha256": "0ddd21c1f183a575af4be47c1ed8aca0a1d2c61c6ff3a8fb24d31de59e1904c8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intel_filename.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intelligence.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence.py",
+    "taille": 153820,
+    "sha256": "d15388131c29313189e196ec1b638f832af66f6f3f7d33f694bda78716534977",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/intelligence_hooks.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence_hooks.py",
+    "taille": 68284,
+    "sha256": "b5001d9952bf701f97be61298d8b7bd7c2f39151699a15455fdad1b169d7520c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/intelligence_hooks.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/internal_api.py",
+    "destination": "",
+    "taille": 838,
+    "sha256": "95959e9fc8479d6743acfbd7aa77cb70eb0d3a228455a3dadb71d9944d45130d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/jarvis_cli.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/jarvis_cli.py",
+    "taille": 14418,
+    "sha256": "cd70c834f7a556ce747f1c48a9dad99335c75b8a5f927aaa19d3d389e3b729f7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/jarvis_cli.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/jarvis_mode.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/jarvis_mode.py",
+    "taille": 2332,
+    "sha256": "965b256c62f7dedfcbcab94a010c4de7d044e6820ad6b5fef57d87908ecb6915",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/jarvis_mode.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/llm_logger.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/llm_logger.py",
+    "taille": 19592,
+    "sha256": "06308717c33bb37ea58a506dd41040bf6c6eae6491e3c0509d9d0d5ba2689051",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/llm_logger.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/llm_provider.py",
+    "destination": "",
+    "taille": 124769,
+    "sha256": "19a14ce65cbc6a0ebfecbb1dcfb141b88e839ebd177df0954c99d18147d8d537",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/local_model_corrections.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/local_model_corrections.py",
+    "taille": 6771,
+    "sha256": "48c3564e43f42cdf7102f1d264c861808228f2aa47639847cc6c21e92a7c97c4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/local_model_corrections.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/mcp_client.py",
+    "destination": "",
+    "taille": 68344,
+    "sha256": "b9c8019277fb7086f04d2735a12d0ed5f3628ccd6998072bbb4e15be9d691b05",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/mcp_docker.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/mcp_docker.py",
+    "taille": 3503,
+    "sha256": "4c5e46e9c56ed7c067b0157054db7823201eaf3b834b3dcdeb6ab7635b56396e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/mcp_docker.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/memory_db.py",
+    "destination": "",
+    "taille": 91006,
+    "sha256": "a9edfe845f3dcf1427c9212340f6fe238b7cdc153ac64041640a96d8637933d0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/model_catalog.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/model_catalog.py",
+    "taille": 53649,
+    "sha256": "a0abe4f2b5cf0aa370c223f057f2062b66f65f63d27aa05dca3a24d78548861b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/model_catalog.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/model_prompt_overrides.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/model_prompt_overrides.py",
+    "taille": 13887,
+    "sha256": "e178af4942ef80a809d472400f9f1a839a1a5aecddb898375c44875d06cb077d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.338126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/model_prompt_overrides.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ntfy_notifications.py",
+    "destination": "archives/preuves-controlees/part-064.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ntfy_notifications.py",
+    "taille": 19374,
+    "sha256": "b26f28e2d7aef44123bf7cfa0fe5bca153180573d2b77f892db8b67c21767a78",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ntfy_notifications.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_benchmark_fixtures.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_benchmark_fixtures.py",
+    "taille": 12661,
+    "sha256": "f7c3c57aa37f06f29695b188546acba7ed2c52bc1761767accb77ed8b4357307",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_benchmark_fixtures.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_capability_evaluation.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_capability_evaluation.py",
+    "taille": 17619,
+    "sha256": "5220ab08e9dbbf37c387ca900717084d55b59991197fe6237febe0c89f188f8b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_capability_evaluation.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_model_benchmark.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_model_benchmark.py",
+    "taille": 129576,
+    "sha256": "5ed57252add4a6c5b093bb161c9cb016dea89fe212ee99abac125c97e2814842",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_model_benchmark.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ollama_utils.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/ollama_utils.py",
+    "taille": 13813,
+    "sha256": "3bbdcd3ad7bb034dff7e5d084921c3acf69e0c4acec5d4f5593de949853b3968",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/ollama_utils.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/openai_model_audit.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/openai_model_audit.py",
+    "taille": 4552,
+    "sha256": "a38448ee957641025b81eab2abfd1052a693957a3021dcc997727dc0c5356631",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/openai_model_audit.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/openai_responses_adapter.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/openai_responses_adapter.py",
+    "taille": 15028,
+    "sha256": "c57b0354e3876edfb3f01a12ba2f88b3a8cddbc5eff1010ac43ed13070d29fc9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/openai_responses_adapter.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/opencode_client.py",
+    "destination": "",
+    "taille": 47114,
+    "sha256": "5afb0adb469c98066129e55daf0e3b649a19724b1d5169af79e3d37d28d5203c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/opencode_logger.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/opencode_logger.py",
+    "taille": 7328,
+    "sha256": "3760fcbb8a2fb1f8c229876cdc1d10dbdb99f44ef0abc17073cfe62cc2d1bbd7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/opencode_logger.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/paths.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/paths.py",
+    "taille": 7204,
+    "sha256": "84d66699ff9a6861053cb6c2ce4cfa63eab195df12c998575b6e174e5fcf9410",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/paths.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/price_alert_config.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/price_alert_config.py",
+    "taille": 7646,
+    "sha256": "c85e1e84b983b8bb41b4a943eed3150306dd415b3170a8eb09a595af61dd1832",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/price_alert_config.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/project_nomad_context.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/project_nomad_context.py",
+    "taille": 2283,
+    "sha256": "147eb57f5010a5bb0eaa341d014259b8b08112990947dcb495cc028ca9a7a7f5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/project_nomad_context.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/provider_errors.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/provider_errors.py",
+    "taille": 9615,
+    "sha256": "3230df1a73e1580b8551ecde6dbd806cb8446c3543c7d576301fdb5e92cd6e3f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/provider_errors.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/provider_tool_policy.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/provider_tool_policy.py",
+    "taille": 286,
+    "sha256": "c1b6df1c2a54ccefa8a15de08f7b7a1ad0c4a5ccd3175a466e88fc4553436da0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/provider_tool_policy.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/rate_limiter.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/rate_limiter.py",
+    "taille": 7856,
+    "sha256": "87fd00f939a39f2bcd4ae18d649419c8008dab94be6d2c98abedddc1c1b5c46d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/rate_limiter.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/remote_completion.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/remote_completion.py",
+    "taille": 3122,
+    "sha256": "5ae19396d7fd17d6dec25d360951c78b895c51dd65dcc6fe602dc4e2693648e6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/remote_completion.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/retention_cleanup.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/retention_cleanup.py",
+    "taille": 5908,
+    "sha256": "44d3108ba3787ebad195ad370d52b87530dad29691db0fdade66fa4dfc8ee0a6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/retention_cleanup.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/router_prompt_catalog.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/router_prompt_catalog.py",
+    "taille": 850,
+    "sha256": "0b344dffc629b8e9bbd08be020ef0d327b5821c1dd418c1f8bd7e48563bffef1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/router_prompt_catalog.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/schedule_parser.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/schedule_parser.py",
+    "taille": 16709,
+    "sha256": "e0117ba5690f5177cf5af70e2a59dc004c290a74fa5673d8fa623310ca9d3cbf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/schedule_parser.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/security_utils.py",
+    "destination": "",
+    "taille": 12853,
+    "sha256": "34bec5d8aadaf60d58c44f78e92416d3cd0303765279a4bae05e2e94ed74a638",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/self_play.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/self_play.py",
+    "taille": 29298,
+    "sha256": "81a0e1802f5a28e142e7b8e1a9f6e75003c9eec78363524b38a4daf1973b70ab",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/self_play.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/serpapi_client.py",
+    "destination": "",
+    "taille": 46268,
+    "sha256": "55642dec4e7425febc663289e43a035321598c8a157c2e323cdfd958841817aa",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/service_logger.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/service_logger.py",
+    "taille": 8401,
+    "sha256": "a1ab17313707c9fe250882ec2d34736e28d8fbe903710ec3f161c7aed738bc21",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/service_logger.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/source_library.py",
+    "taille": 60336,
+    "sha256": "f98a42e47cf2a011840b91bcc876ed8131c9c7691aab938add363216df63166b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/source_library.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_archive.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_archive.py",
+    "taille": 5323,
+    "sha256": "615b5ba077bb4ef003f96d4f7c9ce0d69bafd55818090bb7cb2dd31fa381cbc9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_archive.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_context.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_context.py",
+    "taille": 3572,
+    "sha256": "0d6ffdeb6f7ffb5d3d2a9b0e5dd414ee2a3bc240bdde0a8c824ca64a3a6bfa7c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_context.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_jobs.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_jobs.py",
+    "taille": 5378,
+    "sha256": "03811bdecef3befa3223157ff37a08ed5730cc5faac69296d3981f59454a8e28",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_jobs.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_offline.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_offline.py",
+    "taille": 6241,
+    "sha256": "8e1f58ea523a16d65b1f42f6444bd0b860205e0a314b46d5295422132d26c0ff",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/source_library_offline.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/speech_child_environment.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/speech_child_environment.py",
+    "taille": 1570,
+    "sha256": "3e26b1e0704c14240c76b702c48c1dbccb4f7723fa0b4ae90459707aa588a096",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/speech_child_environment.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ssh_remote_commands.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ssh_remote_commands.py",
+    "taille": 498,
+    "sha256": "0762ae5282729d9240f2acf2cad23ab8f7785ff1c5e8b507a6ea2043044fc532",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ssh_remote_commands.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ssh_remote_environment.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ssh_remote_environment.py",
+    "taille": 1870,
+    "sha256": "ccfeb47d077a262f840756b4c4cbbb4257d96e6190d98d6136a523b14c88298b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ssh_remote_environment.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/stash_helper.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/stash_helper.py",
+    "taille": 50491,
+    "sha256": "cddf8bfe02d4bdbccd837e8b05849235d53cc1606c6240a380092757212aa152",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/stash_helper.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/static/ui-navigation.js",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/static/ui-navigation.js",
+    "taille": 964,
+    "sha256": "2bda3bc08e2d8b4b776132661126bfc98d4d7f43779ec9e21e3d1cacd7da9c15",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/static/ui-navigation.js"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_activity_logger.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_activity_logger.py",
+    "taille": 1141,
+    "sha256": "096ee4dcf671ca1f163c65b7683540588aa85a1108933b0af4adf01d28a98535",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_activity_logger.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_llm.py",
+    "destination": "",
+    "taille": 20831,
+    "sha256": "6f144ca8d3bcbfea366f63dfff86c42840b165fb759437b2a3ebb86017b089d6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_phrases.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_phrases.py",
+    "taille": 10178,
+    "sha256": "1a880f77c4bb1151c689daeec963c45b078e0a66e6e53e6ec49fb3a847d9f0b0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_phrases.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/status_updater.py",
+    "destination": "",
+    "taille": 36978,
+    "sha256": "7e395c24b996ced30b14d9173cf4f94f6052e05f9d553f9ed98f37955d754278",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/stt_client.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/stt_client.py",
+    "taille": 6011,
+    "sha256": "76ace614320f7364e9cf77544c988da17e21b5d492b881478c7acb03f3a4d0e0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/stt_client.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tavily_client.py",
+    "destination": "",
+    "taille": 2513,
+    "sha256": "434550d776baf62ae2ad19a9e06a38a10d429cac91b838e3e70cbbbd247e8734",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/thinking.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/thinking.py",
+    "taille": 12204,
+    "sha256": "de4fff67f131a55113e2a900bf8d8b872df4e8cb20ecdc7e8deee74f8f1f47e5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/thinking.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/thinking_policy.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/thinking_policy.py",
+    "taille": 7762,
+    "sha256": "13a832f8449563ee0239419c06797ca0d9c331095afda6bacd7200db6ebbac5e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/thinking_policy.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/time_utils.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/time_utils.py",
+    "taille": 6532,
+    "sha256": "988580ca237b4b900bd0120ad4d71ae9f208ee01cf5105efacb163734f6726dd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/time_utils.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_availability.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_availability.py",
+    "taille": 17261,
+    "sha256": "3efb5df095af77b621346735236a1dde3350319b971b35ea7cbb62098b8ca2c1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_availability.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_builder.py",
+    "destination": "",
+    "taille": 71621,
+    "sha256": "7759acd2b3ef580f374c30dddc999cca8e70ad3f17cdce8db51ef319e9198c14",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_child_environment.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_child_environment.py",
+    "taille": 4021,
+    "sha256": "27cda2d4771142f2c19cea40203ae41ca09d0a2698737f348faceba7dca12f03",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_child_environment.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_logger.py",
+    "destination": "",
+    "taille": 9772,
+    "sha256": "36cc8f90444a02f89b4deef9cf755a8d4570ff77d21180f838901bb484b8bab5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_manifest_files.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_manifest_files.py",
+    "taille": 1937,
+    "sha256": "c0322f66f2cc398aa7a441f7fc53c3be47a75066024cf15d08a07470316986a1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_manifest_files.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_profiles.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_profiles.py",
+    "taille": 4119,
+    "sha256": "97144bd4934ce96bc81e991bd7311c927bdaafe4d77bfec408aeddd0aca043f4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_profiles.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_progress.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_progress.py",
+    "taille": 1200,
+    "sha256": "cf3ae81f83cc2c823201686deab5612e68607e0234e84c53d38ff91b0ec54930",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_progress.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_rag_typo_hints.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_rag_typo_hints.py",
+    "taille": 11279,
+    "sha256": "526ba70f55ee7c479c9b3b47cea504d562cd709e54c36c0fdb3a755ee0bd55f2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_rag_typo_hints.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_schema.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_schema.py",
+    "taille": 52733,
+    "sha256": "83e37be9610ead70bff0b0e440cc62063febb0b1194ff188d18e5a11dd7a7725",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/tool_schema.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_search_runtime.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_search_runtime.py",
+    "taille": 10007,
+    "sha256": "52ae52f0c39b3756c28500edc26622efa0dc02f6dc716de4fe888a6dfafd2626",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_search_runtime.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_sync_status.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_sync_status.py",
+    "taille": 5254,
+    "sha256": "d4770fb6dfaec8d46097eed7952cb5c3585bd365c3c77a685486fffa631121ac",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tool_sync_status.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/trakt_oauth.py",
+    "destination": "",
+    "taille": 10851,
+    "sha256": "d653965c56ab186ddfcda8dd3c9cf0309c56c7351039a25349b13594def811a5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tts_normalizer.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tts_normalizer.py",
+    "taille": 21287,
+    "sha256": "187cc5e24f027258e5091a9bbe71d0f4baf80dffe756c73fc9bd907a138667d1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tts_normalizer.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tts_style_tags.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tts_style_tags.py",
+    "taille": 6162,
+    "sha256": "edcf9debab486b5a59aa1239b692f107be494b34c1903fca71dadb513d748197",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/tts_style_tags.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ui_navigation.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ui_navigation.py",
+    "taille": 4270,
+    "sha256": "5063c90076861af24d5b3a19b33017dd65cd63524c48ba041475c4c96ba46c77",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ui_navigation.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/user_profile.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/user_profile.py",
+    "taille": 9929,
+    "sha256": "3bf98ecf822d65e0d02e2f575156caf777bcce23ca708f6ee28847aa0813e4b9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/lib/user_profile.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/version.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/version.py",
+    "taille": 439,
+    "sha256": "0cff7172ffa934ecb61c17d67e91169d420cdf0f24f901b5327cd75ffcb094cf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/version.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/video_analysis.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/video_analysis.py",
+    "taille": 22105,
+    "sha256": "846ccbcc3dfedb6fd6ae067203ae083fc790110b64b52892e75ac49693ff7205",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/video_analysis.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/video_catalog.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/video_catalog.py",
+    "taille": 7543,
+    "sha256": "6781f9c01afe39652a25075d76f6c210680b8c74861120289772a006a6b6638f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/video_catalog.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/vision_multimodal.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/vision_multimodal.py",
+    "taille": 3602,
+    "sha256": "125a687adec44351e3d48de5e53506419cf2fa8dd8df5602d142537d99101927",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/vision_multimodal.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/vision_provider.py",
+    "destination": "",
+    "taille": 11830,
+    "sha256": "0e5ab07f62b255c2d42b3d46299c2d50110cc5bc62652ed1d89f8279473b9b39",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/weather_location.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/weather_location.py",
+    "taille": 12201,
+    "sha256": "9762f457c186149495b8b44ff88027a566f4a584cdca6feeccaad4aad44c1c25",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/weather_location.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_context.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_context.py",
+    "taille": 4978,
+    "sha256": "c582db28e0ca44934b0efc57d369fee68ef441f7e781bd6e74d6237faaf8b6ff",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_context.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/__init__.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/__init__.py",
+    "taille": 80,
+    "sha256": "608c947ea862f7ee87ab4c33914bcd63164485455d3874350307a1047ad9ccb0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.342126+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser.py",
+    "taille": 12684,
+    "sha256": "2b853684cf9ab12753da6d8dc446ef4e3b379b74d77cc68a061e0279c6357418",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_audit.py",
+    "destination": "",
+    "taille": 4085,
+    "sha256": "64cca88b311ad5e295b835bb2565c1d1bf206ac5d31bd39ff43b490aa99bc2c9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_job.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_job.py",
+    "taille": 2577,
+    "sha256": "f8de3a5246cdccc855c996953f8cf0718cae91f11b1cce4fa27da6151ec77837",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_job.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_service.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_service.py",
+    "taille": 27096,
+    "sha256": "004e3bc270d8e5094b4c3e1a6fb00df0c3435a2cb666d1a952c54c0b4bfcc56f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/browser_service.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/contracts.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/contracts.py",
+    "taille": 5467,
+    "sha256": "56a2e9a6dfec2ace585e6f52f26c7197b9bd18f5870888deec8483d6329be860",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/contracts.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/credentials.py",
+    "destination": "",
+    "taille": 7908,
+    "sha256": "a5c60bce4787e30654dce98a99f6f1c084d3f608946ad60724740ccbecca98dc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/crypto.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/crypto.py",
+    "taille": 4145,
+    "sha256": "d18bad53dfcfd1527c9f6133d0af6fcbde099112a9e8f06941cb9fe0a5d633aa",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/crypto.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/http.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/http.py",
+    "taille": 4830,
+    "sha256": "35ad5ae1c17be788a2a74578f7bc043130f42db647958fba722151d642e27502",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/http.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/inbox.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/inbox.py",
+    "taille": 9939,
+    "sha256": "9a4f0f5edf8ec64ef41f9355f53814a3f4909b0d57f1fd84aa02db28ba09f8fe",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/inbox.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/private_bindings.py",
+    "destination": "",
+    "taille": 12020,
+    "sha256": "a84c83262bf1b82fb9467bc53efaf45ad2e4f0a5c62598348a55cc065b1ea86c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/runner.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/runner.py",
+    "taille": 6558,
+    "sha256": "5b610869804bf95c7fe2f9d739d6ee5944bc1ab8ff0ccfb4042f761230b9bcd0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/runner.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/schema.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/schema.py",
+    "taille": 2172,
+    "sha256": "8075f88dba5d30b5b0e16cdcf5947cfe8a540f8c3f8e4a03cbde894e37184ebb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/schema.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/service.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/service.py",
+    "taille": 16539,
+    "sha256": "15a3e4eb66c6ab3275531cdd2dde83e35afb68400ca75de833694c8842d20042",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webhook_integrations/service.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/webui_auth.py",
+    "destination": "",
+    "taille": 8746,
+    "sha256": "ea06a0fdbf97d34d6201289dd12463dad6181d24e537bf160982b19d733e101d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/workflow_learning.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/workflow_learning.py",
+    "taille": 6653,
+    "sha256": "5b19c38c93b9d290f8f4e9d39b04df72a2f69c06319a19f8d060378b6155df8d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/workflow_learning.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/xai_model_audit.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/xai_model_audit.py",
+    "taille": 7284,
+    "sha256": "a1f7625475424bc9e2f98720aba995d69893a3a2bfebb11949d1267b54a94f6d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/xai_model_audit.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/xai_oauth.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/xai_oauth.py",
+    "taille": 18899,
+    "sha256": "b1ee221fdfbb922c30a3b2c06fb82e848131e98a64ad1f0b6043defad45062e5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/xai_oauth.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ytdlp_runtime.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ytdlp_runtime.py",
+    "taille": 1372,
+    "sha256": "0dc286543e257401141e2c142cef68fccf5bcd61f7f81c9c2f77058d74b322f7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/lib/ytdlp_runtime.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/QUICKSTART.md",
+    "destination": "",
+    "taille": 3637,
+    "sha256": "648fc947b0053bb81b387e11ded5850e15bb06edda92b6225ff4d2f10a476d32",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.346141+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/README.md",
+    "destination": "",
+    "taille": 6913,
+    "sha256": "eee0a66de8af8b4060696f398fe753077d5a6824d97034c1d29e7b69c7f33db3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.346951+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/alerts.yml",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/alerts.yml",
+    "taille": 3697,
+    "sha256": "b1deb23a4ee09748ef3e68f73fa496d1388dede36caca5c09a823451cbdb91f5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346951+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/alerts.yml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docker-compose.yml",
+    "destination": "",
+    "taille": 3648,
+    "sha256": "d14848cb22d1b8dd4406860cab398f38885216baee8a6cda04bd29df65cd722c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.346951+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/API_METRICS.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/API_METRICS.md",
+    "taille": 8776,
+    "sha256": "b0b6a3e6961955c5a2ded0b5d221093109caea3d5855edada33571800b1adfc8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.346951+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/CRITICAL_ISSUES_FOUND.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/CRITICAL_ISSUES_FOUND.md",
+    "taille": 11881,
+    "sha256": "1dc397be06a9aea9b9ad10609a9120355cd58d3b3bc031958a1720923aa0309b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/DASHBOARD_TROUBLESHOOTING.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/DASHBOARD_TROUBLESHOOTING.md",
+    "taille": 7646,
+    "sha256": "281b0fbad59148db0cc622df92e97cfcb18906df14087f5558876ded7c9cb499",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/DATASOURCE_UID_FIX.md",
+    "destination": "",
+    "taille": 7118,
+    "sha256": "f93da284314140188f9f579523600a6ebbffd41cb0a452c3ff3e1164e8ceda0f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_AUTHENTIFICATION",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/GRAFANA_LOG_ANALYSIS_GUIDE.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/GRAFANA_LOG_ANALYSIS_GUIDE.md",
+    "taille": 10053,
+    "sha256": "f84da5ab1f353d64c9e6373ab280632b36e0b8eaf6956d132f3892b318e6fb8b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/GRAFANA_OPTIMIZATION_SUMMARY.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/GRAFANA_OPTIMIZATION_SUMMARY.md",
+    "taille": 5693,
+    "sha256": "f68bf049b52ebbfc4292f992cf64067fa2f1c7948ac37dc845992fb63761cbb1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/GRAFANA_QUERY_REFERENCE.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/GRAFANA_QUERY_REFERENCE.md",
+    "taille": 17690,
+    "sha256": "ef45ce3f0ea32ad4628a3cd718bd52708c4c99e348d1d95b4946e3b94973b69e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/LLM_LOGGING_IMPLEMENTATION.md",
+    "destination": "",
+    "taille": 9638,
+    "sha256": "86372726e317924c2631b810da0abed7204d848fb134d2b833cc043f11c34209",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/MONITORING_STACK_SUMMARY.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/MONITORING_STACK_SUMMARY.md",
+    "taille": 9031,
+    "sha256": "3842e3c114eade88edbba267f149e70aeb2b1ac91d112a79ebd1b8727963add8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/PROMTAIL_NESTED_JSON_FIX.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/PROMTAIL_NESTED_JSON_FIX.md",
+    "taille": 6243,
+    "sha256": "c1a4984908d89bc9b9fd98dc8480d8f9b28c99dcc5824aeab9d87b789d9aa4f7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/backup-dashboard.json",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/backup-dashboard.json",
+    "taille": 6644,
+    "sha256": "758c9ea3b522a56fc36a4a96c3646d3184865d93d5a5f22a4d9dc928c99d26b4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347108+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/docs/backup-dashboard.json"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/Jarvis-Overview-V2.json",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/Jarvis-Overview-V2.json",
+    "taille": 6519,
+    "sha256": "b4bcd795e58c611b538f7389b8d614247a7dc710eac1e5be718a0660cf2d97df",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347504+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/Jarvis-Overview-V2.json"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-api-performance.json",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-api-performance.json",
+    "taille": 12843,
+    "sha256": "a46fcce07acf9112493a064bd3f52e096ce324b9101712ad669789f5b86b7455",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347588+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-api-performance.json"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-llm-performance.json",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-llm-performance.json",
+    "taille": 12338,
+    "sha256": "ea6c99bd785736746d4e9eafec907b0c24f7692bc2a7654ebe2eeed829ef1c5b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347588+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-llm-performance.json"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-tool-analysis.json",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-tool-analysis.json",
+    "taille": 13724,
+    "sha256": "a5811cd30fbc5d351a909b6668449f41c4ebbf91aca7a1c363129c15835cd491",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347588+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/dashboards/jarvis-tool-analysis.json"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/provisioning/dashboards/dashboards.yml",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/provisioning/dashboards/dashboards.yml",
+    "taille": 371,
+    "sha256": "c3cef628e817819652d684c84ac61ea6d9e47ad3f490599ac9588ee2c83d6fc3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/provisioning/dashboards/dashboards.yml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/provisioning/datasources/datasources.yml",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/provisioning/datasources/datasources.yml",
+    "taille": 1075,
+    "sha256": "5ab91ca109a324a8adf5f800bdec96b0474ab00d34c75282c5989fdca6396107",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/grafana/provisioning/datasources/datasources.yml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/loki-config.yml",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/loki-config.yml",
+    "taille": 2002,
+    "sha256": "c77c42a8b2155b487c94d2eb34570eb13b8d7c6ce207bfdb95f979fb1bb8083c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/loki-config.yml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/manage.sh",
+    "destination": "",
+    "taille": 5539,
+    "sha256": "984c51d45181523d903f150d9b8c5f8ed95b2a848f99f0619765d318aa7e7f7f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_SECRET_POTENTIEL",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/optimize-dashboards.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/optimize-dashboards.py",
+    "taille": 4217,
+    "sha256": "8935d83eb1f2c6c08e749c68159e3c8ba9baa5dd432fc72723a8be0d0f4db986",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/optimize-dashboards.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/prometheus.yml",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/prometheus.yml",
+    "taille": 4070,
+    "sha256": "a53a8f08a8727a340d628ca1127f624a7aff494ec9dd09b477a6c48311e4cbe3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/prometheus.yml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/promtail-config.yml",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/promtail-config.yml",
+    "taille": 11868,
+    "sha256": "055259e3d70b4b69c38c1e9ca5002c3a9d99b0cbdcdfecf5eb3a1e1fc5e7a0d2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/monitoring/promtail-config.yml"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/README.md",
+    "taille": 7237,
+    "sha256": "692daa6a06a3784be8346d0d691b91f7b5c89886a14d44fb62adcaf086dc92ef",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347636+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/context_assembler.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/context_assembler.py",
+    "taille": 158883,
+    "sha256": "6bb43aaa30b8ca682936987acd9ddd493d029dbbaaab86ac2ef34bba34776124",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.347863+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/context_assembler.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/executor.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/executor.py",
+    "taille": 41684,
+    "sha256": "46f8b7b05437e708f2985908dc89f30a9003f2f7c1bb54c50bf40ad7bb4b5b40",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.347863+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/executor.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/orchestrator_v2.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/orchestrator_v2.py",
+    "taille": 205479,
+    "sha256": "4292562da44ab7054623090eafe50567a80a5993b4ac8ff6b29218e5b8ce2c19",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.347863+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/orchestrator_v2.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/pipeline_executor.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/pipeline_executor.py",
+    "taille": 102251,
+    "sha256": "5859f44b9f84e3171331a6868cf45de1e70d1c47021c7a95187509ab78737970",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347863+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/pipeline_executor.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/response_formatter.py",
+    "destination": "archives/preuves-controlees/part-031.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/response_formatter.py",
+    "taille": 14698,
+    "sha256": "b99550e41f8ac14ab106d711b2d5cc8431f8db9ccaa9b5d703aa93da9c4a90a1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-12T21:56:13.347863+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11-preuves/sources-bigsk1/orchestrator/response_formatter.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/README.md",
+    "taille": 16170,
+    "sha256": "a75f354dbc34614a8ba61eef3fd9f0f42693a6cae7e4f9b2de7f571760de53e4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.347863+00:00"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/__init__.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/__init__.py",
+    "taille": 2658,
+    "sha256": "417e46df27659bf2e48442c8267b9d5826d6a524d7d1de16787bc64914779310",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/__init__.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v1.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v1.py",
+    "taille": 32554,
+    "sha256": "79c538f302a72fcf8946c2193b51a2c8aef52b088d7600f88e18b8f4f0a1d156",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v1.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v2.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v2.py",
+    "taille": 14210,
+    "sha256": "3c145b4ee734005b82fcda3312de7729ec60f1620d0559cee31fba08c0fbae68",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v2.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v3.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v3.py",
+    "taille": 10222,
+    "sha256": "236329e571f25eec83814df251bcb0ba20b173089f8c8c3b97dc427293c00b10",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v3.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v4.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v4.py",
+    "taille": 10725,
+    "sha256": "46306bc60d7fff622335c883cf09d8c363c1c538e95dc622bddf8daa0b760a6b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_prompts/v4.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_v2.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_v2.py",
+    "taille": 79306,
+    "sha256": "5128d9fa5732c03df9f6658d435a02bdf55a731abf84db96536b0f16a8189d06",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/router_v2.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/tool_process.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/tool_process.py",
+    "taille": 7036,
+    "sha256": "26190da330430eb6ec082f957b463edb03f1c69dc65dd22a502856f18e6fa06d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/tool_process.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/turn_state.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/turn_state.py",
+    "taille": 3186,
+    "sha256": "d590316b2cef479438518f9ec48bcf1022b0520d7591ac55226b723d706451ea",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/turn_state.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/workflow_availability.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/workflow_availability.py",
+    "taille": 4699,
+    "sha256": "1cb39bf47d6697690364968b196a06900106d41b6186c5004043bfe6639b2e91",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/workflow_availability.py"
+  },
+  {
+    "source": "/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/workflow_loader.py",
+    "destination": "archives/preuves-controlees/part-065.tar.gz::archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/workflow_loader.py",
+    "taille": 12457,
+    "sha256": "aa271053d8089f3b60a806e26bfeb893dd71c6a0830558a0e16b2b08eb7d6264",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-12T21:56:13.349350+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/tmp/jarvis-m11-3Ah6eH/jarvis-voice/orchestrator/workflow_loader.py"
+  }
+]

@@ -1,0 +1,2374 @@
+[
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-intel-hda.ko.xz",
+    "destination": "",
+    "taille": 35840,
+    "sha256": "19ac5190c751792cd5ad2c9f920c80702cf9928c157a6971adb9a9372508164c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-apl.ko.xz",
+    "destination": "",
+    "taille": 28644,
+    "sha256": "0da169cf63ecb9bf6328ee53244c4346356c55444a5dc291a54fdc0b2e04ef05",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-cnl.ko.xz",
+    "destination": "",
+    "taille": 41788,
+    "sha256": "ef7ec16483f7b315dc88ad1d3a04535e77855d812db9f1bc7d99601d58a83ff9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-icl.ko.xz",
+    "destination": "",
+    "taille": 33548,
+    "sha256": "c947ca46fa6d790d015523a2ad20873e4d63ab0b5dac6d9280c2da3c8ee14474",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-lnl.ko.xz",
+    "destination": "",
+    "taille": 38124,
+    "sha256": "5373814140cdabc887e4619e6712ae8e65faf37ce5c205c41b40706b46646798",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-mtl.ko.xz",
+    "destination": "",
+    "taille": 45516,
+    "sha256": "4632887d1191dfdcd5cf7c4a25775f4815e651cc9ec6987bca5797c0612b9f23",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-ptl.ko.xz",
+    "destination": "",
+    "taille": 32904,
+    "sha256": "8b0c68c946bc396e7423904e21c242dec1262909c1fd677cd857acca2c3b08ea",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-skl.ko.xz",
+    "destination": "",
+    "taille": 36916,
+    "sha256": "3cce570f824ca6469847a0de42b90c7c4c5a3a113f7199eb9c5962f5d80e1a69",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-tgl.ko.xz",
+    "destination": "",
+    "taille": 29844,
+    "sha256": "f9bbf6619e896c6a445ad4ce4d8cdd71131fa5368d16893cf8d571636545f7d9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/intel/snd-sof-pci-intel-tng.ko.xz",
+    "destination": "",
+    "taille": 29024,
+    "sha256": "6395f3987134284f603d169dcb3821fb0499eff5237f9eedb6af788b26469000",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/snd-sof-pci.ko.xz",
+    "destination": "",
+    "taille": 27412,
+    "sha256": "7bd662e9ec2b09edb51b6edec504cb91d3f72080634ba46b2778719c58b833a8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/snd-sof-probes.ko.xz",
+    "destination": "",
+    "taille": 29868,
+    "sha256": "228ded9cbc0fd692fe0221dde238406d0802e3524a6a0fe23bd19908345df270",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/snd-sof-utils.ko.xz",
+    "destination": "",
+    "taille": 9584,
+    "sha256": "a014ca2050730916b1e9b76a3df52c06275e236140103b8d3fa4c80a28a3ca69",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/snd-sof.ko.xz",
+    "destination": "",
+    "taille": 175292,
+    "sha256": "75a9192726786d084b14c4481b28c74dfcfaad829642930d02cd2e94ef24ac05",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soc/sof/xtensa/snd-sof-xtensa-dsp.ko.xz",
+    "destination": "",
+    "taille": 25744,
+    "sha256": "8d36909c9df9921c63aac890bd6a166d056154ac890c84dfd679a50c0b60803a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/soundcore.ko.xz",
+    "destination": "",
+    "taille": 12716,
+    "sha256": "7f43559af0227632700876ecd6aacdc859ccadda012c64288c767270a7991374",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/synth/emux/snd-emux-synth.ko.xz",
+    "destination": "",
+    "taille": 36196,
+    "sha256": "f5951abce60cdfd45d2fc734f3c25d81f3991dc7ca94d79586274fa0f79cb4db",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/synth/snd-util-mem.ko.xz",
+    "destination": "",
+    "taille": 9576,
+    "sha256": "9d4c008faa4ab860490ced5bdb6b9fb4acd95d6325c0411baad45f568c6af6e5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/6fire/snd-usb-6fire.ko.xz",
+    "destination": "",
+    "taille": 31792,
+    "sha256": "f3a672cb0db3ea0f312c8da510e1d8ff5b074cecfa54f89d6235cb6ebe446ead",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/bcd2000/snd-bcd2000.ko.xz",
+    "destination": "",
+    "taille": 15520,
+    "sha256": "9d04ec31f7e8cc45422e1488927a89184731f6c5deba0854689d5bcd45a853bd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/caiaq/snd-usb-caiaq.ko.xz",
+    "destination": "",
+    "taille": 36200,
+    "sha256": "0a21a4dbda1521ece6242f6dc50eb63fb1aaf5c9a8464a64f2ea6a0b7b3f9f35",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/hiface/snd-usb-hiface.ko.xz",
+    "destination": "",
+    "taille": 22836,
+    "sha256": "948e21e7ba06363679bb725faf279d2e3f54c6e82f3c3a56a7f31fb0b4c2cda0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/line6/snd-usb-line6.ko.xz",
+    "destination": "",
+    "taille": 34476,
+    "sha256": "e66a76ee4c78e659c8a01b9c71db0c447de99bbcad6fc8b2cd0f5edf8f12d9d3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/line6/snd-usb-pod.ko.xz",
+    "destination": "",
+    "taille": 17872,
+    "sha256": "81d8b5d4f499cd3a04c17d33326424e450ba0ee64bcb7f5e9c3c16a14252ee7a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/line6/snd-usb-podhd.ko.xz",
+    "destination": "",
+    "taille": 18716,
+    "sha256": "e8b3df40067ab4571dcc3f30ab409274afe14d74a1e2544eabead8e8ccb15375",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/line6/snd-usb-toneport.ko.xz",
+    "destination": "",
+    "taille": 19100,
+    "sha256": "9d46e8e72159783930861ab0523d9a379b0cf3a06e23ecc40aad6044597f0ee3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/line6/snd-usb-variax.ko.xz",
+    "destination": "",
+    "taille": 13344,
+    "sha256": "b18d38d449b69520e9a4019a8fc7a2183f1404c11785415367c15f99b7453082",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/misc/snd-ua101.ko.xz",
+    "destination": "",
+    "taille": 25048,
+    "sha256": "25b47d79566d2b0aee88045173afd25fc195a97e9a371dcd557295b75a2ae572",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/snd-usb-audio.ko.xz",
+    "destination": "",
+    "taille": 200644,
+    "sha256": "1bfcd1f2b4958b926e70f0bd8e779e58751a05a72176c3ae145e1137a53f4dd6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/snd-usbmidi-lib.ko.xz",
+    "destination": "",
+    "taille": 29644,
+    "sha256": "e099867bc055ff807a41a8df5c2f145c0724f787d9799695fa6d26a85a2aad55",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/usx2y/snd-usb-us122l.ko.xz",
+    "destination": "",
+    "taille": 23500,
+    "sha256": "47d4e86dc5ebaad4aac2dad9821165c0a109a9967e65093dd31783da8c0036d6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/usb/usx2y/snd-usb-usx2y.ko.xz",
+    "destination": "",
+    "taille": 33332,
+    "sha256": "1db4ad2b547b5c0e8c81f72b045dee678382ffe0c7f2a87212038dbdc49957d4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/virtio/virtio_snd.ko.xz",
+    "destination": "",
+    "taille": 34488,
+    "sha256": "9f00dc1f828c28d66fd5dda615e40a3212fded736c0707972543931bbe7bce2c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/x86/snd-hdmi-lpe-audio.ko.xz",
+    "destination": "",
+    "taille": 26252,
+    "sha256": "3bb18908b1abc22bf2f81d97b563bdc84498d712984da66286407402f66edd1e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/sound/xen/snd_xen_front.ko.xz",
+    "destination": "",
+    "taille": 31248,
+    "sha256": "eaadc3d36535664dd53ca2a73fe21ae918bba8c4c2891d777050684dbefd95d3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/kernel/virt/lib/irqbypass.ko.xz",
+    "destination": "",
+    "taille": 9536,
+    "sha256": "c0d83d87d14c1c80b1c0ca2b3b433e4f79a50dcf0262698a80f699e4970aa00a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.alias",
+    "destination": "archives/preuves-controlees/part-059.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.alias",
+    "taille": 1389114,
+    "sha256": "18e01fec14f0da2a9dc981abe0390d5ea79d7d0c0410822d4435a54725b2a247",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.alias"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.alias.bin",
+    "destination": "",
+    "taille": 1313917,
+    "sha256": "7e971a57bf7c156b055b50bf920b9ae759902901fc2d63b82be2be770805ee02",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.builtin",
+    "destination": "archives/preuves-controlees/part-059.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.builtin",
+    "taille": 6569,
+    "sha256": "2084ed08c91f70854a50ad037a2427fcdfa6354b2ca48ecaab4bea216a111572",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.builtin"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.builtin.alias.bin",
+    "destination": "",
+    "taille": 58983,
+    "sha256": "be228693f3d2c5a9e85594c8d972cf1ddbfd3610f64e414ae23b66dd6cfff0a1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.builtin.bin",
+    "destination": "",
+    "taille": 7892,
+    "sha256": "76d09d29ab4d5668459bcda22d72a75185dfe4f93d68baaa0e3b84b9820e037c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.builtin.modinfo",
+    "destination": "",
+    "taille": 111344,
+    "sha256": "0a81168f7fbaa3b619acaa8d1dbb22822f5145bd70e23b1b131781d68548dddb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.dep",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.dep",
+    "taille": 639033,
+    "sha256": "8da0ce57f8cd0eb6f4244f7e2fc63e9e5930765e6227bb24fa8caddd65f1e429",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.dep"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.dep.bin",
+    "destination": "",
+    "taille": 821740,
+    "sha256": "1e698db2ed962a7d09430e39b52d3ce3acc7bbcf3409a5c2cba663eaf38e9166",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.devname",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.devname",
+    "taille": 458,
+    "sha256": "faf26c9133d1aa71223bde8269908665350148f405a34aa0d53b15c043baccdd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.devname"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.order",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.order",
+    "taille": 168668,
+    "sha256": "5471943e139f10f2b0183146b6dff87857999359725aaf85277786e36985451a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.order"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.softdep",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.softdep",
+    "taille": 2109,
+    "sha256": "3d8ebdcce2a409b3a8cb96eb23b73efba8ce121d95026e12ccdf24fe488b9c59",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.softdep"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.symbols",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.symbols",
+    "taille": 719596,
+    "sha256": "6222fc26e009ea0203aaf68786ac0e2cbde69be4ec9fb1b31a23c07e67c1fddb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.symbols"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.symbols.bin",
+    "destination": "",
+    "taille": 864364,
+    "sha256": "c936d28d390a60885a0dc8bed86c25d1bd28d27fdd138f800398796ee4e6f5c2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.weakdep",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.weakdep",
+    "taille": 55,
+    "sha256": "a1fffe1059d8150b5d402b3f284f507025a8d4b5881810cb17b3fda8b8ab9304",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/lib/modules/6.18.54-1-t2-trixie/modules.weakdep"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/usr/share/doc/linux-image-6.18.54-1-t2-trixie/changelog.Debian.gz",
+    "destination": "",
+    "taille": 148,
+    "sha256": "babe83bb02b8dc0994e5c0b15c65d3b7a252dac53ac108358961637171ac3b61",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-09-25T19:49:09+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie-files/usr/share/doc/linux-image-6.18.54-1-t2-trixie/copyright",
+    "destination": "archives/preuves-controlees/part-034.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-headers-6.18.54-1-t2-trixie-files/usr/share/doc/linux-headers-6.18.54-1-t2-trixie/copyright",
+    "taille": 691,
+    "sha256": "eb173b7d0714dfb8d4e6024ba85900caa2515882b6f23abf98a9a7c5bc1c1b5a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-09-25T19:49:09+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-headers-6.18.54-1-t2-trixie-files/usr/share/doc/linux-headers-6.18.54-1-t2-trixie/copyright"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-image-6.18.54-1-t2-trixie_6.18.54-1_amd64.deb",
+    "destination": "",
+    "taille": 161070956,
+    "sha256": "42fd1f9f2d2a0d7c09a35d5f5f598cbee0043e22288d5b50a72c4cde2f2cd430",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_VOLUME_OU_BINAIRE",
+    "date_mtime": "2026-10-11T14:39:52.840171+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts-control/control",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts-control/control",
+    "taille": 358,
+    "sha256": "e424941c7f1a59dc7fcde30df3857f6ccc11ca879769d827b2ba7e353fb71008",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T21:41:23+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts-control/control"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts-files/usr/share/doc/linux-t2-lts/copyright",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts-files/usr/share/doc/linux-t2-lts/copyright",
+    "taille": 1131,
+    "sha256": "69376207e8bfdc61a724b16828c7c23066a516bfae6528524ec514852d1b7bb2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-09-25T21:41:23+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts-files/usr/share/doc/linux-t2-lts/copyright"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/linux-t2-lts_6.18.54-1-trixie_amd64.deb",
+    "destination": "",
+    "taille": 1326,
+    "sha256": "61204e143e9a95799d082b3de2c9265a4de915127e05c2c66f683dd91fca02f4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T14:39:54.328234+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/adityagarg8.github.io_t2-ubuntu-repo_._InRelease",
+    "destination": "archives/preuves-controlees/part-033.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/common-InRelease",
+    "taille": 2119,
+    "sha256": "e593b83e9a093fe6c034de785a30b72921a090291743bfc4afd655d1a70a56ed",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-04T14:13:18+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/common-InRelease"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/adityagarg8.github.io_t2-ubuntu-repo_._Packages",
+    "destination": "archives/preuves-controlees/part-033.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/common-Packages",
+    "taille": 12804,
+    "sha256": "fe3fa76d671e605293abf2cd4d7c208ecac7c23197ff66b112b0c3853778b811",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-04T14:13:18+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/common-Packages"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._InRelease",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._InRelease",
+    "taille": 2119,
+    "sha256": "e6f1ae1f6ac6d587ec3516ac00588495ff6c1216f135738a37c6c31c64037f51",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-05T23:30:18+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._InRelease"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._Packages",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._Packages",
+    "taille": 36823,
+    "sha256": "b489204773088407287803713c0c6a2e4694be6c4e64bbcafe993638fd690666",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-05T23:30:18+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._Packages"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/lock",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T14:41:08.159306+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/paquets-sha256.json",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/paquets-sha256.json",
+    "taille": 486,
+    "sha256": "5aedc28e33eea22a90b23db900c0aef7a274d59474e4931b3836c5e039705174",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T14:42:20.422173+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/paquets-sha256.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/simulation-install.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/simulation-install.log",
+    "taille": 1139,
+    "sha256": "ff68597de5fbb5b2793519f07f779ee7928c1594192be6cd4650e04d70205fe9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T14:42:19.694145+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/simulation-install.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/t2-preview.list",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/t2-preview.list",
+    "taille": 285,
+    "sha256": "1b387107c48eb480d323c70d145e941369dcbb5842351d796f34bb02813fda6a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T14:41:08.151306+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/t2-preview.list"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-InRelease",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._InRelease",
+    "taille": 2119,
+    "sha256": "e6f1ae1f6ac6d587ec3516ac00588495ff6c1216f135738a37c6c31c64037f51",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T14:36:10.513798+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._InRelease"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-Packages",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._Packages",
+    "taille": 36823,
+    "sha256": "b489204773088407287803713c0c6a2e4694be6c4e64bbcafe993638fd690666",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T14:36:58.832219+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/lists/github.com_AdityaGarg8_t2-ubuntu-repo_releases_download_trixie_._Packages"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-Release",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-Release",
+    "taille": 1204,
+    "sha256": "7e14331d8b6ea0de6fe0d7ef05b49e3b50dc9a3ef49a1a37d444130ad2999795",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T14:36:10.533799+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-Release"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/99-jarvis-t2.cfg.proposition",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-20261011-180357/99-jarvis-t2.cfg-avant",
+    "taille": 312,
+    "sha256": "b3dbd20f0a01414cff0dc1bd3590208a39c2742c117876d6933969bf87872ec5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:41:09.394197+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-20261011-180357/99-jarvis-t2.cfg-avant"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/cmdline-avant.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/cmdline-avant.txt",
+    "taille": 93,
+    "sha256": "4112a80b81137ad6b2a95cffbc96fa81805c1c5e5bc4bab9188cda8f5fb79b45",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:49.846288+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/cmdline-avant.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/disques-avant.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/disques-avant.txt",
+    "taille": 1010,
+    "sha256": "510b5ca312ed42b71fa612c995f364e5a51ab3da657df0d51f016efe8581781b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:49.850288+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/disques-avant.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-apres.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-apres.txt",
+    "taille": 3892,
+    "sha256": "2e2c3903d3bd56fe220640613fd90d7a17847b69bf5a2a2e316e48a867e82a6f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:44:48.120625+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-apres.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-avant.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-apres.txt",
+    "taille": 3892,
+    "sha256": "2e2c3903d3bd56fe220640613fd90d7a17847b69bf5a2a2e316e48a867e82a6f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:40:49.482291+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-apres.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-fichiers-avant.sha256",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-fichiers-avant.sha256",
+    "taille": 971,
+    "sha256": "65d3e8003e46b3bb2043b7572e136baf5a69752a1d75e400a6320de4f7ea04a8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:49.846288+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/efi-fichiers-avant.sha256"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/default/grub",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/default/grub",
+    "taille": 1534,
+    "sha256": "c66d2a33a22dcce1d39759640f9d0832b40bf505c0970babf926db852ea0bb0d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/default/grub"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/40_custom",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/40_custom",
+    "taille": 214,
+    "sha256": "894dd8e4ca1bb62e055f674f9390a39c4643ebdd1014702feef000c47e36a003",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/40_custom"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/20_linux_xen",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/20_linux_xen",
+    "taille": 14565,
+    "sha256": "ec87f1fffabc6d913f5f659439d195419dbccf71f9dcf569988e5ab8ba35ca68",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/20_linux_xen"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/00_header",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/00_header",
+    "taille": 10080,
+    "sha256": "a38c74e6b33fecc1c7cb3497204f7838ee8312eb58dd3a4b0ab11f394dd124a3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/00_header"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/30_uefi-firmware",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_uefi-firmware",
+    "taille": 1174,
+    "sha256": "09b6f70999eb043f858a7eccac1f70bd1bddf00cdde4d6e67c417756f63ad389",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_uefi-firmware"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/30_os-prober",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_os-prober",
+    "taille": 12661,
+    "sha256": "735a1995a02d08caa73735556014c69b90ffba28bb41ceae19d77555438023cd",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/30_os-prober"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/41_custom",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/41_custom",
+    "taille": 215,
+    "sha256": "44b8dc291dc04537f5d9a8fec7f6ebb209fbfa3101d5b1085230ace35b7f6c31",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/41_custom"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/10_linux",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/10_linux",
+    "taille": 13908,
+    "sha256": "92955722e0e7544ad9dd1d2a022c83c6ea42aa2f0330a29970ea3755b5c53c25",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/10_linux"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/05_debian_theme",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/05_debian_theme",
+    "taille": 6400,
+    "sha256": "a3b68466edb11cf5e8298751214eae1e7699daa207e2a514369a071ed1caa9d9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/05_debian_theme"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/25_bli",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/25_bli",
+    "taille": 786,
+    "sha256": "42e04f5bac1965535cb6bdb30c62bb199b1ba21d1ec6b22d0da159dfc925b8bb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/25_bli"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/README",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/README",
+    "taille": 483,
+    "sha256": "cd72738c7dfd3b205e4e91528c0d25169bb3e8e6ebeec11c916662d8d0c3e47c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/README"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::etc/grub.d/35_fwupd",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/35_fwupd",
+    "taille": 744,
+    "sha256": "34080626c1baa6be96b7be1c23bed576a61bd174347c17bcd383ea70c5fe1eff",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/etc/grub.d/35_fwupd"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::boot/grub/grub.cfg",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/3d8866721b6d/boot/grub/grub.cfg",
+    "taille": 7142,
+    "sha256": "0fd138f9fcae0db766c8da7f267de897882206ee27f973126250b4dcf9c76a7a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/3d8866721b6d/boot/grub/grub.cfg"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz::boot/grub/grubenv",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/boot/grub/grubenv",
+    "taille": 1024,
+    "sha256": "f64122858064885ef0733e42c6a3d2d3fd642671f714db0d974b880c0f087430",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/boot/grub/grubenv"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub-avant.tgz",
+    "destination": "",
+    "taille": 18782,
+    "sha256": "497df49ca85ac1dfc82dccef9cb47f97abd8b79caa60127202f1fe8216a8fdc4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-11T15:40:49.470291+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub.cfg-apres",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/ad2241b1fe5e/boot/grub/grub.cfg",
+    "taille": 8587,
+    "sha256": "2ca33889bc5c7e94109c6f4b0995b10d99c43d35d1fa1b8ce51fb3aa7530df90",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:44:48.128625+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/ad2241b1fe5e/boot/grub/grub.cfg"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grub.cfg-avant",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/3d8866721b6d/boot/grub/grub.cfg",
+    "taille": 7142,
+    "sha256": "0fd138f9fcae0db766c8da7f267de897882206ee27f973126250b4dcf9c76a7a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:40:50.022286+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/3d8866721b6d/boot/grub/grub.cfg"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grubenv-apres.txt",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:44:48.140625+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/grubenv-avant.txt",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:40:49.482291+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/initramfs-t2-contenu.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-20261011-180357/initrd.img-6.18.54-1-t2-trixie-contenu.txt",
+    "taille": 109595,
+    "sha256": "7e75138fc74bab68d81de9dbada0431fb4cd3ca520b9840db331f602743eace0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:44:48.436641+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-20261011-180357/initrd.img-6.18.54-1-t2-trixie-contenu.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/installation.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/installation.log",
+    "taille": 3547,
+    "sha256": "8f06c1b27f9a67ee13a1c983029f83f48cf855e9aee30a4f70454deb23d4ce68",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:44:12.474864+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/installation.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/noyaux-debian-avant.sha256",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/noyaux-debian-avant.sha256",
+    "taille": 410,
+    "sha256": "d8b812ed7e6d9b4edfccf572f4b744a615d78d5f264231f89fe1eded2bbd3eef",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:49.806288+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/noyaux-debian-avant.sha256"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-avant.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-avant.txt",
+    "taille": 80398,
+    "sha256": "b8253314eee3eb03572c07f15dbe81f48aeb4fc49c8ebd799120cebd421d56b3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:49.870288+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-avant.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-manuels-avant.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-manuels-avant.txt",
+    "taille": 2565,
+    "sha256": "2499e8dd8031b40baf4ecc442c23c2f450dad793d374115bef2ea59f176d0c04",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:50.014286+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-manuels-avant.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-sha256-verifies.json",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-sha256-verifies.json",
+    "taille": 486,
+    "sha256": "e77835590a7225b5711652eda2bb63b7a7ac6c62c156cf3d9ab3812046a43b3d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:40:48.658298+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/paquets-sha256-verifies.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/simulation-immediat-avant.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/simulation-immediat-avant.log",
+    "taille": 798,
+    "sha256": "31c12c6f23afda5587bb943e91ca1bb4cc3deb5695d11628aa3c8cec9ef08e3a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T15:43:25.404890+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/simulation-immediat-avant.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/simulation-install-locale.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/simulation-immediat-avant.log",
+    "taille": 798,
+    "sha256": "31c12c6f23afda5587bb943e91ca1bb4cc3deb5695d11628aa3c8cec9ef08e3a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:40:49.458291+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/simulation-immediat-avant.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/trixie-Release-verifie",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-Release",
+    "taille": 1204,
+    "sha256": "7e14331d8b6ea0de6fe0d7ef05b49e3b50dc9a3ef49a1a37d444130ad2999795",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:40:48.270301+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC-preparation/trixie-Release"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC1-20261011-1740/update-grub.log",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-20261011-180357/generation-test.log",
+    "taille": 671,
+    "sha256": "78db008925de65966ff94f65a5a2fe1b03bd49434f3ad621389ae5669834127d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T15:44:16.819067+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission03-grub-20261011-180357/generation-test.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-apres.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-apres.log",
+    "taille": 2117,
+    "sha256": "30f286cd9412d111d6b544a64285b169abf3f4398fe6c4b24cbaaac0ddb7b8d6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T16:35:52.521433+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-apres.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-avant.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-apres.log",
+    "taille": 2117,
+    "sha256": "30f286cd9412d111d6b544a64285b169abf3f4398fe6c4b24cbaaac0ddb7b8d6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T16:30:00.981061+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-apres.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-scan.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-scan.log",
+    "taille": 1371,
+    "sha256": "48f65119fb5a90bafe226a8a92dd86337127b83ab40af244f580c2ad98bb155d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T16:34:57.694532+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/bluetooth-scan.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/boot-sha256-avant.txt",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/boot-sha256-avant.txt",
+    "taille": 699,
+    "sha256": "567891e3d016e4c604975c5019d4dd062e3237c56cdb0be43d47e5448024a2df",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T16:29:15.055482+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/boot-sha256-avant.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/conversion.log",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-11T16:29:52.315964+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/download.log",
+    "destination": "archives/preuves-controlees/part-060.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/download.log",
+    "taille": 46484,
+    "sha256": "3a10bc3ad1276fc0da1dead4ddf309fbe038fde295d3c2e1ef0099fad9103f72",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-11T16:29:48.379688+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/download.log"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43340-sdio.meegopad-t08.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.meegopad-t08.txt",
+    "taille": 1693,
+    "sha256": "8ae5a78127e583f647789eda9cb869c5480fdd09124786ff818c1acf3a9a52cc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.meegopad-t08.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.txt",
+    "taille": 1884,
+    "sha256": "ae2f9e43c609766036cd7d82d709e62135fc266cbe8f40fb10f782114d585658",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.raspberrypi,3-model-b-plus.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43242a.bin",
+    "destination": "",
+    "taille": 479232,
+    "sha256": "3cb5eccfad59736241d6207322f4aa26505fe6129c957f2742b4168593304487",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43241b4-sdio.bin",
+    "destination": "",
+    "taille": 403855,
+    "sha256": "0e53e2eadb22610c298df18b631f571d216a3eca3d537812a6f074337fb38eca",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4329-sdio.bin",
+    "destination": "",
+    "taille": 253748,
+    "sha256": "d61983946b1e733e4c75dbe6841ac0f1250ebed2e3ee9058cdfdbbba3ba37c93",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4373.bin",
+    "destination": "",
+    "taille": 479232,
+    "sha256": "5ad7af8a9605a23bf714e612313b55b8cf8b152cea19ad49d8744f6c602dcc5a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430-sdio.ilife-S806.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.ilife-S806.txt",
+    "taille": 951,
+    "sha256": "8b5785352036f835f7f0824b9f335fd8f33059ef7eedab70340e6b4bb31143fe",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.ilife-S806.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4330-sdio.Prowise-PT301.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4330-sdio.Prowise-PT301.txt",
+    "taille": 1509,
+    "sha256": "baa957121b4ba54ecabbdfef811143120401f54abd485d3f6bde414f994875ca",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4330-sdio.Prowise-PT301.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4356-pcie.gpd-win-pocket.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-pcie.gpd-win-pocket.txt",
+    "taille": 2515,
+    "sha256": "7c6d8e0b1a1fba2c100833b99a585f9b69c8719c260932ca76bed2647bb7af00",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-pcie.gpd-win-pocket.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/bcm43xx-0.fw",
+    "destination": "",
+    "taille": 96224,
+    "sha256": "24668c702e723d2b1caebda047ee975ce16d7edf23788bc447dc12bcaf246b0f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43455-sdio.acepc-t8.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.acepc-t8.txt",
+    "taille": 1723,
+    "sha256": "b87e0dc904dbc660a1c467bf0e3ca1cf8babe7e9ec0559041758808646e4f3e3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.acepc-t8.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43236b.bin",
+    "destination": "",
+    "taille": 348160,
+    "sha256": "2138a2edca76a1f808250fd89381b30529938e04b2a9befa138afda71a9c96e4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4354-sdio.nvidia,p2371-2180.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4354-sdio.nvidia,p2371-2180.txt",
+    "taille": 2761,
+    "sha256": "e7340682bd1c010284a09fb68de9280478c239567531d065d8f9400397aca9e0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4354-sdio.nvidia,p2371-2180.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43241b4-sdio.Advantech-MICA-071.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43241b4-sdio.Advantech-MICA-071.txt",
+    "taille": 2667,
+    "sha256": "9a0e08571cf25154fe2b77ef4d295f31b266d3a3741eb91a9a86c6ac3b68284a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43241b4-sdio.Advantech-MICA-071.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43340-sdio.ASUSTeK COMPUTER INC.-TF103CE.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.ASUSTeK COMPUTER INC.-TF103CE.txt",
+    "taille": 1801,
+    "sha256": "ce1570aa53921857b0f8301cb810ea8b8b35f74f619123e6f726797fef529958",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.ASUSTeK COMPUTER INC.-TF103CE.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43241b0-sdio.bin",
+    "destination": "",
+    "taille": 459988,
+    "sha256": "ad8229c94cf516e364d54ff73955049535cfd8214adb839deb39420105f5d8ed",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43602-pcie.bin",
+    "destination": "",
+    "taille": 635449,
+    "sha256": "bf4cfc23ee952a3d82ef33a0f5f87853201c98f1bed034876a910f354f37862d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4330-sdio.bin",
+    "destination": "",
+    "taille": 223581,
+    "sha256": "69ee0e9b9a4233b320cdfdd935853cdf2fbd84ff6ec42f8ec572f2f0a19975a7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43143.bin",
+    "destination": "",
+    "taille": 397312,
+    "sha256": "a0ace23094652c3aa3bcd480906b1a769d0169afcc3b5f074b187a30d8617e03",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/BCM-0bb4-0306.hcd",
+    "destination": "",
+    "taille": 54734,
+    "sha256": "e2e440d3fdc0ec4115c1a024a6ed9e95d5ac167dbbc3853e25c7dae7d4c53c67",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt",
+    "taille": 1883,
+    "sha256": "edb6f4e4fb19e18940004124feb4ffe160d72fc607243a07a4480338a28b2748",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4335-sdio.bin",
+    "destination": "",
+    "taille": 569291,
+    "sha256": "1551fd7680db31d230c70f55860ca071331a37eeb54c9229307b8fa475f9d6e7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43340-sdio.predia-basic.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.predia-basic.txt",
+    "taille": 1689,
+    "sha256": "4e268a0c4803bac74b55e71b4e08c20c70f2f273b669156d6424bae1b7a1c35c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.predia-basic.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43340-sdio.Insyde-VESPA2.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.Insyde-VESPA2.txt",
+    "taille": 1687,
+    "sha256": "4393f274b307fc4628abd41f23ae47e6046e319971c9d3e5032a7d7045e37f97",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.Insyde-VESPA2.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43362-sdio.ASUSTeK COMPUTER INC.-ME176C.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43362-sdio.ASUSTeK COMPUTER INC.-ME176C.txt",
+    "taille": 1143,
+    "sha256": "835dddf43e90cb29ae0b6db6ae8ad6da1f377387bda03c17391bd2c67ee48679",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43362-sdio.ASUSTeK COMPUTER INC.-ME176C.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4356-pcie.Intel Corporation-CHERRYVIEW D1 PLATFORM.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-pcie.Intel Corporation-CHERRYVIEW D1 PLATFORM.txt",
+    "taille": 3095,
+    "sha256": "daadf951db8fa8c8bfa30ab7c83ce38e5ada33d70ebd374542e23a010374af81",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-pcie.Intel Corporation-CHERRYVIEW D1 PLATFORM.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4334-sdio.bin",
+    "destination": "",
+    "taille": 451566,
+    "sha256": "7b4eebe4d3bbc9a8bf3c2d55d9404cf0ed9cce3388b3d5708d2352d0af89eeb3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430-sdio.MUR1DX.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.MUR1DX.txt",
+    "taille": 831,
+    "sha256": "c9ee1d910b6f089d60bc9c4b34e7341e69b3e07f98968382469f43384dd7ac9b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.MUR1DX.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4350-pcie.bin",
+    "destination": "",
+    "taille": 626140,
+    "sha256": "5691d1e0ceb70baf18efb7a0ec6cb84feb9edd2d0700c525b42930c4e7e4b845",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4366c-pcie.bin",
+    "destination": "",
+    "taille": 1120971,
+    "sha256": "a250275c81c626de4379591d367624b7d9da99a665a946738e657217a9d9e53e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430-sdio.Hampoo-D2D3_Vi8A1.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.Hampoo-D2D3_Vi8A1.txt",
+    "taille": 928,
+    "sha256": "91d701c64b1ea10e38963e893ae64576774178314abb0cf2030b45fd9c4dfd94",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.Hampoo-D2D3_Vi8A1.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/bcm43xx_hdr-0.fw",
+    "destination": "",
+    "taille": 180,
+    "sha256": "4aaa2ba62983d64b65f351908c59062a8a7c99100d190904c0e780d7c30f0dd0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4350c2-pcie.bin",
+    "destination": "",
+    "taille": 623304,
+    "sha256": "423c2373faf403ce39c822312f8f4810e63f5b67ea62bfd60552af119591b115",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4366b-pcie.bin",
+    "destination": "",
+    "taille": 1105361,
+    "sha256": "ab4d5012393aed59dc76e27d6e11d1c8f821ab24c3005436dee8d799b6298224",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430a0-sdio.ONDA-V80 PLUS.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430a0-sdio.ONDA-V80 PLUS.txt",
+    "taille": 989,
+    "sha256": "99ed5e02ab78a5c5ddfe404ff1948f6c22d26f89a4106855437eac0e162dee39",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430a0-sdio.ONDA-V80 PLUS.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43340-sdio.pov-tab-p1006w-data.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.pov-tab-p1006w-data.txt",
+    "taille": 1724,
+    "sha256": "9a01ead1b4fb7b128b58ba7570a0fd4b5a9d5e07196f06ab01f5e7d16729b93b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43340-sdio.pov-tab-p1006w-data.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430a0-sdio.ilife-S806.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430a0-sdio.ilife-S806.txt",
+    "taille": 908,
+    "sha256": "63dc7f254f3e7a8ccb5d6246488d1a18ca548eefeee622b8e5b62a997b53ee87",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430a0-sdio.ilife-S806.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430-sdio.raspberrypi,3-model-b.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.raspberrypi,3-model-b.txt",
+    "taille": 874,
+    "sha256": "489c12a33e0fd0899cd27bfb316b30944f0b9dd571c266a0aa3704b35817b788",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.raspberrypi,3-model-b.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430-sdio.AP6212.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.AP6212.txt",
+    "taille": 875,
+    "sha256": "fdef0603345dd023ad28c0eff2d5167915c617bee2d6944da9a6da1c4ac87ca5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430-sdio.AP6212.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43143-sdio.bin",
+    "destination": "",
+    "taille": 385067,
+    "sha256": "0c95c5616861856b055209a05270c0cc75cb500daa550a659b275e124ea334aa",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43569.bin",
+    "destination": "",
+    "taille": 557056,
+    "sha256": "0a57d51cd676b98e3313463dccf7fa9aadafe52a45216b7a919a379cd8f07f1d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43455-sdio.MINIX-NEO Z83-4.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.MINIX-NEO Z83-4.txt",
+    "taille": 2510,
+    "sha256": "030aa76f3554075df9a576ea46b7d0a00b46dc8070c9e969b7d813cd0dac3981",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.MINIX-NEO Z83-4.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4356-sdio.AP6356S.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-sdio.AP6356S.txt",
+    "taille": 2610,
+    "sha256": "bdc88ecb0289973d1c784550fa540223bb41f49213b20af59f2267359e0c5a09",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-sdio.AP6356S.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43241b5-sdio.bin",
+    "destination": "",
+    "taille": 408682,
+    "sha256": "272838b46ebc04131d44bca4542befa89c808c4fbb5af376df4664b0943a1863",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43362-sdio.WC121.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43362-sdio.WC121.txt",
+    "taille": 552,
+    "sha256": "e23ece8361347bddf9cd1045df570ce35b9aaa2427508814a1547bd145911944",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43362-sdio.WC121.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4356-pcie.Xiaomi Inc-Mipad2.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-pcie.Xiaomi Inc-Mipad2.txt",
+    "taille": 3099,
+    "sha256": "df28d50cf453d3e13a4125a2b2f80ffa48207e9562729edefdf30aa40e91d73d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac4356-pcie.Xiaomi Inc-Mipad2.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43241b4-sdio.Intel Corp.-VALLEYVIEW C0 PLATFORM.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43241b4-sdio.Intel Corp.-VALLEYVIEW C0 PLATFORM.txt",
+    "taille": 2699,
+    "sha256": "d24a2ee2586f20a913a5ea4c69a5efd6aabb0ac1b135b8377543062240eed6ed",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43241b4-sdio.Intel Corp.-VALLEYVIEW C0 PLATFORM.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430a0-sdio.jumper-ezpad-mini3.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430a0-sdio.jumper-ezpad-mini3.txt",
+    "taille": 951,
+    "sha256": "b07a8148015d6f09dca935c8841ca9df462d7eb6eba6e8ff9f03fd399eb9760a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43430a0-sdio.jumper-ezpad-mini3.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4358-pcie.bin",
+    "destination": "",
+    "taille": 634361,
+    "sha256": "f04d8fdc0a0a301ccbbf543a2b470108c64ee341360f3450ed4fa9bbee04337c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43455-sdio.AW-CM256SM.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.AW-CM256SM.txt",
+    "taille": 1475,
+    "sha256": "f50362207b7536521cadaa59bdc294a9ad946b149fbb6e332ec2a245c1f34fbf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43455-sdio.AW-CM256SM.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43602-pcie.ap.bin",
+    "destination": "",
+    "taille": 595472,
+    "sha256": "7f735b7254527ce7cae84a854211879a4b85d6a77a92210c4d92bcf12a35618b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac4371-pcie.bin",
+    "destination": "",
+    "taille": 623448,
+    "sha256": "ffb7180db84dfa77171ab920412f68bfc801b4c5d0f89252b9effdedafb3ff7c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43430a0-sdio.bin",
+    "destination": "",
+    "taille": 382455,
+    "sha256": "ad85074b7919517d7e1a7e463e0176d46e7b312216bd7aa372e4aee2bfe8e07a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz::brcm/brcmfmac43362-sdio.cubietech,cubietruck.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43362-sdio.cubietech,cubietruck.txt",
+    "taille": 803,
+    "sha256": "c17e2913e43c6420a3bfb63d34b5572e60ab038fcb5bc6b401c4200c56c12597",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/8b8ba0c418c9/brcm/brcmfmac43362-sdio.cubietech,cubietruck.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-brcm-avant.tgz",
+    "destination": "",
+    "taille": 7553627,
+    "sha256": "12aa335171f5d3d42572bf28ae11f5536679e959a9a8f25ac5a6cc3d8554be63",
+    "mission": "NON-ATTRIBUE",
+    "statut": "ARCHIVE_ORIGINALE_LOCALE_MEMBRES_INDEXES",
+    "date_mtime": "2026-10-11T16:28:23.955182+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii-YSBC-m-2.3.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-m-2.3.txt",
+    "taille": 5151,
+    "sha256": "de541e00d270f9281aae26e69b725726377a0a723ae6a2ad6f5fd5695ecf2bd9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-m-2.3.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii-YSBC-m-2.5.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-m-2.5.txt",
+    "taille": 5155,
+    "sha256": "3534748e3002b261d9a762e6193151d6d6a96afe3a15e828740af609b5be250e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-m-2.5.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii-YSBC-u-4.1.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-u-4.1.txt",
+    "taille": 5120,
+    "sha256": "58b46c15ff838c090ad368f7efd8c05b9987f512bed1593eae691fa115fe3d30",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-u-4.1.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii-YSBC-u-4.3.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-u-4.3.txt",
+    "taille": 5120,
+    "sha256": "45f9bc9979e3a56161a536a0bd93794ab7c145aef979669703f6a82f913923ae",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4355c1-pcie.apple,hawaii-YSBC-u-4.3.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii.bin",
+    "destination": "",
+    "taille": 735337,
+    "sha256": "396d62da84fb2eb01264165f2740913deca1289c4341f94afc300c978f749dee",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii.clm_blob",
+    "destination": "",
+    "taille": 14241,
+    "sha256": "bff2235a753c9c17312ad63626786f164d6d9748b6aef6fd2c00b3b157e1ad8f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4355c1-pcie.apple,hawaii.txcap_blob",
+    "destination": "",
+    "taille": 607,
+    "sha256": "9d2fd0125cd4eb6a73dbc0dfdf270dbd87618645511a682640c3845a1f41118a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,ekans-HRPN-m-7.5.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,ekans-HRPN-m-7.5.txt",
+    "taille": 12576,
+    "sha256": "4eaad196e12c07c08dd35bbcc40d3f3ee089538d3b0d703cac9d447d2e533598",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,ekans-HRPN-m-7.5.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,ekans-HRPN-m-7.7.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,ekans-HRPN-m-7.7.txt",
+    "taille": 12697,
+    "sha256": "c0d835fdc2ca34ebccf1d59d599b375eba03d329fe03ae159722f7e6e73692c9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,ekans-HRPN-m-7.7.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,ekans-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,ekans-HRPN-u.txt",
+    "taille": 12638,
+    "sha256": "8fe6c12a98b8e1029ac59255c8d3d3c25c85a650b27b5112c93dbb809b2ea870",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,ekans-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,ekans.bin",
+    "destination": "",
+    "taille": 1026416,
+    "sha256": "837b83cea19be2ff13061f93c1f2b64907b90cc520a393888385def11473ba37",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,ekans.clm_blob",
+    "destination": "",
+    "taille": 31590,
+    "sha256": "d3b6021d5953686eb93e359c65e2290a4471f2ef8b0419aa1243e9ef43e4f1fc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,ekans.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "eea63cdc9163889941a8b15bc7af62d7c4b2d8b0507eb425865aa567536aeda8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,hanauma-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,hanauma-HRPN-m.txt",
+    "taille": 12910,
+    "sha256": "1e4cbea5f607565193016b18b171924555aef8b20f93b103250dd53c4837a754",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,hanauma-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,hanauma-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,hanauma-HRPN-u.txt",
+    "taille": 12851,
+    "sha256": "9b3673c55648e4af1773ab4828dba134385f1c33bed7af5b2edac3070e8fa83a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,hanauma-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,hanauma.clm_blob",
+    "destination": "",
+    "taille": 32038,
+    "sha256": "ebb3be6dd3c7008ba7113c456a6db70149e8bb152d6be3fb6ce566eb01f6b4cb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,hanauma.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "d4d3526c5c7fc6b64c69508fbb2cf3798bd0a1242b8dd943376a653a215468f3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,kauai-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,kauai-HRPN-m.txt",
+    "taille": 12964,
+    "sha256": "18033638c0e044da742d0e53b529508a84a414d966132ecbca24130b0d606edc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,kauai-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,kauai-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,kauai-HRPN-u.txt",
+    "taille": 12905,
+    "sha256": "dc976821d53f1a61b066ab0d09d82a3da2b2725e70182029d60964129bf762e3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,kauai-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,kauai.clm_blob",
+    "destination": "",
+    "taille": 32906,
+    "sha256": "f344105572016c0ce4da285ab6deaf434c636bd09eecb84db5915f9bc13c35cf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,kauai.txcap_blob",
+    "destination": "",
+    "taille": 721,
+    "sha256": "24d48f939eeaa57d04e5c5c577c3b72a8dfe2a24c172623dfd431b50d31f7f11",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,lanai-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,lanai-HRPN-m.txt",
+    "taille": 12954,
+    "sha256": "9332e47b052c00d6f34e30e70ddb7ce93d0e26883734f9c5d9fb76b6e84b0f5b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,lanai-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,lanai-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,lanai-HRPN-u.txt",
+    "taille": 12895,
+    "sha256": "7d15d2f6346a1e8bbd0de1f4f63c75127baafb13be6901530eadf347bbafe362",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,lanai-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,lanai.clm_blob",
+    "destination": "",
+    "taille": 30626,
+    "sha256": "088906b75952e0444d913440e0ff08696c9044bcc3fc038bda707e22fe2e3d7c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,lanai.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "422ca743214254d2f236f482b7a61d8e67ef48db371442223374bf97ed7acfe4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,maui-HRPN-m-7.5.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,maui-HRPN-m-7.5.txt",
+    "taille": 12560,
+    "sha256": "0855b388d6b44c38c4a45a5482a64b168fc104df15cc1f957444bd0f725c0676",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,maui-HRPN-m-7.5.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,maui-HRPN-m-7.7.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,maui-HRPN-m-7.7.txt",
+    "taille": 12964,
+    "sha256": "da2f16cba6e7e078142c1fefc230ad7d022994169a8eade5fbaa591165651840",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,maui-HRPN-m-7.7.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,maui-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,maui-HRPN-u.txt",
+    "taille": 12905,
+    "sha256": "01c14a455d109e384b73e4285bf53613eb292cde6389294faaccb8ec409c773f",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,maui-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,maui.clm_blob",
+    "destination": "",
+    "taille": 33226,
+    "sha256": "6ca709e1d1a471526a263c124082578bdd09b8122c0b507a63ba47f48ef87bca",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,maui.txcap_blob",
+    "destination": "",
+    "taille": 721,
+    "sha256": "4264a21b8d21bec130640fe8db2fac5a3a03906875b9e99c369962bcb1b02dbb",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,midway-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,midway-HRPN-m.txt",
+    "taille": 12947,
+    "sha256": "5bcfb28052807f4c62135d02c4f517a943f4c662527a76b8e9c9705fca3bd187",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,midway-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,midway-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,midway-HRPN-u.txt",
+    "taille": 12888,
+    "sha256": "aaddc36d1875e06d5b23ad314102f6529bbfe50669ea39f7369b5aa47fdc7bff",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,midway-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,midway.clm_blob",
+    "destination": "",
+    "taille": 31898,
+    "sha256": "6bfae7b6b802f4ef02ff78068e95e8bf213a50296e7af6affc81fede3e310195",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,midway.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "83a3a14c1bcce556605901643434cfaa92fa08df712b21b498c783020985d0cf",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,nihau-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,nihau-HRPN-m.txt",
+    "taille": 12946,
+    "sha256": "6df3c62b20f359428ad2671dd73594ab690b2497ba2ca6a83700127214afd8f1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,nihau-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,nihau-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,nihau-HRPN-u.txt",
+    "taille": 12887,
+    "sha256": "c22e4c7330c2c121349e653dcc8dc045778235f0f19913cefe5ecd902c2ef549",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b2-pcie.apple,nihau-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,nihau.clm_blob",
+    "destination": "",
+    "taille": 32410,
+    "sha256": "ee20c644e4aefe80fcdabc5019cca1fde3d98823c9738a0d999a1419e77a5339",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b2-pcie.apple,nihau.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "031e1ad2b81eb9b8057437e75c952355e40452516efdf4699d28f26e3eeb2281",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,bali-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,bali-HRPN-m.txt",
+    "taille": 12964,
+    "sha256": "9f1ed817311bb7caf25931fdac79e898e349c06bcb266b3fc0e39760daca440d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,bali-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,bali-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,bali-HRPN-u.txt",
+    "taille": 12905,
+    "sha256": "3379a394ab8e1b883514b677876cd158d654e7377bc35f43ab99f6d2ae37ea25",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,bali-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,bali.bin",
+    "destination": "",
+    "taille": 820013,
+    "sha256": "5bea76866f6c08c16e64f5c3d833a776e6f419b7758638d818b64ce64820aa2c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,bali.clm_blob",
+    "destination": "",
+    "taille": 31998,
+    "sha256": "61f9ffe33d4137eac1dfd93c4be03e6c721f282cfc85a89d7d345ffd12f9f9ac",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,bali.txcap_blob",
+    "destination": "",
+    "taille": 723,
+    "sha256": "8b794d5ce9311d2794a6eff4f35ffd1d362f341cb648a3b98f7d7420a251866c",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,borneo-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,borneo-HRPN-m.txt",
+    "taille": 13014,
+    "sha256": "e720b9f174edb8c05c3aa96415e17719a0b74e9530a2d4edceea2ee398fe8b47",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,borneo-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,borneo-HRPN-u-7.7.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,borneo-HRPN-u-7.7.txt",
+    "taille": 12955,
+    "sha256": "140f6b7e0e61e0215086072f32ccd99000cae8e7d037a0f8978f8c3912ce4668",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,borneo-HRPN-u-7.7.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,borneo-HRPN-u-7.9.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,borneo-HRPN-u-7.9.txt",
+    "taille": 12955,
+    "sha256": "acd89323afe4f85eacf1b8c9be1fe8da12ce74552ede2f71d3850777a7ea7320",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,borneo-HRPN-u-7.9.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,borneo.clm_blob",
+    "destination": "",
+    "taille": 31810,
+    "sha256": "7d5da3a0651f256a812448affa33c36f5e176ae9582f744ff9f5d83323e5b666",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,borneo.txcap_blob",
+    "destination": "",
+    "taille": 983,
+    "sha256": "6ed2215a86189e6db4990b7bb86be7088fbb72ad683e5f14c8d112c629a3d7dc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,hanauma-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,hanauma-HRPN-m.txt",
+    "taille": 12964,
+    "sha256": "112ba777fa8ba43a25b693e08da2e037f512dae7c262f625b03c927c89e91c91",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,hanauma-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,hanauma-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,hanauma-HRPN-u.txt",
+    "taille": 12905,
+    "sha256": "601f54c33d4a47908da11fd3154a6fc55fbd88c547849d869598dcb7e044dd07",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,hanauma-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,hanauma.clm_blob",
+    "destination": "",
+    "taille": 32038,
+    "sha256": "4ce1db52a3daf0eb65f27d1d57cf637ae144257feaad273da19d719f4ae6889e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,hanauma.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "da4e5a54321079b5f92569cf7edd55b5cc83586e14fa27c1fb8100f2502e3aa6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kahana-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kahana-HRPN-m.txt",
+    "taille": 12964,
+    "sha256": "100ac581565bb014e19f81ca2bb0958976dac5b43c05af650c7d4723e8b76f29",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kahana-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kahana-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kahana-HRPN-u.txt",
+    "taille": 12905,
+    "sha256": "83e60aa38d84ac69310d36c726cf2767af9901765eb6dfcc34b826b49ed54c6b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kahana-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kahana.clm_blob",
+    "destination": "",
+    "taille": 36122,
+    "sha256": "119d836a1e02b6f1aeb6cbd5439d1fb2a3c10efa092cee962a18b8c97e609597",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kahana.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "2254277b87e90d9868f2f5b357d6aacb787e292958b7c15f8462a9d86d390963",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kure-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kure-HRPN-m.txt",
+    "taille": 12963,
+    "sha256": "653d42d07239e3d1ba96b5221316d9e0d5d4e9cc5937905b0198454da1329592",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kure-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kure-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kure-HRPN-u.txt",
+    "taille": 12904,
+    "sha256": "9df096fb2fca60aa639cd57c9a44d881de3b76a0cbd3243d4a50dbb4ba9bddca",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,kure-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kure.clm_blob",
+    "destination": "",
+    "taille": 32370,
+    "sha256": "185875d3a364d001fd8f52ab046925087307a3d60e84435ca51de5a26d732c5e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,kure.txcap_blob",
+    "destination": "",
+    "taille": 489,
+    "sha256": "cb2f66f8e2fcb984e7d6639d0ef4c053468a1ae6590feb2202d26f7861ce7b2a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,trinidad-HRPN-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,trinidad-HRPN-m.txt",
+    "taille": 13014,
+    "sha256": "80d3f4c897dd355cbf6e684e3b9c856c88391fb82b612f9f542fe30d42a5e795",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,trinidad-HRPN-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.txt",
+    "taille": 12955,
+    "sha256": "621d5e09ca105266f5fae3e48f15730aeacb9b6e92e8adcaadb8a6f3a14c43ef",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4364b3-pcie.apple,trinidad-HRPN-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,trinidad.clm_blob",
+    "destination": "",
+    "taille": 35322,
+    "sha256": "6a46a4be589bbe38f6b4714cffbe71cbbd3a6ef0b44ea0df80cdddf3303414f9",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4364b3-pcie.apple,trinidad.txcap_blob",
+    "destination": "",
+    "taille": 723,
+    "sha256": "c992111f8b94bdad31638b0b590ef68a5cf65edcd2ab7e58cfa9f6ebbcf643f6",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,fiji-SPPR-m.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4377b3-pcie.apple,fiji-SPPR-m.txt",
+    "taille": 5002,
+    "sha256": "abee63f633211b1a30b6ac341d09bf7fb60a8774b05f2d6d79d11a6aa27789fc",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4377b3-pcie.apple,fiji-SPPR-m.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,fiji-SPPR-u.txt",
+    "destination": "archives/preuves-controlees/part-001.tar.gz::archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4377b3-pcie.apple,fiji-SPPR-u.txt",
+    "taille": 4976,
+    "sha256": "ecdb0cee44568cb3bc1e19a6dda160076dcefffc0f18882ad88b191b1e7dfd15",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/4c8c144d05ed/brcmfmac4377b3-pcie.apple,fiji-SPPR-u.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,fiji.bin",
+    "destination": "",
+    "taille": 1125554,
+    "sha256": "b270de69a64fc130374ea86f73eb8f53fe18717dbb90434f06d306e531408888",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,fiji.clm_blob",
+    "destination": "",
+    "taille": 15113,
+    "sha256": "85ac849fd4b4b9910033f29e6cae56afeff4d5c51d34d5bd1719c19cd2e74da5",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,fiji.txcap_blob",
+    "destination": "",
+    "taille": 697,
+    "sha256": "aed63dc408412dc173c814eaa694d01a600675f58bb3706bac5c6e76d0f67b20",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,formosa.clm_blob",
+    "destination": "",
+    "taille": 15033,
+    "sha256": "f0ed43cd48d727881070c04805bee5b30a8b9fcdfb5722a1ce7c9414cd76b3db",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,formosa.txcap_blob",
+    "destination": "",
+    "taille": 697,
+    "sha256": "62cda2f64bd2b02d90f47238e6d50d3507b6bc52e4d6cc4dd9852ce0af790eb2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,tahiti.clm_blob",
+    "destination": "",
+    "taille": 15429,
+    "sha256": "6d494cfa63421036193c7f36d86228cfb1caf1a1ed1abf246a46746c69a7dc07",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmfmac4377b3-pcie.apple,tahiti.txcap_blob",
+    "destination": "",
+    "taille": 697,
+    "sha256": "3ed6fdd2bbe4af4794136e62e5823e90689cf06ae3c219791e557540c6c622aa",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4377b3-apple,formosa.bin",
+    "destination": "",
+    "taille": 151769,
+    "sha256": "f47efe29fbd87ab0259818f089ed702de0d2277f81e17352b42f10a6e97b5e88",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4377b3-apple,formosa.ptb",
+    "destination": "",
+    "taille": 250,
+    "sha256": "68788bcf14e57ccb8acb95bfc2906c74819ab4949e9a4ef0d2b94ab90ab90823",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,atlantisb-m.bin",
+    "destination": "",
+    "taille": 355807,
+    "sha256": "419b7294e92f6d6146cf0cd1f2b5f59f6dd4a18b61203078c26bd2b71a89c228",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,atlantisb-m.ptb",
+    "destination": "",
+    "taille": 786,
+    "sha256": "75a2726d210d819d5f34e1ca7042ebcd23e2243337ebb8a1eabb97c28839e0a1",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,atlantisb-u.bin",
+    "destination": "",
+    "taille": 355807,
+    "sha256": "3cf343a7520141992767d1e942112f03bfe0a29e8a093a20ad9ba116cf99ed3e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,capri-m.bin",
+    "destination": "",
+    "taille": 355779,
+    "sha256": "944a936bcf8e23786843cd223037749b68025f812eeb1bfa7c4c269c8e32c709",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,capri-m.ptb",
+    "destination": "",
+    "taille": 786,
+    "sha256": "d6f61e0ccbeaed87345f2e72bb7fdc05cbfd8e03516e60837b54dc75f5406591",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,capri-u.bin",
+    "destination": "",
+    "taille": 355779,
+    "sha256": "067da15f403ea6037ebdb5e79263183ac106349215444a422caaf02008274eda",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,honshu-m.bin",
+    "destination": "",
+    "taille": 354947,
+    "sha256": "a3cf1bdce18a3f28fc2177321d21f98c187f7f3f7a52b4c28eea1f0b174f17a4",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,honshu-m.ptb",
+    "destination": "",
+    "taille": 520,
+    "sha256": "d6644d1425c08cbf92d49e5715bcc7a7999c0f00b02413a83df684d5dc2e2e42",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,honshu-u.bin",
+    "destination": "",
+    "taille": 354947,
+    "sha256": "c19b98c6fbcaeb47e27e80e33b7131b69f6aa368f92cbc28ed7480d3730655e3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,santorini-m.bin",
+    "destination": "",
+    "taille": 355567,
+    "sha256": "9af1eb3bf856f1e8f8be54276c09b9ad0e963e21ee03716308785ea56121855b",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,santorini-m.ptb",
+    "destination": "",
+    "taille": 786,
+    "sha256": "0c19a717f47584bf0bab2ad8947625db0de0411a38c02b3ce0fad21f0fe7e07d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/rapports/phaseC2-preparation/firmware-renamed.tar::brcmbt4378b1-apple,santorini-u.bin",
+    "destination": "",
+    "taille": 355567,
+    "sha256": "fb1f7cd546e3742e517a864cf9177e438ef000e60c46fd93f4da98e5089d9713",
+    "mission": "NON-ATTRIBUE",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "date membre non normalisée"
+  }
+]

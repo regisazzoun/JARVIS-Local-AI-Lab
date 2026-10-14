@@ -1,0 +1,521 @@
+# Video Generation
+
+Generate AI videos using xAI Grok or Google Gemini directly from Jarvis.
+
+To understand an existing clip or screen recording, see [Video analysis](ANALYSIS.md).
+
+## Overview
+
+The `generate_video` tool creates AI-generated videos from text prompts or images. Videos are saved locally and indexed in stash for use with other tools.
+
+![jarvis-web-video](../../images/jarvis-web.jpg)
+
+## Quick Start
+
+```bash
+# Via CLI (uses default provider)
+jarvis cloud "Generate a video of a cat playing with a ball"
+
+# Specify provider
+jarvis cloud "Generate a video of a sunset over mountains" --provider gemini
+
+# Via API
+curl -X POST http://localhost:8880/api/generated-videos/generate \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "A cat playing with a ball", "duration": 5}'
+```
+
+## Providers
+
+| Provider | Model | Duration | Audio | Resolution | Cost/sec | Status |
+|----------|-------|----------|-------|------------|----------|--------|
+| xAI | `grok-imagine-video` | 1-15s | ❌ | 720p, 480p | $0.05-0.07 | ✅ Active |
+| Gemini | `veo-3.1-fast-generate-preview` | 4/6/8s | ✅ Native | 720p-4k | $0.10-0.30 | ✅ Active |
+| Gemini | `gemini-omni-flash-preview` | 3-10s | ✅ Native | 720p | $0.10 | ⚠️ Preview, opt-in |
+
+Configure in `config/cloud.env`:
+```bash
+# Choose default provider
+VIDEO_TOOL_PROVIDER="xai"  # or "gemini"
+
+# Optional model pins. Leave unset to follow the curated defaults in
+# lib/model_catalog.py and receive future default/retirement updates there.
+# XAI_VIDEO_MODEL="grok-imagine-video"
+# GEMINI_VIDEO_MODEL="veo-3.1-generate-preview"  # standard instead of fast
+# GEMINI_VIDEO_MODEL="gemini-omni-flash-preview"  # Interactions API, 720p
+```
+
+The catalog also stores provider-specific pricing metadata for future cost
+estimation and UI display. The current attachment UI continues to show its
+existing generic estimate.
+
+The image-to-video modal supplies a trusted configuration scope for that action
+only. Ordinary chat tool arguments do not replace the configured provider.
+Background admission saves the effective provider/model in the job's arguments
+and replays them as scoped/child overrides so a worker's fresh mode configuration
+cannot replace that choice. A known model from another provider is rejected
+before submission. This does not
+change AI Config or either env file. Duration, aspect ratio, resolution, and
+the source image are already carried as task arguments.
+
+## Provider Comparison
+
+| Feature | xAI Grok | Google Gemini |
+|---------|----------|---------------|
+| **Duration Range** | 1-15s (any) | Veo: 4/6/8s; Omni: 3-10s |
+| **Aspect Ratios** | 7 options | 2 options |
+| **Resolution** | 720p, 480p | Veo: 720p-4k; Omni: 720p |
+| **Native Audio** | ❌ No | ✅ Yes |
+| **Video Editing** | ✅ Style only | Veo: ❌; Omni: planned |
+| **Negative Prompt** | ❌ No | Veo: native; Omni: prompt guidance |
+| **Image-to-Video** | ✅ Yes | ✅ Yes |
+| **Cost/second** | $0.05-0.07 | $0.10-0.60 |
+
+## Parameters
+
+### Duration
+Video length in seconds.
+
+| Provider | Range | Notes |
+|----------|-------|-------|
+| xAI | 1-15 seconds | Any integer value |
+| Gemini Veo | 4, 6, or 8 seconds | Rounded to nearest |
+| Gemini Omni Flash | 3-10 seconds | Clamped to range |
+
+**Note**: Longer videos take more time to generate and cost more. Gemini Veo 1080p/4k requires 8s duration; Omni Flash always outputs 720p.
+
+### Aspect Ratio
+Video shape/orientation.
+
+| Value | Description | xAI | Gemini |
+|-------|-------------|-----|--------|
+| `16:9` | Widescreen (default) | ✅ | ✅ |
+| `4:3` | Classic TV ratio | ✅ | ➡️ 16:9 |
+| `1:1` | Square | ✅ | ➡️ 16:9 |
+| `9:16` | Vertical | ✅ | ✅ |
+| `3:4` | Portrait | ✅ | ➡️ 9:16 |
+| `3:2` | Photo standard | ✅ | ➡️ 16:9 |
+| `2:3` | Tall portrait | ✅ | ➡️ 9:16 |
+
+### Resolution
+Video quality.
+
+| Value | xAI | Gemini | Notes |
+|-------|-----|--------|-------|
+| `720p` | ✅ | ✅ | HD (default) |
+| `480p` | ✅ | ➡️ 720p | SD |
+| `1080p` | ❌ | ✅ Veo | Full HD |
+| `4k` | ❌ | ✅ Veo | Ultra HD (Veo 8s only) |
+
+## Generation Modes
+
+### Text-to-Video
+Generate from a text prompt:
+```json
+{
+  "prompt": "A serene mountain landscape with clouds moving slowly",
+  "duration": 10,
+  "aspect_ratio": "16:9"
+}
+```
+
+### Image-to-Video
+Animate an existing image (both providers):
+```json
+{
+  "prompt": "Animate this image with gentle movement",
+  "image_url": "https://example.com/my-image.jpg",
+  "duration": 5
+}
+```
+
+### Video Editing (xAI only)
+Edit an existing video's visual content or style:
+```json
+{
+  "prompt": "Make the colors more vibrant and add lens flare",
+  "video_url": "https://vidgen.x.ai/xai-vidgen-bucket/xai-video-abc123.mp4",
+  "provider": "xai"
+}
+```
+
+**Limitations**:
+- Can only change visual content/style (what happens in the video)
+- Cannot change duration, aspect ratio, or resolution -- regenerate from the source image instead
+- `video_url` must be a public http(s) URL (stash refs will not work)
+- Use the `source_url` from the `/info` API endpoint or stash `meta.json`
+- Provider URLs expire after ~4 hours; check `edit_url_status` in the API
+- Input video must be ≤8.7 seconds
+
+### With Audio (Gemini)
+Gemini Veo generates native audio including dialogue and sound effects:
+```json
+{
+  "prompt": "A close-up of a man saying 'Hello world!' with birds chirping in the background",
+  "duration": 8,
+  "provider": "gemini"
+}
+```
+
+### Negative Prompt (Gemini only)
+Specify what to avoid:
+```json
+{
+  "prompt": "A beautiful sunset over mountains",
+  "negative_prompt": "cartoon, low quality, blurry, text",
+  "provider": "gemini"
+}
+```
+
+## Storage
+
+Videos are stored in multiple locations:
+
+### 1. File System
+```
+data/generated_videos/
+├── video_a_cat_playing_20260201_021027.mp4
+├── video_sunset_timelapse_20260131_180045.mp4
+├── ...
+└── video_catalog.json  ← Metadata catalog
+```
+
+### 2. Video Catalog (Feb 2026)
+The `video_catalog.json` stores persistent metadata for all videos:
+
+```json
+{
+  "video_a_cat_playing_20260201_021027.mp4": {
+    "provider": "xAI",
+    "aspect": "16:9",
+    "tags": ["ai_generated", "video", "xai", "16:9"],
+    "tool_origin": "generate_video",
+    "created_at": "2026-02-01T10:10:28Z",
+    "stash_ref": "stash://space_20260201_101028_abc/f_123def",
+    "source_url": "https://vidgen.x.ai/xai-vidgen-bucket/xai-video-abc123.mp4",
+    "edit_url_status": "expired"
+  }
+}
+```
+
+**How it works:**
+- When videos are generated, metadata is saved to stash AND catalog
+- Flask Canvas and FastAPI use the same catalog persistence module and metadata schema
+- Catalog syncs automatically; new and legacy incomplete entries get metadata from stash
+- Time-sensitive `edit_url_status` is recomputed on sync instead of remaining cached
+- Catalog survives stash TTL (7-day cleanup) - metadata persists
+- Shared by `jarvis-api` (8880) and `jarvis-canvas` (8890)
+
+### 3. Stash (Cross-Tool Use)
+```
+data/stash/space_{timestamp}_{id}/
+├── meta.json    ← Tags, source_url (for editing), source_url_created
+└── video_file.mp4
+```
+The `meta.json` stores the provider's public `source_url` for video editing. This URL expires after ~4 hours for xAI. The `source_url_created` timestamp tracks when it was saved.
+
+### 4. Memory (Discovery)
+Entry created for cross-session recall:
+- Category: `stash_artifact`
+- Searchable by prompt and metadata
+
+## Generation Time
+
+Video generation is async and takes time:
+
+| Duration | xAI | Gemini |
+|----------|-----|--------|
+| 4-5 seconds | 30-60s | 30-90s |
+| 8-10 seconds | 60-90s | 60-120s |
+| 15 seconds | 90-120+s | N/A |
+
+Both SDKs handle polling automatically.
+
+## File Sizes
+
+Approximate file sizes:
+
+| Resolution | 5 seconds | 8 seconds |
+|------------|-----------|-----------|
+| 480p | ~1-2 MB | ~2-4 MB |
+| 720p | ~3-5 MB | ~5-8 MB |
+| 1080p | N/A | ~10-15 MB |
+| 4k | N/A | ~30-50 MB |
+
+## Web UI
+
+### Jarvis Web Chat
+Generated videos appear in the chat with:
+- Video player with play/pause controls
+- Duration indicator
+- Downloadable link
+
+### Video Gallery (Feb 2026)
+Browse all generated videos at `http://localhost:8890/video-gallery`:
+
+**Features:**
+- Grid view with hover preview
+- Provider badges (xAI, Gemini) from video catalog
+- Lightbox viewer with controls below video
+- Search and sort (date, name, size, duration)
+- Download and delete functionality
+- Keyboard shortcuts (arrows, space, escape)
+
+**Access:**
+- Direct URL: `http://localhost:8890/video-gallery`
+- Canvas header: "🎬 Videos" link
+
+## API Endpoints
+
+See [API Documentation](../../api/GENERATED_VIDEOS.md) for full endpoint reference.
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/generated-videos` | GET | List all videos (with provider, aspect, tags) |
+| `/api/generated-videos/{filename}` | GET | Download video |
+| `/api/generated-videos/{filename}/info` | GET | Video metadata (with provider, aspect, tags) |
+| `/api/generated-videos/{filename}` | DELETE | Delete video + remove from catalog |
+| `/api/generated-videos/generate` | POST | Generate new video |
+| `/api/generated-videos/health` | GET | Health check |
+
+**Response fields:**
+- `provider`: AI provider name (xAI, Gemini, etc.)
+- `aspect`: Aspect ratio (16:9, 9:16, etc.)
+- `tags`: Array of tags from generation
+- `tool_origin`: Tool that created the video
+- `created_at`: ISO timestamp
+- `stash_ref`: Stash reference for cross-tool use
+- `edit_url_status`: `"available"`, `"expired"`, or `null` (xAI URLs expire ~4h)
+- `source_url`: Provider's public URL for video editing (detail endpoint only)
+
+## Requirements
+
+**For xAI:**
+- xAI SDK >= 1.17.0 (video support added in 1.6.0; project floor is 1.17.0)
+- `XAI_API_KEY` configured in cloud.env
+- Sufficient xAI API credits
+
+**For Gemini:**
+- google-genai >= 2.10.0
+- `GEMINI_API_KEY` configured in cloud.env
+- Sufficient Gemini API credits
+
+Install all:
+```bash
+pip install xai-sdk>=1.17.0 google-genai>=2.10.0
+```
+
+## Costs
+
+Video generation costs vary by provider, duration, and resolution:
+
+| Provider | Model | Cost/second | Notes |
+|----------|-------|-------------|-------|
+| xAI | grok-imagine-video | $0.05 | Cheapest option |
+| Gemini | veo-3.1-fast (720p) | $0.10 | Catalog default |
+| Gemini | veo-3.1-fast (1080p/4k) | $0.12/$0.30 | Higher resolution |
+| Gemini | gemini-omni-flash-preview | $0.10 | Opt-in, 720p only |
+
+**Links:**
+- xAI: [console.x.ai](https://console.x.ai)
+- Gemini: [ai.google.dev/pricing](https://ai.google.dev/gemini-api/docs/pricing#veo-3.1)
+
+## YouTube Download Tool (`youtube_video`)
+
+Jarvis also supports direct YouTube downloads via the `youtube_video` tool (separate from `generate_video`):
+- Input: YouTube URL (`youtube.com` or `youtu.be`)
+- Output: downloaded media saved to **stash**
+- WebUI: appears as stash-hosted video/audio with preview + download
+- Storage behavior: does **not** use `data/generated_videos/` and does not create Canvas video entries
+
+Example CLI usage:
+```bash
+python3 skills/auto-tools/youtube_video.py '{
+  "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "quality": "720p"
+}'
+```
+
+### Transcript storage and summarization
+
+`youtube_transcript` saves both SRT and Markdown files to stash. When yt-dlp is
+blocked and `serpapi_youtube` supplies the transcript instead, Jarvis saves the
+complete ordered transcript as Markdown and returns its stash reference. A
+same-turn or later Web chat request can pass that reference directly to
+`text_summarizer` without putting the full transcript in the routing preview.
+
+### Updating yt-dlp safely
+
+Use the repository helper to update only the yt-dlp lock entry and install that
+exact version into `JARVIS_VENV` (default: `~/jarvis-venv`):
+
+```bash
+./bin/update-yt-dlp
+```
+
+Optionally verify real English transcript extraction after the update:
+
+```bash
+./bin/update-yt-dlp --smoke-url "https://www.youtube.com/watch?v=VIDEO_ID"
+```
+
+The helper deliberately does not run `uv sync` against the long-lived Jarvis
+environment, so unrelated packages are not removed. Routine updates change
+`uv.lock`; the minimum versions in `pyproject.toml` and `requirements.txt`
+should only be raised when an older yt-dlp release must be disallowed.
+
+### Automatic yt-dlp release watch
+
+The `yt_dlp_release_watch` workflow checks PyPI's structured release API for a
+new stable version. Its first run records a quiet baseline. When a newer
+version appears, the workflow creates or refreshes the matching GitHub release
+report in Canvas, creates one deduplicated Jarvis alert, and only then advances
+its saved state under `data/release-watch/`.
+
+Run it manually with:
+
+```text
+/yt_dlp_release_watch
+```
+
+The reusable `release_watch` tool also supports other PyPI packages and GitHub
+repositories. Use separate `watch_id` values for separate upstream projects.
+Scheduled workflows should call `check`, complete their Canvas and alert steps,
+then call `acknowledge` so a failed downstream step is retried on the next run.
+
+### Proxy setup (`LOCAL_PROXY` / `LOCAL_PROXY2`)
+
+The YouTube tools declare **`proxy_policy: "prefer"`**. They walk
+**`LOCAL_PROXY`**, then **`LOCAL_PROXY2`** (if set), and finally retry directly
+without `--proxy`. If both proxies are unset, `yt-dlp` runs directly.
+
+Details and MCP/browser nuances: [`docs/NETWORK_PROXY.md`](../../NETWORK_PROXY.md).
+
+Example:
+```bash
+# config/cloud.env (or your active env file)
+LOCAL_PROXY="http://127.0.0.1:7890"
+# Optional fallback
+# LOCAL_PROXY2="http://192.168.1.50:8888"
+```
+
+### Cookie Setup (for restricted/challenging videos)
+
+`youtube_video` supports two cookie modes:
+
+1. Cookie file path:
+```bash
+YTDLP_COOKIES_FILE="~/.config/yt-dlp/cookies.txt"
+```
+
+2. Browser extraction:
+```bash
+YTDLP_COOKIES_FROM_BROWSER="chrome"
+# also supports firefox, edge, etc.
+```
+
+If you prefer to keep cookies inside this project, a practical path is:
+```bash
+data/secrets/youtube/cookies.txt
+```
+
+Then set:
+```bash
+YTDLP_COOKIES_FILE="~/jarvis-voice/data/secrets/youtube/cookies.txt"
+```
+
+`data/secrets/` is ignored by Git and is intended for Docker-friendly secret mounts. Jarvis file-reading tools deliberately refuse to expose files from this directory.
+
+## Troubleshooting
+
+### "Client object has no attribute 'video'" (xAI)
+Upgrade xAI SDK:
+```bash
+pip install --upgrade xai-sdk
+```
+Requires version 1.17.0 or higher.
+
+### "google-genai not installed" (Gemini)
+Install Google GenAI:
+```bash
+pip install google-genai
+```
+
+### Generation timeout
+- Video generation can take 30-120+ seconds
+- API has 10-minute timeout
+- Try shorter duration videos or lower resolution
+
+### Video not appearing in UI
+- Check `data/generated_videos/` for the file
+- Verify the `/api/videos/{filename}` route is accessible
+- Check browser console for errors
+
+### Gemini aspect ratio not supported
+Gemini only supports 16:9 and 9:16. Other ratios are automatically mapped:
+- Portrait ratios → 9:16
+- Landscape/square ratios → 16:9
+
+## Examples
+
+### Cinematic Scene (xAI)
+```json
+{
+  "prompt": "Epic drone shot flying over a foggy forest at sunrise, cinematic lighting",
+  "duration": 10,
+  "aspect_ratio": "16:9",
+  "resolution": "720p",
+  "provider": "xai"
+}
+```
+
+### Social Media Short (xAI)
+```json
+{
+  "prompt": "Product showcase of a coffee cup with steam rising, modern kitchen background",
+  "duration": 5,
+  "aspect_ratio": "9:16",
+  "provider": "xai"
+}
+```
+
+### Animation from Image (Both)
+```json
+{
+  "prompt": "Add subtle movement to the clouds and water",
+  "image_url": "https://example.com/landscape.jpg",
+  "duration": 8,
+  "aspect_ratio": "16:9"
+}
+```
+
+### High-Quality with Audio (Gemini)
+```json
+{
+  "prompt": "A stunning 4K drone view of the Grand Canyon at sunset. Wind sounds and ambient nature.",
+  "duration": 8,
+  "resolution": "4k",
+  "provider": "gemini"
+}
+```
+
+### Dialogue Video (Gemini)
+```json
+{
+  "prompt": "Close-up of two people. Man says 'This is amazing!' Woman replies 'I know, right?' Background cafe ambiance.",
+  "duration": 8,
+  "aspect_ratio": "16:9",
+  "provider": "gemini"
+}
+```
+
+### Video Edit (xAI only)
+Edit visual style only. Cannot change duration/aspect/resolution.
+```json
+{
+  "prompt": "Make the ball larger and add more contrast",
+  "video_url": "https://vidgen.x.ai/xai-vidgen-bucket/xai-video-abc123.mp4",
+  "provider": "xai"
+}
+```
+Use `source_url` from the API `/info` endpoint. URLs expire after ~4 hours.
