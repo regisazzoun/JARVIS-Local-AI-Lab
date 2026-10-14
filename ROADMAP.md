@@ -245,3 +245,20 @@ La mission 15 est divisée en **deux chantiers indépendants, réalisables en pa
 - Les missions 15A et 15B peuvent progresser **en parallèle** ; elles n'attendent pas le déploiement du Dell. Vérifier les API, la voix et la mémoire concernées par les réserves 13F avant tests d'intégration.
 
 **Statut au 14 octobre 2026 :** cadrage acté, développement et validation de 15A/15B non encore documentés ici. Les anciennes mentions génériques de « mission 15 » désignent désormais le programme commun 15A + 15B.
+
+
+### Mission 15B — stratégie d'installation iOS (étude du 14 octobre 2026)
+
+Objectif : application native SwiftUI utilisée sur l'iPhone du propriétaire, sans obligation de publication publique sur l'App Store.
+
+| Voie | Conditions | Limites |
+| --- | --- | --- |
+| Xcode / Personal Team gratuite | Compiler et installer sur son propre iPhone depuis un Mac | Provisioning et installation à renouveler après 7 jours ; limites sur les capacités disponibles |
+| Ad Hoc | Apple Developer Program (99 USD/an, prix local variable), appareil enregistré, profil/signature | Nombre d'appareils limité ; renouvellement des profils/certificats selon échéance |
+| TestFlight | Apple Developer Program, App Store Connect, installation via TestFlight | Chaque build expire au bout de 90 jours, nouvelle build nécessaire |
+| PWA depuis Safari | Application Web hébergée en HTTPS, ajout à l'écran d'accueil | Certaines intégrations iOS natives limitées ; dépend du comportement du navigateur et des permissions |
+| Web Distribution UE | Compte développeur, autorisation Apple, notarisation et critères d'éligibilité | Ne pas présumer qu'un développeur particulier est éligible |
+
+**Décision proposée (à valider)** : démarrer par Xcode sur iPhone personnel ; évaluer l'abonnement développeur et Ad Hoc pour un usage privé durable. Conserver PWA comme accès de secours. La compilation/signature est distincte du serveur JARVIS, qui reste accessible via API chiffrée et authentifiée.
+
+Sources Apple : https://developer.apple.com/help/account/basics/about-your-developer-account ; https://help.apple.com/xcode/mac/current/en.lproj/dev7ccaf4d3c.html ; https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/ ; https://developer.apple.com/fr/support/web-distribution-eu/ .
