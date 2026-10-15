@@ -1,0 +1,2294 @@
+[
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/.gitignore",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/.gitignore",
+    "taille": 65,
+    "sha256": "c9b3359716e1a61ee069c092fb5d915581f8ec02901c712ebb3a733fca24f598",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:42:28.282462+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/.gitignore"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/INVENTORY.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/INVENTORY.json",
+    "taille": 5249,
+    "sha256": "96438d54943c924b6d660d2e3214fdeaaf92c54ab13e08f58723f7f3f93d4245",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:43:59.008165+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/INVENTORY.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/README.md",
+    "taille": 5132,
+    "sha256": "8b9e536f965e5301ca4116efc3f3fc2356e73e91eef65efe1fc9cfacd0c9fb62",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:43:58.865093+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/config/example.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/config/example.json",
+    "taille": 469,
+    "sha256": "06d139ce6765a97c323c13ef7ea083105ec6d590c1ad37a34e9a1c4d02b0abe0",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:36:53.457735+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/config/example.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/evidence/audit-checkpoint.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-checkpoint.json",
+    "taille": 5074,
+    "sha256": "0b4aeed8bf485bee5f2675870acad55b22e4bb8133811991c2bb35305c38fad2",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:40:02.211848+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-checkpoint.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/evidence/audit-final.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-final.json",
+    "taille": 5074,
+    "sha256": "faf2a870474a9ca79600456ac4aa24b75045fae2fbd6bfab5bc77875b943ef1a",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:42:29.396373+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-final.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/evidence/non-regression.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/non-regression.json",
+    "taille": 181,
+    "sha256": "2879c098674366b5681ea21dc8208a687d4a5c470a200327a9bfec6c90f39f24",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:42:29.421524+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/non-regression.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/evidence/start-attempt.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/start-attempt.txt",
+    "taille": 998,
+    "sha256": "57c362b9cf732ac97152344c5dce1004822e5c7fcc6829abfb1ddd0a39bb6600",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:42:41.656750+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/start-attempt.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/evidence/unit-tests.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/unit-tests.txt",
+    "taille": 956,
+    "sha256": "e42d884c80f1aa200173507d8417f475c58bbe8409520acf12aa7ce6a9f001d7",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:43:58.972945+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/unit-tests.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/evidence/voice-tests.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/voice-tests.json",
+    "taille": 877,
+    "sha256": "9e0104898e531de0d8aeecd75b8e8cf2950bb55ebf535c59384621db6e0d6333",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:40:37.256927+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/voice-tests.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:36:53.457735+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis/cli.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/cli.py",
+    "taille": 581,
+    "sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:38:50.534812+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis/core.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/core.py",
+    "taille": 5129,
+    "sha256": "29c985a4c253fbfc631d176b7de586cdac6718ac645cc9b964b6f4f20dc24979",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:40:01.082497+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis/memory.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/memory.py",
+    "taille": 7697,
+    "sha256": "7200f583bdf155651e80d8756361ef8ce731508ea4e0c1dfccbe05a4f7c8e226",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:40:01.079813+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis/server.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/server.py",
+    "taille": 6038,
+    "sha256": "9dbdcdefd645865bf47d8dd284c8bfdfc9a0ccb81086e21f3b884200b35ad010",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:43:58.864966+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis/voice_worker.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/voice_worker.py",
+    "taille": 2498,
+    "sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "2026-10-13T09:37:48.339449+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/jarvis/__init__.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/__init__.py",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/jarvis/cli.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/cli.py",
+    "taille": 581,
+    "sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/jarvis/core.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/core.py",
+    "taille": 5129,
+    "sha256": "29c985a4c253fbfc631d176b7de586cdac6718ac645cc9b964b6f4f20dc24979",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/jarvis/memory.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/memory.py",
+    "taille": 7697,
+    "sha256": "7200f583bdf155651e80d8756361ef8ce731508ea4e0c1dfccbe05a4f7c8e226",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/jarvis/server.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/server.py",
+    "taille": 6038,
+    "sha256": "9dbdcdefd645865bf47d8dd284c8bfdfc9a0ccb81086e21f3b884200b35ad010",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/jarvis/voice_worker.py",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/jarvis/voice_worker.py",
+    "taille": 2498,
+    "sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/static/app.js",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/app.js",
+    "taille": 7634,
+    "sha256": "854a09ff196f1bd1736e0c5dc484e955b950be16e609b370d0edf34a1fe03164",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/app.js"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/static/index.html",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/index.html",
+    "taille": 2432,
+    "sha256": "33797261808a6065d3ac2413529189f6fedbe0fcf02820a77444e41b230559b8",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/index.html"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/static/style.css",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/style.css",
+    "taille": 1688,
+    "sha256": "4349a38a4fe59c375a63f6f380fba53c5a276400ff84d25553253d1366adefbe",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/style.css"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/config/example.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/config/example.json",
+    "taille": 469,
+    "sha256": "06d139ce6765a97c323c13ef7ea083105ec6d590c1ad37a34e9a1c4d02b0abe0",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/config/example.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/audit",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/audit",
+    "taille": 1547,
+    "sha256": "9d1766952b18227adb26c79a43f561ac009b8275f1d971e29287923798909764",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/audit"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/memory",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/memory",
+    "taille": 158,
+    "sha256": "5aec076e39b9ad51dcb361104072093ff264eec07fdda2a472e59406b5d97c22",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/memory"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/package",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/package",
+    "taille": 1112,
+    "sha256": "01af12790f6bfb6b11387215d0ca4f886bd64d2ba5985269e49bbab75e13273d",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/package"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/start",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/start",
+    "taille": 171,
+    "sha256": "e4e5e9ff7da690acaea3db4bf855ab30b8071c57685e18f8edf90568db7603ff",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/start"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/status",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/status",
+    "taille": 76,
+    "sha256": "61a29c3acb3ce0f84b187ac403dbd566abe564792a455e1a54425c395b088ead",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/status"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/stop",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/stop",
+    "taille": 662,
+    "sha256": "2cae8cd42f13041e6a319c1c74347f720cceb5ee9e0076a30a0ded6aa1c5e497",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/stop"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/test",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test",
+    "taille": 172,
+    "sha256": "6c30280cb2a1c9aaf91bcaeb1e29aab97b97ae5a1fe821e6ab85f026748015d3",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/test-ollama",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-ollama",
+    "taille": 1295,
+    "sha256": "81338117c6ccc364d992c04cccf172e5353163ecd1fff186a8acd7247e502f3d",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-ollama"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/scripts/test-voice",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-voice",
+    "taille": 2409,
+    "sha256": "c0d5b8ab6bb9b3c2de52859ce64d94532022cfe9de8b0f2040ee74ebdc900179",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-voice"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/tests/test_api.py",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/tests/test_api.py",
+    "taille": 3135,
+    "sha256": "aaaf50a63132d58042db81ef72e7469cad434676a43beb26bf95cb3d1566c82e",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/tests/test_system.py",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/tests/test_system.py",
+    "taille": 3864,
+    "sha256": "611f8f82173cde3561295189b25370102e59821f65db9caffd9b3e686628d2fa",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/reports/13B.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/13B.md",
+    "taille": 3044,
+    "sha256": "d201da9a4d16bddb2338a1c90407df53bb9abb82af5294ac8d28a3705cd406e1",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/reports/13BC.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/13BC.md",
+    "taille": 7034,
+    "sha256": "6a5b278aa417a9d584dd565b788da48e43e4a495051b7564f9e608b36ee1bf33",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/reports/13C.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/13C.md",
+    "taille": 2937,
+    "sha256": "14360ae4bdb13ab832b64a4942c6ad985b41c40072b9b3febf7e1967730134ad",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/reports/DECISIONS.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/DECISIONS.md",
+    "taille": 1693,
+    "sha256": "f8b033b6317b9d1152b7a601255fdd0d2cff93eeebe5c4765bcb30ade3939347",
+    "mission": "13BC",
+    "statut": "RECUPERE_IDENTIQUE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/evidence/audit-checkpoint.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-checkpoint.json",
+    "taille": 5074,
+    "sha256": "0b4aeed8bf485bee5f2675870acad55b22e4bb8133811991c2bb35305c38fad2",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-checkpoint.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/evidence/audit-final.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-final.json",
+    "taille": 5074,
+    "sha256": "faf2a870474a9ca79600456ac4aa24b75045fae2fbd6bfab5bc77875b943ef1a",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/audit-final.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/evidence/non-regression.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/non-regression.json",
+    "taille": 181,
+    "sha256": "2879c098674366b5681ea21dc8208a687d4a5c470a200327a9bfec6c90f39f24",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/non-regression.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/evidence/start-attempt.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/start-attempt.txt",
+    "taille": 998,
+    "sha256": "57c362b9cf732ac97152344c5dce1004822e5c7fcc6829abfb1ddd0a39bb6600",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/start-attempt.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/evidence/unit-tests.txt",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/unit-tests.txt",
+    "taille": 956,
+    "sha256": "e42d884c80f1aa200173507d8417f475c58bbe8409520acf12aa7ce6a9f001d7",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/unit-tests.txt"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/evidence/voice-tests.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/voice-tests.json",
+    "taille": 877,
+    "sha256": "9e0104898e531de0d8aeecd75b8e8cf2950bb55ebf535c59384621db6e0d6333",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/evidence/voice-tests.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/README.md",
+    "destination": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/README.md",
+    "taille": 5132,
+    "sha256": "8b9e536f965e5301ca4116efc3f3fc2356e73e91eef65efe1fc9cfacd0c9fb62",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/.gitignore",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/.gitignore",
+    "taille": 65,
+    "sha256": "c9b3359716e1a61ee069c092fb5d915581f8ec02901c712ebb3a733fca24f598",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/.gitignore"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz::conversation/INVENTORY.json",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/INVENTORY.json",
+    "taille": 5249,
+    "sha256": "96438d54943c924b6d660d2e3214fdeaaf92c54ab13e08f58723f7f3f93d4245",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "date membre non normalisée",
+    "membre_archive": "archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/conversation/INVENTORY.json"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/jarvis-13bc-share.tar.gz",
+    "destination": "",
+    "taille": 31644,
+    "sha256": "e9591a56ebd05feb29bece7d4308a64dd4aca8ccae7bbca8b9ac9c672bea3fba",
+    "mission": "13BC",
+    "statut": "EXCLU_BINAIRE_A_REVOIR",
+    "date_mtime": "2026-10-13T09:43:59.015129+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/reports/13B.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/13B.md",
+    "taille": 3044,
+    "sha256": "d201da9a4d16bddb2338a1c90407df53bb9abb82af5294ac8d28a3705cd406e1",
+    "mission": "13B",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:42:28.285762+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/reports/13BC.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/13BC.md",
+    "taille": 7034,
+    "sha256": "6a5b278aa417a9d584dd565b788da48e43e4a495051b7564f9e608b36ee1bf33",
+    "mission": "13BC",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:43:34.189157+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/reports/13C.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/13C.md",
+    "taille": 2937,
+    "sha256": "14360ae4bdb13ab832b64a4942c6ad985b41c40072b9b3febf7e1967730134ad",
+    "mission": "13C",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:42:28.286907+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/reports/DECISIONS.md",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/reports/DECISIONS.md",
+    "taille": 1693,
+    "sha256": "f8b033b6317b9d1152b7a601255fdd0d2cff93eeebe5c4765bcb30ade3939347",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:42:28.288013+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/audit",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/audit",
+    "taille": 1547,
+    "sha256": "9d1766952b18227adb26c79a43f561ac009b8275f1d971e29287923798909764",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:40:01.085988+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/audit"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/memory",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/memory",
+    "taille": 158,
+    "sha256": "5aec076e39b9ad51dcb361104072093ff264eec07fdda2a472e59406b5d97c22",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:38:50.533911+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/memory"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/package",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/package",
+    "taille": 1112,
+    "sha256": "01af12790f6bfb6b11387215d0ca4f886bd64d2ba5985269e49bbab75e13273d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:43:34.190423+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/package"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/start",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/start",
+    "taille": 171,
+    "sha256": "e4e5e9ff7da690acaea3db4bf855ab30b8071c57685e18f8edf90568db7603ff",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:38:50.529634+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/start"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/status",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/status",
+    "taille": 76,
+    "sha256": "61a29c3acb3ce0f84b187ac403dbd566abe564792a455e1a54425c395b088ead",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:38:50.531314+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/status"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/stop",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/stop",
+    "taille": 662,
+    "sha256": "2cae8cd42f13041e6a319c1c74347f720cceb5ee9e0076a30a0ded6aa1c5e497",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:40:01.085119+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/stop"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/test",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test",
+    "taille": 172,
+    "sha256": "6c30280cb2a1c9aaf91bcaeb1e29aab97b97ae5a1fe821e6ab85f026748015d3",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:38:50.533018+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/test-ollama",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-ollama",
+    "taille": 1295,
+    "sha256": "81338117c6ccc364d992c04cccf172e5353163ecd1fff186a8acd7247e502f3d",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:42:28.281361+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-ollama"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/scripts/test-voice",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-voice",
+    "taille": 2409,
+    "sha256": "c0d5b8ab6bb9b3c2de52859ce64d94532022cfe9de8b0f2040ee74ebdc900179",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:40:31.211996+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/scripts/test-voice"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/static/app.js",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/app.js",
+    "taille": 7634,
+    "sha256": "854a09ff196f1bd1736e0c5dc484e955b950be16e609b370d0edf34a1fe03164",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:40:52.064370+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/app.js"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/static/index.html",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/index.html",
+    "taille": 2432,
+    "sha256": "33797261808a6065d3ac2413529189f6fedbe0fcf02820a77444e41b230559b8",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:38:50.527853+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/index.html"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/static/style.css",
+    "destination": "archives/preuves-controlees/part-002.tar.gz::archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/style.css",
+    "taille": 1688,
+    "sha256": "4349a38a4fe59c375a63f6f380fba53c5a276400ff84d25553253d1366adefbe",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:38:50.528723+00:00",
+    "membre_archive": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/static/style.css"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/tests/test_api.py",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/tests/test_api.py",
+    "taille": 3135,
+    "sha256": "aaaf50a63132d58042db81ef72e7469cad434676a43beb26bf95cb3d1566c82e",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:40:31.211172+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/conversation/tests/test_system.py",
+    "destination": "archives/recuperation-2026-10-14/membres/dc0c53fd9aac/conversation/tests/test_system.py",
+    "taille": 3864,
+    "sha256": "611f8f82173cde3561295189b25370102e59821f65db9caffd9b3e686628d2fa",
+    "mission": "NON-ATTRIBUE",
+    "statut": "DOUBLON_SHA256",
+    "date_mtime": "2026-10-13T09:39:15.707371+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.gitignore",
+    "destination": "",
+    "taille": 65,
+    "sha256": "c9b3359716e1a61ee069c092fb5d915581f8ec02901c712ebb3a733fca24f598",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.venv/.gitignore",
+    "destination": "",
+    "taille": 69,
+    "sha256": "36692e1840f82f75adce103fd03e65b1eaa35f798c885b3b545e3abc14ffcbf0",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.venv/bin/Activate.ps1",
+    "destination": "",
+    "taille": 9031,
+    "sha256": "eb8ce20f580877d300c4fed60a7f36daa18715d35c50bb3596d6995d023b4ffe",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.venv/bin/activate",
+    "destination": "",
+    "taille": 2198,
+    "sha256": "f639556585fce2e0cf4242a803bc008ce680f6c45b2fbe0d31900a969790df94",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.venv/bin/activate.csh",
+    "destination": "",
+    "taille": 934,
+    "sha256": "4b45c6c1e28a7197d92304be8fefaa62e6dba96ae8ea4128b69d323ace24f66e",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.venv/bin/activate.fish",
+    "destination": "",
+    "taille": 2205,
+    "sha256": "01302c46566ba6c1662a0b2252ec2c1792b4bebe20142c2ba3cf46c56ba5db03",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/.venv/pyvenv.cfg",
+    "destination": "",
+    "taille": 196,
+    "sha256": "35b5485133004da5e3d58983b0be4dcd82ac46aeb7c2e141e0b23b8d54b16c66",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/INVENTORY.json",
+    "destination": "",
+    "taille": 5249,
+    "sha256": "96438d54943c924b6d660d2e3214fdeaaf92c54ab13e08f58723f7f3f93d4245",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/README.md",
+    "destination": "",
+    "taille": 5132,
+    "sha256": "8b9e536f965e5301ca4116efc3f3fc2356e73e91eef65efe1fc9cfacd0c9fb62",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/config/example.json",
+    "destination": "",
+    "taille": 469,
+    "sha256": "06d139ce6765a97c323c13ef7ea083105ec6d590c1ad37a34e9a1c4d02b0abe0",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/evidence/audit-checkpoint.json",
+    "destination": "",
+    "taille": 5074,
+    "sha256": "0b4aeed8bf485bee5f2675870acad55b22e4bb8133811991c2bb35305c38fad2",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/evidence/audit-final.json",
+    "destination": "",
+    "taille": 5074,
+    "sha256": "faf2a870474a9ca79600456ac4aa24b75045fae2fbd6bfab5bc77875b943ef1a",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/evidence/non-regression.json",
+    "destination": "",
+    "taille": 181,
+    "sha256": "2879c098674366b5681ea21dc8208a687d4a5c470a200327a9bfec6c90f39f24",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/evidence/start-attempt.txt",
+    "destination": "",
+    "taille": 998,
+    "sha256": "57c362b9cf732ac97152344c5dce1004822e5c7fcc6829abfb1ddd0a39bb6600",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/evidence/unit-tests.txt",
+    "destination": "",
+    "taille": 956,
+    "sha256": "e42d884c80f1aa200173507d8417f475c58bbe8409520acf12aa7ce6a9f001d7",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/evidence/voice-tests.json",
+    "destination": "",
+    "taille": 877,
+    "sha256": "9e0104898e531de0d8aeecd75b8e8cf2950bb55ebf535c59384621db6e0d6333",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/__init__.py",
+    "destination": "",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/__pycache__/__init__.cpython-313.pyc",
+    "destination": "",
+    "taille": 153,
+    "sha256": "8e1889ea4b604d0439cdfb4a7369ffdc6798af731fb0a2dedb1446c5661ee7b2",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/__pycache__/core.cpython-313.pyc",
+    "destination": "",
+    "taille": 8808,
+    "sha256": "2706160be0519c9f4c7c8db6b2b7110fa3df6a94f19d284526753aae57e50388",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/__pycache__/memory.cpython-313.pyc",
+    "destination": "",
+    "taille": 14264,
+    "sha256": "0cda2611378ca820ccd30b480f74208f8bd951c83aca0f378cef43d7ebd14fb3",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/cli.py",
+    "destination": "",
+    "taille": 581,
+    "sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/core.py",
+    "destination": "",
+    "taille": 5129,
+    "sha256": "29c985a4c253fbfc631d176b7de586cdac6718ac645cc9b964b6f4f20dc24979",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/memory.py",
+    "destination": "",
+    "taille": 7697,
+    "sha256": "7200f583bdf155651e80d8756361ef8ce731508ea4e0c1dfccbe05a4f7c8e226",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/server.py",
+    "destination": "",
+    "taille": 6038,
+    "sha256": "9dbdcdefd645865bf47d8dd284c8bfdfc9a0ccb81086e21f3b884200b35ad010",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis/voice_worker.py",
+    "destination": "",
+    "taille": 2498,
+    "sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/jarvis-13bc-share.tar.gz",
+    "destination": "",
+    "taille": 31644,
+    "sha256": "e9591a56ebd05feb29bece7d4308a64dd4aca8ccae7bbca8b9ac9c672bea3fba",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/reports/13B.md",
+    "destination": "",
+    "taille": 3044,
+    "sha256": "d201da9a4d16bddb2338a1c90407df53bb9abb82af5294ac8d28a3705cd406e1",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/reports/13BC.md",
+    "destination": "",
+    "taille": 7034,
+    "sha256": "6a5b278aa417a9d584dd565b788da48e43e4a495051b7564f9e608b36ee1bf33",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/reports/13C.md",
+    "destination": "",
+    "taille": 2937,
+    "sha256": "14360ae4bdb13ab832b64a4942c6ad985b41c40072b9b3febf7e1967730134ad",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/reports/DECISIONS.md",
+    "destination": "",
+    "taille": 1693,
+    "sha256": "f8b033b6317b9d1152b7a601255fdd0d2cff93eeebe5c4765bcb30ade3939347",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/runtime/application.lock",
+    "destination": "",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/runtime/application.pid",
+    "destination": "",
+    "taille": 5,
+    "sha256": "30f69551047c4f065c5d89106add61dfd494e54fed10cca58672e015dd2b49d3",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/runtime/cache/Microsoft/DeveloperTools/.onnxruntime/deviceid",
+    "destination": "",
+    "taille": 36,
+    "sha256": "a89dcd288e22310954daa3750ec1efbb9b82edebff99b7c85905414bd8c95d19",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/runtime/cache/Microsoft/DeveloperTools/.onnxruntime/onnxruntime.db",
+    "destination": "",
+    "taille": 32768,
+    "sha256": "2b4a73c133220a76f5415dac3644adbf7e5eaedcca5a8d7a0e7e882281a24306",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/runtime/memory.sqlite",
+    "destination": "",
+    "taille": 77824,
+    "sha256": "31dd64b281da39380f7bd94adbfabacfab11ac0b48b401703a750552a8cbaee5",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/audit",
+    "destination": "",
+    "taille": 1547,
+    "sha256": "9d1766952b18227adb26c79a43f561ac009b8275f1d971e29287923798909764",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/memory",
+    "destination": "",
+    "taille": 158,
+    "sha256": "5aec076e39b9ad51dcb361104072093ff264eec07fdda2a472e59406b5d97c22",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/package",
+    "destination": "",
+    "taille": 1112,
+    "sha256": "01af12790f6bfb6b11387215d0ca4f886bd64d2ba5985269e49bbab75e13273d",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/start",
+    "destination": "",
+    "taille": 171,
+    "sha256": "e4e5e9ff7da690acaea3db4bf855ab30b8071c57685e18f8edf90568db7603ff",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/status",
+    "destination": "",
+    "taille": 76,
+    "sha256": "61a29c3acb3ce0f84b187ac403dbd566abe564792a455e1a54425c395b088ead",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/stop",
+    "destination": "",
+    "taille": 662,
+    "sha256": "2cae8cd42f13041e6a319c1c74347f720cceb5ee9e0076a30a0ded6aa1c5e497",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/test",
+    "destination": "",
+    "taille": 172,
+    "sha256": "6c30280cb2a1c9aaf91bcaeb1e29aab97b97ae5a1fe821e6ab85f026748015d3",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/test-ollama",
+    "destination": "",
+    "taille": 1295,
+    "sha256": "81338117c6ccc364d992c04cccf172e5353163ecd1fff186a8acd7247e502f3d",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/scripts/test-voice",
+    "destination": "",
+    "taille": 2409,
+    "sha256": "c0d5b8ab6bb9b3c2de52859ce64d94532022cfe9de8b0f2040ee74ebdc900179",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/static/app.js",
+    "destination": "",
+    "taille": 7634,
+    "sha256": "854a09ff196f1bd1736e0c5dc484e955b950be16e609b370d0edf34a1fe03164",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/static/index.html",
+    "destination": "",
+    "taille": 2432,
+    "sha256": "33797261808a6065d3ac2413529189f6fedbe0fcf02820a77444e41b230559b8",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/static/style.css",
+    "destination": "",
+    "taille": 1688,
+    "sha256": "4349a38a4fe59c375a63f6f380fba53c5a276400ff84d25553253d1366adefbe",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/tests/test_api.py",
+    "destination": "",
+    "taille": 3135,
+    "sha256": "aaaf50a63132d58042db81ef72e7469cad434676a43beb26bf95cb3d1566c82e",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz::conversation/tests/test_system.py",
+    "destination": "",
+    "taille": 3864,
+    "sha256": "611f8f82173cde3561295189b25370102e59821f65db9caffd9b3e686628d2fa",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/13bc-before.tar.gz",
+    "destination": "",
+    "taille": 85740,
+    "sha256": "5cf687d83e64e97f4a8b474901fd2d7b26aca749ac5937b7187e94bd737b42a6",
+    "mission": "13E",
+    "statut": "ARCHIVE_ORIGINALE_LOCALE_MEMBRES_INDEXES",
+    "date_mtime": "2026-10-13T22:55:26.228954+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13e-private/memory-before.sqlite",
+    "destination": "",
+    "taille": 77824,
+    "sha256": "f6bdd9c0af6f084529ad3347d5cf8573997c427a119240589f31df132cac4ec8",
+    "mission": "13E",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-13T22:55:26.272956+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/before.sqlite",
+    "destination": "",
+    "taille": 147456,
+    "sha256": "36d95f03db1c9cea40a38ab5c047104b9933d38ad8aaf33f6f7460386192b99d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "2026-10-14T09:41:55.518712+00:00"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/COMMIT_EDITMSG",
+    "destination": "",
+    "taille": 79,
+    "sha256": "a061a2ff17934432b9496d12fe2b1e63ea298396adf7fad429344ed628902778",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/HEAD",
+    "destination": "",
+    "taille": 21,
+    "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/config",
+    "destination": "",
+    "taille": 92,
+    "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/description",
+    "destination": "",
+    "taille": 73,
+    "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/applypatch-msg.sample",
+    "destination": "",
+    "taille": 478,
+    "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/commit-msg.sample",
+    "destination": "",
+    "taille": 896,
+    "sha256": "1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/fsmonitor-watchman.sample",
+    "destination": "",
+    "taille": 4726,
+    "sha256": "e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/post-update.sample",
+    "destination": "",
+    "taille": 189,
+    "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/pre-applypatch.sample",
+    "destination": "",
+    "taille": 424,
+    "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/pre-commit.sample",
+    "destination": "",
+    "taille": 1649,
+    "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/pre-merge-commit.sample",
+    "destination": "",
+    "taille": 416,
+    "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/pre-push.sample",
+    "destination": "",
+    "taille": 1374,
+    "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/pre-rebase.sample",
+    "destination": "",
+    "taille": 4898,
+    "sha256": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/pre-receive.sample",
+    "destination": "",
+    "taille": 544,
+    "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/prepare-commit-msg.sample",
+    "destination": "",
+    "taille": 1492,
+    "sha256": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/push-to-checkout.sample",
+    "destination": "",
+    "taille": 2783,
+    "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/sendemail-validate.sample",
+    "destination": "",
+    "taille": 2308,
+    "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/hooks/update.sample",
+    "destination": "",
+    "taille": 3650,
+    "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/index",
+    "destination": "",
+    "taille": 4415,
+    "sha256": "c8177c3c28a7a4dc1ef8f9ee9f3185045b07bf716c177cd44050469118fbdfbe",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/info/exclude",
+    "destination": "",
+    "taille": 240,
+    "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/logs/HEAD",
+    "destination": "",
+    "taille": 458,
+    "sha256": "912e74f3a1ba735faf05226db799e368510f850c5a064f3cf4bec06186dbede2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/logs/refs/heads/main",
+    "destination": "",
+    "taille": 458,
+    "sha256": "912e74f3a1ba735faf05226db799e368510f850c5a064f3cf4bec06186dbede2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/00/c61cc09eec8a11b77e982d91aff410359c9936",
+    "destination": "",
+    "taille": 463,
+    "sha256": "b3252ac03eb6128c623971a81cbea19a7a166ba0f35fffb4f518d100910466c7",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/01/786648601d034698df31be1906e6d7d2a0b71b",
+    "destination": "",
+    "taille": 1140,
+    "sha256": "b283a5c74f284cace25b0835e101a46941c9177dea9a157f9a4cccc0c7f06df2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/02/4a9c459a8a73ceff290eb5bd339bc2267f458b",
+    "destination": "",
+    "taille": 90,
+    "sha256": "91eee6026c646ca49312aaeabb423f4e77efc9fda14388acb40a47ec55537ac8",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/04/9863f5fb78b03cc1849468c574d6554449e33f",
+    "destination": "",
+    "taille": 321,
+    "sha256": "589d5d57b6df188c17f7b97f2dac8ef309c2800716d92cadb25ce56c1091fb45",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/05/513e31dda6542cddb97890a7ceba55c0689eec",
+    "destination": "",
+    "taille": 445,
+    "sha256": "784e11271bc4d7415b6a191c44a79fa58dced82663a691995154ea34268b7656",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/07/06e5a3c64d7e0355507214b857e49bf412d60f",
+    "destination": "",
+    "taille": 165,
+    "sha256": "c01a61e5b86d1b91c357c958034bea91590b796c0518b5056b5a92a140a2bd1f",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/07/9a49a24c154760b0fdbc53a8e52dbb4506badb",
+    "destination": "",
+    "taille": 675,
+    "sha256": "ed2938e35eb35c490e9f6791ed9926060b49ef90a64019b8a86f9912178b8b83",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/0e/2eedd09d1e556aa13fbeadf8886d1fbdd16aeb",
+    "destination": "",
+    "taille": 445,
+    "sha256": "832fee17a87c6b534bb2bee1733f0fffe237a2841395a9fdc88edffd25307de4",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/0e/fbc757fc683773837f1967d7fbb76f83fe6689",
+    "destination": "",
+    "taille": 281,
+    "sha256": "19758d212097a9d09ffed4f15ff56a6157dba87e14f08e5a3bc4b7321ec9f0ec",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/18/7748cf6f79aee0b8c98faac72785da0f612fd7",
+    "destination": "",
+    "taille": 2601,
+    "sha256": "a0e40d7f4095b07d280c3878e21df5d073ecdfda41275358c43dc73cfef467f7",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/1b/04cf9ceeebcc97202ad062b046eda347506250",
+    "destination": "",
+    "taille": 1500,
+    "sha256": "d69ed17bad66b4ddf4e2ed36a9e55e64e6fc66eaaf9d1dd36b3e22ae06737f89",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/25/5c675160c0b4169cbbc761564b084b044df6db",
+    "destination": "",
+    "taille": 1485,
+    "sha256": "01da7f4df80f3be91890d8aa339b9eb78ebcbd52e7f4eb4bffef44e4af2486d0",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/2c/4b0c4d147697eed6c74f86fecd58ee3d987a0c",
+    "destination": "",
+    "taille": 828,
+    "sha256": "3d218406a70f648aba0c514afacacfabfb4c1dc66e597728ed3eaa685a97a58f",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/2f/de27669002b6d4399ea495d4ddfec4828a3f8c",
+    "destination": "",
+    "taille": 1474,
+    "sha256": "3e590b8a1354debfe0c1513afda1cb9fb134088ada33809a0523b68d2cc14142",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/37/65d7863afb4714f55bf815c5a91d4f2fd112fb",
+    "destination": "",
+    "taille": 332,
+    "sha256": "190d0e99cef2d0e51493f02a31fadfcb5816d4f7dad4609b3679fbe430874843",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/39/70054c86c20d04242b0d5bc7513c1117445ebd",
+    "destination": "",
+    "taille": 88,
+    "sha256": "7f5a78248a6130aec273295ef760f3f7f0de9847644ba5bd565a309f0706f512",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/3b/554ff78e61194436aa36a5fdd31ab5cec3c7e6",
+    "destination": "",
+    "taille": 837,
+    "sha256": "ee75a7a1bf3b17c3f95f9d7e1117eedca7b792f38eaee6240e7efad839258638",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/3c/b069d4a2aba682b0afeec363c7d9415df1d29d",
+    "destination": "",
+    "taille": 1256,
+    "sha256": "72bc1f64775f9d22b8bdc64598f2f03415afbff7f64c3c860e7e22580f2cfc8f",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/44/209890a4da4fee83794835b6ded35ec59869c9",
+    "destination": "",
+    "taille": 1260,
+    "sha256": "0e477b71a5ac4f047b3dec024c416714dda3e37075ce144d50005a23ae864df1",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/48/091b33c67a0d060d7523f88d3a73591ce7787f",
+    "destination": "",
+    "taille": 190,
+    "sha256": "a038d2bc542a80be87a8f6216254e25c1865fd343c201fc6f9d398391e6f24a4",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/4a/bd548a88cd37777ba5682a5411ccf21ec6d35a",
+    "destination": "",
+    "taille": 157,
+    "sha256": "096e8d08a3ce37f80fbdaf14675d2ec7e16c1a3a11622bcd8bd9a216312f0c0c",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/59/6d358e586ac69e67f6e5a9bd8c5407f404017c",
+    "destination": "",
+    "taille": 3461,
+    "sha256": "bae55afe6e334bcc8932f7bd96ef8859a9ccf07d2c694fa538713ffd59d8fa2b",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/59/a143ee2ed3bfe35b78c5090abd7ab5c1240e25",
+    "destination": "",
+    "taille": 3314,
+    "sha256": "55e9c918aff8fe73c2b101381b9aab48424c491f6cbf0c69e62ee765abc5299a",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/61/387765e42925c5a34a089ae6c4011363e53154",
+    "destination": "",
+    "taille": 178,
+    "sha256": "465e5efa9340d948874fcfdb7d46c7dbd830a0c098d8e64ac74bb57b9f794946",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/65/97f12425333e0afb58adf6c2a8e24d6a29e019",
+    "destination": "",
+    "taille": 2977,
+    "sha256": "ebfaa005e93b39c348c593f2f2133bfec12d797934a149e2db23860ae6db3e8f",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/66/bdc9b89a4476829111a458e450b7c83471771b",
+    "destination": "",
+    "taille": 2545,
+    "sha256": "2ebb206a613076e58854f35d2a28fad3dbc12463620a67719f416e80b494b91c",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/66/de663596686995b249e28fba16d625398e16df",
+    "destination": "",
+    "taille": 57,
+    "sha256": "bb9922a9099a57a9e8f89443874fbc72be0194767eccd6c51300894e118e16a3",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/67/02fec08a4cadd72e1b4ff299e7de15b638666c",
+    "destination": "",
+    "taille": 2119,
+    "sha256": "d82ed963871302bed84973869d3eb5512e2dcfef3216c89d0eac8401c54c197c",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/6a/8aa321128bb79ceabb7873e8279f334f440909",
+    "destination": "",
+    "taille": 1313,
+    "sha256": "5436a830a193ad8b0d0ce9e62a67d895810229bdba0a4e672d2732678869b21b",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/6c/7a1a8823acb75cf56cc718125cd1a010f3471a",
+    "destination": "",
+    "taille": 119,
+    "sha256": "01925f41245b2942d20570f045548e37a617b12aab86de1efab5f74bd171930d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/6d/652420bfb838fde3b129207f13dc8103a66f3c",
+    "destination": "",
+    "taille": 894,
+    "sha256": "09eb31b5abba57a0d95983795c86a691a5bce3545d4ecd580960c4994dc63724",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/6d/6c19282d54cf493cffc68ab6cc0368e51bcf79",
+    "destination": "",
+    "taille": 57,
+    "sha256": "af68903b477cd8c69d2a109eff37abbdceaa672a6afd06274e5e3dbdd0d44e0d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/6f/bdd16e9f7f932c869cea44f3bb05eea3cc662f",
+    "destination": "",
+    "taille": 332,
+    "sha256": "e473db7ffd8ebe1d6f356d942f3bd2cb1d99792da0b5ce74485164d6573ddbe2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/72/dcbc140cb84539fa50cacad7d6c42318fa5d22",
+    "destination": "",
+    "taille": 269,
+    "sha256": "322238601ab87d3ec12b2847fc4e6a36f7e57a928ee060358205cd2ca4e2db51",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/7b/e060deb3d5b48b2505cf23e630d5787921037c",
+    "destination": "",
+    "taille": 1679,
+    "sha256": "9433f0270c0e02c7c79ca8195d1bf1ab5c6cb9cb7ccce43eb414e24a0f93ee4d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/82/aee613ac41c09fa035ce5a8d926e86083faf6d",
+    "destination": "",
+    "taille": 466,
+    "sha256": "3e2509b372459cc34a5294324da64187ab26fb92e0e30f99d3e9bfeb468ca767",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/83/3c25ab0171082d7a460c384a3c22f718bf07cf",
+    "destination": "",
+    "taille": 265,
+    "sha256": "52f7fa892042c5b3bd2be222ab4093610af8db023c749ffdc5cc5e8318c20401",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/83/965dc85c240987abc8f2144422b7288cb554bb",
+    "destination": "",
+    "taille": 81,
+    "sha256": "c7404aa9dc54eaa4e9a7802d89afdda7d9de487d6d8e580b7ef058718764a7f8",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/84/6886759a8784258da54cd7b64b4815903e8168",
+    "destination": "",
+    "taille": 907,
+    "sha256": "01d030df587f95461f3339da32292f622d7fe5534ae9d1a7367c59373f7d0b39",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/92/53acaad27e207c1e75b8842505e07ae8464dcd",
+    "destination": "",
+    "taille": 1930,
+    "sha256": "593d72e6f71f0dd83b92141e61cd9484bced0fc361d6fa3fd42175f9a0794aef",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/99/e7d7bb1fe1e2ad4d9a6e1e6795bb7f5989548a",
+    "destination": "",
+    "taille": 453,
+    "sha256": "33f1783d3fb0760438ab2bb3c1293f5da65f7fcfbd5916c26b91746759916749",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/9c/76eb3b8a0f754183db9b6be90fd010b448734a",
+    "destination": "",
+    "taille": 183,
+    "sha256": "23f265fbcbfcfa0cde796fc409f72959d3e71c27fb17cecd917a5cd50662caf1",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/9c/989f8fc4d18a3a8617176aa0115eb9efe284d1",
+    "destination": "",
+    "taille": 163,
+    "sha256": "d77577bfd00f6bcbd61a41a07e0eb8b4dfeef2ddc3936d1ab48e4864573a91f1",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/a1/fd1be24bc2188c9272819b9d542e26c55d7297",
+    "destination": "",
+    "taille": 1048,
+    "sha256": "889a43db52d045721441605bd8b98122327923acf8801d389fe1bb14d39ec2bc",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/a5/8f77f5ccb4d7d587af0c7544d5430b15bada64",
+    "destination": "",
+    "taille": 82,
+    "sha256": "94637d34e00b3caa7f83f3b0ae3943104519c5178268d690772346cacc99b02b",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/bf/41002c45a81c1f5d80f5f0c42c485e9c9d5f39",
+    "destination": "",
+    "taille": 1208,
+    "sha256": "f9e5dde531f5496895b5ef4df9c16da69eb427ed4e35fc23be7f7415955a930c",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/c1/1da6c370265704cfb51f6769db7e4ab2b54d33",
+    "destination": "",
+    "taille": 2876,
+    "sha256": "f90f2fdc8eeaac99fdd621dcfaf4b618efc00650683849d078a2eaad27ae8bcc",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/c1/e9b8c9bc7b438c9f4d19aa9d6abe5a48750274",
+    "destination": "",
+    "taille": 2532,
+    "sha256": "d878b55abbd7a9470a5e9bd5562f9fdc397ee4a53cd39871a9a283a715540361",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/c9/ac0d2906408991e3a5e413217a5f53f35ce9c1",
+    "destination": "",
+    "taille": 689,
+    "sha256": "5dabeef91d13ab0b3427162bf8d8d7f885a1799984b97c380c7146a20eaa40e3",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/ca/8b28a49098b1c3d93289344e66c3a45767813c",
+    "destination": "",
+    "taille": 1449,
+    "sha256": "f19e08fc00404f213840d6430eca5151e7be5744332738d1de867a95629e3e1d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/ce/dbca064aebdd07a65d86af396f36b4e01165a1",
+    "destination": "",
+    "taille": 191,
+    "sha256": "8010389fe0e375350742b4014d2d7ed5f86c8d7c58a88128340bd27963229c93",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/da/ced3f6b270de8870ef94808135f42a76889b97",
+    "destination": "",
+    "taille": 278,
+    "sha256": "2ac6b55d4b729a01a54a039a2d5c5bfad1fbb75f6dbcfaab8723354fc77251a7",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/dd/ca98b1e67ffde4d0faf54eda0b3f85c3a41995",
+    "destination": "",
+    "taille": 466,
+    "sha256": "cdb688223b7b8774f9159227c9d76c9c1137d7295fbd693bfe4a64d6ceadaf69",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/e5/8c377fa9bfecbc3041d404c66c855c99183d7d",
+    "destination": "",
+    "taille": 215,
+    "sha256": "f931be6bf4b83c27004c455040ea38e6a1b3cb2abdac0418f8d88b3bc27b441f",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "destination": "",
+    "taille": 15,
+    "sha256": "164c5fa8067facf1a43f09ce3d0e35ebf53a7f5723ecbf15a8667cfc53c26f6c",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/e8/6744fb32915ee6a91e0bd3f8a0730916e91ee0",
+    "destination": "",
+    "taille": 2278,
+    "sha256": "20691436bc1debd4c590fb32e18b1d918357094ee309b715e3d3a8a04caad3c3",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/f1/cfd1ee096c3075b424ed628d4734426fe56127",
+    "destination": "",
+    "taille": 342,
+    "sha256": "65cfd4cc6aefe0558f22ccc5731f95102b6675ebb3aa58ad955d9f43026634a2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/f5/b7fbeb09471d082bb6e1a13dc816581eb4680c",
+    "destination": "",
+    "taille": 436,
+    "sha256": "b452f2b8ade3d9ee3e2a98aea6e05e50c901c59be76b55b4c2bb70c2d0be9085",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/f6/3a69dcd52c1abd36bcb134d4ea0cc2e551e62d",
+    "destination": "",
+    "taille": 1802,
+    "sha256": "f79203b1539de18b438f6a2624272079572e44ba411ddd2de1053843157f6143",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/objects/f7/9e0b675a294fda6d73b93c7c3ca41a1f1986d5",
+    "destination": "",
+    "taille": 1246,
+    "sha256": "633b054fe654754ee4f160b0a13bee3051850db977be29343dc9e8ddb5ddc29e",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.git/refs/heads/main",
+    "destination": "",
+    "taille": 41,
+    "sha256": "d6c9be746abc459e1725d436c9ab629c8106271427d57a9924bda4d5a86b4347",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/.gitignore",
+    "destination": "",
+    "taille": 81,
+    "sha256": "c3e8da4154bcda0c36cfc4a901b4fd9cb1778e4e87da2bce36c143d32f33ef87",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/INVENTORY-13E.json",
+    "destination": "",
+    "taille": 7700,
+    "sha256": "f4f93d539567cd161b0bf6dd5c481b7bfe871d2abf3f5c51282ab4a7abf7210d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/README.md",
+    "destination": "",
+    "taille": 3448,
+    "sha256": "766678d5b01903f1041d72b957b732cf80c62e2e9ee734076fab6aa9ee1bec36",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/config/13e.json",
+    "destination": "",
+    "taille": 913,
+    "sha256": "be5589975a46834cad8ccd20d10a768a75c6b6df49e28ec3c3eaa112960d3bb2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/config/example.json",
+    "destination": "",
+    "taille": 856,
+    "sha256": "75d8ca0e73b7fb1600fa87b9db3e8e98db9e82d3e8176468c338d62ee827a6ba",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/deployment/https-private.nginx.example",
+    "destination": "",
+    "taille": 756,
+    "sha256": "ca9eef54fa6adcc1c519f92c1557bc2e841f13b43b6d6666d62fb81b0433619b",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/deployment/jarvis-conversation.service",
+    "destination": "",
+    "taille": 738,
+    "sha256": "5180f159de9cb64d0b730ab13b49a6208ed7994aa7421bab6ae418057b2a70ab",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/deployment/jarvis-memory-backup.service",
+    "destination": "",
+    "taille": 392,
+    "sha256": "441e34c783e9cd4ceda79e24ace78c6d3ea424bcc8f452eebaecffd5210163a4",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/deployment/jarvis-memory-backup.timer",
+    "destination": "",
+    "taille": 174,
+    "sha256": "ae789fd380785ff3dca698f6ce249ef99994d6832a98ec36cf0f9db886e7175c",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-ARCHITECTURE.md",
+    "destination": "",
+    "taille": 2645,
+    "sha256": "0763d4ed4949d1a86eed5561bef44ed951a47d15367ec3b9613fafe416150fcc",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-INCIDENTS.md",
+    "destination": "",
+    "taille": 1967,
+    "sha256": "992767ce9f157c5210e2120c033a685de11453995ff98778afbce498a8472167",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-INSTALLATION.md",
+    "destination": "",
+    "taille": 2508,
+    "sha256": "2054b3863a9aa9691e26ac4dafe1d656e3e2d1d689b30faffacb312c99fbb9c1",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-RAPPORT.md",
+    "destination": "",
+    "taille": 4757,
+    "sha256": "260658a0bb59e43916fb4cd8a81cb6f32d4dd01d63f9d26be2ec4ed1972ea442",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-REPRISE.md",
+    "destination": "",
+    "taille": 2421,
+    "sha256": "7316c627169fd68d811aceb6894c4286a496e4e5b7fc391cc7589a60d0d94da9",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-TESTS.md",
+    "destination": "",
+    "taille": 4958,
+    "sha256": "182c735f3609e13c1043bdcab5270d63395fd23073fcb07005c42e02845af3be",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/docs/MISSION-13E-UTILISATION.md",
+    "destination": "",
+    "taille": 3448,
+    "sha256": "766678d5b01903f1041d72b957b732cf80c62e2e9ee734076fab6aa9ee1bec36",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/identity/JARVIS-v1.md",
+    "destination": "",
+    "taille": 1906,
+    "sha256": "024e8b8e5541158f8f657d1d57088962e23037b090bbadf3a8fb0d24113e2628",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__init__.py",
+    "destination": "",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__pycache__/__init__.cpython-313.pyc",
+    "destination": "",
+    "taille": 153,
+    "sha256": "8e1889ea4b604d0439cdfb4a7369ffdc6798af731fb0a2dedb1446c5661ee7b2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__pycache__/auth.cpython-313.pyc",
+    "destination": "",
+    "taille": 4920,
+    "sha256": "6cff87a45e4656e2650a0256f74d7a6982a24ca7847554b3c72a04e331a32f11",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__pycache__/core.cpython-313.pyc",
+    "destination": "",
+    "taille": 12708,
+    "sha256": "af147cbce16d0e22f5a3dec812c3e0a43e371f56673f8d53de28090bc0d9dee6",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__pycache__/memory.cpython-313.pyc",
+    "destination": "",
+    "taille": 19454,
+    "sha256": "be41811ed4663cddc787c4bc5fda8863274ef2431986cd9a4498ac3118fb9a9a",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__pycache__/server.cpython-313.pyc",
+    "destination": "",
+    "taille": 15882,
+    "sha256": "95d03f8dd76f5e503408e7ffca9ac4a7eb771e40713901f292c3feaa2fbc47fb",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/__pycache__/tools.cpython-313.pyc",
+    "destination": "",
+    "taille": 8742,
+    "sha256": "69474833e6c8aabf1083752fcaa64c4ba7f5ab022e5672814df632f6965202a4",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/auth.py",
+    "destination": "",
+    "taille": 1911,
+    "sha256": "9e282ae295a67b1106c1cd7b8e3c33a2255903e9889865058fb1f104fd2af203",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/cli.py",
+    "destination": "",
+    "taille": 581,
+    "sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/core.py",
+    "destination": "",
+    "taille": 7679,
+    "sha256": "e8a0ee2cdf3b506f63391db89c8196695252c206556d3e87e8e7d1db29f29dca",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/memory.py",
+    "destination": "",
+    "taille": 10377,
+    "sha256": "389ed591e82c382f742cd7ae20f6b1cc812475e99c79bbf99994718ea7c694e2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/server.py",
+    "destination": "",
+    "taille": 7448,
+    "sha256": "8152413d5f73141ecec67822f6686b1efc6e82d4023fb03742248a693d51cb0e",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/tools.py",
+    "destination": "",
+    "taille": 4228,
+    "sha256": "cc533238af4a48220cd73118e661e79996ba383f771c0d3dfb6a35dd33bc9ad2",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis/voice_worker.py",
+    "destination": "",
+    "taille": 2498,
+    "sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/jarvis-13e-source.tar.gz",
+    "destination": "",
+    "taille": 45316,
+    "sha256": "468d882a2d8f22cff1ea678a6b4f82f1516ad4476d5d22bfd09dda0b90f6fdaf",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/13e-test-backup.sqlite",
+    "destination": "",
+    "taille": 118784,
+    "sha256": "439b7b76ed5b74d7c04fdb2ce3ec77251d1c5e74fdf94d21bbea1c2dfc8e5087",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/13e-test-restored.sqlite",
+    "destination": "",
+    "taille": 118784,
+    "sha256": "439b7b76ed5b74d7c04fdb2ce3ec77251d1c5e74fdf94d21bbea1c2dfc8e5087",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/13e-test.sqlite",
+    "destination": "",
+    "taille": 126976,
+    "sha256": "1995607c7b3de8690bddd74ddad6a71286ec92c929138f04806f3b3486235c48",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/application.lock",
+    "destination": "",
+    "taille": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/application.pid",
+    "destination": "",
+    "taille": 5,
+    "sha256": "25252bce1118831d2eaaf32df9236022033c27c088fb7ec720781131bc12824a",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/auth.json",
+    "destination": "",
+    "taille": 147,
+    "sha256": "3978b2852b827ab93b51672486d96ef4d0a799b4dde917f971f715030d47788d",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/backup-deployed-restored.sqlite",
+    "destination": "",
+    "taille": 110592,
+    "sha256": "3ea48bdd79ab607dea0959418f72cbd8a041432c0bc3ca51dbec034b648a84e9",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/backups/memory-20261013T230540971998Z.sqlite",
+    "destination": "",
+    "taille": 110592,
+    "sha256": "3ea48bdd79ab607dea0959418f72cbd8a041432c0bc3ca51dbec034b648a84e9",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/backups/memory-20261013T230541414605Z.sqlite",
+    "destination": "",
+    "taille": 110592,
+    "sha256": "3ea48bdd79ab607dea0959418f72cbd8a041432c0bc3ca51dbec034b648a84e9",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/cache/Microsoft/DeveloperTools/.onnxruntime/deviceid",
+    "destination": "",
+    "taille": 36,
+    "sha256": "9fbcccf38e2fb35e2f86c80658675355a4fddb230604b75eb95ab83c97702b21",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/cache/Microsoft/DeveloperTools/.onnxruntime/onnxruntime.db",
+    "destination": "",
+    "taille": 102400,
+    "sha256": "4bc45693f4ebe4a6d4008dafa85def83232fe2698247d0c92fd1e8da839c1ff6",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/credentials.txt",
+    "destination": "",
+    "taille": 66,
+    "sha256": "4a38c31175ce420825f9610fdaabdc0e7797be2f27e819006360419465a6010a",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/memory.sqlite",
+    "destination": "",
+    "taille": 147456,
+    "sha256": "0b6a2fccbcc7f665e427c1a74cfdd344f664f01fa21cffc1259240ebe022da35",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  },
+  {
+    "source": "/home/adminjarvis/JARVIS/mission13f-private/conversation-before.tar.gz::conversation/runtime/test-input.wav",
+    "destination": "",
+    "taille": 460332,
+    "sha256": "7f91160692081655feb87a528bfd2bbe4c3a3fac3036c5c382a9a5e77216f960",
+    "mission": "13F",
+    "statut": "EXCLU_PRIVE",
+    "date_mtime": "date membre non normalisée"
+  }
+]

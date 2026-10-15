@@ -1,0 +1,51 @@
+# Chronologie documentaire
+
+Les dates de contenu priment sur mtime. mtime est un indice de copie/modification, pas une date d’exécution. Les archives non datées ne sont pas ordonnées artificiellement. L’incident 04W signale un décalage RTC/NTP : les heures journald ne prouvent pas les heures de démarrage.
+
+- **11 octobre 2026 — mission [01](../missions/mission-01/README.md)** : Audit matériel en lecture seule ; accès hôte limité par le bac à sable.
+- **11 octobre 2026 — mission [02](../missions/mission-02/README.md)** : Préparer Debian et le support T2 ; validation complète différée.
+- **11 octobre 2026 — mission [02B](../missions/mission-02b/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [03](../missions/mission-03/README.md)** : Démarrage T2 et scans Wi-Fi/Bluetooth rapportés réussis ; association et appairage restent ouverts.
+- **11 octobre 2026 — mission [04](../missions/mission-04/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [04B](../missions/mission-04b/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [04C](../missions/mission-04c/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [04E](../missions/mission-04e/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **11 octobre 2026 — mission [04G](../missions/mission-04g/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **11 octobre 2026 — mission [04H](../missions/mission-04h/README.md)** : Réallocation inefficace : BAR1/BAR3 non attribués.
+- **11 octobre 2026, 2026-10-11T21:36:23 — mission [04I](../missions/mission-04i/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **11 octobre 2026, 2026-10-11T21:36:23, 2026-10-11T21:44:01 — mission [04J](../missions/mission-04j/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **11 octobre 2026 — mission [04K](../missions/mission-04k/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **11 octobre 2026, 2026-10-11T22:16:56 — mission [04L](../missions/mission-04l/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [04M](../missions/mission-04m/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **2026-10-11T22:46:12 — mission [04N](../missions/mission-04n/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [04O](../missions/mission-04o/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **11 octobre 2026 — mission [04P](../missions/mission-04p/README.md)** : Allocation PCIe Quadro réussie ; pilote et calcul non validés à cette étape.
+- **12 octobre 2026 — mission [04Q](../missions/mission-04q/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [04R](../missions/mission-04r/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [04T](../missions/mission-04t/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [04U](../missions/mission-04u/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [04V](../missions/mission-04v/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026, 2026-10-12 — mission [04W](../missions/mission-04w/README.md)** : Traces insuffisantes pour attribuer un démarrage Linux à l’essai 04V.
+- **12 octobre 2026 — mission [05A](../missions/mission-05a/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [05B](../missions/mission-05b/README.md)** : Installation DKMS réussie ; avertissements objtool et chargement GPU encore non qualifiés.
+- **12 octobre 2026 — mission [05B-A](../missions/mission-05b-a/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [05B-P](../missions/mission-05b-p/README.md)** : Documents retrouvés ; réception finale non établie dans cette première passe.
+- **12 octobre 2026 — mission [05C](../missions/mission-05c/README.md)** : Premier test fonctionnel GPU réussi ; stabilité prolongée non démontrée.
+- **12 octobre 2026 — mission [05D](../missions/mission-05d/README.md)** : Calcul CUDA contrôlé et première inférence Llama sur Quadro confirmés dans le périmètre court testé.
+- **12 octobre 2026 — mission [06](../missions/mission-06/README.md)** : Interface authentifiée, persistance et inférence GPU confirmées par les essais archivés ; pas une validation de sécurité exhaustive.
+- **12 octobre 2026 — mission [07](../missions/mission-07/README.md)** : Amélioration des résultats de tests ; raisonnement et fidélité documentaire restent limités.
+- **12 octobre 2026 — mission [08](../missions/mission-08/README.md)** : Installation des modèles réussie ; raisonnement technique insuffisamment fiable.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [09](../missions/mission-09/README.md)** : CUDA réussi mais inférence Ollama sur CPU ; GPU non utilisé.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [09B](../missions/mission-09b/README.md)** : Après retrait du verrou CUDA_VISIBLE_DEVICES : 33/33 couches Llama sur RTX 3090, inférence courte réussie.
+- **12 octobre 2026 — mission [10](../missions/mission-10/README.md)** : Qwen fonctionne entièrement sur RTX 3090 ; qualité et sécurité insuffisantes pour administration autonome.
+- **12 octobre 2026, 2026-10-12, 2026-10-12T22:03:02 — mission [11](../missions/mission-11/README.md)** : Audit statique terminé ; intégration complète Jarvis Voice déconseillée.
+- **13 octobre 2026, 2026-10-12, 2026-10-12T22:35:33 — mission [12](../missions/mission-12/README.md)** : Essais voix CPU et mémoire fictive réussis ; écoute humaine et deux modèles réels non validés.
+- **13 octobre 2026, 2026-10-13T10:15:24 — mission [13A](../missions/mission-13a/README.md)** : Deux cycles fichiers Piper/Whisper réels, hors réseau, installés durablement ; validation limitée aux fichiers audio.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [13B](../missions/mission-13b/README.md)** : Passerelle et mémoire testées ; Ollama réel et navigateur non validés à cette étape.
+- **13 octobre 2026 — mission [13BC](../missions/mission-13bc/README.md)** : Tests mémoire réels et modèles simulés ; chaîne microphone/Ollama/navigateur non validée.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [13C](../missions/mission-13c/README.md)** : Mémoire structurée et persistance testées ; validation intégrée différée.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [13D](../missions/mission-13d/README.md)** : Validation client/HTTPS distant en attente d’après 13E ; rapport dédié non retrouvé.
+- **14 octobre 2026 — mission [13E](../missions/mission-13e/README.md)** : Chaîne Whisper → Ollama réel → Piper → Chromium testée ; micro artificiel, clients humains et HTTPS distant non validés.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [13F](../missions/mission-13f/README.md)** : Preuves intermédiaires présentes et code déployé modifié ; aucun rapport final retrouvé. Ne pas présumer l’achèvement.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [14](../missions/mission-14/README.md)** : Dell planifié dans ROADMAP existante ; aucun rapport d’exécution retrouvé.
+- **Date de contenu non établie ; métadonnées disponibles dans MANIFESTE.json. — mission [15](../missions/mission-15/README.md)** : Mission reportée dans ROADMAP existante ; aucun rapport d’exécution retrouvé.

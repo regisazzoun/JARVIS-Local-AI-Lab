@@ -1,0 +1,328 @@
+# SSH Remote Tool
+
+Execute commands on remote hosts via SSH with secure credential management and automatic session handling.
+
+## Overview
+
+The `ssh_remote` tool allows Jarvis to connect to remote servers, execute commands, manage packages, and perform administrative tasks. It closes its local SSH connection after each call; a remote command's state can be uncertain if the connection is interrupted.
+
+**Runtime gate:** the tool registers only when `config/ssh.json` exists and is
+non-empty (copy from `config/ssh.json.example`). SSH key paths inside the file
+are resolved at execution time and are not part of the availability check.
+Inspect with `./bin/manage-tools.py --mode <mode> list` if the tool shows as 🔒
+unavailable.
+
+## Features
+
+- **Secure credential storage**: SSH keys in filesystem, sudo passwords in `.env` files
+- **Stateless connections**: Opens, executes, and closes each local SSH connection
+- **Output truncation**: Prevents context overflow (configurable limit)
+- **Multi-command support**: Execute sequences in a single session
+- **Apt management**: Built-in update/upgrade with package detection
+
+The local SSH tool process uses the restricted child environment. It receives
+the selected host's configured sudo variable only for calls that use sudo,
+plus the SSH agent socket when present. Unrelated provider keys and private
+mode values are not inherited. Its temporary `HOME` is separate from the user's
+home; an explicit `~/.ssh/...` key path still resolves against the original
+home. This limits environment inheritance, not filesystem access: the tool
+still runs as the Jarvis user and can read its SSH config and key file.
+
+## Configuration
+
+### 1. SSH Host Configuration (`config/ssh.json`)
+
+```json
+{
+  "hosts": {
+    "staging": {
+      "host": "your.vps.ip.address",
+      "user": "deploy",
+      "port": 22,
+      "key_path": "~/.ssh/staging/id_ed25519",
+      "sudo_env": "STAGING_SUDO_PASS",
+      "description": "Staging remote server"
+    },
+    "production": {
+      "host": "prod.example.com",
+      "user": "deploy",
+      "port": 22,
+      "key_path": "~/.ssh/prod/id_rsa",
+      "sudo_env": "PROD_SUDO_PASS",
+      "description": "Production server"
+    }
+  },
+  "defaults": {
+    "output_limit": 150,
+    "timeout": 180,
+    "connect_timeout": 10
+  }
+}
+```
+
+> **Note**: `config/ssh.json` is gitignored. Copy from `config/ssh.json.example`.
+Use a dedicated variable name for each `sudo_env`; runtime, proxy, and SSH
+agent variable names are reserved.
+
+### 2. Sudo Passwords (`config/cloud.env` or `config/local.env`)
+
+```bash
+# SSH Remote Tool - Sudo Passwords
+STAGING_SUDO_PASS="your_sudo_password_here"
+PROD_SUDO_PASS="production_sudo_password"
+```
+
+### 3. SSH Key Setup
+
+```bash
+# Generate or copy your SSH key
+mkdir -p ~/.ssh/staging
+cp /path/to/your/key ~/.ssh/staging/id_ed25519
+
+# Set correct permissions
+chmod 600 ~/.ssh/staging/id_ed25519
+chmod 644 ~/.ssh/staging/id_ed25519.pub
+```
+
+## Actions
+
+### `list_hosts` - Show Configured Hosts
+
+```json
+{"action": "list_hosts"}
+```
+
+Returns all hosts configured in `ssh.json`.
+
+### `test` - Test SSH Connectivity
+
+```json
+{"action": "test", "host": "staging"}
+```
+
+Connects, runs hostname/uname, reports connection time.
+
+### `run` - Execute Single Command
+
+```json
+{
+  "action": "run",
+  "host": "staging",
+  "command": "df -h && free -h",
+  "sudo": false
+}
+```
+
+**With sudo:**
+```json
+{
+  "action": "run",
+  "host": "staging",
+  "command": "systemctl restart nginx",
+  "sudo": true
+}
+```
+
+### `apt_update` - Package Management
+
+```json
+{
+  "action": "apt_update",
+  "host": "staging",
+  "upgrade": true
+}
+```
+
+- Runs `apt update`
+- Lists upgradable packages
+- Optionally runs `apt upgrade -y` (if `upgrade: true`)
+- The update, package check, and upgrade steps have separate limits of 180, 30,
+  and 600 seconds. The outer Jarvis tool limit includes those steps and setup time.
+
+**Check only (no upgrade):**
+```json
+{
+  "action": "apt_update",
+  "host": "staging",
+  "upgrade": false
+}
+```
+
+### `multi` - Execute Multiple Commands
+
+```json
+{
+  "action": "multi",
+  "host": "staging",
+  "commands": [
+    "uptime",
+    "whoami",
+    "df -h",
+    "docker ps"
+  ],
+  "sudo": false,
+  "stop_on_error": true
+}
+```
+
+Executes commands sequentially in a single SSH session.
+
+## Parameters Reference
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `action` | string | Yes | `list_hosts`, `test`, `run`, `apt_update`, `multi` |
+| `host` | string | For most | Host alias from `ssh.json` |
+| `command` | string | For `run` | Command to execute |
+| `commands` | array | For `multi` | List of commands |
+| `sudo` | boolean | No | Run with sudo (default: false) |
+| `upgrade` | boolean | No | For `apt_update`: run upgrade (default: true) |
+| `stop_on_error` | boolean | No | For `multi`: stop on failure (default: true) |
+| `output_limit` | integer | No | Max output lines (default: 150) |
+
+## Usage Examples
+
+### Via Jarvis (natural language)
+
+```
+"ssh into staging and check disk space"
+"run apt update on staging"
+"update packages on staging"
+"check if nginx is running on staging"
+"run docker ps on staging"
+"execute 'ls -la /var/log' on staging"
+```
+
+### Via CLI (direct)
+
+```bash
+# Test connection
+python3 skills/ssh_remote.py '{"action": "test", "host": "staging"}'
+
+# Run command
+python3 skills/ssh_remote.py '{"action": "run", "host": "staging", "command": "uptime"}'
+
+# Apt update (check only)
+python3 skills/ssh_remote.py '{"action": "apt_update", "host": "staging", "upgrade": false}'
+
+# Multiple commands
+python3 skills/ssh_remote.py '{"action": "multi", "host": "staging", "commands": ["whoami", "pwd", "ls"]}'
+```
+
+## Security Model
+
+### Credentials Never Exposed
+
+1. **SSH keys**: Stored in filesystem, path in `ssh.json`
+2. **Sudo passwords**: Stored in `.env`, referenced by env var name
+3. **No credentials in git**: Both `ssh.json` and `.env` files are gitignored
+
+The SSH tool sends the sudo password to `sudo -S` over the SSH channel's stdin;
+it does not place the password in the remote command string.
+
+### Session Lifecycle
+
+```
+Tool Call → Connect → Execute → Close
+                ↓
+         (always closes in finally block)
+```
+
+- No persistent connections
+- Each tool call is independent
+- Stopping or timing out disconnects the local SSH client. It does not prove a
+  remote command stopped. During an upgrade, check the remote package manager
+  state before retrying; it may still be running or have unfinished packages.
+
+### Output Handling
+
+- Default limit: 150 lines
+- Truncates from the beginning, keeps recent output
+- Prevents context window overflow
+- Can save full output to stash if needed
+
+## Adding a New Host
+
+1. **Add SSH key**:
+   ```bash
+   mkdir -p ~/.ssh/newhost
+   cp /path/to/key ~/.ssh/newhost/id_ed25519
+   chmod 600 ~/.ssh/newhost/id_ed25519
+   ```
+
+2. **Add to `config/ssh.json`**:
+   ```json
+   "newhost": {
+     "host": "192.168.1.100",
+     "user": "admin",
+     "port": 22,
+     "key_path": "~/.ssh/newhost/id_ed25519",
+     "sudo_env": "NEWHOST_SUDO_PASS",
+     "description": "New server"
+   }
+   ```
+
+3. **Add sudo password to `.env`**:
+   ```bash
+   NEWHOST_SUDO_PASS="your_password"
+   ```
+
+4. **Test connection**:
+   ```bash
+   python3 skills/ssh_remote.py '{"action": "test", "host": "newhost"}'
+   ```
+
+## Troubleshooting
+
+### Connection Failed
+
+```bash
+# Check SSH key permissions
+ls -la ~/.ssh/staging/
+# Should be: 600 for private key, 644 for public
+
+# Test manual SSH
+ssh -i ~/.ssh/staging/id_ed25519 user@host
+```
+
+### Sudo Password Not Working
+
+```bash
+# Verify env var is set
+grep "STAGING_SUDO_PASS" config/cloud.env
+
+# Test sudo manually on remote
+ssh -t user@host 'sudo -v'
+```
+
+### Command Timeout
+
+Normal `run` and `multi` commands have a 180-second per-command limit by
+default. Change that in `ssh.json` if a host needs more time; the outer tool
+limit follows the selected host's setting:
+```json
+"defaults": {
+  "timeout": 180
+}
+```
+
+Or per-host:
+```json
+"slowhost": {
+  "host": "...",
+  "timeout": 300
+}
+```
+
+## Files
+
+| File | Purpose |
+|------|---------|
+| `skills/ssh_remote.py` | Tool implementation |
+| `skills/ssh_remote.tool.json` | Tool definition for LLM |
+| `config/ssh.json` | Host configuration (gitignored) |
+| `config/ssh.json.example` | Template for ssh.json |
+
+## Dependencies
+
+- **paramiko**: Python SSH library (`pip install paramiko`)
