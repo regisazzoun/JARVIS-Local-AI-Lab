@@ -61,7 +61,7 @@ Un poste de travail simple, gratuit et sécurisé pour accéder à JARVIS depuis
 | Jalon | Livrable | État |
 | --- | --- | --- |
 | JL-M1 | Rapport et dépôt Codex JL-01 examinés | En attente |
-| JL-M2 | MVP Launcher installé et testé MacBook Pro + Mac mini | À vérifier |
+| JL-M2 | MVP Launcher installé et testé MacBook Pro + Mac mini | ✅ GO AVEC RÉSERVES : Mac mini confirmé le 14/10 ; MacBook et trois actions GitHub Pages confirmés le 15/10 ; réception exhaustive restante |
 | JL-M3 | Architecture JL-02 révisée et migration des livrables JL-01 vers le dépôt autonome planifiée | Prévu |
 | JL-M4 | Prompt Codex JL-02 validé par l'utilisateur | Non lancé |
 | JL-M5 | Qwen texte + voix intégrés et testés | Prévu |\n| JL-M6 | Authentification sécurisée, permissions et révocation testées sur les deux Macs (bloquant) | Prévu |
@@ -73,3 +73,5 @@ Projet **annexe et non bloquant** pour les missions 13F, 14, 15A et 15B. Les dé
 - **2026-10-14 :** authentification unifiée autant que possible ajoutée à JL-02 comme obligation bloquante (SSH, clés, Codex, Qwen/Ollama, voix, scripts sensibles) ; JL-01 inchangée.
 - **2026-10-14 :** JL-01 confirmé en cours d'exécution dans Codex ; JL-02 réservé à l'intégration future de Qwen/Ollama et de la voix ; ChatGPT reste indépendant ; suivi JL séparé.
 - **2026-10-14 :** décision de ne pas migrer maintenant ; migration du dépôt/code initial JL-01 et de la roadmap dédiée inscrite explicitement dans le périmètre JL-02.
+
+- **2026-10-15 :** dépôt `regisazzoun/JARVIS-Launcher` et branche `gh-pages` constatés ; site GitHub Pages testé sur MacBook Pro avec trois actions fonctionnelles confirmées par l'utilisateur. Le compagnon local, SSH et la reprise tmux ont également été vérifiés. **JL-01 : GO AVEC RÉSERVES**, sans attribuer une validation aux actions non testées ni à JL-02. Le transfert de cette roadmap spécifique demeure une étape documentaire de JL-02.
