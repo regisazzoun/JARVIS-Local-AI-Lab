@@ -327,3 +327,14 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 **Verdict : 13D — GO AVEC RÉSERVES pour poursuivre vers 14A**, sans modification supplémentaire du serveur. Réserves différées : vérification de la résilience après redémarrage complet, audit ciblé des journaux et validation du secours local avant toute opération à risque. Ces réserves ne doivent pas être présentées comme des validations déjà réalisées.
 
 **Garde-fou impératif :** conserver **les deux modes d'authentification SSH, clé ET mot de passe**, jusqu'à décision expresse après tests sûrs ; pas de désactivation de mot de passe, de changement `sshd_config`, de politique Tailscale ni de reboot à distance tant qu'un accès de récupération local n'est pas garanti. Le suivi détaillé et le journal sont dans [SUIVI.md](SUIVI.md).
+
+
+### Décision laboratoire — 15 octobre 2026 : tests PXE autonomes en VM
+
+**Correction de l'étape 3 du plan de déploiement :** « Tester l'installation automatisée en VM » est réalisé par **JARVIS sans supervision humaine pendant l'exécution**. En laboratoire isolé et dans un périmètre préautorisé, JARVIS peut créer/recréer les VM et disques virtuels dédiés, lancer les essais UEFI/PXE, observer les erreurs, chercher des solutions, corriger, relancer autant que nécessaire et produire son propre rapport avec preuves. Aucune approbation au cas par cas n'est demandée pour ces opérations réversibles et confinées au laboratoire.
+
+**Ordre cible :** préparer environnement PXE et automatisation/Ansible sur JARVIS → essais VM autonomes non supervisés → démarrage physique du Dell en PXE → installation Debian/RAID dans le périmètre matériel explicitement autorisé → configuration automatique SSH et clé publique JARVIS par l'installateur → premier SSH JARVIS vers Dell → configuration NVIDIA/CUDA/Ollama via Ansible → tests GPU et intégration.
+
+**13D-E n'exige pas de liaison SSH au Dell avant son installation :** la clé publique et la configuration SSH sont injectées par l'installation PXE ; la connexion SSH réelle n'est vérifiable qu'après le premier démarrage Debian. Cette préparation reste à réaliser/tester et ne doit pas être marquée validée à ce stade.
+
+**Frontière de sécurité :** pas de toucher au réseau de production ou aux disques réels du Dell sous couvert de « test VM ». Toute opération destructive sur les deux SSD, RAID/firmware ou réseau réel doit rester bornée par une autorisation préalable spécifique et un plan de récupération ; après autorisation du périmètre, JARVIS exécute les étapes convenues sans supervision commande par commande. Conserver les accès SSH clés **et** mot de passe existants du Mac mini Debian.
