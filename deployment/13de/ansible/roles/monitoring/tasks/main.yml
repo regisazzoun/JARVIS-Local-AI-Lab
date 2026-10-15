@@ -1,0 +1,4 @@
+---
+- name: Vérifier le journal du démarrage
+  ansible.builtin.command: journalctl -b -p err --no-pager -n 50
+  changed_when: false

@@ -1,0 +1,4 @@
+---
+- name: Signaler le composant différé cuda
+  ansible.builtin.debug:
+    msg: "cuda différé : validation GPU, versions et provenance requises ; aucun changement hôte."

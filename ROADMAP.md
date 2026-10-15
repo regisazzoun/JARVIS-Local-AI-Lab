@@ -338,3 +338,15 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 **13D-E n'exige pas de liaison SSH au Dell avant son installation :** la clé publique et la configuration SSH sont injectées par l'installation PXE ; la connexion SSH réelle n'est vérifiable qu'après le premier démarrage Debian. Cette préparation reste à réaliser/tester et ne doit pas être marquée validée à ce stade.
 
 **Frontière de sécurité :** pas de toucher au réseau de production ou aux disques réels du Dell sous couvert de « test VM ». Toute opération destructive sur les deux SSD, RAID/firmware ou réseau réel doit rester bornée par une autorisation préalable spécifique et un plan de récupération ; après autorisation du périmètre, JARVIS exécute les étapes convenues sans supervision commande par commande. Conserver les accès SSH clés **et** mot de passe existants du Mac mini Debian.
+
+
+
+## Mission 13D-E — préparation Dell, état au 15 octobre 2026
+
+**Préparation partielle ; NO-GO pour réception complète et lancement de 14A avec cette chaîne.** Audit non destructif réalisé avant toute installation ; aucune installation système effectuée. Inventaires et neuf rôles Ansible, bootstrap SSH invité, templates Debian/iPXE et contrôleur VM TCG borné livrés. Six tests du contrôleur passent ; cela ne valide pas UEFI/PXE, Debian, RAID1 ou l'autonomie du modèle local.
+
+Blocages : QEMU/OVMF/Ansible absents ; KVM inaccessible dans cette session ; réseau/systemd/Docker restreints et DNS shell indisponible. Miroir de paquets isolé, transport SSH invité, second boot disque et superviseur agent durable restent à compléter. NVIDIA/CUDA/Ollama : rôles différés, pas de changement des installations actuelles. Variantes VROC/VMD et mdadm documentées sans décision de partitionnement physique.
+
+Prochaine étape : fournir les prérequis sans altérer l'hôte, compléter la chaîne isolée, réaliser la recette VM et Ansible puis raccorder un worker durable à une copie de 13F. Les essais VM réversibles sont autorisés sans supervision ; les modifications de services sensibles demandent diagnostic et validation ciblée. La démonstration 14A doit provenir du modèle local JARVIS. Aucune intervention Dell, modification SSH/Tailscale/noyau/GRUB, clé, modèle ou SQLite.
+
+Dossier : [réception](docs/missions/13D-E/RAPPORT-FINAL.md), [audit](docs/missions/13D-E/AUDIT.md), [architecture](docs/missions/13D-E/ARCHITECTURE.md), [laboratoire](docs/missions/13D-E/LABORATOIRE.md), [tests](docs/missions/13D-E/TESTS.md). Publication en branche dédiée, aucune fusion automatique.

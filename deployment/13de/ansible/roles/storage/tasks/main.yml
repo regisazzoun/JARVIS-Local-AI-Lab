@@ -1,0 +1,4 @@
+---
+- name: Inventorier le stockage sans partitionner
+  ansible.builtin.command: lsblk --json --output NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS
+  changed_when: false

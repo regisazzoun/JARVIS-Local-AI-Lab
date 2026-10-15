@@ -1,0 +1,8 @@
+---
+- name: Créer le répertoire de future intégration
+  ansible.builtin.file:
+    path: /opt/jarvis-worker
+    state: directory
+    owner: jarvisadmin
+    group: jarvisadmin
+    mode: '0750'

@@ -1,0 +1,4 @@
+---
+- name: Vérifier le compte de bootstrap
+  ansible.builtin.command: id jarvisadmin
+  changed_when: false

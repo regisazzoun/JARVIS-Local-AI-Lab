@@ -1,0 +1,5 @@
+---
+- name: Installer le socle Debian
+  ansible.builtin.apt:
+    name: [ca-certificates, python3, sudo, openssh-server]
+    state: present
