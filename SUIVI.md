@@ -35,7 +35,7 @@
 | **14** | Déploiement autonome du Dell Precision | ⏳ En attente | Installation Debian par PXE, puis SSH/Ansible configurés par JARVIS ; tests UEFI/PXE en VM **autonomes sans supervision humaine** dans le laboratoire autorisé ; aucun déploiement physique validé | Après 14A : essais VM non supervisés, puis autorisation spécifique des actions destructives sur le Dell réel |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15A-MACOS-CODEX.md) disponible | Inventaire API 13F, contrat commun, développement |
 | **15B** | Application native SwiftUI iOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15B-IOS-CODEX.md) ; installation gratuite Xcode/Personal Team retenue | Contrat API commun et prototype iPhone |
-| **JL-01** | Launcher macOS : SSH, Terminal, Codex, tmux | 🔄 Tests / réception à consolider | Launcher local et ouverture SSH/tmux signalés fonctionnels sur Mac mini ; état MacBook à vérifier. Roadmap JL historique non encore synchronisée | Tester le profil MacBook, les actions autorisées et consigner les preuves |
+| **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés | Mac mini fonctionnel confirmé le 14/10 ; MacBook : compagnon local, connexion SSH, reprise tmux et trois actions du site GitHub Pages déclarées fonctionnelles par l'utilisateur le 15/10. Autres commandes et sécurité complète non toutes réceptionnées | Garder les tests acquis ; documenter uniquement les actions restantes sans retester inutilement |
 | **JL-02** | Launcher : Qwen/Ollama, voix, authentification | ⏳ Prévue, non lancée | Sécurité 13D, identité, secrets, permissions, déconnexion et révocation requis | Auditer JL-01, valider sécurité, cadrer l'intégration |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
 
@@ -72,7 +72,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 | Persistance tmux | ✅ Validé | `jarvis-test` reste listée après détachement |
 | Reprise de session tmux | ✅ Validé | Retour explicite de l'utilisateur dans `jarvis-test` |
 | Sessions historiques | ✅ Préservées | `jarvis-13f` et `jarvis-codex` retrouvées dans `tmux ls` |
-| Intégration Launcher sur MacBook | ⏳ À vérifier | Tester les profils et actions depuis le MacBook |
+| Intégration Launcher sur MacBook | ✅ Testée le 15/10 | Profil et application locale reconnus ; SSH/tmux fonctionnels ; trois actions du site GitHub Pages confirmées par l'utilisateur |
 | Mot de passe SSH en secours | 🔒 Maintenu | Ne **pas** désactiver avant décision distincte et accès de secours éprouvé |
 | Accès depuis Mac mini macOS | ✅ Confirmé (14/10) | Tests du 14 octobre confirmés par l'utilisateur le 15/10 ; pas de nouveau test exécuté ici |
 | Configuration SSH serveur | 🔒 Préservée | Seul ajout déclaré : clé publique du MacBook dans les clés autorisées ; aucune modification de `sshd_config` demandée |
@@ -92,6 +92,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-15 | JL-01 — GitHub Pages MacBook | Compagnon local vérifié, SSH et tmux testés, puis trois actions de l'interface web confirmées fonctionnelles ; GO AVEC RÉSERVES JL-01, pas de validation implicite de toutes les fonctions | Tests et confirmation explicite de l'utilisateur du 15/10 ; [site GitHub Pages](https://regisazzoun.github.io/JARVIS-Launcher/) |
 | 2026-10-15 | 13D-E / 14 | Correction de l'ordre PXE : pas de SSH Dell avant installation ; JARVIS teste seul et sans supervision les déploiements en VM isolée, puis configure lui-même SSH sur Debian | Décision explicite utilisateur en conversation de pilotage ; [ROADMAP](ROADMAP.md) |
 | 2026-10-15 | 13D-E | Contrôle du suivi : préparation SSH/Ansible vers Dell non encore vérifiée ; ne pas confondre GO des accès Mac avec capacité d'administration Dell | Relecture de SUIVI.md et confirmation de l'absence de test Dell dans les rapports consultés |
 | 2026-10-15 | 13D — validation multi-postes | Mac mini macOS confirmé opérationnel à partir des essais du 14/10 ; MacBook testé le 15/10. GO AVEC RÉSERVES sur 13D, sans retester ni toucher aux accès serveur | Confirmation utilisateur du 15/10 ; échanges de validation Launcher/Mac mini du 14/10 |
