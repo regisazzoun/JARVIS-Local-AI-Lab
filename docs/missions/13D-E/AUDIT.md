@@ -21,3 +21,13 @@ Rapport produit avant toute installation. Aucune installation système effectué
 Limite : la session dispose d'une vue restreinte des processus et sockets. Une absence dans cette vue ne prouve pas l'arrêt d'un service hôte. Aucun SSH Dell tenté. AGENTS.md absent de la racine GitHub (404) et des répertoires d'instructions locaux consultés.
 
 Diagnostic complémentaire requis hors sandbox : état systemd, écoute DHCP/DNS, routes, accès KVM et santé HTTP JARVIS/Ollama/WebUI. Toute installation système reste soumise à validation ciblée ; elle n'est pas nécessaire à la génération des présents livrables.
+
+## Reprise du 15 octobre 2026 — audit hôte réellement accessible
+
+Les restrictions de la première session ne s'appliquent plus à cet audit. Ansible Core 2.19.11, QEMU 10.0.13, OVMF 2025.02, iPXE Debian et dnsmasq-base 2.91 sont installés. `/usr/sbin/dnsmasq` est hors PATH utilisateur : utiliser son chemin absolu. `rg` n'est pas disponible dans le shell, recherches poursuivies avec les outils présents, sans installation supplémentaire.
+
+`/dev/kvm` existe, mais son ouverture O_RDWR renvoie EACCES pour adminjarvis ; le groupe kvm ne figure pas dans les groupes de la session. Aucune ACL ni appartenance modifiée. TCG fonctionne et suffit au test ciblé. Aucun changement KVM n'est requis pour avancer sur le Dell.
+
+Ethernet actif, route par DHCP vers la Bbox ; interfaces Wi-Fi/USB alternatives inactives, Tailscale séparé. Paramètres précis privés sous `deployment/13de/private/`. `ss -lntup` ne montre pas d'écoute locale 67/69/4011/8088. SSH et tailscaled actifs. L'unité `ollama` déclarée inactive n'indique pas une panne : un processus Ollama écoute sur loopback 11434. Le service WebUI écoute sur le LAN ; aucun service existant n'a été relancé ni reconfiguré. Santé applicative complète non réévaluée.
+
+Observation rapportée par l'administrateur : l'installation récente de grub-ipxe a régénéré GRUB automatiquement. Le paquet est présent ; aucune nouvelle intervention, régénération ou réparation GRUB effectuée par cette reprise. Aucun redémarrage hôte.

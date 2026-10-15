@@ -1,0 +1,40 @@
+---
+- name: Dell physical configuration after explicit deployment authorization
+  hosts: dell
+  become: true
+  gather_facts: false
+  pre_tasks:
+    - name: Require approved remote transport before contacting target
+      ansible.builtin.assert:
+        that:
+          - deployment_scope == 'dell-approved'
+          - dell_configuration_authorized | default(false) | bool
+          - ansible_connection | default('ssh') == 'ssh'
+          - ansible_host != 'dell.invalid'
+          - approved_uuid | default('') | length == 36
+          - approved_addresses is defined
+          - ansible_host in approved_addresses
+      delegate_to: localhost
+      become: false
+    - name: Gather read-only target facts including DMI UUID
+      ansible.builtin.setup:
+      become: true
+    - name: Require exact Dell identity and installed Debian
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.system_vendor == 'Dell Inc.'
+          - ansible_facts.product_name == 'Precision 5820 Tower'
+          - ansible_facts.product_uuid | lower == approved_uuid | lower
+          - ansible_facts.distribution == 'Debian'
+          - ansible_facts.distribution_major_version == '13'
+    - name: Require reviewed physical disk manifest before configuration
+      ansible.builtin.assert:
+        that:
+          - storage_acceptance_complete | default(false) | bool
+  roles:
+    - debian
+    - accounts_security
+    - network
+    - storage
+    - monitoring
+    - jarvis

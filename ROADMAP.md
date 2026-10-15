@@ -350,3 +350,12 @@ Blocages : QEMU/OVMF/Ansible absents ; KVM inaccessible dans cette session ; ré
 Prochaine étape : fournir les prérequis sans altérer l'hôte, compléter la chaîne isolée, réaliser la recette VM et Ansible puis raccorder un worker durable à une copie de 13F. Les essais VM réversibles sont autorisés sans supervision ; les modifications de services sensibles demandent diagnostic et validation ciblée. La démonstration 14A doit provenir du modèle local JARVIS. Aucune intervention Dell, modification SSH/Tailscale/noyau/GRUB, clé, modèle ou SQLite.
 
 Dossier : [réception](docs/missions/13D-E/RAPPORT-FINAL.md), [audit](docs/missions/13D-E/AUDIT.md), [architecture](docs/missions/13D-E/ARCHITECTURE.md), [laboratoire](docs/missions/13D-E/LABORATOIRE.md), [tests](docs/missions/13D-E/TESTS.md). Publication en branche dédiée, aucune fusion automatique.
+
+
+## Reprise 13D-E — priorité physique, 15 octobre 2026
+
+Cette décision remplace l'obligation préparatoire de reconstruire une chaîne VM complète : progression directe vers la préparation du Dell avec validations ciblées. GO AVEC RÉSERVES pour la préparation, aucun lancement physique autorisé. Outillage réaudité, 16 tests de garde-fous, deux syntax-check Ansible, sources Debian authentifiées, boot TCG et HTTP loopback ciblés. ProxyDHCP/TFTP/HTTP et initrd candidat prêts à être adaptés au plan validé ; aucune activation LAN.
+
+Restent : découverte Dell/SSD/contrôleur et clé publique autorisée, validation humaine réseau, qualification de la recette mdadm et double ESP, autorisation explicite d'effacement/installation, puis premier SSH et idempotence. Les rôles IA et l'intégration agent sont encore différés. Le refus KVM utilisateur n'empêche pas cette préparation physique. 14A reste une preuve d'autonomie distincte, non acquise par ces tests.
+
+Voir [procédure physique](docs/missions/13D-E/DEPLOIEMENT-PHYSIQUE.md), [tests](docs/missions/13D-E/TESTS.md) et [réception](docs/missions/13D-E/RAPPORT-FINAL.md). ROADMAP ↔ SUIVI synchronisés, format SUIVI conservé. Historique NO-GO maintenu sans le présenter comme l'état courant de l'outillage.

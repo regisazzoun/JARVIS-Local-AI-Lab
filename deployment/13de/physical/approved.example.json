@@ -1,0 +1,9 @@
+{
+  "vendor": "Dell Inc.",
+  "product": "Precision 5820 Tower",
+  "uuid": "REPLACE_FROM_LOCAL_DISCOVERY",
+  "disks": [
+    {"path": "/dev/nvme0n1", "model": "REPLACE", "serial": "REPLACE_A", "size": 0},
+    {"path": "/dev/nvme1n1", "model": "REPLACE", "serial": "REPLACE_B", "size": 0}
+  ]
+}
