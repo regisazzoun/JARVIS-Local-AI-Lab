@@ -318,3 +318,12 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 - La mission **13F** consolide les fonctionnalités des missions **12, 13A, 13B, 13C et partiellement 13E**, ainsi que des vérifications limitées pour **05D, 06, 07**. Voir la section « Consolidations transversales » de `SUIVI.md` et le [débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md).
 - Les **tests backend, API et Chromium** de 13F ne prouvent **pas** une validation acoustique physique, Safari/iPhone, un reboot de la machine, l'interopérabilité mémoire Dell ou le déploiement PXE/RAID. Le rapport de réception propre à 13E et les missions 08–11 restent à vérifier, sans verdict inventé.
 - À chaque nouvelle mission, vérifier systématiquement si ses preuves lèvent une réserve plus ancienne, mettre à jour les lignes correspondantes de `SUIVI.md` et consigner une entrée datée au journal, sans effacer le constat initial.
+
+
+### Actualisation 13D — 15 octobre 2026 : GO AVEC RÉSERVES sur les accès
+
+**Décision de suivi actuelle, prévalant sur les mentions historiques « en attente » :** le Mac mini macOS a été confirmé fonctionnel par l'utilisateur sur la base des essais du 14 octobre ; le MacBook a été validé le 15 octobre (Tailscale, SSH clé ED25519 et mot de passe, alias `ssh jarvis`, détachement et reprise tmux). Aucun nouveau test Mac mini n'a été demandé ni réalisé lors de cette actualisation. Selon l'utilisateur, **la configuration SSH du serveur n'a pas été modifiée, hormis l'ajout de la clé publique du MacBook aux clés autorisées**.
+
+**Verdict : 13D — GO AVEC RÉSERVES pour poursuivre vers 14A**, sans modification supplémentaire du serveur. Réserves différées : vérification de la résilience après redémarrage complet, audit ciblé des journaux et validation du secours local avant toute opération à risque. Ces réserves ne doivent pas être présentées comme des validations déjà réalisées.
+
+**Garde-fou impératif :** conserver **les deux modes d'authentification SSH, clé ET mot de passe**, jusqu'à décision expresse après tests sûrs ; pas de désactivation de mot de passe, de changement `sshd_config`, de politique Tailscale ni de reboot à distance tant qu'un accès de récupération local n'est pas garanti. Le suivi détaillé et le journal sont dans [SUIVI.md](SUIVI.md).
