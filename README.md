@@ -26,6 +26,7 @@ Documenter les tests reproductibles, les échecs, les contournements et les limi
 - [Mac mini](platforms/mac-mini/README.md)
 - [Dell Precision 5820](platforms/dell-precision-5820/README.md)
 - [Feuille de route](ROADMAP.md)
+- [Suivi global des missions — tableau de bord](SUIVI.md)
 - [Débrief de pilotage — mission 13F (GO AVEC RÉSERVES)](docs/missions/MISSION-13F-DEBRIEF.md)
 - [Précautions de publication](SECURITY-PUBLICATION.md)
 
