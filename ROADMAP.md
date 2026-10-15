@@ -292,3 +292,19 @@ Sources Apple : https://developer.apple.com/help/account/basics/about-your-devel
 **Règle permanente de rappel :** si une prochaine instruction semble inverser cet ordre, rappeler d'abord la séquence **13D → 14A → 14**, ses motifs (sécurité, aptitude démontrée, supervision humaine et protection des données), puis demander seulement si le changement de priorité est bien volontaire lorsqu'il est nécessaire à l'arbitrage. Une modification explicite de la stratégie par l'utilisateur reste possible ; ne jamais présenter la présente décision comme une interdiction absolue.
 
 **Critères de passage :** pas de déploiement distant autorisé sans preuve de l'accès sécurisé et du retour arrière ; pas de GO agentique sans tests ; pas d'opération destructive sur le Dell sans accord ciblé et vérification préalable. Consigner preuves, réserves et décision à chaque jalon.
+
+
+## Règle permanente obligatoire — synchronisation du suivi des missions (15 octobre 2026)
+
+Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel unique** des missions : terminées, en cours, préparées, en attente, avec réserves ou non documentées. `ROADMAP.md` garde les décisions, dépendances et intentions détaillées ; `SUIVI.md` est la vue synthétique et actualisée de leur exécution.
+
+**Consigne impérative pour ChatGPT, Codex et toute mise à jour documentaire :**
+
+1. **À chaque modification** d'une mission, d'un état, d'une réserve, d'une preuve, d'un ordre de priorité ou d'une prochaine action dans `ROADMAP.md`, dans une roadmap de sous-projet ou dans un rapport de réception, **mettre à jour `SUIVI.md` dans la même intervention/PR/commit logique**. Réciproquement, toute modification de `SUIVI.md` impliquant une décision nouvelle doit être répercutée dans la roadmap pertinente.
+2. **Conserver strictement la présentation** de `SUIVI.md` : titres, sections, tableaux Markdown, ordre et noms des colonnes, ligne de séparation, légende et conventions d'emoji. Ne pas reformater ni remplacer le fichier par une simple liste, un autre modèle de tableau ou un résumé libre.
+3. **Conserver les entrées historiques**, y compris les échecs, réserves et GO partiels. Mettre à jour la cellule concernée plutôt que supprimer une ligne ; ajouter de nouvelles lignes pour les étapes ou missions nouvelles. Respecter les identifiants existants.
+4. **Ajouter une entrée datée au journal des mises à jour** de `SUIVI.md` pour chaque changement significatif, avec preuve (rapport, PR, commande testée ou confirmation de l'utilisateur). Ne jamais indiquer « validé » sans preuve ni confondre réalisé, simulé, testé et réceptionné.
+5. À la fin de chaque mission Codex, inclure expressément la vérification **« ROADMAP ↔ SUIVI synchronisés, format SUIVI conservé »** dans le rapport final. Si la mise à jour ne peut pas être réalisée, déclarer ce point comme réserve explicite, avec correctif proposé.
+6. Ne jamais publier des secrets, clés privées, mots de passe, tokens, journaux ou adresses d'infrastructure sensibles dans le suivi.
+
+**Rappel sécurité 13D :** le volet MacBook a été vérifié le 15 octobre (Tailscale, SSH clé et mot de passe, alias, tmux). Cela ne clôt pas encore la mission globale. **Les deux modes SSH restent activés jusqu'à validation explicite d'une stratégie différente et d'un accès de secours fiable.**
