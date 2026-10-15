@@ -26,8 +26,8 @@
 | **13C** | Mémoire persistante partagée | ✅ GO PARTIEL historique ; fonctionnalités centrales consolidées par 13F | SQLite/FTS5 v3, rappels réels Qwen/Ministral/Llama, dédoublonnage, correction/suppression, sauvegarde et restauration vérifiés ; partage Mac mini/Dell non démontré | Suivre les limites du catalogue automatique et le futur partage Dell |
 | **13D.1** | MacBook : Tailscale, SSH par clé et par mot de passe | ✅ Validée le 15/10 | Connexion SSH par les deux méthodes testée ; clé publique ajoutée sans retirer les accès existants | Préserver **les deux méthodes** d'accès |
 | **13D.2** | MacBook : alias `ssh jarvis`, reconnexion et tmux | ✅ Validée le 15/10 | Alias SSH fonctionnel ; sessions existantes préservées ; création, détachement et reprise de `jarvis-test` réussis | Réutiliser les accès dans Launcher |
-| **13D.3** | Contrôles globaux SSH/Tailscale, secours et sécurité multi-postes | 🔄 En cours | Volet MacBook validé ; pas de validation complète de tous les postes ni d'un redémarrage serveur | Vérifier les autres postes, secours et journalisation sans verrouillage |
-| **13D** | Sécurisation des accès distants (mission globale) | 🔄 EN COURS — GO MacBook | SSH mot de passe **et** clés maintenus. Ne pas changer `sshd_config` ni retirer un mode d'accès avant validation explicite | Terminer 13D.3 puis prononcer GO global |
+| **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | 🟡 Accès multi-postes validés, contrôles finaux à compléter | Mac mini macOS confirmé fonctionnel lors des tests du 14/10 par l'utilisateur ; MacBook testé le 15/10 (clé + mot de passe, alias, tmux). Aucun changement de configuration SSH serveur signalé, hormis l'ajout de la clé publique MacBook | Vérifier uniquement la persistance après reboot et la journalisation lorsque l'accès de secours sur place sera disponible |
+| **13D** | Sécurisation des accès distants (mission globale) | 🟡 GO AVEC RÉSERVES — accès Mac mini et MacBook | Accès des deux Macs confirmés ; MacBook testé le 15/10, Mac mini confirmé par l'utilisateur pour le 14/10. SSH clé **et** mot de passe maintenus ; reboot distant et journalisation non vérifiés | Passer à la préparation 14A sans modification SSH serveur ; solder les réserves non bloquantes avec accès local de secours |
 | **13E** | Intégration vocale réelle | 🟡 Consolidation fonctionnelle par 13F ; réception 13E à confirmer | API, chaîne STT→LLM→TTS et navigateur testés en 13F ; confirmation humaine antérieure rapportée, sans nouveau test physique/Safari/iPhone ni preuve autonome du verdict 13E | Retrouver réception 13E ; valider appareils physiques et clients Apple |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** | 27 tests backend, 8 API, 8 navigateur et 6 finaux ; autonomie Qwen prouvée dans laboratoire isolé, non sur Dell | Suivre réserves voix physique, reboot et opérations longues ; [débrief](docs/missions/MISSION-13F-DEBRIEF.md) |
 | **14A** | Validation aptitude agentique avant Dell | ⏳ À lancer après 13D | 13F prouve des réparations HTTP simples, pas un déploiement intégral | Définir essais et GO/NO-GO |
@@ -69,11 +69,13 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 | Sessions historiques | ✅ Préservées | `jarvis-13f` et `jarvis-codex` retrouvées dans `tmux ls` |
 | Intégration Launcher sur MacBook | ⏳ À vérifier | Tester les profils et actions depuis le MacBook |
 | Mot de passe SSH en secours | 🔒 Maintenu | Ne **pas** désactiver avant décision distincte et accès de secours éprouvé |
-| Validation globale 13D | 🔄 En cours | Autres postes, scénarios de secours et journalisation non tous réceptionnés |
+| Accès depuis Mac mini macOS | ✅ Confirmé (14/10) | Tests du 14 octobre confirmés par l'utilisateur le 15/10 ; pas de nouveau test exécuté ici |
+| Configuration SSH serveur | 🔒 Préservée | Seul ajout déclaré : clé publique du MacBook dans les clés autorisées ; aucune modification de `sshd_config` demandée |
+| Validation globale 13D | 🟡 GO AVEC RÉSERVES | Deux postes opérationnels ; tests après reboot et audit des journaux différés |
 
 ## Priorités et règles permanentes
 
-**Séquence stratégique actuelle :** 13D → 14A → 14. Missions 15A/15B techniquement parallèles, mais priorité moindre à ce stade. Launcher suit son propre chantier, avec la sécurité 13D comme dépendance pour les accès distants et JL-02.
+**Séquence stratégique actuelle :** 13D (GO AVEC RÉSERVES sur les accès) → 14A → 14. Missions 15A/15B techniquement parallèles, mais priorité moindre à ce stade. Launcher suit son propre chantier, avec la sécurité 13D comme dépendance pour les accès distants et JL-02.
 
 **Protection des accès :** garder SSH par **clé et mot de passe** sur le serveur jusqu'à décision explicite après validation ; ne pas modifier automatiquement le serveur à partir du constat positif côté MacBook.
 
@@ -85,6 +87,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-15 | 13D — validation multi-postes | Mac mini macOS confirmé opérationnel à partir des essais du 14/10 ; MacBook testé le 15/10. GO AVEC RÉSERVES sur 13D, sans retester ni toucher aux accès serveur | Confirmation utilisateur du 15/10 ; échanges de validation Launcher/Mac mini du 14/10 |
 | 2026-10-15 | Consolidation 05D, 06, 07, 12, 13A, 13B, 13C, 13E | Mise à jour de l'état technique grâce aux preuves de 13F ; verdicts historiques et réserves non couvertes préservés ; 08–11 toujours à confirmer | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Rapports PR n°4](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4) |
 | 2026-10-15 | 13D | Deux méthodes SSH, alias, sessions tmux et reprise testés depuis MacBook ; mission globale laissée ouverte | Résultats de commandes et confirmation utilisateur dans la conversation 13D |
 | 2026-10-14 | 13F | GO AVEC RÉSERVES ; débrief archivé | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) et rapports PR n°4 |
