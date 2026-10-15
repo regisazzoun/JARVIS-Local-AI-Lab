@@ -308,3 +308,13 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 6. Ne jamais publier des secrets, clés privées, mots de passe, tokens, journaux ou adresses d'infrastructure sensibles dans le suivi.
 
 **Rappel sécurité 13D :** le volet MacBook a été vérifié le 15 octobre (Tailscale, SSH clé et mot de passe, alias, tmux). Cela ne clôt pas encore la mission globale. **Les deux modes SSH restent activés jusqu'à validation explicite d'une stratégie différente et d'un accès de secours fiable.**
+
+
+### Réévaluation des réserves historiques par les missions ultérieures — 15 octobre 2026
+
+**Décision de consolidation :** une mission ultérieure peut **lever une réserve fonctionnelle** d'une mission précédente seulement si elle apporte une preuve réelle couvrant **le même critère de validation**. Cette règle n'efface jamais le verdict historique (GO PARTIEL, GO sous conditions, etc.) et ne convertit pas automatiquement toute la mission en GO complet.
+
+- Dans [SUIVI.md](SUIVI.md), faire apparaître **le verdict historique** et **l'état technique actuel consolidé**, avec mission probante, portée exacte du test et réserves non levées. Conserver **strictement la mise en page Markdown**, les colonnes, la légende et le journal daté existants.
+- La mission **13F** consolide les fonctionnalités des missions **12, 13A, 13B, 13C et partiellement 13E**, ainsi que des vérifications limitées pour **05D, 06, 07**. Voir la section « Consolidations transversales » de `SUIVI.md` et le [débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md).
+- Les **tests backend, API et Chromium** de 13F ne prouvent **pas** une validation acoustique physique, Safari/iPhone, un reboot de la machine, l'interopérabilité mémoire Dell ou le déploiement PXE/RAID. Le rapport de réception propre à 13E et les missions 08–11 restent à vérifier, sans verdict inventé.
+- À chaque nouvelle mission, vérifier systématiquement si ses preuves lèvent une réserve plus ancienne, mettre à jour les lignes correspondantes de `SUIVI.md` et consigner une entrée datée au journal, sans effacer le constat initial.
