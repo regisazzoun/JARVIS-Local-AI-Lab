@@ -15,20 +15,20 @@
 | **05A** | Sélection du pilote NVIDIA | ✅ Préparation réalisée | Choix de pilote documenté ; cette étape seule ne valide pas le fonctionnement | Se référer aux tests 05C/05D |
 | **05B** | Installation contrôlée du pilote | 🟡 Réalisée avec réserves | Installation documentée ; vérifier les réserves DKMS du rapport | Consolider les preuves |
 | **05C** | Détection eGPU et CUDA initial | ✅ Testée | Tests matériels et CUDA léger documentés | Référence 05D |
-| **05D** | Calcul GPU, Ollama et Llama 3.1 8B | ✅ Validée sur Mac mini | Calcul CUDA et inférence GPU réels ; performance ponctuelle non généralisable | Maintenir la non-régression |
-| **06** | Open WebUI et accès conversationnel | 🟡 Fonctionnelle avec réserves | Inférence fonctionnelle sur LAN ; HTTP local non chiffré dans le rapport historique | Préserver et sécuriser les accès |
-| **07** | Qualité des réponses et RAG | 🟡 Tests réalisés | Optimisations testées ; résultats limités aux scénarios documentés | Étendre les tests si nécessaire |
+| **05D** | Calcul GPU, Ollama et Llama 3.1 8B | ✅ Validée sur Mac mini, confortée par 13F | Calcul CUDA et inférence GPU réels en 05D ; Ollama et inférences réelles retestés en 13F (sans nouveau benchmark comparatif) | Maintenir la non-régression |
+| **06** | Open WebUI et accès conversationnel | 🟡 Fonctionnelle, disponibilité reconfirmée par 13F | Service actif et santé HTTP retestée en 13F ; réserve historique HTTP local non chiffré non levée | Poursuivre sécurisation sans perturber le service |
+| **07** | Qualité des réponses et RAG | 🟡 Partiellement confortée par 13F | Gestion du contexte et réponses écrites/orales améliorées en 13F ; performances RAG de 07 non revalidées intégralement | Garder la réserve RAG ; étendre les tests si nécessaire |
 | **08** | Mission historique 08 | ⚪ À confirmer | Présence de preuves insuffisante sans rapport de réception vérifié | Retrouver le rapport et statuer |
 | **09 à 11** | Missions historiques intermédiaires | ⚪ Documentation à consolider | Aucun verdict individualisé établi dans les sources de suivi consultées | Réconcilier rapports et historique, sans inventer de statut |
-| **12** | Étude voix et mémoire | ✅ GO sous conditions | Choix faster-whisper, Piper et SQLite/FTS5 ; essais préliminaires sur fichiers/fictifs | Historique conservé ; voir 13A–13F |
-| **13A** | Socle vocal durable Whisper/Piper | ✅ Réussie dans son périmètre | Installation et tests sur fichiers ; micro physique exclu du périmètre initial | Compléments via 13E/13F |
-| **13B** | Interface vocale, Push-to-Talk | 🟡 GO PARTIEL | Interface et backend livrés ; validations physiques initialement incomplètes | Voir essais complémentaires 13E/13F |
-| **13C** | Mémoire persistante partagée | 🟡 GO PARTIEL | SQLite/FTS5, sauvegarde, validation des souvenirs ; premiers tests multi-modèles partiels | Compléments réels documentés en 13F |
+| **12** | Étude voix et mémoire | ✅ GO sous conditions historique ; architecture consolidée en 13F | Choix Whisper/Piper/SQLite concrétisés et chaîne backend/mémoire réelles testées en 13F ; validation acoustique physique encore nécessaire | Conserver verdict d'étude ; suivre les réserves physiques |
+| **13A** | Socle vocal durable Whisper/Piper | ✅ Réussie ; fonctionnement backend consolidé par 13F | Whisper Small et Piper Tom réutilisés et retestés en chaîne réelle en 13F ; pas de nouveau test micro/haut-parleurs physiques | Garder la validation matérielle dans les missions clientes |
+| **13B** | Interface vocale, Push-to-Talk | 🟡 GO PARTIEL historique ; consolidation technique 13F | Interface, chaîne vocale et échanges navigateur réels testés en 13F (micro WAV artificiel) ; VAD/interruption expérimentaux, périphériques physiques non revalidés | Tester la voix sur micro/haut-parleurs réels et clients Apple |
+| **13C** | Mémoire persistante partagée | ✅ GO PARTIEL historique ; fonctionnalités centrales consolidées par 13F | SQLite/FTS5 v3, rappels réels Qwen/Ministral/Llama, dédoublonnage, correction/suppression, sauvegarde et restauration vérifiés ; partage Mac mini/Dell non démontré | Suivre les limites du catalogue automatique et le futur partage Dell |
 | **13D.1** | MacBook : Tailscale, SSH par clé et par mot de passe | ✅ Validée le 15/10 | Connexion SSH par les deux méthodes testée ; clé publique ajoutée sans retirer les accès existants | Préserver **les deux méthodes** d'accès |
 | **13D.2** | MacBook : alias `ssh jarvis`, reconnexion et tmux | ✅ Validée le 15/10 | Alias SSH fonctionnel ; sessions existantes préservées ; création, détachement et reprise de `jarvis-test` réussis | Réutiliser les accès dans Launcher |
 | **13D.3** | Contrôles globaux SSH/Tailscale, secours et sécurité multi-postes | 🔄 En cours | Volet MacBook validé ; pas de validation complète de tous les postes ni d'un redémarrage serveur | Vérifier les autres postes, secours et journalisation sans verrouillage |
 | **13D** | Sécurisation des accès distants (mission globale) | 🔄 EN COURS — GO MacBook | SSH mot de passe **et** clés maintenus. Ne pas changer `sshd_config` ni retirer un mode d'accès avant validation explicite | Terminer 13D.3 puis prononcer GO global |
-| **13E** | Intégration vocale réelle | 🟡 Réalisations antérieures rapportées, réception à consolider | Confirmation humaine antérieure mentionnée dans 13F ; statut officiel ancien de la roadmap « à préparer » devenu historique | Retrouver rapport de réception 13E et distinguer ses preuves de 13F |
+| **13E** | Intégration vocale réelle | 🟡 Consolidation fonctionnelle par 13F ; réception 13E à confirmer | API, chaîne STT→LLM→TTS et navigateur testés en 13F ; confirmation humaine antérieure rapportée, sans nouveau test physique/Safari/iPhone ni preuve autonome du verdict 13E | Retrouver réception 13E ; valider appareils physiques et clients Apple |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** | 27 tests backend, 8 API, 8 navigateur et 6 finaux ; autonomie Qwen prouvée dans laboratoire isolé, non sur Dell | Suivre réserves voix physique, reboot et opérations longues ; [débrief](docs/missions/MISSION-13F-DEBRIEF.md) |
 | **14A** | Validation aptitude agentique avant Dell | ⏳ À lancer après 13D | 13F prouve des réparations HTTP simples, pas un déploiement intégral | Définir essais et GO/NO-GO |
 | **14** | Déploiement autonome supervisé du Dell Precision | ⏳ En attente | Préparation PXE, RAID1 NVMe, GPU et Ansible documentée ; aucune installation Dell validée | Après 13D/14A : inventaire, essais VM et autorisation ciblée |
@@ -37,6 +37,23 @@
 | **JL-01** | Launcher macOS : SSH, Terminal, Codex, tmux | 🔄 Tests / réception à consolider | Launcher local et ouverture SSH/tmux signalés fonctionnels sur Mac mini ; état MacBook à vérifier. Roadmap JL historique non encore synchronisée | Tester le profil MacBook, les actions autorisées et consigner les preuves |
 | **JL-02** | Launcher : Qwen/Ollama, voix, authentification | ⏳ Prévue, non lancée | Sécurité 13D, identité, secrets, permissions, déconnexion et révocation requis | Auditer JL-01, valider sécurité, cadrer l'intégration |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
+
+## Consolidations transversales — preuves apportées par 13F
+
+La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »), même lorsqu'une mission ultérieure valide ses fonctionnalités. Le **statut technique actuel** est alors complété avec la preuve précise et les réserves non levées : une validation de fonctionnalité ne transforme pas rétroactivement le verdict de mission.
+
+| Mission source | Fonction consolidée en 13F | Réserve effectivement levée | Réserve conservée / limite | Référence |
+| --- | --- | --- | --- | --- |
+| 05D | Inférences Ollama réelles de nouveau opérationnelles | Disponibilité de l'inférence reconfirmée | Aucun nouveau benchmark GPU équivalent à 05D | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) |
+| 06 | Open WebUI actif, contrôle santé HTTP réussi | Disponibilité technique reconfirmée | Sécurisation HTTP/TLS non validée par 13F | [Rapport 13F (PR n°4)](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4) |
+| 07 | Résumés vocaux, contexte et gestion des réponses améliorés | Amélioration conversationnelle documentée | Évaluation RAG historique non entièrement reprise | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) |
+| 12 | Architecture voix/mémoire devenue opérationnelle | Passage de l'étude à une implémentation backend testée | Les limites de l'étude et les tests acoustiques ne sont pas effacés | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) |
+| 13A | Whisper Small et Piper Tom réutilisés en chaîne | Fonctionnement intégré backend démontré | Micro et haut-parleurs physiques non retestés en 13F | [Tests 13F (PR n°4)](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4) |
+| 13B | Conversation vocale, réponse orale distincte, navigateur | Partie backend/navigateur des réserves initiales couverte | Acoustique physique, VAD heuristique, interruption expérimentale | [Tests 13F (PR n°4)](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4) |
+| 13C | Mémoire SQLite/FTS5 v3 et trois moteurs réels | Simulation multi-modèles remplacée par essais réels ; restauration/dédoublonnage vérifiés | Mémoire partagée inter-machines et catalogue automatique illimité non démontrés | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) |
+| 13E | API et boucle vocale technique réelles | Intégration backend/navigateur démontrée | Rapport de réception 13E non retrouvé dans le suivi ; pas de validation physique iPhone/Safari par 13F | [Rapport 13F (PR n°4)](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4) |
+
+**Important :** la 13F ne prouve pas que les missions 08–11 sont clôturées. Leur rapport et leur périmètre restent à réconcilier ; les réserves purement matérielles, SSH et Dell ne sont pas levées par un test backend.
 
 ## Focus opérationnel — 13D côté MacBook
 
@@ -68,6 +85,7 @@
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-15 | Consolidation 05D, 06, 07, 12, 13A, 13B, 13C, 13E | Mise à jour de l'état technique grâce aux preuves de 13F ; verdicts historiques et réserves non couvertes préservés ; 08–11 toujours à confirmer | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Rapports PR n°4](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4) |
 | 2026-10-15 | 13D | Deux méthodes SSH, alias, sessions tmux et reprise testés depuis MacBook ; mission globale laissée ouverte | Résultats de commandes et confirmation utilisateur dans la conversation 13D |
 | 2026-10-14 | 13F | GO AVEC RÉSERVES ; débrief archivé | [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) et rapports PR n°4 |
 | 2026-10-14 | 15A / 15B | Missions séparées, cahiers préparés ; iOS gratuit retenu | [Roadmap](ROADMAP.md) |
