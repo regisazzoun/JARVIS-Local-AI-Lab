@@ -41,6 +41,8 @@ Validations : 22 tests contrôleur/manifeste/bootstrap et un test agrégé réce
 
 Réserves bloquant l'installation : découverte exacte UUID/séries/capacités, qualification partman RAID/double ESP, approbation explicite d'effacement et de reboot, revue de l'exposition du futur initrd sur LAN maîtrisé, identité SSH permanente autorisée à sélectionner. La réception de clé hôte par capacité HTTP/MAC n'est pas une attestation indépendante sur LAN hostile. Ansible réel, double boot disque, idempotence cible et GPU/IA restent non réceptionnés. Les trois autorisations réseau/installation/administration sont distinctes.
 
+Premier essai automatique : noyau/initrd chargés, mais rapport absent et écran noir. Défaut détecté dans le wrapper (pilote NVMe absent du netboot) ; image corrigée avec pilotes Debian authentifiés, DHCP BusyBox et console explicite. Chargement des trois pilotes confirmé par un test TCG ciblé sans disque ni réseau. Nouvelle réception physique encore en attente.
+
 Détails et commandes : [bootstrap automatisé](BOOTSTRAP-AUTOMATISE.md). Aucun changement aux accès/services JARVIS, DHCP Bbox, BIOS/VROC, SQLite ou GPU. Branche et PR existantes, sans fusion.
 
 ---

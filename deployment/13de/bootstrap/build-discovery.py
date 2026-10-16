@@ -26,13 +26,16 @@ d-i netcfg/get_domain string local
 d-i netcfg/disable_autoconfig boolean false
 d-i preseed/early_command string /bin/sh /jarvis-discovery.sh
 ''')
-archive=subprocess.run(['cpio','-o','-H','newc','--reproducible'],cwd=stage,input=b'jarvis-collect.sh\njarvis-discovery.sh\npreseed.cfg\n',capture_output=True,check=True).stdout
+from nvme_drivers import add
+add(assets,stage)
+names='\n'.join(sorted(str(p.relative_to(stage)) for p in stage.rglob('*')))+'\n'
+archive=subprocess.run(['cpio','-o','-H','newc','--reproducible'],cwd=stage,input=names.encode(),capture_output=True,check=True).stdout
 (out/'initrd.gz').write_bytes((assets/'initrd.gz').read_bytes()+gzip.compress(archive,mtime=0))
 (out/'linux').write_bytes((assets/'linux').read_bytes())
 (out/'discovery.ipxe').write_text('''#!ipxe
 dhcp || goto failed
 set base http://192.168.1.99:8088
-kernel ${base}/linux initrd=initrd.gz auto=true priority=critical file=/preseed.cfg interface=auto
+kernel ${base}/linux initrd=initrd.gz auto=true priority=critical file=/preseed.cfg interface=auto nomodeset fb=false console=tty0
 initrd ${base}/initrd.gz
 boot || goto failed
 :failed

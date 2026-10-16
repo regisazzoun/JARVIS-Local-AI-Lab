@@ -51,3 +51,8 @@ Les logs bruts, manifeste synthétique, paramètres réseau et téléchargements
 - dnsmasq --test et nft --check passent ; aucune activation LAN, aucun test VM et aucune écriture Dell.
 
 Limites : early_command/netcfg automatique encore à éprouver physiquement ; les tests de takeover simulent SSH. Recette RAID/ESP, double boot, accès SSH réel, convergence/idempotence Ansible et GPU/IA restent à réceptionner. Voir BOOTSTRAP-AUTOMATISE.md.
+
+
+### Correctif découverte automatique — 16 octobre, après premier essai
+
+Téléchargement physique confirmé, rapport absent, écran curseur seul. Pilotes NVMe absents du netboot initial : correction par trois modules Debian authentifiés, DHCP BusyBox et affichage tty1/nomodeset. Test TCG ciblé sans disque ni réseau : nvme-auth, nvme-core et nvme se chargent avec succès, marqueur JARVIS_NVME_DRIVER_OK. Aucun benchmark ni écriture disque ; pas de validation RAID/EFI ou de campagne PXE/VM. Tests 22 + récepteur et syntaxes restent réussis. Reprise physique requise avec l'image corrigée.

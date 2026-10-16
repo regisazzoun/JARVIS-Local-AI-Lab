@@ -4,12 +4,12 @@
 
 Le PXE UEFI physique est acquis : snponly.efi → iPXE → noyau/initrd → Debian Installer. Il n'est ni reconçu ni simulé à nouveau. Le premier essai Legacy avait échoué ; le second UEFI a atteint Debian. Aucun disque Dell n'a été écrit par cette session.
 
-La nouvelle session préparée est **découverte automatique seulement** : preseed embarqué, chargement des pilotes réseau PCI et NVMe, DHCP par netcfg, lecture /proc et /sys, envoi authentifié vers JARVIS et blocage indéfini avant retour à l'installateur. Aucun copier-coller de résultats ni de clé sur le Dell. La réception imprime le rapport dans Codex et produit un manifeste non approuvé. Si le réseau, les pilotes ou la validation échouent, le démarrage reste bloqué sans passer au partitionnement. Le comportement early_command/netcfg doit encore être éprouvé sur le Dell ; le PXE de transport, lui, est déjà validé.
+La nouvelle session préparée est **découverte automatique seulement** : preseed embarqué, chargement des pilotes réseau PCI et NVMe, DHCP par le client BusyBox déjà présent, lecture /proc et /sys, envoi authentifié vers JARVIS et blocage indéfini avant retour à l'installateur. Aucun copier-coller de résultats ni de clé sur le Dell. La réception imprime le rapport dans Codex et produit un manifeste non approuvé. Si le réseau, les pilotes ou la validation échouent, le démarrage reste bloqué sans passer au partitionnement. Le comportement early_command/udhcpc doit encore être éprouvé sur le Dell ; le PXE de transport, lui, est déjà validé.
 
-Actifs privés prêts : `deployment/13de/private/bootstrap-discovery-02/`. Aucun service n'est actif. Après **autorisation réseau n°1** seulement :
+Actifs privés prêts : `deployment/13de/private/bootstrap-discovery-04/`. Aucun service n'est actif. Après **autorisation réseau n°1** seulement :
 
 ```sh
-sudo -n python3 deployment/13de/bootstrap/serve-discovery.py deployment/13de/private/bootstrap-discovery-02
+sudo -n python3 deployment/13de/bootstrap/serve-discovery.py deployment/13de/private/bootstrap-discovery-04
 ```
 
 ProxyDHCP/TFTP/HTTP existants réutilisés. Interface/IP JARVIS et MAC Dell réelles conservées dans la configuration privée de session. Le récepteur 8090 accepte le sous-réseau local et le filtre nft impose la MAC Dell : l'IP Dell peut changer au DHCP sans inventer d'adresse. Bbox conserve l'allocation. Fichiers HTTP limités à linux/initrd.gz/discovery.ipxe. Fin au rapport, erreur d'un service ou après 15 minutes ; retrait de la seule table temporaire jarvis_bootstrap. Aucun systemd/service existant modifié.
@@ -69,3 +69,12 @@ NVIDIA/CUDA/Ollama restent différés/exclus. Leur déploiement futur ne demande
 Les archives générées ont été inspectées : découverte = trois fichiers attendus, aucun preseed RAID/hash de mot de passe/autorisation ; installation synthétique = hash seulement, aucun clair, aucune autorisation d'effacement/confirmation/reboot. Le candidat synthétique est supprimé. Scripts shell acceptés par sh et collecteur/wrapper par le BusyBox extrait de l'initrd. dnsmasq --test et nft --check passent, aucun service LAN activé. Aucun test VM, partitionnement, installation, SSH réel Dell ou Ansible appliqué lors de cette préparation. Les tests du takeover simulent le transport : ils prouvent l'ordre des décisions, pas une connexion réelle.
 
 Référence Debian utilisée : [preseed trixie, comptes et partitionnement](https://www.debian.org/releases/trixie/amd64/apbs04.en.html). Elle ne qualifie pas à elle seule notre recette.
+
+
+## Correctif après écran noir de la première découverte automatique
+
+Le Dell a téléchargé linux/initrd.gz à 19:07:56, mais aucun rapport n'est arrivé ; l'utilisateur observe un curseur seul et aucune réaction à Alt+F4. Aucun diagnostic console cible n'a pu être obtenu. Une erreur certaine du wrapper a été identifiée : il exigeait modprobe nvme alors que les modules NVMe ne sont pas inclus dans le netboot initrd standard. Cette erreur suffirait à empêcher l'envoi du rapport ; elle ne prouve pas à elle seule la cause de l'écran noir.
+
+Correction : trois modules PCI NVMe et dépendances extraits du udeb scsi-modules du noyau exact. Chaîne vérifiée Release.gpg → Packages.xz → SHA256 udeb, puis dépendances contrôlées par modinfo. Aucune installation de paquet sur JARVIS. Paramètres nomodeset/fb=false/console=tty0 et étapes affichées sur tty1 ; DHCP via udhcpc et son script RAM existant, sans appel récursif au frontend netcfg. Archive corrigée inspectée sans autorisation d'effacement.
+
+Test ciblé exécuté : noyau/initrd corrigé en TCG, sans disque ni réseau, rdinit=/bin/sh ; les trois insmod réussissent et /sys/module/nvme existe (marqueur JARVIS_NVME_DRIVER_OK). Ce test vérifie uniquement les dépendances pilotes et l'archive, pas le PXE déjà acquis, ni le matériel Dell, ni le wrapper complet. Aucun laboratoire complet reconstruit. Le nouvel essai physique reste nécessaire.
