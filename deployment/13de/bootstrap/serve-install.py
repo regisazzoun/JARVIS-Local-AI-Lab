@@ -68,6 +68,8 @@ try:
  controller=spawn('configure',['python3','-u',str(ROOT/'bootstrap/configure.py'),str(target),str(receipt)],console=True)
  while controller.poll() is None and not stop and time.monotonic()<deadline:time.sleep(1)
  assert controller.poll()==0,'configuration incomplete; private logs retained, do not reinstall'
+ for name in ('http/initrd.gz','install-initrd.gz','install-initrd.gz.collect.sh'):
+  (b/name).unlink(missing_ok=True)
  status('complete',base_installed=True,permanent_ssh_verified=True,bootstrap_revoked=True,ansible_idempotent=True)
  print('DEPLOYMENT_COMPLETE: Debian base, key SSH, bootstrap revoked, Ansible second pass unchanged',flush=True)
 except BaseException as exc:
