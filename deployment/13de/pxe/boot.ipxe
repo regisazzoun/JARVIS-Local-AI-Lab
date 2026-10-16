@@ -1,0 +1,5 @@
+#!ipxe
+dhcp
+kernel tftp://10.0.2.2/debian/linux auto=true priority=critical interface=auto console=ttyS0,115200n8
+initrd tftp://10.0.2.2/debian/initrd.gz
+boot

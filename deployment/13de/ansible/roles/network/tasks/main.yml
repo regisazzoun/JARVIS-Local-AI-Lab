@@ -1,0 +1,4 @@
+---
+- name: Vérifier les routes sans changer le réseau
+  ansible.builtin.command: ip route show
+  changed_when: false

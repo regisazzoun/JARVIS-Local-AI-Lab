@@ -1,0 +1,31 @@
+---
+- name: Configuration des seules VM du laboratoire
+  hosts: lab
+  become: true
+  gather_facts: true
+  pre_tasks:
+    - name: Refuser une cible physique ou non Debian 13
+      ansible.builtin.assert:
+        that:
+          - deployment_scope == 'lab'
+          - ansible_virtualization_role == 'guest'
+          - ansible_virtualization_type in ['kvm', 'qemu']
+          - ansible_distribution == 'Debian'
+          - ansible_distribution_major_version == '13'
+  roles:
+    - debian
+    - accounts_security
+    - network
+    - storage
+    - nvidia
+    - cuda
+    - ollama
+    - monitoring
+    - jarvis
+  post_tasks:
+    - name: Vérifier SSH
+      ansible.builtin.command: systemctl is-active ssh
+      changed_when: false
+    - name: Vérifier sudo
+      ansible.builtin.command: visudo -c
+      changed_when: false

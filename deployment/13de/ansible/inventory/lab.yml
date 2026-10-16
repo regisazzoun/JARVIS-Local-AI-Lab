@@ -1,0 +1,8 @@
+all:
+  children:
+    lab:
+      hosts:
+        jarvis-lab:
+          ansible_host: 192.0.2.10
+          ansible_user: jarvisadmin
+          deployment_scope: lab

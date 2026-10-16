@@ -1,0 +1,10 @@
+#!ipxe
+# Read-only Debian installer discovery; NO preseed and NO automatic partitioning.
+dhcp || goto failed
+set base http://@SERVER_IP@:8088
+kernel ${base}/linux initrd=initrd.gz priority=low interface=auto
+initrd ${base}/initrd.gz
+boot || goto failed
+:failed
+echo STOP - boot failed. Collect firmware/network error; do not partition.
+shell

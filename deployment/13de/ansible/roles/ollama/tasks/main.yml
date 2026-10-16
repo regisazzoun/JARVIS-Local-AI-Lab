@@ -1,0 +1,4 @@
+---
+- name: Signaler le composant différé ollama
+  ansible.builtin.debug:
+    msg: "ollama différé : validation GPU, versions et provenance requises ; aucun changement hôte."

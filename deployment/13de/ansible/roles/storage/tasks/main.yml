@@ -1,0 +1,13 @@
+---
+- name: Inventorier le stockage sans partitionner
+  ansible.builtin.command: lsblk --json --output NAME,TYPE,SIZE,FSTYPE,MOUNTPOINTS
+  changed_when: false
+
+- name: Vérifier les deux ESP montées après réception stockage
+  ansible.builtin.command: "mountpoint -q {{ item }}"
+  loop: [/boot/efi, /boot/efi-secondary]
+  changed_when: false
+- name: Vérifier la cohérence des chargeurs EFI installés
+  ansible.builtin.command: "cmp /boot/efi/EFI/debian/{{ item }} /boot/efi-secondary/EFI/debian/{{ item }}"
+  loop: [shimx64.efi, grubx64.efi, grub.cfg]
+  changed_when: false

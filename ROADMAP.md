@@ -338,3 +338,39 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 **13D-E n'exige pas de liaison SSH au Dell avant son installation :** la clé publique et la configuration SSH sont injectées par l'installation PXE ; la connexion SSH réelle n'est vérifiable qu'après le premier démarrage Debian. Cette préparation reste à réaliser/tester et ne doit pas être marquée validée à ce stade.
 
 **Frontière de sécurité :** pas de toucher au réseau de production ou aux disques réels du Dell sous couvert de « test VM ». Toute opération destructive sur les deux SSD, RAID/firmware ou réseau réel doit rester bornée par une autorisation préalable spécifique et un plan de récupération ; après autorisation du périmètre, JARVIS exécute les étapes convenues sans supervision commande par commande. Conserver les accès SSH clés **et** mot de passe existants du Mac mini Debian.
+
+
+
+## Mission 13D-E — préparation Dell, état au 15 octobre 2026
+
+**Préparation partielle ; NO-GO pour réception complète et lancement de 14A avec cette chaîne.** Audit non destructif réalisé avant toute installation ; aucune installation système effectuée. Inventaires et neuf rôles Ansible, bootstrap SSH invité, templates Debian/iPXE et contrôleur VM TCG borné livrés. Six tests du contrôleur passent ; cela ne valide pas UEFI/PXE, Debian, RAID1 ou l'autonomie du modèle local.
+
+Blocages : QEMU/OVMF/Ansible absents ; KVM inaccessible dans cette session ; réseau/systemd/Docker restreints et DNS shell indisponible. Miroir de paquets isolé, transport SSH invité, second boot disque et superviseur agent durable restent à compléter. NVIDIA/CUDA/Ollama : rôles différés, pas de changement des installations actuelles. Variantes VROC/VMD et mdadm documentées sans décision de partitionnement physique.
+
+Prochaine étape : fournir les prérequis sans altérer l'hôte, compléter la chaîne isolée, réaliser la recette VM et Ansible puis raccorder un worker durable à une copie de 13F. Les essais VM réversibles sont autorisés sans supervision ; les modifications de services sensibles demandent diagnostic et validation ciblée. La démonstration 14A doit provenir du modèle local JARVIS. Aucune intervention Dell, modification SSH/Tailscale/noyau/GRUB, clé, modèle ou SQLite.
+
+Dossier : [réception](docs/missions/13D-E/RAPPORT-FINAL.md), [audit](docs/missions/13D-E/AUDIT.md), [architecture](docs/missions/13D-E/ARCHITECTURE.md), [laboratoire](docs/missions/13D-E/LABORATOIRE.md), [tests](docs/missions/13D-E/TESTS.md). Publication en branche dédiée, aucune fusion automatique.
+
+
+## Reprise 13D-E — priorité physique, 15 octobre 2026
+
+Cette décision remplace l'obligation préparatoire de reconstruire une chaîne VM complète : progression directe vers la préparation du Dell avec validations ciblées. GO AVEC RÉSERVES pour la préparation, aucun lancement physique autorisé. Outillage réaudité, 16 tests de garde-fous, deux syntax-check Ansible, sources Debian authentifiées, boot TCG et HTTP loopback ciblés. ProxyDHCP/TFTP/HTTP et initrd candidat prêts à être adaptés au plan validé ; aucune activation LAN.
+
+Restent : découverte Dell/SSD/contrôleur et clé publique autorisée, validation humaine réseau, qualification de la recette mdadm et double ESP, autorisation explicite d'effacement/installation, puis premier SSH et idempotence. Les rôles IA et l'intégration agent sont encore différés. Le refus KVM utilisateur n'empêche pas cette préparation physique. 14A reste une preuve d'autonomie distincte, non acquise par ces tests.
+
+Voir [procédure physique](docs/missions/13D-E/DEPLOIEMENT-PHYSIQUE.md), [tests](docs/missions/13D-E/TESTS.md) et [réception](docs/missions/13D-E/RAPPORT-FINAL.md). ROADMAP ↔ SUIVI synchronisés, format SUIVI conservé. Historique NO-GO maintenu sans le présenter comme l'état courant de l'outillage.
+
+
+## Reprise 13D-E — bootstrap A/B, 16 octobre 2026
+
+PXE UEFI physique jusqu'à Debian Installer confirmé et conservé. Prochaine étape : découverte automatique bloquante, après nouvelle autorisation réseau. Bootstrap temporaire, transition indépendante par clé et orchestration Ansible préparés ; 22 tests + récepteur passent, aucune installation/connexion SSH Dell exécutée. Qualification RAID/double ESP, séries réelles, clé autorisée et approbations d'effacement puis administration restent nécessaires. Aucun composant GPU/IA déclaré opérationnel. Voir [bootstrap automatisé](docs/missions/13D-E/BOOTSTRAP-AUTOMATISE.md), [rapport](docs/missions/13D-E/RAPPORT-FINAL.md) et SUIVI, synchronisés sans modifier les lignes historiques.
+
+
+### 13D-E — découverte physique reçue, 16 octobre 2026
+
+Rapport transmis automatiquement depuis le Dell et conservé privé ; découverte CPU/RAM/NVMe acquise. Services temporaires arrêtés automatiquement. Installation toujours NO-GO : lecteur SD sans média à qualifier, libellé DMI et écart BIOS à revoir, recette RAID/EFI et autorisations restantes. Aucun effacement ni prise de contrôle SSH effectués.
+
+
+### 13D-E — installation autonome autorisée, 16 octobre 2026
+
+Le propriétaire autorise réseau nécessaire, effacement des deux NVMe identifiés, installation/reboot et administration ; seule intervention humaine : lancement PXE. Directive prioritaire enregistrée dans AGENTS.md et le prompt de déploiement. Qualification RAID/deux ESP et deux boots UEFI sur disque seul acquise sur images jetables ; 25 tests + récepteur passent. Image réelle et orchestration automatique préparées, aucune installation Dell effectuée à ce stade.

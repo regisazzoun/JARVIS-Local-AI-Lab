@@ -1,0 +1,8 @@
+all:
+  children:
+    dell:
+      hosts:
+        dell-precision:
+          ansible_host: dell.invalid
+          ansible_user: jarvisadmin
+          deployment_scope: physical-disabled

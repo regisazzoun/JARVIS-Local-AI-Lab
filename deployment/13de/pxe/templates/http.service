@@ -1,0 +1,14 @@
+# Candidate system unit; do not install/enable before network approval.
+[Unit]
+Description=13D-E read-only installer HTTP
+[Service]
+Type=simple
+User=@USER@
+ExecStart=/usr/bin/python3 -m http.server 8088 --bind @SERVER_IP@ --directory @HTTP_ROOT@
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=yes
+RestrictAddressFamilies=AF_INET
+[Install]
+WantedBy=multi-user.target

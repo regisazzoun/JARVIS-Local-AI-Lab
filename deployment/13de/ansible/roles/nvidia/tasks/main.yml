@@ -1,0 +1,4 @@
+---
+- name: Signaler le composant différé nvidia
+  ansible.builtin.debug:
+    msg: "nvidia différé : validation GPU, versions et provenance requises ; aucun changement hôte."

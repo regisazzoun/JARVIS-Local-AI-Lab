@@ -1,0 +1,9 @@
+# Candidate only. Starting this unit activates ProxyDHCP on the LAN.
+[Unit]
+Description=13D-E approved Dell-only ProxyDHCP/TFTP
+[Service]
+Type=simple
+ExecStart=/usr/sbin/dnsmasq --keep-in-foreground --conf-file=@CONFIG@
+Restart=no
+[Install]
+WantedBy=multi-user.target
