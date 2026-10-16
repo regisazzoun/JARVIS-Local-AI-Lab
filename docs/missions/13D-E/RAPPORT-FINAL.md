@@ -19,6 +19,18 @@ La prochaine étape est une séance de découverte et la qualification ciblée d
 
 ---
 
+## Addendum matériel et décision de déploiement — 16 octobre 2026
+
+Informations confirmées par le propriétaire (non mesurées à distance lors de cette mise à jour) : Dell Precision 5820 X-Series, BIOS 2.24.0, processeur Intel Core i9 X-Series Extreme (référence exacte restant à relever), **8 × 32 Go = 256 Go RAM détectés dans le BIOS**, deux NVIDIA RTX 3090 présentes dans les logements PCIe. Le système atteint le BIOS avec les deux cartes en place ; **une seule RTX 3090 est actuellement alimentée complètement**, les cordons de la seconde étant attendus. L'accès BIOS n'est pas une preuve de reconnaissance CUDA des deux cartes. La seconde carte ne doit être raccordée qu'après extinction complète et déconnexion secteur, avec câblage/adéquation PSU validés ; éviter de solliciter une carte sans alimentation auxiliaire. Risque spécifique de dépassement de l'enveloppe graphique constructeur avec deux RTX 3090 de 350 W : vérifier PSU, câbles d'origine compatibles, rails/connecteurs et limites de puissance avant usage conjoint ; aucune validation de double-GPU à pleine puissance n'est revendiquée.
+
+Stockage identifié via BIOS/VROC : NVMe **KIOXIA KXG70PNV2T04** et **Samsung PM9A1** (~2 To chacun), Intel VROC 7.0.3.1006 en **pass-through**, aucun volume RAID VROC. **Décision confirmée : RAID 1 logiciel Linux `mdadm` sous Debian 13**, pas de RAID VROC ni achat de clé d'activation. Le `deployment/13de/debian/preseed-dell.candidate.cfg` existant configure déjà `partman-auto/method=raid` et `mdadm` ; il demeure **candidat**, sans garantie de partitionnement UEFI correct ni d'amorçage autonome sur chacun des deux disques. Qualifier ESP sur chaque disque, copie/synchronisation chargeurs EFI, démarrage dégradé, surveillance mdadm/SMART et reconstruction en VM avant toute installation physique.
+
+**Exclusion utilisateur : ne pas réaliser de benchmarks de débit ou de tests intensifs d'écriture NVMe** (`fio`, `dd` de performance, mesure comparative CPU/RAID). Seules les vérifications fonctionnelles nécessaires à la sécurité et à la résilience restent dans le périmètre.
+
+**Suite 13D-E :** conserver infrastructure PXE préparée, proxyDHCP Bbox et garde d'effacement ; préparer installation sur une seule RTX 3090 alimentée, puis reconnaissance contrôlée de la seconde après ajout de ses câbles, **sans réinstallation Debian**. Aucune activation des services LAN, aucun effacement et aucune installation physique ne sont autorisés par cet addendum. Les réserves historiques ci-dessous sont conservées comme traces d'état à leur date.
+
+---
+
 ## Rapport historique de la première exécution (conservé)
 
 # Réception 13D-E — NO-GO pour réception complète
