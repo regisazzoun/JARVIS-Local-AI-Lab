@@ -83,7 +83,7 @@ report=$work/report.txt
   cat /etc/ssh/ssh_host_ed25519_key.pub
   echo JARVIS_HOSTKEY_END
  fi
- echo 'JARVIS DISCOVERY END' 
+ echo 'JARVIS DISCOVERY END'
 } > "$report"
 echo "Rapport RAM : $report"
 if command -v wget >/dev/null 2>&1 && wget --help 2>&1 | grep -q -- '--post-file'; then

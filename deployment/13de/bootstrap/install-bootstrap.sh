@@ -44,7 +44,7 @@ cat > /target/etc/systemd/system/jarvis-bootstrap-expire.service <<'EOF'
 Description=Revoke deployment bootstrap credentials
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'if test -s /var/lib/jarvis/permanent-key-verified; then exec /usr/local/sbin/jarvis-revoke-bootstrap; else logger -t jarvis-bootstrap "24h review required; account retained until independent key proof"; fi' 
+ExecStart=/bin/sh -c 'if test -s /var/lib/jarvis/permanent-key-verified; then exec /usr/local/sbin/jarvis-revoke-bootstrap; else logger -t jarvis-bootstrap "24h review required; account retained until independent key proof"; fi'
 EOF
 {
  printf '[Unit]\nDescription=Bound bootstrap credential lifetime\n[Timer]\nOnCalendar=%s\nPersistent=true\n[Install]\nWantedBy=timers.target\n' "$(cat /bootstrap-expires)"
