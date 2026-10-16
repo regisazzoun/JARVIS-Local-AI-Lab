@@ -12,7 +12,7 @@ Le propriétaire autorise, pour ce déploiement du Dell identifié :
 2. La destruction de toutes les partitions des deux NVMe identifiés dans le rapport privé, puis l'installation complète de Debian 13 minimal en RAID1 logiciel avec une ESP indépendante sur chaque disque.
 3. Le redémarrage automatique du Dell, la création du compte temporaire, la prise de contrôle administrative SSH, l'établissement de l'accès permanent par clé et l'application du socle Ansible.
 
-Ces autorisations sont acquises : ne pas les redemander. Elles couvrent exclusivement le Dell et les deux NVMe associés à son UUID, leurs séries/modèles/capacités étant dans deployment/13de/private/bootstrap-discovery-04/inventory.observed.json. Ne pas publier ces identifiants uniques ni les secrets.
+Ces directives remplacent les anciens prompts et validations humaines intermédiaires de la mission. Ces autorisations sont acquises : ne pas les redemander. Elles couvrent exclusivement le Dell et les deux NVMe associés à son UUID, leurs séries/modèles/capacités étant dans deployment/13de/private/bootstrap-discovery-04/inventory.observed.json. Ne pas publier ces identifiants uniques ni les secrets.
 
 ## Résultat attendu
 

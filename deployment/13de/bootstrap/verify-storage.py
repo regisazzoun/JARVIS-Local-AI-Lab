@@ -23,7 +23,7 @@ assert pathlib.Path(root).resolve()==pathlib.Path('/dev',md.name).resolve(),'roo
 uuids=[]
 for d in plan['disks']:
  device=d['path']+'p1'
- def field(f):return subprocess.check_output(['blkid','-s',f,'-o','value',device],text=True).strip().lower()
+ def field(f):return subprocess.check_output(['blkid']+(['-p'] if f=='PART_ENTRY_TYPE' else [])+['-s',f,'-o','value',device],text=True).strip().lower()
  assert field('TYPE')=='vfat','ESP filesystem'
  assert field('PART_ENTRY_TYPE')=='c12a7328-f81f-11d2-ba4b-00a0c93ec93b','ESP GPT type'
  uuids.append(field('PARTUUID'))

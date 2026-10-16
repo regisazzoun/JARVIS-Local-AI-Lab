@@ -32,7 +32,7 @@ with tempfile.TemporaryDirectory() as tmp:
  for src,dst in [('guard-physical.sh','guard-physical.sh'),('install-ssh.sh','install-ssh.sh'),('preseed-dell.candidate.cfg','preseed.cfg')]:
   (stage/dst).write_bytes((base/src).read_bytes())
  (stage/'authorized_key').write_bytes(key.read_bytes())
- rows=['uuid\t'+manifest['uuid']]
+ rows=['uuid\t'+manifest['uuid'],'product\t'+manifest['product']]
  for d in manifest['disks']:
   rows.append('\t'.join(['disk',pathlib.Path(d['path']).name,d['serial'],d['model'],str(d['size']//512)]))
  (stage/'approved.tsv').write_text('\n'.join(rows)+'\n')

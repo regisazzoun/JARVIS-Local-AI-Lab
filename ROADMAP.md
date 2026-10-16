@@ -369,3 +369,8 @@ PXE UEFI physique jusqu'à Debian Installer confirmé et conservé. Prochaine é
 ### 13D-E — découverte physique reçue, 16 octobre 2026
 
 Rapport transmis automatiquement depuis le Dell et conservé privé ; découverte CPU/RAM/NVMe acquise. Services temporaires arrêtés automatiquement. Installation toujours NO-GO : lecteur SD sans média à qualifier, libellé DMI et écart BIOS à revoir, recette RAID/EFI et autorisations restantes. Aucun effacement ni prise de contrôle SSH effectués.
+
+
+### 13D-E — installation autonome autorisée, 16 octobre 2026
+
+Le propriétaire autorise réseau nécessaire, effacement des deux NVMe identifiés, installation/reboot et administration ; seule intervention humaine : lancement PXE. Directive prioritaire enregistrée dans AGENTS.md et le prompt de déploiement. Qualification RAID/deux ESP et deux boots UEFI sur disque seul acquise sur images jetables ; 25 tests + récepteur passent. Image réelle et orchestration automatique préparées, aucune installation Dell effectuée à ce stade.

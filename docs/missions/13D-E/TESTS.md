@@ -67,3 +67,13 @@ Données mesurées : Precision 5820 Tower X-Series, Core i9-10980XE, 36 processe
 **NO-GO installation maintenu.** Le manifeste d'installation a été refusé : périphérique supplémentaire /dev/sda, SD/MMC CRW, taille nulle, et produit DMI « Precision 5820 Tower X-Series » différent du profil strict historique « Precision 5820 Tower ». Les séries et UUID sont conservés dans l'inventaire privé ; aucun identifiant matériel unique publié. Ne pas ignorer globalement les disques supplémentaires : identifier/qualifier le lecteur sans média avant révision précise de la politique. Autre écart à revoir : BIOS DMI 2.8.0 daté du 15 janvier 2021, alors que 2.24.0 avait été annoncé ; aucune modification firmware autorisée ou effectuée.
 
 Découverte automatique réalisée et reçue ; qualification RAID/deux ESP, approbation d'effacement portant sur les séries réelles, identité SSH permanente et autorisation administrative restent à obtenir.
+
+
+## Préparation du lancement d'installation autonome — 16 octobre 2026
+
+- 25 tests unittest réussis + test récepteur (incluant événements intermédiaires non terminants). Nouveaux refus : média ajouté au lecteur SD exclu, exception de lecteur généralisée, DMI différent ; acceptation exacte du X-Series observé.
+- Qualification ciblée sur deux NVMe virtuels de 16 Gio : partman RAID1, deux ESP FAT et UUID distincts ; système minimal installé, miroir [UU], finalisation EFI et initramfs réussies après correction des défauts du candidat. Images confinées à private ; aucun disque hôte passé à QEMU.
+- Deux démarrages natifs OVMF, sans kernel/initrd injecté : A seul puis B seul, aucune interface réseau, root /dev/md0 RAID1 [U_] puis [_U], marqueur système installé obtenu dans les deux cas. Preuve qualification.json privée et empreintes des logs. Aucune déconnexion physique du Dell revendiquée.
+- KVM utilisé par ouverture privilégiée puis réduction au compte adminjarvis via QEMU -run-with ; aucune permission KVM, clé/compte ou configuration de service hôte modifiée.
+- Import automatique d'un rapport d'installation testé avec clé hôte synthétique et inventaire réel privé : identité comparée et paramètres de reprise produits, sans connexion réseau ni activation administrative par ce test.
+- Image réelle construite après l'autorisation explicite du propriétaire et la qualification, avec accord d'effacement lié au manifeste/scripts/séries et reboot autorisé. Aucun clair du mot de passe ou clé privée de contrôle embarqué. Services réels uniquement dans la fenêtre autorisée ; installation physique encore à déclencher par PXE.

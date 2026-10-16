@@ -14,7 +14,12 @@ def parse(text):
         if parts[0] == 'disk':
             if len(parts) != 6: raise ValueError('disk fields')
             _, path, serial, model, sectors, ro = parts
-            if not re.fullmatch(r'/dev/nvme[0-9]+n[0-9]+', path): raise ValueError('unexpected non-NVMe disk')
+            if not re.fullmatch(r'/dev/nvme[0-9]+n[0-9]+', path):
+                if path=='/dev/sda' and model=='SD/MMC CRW' and int(sectors)==0:
+                    if result.get('excluded_empty_media'):raise ValueError('duplicate empty reader')
+                    result['excluded_empty_media']=[dict(path=path,model=model,size=0)]
+                    continue
+                raise ValueError('unexpected non-NVMe disk')
             result['disks'].append(dict(path=path, serial=serial, model=model, size=int(sectors)*512, type='disk', ro=ro!='0'))
         else:
             if len(parts)!=2 or parts[0] not in ('vendor','product','uuid','uefi') or parts[0] in result:

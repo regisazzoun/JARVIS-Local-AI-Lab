@@ -38,3 +38,19 @@ class Physical(unittest.TestCase):
   self.plan['disks'][0]['path']='/dev/nvme0n1p1'
   self.live['disks'][0]['path']='/dev/nvme0n1p1'
   with self.assertRaises(AssertionError):validate(self.plan,self.live)
+
+ def test_observed_xseries_product_is_still_exact(self):
+  self.plan['product']=self.live['product']='Precision 5820 Tower X-Series'
+  self.assertTrue(validate(self.plan,self.live))
+  self.live['product']='Other Dell'
+  with self.assertRaises(AssertionError):validate(self.plan,self.live)
+ def test_empty_reader_exception_never_accepts_inserted_media(self):
+  self.plan['excluded_empty_media']=[dict(path='/dev/sda',model='SD/MMC CRW',size=0)]
+  self.live['disks'].append(dict(path='/dev/sda',type='disk',model='SD/MMC CRW',size=0,ro=False))
+  self.assertTrue(validate(self.plan,self.live))
+  for size in (512,1000000):
+   self.live['disks'][-1]['size']=size
+   with self.assertRaises(AssertionError):validate(self.plan,self.live)
+ def test_empty_reader_exception_cannot_be_generalized(self):
+  self.plan['excluded_empty_media']=[dict(path='/dev/sdb',model='anything',size=0)]
+  with self.assertRaises(AssertionError):validate(self.plan,self.live)

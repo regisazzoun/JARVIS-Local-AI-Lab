@@ -24,6 +24,8 @@ Match User jarvis-bootstrap Address 192.168.1.99
 Match all
 EOF
 in-target ssh-keygen -A
+mkdir -p /run/sshd /target/run/sshd
+chmod 755 /run/sshd /target/run/sshd
 in-target /usr/sbin/sshd -t
 mkdir -p /target/usr/local/sbin
 cat > /target/usr/local/sbin/jarvis-revoke-bootstrap <<'EOF'

@@ -24,6 +24,16 @@ def run(bind, port, source, key, script, output, lifetime=1200, manifest_output=
             self.reply(200, script)
         def do_POST(self):
             nonlocal received
+            if self.allowed('/event'):
+                try: length=int(self.headers.get('Content-Length','0'))
+                except ValueError: length=0
+                if not 0 < length <= 4096:
+                    self.reply(413,b'Invalid event\n');return
+                data=self.rfile.read(length)
+                if len(data)!=length:self.reply(400,b'Incomplete event\n');return
+                event=''.join(c for c in data.decode('utf-8',errors='replace') if c.isprintable())
+                print('INSTALL_EVENT',int(time.time()),event,flush=True)
+                self.reply(202,b'EVENT_RECEIVED\n');return
             if not self.allowed('/report'):
                 self.reply(403, b'Forbidden\n'); return
             if self.headers.get('Transfer-Encoding') or len(self.headers.get_all('Content-Length', [])) != 1:
@@ -76,4 +86,4 @@ if __name__ == '__main__':
     import json
     s = json.loads(pathlib.Path(args.settings).read_text())
     script = pathlib.Path(s['script']).read_bytes()
-    raise SystemExit(0 if run(s['bind'], s['port'], s['source'], s['key'], script, pathlib.Path(s['output']), manifest_output=s.get('manifest_output')) else 2)
+    raise SystemExit(0 if run(s['bind'], s['port'], s['source'], s['key'], script, pathlib.Path(s['output']), lifetime=s.get('lifetime',1200), manifest_output=s.get('manifest_output')) else 2)

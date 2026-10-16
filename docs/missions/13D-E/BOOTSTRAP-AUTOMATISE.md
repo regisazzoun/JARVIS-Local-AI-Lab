@@ -1,6 +1,18 @@
 # 13D-E — bootstrap en deux phases, 16 octobre 2026
 
-## État et prochaine étape physique
+## Directive courante — installation autonome autorisée
+
+Les nouvelles directives du propriétaire remplacent les anciennes validations humaines intermédiaires de cette page. Réseau nécessaire, effacement des deux NVMe identifiés, reboot et administration SSH/Ansible sont autorisés. **Seule intervention : lancer F12 → UEFI IPv4 quand JARVIS annonce les services prêts.** Voir [prompt prioritaire](PROMPT-INSTALLATION-AUTONOME.md) et AGENTS.md.
+
+Le profil DMI X-Series réellement observé est désormais accepté uniquement avec égalité au manifeste et UUID exact. Exception précise pour /dev/sda : modèle SD/MMC CRW et capacité nulle ; un média inséré ou un autre disque fait échouer les contrôles. L'initrd installable est construit avec une approbation privée liée aux séries, aux empreintes du manifeste et des scripts, et aux preuves de qualification. Aucun identifiant unique publié.
+
+La recette crée deux ESP FAT distinctes et un RAID1 ext4 racine. Qualification sur deux NVMe virtuels jetables : miroir [UU], finalisation des deux chargeurs Debian signés, puis démarrage natif OVMF avec A seul et B seul, chacun sur le RAID dégradé attendu. Les contrôles ont permis de corriger le chargement de partman-auto-raid, les confirmations md, le répertoire /run/sshd de l'installateur, les captures in-target --pass-stdout, le sondage GPT blkid -p et les options nofail des deux ESP. Ce ne sont pas des essais de déconnexion physique des NVMe Dell, et aucun effacement Dell n'est encore exécuté.
+
+Session privée prête : installation-01. serve-install.py active les services bornés, ferme PXE/HTTP après le transfert, reçoit les événements et le rapport du premier boot, vérifie la clé hôte/DMI puis lance automatiquement configure.py. Une identité dédiée a été créée sous private, aucune clé existante du Mac n'a changé. Le compte temporaire n'est révoqué qu'après connexion indépendante à clé et sudo ; deux passes Ansible et stockage sain nécessaires pour statut complet. Le récepteur reste borné à 8 h, la synchronisation initiale RAID est attendue jusqu'à 6 h sans benchmark. status.json et deployment.log privés permettent de suivre/reprendre sans transfert manuel de résultats.
+
+## Préparation et décisions antérieures (historique)
+
+### État et prochaine étape physique
 
 Le PXE UEFI physique est acquis : snponly.efi → iPXE → noyau/initrd → Debian Installer. Il n'est ni reconçu ni simulé à nouveau. Le premier essai Legacy avait échoué ; le second UEFI a atteint Debian. Aucun disque Dell n'a été écrit par cette session.
 

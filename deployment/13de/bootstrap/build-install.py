@@ -30,7 +30,6 @@ def main():
     raw=a.manifest.read_bytes();manifest=json.loads(raw);live=copy.deepcopy(manifest);live['uefi']=True
     for disk in live['disks']:disk.update(type='disk',ro=False)
     validate(manifest,live)
-    assert manifest['product']=='Precision 5820 Tower', 'physical guard product must be reviewed for a differing DMI'
     for disk in manifest['disks']:
         for field in ('path','model','serial'):assert not any(c in disk[field] for c in '\r\n\t'),'manifest delimiter'
         assert disk['size']%512==0
@@ -51,11 +50,16 @@ def main():
     assert hashed.startswith('$6$') and not any(c in hashed for c in '\r\n\t '),'SHA512 password hash'
     cfg=recipe.decode().replace('@PASSWORD_HASH@',hashed).replace('@DISK_A@',manifest['disks'][0]['path']).replace('@DISK_B@',manifest['disks'][1]['path'])
     with tempfile.TemporaryDirectory() as temp:
-        stage=pathlib.Path(temp)
+        stage=pathlib.Path(temp)/'stage';stage.mkdir()
+        from nvme_drivers import add
+        add(assets,stage)
+        (stage/'load-nvme.sh').write_text('set -eu\nfor n in nvme-auth nvme-core nvme; do\n module=$(printf %s "$n" | tr "-" "_")\n test -d "/sys/module/$module" || insmod /jarvis-drivers/$n.ko\ndone\nudevadm settle\n/bin/sh /guard-physical.sh || { echo STOP-JARVIS-identity-or-approval; while :; do sleep 3600; done; }\n')
+        cfg+='\nd-i preseed/early_command string /bin/sh /load-nvme.sh\n'
         (stage/'preseed.cfg').write_text(cfg)
         (stage/'approved.json').write_bytes(raw)
-        rows=['uuid\t'+manifest['uuid']]
+        rows=['uuid\t'+manifest['uuid'],'product\t'+manifest['product']]
         for d in manifest['disks']:rows.append('\t'.join(['disk',pathlib.Path(d['path']).name,d['serial'],d['model'],str(d['size']//512)]))
+        for media in manifest.get('excluded_empty_media',[]):rows.append('\t'.join(['empty-media',pathlib.Path(media['path']).name,media['model'],'0']))
         tsv='\n'.join(rows)+'\n';(stage/'approved.tsv').write_text(tsv)
         for n in ('install-bootstrap.sh','finalize-efi.sh','sync-esp.sh','verify-storage.py'):(stage/n).write_bytes((ROOT/'bootstrap'/n).read_bytes())
         (stage/'guard-physical.sh').write_bytes((ROOT/'debian/guard-physical.sh').read_bytes())
@@ -63,17 +67,19 @@ def main():
         collector=(ROOT/'discovery/collect.sh').read_text()
         for k,v in dict(BASE='http://192.168.1.99:8090',KEY=callback_key,HOST='192.168.1.99',PORT='8090').items():collector=collector.replace('@'+k+'@',v)
         (stage/'jarvis-collect.sh').write_text(collector)
+        event='#!/bin/sh\n# Progress only, no passwords. Failure must not block an otherwise safe install.\nwget --no-proxy -q -T 5 -t 1 -O /tmp/jarvis-event-ack --post-data="$1" http://192.168.1.99:8090/'+callback_key+'/event >/dev/null 2>&1 || :\n'
+        (stage/'jarvis-event.sh').write_text(event)
         expiry=datetime.datetime.now(datetime.timezone.utc)+datetime.timedelta(hours=24)
         (stage/'bootstrap-expires').write_text(expiry.strftime('%Y-%m-%d %H:%M:%S UTC')+'\n')
         if approval:
             (stage/'approved-erase.sha256').write_text(digest(tsv.encode())+'\n')
             with (stage/'preseed.cfg').open('a') as f:
-                f.write('\nd-i partman-md/device_remove_md boolean true\nd-i partman-lvm/device_remove_lvm boolean true\nd-i partman/confirm_write_new_label boolean true\nd-i partman/choose_partition select finish\nd-i partman/confirm boolean true\nd-i partman/confirm_nooverwrite boolean true\n')
+                f.write('\nd-i partman-md/confirm boolean true\nd-i partman-md/confirm_nooverwrite boolean true\nd-i partman-md/device_remove_md boolean true\nd-i partman-lvm/device_remove_lvm boolean true\nd-i partman/confirm_write_new_label boolean true\nd-i partman/choose_partition select finish\nd-i partman/confirm boolean true\nd-i partman/confirm_nooverwrite boolean true\n')
             if approval.get('reboot_authorized') is True:(stage/'approved-reboot').write_text(digest(raw)+'\n')
-        names='\n'.join(sorted(p.name for p in stage.iterdir()))+'\n'
+        names='\n'.join(sorted(str(p.relative_to(stage)) for p in stage.rglob('*')))+'\n'
         archive=subprocess.run(['cpio','-o','-H','newc','--reproducible'],cwd=stage,input=names.encode(),capture_output=True,check=True).stdout
         with a.output.open('xb') as f:f.write(base_bytes);f.write(gzip.compress(archive,mtime=0))
-    callback=dict(bind='192.168.1.99',port=8090,source='192.168.1.0/24',key=callback_key,script=str(a.output.resolve())+'.collect.sh',output=str(a.output.resolve())+'.firstboot-report.txt')
+    callback=dict(lifetime=28800,bind='192.168.1.99',port=8090,source='192.168.1.0/24',key=callback_key,script=str(a.output.resolve())+'.collect.sh',output=str(a.output.resolve())+'.firstboot-report.txt')
     with pathlib.Path(str(a.output)+'.collect.sh').open('x') as f:f.write(collector)
     with pathlib.Path(str(a.output)+'.receiver.json').open('x') as f:json.dump(callback,f,indent=2);f.write('\n')
     print('Install artifact:',a.output,'explicit erase enabled:',bool(approval),'reboot enabled:',bool(approval and approval.get('reboot_authorized')))

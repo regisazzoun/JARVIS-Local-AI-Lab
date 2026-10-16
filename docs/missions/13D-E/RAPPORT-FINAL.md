@@ -1,3 +1,11 @@
+# État courant — installation autonome prête pour lancement PXE
+
+PXE et découverte physiques acquis. Le propriétaire autorise l’installation complète sur les deux NVMe identifiés, le reboot et l’administration SSH/Ansible, sans nouvelle validation humaine. La seule intervention attendue est le lancement PXE lorsque les services sont annoncés prêts. Qualification ciblée RAID1/deux ESP et deux démarrages UEFI sur disque virtuel seul réussis ; 25 tests + récepteur passent. **Aucune installation Dell encore effectuée.**
+
+Directive prioritaire : [prompt d’installation autonome](PROMPT-INSTALLATION-AUTONOME.md). Les états ci-dessous sont conservés avec leur contexte ; leurs anciennes demandes de validation humaine ne remplacent pas cette directive.
+
+---
+
 # Reprise 13D-E — GO AVEC RÉSERVES pour la préparation physique
 
 La préparation progresse vers le Dell sans imposer un laboratoire virtuel complet. Aucun Dell installé et aucune autorisation de lancement physique déduite de ce verdict. Le NO-GO historique reste conservé ci-dessous avec son contexte.
@@ -28,6 +36,16 @@ Stockage identifié via BIOS/VROC : NVMe **KIOXIA KXG70PNV2T04** et **Samsung PM
 **Exclusion utilisateur : ne pas réaliser de benchmarks de débit ou de tests intensifs d'écriture NVMe** (`fio`, `dd` de performance, mesure comparative CPU/RAID). Seules les vérifications fonctionnelles nécessaires à la sécurité et à la résilience restent dans le périmètre.
 
 **Suite 13D-E :** conserver infrastructure PXE préparée, proxyDHCP Bbox et garde d'effacement ; préparer installation sur une seule RTX 3090 alimentée, puis reconnaissance contrôlée de la seconde après ajout de ses câbles, **sans réinstallation Debian**. Aucune activation des services LAN, aucun effacement et aucune installation physique ne sont autorisés par cet addendum. Les réserves historiques ci-dessous sont conservées comme traces d'état à leur date.
+
+---
+
+## Installation autonome autorisée et préparée — 16 octobre 2026
+
+Le propriétaire autorise explicitement l'effacement des deux NVMe identifiés, l'installation, le reboot et l'administration sans validations humaines intermédiaires ; sa seule intervention sera le lancement PXE. Directive enregistrée dans AGENTS.md et [le prompt de référence](PROMPT-INSTALLATION-AUTONOME.md), prioritaire sur les anciens prompts de mission contradictoires.
+
+Qualification ciblée acquise : deux NVMe virtuels, RAID1 [UU], deux ESP FAT distinctes et finalisation EFI ; puis deux démarrages **natifs UEFI**, A seul et B seul, racine md0 en état dégradé attendu. 25 tests + récepteur passent. Les défauts identifiés pendant la qualification ont été corrigés avant construction de l'image réelle. Les preuves brutes et autorisations liées aux séries restent privées. Aucun test physique de retrait NVMe, aucune installation Dell encore effectuée.
+
+Profil adapté au DMI réel, sans abandon du contrôle UUID/séries/modèles/tailles. Le lecteur SD n'est exclu que sans média et au modèle exact ; tout autre stockage bloque. Image d'installation complète et superviseur de bootstrap/Ansible préparés. Secret et identité dédiés privés, SSH/Tailscale/services Mac et DHCP Bbox préservés. GPU/IA restent une phase ultérieure indépendante.
 
 ---
 

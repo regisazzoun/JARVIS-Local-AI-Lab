@@ -20,6 +20,7 @@ class ReceiverTest(unittest.TestCase):
             ('GET', '192.0.2.2', f'/{key}/discover.sh', b'', 0, 403),
             ('GET', '192.0.2.1', '/wrong/discover.sh', b'', 0, 403),
             ('GET', '192.0.2.1', f'/{key}/discover.sh', b'', 0, 200),
+            ('POST', '192.0.2.1', f'/{key}/event', b'guard-ok', 8, 202),
             ('POST', '192.0.2.1', '/wrong/report', data, len(data), 403),
             ('POST', '192.0.2.1', f'/{key}/report', data, 2000000, 413),
             ('POST', '192.0.2.1', f'/{key}/report', data[:-10], len(data), 400),

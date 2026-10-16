@@ -10,9 +10,9 @@ Chaque nouveau prompt doit indiquer les documents relus, les autorisations conse
 
 # Politique de déploiement JARVIS
 
-Décision explicite du propriétaire, 16 octobre 2026, à conserver pour les prochains déploiements.
+Décision explicite du propriétaire, 16 octobre 2026, à conserver pour les prochains déploiements. Ces directives remplacent les anciens prompts ChatGPT et consignes de mission contradictoires au même niveau utilisateur ; elles ne suppriment pas les vérifications techniques ni les instructions système applicables.
 
-- Une demande explicite de déploiement complet autorise l'effacement des partitions, l'installation automatisée et le redémarrage sur les seuls disques du profil cible identifié et validé. Ne pas demander de confirmation à chaque commande de ce périmètre.
+- Une demande explicite de déploiement complet autorise l'effacement des partitions, l'installation automatisée et le redémarrage sur les seuls disques du profil cible identifié et validé par les contrôles automatiques. Ne pas demander de confirmation à chaque commande de ce périmètre.
 - Une demande de préparation ou de découverte seule n'autorise pas l'effacement. Une cible ou un disque inconnu ne devient pas autorisé par cette règle : découvrir, associer au profil et arrêter en cas d'ambiguïté.
 - Conserver les contrôles UUID/DMI, séries, modèles et capacités exactes. Ne jamais sélectionner un disque par sa seule capacité ou par l'ordre de détection.
 - Pour une demande explicite d’installation complète autonome, l’accord couvre les services temporaires nécessaires, l’effacement des seuls disques du profil validé, le reboot, le bootstrap SSH, l’accès permanent et le socle Ansible. La seule intervention physique normalement attendue est le lancement PXE. Une fois la mission lancée par le propriétaire, JARVIS et Codex doivent exécuter l'ensemble des opérations sans demander de validation humaine intermédiaire. Enchaîner les opérations prévues ; n'arrêter qu'en cas de divergence de cible ou de blocage technique réel. Une demande limitée à la préparation/découverte conserve son périmètre limité. Les contrôles automatiques ne sont jamais supprimés.
