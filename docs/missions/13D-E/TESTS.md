@@ -56,3 +56,14 @@ Limites : early_command/netcfg automatique encore à éprouver physiquement ; le
 ### Correctif découverte automatique — 16 octobre, après premier essai
 
 Téléchargement physique confirmé, rapport absent, écran curseur seul. Pilotes NVMe absents du netboot initial : correction par trois modules Debian authentifiés, DHCP BusyBox et affichage tty1/nomodeset. Test TCG ciblé sans disque ni réseau : nvme-auth, nvme-core et nvme se chargent avec succès, marqueur JARVIS_NVME_DRIVER_OK. Aucun benchmark ni écriture disque ; pas de validation RAID/EFI ou de campagne PXE/VM. Tests 22 + récepteur et syntaxes restent réussis. Reprise physique requise avec l'image corrigée.
+
+
+## Découverte automatique physique reçue — 16 octobre 2026, 19:24
+
+Le Dell affiche « rapport envoyé, attente de revue humaine ». Rapport complet reçu et empreinte vérifiée ; réception et inventaire brut conservés uniquement sous private, permissions 0600. Services ProxyDHCP/TFTP/HTTP/récepteur automatiquement arrêtés et filtre temporaire retiré ; SSH/Tailscale/NetworkManager restent actifs. Aucune installation/écriture NVMe.
+
+Données mesurées : Precision 5820 Tower X-Series, Core i9-10980XE, 36 processeurs logiques, MemTotal 263631232 kB ; deux NVMe KIOXIA KXG70PNV2T04 et Samsung PM9A1, chacun 2048408248320 octets. Les deux disques ont déjà des partitions. Un seul contrôleur graphique NVIDIA est exposé par le rapport PCI ; aucune opération sur la seconde carte et aucune validation CUDA. /proc/mdstat absent : absence de RAID non démontrée.
+
+**NO-GO installation maintenu.** Le manifeste d'installation a été refusé : périphérique supplémentaire /dev/sda, SD/MMC CRW, taille nulle, et produit DMI « Precision 5820 Tower X-Series » différent du profil strict historique « Precision 5820 Tower ». Les séries et UUID sont conservés dans l'inventaire privé ; aucun identifiant matériel unique publié. Ne pas ignorer globalement les disques supplémentaires : identifier/qualifier le lecteur sans média avant révision précise de la politique. Autre écart à revoir : BIOS DMI 2.8.0 daté du 15 janvier 2021, alors que 2.24.0 avait été annoncé ; aucune modification firmware autorisée ou effectuée.
+
+Découverte automatique réalisée et reçue ; qualification RAID/deux ESP, approbation d'effacement portant sur les séries réelles, identité SSH permanente et autorisation administrative restent à obtenir.
