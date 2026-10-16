@@ -22,10 +22,10 @@
 ## 3. Autorisation effective — installation Dell 13D-E
 
 - Le propriétaire a **déjà autorisé l'installation complète autonome** du Dell reconnu, sur les **deux NVMe explicitement identifiés et associés au manifeste privé**, y compris **la suppression des partitions existantes, le RAID1 logiciel mdadm, Debian 13 minimal, reboot, bootstrap SSH, installation d'accès permanent et socle Ansible**.
-- Une seule intervention physique est attendue : lancer le Dell en **F12 → UEFI IPv4** à la demande de Codex ; la suite doit être automatisée sans confirmations répétées.
+- **Dès le lancement de la mission complète par le propriétaire, absence de validations humaines intermédiaires.** L'agent poursuit automatiquement le périmètre déjà autorisé (PXE, effacement des NVMe identifiés, installation, reboot, SSH et Ansible), sans poser de GO à chaque phase. L'unique intervention physique normalement attendue est **F12 → UEFI IPv4** lorsque Codex l'indique. Ne pas créer de nouveaux obstacles administratifs avant le démarrage non plus.
 - Cette autorisation n'est **pas** une autorisation générique de sélectionner des disques par ordre /dev/nvme* ou capacité : vérifier DMI/UUID et identité exacte du matériel et des deux SSD ; arrêter **uniquement en cas d'écart ou d'ambiguïté effective**.
 - Le **PXE physique UEFI IPv4 a déjà fonctionné** : snponly.efi → iPXE → noyau → initrd → installateur Debian. Ne pas requalifier inutilement cette partie ; un nouveau boot peut être demandé quand la chaîne d'installation est prête.
-- Les contrôles automatiques peuvent être exigeants, sans faire revenir des étapes de validation humaine déjà accordées. Si un mécanisme ancien exige à nouveau des GO distincts, l'adapter au consentement déjà documenté plutôt que le contourner silencieusement.
+- Les vérifications automatiques d'identité et de fonctionnement restent opérationnelles mais **ne doivent jamais se transformer en validations humaines**. Lorsqu'un mécanisme historique exige plusieurs GO, le mettre en cohérence avec l'autorisation globale déjà documentée, sans contourner silencieusement un contrôle technique. En cas d'écart matériel vérifié ou de défaillance concrète, signaler le blocage factuel et arrêter l'opération concernée.
 - Le RAID1 logiciel **mdadm** et les **deux ESP indépendantes** sont décidés. Les tests ciblés nécessaires à la validité de la recette sont permis ; **aucun benchmark NVMe**, aucune campagne complète de VM imposée.
 - **Compte SSH temporaire** avec mot de passe unique gardé localement sur JARVIS ; création et validation du compte permanent par clé ; **désactiver le bootstrap uniquement après connexion indépendante par clé et vérification des droits**. Aucun transfert manuel de clé.
 - Une seule RTX 3090 dispose actuellement d'une alimentation auxiliaire complète : ne pas demander l'utilisation de la seconde avant vérification des câbles et de l'alimentation. Le déploiement de base n'est pas bloqué par cette situation.
@@ -50,6 +50,8 @@ Avant de générer ou de lancer une directive Codex ou JARVIS relative au projet
 5. Si les documents sont inaccessibles ou contradictoires, le signaler avant d'affirmer que le prompt reprend fidèlement les instructions.
 6. Démarrer l'exécution à partir du dernier jalon matériel **réellement prouvé**, sans refaire ce qui est acquis.
 7. Mettre à jour ce référentiel lorsqu'une **nouvelle décision explicite** change la politique, puis propager le changement aux instructions d'agents.
+
+**Interprétation à éviter :** « absence de validations répétitives » ne signifie pas « quelques validations restent souhaitables ». Pour la mission complète autorisée, c'est **zéro validation humaine intermédiaire après son lancement**, et **zéro barrière de confirmation inventée avant celui-ci**.
 
 **Contrôle de conformité de chaque prompt :** inclure une courte ligne « Directives consultées : ... ; autorisations préservées : ... ; écarts : aucun / détaillés ». Ce contrôle est documentaire et ne remplace pas les contrôles matériels et applicatifs.
 
