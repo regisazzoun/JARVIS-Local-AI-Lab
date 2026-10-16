@@ -359,3 +359,8 @@ Cette décision remplace l'obligation préparatoire de reconstruire une chaîne 
 Restent : découverte Dell/SSD/contrôleur et clé publique autorisée, validation humaine réseau, qualification de la recette mdadm et double ESP, autorisation explicite d'effacement/installation, puis premier SSH et idempotence. Les rôles IA et l'intégration agent sont encore différés. Le refus KVM utilisateur n'empêche pas cette préparation physique. 14A reste une preuve d'autonomie distincte, non acquise par ces tests.
 
 Voir [procédure physique](docs/missions/13D-E/DEPLOIEMENT-PHYSIQUE.md), [tests](docs/missions/13D-E/TESTS.md) et [réception](docs/missions/13D-E/RAPPORT-FINAL.md). ROADMAP ↔ SUIVI synchronisés, format SUIVI conservé. Historique NO-GO maintenu sans le présenter comme l'état courant de l'outillage.
+
+
+## Reprise 13D-E — bootstrap A/B, 16 octobre 2026
+
+PXE UEFI physique jusqu'à Debian Installer confirmé et conservé. Prochaine étape : découverte automatique bloquante, après nouvelle autorisation réseau. Bootstrap temporaire, transition indépendante par clé et orchestration Ansible préparés ; 22 tests + récepteur passent, aucune installation/connexion SSH Dell exécutée. Qualification RAID/double ESP, séries réelles, clé autorisée et approbations d'effacement puis administration restent nécessaires. Aucun composant GPU/IA déclaré opérationnel. Voir [bootstrap automatisé](docs/missions/13D-E/BOOTSTRAP-AUTOMATISE.md), [rapport](docs/missions/13D-E/RAPPORT-FINAL.md) et SUIVI, synchronisés sans modifier les lignes historiques.

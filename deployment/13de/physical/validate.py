@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Compare approved manifest with live discovery; no disk writes, no approval bypass."""
+if not __debug__:
+    raise RuntimeError('STOP: optimized Python disables safety assertions')
 import json, sys, uuid, re
 from discover import discover
 
@@ -9,7 +11,7 @@ def validate(plan, actual):
     assert str(uuid.UUID(plan['uuid'])) == plan['uuid'] == actual['uuid'], 'UUID'
     assert actual['uefi'] is True, 'UEFI required'
     disks = plan['disks']
-    assert len(disks) == 2 and len({d['serial'] for d in disks}) == 2, 'two distinct disks'
+    assert len(disks) == 2 and len({d['serial'] for d in disks}) == 2 and len({d['path'] for d in disks}) == 2, 'two distinct disks'
     live = {d['path']: d for d in actual['disks'] if d['type'] == 'disk'}
     assert set(live) == {d['path'] for d in disks}, 'unexpected/missing disk: unplug other disks/USB before install'
     for disk in disks:

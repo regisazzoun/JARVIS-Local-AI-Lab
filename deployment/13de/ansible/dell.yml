@@ -31,6 +31,18 @@
       ansible.builtin.assert:
         that:
           - storage_acceptance_complete | default(false) | bool
+    - name: Require verified permanent SSH takeover marker
+      ansible.builtin.stat:
+        path: /var/lib/jarvis/permanent-key-verified
+      register: permanent_key_proof
+    - name: Stop before roles if permanent access was not validated
+      ansible.builtin.assert:
+        that:
+          - permanent_key_proof.stat.isreg | default(false)
+          - bootstrap_takeover_complete | default(false) | bool
+    - name: Verify approved root mirror before configuration
+      ansible.builtin.command: python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json
+      changed_when: false
   roles:
     - debian
     - accounts_security

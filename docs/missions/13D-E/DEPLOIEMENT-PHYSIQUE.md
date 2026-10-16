@@ -108,3 +108,8 @@ Intégration JARVIS : définir une adresse Dell stable, un accès de service lim
 - [Manuel dnsmasq : ProxyDHCP, tags et services PXE](https://thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html).
 
 Ces références guident les candidats ; elles ne remplacent pas la recette matérielle.
+
+
+## Reprise bootstrap A/B — 16 octobre 2026
+
+Le premier PXE UEFI physique a désormais atteint Debian Installer. Ne pas refaire sa conception/validation. Pour la prochaine séance, suivre [BOOTSTRAP-AUTOMATISE.md](BOOTSTRAP-AUTOMATISE.md) : découverte automatique embarquée et bloquante, réception du manifeste, puis autorisations distinctes. L'ancien preseed et install-ssh.sh restent historiques ; le nouveau candidat bootstrap ne devient installable qu'après approbation liée aux séries réelles et qualification RAID/ESP. Aucun compte temporaire n'est révoqué avant preuve indépendante de l'accès permanent.

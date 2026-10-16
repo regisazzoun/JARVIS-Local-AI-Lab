@@ -38,3 +38,16 @@ ipxe.iso    4f158a0f2d41e9564d7a9b57fcbb60fbddd95b152a5e60a4e27044d0dc194404
 ```
 
 Les logs bruts, manifeste synthétique, paramètres réseau et téléchargements sont conservés localement sous `deployment/13de/private/`, ignoré par Git. Le code de vérification permet de reproduire les contrôles ; les tests sur matériel, le double démarrage NVMe et les deux passes Ansible seront consignés seulement après exécution autorisée.
+
+
+## Bootstrap A/B — 16 octobre 2026
+
+- 22 tests unittest réussis (16 historiques + 6 nouveaux tests agrégés) : extraction du manifeste, refus séries/chemins dupliqués et disque inattendu, absence d'autorisation administrative, hash/expiration d'approbation, absence de révocation si clé indépendante échoue, parcours de succès simulé et suppression du secret seulement après preuve.
+- Test récepteur sans socket : IP/jeton incorrects, GET authentifié, POST excessif/tronqué, enregistrement 0600, affichage du rapport. Aucun service réseau lancé pour ce test.
+- sshd -T sur configuration isolée et clé hôte éphémère : mot de passe pour bootstrap depuis JARVIS seulement ; refus root, autre source et jarvisadmin par mot de passe. Aucun daemon/configuration hôte modifié.
+- site.yml et dell.yml passent syntax-check avec inventaires explicites ; aucun playbook appliqué.
+- Archive initrd découverte inspectée : exactement trois fichiers ajoutés, aucun hash de mot de passe/recette partitionnement/autorisation. Deux scripts validés par le BusyBox extrait de l'initrd réellement utilisé.
+- Construction d'un candidat d'installation synthétique : hash SHA-512 embarqué, aucun clair, aucun approved-erase/approved-reboot ni confirmations. Artefact temporaire supprimé.
+- dnsmasq --test et nft --check passent ; aucune activation LAN, aucun test VM et aucune écriture Dell.
+
+Limites : early_command/netcfg automatique encore à éprouver physiquement ; les tests de takeover simulent SSH. Recette RAID/ESP, double boot, accès SSH réel, convergence/idempotence Ansible et GPU/IA restent à réceptionner. Voir BOOTSTRAP-AUTOMATISE.md.

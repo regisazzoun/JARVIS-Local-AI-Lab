@@ -31,6 +31,20 @@ Stockage identifié via BIOS/VROC : NVMe **KIOXIA KXG70PNV2T04** et **Samsung PM
 
 ---
 
+## Adaptation bootstrap A/B — 16 octobre 2026
+
+**PXE UEFI physique acquis ; GO pour la prochaine découverte automatique seulement, avant autorisation réseau.** Initrd privé de découverte préparé, envoi du rapport et génération de manifeste non approuvé sans saisie des résultats. Blocage indéfini avant partitionnement, aucun service activé.
+
+Bootstrap temporaire par mot de passe fort local, hash seul dans le futur initrd, SSH limité à JARVIS et root interdit. Transition par connexions indépendantes à clé avec sudo, révocation seulement après preuve positive, reprise et nettoyage des secrets implémentés. Candidat installation minimal/RAID1, finalisation des deux ESP, synchronisation EFI et orchestration Ansible protégée livrés comme code **non réceptionné sur le Dell**.
+
+Validations : 22 tests contrôleur/manifeste/bootstrap et un test agrégé récepteur réussis ; politique SSH évaluée hors daemon ; deux playbooks syntax-check ; archives découverte et candidat synthétique inspectées ; dnsmasq/nft vérifiés sans activation. Aucune campagne VM ou écriture Dell. Le candidat synthétique a été supprimé.
+
+Réserves bloquant l'installation : découverte exacte UUID/séries/capacités, qualification partman RAID/double ESP, approbation explicite d'effacement et de reboot, revue de l'exposition du futur initrd sur LAN maîtrisé, identité SSH permanente autorisée à sélectionner. La réception de clé hôte par capacité HTTP/MAC n'est pas une attestation indépendante sur LAN hostile. Ansible réel, double boot disque, idempotence cible et GPU/IA restent non réceptionnés. Les trois autorisations réseau/installation/administration sont distinctes.
+
+Détails et commandes : [bootstrap automatisé](BOOTSTRAP-AUTOMATISE.md). Aucun changement aux accès/services JARVIS, DHCP Bbox, BIOS/VROC, SQLite ou GPU. Branche et PR existantes, sans fusion.
+
+---
+
 ## Rapport historique de la première exécution (conservé)
 
 # Réception 13D-E — NO-GO pour réception complète
