@@ -1,3 +1,13 @@
+# Barrière anti-régression des directives JARVIS
+
+**OBLIGATOIRE avant toute rédaction de prompt Codex, instruction JARVIS ou reprise de mission :** lire [la charte fondamentale](docs/CHARTE_DIRECTIVES_JARVIS.md), puis le prompt d'exécution et le dernier état de la mission concernée. Ne jamais réintroduire des interdictions génériques contredisant une autorisation explicite récente du propriétaire.
+
+**Mission 13D-E :** le propriétaire a déjà autorisé l'installation Debian 13 complète et autonome du Dell cible validé, dont la **destruction des partitions des deux NVMe identifiés**, le RAID1 mdadm, le redémarrage, le bootstrap SSH et Ansible. Le PXE UEFI IPv4 physique a été **réussi**. Aucun GO humain supplémentaire n'est requis dans ce périmètre, sauf nouvelle divergence réelle de matériel ou changement d'objet de la mission. Aucun benchmark NVMe. L'environnement est un laboratoire privé expérimental ; présenter les risques sans réécrire les décisions utilisateur.
+
+Chaque nouveau prompt doit indiquer les documents relus, les autorisations conservées et les éventuelles contradictions corrigées. Ne pas interpréter une procédure historique plus restrictive comme annulant une décision récente.
+
+---
+
 # Politique de déploiement JARVIS
 
 Décision explicite du propriétaire, 16 octobre 2026, à conserver pour les prochains déploiements.
