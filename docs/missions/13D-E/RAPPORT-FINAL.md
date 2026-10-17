@@ -1,3 +1,7 @@
+# Dernière réception 13D-E / 14
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Référence : [réception de la nouvelle tentative](RECEPTION-MISSION14.md). Les sections suivantes sont historiques.
+
 # État courant — installation autonome prête pour lancement PXE
 
 PXE et découverte physiques acquis. Le propriétaire autorise l’installation complète sur les deux NVMe identifiés, le reboot et l’administration SSH/Ansible, sans nouvelle validation humaine. La seule intervention attendue est le lancement PXE lorsque les services sont annoncés prêts. Qualification ciblée RAID1/deux ESP et deux démarrages UEFI sur disque virtuel seul réussis ; 25 tests + récepteur passent. **Aucune installation Dell encore effectuée.**

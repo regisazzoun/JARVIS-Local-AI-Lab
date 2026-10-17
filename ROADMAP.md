@@ -384,3 +384,8 @@ Debian démarre ; SSH répond, mais authentification, rapport de premier boot et
 ## Mission 13D-E / 14 relancée — 17 octobre 2026
 
 Nouvelle chaîne supervisée préparée, services PXE actifs et email de lancement envoyé. Installation physique de cette tentative non encore validée. Voir [réinstallation supervisée](docs/missions/13D-E/REINSTALLATION-SUPERVISEE.md). Objectif continu incluant NVIDIA/CUDA/Ollama/modèles et intégration JARVIS ; aucun nouveau GO intermédiaire.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
