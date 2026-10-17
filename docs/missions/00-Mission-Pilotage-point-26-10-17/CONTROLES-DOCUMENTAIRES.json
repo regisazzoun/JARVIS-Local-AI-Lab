@@ -8,6 +8,75 @@
   "problemes": [],
   "liens_manquants": [],
   "controle_secrets": "Aucune valeur secrète affichée ; scan du mot de passe propriétaire, clés privées et formats de jetons.",
-  "reception_agentique": "encore en cours, voir bilan",
-  "checked_at": "2026-10-18T00:02:09.740101+02:00"
+  "reception_agentique": {
+    "accepted": true,
+    "verdict": "GO AVEC RÉSERVES — exécution documentaire guidée et consolidation Codex",
+    "checked_at": "2026-10-17T23:43:16.126876+02:00",
+    "tasks": {
+      "01": "671 chemins et empreintes vérifiés, métadonnées interprétatives réservées",
+      "02": "15 lots réellement écrits ; erreurs historiques corrigées séparément par Codex",
+      "03": "Matrices réellement écrites ; limites et correction mémoire documentées",
+      "04": "Trois lots rédigés après lecture réelle des sources ; niveaux consolidés Codex distincts",
+      "05": "Synthèse rectifiée réellement réécrite par Qwen après réception Codex ; nouvelle règle humaine rejetée"
+    },
+    "limits": "Ni autonomie générale14A ni nouveaux tests physiques. Les originaux incorrects restent des traces, pas autorité finale."
+  },
+  "checked_at": "2026-10-18T00:02:41.445288+02:00",
+  "droits_temporaires": {
+    "checked_at": "2026-10-17T23:43:16.182745+02:00",
+    "read_roots_before": 527,
+    "read_roots_after": 10,
+    "temporary_read_roots_removed": 517,
+    "original_read_roots_preserved": true,
+    "other_policy_fields_unchanged": true,
+    "write_permissions_unchanged": true,
+    "remote_host_profiles_unchanged": true,
+    "service_restart": false,
+    "note": "Retrait des seuls ajouts de lecture mission00 ; droits permanents 11B et secrets conservés, aucun contenu de politique publié."
+  },
+  "broker_apres_nettoyage": {
+    "operator": "Codex, contrôle de compatibilité après retrait des lectures temporaires",
+    "returncode": 0,
+    "evidence_id": "b5d5e12f1fb0414abf26835f94b033ca",
+    "ok": true
+  },
+  "originaux_637_inchanges": true,
+  "copies_129_empreintes_conformes": true,
+  "sources_129_inchangees": true,
+  "artefacts_jarvis_empreintes_conformes": true,
+  "registre_csv_json_conformes": true,
+  "lignes_historiques_suivi_conservees": {
+    "origin/codex/mission-13de-preparation": true,
+    "origin/codex/jl-02-launcher-v2": true
+  },
+  "livrables_8_presents": true,
+  "launcher_v1_head_inchange": true,
+  "launcher_v1_pages_inchange": true,
+  "launcher_v2_head_inchange": true,
+  "conversation_pid_inchange": true,
+  "services_observes": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-ollama": "active",
+    "tailscaled": "active",
+    "ssh": "active",
+    "docker": "active"
+  },
+  "aucune_modification_deploiement": true,
+  "python_compile": "run-task.py et audit_tools.py compilés ; utilisation réelle dans les tâches tracées, pas de simulateur",
+  "session_navigateur": "non retestée sur le poste client",
+  "reception_controles": true,
+  "coherence_readme_suivi_registre": {
+    "registry": 68,
+    "readme": 68,
+    "suivi_counted": 68,
+    "suivi_table_rows": 70,
+    "excluded_group_rows": [
+      "09 à 11",
+      "Documentation"
+    ],
+    "identifiers_names_states_equal": true,
+    "checked_at": "2026-10-18T00:02:41.497929+02:00",
+    "checked_by": "Codex, contrôle exécuté avant publication dans main"
+  }
 }
