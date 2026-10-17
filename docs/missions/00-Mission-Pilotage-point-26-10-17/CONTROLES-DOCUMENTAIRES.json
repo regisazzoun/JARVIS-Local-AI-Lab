@@ -79,5 +79,39 @@
     "checked_at": "2026-10-18T00:03:21.050896+02:00"
   },
   "publication_base": "main, f77742296e347f38d7eb0aefa50d03ca08fd7697",
-  "publication_autorisee": "Directive explicite du propriétaire du 18 octobre 2026"
+  "publication_autorisee": "Directive explicite du propriétaire du 18 octobre 2026",
+  "publication_effective": {
+    "checked_at": "2026-10-18T00:06:29.147935+02:00",
+    "authorization": "Demande explicite du propriétaire de fusionner les documents et actualiser README/SUIVI",
+    "pull_requests": [
+      {
+        "number": 6,
+        "html_url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6",
+        "merged": true,
+        "merged_at": "2026-10-17T22:05:16Z",
+        "merge_commit_sha": "cf156e43f064bff475f41e27dde77e32a3836f60",
+        "base": "codex/mission-13de-preparation"
+      },
+      {
+        "number": 7,
+        "html_url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/7",
+        "merged": true,
+        "merged_at": "2026-10-17T22:05:22Z",
+        "merge_commit_sha": "3d138293e8b9aea0b43fb0936e00d436987ccaf5",
+        "base": "main"
+      }
+    ],
+    "scope": "Documents et client d’audit 00 ; code de déploiement PR5 non intégré dans main",
+    "coherence_missions": {
+      "registry": 68,
+      "readme": 68,
+      "suivi_counted": 68,
+      "suivi_table_rows": 70,
+      "excluded_group_rows": [
+        "09 à 11",
+        "Documentation"
+      ],
+      "identifiers_names_states_equal": true
+    }
+  }
 }

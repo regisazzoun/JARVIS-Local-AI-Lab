@@ -2,6 +2,8 @@
 
 **Référence : 17 octobre 2026. Verdict : GO AVEC RÉSERVES.** Audit documentaire consolidé et délégation JARVIS réellement exécutée, avec guidage et corrections Codex explicites. Cette réception ne valide pas globalement 14A. Publication sur `codex/mission-00-pilotage-20261017`, [PR6](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6), sans fusion automatique.
 
+> **Publication effectuée le 18 octobre 2026 :** la [PR6](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6) est fusionnée dans sa base et la [PR7](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/7) dans main. Le README réécrit, SUIVI et les rapports sont disponibles sur la page principale. Les [preuves GitHub](PUBLICATION-MAIN.json) confirment ces fusions autorisées explicitement par le propriétaire. Le code de déploiement de PR5 reste distinct.
+
 > **Actualisation du 18 octobre 2026 :** le propriétaire a explicitement autorisé la fusion et demandé un README plus attractif. L’ancienne consigne « sans fusion dans main » décrit la réception initiale ; elle est remplacée pour cette publication documentaire. La PR6 reste la trace du travail sur la branche d’installation ; l’intégration dans main est isolée du code de déploiement. README et SUIVI conservent les mêmes 68 identifiants et états. Les résultats techniques et réserves du bilan du 17 octobre sont inchangés.
 
 ## Couverture établie
