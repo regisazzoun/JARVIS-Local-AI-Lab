@@ -153,3 +153,8 @@ INCOMPLET — consulter les preuves privées et reprendre sans réinstallation a
 ## Mission 11 Agentic — 17 octobre 2026
 
 La mission historique 09–11 reste dans son état documentaire antérieur. La présente mission 11 Agentic constitue un nouveau jalon distinct. Administration réelle autorisée sans confirmations intermédiaires dans le périmètre acquis ; demandes de droits persistantes séparées des autorisations système. Les états Dell restent ceux de la mission 13D-E/14 indépendante. Voir [rapport](docs/missions/11/RAPPORT.md).
+
+
+## Mission 11B — raccordement de l’administration Dell (17 octobre 2026)
+
+Administration permanente SSH/Ansible du profil Dell activée après réception 13D-E/14, avec identité existante et garde DMI/NVMe. Écriture réelle Qwen validée ; réception après redémarrage et reprise au checkpoint suivies dans [le rapport de raccordement 11B](docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md). Cette intervention appartient à 11B ; aucune nouvelle mission numérotée, aucun lancement JL-02, aucune fusion main. La mission Compute Expansion complète n’est pas déclarée terminée par le seul déblocage des droits.

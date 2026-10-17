@@ -424,3 +424,8 @@ INCOMPLET — consulter les preuves privées et reprendre sans réinstallation a
 Réserves : activer un transport automatique de la file persistante vers un consommateur Codex autorisé ; vérifier un reboot complet du Mac ; reporter l’administration mutative du Dell jusqu’à la fin du déploiement. Le profil Dell en lecture seule a été testé. Ne pas répéter les démonstrations 13F ni réinstaller le Dell pour recevoir les outils mission 11.
 
 JL-02 : objectif transmis à JARVIS pour regisazzoun/JARVIS-Launcher2, développement et publication V2 responsive, chat texte/voix et supervision. Launcher V1 conservé. Le dépôt est créé et testé ; Pages demeure à valider lors de la publication réelle par JARVIS.
+
+
+## Mission 11B — raccordement de l’administration Dell (17 octobre 2026)
+
+Administration permanente SSH/Ansible du profil Dell activée après réception 13D-E/14, avec identité existante et garde DMI/NVMe. Écriture réelle Qwen validée ; réception après redémarrage et reprise au checkpoint suivies dans [le rapport de raccordement 11B](docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md). Cette intervention appartient à 11B ; aucune nouvelle mission numérotée, aucun lancement JL-02, aucune fusion main. La mission Compute Expansion complète n’est pas déclarée terminée par le seul déblocage des droits.

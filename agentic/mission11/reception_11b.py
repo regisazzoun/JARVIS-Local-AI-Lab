@@ -1,0 +1,14 @@
+"""Authenticated Qwen reception; private raw evidence only, no forced tool calls."""
+import importlib.util,json,pathlib,sys,time,os
+spec=importlib.util.spec_from_file_location('reception',pathlib.Path(__file__).with_name('reception.py'));r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
+out=pathlib.Path('/home/adminjarvis/JARVIS/mission11b-private');out.mkdir(mode=0o700,exist_ok=True)
+r.login();phase=sys.argv[1]
+base='''Mission 11B JARVIS Compute Expansion, autorisation propriétaire explicite. Directives consultées : AGENTS, charte, rapport 11, réception 13D-E/14. Installation Dell terminée, RAID sain, SSH/sudo validés. Administration Dell désormais accordée en permanence par la politique root. Réutilise le profil existant dell-observe malgré son ancien nom. Ne demande aucune validation. N'accède à aucune clé ni mot de passe. Ne lance pas JL-02. N'utilise pas lab_terminal. Ne prétends pas une opération réussie sans retour d'outil. Arrête après ce scénario ciblé et intervention_report, sans répéter les opérations réussies. '''
+if phase=='before':
+ goal=base+'''Consulte host_policy, puis host_remote host dell-observe action identity. Exécute host_ansible host dell-observe action ping. Utilise host_ansible action deploy_file pour créer réellement /etc/jarvis/managed/11b-admin-proof.json avec le contenu JSON {"mission":"11B","stage":"before-restart","engine":"Qwen"}. Relis exactement ce fichier via host_remote action read_file. Avec host_remote action service, service jarvis-ollama.service, service_action is-active, confirme le service. Termine avec intervention_report des codes et résultats observés. Six opérations ciblées au maximum en plus du rapport. Les clés sont utilisées par le broker, ne les lis jamais.'''
+elif phase=='after':
+ goal=base+'''Le service jarvis-conversation et le broker viennent d'être redémarrés. Vérifie la persistance : host_remote identity sur dell-observe ; host_remote read_file /etc/jarvis/managed/11b-admin-proof.json doit contenir before-restart. Utilise host_ansible deploy_file pour modifier ce fichier avec {"mission":"11B","stage":"after-restart","engine":"Qwen"}. Relis via host_remote read_file puis host_ansible ping. Termine intervention_report. Ne crée aucun autre projet.'''
+else:raise SystemExit('before/after required')
+start=time.monotonic();result=r.call('/api/chat',{'text':goal,'model':'qwen3.5:27b-q4_K_M','project':'mission11b-reception','agent_mode':True,'retain':True})
+p=out/(phase+'.json');p.write_text(json.dumps({'goal':goal,'elapsed_s':time.monotonic()-start,'response':result},ensure_ascii=False,indent=2));p.chmod(0o600)
+print(json.dumps({'phase':phase,'elapsed_s':round(time.monotonic()-start,1),'answer':result.get('answer'),'tools':[{'tool':x['tool'],'ok':x['ok'],'error':x.get('error')} for x in result.get('tools',[])]},ensure_ascii=False))

@@ -53,7 +53,11 @@ def grant(cap,resource,state,result,cfg,mode='owner-policy'):
           (cap,resource,resource if cap in ('host_remote','host_ansible') else 'local',json.dumps(cfg['scope'],ensure_ascii=False),mode,state,now(),json.dumps(result,ensure_ascii=False),'11','Owner policy withdrawal or failed functional test'))
 
 def execute(op,a,cfg):
-    if op=='host_policy':return {k:cfg[k] for k in ('scope','write_roots','read_roots','packages','services','repositories','remote_hosts')}
+    if op=='host_policy':
+        result={k:cfg[k] for k in ('scope','write_roots','read_roots','packages','services','repositories')}
+        # The model needs operations and permissions, never SSH material locations.
+        result['remote_hosts']={name:{**{k:v for k,v in h.items() if k not in ('identity','known_hosts','identity_check','commands')},'commands':list(h.get('commands',{})),'identity_checked':bool(h.get('identity_check'))} for name,h in cfg['remote_hosts'].items()}
+        return result
     if op=='host_exec':return sandbox(a['command'],cfg)
     if op in ('host_read_file','host_write_file','host_delete_file'):
         path=root_for(a['path'],cfg['write_roots']+(cfg['read_roots'] if op=='host_read_file' else []))
@@ -173,11 +177,14 @@ def execute(op,a,cfg):
         raise ValueError('Action GitHub non implémentée : '+action)
     if op in ('host_remote','host_ansible'):
         host=a['host']
-        if host not in cfg['remote_hosts']:raise PermissionError('Machine non activée ; Dell réservé au déploiement 13D-E/14')
+        if host not in cfg['remote_hosts']:raise PermissionError('Machine absente de la politique propriétaire')
         profile=cfg['remote_hosts'][host];action=a['action']
         if op=='host_ansible' and not profile.get('ansible_enabled',True):raise PermissionError('Ansible désactivé sur ce profil d’observation pour préserver le déploiement')
         common=['-F','/dev/null','-i',profile['identity'],'-oBatchMode=yes','-oIdentitiesOnly=yes','-oGlobalKnownHostsFile=/dev/null','-oStrictHostKeyChecking=yes','-oUserKnownHostsFile='+profile['known_hosts'],'-oConnectTimeout=10']
         import shlex
+        if profile.get('identity_check'):
+            checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
+            if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
         remote_argv=None
         if action in ('write_file','read_file','deploy_file'):
             target=P(a['path'])
@@ -187,11 +194,14 @@ def execute(op,a,cfg):
             if action in ('write_file','deploy_file'):code+='p.parent.mkdir(parents=True,exist_ok=True); p.write_text('+repr(a['content'])+'); '
             code+='print(p.read_text()[:16000])'
             remote_argv=['python3','-c',code]
+            if any(target.is_relative_to(P(r)) for r in profile.get('privileged_write_roots',[])):
+                if not profile.get('allow_admin'):raise PermissionError('Écriture privilégiée non accordée')
+                remote_argv=['sudo','-n']+remote_argv
         if action=='package_install':
-            if not profile.get('allow_admin') or a['package'] not in cfg['packages']:raise PermissionError('Paquet distant non accordé')
+            if not profile.get('allow_admin') or a['package'] not in profile.get('packages',cfg['packages']):raise PermissionError('Paquet distant non accordé')
             remote_argv=['sudo','-n','env','DEBIAN_FRONTEND=noninteractive','apt-get','install','-y','--no-install-recommends','--',a['package']]
         if action=='service':
-            if not profile.get('allow_admin') or a['service_action'] not in cfg['services'].get(a['service'],[]):raise PermissionError('Service distant non accordé')
+            if not profile.get('allow_admin') or a['service_action'] not in profile.get('services',cfg['services']).get(a['service'],[]):raise PermissionError('Service distant non accordé')
             remote_argv=['sudo','-n','systemctl',a['service_action'],a['service'],'--no-pager']
         if op=='host_remote':
             if remote_argv:command=shlex.join(remote_argv)
