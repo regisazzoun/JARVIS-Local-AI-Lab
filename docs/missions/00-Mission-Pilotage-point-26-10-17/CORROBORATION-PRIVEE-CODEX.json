@@ -1,0 +1,175 @@
+{
+  "checked_by": "Codex, lecture locale uniquement ; aucune transmission des fichiers privés au modèle",
+  "checked_at": "2026-10-17T23:14:59.046132+02:00",
+  "dell1": {
+    "reference": "deployment/13de/private/reinstall-02/complete.json et progress.json",
+    "complete": true,
+    "driver": "550.163.01",
+    "ollama": "0.40.3",
+    "task_states": {
+      "pxe": "validated",
+      "identity": "validated",
+      "storage": "validated",
+      "debian": "validated",
+      "accounts": "validated",
+      "ssh-password": "validated",
+      "ssh-key": "validated",
+      "ansible": "validated",
+      "nvidia": "validated",
+      "cuda": "validated",
+      "ollama": "validated",
+      "models": "validated",
+      "integration": "validated",
+      "tests": "validated",
+      "plasma": "validated",
+      "reboot": "validated",
+      "acceptance": "validated",
+      "cleanup": "validated"
+    },
+    "applications-after-reboot.json": {
+      "authenticated_gateway_qwen": true,
+      "authenticated_openwebui_llama": true,
+      "canonical_memory_path_preserved": true
+    },
+    "integration-results.json": {
+      "gateway_authenticated": true
+    }
+  },
+  "raccordement_11B": {
+    "before.json": {
+      "reference_locale": "mission11b-private/before.json",
+      "tools_count": 13,
+      "all_tools_ok": true,
+      "ssh_ansible_proofs": [
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "034fef3ae7494c08a3757598a3cda54d"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "7dc964a5bf9d480b806e7e9382ae2ac3"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "26ebf064838c4f18bf816416d4f690a9"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "c94ef45c5bc84eaea5da45408cec2106"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "84dcc836024845fa9c5621a064dce246"
+        }
+      ]
+    },
+    "after.json": {
+      "reference_locale": "mission11b-private/after.json",
+      "tools_count": 16,
+      "all_tools_ok": true,
+      "ssh_ansible_proofs": [
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "7161be99c1664a77b8b03e2814e8f71e"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "bef33347adc7489697ae809fc23e6c52"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "adf4fe50888c40a582cb8c9013ff1936"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "4c8b18d1aa4440ef8f5bd9efe97ebe63"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "9dad68be2ac44e08899d849136455d60"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "2b313681a80e4a07b0ef8eebe56031b6"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "2ed2e3d2c7b7464cb1b853085f8c7aea"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "54186a9fef0e4bd8aa773afaddcbc559"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "8c716b245be64228a0ba5195633ac8bd"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "8d2b0294ff2e4376944a5d5a85235505"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "c289adcd9e8f4337a92ccbfa6aa1bcad"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "9286e7699a0f48fe903ef7d6a7106518"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "68fb30f8f5494e7893b87cde9b11382a"
+        },
+        {
+          "tool": "host_remote",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "95f9b408352048d895c57ea5eec66980"
+        },
+        {
+          "tool": "host_ansible",
+          "ok": true,
+          "returncode": 0,
+          "evidence_id": "d54e90bc883946988bf87f067a57cffa"
+        }
+      ]
+    }
+  },
+  "limitations": "Ce contrôle corrobore des réceptions historiques. Aucun test relancé ; ni fichier privé intégral, mot de passe, clé, identifiant matériel ou journal brut publié. Les détails de voix/mémoire/conversations restent privés. 11B globale ne devient pas complète par le seul raccordement."
+}

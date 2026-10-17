@@ -1,5 +1,7 @@
 # JL — JARVIS Launcher | Feuille de route dédiée
 
+> **État courant17/10 — mission 00 :** JL-01 préservée,JL-02 livrée GO AVEC RÉSERVES dans [JARVIS-Launcher2](https://github.com/regisazzoun/JARVIS-Launcher2). [Rapport V2](https://github.com/regisazzoun/JARVIS-Launcher2/blob/main/docs/RAPPORT-JL-02.md). Le cadrage du 14/10ci-dessous est historique : aucune migration/altérationV1n’est à relancer ;réserves clients physiques et agent conservées.
+
 **Projet parallèle autonome** au projet JARVIS Local AI Lab — suivi établi le 14 octobre 2026.
 **Identifiant :** JL (JARVIS Launcher). **Missions :** JL-01, JL-02.
 **Dépôt cible :** `regisazzoun/JARVIS-Launcher` (non encore accessible/constaté sur GitHub au 14/10/2026).

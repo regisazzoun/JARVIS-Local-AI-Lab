@@ -38,3 +38,7 @@ Les journaux, inventaires, UUID, clés et secrets restent sous deployment/13de/p
 ## Retour d’expérience et corrections
 
 Le [bilan des erreurs et scripts corrigés](RAPPORT-FINAL.md#bilan-explicite-des-erreurs-et-des-scripts-corrigés--17-octobre-2026) distingue les incidents, les corrections vérifiées et les défauts restants. En particulier, le contrôleur `serve-supervised.py` utilise encore un reboot forcé de l’installateur : sa correction reste nécessaire avant de promettre la conservation du RAID sans nouvelle resynchronisation. Le reboot final normal et le RAID sain sont validés pour cette réception.
+
+## Clarification documentaire — mission 00, 17 octobre 2026
+
+Dans la ligne NVIDIA, la formule historique « final reboot persistence pending » décrit le contrôle intermédiaire du pilote. Le contrôle final de la ligne `reboot` confirme un nouvel identifiant de démarrage, NVIDIA et une inférence Qwen réelle après reboot ; la réception et son périmètre prévalent pour ce point. Aucun nouveau test n’est exécuté en mission 00. Les réserves Plasma interactif, microphone physique, retrait de NVMe, seconde carte non alimentée et correctif du contrôleur restent conservées. Le titre historique « 13D-E / 14 » concerne le premier Dell ; la mission 14 du second Dell par JARVIS reste à réaliser.

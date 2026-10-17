@@ -1,9 +1,26 @@
 # Roadmap
 
+## Pilotage courant consolidé — mission 00, point du 17 octobre 2026
+
+[README courant](README.md) · [Registre exhaustif](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) · [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md). Ces conclusions prévalent sur les instantanés datés de préparation conservés ci-dessous. Leur maintien ne révoque pas une autorisation récente.
+
+| Chantier | État documenté | Prochaine action |
+| --- | --- | --- |
+| Historique 01–13 | Archives et rapports 08, 09, 09B, 10, 11 et 13E retrouvés ; niveaux de preuve distincts | Conserver les verdicts et les réserves, sans relancer les campagnes |
+| 13D-E / Dell n°1 | Réception complète du 17/10 par Codex ; une RTX 3090 alimentée | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
+| 11-Agentic / 11B | Outils hôte et raccordement SSH/Ansible validés ; Compute Expansion encore partielle | Checkpoint 11B observé incomplet après cinq tentatives ; reprise hors mission 00 pour les capacités restantes, notamment routage/repli |
+| 14A | Progrès réels en 13F, 11B, JL-02 et 00 ; réception globale ouverte | Confronter critères et preuves sans supposer un déploiement autonome complet |
+| 14 / Dell n°2 | Prévue ; JARVIS doit être exécutant, aucune installation dans cet audit | Identifier la cible, préparer JARVIS et corriger le contrôleur |
+| JL-01 / JL-02 | V1 préservée ; V2 livrée GO AVEC RÉSERVES, espace connecté confirmé | Fiabiliser l’agent et réceptionner les clients physiques ; réutiliser le tunnel actif |
+| 15A / 15B | Cahiers et cinq incréments chacun préparés, non lancés | Contrat API commun ; mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team |
+| Architecture distribuée | Mac mini : mémoire, voix, outils et passerelle ; Dell n°1 : inférence Ollama | Placement dynamique, équilibrage, repli et orchestration multi-nœuds non réceptionnés globalement |
+
+La mission 00 autorise et réalise l’audit documentaire auparavant différé. Elle ne déclenche aucune réinstallation, aucun effacement, aucune modification RAID ni aucun déploiement du Dell n°2. Aucun nouveau GO intermédiaire ni fusion automatique dans main.
+
 - [x] Première synthèse des missions 03 à 07.
 - [ ] Vérifier les procédures ligne par ligne à partir des rapports et preuves autorisées.
 - [ ] Documenter les principaux incidents eGPU / GRUB / CUDA sans données sensibles.
-- [ ] Intégrer la mission 08 après disponibilité et vérification de son rapport.
+- [x] Retrouver et intégrer le rapport08 au registre documentaire (mission00,17/10) ; réserves qualitatives conservées.
 - [ ] Documenter chaque nouvelle mission Codex.
 - [x] Installer et évaluer le premier Dell Precision 5820 par Codex (mission 13D-E, réception physique et IA du 17/10/2026).
 - [ ] Déployer le deuxième Dell Precision par JARVIS lui-même (mission 14 ; aptitude agentique 14A distincte).
@@ -170,7 +187,7 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 
 ## À REPRENDRE SUR INSTRUCTION — Audit et redocumentation des anciennes missions
 
-**Décision du 14 octobre 2026 : tâche différée, non autorisée à l'exécution pour l'instant.** Lors d'un prochain échange, rappeler à l'utilisateur de donner explicitement le feu vert avant de commencer.
+**Décision historique du 14 octobre : tâche alors différée. Remplacée par le lancement explicite de la mission00 le17 octobre 2026.** Lors d'un prochain échange, rappeler à l'utilisateur de donner explicitement le feu vert avant de commencer.
 
 **Travail à réaliser après validation :** reprendre toutes les missions historiques de cette roadmap, comparer leurs objectifs, décisions, états, livrables, blocages et preuves avec les discussions JARVIS et les rapports disponibles ; corriger les omissions, donner à chaque mission un titre clairement repérable, distinguer prévu / exécuté / simulé / vérifié, et conserver une chronologie lisible. Ne pas inventer de résultats, signaler les pièces ou échanges manquants et ne pas écraser l'historique sans traçabilité. Documenter dans `ROADMAP.md` et, si nécessaire, dans des rapports de mission dédiés. Exclure secrets et informations sensibles.
 
@@ -408,30 +425,42 @@ Debian démarre ; SSH répond, mais authentification, rapport de premier boot et
 
 ## Réception nouvelle tentative Dell 13D-E / 14
 
-INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
-
-
-## Réception nouvelle tentative Dell 13D-E / 14
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
 
 
 ## Réception nouvelle tentative Dell 13D-E / 14
 
-INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
-
-
-## Réception nouvelle tentative Dell 13D-E / 14
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
 
 
 ## Réception nouvelle tentative Dell 13D-E / 14
 
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
 
 
 ## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
 
