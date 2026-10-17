@@ -63,12 +63,12 @@ deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware
 deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware
 deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
 EOF
-mkdir -p /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
+mkdir -p /target/boot/grub /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
 grep -qs " /target/boot/efi " /proc/mounts || mount "${a}p1" /target/boot/efi
 grep -qs " /target/boot/efi-secondary " /proc/mounts || mount "${b}p1" /target/boot/efi-secondary
 mdadm --detail --scan > /target/etc/mdadm/mdadm.conf
 chroot /target apt-get update
-chroot /target apt-get install -y linux-image-amd64 linux-headers-amd64 openssh-server sudo python3 ca-certificates mdadm nvme-cli smartmontools efibootmgr rsync wget curl pciutils dmidecode grub-efi-amd64-signed shim-signed locales console-setup keyboard-configuration systemd-sysv systemd-timesyncd
+chroot /target apt-get install -y e2fsprogs linux-image-amd64 linux-headers-amd64 openssh-server sudo python3 ca-certificates mdadm nvme-cli smartmontools efibootmgr rsync wget curl pciutils dmidecode grub-efi-amd64-signed shim-signed locales console-setup keyboard-configuration systemd-sysv systemd-timesyncd
 printf 'jarvis-dell\n' > /target/etc/hostname
 printf '127.0.0.1 localhost\n127.0.1.1 jarvis-dell\n' > /target/etc/hosts
 printf 'fr_FR.UTF-8 UTF-8\n' > /target/etc/locale.gen
@@ -116,7 +116,7 @@ Type=ether
 DHCP=yes
 EOF
 chroot /target systemctl enable systemd-networkd ssh systemd-timesyncd
-mkdir -p /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
+mkdir -p /target/boot/grub /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
 rootuuid=$(blkid -s UUID -o value "$md")
 printf 'UUID=%s / ext4 defaults 0 1\n' "$rootuuid" > /target/etc/fstab
 printf 'UUID=%s /boot/efi vfat defaults,nofail,umask=0077 0 2\n' "$(blkid -s UUID -o value "${a}p1")" >> /target/etc/fstab
@@ -124,6 +124,7 @@ printf 'UUID=%s /boot/efi-secondary vfat defaults,nofail,umask=0077 0 2\n' "$(bl
 mdadm --detail --scan > /target/etc/mdadm/mdadm.conf
 printf 'GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"\nGRUB_TERMINAL_OUTPUT=console\n' > /target/etc/default/grub.d/90-jarvis.cfg
 chroot /target update-initramfs -u -k all
+chroot /target grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=debian --uefi-secure-boot --no-nvram
 chroot /target update-grub
 # Debian signed EFI binaries; no unsigned replacement under Secure Boot.
 mkdir -p /target/boot/efi/EFI/debian /target/boot/efi/EFI/BOOT

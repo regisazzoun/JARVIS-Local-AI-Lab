@@ -15,7 +15,7 @@
   tasks:
     - name: Base and NVIDIA CUDA dependencies
       ansible.builtin.apt:
-        name: [ca-certificates, python3, sudo, openssh-server, mdadm, nvme-cli, smartmontools, rsync, curl, pciutils, linux-headers-amd64, nvidia-driver, nvidia-cuda-toolkit]
+        name: [e2fsprogs, ca-certificates, python3, sudo, openssh-server, mdadm, nvme-cli, smartmontools, rsync, curl, pciutils, linux-headers-amd64, nvidia-driver, nvidia-cuda-toolkit]
         state: present
     - name: Keep SSH enabled
       ansible.builtin.systemd_service:

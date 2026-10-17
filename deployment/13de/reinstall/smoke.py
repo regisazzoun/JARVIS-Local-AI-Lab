@@ -5,9 +5,11 @@ b=pathlib.Path(__file__).resolve().parents[1]/'private/reinstall-02'
 commands='''mount -t proc proc /proc
 mount -t sysfs sys /sys
 mount -t devtmpfs devtmpfs /dev
-modprobe nvme && modprobe raid1 && modprobe ext4 && echo JARVIS_MODULES_OK
+modprobe nvme && modprobe raid1 && modprobe ext4 && modprobe vfat && echo JARVIS_MODULES_OK
 /bin/loadkeys -C /dev/tty1 fr && echo JARVIS_KEYBOARD_FR_OK
 /usr/bin/dumpkeys -C /dev/tty1 | grep -E "keycode +1[67] "
+printf TOOL_CHECK | tee /tmp/tee-check
+gzip --help
 mkdir -p /run/sshd
 echo "sshd:*:102:65534:sshd:/run/sshd:/bin/false" >> /etc/passwd
 /usr/sbin/sshd -t -o HostKey=/jarvis/host_key -f /dev/null -o PidFile=/run/test.pid -o PasswordAuthentication=no && echo JARVIS_SSH_CONFIG_OK
