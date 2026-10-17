@@ -1,5 +1,7 @@
 # Mission 11B — raccordement permanent de l’administration Dell
 
+> **Actualisation mission 00 — 17 octobre 2026.** Le lancement `running, tentative 1` décrit plus bas est historique. La file canonique observée par Codex indique ensuite `incomplete`, après 5 tentatives. Voir le [checkpoint expurgé](../00-Mission-Pilotage-point-26-10-17/CHECKPOINT-11B-OBSERVE.json). Aucun run relancé par cet audit ; le GO du raccordement ne clôture pas Compute Expansion.
+
 Date : 17 octobre 2026. Branche : `jarvis/mission-11b-compute-expansion`.
 
 ## Référentiel et checkpoint

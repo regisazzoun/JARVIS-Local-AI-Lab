@@ -6,6 +6,7 @@
 
 | Chantier | État documenté | Prochaine action |
 | --- | --- | --- |
+| 00 / consolidation | GO avec réserves : 68 missions, 28 anomalies, 129 documents/preuves récupérés ; délégation réelle guidée | Publier les contrôles PR6, sans fusion automatique ; traiter les réserves d’autonomie dans leur périmètre |
 | Historique 01–13 | Archives et rapports 08, 09, 09B, 10, 11 et 13E retrouvés ; niveaux de preuve distincts | Conserver les verdicts et les réserves, sans relancer les campagnes |
 | 13D-E / Dell n°1 | Réception complète du 17/10 par Codex ; une RTX 3090 alimentée | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
 | 11-Agentic / 11B | Outils hôte et raccordement SSH/Ansible validés ; Compute Expansion encore partielle | Checkpoint 11B observé incomplet après cinq tentatives ; reprise hors mission 00 pour les capacités restantes, notamment routage/repli |

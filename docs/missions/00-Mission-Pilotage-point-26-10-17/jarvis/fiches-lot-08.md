@@ -1,3 +1,5 @@
+> **Trace de production, avec limites de réception.** Ce fichier conserve une sortie ou un assemblage de la mission 00 ; il ne remplace pas le registre consolidé. Voir les corrections Codex et le bilan agentique dans le dossier parent de mission. Les textes historiques ou propositions du modèle ne créent aucune nouvelle autorisation ou obligation de validation.
+
 # Fiches historiques — Lot 08 (Mission00)
 ## Données extraites des rapports du 12 octobre 2026
 

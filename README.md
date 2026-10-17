@@ -15,7 +15,7 @@ Ce bilan décrit les derniers résultats documentés, pas une mesure de disponib
 | Dell n°2 — 14 | Mission future, à exécuter par JARVIS lui-même | Le titre historique « 13D-E / 14 » du Dell n°1 ne vaut pas réception du second Dell |
 | JL-01 / JL-02 | Launcher V1 préservé ; V2 publiée dans un dépôt distinct, GO avec réserves | Fiabilité agentique et tests des clients physiques restent à compléter |
 | 15A macOS / 15B iOS | Cahiers natifs et cinq incréments chacun définis, non exécutés | Mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team, PWA en alternative explicite |
-| Mission 00 | 68 missions/sous-missions recensées, 28 anomalies ; inventaire réel JARVIS de 671 fichiers Markdown | Analyses JARVIS guidées et contrôlées par Codex ; les erreurs originales sont conservées et signalées |
+| Mission 00 | 68 missions/sous-missions recensées, 28 anomalies ; inventaire réel JARVIS de 671 fichiers Markdown | GO avec réserves ; 129 documents/preuves récupérés. Analyses JARVIS guidées et contrôlées par Codex, erreurs originales conservées |
 
 ## Accéder aux résultats
 
@@ -71,3 +71,5 @@ Synthèse initiale des rapports de mission Codex reçus. Les preuves brutes, log
 Les détails et les critères de validation sont décrits dans [ROADMAP.md](ROADMAP.md).
 
 [Rapports récupérés sur JARVIS]( docs/missions/historique/README.md ) : 100 documents historiques repris avec provenance et expurgation.
+
+[Rapports et preuves Launcher récupérés](docs/missions/README.md#rapports-launcher-récupérés) : 29 documents supplémentaires ; total du manifeste : 129.

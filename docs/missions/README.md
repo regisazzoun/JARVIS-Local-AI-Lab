@@ -13,3 +13,7 @@ Les index `missions/` et `indexes/` des branches documentaires PR2/3 restent des
 ## Rapports et preuves récupérés sur JARVIS
 
 [Parcourir les 100 rapports et fiches historiques repris](historique/README.md). Les réceptions récentes 13D-E, 11/11B et les rapports 13F restent accessibles ci-dessus. [Preuves agentiques 00](00-Mission-Pilotage-point-26-10-17/PREUVES-AGENTIQUES.json), [corroboration privée expurgée Codex](00-Mission-Pilotage-point-26-10-17/CORROBORATION-PRIVEE-CODEX.json) et [niveaux de preuve consolidés](00-Mission-Pilotage-point-26-10-17/NIVEAUX-PREUVE-CONSOLIDES.md) distinguent les lectures, exécutions et réceptions.
+
+## Rapports Launcher récupérés
+
+[JL-01](JL-01/RAPPORT-JL-01.md) · [Tests JL-01](JL-01/TESTS.md) · [JL-02](JL-02/RAPPORT-JL-02.md) · [Bilan agentique JL-02](JL-02/RAPPORT-AGENTIQUE-JL-02.md) · [Tests JL-02](JL-02/TESTS.md) · [Preuve UI agentique](JL-02/evidence/agent-ui.json). Les copies ont été récupérées sur JARVIS, avec manifeste et empreintes ; elles ne modifient pas les dépôts Launcher.

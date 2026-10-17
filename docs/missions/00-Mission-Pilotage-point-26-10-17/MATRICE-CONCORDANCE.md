@@ -2,7 +2,7 @@
 
 | Fonction | Missions et chronologie | Machine / exécution | État démontré | Limite / suite |
 | --- | --- | --- | --- | --- |
-| Socle AppleT2 / démarrage | 01–03 ;04A..W selon sources | Mac mini Debian ; Codex + propriétaire boot | Diagnostics, préparations, essais et contournements successifs | Pas tous les identifiants intermédiaires attestés ; aucun trou comblé |
+| Socle AppleT2 / démarrage | 01–03 ; famille 04 selon les identifiants attestés | Mac mini Debian ; Codex + propriétaire boot | Diagnostics, préparations, essais et contournements successifs | 04S citée dans 04T/04U, rapport manquant ; aucun trou comblé arbitrairement |
 | GPU et CUDA initial | 05A,05B-P,05B,05B-A,05C,05D | Mac mini / Quadro puis RTX3090 | Installation et calcul GPU courts documentés | Réserves DKMS/boot historiques conservées |
 | GPU RTX3090 / inférence | 09 →09B ;10 | Mac mini | 09 échec Ollama CPU ;09B corrige ;10 Qwen GPU | Ne pas réattribuer ces résultats au Dell |
 | Interfaces de modèles | 06,07,08,10 | Mac mini / Open WebUI | WebUI, catalogue, contexte/évaluations | Qualité des réponses limitée ; pas autorité d’administration du modèle |

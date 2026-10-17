@@ -5502,6 +5502,194 @@
       "conversation_reference": "34a04a5cc6f45a45"
     },
     {
+      "lot": "JARVIS-00-05-rectification",
+      "id": "task-05-rectification",
+      "instruction": "JARVIS-00-05 rectification finale. Lis réellement les deux fichiers attribués viahost_audit_read modeexcerpt. RECTIFICATIONS-CODEX.md contient la réception Codex et prévaut sur les affirmations erronées de ta synthèse précédente. RÉÉCRIS toi-même SYNTHESE-AUTONOME-JARVIS.md en 450 mots maximum : architecture réelle ; missions reçues/partielles/prévues ; preuves de ton travail documentaire et limites ; corrections Codex explicitement attribuées ; priorités. N'invente aucune validation humaine, promotion de modèle ou réception. Tu as exécuté des outils documentaires, sans déploiement. Ne dis pas avoir lu les journaux privés ou chaque ligne des rapports. Les deux chemins lus sont tes sources immédiates ; identifie leur provenance. Rédige directement par host_write_file, pas un script ni une réponse « terminé ». L'ancienne synthèse est conservée séparément comme essai rejeté.",
+      "mechanism": "Client CLI réutilisant jarvis.core.Core, Memory canonique et Registry/broker ; contexte et outils limités à audit, véritable transport Ollama",
+      "model": "qwen3.5:27b-q4_K_M",
+      "submitted_at": 1792273274.3461883,
+      "first_tool_at": "2026-10-17T21:41:17.445867+00:00",
+      "last_update": 1792273352.0740113,
+      "state": "fichier produit ; réception sémantique Codex distincte",
+      "attempts": 1,
+      "error": null,
+      "guided_plan": {
+        "target": "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md",
+        "expected_inputs": [
+          "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md",
+          "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md"
+        ],
+        "seen_inputs": [
+          "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md",
+          "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md"
+        ],
+        "write_observed": true,
+        "readback_observed": false,
+        "finish_policy": "write",
+        "events": [
+          {
+            "tool": "host_audit_read_batch",
+            "before": "read",
+            "after": "read",
+            "ok": false
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "write",
+            "ok": true
+          },
+          {
+            "tool": "host_write_file",
+            "before": "write",
+            "after": "readback",
+            "ok": true
+          }
+        ]
+      },
+      "generations": [
+        {
+          "started": 1792273274.435554,
+          "phase": "read",
+          "seen_inputs": [],
+          "messages_chars": 2785,
+          "tools_exposed": [
+            "host_audit_read_batch",
+            "host_audit_read"
+          ]
+        },
+        {
+          "started": 1792273277.446148,
+          "phase": "read",
+          "seen_inputs": [],
+          "messages_chars": 3597,
+          "tools_exposed": [
+            "host_audit_read_batch",
+            "host_audit_read"
+          ]
+        },
+        {
+          "started": 1792273283.0575929,
+          "phase": "write",
+          "seen_inputs": [
+            "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md",
+            "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md"
+          ],
+          "messages_chars": 18710,
+          "tools_exposed": [
+            "host_write_file"
+          ]
+        },
+        {
+          "started": 1792273319.0529528,
+          "phase": "write",
+          "seen_inputs": [
+            "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md",
+            "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md"
+          ],
+          "messages_chars": 19100,
+          "tools_exposed": [
+            "host_write_file"
+          ]
+        }
+      ],
+      "completion": "Contrôleur arrêté après production réelle du fichier ; aucune réponse modèle inventée. Relecture et réception sémantique par Codex distinctes.",
+      "tools": [
+        {
+          "created": "2026-10-17T21:41:17.445867+00:00",
+          "tool": "host_audit_read_batch",
+          "arguments": {
+            "paths": "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md,/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md"
+          },
+          "ok": false,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "observed_result": {}
+        },
+        {
+          "created": "2026-10-17T21:41:22.301134+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "d779a737d6154364bf0e611d688cb9e6",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "1d6c6d16603794fdd309a2f7f2621d20b7afc8735d9b068e1ab2470c27681f8e",
+            "stdout_chars": 2857,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:41:23.055088+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "8949bdd9abf7472ba4f82758bcc7535d",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "ef052c1fd6d14bd09fce32d9555034a78337475f674595ffa467f97f50a44419",
+            "stdout_chars": 3478,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:42:32.073182+00:00",
+          "tool": "host_write_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md",
+            "content": {
+              "sha256": "dd7ad2e97a21970ae3640c923e77ab766b004eba27dd2352181b486ca566fd95",
+              "chars": 3550,
+              "note": "Contenu complet dans le livrable, pas dans les traces publiées"
+            }
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "e48c6552df00441fa3fd57842bf6b65e",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "9494700fef5f9d393d292a3231155c562277e5e62f845f1fd6b96f50b37bec9a",
+            "stdout_chars": 5,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        }
+      ],
+      "tool_count": 4,
+      "errors_count": 1,
+      "conversation_reference": "5ab8569814597ce4"
+    },
+    {
       "lot": "JARVIS-00-05-exécution-ciblée",
       "id": "task-05-simple",
       "instruction": "JARVIS-00-05, mission00 déjà autorisée. Lis par outils les quatre livrables existants dans /var/lib/jarvis/projects/mission00 : INVENTAIRE-LOCAL-JARVIS.md, FICHES-MISSIONS-JARVIS.md, CONCORDANCE-JARVIS.md et PREUVES-JARVIS.md. Utilise host_exec Python pour extraire les résumés/titres/extraits utiles sans remplir ton contexte de tous les tableaux. Puis ÉCRIS réellement SYNTHESE-AUTONOME-JARVIS.md dans ce même dossier : missions réalisées/partielles/encours/prévues, fonctionsdisponibles, incohérences, priorités et dépendances, lectures effectives et limites. Ne te contente PAS d'une réponseconversationnelle et ne relis pas lesprérequis. La synthèse est ta contribution JARVIS, distincte du rapportCodex.14A resteouverte,14Dell2àvenir,13D-EDell1Codexréceptionné,JL02livréeavecréserves,15A/Bnatifsnonexécutés. Vérifie tonfichier avecunoutil puis termineenunephrase. Si tu écris un programme, garde-le simple et court (60 lignes maximum), sans classes ni pipeline complexe. Une extraction honnête des passages avec leurs limites suffit ; évite les statistiques accessoires.",
@@ -5697,6 +5885,798 @@
       "tool_count": 6,
       "errors_count": 2,
       "conversation_reference": "19694a7446707f63"
+    },
+    {
+      "lot": "JARVIS-00-04-reception-historique",
+      "id": "task-JARVIS-00-04-reception-historique",
+      "instruction": "Tu es JARVIS, mission00 tâche04. La première grille a inventé une fonction générique infrastructure pour08 et dit09N/A ; ces deux jugements sont rejetés. Cette fois LIS réellement CHAQUE rapport attribué via host_audit_read mode excerpt, pas le lecteurbatch, puis rédige seulement les missions correspondant à ces fichiers. Tableau : mission, affirmation réellement lue, chemin exact, niveau de preuve rapporté (préparation / installation / exécution / test / réception), réserve. Le niveau est ton analyse des citations ; un rapport lu ne signifie pas avoir relu son journal privé. Ne prétends pas avoir exécuté leurs anciens tests. Si les extraits ne suffisent pas, À confirmer et préciser la limite. Installation et qualité du raisonnement sont deux affirmations distinctes ; étude statique n'est pas installation ; 13F laboratoire n'est pas déploiement autonome physique. Dell1 reçu Codex, 14Dell2 non déployé. 11B accès administrateur validé mais ComputeExpansion partielle. sync; reboot-f doit être corrigé avant prochaindéploiement, causalitéresync incertaine. N'invente ni exécutant historique ni condition d'approbation. Rédige ton analyse directement dans /var/lib/jarvis/projects/mission00/PREUVES-LOT-historique-JARVIS.md. Aucune installation ni benchmark. Les lectures sont des extraits explicitement bornés ; ne les appelle pas intégrales.",
+      "mechanism": "Client CLI réutilisant jarvis.core.Core, Memory canonique et Registry/broker ; contexte et outils limités à audit, véritable transport Ollama",
+      "model": "qwen3.5:27b-q4_K_M",
+      "submitted_at": 1792272942.565323,
+      "first_tool_at": "2026-10-17T21:35:51.565386+00:00",
+      "last_update": 1792273011.7044,
+      "state": "fichier produit ; réception sémantique Codex distincte",
+      "attempts": 1,
+      "error": null,
+      "guided_plan": {
+        "target": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-historique-JARVIS.md",
+        "expected_inputs": [
+          "/home/adminjarvis/JARVIS/rapports/mission08.md",
+          "/home/adminjarvis/JARVIS/rapports/mission09.md",
+          "/home/adminjarvis/JARVIS/rapports/mission09B.md",
+          "/home/adminjarvis/JARVIS/rapports/mission10.md"
+        ],
+        "seen_inputs": [
+          "/home/adminjarvis/JARVIS/rapports/mission08.md",
+          "/home/adminjarvis/JARVIS/rapports/mission09.md",
+          "/home/adminjarvis/JARVIS/rapports/mission09B.md",
+          "/home/adminjarvis/JARVIS/rapports/mission10.md"
+        ],
+        "write_observed": true,
+        "readback_observed": false,
+        "finish_policy": "write",
+        "events": [
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "write",
+            "ok": true
+          },
+          {
+            "tool": "host_write_file",
+            "before": "write",
+            "after": "readback",
+            "ok": true
+          }
+        ]
+      },
+      "generations": [
+        {
+          "started": 1792272942.647759,
+          "phase": "read",
+          "seen_inputs": [],
+          "messages_chars": 3336,
+          "tools_exposed": [
+            "host_audit_read_batch",
+            "host_audit_read"
+          ]
+        },
+        {
+          "started": 1792272953.825278,
+          "phase": "write",
+          "seen_inputs": [
+            "/home/adminjarvis/JARVIS/rapports/mission08.md",
+            "/home/adminjarvis/JARVIS/rapports/mission09.md",
+            "/home/adminjarvis/JARVIS/rapports/mission09B.md",
+            "/home/adminjarvis/JARVIS/rapports/mission10.md"
+          ],
+          "messages_chars": 18356,
+          "tools_exposed": [
+            "host_write_file"
+          ]
+        }
+      ],
+      "completion": "Contrôleur arrêté après production réelle du fichier ; aucune réponse modèle inventée. Relecture et réception sémantique par Codex distinctes.",
+      "tools": [
+        {
+          "created": "2026-10-17T21:35:51.565386+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/rapports/mission08.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "24125343dfd744e2aca3dd587ee439a8",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "91f17b37ac21779ee485f570a2982d9b8849d03bf40665e40acbc4c711e986d8",
+            "stdout_chars": 3279,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:35:52.316058+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/rapports/mission09.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "1aac3160438f47fbafd5abcbf1a7d54b",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "44bf7160753373ed47f2385078f8703ba7a9180eeecbc5bd26b358822f1ea1ad",
+            "stdout_chars": 2596,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:35:53.068164+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/rapports/mission09B.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "ed8ce2852fa140baa812790e221c51e2",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "e5609bda7606e63cebfb5aea985033e483f249857ee756a6befe6efeca996c61",
+            "stdout_chars": 2186,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:35:53.821012+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/rapports/mission10.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "5412584e3cc3457b960f027dcf8906f6",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "33b3ca961edf23323ecf8617168d16d637015b7249f2b58602365b0b786277ec",
+            "stdout_chars": 2811,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:36:51.701971+00:00",
+          "tool": "host_write_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-historique-JARVIS.md",
+            "content": {
+              "sha256": "bce54473116fe904b0469f24f4e17e4958fef1780f8551acb39f9ac46a5784ec",
+              "chars": 7119,
+              "note": "Contenu complet dans le livrable, pas dans les traces publiées"
+            }
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "64b2cbec7f1b4853974d52b061767d6c",
+            "timeout": false,
+            "duration_s": 0.615,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "8e6d33eb3a30ea559daa586940cad493b8f83c24ee7676c6cf1536697997cfdb",
+            "stdout_chars": 5,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        }
+      ],
+      "tool_count": 5,
+      "errors_count": 0,
+      "conversation_reference": "07f91d7b6bffb414"
+    },
+    {
+      "lot": "JARVIS-00-04-reception-recent",
+      "id": "task-JARVIS-00-04-reception-recent",
+      "instruction": "Tu es JARVIS, mission00 tâche04. La première grille a inventé une fonction générique infrastructure pour08 et dit09N/A ; ces deux jugements sont rejetés. Cette fois LIS réellement CHAQUE rapport attribué via host_audit_read mode excerpt, pas le lecteurbatch, puis rédige seulement les missions correspondant à ces fichiers. Tableau : mission, affirmation réellement lue, chemin exact, niveau de preuve rapporté (préparation / installation / exécution / test / réception), réserve. Le niveau est ton analyse des citations ; un rapport lu ne signifie pas avoir relu son journal privé. Ne prétends pas avoir exécuté leurs anciens tests. Si les extraits ne suffisent pas, À confirmer et préciser la limite. Installation et qualité du raisonnement sont deux affirmations distinctes ; étude statique n'est pas installation ; 13F laboratoire n'est pas déploiement autonome physique. Dell1 reçu Codex, 14Dell2 non déployé. 11B accès administrateur validé mais ComputeExpansion partielle. sync; reboot-f doit être corrigé avant prochaindéploiement, causalitéresync incertaine. N'invente ni exécutant historique ni condition d'approbation. Rédige ton analyse directement dans /var/lib/jarvis/projects/mission00/PREUVES-LOT-recent-JARVIS.md. Aucune installation ni benchmark. Les lectures sont des extraits explicitement bornés ; ne les appelle pas intégrales.",
+      "mechanism": "Client CLI réutilisant jarvis.core.Core, Memory canonique et Registry/broker ; contexte et outils limités à audit, véritable transport Ollama",
+      "model": "qwen3.5:27b-q4_K_M",
+      "submitted_at": 1792273066.0623386,
+      "first_tool_at": "2026-10-17T21:37:53.112386+00:00",
+      "last_update": 1792273119.6927366,
+      "state": "fichier produit ; réception sémantique Codex distincte",
+      "attempts": 1,
+      "error": null,
+      "guided_plan": {
+        "target": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-recent-JARVIS.md",
+        "expected_inputs": [
+          "/home/adminjarvis/JARVIS/mission00/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+          "/home/adminjarvis/JARVIS/mission00/docs/missions/13D-E/RECEPTION-MISSION14.md",
+          "/var/lib/jarvis/projects/JARVIS-Launcher2/docs/RAPPORT-JL-02.md"
+        ],
+        "seen_inputs": [
+          "/home/adminjarvis/JARVIS/mission00/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+          "/home/adminjarvis/JARVIS/mission00/docs/missions/13D-E/RECEPTION-MISSION14.md",
+          "/var/lib/jarvis/projects/JARVIS-Launcher2/docs/RAPPORT-JL-02.md"
+        ],
+        "write_observed": true,
+        "readback_observed": false,
+        "finish_policy": "write",
+        "events": [
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "write",
+            "ok": true
+          },
+          {
+            "tool": "host_write_file",
+            "before": "write",
+            "after": "readback",
+            "ok": true
+          }
+        ]
+      },
+      "generations": [
+        {
+          "started": 1792273066.1440096,
+          "phase": "read",
+          "seen_inputs": [],
+          "messages_chars": 3356,
+          "tools_exposed": [
+            "host_audit_read_batch",
+            "host_audit_read"
+          ]
+        },
+        {
+          "started": 1792273074.6722548,
+          "phase": "write",
+          "seen_inputs": [
+            "/home/adminjarvis/JARVIS/mission00/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+            "/home/adminjarvis/JARVIS/mission00/docs/missions/13D-E/RECEPTION-MISSION14.md",
+            "/var/lib/jarvis/projects/JARVIS-Launcher2/docs/RAPPORT-JL-02.md"
+          ],
+          "messages_chars": 15744,
+          "tools_exposed": [
+            "host_write_file"
+          ]
+        }
+      ],
+      "completion": "Contrôleur arrêté après production réelle du fichier ; aucune réponse modèle inventée. Relecture et réception sémantique par Codex distinctes.",
+      "tools": [
+        {
+          "created": "2026-10-17T21:37:53.112386+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/mission00/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "769bccd7af4a4734b498f09d88fa0a8c",
+            "timeout": false,
+            "duration_s": 0.615,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "17e556f302dd3eb8e2fe2ba6601aa0e37b18eed18ffe44bdb6f35185d0f9a831",
+            "stdout_chars": 3070,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:37:53.865322+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/mission00/docs/missions/13D-E/RECEPTION-MISSION14.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "5a08e182639847b3a9840309fd7486bd",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "163419ba99a029281ec6f64061a9193275456741cbdd3c74ce24eb35978230b2",
+            "stdout_chars": 3017,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:37:54.668989+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/JARVIS-Launcher2/docs/RAPPORT-JL-02.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "6f87cc5d410942d593bdc86762033c58",
+            "timeout": false,
+            "duration_s": 0.667,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "eb4fa6d04f273e3a22bfe5909a4a8037a07cefac33a8483f22aab7d7cd66bae6",
+            "stdout_chars": 3038,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:38:39.691309+00:00",
+          "tool": "host_write_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-recent-JARVIS.md",
+            "content": {
+              "sha256": "b1bf5f15f33dc2cea49dfcb601beaa735d740dd28e0ea4f373667032bfa1a576",
+              "chars": 5424,
+              "note": "Contenu complet dans le livrable, pas dans les traces publiées"
+            }
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "35fbd80f4f624fbd9d246c7d0e787a68",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "ac293a0acd3c944a4985b3ce8614efec8915e083ca72f9986cec85fe296c361c",
+            "stdout_chars": 5,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        }
+      ],
+      "tool_count": 4,
+      "errors_count": 0,
+      "conversation_reference": "1a4ee1d5d9084412"
+    },
+    {
+      "lot": "JARVIS-00-04-reception-voix-agent",
+      "id": "task-JARVIS-00-04-reception-voix-agent",
+      "instruction": "Tu es JARVIS, mission00 tâche04. La première grille a inventé une fonction générique infrastructure pour08 et dit09N/A ; ces deux jugements sont rejetés. Cette fois LIS réellement CHAQUE rapport attribué via host_audit_read mode excerpt, pas le lecteurbatch, puis rédige seulement les missions correspondant à ces fichiers. Tableau : mission, affirmation réellement lue, chemin exact, niveau de preuve rapporté (préparation / installation / exécution / test / réception), réserve. Le niveau est ton analyse des citations ; un rapport lu ne signifie pas avoir relu son journal privé. Ne prétends pas avoir exécuté leurs anciens tests. Si les extraits ne suffisent pas, À confirmer et préciser la limite. Installation et qualité du raisonnement sont deux affirmations distinctes ; étude statique n'est pas installation ; 13F laboratoire n'est pas déploiement autonome physique. Dell1 reçu Codex, 14Dell2 non déployé. 11B accès administrateur validé mais ComputeExpansion partielle. sync; reboot-f doit être corrigé avant prochaindéploiement, causalitéresync incertaine. N'invente ni exécutant historique ni condition d'approbation. Rédige ton analyse directement dans /var/lib/jarvis/projects/mission00/PREUVES-LOT-voix-agent-JARVIS.md. Aucune installation ni benchmark. Les lectures sont des extraits explicitement bornés ; ne les appelle pas intégrales.",
+      "mechanism": "Client CLI réutilisant jarvis.core.Core, Memory canonique et Registry/broker ; contexte et outils limités à audit, véritable transport Ollama",
+      "model": "qwen3.5:27b-q4_K_M",
+      "submitted_at": 1792273011.770654,
+      "first_tool_at": "2026-10-17T21:36:58.377772+00:00",
+      "last_update": 1792273065.9975796,
+      "state": "fichier produit ; réception sémantique Codex distincte",
+      "attempts": 1,
+      "error": null,
+      "guided_plan": {
+        "target": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-voix-agent-JARVIS.md",
+        "expected_inputs": [
+          "/home/adminjarvis/JARVIS/mission00/docs/missions/MISSION-13F-DEBRIEF.md",
+          "/home/adminjarvis/JARVIS/rapports/MISSION-13E-RAPPORT.md",
+          "/home/adminjarvis/JARVIS/rapports/mission11.md"
+        ],
+        "seen_inputs": [
+          "/home/adminjarvis/JARVIS/mission00/docs/missions/MISSION-13F-DEBRIEF.md",
+          "/home/adminjarvis/JARVIS/rapports/MISSION-13E-RAPPORT.md",
+          "/home/adminjarvis/JARVIS/rapports/mission11.md"
+        ],
+        "write_observed": true,
+        "readback_observed": false,
+        "finish_policy": "write",
+        "events": [
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "write",
+            "ok": true
+          },
+          {
+            "tool": "host_write_file",
+            "before": "write",
+            "after": "readback",
+            "ok": true
+          }
+        ]
+      },
+      "generations": [
+        {
+          "started": 1792273011.8606405,
+          "phase": "read",
+          "seen_inputs": [],
+          "messages_chars": 3318,
+          "tools_exposed": [
+            "host_audit_read_batch",
+            "host_audit_read"
+          ]
+        },
+        {
+          "started": 1792273019.8969622,
+          "phase": "write",
+          "seen_inputs": [
+            "/home/adminjarvis/JARVIS/mission00/docs/missions/MISSION-13F-DEBRIEF.md",
+            "/home/adminjarvis/JARVIS/rapports/MISSION-13E-RAPPORT.md",
+            "/home/adminjarvis/JARVIS/rapports/mission11.md"
+          ],
+          "messages_chars": 16404,
+          "tools_exposed": [
+            "host_write_file"
+          ]
+        }
+      ],
+      "completion": "Contrôleur arrêté après production réelle du fichier ; aucune réponse modèle inventée. Relecture et réception sémantique par Codex distinctes.",
+      "tools": [
+        {
+          "created": "2026-10-17T21:36:58.377772+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/mission00/docs/missions/MISSION-13F-DEBRIEF.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "9893c677382141f19cbd1273c7453cc7",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "3c66807ce0df17f500e7d779d83718c6ce2be93c3375dbf50734358e8be29b46",
+            "stdout_chars": 3392,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:36:59.129876+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/rapports/MISSION-13E-RAPPORT.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "569b08954a2d4aa59157d7af8877fbd6",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "aaf5626426b440af3eca3c5a7f8f4ee8d62b007253e86de3e1f55fbbee8ae013",
+            "stdout_chars": 2961,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:36:59.896228+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/home/adminjarvis/JARVIS/rapports/mission11.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "c8915e24c1f64f3ca28df2cbe8ebbc4a",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "f9209792bfc610d3168ffd4184354353b632187f594516f3744eae425fbad08c",
+            "stdout_chars": 3377,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:37:45.996141+00:00",
+          "tool": "host_write_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-voix-agent-JARVIS.md",
+            "content": {
+              "sha256": "f9bc59ff89cb1ccd4a95aa5fdb8195b49416ba3bb6756167d953d103d907d706",
+              "chars": 5529,
+              "note": "Contenu complet dans le livrable, pas dans les traces publiées"
+            }
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "a6cf65644f3947cb9f6b2b798c0d6dad",
+            "timeout": false,
+            "duration_s": 0.567,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "012ecf520ea28a2a759096ed86c54c0bcb423fc11fd4117af305780aa8239181",
+            "stdout_chars": 5,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        }
+      ],
+      "tool_count": 4,
+      "errors_count": 0,
+      "conversation_reference": "424a16ad7cb488ac"
+    },
+    {
+      "lot": "JARVIS-00-05-reception",
+      "id": "task-JARVIS-00-05-reception",
+      "instruction": "JARVIS-00-05, synthèse finale guidée. Lis tes quatre entrées via host_audit_read mode excerpt. Les notes de réception sont une contribution Codex : prends ses corrections en compte et attribue-les explicitement. Les trois autres fichiers sont tes analyses/assemblages. Rédige toi-même une synthèse structurée : missions réalisées, partielles, prévues, architecture réelle Mac/Dell, contradictions, priorités et limites d'exécution. Distingue les tests rapportés des actions que tu as réellement exécutées dans00. Ta tâche fut une analyse documentaire avec outils, pas une installation. Ne prétends pas autonomie totale, lecture de tous les rapports ou accès aux preuves privées. Cite les chemins réellement lus et les limites des extraits. N'invente aucune approbation ni nouvel état. Écris dans /var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md. Codex effectuera la réception séparément.",
+      "mechanism": "Client CLI réutilisant jarvis.core.Core, Memory canonique et Registry/broker ; contexte et outils limités à audit, véritable transport Ollama",
+      "model": "qwen3.5:27b-q4_K_M",
+      "submitted_at": 1792273119.7953022,
+      "first_tool_at": "2026-10-17T21:38:47.648997+00:00",
+      "last_update": 1792273192.1961994,
+      "state": "fichier produit ; réception sémantique Codex distincte",
+      "attempts": 1,
+      "error": null,
+      "guided_plan": {
+        "target": "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md",
+        "expected_inputs": [
+          "/var/lib/jarvis/projects/mission00/CONCORDANCE-COMPLEMENT-JARVIS.md",
+          "/var/lib/jarvis/projects/mission00/CONCORDANCE-JARVIS.md",
+          "/var/lib/jarvis/projects/mission00/NOTES-RECEPTION-CODEX.md",
+          "/var/lib/jarvis/projects/mission00/PREUVES-JARVIS.md"
+        ],
+        "seen_inputs": [
+          "/var/lib/jarvis/projects/mission00/CONCORDANCE-COMPLEMENT-JARVIS.md",
+          "/var/lib/jarvis/projects/mission00/CONCORDANCE-JARVIS.md",
+          "/var/lib/jarvis/projects/mission00/NOTES-RECEPTION-CODEX.md",
+          "/var/lib/jarvis/projects/mission00/PREUVES-JARVIS.md"
+        ],
+        "write_observed": true,
+        "readback_observed": false,
+        "finish_policy": "write",
+        "events": [
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "read",
+            "ok": true
+          },
+          {
+            "tool": "host_audit_read",
+            "before": "read",
+            "after": "write",
+            "ok": true
+          },
+          {
+            "tool": "host_write_file",
+            "before": "write",
+            "after": "readback",
+            "ok": true
+          }
+        ]
+      },
+      "generations": [
+        {
+          "started": 1792273119.8829794,
+          "phase": "read",
+          "seen_inputs": [],
+          "messages_chars": 2928,
+          "tools_exposed": [
+            "host_audit_read_batch",
+            "host_audit_read"
+          ]
+        },
+        {
+          "started": 1792273129.9064577,
+          "phase": "write",
+          "seen_inputs": [
+            "/var/lib/jarvis/projects/mission00/CONCORDANCE-COMPLEMENT-JARVIS.md",
+            "/var/lib/jarvis/projects/mission00/CONCORDANCE-JARVIS.md",
+            "/var/lib/jarvis/projects/mission00/NOTES-RECEPTION-CODEX.md",
+            "/var/lib/jarvis/projects/mission00/PREUVES-JARVIS.md"
+          ],
+          "messages_chars": 16186,
+          "tools_exposed": [
+            "host_write_file"
+          ]
+        }
+      ],
+      "completion": "Contrôleur arrêté après production réelle du fichier ; aucune réponse modèle inventée. Relecture et réception sémantique par Codex distinctes.",
+      "tools": [
+        {
+          "created": "2026-10-17T21:38:47.648997+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/CONCORDANCE-COMPLEMENT-JARVIS.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "982c8179b55f4ff58e5b009bd46fced2",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "9c3e7b71d72a63dd14cb2dc0aabf6d4ae9883a4415ceba1d8e895dc8dc511dae",
+            "stdout_chars": 3200,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:38:48.401589+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/CONCORDANCE-JARVIS.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "c3c67328a55c4e2cbbbeee25a0d2b079",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "58ac853a107f6eaea97ad6560267a5ae7bf8d63fb8284445f289046b43f66299",
+            "stdout_chars": 3020,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:38:49.152541+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/NOTES-RECEPTION-CODEX.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "8e6ddc4640954b79944850e7efec183b",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "afa784a566baec7dc52cbfa7412dd23c7d6aa6ac9ccacbec04f6868f744a199b",
+            "stdout_chars": 2833,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:38:49.905044+00:00",
+          "tool": "host_audit_read",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/PREUVES-JARVIS.md",
+            "mode": "excerpt"
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "86507102ebe9470d9ee523674fbcb40d",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "772130b15e21436b87125cfcf8f891a4a633741088faddb1aaeaa2d12f713354",
+            "stdout_chars": 3499,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        },
+        {
+          "created": "2026-10-17T21:39:52.193661+00:00",
+          "tool": "host_write_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md",
+            "content": {
+              "sha256": "624795b4f21f91fc641273cd0af15914c12e16a3894c073ce6b6f6c3e347ea40",
+              "chars": 7990,
+              "note": "Contenu complet dans le livrable, pas dans les traces publiées"
+            }
+          },
+          "ok": true,
+          "error": null,
+          "observed_result": {
+            "returncode": 0,
+            "evidence_id": "03187cc176ff42d581b00ae2d7b4be2a",
+            "timeout": false,
+            "duration_s": 0.617,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "stdout_sha256": "80d25e78fc8eb19316c68648734df95e5c8340f57dc113788f3bda9afe63de3c",
+            "stdout_chars": 5,
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_chars": 0,
+            "stderr_excerpt": ""
+          }
+        }
+      ],
+      "tool_count": 5,
+      "errors_count": 0,
+      "conversation_reference": "986b3d1e7b8caaed"
     },
     {
       "lot": "JARVIS-00-02-fiches-01",
@@ -7991,43 +8971,43 @@
       "name": "CONCORDANCE-COMPLEMENT-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/CONCORDANCE-COMPLEMENT-JARVIS.md",
       "original_sha256": "120b71348d31bf14bad0967d9a6cf012bcfffab6f8af3d842e8309b1a53224b0",
-      "published_sha256": "120b71348d31bf14bad0967d9a6cf012bcfffab6f8af3d842e8309b1a53224b0",
+      "published_sha256": "eca73996d8fddea91377ce7a507def8df4b9a6de89065921ce00b001c55c49c3",
       "size": 7662,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "CONCORDANCE-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/CONCORDANCE-JARVIS.md",
       "original_sha256": "61ef4a48767c937a99078f6ef34d9a13fb89dbdf1edd5566091485f1754ee7af",
-      "published_sha256": "61ef4a48767c937a99078f6ef34d9a13fb89dbdf1edd5566091485f1754ee7af",
+      "published_sha256": "427efe85835f3bed0049f67dcd173da5baf50207ed126a676bd8fbc9efc81125",
       "size": 3897,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "essais-rejetes/CONCORDANCE-PREMIERE-PASSE-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/CONCORDANCE-PREMIERE-PASSE-JARVIS.md",
       "original_sha256": "f6fa7c622e738c3aefe4834b8bbb93b978c4f13c70c84b301ef732510fd042cb",
-      "published_sha256": "f6fa7c622e738c3aefe4834b8bbb93b978c4f13c70c84b301ef732510fd042cb",
+      "published_sha256": "e8b0de3c535e12e038296f7442f52a0777a247fc69e5f9d40780d7f1d8c74f87",
       "size": 289,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "essais-rejetes/FICHES-EXTRACTION-PREMIERE-PASSE-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/FICHES-EXTRACTION-PREMIERE-PASSE-JARVIS.md",
       "original_sha256": "9c484656d57f9edc581be3981853055b669246bef52ec176baf748a189254305",
-      "published_sha256": "9c484656d57f9edc581be3981853055b669246bef52ec176baf748a189254305",
+      "published_sha256": "02ef56eaeb423eb873ee560a61d71d2fe87b252bd493671386db277f5c7ab2fa",
       "size": 19504,
-      "redacted": false,
+      "redacted": true,
       "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
     },
     {
       "name": "FICHES-MISSIONS-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/FICHES-MISSIONS-JARVIS.md",
       "original_sha256": "607711bc6aa2ea539f1bfcfa0cac405144f058a6c2ff85fe2a3dcfdfcbf34765",
-      "published_sha256": "1d4be9f65052b340ff03e6530310279c30ec10bd99bec39f63a2efc55e594f56",
+      "published_sha256": "5b0d95537dd0d169a33457275e0352dfd19c36283c7eb0f4133d951dad5862aa",
       "size": 61431,
       "redacted": true,
       "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
@@ -8045,9 +9025,9 @@
       "name": "essais-rejetes/INVENTAIRE-LOCAL-JARVIS-PREMIERE-PASSE.md",
       "original_path": "/var/lib/jarvis/projects/mission00/INVENTAIRE-LOCAL-JARVIS-PREMIERE-PASSE.md",
       "original_sha256": "7df257fef7635a5f1fce643361e79b07a6f3cfdf01a89800cd93975ae4ac14d3",
-      "published_sha256": "7df257fef7635a5f1fce643361e79b07a6f3cfdf01a89800cd93975ae4ac14d3",
+      "published_sha256": "2a5829e078783e3c2b6ae092c3f0813ebfad1b0825e36c7a09f5d02d438619c8",
       "size": 8333,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
@@ -8063,45 +9043,117 @@
       "name": "INVENTAIRE-LOCAL-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/INVENTAIRE-LOCAL-JARVIS.md",
       "original_sha256": "1daea63b82949d9cd677dd60c7078dc352fae46949ffb5c3c21bae7716849846",
-      "published_sha256": "7121759f67f4b3c5fc41bd8e449347d01c4ec69bf30a920b0be23d07deed6a6d",
+      "published_sha256": "c4fe0b021e1162441e9cf83272773cad9d74624beb65fd2a59125292a6c4adb4",
       "size": 206524,
       "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
+      "name": "NOTES-RECEPTION-CODEX.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/NOTES-RECEPTION-CODEX.md",
+      "original_sha256": "0c239e76d7ee55b32ee7b911142456ea01dba9522fb4574dd3fbdeb5b3cec72c",
+      "published_sha256": "ac8c6c1290313e8c705b60d2b56bb05cdecd6c1a075e64f03e1c9ef048a35015",
+      "size": 1816,
+      "redacted": true,
+      "producer": "Codex : notes de réception fournies au modèle"
+    },
+    {
       "name": "PREUVES-EXTRACTION-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/PREUVES-EXTRACTION-JARVIS.md",
       "original_sha256": "bad4a114b02304cadb91395040d2a2a9dd17c3a6f5c1036afaba72939d449383",
-      "published_sha256": "bad4a114b02304cadb91395040d2a2a9dd17c3a6f5c1036afaba72939d449383",
+      "published_sha256": "b3ffae5f7cd2b80b2fa98cb5a3a61785f5f2d810ae33734e970cfa4aa213d0b7",
       "size": 28109,
-      "redacted": false,
+      "redacted": true,
+      "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
+    },
+    {
+      "name": "essais-rejetes/PREUVES-GRILLE-REJETEE-JARVIS.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/PREUVES-GRILLE-REJETEE-JARVIS.md",
+      "original_sha256": "04791be95a2ae6f8e8c3c772da34816ae41f993e2325236501384497ba4a45f8",
+      "published_sha256": "95a69815c73df5d01ba6323b250a2c25126511232225304dc640bdd974ffb24d",
+      "size": 8009,
+      "redacted": true,
       "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
     },
     {
       "name": "PREUVES-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/PREUVES-JARVIS.md",
-      "original_sha256": "04791be95a2ae6f8e8c3c772da34816ae41f993e2325236501384497ba4a45f8",
-      "published_sha256": "04791be95a2ae6f8e8c3c772da34816ae41f993e2325236501384497ba4a45f8",
-      "size": 8009,
-      "redacted": false,
+      "original_sha256": "681aaf57ed6cd7add91b2775af66d946c4443a7a202efe7dba10939a3807acda",
+      "published_sha256": "55df072510a51bb071413d10702db9684c15a3865eff9e522e86589fbc2c04da",
+      "size": 18781,
+      "redacted": true,
       "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
+    },
+    {
+      "name": "PREUVES-LOT-historique-JARVIS.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-historique-JARVIS.md",
+      "original_sha256": "bce54473116fe904b0469f24f4e17e4958fef1780f8551acb39f9ac46a5784ec",
+      "published_sha256": "9a3aee98e15314dd360aef87d0465319830a96af82c41fdeec6b24e57cf28ef3",
+      "size": 7271,
+      "redacted": true,
+      "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
+    },
+    {
+      "name": "PREUVES-LOT-recent-JARVIS.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-recent-JARVIS.md",
+      "original_sha256": "b1bf5f15f33dc2cea49dfcb601beaa735d740dd28e0ea4f373667032bfa1a576",
+      "published_sha256": "5d5e12aad34690bf0ad7727c17a53bb96cbd8bff69dcb5fa2bff25f6ee56258e",
+      "size": 5567,
+      "redacted": true,
+      "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
+    },
+    {
+      "name": "PREUVES-LOT-voix-agent-JARVIS.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/PREUVES-LOT-voix-agent-JARVIS.md",
+      "original_sha256": "f9bc59ff89cb1ccd4a95aa5fdb8195b49416ba3bb6756167d953d103d907d706",
+      "published_sha256": "1cd584bf214194156a609991455b1a780d5ed95bbcb88c5d2eb39c90636e7431",
+      "size": 5702,
+      "redacted": true,
+      "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
+    },
+    {
+      "name": "RECTIFICATIONS-CODEX.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/RECTIFICATIONS-CODEX.md",
+      "original_sha256": "851f58933ee3488e972ae198d23573e967b5b24e9b2c06c883b00d62876b6535",
+      "published_sha256": "9526a44878c7d31d87ffa63980175e74a1849836ac0f7e735cd9297bce9bae9f",
+      "size": 2006,
+      "redacted": true,
+      "producer": "Codex : notes de réception fournies au modèle"
     },
     {
       "name": "SYNTHESE-AUTONOME-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/SYNTHESE-AUTONOME-JARVIS.md",
+      "original_sha256": "dd7ad2e97a21970ae3640c923e77ab766b004eba27dd2352181b486ca566fd95",
+      "published_sha256": "04ed0539f9e30f7e9deba23858cea953213ebc58704c5309ebbd338d85d0781f",
+      "size": 3661,
+      "redacted": true,
+      "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
+    },
+    {
+      "name": "essais-rejetes/SYNTHESE-AVANT-RECEPTION-JARVIS.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/SYNTHESE-AVANT-RECEPTION-JARVIS.md",
       "original_sha256": "7d7f63465ebdac3a107fa255ab82215c815341b25ee772a6b4594e4688de14ed",
-      "published_sha256": "7d7f63465ebdac3a107fa255ab82215c815341b25ee772a6b4594e4688de14ed",
+      "published_sha256": "97be7e0ff52b28ea10c44143031dd8dcc8180f9d6975db11d565a627ae56b4ed",
       "size": 2947,
-      "redacted": false,
+      "redacted": true,
+      "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
+    },
+    {
+      "name": "essais-rejetes/SYNTHESE-AVANT-RECTIFICATION-JARVIS.md",
+      "original_path": "/var/lib/jarvis/projects/mission00/SYNTHESE-AVANT-RECTIFICATION-JARVIS.md",
+      "original_sha256": "624795b4f21f91fc641273cd0af15914c12e16a3894c073ce6b6f6c3e347ea40",
+      "published_sha256": "6323ae173ea125583c1a67877b711347dc1cb599212befd213db289214c36d33",
+      "size": 8245,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "essais-rejetes/SYNTHESE-PREMIERE-PASSE-JARVIS.md",
       "original_path": "/var/lib/jarvis/projects/mission00/SYNTHESE-PREMIERE-PASSE-JARVIS.md",
       "original_sha256": "7d7f63465ebdac3a107fa255ab82215c815341b25ee772a6b4594e4688de14ed",
-      "published_sha256": "7d7f63465ebdac3a107fa255ab82215c815341b25ee772a6b4594e4688de14ed",
+      "published_sha256": "97be7e0ff52b28ea10c44143031dd8dcc8180f9d6975db11d565a627ae56b4ed",
       "size": 2947,
-      "redacted": false,
+      "redacted": true,
       "producer": "Assemblage mécanique Codex de textes JARVIS ; originaux conservés"
     },
     {
@@ -8117,70 +9169,70 @@
       "name": "fiches-lot-01.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-01.md",
       "original_sha256": "3480bac2ce25cf98a621ec021df39aad065f4ea68ba32d3bb9a5dfb89fd63526",
-      "published_sha256": "3480bac2ce25cf98a621ec021df39aad065f4ea68ba32d3bb9a5dfb89fd63526",
+      "published_sha256": "34283262afcb82a5bc1840052cd044dd01eaf86e8c7a959ec8d9226a4b9fbd5a",
       "size": 3944,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-02.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-02.md",
       "original_sha256": "cb26d5beae51ed761137cab482b77b1d9233fae815f659ac545e5b50b1d397dd",
-      "published_sha256": "cb26d5beae51ed761137cab482b77b1d9233fae815f659ac545e5b50b1d397dd",
+      "published_sha256": "b7835bb82a72fcc08ded74b52f91c3bb7ee0c4f4a0b530d1540e972f0d545ac0",
       "size": 3019,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-03.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-03.md",
       "original_sha256": "a2126445a113001942760308cd870c513e443fb49bb9d45886005c9342214f9b",
-      "published_sha256": "a2126445a113001942760308cd870c513e443fb49bb9d45886005c9342214f9b",
+      "published_sha256": "5977f85047a6683994aba83342538d6637cc570cc7875d9b8925f85440e2b2d8",
       "size": 3404,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-04.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-04.md",
       "original_sha256": "749a531069d1837a3f27fc15ca8f4ef7a74f80f6828089f08702ee2c17e6e3f9",
-      "published_sha256": "749a531069d1837a3f27fc15ca8f4ef7a74f80f6828089f08702ee2c17e6e3f9",
+      "published_sha256": "133556705df0c199db9a18d6a3dd2318519061e0c958ef10a6078c69f0eeeb96",
       "size": 3813,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-05.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-05.md",
       "original_sha256": "6ecd9470095280103587a4523afc7b096136091450ef1be013604680a418f6e9",
-      "published_sha256": "6ecd9470095280103587a4523afc7b096136091450ef1be013604680a418f6e9",
+      "published_sha256": "1bc01ce922382adcf90bd9618b341c7475a583b92161b62200b68443c0f710cb",
       "size": 3798,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-06.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-06.md",
       "original_sha256": "dee823a5e244e271769390e2786117cc224a17630c063bff2291cee84f06027d",
-      "published_sha256": "dee823a5e244e271769390e2786117cc224a17630c063bff2291cee84f06027d",
+      "published_sha256": "1011ae060aec695880f78eeb1208b7939b6ddbff84aac802710810d0b642d61b",
       "size": 4746,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-07.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-07.md",
       "original_sha256": "0cf479bec18c8448e9f9da0f7491976644f11bb70cc1f9bc664b89b96a8104e4",
-      "published_sha256": "0cf479bec18c8448e9f9da0f7491976644f11bb70cc1f9bc664b89b96a8104e4",
+      "published_sha256": "fc364aa8b56c8ab9cbbb4a8be260c7b866fd0c85695472901ced1901672f086d",
       "size": 3955,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-08.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-08.md",
       "original_sha256": "da9816e9b6d19b83329dcf21bfc8b40be9533c163fe48aeb14bdcd7f47c3ae5e",
-      "published_sha256": "291359928bedb157a07d113f6bb20ae2c15da10af318b072fb4ddefea9d8053a",
+      "published_sha256": "2558d0523b90f2fda734945bbb832c3e400f46f57eafa5ee9569a611cecaf25a",
       "size": 3863,
       "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
@@ -8189,7 +9241,7 @@
       "name": "fiches-lot-09.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-09.md",
       "original_sha256": "932cc582b724187dfb4e98a62c19221dc873b6ff88ccb0d42f312ed8f81cea40",
-      "published_sha256": "5141bd3438b08ed8f1ca8f76cc50cdd051eb5a13e7f3c2e365bafb54daf562ce",
+      "published_sha256": "d9aa9d71378b955f1cc8b0d7d92cd12be9e66b8d2d993dc89062271d8521afc2",
       "size": 3190,
       "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
@@ -8198,54 +9250,54 @@
       "name": "fiches-lot-10.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-10.md",
       "original_sha256": "b33da46363bd47dc9712a41fd7f8fc127c4f74046a58cd682bfc9f00189499c6",
-      "published_sha256": "b33da46363bd47dc9712a41fd7f8fc127c4f74046a58cd682bfc9f00189499c6",
+      "published_sha256": "c24cb592a3a32744fb01d2c5a4c940a9c1f711ba215bf4fde82388e833ca4123",
       "size": 4604,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-11.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-11.md",
       "original_sha256": "9bf37318084e45a75062c6bcbfbeccbaddf9a6980bd130c99b13589535661586",
-      "published_sha256": "9bf37318084e45a75062c6bcbfbeccbaddf9a6980bd130c99b13589535661586",
+      "published_sha256": "dc6ece204a5933095bc4dbbddae0e88095f9201c6650df63c6937f905cd0e7a9",
       "size": 3432,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-12.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-12.md",
       "original_sha256": "25e66456d87db141bd34b0ebbb5300e000c2744354c44446102d434222693fd9",
-      "published_sha256": "25e66456d87db141bd34b0ebbb5300e000c2744354c44446102d434222693fd9",
+      "published_sha256": "5b2b6f8a7399b6b777de2a3c061c4beb505b813437936b1afd186a4ed1e9aadf",
       "size": 5996,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-13.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-13.md",
       "original_sha256": "a761ed1aa5e872bc4b64a2cc3a32f960862d833bf7dfe8ae13245a337119a6c8",
-      "published_sha256": "a761ed1aa5e872bc4b64a2cc3a32f960862d833bf7dfe8ae13245a337119a6c8",
+      "published_sha256": "4bc741e3c44f8e9b4d073fa43b556c6ea49f620f3c3b62a883c80fc06ac51ede",
       "size": 3980,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-14.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-14.md",
       "original_sha256": "e6844f9da7d8b0ae996dcb422d4c63614b2a1d9176d6be7543f1880c3b1a9c29",
-      "published_sha256": "e6844f9da7d8b0ae996dcb422d4c63614b2a1d9176d6be7543f1880c3b1a9c29",
+      "published_sha256": "d3be26e5a4f17f00094b0b5338d9515cd0c8cefa30ddc1533bf366ce8af47f7f",
       "size": 1530,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {
       "name": "fiches-lot-15.md",
       "original_path": "/var/lib/jarvis/projects/mission00/fiches-lot-15.md",
       "original_sha256": "5a6d8d5be5071df63122e4a8144f713c75bf20afb833d82966910377d4fe0662",
-      "published_sha256": "5a6d8d5be5071df63122e4a8144f713c75bf20afb833d82966910377d4fe0662",
+      "published_sha256": "e133f748e7dd4b09ee8938da91b9f23abd4f9d6da2b8fc7c3cfb371f93a1130e",
       "size": 7576,
-      "redacted": false,
+      "redacted": true,
       "producer": "JARVIS, résultat des outils ; réception et limites dans BILAN-AGENTIQUE-JARVIS.md"
     },
     {

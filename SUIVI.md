@@ -41,7 +41,7 @@
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés | Mac mini fonctionnel confirmé le 14/10 ; MacBook : compagnon local, connexion SSH, reprise tmux et trois actions du site GitHub Pages déclarées fonctionnelles par l'utilisateur le 15/10. Autres commandes et sécurité complète non toutes réceptionnées | Garder les tests acquis ; documenter uniquement les actions restantes sans retester inutilement |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES | SiteV2publié ; Qwenoutilsréels,voix synthétique,métriques etévénements testés ; espaceconnecté confirmé propriétaire | Suivre réserves nativesetfiabilitéagentique ; préserver V1 |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
-| **00** | Pilotage — point du 17/10 | 🟡 En cours de réception documentaire | Audit GitHub et délégations réelles à compléter au bilan | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Publier les preuves et le registre sans merge main |
+| **00** | Audit général et concordance documentaire | ✅ GO avec réserves | 68 missions, 28 anomalies ; 671 fichiers inventoriés par JARVIS ; 129 documents/preuves récupérés ; analyses guidées et corrigées | PR6, sans fusion automatique ; réserves agentiques explicites |
 | **01** | Audit de JARVIS | 🟡 PARTIEL | Audit matériel en lecture seule ; accès hôte limité par le bac à sable. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
 | **02** | Configuration Apple T2 et administration Debian | 🟡 PARTIEL | Préparer Debian et le support T2 ; validation complète différée. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
 | **02B** | Administration et préparation système | 🟡 Préparation et script testés ; administration non exécutée | Diagnostics accessibles, script créé et syntaxe/aide/refus en bac à sable testés ; aucun OpenSSH Server installé dans cette mission | Voir le registre 00 et les étapes suivantes |
@@ -204,3 +204,7 @@ INCOMPLET — consulter les preuves privées et reprendre sans réinstallation a
 ## Réception nouvelle tentative Dell 13D-E / 14
 
 RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+### Réception documentaire mission 00 — 17 octobre 2026
+
+README, docs/missions, SUIVI et ROADMAP réconciliés. 100 rapports/fiches historiques et 29 documents/preuves Launcher récupérés sur JARVIS avec provenance. Cinq tâches JARVIS réellement exécutées, avec guidage, erreurs et corrections Codex explicités. [Rapport final](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) et [PR6](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6). Aucun succès global 14A ni nouveau déploiement déduit.

@@ -31,3 +31,11 @@ La première grille de preuve inventait une fonction générique pour 08 et indi
 La première synthèse contenait le mot « simulation » et décrivait incorrectement la réception Dell ; elle n’est pas une réalisation valide. La synthèse finale tient compte de notes de réception explicitement fournies par Codex. Elle reste une synthèse **guidée**, distincte du rapport final de consolidation.
 
 Cette mission démontre une exécution d’outils et une production documentaire réelles par Qwen, avec erreurs et reprises. Elle ne démontre pas une autonomie documentaire générale sans guidage ; elle ne clôture pas automatiquement la mission 14A.
+
+## Réserves supplémentaires sur les matrices et la synthèse
+
+La matrice complémentaire affirme à tort que l’usage distant de la mémoire n’est pas démontré : le chemin via la passerelle Mac et l’inférence Dell est documenté ; c’est la réplication de la base qui n’est pas reçue. Les anciens réserves de clients physiques restent ciblées et ne bloquent pas arbitrairement toutes les missions.
+
+La synthèse précédant la rectification finale réintroduisait « Contrôle Humain Requis » pour les commandes critiques : **cette nouvelle obligation est rejetée**, les autorisations explicites du propriétaire prévalent. La fiabilité limitée d’un modèle ne crée pas une nouvelle règle d’approbation. Llama était le choix par défaut historique de 08, pas un administrateur critique automatiquement promu aujourd’hui. Le Mac porte la passerelle, la mémoire, la voix et les outils ; il n’est pas seulement un client.
+
+Les phrases « aucune exécution de code/commande » des productions de synthèse sont trop larges : les lecteurs et écritures documentaires ont réellement été exécutés via le broker. L’absence de déploiement ou de tests matériels ne doit pas effacer ces actions. La synthèse antérieure est conservée distinctement ; Codex a demandé une rectification réelle au modèle, sans corriger son texte à sa place.

@@ -1,6 +1,6 @@
 # Anomalies documentaires et corrections
 
-26 anomalies rapprochées de sources nommées. Les chemins `missions/` et `archives/` appartiennent aux branches consolidation/réorganisation : URLs complètes dans INVENTAIRE-GITHUB.json. « Correction » décrit la consolidation documentaire présente ou la suite explicitement réservée ; les fichiers historiques hors branche00 ne sont pas réécrits.
+28 anomalies rapprochées de sources nommées. Les chemins `missions/` et `archives/` appartiennent aux branches consolidation/réorganisation : URLs complètes dans INVENTAIRE-GITHUB.json. « Correction » décrit la consolidation documentaire présente ou la suite explicitement réservée ; les fichiers historiques hors branche00 ne sont pas réécrits.
 
 | ID | Catégorie | Sources concernées | Contradiction exacte | Référence récente | Correction / suite | Certitude |
 | --- | --- | --- | --- | --- | --- | --- |
