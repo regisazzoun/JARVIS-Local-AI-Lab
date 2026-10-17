@@ -59,3 +59,8 @@ La reprise distante a installé le noyau Debian 6.12.113+deb13-amd64, configuré
 Le 17 octobre 2026, après le redémarrage de Debian neuf, le propriétaire confirme l'invite de connexion et constate que le clavier physique reste en QWERTY. Le chargement AZERTY vérifié dans l'installateur ne s'est donc pas traduit par une disposition française effective sur la console du système installé. Les fichiers de configuration et setupcon --save-only ne constituent pas une validation de la disposition active.
 
 Correction à exécuter dès accès : charger le clavier français sur la console, vérifier keyboard-setup.service et console-setup.service ainsi que leurs journaux et cartes enregistrées, corriger la configuration persistante et les éventuels fichiers générés/initramfs, puis vérifier après redémarrage sur la console réelle (notamment keycode16=a, keycode17=z). Maintenir cette exigence pour secours/installateur/système. Le défaut est ouvert ; aucune correction installée ni vérification après reboot n'est revendiquée à ce stade.
+
+
+## Dépendance réseau manquante constatée en console
+
+Le propriétaire signale `ip : commande introuvable` après connexion locale. iproute2 était absent de la sélection de paquets du système minimal : il est désormais explicitement ajouté à la recette et au playbook. Son installation effective sur le Dell reste à vérifier. networkctl, fourni par systemd, est le moyen de diagnostic alternatif proposé. Le retour réseau et les authentifications SSH restent à réceptionner.

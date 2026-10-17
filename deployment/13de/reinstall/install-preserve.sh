@@ -68,7 +68,7 @@ grep -qs " /target/boot/efi " /proc/mounts || mount "${a}p1" /target/boot/efi
 grep -qs " /target/boot/efi-secondary " /proc/mounts || mount "${b}p1" /target/boot/efi-secondary
 mdadm --detail --scan > /target/etc/mdadm/mdadm.conf
 chroot /target apt-get update
-chroot /target apt-get install -y e2fsprogs linux-image-amd64 linux-headers-amd64 openssh-server sudo python3 ca-certificates mdadm nvme-cli smartmontools efibootmgr rsync wget curl pciutils dmidecode grub-efi-amd64-signed shim-signed locales console-setup keyboard-configuration systemd-sysv systemd-timesyncd
+chroot /target apt-get install -y iproute2 e2fsprogs linux-image-amd64 linux-headers-amd64 openssh-server sudo python3 ca-certificates mdadm nvme-cli smartmontools efibootmgr rsync wget curl pciutils dmidecode grub-efi-amd64-signed shim-signed locales console-setup keyboard-configuration systemd-sysv systemd-timesyncd
 printf 'jarvis-dell\n' > /target/etc/hostname
 printf '127.0.0.1 localhost\n127.0.1.1 jarvis-dell\n' > /target/etc/hosts
 printf 'fr_FR.UTF-8 UTF-8\n' > /target/etc/locale.gen
