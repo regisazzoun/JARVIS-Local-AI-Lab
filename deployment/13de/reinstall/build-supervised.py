@@ -54,6 +54,7 @@ shutil.copy(b/'identity.pub',stage/'jarvis/authorized_keys')
 if not (b/'target_host_key').exists():subprocess.run(['ssh-keygen','-q','-t','ed25519','-N','','-f',str(b/'target_host_key')],check=True)
 for n in ['target_host_key','target_host_key.pub']:shutil.copy(b/n,stage/'jarvis'/n)
 shutil.copy(pathlib.Path(__file__).with_name('install-preserve.sh'),stage/'jarvis/install-preserve.sh')
+for name in ['progress-viewer.sh','progress-console.service']:shutil.copy(pathlib.Path(__file__).with_name(name),stage/'jarvis'/name)
 manifest=json.loads((ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_text())
 sys.path.insert(0,str(ROOT/'physical'))
 from validate import validate

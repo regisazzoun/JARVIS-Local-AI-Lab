@@ -120,6 +120,12 @@ EOF
 chmod 755 /target/etc/systemd/network
 chmod 644 /target/etc/systemd/network/20-wired.network
 chroot /target systemctl enable systemd-networkd ssh systemd-timesyncd
+mkdir -p /target/usr/local/bin
+cp /jarvis/progress-viewer.sh /target/usr/local/bin/jarvis-progress
+cp /jarvis/progress-console.service /target/etc/systemd/system/jarvis-progress-console.service
+chmod 755 /target/usr/local/bin/jarvis-progress
+chmod 644 /target/etc/systemd/system/jarvis-progress-console.service
+chroot /target systemctl enable jarvis-progress-console.service
 mkdir -p /target/boot/grub /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
 rootuuid=$(blkid -s UUID -o value "$md")
 printf 'UUID=%s / ext4 defaults 0 1\n' "$rootuuid" > /target/etc/fstab

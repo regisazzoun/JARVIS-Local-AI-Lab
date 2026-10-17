@@ -9,12 +9,10 @@ end=time.monotonic()+28800
 while time.monotonic()<end:
  try:
   state=json.loads((b/'progress.json').read_text())
-  r=subprocess.run(common+['for md in /sys/block/md*/md; do cat "$md/sync_action"; cat "$md/sync_completed"; done'],capture_output=True,text=True,timeout=10)
-  lines=r.stdout.splitlines()
-  if r.returncode==0 and len(lines)>=2 and lines[0]=='resync':
-   nums=re.findall(r'\d+',lines[1])
-   if len(nums)==2 and int(nums[1])>0:
-    pct=round(100*int(nums[0])/int(nums[1]),1);update('storage',pct,'RAID1 existant en resynchronisation après le premier reboot; réception finale différée')
+  r=subprocess.run(common+['cat /proc/mdstat'],capture_output=True,text=True,timeout=10)
+  match=re.search(r'resync\s*=\s*([0-9.]+)%.*?finish=([^ ]+)',r.stdout)
+  if r.returncode==0 and match:
+   pct=float(match.group(1));update('storage',pct,'Resynchronisation RAID1 mesurée dans /proc/mdstat ; reste estimé '+match.group(2))
   if state.get('models',{}).get('status')=='running':
    log=(b/'ai-phase.log').read_text(errors='replace')[-100000:]
    values=re.findall(r'\b(\d{1,3})%\s+\S+[kMGT]?B/s',log)

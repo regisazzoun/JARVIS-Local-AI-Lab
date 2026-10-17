@@ -154,3 +154,10 @@ Cause du QWERTY identifiée par SSH : /etc/vconsole.conf est un lien vers /etc/d
 Le miroir conservé est [UU], mais une resynchronisation complète a repris après le reboot forcé de l'installateur ; une observation a montré 15,2 %, environ 141 minutes restantes. La préservation des métadonnées n'a donc pas évité cette synchronisation. Le reboot forcé constitue une cause probable de l'état sale et doit être remplacé par une séquence de démontage/arrêt propre pour les prochaines installations. Ne pas arrêter ni faussement déclarer terminée cette resynchronisation. La phase IA peut avancer avec deux membres sains, mais la réception finale exige le retour idle, puis un redémarrage normal et la relecture de l'état.
 
 mdmonitor échouait faute de destinataire ou de programme d'alerte. Un programme local de journalisation a été configuré, puis le service relancé et constaté actif ; aucun email d'alerte non demandé n'a été envoyé. iproute2/e2fsprogs sont explicitement requis par la recette corrigée. NVIDIA, CUDA, Ollama et l'intégration restent à vérifier selon les preuves de la phase IA.
+
+
+## Affichage de progression rétabli après le premier reboot
+
+Le suivi existait en fichier mais n'était plus visible en console après reboot : cette limitation ne satisfaisait pas la demande. Une console dédiée tty8 a été créée et activée, sans fermer la session tty1. Alt+F8 affiche le suivi ; Alt+F1 revient à la connexion. La commande jarvis-progress fournit la même vue actualisée depuis SSH. Le service est activé pour les démarrages suivants et le constructeur/recette embarquent désormais les mêmes assets. Le service actif et tty8 comme console courante ont été vérifiés à distance.
+
+La vue compacte conserve toutes les tâches, les barres, états, durées et heures de dernière activité ; les détails sont disponibles via progress.py --details et les journaux privés. La resynchronisation est mesurée depuis /proc/mdstat, car sync_completed dans sysfs reflétait un point de progression plus ancien. Les coches sont réservées aux contrôles réellement réussis. Les phases sans pourcentage mesurable affichent une barre d'activité, sans pourcentage inventé.

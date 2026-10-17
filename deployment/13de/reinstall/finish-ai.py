@@ -106,6 +106,9 @@ WantedBy=multi-user.target
  assert re.search(r'changed=0\b',recap) and re.search(r'failed=0\b',recap) and re.search(r'unreachable=0\b',recap),recap
  event('ansible','validated','Second pass changed=0 failed=0 unreachable=0; see private recap')
  # Authenticated integration is a separate executable step with rollback on failure.
+ upload('/usr/local/bin/jarvis-progress',(ROOT/'reinstall/progress-viewer.sh').read_bytes(),'0755')
+ upload('/etc/systemd/system/jarvis-progress-console.service',(ROOT/'reinstall/progress-console.service').read_bytes(),'0644')
+ ssh('sudo -n systemctl daemon-reload && sudo -n systemctl enable --now jarvis-progress-console')
  event('integration','running','Switching JARVIS inference backend only; canonical voice and SQLite stay on Mac')
  subprocess.run(['python3',str(ROOT/'reinstall/integrate.py'),str(b),ip],check=True)
  event('integration','validated','Authenticated gateway and Open WebUI inference plus canonical memory/tools/voice tests passed')

@@ -1,0 +1,17 @@
+[Unit]
+Description=JARVIS deployment progress on dedicated console
+After=systemd-vconsole-setup.service getty.target
+Conflicts=getty@tty8.service
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/jarvis-progress
+ExecStartPost=/usr/bin/chvt 8
+StandardInput=tty
+StandardOutput=tty
+StandardError=journal
+TTYPath=/dev/tty8
+TTYReset=yes
+Restart=on-failure
+RestartSec=3
+[Install]
+WantedBy=multi-user.target
