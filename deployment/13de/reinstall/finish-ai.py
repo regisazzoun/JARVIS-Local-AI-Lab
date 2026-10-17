@@ -4,13 +4,17 @@ import argparse,json,os,pathlib,subprocess,time,urllib.request,re,shlex,socket
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);a=p.parse_args();b=a.session.resolve();os.umask(0o077)
 s=json.loads((b/'installed-ip.json').read_text());ip=s['ip'];identity=b/'identity';known=b/'known_target';modeldir=pathlib.Path('/home/adminjarvis/JARVIS/ollama')
+current_task='ansible'
 common=['ssh','-F','/dev/null','-o','BatchMode=yes','-o','StrictHostKeyChecking=yes','-o',f'UserKnownHostsFile={known}','-o','GlobalKnownHostsFile=/dev/null','-o','IdentitiesOnly=yes','-o','ConnectTimeout=10','-i',str(identity)]
 def ssh(cmd,check=True):
  r=subprocess.run(common+['adminjarvis@'+ip,cmd],capture_output=True,text=True)
  if check and r.returncode:raise RuntimeError(r.stderr[-1500:]+r.stdout[-1500:])
  return r.stdout
 
-def event(task,status,detail):subprocess.run(['python3',str(ROOT/'reinstall/progress.py'),str(b/'progress.json'),'--task',task,'--status',status,'--detail',detail],check=True)
+def event(task,status,detail):
+ global current_task
+ if status=='running':current_task=task
+ subprocess.run(['python3',str(ROOT/'reinstall/progress.py'),str(b/'progress.json'),'--task',task,'--status',status,'--detail',detail],check=True)
 def save(name,data):(b/name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 def api(path,data=None,timeout=300):
  req=urllib.request.Request(f'http://{ip}:11434'+path,data=None if data is None else json.dumps(data).encode(),headers={'Content-Type':'application/json'})
@@ -59,7 +63,8 @@ try:
  for name in ['bin','lib']:
   subprocess.run(['rsync','-a','--info=progress2','-e',transport,str(modeldir/name),'adminjarvis@'+ip+':/opt/ollama/'],check=True)
  event('models','running','Transferring existing Qwen3.5 27B Q4_K_M, Ministral3 14B Q4_K_M and Llama3.1 8B store')
- subprocess.run(['rsync','-a','--info=progress2','-e',transport,str(modeldir/'models')+'/','adminjarvis@'+ip+':/var/lib/ollama/models/'],check=True)
+ print('MODEL_TRANSFER_BEGIN',flush=True)
+ subprocess.run(['rsync','-a','--info=progress2','-e',transport,'--rsync-path=sudo -n rsync',str(modeldir/'models')+'/','adminjarvis@'+ip+':/var/lib/ollama/models/'],check=True)
  unit=f'''[Unit]
 Description=JARVIS Dell Ollama inference
 Wants=network-online.target
@@ -134,4 +139,11 @@ WantedBy=multi-user.target
  save('complete.json',{'complete':True,'time':int(time.time()),'models':expected,'driver':rows[0][2],'ollama':version['version']})
  print('MISSION14_OPERATIONAL_VALIDATED',flush=True)
 except BaseException as exc:
- (b/'ai-error.txt').write_text(str(exc)+'\n');print('AI_PHASE_FAILED:',str(exc),flush=True);raise
+ (b/'ai-error.txt').write_text(str(exc)+'\n')
+ try:
+  event(current_task,'failed','Échec de la phase ; diagnostic privé ai-phase.log, reprise nécessaire')
+  state=json.loads((b/'progress.json').read_text())
+  for task in ['ansible','cuda','ollama','models','integration','tests','reboot','acceptance']:
+   if task!=current_task and state[task]['status']=='running':event(task,'blocked','En attente de la reprise de la phase IA ; voir le journal privé')
+ except Exception:pass
+ print('AI_PHASE_FAILED:',str(exc),flush=True);raise

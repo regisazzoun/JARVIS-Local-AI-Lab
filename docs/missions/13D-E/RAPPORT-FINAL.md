@@ -165,3 +165,10 @@ mdmonitor échouait faute de destinataire ou de programme d'alerte. Un programme
 Le suivi existait en fichier mais n'était plus visible en console après reboot : cette limitation ne satisfaisait pas la demande. Une console dédiée tty8 a été créée et activée, sans fermer la session tty1. Alt+F8 affiche le suivi ; Alt+F1 revient à la connexion. La commande jarvis-progress fournit la même vue actualisée depuis SSH. Le service est activé pour les démarrages suivants et le constructeur/recette embarquent désormais les mêmes assets. Le service actif et tty8 comme console courante ont été vérifiés à distance.
 
 La vue compacte conserve toutes les tâches, les barres, états, durées et heures de dernière activité ; les détails sont disponibles via progress.py --details et les journaux privés. La resynchronisation est mesurée depuis /proc/mdstat, car sync_completed dans sysfs reflétait un point de progression plus ancien. Les coches sont réservées aux contrôles réellement réussis. Les phases sans pourcentage mesurable affichent une barre d'activité, sans pourcentage inventé.
+
+
+## Progression IA et correction d'un suivi périmé
+
+Pilote NVIDIA 550.163.01 chargé : une RTX 3090 reconnue, 24576 MiB. La première passe Ansible a réussi. Le transfert des modèles a ensuite échoué parce que le répertoire parent /var/lib/ollama était privé à l'utilisateur de service, empêchant adminjarvis d'atteindre models. Le transfert utilise désormais sudo rsync sur la cible ; les clés et mots de passe restent privés. Les binaires avaient été copiés, mais le moteur Ollama et les inférences n'étaient pas encore validés à cet arrêt.
+
+Le tableau affichait à tort un état ancien et 99 % provenant d'un transfert précédent : les événements de transfert sont maintenant délimités, la phase en échec doit être signalée explicitement et la télémétrie RAID continue même après un échec IA. Lecture réelle lors de la reprise : RAID sain [UU], environ 51 % de resynchronisation. Nouvelle passe Ansible sans échec, transfert relancé ; aucune réussite des modèles ou d'Ollama n'est déduite de ces seules opérations.

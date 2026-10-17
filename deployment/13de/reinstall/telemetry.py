@@ -15,8 +15,10 @@ while time.monotonic()<end:
    pct=float(match.group(1));update('storage',pct,'Resynchronisation RAID1 mesurée dans /proc/mdstat ; reste estimé '+match.group(2))
   if state.get('models',{}).get('status')=='running':
    log=(b/'ai-phase.log').read_text(errors='replace')[-100000:]
+   marker=log.rfind('MODEL_TRANSFER_BEGIN')
+   log=log[marker:] if marker>=0 else ''
    values=re.findall(r'\b(\d{1,3})%\s+\S+[kMGT]?B/s',log)
    if values:update('models',int(values[-1]),'Transfert mesuré du magasin de modèles existant via rsync; tests inférence encore nécessaires')
-  if any((b/f).exists() for f in ['complete.json','ai-error.txt']):break
+  if (b/'complete.json').exists():break
  except Exception:pass
  time.sleep(15)
