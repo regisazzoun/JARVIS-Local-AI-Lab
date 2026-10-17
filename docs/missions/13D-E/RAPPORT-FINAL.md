@@ -132,3 +132,10 @@ Découverte automatique réalisée et reçue ; qualification RAID/deux ESP, appr
 ## Clôture de la tentative — 17 octobre 2026
 
 Installation Debian finalisée et démarrage confirmé par console/SSH ouvert, mais rapport de premier boot absent et accès authentifié/Ansible non réceptionnés. Tentative arrêtée à la demande du propriétaire. Le [rapport transitoire de reprise](RAPPORT-TRANSITOIRE-REPRISE.md) porte les directives prioritaires pour terminer la mission : adminjarvis, mot de passe utilisateur privé, maintien du secours SSH, clavier français et conservation du RAID existant si possible.
+
+
+## Défaut constaté par le propriétaire — clavier installé QWERTY
+
+Le 17 octobre 2026, après le redémarrage de Debian neuf, le propriétaire confirme l'invite de connexion et constate que le clavier physique reste en QWERTY. Le chargement AZERTY vérifié dans l'installateur ne s'est donc pas traduit par une disposition française effective sur la console du système installé. Les fichiers de configuration et setupcon --save-only ne constituent pas une validation de la disposition active.
+
+Correction à exécuter dès accès : charger le clavier français sur la console, vérifier keyboard-setup.service et console-setup.service ainsi que leurs journaux et cartes enregistrées, corriger la configuration persistante et les éventuels fichiers générés/initramfs, puis vérifier après redémarrage sur la console réelle (notamment keycode16=a, keycode17=z). Maintenir cette exigence pour secours/installateur/système. Le défaut est ouvert ; aucune correction installée ni vérification après reboot n'est revendiquée à ce stade.

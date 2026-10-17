@@ -52,3 +52,10 @@ Un mode de rattachement du contrôleur à l'installateur SSH existant permet de 
 ## Installation neuve finalisée, premier redémarrage en vérification
 
 La reprise distante a installé le noyau Debian 6.12.113+deb13-amd64, configuré les deux comptes, généré l'initramfs et vérifié les copies EFI. Une installation GRUB signée standard a également été exécutée avec succès. Le Dell a redémarré automatiquement ; le retour réseau et les authentifications ne sont pas encore validés à cette observation. Un avertissement fsck.ext4 absent a été relevé avant reboot : e2fsprogs est ajouté explicitement aux dépendances de la recette et du playbook ; l'affichage physique et le diagnostic doivent déterminer la cause réelle du défaut de retour réseau avant réception. Ne pas affirmer qu'une connexion adminjarvis est validée. La nouvelle image de supervision inclut les outils et modules FAT manquants et passe les contrôles ciblés en RAM ; aucun nouveau formatage n'est nécessaire pour une réparation du démarrage.
+
+
+## Défaut constaté par le propriétaire — clavier installé QWERTY
+
+Le 17 octobre 2026, après le redémarrage de Debian neuf, le propriétaire confirme l'invite de connexion et constate que le clavier physique reste en QWERTY. Le chargement AZERTY vérifié dans l'installateur ne s'est donc pas traduit par une disposition française effective sur la console du système installé. Les fichiers de configuration et setupcon --save-only ne constituent pas une validation de la disposition active.
+
+Correction à exécuter dès accès : charger le clavier français sur la console, vérifier keyboard-setup.service et console-setup.service ainsi que leurs journaux et cartes enregistrées, corriger la configuration persistante et les éventuels fichiers générés/initramfs, puis vérifier après redémarrage sur la console réelle (notamment keycode16=a, keycode17=z). Maintenir cette exigence pour secours/installateur/système. Le défaut est ouvert ; aucune correction installée ni vérification après reboot n'est revendiquée à ce stade.
