@@ -2,11 +2,15 @@
 # Run only through the pinned installer SSH session after exact identity checks.
 # Reuses approved members, never invokes partman, wipefs, mdadm --create or sgdisk.
 set -eu
+resume_base=${1-}
 umask 077
 export DEBIAN_FRONTEND=noninteractive
+for tool in tee gzip mdadm blkid mkfs.ext4 mount chroot wget gpgv tar ar xzcat; do command -v "$tool" >/dev/null || { echo "STOP: missing tool $tool" >&2; exit 1; };done
+test -x /usr/lib/debootstrap/pkgdetails
+/usr/sbin/debootstrap --version
 progress() { printf '%s %s\n' "$(date -Iseconds)" "$*" | tee -a /run/jarvis-install-progress.log >/dev/tty1; }
 trap 'progress "FAILED installation: inspect /run/jarvis-install.log; SSH supervision preserved"' EXIT
-[ ! -e /run/jarvis-reinstall-started ] || { echo 'STOP: already started; inspect before resume'; exit 1; }
+[ "$resume_base" = --resume-base ] || [ ! -e /run/jarvis-reinstall-started ] || { echo 'STOP: already started; inspect before resume'; exit 1; }
 /bin/sh /guard-physical.sh
 set -- $(awk -F '\t' '$1=="disk"{print "/dev/"$2}' /approved.tsv)
 [ "$#" = 2 ];a=$1;b=$2
@@ -26,7 +30,8 @@ set -- /sys/block/md*/md
 set -- /sys/block/"$mdname"/slaves/*
 [ "$#" = 2 ]
 for slave in "$@"; do case "${slave##*/}" in "${a##*/}p2"|"${b##*/}p2") :;; *) exit 1;;esac;done
-! grep -q "^$md " /proc/mounts
+if [ "$resume_base" != --resume-base ];then
+if grep -q "^$md " /proc/mounts;then echo "STOP: root mirror already mounted; use verified resume mode";exit 1;fi
 mdadm --detail "$md" > /run/jarvis-storage-before.txt
 blkid >> /run/jarvis-storage-before.txt
 [ "$(blkid -p -s TYPE -o value "$md")" = ext4 ]
@@ -36,8 +41,17 @@ mkfs.ext4 -F -L jarvis-root -E lazy_itable_init=1,lazy_journal_init=1 "$md"
 mkdir -p /target;mount "$md" /target
 progress 'debian RUNNING: installation Debian 13 neuve avec debootstrap'
 /usr/sbin/debootstrap --arch=amd64 --variant=minbase --keyring=/usr/share/keyrings/debian-archive-keyring.gpg trixie /target http://deb.debian.org/debian
-for fs in dev proc sys;do mount --rbind /$fs /target/$fs;mount --make-rslave /target/$fs;done
-mkdir -p /target/run;mount -t tmpfs tmpfs /target/run
+else
+ [ -e /run/jarvis-reinstall-started ]
+ [ "$(awk '$2=="/target" {print $1}' /proc/mounts)" = "$md" ]
+ chroot /target dpkg-query -W base-files apt
+ progress "debian RUNNING: reprise du systeme de base installe; aucun nouveau formatage"
+fi
+grep -qs " /target/dev " /proc/mounts || mount -o bind /dev /target/dev
+mkdir -p /target/dev/pts;grep -qs " /target/dev/pts " /proc/mounts || mount -t devpts devpts /target/dev/pts
+grep -qs " /target/proc " /proc/mounts || mount -t proc proc /target/proc
+grep -qs " /target/sys " /proc/mounts || mount -t sysfs sysfs /target/sys
+mkdir -p /target/run;grep -qs " /target/run " /proc/mounts || mount -t tmpfs tmpfs /target/run
 cp /etc/resolv.conf /target/etc/resolv.conf
 cat > /target/usr/sbin/policy-rc.d <<'EOF'
 #!/bin/sh
@@ -50,7 +64,8 @@ deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-f
 deb http://security.debian.org/debian-security trixie-security main contrib non-free non-free-firmware
 EOF
 mkdir -p /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
-mount "${a}p1" /target/boot/efi;mount "${b}p1" /target/boot/efi-secondary
+grep -qs " /target/boot/efi " /proc/mounts || mount "${a}p1" /target/boot/efi
+grep -qs " /target/boot/efi-secondary " /proc/mounts || mount "${b}p1" /target/boot/efi-secondary
 mdadm --detail --scan > /target/etc/mdadm/mdadm.conf
 chroot /target apt-get update
 chroot /target apt-get install -y linux-image-amd64 linux-headers-amd64 openssh-server sudo python3 ca-certificates mdadm nvme-cli smartmontools efibootmgr rsync wget curl pciutils dmidecode grub-efi-amd64-signed shim-signed locales console-setup keyboard-configuration systemd-sysv systemd-timesyncd

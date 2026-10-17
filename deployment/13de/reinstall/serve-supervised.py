@@ -2,9 +2,9 @@
 """Scoped PXE transport and pinned SSH controller. Disk installation is separately observable."""
 import argparse,json,os,pathlib,pwd,signal,subprocess,time,socket,concurrent.futures,re
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);a=p.parse_args();b=a.session.resolve();os.umask(0o077)
+p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);p.add_argument('--resume-installer');a=p.parse_args();b=a.session.resolve();os.umask(0o077)
 assert b.is_relative_to((ROOT/'private').resolve())
-account=pwd.getpwnam('adminjarvis');children=[];stop=False
+account=pwd.getpwnam('adminjarvis');children=[];stop=False;network_installed=False
 manifest=json.loads((ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_text())
 def lower():os.initgroups(account.pw_name,account.pw_gid);os.setgid(account.pw_gid);os.setuid(account.pw_uid)
 def halt(*_):
@@ -41,21 +41,28 @@ def check_identity(ip,port,user):
  r=ssh(ip,port,cmd,user=user);assert r.returncode==0,r.stderr
  assert r.stdout.splitlines()==[manifest['product'],manifest['uuid']],'identity differs'
 try:
- assert not any(t.get('table',{}).get('name')=='jarvis_bootstrap' for t in json.loads(subprocess.check_output(['/usr/sbin/nft','-j','list','tables']))['nftables'])
- subprocess.run(['/usr/sbin/nft','-f',str(b/'restrict.nft')],check=True)
- http=spawn('http',['python3','-u','-m','http.server','8088','--bind','192.168.1.99','--directory',str(b/'http')])
- dns=spawn('dnsmasq',['/usr/sbin/dnsmasq','--keep-in-foreground','--conf-file='+str(b/'proxy.conf')],True)
- time.sleep(2);assert http.poll() is None and dns.poll() is None
- (b/'ready.json').write_text(json.dumps({'ready':True,'pid':os.getpid(),'time':int(time.time())})+'\n');os.chown(b/'ready.json',account.pw_uid,account.pw_gid)
- print('PXE_READY_WAITING_PHYSICAL_BOOT',flush=True)
- deadline=time.monotonic()+28800;lastscan=0;ip=None
- while not stop and time.monotonic()<deadline:
-  for candidate in discover():
-   if probe(candidate,2222):ip=candidate;break
-  if ip:break
-  if time.monotonic()-lastscan>45:scan();lastscan=time.monotonic()
-  time.sleep(3)
- assert ip and not stop,'No installer SSH before stop/deadline'
+ deadline=time.monotonic()+28800
+ if a.resume_installer:
+  ip=a.resume_installer
+  assert ip in discover(),'Resume IP must match observed Dell MAC'
+  assert probe(ip,2222),'Installer SSH unavailable'
+ else:
+  assert not any(t.get('table',{}).get('name')=='jarvis_bootstrap' for t in json.loads(subprocess.check_output(['/usr/sbin/nft','-j','list','tables']))['nftables'])
+  subprocess.run(['/usr/sbin/nft','-f',str(b/'restrict.nft')],check=True);network_installed=True
+  http=spawn('http',['python3','-u','-m','http.server','8088','--bind','192.168.1.99','--directory',str(b/'http')])
+  dns=spawn('dnsmasq',['/usr/sbin/dnsmasq','--keep-in-foreground','--conf-file='+str(b/'proxy.conf')],True)
+  time.sleep(2);assert http.poll() is None and dns.poll() is None
+  (b/'ready.json').write_text(json.dumps({'ready':True,'pid':os.getpid(),'time':int(time.time())})+'\n');os.chown(b/'ready.json',account.pw_uid,account.pw_gid)
+  print('PXE_READY_WAITING_PHYSICAL_BOOT',flush=True)
+  deadline=time.monotonic()+28800;lastscan=0;ip=None
+  while not stop and time.monotonic()<deadline:
+   for candidate in discover():
+    if probe(candidate,2222):ip=candidate;break
+   if ip:break
+   if time.monotonic()-lastscan>45:scan();lastscan=time.monotonic()
+   time.sleep(3)
+  assert ip and not stop,'No installer SSH before stop/deadline'
+ deadline=time.monotonic()+28800 # A fresh execution window starts at authenticated boot, not PXE service startup.
  check_identity(ip,2222,'root');event('pxe','validated','PXE physical boot and independent SSH with locally pinned host key confirmed')
  event('identity','validated','DMI/UUID match private manifest; embedded guard checks exact NVMe identities')
  (b/'installer-ip.json').write_text(json.dumps({'ip':ip})+'\n')
@@ -63,7 +70,8 @@ try:
  r=ssh(ip,2222,'/bin/sh /guard-physical.sh && cat /proc/mdstat && blkid');assert r.returncode==0,r.stderr
  (b/'storage-preflight.txt').write_text(r.stdout)
  event('storage','running','Preserve existing mirror/GPT/ESP; verify healthy members before root format')
- r=ssh(ip,2222,'/bin/sh /jarvis/install-preserve.sh >/run/jarvis-install.log 2>&1 </dev/null &');assert r.returncode==0,r.stderr
+ if not a.resume_installer:
+  r=ssh(ip,2222,'/bin/sh /jarvis/install-preserve.sh >/run/jarvis-install.log 2>&1 </dev/null &');assert r.returncode==0,r.stderr
  event('debian','running','Fresh Debian installation controlled through pinned installer SSH')
  while not stop and time.monotonic()<deadline:
   r=ssh(ip,2222,'cat /run/jarvis-install-progress.log 2>/dev/null; test -e /run/jarvis-install-complete')
@@ -99,6 +107,11 @@ try:
  event('ansible','running','Infrastructure SSH validated; AI server playbook ready for execution')
  print('INFRASTRUCTURE_SSH_VALIDATED_AI_PHASE_REQUIRED',flush=True)
 except BaseException as exc:
+ try:
+  states=json.loads((b/'progress.json').read_text())
+  for task,d in states.items():
+   if d.get('status')=='running':event(task,'failed','Execution stopped; inspect private controller and installer logs before resuming')
+ except Exception:pass
  (b/'controller-error.txt').write_text(str(exc)+'\n');print('CONTROLLER_STOP:',str(exc),flush=True);raise
 finally:
  for child in children:
@@ -106,5 +119,5 @@ finally:
    os.killpg(child.pid,signal.SIGTERM)
    try:child.wait(timeout=3)
    except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait()
- subprocess.run(['/usr/sbin/nft','delete','table','inet','jarvis_bootstrap'])
+ if network_installed:subprocess.run(['/usr/sbin/nft','delete','table','inet','jarvis_bootstrap'])
  (b/'ready.json').unlink(missing_ok=True)

@@ -25,7 +25,7 @@ def add(n):
   dep=re.split(r'[ (|]',dep.strip())[0]
   if dep in pkgs and ('lib' in dep or dep.endswith('-udeb')) and dep not in ['debootstrap-udeb']:add(dep)
 add('bootstrap-base');add('gpgv-udeb');add('debootstrap-udeb');add('openssh-server-udeb');add('mdadm-udeb');add('e2fsprogs-udeb');add('kbd-udeb') if 'kbd-udeb' in pkgs else None
-for n in ['md','ext4','crypto','scsi']:selected.add(n+'-modules-6.12.107+deb13-amd64-di')
+for n in ['md','ext4','crypto','scsi','fat']:selected.add(n+'-modules-6.12.107+deb13-amd64-di')
 cache=b/'udebs';cache.mkdir(exist_ok=True)
 for n in sorted(selected):
  d=pkgs[n];raw=urllib.request.urlopen('https://deb.debian.org/debian/'+d['Filename'],timeout=60).read();assert hashlib.sha256(raw).hexdigest()==d['SHA256']
@@ -67,6 +67,17 @@ for d in manifest['disks']:rows.append('\t'.join(['disk',pathlib.Path(d['path'])
 for d in manifest.get('excluded_empty_media',[]):rows.append('\t'.join(['empty-media',pathlib.Path(d['path']).name,d['model'],'0']))
 tsv='\n'.join(rows)+'\n';(stage/'approved.tsv').write_text(tsv);(stage/'approved-erase.sha256').write_text(hashlib.sha256(tsv.encode()).hexdigest()+'\n')
 shutil.copy(ROOT/'debian/guard-physical.sh',stage/'guard-physical.sh')
+# The Debian installer BusyBox omits tee/gzip: supply only those applets from
+# Debian's authenticated busybox-static package, without replacing installer tools.
+tools=b/'resume-tools';tools.mkdir(exist_ok=True)
+subprocess.run(['apt-get','download','busybox-static'],cwd=tools,check=True,capture_output=True)
+packages=list(tools.glob('busybox-static*.deb'));assert len(packages)==1,'Ambiguous static BusyBox package'
+subprocess.run(['dpkg-deb','-x',str(packages[0]),str(tools/'root')],check=True)
+shutil.copy(tools/'root/usr/bin/busybox',stage/'jarvis/busybox-full')
+for applet in ['tee','gzip']:
+ link=stage/'usr/bin'/applet
+ if link.exists() or link.is_symlink():link.unlink()
+ link.symlink_to('/jarvis/busybox-full')
 shutil.copy(pathlib.Path(__file__).with_name('supervised-start.sh'),stage/'jarvis/start.sh')
 # French console map from host kbd package, converted with compile-time console tools.
 keymap=b/'fr.bmap'

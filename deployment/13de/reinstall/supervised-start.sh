@@ -9,6 +9,7 @@ trap 'stop erreur-initialisation' EXIT
 modprobe nvme || stop nvme
 modprobe raid1 || stop raid1
 modprobe ext4 || stop ext4
+modprobe vfat || stop vfat
 udevadm trigger; udevadm settle
 /bin/loadkeys -C /dev/tty1 fr || stop clavier-fr
 if ! /bin/sh /guard-physical.sh >/run/jarvis-identity.log 2>&1; then

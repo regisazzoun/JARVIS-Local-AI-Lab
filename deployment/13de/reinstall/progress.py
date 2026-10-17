@@ -7,7 +7,10 @@ s=json.loads(a.state.read_text()) if a.state.exists() else {t:{'status':'pending
 if a.task:
  assert a.status
  if a.status=='validated':assert a.detail,'Validation requires recorded evidence'
- d=s[a.task];d.setdefault('started',int(time.time()));d.update(status=a.status,updated=int(time.time()),detail=a.detail)
+ d=s[a.task]
+ if a.status=='running' and d.get('status') in ['failed','blocked']:
+  d.setdefault('previous_runs',[]).append({k:d.get(k) for k in ['started','finished','detail']});d['started']=int(time.time());d.pop('finished',None)
+ d.setdefault('started',int(time.time()));d.update(status=a.status,updated=int(time.time()),detail=a.detail)
  if a.status in ['validated','failed','blocked']:d['finished']=int(time.time())
  d['percent']=100 if a.status=='validated' else a.percent;d['measured']=a.measured
  tmp=a.state.with_suffix('.tmp');tmp.write_text(json.dumps(s,indent=2)+'\n');tmp.replace(a.state)
