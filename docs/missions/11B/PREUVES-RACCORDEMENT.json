@@ -205,5 +205,42 @@
     "ssh": "active",
     "ollama": "active",
     "operator": "Codex, independent of Qwen tool execution"
+  },
+  "continuation": {
+    "mission": "11B",
+    "runtime_id": "4d824f2bbc664b5789144f146e845e14",
+    "state_at_observation": "running",
+    "attempts": 1,
+    "checkpoints": [
+      {
+        "tool": "mission_plan",
+        "ok": false
+      },
+      {
+        "tool": "mission_plan",
+        "ok": true
+      },
+      {
+        "tool": "host_remote",
+        "ok": true
+      },
+      {
+        "tool": "host_remote",
+        "ok": true
+      },
+      {
+        "tool": "host_resources",
+        "ok": true
+      },
+      {
+        "tool": "host_read_file",
+        "ok": false
+      },
+      {
+        "tool": "host_exec",
+        "ok": true
+      }
+    ],
+    "full_compute_expansion_accepted": false
   }
 }

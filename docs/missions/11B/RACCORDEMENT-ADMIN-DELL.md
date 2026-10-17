@@ -52,3 +52,9 @@ Voir [PREUVES-RACCORDEMENT.json](PREUVES-RACCORDEMENT.json) pour les assertions 
 - 27 tests du backend conversationnel réussis après correction du contexte ; compilation Python réussie.
 
 **GO pour le raccordement permanent SSH/Ansible du Dell.** Cela ne clôture pas à lui seul la mission Compute Expansion. Les répétitions d’appels Qwen restent une limite observée ; les écritures répétées de ce scénario portaient le même contenu de preuve. Le budget de réduction du contexte a été ajusté pour éviter de supprimer tout l’historique des opérations lorsque les instructions et souvenirs occupent déjà 9 000 caractères. La reprise durable 11B doit vérifier le routage/repli et les capacités restantes, sans réinstaller les composants acquis ni lancer JL-02.
+
+## Reprise effective de 11B
+
+Le checkpoint conversationnel a été transmis au planificateur existant via l’API authentifiée, par `resume_11b.py`. Exécution durable : `4d824f2bbc664b5789144f146e845e14`, état observé `running`, tentative 1. Qwen a enregistré le plan audit → modèles → expansion et exécuté des outils réels, dont SSH distant et lecture des ressources. Ce n’est pas une simple instruction laissée dans un fichier. Les observations durables sont conservées dans missions.sqlite ; les opérations acquises restent dans le checkpoint et ne demandent pas de réinstallation.
+
+La reprise couvre les évaluations des modèles et les fonctions restantes, dont le repli en cas d’indisponibilité du Dell. Ces fonctions ne sont pas déclarées reçues au moment de ce rapport de raccordement. JARVIS doit produire sa documentation et son verdict 11B ; JL-02 reste exclu.
