@@ -356,3 +356,12 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 **Phases / réception :** (20A) étude de faisabilité et mesures initiales sur 4–5 postes ; (20B) prototype manager/agent local ; (20C) tests d'inactivité et de reprise, Wake-on-LAN si possible ; (20D) benchmark sur tâche distribuable réelle avec et sans agents, mesures de temps/charge/réseau/énergie ; (20E) extension graduelle après bilan et autorisation. **Aucun agent déployé ni gain de performance mesuré à ce jour.**
 
 **Dépendances :** stabilisation des deux Dell et de leurs services, validation de la segmentation réseau Cisco et de la sécurité locale ; ce chantier reste postérieur aux priorités 13D → 14A → 14 et ne les bloque pas.
+
+
+## Décision de pilotage — 17 octobre 2026 : autonomie JARVIS sur les deux Dell
+
+**Répartition confirmée :** premier Dell : préparation et accompagnement par Codex dans la mission 13D-E, avec exécution automatisée par JARVIS lorsque ses outils le permettent ; ne pas présenter l'installation physique comme achevée. Deuxième Dell : mission d'installation confiée directement à **JARVIS**, sans passage systématique par Codex. Codex n'intervient qu'en appui si une capacité technique manque. Comparer les deux essais (erreurs, corrections autonomes, interventions humaines, validation finale).
+
+**Politique d'autonomie en laboratoire confirmée :** autonomie maximale et fluidité, sans validation commande par commande. JARVIS peut créer/recréer des VM, investiguer, tester, installer, diagnostiquer et corriger de lui-même dans le périmètre de laboratoire préautorisé ; documenter ses résultats. Pour un Dell physique, une autorisation préalable **globale mais précisément bornée** peut couvrir les opérations destructives prévues sur ses disques/RAID, sans nouvelle demande à chaque étape. Aucune extension implicite aux autres machines, aux données à conserver ou au réseau de production. Conserver les protections existantes sans instaurer de validations répétitives.
+
+**État : décision consignée seulement ;** ne vaut ni exécution ni validation des installations. Les jalons de la mission 14A restent utiles pour mesurer l'aptitude effective de JARVIS, sans transformer les essais de laboratoire en parcours d'approbations permanentes.
