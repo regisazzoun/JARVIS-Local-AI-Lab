@@ -26,3 +26,7 @@ Le mode guidé reçoit une liste de fichiers d’entrée et un livrable. Il expo
 Les rapports locaux ne déclenchent pas artificiellement l’exigence de deux pages web du moteur conversationnel général. Cette configuration appartient au seul client d’audit ; les contrôles de la politique root restent actifs, les secrets ne sont pas exposés et les comptes/services sont conservés. Ce guidage ne prouve pas une planification autonome générale ni la réception14A.
 
 Les seules lectures documentaires nécessaires ont été ajoutées temporairement à la politique par l’opérateur, dans le périmètre autorisé. Les 517 ajouts ont été retirés à la réception, sans changer les dix racines initiales, les droits permanents 11B ou les droits d’écriture. Une réutilisation doit disposer de lectures bornées aux sources de son propre périmètre ; le modèle ne modifie pas lui-même la politique.
+
+## Concordance du catalogue de missions
+
+`python3 agentic/mission00/sync-mission-index.py` vérifie les identifiants du registre, leur présence unique dans le tableau courant de SUIVI, puis l’égalité des intitulés et états du catalogue README. `--write` actualise ce catalogue après révision du suivi. Les deux lignes de regroupement historique/activité transversale sont explicitement exclues ; les dix incréments natifs restent prévus, non exécutés. Ce contrôle est documentaire et ne sollicite ni le modèle ni les machines distantes.

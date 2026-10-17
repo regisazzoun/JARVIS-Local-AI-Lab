@@ -21,7 +21,7 @@
     },
     "limits": "Ni autonomie générale14A ni nouveaux tests physiques. Les originaux incorrects restent des traces, pas autorité finale."
   },
-  "checked_at": "2026-10-17T23:46:53.346731+02:00",
+  "checked_at": "2026-10-17T23:54:16.476093+02:00",
   "droits_temporaires": {
     "checked_at": "2026-10-17T23:43:16.182745+02:00",
     "read_roots_before": 527,
@@ -65,5 +65,31 @@
   "aucune_modification_deploiement": true,
   "python_compile": "run-task.py et audit_tools.py compilés ; utilisation réelle dans les tâches tracées, pas de simulateur",
   "session_navigateur": "non retestée sur le poste client",
-  "reception_controles": true
+  "reception_controles": true,
+  "coherence_readme_suivi_registre": {
+    "registry": 68,
+    "readme": 68,
+    "suivi_counted": 68,
+    "suivi_table_rows": 70,
+    "excluded_group_rows": [
+      "09 à 11",
+      "Documentation"
+    ],
+    "identifiers_names_states_equal": true,
+    "checked_at": "2026-10-17T23:54:43.954077+02:00",
+    "checked_by": "Codex, exécution réelle du contrôle sync-mission-index.py",
+    "prior_suivi_counted": 58,
+    "missing_before_fix": [
+      "15A.1",
+      "15A.2",
+      "15A.3",
+      "15A.4",
+      "15A.5",
+      "15B.1",
+      "15B.2",
+      "15B.3",
+      "15B.4",
+      "15B.5"
+    ]
+  }
 }

@@ -10,6 +10,8 @@
 
 ## Vue d'ensemble — toutes les missions
 
+**68 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--68-identifiants) reprend les mêmes missions et états.
+
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves | Diagnostics et premières procédures documentés ; certains états intermédiaires historiques | Consolider les procédures et preuves |
@@ -56,7 +58,7 @@
 | **04L** | préparation de la réallocation PCIe ciblée | 🟡 Configuration installée, essai non établi | Addendum : entrée de réallocation installée, pas de reboot dans cette étape | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
 | **04M** | validation de la réallocation PCIe ciblée | 🟡 Non concluante | PREF reconstruit, NP insuffisant ; visibilité incomplète | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
 | **04N** | Complément Mission 04N — Installation autorisée | 🟡 Configuration installée, candidat non testé | Candidat NP32M + PREF512M installé avant reboot manuel | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
-| **04O** |  | 🟡 Vérification préparatoire positive | NP/PREF utilisables sans Core ; ne démontre pas le fonctionnement GPU | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
+| **04O** | Vérification des ressources PCIe NP/PREF avant essai eGPU | 🟡 Vérification préparatoire positive | NP/PREF utilisables sans Core ; ne démontre pas le fonctionnement GPU | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
 | **04P** | validation de la réallocation PCIe | 🟡 Allocation PCIe testée | Quadro et fonctions associées correctement allouées ; pilote/calcul non validés ici | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
 | **04Q** | écran conservant le fond GRUB | 🟡 Diagnostic exécuté | Écran fond GRUB : collecte en lecture seule | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
 | **04R** | disparition du GPU Intel avec Core présent au boot | 🟡 Diagnostic exécuté | Intel masqué avec Core présent ; origine firmware probable non prouvée | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver le résultat historique ; aucune nouvelle expérience dans mission 00 |
@@ -72,6 +74,17 @@
 | **11** | Audit statique Jarvis Voice | 🟡 Étude terminée ; intégration intégrale NO-GO | Audit statique du candidat bigsk1 et alternatives ; option modulaire sous conditions | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Conserver cet audit distinct du jalon 11-Agentic |
 | **11-Agentic** | Habilitations hôte persistantes | 🟡 GO AVEC RÉSERVES | 42 contrôles documentés, outils réels, reprise Qwen | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Réutiliser les capacités acquises |
 | **11B** | Compute Expansion et administration Dell | 🟡 Raccordement validé ; extension complète partielle | Écriture/relecture réelle Qwen avant et après restart, SSH/Ansible testés | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Reprendre le checkpoint sans réinstallation ; vérifier les capacités restantes |
+
+| **15A.1** | macOS — Architecture/UI | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15A ; aucune réalisation déduite du plan | À exécuter dans 15A |
+| **15A.2** | macOS — Connectivité sécurisée | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15A ; aucune réalisation déduite du plan | À exécuter dans 15A |
+| **15A.3** | macOS — Conversation, voix et mémoire | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15A ; aucune réalisation déduite du plan | À exécuter dans 15A |
+| **15A.4** | macOS — Pilotage des missions | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15A ; aucune réalisation déduite du plan | À exécuter dans 15A |
+| **15A.5** | macOS — Distribution et tests | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15A ; aucune réalisation déduite du plan | À exécuter dans 15A |
+| **15B.1** | iOS — Architecture/UI | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15B ; aucune réalisation déduite du plan | À exécuter dans 15B |
+| **15B.2** | iOS — Connectivité sécurisée | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15B ; aucune réalisation déduite du plan | À exécuter dans 15B |
+| **15B.3** | iOS — Conversation, voix et mémoire | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15B ; aucune réalisation déduite du plan | À exécuter dans 15B |
+| **15B.4** | iOS — Mémoire et validations | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15B ; aucune réalisation déduite du plan | À exécuter dans 15B |
+| **15B.5** | iOS — Installation gratuite et réception | 📋 Prévue, non exécutée | Incrément défini dans le cahier 15B ; aucune réalisation déduite du plan | À exécuter dans 15B |
 
 ## Consolidations transversales — preuves apportées par 13F
 
@@ -208,3 +221,7 @@ RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/
 ### Réception documentaire mission 00 — 17 octobre 2026
 
 README, docs/missions, SUIVI et ROADMAP réconciliés. 100 rapports/fiches historiques et 29 documents/preuves Launcher récupérés sur JARVIS avec provenance. Cinq tâches JARVIS réellement exécutées, avec guidage, erreurs et corrections Codex explicités. [Rapport final](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) et [PR6](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6). Aucun succès global 14A ni nouveau déploiement déduit.
+
+### Correctif de concordance README / SUIVI
+
+Après le retour du propriétaire : dix incréments 15A/15B présents au registre mais absents du suivi ont été ajoutés comme prévus, non exécutés. Le README présente désormais les mêmes 68 identifiants et états ; les deux lignes de regroupement restent conservées et exclues du comptage. Le contrôle compare les lignes, pas seulement le nombre annoncé. Aucune nouvelle mission créée, aucune fusion dans main.

@@ -502,9 +502,9 @@
   },
   {
     "identifiant": "04O",
-    "nom": "",
-    "fonction_principale": "",
-    "objectifs": "",
+    "nom": "Vérification des ressources PCIe NP/PREF avant essai eGPU",
+    "fonction_principale": "Vérification des ressources PCIe NP/PREF avant essai eGPU",
+    "objectifs": "Vérifier les ressources NP/PREF avant un éventuel essai eGPU, selon le rapport 04O",
     "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
     "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
     "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",

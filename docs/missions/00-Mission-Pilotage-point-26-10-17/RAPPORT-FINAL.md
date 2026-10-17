@@ -58,3 +58,9 @@ Les fonctions non suffisamment documentées restent À confirmer. Les journaux p
 [Inventaire local](INVENTAIRE-LOCAL.md) · [GitHub](INVENTAIRE-GITHUB.md) · [Registre](REGISTRE-MISSIONS.md) · [Concordance](MATRICE-CONCORDANCE.md) · [Anomalies](ANOMALIES-DOCUMENTAIRES.md) · [Bilan agentique](BILAN-AGENTIQUE-JARVIS.md) · [Sources](INDEX-SOURCES.md) · [Contrôles](CONTROLES-DOCUMENTAIRES.json).
 
 Réception documentaire Codex : 2026-10-17T23:43:30.087241+02:00.
+
+## Correctif après retour du propriétaire — concordance README / SUIVI
+
+Le contrôle initial vérifiait les 68 lignes du registre JSON/CSV mais pas l’égalité du catalogue avec les lignes de SUIVI. Dix incréments 15A/15B manquaient au tableau de suivi, tandis que le README présentait une synthèse par périmètre. Ce défaut de réception documentaire est corrigé : le README présente les mêmes 68 identifiants, intitulés et états que SUIVI. Celui-ci conserve deux lignes supplémentaires hors comptage : regroupement historique « 09 à 11 » et activité « Documentation ». Aucun nouveau chantier n’est créé. Le libellé vide 04O est complété depuis son rapport, sans modifier son verdict.
+
+Le contrôle `python3 agentic/mission00/sync-mission-index.py` compare désormais les ensembles d’identifiants, les doublons, les intitulés et les états ; il échoue en cas de dérive du catalogue README. Les [résultats](COHERENCE-MISSIONS.json) complètent la réception initiale. La PR6 reste non fusionnée : l’affichage par défaut de main conserve les anciens documents ; la racine actualisée est celle de la branche 00.
