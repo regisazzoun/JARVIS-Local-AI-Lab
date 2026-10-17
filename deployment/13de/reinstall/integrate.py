@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Retain Mac voice/SQLite/tools and route real authenticated requests to Dell Ollama."""
-import argparse,pathlib,json,subprocess,urllib.request,http.cookiejar,time,uuid,sqlite3,io,wave
+import argparse,pathlib,json,subprocess,urllib.request,http.cookiejar,time,uuid,sqlite3,io,wave,hashlib,hmac
 p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);p.add_argument('ip');a=p.parse_args();b=a.session;osroot=pathlib.Path('/opt/jarvis/conversation');config=osroot/'config/13e.json';compose=pathlib.Path('/home/adminjarvis/JARVIS/open-webui/compose.yaml')
 oldconfig=config.read_bytes();oldcompose=compose.read_bytes();(b/'gateway-before.json').write_bytes(oldconfig);(b/'compose-before.yaml').write_bytes(oldcompose)
 # Use SQLite's online backup, never copy a live WAL database as an ordinary file.
@@ -30,7 +30,12 @@ try:
  text=oldcompose.decode();assert text.count('OLLAMA_BASE_URL: http://127.0.0.1:11434')==1
  put(compose,text.replace('OLLAMA_BASE_URL: http://127.0.0.1:11434','OLLAMA_BASE_URL: http://'+a.ip+':11434').encode())
  restart()
- creds=(osroot/'runtime/credentials.txt').read_text().splitlines();gateway('/api/login',{'username':creds[0].split(': ',1)[1],'password':creds[1].split(': ',1)[1]})
+ creds=(osroot/'runtime/credentials.txt').read_text().splitlines()
+ active=json.loads((osroot/'runtime/auth.json').read_text())
+ candidates=[creds[1].split(': ',1)[1],(b.parent/'reprise-user-password.txt').read_text().rstrip('\n')]
+ password=next((value for value in candidates if hmac.compare_digest(hashlib.pbkdf2_hmac('sha256',value.encode(),bytes.fromhex(active['salt']),300000).hex(),active['hash'])),None)
+ assert password is not None,'No locally available credential matches the active gateway; never reset existing account implicitly'
+ gateway('/api/login',{'username':active['username'],'password':password})
  assert gateway('/api/session')['authenticated'];results['gateway_authenticated']=True
  project='__mission14_'+uuid.uuid4().hex[:10];code='TEST-J14-'+uuid.uuid4().hex[:8]
  fixture=gateway('/api/memory/propose',{'content':'Le code de validation fictif du projet '+project+' est '+code+'.','project':project})['id']

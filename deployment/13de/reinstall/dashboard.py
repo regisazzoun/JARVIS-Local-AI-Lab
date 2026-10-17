@@ -21,6 +21,6 @@ while time.monotonic()<end:
     cmd='mkdir -p /run/jarvis; cat > /run/jarvis/progress.txt; printf "\\033[2J\\033[H" > /dev/tty1; cat /run/jarvis/progress.txt > /dev/tty1' if port==2222 else 'sudo -n mkdir -p /run/jarvis; sudo -n tee /run/jarvis/progress.txt >/dev/null'
     r=subprocess.run(ssh+[cmd],input=text,text=True,capture_output=True,timeout=8)
     if r.returncode==0:break
-  if (b/'complete.json').exists() or (b/'ai-error.txt').exists() or (b/'controller-error.txt').exists():break
+  if (b/'complete.json').exists():break
  except Exception as exc:print(type(exc).__name__,flush=True)
  time.sleep(10)

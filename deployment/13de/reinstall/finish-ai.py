@@ -2,7 +2,7 @@
 """Continue the authorized Dell mission after independently validated SSH."""
 import argparse,json,os,pathlib,subprocess,time,urllib.request,re,shlex,socket
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);a=p.parse_args();b=a.session.resolve();os.umask(0o077)
+p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);p.add_argument('--resume-reception',action='store_true');a=p.parse_args();b=a.session.resolve();os.umask(0o077)
 s=json.loads((b/'installed-ip.json').read_text());ip=s['ip'];identity=b/'identity';known=b/'known_target';modeldir=pathlib.Path('/home/adminjarvis/JARVIS/ollama')
 current_task='ansible'
 common=['ssh','-F','/dev/null','-o','BatchMode=yes','-o','StrictHostKeyChecking=yes','-o',f'UserKnownHostsFile={known}','-o','GlobalKnownHostsFile=/dev/null','-o','IdentitiesOnly=yes','-o','ConnectTimeout=10','-i',str(identity)]
@@ -40,82 +40,93 @@ def upload(path,source,mode='0600'):
  r=subprocess.run(common+['adminjarvis@'+ip,cmd],input=source,capture_output=True)
  assert r.returncode==0,r.stderr.decode(errors='replace')
 try:
- upload('/etc/jarvis/approved.json',(ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_bytes())
- upload('/usr/local/lib/jarvis/verify-storage.py',(ROOT/'bootstrap/verify-storage.py').read_bytes())
- upload('/usr/local/sbin/jarvis-sync-esp',(ROOT/'bootstrap/sync-esp.sh').read_bytes(),'0700')
- upload('/etc/apt/apt.conf.d/99jarvis-esp',b'DPkg::Post-Invoke { "/usr/local/sbin/jarvis-sync-esp"; };\n','0644')
- storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json --allow-resync && sudo -n /usr/local/sbin/jarvis-sync-esp')
- (b/'storage-installed.txt').write_text(storage)
- event('ansible','running','Applying actual Debian/NVIDIA/CUDA playbook to identified Dell')
- event('nvidia','running','Installing Debian driver and matching kernel headers')
- event('cuda','running','Installing Debian CUDA toolkit; actual GPU validation follows driver loading; persistence awaits final reboot')
- run_ansible('ansible-first.log')
- ssh('sudo -n modprobe -r nouveau')
- gpu=ssh('sudo -n modprobe nvidia && nvidia-smi --query-gpu=uuid,name,driver_version,memory.total --format=csv,noheader')
- (b/'nvidia-smi.txt').write_text(gpu)
- rows=[x.strip().split(', ') for x in gpu.splitlines() if x.strip()]
- assert len(rows)==1 and '3090' in rows[0][1],'Expected exactly one usable RTX 3090; do not select unpowered second GPU'
- uuid=rows[0][0];event('nvidia','validated','One RTX 3090 recognized by nvidia-smi in current system; final reboot persistence pending; driver '+rows[0][2])
- toolkit=ssh('nvcc --version');(b/'cuda-toolkit.txt').write_text(toolkit)
- event('ollama','running','Copying known working Ollama 0.40.3 and existing documented models; Mac source read-only')
- ssh('sudo -n chown adminjarvis:adminjarvis /opt/ollama /var/lib/ollama/models')
- transport=' '.join(shlex.quote(x) for x in common)
- for name in ['bin','lib']:
-  subprocess.run(['rsync','-a','--info=progress2','-e',transport,str(modeldir/name),'adminjarvis@'+ip+':/opt/ollama/'],check=True)
- event('models','running','Transferring existing Qwen3.5 27B Q4_K_M, Ministral3 14B Q4_K_M and Llama3.1 8B store')
- print('MODEL_TRANSFER_BEGIN',flush=True)
- subprocess.run(['rsync','-a','--info=progress2','-e',transport,'--rsync-path=sudo -n rsync',str(modeldir/'models')+'/','adminjarvis@'+ip+':/var/lib/ollama/models/'],check=True)
- unit=f'''[Unit]
-Description=JARVIS Dell Ollama inference
-Wants=network-online.target
-After=network-online.target
-[Service]
-User=ollama
-Group=ollama
-Environment=HOME=/var/lib/ollama
-Environment=OLLAMA_HOST={ip}:11434
-Environment=OLLAMA_MODELS=/var/lib/ollama/models
-Environment=OLLAMA_CONTEXT_LENGTH=4096
-Environment=OLLAMA_NUM_PARALLEL=1
-Environment=OLLAMA_MAX_LOADED_MODELS=1
-Environment=CUDA_VISIBLE_DEVICES={uuid}
-ExecStart=/opt/ollama/bin/ollama serve
-Restart=on-failure
-RestartSec=5
-[Install]
-WantedBy=multi-user.target
-'''
- import base64
- payload=base64.b64encode(unit.encode()).decode()
- ssh(f'set -eu; printf %s {payload} | base64 -d | sudo -n tee /etc/systemd/system/jarvis-ollama.service >/dev/null; sudo -n chown -R ollama:ollama /opt/ollama /var/lib/ollama; sudo -n systemctl daemon-reload; sudo -n systemctl enable --now jarvis-ollama.service')
- end=time.monotonic()+60
- while True:
-  try:version=api('/api/version');break
-  except Exception:
-   if time.monotonic()>end:raise
-   time.sleep(2)
- event('ollama','validated','Ollama API reachable from Mac mini, service enabled; version '+version['version'])
- expected=['qwen3.5:27b-q4_K_M','ministral-3:14b-instruct-2512-q4_K_M','llama3.1:8b']
- tags=api('/api/tags');save('models.json',tags);assert all(m in [d['name'] for d in tags['models']] for m in expected)
- results=[]
- for model in expected:
-  result=api('/api/generate',{'model':model,'prompt':'Calcule 17 fois 23. Réponds uniquement avec le résultat.','stream':False,'think':False,'options':{'num_ctx':4096,'num_predict':128,'temperature':0}})
-  assert '391' in result['response'],model+' response not validated'
-  ps=api('/api/ps');loaded=next(m for m in ps['models'] if m['name']==model)
-  assert loaded.get('size_vram',0)>0,'CPU-only inference is not GPU validation'
-  result['gpu_loading']=loaded;results.append(result);save('gpu-inferences.json',results)
- event('cuda','validated','CUDA toolkit present and actual Ollama inferences allocate GPU VRAM on the selected RTX 3090')
- event('models','validated','Real GPU inference checked for Qwen, Ministral and Llama; outputs and VRAM evidence saved privately')
- text=run_ansible('ansible-second.log')
- recap=[x for x in text.splitlines() if 'changed=' in x and 'failed=' in x][-1]
- assert re.search(r'changed=0\b',recap) and re.search(r'failed=0\b',recap) and re.search(r'unreachable=0\b',recap),recap
- event('ansible','validated','Second pass changed=0 failed=0 unreachable=0; see private recap')
- # Authenticated integration is a separate executable step with rollback on failure.
- upload('/usr/local/bin/jarvis-progress',(ROOT/'reinstall/progress-viewer.sh').read_bytes(),'0755')
- upload('/etc/systemd/system/jarvis-progress-console.service',(ROOT/'reinstall/progress-console.service').read_bytes(),'0644')
- ssh('sudo -n systemctl daemon-reload && sudo -n systemctl enable --now jarvis-progress-console')
- event('integration','running','Switching JARVIS inference backend only; canonical voice and SQLite stay on Mac')
- subprocess.run(['python3',str(ROOT/'reinstall/integrate.py'),str(b),ip],check=True)
+ if a.resume_reception:
+  evidence=json.loads((b/'integration-results.json').read_text())
+  assert evidence.get('gateway_authenticated') is True
+  for name in ['canonical_memory_recall','tool_calling','voice','open_webui_authenticated_inference']:assert evidence[name]['passed'] is True,name
+  state=json.loads((b/'progress.json').read_text())
+  for name in ['ansible','nvidia','cuda','ollama','models']:assert state[name]['status']=='validated',name
+  rows=[line.split(', ') for line in (b/'nvidia-smi.txt').read_text().strip().splitlines()]
+  assert len(rows)==1
+  version=api('/api/version')
+  expected=['qwen3.5:27b-q4_K_M','ministral-3:14b-instruct-2512-q4_K_M','llama3.1:8b']
+ else:
+  upload('/etc/jarvis/approved.json',(ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_bytes())
+  upload('/usr/local/lib/jarvis/verify-storage.py',(ROOT/'bootstrap/verify-storage.py').read_bytes())
+  upload('/usr/local/sbin/jarvis-sync-esp',(ROOT/'bootstrap/sync-esp.sh').read_bytes(),'0700')
+  upload('/etc/apt/apt.conf.d/99jarvis-esp',b'DPkg::Post-Invoke { "/usr/local/sbin/jarvis-sync-esp"; };\n','0644')
+  storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json --allow-resync && sudo -n /usr/local/sbin/jarvis-sync-esp')
+  (b/'storage-installed.txt').write_text(storage)
+  event('ansible','running','Applying actual Debian/NVIDIA/CUDA playbook to identified Dell')
+  event('nvidia','running','Installing Debian driver and matching kernel headers')
+  event('cuda','running','Installing Debian CUDA toolkit; actual GPU validation follows driver loading; persistence awaits final reboot')
+  run_ansible('ansible-first.log')
+  ssh('sudo -n modprobe -r nouveau')
+  gpu=ssh('sudo -n modprobe nvidia && nvidia-smi --query-gpu=uuid,name,driver_version,memory.total --format=csv,noheader')
+  (b/'nvidia-smi.txt').write_text(gpu)
+  rows=[x.strip().split(', ') for x in gpu.splitlines() if x.strip()]
+  assert len(rows)==1 and '3090' in rows[0][1],'Expected exactly one usable RTX 3090; do not select unpowered second GPU'
+  uuid=rows[0][0];event('nvidia','validated','One RTX 3090 recognized by nvidia-smi in current system; final reboot persistence pending; driver '+rows[0][2])
+  toolkit=ssh('nvcc --version');(b/'cuda-toolkit.txt').write_text(toolkit)
+  event('ollama','running','Copying known working Ollama 0.40.3 and existing documented models; Mac source read-only')
+  ssh('sudo -n chown adminjarvis:adminjarvis /opt/ollama /var/lib/ollama/models')
+  transport=' '.join(shlex.quote(x) for x in common)
+  for name in ['bin','lib']:
+   subprocess.run(['rsync','-a','--info=progress2','-e',transport,str(modeldir/name),'adminjarvis@'+ip+':/opt/ollama/'],check=True)
+  event('models','running','Transferring existing Qwen3.5 27B Q4_K_M, Ministral3 14B Q4_K_M and Llama3.1 8B store')
+  print('MODEL_TRANSFER_BEGIN',flush=True)
+  subprocess.run(['rsync','-a','--info=progress2','-e',transport,'--rsync-path=sudo -n rsync',str(modeldir/'models')+'/','adminjarvis@'+ip+':/var/lib/ollama/models/'],check=True)
+  unit=f'''[Unit]
+ Description=JARVIS Dell Ollama inference
+ Wants=network-online.target
+ After=network-online.target
+ [Service]
+ User=ollama
+ Group=ollama
+ Environment=HOME=/var/lib/ollama
+ Environment=OLLAMA_HOST={ip}:11434
+ Environment=OLLAMA_MODELS=/var/lib/ollama/models
+ Environment=OLLAMA_CONTEXT_LENGTH=4096
+ Environment=OLLAMA_NUM_PARALLEL=1
+ Environment=OLLAMA_MAX_LOADED_MODELS=1
+ Environment=CUDA_VISIBLE_DEVICES={uuid}
+ ExecStart=/opt/ollama/bin/ollama serve
+ Restart=on-failure
+ RestartSec=5
+ [Install]
+ WantedBy=multi-user.target
+ '''
+  import base64
+  payload=base64.b64encode(unit.encode()).decode()
+  ssh(f'set -eu; printf %s {payload} | base64 -d | sudo -n tee /etc/systemd/system/jarvis-ollama.service >/dev/null; sudo -n chown -R ollama:ollama /opt/ollama /var/lib/ollama; sudo -n systemctl daemon-reload; sudo -n systemctl enable --now jarvis-ollama.service')
+  end=time.monotonic()+60
+  while True:
+   try:version=api('/api/version');break
+   except Exception:
+    if time.monotonic()>end:raise
+    time.sleep(2)
+  event('ollama','validated','Ollama API reachable from Mac mini, service enabled; version '+version['version'])
+  expected=['qwen3.5:27b-q4_K_M','ministral-3:14b-instruct-2512-q4_K_M','llama3.1:8b']
+  tags=api('/api/tags');save('models.json',tags);assert all(m in [d['name'] for d in tags['models']] for m in expected)
+  results=[]
+  for model in expected:
+   result=api('/api/generate',{'model':model,'prompt':'Calcule 17 fois 23. Réponds uniquement avec le résultat.','stream':False,'think':False,'options':{'num_ctx':4096,'num_predict':128,'temperature':0}})
+   assert '391' in result['response'],model+' response not validated'
+   ps=api('/api/ps');loaded=next(m for m in ps['models'] if m['name']==model)
+   assert loaded.get('size_vram',0)>0,'CPU-only inference is not GPU validation'
+   result['gpu_loading']=loaded;results.append(result);save('gpu-inferences.json',results)
+  event('cuda','validated','CUDA toolkit present and actual Ollama inferences allocate GPU VRAM on the selected RTX 3090')
+  event('models','validated','Real GPU inference checked for Qwen, Ministral and Llama; outputs and VRAM evidence saved privately')
+  text=run_ansible('ansible-second.log')
+  recap=[x for x in text.splitlines() if 'changed=' in x and 'failed=' in x][-1]
+  assert re.search(r'changed=0\b',recap) and re.search(r'failed=0\b',recap) and re.search(r'unreachable=0\b',recap),recap
+  event('ansible','validated','Second pass changed=0 failed=0 unreachable=0; see private recap')
+  # Authenticated integration is a separate executable step with rollback on failure.
+  upload('/usr/local/bin/jarvis-progress',(ROOT/'reinstall/progress-viewer.sh').read_bytes(),'0755')
+  upload('/etc/systemd/system/jarvis-progress-console.service',(ROOT/'reinstall/progress-console.service').read_bytes(),'0644')
+  ssh('sudo -n systemctl daemon-reload && sudo -n systemctl enable --now jarvis-progress-console')
+  event('integration','running','Switching JARVIS inference backend only; canonical voice and SQLite stay on Mac')
+  subprocess.run(['python3',str(ROOT/'reinstall/integrate.py'),str(b),ip],check=True)
  event('integration','validated','Authenticated gateway and Open WebUI inference plus canonical memory/tools/voice tests passed')
  event('tests','validated','Real inference, authenticated integration, memory, tool call and synthetic voice evidence saved')
  event('storage','running','Initial resync after installer forced reboot must finish before final clean acceptance')
@@ -133,6 +144,7 @@ WantedBy=multi-user.target
  final_storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json && systemctl --failed --no-legend');(b/'final-storage-services.txt').write_text(final_storage)
  subprocess.run(args+['jarvis-bootstrap@'+ip,'sudo -n true'],env=env,stdin=subprocess.DEVNULL,check=True)
  assert any(m.get('size_vram',0)>0 for m in api('/api/ps')['models']),'GPU inference not retained after reboot'
+ subprocess.run(['python3',str(ROOT/'reinstall/post-reboot.py'),str(b)],check=True)
  event('reboot','validated','New boot ID, independent key/password SSH/sudo, NVIDIA and actual Qwen inference confirmed')
  event('cleanup','validated','Temporary controller network services stopped; bootstrap/password recovery preserved by user instruction')
  event('acceptance','validated','All infrastructure, GPU inference, JARVIS integration and final reboot checks succeeded; see private evidence')
