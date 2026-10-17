@@ -33,3 +33,10 @@ Sur échec, consulter les fichiers privés controller.log, installer-tail.log, a
 La réception finale reste à établir : démarrage physique, stockage préservé, authentifications, Ansible idempotent, pilote/CUDA/inférence, intégration et redémarrage final. La publication automatique résume les seules étapes réellement validées, sur la branche existante, sans fusion.
 
 Sources techniques : [preseed Debian trixie](https://www.debian.org/releases/trixie/amd64/apbs04.en.html), [pilotes NVIDIA pour Debian](https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/debian.html), [installation Linux Ollama](https://docs.ollama.com/linux). Versions effectivement observées et preuves locales priment sur une supposition de compatibilité.
+
+
+## Correctif après arrêt « JARVIS STOP : identité »
+
+Le premier démarrage de cette tentative s'est arrêté avant l'activation réseau et avant toute écriture disque. Erreur de préparation identifiée : le constructeur prenait inventory.observed.json, inventaire brut comprenant le lecteur SD sans média comme troisième disque, au lieu du manifest.install-target.json déjà qualifié avec deux NVMe et une exception précise pour ce lecteur. Le contrôle restait actif et cette entrée rendait le manifeste incompatible avec lui.
+
+La référence a été corrigée dans le constructeur, le contrôleur et la phase IA. Le constructeur applique désormais une validation de cohérence hors ligne entre les identités du manifeste et l'inventaire historique ; cette vérification de construction ne constitue pas une nouvelle mesure UEFI, qui reste impérativement vérifiée sur la machine par le guard. Les cas inventaire brut utilisé comme plan, média inséré et UUID différent sont rejetés. L'image servie a été reconstruite et son empreinte HTTP comparée au fichier local. Le clavier français précède désormais le contrôle, et le motif précis de refus est affiché en console. Aucune vérification d'identité n'a été supprimée. Un nouveau boot PXE est nécessaire puisque le premier s'est arrêté sans réseau ni SSH.

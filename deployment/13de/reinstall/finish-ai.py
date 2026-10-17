@@ -36,7 +36,7 @@ def upload(path,source,mode='0600'):
  r=subprocess.run(common+['adminjarvis@'+ip,cmd],input=source,capture_output=True)
  assert r.returncode==0,r.stderr.decode(errors='replace')
 try:
- upload('/etc/jarvis/approved.json',(ROOT/'private/bootstrap-discovery-04/inventory.observed.json').read_bytes())
+ upload('/etc/jarvis/approved.json',(ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_bytes())
  upload('/usr/local/lib/jarvis/verify-storage.py',(ROOT/'bootstrap/verify-storage.py').read_bytes())
  upload('/usr/local/sbin/jarvis-sync-esp',(ROOT/'bootstrap/sync-esp.sh').read_bytes(),'0700')
  upload('/etc/apt/apt.conf.d/99jarvis-esp',b'DPkg::Post-Invoke { "/usr/local/sbin/jarvis-sync-esp"; };\n','0644')

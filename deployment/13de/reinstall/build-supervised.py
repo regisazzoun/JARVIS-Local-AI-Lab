@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Overlay authenticated Debian netboot with pinned SSH supervision; never create RAID."""
-import gzip,hashlib,json,lzma,os,pathlib,re,shutil,subprocess,urllib.request,tempfile
+import sys,copy,gzip,hashlib,json,lzma,os,pathlib,re,shutil,subprocess,urllib.request,tempfile
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 os.umask(0o077)
 b=ROOT/'private/reinstall-02'; b.mkdir(mode=0o700,exist_ok=True)
@@ -54,7 +54,14 @@ shutil.copy(b/'identity.pub',stage/'jarvis/authorized_keys')
 if not (b/'target_host_key').exists():subprocess.run(['ssh-keygen','-q','-t','ed25519','-N','','-f',str(b/'target_host_key')],check=True)
 for n in ['target_host_key','target_host_key.pub']:shutil.copy(b/n,stage/'jarvis'/n)
 shutil.copy(pathlib.Path(__file__).with_name('install-preserve.sh'),stage/'jarvis/install-preserve.sh')
-manifest=json.loads((ROOT/'private/bootstrap-discovery-04/inventory.observed.json').read_text())
+manifest=json.loads((ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_text())
+sys.path.insert(0,str(ROOT/'physical'))
+from validate import validate
+live=json.loads((ROOT/'private/bootstrap-discovery-04/inventory.observed.json').read_text())
+# Offline manifest consistency only; the physical shell guard independently requires /sys/firmware/efi.
+live['uefi']=True
+for d in live['disks']:d.setdefault('type','disk');d.setdefault('ro',False)
+validate(manifest,live)
 rows=['uuid\t'+manifest['uuid'],'product\t'+manifest['product']]
 for d in manifest['disks']:rows.append('\t'.join(['disk',pathlib.Path(d['path']).name,d['serial'],d['model'],str(d['size']//512)]))
 for d in manifest.get('excluded_empty_media',[]):rows.append('\t'.join(['empty-media',pathlib.Path(d['path']).name,d['model'],'0']))
@@ -84,5 +91,5 @@ old=ROOT/'private/installation-01'
 shutil.copytree(old/'tftp',b/'tftp',dirs_exist_ok=True)
 (b/'proxy.conf').write_text((old/'proxy.conf').read_text().replace(str(old),str(b)))
 (b/'restrict.nft').write_text((old/'restrict.nft').read_text())
-(b/'build.json').write_text(json.dumps({'authenticated_udebs':sorted(selected),'initrd_sha256':hashlib.sha256((http/'initrd.gz').read_bytes()).hexdigest(),'manifest_sha256':hashlib.sha256((ROOT/'private/bootstrap-discovery-04/inventory.observed.json').read_bytes()).hexdigest()},indent=2)+'\n')
+(b/'build.json').write_text(json.dumps({'authenticated_udebs':sorted(selected),'initrd_sha256':hashlib.sha256((http/'initrd.gz').read_bytes()).hexdigest(),'manifest_sha256':hashlib.sha256((ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_bytes()).hexdigest()},indent=2)+'\n')
 print('Built',b,'with pinned installer host key and no automatic disk writes')

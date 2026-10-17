@@ -5,7 +5,7 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('session',type=pathlib.Path);a=p.parse_args();b=a.session.resolve();os.umask(0o077)
 assert b.is_relative_to((ROOT/'private').resolve())
 account=pwd.getpwnam('adminjarvis');children=[];stop=False
-manifest=json.loads((ROOT/'private/bootstrap-discovery-04/inventory.observed.json').read_text())
+manifest=json.loads((ROOT/'private/bootstrap-discovery-04/manifest.install-target.json').read_text())
 def lower():os.initgroups(account.pw_name,account.pw_gid);os.setgid(account.pw_gid);os.setuid(account.pw_uid)
 def halt(*_):
  global stop;stop=True

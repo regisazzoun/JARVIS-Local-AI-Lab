@@ -10,9 +10,11 @@ modprobe nvme || stop nvme
 modprobe raid1 || stop raid1
 modprobe ext4 || stop ext4
 udevadm trigger; udevadm settle
-/bin/sh /guard-physical.sh || stop identite
-# Use BusyBox binary map support explicitly, independent of desktop locale.
 /bin/loadkeys -C /dev/tty1 fr || stop clavier-fr
+if ! /bin/sh /guard-physical.sh >/run/jarvis-identity.log 2>&1; then
+ cat /run/jarvis-identity.log >/dev/tty1
+ stop identite
+fi
 for d in /sys/bus/pci/devices/*; do
  case "$(cat "$d/class" 2>/dev/null)" in 0x02*) modprobe "$(cat "$d/modalias")" || :;; esac
 done
