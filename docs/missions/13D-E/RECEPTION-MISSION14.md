@@ -1,6 +1,6 @@
 # Mission 13D-E / 14 — réception de la nouvelle tentative
 
-Date : 2026-10-17 12:15 CEST
+Date : 2026-10-17 12:16 CEST
 
 **INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle**
 
@@ -10,8 +10,8 @@ Chaque validation ci-dessous provient des contrôles exécutés, pas de la prés
 | --- | --- | --- |
 | pxe | validated | PXE physical boot and independent SSH with locally pinned host key confirmed |
 | identity | validated | DMI/UUID match private manifest; embedded guard checks exact NVMe identities |
-| storage | running | Preserve existing mirror/GPT/ESP; verify healthy members before root format |
-| debian | running | Fresh Debian installation controlled through pinned installer SSH |
+| storage | failed | Execution stopped; inspect private controller and installer logs before resuming |
+| debian | failed | Execution stopped; inspect private controller and installer logs before resuming |
 | accounts | pending | Non exécutée ou non encore validée |
 | ssh-password | pending | Non exécutée ou non encore validée |
 | ssh-key | pending | Non exécutée ou non encore validée |
