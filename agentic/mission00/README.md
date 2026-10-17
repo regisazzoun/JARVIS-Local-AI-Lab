@@ -2,7 +2,7 @@
 
 Ce client réutilise les classes installées `jarvis.core.Core`, `Memory` et `Registry`, le transport Ollama réel et le broker propriétaire. Il ne réimplémente ni boucle d’outils, ni serveur, ni base de mémoire. Il ne recharge aucun service.
 
-L’interface conversationnelle générale a montré des arrêts après lectures, des réponses vides et des digressions sur les préférences vocales. Le client utilise un contexte documentaire propre à la mission et expose au modèle seulement `host_exec`, `host_read_file`, `host_write_file` et `intervention_report`. La politique root et les contrôles de chaque outil restent effectifs. Les préférences et l’identité globales ne sont pas modifiées ; les conversations et audits rejoignent la base canonique existante.
+L’interface conversationnelle générale a montré des arrêts après lectures, des réponses vides et des digressions sur les préférences vocales. Le client utilise un contexte documentaire propre à la mission et expose au modèle les outils hôte de lecture/écriture et les sélecteurs documentaires, selon la phase du plan. La politique root et les contrôles de chaque outil restent effectifs. Les préférences et l’identité globales ne sont pas modifiées ; les conversations et audits rejoignent la base canonique existante.
 
 Exécution opérateur, sur l’installation JARVIS existante :
 
@@ -23,4 +23,6 @@ Les sélecteurs de `audit_tools.py` renvoient des extraits et cellules réelleme
 
 Le mode guidé reçoit une liste de fichiers d’entrée et un livrable. Il expose d’abord les seuls lecteurs, puis l’écriture après réception des lectures, sur une génération suivante. Ainsi, une écriture prédite avant d’avoir reçu les données n’est pas acceptée comme analyse de celles-ci. Le modèle choisit les appels et rédige le contenu. Par défaut le contrôleur s’arrête après l’écriture réelle, sans fabriquer de réponse du modèle ; Codex effectue la relecture et la réception sémantique séparément. `--finish readback` demande une relecture par le modèle et `--finish report` sa clôture propre, deux comportements qui restent moins fiables dans les essais.
 
-Les rapports locaux ne déclenchent pas artificiellement l’exigence de deux pages web du moteur conversationnel général. Cette configuration appartient au seul client d’audit ; la politique root, les secrets, les comptes et les services ne sont pas changés. Ce guidage ne prouve pas une planification autonome générale ni la réception14A.
+Les rapports locaux ne déclenchent pas artificiellement l’exigence de deux pages web du moteur conversationnel général. Cette configuration appartient au seul client d’audit ; les contrôles de la politique root restent actifs, les secrets ne sont pas exposés et les comptes/services sont conservés. Ce guidage ne prouve pas une planification autonome générale ni la réception14A.
+
+Les seules lectures documentaires nécessaires ont été ajoutées temporairement à la politique par l’opérateur, dans le périmètre autorisé. Les 517 ajouts ont été retirés à la réception, sans changer les dix racines initiales, les droits permanents 11B ou les droits d’écriture. Une réutilisation doit disposer de lectures bornées aux sources de son propre périmètre ; le modèle ne modifie pas lui-même la politique.
