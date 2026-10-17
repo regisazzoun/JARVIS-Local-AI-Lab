@@ -1,0 +1,246 @@
+{
+  "mission": "11B",
+  "scope": "Dell administration connection only; Compute Expansion continuation is separate within 11B",
+  "tests": {
+    "broker_boundary": 12,
+    "backend_tests": 27
+  },
+  "phases": {
+    "before": {
+      "elapsed_s": 94.1,
+      "operations": [
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "identity",
+          "path": null,
+          "evidence_id": "034fef3ae7494c08a3757598a3cda54d",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "ping",
+          "path": null,
+          "evidence_id": "7dc964a5bf9d480b806e7e9382ae2ac3",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "deploy_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "26ebf064838c4f18bf816416d4f690a9",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "c94ef45c5bc84eaea5da45408cec2106",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "service",
+          "path": null,
+          "evidence_id": "84dcc836024845fa9c5621a064dce246",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        }
+      ],
+      "report_saved": true
+    },
+    "after": {
+      "elapsed_s": 86.3,
+      "operations": [
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "identity",
+          "path": null,
+          "evidence_id": "7161be99c1664a77b8b03e2814e8f71e",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "bef33347adc7489697ae809fc23e6c52",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "deploy_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "adf4fe50888c40a582cb8c9013ff1936",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "4c8b18d1aa4440ef8f5bd9efe97ebe63",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "ping",
+          "path": null,
+          "evidence_id": "9dad68be2ac44e08899d849136455d60",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "identity",
+          "path": null,
+          "evidence_id": "2b313681a80e4a07b0ef8eebe56031b6",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "2ed2e3d2c7b7464cb1b853085f8c7aea",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "ping",
+          "path": null,
+          "evidence_id": "54186a9fef0e4bd8aa773afaddcbc559",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "8c716b245be64228a0ba5195633ac8bd",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "deploy_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "8d2b0294ff2e4376944a5d5a85235505",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "c289adcd9e8f4337a92ccbfa6aa1bcad",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "ping",
+          "path": null,
+          "evidence_id": "9286e7699a0f48fe903ef7d6a7106518",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "identity",
+          "path": null,
+          "evidence_id": "68fb30f8f5494e7893b87cde9b11382a",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_remote",
+          "host": "dell-observe",
+          "action": "read_file",
+          "path": "/etc/jarvis/managed/11b-admin-proof.json",
+          "evidence_id": "95f9b408352048d895c57ea5eec66980",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        },
+        {
+          "tool": "host_ansible",
+          "host": "dell-observe",
+          "action": "ping",
+          "path": null,
+          "evidence_id": "d54e90bc883946988bf87f067a57cffa",
+          "caller": "JARVIS-runtime",
+          "returncode": 0
+        }
+      ],
+      "report_saved": true
+    }
+  },
+  "independent_observation": {
+    "identity_guard": true,
+    "proof_stage": "after-restart",
+    "ssh": "active",
+    "ollama": "active",
+    "operator": "Codex, independent of Qwen tool execution"
+  },
+  "continuation": {
+    "mission": "11B",
+    "runtime_id": "4d824f2bbc664b5789144f146e845e14",
+    "state_at_observation": "running",
+    "attempts": 1,
+    "checkpoints": [
+      {
+        "tool": "mission_plan",
+        "ok": false
+      },
+      {
+        "tool": "mission_plan",
+        "ok": true
+      },
+      {
+        "tool": "host_remote",
+        "ok": true
+      },
+      {
+        "tool": "host_remote",
+        "ok": true
+      },
+      {
+        "tool": "host_resources",
+        "ok": true
+      },
+      {
+        "tool": "host_read_file",
+        "ok": false
+      },
+      {
+        "tool": "host_exec",
+        "ok": true
+      }
+    ],
+    "full_compute_expansion_accepted": false
+  }
+}

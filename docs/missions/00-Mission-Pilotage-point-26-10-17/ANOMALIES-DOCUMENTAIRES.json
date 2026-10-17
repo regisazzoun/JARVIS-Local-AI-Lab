@@ -1,0 +1,340 @@
+[
+  {
+    "id": "A01",
+    "categorie": "Numérotation / matériel",
+    "sources": [
+      "docs/missions/13D-E/RECEPTION-MISSION14.md",
+      "ROADMAP.md (17/10)"
+    ],
+    "contradiction": "Titre13D-E/14 du Dell1 interprétable comme réception du second Dell",
+    "reference_recente": "Décision propriétaire :13D-E Dell1 Codex ;14 Dell2 JARVIS",
+    "correction": "Avertissement explicite et registre séparé, titre historique conservé",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A02",
+    "categorie": "États / branches",
+    "sources": [
+      "SUIVI.md, codex/jl-02-launcher-v2",
+      "SUIVI.md, codex/mission-13de-preparation"
+    ],
+    "contradiction": "Copie de réception13:53 incomplète dans brancheJL02 contre réception15:09 complète dans brancheDell",
+    "reference_recente": "RéceptionDell6dd5f57",
+    "correction": "Basé00 sur étatDell récent, rapportJL02 référencé sans écraser réception",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A03",
+    "categorie": "Versions / doublons",
+    "sources": [
+      "SUIVI.md",
+      "ROADMAP.md"
+    ],
+    "contradiction": "Paragraphes identiques de réception INCOMPLET répétés après progrès",
+    "reference_recente": "Réception complète17/10",
+    "correction": "Marquer chaque bloc ancien comme historique remplacé ; conserver texte et historique",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A04",
+    "categorie": "État",
+    "sources": [
+      "SUIVI.md ligneJL02",
+      "JARVIS-Launcher2/docs/RAPPORT-JL-02.md"
+    ],
+    "contradiction": "JL02 encore prévue/non lancée dans tableau principal",
+    "reference_recente": "LivraisonJL02 GO AVEC RÉSERVES et accès connecté confirmé propriétaire",
+    "correction": "Actualiser ligne et lien, sans lever réserves physiques",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A05",
+    "categorie": "Preuves / omission",
+    "sources": [
+      "SUIVI.md ligne08",
+      "/home/adminjarvis/JARVIS/rapports/mission08.md"
+    ],
+    "contradiction": "Rapport08 réputé manquant malgré original et archive présents",
+    "reference_recente": "InstallationMinistralGPU testée ; raisonnement insuffisamment fiable",
+    "correction": "Rattacher rapport et statut partiel, sans promouvoir administration autonome",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A06",
+    "categorie": "Suivi / omission",
+    "sources": [
+      "SUIVI.md ligne09à11",
+      "rapports/mission09.md,mission09B.md,mission10.md,mission11.md"
+    ],
+    "contradiction": "Regroupement sans verdicts individualisés",
+    "reference_recente": "Quatre rapports retrouvés ;09B corrige09",
+    "correction": "Ajouter lignes individuelles, garder ancienne ligne comme regroupement historique",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A07",
+    "categorie": "Intitulés / exécutant",
+    "sources": [
+      "missions/mission-11/README.md (branche réorganisation)",
+      "rapports/mission11.md ; docs/missions/11/RAPPORT.md"
+    ],
+    "contradiction": "Index11 intitulé Using OpenAI Python library ; collision auditJarvisVoice/Agentic",
+    "reference_recente": "11historique audit statique12/10 ;11-Agentic jalon17/10",
+    "correction": "Corriger rattachement dans registre et index courant, conserver index historique identifié",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A08",
+    "categorie": "Intitulés",
+    "sources": [
+      "missions/mission-04j/README.md",
+      "rapports/mission04J.md"
+    ],
+    "contradiction": "Objectif de04I recopié dans fiche04J",
+    "reference_recente": "04J vérification avant branchement",
+    "correction": "Titre04J corrigé dans registre ; fiche ancienne reste source historique",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A09",
+    "categorie": "Intitulés",
+    "sources": [
+      "missions/mission-04p/README.md",
+      "rapports/mission04P.md"
+    ],
+    "contradiction": "Fiche04P utilise intitulé04H en première extraction",
+    "reference_recente": "04P attributionPCIe réussie, pas piloteGPU",
+    "correction": "Nom et preuve séparés dans registre",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A10",
+    "categorie": "Versions / chronologie",
+    "sources": [
+      "rapports/mission04I.md",
+      "rapports/mission04L.md"
+    ],
+    "contradiction": "Addendum installation autorisée en tête, ancienne conclusion aucune installation en bas",
+    "reference_recente": "Addenda datés d’installation de configuration",
+    "correction": "Retenir chronologie interne, distinguer configuration installée et essai physique",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A11",
+    "categorie": "Preuves",
+    "sources": [
+      "docs/chronologie.md",
+      "rapports/MISSION-13E-RAPPORT.md et TESTS"
+    ],
+    "contradiction": "Réception13E à confirmer malgré rapport complet publiéPR1",
+    "reference_recente": "GO AVEC RÉSERVES13E, tests avec audio artificiel",
+    "correction": "Lien et état13E mis à jour ; réservesSafari/micro conservées",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A12",
+    "categorie": "État",
+    "sources": [
+      "missions/mission-13f/README.md",
+      "docs/missions/MISSION-13F-DEBRIEF.md ; PR4"
+    ],
+    "contradiction": "Index de récupération ne retrouve pas rapportfinal13F",
+    "reference_recente": "Rapport13F et débriefGO AVEC RÉSERVES14/10",
+    "correction": "Index courant dirige vers13F récent ; première consolidation reste datée",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A13",
+    "categorie": "Exécutant / preuve",
+    "sources": [
+      "docs/missions/13D-E/AGENT-14A.md",
+      "docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md ; rapportsJL02"
+    ],
+    "contradiction": "Contrat14A ancien propose seulementsandbox, acquis ultérieurs sur hôte etDell",
+    "reference_recente": "11B SSH/AnsibleQwen,JL02 tâches techniques ;00 analyses outillées",
+    "correction": "Distinguer progrès14A et réception globale toujours absente",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A14",
+    "categorie": "Fonction / état",
+    "sources": [
+      "docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+      "SUIVI.md branche11B"
+    ],
+    "contradiction": "Raccordement réussi pourrait être assimilé àComputeExpansion terminée ; ancien running non temps réel",
+    "reference_recente": "Rapport limite explicitement GO au raccordement ; checkpoint durable distinct",
+    "correction": "Afficher11Bpartielle, inspecter checkpoint sans le relancer dans00",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A15",
+    "categorie": "Fonctions distribuées",
+    "sources": [
+      "SUIVI.md13C",
+      "docs/missions/13D-E/RECEPTION-MISSION14.md ; rapportsJL02"
+    ],
+    "contradiction": "Mémoire partagée non démontrée formulée trop largement face à passerelle/Dell testés",
+    "reference_recente": "AutoritéSQLiteMac et requêtes inférenceDell intégrées",
+    "correction": "Distinguer mémoire canonique via passerelle et réplication/accès directmulti-nœuds non réceptionnés",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A16",
+    "categorie": "Dépendances",
+    "sources": [
+      "ROADMAP.md section15reportée après14",
+      "docs/missions/MISSION-15A-MACOS-CODEX.md ; MISSION-15B-IOS-CODEX.md"
+    ],
+    "contradiction": "Ancien ordre13F→14→15 lu comme blocage des clients",
+    "reference_recente": "Décision15A/B parallèles,14non bloquante",
+    "correction": "Préserver ordrehistorique et afficher dépendanceAPIactuelle",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A17",
+    "categorie": "Clients / versions",
+    "sources": [
+      "docs/parallel-projects/JARVIS-Launcher/ROADMAP.md",
+      "JARVIS-Launcher2/docs/RAPPORT-JL-02.md"
+    ],
+    "contradiction": "JL02 devait migrerV1 dans même dépôt, ancien cadrage non lancé",
+    "reference_recente": "DécisionV2distincte,préserverV1",
+    "correction": "Renvoi courantV1/V2 ; cadragehistorique annoté",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A18",
+    "categorie": "Autorité",
+    "sources": [
+      "ROADMAP.md audit différé/non autorisé",
+      "Ordre propriétaire mission00,17/10"
+    ],
+    "contradiction": "Ancienne interdiction de commencer audit devenue obsolète",
+    "reference_recente": "Mission00 explicitement lancée",
+    "correction": "Directive00 ajoutée sans nouveauGO",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A19",
+    "categorie": "Stockage / causalité",
+    "sources": [
+      "deployment/13de/reinstall/serve-supervised.py",
+      "docs/missions/13D-E/RAPPORT-FINAL.md"
+    ],
+    "contradiction": "Rebootforcé encoreprésent ; risque de le donner pour cause certaine duresync",
+    "reference_recente": "Défautsync;reboot-f identifié,causalitéprobable/non établie",
+    "correction": "Maintenir correctif avant prochain déploiement ; aucun code déploiement modifié en00",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A20",
+    "categorie": "Matériel",
+    "sources": [
+      "README.md tableau12/10",
+      "docs/missions/13D-E/RECEPTION-MISSION14.md"
+    ],
+    "contradiction": "Dell encore prévu et2RTX présenté sans limitealimentation",
+    "reference_recente": "Dell1 reçu,uneRTXalimentée ;Dell2futur",
+    "correction": "Résumé courant et liens, ancien tableau conservé daté",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A21",
+    "categorie": "Numérotation",
+    "sources": [
+      "missions/mission-05,mission-13,mission-13bc,mission-15/README.md",
+      "ROADMAP.md ; cahiers15A/B"
+    ],
+    "contradiction": "Familles,rapport commun etintituléprovisoire risquent de gonfler lenombre de missions",
+    "reference_recente": "Sous-missions attestées et alias historiques",
+    "correction": "Tablealias séparée,nepasinventernuméro",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A22",
+    "categorie": "Preuves / inventaireJARVIS",
+    "sources": [
+      "JARVIS-00-01 première passe",
+      "ComplémentCodex et contrôle du script réel"
+    ],
+    "contradiction": "63entrées,seulement fichiers fournis ; missions prisesdans corps etdatehistorique mal attribuée",
+    "reference_recente": "Correction confiée effectivementàJARVIS",
+    "correction": "Conserver première passe,revoir découverte récursive et classifieravec réserves ; résultatcorrigéàvalider",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A23",
+    "categorie": "Mécanisme agentique",
+    "sources": [
+      "/opt/jarvis/conversation/jarvis/tools.py:report",
+      "TracesJARVIS-00-01"
+    ],
+    "contradiction": "intervention_report imposedeuxsourcesweb dès mot sources/documentation,mêmepourauditlocal",
+    "reference_recente": "Garde conservé ; résultatslocaux/outilspeuventêtre réceptionnés indépendamment",
+    "correction": "Documenter inadéquation,aucunrestart ni fausseconsultation web nécessaire ; outilnonmodifié",
+    "certitude": "Élevé sur fait ; correctionfonctionnelle à prévoir"
+  },
+  {
+    "id": "A24",
+    "categorie": "Interface / disponibilité",
+    "sources": [
+      "JARVIS-Launcher2/site/index.html",
+      "Confirmation propriétaire espace connecté17/10"
+    ],
+    "contradiction": "Pagepublique indisponible confond santéinconnue etmachinearrêtée ; port8765déjàoccupé",
+    "reference_recente": "Espaceconnecté actualisebienlesdeuxmachines avec tunneldéjàactif",
+    "correction": "Documenter accès etaméliorationlibellé ; aucune panne serveurdéduite du public",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A25",
+    "categorie": "Changement de périmètre / numérotation",
+    "sources": [
+      "/home/adminjarvis/rapport_jarvis_mission02.md §8",
+      "/home/adminjarvis/JARVIS/rapports/mission03.md ; mission04.md"
+    ],
+    "contradiction": "Le rapport02 proposait le numéro03 pour le premier eGPU ; le rapport03 exécuté porte sur le socle Debian/T2 et le chantier eGPU commence en04",
+    "reference_recente": "Les rapports réellement exécutés03/04 prévalent pour leur fonction ; proposition initiale conservée",
+    "correction": "Noter le changement de périmètre sans renuméroter ni traiter la proposition comme une mission exécutée supplémentaire",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A26",
+    "categorie": "États / réception intermédiaire",
+    "sources": [
+      "docs/missions/13D-E/RECEPTION-MISSION14.md, ligne nvidia",
+      "même rapport, lignes reboot et acceptance"
+    ],
+    "contradiction": "La description NVIDIA conserve persistence pending alors que la ligne reboot confirme NVIDIA et inférence après redémarrage",
+    "reference_recente": "Contrôle final de reboot et réception complète du17/10",
+    "correction": "Note de clarification ajoutée sans effacer la description historique ni relancer les tests ; réserves matérielles conservées",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A27",
+    "categorie": "Versions / exécutant",
+    "sources": [
+      "docs/missions/11/RAPPORT.md",
+      "docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+      "JARVIS-Launcher2/docs/RAPPORT-AGENTIQUE-JL-02.md"
+    ],
+    "contradiction": "Le checkpoint 11 décrit encore un Dell en lecture seule et un Launcher2 vide, puis transmet JL-02 à JARVIS seul.",
+    "reference_recente": "Réception 11B : administration distante validée ; JL-02 livré avec contributions Codex et JARVIS distinctes.",
+    "correction": "Avertissement daté dans le rapport 11 ; originaux et instantanés JSON conservés, attribution selon preuves de chaque mission.",
+    "certitude": "Élevé"
+  },
+  {
+    "id": "A28",
+    "categorie": "Numérotation / sources manquantes",
+    "sources": [
+      "mission04T.md §1 et §série historique",
+      "mission04U.md §3",
+      "Index missions/ historique"
+    ],
+    "contradiction": "04S est explicitement cité avec résultats utilisateur dans 04T/04U mais absent des fiches autonomes et du suivi.",
+    "reference_recente": "Lectures ciblées Codex après le signalement 04S dans les fiches JARVIS : référence réelle, rapport absent.",
+    "correction": "Ajouter 04S au registre et au suivi comme À confirmer ; ne pas assimiler les résultats rapportés à des preuves originales retrouvées.",
+    "certitude": "Élevée pour la référence ; limitée pour les essais sous-jacents"
+  }
+]

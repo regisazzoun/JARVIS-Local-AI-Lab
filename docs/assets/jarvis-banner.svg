@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">JARVIS — Local AI Lab</title>
+<desc id="desc">Intelligence artificielle locale, mémoire et voix sur Mac mini, inférence GPU sur Dell Precision. Un laboratoire construit par l’expérimentation.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#091727"/><stop offset="1" stop-color="#16394c"/></linearGradient></defs>
+<rect width="1200" height="300" rx="20" fill="url(#bg)"/>
+<g fill="none" stroke="#61d4ca" stroke-opacity=".18"><path d="M650 0v65h110v75h155v160M880 0v75h190v110h130M570 300v-80h170v-50h460"/><circle cx="760" cy="65" r="5"/><circle cx="915" cy="140" r="5"/></g>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="55" y="65" fill="#69e5d1" font-size="16" letter-spacing="3">LOCAL AI LAB · PROJET EXPÉRIMENTAL</text>
+<text x="51" y="150" fill="#f0f6fc" font-size="76" font-weight="700" letter-spacing="5">JARVIS</text>
+<text x="55" y="197" fill="#c1d4df" font-size="23">Une IA locale. Des outils réels. Des preuves.</text>
+<text x="55" y="252" fill="#90adbd" font-size="17">Conversation · Voix · Mémoire · Exécution agentique</text>
+<rect x="825" y="48" width="315" height="88" rx="13" fill="#102638" stroke="#3a6d7a"/>
+<text x="847" y="81" fill="#69e5d1" font-size="19" font-weight="600">MAC MINI · DEBIAN</text><text x="847" y="111" fill="#c1d4df" font-size="16">Passerelle · Mémoire · Voix · Outils</text>
+<path d="M980 136v28" stroke="#69e5d1" stroke-width="2"/><path d="m975 158 5 6 5-6" fill="none" stroke="#69e5d1" stroke-width="2"/>
+<rect x="825" y="165" width="315" height="88" rx="13" fill="#102638" stroke="#3a6d7a"/>
+<text x="847" y="198" fill="#87bfff" font-size="19" font-weight="600">DELL PRECISION N°1</text><text x="847" y="228" fill="#c1d4df" font-size="16">Ollama · Inférence · RTX 3090</text></g></svg>
