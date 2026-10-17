@@ -1,5 +1,9 @@
 # Dernière réception 13D-E / 14
 
+RÉCEPTION COMPLÈTE VALIDÉE. Référence : [réception de la nouvelle tentative](RECEPTION-MISSION14.md). Les sections suivantes sont historiques.
+
+# Dernière réception 13D-E / 14
+
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Référence : [réception de la nouvelle tentative](RECEPTION-MISSION14.md). Les sections suivantes sont historiques.
 
 # Dernière réception 13D-E / 14
