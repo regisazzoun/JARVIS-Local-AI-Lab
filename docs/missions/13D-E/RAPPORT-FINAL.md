@@ -65,6 +65,18 @@ Détails et commandes : [bootstrap automatisé](BOOTSTRAP-AUTOMATISE.md). Aucun 
 
 ---
 
+## Demande du propriétaire — suivi complet des prochains déploiements
+
+Instruction consolidée le 16 octobre 2026 : mettre en place un suivi automatique de l'ensemble des tâches du déploiement, depuis le démarrage PXE jusqu'à la réception finale. Présenter sur une page JARVIS une barre de progression globale et une liste chronologique des tâches, chacune avec sa propre barre de progression et son état : à venir, en cours, réussie, en échec ou bloquée. Afficher une coche de validation uniquement après une vérification effective de la réussite de la tâche ; ne pas confondre lancement, fin d'exécution et validation du résultat.
+
+Le suivi doit couvrir le téléchargement des images, le démarrage de l'installateur, la vérification du matériel et des disques, le partitionnement, la création et la synchronisation RAID, l'installation du système et des paquets, la configuration réseau et SSH, la préparation et la vérification des deux ESP et chargeurs, le redémarrage sur disque, la réception du rapport de premier boot, la création et la validation de l'accès permanent, la révocation du bootstrap, les deux passes Ansible, les contrôles finaux et le nettoyage. Toute tâche supplémentaire exécutée par le déploiement doit également apparaître dans ce suivi.
+
+Actualiser automatiquement les états et afficher pour chaque tâche son heure de début, sa durée, sa dernière activité et, en cas d'échec ou de blocage, le message et les journaux utiles au diagnostic. Utiliser les mesures réelles lorsqu'elles sont disponibles ; identifier clairement les pourcentages estimés et afficher une activité en cours lorsque la progression n'est pas mesurable. Ne jamais afficher 100 % ni une coche de réussite sur la seule base du temps écoulé. Prévoir aussi un affichage synthétique de l'avancement sur la console du Dell pour éviter qu'un écran inchangé donne l'impression d'un plantage.
+
+Prévoir un accès SSH temporaire dans l'installateur, accessible par clé depuis JARVIS uniquement, dès que le réseau est disponible et avant le partitionnement, puis pendant toute l'installation et la finalisation. Ce canal doit permettre à JARVIS de surveiller l'ensemble des tâches : journaux de l'installateur, processus, installation des paquets, stockage et RAID, configuration et contrôles de démarrage. Il complète les événements automatiques qui alimentent les barres de progression et les validations ; sa fonction ne se limite pas au RAID. Vérifier l'identité de la cible et la clé hôte avant connexion, conserver les clés privées sur JARVIS, ne pas exposer de secrets dans le suivi et retirer l'accès temporaire à la fin de l'installation. L'ensemble doit fonctionner sans nouvelle intervention manuelle ni validation intermédiaire du propriétaire.
+
+Cette amélioration consolidée remplace les formulations précédentes relatives aux barres de progression et à la surveillance SSH. Elle est à réaliser pour les prochains déploiements ; elle n'est pas déclarée implémentée ni validée dans la mission actuelle.
+
 ## Rapport historique de la première exécution (conservé)
 
 # Réception 13D-E — NO-GO pour réception complète
@@ -103,3 +115,8 @@ Données mesurées : Precision 5820 Tower X-Series, Core i9-10980XE, 36 processe
 **NO-GO installation maintenu.** Le manifeste d'installation a été refusé : périphérique supplémentaire /dev/sda, SD/MMC CRW, taille nulle, et produit DMI « Precision 5820 Tower X-Series » différent du profil strict historique « Precision 5820 Tower ». Les séries et UUID sont conservés dans l'inventaire privé ; aucun identifiant matériel unique publié. Ne pas ignorer globalement les disques supplémentaires : identifier/qualifier le lecteur sans média avant révision précise de la politique. Autre écart à revoir : BIOS DMI 2.8.0 daté du 15 janvier 2021, alors que 2.24.0 avait été annoncé ; aucune modification firmware autorisée ou effectuée.
 
 Découverte automatique réalisée et reçue ; qualification RAID/deux ESP, approbation d'effacement portant sur les séries réelles, identité SSH permanente et autorisation administrative restent à obtenir.
+
+
+## Clôture de la tentative — 17 octobre 2026
+
+Installation Debian finalisée et démarrage confirmé par console/SSH ouvert, mais rapport de premier boot absent et accès authentifié/Ansible non réceptionnés. Tentative arrêtée à la demande du propriétaire. Le [rapport transitoire de reprise](RAPPORT-TRANSITOIRE-REPRISE.md) porte les directives prioritaires pour terminer la mission : adminjarvis, mot de passe utilisateur privé, maintien du secours SSH, clavier français et conservation du RAID existant si possible.

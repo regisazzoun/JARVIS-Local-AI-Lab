@@ -107,3 +107,13 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 | 2026-10-14 | 15A / 15B | Missions séparées, cahiers préparés ; iOS gratuit retenu | [Roadmap](ROADMAP.md) |
 | 2026-10-14 | Pilotage | Priorité 13D → 14A → 14 ; Launcher en chantier parallèle | [Roadmap](ROADMAP.md) |
 
+
+
+## Jalon du 17 octobre 2026 — clôture de tentative Dell
+
+Debian démarre ; SSH répond, mais authentification, rapport de premier boot et Ansible non réceptionnés. Tentative clôturée sur demande ; mission complémentaire à lancer pour finir, avec conservation du RAID si possible. Référence prioritaire : [rapport transitoire](docs/missions/13D-E/RAPPORT-TRANSITOIRE-REPRISE.md).
+
+
+## Mission 13D-E / 14 relancée — 17 octobre 2026
+
+Nouvelle chaîne supervisée préparée, services PXE actifs et email de lancement envoyé. Installation physique de cette tentative non encore validée. Voir [réinstallation supervisée](docs/missions/13D-E/REINSTALLATION-SUPERVISEE.md). Objectif continu incluant NVIDIA/CUDA/Ollama/modèles et intégration JARVIS ; aucun nouveau GO intermédiaire.

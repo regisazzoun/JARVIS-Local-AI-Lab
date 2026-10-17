@@ -374,3 +374,13 @@ Rapport transmis automatiquement depuis le Dell et conservé privé ; découvert
 ### 13D-E — installation autonome autorisée, 16 octobre 2026
 
 Le propriétaire autorise réseau nécessaire, effacement des deux NVMe identifiés, installation/reboot et administration ; seule intervention humaine : lancement PXE. Directive prioritaire enregistrée dans AGENTS.md et le prompt de déploiement. Qualification RAID/deux ESP et deux boots UEFI sur disque seul acquise sur images jetables ; 25 tests + récepteur passent. Image réelle et orchestration automatique préparées, aucune installation Dell effectuée à ce stade.
+
+
+## Jalon du 17 octobre 2026 — clôture de tentative Dell
+
+Debian démarre ; SSH répond, mais authentification, rapport de premier boot et Ansible non réceptionnés. Tentative clôturée sur demande ; mission complémentaire à lancer pour finir, avec conservation du RAID si possible. Référence prioritaire : [rapport transitoire](docs/missions/13D-E/RAPPORT-TRANSITOIRE-REPRISE.md).
+
+
+## Mission 13D-E / 14 relancée — 17 octobre 2026
+
+Nouvelle chaîne supervisée préparée, services PXE actifs et email de lancement envoyé. Installation physique de cette tentative non encore validée. Voir [réinstallation supervisée](docs/missions/13D-E/REINSTALLATION-SUPERVISEE.md). Objectif continu incluant NVIDIA/CUDA/Ollama/modèles et intégration JARVIS ; aucun nouveau GO intermédiaire.

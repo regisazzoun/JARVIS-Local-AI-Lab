@@ -1,0 +1,67 @@
+---
+- name: Dell Debian and AI server
+  hosts: dell
+  become: true
+  gather_facts: true
+  pre_tasks:
+    - name: Validate installed target before configuration
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.system_vendor == 'Dell Inc.'
+          - ansible_facts.product_name == 'Precision 5820 Tower X-Series'
+          - ansible_facts.product_uuid | lower == approved_uuid | lower
+          - ansible_facts.distribution == 'Debian'
+          - ansible_facts.distribution_major_version == '13'
+  tasks:
+    - name: Base and NVIDIA CUDA dependencies
+      ansible.builtin.apt:
+        name: [ca-certificates, python3, sudo, openssh-server, mdadm, nvme-cli, smartmontools, rsync, curl, pciutils, linux-headers-amd64, nvidia-driver, nvidia-cuda-toolkit]
+        state: present
+    - name: Keep SSH enabled
+      ansible.builtin.systemd_service:
+        name: ssh
+        enabled: true
+        state: started
+    - name: Ensure Ollama service account
+      ansible.builtin.user:
+        name: ollama
+        system: true
+        create_home: true
+        home: /var/lib/ollama
+        shell: /usr/sbin/nologin
+        groups: video,render
+        append: true
+    - name: Ollama directories
+      ansible.builtin.file:
+        path: '{{ item }}'
+        state: directory
+        owner: ollama
+        group: ollama
+        mode: '0755'
+      loop: [/opt/ollama, /var/lib/ollama/models]
+    - name: Explicit password and key policy retained
+      ansible.builtin.copy:
+        dest: /etc/ssh/sshd_config.d/00-jarvis.conf
+        mode: '0644'
+        content: |
+          PermitRootLogin no
+          PubkeyAuthentication yes
+          PasswordAuthentication yes
+          KbdInteractiveAuthentication no
+          AllowUsers adminjarvis jarvis-bootstrap
+      notify: Reload SSH
+    - name: French console keyboard
+      ansible.builtin.copy:
+        dest: /etc/default/keyboard
+        mode: '0644'
+        content: |
+          XKBMODEL="pc105"
+          XKBLAYOUT="fr"
+          XKBVARIANT=""
+          XKBOPTIONS=""
+          BACKSPACE="guess"
+  handlers:
+    - name: Reload SSH
+      ansible.builtin.systemd_service:
+        name: ssh
+        state: reloaded
