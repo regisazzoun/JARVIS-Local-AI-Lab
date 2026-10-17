@@ -98,3 +98,10 @@ L'échec d'intégration provenait d'un HTTP 403 à la connexion de test à la pa
 La reprise a réellement validé : passerelle authentifiée avec inférence Qwen sur le Dell, rappel d'un souvenir fictif temporaire depuis la mémoire SQLite canonique (fixture ensuite supprimée), appel réel de jarvis_services, Whisper Small sur WAV synthétique puis Qwen Dell et Piper Tom, et requête authentifiée Open WebUI avec Llama. Aucun microphone physique testé, aucune base parallèle créée. Ansible deuxième passe : changed=0, failed=0, unreachable=0. NVIDIA/CUDA et les trois modèles ont déjà des preuves d'inférence GPU réelles.
 
 La réception finale reste en cours : attendre la fin de resynchronisation RAID, vérifier le stockage, effectuer un reboot normal, puis retester les accès/services/GPU et les requêtes authentifiées JARVIS/Open WebUI. Le contrôleur dispose d'un mode de reprise depuis ces preuves d'intégration pour éviter de réinstaller ou retransférer des composants déjà validés. Le relais d'affichage reste désormais actif en cas d'échec, au lieu de figer la console.
+
+
+## Ajout demandé par le propriétaire — KDE Plasma avant le reboot final
+
+Le propriétaire demande KDE Plasma sur le Dell avant le redémarrage final. Une dix-huitième tâche KDE Plasma est ajoutée au tableau, en cours jusqu'à validation effective. Installation de kde-plasma-desktop, SDDM, Xorg/KWin X11 et outils de base, avec configuration française ; le réseau existant reste piloté par systemd-networkd. Le gestionnaire de connexion est préparé pour le prochain boot, sans autologin.
+
+La réception finale est retenue jusqu'à la fin de cette installation, en plus de la synchronisation RAID. La reprise automatique reprend ensuite les contrôles finaux, avec vérification de SDDM et Xorg après reboot. L'ouverture interactive d'une session Plasma n'est pas déclarée testée tant qu'elle n'a pas été observée. SSH, sudo, le secours par mot de passe et les services IA restent à préserver.

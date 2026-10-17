@@ -31,3 +31,8 @@ Tentative clôturée à la demande du propriétaire ; prochaine mission : finir 
 ## Mission complète 13D-E / 14 relancée — 17 octobre 2026
 
 Directive utilisateur actuelle : nouvelle installation Debian automatisée, conservation prioritaire GPT/RAID1/métadonnées/deux ESP, formatage rapide de la seule racine si compatible. Comptes jarvis-bootstrap et adminjarvis avec le même mot de passe imposé dans le fichier privé reprise-user-password.txt. Garder SSH par mot de passe pour adminjarvis même après validation indépendante par clé et sudo ; ne pas désactiver prématurément le bootstrap. Clavier français dans installateur/secours/consoles/système. Mission continue incluant Ansible, NVIDIA/CUDA, Ollama, Qwen/Ministral/Llama documentés, intégration conversation/voix/mémoire/outils et réception après reboot. Une RTX 3090 alimentée seulement. Aucune validation humaine intermédiaire ; email au propriétaire quand le PXE est réellement prêt. Les anciennes clôtures, reports IA, révocations automatiques et préférences de simple réparation sont remplacés dans ce périmètre. Aucun secret dans Git. Préserver services/accès/mémoire Mac mini et DHCP Bbox ; aucune fusion main.
+
+
+## Ajout propriétaire — KDE Plasma
+
+Installer KDE Plasma et son gestionnaire de connexion sur le Dell avant le redémarrage final, suivre cette installation comme une tâche distincte (18 tâches au tableau), préserver le réseau systemd-networkd et les services IA/SSH. Vérifier les paquets puis le gestionnaire graphique après reboot ; ne pas prétendre avoir testé une session utilisateur interactive sans observation. Cette demande complète la mission IA existante.

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Private event ledger and console view. No inferred success from elapsed time."""
 import argparse,json,pathlib,time,os,fcntl
-TASKS=['pxe','identity','storage','debian','accounts','ssh-password','ssh-key','ansible','nvidia','cuda','ollama','models','integration','tests','reboot','acceptance','cleanup']
+TASKS=['pxe','identity','storage','debian','accounts','ssh-password','ssh-key','ansible','nvidia','cuda','ollama','models','integration','tests','plasma','reboot','acceptance','cleanup']
 p=argparse.ArgumentParser();p.add_argument('state',type=pathlib.Path);p.add_argument('--task',choices=TASKS);p.add_argument('--status',choices=['pending','running','validated','failed','blocked']);p.add_argument('--percent',type=float);p.add_argument('--measured',action='store_true');p.add_argument('--detail',default='');p.add_argument('--details',action='store_true');a=p.parse_args();os.umask(0o077)
 lock=open(str(a.state)+'.lock','a');fcntl.flock(lock,fcntl.LOCK_EX)
 s=json.loads(a.state.read_text()) if a.state.exists() else {t:{'status':'pending'} for t in TASKS}
+s={task:s.get(task,{'status':'pending'}) for task in TASKS}
 if a.task:
  assert a.status
  if a.status=='validated':assert a.detail,'Validation requires recorded evidence'
@@ -15,7 +16,7 @@ if a.task:
  if a.status in ['validated','failed','blocked']:d['finished']=int(time.time())
  d['percent']=100 if a.status=='validated' else a.percent;d['measured']=a.measured
  tmp=a.state.with_suffix('.tmp');tmp.write_text(json.dumps(s,indent=2)+'\n');tmp.replace(a.state)
-labels=dict(pxe='PXE',identity='Identité',storage='Stockage RAID',debian='Debian',accounts='Comptes',**{'ssh-password':'SSH mot de passe','ssh-key':'SSH par clé'},ansible='Ansible',nvidia='NVIDIA',cuda='CUDA',ollama='Ollama',models='Modèles',integration='Intégration JARVIS',tests='Tests',reboot='Redémarrage',acceptance='Réception finale',cleanup='Nettoyage')
+labels=dict(pxe='PXE',identity='Identité',storage='Stockage RAID',debian='Debian',accounts='Comptes',**{'ssh-password':'SSH mot de passe','ssh-key':'SSH par clé'},ansible='Ansible',nvidia='NVIDIA',cuda='CUDA',ollama='Ollama',models='Modèles',integration='Intégration JARVIS',tests='Tests',plasma='KDE Plasma',reboot='Redémarrage',acceptance='Réception finale',cleanup='Nettoyage')
 statuses=dict(validated='validé',running='en cours',pending='à venir',failed='échec',blocked='bloqué')
 count=sum(d['status']=='validated' for d in s.values());print('['+'#'*(30*count//len(TASKS))+'-'*(30-30*count//len(TASKS))+']');print(f'Progression globale : {count}/{len(TASKS)} tâches validées (pondération par tâche, pas mesure du temps restant)')
 for t,d in s.items():

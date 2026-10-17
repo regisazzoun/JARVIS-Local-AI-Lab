@@ -132,6 +132,9 @@ try:
  event('storage','running','Initial resync after installer forced reboot must finish before final clean acceptance')
  storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json --wait-seconds 21600');(b/'storage-clean-before-reboot.txt').write_text(storage)
  event('storage','validated','Healthy mirror and independent ESPs verified; resync complete before normal final reboot')
+ if 'plasma' in json.loads((b/'progress.json').read_text()):
+  assert json.loads((b/'progress.json').read_text())['plasma']['status']=='validated','KDE installation must finish before reboot'
+  ssh('dpkg-query -W kde-plasma-desktop plasma-desktop sddm && systemctl is-enabled sddm')
  event('reboot','running','Final normal Dell reboot and independent SSH/password/GPU/Ollama checks')
  reboot();assert '3090' in ssh('nvidia-smi --query-gpu=name --format=csv,noheader');assert ssh('sudo -n true && systemctl is-active ssh jarvis-ollama').count('active')==2
  # Password authentication remains independently tested even after key validation.
@@ -144,6 +147,9 @@ try:
  final_storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json && systemctl --failed --no-legend');(b/'final-storage-services.txt').write_text(final_storage)
  subprocess.run(args+['jarvis-bootstrap@'+ip,'sudo -n true'],env=env,stdin=subprocess.DEVNULL,check=True)
  assert any(m.get('size_vram',0)>0 for m in api('/api/ps')['models']),'GPU inference not retained after reboot'
+ if (b/'plasma-installed.json').exists():
+  plasma=ssh('systemctl is-active sddm && pgrep -x Xorg');assert plasma.splitlines()[0]=='active','Graphical greeter failed after reboot'
+  (b/'plasma-after-reboot.txt').write_text(plasma+'SDDM and Xorg active; interactive graphical login not claimed\n')
  subprocess.run(['python3',str(ROOT/'reinstall/post-reboot.py'),str(b)],check=True)
  event('reboot','validated','New boot ID, independent key/password SSH/sudo, NVIDIA and actual Qwen inference confirmed')
  event('cleanup','validated','Temporary controller network services stopped; bootstrap/password recovery preserved by user instruction')
