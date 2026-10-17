@@ -1,0 +1,9 @@
+[Unit]
+Description=JARVIS mission 11 harmless service control proof
+[Service]
+Type=oneshot
+User=adminjarvis
+ExecStart=/usr/bin/touch /var/lib/jarvis/projects/service-proof
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target

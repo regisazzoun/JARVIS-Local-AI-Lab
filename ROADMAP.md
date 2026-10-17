@@ -20,6 +20,7 @@ Ce registre complète la feuille de route historique. Statuts : **prévu**, **en
 | Haute | Mémoire persistante commune Mac mini / Dell | Prévu | Définir stockage, sauvegardes, droits, accès inter-machines et cohérence ; lecture/écriture testée depuis les deux machines |
 | Moyenne | Interface vocale JARVIS (reconnaissance + synthèse) | Prévu | Commande orale et réponse vocale validées localement |
 | Moyenne | Outils agentiques et extensions installables par JARVIS | Prévu | Exécution de commandes autorisées, journalisation, tests et approbation pour opérations sensibles |
+| Haute | Mission 11 — exécution hôte et habilitations pérennes | GO AVEC RÉSERVES | [Rapport](docs/missions/11/RAPPORT.md), 42 assertions réelles ; transport Codex, reboot global, Pages et mutations Dell restent reportés |
 | Moyenne | Maintenance automatique de la documentation et du registre | Prévu | Proposer des modifications via PR GitHub après chaque mission ; validation humaine avant fusion |
 
 ### Principes de suivi
@@ -414,3 +415,12 @@ INCOMPLET — consulter les preuves privées et reprendre sans réinstallation a
 ## Réception nouvelle tentative Dell 13D-E / 14
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Mission 11 — habilitations réelles et préparation JL-02 (17 octobre 2026)
+
+**GO AVEC RÉSERVES.** Administration réelle autorisée sans validations intermédiaires dans le périmètre acquis ; demandes de droits persistantes séparées des autorisations système. Passerelle hôte, politique root persistante, demandes de capacités, journal de preuves et reprise raccordés au backend 13F. Qwen a passé 42 assertions ; voir [architecture](docs/missions/11/ARCHITECTURE.md), [réception](docs/missions/11/RAPPORT.md) et [maintenance](docs/missions/11/MAINTENANCE.md).
+
+Réserves : activer un transport automatique de la file persistante vers un consommateur Codex autorisé ; vérifier un reboot complet du Mac ; reporter l’administration mutative du Dell jusqu’à la fin du déploiement. Le profil Dell en lecture seule a été testé. Ne pas répéter les démonstrations 13F ni réinstaller le Dell pour recevoir les outils mission 11.
+
+JL-02 : objectif transmis à JARVIS pour regisazzoun/JARVIS-Launcher2, développement et publication V2 responsive, chat texte/voix et supervision. Launcher V1 conservé. Le dépôt est créé et testé ; Pages demeure à valider lors de la publication réelle par JARVIS.

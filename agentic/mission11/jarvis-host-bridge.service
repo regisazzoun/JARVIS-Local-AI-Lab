@@ -1,0 +1,18 @@
+[Unit]
+Description=JARVIS authorized host operations broker - mission 11
+After=network.target
+[Service]
+Type=notify
+NotifyAccess=main
+TimeoutStartSec=15
+User=root
+ExecStart=/usr/bin/python3 /usr/local/lib/jarvis-host/host_bridge.py
+Restart=on-failure
+RestartSec=2
+RuntimeDirectory=jarvis-host
+RuntimeDirectoryMode=0755
+UMask=0077
+TasksMax=160
+MemoryMax=1G
+[Install]
+WantedBy=multi-user.target

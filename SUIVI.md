@@ -20,6 +20,7 @@
 | **07** | Qualité des réponses et RAG | 🟡 Partiellement confortée par 13F | Gestion du contexte et réponses écrites/orales améliorées en 13F ; performances RAG de 07 non revalidées intégralement | Garder la réserve RAG ; étendre les tests si nécessaire |
 | **08** | Mission historique 08 | ⚪ À confirmer | Présence de preuves insuffisante sans rapport de réception vérifié | Retrouver le rapport et statuer |
 | **09 à 11** | Missions historiques intermédiaires | ⚪ Documentation à consolider | Aucun verdict individualisé établi dans les sources de suivi consultées | Réconcilier rapports et historique, sans inventer de statut |
+| **11-Agentic** | Raccordement Debian réel et habilitations pérennes | ✅ GO AVEC RÉSERVES | 42 contrôles indépendants réussis ; outils hôte, demandes testées et reprise Qwen validés | [Rapport](docs/missions/11/RAPPORT.md) ; transport Codex, reboot complet, Pages et mutations Dell réservés |
 | **12** | Étude voix et mémoire | ✅ GO sous conditions historique ; architecture consolidée en 13F | Choix Whisper/Piper/SQLite concrétisés et chaîne backend/mémoire réelles testées en 13F ; validation acoustique physique encore nécessaire | Conserver verdict d'étude ; suivre les réserves physiques |
 | **13A** | Socle vocal durable Whisper/Piper | ✅ Réussie ; fonctionnement backend consolidé par 13F | Whisper Small et Piper Tom réutilisés et retestés en chaîne réelle en 13F ; pas de nouveau test micro/haut-parleurs physiques | Garder la validation matérielle dans les missions clientes |
 | **13B** | Interface vocale, Push-to-Talk | 🟡 GO PARTIEL historique ; consolidation technique 13F | Interface, chaîne vocale et échanges navigateur réels testés en 13F (micro WAV artificiel) ; VAD/interruption expérimentaux, périphériques physiques non revalidés | Tester la voix sur micro/haut-parleurs réels et clients Apple |
@@ -147,3 +148,8 @@ INCOMPLET — consulter les preuves privées et reprendre sans réinstallation a
 ## Réception nouvelle tentative Dell 13D-E / 14
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Mission 11 Agentic — 17 octobre 2026
+
+La mission historique 09–11 reste dans son état documentaire antérieur. La présente mission 11 Agentic constitue un nouveau jalon distinct. Administration réelle autorisée sans confirmations intermédiaires dans le périmètre acquis ; demandes de droits persistantes séparées des autorisations système. Les états Dell restent ceux de la mission 13D-E/14 indépendante. Voir [rapport](docs/missions/11/RAPPORT.md).

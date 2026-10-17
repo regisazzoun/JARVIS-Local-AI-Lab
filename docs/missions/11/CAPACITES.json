@@ -1,0 +1,358 @@
+{
+  "generated": "2026-10-17T15:33:47.386999+00:00",
+  "capabilities": [
+    {
+      "capability": "host_package",
+      "resource": "hello",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:03:56.003075+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "jq",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.068261+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "git",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.133749+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "gh",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.199285+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "ansible",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.264216+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "rsync",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.329273+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "curl",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.394217+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "python3-venv",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "MANQUANT",
+      "granted": "2026-10-17T12:03:56.459275+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "nodejs",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "INSTALLÉ",
+      "granted": "2026-10-17T12:03:56.524289+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "npm",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:03:56.589170+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_files",
+      "resource": "/var/lib/jarvis/projects/m11-reception",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+Qwen-requested-probe",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:06:30.303748+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_github",
+      "resource": "regisazzoun/JARVIS-Local-AI-Lab",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+Qwen-requested-probe",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:06:31.023783+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package",
+      "resource": "tree",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "pending-owner-scope-check",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:07:24.804157+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_exec",
+      "resource": "local",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+JARVIS-runtime-functional-test",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:23:01.856006+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": "0bff90256b6a486e9a2cf4b60b786af5",
+        "caller": "JARVIS-runtime"
+      }
+    },
+    {
+      "capability": "host_resources",
+      "resource": "local",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+JARVIS-runtime-functional-test",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:24:07.296452+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": "acc3de9d35614d4d855431412303bafb",
+        "caller": "JARVIS-runtime"
+      }
+    },
+    {
+      "capability": "host_remote",
+      "resource": "local-ssh",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+JARVIS-runtime-functional-test",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:24:29.528196+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": "55a3345a2ca84beaa868c8b398517965",
+        "caller": "JARVIS-runtime"
+      }
+    },
+    {
+      "capability": "host_ansible",
+      "resource": "local-ssh",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+JARVIS-runtime-functional-test",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:24:44.420553+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": "fda1090a77074905aacf2bee8a974717",
+        "caller": "JARVIS-runtime"
+      }
+    },
+    {
+      "capability": "host_github",
+      "resource": "regisazzoun/JARVIS-Launcher2",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "owner-policy+Qwen-requested-probe",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T12:29:00.494976+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_github: create repository",
+      "resource": "Dépôt GitHub regisazzoun/JARVIS-Launcher2",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "pending-owner-scope-check",
+      "state": "DEMANDÉ",
+      "granted": "2026-10-17T12:29:58.071427+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_github enable_pages",
+      "resource": "regisazzoun/JARVIS-Launcher2",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "pending-owner-scope-check",
+      "state": "DEMANDÉ",
+      "granted": "2026-10-17T12:34:30.710483+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_package dpkg repair",
+      "resource": "Paquet npm (et dépendances dpkg partielles)",
+      "machine": "local",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\"}",
+      "mode": "pending-owner-scope-check",
+      "state": "DEMANDÉ",
+      "granted": "2026-10-17T12:38:12.186274+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": null,
+        "evidence_id": null,
+        "caller": null
+      }
+    },
+    {
+      "capability": "host_remote",
+      "resource": "dell-observe",
+      "machine": "dell-observe",
+      "scope": "{\"mission\": \"11\", \"authorization\": \"Owner instruction 2026-10-17\", \"host\": \"local Debian\", \"protected\": \"Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP\", \"remote_observation\": \"Dell identity and key already validated by mission 13D-E; read-only while deployment is active\"}",
+      "mode": "owner-policy+JARVIS-runtime-functional-test",
+      "state": "VALIDÉ",
+      "granted": "2026-10-17T15:21:07.938005+00:00",
+      "mission": "11",
+      "revocation": "Owner policy withdrawal or failed functional test",
+      "last_test": {
+        "returncode": 0,
+        "evidence_id": "9d8e1fd160fa48549c28bf570d30c9ca",
+        "caller": "JARVIS-runtime"
+      }
+    }
+  ],
+  "note": "Snapshot, not authority. Effective root policy and private SQLite remain authoritative."
+}

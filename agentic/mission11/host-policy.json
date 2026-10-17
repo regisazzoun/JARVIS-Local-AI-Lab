@@ -1,0 +1,90 @@
+{
+  "user": "adminjarvis",
+  "scope": {
+    "mission": "11",
+    "authorization": "Owner instruction 2026-10-17",
+    "host": "local Debian",
+    "protected": "Dell deployment 13D-E/14, Mac access, canonical memory, Bbox DHCP"
+  },
+  "write_roots": [
+    "/var/lib/jarvis/projects",
+    "/etc/jarvis/managed",
+    "/home/adminjarvis/JARVIS/agent-workspaces"
+  ],
+  "read_roots": [
+    "/var/log/jarvis-agent",
+    "/etc/systemd/system/jarvis-conversation.service",
+    "/etc/os-release",
+    "/opt/jarvis/conversation/jarvis",
+    "/opt/jarvis/conversation/static",
+    "/home/adminjarvis/JARVIS/mission11/docs",
+    "/home/adminjarvis/JARVIS/mission11/AGENTS.md",
+    "/home/adminjarvis/JARVIS/mission11/ROADMAP.md",
+    "/home/adminjarvis/JARVIS/mission11/SUIVI.md",
+    "/usr/local/lib/jarvis-host"
+  ],
+  "packages": [
+    "hello",
+    "jq",
+    "git",
+    "gh",
+    "ansible",
+    "rsync",
+    "curl",
+    "python3-venv",
+    "nodejs",
+    "npm",
+    "tree"
+  ],
+  "services": {
+    "jarvis-agent-proof.service": [
+      "status",
+      "show",
+      "start",
+      "stop",
+      "restart",
+      "is-active",
+      "is-enabled"
+    ],
+    "jarvis-conversation.service": [
+      "status",
+      "show",
+      "is-active",
+      "is-enabled"
+    ],
+    "jarvis-ollama.service": [
+      "status",
+      "show",
+      "is-active",
+      "is-enabled"
+    ],
+    "jarvis-open-webui.service": [
+      "status",
+      "show",
+      "is-active",
+      "is-enabled"
+    ]
+  },
+  "repositories": [
+    "regisazzoun/JARVIS-Local-AI-Lab",
+    "regisazzoun/JARVIS-Launcher2"
+  ],
+  "remote_hosts": {
+    "local-ssh": {
+      "address": "127.0.0.1",
+      "user": "adminjarvis",
+      "identity": "/var/lib/jarvis-agent/ssh/id_ed25519",
+      "known_hosts": "/var/lib/jarvis-agent/ssh/known_hosts",
+      "commands": {
+        "identity": "id -u",
+        "resources": "free -m",
+        "services": "systemctl is-active jarvis-conversation.service",
+        "proof": "printf SSH_AGENT_OK > /var/lib/jarvis/projects/ssh-agent-proof; cat /var/lib/jarvis/projects/ssh-agent-proof"
+      },
+      "write_roots": [
+        "/var/lib/jarvis/projects"
+      ],
+      "allow_admin": true
+    }
+  }
+}
