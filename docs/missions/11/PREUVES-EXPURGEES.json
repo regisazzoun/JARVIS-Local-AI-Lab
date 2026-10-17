@@ -1,0 +1,247 @@
+{
+  "generated": "2026-10-17T15:33:47.389334+00:00",
+  "kind": "Independent file/SQLite checks against real Qwen API and host broker receipts; no simulated acceptance",
+  "checks": [
+    {
+      "check": "1_host_file_persistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "1_Qwen_write_read_modify",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "2_Qwen_systemd_start_restart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "2_Qwen_service_active_and_logs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "3_Qwen_installed_hello",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "3_Qwen_executed_hello",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "4_Qwen_private_GitHub_read_commit_push",
+      "passed": true,
+      "detail": "Dedicated jarvis/mission11-proof-20261017; broker verifies pushed SHA through GitHub API"
+    },
+    {
+      "check": "4_final_implementation_updates_existing_branch",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_capability_tree_validated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_persistent_request_resolved_by_real_test",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_repository_request_resolved_by_Qwen_probe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_package_repair_request_resolved_by_Qwen_probe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_pages_request_deferred_for_JL02",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_Qwen_install_and_probe",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "5_reuse_after_service_restart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "6_Qwen_task_graph_completed",
+      "passed": true,
+      "detail": "[{\"id\": \"t1\", \"deps\": \"[]\", \"state\": \"validated\"}, {\"id\": \"t2\", \"deps\": \"[\\\"t1\\\"]\", \"state\": \"validated\"}, {\"id\": \"t3\", \"deps\": \"[\\\"t2\\\"]\", \"state\": \"validated\"}]"
+    },
+    {
+      "check": "6_dependencies_preserved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "6_validated_procedure_saved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "6_durable_mission_completed",
+      "passed": true,
+      "detail": "completed"
+    },
+    {
+      "check": "6_real_error_then_fix",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "7_actual_service_restart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "7_Qwen_reobserved_real_host",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "7_host_scope_preserved_after_restart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "voice_synthetic_STT_Qwen_host_write_read",
+      "passed": true,
+      "detail": "Synthetic speech, not physical microphone"
+    },
+    {
+      "check": "SSH_and_Ansible_real_local_transport",
+      "passed": true,
+      "detail": "Loopback profile, no distinct-machine claim"
+    },
+    {
+      "check": "Dell_distinct_machine_read_only_via_Qwen",
+      "passed": true,
+      "detail": "Dell 13D-E read-only profile; no mutation, deployment remains in progress"
+    },
+    {
+      "check": "Ansible_privileged_package_operation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "config_write_delete_from_normal_chat",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "normal_chat_mutation_lifecycle_reported",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "npm_and_node_usable_by_Qwen",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "dpkg_clean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installed_configured_hello",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installed_configured_tree",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installed_configured_nodejs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "installed_configured_npm",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JL02_objective_transmitted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "JL02_repo_access_validated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "preserved_memories",
+      "passed": true,
+      "detail": "5 pre-existing rows"
+    },
+    {
+      "check": "preserved_preferences",
+      "passed": true,
+      "detail": "4 pre-existing rows"
+    },
+    {
+      "check": "preserved_conversations",
+      "passed": true,
+      "detail": "10 pre-existing rows"
+    },
+    {
+      "check": "preserved_messages",
+      "passed": true,
+      "detail": "34 pre-existing rows"
+    },
+    {
+      "check": "canonical_SQLite_integrity",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": 42,
+  "total": 42,
+  "GitHub_test_commits": [
+    "78bce9180375bdcb1984542a8c6dbf46213a4e23",
+    "dda2e068752e898d57543e709634978477891849"
+  ],
+  "memory_preserved": {
+    "memories": {
+      "rows_before": 5,
+      "identical": true
+    },
+    "preferences": {
+      "rows_before": 4,
+      "identical": true
+    },
+    "conversations": {
+      "rows_before": 10,
+      "identical": true
+    },
+    "messages": {
+      "rows_before": 34,
+      "identical": true
+    }
+  },
+  "not_tested": [
+    "Full host reboot",
+    "Mutating administration on Dell during its active deployment",
+    "Physical microphone/speakers",
+    "GitHub Pages publication",
+    "Automatic delivery into a Codex session"
+  ]
+}

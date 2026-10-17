@@ -1,0 +1,142 @@
+{
+  "branches": [
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/jarvis-documentation-consolidation",
+      "sha": "f6bba526df7a6f69d30231e66eb2d9571ed369dd"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/jarvis-reorganisation-documentaire",
+      "sha": "6ed9af8b38b00511b9d3328a3d960de99d1cc064"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/jl-02-launcher-v2",
+      "sha": "43c31a947977586fea74ff171071a5b261551153"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/mission-11-agentic-enablement",
+      "sha": "c9fcd90a89ba3089c9c3527c401ee86a79d4d430"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/mission-13de-preparation",
+      "sha": "6dd5f572a68fc3182f3a56692cbe3466d74c86da"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/mission-13f-20261014-a0ed2a",
+      "sha": "a0ed2a844c3573966704ef3d89a0b682590204fe"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "jarvis/mission-11b-compute-expansion",
+      "sha": "7828e1c47c18c1fff6dfbc7641110f9fd6841c1a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "jarvis/mission11-proof-20261017",
+      "sha": "4fddc12d753fe43882202ad61df60a69c662123d"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "main",
+      "sha": "f77742296e347f38d7eb0aefa50d03ca08fd7697"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "mission13e-integration-20261014",
+      "sha": "0e679df50e67e4cddcf4568d9b11885ce2ca859a"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "branch": "codex/jl-01-jarvis-launcher",
+      "sha": "ce95648d7672729b8b5c1c8e29de2f92c16f1732"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "branch": "gh-pages",
+      "sha": "d0ef414a12cb4491964801563a8ef0768235d5af"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "branch": "main",
+      "sha": "d5902c6252b10320bcd0972bc1a506616e1ce9c5"
+    },
+    {
+      "repository": "JARVIS-Launcher2",
+      "branch": "gh-pages",
+      "sha": "1be57e01742ce9462a0f3813881ab792d62a49e5"
+    },
+    {
+      "repository": "JARVIS-Launcher2",
+      "branch": "main",
+      "sha": "164d4b455bd324bd88ed082d3c810a9ae708e8b5"
+    }
+  ],
+  "pull_requests": [
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "baseRefName": "main",
+      "headRefName": "codex/mission-13de-preparation",
+      "mergedAt": null,
+      "number": 5,
+      "state": "OPEN",
+      "title": "13D-E : installation autonome qualifiée, prête pour lancement PXE",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/5"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "baseRefName": "main",
+      "headRefName": "codex/mission-13f-20261014-a0ed2a",
+      "mergedAt": null,
+      "number": 4,
+      "state": "OPEN",
+      "title": "Mission 13F : JARVIS installé et validé — GO avec réserves",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/4"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "baseRefName": "main",
+      "headRefName": "codex/jarvis-reorganisation-documentaire",
+      "mergedAt": null,
+      "number": 3,
+      "state": "OPEN",
+      "title": "docs: consolider et réorganiser la documentation JARVIS sans déplacer les archives",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/3"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "baseRefName": "main",
+      "headRefName": "codex/jarvis-documentation-consolidation",
+      "mergedAt": null,
+      "number": 2,
+      "state": "OPEN",
+      "title": "docs: centraliser les archives JARVIS et reconstituer la chronologie",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/2"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "baseRefName": "main",
+      "headRefName": "mission13e-integration-20261014",
+      "mergedAt": null,
+      "number": 1,
+      "state": "OPEN",
+      "title": "Mission 13E : passerelle vocale déployée, mémoire commune et diagnostics réels",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/1"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "baseRefName": "main",
+      "headRefName": "codex/jl-01-jarvis-launcher",
+      "mergedAt": null,
+      "number": 1,
+      "state": "OPEN",
+      "title": "JL-01 : interface JARVIS Launcher et protocole macOS sécurisé",
+      "url": "https://github.com/regisazzoun/JARVIS-Launcher/pull/1"
+    }
+  ],
+  "scope": "Trois dépôts du propriétaire effectivement retrouvés, API authentifiée et git fetch ; point du17/10, avant publication mission00"
+}

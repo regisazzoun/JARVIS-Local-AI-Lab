@@ -1,0 +1,76 @@
+{
+  "generated": "2026-10-17T15:33:47.388752+00:00",
+  "requests": [
+    {
+      "id": "953c204922d74c07b6819419b16677f6",
+      "created": "2026-10-17T12:07:24.737464+00:00",
+      "state": "VALIDÉ",
+      "capability": "host_package",
+      "mission": "Mission 11 : éprouver la détection d'une capacité manquante",
+      "resource": "tree",
+      "required_access": "Installation apt du paquet tree via host_package",
+      "persistent": "oui",
+      "resolution": {
+        "returncode": 0,
+        "stdout": "tree v2.2.1 © 1996 - 2024 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro\n",
+        "stderr": "",
+        "timeout": false,
+        "duration_s": 0.017,
+        "stdout_truncated": false,
+        "stderr_truncated": false
+      }
+    },
+    {
+      "id": "ceb1c0e182d64acfb81c2bbb84a5bb85",
+      "created": "2026-10-17T12:29:58.005723+00:00",
+      "state": "VALIDÉ",
+      "capability": "host_github: create repository",
+      "mission": "JL-02 : Préparer l'environnement pour Launcher V2 sur regisazzoun/JARVIS-Launcher2",
+      "resource": "Dépôt GitHub regisazzoun/JARVIS-Launcher2",
+      "required_access": "Droit de créer un nouveau dépôt public/privé via l'API GitHub authentifiée.",
+      "persistent": "oui",
+      "resolution": {
+        "summary": "Le dépôt privé/public demandé a été créé puis inspecté par Qwen via host_github. Le capability_test JARVIS-runtime valide l’accès authentifié.",
+        "evidence_ids": [
+          "b0d2304078464ceb86593a841413f76d",
+          "122785c855dd42f8b90a1ce6a695dd53"
+        ],
+        "caller": "JARVIS-runtime"
+      }
+    },
+    {
+      "id": "db4d3ae4fb5a496a8d89385d006d4a60",
+      "created": "2026-10-17T12:34:30.643892+00:00",
+      "state": "DEMANDÉ",
+      "capability": "host_github enable_pages",
+      "mission": "JL-02",
+      "resource": "regisazzoun/JARVIS-Launcher2",
+      "required_access": "Action GitHub Pages activation via API",
+      "persistent": "yes",
+      "resolution": {
+        "summary": "Reporté à JL-02 : le dépôt Launcher2 a été créé, mais reste vide et sans branche gh-pages. JARVIS activera Pages après publication du contenu, puis effectuera le test réel. Aucun état VALIDÉ anticipé.",
+        "transport": "File SQLite persistante, pas de notification automatique vers Codex."
+      }
+    },
+    {
+      "id": "fce4b2a1e93f4c7fbfaccb904893318f",
+      "created": "2026-10-17T12:38:12.117549+00:00",
+      "state": "VALIDÉ",
+      "capability": "host_package dpkg repair",
+      "mission": "Mission 11 : finaliser l'installation npm interrompue par timeout précédent",
+      "resource": "Paquet npm (et dépendances dpkg partielles)",
+      "required_access": "Accès root effectif dans l'environnement host_package pour exécuter 'dpkg --configure -a' sans erreur de privilège",
+      "persistent": "non",
+      "resolution": {
+        "summary": "Qwen a repris dpkg via host_package configure, terminé host_package install npm, vérifié npm et exécuté capability_test. dpkg --audit est propre.",
+        "evidence_ids": [
+          "a1153db4cc8642e4a69d94636c73419b",
+          "f47438e98cc749f78bfc7856fe3d1662",
+          "975287162c5d449d9c5d59812d1f4ea3"
+        ],
+        "caller": "JARVIS-runtime"
+      }
+    }
+  ],
+  "note": "Expurgé : état et preuves de demande, sans données d’authentification."
+}

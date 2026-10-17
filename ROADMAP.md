@@ -1,12 +1,48 @@
 # Roadmap
 
+## Pilotage courant consolidé — mission 00, point du 17 octobre 2026
+
+[README courant](README.md) · [Registre exhaustif](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) · [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md). Ces conclusions prévalent sur les instantanés datés de préparation conservés ci-dessous. Leur maintien ne révoque pas une autorisation récente.
+
+| Chantier | État documenté | Prochaine action |
+| --- | --- | --- |
+| 00 / consolidation | GO avec réserves : 68 missions, 28 anomalies, 129 documents/preuves récupérés ; délégation réelle guidée | Publication documentaire dans main autorisée le 18/10 ; traiter les réserves d’autonomie dans leur périmètre |
+| Historique 01–13 | Archives et rapports 08, 09, 09B, 10, 11 et 13E retrouvés ; niveaux de preuve distincts | Conserver les verdicts et les réserves, sans relancer les campagnes |
+| 13D-E / Dell n°1 | Réception complète du 17/10 par Codex ; une RTX 3090 alimentée | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
+| 11-Agentic / 11B | Outils hôte et raccordement SSH/Ansible validés ; Compute Expansion encore partielle | Checkpoint 11B observé incomplet après cinq tentatives ; reprise hors mission 00 pour les capacités restantes, notamment routage/repli |
+| 14A | Progrès réels en 13F, 11B, JL-02 et 00 ; réception globale ouverte | Confronter critères et preuves sans supposer un déploiement autonome complet |
+| 14 / Dell n°2 | Prévue ; JARVIS doit être exécutant, aucune installation dans cet audit | Identifier la cible, préparer JARVIS et corriger le contrôleur |
+| JL-01 / JL-02 | V1 préservée ; V2 livrée GO AVEC RÉSERVES, espace connecté confirmé | Fiabiliser l’agent et réceptionner les clients physiques ; réutiliser le tunnel actif |
+| 15A / 15B | Cahiers et cinq incréments chacun préparés, non lancés | Contrat API commun ; mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team |
+| Architecture distribuée | Mac mini : mémoire, voix, outils et passerelle ; Dell n°1 : inférence Ollama | Placement dynamique, équilibrage, repli et orchestration multi-nœuds non réceptionnés globalement |
+
+La mission 00 autorise et réalise l’audit documentaire auparavant différé. Elle ne déclenche aucune réinstallation, aucun effacement, aucune modification RAID ni aucun déploiement du Dell n°2. Aucun nouveau GO intermédiaire ni fusion automatique dans main.
+
 - [x] Première synthèse des missions 03 à 07.
 - [ ] Vérifier les procédures ligne par ligne à partir des rapports et preuves autorisées.
 - [ ] Documenter les principaux incidents eGPU / GRUB / CUDA sans données sensibles.
-- [ ] Intégrer la mission 08 après disponibilité et vérification de son rapport.
+- [x] Retrouver et intégrer le rapport08 au registre documentaire (mission00,17/10) ; réserves qualitatives conservées.
 - [ ] Documenter chaque nouvelle mission Codex.
-- [ ] Installer et évaluer la plateforme Dell Precision 5820.
+- [x] Installer et évaluer le premier Dell Precision 5820 par Codex (mission 13D-E, réception physique et IA du 17/10/2026).
+- [ ] Déployer le deuxième Dell Precision par JARVIS lui-même (mission 14 ; aptitude agentique 14A distincte).
 - [ ] Automatiser la proposition de mises à jour documentaires via pull requests.
+
+## État courant — 17 octobre 2026 : deux Dell, deux modes de déploiement
+
+**Décision explicite du propriétaire : la mission 14 est réservée au deuxième Dell Precision, dont le déploiement sera exécuté par JARVIS lui-même, sans Codex comme opérateur.** La première machine Dell est le pilote réel de la mission **13D-E, exécutée par Codex**. Les expressions historiques « 13D-E / 14 » dans les rapports de cette première installation ne signifient pas que la mission 14 (second Dell / autonomie propre de JARVIS) est achevée.
+
+| Machine | Mission / responsable d'exécution | État documenté et suite |
+| --- | --- | --- |
+| **Dell n°1** | **13D-E — déploiement piloté par Codex**, depuis le Mac mini JARVIS | **Réception complète validée le 17/10 à 15 h 09** : Debian 13 réinstallé, GPT et RAID1 mdadm conservés, deux ESP, SSH mot de passe + clé / sudo, Ansible idempotent, RTX 3090 alimentée, NVIDIA/CUDA, Ollama, Qwen/Ministral/Llama, passerelle et Open WebUI intégrés ; KDE Plasma/SDDM installé. Contrôle complémentaire à 17 h 18 : RAID [UU] sans resynchronisation, services SSH/Ollama/SDDM/polkit/nvidia-persistenced actifs et aucun échec systemd. |
+| **Dell n°2** | **Mission 14 — déploiement intégral réalisé par le modèle/agent local JARVIS**, et non par Codex | **À réaliser**. Réutiliser les scripts, acquis et retours d'expérience du Dell n°1 ; JARVIS doit lui-même préparer, piloter, diagnostiquer, corriger, vérifier et documenter l'installation PXE/Debian/RAID, les accès, NVIDIA/CUDA/Ollama et l'intégration, dans le périmètre matériel effectivement identifié et autorisé. |
+
+**Mission 14A :** démonstration de l'aptitude agentique de JARVIS à agir réellement avec ses propres outils, et non par l'intermédiaire de Codex. Conserver ce jalon distinct de la réception du Dell n°1, sans répéter les validations matérielles déjà acquises ni inventer de GO humains intermédiaires une fois la mission lancée.
+
+**Éléments à reprendre avant déploiement du Dell n°2 :** corriger le `sync; reboot -f` encore présent dans `deployment/13de/reinstall/serve-supervised.py` pour disposer d'un arrêt/redémarrage propre de l'installateur ; valider cette correction par un essai ciblé et non par une campagne complète. Ne pas attribuer avec certitude la resynchronisation précédente à ce seul défaut. Les essais physiques de retrait d'un NVMe, de session graphique interactive et de microphone restent non réalisés ; la seconde RTX 3090 du premier Dell n'est pas alimentée complètement. Ces réserves ne révoquent pas la réception du Dell n°1.
+
+**Sources :** [rapport final actualisé](docs/missions/13D-E/RAPPORT-FINAL.md), [réception matérielle et IA du Dell n°1](docs/missions/13D-E/RECEPTION-MISSION14.md). Les titres historiques qui associent « 13D-E / 14 » désignent la tentative sur le premier Dell ; les attributions de mission ci-dessus prévalent pour la planification à venir.
+
+**Règles conservées :** laboratoire privé expérimental ; décisions et autorisations explicites du propriétaire ; aucun nouveau contrôle humain entre les étapes une fois la mission lancée ; préserver les systèmes et preuves existants ; ne pas confondre préparation Codex et autonomie propre de JARVIS.
 
 ## Registre des décisions et fonctionnalités — 13 octobre 2026
 
@@ -152,7 +188,7 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 
 ## À REPRENDRE SUR INSTRUCTION — Audit et redocumentation des anciennes missions
 
-**Décision du 14 octobre 2026 : tâche différée, non autorisée à l'exécution pour l'instant.** Lors d'un prochain échange, rappeler à l'utilisateur de donner explicitement le feu vert avant de commencer.
+**Décision historique du 14 octobre : tâche alors différée. Remplacée par le lancement explicite de la mission00 le17 octobre 2026.** Lors d'un prochain échange, rappeler à l'utilisateur de donner explicitement le feu vert avant de commencer.
 
 **Travail à réaliser après validation :** reprendre toutes les missions historiques de cette roadmap, comparer leurs objectifs, décisions, états, livrables, blocages et preuves avec les discussions JARVIS et les rapports disponibles ; corriger les omissions, donner à chaque mission un titre clairement repérable, distinguer prévu / exécuté / simulé / vérifié, et conserver une chronologie lisible. Ne pas inventer de résultats, signaler les pièces ou échanges manquants et ne pas écraser l'historique sans traçabilité. Documenter dans `ROADMAP.md` et, si nécessaire, dans des rapports de mission dédiés. Exclure secrets et informations sensibles.
 
@@ -204,9 +240,9 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 
 **Hors périmètre :** mission 13D SSH/Tailscale reportée ; applications natives Apple reportées ; aucune installation ni effacement du Dell pendant 13F.
 
-### Mission 14 — Baptême du feu : déploiement autonome du Dell Precision (PRÉVUE)
+### Mission 14 — Baptême du feu : déploiement autonome du DEUXIÈME Dell Precision par JARVIS (PRÉVUE)
 
-**Objectif :** faire réaliser à JARVIS lui-même, et non à Codex, l'installation du Dell Precision 5820 en environnement laboratoire. ChatGPT prépare les consignes, objectifs et critères de réception ; JARVIS diagnostique, planifie, exécute, vérifie et documente ; l'utilisateur supervise.
+**Objectif :** faire réaliser à JARVIS lui-même, et non à Codex, l'installation du **deuxième Dell Precision 5820** en environnement laboratoire. Le premier Dell est déjà réceptionné en mission 13D-E avec Codex ; il sert de référence technique, sans valider par procuration l'autonomie de JARVIS. ChatGPT prépare les consignes, objectifs et critères de réception ; JARVIS diagnostique, planifie, exécute, vérifie et documente ; l'utilisateur supervise.
 
 - Reprendre l'inventaire matériel déjà effectué ; intégrer seulement les dernières informations communiquées par l'utilisateur, sans refaire inutilement l'étude.
 - Préparer les prompts d'exécution et le cadre de droits de JARVIS, ainsi que les tests PXE en VM et le plan de récupération.
@@ -214,7 +250,9 @@ Sources Dell : https://www.delltechnologies.com/asset/fr-fr/products/workstation
 - Les actions irréversibles (notamment effacement des deux SSD, modification RAID/firmware) nécessitent une autorisation préalable explicite, spécifique à la cible et au périmètre ; une fois cette autorisation accordée, ne pas redemander une confirmation pour chaque commande incluse. Aucun droit implicite sur le Mac mini, les autres machines ou le réseau de production.
 - Tester installation, redémarrage, RAID, GPU, services, inférence et capacité de reprise ; documenter les erreurs et corrections autonomes. Ne déclarer la mission validée qu'avec preuves.
 
-**État : PRÉVUE — ne pas lancer avant la réception de 13F et la validation du périmètre destructif.**
+**Conclusion technique de 13D-E à traiter dans la mission 14 — défaut connu de `serve-supervised.py` :** le script `deployment/13de/reinstall/serve-supervised.py` contient encore `sync; reboot -f` lors de la transition installateur → Debian. Ce redémarrage forcé a été suivi d'une resynchronisation intégrale du RAID1 du Dell n°1, malgré la conservation de ses métadonnées ; le lien causal reste **probable, non définitivement démontré**. **Action attendue avant le prochain déploiement :** corriger le passage vers un arrêt/redémarrage propre, puis vérifier la correction par un essai ciblé et des journaux probants, sans refaire une campagne complète d'installation déjà validée. Ne pas annoncer que ce correctif garantit l'absence de resynchronisation tant que cela n'a pas été constaté sur une nouvelle installation. Cette anomalie ne remet pas en cause la réception réussie de 13D-E sur le Dell n°1.
+
+**État courant : À RÉALISER SUR DELL N°2.** La réception de 13F et les preuves Codex du Dell n°1 sont acquises dans leurs périmètres respectifs ; l'aptitude propre de JARVIS (14A) et l'identité/autorisation matérielles du Dell n°2 restent distinctes. Aucune nouvelle validation humaine intermédiaire n'est imposée après lancement de la mission autorisée.
 
 ### Mission 15 (provisoire) — Applications natives macOS / iPhone (REPORTÉE)
 
@@ -285,11 +323,11 @@ Sources Apple : https://developer.apple.com/help/account/basics/about-your-devel
 
 1. **Mission 13D — sécurité d'abord (jalon bloquant)** : diagnostiquer et valider les accès SSH par clés et Tailscale entre MacBook et Mac mini, le compte dédié et ses permissions, l'accès de secours, les reprises de session et la journalisation. Vérifier les accès sans risquer un verrouillage. **État : à exécuter / à valider**, ne pas confondre la décision de priorité avec un GO technique.
 2. **Mission 14A — aptitude agentique de JARVIS (après 13D)** : tester sur un périmètre isolé l'inventaire, la planification, l'exécution par outils autorisés, la recherche documentaire, la détection et correction d'erreurs, la vérification des résultats et la restitution de preuves. Décider GO / GO avec réserves / NO GO sur des essais réels documentés.
-3. **Mission 14 — déploiement du Dell Precision par JARVIS (après les validations requises de 13D et 14A)** : JARVIS, et non Codex opérant à sa place, prépare et conduit sous supervision le déploiement Debian / PXE, RAID, NVIDIA / CUDA, Ollama et intégration. Maintenir les garde-fous existants : inventaire matériel et données, sauvegardes et secours, simulation préalable, droits minimaux, autorisation explicite et ciblée pour effacement SSD, RAID/firmware ou modification réseau sensible. Une autorisation couvrant précisément le périmètre expérimental permet l'automatisation des étapes prévues, sans demander confirmation à chaque commande.
+3. **Mission 14 — déploiement du DEUXIÈME Dell Precision par JARVIS (après le jalon agentique 14A réellement démontré)** : JARVIS, et non Codex opérant à sa place, prépare et conduit sous supervision le déploiement Debian / PXE, RAID, NVIDIA / CUDA, Ollama et intégration. Maintenir les garde-fous existants : inventaire matériel et données, sauvegardes et secours, simulation préalable, droits minimaux, autorisation explicite et ciblée pour effacement SSD, RAID/firmware ou modification réseau sensible. Une autorisation couvrant précisément le périmètre expérimental permet l'automatisation des étapes prévues, sans demander confirmation à chaque commande.
 
 **Missions 15A (macOS) et 15B (iOS)** : cahiers déjà préparés, développement indépendant et techniquement parallèle possible, **mais priorité d'exécution inférieure** à 13D → 14A → 14. Ne pas laisser les applications ou les améliorations de l'interface retarder les jalons de sécurité et d'autonomie. **JARVIS Launcher / JL-02** : chantier parallèle ; toute mise en service impliquant des accès ou des commandes distantes doit respecter les validations de sécurité 13D.
 
-**Règle permanente de rappel :** si une prochaine instruction semble inverser cet ordre, rappeler d'abord la séquence **13D → 14A → 14**, ses motifs (sécurité, aptitude démontrée, supervision humaine et protection des données), puis demander seulement si le changement de priorité est bien volontaire lorsqu'il est nécessaire à l'arbitrage. Une modification explicite de la stratégie par l'utilisateur reste possible ; ne jamais présenter la présente décision comme une interdiction absolue.
+**Lecture actuelle de cette règle historique :** les accès 13D et la réception du premier Dell ont été documentés séparément. La séquence de référence pour le second Dell est **14A (autonomie réelle du modèle local) → 14 (second Dell par JARVIS)**, avec réutilisation des acquis. Une fois la mission autorisée lancée, aucune validation humaine intermédiaire n'est ajoutée. Une modification explicite de la stratégie par l'utilisateur reste possible ; ne jamais présenter la présente décision comme une interdiction absolue.
 
 **Critères de passage :** pas de déploiement distant autorisé sans preuve de l'accès sécurisé et du retour arrière ; pas de GO agentique sans tests ; pas d'opération destructive sur le Dell sans accord ciblé et vérification préalable. Consigner preuves, réserves et décision à chaque jalon.
 
@@ -340,28 +378,98 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 **Frontière de sécurité :** pas de toucher au réseau de production ou aux disques réels du Dell sous couvert de « test VM ». Toute opération destructive sur les deux SSD, RAID/firmware ou réseau réel doit rester bornée par une autorisation préalable spécifique et un plan de récupération ; après autorisation du périmètre, JARVIS exécute les étapes convenues sans supervision commande par commande. Conserver les accès SSH clés **et** mot de passe existants du Mac mini Debian.
 
 
-## Mission 20 — JARVIS Compute : calcul distribué opportuniste local (PLANIFIÉE — 17 octobre 2026)
 
-**Décision utilisateur :** réserver la mission 20 à l'exploitation des ressources inutilisées des ordinateurs du lycée au profit du cluster IA JARVIS. Périmètre **strictement local au lycée**, sans participation de machines extérieures. Deux serveurs Dell prévus sur place (256 Go RAM système chacun, quatre RTX 3090 au total pour l'ensemble du projet) constituent le cœur du cluster ; commencer par **4 à 5 postes Windows pilotes** avant toute généralisation aux salles 212, 306, 307, 406, 407, 408 et 409.
+## Mission 13D-E — préparation Dell, état au 15 octobre 2026
 
-**Architecture cible :**
-1. **JARVIS Compute Manager** sur l'infrastructure Dell : inventaire des nœuds, file de tâches, ordonnanceur selon CPU/RAM/GPU réellement libres, journalisation, contrôle de la charge, résultats et métriques ; technologie Ray ou équivalent à évaluer, non choisie définitivement.
-2. **JARVIS Compute Agent** sur les postes Windows : agent administré et authentifié, démarrage automatique paramétrable, détection d'inactivité utilisateur, limites CPU/RAM/GPU, exécution isolée des seules tâches autorisées et arrêt/suspension rapide dès le retour de l'utilisateur.
-3. **Wake-on-LAN optionnel** : réveil à la demande uniquement sur les matériels/configurations compatibles, dans des plages autorisées ; un poste en veille ne calcule pas. Extinction/retour en veille après travail selon politique locale.
-4. **Travaux adaptés au réseau** : indexation et préparation de corpus, embeddings par lots, traitements d'images et autres tâches parallélisables. Ne pas promettre l'addition directe des CPU de classe à la VRAM des RTX 3090 pour accélérer un même grand modèle ; tester séparément l'inférence distribuée, sensible au débit et à la latence réseau.
-5. **Intégration ultérieure** : réutiliser l'inventaire matériel/logiciel/pilotes préparé pour le PXE Windows ; proposer un profil d'installation agent via déploiement Windows, et une interface JARVIS de suivi et de contrôle.
+**Préparation partielle ; NO-GO pour réception complète et lancement de 14A avec cette chaîne.** Audit non destructif réalisé avant toute installation ; aucune installation système effectuée. Inventaires et neuf rôles Ansible, bootstrap SSH invité, templates Debian/iPXE et contrôleur VM TCG borné livrés. Six tests du contrôleur passent ; cela ne valide pas UEFI/PXE, Debian, RAID1 ou l'autonomie du modèle local.
 
-**Contraintes :** aucun DHCP additionnel, pas de perturbation des VLAN et équipements Cisco, priorité absolue aux usages pédagogiques, politique de consentement/autorisation administrative pour l'usage des postes, cloisonnement des données, authentification des agents, journalisation, absence de code non vérifié distribué aux clients, trafic et énergie bornés.
+Blocages : QEMU/OVMF/Ansible absents ; KVM inaccessible dans cette session ; réseau/systemd/Docker restreints et DNS shell indisponible. Miroir de paquets isolé, transport SSH invité, second boot disque et superviseur agent durable restent à compléter. NVIDIA/CUDA/Ollama : rôles différés, pas de changement des installations actuelles. Variantes VROC/VMD et mdadm documentées sans décision de partitionnement physique.
 
-**Phases / réception :** (20A) étude de faisabilité et mesures initiales sur 4–5 postes ; (20B) prototype manager/agent local ; (20C) tests d'inactivité et de reprise, Wake-on-LAN si possible ; (20D) benchmark sur tâche distribuable réelle avec et sans agents, mesures de temps/charge/réseau/énergie ; (20E) extension graduelle après bilan et autorisation. **Aucun agent déployé ni gain de performance mesuré à ce jour.**
+Prochaine étape : fournir les prérequis sans altérer l'hôte, compléter la chaîne isolée, réaliser la recette VM et Ansible puis raccorder un worker durable à une copie de 13F. Les essais VM réversibles sont autorisés sans supervision ; les modifications de services sensibles demandent diagnostic et validation ciblée. La démonstration 14A doit provenir du modèle local JARVIS. Aucune intervention Dell, modification SSH/Tailscale/noyau/GRUB, clé, modèle ou SQLite.
 
-**Dépendances :** stabilisation des deux Dell et de leurs services, validation de la segmentation réseau Cisco et de la sécurité locale ; ce chantier reste postérieur aux priorités 13D → 14A → 14 et ne les bloque pas.
+Dossier : [réception](docs/missions/13D-E/RAPPORT-FINAL.md), [audit](docs/missions/13D-E/AUDIT.md), [architecture](docs/missions/13D-E/ARCHITECTURE.md), [laboratoire](docs/missions/13D-E/LABORATOIRE.md), [tests](docs/missions/13D-E/TESTS.md). Publication en branche dédiée, aucune fusion automatique.
 
 
-## Décision de pilotage — 17 octobre 2026 : autonomie JARVIS sur les deux Dell
+## Reprise 13D-E — priorité physique, 15 octobre 2026
 
-**Répartition confirmée :** premier Dell : préparation et accompagnement par Codex dans la mission 13D-E, avec exécution automatisée par JARVIS lorsque ses outils le permettent ; ne pas présenter l'installation physique comme achevée. Deuxième Dell : mission d'installation confiée directement à **JARVIS**, sans passage systématique par Codex. Codex n'intervient qu'en appui si une capacité technique manque. Comparer les deux essais (erreurs, corrections autonomes, interventions humaines, validation finale).
+Cette décision remplace l'obligation préparatoire de reconstruire une chaîne VM complète : progression directe vers la préparation du Dell avec validations ciblées. GO AVEC RÉSERVES pour la préparation, aucun lancement physique autorisé. Outillage réaudité, 16 tests de garde-fous, deux syntax-check Ansible, sources Debian authentifiées, boot TCG et HTTP loopback ciblés. ProxyDHCP/TFTP/HTTP et initrd candidat prêts à être adaptés au plan validé ; aucune activation LAN.
 
-**Politique d'autonomie en laboratoire confirmée :** autonomie maximale et fluidité, sans validation commande par commande. JARVIS peut créer/recréer des VM, investiguer, tester, installer, diagnostiquer et corriger de lui-même dans le périmètre de laboratoire préautorisé ; documenter ses résultats. Pour un Dell physique, une autorisation préalable **globale mais précisément bornée** peut couvrir les opérations destructives prévues sur ses disques/RAID, sans nouvelle demande à chaque étape. Aucune extension implicite aux autres machines, aux données à conserver ou au réseau de production. Conserver les protections existantes sans instaurer de validations répétitives.
+Restent : découverte Dell/SSD/contrôleur et clé publique autorisée, validation humaine réseau, qualification de la recette mdadm et double ESP, autorisation explicite d'effacement/installation, puis premier SSH et idempotence. Les rôles IA et l'intégration agent sont encore différés. Le refus KVM utilisateur n'empêche pas cette préparation physique. 14A reste une preuve d'autonomie distincte, non acquise par ces tests.
 
-**État : décision consignée seulement ;** ne vaut ni exécution ni validation des installations. Les jalons de la mission 14A restent utiles pour mesurer l'aptitude effective de JARVIS, sans transformer les essais de laboratoire en parcours d'approbations permanentes.
+Voir [procédure physique](docs/missions/13D-E/DEPLOIEMENT-PHYSIQUE.md), [tests](docs/missions/13D-E/TESTS.md) et [réception](docs/missions/13D-E/RAPPORT-FINAL.md). ROADMAP ↔ SUIVI synchronisés, format SUIVI conservé. Historique NO-GO maintenu sans le présenter comme l'état courant de l'outillage.
+
+
+## Reprise 13D-E — bootstrap A/B, 16 octobre 2026
+
+PXE UEFI physique jusqu'à Debian Installer confirmé et conservé. Prochaine étape : découverte automatique bloquante, après nouvelle autorisation réseau. Bootstrap temporaire, transition indépendante par clé et orchestration Ansible préparés ; 22 tests + récepteur passent, aucune installation/connexion SSH Dell exécutée. Qualification RAID/double ESP, séries réelles, clé autorisée et approbations d'effacement puis administration restent nécessaires. Aucun composant GPU/IA déclaré opérationnel. Voir [bootstrap automatisé](docs/missions/13D-E/BOOTSTRAP-AUTOMATISE.md), [rapport](docs/missions/13D-E/RAPPORT-FINAL.md) et SUIVI, synchronisés sans modifier les lignes historiques.
+
+
+### 13D-E — découverte physique reçue, 16 octobre 2026
+
+Rapport transmis automatiquement depuis le Dell et conservé privé ; découverte CPU/RAM/NVMe acquise. Services temporaires arrêtés automatiquement. Installation toujours NO-GO : lecteur SD sans média à qualifier, libellé DMI et écart BIOS à revoir, recette RAID/EFI et autorisations restantes. Aucun effacement ni prise de contrôle SSH effectués.
+
+
+### 13D-E — installation autonome autorisée, 16 octobre 2026
+
+Le propriétaire autorise réseau nécessaire, effacement des deux NVMe identifiés, installation/reboot et administration ; seule intervention humaine : lancement PXE. Directive prioritaire enregistrée dans AGENTS.md et le prompt de déploiement. Qualification RAID/deux ESP et deux boots UEFI sur disque seul acquise sur images jetables ; 25 tests + récepteur passent. Image réelle et orchestration automatique préparées, aucune installation Dell effectuée à ce stade.
+
+
+## Jalon du 17 octobre 2026 — clôture de tentative Dell
+
+Debian démarre ; SSH répond, mais authentification, rapport de premier boot et Ansible non réceptionnés. Tentative clôturée sur demande ; mission complémentaire à lancer pour finir, avec conservation du RAID si possible. Référence prioritaire : [rapport transitoire](docs/missions/13D-E/RAPPORT-TRANSITOIRE-REPRISE.md).
+
+
+## Mission 13D-E (premier Dell, Codex) relancée — 17 octobre 2026
+
+**État historique au lancement :** nouvelle chaîne supervisée préparée, services PXE actifs et email de lancement envoyé. **État ultérieur vérifié :** réception complète du premier Dell validée le 17/10 à 15 h 09 et contrôle des services à 17 h 18 ; voir les rapports de réception cités en tête de roadmap. Cela ne clôture pas la mission 14 sur le deuxième Dell.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+**Instantané historique remplacé par réception complète17/10 à 15 h 09.**
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+## Publication documentaire — 18 octobre 2026
+
+Le propriétaire autorise la fusion des documents consolidés dans main et demande un README plus lisible, cohérent avec SUIVI. Les anciens rappels de non-fusion décrivent la consigne précédente ; cette autorisation reste limitée à la publication documentaire, sans déploiement ni import du code d’installation de PR5.
