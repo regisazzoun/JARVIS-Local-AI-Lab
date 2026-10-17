@@ -1,0 +1,810 @@
+{
+  "commits_documentaires": [
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "43c31a947977586fea74ff171071a5b261551153",
+      "date_git": "2026-10-17T21:28:54+02:00",
+      "title": "docs(JL-02): autoriser le lancement et relier la livraison V2",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/43c31a947977586fea74ff171071a5b261551153"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "7828e1c47c18c1fff6dfbc7641110f9fd6841c1a",
+      "date_git": "2026-10-17T18:44:38+02:00",
+      "title": "docs(11B): enregistrer la reprise effective au checkpoint JARVIS",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/7828e1c47c18c1fff6dfbc7641110f9fd6841c1a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "48dfb49085b02e3d92771d97a90b1015a0e16fea",
+      "date_git": "2026-10-17T18:43:11+02:00",
+      "title": "feat(11B): pérenniser administration Dell et valider les opérations Qwen",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/48dfb49085b02e3d92771d97a90b1015a0e16fea"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6dd5f572a68fc3182f3a56692cbe3466d74c86da",
+      "date_git": "2026-10-17T18:36:31+02:00",
+      "title": "docs(13): consolider installation Dell 1 comme référence pour mission 14",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6dd5f572a68fc3182f3a56692cbe3466d74c86da"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "863f62307e24077b92e0ea21e5b95ddefb6188a4",
+      "date_git": "2026-10-17T18:21:12+02:00",
+      "title": "docs(13): étude multi-GPU RTX 3090 et réévaluation modèle après second GPU",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/863f62307e24077b92e0ea21e5b95ddefb6188a4"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "c9fcd90a89ba3089c9c3527c401ee86a79d4d430",
+      "date_git": "2026-10-17T17:34:26+02:00",
+      "title": "feat: connect JARVIS to authorized Debian host capabilities",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/c9fcd90a89ba3089c9c3527c401ee86a79d4d430"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "93164b6973539747d8a3c9c0d8531d42a32c5c42",
+      "date_git": "2026-10-17T17:28:55+02:00",
+      "title": "docs(roadmap): inscrire défaut reboot forcé 13D-E à corriger dans mission 14",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/93164b6973539747d8a3c9c0d8531d42a32c5c42"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "703f627581816333c31f47b891e3087541fbca62",
+      "date_git": "2026-10-17T17:26:25+02:00",
+      "title": "docs: distinguer Dell 1 Codex 13D-E et Dell 2 JARVIS mission 14, mettre à jour réception",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/703f627581816333c31f47b891e3087541fbca62"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "81a66a269f1278c42c1eec4fddc23203af118ea9",
+      "date_git": "2026-10-17T17:26:22+02:00",
+      "title": "docs: distinguer Dell 1 Codex 13D-E et Dell 2 JARVIS mission 14, mettre à jour réception",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/81a66a269f1278c42c1eec4fddc23203af118ea9"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "9d0a9bca99f48a446f41cf9f6402c545d9b97f5b",
+      "date_git": "2026-10-17T17:22:45+02:00",
+      "title": "docs(14): expliciter les erreurs, corrections et défauts restants",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/9d0a9bca99f48a446f41cf9f6402c545d9b97f5b"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "1956d3422336284dbb08a2e1298a0ae618b36dbc",
+      "date_git": "2026-10-17T15:09:50+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/1956d3422336284dbb08a2e1298a0ae618b36dbc"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "03d96b409b92f92758aa4d0f57d8f8f70c691c85",
+      "date_git": "2026-10-17T14:02:34+02:00",
+      "title": "feat(14): ajouter KDE Plasma au suivi et attendre son installation avant reboot",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/03d96b409b92f92758aa4d0f57d8f8f70c691c85"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "c45d0116005479c229f6a84237b00818817f0028",
+      "date_git": "2026-10-17T13:58:02+02:00",
+      "title": "fix(14): authentifier la passerelle avec son secret actif et reprendre la réception",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/c45d0116005479c229f6a84237b00818817f0028"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "3c33982c509944c328b0217e632b264e73498708",
+      "date_git": "2026-10-17T13:53:13+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/3c33982c509944c328b0217e632b264e73498708"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "458ade5fec598dbae87dc35862ffe7188a6f4bc1",
+      "date_git": "2026-10-17T13:47:36+02:00",
+      "title": "fix(14): reprendre le transfert des modèles et signaler les erreurs de progression",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/458ade5fec598dbae87dc35862ffe7188a6f4bc1"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "71da73102098092d4d271c075f488859eb79e31a",
+      "date_git": "2026-10-17T12:57:10+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/71da73102098092d4d271c075f488859eb79e31a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "9ca47f2156bf7e32e7bd01558822ea420e39d7da",
+      "date_git": "2026-10-17T12:52:29+02:00",
+      "title": "feat(14): rétablir le suivi permanent sur console dédiée et par SSH",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/9ca47f2156bf7e32e7bd01558822ea420e39d7da"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "96bdc1574e1ec30290f7e7843e48ea67c351e69f",
+      "date_git": "2026-10-17T12:49:18+02:00",
+      "title": "fix(14): corriger réseau et AZERTY, surveiller RAID et préserver la réception finale",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/96bdc1574e1ec30290f7e7843e48ea67c351e69f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "9682920a693620a638a77cc93a0bbd4abf8b4f7a",
+      "date_git": "2026-10-17T12:45:49+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/9682920a693620a638a77cc93a0bbd4abf8b4f7a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "8a24156a4f836d94c9dd15e4ac5b000e042cfa0b",
+      "date_git": "2026-10-17T12:27:49+02:00",
+      "title": "fix(14): inclure iproute2 dans le socle Debian installé",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/8a24156a4f836d94c9dd15e4ac5b000e042cfa0b"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "15719f9b9287c0413390befa2afcc70845f45d46",
+      "date_git": "2026-10-17T12:26:48+02:00",
+      "title": "docs(14): consigner le clavier QWERTY constaté après redémarrage",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/15719f9b9287c0413390befa2afcc70845f45d46"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "05e4400a6b8301f523be5dd1b7fcabdc5468fed0",
+      "date_git": "2026-10-17T12:22:40+02:00",
+      "title": "fix(14): installer les outils ext4 et finaliser GRUB signé avant réception",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/05e4400a6b8301f523be5dd1b7fcabdc5468fed0"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "204391300939dcf289c4a312d13673dfb07a6aca",
+      "date_git": "2026-10-17T12:18:05+02:00",
+      "title": "fix(14): reprendre par SSH sans reformater et compléter les outils netboot",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/204391300939dcf289c4a312d13673dfb07a6aca"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "2c535193985a566d389695145b04606454705eda",
+      "date_git": "2026-10-17T12:16:53+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/2c535193985a566d389695145b04606454705eda"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "fc176d15e1fe56e88f08a66c3a7d45f1ea1ee497",
+      "date_git": "2026-10-17T12:15:48+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/fc176d15e1fe56e88f08a66c3a7d45f1ea1ee497"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "3a645b761250b8b4ec76449fbaba2b3a642faacf",
+      "date_git": "2026-10-17T10:42:59+02:00",
+      "title": "docs(14): publier les résultats observés du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/3a645b761250b8b4ec76449fbaba2b3a642faacf"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "87a8f57a1cb47108f74f202d038491bbb1293e4f",
+      "date_git": "2026-10-17T02:54:15+02:00",
+      "title": "fix(14): réutiliser le manifeste NVMe validé et expliciter les arrêts identité",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/87a8f57a1cb47108f74f202d038491bbb1293e4f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "05edecff463cf2eb5159f3f66f10f4bdfa3ca087",
+      "date_git": "2026-10-17T02:47:53+02:00",
+      "title": "feat(14): préparer réinstallation RAID conservé, SSH supervisé et chaîne IA JARVIS",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/05edecff463cf2eb5159f3f66f10f4bdfa3ca087"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "f77742296e347f38d7eb0aefa50d03ca08fd7697",
+      "date_git": "2026-10-17T02:40:55+02:00",
+      "title": "Consigne autonomie laboratoire et stratégie déploiement des deux Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/f77742296e347f38d7eb0aefa50d03ca08fd7697"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "9652abf3fbd15cff5205723b3e914280b3be9508",
+      "date_git": "2026-10-17T02:32:58+02:00",
+      "title": "Synchronise suivi avec mission 20 JARVIS Compute",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/9652abf3fbd15cff5205723b3e914280b3be9508"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "deb8a9e0565ed42373e14914922c8c855768a4ae",
+      "date_git": "2026-10-17T02:32:56+02:00",
+      "title": "Plan mission 20 JARVIS Compute cluster local opportuniste",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/deb8a9e0565ed42373e14914922c8c855768a4ae"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "66b2342ce8f48569a4dc454215523fc50859eb63",
+      "date_git": "2026-10-17T02:16:18+02:00",
+      "title": "docs(13D-E): rapport transitoire de reprise du déploiement Dell",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/66b2342ce8f48569a4dc454215523fc50859eb63"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "63b61d9e5ca1352ecf80408198d1ba7f57ba5f8c",
+      "date_git": "2026-10-16T20:11:06+02:00",
+      "title": "docs(13D-E): référencer la charte dans le prompt autonome",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/63b61d9e5ca1352ecf80408198d1ba7f57ba5f8c"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "e6060b67fe51e4e4971c6f75f335c9b2c7a4478c",
+      "date_git": "2026-10-16T20:09:01+02:00",
+      "title": "13D-E: préparer l'installation autonome qualifiée avec seul lancement PXE",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/e6060b67fe51e4e4971c6f75f335c9b2c7a4478c"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "5217a9768f8900023179bd5d344c6cc10c342b01",
+      "date_git": "2026-10-16T19:44:07+02:00",
+      "title": "docs: inscrire la règle utilisateur exacte sans restriction de périmètre ajoutée",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/5217a9768f8900023179bd5d344c6cc10c342b01"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "9da6d97e9aa42867d5b24cc269602dc5e2d8429f",
+      "date_git": "2026-10-16T19:44:04+02:00",
+      "title": "policy: reprendre mot pour mot la directive d'exécution autonome",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/9da6d97e9aa42867d5b24cc269602dc5e2d8429f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "b88580e49690dd4c876717fa8166ede2b0eadbe1",
+      "date_git": "2026-10-16T19:42:43+02:00",
+      "title": "policy: retirer toute barrière de validation humaine implicite",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/b88580e49690dd4c876717fa8166ede2b0eadbe1"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "8896d0633286d213d0a6b4a37533bc3cf37e8217",
+      "date_git": "2026-10-16T19:42:40+02:00",
+      "title": "policy: préciser zéro validation intermédiaire après lancement de mission",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/8896d0633286d213d0a6b4a37533bc3cf37e8217"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "3637ed3e6e040499a7431e28db6630bc4e2fb1c3",
+      "date_git": "2026-10-16T19:39:48+02:00",
+      "title": "docs(agents): imposer la lecture des directives avant chaque prompt",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/3637ed3e6e040499a7431e28db6630bc4e2fb1c3"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "989f0bda5dd369f2d844efa42256725f6fdaf22a",
+      "date_git": "2026-10-16T19:39:33+02:00",
+      "title": "docs: établir les directives fondamentales et la barrière anti-régression des prompts",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/989f0bda5dd369f2d844efa42256725f6fdaf22a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "7e83beddfb3d2e8818e135afd96aa8340b9ef78c",
+      "date_git": "2026-10-16T19:32:52+02:00",
+      "title": "docs(13D-E): consigner le déploiement autonome avec seul lancement PXE",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/7e83beddfb3d2e8818e135afd96aa8340b9ef78c"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "06ba44f35d741138dce0b0d8113bb24a4d657898",
+      "date_git": "2026-10-16T19:28:19+02:00",
+      "title": "docs(13D-E): consigner la découverte physique et les refus d'installation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/06ba44f35d741138dce0b0d8113bb24a4d657898"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "a486922c1749bd188836b797cd1c357a106f5b0a",
+      "date_git": "2026-10-16T19:16:51+02:00",
+      "title": "fix(13D-E): embarquer les pilotes NVMe et rendre la découverte visible",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/a486922c1749bd188836b797cd1c357a106f5b0a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "2cbbc5f97615baf4c8953899335d2f57f5adf646",
+      "date_git": "2026-10-16T19:05:57+02:00",
+      "title": "13D-E: préparer découverte automatique et bootstrap SSH en deux phases",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/2cbbc5f97615baf4c8953899335d2f57f5adf646"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "c0702fcc129e90d728928fedc27856c319d7ab2f",
+      "date_git": "2026-10-16T16:39:52+02:00",
+      "title": "docs(13D-E): consigner RAM BIOS, RTX 3090 provisoire et décision mdadm",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/c0702fcc129e90d728928fedc27856c319d7ab2f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "429594b0cd3d2cab7b1d6cb5401afd3a64ad3f69",
+      "date_git": "2026-10-15T20:47:22+02:00",
+      "title": "13D-E: préparer le Dell physique avec ProxyDHCP borné et garde-fous matériels",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/429594b0cd3d2cab7b1d6cb5401afd3a64ad3f69"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "59100f4782158dae8cd88c7f680ccf4544a43665",
+      "date_git": "2026-10-15T18:44:55+02:00",
+      "title": "13D-E: audit non destructif et préparation isolée Dell ; réception NO-GO documentée",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/59100f4782158dae8cd88c7f680ccf4544a43665"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "67e9fe9eebb5c758f3f5f2da48e3ca6e1122df4e",
+      "date_git": "2026-10-15T14:38:44+02:00",
+      "title": "docs: reflect validated MacBook GitHub Pages launcher and JL-01 status",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/67e9fe9eebb5c758f3f5f2da48e3ca6e1122df4e"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "1fddfd639d8b8757886471ad3ae4b1fd15d1ac3f",
+      "date_git": "2026-10-15T14:38:33+02:00",
+      "title": "docs: record JL-01 GitHub Pages MacBook user acceptance",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/1fddfd639d8b8757886471ad3ae4b1fd15d1ac3f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "4e03b8d069f5f0c0bb690402be0b79eecd7fae07",
+      "date_git": "2026-10-15T14:12:12+02:00",
+      "title": "docs: track unsupervised VM PXE testing and SSH bootstrap after Dell install",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/4e03b8d069f5f0c0bb690402be0b79eecd7fae07"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "8960acdd3c4f69230050ee61ac05add3ce745884",
+      "date_git": "2026-10-15T14:11:49+02:00",
+      "title": "docs: authorize unsupervised autonomous PXE VM lab testing",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/8960acdd3c4f69230050ee61ac05add3ce745884"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "5a6207f9ed2f50c649653345c0c3c4d2cc2ddf04",
+      "date_git": "2026-10-15T14:02:55+02:00",
+      "title": "docs: explicitly track 13D-E Dell SSH/Ansible as unverified",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/5a6207f9ed2f50c649653345c0c3c4d2cc2ddf04"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "9a59c5a852d72240082a6b6ff0384157b91efe71",
+      "date_git": "2026-10-15T14:00:58+02:00",
+      "title": "docs: record confirmed dual-Mac 13D access and guarded progression to 14A",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/9a59c5a852d72240082a6b6ff0384157b91efe71"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "2a8dc19975ee83597fbe6f934b2150e2dea2a1f7",
+      "date_git": "2026-10-15T14:00:41+02:00",
+      "title": "docs: confirm Mac mini access and mark 13D GO with limited reserves",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/2a8dc19975ee83597fbe6f934b2150e2dea2a1f7"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "d955799b96c78626b1b427380746b7b06400b5dd",
+      "date_git": "2026-10-15T13:56:21+02:00",
+      "title": "docs: establish retrospective evidence-based mission consolidation rule",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/d955799b96c78626b1b427380746b7b06400b5dd"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "834a825cd20a1f1ff4afa2971789e7532e471b5b",
+      "date_git": "2026-10-15T13:55:52+02:00",
+      "title": "docs: consolidate prior mission statuses using 13F evidence, preserving historic verdicts",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/834a825cd20a1f1ff4afa2971789e7532e471b5b"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "8fa592013739b8a4fc12e05e815e6295d2ed5e20",
+      "date_git": "2026-10-15T13:47:46+02:00",
+      "title": "docs: require synchronized mission tracking with immutable SUIVI.md formatting",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/8fa592013739b8a4fc12e05e815e6295d2ed5e20"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6fa479ab7a0348d1c03c27bb60e07775029d96e4",
+      "date_git": "2026-10-15T13:47:14+02:00",
+      "title": "docs: create comprehensive mission status dashboard with stable table format",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6fa479ab7a0348d1c03c27bb60e07775029d96e4"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6329a0598e007a652dfb8a94bd46361e00401b57",
+      "date_git": "2026-10-14T20:57:34+02:00",
+      "title": "docs: publish mission 13F executive debrief and follow-up",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6329a0598e007a652dfb8a94bd46361e00401b57"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "3ae0320a91dc98441816cc2d7577ccff3e326987",
+      "date_git": "2026-10-14T14:46:15+02:00",
+      "title": "docs(roadmap): prioritize 13D security before 14A agent readiness and Dell rollout",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/3ae0320a91dc98441816cc2d7577ccff3e326987"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6347abd442051019f78657055b7206ea310d0e72",
+      "date_git": "2026-10-14T14:38:58+02:00",
+      "title": "docs: flag 13D SSH/Tailscale as next security priority",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6347abd442051019f78657055b7206ea310d0e72"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "096ccfd0c0c8400fbf5773d8b223c34b83f0081f",
+      "date_git": "2026-10-14T14:37:20+02:00",
+      "title": "docs(JL-02): preserve existing and pending JARVIS authentication; link 13D and 15 clients",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/096ccfd0c0c8400fbf5773d8b223c34b83f0081f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "7d8b76c78a02c784daf915b968a2396f9f846cf7",
+      "date_git": "2026-10-14T14:35:13+02:00",
+      "title": "docs(JL-02): require secure identity and access management",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/7d8b76c78a02c784daf915b968a2396f9f846cf7"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "54db156ef513cf67bc40a2e9e9354f3413fbf4c1",
+      "date_git": "2026-10-14T14:28:08+02:00",
+      "title": "docs(JL): schedule repository migration for JL-02 only",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/54db156ef513cf67bc40a2e9e9354f3413fbf4c1"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "31f2ac5dc83b62ec29fbfcf90a6ba84e77991d95",
+      "date_git": "2026-10-14T14:26:05+02:00",
+      "title": "docs: reference parallel JL Launcher roadmap",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/31f2ac5dc83b62ec29fbfcf90a6ba84e77991d95"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6ff79c4f2b13bf1213ce09f8fe2f3845801a18bc",
+      "date_git": "2026-10-14T14:25:50+02:00",
+      "title": "docs: add dedicated JARVIS Launcher JL roadmap",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6ff79c4f2b13bf1213ce09f8fe2f3845801a18bc"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "cfc7ed933f1fa4ddc2e2faa9cb45d295051011d3",
+      "date_git": "2026-10-14T13:30:10+02:00",
+      "title": "docs: link Codex briefs and supersede legacy mission 15 dependency",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/cfc7ed933f1fa4ddc2e2faa9cb45d295051011d3"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6c10f2ceb2a25363bd9fecb62ce053ef90119af2",
+      "date_git": "2026-10-14T13:29:49+02:00",
+      "title": "docs: add Codex execution brief for docs/missions/MISSION-15B-IOS-CODEX.md",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6c10f2ceb2a25363bd9fecb62ce053ef90119af2"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6a90b620ffed6661ffe54bcd11770a1de402192f",
+      "date_git": "2026-10-14T13:29:47+02:00",
+      "title": "docs: add Codex execution brief for docs/missions/MISSION-15A-MACOS-CODEX.md",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6a90b620ffed6661ffe54bcd11770a1de402192f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "cea475dedd33cfeeb81d43b99ed93f8a0be8f90f",
+      "date_git": "2026-10-14T13:27:12+02:00",
+      "title": "docs: confirm free Xcode Personal Team distribution for mission 15B",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/cea475dedd33cfeeb81d43b99ed93f8a0be8f90f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6dd503a253eae7854d2439a9f5453e566eb6f013",
+      "date_git": "2026-10-14T13:26:20+02:00",
+      "title": "docs: outline iOS installation strategies for mission 15B",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6dd503a253eae7854d2439a9f5453e566eb6f013"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "1bf809b4e5683472a49e5cbf85f7c153b54072d9",
+      "date_git": "2026-10-14T13:24:55+02:00",
+      "title": "docs: split mission 15 into parallel macOS and iOS workstreams",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/1bf809b4e5683472a49e5cbf85f7c153b54072d9"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "a0ed2a844c3573966704ef3d89a0b682590204fe",
+      "date_git": "2026-10-14T12:49:11+02:00",
+      "title": "feat: consolider JARVIS 13F, voix, mémoire et autonomie isolée validées",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/a0ed2a844c3573966704ef3d89a0b682590204fe"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6ed9af8b38b00511b9d3328a3d960de99d1cc064",
+      "date_git": "2026-10-14T12:37:50+02:00",
+      "title": "docs: link central ChatGPT conversation index",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6ed9af8b38b00511b9d3328a3d960de99d1cc064"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "8800605d6789e615a6a092270570c7dc1f36589d",
+      "date_git": "2026-10-14T12:37:40+02:00",
+      "title": "docs: add single-thread JARVIS conversation index",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/8800605d6789e615a6a092270570c7dc1f36589d"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "f519d8f0f0a03cc3670130607e0604268631c163",
+      "date_git": "2026-10-14T12:24:39+02:00",
+      "title": "docs: add non-destructive thematic navigation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/f519d8f0f0a03cc3670130607e0604268631c163"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "e2d83dcbb51d05412c88675aba1430f880b8051a",
+      "date_git": "2026-10-14T12:24:37+02:00",
+      "title": "docs: add non-destructive thematic navigation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/e2d83dcbb51d05412c88675aba1430f880b8051a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "6335fd912557123d3aa65d2593fab65dac913b7e",
+      "date_git": "2026-10-14T12:24:34+02:00",
+      "title": "docs: add non-destructive thematic navigation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/6335fd912557123d3aa65d2593fab65dac913b7e"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "3c59b2f8d9cc47378aa6ab1f6cecc6911ce5722c",
+      "date_git": "2026-10-14T12:24:32+02:00",
+      "title": "docs: add non-destructive thematic navigation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/3c59b2f8d9cc47378aa6ab1f6cecc6911ce5722c"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "66acfb52084ae3407bb74c608b035e15262e966f",
+      "date_git": "2026-10-14T12:24:30+02:00",
+      "title": "docs: add non-destructive thematic navigation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/66acfb52084ae3407bb74c608b035e15262e966f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "f6bba526df7a6f69d30231e66eb2d9571ed369dd",
+      "date_git": "2026-10-14T12:12:51+02:00",
+      "title": "docs: centraliser les archives et index chronologiques JARVIS (ajouts uniquement)",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/f6bba526df7a6f69d30231e66eb2d9571ed369dd"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "d571c351bf3cf7fdf345fb2cca584fad9afbb6cc",
+      "date_git": "2026-10-14T12:12:45+02:00",
+      "title": "docs: centraliser les archives et index chronologiques JARVIS sans modifier les originaux",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/d571c351bf3cf7fdf345fb2cca584fad9afbb6cc"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "956423c346a80f2935772bcde0093b94db5f6b4f",
+      "date_git": "2026-10-14T12:03:36+02:00",
+      "title": "Snapshot documentaire de GitHub main 3650860eed5a7a0a148da6b2ea952ac942eb434b",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/956423c346a80f2935772bcde0093b94db5f6b4f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "3650860eed5a7a0a148da6b2ea952ac942eb434b",
+      "date_git": "2026-10-14T11:31:34+02:00",
+      "title": "docs: planifier 13F en cours, mission 14 Dell et mission 15 reportée",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/3650860eed5a7a0a148da6b2ea952ac942eb434b"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "0e679df50e67e4cddcf4568d9b11885ce2ca859a",
+      "date_git": "2026-10-14T01:08:40+02:00",
+      "title": "Record deployed 13E with real tests and keep 13D pending",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/0e679df50e67e4cddcf4568d9b11885ce2ca859a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "22f03dcb5ba02f69a6d540566612cbe883849ebb",
+      "date_git": "2026-10-14T00:42:29+02:00",
+      "title": "docs: noter audit différé des missions historiques sur validation",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/22f03dcb5ba02f69a6d540566612cbe883849ebb"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "f3639840e9c034395d97a3122025c1fee8c8618d",
+      "date_git": "2026-10-14T00:41:31+02:00",
+      "title": "docs: rendre la mission 13D visible comme jalon indépendant",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/f3639840e9c034395d97a3122025c1fee8c8618d"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "627c2bcafe6ad11b88eb7f1e7dfede5fcd6b1866",
+      "date_git": "2026-10-14T00:39:04+02:00",
+      "title": "docs: consolider missions 12-13E et figer 13D en attente",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/627c2bcafe6ad11b88eb7f1e7dfede5fcd6b1866"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "e245cff1b65302af322050ff84fa293455b88688",
+      "date_git": "2026-10-13T12:39:30+02:00",
+      "title": "docs(roadmap): plan mission 13E voice access documentation iPhone macOS",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/e245cff1b65302af322050ff84fa293455b88688"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "2f0e8e4b9f9459ad34532111cc59755ed09bdec3",
+      "date_git": "2026-10-13T12:30:19+02:00",
+      "title": "docs: cadrer l'autonomie JARVIS par évaluation des risques et tests choisis par l'agent",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/2f0e8e4b9f9459ad34532111cc59755ed09bdec3"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "8d872561a4125dc5eb4d585e6a6b13bd657f2c83",
+      "date_git": "2026-10-13T12:27:54+02:00",
+      "title": "docs: expliciter recherche technique autonome de JARVIS",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/8d872561a4125dc5eb4d585e6a6b13bd657f2c83"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "294b56493aaeb9cec6616edea9ce041d5c6bf3df",
+      "date_git": "2026-10-13T12:19:23+02:00",
+      "title": "docs: préciser deux NVMe FlexBay et piste Intel VROC/VMD",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/294b56493aaeb9cec6616edea9ce041d5c6bf3df"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "32b8f9fa8e0d44e95146dcef84e7f8a58b29aa25",
+      "date_git": "2026-10-13T12:18:56+02:00",
+      "title": "docs: préciser préférence RAID Intel et déploiement PXE automatisé",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/32b8f9fa8e0d44e95146dcef84e7f8a58b29aa25"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "e367cf2126ac673d7576f4f96ad1d422db6d0425",
+      "date_git": "2026-10-13T12:17:43+02:00",
+      "title": "docs: planifier RAID1 Intel Dell avec séparation système et données",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/e367cf2126ac673d7576f4f96ad1d422db6d0425"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "64402efcfb686c06e25dcfe1e4959f4f1f910b89",
+      "date_git": "2026-10-13T12:16:23+02:00",
+      "title": "docs: ajouter inventaire RAID et protection des deux SSD avant PXE",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/64402efcfb686c06e25dcfe1e4959f4f1f910b89"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "2a5fc1c3d7eb83d146bbae17a80ddb6a332f77d0",
+      "date_git": "2026-10-13T12:15:55+02:00",
+      "title": "docs: planifier le déploiement PXE du Dell par JARVIS",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/2a5fc1c3d7eb83d146bbae17a80ddb6a332f77d0"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "fbb15c7ed64a5b2615cac380b86cb131d2ab7f2d",
+      "date_git": "2026-10-13T12:10:37+02:00",
+      "title": "docs: suivre les décisions JARVIS et les chantiers multi-machines",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/fbb15c7ed64a5b2615cac380b86cb131d2ab7f2d"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "0777ac95de9b0157faf5580cb1eca82e1bd9f11f",
+      "date_git": "2026-10-12T22:34:29+02:00",
+      "title": "docs: add ROADMAP.md",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/0777ac95de9b0157faf5580cb1eca82e1bd9f11f"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "5c0a069d43059e291b233158ba22defce915725d",
+      "date_git": "2026-10-12T22:34:20+02:00",
+      "title": "docs: add docs/methodologie.md",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/5c0a069d43059e291b233158ba22defce915725d"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "commit": "069729504cae754e91114ad23e89f984339b2257",
+      "date_git": "2026-10-12T22:34:18+02:00",
+      "title": "docs: add docs/chronologie.md",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/069729504cae754e91114ad23e89f984339b2257"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "commit": "41692cc9406d06748e22566f2c6a9e1e9c365f5d",
+      "date_git": "2026-10-14T14:38:34+02:00",
+      "title": "docs(JL-01): consigner la transmission du rapport par mail",
+      "url": "https://github.com/regisazzoun/JARVIS-Launcher/commit/41692cc9406d06748e22566f2c6a9e1e9c365f5d"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "commit": "52c77b1935fb5d817a2a75a11bc0ec630c48cca5",
+      "date_git": "2026-10-14T14:35:10+02:00",
+      "title": "feat(JL-01): livrer le lanceur macOS et interface statique JARVIS avec tests et documentation",
+      "url": "https://github.com/regisazzoun/JARVIS-Launcher/commit/52c77b1935fb5d817a2a75a11bc0ec630c48cca5"
+    },
+    {
+      "repository": "JARVIS-Launcher2",
+      "commit": "42ca7aa52f5bc24a8f551398e2914e126295ff81",
+      "date_git": "2026-10-17T21:35:34+02:00",
+      "title": "docs: publier les preuves Pages et la réception réelle du Launcher",
+      "url": "https://github.com/regisazzoun/JARVIS-Launcher2/commit/42ca7aa52f5bc24a8f551398e2914e126295ff81"
+    },
+    {
+      "repository": "JARVIS-Launcher2",
+      "commit": "fcf06de9a83eb78ed2c76d05d802bfca9584c47b",
+      "date_git": "2026-10-17T21:28:14+02:00",
+      "title": "feat: livrer Launcher V2 et intégration agentique vérifiée",
+      "url": "https://github.com/regisazzoun/JARVIS-Launcher2/commit/fcf06de9a83eb78ed2c76d05d802bfca9584c47b"
+    }
+  ],
+  "branches_confirmees_ls_remote": [
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/jarvis-documentation-consolidation",
+      "sha": "f6bba526df7a6f69d30231e66eb2d9571ed369dd"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/jarvis-reorganisation-documentaire",
+      "sha": "6ed9af8b38b00511b9d3328a3d960de99d1cc064"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/jl-02-launcher-v2",
+      "sha": "43c31a947977586fea74ff171071a5b261551153"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/mission-11-agentic-enablement",
+      "sha": "c9fcd90a89ba3089c9c3527c401ee86a79d4d430"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/mission-13de-preparation",
+      "sha": "6dd5f572a68fc3182f3a56692cbe3466d74c86da"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "codex/mission-13f-20261014-a0ed2a",
+      "sha": "a0ed2a844c3573966704ef3d89a0b682590204fe"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "jarvis/mission-11b-compute-expansion",
+      "sha": "7828e1c47c18c1fff6dfbc7641110f9fd6841c1a"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "jarvis/mission11-proof-20261017",
+      "sha": "4fddc12d753fe43882202ad61df60a69c662123d"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "main",
+      "sha": "f77742296e347f38d7eb0aefa50d03ca08fd7697"
+    },
+    {
+      "repository": "JARVIS-Local-AI-Lab",
+      "branch": "mission13e-integration-20261014",
+      "sha": "0e679df50e67e4cddcf4568d9b11885ce2ca859a"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "branch": "codex/jl-01-jarvis-launcher",
+      "sha": "ce95648d7672729b8b5c1c8e29de2f92c16f1732"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "branch": "gh-pages",
+      "sha": "d0ef414a12cb4491964801563a8ef0768235d5af"
+    },
+    {
+      "repository": "JARVIS-Launcher",
+      "branch": "main",
+      "sha": "d5902c6252b10320bcd0972bc1a506616e1ce9c5"
+    },
+    {
+      "repository": "JARVIS-Launcher2",
+      "branch": "gh-pages",
+      "sha": "1be57e01742ce9462a0f3813881ab792d62a49e5"
+    },
+    {
+      "repository": "JARVIS-Launcher2",
+      "branch": "main",
+      "sha": "164d4b455bd324bd88ed082d3c810a9ae708e8b5"
+    }
+  ],
+  "note": "Historique documentaire des références locales récupérées ; contient des commits de branches ouvertes, aucun merge automatique. Date Git distincte du fait opérationnel."
+}

@@ -1,0 +1,11 @@
+> **Trace de production, avec limites de réception.** Ce fichier conserve une sortie ou un assemblage de la mission 00 ; il ne remplace pas le registre consolidé. Voir les corrections Codex et le bilan agentique dans le dossier parent de mission. Les textes historiques ou propositions du modèle ne créent aucune nouvelle autorisation ou obligation de validation.
+
+# Corrections de réception Codex — référence du 17 octobre 2026
+
+Contribution Codex, à attribuer explicitement. La synthèse précédente réintroduit à tort « Contrôle Humain Requis » pour toute commande critique. Le propriétaire autorise les opérations de la mission sans validation intermédiaire ; le broker contrôle les droits, mais tu ne peux pas inventer une nouvelle obligation d'approbation. La qualité limitée du modèle en08 ne crée pas une nouvelle règle générale. Llama était le choix par défaut à l'époque08, pas un administrateur critique actuel automatiquement promu.
+
+Tu as réellement exécuté des outils de lecture/écriture pendant00. Écrire « aucune exécution de code/commande » est faux : ce sont des opérations documentaires réelles, sans installation, benchmark ni changement d'infrastructure. Les lecteurs chargent les fichiers puis t'en transmettent des extraits ; tu n'as pas interprété chaque ligne.
+
+La mémoire SQLite/FTS5 canonique reste sur le Mac et son utilisation via la passerelle avec l'inférence Dell est documentée. Ce n'est pas une réplication de base ; ne dis pas que l'intégration distante est absente. Le Mac n'est pas seulement un client : il porte passerelle, mémoire, voix et outils. Dell1=13D-E reçu Codex ;14=Dell2 futur JARVIS ;14A ouverte.11B accès permanent reçu, expansion partielle, checkpoint incomplet après5tentatives. JL02 livré avec réserves, Codex et JARVIS contributeurs.15A/B cahiers natifs prévus indépendants14 ; iOS gratuit PersonalTeam.
+
+Bilan documentaire :68missions/sous-missions,28anomalies,671chemins inventoriés par JARVIS,129documents/preuves récupérés par Codex.04S explicitement cité par04T/04U, rapport autonome manquant, Àconfirmer. Les erreurs modèle sont conservées et corrigées dans le registre Codex. Le reboot-f reste à corriger avant prochaindéploiement, sans causalitéresync prouvée. Aucune réception globale14A. Aucune modificationRAID ni réinstallation dans00.
