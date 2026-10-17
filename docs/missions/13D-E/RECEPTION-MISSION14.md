@@ -1,6 +1,6 @@
 # Mission 13D-E / 14 — réception de la nouvelle tentative
 
-Date : 2026-10-17 12:45 CEST
+Date : 2026-10-17 12:57 CEST
 
 **INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle**
 
@@ -10,16 +10,16 @@ Chaque validation ci-dessous provient des contrôles exécutés, pas de la prés
 | --- | --- | --- |
 | pxe | validated | PXE physical boot and independent SSH with locally pinned host key confirmed |
 | identity | validated | DMI/UUID match private manifest; embedded guard checks exact NVMe identities |
-| storage | validated | Existing healthy RAID preserved; root alone formatted; both ESP copies verified |
+| storage | running | Resynchronisation RAID1 mesurée dans /proc/mdstat ; reste estimé 129.8min |
 | debian | validated | Fresh Debian completed, sshd configuration checked and signed EFI copies match; see installer log |
 | accounts | validated | adminjarvis password/key/sudo verified; jarvis-bootstrap configured with same user password |
 | ssh-password | validated | Independent password authentication and sudo succeeded for adminjarvis |
 | ssh-key | validated | Independent key authentication and sudo succeeded; password access retained |
-| ansible | running | Infrastructure SSH validated; AI server playbook ready for execution |
-| nvidia | pending | Non exécutée ou non encore validée |
-| cuda | pending | Non exécutée ou non encore validée |
-| ollama | pending | Non exécutée ou non encore validée |
-| models | pending | Non exécutée ou non encore validée |
+| ansible | running | Applying actual Debian/NVIDIA/CUDA playbook to identified Dell |
+| nvidia | validated | One RTX 3090 recognized by nvidia-smi in current system; final reboot persistence pending; driver 550.163.01 |
+| cuda | running | Installing Debian CUDA toolkit; actual GPU validation follows reboot |
+| ollama | running | Copying known working Ollama 0.40.3 and existing documented models; Mac source read-only |
+| models | running | Transferring existing Qwen3.5 27B Q4_K_M, Ministral3 14B Q4_K_M and Llama3.1 8B store |
 | integration | pending | Non exécutée ou non encore validée |
 | tests | pending | Non exécutée ou non encore validée |
 | reboot | pending | Non exécutée ou non encore validée |

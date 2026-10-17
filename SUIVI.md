@@ -137,3 +137,8 @@ INCOMPLET — consulter les preuves privées et reprendre sans réinstallation a
 ## Réception nouvelle tentative Dell 13D-E / 14
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
+
+
+## Réception nouvelle tentative Dell 13D-E / 14
+
+INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Voir [réception de mission](docs/missions/13D-E/RECEPTION-MISSION14.md) pour les preuves et réserves par tâche.
