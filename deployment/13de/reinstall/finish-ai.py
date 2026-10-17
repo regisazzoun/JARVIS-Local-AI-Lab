@@ -40,7 +40,7 @@ try:
  upload('/usr/local/lib/jarvis/verify-storage.py',(ROOT/'bootstrap/verify-storage.py').read_bytes())
  upload('/usr/local/sbin/jarvis-sync-esp',(ROOT/'bootstrap/sync-esp.sh').read_bytes(),'0700')
  upload('/etc/apt/apt.conf.d/99jarvis-esp',b'DPkg::Post-Invoke { "/usr/local/sbin/jarvis-sync-esp"; };\n','0644')
- storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json; sudo -n /usr/local/sbin/jarvis-sync-esp')
+ storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json && sudo -n /usr/local/sbin/jarvis-sync-esp')
  (b/'storage-installed.txt').write_text(storage)
  event('ansible','running','Applying actual Debian/NVIDIA/CUDA playbook to identified Dell')
  event('nvidia','running','Installing Debian driver and matching kernel headers')
@@ -82,7 +82,7 @@ WantedBy=multi-user.target
 '''
  import base64
  payload=base64.b64encode(unit.encode()).decode()
- ssh(f'printf %s {payload} | base64 -d | sudo -n tee /etc/systemd/system/jarvis-ollama.service >/dev/null; sudo -n chown -R ollama:ollama /opt/ollama /var/lib/ollama; sudo -n systemctl daemon-reload; sudo -n systemctl enable --now jarvis-ollama.service')
+ ssh(f'set -eu; printf %s {payload} | base64 -d | sudo -n tee /etc/systemd/system/jarvis-ollama.service >/dev/null; sudo -n chown -R ollama:ollama /opt/ollama /var/lib/ollama; sudo -n systemctl daemon-reload; sudo -n systemctl enable --now jarvis-ollama.service')
  end=time.monotonic()+60
  while True:
   try:version=api('/api/version');break
@@ -111,7 +111,7 @@ WantedBy=multi-user.target
  event('integration','validated','Authenticated gateway and Open WebUI inference plus canonical memory/tools/voice tests passed')
  event('tests','validated','Real inference, authenticated integration, memory, tool call and synthetic voice evidence saved')
  event('reboot','running','Final Dell reboot and independent SSH/password/GPU/Ollama checks')
- reboot();assert '3090' in ssh('nvidia-smi --query-gpu=name --format=csv,noheader');assert ssh('sudo -n true; systemctl is-active ssh jarvis-ollama').count('active')==2
+ reboot();assert '3090' in ssh('nvidia-smi --query-gpu=name --format=csv,noheader');assert ssh('sudo -n true && systemctl is-active ssh jarvis-ollama').count('active')==2
  # Password authentication remains independently tested even after key validation.
  env=os.environ.copy();env.update(SSH_ASKPASS=str(ROOT/'bootstrap/askpass.py'),SSH_ASKPASS_REQUIRE='force',DISPLAY='jarvis:0',JARVIS_BOOTSTRAP_SECRET=str(ROOT/'private/reprise-user-password.txt'))
  args=common.copy();idx=args.index('BatchMode=yes');args[idx]='BatchMode=no';args+=['-o','PreferredAuthentications=password','-o','PubkeyAuthentication=no','-o','NumberOfPasswordPrompts=1']
@@ -119,7 +119,7 @@ WantedBy=multi-user.target
  api('/api/version');r=api('/api/generate',{'model':expected[0],'prompt':'Réponds OK.','stream':False,'think':False,'options':{'num_ctx':4096,'num_predict':64}});assert r['response'].strip()
  keyboard=ssh('sudo -n dumpkeys -C /dev/tty1');assert re.search(r'keycode\s+16\s*= a\s',keyboard) and re.search(r'keycode\s+17\s*= z\s',keyboard),'Installed French console map not verified'
  (b/'keyboard-verified.txt').write_text('Physical console keycode16=a keycode17=z verified after reboot\n')
- final_storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json; systemctl --failed --no-legend');(b/'final-storage-services.txt').write_text(final_storage)
+ final_storage=ssh('sudo -n python3 /usr/local/lib/jarvis/verify-storage.py /etc/jarvis/approved.json && systemctl --failed --no-legend');(b/'final-storage-services.txt').write_text(final_storage)
  subprocess.run(args+['jarvis-bootstrap@'+ip,'sudo -n true'],env=env,stdin=subprocess.DEVNULL,check=True)
  assert any(m.get('size_vram',0)>0 for m in api('/api/ps')['models']),'GPU inference not retained after reboot'
  event('reboot','validated','New boot ID, independent key/password SSH/sudo, NVIDIA and actual Qwen inference confirmed')
