@@ -1,6 +1,6 @@
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
-**Dernière mise à jour : 15 octobre 2026**  
+**Dernière mise à jour : 17 octobre 2026**  
 **Références :** [Feuille de route](ROADMAP.md) · [Chronologie](docs/chronologie.md) · [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Roadmap Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md)
 
 > **Tableau de pilotage permanent.** Conserver la présentation, l'ordre des colonnes, les intitulés, les identifiants de missions et les lignes historiques lors de chaque mise à jour. Modifier uniquement les informations nécessaires, ajouter une ligne si un nouveau jalon apparaît, dater et expliquer les changements dans le journal. Ne jamais déduire un GO de la seule existence de fichiers. Les étapes sans rapport complet restent « à confirmer ». Les statuts représentent la dernière information documentée, pas une surveillance temps réel.
@@ -35,6 +35,7 @@
 | **14** | Déploiement autonome du Dell Precision | ⏳ En attente | Installation Debian par PXE, puis SSH/Ansible configurés par JARVIS ; tests UEFI/PXE en VM **autonomes sans supervision humaine** dans le laboratoire autorisé ; aucun déploiement physique validé | Après 14A : essais VM non supervisés, puis autorisation spécifique des actions destructives sur le Dell réel |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15A-MACOS-CODEX.md) disponible | Inventaire API 13F, contrat commun, développement |
 | **15B** | Application native SwiftUI iOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15B-IOS-CODEX.md) ; installation gratuite Xcode/Personal Team retenue | Contrat API commun et prototype iPhone |
+| **20** | JARVIS Compute : calcul distribué local opportuniste (4–5 postes Windows pilotes, deux Dell) | ⏳ Planifiée, non lancée | Architecture agent/manager et Wake-on-LAN à étudier ; aucune installation ni performance validée | Après stabilisation Dell/Cisco : inventorier les postes pilotes, prototyper, mesurer et vérifier la priorité aux usages pédagogiques |
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés | Mac mini fonctionnel confirmé le 14/10 ; MacBook : compagnon local, connexion SSH, reprise tmux et trois actions du site GitHub Pages déclarées fonctionnelles par l'utilisateur le 15/10. Autres commandes et sécurité complète non toutes réceptionnées | Garder les tests acquis ; documenter uniquement les actions restantes sans retester inutilement |
 | **JL-02** | Launcher : Qwen/Ollama, voix, authentification | ⏳ Prévue, non lancée | Sécurité 13D, identité, secrets, permissions, déconnexion et révocation requis | Auditer JL-01, valider sécurité, cadrer l'intégration |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
@@ -92,6 +93,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-17 | 20 — JARVIS Compute | Nouvelle mission planifiée : calcul distribué local sur 4–5 postes pilotes, orchestration Dell, agent Windows, inactivité et Wake-on-LAN facultatif ; aucun déploiement lancé | Décision utilisateur du 17/10 ; [ROADMAP](ROADMAP.md) |
 | 2026-10-15 | JL-01 — GitHub Pages MacBook | Compagnon local vérifié, SSH et tmux testés, puis trois actions de l'interface web confirmées fonctionnelles ; GO AVEC RÉSERVES JL-01, pas de validation implicite de toutes les fonctions | Tests et confirmation explicite de l'utilisateur du 15/10 ; [site GitHub Pages](https://regisazzoun.github.io/JARVIS-Launcher/) |
 | 2026-10-15 | 13D-E / 14 | Correction de l'ordre PXE : pas de SSH Dell avant installation ; JARVIS teste seul et sans supervision les déploiements en VM isolée, puis configure lui-même SSH sur Debian | Décision explicite utilisateur en conversation de pilotage ; [ROADMAP](ROADMAP.md) |
 | 2026-10-15 | 13D-E | Contrôle du suivi : préparation SSH/Ansible vers Dell non encore vérifiée ; ne pas confondre GO des accès Mac avec capacité d'administration Dell | Relecture de SUIVI.md et confirmation de l'absence de test Dell dans les rapports consultés |
