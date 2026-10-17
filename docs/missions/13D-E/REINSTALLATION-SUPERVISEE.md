@@ -64,3 +64,14 @@ Correction à exécuter dès accès : charger le clavier français sur la consol
 ## Dépendance réseau manquante constatée en console
 
 Le propriétaire signale `ip : commande introuvable` après connexion locale. iproute2 était absent de la sélection de paquets du système minimal : il est désormais explicitement ajouté à la recette et au playbook. Son installation effective sur le Dell reste à vérifier. networkctl, fourni par systemd, est le moyen de diagnostic alternatif proposé. Le retour réseau et les authentifications SSH restent à réceptionner.
+
+
+## Réseau, authentifications, clavier et RAID — résultats confirmés après reprise
+
+Le propriétaire a observé State off / Network File n/a. Le fichier réseau créé sous umask 077 n'était pas lisible par systemd-networkd. La remise des droits du répertoire à 0755 et du fichier à 0644, suivie d'un redémarrage du service, a rétabli routable/online. Le contrôleur a ensuite validé réellement adminjarvis par mot de passe, sudo et une connexion indépendante par clé. Le secours par mot de passe reste préservé. Ces droits sont maintenant explicites dans la recette et Ansible.
+
+Cause du QWERTY identifiée par SSH : /etc/vconsole.conf est un lien vers /etc/default/keyboard sur ce Debian. L'écriture de KEYMAP=fr avait tronqué le fichier XKB complet. La configuration combinée a été restaurée sans tronquer ce lien, les cartes régénérées et chargées : dumpkeys sur tty1 confirme keycode16=+a et keycode17=+z. La persistance après le prochain reboot reste à vérifier.
+
+Le miroir conservé est [UU], mais une resynchronisation complète a repris après le reboot forcé de l'installateur ; une observation a montré 15,2 %, environ 141 minutes restantes. La préservation des métadonnées n'a donc pas évité cette synchronisation. Le reboot forcé constitue une cause probable de l'état sale et doit être remplacé par une séquence de démontage/arrêt propre pour les prochaines installations. Ne pas arrêter ni faussement déclarer terminée cette resynchronisation. La phase IA peut avancer avec deux membres sains, mais la réception finale exige le retour idle, puis un redémarrage normal et la relecture de l'état.
+
+mdmonitor échouait faute de destinataire ou de programme d'alerte. Un programme local de journalisation a été configuré, puis le service relancé et constaté actif ; aucun email d'alerte non demandé n'a été envoyé. iproute2/e2fsprogs sont explicitement requis par la recette corrigée. NVIDIA, CUDA, Ollama et l'intégration restent à vérifier selon les preuves de la phase IA.

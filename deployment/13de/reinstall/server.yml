@@ -17,6 +17,21 @@
       ansible.builtin.apt:
         name: [iproute2, e2fsprogs, ca-certificates, python3, sudo, openssh-server, mdadm, nvme-cli, smartmontools, rsync, curl, pciutils, linux-headers-amd64, nvidia-driver, nvidia-cuda-toolkit]
         state: present
+    - name: Network configuration directory readable by networkd
+      ansible.builtin.file:
+        path: /etc/systemd/network
+        state: directory
+        mode: '0755'
+    - name: Wired DHCP configuration readable by networkd
+      ansible.builtin.copy:
+        dest: /etc/systemd/network/20-wired.network
+        mode: '0644'
+        content: |
+          [Match]
+          Type=ether
+          [Network]
+          DHCP=yes
+      notify: Restart networkd
     - name: Keep SSH enabled
       ansible.builtin.systemd_service:
         name: ssh
@@ -60,7 +75,37 @@
           XKBVARIANT=""
           XKBOPTIONS=""
           BACKSPACE="guess"
+          KEYMAP=fr
+      notify: Apply French console
+    - name: Mdadm alert command
+      ansible.builtin.copy:
+        dest: /usr/local/sbin/jarvis-md-alert
+        mode: '0755'
+        content: |
+          #!/bin/sh
+          logger -t jarvis-mdadm -- "$*"
+    - name: Enable local RAID event monitoring
+      ansible.builtin.lineinfile:
+        path: /etc/mdadm/mdadm.conf
+        regexp: '^PROGRAM '
+        line: PROGRAM /usr/local/sbin/jarvis-md-alert
+      notify: Restart mdmonitor
+    - name: Mdadm monitor active
+      ansible.builtin.systemd_service:
+        name: mdmonitor
+        state: started
   handlers:
+    - name: Apply French console
+      ansible.builtin.command: setupcon --force --keyboard-only
+      changed_when: true
+    - name: Restart mdmonitor
+      ansible.builtin.systemd_service:
+        name: mdmonitor
+        state: restarted
+    - name: Restart networkd
+      ansible.builtin.systemd_service:
+        name: systemd-networkd
+        state: restarted
     - name: Reload SSH
       ansible.builtin.systemd_service:
         name: ssh

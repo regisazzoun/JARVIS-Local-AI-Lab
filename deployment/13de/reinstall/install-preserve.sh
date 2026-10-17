@@ -81,7 +81,9 @@ XKBVARIANT=""
 XKBOPTIONS=""
 BACKSPACE="guess"
 EOF
-printf 'KEYMAP=fr\n' > /target/etc/vconsole.conf
+printf 'KEYMAP=fr\n' >> /target/etc/default/keyboard
+# Debian aliases vconsole.conf to default/keyboard: never truncate that link target.
+if [ ! -L /target/etc/vconsole.conf ];then printf 'KEYMAP=fr\n' > /target/etc/vconsole.conf;fi
 chroot /target setupcon --save-only || :
 ln -sf /usr/share/zoneinfo/Europe/Paris /target/etc/localtime
 progress 'accounts RUNNING: deux comptes, mot de passe utilisateur et cle JARVIS'
@@ -115,6 +117,8 @@ Type=ether
 [Network]
 DHCP=yes
 EOF
+chmod 755 /target/etc/systemd/network
+chmod 644 /target/etc/systemd/network/20-wired.network
 chroot /target systemctl enable systemd-networkd ssh systemd-timesyncd
 mkdir -p /target/boot/grub /target/boot/efi /target/boot/efi-secondary /target/etc/mdadm
 rootuuid=$(blkid -s UUID -o value "$md")
