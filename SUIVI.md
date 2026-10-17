@@ -1,6 +1,6 @@
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
-**Dernière mise à jour : 17 octobre 2026**  
+**Dernière mise à jour : 18 octobre 2026**  
 **Références :** [Feuille de route](ROADMAP.md) · [Chronologie](docs/chronologie.md) · [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Roadmap Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md)
 
 > **Tableau de pilotage permanent.** Conserver la présentation, l'ordre des colonnes, les intitulés, les identifiants de missions et les lignes historiques lors de chaque mise à jour. Modifier uniquement les informations nécessaires, ajouter une ligne si un nouveau jalon apparaît, dater et expliquer les changements dans le journal. Ne jamais déduire un GO de la seule existence de fichiers. Les étapes sans rapport complet restent « à confirmer ». Les statuts représentent la dernière information documentée, pas une surveillance temps réel.
@@ -43,7 +43,7 @@
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés | Mac mini fonctionnel confirmé le 14/10 ; MacBook : compagnon local, connexion SSH, reprise tmux et trois actions du site GitHub Pages déclarées fonctionnelles par l'utilisateur le 15/10. Autres commandes et sécurité complète non toutes réceptionnées | Garder les tests acquis ; documenter uniquement les actions restantes sans retester inutilement |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES | SiteV2publié ; Qwenoutilsréels,voix synthétique,métriques etévénements testés ; espaceconnecté confirmé propriétaire | Suivre réserves nativesetfiabilitéagentique ; préserver V1 |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
-| **00** | Audit général et concordance documentaire | ✅ GO avec réserves | 68 missions, 28 anomalies ; 671 fichiers inventoriés par JARVIS ; 129 documents/preuves récupérés ; analyses guidées et corrigées | PR6, sans fusion automatique ; réserves agentiques explicites |
+| **00** | Audit général et concordance documentaire | ✅ GO avec réserves | 68 missions, 28 anomalies ; 671 fichiers inventoriés par JARVIS ; 129 documents/preuves récupérés ; analyses guidées et corrigées | Fusion documentaire explicitement autorisée le 18/10 ; réserves agentiques conservées |
 | **01** | Audit de JARVIS | 🟡 PARTIEL | Audit matériel en lecture seule ; accès hôte limité par le bac à sable. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
 | **02** | Configuration Apple T2 et administration Debian | 🟡 PARTIEL | Préparer Debian et le support T2 ; validation complète différée. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
 | **02B** | Administration et préparation système | 🟡 Préparation et script testés ; administration non exécutée | Diagnostics accessibles, script créé et syntaxe/aide/refus en bac à sable testés ; aucun OpenSSH Server installé dans cette mission | Voir le registre 00 et les étapes suivantes |
@@ -225,3 +225,7 @@ README, docs/missions, SUIVI et ROADMAP réconciliés. 100 rapports/fiches histo
 ### Correctif de concordance README / SUIVI
 
 Après le retour du propriétaire : dix incréments 15A/15B présents au registre mais absents du suivi ont été ajoutés comme prévus, non exécutés. Le README présente désormais les mêmes 68 identifiants et états ; les deux lignes de regroupement restent conservées et exclues du comptage. Le contrôle compare les lignes, pas seulement le nombre annoncé. Aucune nouvelle mission créée, aucune fusion dans main.
+
+### Publication demandée par le propriétaire — 18 octobre 2026
+
+Le propriétaire autorise explicitement la fusion pour rendre les documents accessibles dans main. La consigne antérieure de conservation hors main est remplacée pour cette publication documentaire. README réécrit avec présentation du projet, architecture, état réel, accès aux rapports et catalogue des mêmes 68 identifiants que SUIVI. Le regroupement historique « 09 à 11 » et l’activité « Documentation » restent hors comptage. Aucune nouvelle réception matérielle ou d’autonomie n’est déduite de la publication.

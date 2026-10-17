@@ -1,23 +1,67 @@
-# JARVIS — Local AI Lab
+# 🤖 JARVIS — Local AI Lab
 
-Laboratoire privé d’IA locale réparti entre un **Mac mini Debian** et un **Dell Precision n°1**. Le Mac mini porte la passerelle JARVIS, la mémoire et la voix ; le Dell fournit l’inférence GPU. Un deuxième Dell reste prévu pour un déploiement exécuté par JARVIS.
+![JARVIS : IA locale, voix, mémoire et outils](docs/assets/jarvis-banner.svg)
 
-## État courant — bilan du 17 octobre 2026
+### Construire une IA locale capable de converser, mémoriser et agir
 
-Ce bilan décrit les derniers résultats documentés, pas une mesure de disponibilité en temps réel. Il est cohérent avec [SUIVI.md](SUIVI.md), [ROADMAP.md](ROADMAP.md) et le [registre consolidé des missions](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md). Les instantanés historiques conservés plus bas ne remplacent pas ces réceptions.
+Bienvenue dans **JARVIS**, un laboratoire privé qui explore une question concrète : comment faire coopérer des modèles d’IA, une mémoire persistante et des outils d’administration sur nos propres machines ?
 
-Cette synthèse regroupe les fonctions par périmètre ; le catalogue exhaustif de **68 identifiants**, plus bas, correspond ligne par ligne à SUIVI.
+Le projet avance sur du matériel réel, avec des essais, des corrections et des résultats documentés. **Codex coordonne et vérifie ; JARVIS exécute des tâches avec ses outils**, dans le périmètre autorisé. Les réussites comme les erreurs servent à construire la suite.
 
-| Périmètre | Résultat établi | Réserves / suite |
+> **Notre démarche :** expérimenter sur le terrain, comprendre les échecs et conserver les preuves de ce qui fonctionne.
+
+**[📋 Suivi des missions](SUIVI.md)** · **[🧭 Feuille de route](ROADMAP.md)** · **[📚 Rapports et preuves](docs/missions/README.md)** · **[🚀 Launcher V2](https://regisazzoun.github.io/JARVIS-Launcher2/)**
+
+## 🎯 Ce que nous construisons
+
+### 💬 Converser avec plusieurs modèles
+
+Ollama et les modèles **Qwen, Ministral/Mistral et Llama** constituent le socle d’inférence. La passerelle JARVIS et Open WebUI donnent accès à la conversation ; leurs rôles et leurs historiques restent distingués dans l’architecture.
+
+### 🎙️ Parler et retrouver le contexte
+
+**Whisper Small** prend en charge la transcription et **Piper, voix Tom**, la synthèse. La mémoire **SQLite/FTS5** reste centralisée sur le Mac mini et réutilisée par la passerelle, y compris lorsque l’inférence est effectuée sur le Dell. Les tests sur fichiers audio sont documentés ; les réserves de microphone et de clients physiques restent explicites.
+
+### 🛠️ Faire travailler l’IA avec de vrais outils
+
+Les outils existants permettent des opérations de fichiers, de terminal, de Git et d’administration **SSH/Ansible**, contrôlées par la politique du laboratoire. JARVIS a déjà produit des fichiers, exécuté des opérations et repris des tâches réelles. La fiabilité de la planification et des fins de tâche reste un chantier : ces résultats ciblés ne valent pas réception d’une autonomie générale.
+
+### 🖥️ Piloter le laboratoire depuis une interface
+
+**[Launcher V2](https://regisazzoun.github.io/JARVIS-Launcher2/)** rassemble conversation, accès rapides, mesures des machines et événements d’exécution. Le **[Launcher V1](https://regisazzoun.github.io/JARVIS-Launcher/)** est conservé. Le frontend est accessible sur GitHub Pages ; les fonctions privées utilisent l’espace connecté et les mécanismes de tunnel/compagnon existants.
+
+## 🧩 Deux machines complémentaires, une architecture commune
+
+| Machine | Rôle documenté | État et limites |
 | --- | --- | --- |
-| Mac mini Debian | Passerelle conversationnelle, mémoire SQLite/FTS5, Whisper/Piper et outils agentiques documentés | Mémoire canonique sur le Mac ; orchestration distribuée globale encore partielle |
-| Dell n°1 — 13D-E | Réception complète du 17/10 : Debian, RAID1, deux ESP, SSH/sudo, Ansible, NVIDIA/CUDA, Ollama, modèles et intégration JARVIS | Une RTX 3090 alimentée ; seconde carte en extension future. Correctif du reboot forcé du contrôleur avant réemploi |
-| 11-Agentic / 11B | Outils hôte et administration distante SSH/Ansible pérenne validés | Compute Expansion reste partielle ; checkpoint 11B à reprendre hors audit |
-| 14A | Exécutions réelles démontrées dans des scénarios ciblés | Réception globale de l’autonomie ouverte ; le guidage de Codex est explicite |
-| Dell n°2 — 14 | Mission future, à exécuter par JARVIS lui-même | Le titre historique « 13D-E / 14 » du Dell n°1 ne vaut pas réception du second Dell |
-| JL-01 / JL-02 | Launcher V1 préservé ; V2 publiée dans un dépôt distinct, GO avec réserves | Fiabilité agentique et tests des clients physiques restent à compléter |
-| 15A macOS / 15B iOS | Cahiers natifs et cinq incréments chacun définis, non exécutés | Mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team, PWA en alternative explicite |
-| Mission 00 | 68 missions/sous-missions recensées, 28 anomalies ; inventaire réel JARVIS de 671 fichiers Markdown | GO avec réserves ; 129 documents/preuves récupérés. Analyses JARVIS guidées et contrôlées par Codex, erreurs originales conservées |
+| **Mac mini Debian** | Passerelle JARVIS, mémoire canonique, Whisper/Piper, outils et supervision ; terrain initial des essais eGPU | Socle existant préservé ; la mémoire n’est pas une base répliquée sur chaque nœud |
+| **Dell Precision n°1** | Inférence Ollama, modèles et accélération NVIDIA/CUDA | Réception complète **13D-E** ; **une RTX 3090 alimentée**, la seconde reste une extension matérielle future |
+| **Dell Precision n°2** | Extension future du laboratoire | **Mission 14 à réaliser par JARVIS lui-même**, distincte du premier Dell installé par Codex |
+
+L’intégration distante existe. Le placement automatique des modèles, l’équilibrage et le repli global restent à compléter pour progresser vers une seule entité JARVIS distribuée.
+
+## 📍 Où en est le projet ?
+
+**Dernier bilan consolidé : 17 octobre 2026 · Présentation et concordance actualisées le 18 octobre 2026.** Les états ci-dessous décrivent les preuves disponibles, pas une surveillance en direct.
+
+| Chantier | Résultat établi | Suite |
+| --- | --- | --- |
+| **13D-E — Dell n°1** | Debian, RAID1, deux ESP, SSH/sudo, Ansible, NVIDIA/CUDA, Ollama, modèles et intégration reçus | Préserver les acquis ; corriger le reboot forcé du contrôleur avant réemploi, sans présumer la cause de la resynchronisation |
+| **11-Agentic / 11B** | Outils hôte et administration SSH/Ansible permanente validés | Compute Expansion reste partielle ; checkpoint incomplet à reprendre dans son périmètre |
+| **JL-01 / JL-02** | V1 conservée ; V2 livrée **GO avec réserves**, avec actions agentiques réelles | Fiabiliser l’agent et compléter les réceptions des clients physiques |
+| **00 — Pilotage** | **68 missions/sous-missions**, **28 anomalies** et **129 documents/preuves** récupérés ; cinq tâches JARVIS exécutées | Conserver la traçabilité et la concordance README/SUIVI ; analyses guidées et corrections Codex explicites |
+| **14A — Capacité agentique** | Progrès démontrés sur des scénarios ciblés | Réception globale ouverte |
+| **14 — Dell n°2** | Périmètre défini, installation future par JARVIS | Préparer le déploiement selon ses critères ; aucune installation du second Dell dans l’audit 00 |
+| **15A / 15B — Clients natifs** | Cahiers macOS/iOS et cinq incréments chacun définis | Non lancés ; mission 14 non bloquante ; installation iOS gratuite Xcode / Personal Team retenue |
+
+**À retenir :** le titre historique « 13D-E / 14 » de la réception du premier Dell ne clôture pas la mission 14 du deuxième Dell.
+
+## 📊 Toutes les missions, avec le même comptage que SUIVI
+
+Le registre et le suivi comptent **68 identifiants**, dont **10 incréments natifs prévus, non exécutés**. Les regroupements et activités transversales ne créent pas de missions supplémentaires. Le catalogue ci-dessous reprend exactement les intitulés et états du tableau courant de SUIVI.
+
+<details>
+<summary><strong>📋 Consulter les 68 missions et sous-missions</strong></summary>
 
 <!-- BEGIN MISSION CATALOGUE -->
 ## Catalogue des missions — 68 identifiants
@@ -98,59 +142,33 @@ Cette synthèse regroupe les fonctions par périmètre ; le catalogue exhaustif 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->
 
-## Accéder aux résultats
+</details>
 
-- [Rapport de consolidation — mission 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md), [registre](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) et [anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md).
-- [Bilan des actions réellement exécutées par JARVIS](docs/missions/00-Mission-Pilotage-point-26-10-17/BILAN-AGENTIQUE-JARVIS.md), distinctes de celles de Codex.
-- [Réception Dell n°1](docs/missions/13D-E/RECEPTION-MISSION14.md) et [raccordement administratif 11B](docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md).
-- [Launcher V1](https://regisazzoun.github.io/JARVIS-Launcher/) · [Launcher V2](https://regisazzoun.github.io/JARVIS-Launcher2/). Les fonctions privées nécessitent l’espace connecté et le tunnel/compagnon existant ; un écran public sans mesures ne prouve pas l’arrêt des machines.
-- [Index des missions](docs/missions/README.md), [suivi](SUIVI.md), [roadmap](ROADMAP.md) et [chronologie](docs/chronologie.md).
+## 📚 Explorer la documentation
 
-Les modifications documentaires sont publiées sur une branche dédiée et proposées en PR, sans fusion automatique dans `main`. Les secrets, preuves privées brutes et identifiants matériels uniques restent hors du dépôt.
+| Pour… | Commencer ici |
+| --- | --- |
+| Voir l’état détaillé et les prochaines actions | [SUIVI.md](SUIVI.md) et [ROADMAP.md](ROADMAP.md) |
+| Parcourir les missions et leurs rapports | [Index des missions](docs/missions/README.md) et [registre consolidé](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) |
+| Lire le bilan général et les incohérences corrigées | [Rapport de mission 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) et [anomalies documentaires](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md) |
+| Vérifier les résultats du premier Dell | [Réception 13D-E](docs/missions/13D-E/RECEPTION-MISSION14.md) |
+| Distinguer les actions de JARVIS et de Codex | [Bilan agentique 00](docs/missions/00-Mission-Pilotage-point-26-10-17/BILAN-AGENTIQUE-JARVIS.md) et [bilan Launcher V2](docs/missions/JL-02/RAPPORT-AGENTIQUE-JL-02.md) |
+| Retrouver les expérimentations successives | [100 rapports et fiches historiques](docs/missions/historique/README.md), [rapports Launcher](docs/missions/README.md#rapports-launcher-récupérés) et [chronologie](docs/chronologie.md) |
+| Comprendre les règles du laboratoire | [Directives du projet](docs/CHARTE_DIRECTIVES_JARVIS.md) |
 
-## Objectif
+## 🔧 Les technologies du laboratoire
 
-Documenter les tests reproductibles, les échecs, les contournements et les limites sans confondre hypothèses et résultats validés. L'objectif est d'avancer vers la faisabilité, pas de résoudre chaque anomalie secondaire avant de continuer.
+**IA et GPU :** Ollama · Qwen · Ministral/Mistral · Llama · NVIDIA · CUDA  
+**Voix et mémoire :** Whisper · Piper · SQLite · FTS5  
+**Systèmes et automatisation :** Debian · mdadm · SSH · Ansible · Tailscale · systemd  
+**Interfaces et développement :** Open WebUI · Python · JavaScript · GitHub Pages · Git
 
-## Historique — état documenté le 12 octobre 2026
+## 🧪 Une méthode fondée sur les essais
 
-| Composant | Mac mini | Dell Precision 5820 |
-| --- | --- | --- |
-| Debian et SSH | Documentés (mission 03) | Prévus |
-| Pilote NVIDIA / eGPU | Missions 04–05 | Prévus |
-| Calcul CUDA réel | Validé (mission 05D) | Non testé |
-| Ollama / Llama 3.1 8B | InférenceGPU validée (05D) | Non testé |
-| Open WebUI | Fonctionnel sur LAN (06) | Non testé |
-| Optimisations conversation / RAG | Tests documentés (07) | Non testé |
+Chaque mission garde son objectif, ses opérations réelles, ses preuves et ses réserves. **Préparé, exécuté, testé et réceptionné sont des états distincts.** Une réponse du modèle annonçant « terminé » ne suffit pas : les fichiers, retours d’outils et résultats sont vérifiés.
 
-**Attention :** les résultats Mac mini ne constituent pas des validations sur Dell.
+Les erreurs restent documentées pour être corrigées. Les rapports historiques sont conservés ; leurs décisions remplacées ne supplantent pas les instructions actuelles. Les secrets, clés, mots de passe et journaux privés bruts restent hors de la publication.
 
-## Documentation
+---
 
-- [Chronologie des missions](docs/chronologie.md)
-- [Méthodologie expérimentale](docs/methodologie.md)
-- [Mac mini](platforms/mac-mini/README.md)
-- [Dell Precision 5820](platforms/dell-precision-5820/README.md)
-- [Feuille de route](ROADMAP.md)
-- [Suivi global des missions — tableau de bord](SUIVI.md)
-- [Débrief de pilotage — mission 13F (GO AVEC RÉSERVES)](docs/missions/MISSION-13F-DEBRIEF.md)
-- [Précautions de publication](SECURITY-PUBLICATION.md)
-
-## Sources et confidentialité
-
-Synthèse initiale des rapports de mission Codex reçus. Les preuves brutes, logs et données privées ne sont pas importés dans le dépôt. Chaque résultat reste à confronter au rapport source avant de publier un guide reproductible.
-
-## Historique — pilotage du 14 octobre 2026
-
-- Mission 13F : GO AVEC RÉSERVES.
-- Mission 14 : déploiement Dell Precision, indépendant des applications.
-- Mission 15A : application native macOS (Mac mini et MacBook).
-- Mission 15B : application native iOS (iPhone et éventuellement iPad).
-- Missions 15A et 15B réalisables en parallèle, avec API JARVIS commune.
-- Installation iOS : Xcode pour les tests, Ad Hoc ou TestFlight à évaluer pour la diffusion privée ; PWA en solution alternative.
-
-Les détails et les critères de validation sont décrits dans [ROADMAP.md](ROADMAP.md).
-
-[Rapports récupérés sur JARVIS]( docs/missions/historique/README.md ) : 100 documents historiques repris avec provenance et expurgation.
-
-[Rapports et preuves Launcher récupérés](docs/missions/README.md#rapports-launcher-récupérés) : 29 documents supplémentaires ; total du manifeste : 129.
+*Un laboratoire qui progresse par l’expérimentation, la vérification et le partage des résultats. Présentation inspirée du [profil de Régis](https://github.com/regisazzoun/Regis-AZZOUN).*
