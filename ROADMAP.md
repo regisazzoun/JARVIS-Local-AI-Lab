@@ -338,3 +338,21 @@ Le fichier **[SUIVI.md](SUIVI.md)** constitue le **tableau de bord opérationnel
 **13D-E n'exige pas de liaison SSH au Dell avant son installation :** la clé publique et la configuration SSH sont injectées par l'installation PXE ; la connexion SSH réelle n'est vérifiable qu'après le premier démarrage Debian. Cette préparation reste à réaliser/tester et ne doit pas être marquée validée à ce stade.
 
 **Frontière de sécurité :** pas de toucher au réseau de production ou aux disques réels du Dell sous couvert de « test VM ». Toute opération destructive sur les deux SSD, RAID/firmware ou réseau réel doit rester bornée par une autorisation préalable spécifique et un plan de récupération ; après autorisation du périmètre, JARVIS exécute les étapes convenues sans supervision commande par commande. Conserver les accès SSH clés **et** mot de passe existants du Mac mini Debian.
+
+
+## Mission 20 — JARVIS Compute : calcul distribué opportuniste local (PLANIFIÉE — 17 octobre 2026)
+
+**Décision utilisateur :** réserver la mission 20 à l'exploitation des ressources inutilisées des ordinateurs du lycée au profit du cluster IA JARVIS. Périmètre **strictement local au lycée**, sans participation de machines extérieures. Deux serveurs Dell prévus sur place (256 Go RAM système chacun, quatre RTX 3090 au total pour l'ensemble du projet) constituent le cœur du cluster ; commencer par **4 à 5 postes Windows pilotes** avant toute généralisation aux salles 212, 306, 307, 406, 407, 408 et 409.
+
+**Architecture cible :**
+1. **JARVIS Compute Manager** sur l'infrastructure Dell : inventaire des nœuds, file de tâches, ordonnanceur selon CPU/RAM/GPU réellement libres, journalisation, contrôle de la charge, résultats et métriques ; technologie Ray ou équivalent à évaluer, non choisie définitivement.
+2. **JARVIS Compute Agent** sur les postes Windows : agent administré et authentifié, démarrage automatique paramétrable, détection d'inactivité utilisateur, limites CPU/RAM/GPU, exécution isolée des seules tâches autorisées et arrêt/suspension rapide dès le retour de l'utilisateur.
+3. **Wake-on-LAN optionnel** : réveil à la demande uniquement sur les matériels/configurations compatibles, dans des plages autorisées ; un poste en veille ne calcule pas. Extinction/retour en veille après travail selon politique locale.
+4. **Travaux adaptés au réseau** : indexation et préparation de corpus, embeddings par lots, traitements d'images et autres tâches parallélisables. Ne pas promettre l'addition directe des CPU de classe à la VRAM des RTX 3090 pour accélérer un même grand modèle ; tester séparément l'inférence distribuée, sensible au débit et à la latence réseau.
+5. **Intégration ultérieure** : réutiliser l'inventaire matériel/logiciel/pilotes préparé pour le PXE Windows ; proposer un profil d'installation agent via déploiement Windows, et une interface JARVIS de suivi et de contrôle.
+
+**Contraintes :** aucun DHCP additionnel, pas de perturbation des VLAN et équipements Cisco, priorité absolue aux usages pédagogiques, politique de consentement/autorisation administrative pour l'usage des postes, cloisonnement des données, authentification des agents, journalisation, absence de code non vérifié distribué aux clients, trafic et énergie bornés.
+
+**Phases / réception :** (20A) étude de faisabilité et mesures initiales sur 4–5 postes ; (20B) prototype manager/agent local ; (20C) tests d'inactivité et de reprise, Wake-on-LAN si possible ; (20D) benchmark sur tâche distribuable réelle avec et sans agents, mesures de temps/charge/réseau/énergie ; (20E) extension graduelle après bilan et autorisation. **Aucun agent déployé ni gain de performance mesuré à ce jour.**
+
+**Dépendances :** stabilisation des deux Dell et de leurs services, validation de la segmentation réseau Cisco et de la sécurité locale ; ce chantier reste postérieur aux priorités 13D → 14A → 14 et ne les bloque pas.
