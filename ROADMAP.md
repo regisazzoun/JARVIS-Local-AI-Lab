@@ -429,3 +429,8 @@ JL-02 : objectif transmis à JARVIS pour regisazzoun/JARVIS-Launcher2, développ
 ## Mission 11B — raccordement de l’administration Dell (17 octobre 2026)
 
 Administration permanente SSH/Ansible du profil Dell activée après réception 13D-E/14, avec identité existante et garde DMI/NVMe. Écriture réelle Qwen validée ; réception après redémarrage et reprise au checkpoint suivies dans [le rapport de raccordement 11B](docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md). Cette intervention appartient à 11B ; aucune nouvelle mission numérotée, aucun lancement JL-02, aucune fusion main. La mission Compute Expansion complète n’est pas déclarée terminée par le seul déblocage des droits.
+
+
+## JL-02 — JARVIS Launcher V2
+
+Interface V2 et intégration à la passerelle canonique livrées dans [JARVIS-Launcher2](https://github.com/regisazzoun/JARVIS-Launcher2). Site dédié : https://regisazzoun.github.io/JARVIS-Launcher2/. V1 préservée ; conversations, voix synthétique, métriques réelles, événements persistants et tâches JARVIS/Codex distinctes testés. Collaboration réelle : correction/test/commit Git JARVIS, audit de tests avec assistance Codex, prototype partiel finalisé par Codex. Verdict et réserves : [rapport JL-02](https://github.com/regisazzoun/JARVIS-Launcher2/blob/main/docs/RAPPORT-JL-02.md), [rapport agentique](https://github.com/regisazzoun/JARVIS-Launcher2/blob/main/docs/RAPPORT-AGENTIQUE-JL-02.md). Ne pas confondre cette livraison avec une réception complète de 11B, qui conserve son état propre. Aucun merge main automatique.

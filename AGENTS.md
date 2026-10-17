@@ -41,3 +41,8 @@ Le propriétaire autorise le raccordement de JARVIS/Qwen à Debian réel, aux in
 ## Mission 11B — administration Dell permanente
 
 Décision propriétaire du 17 octobre 2026 : le déploiement 13D-E/14 est réceptionné. Le profil historique `dell-observe` est désormais administrable via SSH et Ansible dans la politique root persistante `/etc/jarvis/host-policy.json`. Réutiliser les comptes, clés et hôtes épinglés ; aucune réinstallation Debian. Les anciennes restrictions temporaires de lecture seule du Dell sont remplacées dans ce périmètre. Les opérations IA accordées restent disponibles pour les prochaines missions autorisées ; une conversation ou une demande du modèle ne peut étendre seule cette politique. Conserver le contrôle DMI/NVMe, les journaux et les secrets hors du modèle et de Git. Reprendre 11B depuis son checkpoint, branche `jarvis/mission-11b-compute-expansion`, documentation `docs/missions/11B/`. Ne pas lancer JL-02. Aucun nouveau processus de validation humaine intermédiaire.
+
+
+## JL-02 — lancement et livraison autorisés (17 octobre 2026)
+
+Le propriétaire a explicitement lancé JL-02 : Codex coordonne et intègre, JARVIS exécute des tâches techniques réelles. Cette décision remplace les anciennes exclusions « ne pas lancer JL-02 » dans le seul périmètre JL-02 ; elle n’autorise aucune extension à une cible inconnue. Dépôt distinct `regisazzoun/JARVIS-Launcher2`, V1 inchangée. Réutiliser les identités, la passerelle, la mémoire et les outils existants, poursuivre sans validations humaines intermédiaires, conserver les preuves et l’attribution des contributions. Publication V2 autorisée ; aucune fusion automatique dans le dépôt principal. Un email de fin est demandé par le propriétaire.
