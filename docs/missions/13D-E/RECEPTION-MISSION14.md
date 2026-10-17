@@ -34,3 +34,7 @@ Comptes demandés : adminjarvis et jarvis-bootstrap, mot de passe utilisateur pr
 Pilote NVIDIA : 550.163.01 ; Ollama : 0.40.3 ; modèles réellement testés : qwen3.5:27b-q4_K_M, ministral-3:14b-instruct-2512-q4_K_M, llama3.1:8b.
 
 Les journaux, inventaires, UUID, clés et secrets restent sous deployment/13de/private/reinstall-02, hors Git. Les éventuelles erreurs détaillées et données de test sont privées. Aucune fusion main.
+
+## Retour d’expérience et corrections
+
+Le [bilan des erreurs et scripts corrigés](RAPPORT-FINAL.md#bilan-explicite-des-erreurs-et-des-scripts-corrigés--17-octobre-2026) distingue les incidents, les corrections vérifiées et les défauts restants. En particulier, le contrôleur `serve-supervised.py` utilise encore un reboot forcé de l’installateur : sa correction reste nécessaire avant de promettre la conservation du RAID sans nouvelle resynchronisation. Le reboot final normal et le RAID sain sont validés pour cette réception.

@@ -2,6 +2,36 @@
 
 RÉCEPTION COMPLÈTE VALIDÉE. Référence : [réception de la nouvelle tentative](RECEPTION-MISSION14.md). Les sections suivantes sont historiques.
 
+## Bilan explicite des erreurs et des scripts corrigés — 17 octobre 2026
+
+Cette section décrit les erreurs de la chaîne livrée et de son exécution. Elle distingue les corrections vérifiées des défauts encore présents dans le code. Les anciens états « incomplet », « en cours » et « à vérifier après reboot » ci-dessous sont des traces historiques, remplacées pour la réception courante par les résultats du [rapport de réception](RECEPTION-MISSION14.md).
+
+Les scripts cités se trouvent dans `deployment/13de/reinstall/`.
+
+| Erreur / conséquence observée | Correction et scripts concernés | Résultat et limite |
+| --- | --- | --- |
+| Utilisation de l’inventaire brut comme manifeste : lecteur SD sans média interprété comme stockage supplémentaire ; arrêt du garde d’identité. | Chaîne `build-supervised.py` / `serve-supervised.py` alimentée par le manifeste qualifié, avec exclusion précise du lecteur vide. Les contrôles DMI et identité des NVMe restent obligatoires. | Installation réalisée sur la cible qualifiée ; cet arrêt initial n’a pas écrit sur les disques. |
+| Image minimale sans `tee`, puis modules FAT manquants : interruption du script et impossibilité de monter les ESP. | `build-supervised.py` : applets statiques et modules authentifiés nécessaires ; dépannage de l’environnement en RAM puis reprise. | Montage et vérification des deux ESP réussis ; pas de reconstruction systématique du noyau. |
+| Argument `--resume-base` perdu après `set --` : tentative de formatage lors d’une reprise. | `install-preserve.sh` : conservation de l’argument dans `resume_base` et refus explicite de formater une racine montée. | `mke2fs` avait refusé l’opération sur la racine montée ; aucune perte supplémentaire constatée. Reprise sans refaire le formatage. |
+| Configuration réseau créée sous `umask 077`, illisible par networkd : interfaces off, Network File n/a. | `install-preserve.sh`, `server.yml` : droits explicites 0755 sur le répertoire et 0644 sur le fichier réseau. | Réseau routable/online et accès SSH rétablis ; disponibilité confirmée après reboot. |
+| Écriture de `KEYMAP` via un lien `/etc/vconsole.conf` : configuration XKB tronquée, clavier QWERTY. | `install-preserve.sh`, `server.yml` : configuration française combinée, respect du lien, régénération et chargement de la carte. `finish-ai.py` contrôle la carte après reboot. | `dumpkeys` confirme keycode16=a et keycode17=z après reboot. La mention VC Keymap unset de localectl ne remplace pas cette mesure réelle. |
+| Commande `ip` et outils ext4 absents du système minimal. | `install-preserve.sh`, `server.yml` : dépendances `iproute2` et `e2fsprogs` explicites. | Outils disponibles dans le système installé. |
+| `mdmonitor` en échec faute de destination d’alerte. | `server.yml` : programme local d’alerte vers le journal. | Service rétabli ; aucun mécanisme d’email d’alerte n’est revendiqué. |
+| Redémarrage forcé de l’installateur, suivi d’une resynchronisation RAID intégrale malgré la conservation des métadonnées. | `finish-ai.py` attend désormais la fin du RAID et utilise `systemctl reboot` pour la réception finale. **`serve-supervised.py` contient encore `sync; reboot -f` : correction du passage installateur → Debian restant à faire.** | RAID terminé et sain [UU], puis reboot final normal validé. Le lien entre reboot forcé et resynchronisation est une cause probable, pas une preuve exclusive. Ne pas promettre que le prochain déploiement évitera la resynchronisation avec le contrôleur actuel. |
+| Transfert des modèles refusé : parent du répertoire privé à l’utilisateur Ollama. | `finish-ai.py` : rsync distant via sudo, sans ouvrir globalement les permissions. | Transfert achevé ; inférences GPU réelles Qwen, Ministral et Llama réussies. |
+| Progression figée / ancien 99 % après échec ; suivi non visible en console après reboot. | `finish-ai.py`, `telemetry.py`, `dashboard.py`, `progress.py` : erreurs explicites, transferts délimités, télémétrie maintenue, mesure RAID par /proc/mdstat. `progress-viewer.sh`, `progress-console.service`, `install-preserve.sh` : vue SSH et tty8 persistante. | Suivi rétabli et tâches clôturées sur preuves. Pourcentage global par tâches, pas estimation fiable du temps restant. |
+| Test d’intégration HTTP 403 : fichier de credentials périmé. | `integrate.py` : sélection d’un secret local existant correspondant au hash actif, sans changement de compte ou mot de passe. | Passerelle, Open WebUI, mémoire canonique, outil et chaîne vocale synthétique validés. Secrets exclus de Git. |
+| Risque de reboot pendant l’installation KDE ajoutée en cours de mission. | `install-plasma.sh`, `plasma-worker.py`, `await-plasma.py`, `finish-ai.py`, `progress.py` : tâche distincte et attente de son installation avant reboot ; contrôle SDDM/Xorg ensuite. | Gestionnaire graphique actif après reboot ; session utilisateur interactive non testée. |
+| `nvidia-persistenced` et `polkit` observés en échec pendant le déploiement. | Contrôle à nouveau après reboot ; aucune correction spécifique de ces deux causes n’est démontrée par les changements de scripts vérifiés ici. | À 17 h 18, les deux services sont actifs et systemctl --failed est vide. Ne pas présenter ce rétablissement comme une correction de code identifiée. |
+
+### État confirmé et travail restant
+
+Réception automatique terminée à 15 h 09 ; contrôle supplémentaire en direct à 17 h 18 : RAID [UU] sans resynchronisation, SSH/Ollama/SDDM/polkit/nvidia-persistenced actifs, aucun service en échec. GPU au repos : 29 °C, environ 30 W, ventilateurs 30 %, contre 57–60 °C et environ 117 W avec Qwen chargé lors du diagnostic précédent. Ces mesures ne constituent pas un relevé des ventilateurs du châssis.
+
+Pour le prochain déploiement, corriger et qualifier l’arrêt propre de l’installateur dans `serve-supervised.py` reste nécessaire. Les essais physiques de session KDE, microphone réel, retrait d’un SSD et seconde RTX ne sont pas revendiqués. La seconde RTX demeure inutilisée faute d’alimentation complète. Les preuves détaillées restent privées ; aucun secret ni identifiant matériel unique n’est publié.
+
+---
+
 # Dernière réception 13D-E / 14
 
 INCOMPLET — consulter les preuves privées et reprendre sans réinstallation aveugle. Référence : [réception de la nouvelle tentative](RECEPTION-MISSION14.md). Les sections suivantes sont historiques.
