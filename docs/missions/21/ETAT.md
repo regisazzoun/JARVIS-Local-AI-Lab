@@ -10,6 +10,6 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | 04 — Concordance documentaire incrémentale | validated | 308f79ea0eab3d731fa29e9e2b90621076f4a08eab964296ea69a5c1c41e886a |
 | 05 — Configuration Dell via Ansible idempotent | validated | 6d4d44162fac31f1ab9e66738d2ff5a26bc72cf8d59e00c95d6175384048fbb8 |
 | 06 — Supervision légère systemd du Dell | validated | 68fb7782772cf78eb0a00c6d53d4cd9b5b722c54ba1a1c523bbddc5d898cacd7 |
-| 07 — Bureau Plasma privé via VNC et tunnels LAN/Tailscale | pending | non reçu |
+| 07 — Bureau Plasma privé via VNC et tunnels LAN/Tailscale | running | non reçu |
 
 Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
