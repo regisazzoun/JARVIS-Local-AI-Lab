@@ -21,3 +21,6 @@ Le catalogue réel contient les trois mêmes modèles sur Mac mini et Dell1. Le 
 ## Réglage de finalisation
 
 Le contexte durable passe de16384 à32768 après observation de lectures volumineuses compactées à chaque tour. Le reçu complet reste dans le journal, les vues du modèle sont bornées et explicitement signalées comme extraits ; ce réglage vise la conservation du contexte utile, sans économiser les ressources disponibles. Il ne garantit pas à lui seul une meilleure autonomie. Le dernier échantillon et les limites réelles figurent dans [RESSOURCES-FINALES.json](RESSOURCES-FINALES.json). Aucun quota CPU/RAM/tâches du service ; `durable_num_predict=-1`. Les délais réseau et quanta servent à la reprise, sans durée maximale de mission.
+
+
+La [télémétrie finale de JL-02](TELEMETRIE-JL02-FINALE.json) voit réellement Mac mini et Dell1 disponibles, Ollama actif sur les deux. Après passage en attente externe, les GPU sont à0% d’activité au prélèvement ; le Dell conserve le modèle chargé en VRAM. Cela distingue absence de travail actif et indisponibilité. Dell2 reste indiqué indisponible, sans déploiement.
