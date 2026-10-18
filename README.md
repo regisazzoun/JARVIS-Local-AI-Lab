@@ -138,8 +138,8 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **15B.5** | iOS — Installation gratuite et réception | 📋 Prévue, non exécutée |
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES |
-| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 Reprise préparée par mission 22 |
-| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟠 En cours — développement et tests |
+| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 Reprise durable en cours |
+| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟠 En cours — moteur déployé, réception21 |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->

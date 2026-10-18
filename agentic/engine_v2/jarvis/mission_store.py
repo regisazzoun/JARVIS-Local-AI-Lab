@@ -75,7 +75,7 @@ class MissionStore:
         now = time.time()
         with self.db() as c:
             c.execute('INSERT INTO missions(id,goal,model,state,conversation,updated,created,last_progress,project,spec,origin) VALUES(?,?,?,?,?,?,?,?,?,?,?)',
-                      (ident, goal, model, 'queued', conversation, now, now, now, project, encoded(spec or {}), origin))
+                      (ident, goal, model, 'draft' if (spec or {}).get('tasks') else 'queued', conversation, now, now, now, project, encoded(spec or {}), origin))
             self.event(ident, 'mission_created', result={'origin': origin}, connection=c)
         return ident
 
@@ -135,14 +135,14 @@ class MissionStore:
     def ready(self, ident):
         tasks = self.tasks(ident)
         done = {t['id'] for t in tasks if t['state'] == 'validated'}
-        return [t for t in tasks if t['state'] in ('pending', 'running', 'retrying') and set(t['deps']) <= done]
+        return [t for t in tasks if t['state'] in ('pending', 'running', 'retrying', 'blocked') and set(t['deps']) <= done]
 
     def claim(self, owner, lease_seconds=120):
         with self.db() as c:
             c.execute('BEGIN IMMEDIATE')
             now = time.time()
             c.execute("UPDATE missions SET state='queued',lease_owner=NULL WHERE state='running' AND origin!='legacy' AND coalesce(lease_until,0)<?", (now,))
-            row = c.execute("SELECT * FROM missions WHERE state IN ('queued','retrying','publishing') AND coalesce(next_run,0)<=? ORDER BY updated LIMIT 1", (now,)).fetchone()
+            row = c.execute("SELECT * FROM missions WHERE (state IN ('queued','retrying','publishing') OR (state='blocked' AND origin!='legacy')) AND coalesce(next_run,0)<=? ORDER BY updated LIMIT 1", (now,)).fetchone()
             if not row:
                 return None
             c.execute("UPDATE missions SET state='running',attempts=attempts+1,lease_owner=?,lease_until=?,updated=? WHERE id=?",
@@ -202,3 +202,25 @@ class MissionStore:
             r['arguments'] = json.loads(r['arguments'])
             r['result'] = json.loads(r['result'])
         return rows
+
+    def contract_status(self, ident, task_id):
+        task=next((t for t in self.tasks(ident) if t['id']==task_id),None)
+        if not task:return {}
+        observations=self.observations(ident,task_id)
+        contract=task.get('contract',{})
+        checks=contract.get('checks',[])+[{'tool':t} for t in contract.get('required_tools',[])]
+        status=[]
+        for check in checks:
+            matches=[]
+            for item in observations:
+                result=item['result'] or {};args=item['arguments']
+                if item['tool'] not in (check.get('tools') or [check['tool']]) or result.get('ok')!=check.get('ok',True):continue
+                if check.get('action') and args.get('action')!=check['action']:continue
+                if any(args.get(k)!=v for k,v in check.get('arguments',{}).items()):continue
+                if check.get('stdout_contains') and check['stdout_contains'] not in result.get('result',{}).get('stdout',''):continue
+                matches.append(item['id'])
+            status.append({'check':check,'satisfied':len(matches)>=check.get('minimum',1),'matching_count':len(matches),'invocations':matches[-3:]})
+        path=contract.get('report_path')
+        return {'requirements':status,'all_satisfied':all(s['satisfied'] for s in status),
+                'report_path':path,'report_written':any(o['tool']=='host_write_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations),
+                'report_read':any(o['tool']=='host_read_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)}

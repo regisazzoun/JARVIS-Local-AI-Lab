@@ -15,7 +15,25 @@ def register(registry):
     def plan(args):
         return {'tasks': store().plan(key(), args['tasks'])}
     def progress(args):
-        return {'mission': key(), 'tasks': store().tasks(key())}
+        current=getattr(registry,'mission_store',None)
+        def summary(tasks):return [{k:t.get(k) for k in ('id','title','state','artifact','report_sha256')} for t in tasks]
+        if current:return {'mission':key(),'tasks':summary(current.tasks(key()))}
+        controller=getattr(registry,'mission_controller',None)
+        if not controller:raise ValueError('Moteur durable indisponible')
+        ident=args.get('id')
+        if not ident:
+            with controller.store.db() as c:
+                row=c.execute('SELECT id FROM missions WHERE conversation=? ORDER BY updated DESC LIMIT 1',(registry.context.get('conversation'),)).fetchone()
+            if not row:raise ValueError('Aucune mission pour cette conversation ; utilise mission_list')
+            ident=row['id']
+        mission=controller.store.get(ident)
+        return {'mission':ident,'state':mission['state'],'tasks':summary(controller.store.tasks(ident))}
+    def listing(args):
+        controller=getattr(registry,'mission_controller',None)
+        if not controller:raise ValueError('Moteur durable indisponible')
+        with controller.store.db() as c:
+            return {'missions':[{**dict(r),'goal':r['goal'].split('\n')[0][:300]} for r in c.execute('SELECT id,goal,state,updated,conversation FROM missions ORDER BY updated DESC LIMIT 15')]}
+
     def evidence(args):
         rows = store().observations(key())
         row = next((r for r in rows if r['id'] == args['id']), None)
@@ -30,6 +48,8 @@ def register(registry):
         db = store(); ident = key()
         task = next((t for t in db.tasks(ident) if t['id'] == args['id']), None)
         if not task: raise ValueError('Tâche absente')
+        contract=task.get('contract',{})
+        if contract.get('report_path') and args['report_path']!=contract['report_path']:raise ValueError('Chemin de rapport attendu : '+contract['report_path'])
         if task['id'] != registry.context.get('task_id'):
             raise ValueError('Valide uniquement la tâche active, après ses dépendances')
         done = {t['id'] for t in db.tasks(ident) if t['state'] == 'validated'}
@@ -52,29 +72,62 @@ def register(registry):
             if not any(r['tool'] == required and (r['result'] or {}).get('ok') for r in observations):
                 raise ValueError('Contrat non satisfait : outil réussi requis '+required)
         for check in contract.get('checks',[]):
-            actual=[r for r in observations if r['tool']==check['tool'] and (r['result'] or {}).get('ok') and (not check.get('action') or r['arguments'].get('action')==check['action']) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout',''))]
+            actual=[r for r in observations if r['tool'] in (check.get('tools') or [check['tool']]) and (r['result'] or {}).get('ok')==check.get('ok',True) and all(r['arguments'].get(k)==v for k,v in check.get('arguments',{}).items()) and (not check.get('action') or r['arguments'].get('action')==check['action']) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout',''))]
             if len(actual)<check.get('minimum',1):raise ValueError('Assertion fonctionnelle manquante : '+encoded(check))
         # A mutation must have a later independent observation, not only its write receipt.
         writes = [r for r in observations if r['tool'] in ('host_write_file', 'host_remote', 'host_ansible')
-                  and (r['tool'] == 'host_write_file' or r['arguments'].get('action') in ('write_file', 'deploy_file', 'package_install', 'service'))
+                  and (r['tool'] == 'host_write_file' or (r['arguments'].get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure') or (r['arguments'].get('action')=='service' and r['arguments'].get('service_action') in ('start','stop','restart','enable','disable'))))
                   and (r['result'] or {}).get('ok') and r['arguments'].get('path') != args['report_path']]
         if writes and chosen['created'] <= writes[-1]['created']:
             raise ValueError('Vérification indépendante postérieure à la dernière modification requise')
+        spec=json.loads(db.get(ident)['spec'])
+        if spec.get('publication'):
+            from .publication import redact_public,invoke
+            clean=redact_public(body)
+            if clean!=body:
+                invoke('host_write_file',{'path':args['report_path'],'content':clean})
+                body=invoke('host_read_file',{'path':args['report_path']})['stdout']
+                if body!=clean:raise ValueError('Expurgation locale non confirmée')
+                db.event(ident,'report_redacted',task['id'],result={'editor':'JARVIS-engine','path':args['report_path']})
         sha = hashlib.sha256(body.encode()).hexdigest()
         with db.db() as c:
             c.execute("UPDATE tasks SET state='validated',evidence=?,artifact=?,report_sha256=?,updated=? WHERE mission=? AND id=?",
                       (encoded([chosen]), args['report_path'], sha, time.time(), ident, task['id']))
             db.event(ident, 'task_verified', task['id'], 'JARVIS-engine', result={'report_path': args['report_path'], 'sha256': sha, 'evidence': chosen['id']}, connection=c)
+            publication=json.loads(db.get(ident)['spec']).get('publication')
+            if publication:
+                from pathlib import Path
+                from .publication import enqueue
+                relative=str(Path(args['report_path']).relative_to(Path(publication['workspace'])))
+                enqueue(db,ident,task['id'],{**publication,'file':relative},verified_body=body,connection=c)
         registry.memory.document(body, source=args['report_path'], project=registry.context.get('project', ''))
         return {'state': 'validated', 'id': task['id'], 'report_path': args['report_path'], 'sha256': sha}
     def publish(args):
         from .publication import enqueue
         return enqueue(store(),key(),registry.context.get('task_id'),args)
+    def batch(args):
+        import concurrent.futures,os
+        calls=json.loads(args['calls']) if isinstance(args['calls'],str) else args['calls']
+        if not isinstance(calls,list) or not calls:raise ValueError('Liste de lectures requise')
+        safe={'host_read_file','host_policy','host_resources','host_logs','host_diagnostics','system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_fetch','web_search'}
+        for call in calls:
+            if not isinstance(call,dict) or set(call)!={'tool','arguments'}:raise ValueError('Chaque lecture exige tool et arguments')
+            if call['tool'] not in safe and not (call['tool']=='host_remote' and call['arguments'].get('action') in ('identity','resources','services','desktop_status','desktop_logs','journal_recent','supervision_status','models','storage','telemetry')):raise ValueError('Lecture batch non admise : '+call['tool']+'. Pour les journaux utilise host_logs/service_logs ; host_exec reste un appel séparé.')
+        def run(call):
+            start=time.monotonic();token=store().begin_call(key(),registry.context.get('task_id'),call['tool'],call['arguments'])
+            result=registry.execute(call['tool'],call['arguments'])
+            store().finish_call(token,result,time.monotonic()-start)
+            return {**result,'invocation_id':token}
+        with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(calls),os.cpu_count() or 1)) as pool:
+            results=list(pool.map(run,calls))
+            return {'results':results,'returncode':0 if all(r.get('ok') for r in results) else 1}
     definitions = [
+        ('mission_list','Lister les missions durables réelles pour répondre sur leur état en conversation.',{},[],listing),
+        ('mission_read_batch','Exécuter en parallèle des lectures indépendantes réelles. Ne grouper aucune mutation ni commande host_exec.',{'calls':{'type':'array','items':{'type':'object','properties':{'tool':{'type':'string'},'arguments':{'type':'object'}},'required':['tool','arguments']}}},['calls'],batch),
         ('mission_publish', 'Enregistrer un rapport local pour publication asynchrone avec vérification distante. Échec GitHub ne perd pas le fichier local.', {k:{'type':'string'} for k in ('repository','branch','workspace','file')}, ['repository','branch','workspace','file'], publish),
         ('mission_plan', 'Enregistrer le plan durable avant exécution. Liste de tâches avec id,title,depends et contract optionnel.',
          {'tasks': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'string'}, 'title': {'type': 'string'}, 'depends': {'type': 'array', 'items': {'type': 'string'}}}, 'required': ['id', 'title', 'depends']}}}, ['tasks'], plan),
-        ('mission_progress', 'Relire les tâches persistantes et leur état vérifié.', {}, [], progress),
+        ('mission_progress', 'Relire les tâches persistantes ; id facultatif en conversation pour une autre mission.', {'id':{'type':'string'}}, [], progress),
         ('mission_evidence', 'Relire une preuve complète persistante par invocation id, avec pagination.', {'id': {'type': 'string'}, 'offset': {'type': 'integer'}}, ['id'], evidence),
         ('mission_note', 'Conserver observations, erreurs et prochaine action avant reprise.', {'content': {'type': 'string', 'maxLength': 16000}}, ['content'], note),
         ('mission_task_complete', 'Vérifier le rapport local et la preuve réelle de la tâche active ; ne valide pas une simple affirmation.',

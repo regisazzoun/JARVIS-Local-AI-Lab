@@ -16,6 +16,17 @@ class DurableJournalTest(unittest.TestCase):
         with self.store.db() as c:c.execute("UPDATE tasks SET state='validated' WHERE id='a'")
         reopened=MissionStore(Path(self.temp.name))
         self.assertEqual([t['id'] for t in reopened.ready(self.ident)],['b'])
+    def test_contract_proof_survives_a_long_sequence(self):
+        self.store.plan(self.ident,[{'id':'a','title':'A','depends':[],'contract':{'checks':[{'tool':'host_remote','action':'resources'}]}}])
+        proof=self.store.begin_call(self.ident,'a','host_remote',{'action':'resources'})
+        self.store.finish_call(proof,{'ok':True,'result':{'stdout':'real observation placeholder for storage unit test'}},.1)
+        for i in range(40):
+            token=self.store.begin_call(self.ident,'a','mission_progress',{'iteration':i})
+            self.store.finish_call(token,{'ok':True},.1)
+        status=self.store.contract_status(self.ident,'a')
+        self.assertTrue(status['all_satisfied'])
+        self.assertIn(proof,status['requirements'][0]['invocations'])
+
     def test_invalid_plan_is_atomic(self):
         with self.assertRaises(ValueError):self.store.plan(self.ident,[{'id':'a','title':'A','depends':['b']}])
         self.assertEqual(self.store.tasks(self.ident),[])

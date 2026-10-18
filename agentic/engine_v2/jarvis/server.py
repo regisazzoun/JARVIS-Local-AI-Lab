@@ -63,7 +63,7 @@ def make_handler(core,auth=None):
                         result.update(answer='Mission enregistrée ; exécution et preuves dans le Sandbox.',tools=[])
                         self.send(result,202)
                     else:self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False))
-                elif p=='/api/missions':self.send(core.missions.submit(d['goal'],d['model'],d.get('conversation'),d.get('project','')))
+                elif p=='/api/missions':self.send(core.missions.submit(d['goal'],d['model'],d.get('conversation'),d.get('project',''),d.get('spec')))
                 elif p=='/api/missions/resume':self.send(core.missions.resume(d['id']))
                 elif p=='/api/missions/interrupt':self.send(core.missions.interrupt(d['id']))
                 elif p=='/api/stt':self.send(core.voice('stt',raw))
@@ -93,7 +93,7 @@ def main():
     lock=open(runtime/'application.lock','w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     config=json.loads(open(args.config).read());m=Memory(args.db);m.prune(config['retention_days']);core=Core(config,m);auth=Auth(config['auth_file'],config.get('secure_cookie',False),session_db=args.db)
     from .missions import Missions
-    core.missions=Missions(core,ROOT);core.tools.checkpoint=core.missions.checkpoint
+    core.missions=Missions(core,ROOT,recover_exclusive=True);core.tools.checkpoint=core.missions.checkpoint
     # Bind is the definitive free-port check. Failure exits without affecting any existing listener.
     server=ThreadingHTTPServer(('127.0.0.1',config['port']),make_handler(core,auth));server.daemon_threads=False
     server.launcher=Launcher(ROOT)

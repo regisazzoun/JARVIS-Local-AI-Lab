@@ -1,5 +1,7 @@
 """Durable execution with leases, immediate checkpoints and automatic continuation."""
 import json
+import logging
+from pathlib import Path
 import threading
 import time
 import uuid
@@ -10,13 +12,27 @@ class MissionInterrupted(RuntimeError):
     pass
 
 class Missions:
-    def __init__(self, core, root, start_worker=True):
+    def __init__(self, core, root, start_worker=True, recover_exclusive=False):
         self.core = core
         self.store = MissionStore(root)
+        if recover_exclusive:
+            # server.main already owns runtime/application.lock: no old worker can remain.
+            with self.store.db() as c:
+                abandoned=[r['id'] for r in c.execute("SELECT id FROM missions WHERE state='running' AND origin!='legacy'")]
+                for ident in abandoned:
+                    c.execute("UPDATE missions SET state='queued',lease_owner=NULL,lease_until=NULL WHERE id=?",(ident,))
+                    self.store.event(ident,'exclusive_restart_recovered',result={'basis':'Canonical process holds exclusive application flock; persisted work preserved'},connection=c)
         self.path = self.store.path
         self.stop = threading.Event()
         self.owner = uuid.uuid4().hex
-        self.cycle = DurableCycle(core, self.store)
+        # A long durable task must not monopolize conversation/STT/TTS locks.
+        from .core import Core
+        self.execution_core=Core(dict(core.config),core.memory)
+        self.execution_core.config['ollama_route']=core.config.get('mission_ollama_route',core.config.get('ollama_route',[]))
+        self.execution_core.tools.root=core.tools.root
+        self.execution_core.missions=self
+        self.execution_core.tools.mission_controller=self
+        self.cycle = DurableCycle(self.execution_core, self.store)
         core.missions = self
         core.tools.mission_controller = self
         if start_worker:
@@ -31,8 +47,15 @@ class Missions:
             raise ValueError('Objectif invalide')
         if model not in self.core.config['models']:
             raise ValueError('Modèle inconnu')
+        if spec is not None and not isinstance(spec,dict):raise ValueError('spec doit être un objet')
+        if conversation and conversation not in {r['id'] for r in self.core.memory.list_conversations()}:raise ValueError('Conversation absente')
         conversation = conversation or self.core.memory.conversation(project)
         ident = self.store.create(goal, model, conversation, project, spec)
+        if (spec or {}).get('tasks'):
+            self.store.plan(ident,spec['tasks'])
+            self.store.transition(ident,'queued')
+        self.core.memory.mission_message(ident,'goal',conversation,'user',goal,model)
+        self.core.memory.mission_message(ident,'ack',conversation,'assistant','Mission durable enregistrée : '+ident,'JARVIS-engine')
         return {'id': ident, 'mission_id': ident, 'conversation': conversation, 'state': 'queued'}
 
     def resume(self, ident):
@@ -77,11 +100,31 @@ class Missions:
         from .publication import deliver_one
         while not self.stop.wait(2):
             try: deliver_one(self.store)
-            except Exception: pass  # Worker survives DB contention; next poll retries persisted rows.
+            except Exception: logging.exception('Persistent publisher retry after storage failure')
+
+    def record_final(self,row):
+        report=self.store.get(row['id']).get('report_path')
+        if report:
+            self.core.memory.mission_message(row['id'],'final',row['conversation'],'assistant',Path(report).read_text(),row['model'])
+
+    def publish_progress(self,row):
+        spec=json.loads(row['spec'])
+        if not spec.get('progress_file') or not spec.get('publication'):return
+        from .publication import invoke,enqueue
+        publication=spec['publication'];relative=spec['progress_file']
+        body='# État de mission\n\nGénéré par JARVIS-engine depuis les checkpoints réels. Les rapports sont rédigés par le modèle.\n\n| Tâche | État | Rapport vérifié |\n| --- | --- | --- |\n'
+        for task in self.store.tasks(row['id']):
+            body+='| '+task['id']+' — '+task['title'].replace('|','/')+' | '+task['state']+' | '+(task.get('report_sha256') or 'non reçu')+' |\n'
+        body+='\nLes livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.\n'
+        path=str(Path(publication['workspace'])/relative)
+        invoke('host_write_file',{'path':path,'content':body})
+        confirmed=invoke('host_read_file',{'path':path})['stdout']
+        if body!=confirmed:raise ValueError('ETAT local non confirmé')
+        enqueue(self.store,row['id'],None,{**publication,'file':relative},verified_body=body)
 
     def worker(self):
         while not self.stop.wait(1):
-            if not self.core.lock.acquire(blocking=False):
+            if not self.execution_core.lock.acquire(blocking=False):
                 continue
             row = None
             done = threading.Event()
@@ -92,18 +135,28 @@ class Missions:
                 threading.Thread(target=self.heartbeat, args=(row['id'], done), daemon=True).start()
                 if row.get('report_path'):
                     with self.store.db() as c:
-                        pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state!='verified'",(row['id'],)).fetchone()[0]
+                        pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]
+                    if not pending:self.record_final(row)
                     self.store.transition(row['id'],'publishing' if pending else 'completed',delay=10 if pending else 0)
                     continue
                 result = self.cycle.run(row)
                 tasks = self.store.tasks(row['id'])
+                if result.get('progress'):self.publish_progress(row)
                 completed = bool(tasks) and all(t['state'] == 'validated' for t in tasks) and result.get('report')
                 with self.store.db() as c:
-                    pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state!='verified'",(row['id'],)).fetchone()[0]
+                    pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]
                 if completed:
                     with self.store.db() as c:c.execute('UPDATE missions SET report_path=? WHERE id=?',(result['report']['path'],row['id']))
                 state = ('publishing' if pending else 'completed') if completed else 'queued'
-                self.store.transition(row['id'], state, result, delay=0 if result.get('progress') else 10,
+                if not result.get('progress') and state=='queued':
+                    with self.store.db() as c:
+                        c.execute('UPDATE missions SET stagnant_cycles=stagnant_cycles+1 WHERE id=?',(row['id'],))
+                        stagnant=c.execute('SELECT stagnant_cycles FROM missions WHERE id=?',(row['id'],)).fetchone()[0]
+                    if stagnant>=3:
+                        state='blocked'
+                        result['blockage']='Trois cycles sans nouvelle observation utile ; reprise technique automatique après attente, sans nouvelle validation humaine.'
+                if state=='completed':self.record_final(row)
+                self.store.transition(row['id'], state, result, delay=60 if state=='blocked' else 0 if result.get('progress') else 10,
                                       progress=bool(result.get('progress')))
             except MissionInterrupted:
                 if row: self.store.transition(row['id'], 'interrupted')
@@ -114,6 +167,6 @@ class Missions:
                     self.store.transition(row['id'], 'retrying', {'error': str(exc)}, delay=min(60, 2**min(row['attempts'], 6)))
             finally:
                 done.set()
-                self.core.tools.context = {}
-                self.core.tools.__dict__.pop('mission_store', None)
-                self.core.lock.release()
+                self.execution_core.tools.context = {}
+                self.execution_core.tools.__dict__.pop('mission_store', None)
+                self.execution_core.lock.release()

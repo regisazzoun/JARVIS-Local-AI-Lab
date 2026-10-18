@@ -11,7 +11,7 @@ class Core:
     def __init__(self,config,memory,transport=None):
         self.config=config;self.memory=memory;self.lock=threading.Lock();self.ephemeral={};self.transport=transport or self.ollama;self.tools=Registry(memory,ROOT,config);self.metrics=[]
     def health(self):
-        status={'application':'ok','database':'ok','ollama':'indisponible','busy':self.lock.locked()}
+        status={'application':'ok','database':'ok','ollama':'indisponible','busy':self.lock.locked(),'mission_busy':bool(getattr(self,'missions',None) and self.missions.execution_core.lock.locked())}
         try:
             with self.memory.connect() as c:c.execute('SELECT 1').fetchone()
         except Exception:status['database']='erreur'
@@ -20,11 +20,23 @@ class Core:
         except Exception:pass
         return status
     def ollama(self,payload):
-        req=urllib.request.Request(self.config['ollama_url']+'/api/chat',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json'})
-        with urllib.request.urlopen(req,timeout=self.config.get('ollama_timeout')) as response:
-            data=json.loads(response.read(2_000_000))
-        self.metrics.append({k:data.get(k) for k in ['load_duration','prompt_eval_duration','eval_duration','eval_count','prompt_eval_count','total_duration','done_reason']})
-        return data['message']
+        nodes=self.config.get('ollama_nodes',{})
+        route=self.config.get('ollama_route',[])
+        candidates=[(name,nodes[name]) for name in route if name in nodes] or [('configured-node',self.config['ollama_url'])]
+        failures=[]
+        for name,url in candidates:
+            started=time.monotonic()
+            try:
+                req=urllib.request.Request(url.rstrip('/')+'/api/chat',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json'})
+                with urllib.request.urlopen(req,timeout=self.config.get('ollama_timeout')) as response:
+                    data=json.loads(response.read(2_000_000))
+                self.metrics.append({**{k:data.get(k) for k in ['load_duration','prompt_eval_duration','eval_duration','eval_count','prompt_eval_count','total_duration','done_reason']},'node':name,'route_failures':failures,'request_elapsed_s':time.monotonic()-started})
+                message=data['message']
+                message.pop('thinking',None) # Keep outcomes/notes, never publish raw model reasoning.
+                return message
+            except (OSError,ValueError,KeyError) as exc:
+                failures.append({'node':name,'error_type':type(exc).__name__})
+        raise RuntimeError('Aucun moteur disponible : '+json.dumps(failures))
     def chat(self,text,model,conversation=None,project='',retain=True,agent_mode=False,mission_id=None):
         if type(agent_mode) is not bool:raise ValueError('Mode laboratoire invalide')
         if type(retain) is not bool:raise ValueError('Politique de conservation invalide')
@@ -76,13 +88,13 @@ class Core:
                     from .missions import MissionInterrupted
                     raise MissionInterrupted('Mission interrompue avant nouvelle opération')
                 # Preserve the objective and evidence instead of letting Ollama truncate them.
-                context_budget=min(16000,max(9000,self.config.get('num_ctx',8192)*2))
+                context_budget=max(9000,self.config.get('num_ctx',8192)*3-len(json.dumps(self.tools.schemas()))-4096)
                 if agent_mode and sum(len(json.dumps(m,ensure_ascii=False)) for m in messages)>context_budget:
                     ledger=[];used=0
                     for observation in reversed(tool_results):
                         value=observation.get('result',{});item={'tool':observation['tool'],'ok':observation['ok']}
                         if isinstance(value,dict):
-                            for k in ('url','returncode','command','stdout','content','saved','path','evidence_id','state','capabilities','requests','tasks','scope','packages','write_roots','read_roots','services','repositories','remote_hosts','cpu','ram','gpu','tailscale'):
+                            for k in ('url','returncode','command','stdout','content','saved','path','evidence_id','state','progress','capabilities','requests','tasks','scope','packages','write_roots','read_roots','services','repositories','remote_hosts','cpu','ram','gpu','tailscale'):
                                 if k=='remote_hosts' and k in value:
                                     # Preserve every granted target; truncating the mapping hid Dell
                                     # behind the first loopback profile and caused policy-read loops.
@@ -141,7 +153,6 @@ class Core:
                     f=call.get('function',{});name=f.get('name','');arguments=f.get('arguments',{});result=self.tools.execute(name,arguments)
                     if result.get('deferred'):
                         answer='Mission durable enregistrée : '+result['mission_id']+'. Exécution et preuves dans le Sandbox.'
-                        if retain:self.memory.exchange(conversation,text,answer,model)
                         return {'answer':answer,'spoken_answer':answer,'conversation':conversation,'mission_id':result['mission_id'],'model':model,'tools':[]}
                     tool_results.append(result)
                     # The checkbox drives planning, not authorization. A real mutation starts

@@ -58,6 +58,14 @@ def execute(op,a,cfg):
         # The model needs operations and permissions, never SSH material locations.
         result['remote_hosts']={name:{**{k:v for k,v in h.items() if k not in ('identity','known_hosts','identity_check','commands')},'commands':list(h.get('commands',{})),'identity_checked':bool(h.get('identity_check'))} for name,h in cfg['remote_hosts'].items()}
         return result
+    if op=='host_diagnostics':
+        action=a['action']
+        commands={'failed_units':['/usr/bin/systemctl','--failed','--no-pager'],
+                  'recent_warnings':['/usr/bin/journalctl','-b','-p','warning','-n','60','--no-pager','-o','short-iso'],
+                  'kernel_warnings':['/usr/bin/journalctl','-b','-k','-p','warning','-n','60','--no-pager','-o','short-iso'],
+                  'storage_state':['/usr/bin/cat','/proc/mdstat']}
+        if action not in cfg.get('diagnostics',[]) or action not in commands:raise PermissionError('Diagnostic hors politique')
+        return run(commands[action],30)
     if op=='host_exec':return sandbox(a['command'],cfg)
     if op in ('host_read_file','host_write_file','host_delete_file'):
         path=root_for(a['path'],cfg['write_roots']+(cfg['read_roots'] if op=='host_read_file' else []))
@@ -66,7 +74,7 @@ def execute(op,a,cfg):
         elif op=='host_write_file':script='from pathlib import Path; p=Path('+repr(str(path))+'); p.parent.mkdir(parents=True,exist_ok=True); p.write_text('+repr(a['content'])+'); print(p.stat().st_size)'
         else:script='from pathlib import Path; Path('+repr(a['path'])+').unlink(); print("deleted")'
         import shlex
-        return sandbox('python3 -c '+shlex.quote(script),cfg)
+        return sandbox('python3 -c '+shlex.quote(script),cfg,output_limit=1400000 if op=='host_read_file' else 16000)
     if op=='host_package':
         package=a['package'];action=a['action']
         if package not in cfg['packages']:raise PermissionError('Paquet absent de la politique propriétaire')
@@ -158,6 +166,9 @@ def execute(op,a,cfg):
                 if dest.is_symlink() or any(p.is_symlink() for p in dest.parents if p!=clean.parent):raise PermissionError('Destination symlink refusée')
                 dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(content)
                 account=pwd.getpwnam(cfg['user']);os.chown(dest,account.pw_uid,account.pw_gid)
+                for parent in dest.parents:
+                    if parent==clean:break
+                    os.chown(parent,account.pw_uid,account.pw_gid);parent.chmod(0o755)
                 added=run(['/usr/bin/git','-C',str(clean),'add','--',relative],15,cfg['user'])
                 if added['returncode']:return added
                 unchanged=run(['/usr/bin/git','-C',str(clean),'diff','--cached','--quiet','--',relative],15,cfg['user'])
@@ -185,7 +196,15 @@ def execute(op,a,cfg):
         if profile.get('identity_check'):
             checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
             if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
+        if action=='desktop_network_test':
+            if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Test réseau bureau hors profil')
+            from remote_operations import network_test
+            return network_test(profile,common,run)
         remote_argv=None
+        if action in ('supervision_install','supervision_test','desktop_configure','desktop_test'):
+            if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Opération structurée hors profil')
+            from remote_operations import program
+            remote_argv=['sudo','-n','python3','-c',program(action)]
         if action in ('write_file','read_file','deploy_file'):
             target=P(a['path'])
             roots=profile.get('write_roots',[])

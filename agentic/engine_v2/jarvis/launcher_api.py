@@ -29,12 +29,12 @@ class Launcher:
     def missions(self):
         with self.db() as c:
             rows=[]
-            for r in c.execute('SELECT id,goal,model,state,attempts,updated FROM missions ORDER BY updated DESC LIMIT 80'):
+            for r in c.execute('SELECT id,goal,model,state,attempts,updated,created,conversation,last_progress,active_task FROM missions ORDER BY updated DESC LIMIT 80'):
                 d=dict(r);tasks=[]
-                for t in c.execute('SELECT id,title,state,deps,evidence,updated FROM tasks WHERE mission=?',(r['id'],)):
+                for t in c.execute('SELECT id,title,state,deps,evidence,updated,started,artifact,report_sha256 FROM tasks WHERE mission=?',(r['id'],)):
                     t=dict(t);t['evidence']=json.loads(t['evidence']);t['agent']='JARVIS';tasks.append(t)
                 count=sum(t['state']=='validated' and bool(t['evidence']) for t in tasks)
-                d.update(agent='JARVIS',tasks=tasks,progress={'total':len(tasks),'validated':count,'percent':round(100*count/len(tasks)) if tasks else None,'measured':False},started=c.execute('SELECT min(created) FROM checkpoints WHERE mission=?',(r['id'],)).fetchone()[0]);rows.append(d)
+                d.update(agent='JARVIS',tasks=tasks,progress={'total':len(tasks),'validated':count,'percent':round(100*count/len(tasks)) if tasks else None,'measured':True,'basis':'validated_tasks'},started=c.execute('SELECT min(created) FROM checkpoints WHERE mission=?',(r['id'],)).fetchone()[0]);rows.append(d)
             # Operator tasks are recorded separately; never attributed to Qwen.
             if c.execute("SELECT 1 FROM sqlite_master WHERE name='launcher_operator_tasks'").fetchone():
                 tasks=[dict(t) for t in c.execute('SELECT * FROM launcher_operator_tasks ORDER BY started')]

@@ -56,6 +56,18 @@ class Memory:
             for role,text in [('user',user),('assistant',answer)]:
                 mid=uid();c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?)',(mid,id,role,text,model,now()))
                 c.execute('INSERT INTO messages_fts VALUES(?,?)',(mid,text))
+    def mission_message(self,mission,kind,conversation,role,content,model):
+        if role not in ('user','assistant'):raise ValueError('Rôle invalide')
+        with self.connect() as c:
+            c.execute('CREATE TABLE IF NOT EXISTS mission_messages(mission TEXT,kind TEXT,message TEXT,PRIMARY KEY(mission,kind))')
+            c.execute('BEGIN IMMEDIATE')
+            existing=c.execute('SELECT message FROM mission_messages WHERE mission=? AND kind=?',(mission,kind)).fetchone()
+            if existing:return existing[0]
+            mid=uid()
+            c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?)',(mid,conversation,role,content,model,now()))
+            c.execute('INSERT INTO messages_fts VALUES(?,?)',(mid,content))
+            c.execute('INSERT INTO mission_messages VALUES(?,?,?)',(mission,kind,mid))
+            return mid
     def propose(self,content,kind='persistent',project='',conversation=None):
         if kind not in ('persistent','project','temporary'):raise ValueError('Type de mémoire invalide')
         if kind=='temporary' and not conversation:raise ValueError('Session requise pour une mémoire temporaire')

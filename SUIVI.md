@@ -14,8 +14,8 @@
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
-| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 Reprise préparée par mission 22 | 78 appels historiques, pas de rapport final durable ; fichiers préservés | Reprendre via moteur durable, vérifier les sept tâches |
-| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟠 En cours — développement et tests | Journal persistant et essais initiaux réels ; aucun GO global | Réception multitétapes, reprise, publication et mission21 |
+| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 Reprise durable en cours | Historique préservé ; tâche01 reprise et vérifiée, suite en cours via moteur22 | Reprendre via moteur durable, vérifier les sept tâches |
+| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟠 En cours — moteur déployé, réception21 | Réception ciblée3 tâches, publication, crash/reprise et navigateur réels ; mission21 non terminée | Réception multitétapes, reprise, publication et mission21 |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves | Diagnostics et premières procédures documentés ; certains états intermédiaires historiques | Consolider les procédures et preuves |
 | **04** | GRUB, Thunderbolt et eGPU NVIDIA | 🟡 Réalisée avec réserves | Investigations et contournements documentés ; essais de démarrage non concluants | Documenter les cas restant ouverts |
 | **04W** | Analyse d'un démarrage interrompu | 🟡 Analyse réalisée | Entrée dans le noyau non prouvée sur les traces considérées | Conserver la réserve |
