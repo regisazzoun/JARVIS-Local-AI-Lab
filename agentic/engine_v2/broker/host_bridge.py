@@ -118,13 +118,39 @@ def execute(op,a,cfg):
             if repo!='regisazzoun/JARVIS-Launcher2':raise PermissionError('Pages limité au projet JL-02')
             return run(['/usr/bin/gh','api','--method','POST','repos/'+repo+'/pages','-f','source[branch]=gh-pages','-f','source[path]=/'],30,cfg['user'])
         if action=='inspect':return run(['/usr/bin/gh','repo','view',repo,'--json','name,isPrivate,defaultBranchRef,url'],30,cfg['user'])
-        if action=='file':
-            path=a.get('path','README.md')
+        if action in ('file','download'):
+            if a.get('path') and a.get('file') and a['path']!=a['file']:raise ValueError('Specify one GitHub file path: path and file disagree')
+            path=a.get('path') or a.get('file') or 'README.md'
             if not re.fullmatch(r'[\w./-]+',path) or '..' in path:raise ValueError('Chemin GitHub invalide')
             from urllib.parse import quote
             endpoint='repos/'+repo+'/contents/'+path
             if a.get('branch'):endpoint+='?ref='+quote(a['branch'],safe='')
-            return run(['/usr/bin/gh','api',endpoint,'--jq','if type == "array" then map({name,path,type,size}) else {path,size,sha,content:(.content | @base64d)} end'],30,cfg['user'],output_limit=1400000)
+            result=run(['/usr/bin/gh','api',endpoint,'--jq','if type == "array" then map({name,path,type,size}) else {path,size,sha,content:(.content | @base64d)} end'],30,cfg['user'],output_limit=1400000)
+            result.update(github_path=path,github_branch=a.get('branch'),github_repository=repo)
+            if action=='download' and result['returncode']==0:
+                data=json.loads(result['stdout'])
+                if not isinstance(data,dict) or not isinstance(data.get('content'),str):raise ValueError('Download requires a regular GitHub file')
+                content=data['content']
+                if len(content.encode())>1000000:raise ValueError('Use clone for files over 1MB')
+                prior=execute('host_read_file',{'path':a['destination']},cfg)
+                changed=prior.get('returncode')!=0 or prior.get('stdout')!=content
+                if not changed:
+                    result['stdout']=json.dumps({'path':path,'destination':a['destination'],'sha256':hashlib.sha256(content.encode()).hexdigest(),'bytes':len(content.encode()),'verified':True,'changed':False})
+                    result['changed']=False
+                    return result
+                result['changed']=True
+                written=execute('host_write_file',{'path':a['destination'],'content':''},cfg)
+                if written['returncode']:return written
+                import shlex
+                destination=root_for(a['destination'],cfg['write_roots'])
+                for offset in range(0,len(content),10000):
+                    code='from pathlib import Path; p=Path('+repr(str(destination))+'); f=p.open("a"); f.write('+repr(content[offset:offset+10000])+'); f.close()'
+                    written=sandbox('python3 -c '+shlex.quote(code),cfg)
+                    if written['returncode']:return written
+                reread=execute('host_read_file',{'path':a['destination']},cfg)
+                if reread['returncode'] or reread['stdout']!=content:raise ValueError('Downloaded file verification failed')
+                result['stdout']=json.dumps({'path':path,'destination':a['destination'],'sha256':hashlib.sha256(content.encode()).hexdigest(),'bytes':len(content.encode()),'verified':True})
+            return result
         if action=='branches':return run(['/usr/bin/gh','api','repos/'+repo+'/branches','--jq','.[].name'],30,cfg['user'])
         if action=='pages':return run(['/usr/bin/gh','api','repos/'+repo+'/pages'],30,cfg['user'])
         if action=='clone':
@@ -196,12 +222,16 @@ def execute(op,a,cfg):
         if profile.get('identity_check'):
             checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
             if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
+        if action=='desktop_gateway_configure':
+            if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Passerelle bureau hors profil')
+            from remote_operations import configure_gateway
+            return configure_gateway(cfg,run)
         if action=='desktop_network_test':
             if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Test réseau bureau hors profil')
             from remote_operations import network_test
             return network_test(profile,common,run)
         remote_argv=None
-        if action in ('supervision_install','supervision_test','desktop_configure','desktop_test'):
+        if action in ('supervision_install','supervision_test','desktop_configure','desktop_test','tailscale_configure','tailscale_status'):
             if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Opération structurée hors profil')
             from remote_operations import program
             remote_argv=['sudo','-n','python3','-c',program(action)]
@@ -226,12 +256,14 @@ def execute(op,a,cfg):
             if remote_argv:command=shlex.join(remote_argv)
             elif action in profile['commands']:command=profile['commands'][action]
             else:raise PermissionError('Opération distante non accordée')
-            return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],command],600 if action=='package_install' else 45)
+            return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],command],600 if action in ('package_install','tailscale_configure') else 45)
         argv=['/usr/bin/ansible','all','-i',profile['address']+',','-u',profile['user'],'--private-key',profile['identity'],'--ssh-common-args','-F /dev/null -oBatchMode=yes -oIdentitiesOnly=yes -oGlobalKnownHostsFile=/dev/null -oStrictHostKeyChecking=yes -oUserKnownHostsFile='+profile['known_hosts']]
         if action=='deploy_file':
             # Check canonical containment on the target before invoking copy.
-            probe=code.split('p.parent.mkdir',1)[0]+'print(str(p))'
-            checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',probe])],30)
+            probe=code.split('p.parent.mkdir',1)[0]+'p.parent.mkdir(parents=True,exist_ok=True); print(str(p))'
+            preflight=['python3','-c',probe]
+            if any(target.is_relative_to(P(r)) for r in profile.get('privileged_write_roots',[])):preflight=['sudo','-n']+preflight
+            checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(preflight)],30)
             if checked['returncode']:return checked
             argv+=['-m','ansible.builtin.copy','-a',json.dumps({'dest':str(target),'content':a['content'],'mode':'0644'})]
             if any(target.is_relative_to(P(r)) for r in profile.get('privileged_write_roots',[])):argv+=['--become']

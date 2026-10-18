@@ -116,7 +116,7 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **13B** | Interface vocale, Push-to-Talk | 🟡 GO PARTIEL historique ; consolidation technique 13F |
 | **13C** | Mémoire persistante canonique | 🟡 GO PARTIEL historique ; fonctions centrales consolidées |
 | **13D** | Sécurisation des accès distants (mission globale) | 🟡 GO AVEC RÉSERVES — accès multi-postes |
-| **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | ✅ Réception complète 17/10/2026 |
+| **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | 🟡 Réception du17/10 conservée ; réserve Tailscale ajoutée18/10 |
 | **13D.1** | MacBook : Tailscale, SSH par clé et par mot de passe | ✅ Validée le 15/10 |
 | **13D.2** | MacBook : alias `ssh jarvis`, reconnexion et tmux | ✅ Validée le 15/10 |
 | **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | 🟡 Accès multi-postes validés, contrôles finaux à compléter |
@@ -138,8 +138,8 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **15B.5** | iOS — Installation gratuite et réception | 📋 Prévue, non exécutée |
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES |
-| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 Reprise durable en cours |
-| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟠 En cours — moteur déployé, réception21 |
+| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 6/7 validées — enrôlement Tailscale bloquant |
+| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 Réception avec réserves — mission21 non complète |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->

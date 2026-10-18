@@ -142,6 +142,7 @@ class Missions:
                 result = self.cycle.run(row)
                 tasks = self.store.tasks(row['id'])
                 if result.get('progress'):self.publish_progress(row)
+                if result.get('external_block'):continue
                 completed = bool(tasks) and all(t['state'] == 'validated' for t in tasks) and result.get('report')
                 with self.store.db() as c:
                     pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]

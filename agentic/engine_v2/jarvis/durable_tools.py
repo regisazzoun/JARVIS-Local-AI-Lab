@@ -72,11 +72,11 @@ def register(registry):
             if not any(r['tool'] == required and (r['result'] or {}).get('ok') for r in observations):
                 raise ValueError('Contrat non satisfait : outil réussi requis '+required)
         for check in contract.get('checks',[]):
-            actual=[r for r in observations if r['tool'] in (check.get('tools') or [check['tool']]) and (r['result'] or {}).get('ok')==check.get('ok',True) and all(r['arguments'].get(k)==v for k,v in check.get('arguments',{}).items()) and (not check.get('action') or r['arguments'].get('action')==check['action']) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout',''))]
+            actual=[r for r in observations if r['tool'] in (check.get('tools') or [check['tool']]) and (r['result'] or {}).get('ok')==check.get('ok',True) and all(r['arguments'].get(k)==v for k,v in check.get('arguments',{}).items()) and (not check.get('action') or r['arguments'].get('action')==check['action']) and all((r['result'] or {}).get('result',{}).get(k)==v for k,v in check.get('result_fields',{}).items()) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout',''))]
             if len(actual)<check.get('minimum',1):raise ValueError('Assertion fonctionnelle manquante : '+encoded(check))
         # A mutation must have a later independent observation, not only its write receipt.
         writes = [r for r in observations if r['tool'] in ('host_write_file', 'host_remote', 'host_ansible')
-                  and (r['tool'] == 'host_write_file' or (r['arguments'].get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure') or (r['arguments'].get('action')=='service' and r['arguments'].get('service_action') in ('start','stop','restart','enable','disable'))))
+                  and (r['tool'] == 'host_write_file' or (r['arguments'].get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or (r['arguments'].get('action')=='service' and r['arguments'].get('service_action') in ('start','stop','restart','enable','disable'))))
                   and (r['result'] or {}).get('ok') and r['arguments'].get('path') != args['report_path']]
         if writes and chosen['created'] <= writes[-1]['created']:
             raise ValueError('Vérification indépendante postérieure à la dernière modification requise')
@@ -102,6 +102,28 @@ def register(registry):
                 enqueue(db,ident,task['id'],{**publication,'file':relative},verified_body=body,connection=c)
         registry.memory.document(body, source=args['report_path'], project=registry.context.get('project', ''))
         return {'state': 'validated', 'id': task['id'], 'report_path': args['report_path'], 'sha256': sha}
+    def block(args):
+        db=store();ident=key();task_id=registry.context.get('task_id')
+        proof=next((o for o in db.observations(ident,task_id) if o['id']==args['evidence_id'] and o.get('result')),None)
+        if not proof or proof['tool'].startswith('mission_'):raise ValueError('Une observation réelle de la tâche est requise')
+        read=registry.specs['host_read_file'][4]({'path':args['report_path']})
+        body=read.get('stdout','')
+        if read.get('returncode',0) or len(body.strip())<80:raise ValueError('Rapport de blocage vérifiable requis')
+        spec=json.loads(db.get(ident)['spec']);publication=spec.get('publication')
+        if publication:
+            from pathlib import Path
+            from .publication import enqueue,redact_public,invoke
+            clean=redact_public(body)
+            if clean!=body:
+                invoke('host_write_file',{'path':args['report_path'],'content':clean})
+                if invoke('host_read_file',{'path':args['report_path']})['stdout']!=clean:raise ValueError('Expurgation non vérifiée')
+                body=clean
+            enqueue(db,ident,task_id,{**publication,'file':str(Path(args['report_path']).relative_to(publication['workspace']))},verified_body=body)
+        with db.db() as c:
+            c.execute("UPDATE tasks SET state='blocked',last_error=?,artifact=?,report_sha256=?,updated=? WHERE mission=? AND id=?",(args['reason'],args['report_path'],hashlib.sha256(body.encode()).hexdigest(),time.time(),ident,task_id))
+            db.event(ident,'external_dependency_blocked',task_id,'JARVIS',result={'reason':args['reason'],'evidence':proof['id'],'report_path':args['report_path'],'verified_success':False},connection=c)
+        db.transition(ident,'waiting_external',{'reason':args['reason'],'report_path':args['report_path']})
+        return {'state':'waiting_external','task':task_id,'report_path':args['report_path'],'not_completed':True}
     def publish(args):
         from .publication import enqueue
         return enqueue(store(),key(),registry.context.get('task_id'),args)
@@ -110,18 +132,31 @@ def register(registry):
         calls=json.loads(args['calls']) if isinstance(args['calls'],str) else args['calls']
         if not isinstance(calls,list) or not calls:raise ValueError('Liste de lectures requise')
         safe={'host_read_file','host_policy','host_resources','host_logs','host_diagnostics','system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_fetch','web_search'}
-        for call in calls:
-            if not isinstance(call,dict) or set(call)!={'tool','arguments'}:raise ValueError('Chaque lecture exige tool et arguments')
-            if call['tool'] not in safe and not (call['tool']=='host_remote' and call['arguments'].get('action') in ('identity','resources','services','desktop_status','desktop_logs','journal_recent','supervision_status','models','storage','telemetry')):raise ValueError('Lecture batch non admise : '+call['tool']+'. Pour les journaux utilise host_logs/service_logs ; host_exec reste un appel séparé.')
-        def run(call):
-            start=time.monotonic();token=store().begin_call(key(),registry.context.get('task_id'),call['tool'],call['arguments'])
-            result=registry.execute(call['tool'],call['arguments'])
-            store().finish_call(token,result,time.monotonic()-start)
-            return {**result,'invocation_id':token}
+        def run(original):
+            start=time.monotonic();invoked=False
+            try:
+                if not isinstance(original,dict) or not isinstance(original.get('tool'),str):raise ValueError('Chaque lecture exige tool et arguments')
+                name=original['tool'];arguments=dict(original.get('arguments',{}))
+                for field,value in original.items():
+                    if field in ('tool','arguments'):continue
+                    if field in arguments and arguments[field]!=value:raise ValueError('Argument contradictoire : '+field)
+                    arguments[field]=value
+                if name=='host_github' and 'action' not in arguments:arguments['action']='file' if 'path' in arguments or 'file' in arguments else 'inspect'
+                allowed=name in safe or name=='host_remote' and arguments.get('action') in ('identity','resources','services','desktop_status','desktop_logs','journal_recent','supervision_status','models','storage','telemetry','tailscale_status') or name=='host_github' and arguments.get('action') in ('file','inspect','branches','pages')
+                if not allowed:raise ValueError('Opération batch non admise : '+name+'. Appelle cet outil directement ; download écrit un fichier et host_exec exécute une commande, ils ne sont pas des lectures batch.')
+                token=store().begin_call(key(),registry.context.get('task_id'),name,arguments)
+                invoked=True
+                result=registry.execute(name,arguments)
+                store().finish_call(token,result,time.monotonic()-start)
+                return {**result,'invocation_id':token,'normalized_arguments':arguments if arguments!=original.get('arguments') else None}
+            except Exception as exc:
+                store().event(key(),'batch_entry_rejected',registry.context.get('task_id'),result={'error':str(exc),'tool':original.get('tool') if isinstance(original,dict) else None})
+                return {'ok':False,'error':str(exc),'executed':None if invoked else False,'outcome':'unknown' if invoked else 'rejected_before_execution'}
         with concurrent.futures.ThreadPoolExecutor(max_workers=min(len(calls),os.cpu_count() or 1)) as pool:
             results=list(pool.map(run,calls))
             return {'results':results,'returncode':0 if all(r.get('ok') for r in results) else 1}
     definitions = [
+        ('mission_block','Consigner un blocage externe réel prouvé et son rapport. Préserve toutes les tâches acquises, publie le rapport sans déclarer de réussite et attend la résolution externe. Ne pas utiliser pour une erreur récupérable.',{k:{'type':'string'} for k in ('reason','report_path','evidence_id')},['reason','report_path','evidence_id'],block),
         ('mission_list','Lister les missions durables réelles pour répondre sur leur état en conversation.',{},[],listing),
         ('mission_read_batch','Exécuter en parallèle des lectures indépendantes réelles. Ne grouper aucune mutation ni commande host_exec.',{'calls':{'type':'array','items':{'type':'object','properties':{'tool':{'type':'string'},'arguments':{'type':'object'}},'required':['tool','arguments']}}},['calls'],batch),
         ('mission_publish', 'Enregistrer un rapport local pour publication asynchrone avec vérification distante. Échec GitHub ne perd pas le fichier local.', {k:{'type':'string'} for k in ('repository','branch','workspace','file')}, ['repository','branch','workspace','file'], publish),

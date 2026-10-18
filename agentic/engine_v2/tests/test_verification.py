@@ -20,6 +20,15 @@ class VerificationTest(unittest.TestCase):
         self.call('host_write_file',{'path':'/work/report.md'},{'ok':True})
         result=self.registry.specs['mission_task_complete'][4]({'id':'a','evidence_id':proof,'report_path':'/work/report.md'})
         self.assertEqual(result['state'],'validated')
+    def test_real_external_block_preserves_received_tasks(self):
+        proof=self.call('host_remote',{'action':'tailscale_status'},{'ok':False,'result':{'stdout':'NeedsLogin'}})
+        result=self.registry.specs['mission_block'][4]({'reason':'No enrollment credential available','report_path':'/work/block.md','evidence_id':proof})
+        self.assertEqual(result['state'],'waiting_external')
+        self.assertEqual(self.store.get(self.ident)['state'],'waiting_external')
+        self.assertIsNone(self.store.claim('other-worker'))
+        self.assertEqual(self.store.tasks(self.ident)[0]['state'],'blocked')
+        self.store.transition(self.ident,'queued')
+        self.assertEqual(self.store.ready(self.ident)[0]['id'],'a')
     def test_policy_read_cannot_validate_task(self):
         proof=self.call('host_policy',{}, {'ok':True})
         with self.assertRaises(ValueError):self.registry.specs['mission_task_complete'][4]({'id':'a','evidence_id':proof,'report_path':'/work/report.md'})

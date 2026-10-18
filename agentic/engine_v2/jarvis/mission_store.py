@@ -192,15 +192,15 @@ class MissionStore:
             if task is not None:
                 query += ' AND task=?'
                 params.append(task)
-            return [{**dict(r), 'arguments': json.loads(r['arguments']), 'result': json.loads(r['result']) if r['result'] else None}
+            return [{**dict(r), 'arguments': json.loads(r['arguments'] or '{}'), 'result': json.loads(r['result'] or '{}') if r['result'] else None}
                     for r in c.execute(query + ' ORDER BY created', params)]
 
     def events(self, ident, after=0, limit=150):
         with self.db() as c:
             rows = [dict(r) for r in c.execute('SELECT * FROM mission_events WHERE mission=? AND id>? ORDER BY id LIMIT ?', (ident, after, limit))]
         for r in rows:
-            r['arguments'] = json.loads(r['arguments'])
-            r['result'] = json.loads(r['result'])
+            r['arguments'] = json.loads(r['arguments'] or '{}')
+            r['result'] = json.loads(r['result'] or '{}')
         return rows
 
     def contract_status(self, ident, task_id):
@@ -218,9 +218,20 @@ class MissionStore:
                 if check.get('action') and args.get('action')!=check['action']:continue
                 if any(args.get(k)!=v for k,v in check.get('arguments',{}).items()):continue
                 if check.get('stdout_contains') and check['stdout_contains'] not in result.get('result',{}).get('stdout',''):continue
+                if any(result.get('result',{}).get(k)!=v for k,v in check.get('result_fields',{}).items()):continue
                 matches.append(item['id'])
             status.append({'check':check,'satisfied':len(matches)>=check.get('minimum',1),'matching_count':len(matches),'invocations':matches[-3:]})
         path=contract.get('report_path')
         return {'requirements':status,'all_satisfied':all(s['satisfied'] for s in status),
                 'report_path':path,'report_written':any(o['tool']=='host_write_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations),
                 'report_read':any(o['tool']=='host_read_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)}
+
+    def import_observation(self, ident, observation):
+        """Preserve an actual earlier chat read; do not execute or fabricate it again."""
+        token=uuid.uuid4().hex;created=observation['created']
+        result={**observation['result'],'imported_from_chat':True,'source_created':created}
+        with self.db() as c:
+            c.execute('INSERT INTO tool_calls VALUES(?,?,?,?,?,?,?,?,?,?)',(token,ident,None,signature(observation['tool'],observation['arguments']),observation['tool'],encoded(observation['arguments']),'finished',encoded(result),created,time.time()))
+            c.execute('INSERT INTO checkpoints(mission,tool,result,created) VALUES(?,?,?,?)',(ident,observation['tool'],encoded(result),created))
+            self.event(ident,'chat_observation_imported',actor='JARVIS-engine',tool=observation['tool'],arguments=observation['arguments'],result=result,invocation=token,connection=c)
+        return token

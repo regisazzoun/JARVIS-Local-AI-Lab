@@ -21,3 +21,16 @@ Interruption/reprise, clôture multitétapes, SSH/Ansible, publication vérifié
 [14 contrôles Chromium connectés](RECEPTION-NAVIGATEUR.json) : événements réels, acteur, géométrie et défilements sur trois dimensions. [Sessions après redémarrage](SESSION-RESTART.json) : même cookie encore valable. [Mémoire préservée](PRESERVATION-MEMOIRE.json) : toutes les lignes personnelles initiales intactes, seules des additions.
 
 Réserve documentaire observée : un rapport modèle21.01 reprend une date historique et attribue à tort son pied de page à JARVIS-engine. Les journaux et manifestes font autorité sur l'auteur et les heures réels. L'horloge serveur et l'attribution explicite sont maintenant injectées dans le contexte ; la qualité sémantique des rapports reste à examiner séparément de leur présence.
+
+
+## Réception de finalisation — 18 octobre 2026
+
+27 tests V2 réussis au dernier passage : ajout de contrôles des chemins GitHub réellement lus, compatibilité des événements historiques nuls et attente sur dépendance externe sans perdre le plan. Les tests unitaires utilisent des fixtures et ne constituent pas des preuves d’action du modèle. Les deux suites JavaScript réussissent et `node --check` valide le code du Launcher.
+
+17 contrôles Chromium connectés réussis sur la mission21 réelle : sept tâches affichées, six coches de réception, présence d’événements neutres réellement vérifiée, opérations JARVIS visibles, absence d’erreur JavaScript et défilements indépendants sur trois formats. Voir [preuves navigateur](RECEPTION-NAVIGATEUR.json).
+
+[Whisper réel](NON-REGRESSION-VOIX.json) transcrit le WAV synthétique existant en3,64s ; ce n’est pas un test de microphone physique. Le résultat Piper réel antérieur reste conservé.
+
+[Promotion du chat](PROMOTION-CONVERSATION.json) : une conversation ordinaire a déclenché avant toute écriture une mission durable, quatre tâches planifiées par le modèle, six cycles et un rapport réellement publié. Réserve précise : le marqueur ne contient pas le saut de ligne final demandé (`marker_exact=false`). La réception mécanique a accepté la tâche sans contrat octet par octet ; cette preuve ne démontre donc pas une conformité parfaite aux consignes textuelles. Aucun fichier modèle n’a été corrigé par Codex pour masquer cet écart.
+
+Le taux historique55/78 d’appels réussis sans mission persistante ni rapport final est distinct des27/30 appels de la réception ciblée trois tâches réellement achevée. Les scénarios diffèrent : il ne faut pas présenter leur différence comme un benchmark contrôlé de qualité. La mission21 longue et ses corrections d’infrastructure sont examinées séparément dans sa réception.

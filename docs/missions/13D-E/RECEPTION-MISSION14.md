@@ -51,3 +51,8 @@ Le propriétaire signale et classe explicitement cette omission parmi les loupé
 Les accès LAN et les accès relayés par le Mac mini sont distincts d’un client Tailscale installé sur le Dell ; ils ne corrigent pas cette omission du déploiement initial. Les résultats Debian, RAID, SSH et IA déjà vérifiés restent conservés, avec cette réserve réseau supplémentaire.
 
 Correctif restant : installer et configurer un client Tailscale propre au Dell, puis vérifier son identité réseau, une connexion SSH depuis un autre client du tailnet et la persistance après redémarrage. Cette entrée documentaire ne constitue ni une installation ni une validation de ce correctif.
+
+
+### Correction partielle du loupé Tailscale — mission22, 18 octobre 2026
+
+JARVIS a lui-même appelé `tailscale_configure` sur le Dell identifié : le client Debian13 a été installé et `tailscaled` activé. Son contrôle `tailscale_status` puis une vérification indépendante Codex constatent le service actif mais `NeedsLogin`, sans adresse du tailnet. L’omission d’installation est corrigée ; l’enrôlement et les tests d’accès direct restent bloqués faute d’authentification disponible. Aucune identité du Mac n’a été copiée. La réserve réseau reste ouverte. Voir [réception21 sous moteur22](../22/RECEPTION-MISSION21.md).

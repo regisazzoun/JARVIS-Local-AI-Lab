@@ -37,7 +37,8 @@ Pour les lectures indépendantes, mission_read_batch permet des appels réels en
 Écris un rapport par tâche dans un chemin autorisé avec host_write_file puis mission_task_complete avec id, report_path et evidence_id de la vérification réelle. Le rapport doit exposer les limites. Une lecture de politique seule ne valide pas une tâche.
 Les résultats et références sont persistants. mission_evidence permet de relire les résultats complets. Ne refais pas les tâches validées. Une opération started sans résultat peut avoir eu lieu : réobserve avant toute répétition.
 En cas d'erreur, analyse et change de stratégie. Ne répète pas les mêmes arguments en échec. Quand toutes les tâches sont validées, écris intervention_report avec la synthèse finale factuelle et les références. N'annonce aucune publication sans vérification distante.
-Les exigences déjà satisfaites et leurs identifiants sont indiqués dans active_task_contract_status. Réutilise ces preuves ; si le rapport est écrit et relu, valide la tâche au lieu de recommencer les mêmes collectes. Une fin de cycle n'est pas une fin de mission : conserve mission_note pour transmettre objectifs, observations et prochaine action. Ne demande pas au propriétaire de relancer.'''
+Les exigences déjà satisfaites et leurs identifiants sont indiqués dans active_task_contract_status. Réutilise ces preuves ; si le rapport est écrit et relu, valide la tâche au lieu de recommencer les mêmes collectes. Une fin de cycle n'est pas une fin de mission : conserve mission_note pour transmettre objectifs, observations et prochaine action. Ne demande pas au propriétaire de relancer.
+Si observed_external_dependencies contient une dépendance non résolue (identité de compte ou clé d’enrôlement absente), ne répète pas ses contrôles ni installations sans changement externe. Termine les autres publications possibles, écris un rapport partiel précis puis appelle mission_block avec sa preuve réelle. Cela ne valide ni la tâche ni la mission ; ne cherche pas à obtenir un succès artificiel pour satisfaire le contrat.'''
         observations = store.observations(ident)
         notes = [e['result'] for e in store.events(ident, max(0, self._last_event(ident)-100)) if e['kind'] in ('working_note','model_checkpoint')][-5:]
         def brief(observation):
@@ -75,7 +76,17 @@ Les exigences déjà satisfaites et leurs identifiants sont indiqués dans activ
                 raise MissionInterrupted('Interruption demandée')
             if task_id:
                 state_data=json.loads(base[1]['content'])
+                fresh_task=next((t for t in store.tasks(ident) if t['id']==task_id),task)
+                state_data['active_task']={k:v for k,v in fresh_task.items() if k!='evidence'}
                 state_data['active_task_contract_status']=store.contract_status(ident,task_id)
+                dependencies={}
+                for observation in store.observations(ident,task_id):
+                    try:
+                        value=json.loads((observation.get('result') or {}).get('result',{}).get('stdout','{}'))
+                        dependency=value.get('external_dependency') if isinstance(value,dict) else None
+                        if isinstance(dependency,dict) and dependency.get('id'):dependencies[dependency['id']]={**dependency,'evidence_id':observation['id']}
+                    except (ValueError,TypeError):pass
+                state_data['observed_external_dependencies']=[d for d in dependencies.values() if not d.get('resolved')]
                 base[1]['content']=encoded(state_data)
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
             if len(encoded(messages)) > context_chars:
@@ -102,8 +113,8 @@ Les exigences déjà satisfaites et leurs identifiants sont indiqués dans activ
             inference_start=time.monotonic()
             message = core.transport(payload)
             store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)
-            if isinstance(message, str):
-                message = {'role': 'assistant', 'content': message}
+            from .protocol import normalize_message
+            message=normalize_message(message,core.tools.specs)
             calls = message.get('tool_calls', [])
             messages.append(message)
             if not calls:
@@ -124,18 +135,22 @@ Les exigences déjà satisfaites et leurs identifiants sont indiqués dans activ
                 started = time.monotonic()
                 previous=[o for o in store.observations(ident,task_id) if o['id']!=token and signature(o['tool'],o['arguments'])==sig]
                 failed_previous=sum(not (o['result'] or {}).get('ok') for o in previous[-3:])
-                repaired=bool(previous) and any(o['created']>previous[-1]['created'] and (o['result'] or {}).get('ok') and (o['tool']=='host_package' or o['tool'] in ('host_remote','host_ansible') and o['arguments'].get('action') in ('package_install','write_file','deploy_file','supervision_install','desktop_configure')) for o in store.observations(ident,task_id))
+                repaired=bool(previous) and any(o['created']>previous[-1]['created'] and (o['result'] or {}).get('ok') and (o['tool']=='host_package' or o['tool'] in ('host_remote','host_ansible') and o['arguments'].get('action') in ('package_install','write_file','deploy_file','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure')) for o in store.observations(ident,task_id))
                 if repeats[sig] > 2 or (len(previous)>=3 and failed_previous==3 and time.time()-previous[-1]['created']<30 and not repaired):
                     result = {'ok': False, 'tool': name, 'error': 'Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.'}
                 else:
                     result = core.tools.execute(name, args)
                 store.finish_call(token, result, time.monotonic()-started)
                 result={**result,'invocation_id':token}
+                effect=name=='host_github' and args.get('action')=='download' and result.get('result',{}).get('changed',True) or name in ('host_write_file','host_delete_file','host_exec') or name=='host_package' and args.get('action') in ('install','configure') or name=='host_service' and args.get('action') not in ('status','is-active','is-enabled') or name in ('host_remote','host_ansible') and (args.get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or args.get('action')=='service' and args.get('service_action') not in ('status','is-active','is-enabled'))
+                if result.get('ok') and effect:repeats.clear() # A new state requires fresh observations.
                 messages.append({'role': 'tool', 'tool_name': name, 'content': encoded(result)})
                 if name == 'intervention_report' and result.get('ok'):
                     report = result['result']
                 with store.db() as c:
                     c.execute('INSERT OR REPLACE INTO mission_context VALUES(?,?,?,?)',(ident,task_id,encoded(messages),time.time()))
+                if name=='mission_block' and result.get('ok'):
+                    return {'progress':True,'external_block':True,'report':None}
                 if name=='mission_plan' and result.get('ok') and task is None:
                     return {'progress':True,'report':None}
                 current = store.tasks(ident)

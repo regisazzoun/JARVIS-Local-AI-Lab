@@ -1421,7 +1421,7 @@
     ],
     "etat": "Réception complète17/10",
     "resultats_prouves": "Réinstallation, SSH clé/mot de passe/sudo, idempotence, trois modèles GPU, intégration et reboot validés",
-    "reserves": "Seconde carte non alimentée ; pas retrait physique NVMe/micro/session Plasma interactive ; défaut reboot installateur reste à corriger",
+    "reserves": "Seconde carte non alimentée ; pas retrait physique NVMe/micro/session Plasma interactive ; défaut reboot installateur reste à corriger ; loupé Tailscale omis au déploiement, installé en22 mais enrôlement NeedsLogin ouvert",
     "dependances": "13D, chaîne PXE existante",
     "prochaine_action": "Préserver la référence, corriger reboot avant prochain déploiement",
     "derniere_actualisation": "2026-10-17"
@@ -1913,12 +1913,13 @@
         "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-22-agentic-engine-v2/docs/missions/21/README.md"
       }
     ],
-    "etat": "Reprise durable en cours",
-    "resultats_prouves": "Tâche01 vérifiée, suite en cours ; ETAT distant publié depuis checkpoints",
-    "reserves": "Réception en cours, aucun GO global",
+    "etat": "6/7 validées ; tâche07 bloquée par enrôlement Tailscale",
+    "resultats_prouves": "Six tâches et rapports modèle reçus/publiés, KDE/VNC LAN et installation Tailscale exécutés par JARVIS",
+    "reserves": "NeedsLogin ; aucun accès direct Tailscale reçu ; rapport final complet non reçu",
     "dependances": "11B,13F,14A,JL-02",
-    "prochaine_action": "Faire reprendre les sept tâches par JARVIS avec preuves",
-    "derniere_actualisation": "2026-10-18"
+    "prochaine_action": "Enrôler Dell puis reprendre07 au checkpoint",
+    "derniere_actualisation": "2026-10-18",
+    "date_derniere_actualisation": "2026-10-18"
   },
   {
     "identifiant": "22",
@@ -1934,11 +1935,12 @@
         "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-22-agentic-engine-v2/docs/missions/22/DIAGNOSTIC-INITIAL.md"
       }
     ],
-    "etat": "En cours — moteur déployé, réception21",
-    "resultats_prouves": "Réception ciblée3 tâches et rapports distants, crash/reprise, concurrence voix/chat et navigateur",
-    "reserves": "Réception en cours, aucun GO global",
+    "etat": "Réception avec réserves ; mission21 non complète",
+    "resultats_prouves": "Moteur durable déployé, mission ciblée3 tâches terminée, crash/reprise et publication vérifiés,6 tâches21 reçues",
+    "reserves": "Dépendance externe Tailscale ; interventions infrastructure Codex et limites sémantiques documentées",
     "dependances": "11B,13F,14A,JL-02",
-    "prochaine_action": "Déployer après essais, vérifier reprise et réception21",
-    "derniere_actualisation": "2026-10-18"
+    "prochaine_action": "Réception finale21 après enrôlement",
+    "derniere_actualisation": "2026-10-18",
+    "date_derniere_actualisation": "2026-10-18"
   }
 ]

@@ -29,3 +29,15 @@ Le shell hôte est confiné et ne possède pas le bus systemd ni les périphéri
 Le worker possède maintenant son propre Core/Registry/verrou et partage uniquement la mémoire canonique : chat et STT/TTS restent utilisables pendant une mission. Routage logique : échanges interactifs sur GPU Mac mini, missions sur GPU Dell1, repli entre les deux nœuds en cas d'erreur de transport. Les URL restent privées.
 
 Après acquisition du verrou de processus canonique, le serveur peut reprendre immédiatement ses anciennes lignes running V2 ; la récupération par bail demeure utile pour les workers sans cette preuve d'exclusivité. Les états interrompus et missions historiques ne sont pas relancés.
+
+
+## Finalisation du 18 octobre — corrections supplémentaires
+
+- Codex a corrigé `host_github file` : l’argument `file` n’est plus ignoré au profit implicite de README ; des arguments path/file contradictoires sont rejetés. Les résultats identifient le chemin réellement lu. Les contrats peuvent contrôler ces métadonnées.
+- `host_github download` conserve un fichier complet jusqu’à 1Mo dans un chemin autorisé, par fragments exécutés sous l’identité technique puis relecture intégrale et empreinte. La première version limitée à60Ko a refusé ROADMAP ; la limite a été corrigée sans tronquer la source. Les téléchargements restent exclus des lots de lectures, car ils écrivent un fichier.
+- Les événements historiques aux champs JSON nuls sont désormais lisibles. Une intervention Codex avait ajouté un événement sans arguments, déclenchant une erreur de cycle ; la compatibilité est corrigée et testée, sans supprimer les événements.
+- Deux opérations fixes `tailscale_configure` et `tailscale_status` ont été raccordées au profil Dell gardé. Le modèle a effectivement appelé l’installation : client installé et service activé, mais `NeedsLogin`. Aucun état Tailscale Mac copié. Les données d’enrôlement restent privées sur Dell.
+- `mission_block` permet au modèle de conserver un rapport vérifié et publié sur une dépendance externe réelle, sans clôturer la tâche. L’état `waiting_external` n’est pas repris en boucle ; les tâches reçues restent intactes et la reprise conserve le plan. Les erreurs récupérables gardent leur reprise automatique existante.
+- Le Launcher distingue attente externe, reprise, publication et interruption ; son bouton de reprise conserve les checkpoints. Le script Launcher installe uniquement les actifs et ne rétablit plus l’ancien backend.
+
+Les installations et modifications de tâches21 ne sont pas attribuées à Codex : les commandes de développement, de déploiement du broker et de vérification indépendante sont Codex ; les appels au broker et rapports modèle sont JARVIS. Les interventions pendant cette réception empêchent de présenter cette exécution comme entièrement sans correction d’infrastructure.

@@ -28,6 +28,7 @@ for module in (source/'jarvis').glob('*.py'):
     dest=target/'jarvis'/module.name
     temp=dest.with_suffix('.py.new')
     shutil.copyfile(module,temp);os.chmod(temp,0o644);os.replace(temp,dest)
+if not compileall.compile_dir(target/'jarvis',quiet=1,force=True):raise SystemExit('Compilation cible échouée')
 # Owner explicitly excludes artificial resource-saving ceilings.
 override=Path('/etc/systemd/system/jarvis-conversation.service.d/22-resources.conf')
 override.parent.mkdir(parents=True,exist_ok=True)

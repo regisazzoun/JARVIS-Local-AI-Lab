@@ -11,3 +11,10 @@ Une tâche dépend de ses prédécesseurs. Sa réception exige un rapport local 
 La publication utilise une outbox persistante : lecture locale, empreinte SHA256, checkpoint, push, relecture GitHub et comparaison du contenu. Une panne GitHub conserve le livrable et reporte la livraison. Les publications sont attribuées à l'automatisation du moteur, pas à un appel du modèle si celui-ci ne les a pas lui-même déclenchées.
 
 Le Launcher lit le journal SQLite et conserve le lecteur historique pour les anciennes missions. Les événements Codex restent séparés. Aucune seconde mémoire, aucun accès du modèle aux clés privées, aucune réinstallation du Dell.
+
+
+## Dépendances externes et provenance des sources
+
+L’état `waiting_external` conserve le plan et les rapports sans relancer des générations identiques face à un enrôlement absent. `mission_block` exige une observation effective de la tâche et une relecture indépendante du rapport, publie ce rapport par l’outbox et ne crée aucune validation fonctionnelle. Une reprise remet la même mission en file et réutilise les tâches déjà reçues. Les erreurs de transport et les fins de quantum conservent leurs reprises automatiques.
+
+Les contrats peuvent vérifier des champs du résultat réel, notamment `github_path`, pour distinguer le document demandé du document réellement obtenu. Les téléchargements sont des mutations locales autorisées, exécutées sous l’identité technique et relues intégralement. Aucun jeton GitHub ou Tailscale n’est transmis au modèle.

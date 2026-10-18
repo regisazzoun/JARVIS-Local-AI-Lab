@@ -27,6 +27,17 @@ class DurableJournalTest(unittest.TestCase):
         self.assertTrue(status['all_satisfied'])
         self.assertIn(proof,status['requirements'][0]['invocations'])
 
+    def test_exact_github_path_required_for_source_proof(self):
+        self.store.plan(self.ident,[{'id':'a','title':'A','depends':[],'contract':{'checks':[{'tool':'host_github','result_fields':{'github_path':'SUIVI.md'}}]}}])
+        token=self.store.begin_call(self.ident,'a','host_github',{'action':'file','file':'SUIVI.md'})
+        self.store.finish_call(token,{'ok':True,'result':{'github_path':'README.md'}},.1)
+        self.assertFalse(self.store.contract_status(self.ident,'a')['all_satisfied'])
+        token=self.store.begin_call(self.ident,'a','host_github',{'action':'download','path':'SUIVI.md'})
+        self.store.finish_call(token,{'ok':True,'result':{'github_path':'SUIVI.md'}},.1)
+        self.assertTrue(self.store.contract_status(self.ident,'a')['all_satisfied'])
+    def test_nullable_historical_event_is_readable(self):
+        with self.store.db() as c:c.execute('INSERT INTO mission_events(mission,actor,kind,created) VALUES(?,?,?,?)',(self.ident,'Codex','legacy-import',time.time()))
+        self.assertEqual(self.store.events(self.ident)[-1]['arguments'],{})
     def test_invalid_plan_is_atomic(self):
         with self.assertRaises(ValueError):self.store.plan(self.ident,[{'id':'a','title':'A','depends':['b']}])
         self.assertEqual(self.store.tasks(self.ident),[])

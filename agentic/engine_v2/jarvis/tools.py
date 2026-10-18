@@ -107,19 +107,22 @@ class Registry:
     def schemas(self,all_tools=False):
         return [{'type':'function','function':{'name':name,'description':s[0],'parameters':{'type':'object','properties':s[1],'required':s[2],'additionalProperties':False}}} for name,s in self.specs.items() if not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
-        start=time.monotonic();result=None
+        start=time.monotonic();start_wall=time.time();result=None
         try:
             if name not in self.specs:raise ValueError('Outil inconnu ou non autorisé')
             description,props,required,risk,fn=self.specs[name]
             if risk not in ('read_only','pending_write','lab_reversible','host_authorized'):raise ValueError('Risque non autorisé')
-            if not isinstance(args,dict) or set(args)-set(props) or any(k not in args for k in required):raise ValueError('Arguments invalides')
+            if not isinstance(args,dict):raise ValueError('Arguments : objet JSON requis pour '+name)
+            unknown=set(args)-set(props);missing=[k for k in required if k not in args]
+            if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
             for k,v in args.items():
-                if props[k]['type']=='string' and (not isinstance(v,str) or not v.strip() or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide')
+                if props[k]['type']=='string' and (not isinstance(v,str) or not v.strip() or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')
             controller=getattr(self,'mission_controller',None)
             action=args.get('action','')
-            mutating=name in ('host_exec','host_write_file','host_delete_file','lab_terminal') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name in ('host_remote','host_ansible') and action in ('write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test')) or (name=='host_github' and action in ('push','clone','create','enable_pages','pull_request'))
+            mutating=name in ('host_exec','host_write_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name in ('host_remote','host_ansible') and action in ('write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
                 mission=controller.submit(self.context['owner_text'],self.context['model'],self.context.get('conversation'),self.context.get('project',''))
+                for observation in self.context.get('turn_records',[]):controller.store.import_observation(mission['id'],observation)
                 controller.store.event(mission['id'],'chat_promoted',actor='JARVIS-engine',tool=name,arguments=args,result={'executed':False})
                 self.context['mission_id']=mission['id']
                 return {'ok':False,'tool':name,'deferred':True,'mission_id':mission['id'],'conversation':mission['conversation'],'result':{'executed':False,'state':'queued'}}
@@ -142,6 +145,8 @@ class Registry:
         # This local trace is private and must never be published as raw evidence.
         with trace.open('a') as f:f.write(json.dumps(entry,ensure_ascii=False)+'\n')
         os.chmod(trace,0o600)
+        if not self.context.get('mission_id') and name not in ('propose_memory','active_memories'):
+            self.context.setdefault('turn_records',[]).append({'tool':name,'arguments':args,'result':result,'created':start_wall})
         if self.context.get("mission_id") and hasattr(self,"checkpoint"):
             self.checkpoint(self.context["mission_id"],name,result)
         return result

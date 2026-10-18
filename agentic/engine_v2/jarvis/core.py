@@ -1,4 +1,4 @@
-import json,urllib.request,threading,subprocess,tempfile,os,re
+import json,urllib.request,threading,subprocess,tempfile,os,re,math
 from pathlib import Path
 from .memory import uid
 from .tools import Registry
@@ -30,7 +30,7 @@ class Core:
                 req=urllib.request.Request(url.rstrip('/')+'/api/chat',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json'})
                 with urllib.request.urlopen(req,timeout=self.config.get('ollama_timeout')) as response:
                     data=json.loads(response.read(2_000_000))
-                self.metrics.append({**{k:data.get(k) for k in ['load_duration','prompt_eval_duration','eval_duration','eval_count','prompt_eval_count','total_duration','done_reason']},'node':name,'route_failures':failures,'request_elapsed_s':time.monotonic()-started})
+                self.metrics.append({**{k:data.get(k) for k in ['load_duration','prompt_eval_duration','eval_duration','eval_count','prompt_eval_count','total_duration','done_reason']},'node':name,'num_ctx':payload.get('options',{}).get('num_ctx'),'route_failures':failures,'request_elapsed_s':time.monotonic()-started})
                 message=data['message']
                 message.pop('thinking',None) # Keep outcomes/notes, never publish raw model reasoning.
                 return message
@@ -89,6 +89,7 @@ class Core:
                     raise MissionInterrupted('Mission interrompue avant nouvelle opération')
                 # Preserve the objective and evidence instead of letting Ollama truncate them.
                 context_budget=max(9000,self.config.get('num_ctx',8192)*3-len(json.dumps(self.tools.schemas()))-4096)
+                context_budget=max(context_budget,len(messages[0]['content'])+len(text)+2000)
                 if agent_mode and sum(len(json.dumps(m,ensure_ascii=False)) for m in messages)>context_budget:
                     ledger=[];used=0
                     for observation in reversed(tool_results):
@@ -117,20 +118,17 @@ class Core:
                 if model.startswith('qwen'):payload['think']=False
                 reported=any(t['tool']=='intervention_report' and t['ok'] for t in tool_results)
                 if round<rounds and not reported:payload['tools']=self.tools.schemas()
+                # Reserve actual evidence before expanding the physical context window.
+                input_chars=len(json.dumps(messages,ensure_ascii=False))+len(json.dumps(payload.get('tools',[]),ensure_ascii=False))
+                reserve=min(4096,max(1024,self.config.get('num_predict',512)))
+                needed=math.ceil((input_chars/2.5+reserve)/4096)*4096
+                payload['options']['num_ctx']=max(payload['options']['num_ctx'],needed)
                 message=self.transport(payload)
                 if mission_id and controller and controller.is_interrupted(mission_id):
                     from .missions import MissionInterrupted
                     raise MissionInterrupted('Mission interrompue après génération ; aucun nouvel outil lancé')
-                if isinstance(message,str):message={'role':'assistant','content':message}
-                # Some Ministral/Ollama templates expose a tool token as plain text.
-                # Accept only a whole-message known function + JSON object, with the same permissions.
-                if not message.get('tool_calls') and isinstance(message.get('content'),str):
-                    encoded=re.fullmatch(r'\s*([a-z_][a-z_0-9]*)\[ARGS\](\{.*\})\s*',message['content'],flags=re.S)
-                    if encoded and encoded[1] in self.tools.specs:
-                        try:
-                            arguments=json.loads(encoded[2])
-                            if isinstance(arguments,dict):message={'role':'assistant','content':'','tool_calls':[{'function':{'name':encoded[1],'arguments':arguments}}]}
-                        except json.JSONDecodeError:pass
+                from .protocol import normalize_message
+                message=normalize_message(message,self.tools.specs)
                 calls=message.get('tool_calls',[]) if round<rounds and not reported else []
                 if not isinstance(calls,list):raise ValueError('Format des appels d’outils invalide')
                 if not calls:
@@ -157,7 +155,7 @@ class Core:
                     tool_results.append(result)
                     # The checkbox drives planning, not authorization. A real mutation starts
                     # an intervention lifecycle even from ordinary text or transcribed voice.
-                    mutating=name in ('host_write_file','host_delete_file') or name=='host_package' and arguments.get('action') in ('install','configure') or name=='host_service' and arguments.get('action') in ('start','stop','restart') or name=='host_github' and arguments.get('action') in ('create','clone','push','pull_request','enable_pages') or name in ('host_remote','host_ansible') and arguments.get('action') in ('write_file','deploy_file','package_install','service')
+                    mutating=name in ('host_write_file','host_delete_file') or name=='host_package' and arguments.get('action') in ('install','configure') or name=='host_service' and arguments.get('action') in ('start','stop','restart') or name=='host_github' and arguments.get('action') in ('create','clone','download','push','pull_request','enable_pages') or name in ('host_remote','host_ansible') and arguments.get('action') in ('write_file','deploy_file','package_install','service')
                     if result['ok'] and mutating and not agent_mode:
                         # A regular chat can start a real intervention. Promote the
                         # live turn as well as its local flag so Qwen gets the

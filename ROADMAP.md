@@ -8,12 +8,14 @@
 | --- | --- | --- |
 | 00 / consolidation | GO avec réserves : 68 missions, 28 anomalies, 129 documents/preuves récupérés ; délégation réelle guidée | Documents publiés dans main le 18/10 ; traiter les réserves d’autonomie dans leur périmètre |
 | Historique 01–13 | Archives et rapports 08, 09, 09B, 10, 11 et 13E retrouvés ; niveaux de preuve distincts | Conserver les verdicts et les réserves, sans relancer les campagnes |
-| 13D-E / Dell n°1 | Réception complète du 17/10 par Codex ; une RTX 3090 alimentée | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
+| 13D-E / Dell n°1 | Réception du17/10 conservée ; loupé Tailscale identifié18/10 | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
 | 11-Agentic / 11B | Outils hôte et raccordement SSH/Ansible validés ; Compute Expansion encore partielle | Checkpoint 11B observé incomplet après cinq tentatives ; reprise hors mission 00 pour les capacités restantes, notamment routage/repli |
 | 14A | Progrès réels en 13F, 11B, JL-02 et 00 ; réception globale ouverte | Confronter critères et preuves sans supposer un déploiement autonome complet |
 | 14 / Dell n°2 | Prévue ; JARVIS doit être exécutant, aucune installation dans cet audit | Identifier la cible, préparer JARVIS et corriger le contrôleur |
 | JL-01 / JL-02 | V1 préservée ; V2 livrée GO AVEC RÉSERVES, espace connecté confirmé | Fiabiliser l’agent et réceptionner les clients physiques ; réutiliser le tunnel actif |
 | 15A / 15B | Cahiers et cinq incréments chacun préparés, non lancés | Contrat API commun ; mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team |
+| 21 / autonomie | Six tâches reçues et publiées ;07 KDE/VNC LAN testé, client Tailscale installé par JARVIS mais NeedsLogin | Enrôlement direct Dell puis reprise du même checkpoint et rapport final |
+| 22 / moteur V2 | Réception avec réserves ; persistance, reprise réelle, outbox et Sandbox vérifiés ;21 non complète | Lever la dépendance externe Tailscale ; conserver les réserves sémantiques et la provenance Codex/JARVIS |
 | Architecture distribuée | Mac mini : mémoire, voix, outils et passerelle ; Dell n°1 : inférence Ollama | Placement dynamique, équilibrage, repli et orchestration multi-nœuds non réceptionnés globalement |
 
 La mission 00 autorise et réalise l’audit documentaire auparavant différé. Elle ne déclenche aucune réinstallation, aucun effacement, aucune modification RAID ni aucun déploiement du Dell n°2. Aucun nouveau GO intermédiaire ni fusion automatique dans main.
