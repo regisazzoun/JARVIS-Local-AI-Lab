@@ -1,0 +1,26 @@
+[
+  {
+    "num_ctx": 8192,
+    "elapsed_s": 4.407104111043736,
+    "done": true,
+    "done_reason": "stop",
+    "load_duration": 4079622,
+    "prompt_eval_count": 30,
+    "prompt_eval_duration": 120864000,
+    "eval_count": 43,
+    "eval_duration": 1093394000,
+    "answer": "Un appel outil réussi confirme que l'agent a exécuté la procédure technique demandée, tandis qu'une mission vérifiée atteste de la validation finale du résultat par un superviseur ou le système."
+  },
+  {
+    "num_ctx": 16384,
+    "elapsed_s": 17.099454223993234,
+    "done": true,
+    "done_reason": "stop",
+    "load_duration": 15888422667,
+    "prompt_eval_count": 30,
+    "prompt_eval_duration": 128448000,
+    "eval_count": 42,
+    "eval_duration": 1077152000,
+    "answer": "Un appel outil réussi signifie que l'utilisateur a pu utiliser une fonctionnalité pour résoudre son problème, tandis qu'une mission vérifiée indique que l'équipe support a confirmé que cette résolution est effective et durable."
+  }
+]

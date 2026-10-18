@@ -10,10 +10,12 @@
 
 ## Vue d'ensemble — toutes les missions
 
-**68 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--68-identifiants) reprend les mêmes missions et états.
+**70 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--70-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
+| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 Reprise préparée par mission 22 | 78 appels historiques, pas de rapport final durable ; fichiers préservés | Reprendre via moteur durable, vérifier les sept tâches |
+| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟠 En cours — développement et tests | Journal persistant et essais initiaux réels ; aucun GO global | Réception multitétapes, reprise, publication et mission21 |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves | Diagnostics et premières procédures documentés ; certains états intermédiaires historiques | Consolider les procédures et preuves |
 | **04** | GRUB, Thunderbolt et eGPU NVIDIA | 🟡 Réalisée avec réserves | Investigations et contournements documentés ; essais de démarrage non concluants | Documenter les cas restant ouverts |
 | **04W** | Analyse d'un démarrage interrompu | 🟡 Analyse réalisée | Entrée dans le noyau non prouvée sur les traces considérées | Conserver la réserve |
@@ -233,3 +235,7 @@ Le propriétaire autorise explicitement la fusion pour rendre les documents acce
 ### Publication effective dans main — 18 octobre 2026
 
 PR6 fusionnée dans sa branche de base ; [PR7](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/7) fusionnée dans main pour publier les documents et le client d’audit 00. Le README réécrit et les rapports sont désormais accessibles depuis la page principale. Les mêmes 68 identifiants/intitulés/états sont vérifiés entre README et SUIVI. [Preuves de publication](docs/missions/00-Mission-Pilotage-point-26-10-17/PUBLICATION-MAIN.json). La PR5 de déploiement reste distincte.
+
+### 18 octobre 2026 — mission 22 lancée
+
+Ajout des missions21 et22 au registre courant (70 identifiants). Le bilan00 demeure son instantané historique de68. Diagnostic21 fondé sur traces réelles, développement V2 en cours sur branche dédiée ; aucune fusion main ni réception globale déclarée.

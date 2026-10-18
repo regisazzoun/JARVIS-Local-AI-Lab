@@ -1,0 +1,204 @@
+"""Transactional mission journal, in the existing mission database (not a memory clone)."""
+from contextlib import contextmanager
+from pathlib import Path
+import hashlib
+import json
+import sqlite3
+import time
+import uuid
+
+
+def encoded(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True)
+
+
+def signature(tool, arguments):
+    return hashlib.sha256((tool + encoded(arguments)).encode()).hexdigest()
+
+
+class MissionStore:
+    def __init__(self, root):
+        self.root = Path(root)
+        self.path = self.root / 'runtime/missions.sqlite'
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        with self.db() as c:
+            c.execute('PRAGMA journal_mode=WAL')
+            c.executescript('''
+            CREATE TABLE IF NOT EXISTS missions(id TEXT PRIMARY KEY,goal TEXT,model TEXT,state TEXT,conversation TEXT,attempts INTEGER DEFAULT 0,result TEXT,updated REAL);
+            CREATE TABLE IF NOT EXISTS checkpoints(id INTEGER PRIMARY KEY,mission TEXT,tool TEXT,result TEXT,created REAL);
+            CREATE TABLE IF NOT EXISTS tasks(mission TEXT,id TEXT,title TEXT,deps TEXT,state TEXT,evidence TEXT,updated REAL,PRIMARY KEY(mission,id));
+            CREATE TABLE IF NOT EXISTS procedures(id INTEGER PRIMARY KEY,title TEXT,content TEXT,evidence TEXT,created REAL);
+            CREATE TABLE IF NOT EXISTS mission_events(id INTEGER PRIMARY KEY AUTOINCREMENT,mission TEXT NOT NULL,task TEXT,actor TEXT NOT NULL,kind TEXT NOT NULL,tool TEXT,arguments TEXT,result TEXT,created REAL NOT NULL,duration REAL,invocation TEXT);
+            CREATE INDEX IF NOT EXISTS mission_event_cursor ON mission_events(mission,id);
+            CREATE TABLE IF NOT EXISTS tool_calls(id TEXT PRIMARY KEY,mission TEXT NOT NULL,task TEXT,signature TEXT NOT NULL,tool TEXT NOT NULL,arguments TEXT NOT NULL,state TEXT NOT NULL,result TEXT,created REAL,updated REAL);
+            CREATE INDEX IF NOT EXISTS mission_call_lookup ON tool_calls(mission,task,signature,state);
+            CREATE TABLE IF NOT EXISTS mission_context(mission TEXT PRIMARY KEY,task TEXT,messages TEXT,updated REAL);
+            CREATE TABLE IF NOT EXISTS publication_outbox(id TEXT PRIMARY KEY,mission TEXT,task TEXT,repository TEXT,branch TEXT,workspace TEXT,file TEXT,sha256 TEXT,state TEXT,attempts INTEGER DEFAULT 0,next_run REAL DEFAULT 0,last_error TEXT,commit_sha TEXT,updated REAL);
+            ''')
+            for table, columns in {
+                'missions': {'project': "TEXT DEFAULT ''", 'created': 'REAL', 'next_run': 'REAL DEFAULT 0',
+                             'lease_owner': 'TEXT', 'lease_until': 'REAL', 'last_progress': 'REAL',
+                             'stagnant_cycles': 'INTEGER DEFAULT 0', 'report_path': 'TEXT',
+                             'spec': "TEXT DEFAULT '{}'", 'active_task': 'TEXT', 'origin': "TEXT DEFAULT 'legacy'"},
+                'tasks': {'objective': 'TEXT', 'contract': "TEXT DEFAULT '{}'", 'started': 'REAL',
+                          'attempts': 'INTEGER DEFAULT 0', 'last_error': 'TEXT', 'artifact': 'TEXT',
+                          'report_sha256': 'TEXT', 'stage': "TEXT DEFAULT 'execute'"}
+            }.items():
+                present = {r['name'] for r in c.execute('PRAGMA table_info(' + table + ')')}
+                for name, declaration in columns.items():
+                    if name not in present:
+                        c.execute('ALTER TABLE ' + table + ' ADD COLUMN ' + name + ' ' + declaration)
+            c.execute('UPDATE missions SET created=coalesce(created,updated),last_progress=coalesce(last_progress,updated)')
+
+    @contextmanager
+    def db(self):
+        c = sqlite3.connect(self.path, timeout=30)
+        c.row_factory = sqlite3.Row
+        c.execute('PRAGMA foreign_keys=ON')
+        c.execute('PRAGMA synchronous=FULL')
+        try:
+            with c:
+                yield c
+        finally:
+            c.close()
+
+    def event(self, mission, kind, task=None, actor='JARVIS-engine', tool=None, arguments=None, result=None, duration=None, invocation=None, connection=None):
+        values = (mission, task, actor, kind, tool, encoded(arguments or {}), encoded(result or {}), time.time(), duration, invocation)
+        query = 'INSERT INTO mission_events(mission,task,actor,kind,tool,arguments,result,created,duration,invocation) VALUES(?,?,?,?,?,?,?,?,?,?)'
+        if connection is not None:
+            return connection.execute(query, values).lastrowid
+        with self.db() as c:
+            return c.execute(query, values).lastrowid
+
+    def create(self, goal, model, conversation, project='', spec=None, origin='conversation'):
+        ident = uuid.uuid4().hex
+        now = time.time()
+        with self.db() as c:
+            c.execute('INSERT INTO missions(id,goal,model,state,conversation,updated,created,last_progress,project,spec,origin) VALUES(?,?,?,?,?,?,?,?,?,?,?)',
+                      (ident, goal, model, 'queued', conversation, now, now, now, project, encoded(spec or {}), origin))
+            self.event(ident, 'mission_created', result={'origin': origin}, connection=c)
+        return ident
+
+    def get(self, ident):
+        with self.db() as c:
+            row = c.execute('SELECT * FROM missions WHERE id=?', (ident,)).fetchone()
+            if not row:
+                raise ValueError('Mission absente')
+            return dict(row)
+
+    def tasks(self, ident):
+        with self.db() as c:
+            result = []
+            for row in c.execute('SELECT * FROM tasks WHERE mission=? ORDER BY rowid', (ident,)):
+                d = dict(row)
+                for k in ('deps', 'evidence', 'contract'):
+                    d[k] = json.loads(d[k] or ('{}' if k == 'contract' else '[]'))
+                result.append(d)
+            return result
+
+    def plan(self, ident, tasks):
+        if isinstance(tasks, str):
+            tasks = json.loads(tasks)
+        if not isinstance(tasks, list) or not tasks:
+            raise ValueError('Plan non vide requis')
+        normalized = []
+        for t in tasks:
+            if not isinstance(t, dict) or not isinstance(t.get('id'), str) or not isinstance(t.get('title'), str):
+                raise ValueError('Chaque tâche exige id et title textuels')
+            deps = t.get('depends', t.get('deps', []))
+            if not isinstance(deps, list) or any(not isinstance(x, str) for x in deps):
+                raise ValueError('depends doit être une liste d’identifiants')
+            normalized.append({**t, 'depends': deps})
+        mapping = {t['id']: t for t in normalized}
+        if len(mapping) != len(normalized):
+            raise ValueError('Identifiants dupliqués')
+        visited = set()
+        def visit(ident, chain):
+            if ident in chain or ident not in mapping:
+                raise ValueError('Dépendance cyclique ou absente')
+            if ident in visited:
+                return
+            for dep in mapping[ident]['depends']:
+                visit(dep, chain | {ident})
+            visited.add(ident)
+        for key in mapping:
+            visit(key, set())
+        with self.db() as c:
+            if c.execute('SELECT 1 FROM tasks WHERE mission=?', (ident,)).fetchone():
+                return self.tasks(ident)
+            for t in normalized:
+                c.execute('INSERT INTO tasks(mission,id,title,deps,state,evidence,updated,objective,contract) VALUES(?,?,?,?,?,?,?,?,?)',
+                          (ident, t['id'], t['title'], encoded(t['depends']), 'pending', '[]', time.time(), t.get('objective', t['title']), encoded(t.get('contract', {}))))
+            self.event(ident, 'plan_saved', result={'tasks': len(normalized)}, connection=c)
+        return self.tasks(ident)
+
+    def ready(self, ident):
+        tasks = self.tasks(ident)
+        done = {t['id'] for t in tasks if t['state'] == 'validated'}
+        return [t for t in tasks if t['state'] in ('pending', 'running', 'retrying') and set(t['deps']) <= done]
+
+    def claim(self, owner, lease_seconds=120):
+        with self.db() as c:
+            c.execute('BEGIN IMMEDIATE')
+            now = time.time()
+            c.execute("UPDATE missions SET state='queued',lease_owner=NULL WHERE state='running' AND origin!='legacy' AND coalesce(lease_until,0)<?", (now,))
+            row = c.execute("SELECT * FROM missions WHERE state IN ('queued','retrying','publishing') AND coalesce(next_run,0)<=? ORDER BY updated LIMIT 1", (now,)).fetchone()
+            if not row:
+                return None
+            c.execute("UPDATE missions SET state='running',attempts=attempts+1,lease_owner=?,lease_until=?,updated=? WHERE id=?",
+                      (owner, now + lease_seconds, now, row['id']))
+            self.event(row['id'], 'cycle_started', result={'attempt': row['attempts'] + 1}, connection=c)
+            return dict(c.execute('SELECT * FROM missions WHERE id=?', (row['id'],)).fetchone())
+
+    def heartbeat(self, ident, owner, lease_seconds=120):
+        with self.db() as c:
+            c.execute('UPDATE missions SET lease_until=? WHERE id=? AND lease_owner=? AND state=?',
+                      (time.time() + lease_seconds, ident, owner, 'running'))
+
+    def transition(self, ident, state, result=None, delay=0, progress=False):
+        with self.db() as c:
+            current = c.execute('SELECT state FROM missions WHERE id=?', (ident,)).fetchone()
+            if not current:
+                raise ValueError('Mission absente')
+            if current['state'] == 'interrupted' and state != 'queued':
+                return
+            c.execute('UPDATE missions SET state=?,result=?,updated=?,next_run=?,lease_owner=NULL,lease_until=NULL WHERE id=?',
+                      (state, encoded(result or {}), time.time(), time.time() + delay, ident))
+            if progress:
+                c.execute('UPDATE missions SET last_progress=?,stagnant_cycles=0 WHERE id=?', (time.time(), ident))
+            self.event(ident, 'state_changed', result={'state': state, 'delay': delay}, connection=c)
+
+    def begin_call(self, ident, task, tool, arguments):
+        token = uuid.uuid4().hex
+        now = time.time()
+        with self.db() as c:
+            c.execute('INSERT INTO tool_calls VALUES(?,?,?,?,?,?,?,?,?,?)',
+                      (token, ident, task, signature(tool, arguments), tool, encoded(arguments), 'started', None, now, now))
+            self.event(ident, 'tool_started', task, 'JARVIS', tool, arguments, invocation=token, connection=c)
+        return token
+
+    def finish_call(self, token, result, duration):
+        with self.db() as c:
+            row = c.execute('SELECT * FROM tool_calls WHERE id=?', (token,)).fetchone()
+            c.execute('UPDATE tool_calls SET state=?,result=?,updated=? WHERE id=?', ('finished', encoded(result), time.time(), token))
+            c.execute('INSERT INTO checkpoints(mission,tool,result,created) VALUES(?,?,?,?)', (row['mission'], row['tool'], encoded(result), time.time()))
+            self.event(row['mission'], 'tool_finished', row['task'], 'JARVIS', row['tool'], json.loads(row['arguments']), result, duration, token, c)
+            c.execute('UPDATE missions SET updated=?,last_progress=? WHERE id=?', (time.time(), time.time(), row['mission']))
+
+    def observations(self, ident, task=None):
+        with self.db() as c:
+            query = 'SELECT * FROM tool_calls WHERE mission=?'
+            params = [ident]
+            if task is not None:
+                query += ' AND task=?'
+                params.append(task)
+            return [{**dict(r), 'arguments': json.loads(r['arguments']), 'result': json.loads(r['result']) if r['result'] else None}
+                    for r in c.execute(query + ' ORDER BY created', params)]
+
+    def events(self, ident, after=0, limit=150):
+        with self.db() as c:
+            rows = [dict(r) for r in c.execute('SELECT * FROM mission_events WHERE mission=? AND id>? ORDER BY id LIMIT ?', (ident, after, limit))]
+        for r in rows:
+            r['arguments'] = json.loads(r['arguments'])
+            r['result'] = json.loads(r['result'])
+        return rows

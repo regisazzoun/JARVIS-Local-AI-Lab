@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-10-18T15:08:37.587005+02:00",
+  "conversation_turns": [
+    {
+      "calls": 38,
+      "successes": 25,
+      "reported": false
+    },
+    {
+      "calls": 40,
+      "successes": 30,
+      "reported": false
+    }
+  ],
+  "total_calls": 78,
+  "successful_calls": 55,
+  "remote_tools_called": 0,
+  "github_calls": 36,
+  "durable_mission_created": false,
+  "remote_etat_initial": "À faire pour les sept tâches",
+  "local_reports_found": [
+    "01-RAPPORT-SANTE.md",
+    "02-ANALYSE-JOURNAUX.md",
+    "03-GPU.md",
+    "04-CONCORDANCE-MISSIONS.md"
+  ],
+  "notes": "Métadonnées extraites des traces réelles ; aucun journal privé brut publié. Le fichier 03-GPU ne répond pas à la fiche 21.03 documentaire."
+}

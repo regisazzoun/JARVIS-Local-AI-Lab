@@ -17,3 +17,7 @@ Les index `missions/` et `indexes/` des branches documentaires PR2/3 restent des
 ## Rapports Launcher récupérés
 
 [JL-01](JL-01/RAPPORT-JL-01.md) · [Tests JL-01](JL-01/TESTS.md) · [JL-02](JL-02/RAPPORT-JL-02.md) · [Bilan agentique JL-02](JL-02/RAPPORT-AGENTIQUE-JL-02.md) · [Tests JL-02](JL-02/TESTS.md) · [Preuve UI agentique](JL-02/evidence/agent-ui.json). Les copies ont été récupérées sur JARVIS, avec manifeste et empreintes ; elles ne modifient pas les dépôts Launcher.
+
+## Actualisation du 18 octobre 2026
+
+[Registre courant JSON](REGISTRE-MISSIONS.json) :70 identifiants, incluant [mission21](21/README.md) et [mission22](22/DIAGNOSTIC-INITIAL.md). Le registre00 reste historique à68. Le suivi et le catalogue README utilisent le registre courant. Réception22 en cours.

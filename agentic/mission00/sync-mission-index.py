@@ -16,7 +16,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write', action='store_true', help='Update the README catalogue')
     args = parser.parse_args()
-    registry = json.loads((REPORTS / 'REGISTRE-MISSIONS.json').read_text())
+    current = ROOT / 'docs/missions/REGISTRE-MISSIONS.json'
+    registry = json.loads((current if current.exists() else REPORTS / 'REGISTRE-MISSIONS.json').read_text())
     identifiers = [r['identifiant'] for r in registry]
     if len(set(identifiers)) != len(identifiers):
         raise SystemExit('Duplicate identifier in registry')

@@ -475,3 +475,7 @@ RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/
 Le propriétaire autorise la fusion des documents consolidés dans main et demande un README plus lisible, cohérent avec SUIVI. Les anciens rappels de non-fusion décrivent la consigne précédente ; cette autorisation reste limitée à la publication documentaire, sans déploiement ni import du code d’installation de PR5.
 
 Publication effective : PR6 et PR7 fusionnées, documents disponibles sur main. Les 68 identifiants et états du catalogue README correspondent au suivi.
+
+## 18 octobre 2026 — mission 22 en cours
+
+Moteur agentique V2 : tâches durables, checkpoints, reprise, vérification et livraison asynchrone. Mission21 constitue le banc de réception ; ses sept tâches ne sont pas déclarées terminées. Voir [diagnostic](docs/missions/22/DIAGNOSTIC-INITIAL.md). Dell n°2 et mission14 exclus. Publication sur branches dédiées, sans fusion main.
