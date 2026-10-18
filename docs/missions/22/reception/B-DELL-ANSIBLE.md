@@ -5,7 +5,7 @@ Déployer un fichier JSON non sensible sur le serveur Dell via Ansible, vérifie
 
 **Fichier cible :** `/etc/jarvis/managed/22-reception.json`  
 **Contenu :** `{"mission":"22","verified":true}`  
-**Hôte distant :** `dell-observe` (192.168.1.75) - profil activé dans host_policy
+**Hôte distant :** `dell-observe` ([adresse privée masquée]) - profil activé dans host_policy
 
 ## 2. Profil Dell via host_policy
 Le profil `dell-observe` est autorisé avec :
@@ -20,7 +20,7 @@ Le profil `dell-observe` est autorisé avec :
 
 ### Résultat :
 ```json
-192.168.1.75 | CHANGED => {
+[adresse privée masquée] | CHANGED => {
     "changed": true,
     "checksum": "d2961af157441c24ee955f17c79bea78cfc3a3f3",
     "dest": "/etc/jarvis/managed/22-reception.json",
@@ -38,7 +38,7 @@ Le profil `dell-observe` est autorisé avec :
 
 ### Résultat :
 ```json
-192.168.1.75 | SUCCESS => {
+[adresse privée masquée] | SUCCESS => {
     "changed": false,
     "checksum": "d2961af157441c24ee955f17c79bea78cfc3a3f3",
     "dest": "/etc/jarvis/managed/22-reception.json",
