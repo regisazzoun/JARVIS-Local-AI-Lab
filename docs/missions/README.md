@@ -21,3 +21,13 @@ Les index `missions/` et `indexes/` des branches documentaires PR2/3 restent des
 ## Actualisation du 18 octobre 2026
 
 [Registre courant JSON](REGISTRE-MISSIONS.json) :70 identifiants, incluant [mission21](21/README.md) et [mission22](22/DIAGNOSTIC-INITIAL.md). Le registre00 reste historique à68. Le suivi et le catalogue README utilisent le registre courant. Réception22 en cours.
+
+
+## Actualisation du18 octobre2026 — missions21/22
+
+- [Mission22 — bilan de réception](22/RAPPORT-FINAL.md) : moteur déployé, GO avec réserves ;36 tests V2 et22 contrôles navigateur connectés.
+- [Mission21 — état réel](21/ETAT.md) : six tâches reçues,07 bloquée ; [rapports JARVIS](21/RAPPORTS/) et [synthèse partielle](21/RAPPORT-FINAL.md) récupérés de GitHub avec [provenance](22/MANIFESTE-RAPPORTS-MISSION21.json).
+- [Réception21 et réserve Tailscale](22/RECEPTION-MISSION21.md) : client désormais installé par JARVIS, mais `NeedsLogin`, aucun accès direct reçu.
+- [Registre courant](REGISTRE-MISSIONS.json), [README](../../README.md) et [SUIVI](../../SUIVI.md) :70 identifiants courants ; le bilan00 historique conserve ses68 identifiants.
+
+Aucune fusion automatique dans main, aucun déploiement Dell2. Les documents de mission21 sont des productions du modèle conservées sans réécriture ; les vérifications et réserves Codex figurent en22.

@@ -35,18 +35,20 @@ Les outils existants permettent des opérations de fichiers, de terminal, de Git
 | Machine | Rôle documenté | État et limites |
 | --- | --- | --- |
 | **Mac mini Debian** | Passerelle JARVIS, mémoire canonique, Whisper/Piper, outils et supervision ; terrain initial des essais eGPU | Socle existant préservé ; la mémoire n’est pas une base répliquée sur chaque nœud |
-| **Dell Precision n°1** | Inférence Ollama, modèles et accélération NVIDIA/CUDA | Réception complète **13D-E** ; **une RTX 3090 alimentée**, la seconde reste une extension matérielle future |
+| **Dell Precision n°1** | Inférence Ollama, modèles et accélération NVIDIA/CUDA | Réception **13D-E** conservée ; réserve réseau : client Tailscale installé en22 mais enrôlement `NeedsLogin` ; une RTX3090 alimentée |
 | **Dell Precision n°2** | Extension future du laboratoire | **Mission 14 à réaliser par JARVIS lui-même**, distincte du premier Dell installé par Codex |
 
-L’intégration distante existe. Le placement automatique des modèles, l’équilibrage et le repli global restent à compléter pour progresser vers une seule entité JARVIS distribuée.
+L’intégration distante existe. En mission22, le routage interactif sur Mac, les missions sur Dell et un repli Ollama ont été testés. Le placement dynamique et l’équilibrage global restent à compléter pour progresser vers une seule entité JARVIS distribuée.
 
 ## 📍 Où en est le projet ?
 
-**Dernier bilan consolidé : 17 octobre 2026 · Présentation et concordance actualisées le 18 octobre 2026.** Les états ci-dessous décrivent les preuves disponibles, pas une surveillance en direct.
+**Dernier bilan :18 octobre2026 — réception du moteur22 avec réserves et mission21 en attente externe.** Les états ci-dessous décrivent les preuves disponibles, pas une surveillance en direct.
 
 | Chantier | Résultat établi | Suite |
 | --- | --- | --- |
-| **13D-E — Dell n°1** | Debian, RAID1, deux ESP, SSH/sudo, Ansible, NVIDIA/CUDA, Ollama, modèles et intégration reçus | Préserver les acquis ; corriger le reboot forcé du contrôleur avant réemploi, sans présumer la cause de la resynchronisation |
+| **22 — Moteur agentique V2** | **GO avec réserves** :36 tests V2,22 contrôles navigateur ; reprise et publications vérifiées | [Bilan et preuves](docs/missions/22/RAPPORT-FINAL.md) ; autonomie longue encore partielle |
+| **21 — Autonomie opérationnelle** | **6/7 tâches reçues**, sept rapports et synthèse partielle publiés par JARVIS | Enrôler le client Tailscale Dell (`NeedsLogin`), puis reprendre07 au même checkpoint |
+| **13D-E — Dell n°1** | Debian, RAID1, deux ESP, SSH/sudo, Ansible, NVIDIA/CUDA, Ollama, modèles et intégration reçus | Loupé : Tailscale absent au déploiement, installé en22 mais enrôlement ouvert ; correctif reboot du contrôleur toujours distinct |
 | **11-Agentic / 11B** | Outils hôte et administration SSH/Ansible permanente validés | Compute Expansion reste partielle ; checkpoint incomplet à reprendre dans son périmètre |
 | **JL-01 / JL-02** | V1 conservée ; V2 livrée **GO avec réserves**, avec actions agentiques réelles | Fiabiliser l’agent et compléter les réceptions des clients physiques |
 | **00 — Pilotage** | **68 missions/sous-missions**, **28 anomalies** et **129 documents/preuves** récupérés ; cinq tâches JARVIS exécutées | Conserver la traçabilité et la concordance README/SUIVI ; analyses guidées et corrections Codex explicites |
