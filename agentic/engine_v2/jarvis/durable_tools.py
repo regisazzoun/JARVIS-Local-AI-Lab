@@ -36,7 +36,7 @@ def register(registry):
 
     def evidence(args):
         rows = store().observations(key())
-        row = next((r for r in rows if r['id'] == args['id']), None)
+        row = next((r for r in rows if r['id'] == args['id'] or (r.get('result') or {}).get('result',{}).get('evidence_id')==args['id']), None)
         if not row: raise ValueError('Preuve absente de cette mission')
         text = encoded(row)
         offset = args.get('offset', 0)
@@ -104,8 +104,10 @@ def register(registry):
         return {'state': 'validated', 'id': task['id'], 'report_path': args['report_path'], 'sha256': sha}
     def block(args):
         db=store();ident=key();task_id=registry.context.get('task_id')
-        proof=next((o for o in db.observations(ident,task_id) if o['id']==args['evidence_id'] and o.get('result')),None)
+        proof=next((o for o in db.observations(ident,task_id) if (o['id']==args['evidence_id'] or (o.get('result') or {}).get('result',{}).get('evidence_id')==args['evidence_id']) and o.get('result')),None)
         if not proof or proof['tool'].startswith('mission_'):raise ValueError('Une observation réelle de la tâche est requise')
+        with db.db() as c:revisions=[r['file'] for r in c.execute("SELECT file FROM publication_outbox WHERE mission=? AND state='needs_revision'",(ident,))]
+        if revisions:raise ValueError('Correct recoverable document publications before waiting on external authentication: '+', '.join(revisions)+'. Preserve summaries separately, download originals, append via host_exec/Python and mission_publish again.')
         read=registry.specs['host_read_file'][4]({'path':args['report_path']})
         body=read.get('stdout','')
         if read.get('returncode',0) or len(body.strip())<80:raise ValueError('Rapport de blocage vérifiable requis')

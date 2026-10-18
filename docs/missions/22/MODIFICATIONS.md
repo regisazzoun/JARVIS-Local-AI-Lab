@@ -41,3 +41,31 @@ Après acquisition du verrou de processus canonique, le serveur peut reprendre i
 - Le Launcher distingue attente externe, reprise, publication et interruption ; son bouton de reprise conserve les checkpoints. Le script Launcher installe uniquement les actifs et ne rétablit plus l’ancien backend.
 
 Les installations et modifications de tâches21 ne sont pas attribuées à Codex : les commandes de développement, de déploiement du broker et de vérification indépendante sont Codex ; les appels au broker et rapports modèle sont JARVIS. Les interventions pendant cette réception empêchent de présenter cette exécution comme entièrement sans correction d’infrastructure.
+
+
+### Contexte volumineux et progression de fin de tâche
+
+La trace réelle montrait une réponse d’outil de101479 caractères (lot de lectures) avec un contexte durable16384 : le tour suivant compactait immédiatement les échanges. Cette perte des détails immédiats contribue probablement aux relectures ; elle ne prouve pas à elle seule la cause de toutes les répétitions. Le moteur conserve désormais le reçu intégral dans SQLite et n’envoie au modèle qu’une vue explicitement tronquée, avec début/fin, taille intégrale et identifiant de preuve. `mission_evidence` permet la lecture paginée. Aucun résultat d’outil stocké n’est remplacé par cet extrait.
+
+Le contexte durable est porté à32768, sans plafond de tokens de génération, en vérifiant le chargement GPU réel. Les instructions actives sont relues à chaque génération, plutôt que figées pendant un quantum entier. L’objectif07 accumulé a été consolidé par Codex en actions restantes, sans toucher aux six tâches reçues ; l’ancien texte est sauvegardé et son empreinte journalisée.
+
+Les téléchargements identiques sont maintenant réellement idempotents : relecture exacte, `changed=false`, aucune réécriture. Ils ne réinitialisent plus la détection de répétition comme s’ils avaient changé l’état du système.29 tests V2 passent après ces corrections ; la réception de mission longue conserve ses réserves tant que le modèle n’a pas clôturé ses résultats.
+
+
+### Préservation documentaire et erreurs de publication
+
+Après amélioration du contexte, JARVIS a bien rédigé ses bilans mais a remplacé localement les deux documents racine par des résumés propres à21, malgré la consigne de conserver les autres missions. Codex a identifié cette non-conformité. Le broker refuse désormais cette publication sur la branche21 si le document existant n’est pas conservé ; l’expurgation d’identifiants privés reste permise. Les documents GitHub originaux ont été vérifiés intacts après les refus. Cette protection matérialise la consigne du propriétaire, sans nouvelle validation humaine.
+
+Un rejet nécessitant une révision locale devient `needs_revision`, sans boucle de push identiques ; les erreurs réseau conservent leur reprise. Une nouvelle version remplace l’intention rejetée. Les problèmes de livraison sont injectés dans le contexte actif du modèle. `mission_block` refuse de masquer une publication corrigeable derrière une dépendance d’authentification externe.
+
+Autre erreur corrigée après essai réel : `mission_block` et `mission_evidence` acceptaient seulement l’identifiant d’invocation interne, alors que le modèle utilisait l’identifiant du reçu broker. Les deux références réelles sont maintenant résolues dans la même mission/tâche, comme pour la réception de tâche.35 tests V2 passent après ces corrections. Les travaux de correction sont Codex ; toute correction des fichiers ou publication de tâche reste exécutée par JARVIS.
+
+
+Les sauvegardes temporaires choisies par le modèle dans `/tmp` ne persistent pas entre appels Bubblewrap. Codex a signalé cette erreur de stratégie et précisé la description de `host_exec` : utiliser les racines persistantes pour la reprise. Une commande de copie réussie dans un tmpfs ne prouve pas un fichier durable. Ce guidage est conservé comme intervention Codex, sans l’attribuer à une découverte autonome du modèle.
+
+
+### Réception finale de l’interface et de l’attente
+
+L’adaptateur JL-02 traitait encore les champs JSON nuls sans valeur par défaut : le premier écran passait mais une page tardive échouait. Le correctif s’applique au journal entier ;36 tests V2 passent, dont une pagination au-delà de150 événements. Les connexions SQLite de l’adaptateur sont fermées explicitement. Les rapports de tâches ont désormais des liens authentifiés, y compris le rapport partiel07 sans coche de réception.22 assertions navigateur et14 pages API réelles ont été vérifiées.
+
+JARVIS a corrigé lui-même SUIVI/ROADMAP avec conservation du contenu antérieur, publié tous les bilans puis enregistré le blocage d’enrôlement. Le redémarrage du service conserve son état, ses empreintes et sa session. Le paquet Tailscale installé ne constitue toujours pas un accès direct validé.

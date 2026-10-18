@@ -1,14 +1,14 @@
 {
-  "collected_at": "2026-10-18T17:32:46+0200",
+  "collected_at": "2026-10-18T17:51:43+0200",
   "mission": {
     "id": "e370b0bef74f4deaa390b5c46bfdc299",
-    "state": "running",
+    "state": "waiting_external",
     "model": "qwen3.5:27b-q4_K_M",
-    "attempts": 39,
+    "attempts": 48,
     "active_task": "07",
     "created": 1792331445.364225,
-    "updated": 1792337560.7681398,
-    "last_progress": 1792337560.7681403,
+    "updated": 1792338621.2802942,
+    "last_progress": 1792338621.2802947,
     "report_path": null
   },
   "tasks": [
@@ -69,20 +69,20 @@
     {
       "id": "07",
       "title": "Bureau Plasma privé via VNC et tunnels LAN/Tailscale",
-      "state": "running",
-      "attempts": 17,
-      "artifact": null,
-      "report_sha256": null,
-      "last_error": null
+      "state": "blocked",
+      "attempts": 26,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
+      "report_sha256": "b589f8470a782b7280bd1b686d9b9ee5ea35a04bdae7f50f0f5377b08fd2281e",
+      "last_error": "Identité d'enrôlement Tailscale absente - client installé (package tailscale) et service actif sur Dell n°1, mais état backend_state=NeedsLogin confirmé par host_remote/tailscale_status. Nécessite clé auth TS_AUTHKEY ou authentification navigateur hors périmètre modèle. Accès LAN par tunnel SSH fonctionnel, exigence Tailscale non satisfaite."
     }
   ],
-  "total_tool_intents": 566,
-  "finished_tool_calls": 565,
-  "successful_tool_returns": 370,
+  "total_tool_intents": 639,
+  "finished_tool_calls": 638,
+  "successful_tool_returns": 420,
   "event_actors": {
-    "JARVIS-engine": 475,
-    "JARVIS": 1137,
-    "Codex": 8
+    "JARVIS-engine": 567,
+    "JARVIS": 1285,
+    "Codex": 12
   },
   "publications": [
     {
@@ -203,6 +203,55 @@
       "attempts": 1,
       "commit_sha": "90945a668ac9deed78f4fd048019a761bce0b879",
       "sha256": "c3cfbd7ee3310c4cb1e3c182af0622bb7bae62fa8e9aeac550fbaf21c5c6705b"
+    },
+    {
+      "file": "SUIVI.md",
+      "state": "superseded",
+      "attempts": 4,
+      "commit_sha": null,
+      "sha256": "1461ac3122208032abed0a9041c5dadaeadf59c72bacb9a56c5017a975458f24"
+    },
+    {
+      "file": "ROADMAP.md",
+      "state": "superseded",
+      "attempts": 4,
+      "commit_sha": null,
+      "sha256": "c9f5c6fd9026a39743198a135578a9f10451e4e5fd8e73da854fd9777b6feb06"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "999e6f620d5c5731b684d25c95df6e0f86a91484",
+      "sha256": "5fceda674f69d91e397c436a00d757261628d4a4fc886eec3ee69eb16074c1a9"
+    },
+    {
+      "file": "SUIVI.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "ba16504b42bd01fd4830cedcaa8311fadbaf5b65",
+      "sha256": "253e2c5969972b69f28cc7897144ce090189a6780d3616734e38e6a25ad0ae5c"
+    },
+    {
+      "file": "ROADMAP.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "8ddbf87b31e81926e049ee2bffeea2b0d492c5ff",
+      "sha256": "0164446ebdd39177da232b7db8c5f838439d36733fd240b5fa70fd943f585f81"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "125b9117e1eaa2e6476c9d8af6c06c4eca353caa",
+      "sha256": "b589f8470a782b7280bd1b686d9b9ee5ea35a04bdae7f50f0f5377b08fd2281e"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "91e5e790dcfa2a9eb17ec7f5f5016f2b5c842b7f",
+      "sha256": "7f50022ded68c43793ff7cdf0aa59177efbc6a4683c6c0e689e931f7cd62fa78"
     }
   ],
   "operational_proofs": [
@@ -605,6 +654,121 @@
       "created": 1792337538.844025,
       "ok": false,
       "broker_evidence": "f2fc42626bbe42a0a3cdb2c33752df33",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "6c9f419674cb4e9ab4e3572cf6268c9b",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337610.0970275,
+      "ok": false,
+      "broker_evidence": "88ef2750dfef4dc9a8d84d0f7a0087e2",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "b3843a65ed2f4588a40b6af6ab930aed",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337667.0050108,
+      "ok": false,
+      "broker_evidence": "58a015ccbf7640088c30f5a28e84f9c0",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "1ee035dc184a47cca8c5ef9087c4d093",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337819.384938,
+      "ok": false,
+      "broker_evidence": "ac4ed862119f492abb6b0895b102079b",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "5dce97ab86d343d1a356bff1eb8e181a",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337898.111753,
+      "ok": false,
+      "broker_evidence": "65feff80eb4d4d03ba0e2b87136fa6b2",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "2b26e31c6a864c1caaee34099ee2ca4b",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792338240.883935,
+      "ok": false,
+      "broker_evidence": "c741ca01de6d48788cd95b8a4f50b289",
       "broker_caller": "JARVIS-runtime",
       "observation": {
         "installed": true,

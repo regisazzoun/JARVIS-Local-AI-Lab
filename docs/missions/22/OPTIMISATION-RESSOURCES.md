@@ -16,3 +16,8 @@ Le catalogue réel contient les trois mêmes modèles sur Mac mini et Dell1. Le 
 [Test réel de concurrence](CONCURRENCE-VOIX-CONVERSATION.json) : synthèse Piper WAV en2,12s pendant une mission ; conversation Qwen sur le Mac en39,14s dont33,70s de chargement à froid. Le worker Dell restait actif. Cela ne vaut pas test de microphone physique. Le coût à froid doit être distingué de la génération chaude.
 
 [Essai réflexion et repli](ROUTAGE-REFLEXION.json) : véritable nœud primaire indisponible sur un port de test, puis réponse réelle sur Mac. Sur la même petite question shell, think=false a produit une proposition en1,03s ; think=true en245,56s avec9115 tokens évalués. Les deux propositions sont plausibles ; ce test de génération n'exécute pas les commandes et ne réceptionne pas l'autonomie. Aucune limite de durée n'a été introduite pour interrompre cette réflexion. Le réglage existant think=false reste celui de production, faute d'amélioration démontrée sur cet essai. Le réglage est désormais configurable pour de futurs essais.
+
+
+## Réglage de finalisation
+
+Le contexte durable passe de16384 à32768 après observation de lectures volumineuses compactées à chaque tour. Le reçu complet reste dans le journal, les vues du modèle sont bornées et explicitement signalées comme extraits ; ce réglage vise la conservation du contexte utile, sans économiser les ressources disponibles. Il ne garantit pas à lui seul une meilleure autonomie. Le dernier échantillon et les limites réelles figurent dans [RESSOURCES-FINALES.json](RESSOURCES-FINALES.json). Aucun quota CPU/RAM/tâches du service ; `durable_num_predict=-1`. Les délais réseau et quanta servent à la reprise, sans durée maximale de mission.

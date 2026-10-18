@@ -14,8 +14,8 @@
 | 14 / Dell n°2 | Prévue ; JARVIS doit être exécutant, aucune installation dans cet audit | Identifier la cible, préparer JARVIS et corriger le contrôleur |
 | JL-01 / JL-02 | V1 préservée ; V2 livrée GO AVEC RÉSERVES, espace connecté confirmé | Fiabiliser l’agent et réceptionner les clients physiques ; réutiliser le tunnel actif |
 | 15A / 15B | Cahiers et cinq incréments chacun préparés, non lancés | Contrat API commun ; mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team |
-| 21 / autonomie | Six tâches reçues et publiées ;07 KDE/VNC LAN testé, client Tailscale installé par JARVIS mais NeedsLogin | Enrôlement direct Dell puis reprise du même checkpoint et rapport final |
-| 22 / moteur V2 | Réception avec réserves ; persistance, reprise réelle, outbox et Sandbox vérifiés ;21 non complète | Lever la dépendance externe Tailscale ; conserver les réserves sémantiques et la provenance Codex/JARVIS |
+| 21 / autonomie | Six tâches reçues,07 et synthèse partielle publiées ; attente externe persistante ; Tailscale installé par JARVIS mais NeedsLogin | Enrôlement direct Dell puis reprise du même checkpoint et rapport final |
+| 22 / moteur V2 | GO avec réserves moteur ;36 tests V2 et22 contrôles navigateur, reprise/outbox vérifiés ;21 non complète | Lever la dépendance externe Tailscale ; conserver les réserves sémantiques et la provenance Codex/JARVIS |
 | Architecture distribuée | Mac mini : mémoire, voix, outils et passerelle ; Dell n°1 : inférence Ollama | Placement dynamique, équilibrage, repli et orchestration multi-nœuds non réceptionnés globalement |
 
 La mission 00 autorise et réalise l’audit documentaire auparavant différé. Elle ne déclenche aucune réinstallation, aucun effacement, aucune modification RAID ni aucun déploiement du Dell n°2. Aucun nouveau GO intermédiaire ni fusion automatique dans main.

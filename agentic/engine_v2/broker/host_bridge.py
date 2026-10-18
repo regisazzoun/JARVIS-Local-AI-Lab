@@ -4,6 +4,9 @@ P = pathlib.Path
 POLICY = P('/etc/jarvis/host-policy.json')
 STATE = P('/var/lib/jarvis-agent')
 SOCKET = '/run/jarvis-host/bridge.sock'
+class PublicationRevisionRequired(ValueError):
+    pass
+
 def now(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
 def policy():
     s = POLICY.stat()
@@ -31,6 +34,14 @@ def run(argv, timeout=60, user=None, output_limit=16000):
     for k in ('stdout','stderr'):
         result[k]=re.sub(r'(?:gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+)', '[REDACTED]', result[k])
     return result
+
+def preserves_project_document(previous, updated):
+    """Mission21 must retain the project history; privacy redaction is permitted."""
+    def normalized(text):
+        text=re.sub(r'(?<![\w.])(?:\d{1,3}\.){3}\d{1,3}(?![\w.])','[adresse privée masquée]',text)
+        text=re.sub(r'(?i)\b[0-9a-f]{2}(?::[0-9a-f]{2}){5}\b','[adresse matérielle masquée]',text)
+        return re.sub(r'(?i)\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b','[identifiant unique masqué]',text)
+    return normalized(previous) in normalized(updated)
 
 def root_for(path, roots):
     path=P(path)
@@ -189,6 +200,9 @@ def execute(op,a,cfg):
                 content=base64.b64decode(file_result['stdout'].strip(),validate=True)
                 if re.search(rb'gh[pousr]_|github_pat_|PRIVATE KEY|password\s*[:=]|token\s*[:=]',content,re.I):raise PermissionError('Publication contenant un secret potentiel refusée')
                 dest=clean/relative
+                if repo=='regisazzoun/JARVIS-Local-AI-Lab' and branch=='jarvis/mission-21-autonomie' and relative in ('SUIVI.md','ROADMAP.md') and dest.exists():
+                    if not preserves_project_document(dest.read_text(),content.decode()):
+                        raise PublicationRevisionRequired('Existing project-wide document must be preserved. Save your mission summary separately, download the original root file again, then APPEND with host_exec/Python. Replacing it with a mission-only summary is not authorized.')
                 if dest.is_symlink() or any(p.is_symlink() for p in dest.parents if p!=clean.parent):raise PermissionError('Destination symlink refusée')
                 dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(content)
                 account=pwd.getpwnam(cfg['user']);os.chown(dest,account.pw_uid,account.pw_gid)
@@ -203,7 +217,7 @@ def execute(op,a,cfg):
                     # idempotent success. Return the verified commit like a push.
                     return run(['/usr/bin/gh','api','repos/'+repo+'/commits/'+branch,'--jq','.sha'],30,cfg['user'])
                 if unchanged['returncode']!=1:return unchanged
-                for argv in ([ '/usr/bin/git','-C',str(clean),'-c','user.name=JARVIS','-c','user.email=jarvis@localhost','commit','-m','test(mission11): preuve agentique hôte'],['/usr/bin/git','-C',str(clean),'-c','credential.helper=','-c','credential.helper=!/usr/bin/gh auth git-credential','push','origin',branch]):
+                for argv in ([ '/usr/bin/git','-C',str(clean),'-c','user.name=JARVIS','-c','user.email=jarvis@localhost','commit','-m','jarvis: publish '+relative],['/usr/bin/git','-C',str(clean),'-c','credential.helper=','-c','credential.helper=!/usr/bin/gh auth git-credential','push','origin',branch]):
                     r=run(argv,60,cfg['user'])
                     if r['returncode']:return r
                 return run(['/usr/bin/gh','api','repos/'+repo+'/commits/'+branch,'--jq','.sha'],30,cfg['user'])
@@ -319,7 +333,7 @@ class Handler(socketserver.StreamRequestHandler):
             if len(raw)>100000:raise ValueError('Requête trop grande')
             req=json.loads(raw);op=req['operation'];a=req['arguments']
             result=execute(op,a,cfg);result={'ok':result.get('returncode',0)==0,'result':result}
-        except Exception as e:result={'ok':False,'error':str(e)}
+        except Exception as e:result={'ok':False,'error':str(e),'error_code':type(e).__name__}
         result.update(caller=caller,evidence_id=ident,elapsed_s=round(time.monotonic()-started,3))
         if caller=='JARVIS-runtime' and result.get('ok'):
             resources={'host_exec':'local','host_resources':'local','host_remote':a.get('host'),'host_ansible':a.get('host'),'host_logs':a.get('service')}

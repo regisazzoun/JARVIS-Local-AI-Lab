@@ -1,4 +1,4 @@
-> **Continuité mission22 (18 octobre2026).** Copie de la source initiale, conservée pour historique. La reprise réelle est suivie dans [réception22](../22/RECEPTION-MISSION21.md) et dans [ETAT sur la branche de travail21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/jarvis/mission-21-autonomie/docs/missions/21/ETAT.md). Les rapports courants seront réconciliés à la réception.
+> **État courant —18 octobre2026 :6/7 tâches reçues,07 bloquée par l’enrôlement Tailscale.** Les rapports et ETAT ci-dessous sont récupérés sans réécriture depuis la branche21. Voir la [réception22](../22/RECEPTION-MISSION21.md), les [preuves](../22/PREUVES-MISSION21.json) et le [manifeste](../22/MANIFESTE-RAPPORTS-MISSION21.json). La synthèse finale est partielle ; aucune réception complète déclarée.
 
 # Mission 21 — Autonomie opérationnelle JARVIS
 **Statut initial : prévue, non exécutée.** Exécutant : **JARVIS seul**, via ses outils hôte/SSH/Ansible/GitHub. Matériel : Mac mini Debian et **Dell n°1**. Cette mission ne concerne ni le Dell n°2 (mission 14) ni le calcul distribué (mission 20).

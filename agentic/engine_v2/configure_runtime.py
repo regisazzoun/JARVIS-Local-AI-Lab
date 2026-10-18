@@ -15,6 +15,6 @@ backup=pathlib.Path('/var/backups/jarvis/mission22/runtime-'+datetime.datetime.n
 backup.parent.mkdir(parents=True,exist_ok=True,mode=0o700);shutil.copy2(p,backup);backup.chmod(0o600)
 config.setdefault('ollama_nodes',{}).update({'Mac-mini':'http://127.0.0.1:11434','Dell1':config['ollama_url']})
 config['ollama_route']=['Mac-mini','Dell1'];config['mission_ollama_route']=['Dell1','Mac-mini']
-config.update(num_ctx=16384,durable_num_ctx=16384,durable_num_predict=-1,ollama_timeout=None)
+config.update(num_ctx=16384,durable_num_ctx=32768,durable_num_predict=-1,ollama_timeout=None)
 stat=p.stat();temporary=p.with_suffix('.mission22.tmp');temporary.write_text(json.dumps(config,ensure_ascii=False,indent=2)+'\n');temporary.chmod(stat.st_mode&0o777);os.chown(temporary,stat.st_uid,stat.st_gid);os.replace(temporary,p)
 print('Measured settings applied; existing private configuration retained; restart canonical service when ready.')

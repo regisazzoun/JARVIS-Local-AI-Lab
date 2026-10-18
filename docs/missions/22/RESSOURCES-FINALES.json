@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-18T17:40:35+0200",
+  "actor": "Codex measurement",
+  "cpu_threads_mac": 12,
+  "service_limits": [
+    "CPUQuotaPerSecUSec=infinity",
+    "MemoryMax=infinity",
+    "TasksMax=infinity"
+  ],
+  "interactive_route": [
+    "Mac-mini",
+    "Dell1"
+  ],
+  "mission_route": [
+    "Dell1",
+    "Mac-mini"
+  ],
+  "durable_context": 32768,
+  "durable_num_predict": -1,
+  "nodes": {
+    "Mac-mini": [],
+    "Dell1": [
+      {
+        "name": "qwen3.5:27b-q4_K_M",
+        "size": 18547275201,
+        "size_vram": 18547275201,
+        "context_length": 32768
+      }
+    ]
+  }
+}

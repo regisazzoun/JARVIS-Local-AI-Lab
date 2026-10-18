@@ -1,5 +1,6 @@
 """JL-02 adapter on the canonical gateway: no new auth, worker or memory."""
 import concurrent.futures,json,pathlib,re,sqlite3,threading,time
+from contextlib import contextmanager
 from .launcher_telemetry import collect
 from .host_client import request
 ASSETS=pathlib.Path('/opt/jarvis/conversation/launcher2')
@@ -24,8 +25,11 @@ class Launcher:
         return json.loads(r['result']['stdout'])
     def resources(self):
         with self.lock:return self.metrics
+    @contextmanager
     def db(self):
-        c=sqlite3.connect('file:'+str(self.root/'runtime/missions.sqlite')+'?mode=ro',uri=True,timeout=10);c.row_factory=sqlite3.Row;return c
+        c=sqlite3.connect('file:'+str(self.root/'runtime/missions.sqlite')+'?mode=ro',uri=True,timeout=10);c.row_factory=sqlite3.Row
+        try:yield c
+        finally:c.close()
     def missions(self):
         with self.db() as c:
             rows=[]
@@ -60,7 +64,7 @@ class Launcher:
                 if records:
                     events=[]
                     for row in records:
-                        args=json.loads(row['arguments']);result=json.loads(row['result']);value=result.get('result',{})
+                        args=json.loads(row['arguments'] or '{}');result=json.loads(row['result'] or '{}');value=result.get('result',{})
                         output=str(value.get('stdout',value.get('content',result.get('error',json.dumps(result,ensure_ascii=False)))))
                         output=re.sub(r'(?:github_pat_[A-Za-z0-9_]+|gh[pousr]_[A-Za-z0-9_]+)','[secret masqué]',output)
                         command=args.get('command') or ' '.join(str(args[k]) for k in ('host','action','service','path') if k in args)

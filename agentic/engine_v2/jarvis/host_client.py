@@ -29,7 +29,7 @@ def register(registry):
             return {**response['result'],'evidence_id':response['evidence_id']}
         registry.specs[name]=(description,props,list(required if required is not None else fields),'host_authorized',execute)
     spec('host_policy','Lire les autorisations hôte persistantes réellement accordées ; ne peut pas les modifier',[])
-    spec('host_exec','Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. Pas de sudo.', ['command'])
+    spec('host_exec','Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. /tmp est neuf et éphémère à chaque appel ; conserve les fichiers de reprise dans write_roots. Pas de sudo.', ['command'])
     spec('host_read_file','Lire un fichier réel dans les chemins accordés',['path'])
     spec('host_write_file','Écrire/remplacer un fichier réel, créer les parents',['path','content'])
     spec('host_delete_file','Supprimer un fichier réel accordé',['path'])

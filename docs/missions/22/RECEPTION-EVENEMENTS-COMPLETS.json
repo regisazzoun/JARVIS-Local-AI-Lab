@@ -1,0 +1,50 @@
+{
+  "source": "Actual authenticated launcher API; every event page read through latest cursor",
+  "pages": 14,
+  "events": 1864,
+  "cursor": 2077,
+  "actors": {
+    "JARVIS-engine": 567,
+    "JARVIS": 1285,
+    "Codex": 12
+  },
+  "kind_counts": {
+    "mission_created": 1,
+    "plan_saved": 1,
+    "state_changed": 34,
+    "cycle_started": 48,
+    "inference_finished": 383,
+    "tool_started": 639,
+    "tool_finished": 638,
+    "publication_queued": 24,
+    "publication_verified": 22,
+    "report_redacted": 4,
+    "task_verified": 6,
+    "pending_contract_corrected": 1,
+    "infrastructure_correction": 1,
+    "exclusive_restart_recovered": 14,
+    "model_checkpoint": 7,
+    "batch_reader_corrected": 1,
+    "batch_entry_rejected": 19,
+    "desktop_gateway_capability_added": 1,
+    "owner_scope_updated": 1,
+    "cycle_error": 1,
+    "working_note": 5,
+    "objective_consolidated": 1,
+    "publication_redacted": 2,
+    "publication_retry": 6,
+    "publication_needs_revision": 2,
+    "remaining_work_reconciled": 1,
+    "external_dependency_blocked": 1
+  },
+  "mission_state": "waiting_external",
+  "progress": {
+    "total": 7,
+    "validated": 6,
+    "percent": 86,
+    "measured": true,
+    "basis": "validated_tasks"
+  },
+  "all_three_actors_observed": true,
+  "no_page_error": true
+}

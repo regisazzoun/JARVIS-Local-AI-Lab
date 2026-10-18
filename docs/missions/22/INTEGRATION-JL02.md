@@ -21,3 +21,10 @@ La conversation finale est conservée dans les messages/FTS canoniques avec iden
 Le navigateur Chromium connecté à la passerelle canonique a effectivement affiché la mission21, sept tâches et six coches de réception.17 assertions passent, dont la présence réelle d’événements neutres, l’attribution JARVIS et les ascenseurs internes sur trois dimensions. La progression compte des tâches reçues ; elle ne mesure pas un pourcentage de durée restante. L’attente externe, la reprise et la publication sont explicitement distinguées dans l’interface. Les échecs de commande restent visibles et ne deviennent pas des coches.
 
 Les rapports JSON de réception sont disponibles dans ce dossier ; aucune capture privée contenant des données du laboratoire n’est publiée. Les tests physiques de microphone/MacBook et le client VNC externe restent hors des preuves disponibles.
+
+
+## Réception finale du suivi
+
+[22 assertions Chromium](RECEPTION-NAVIGATEUR-FINALE.json) passent sur l’état réel `waiting_external` : sept liens de rapports accessibles, six coches seulement, événement de blocage et attribution Codex/JARVIS visibles. [14 pages API](RECEPTION-EVENEMENTS-COMPLETS.json) parcourent les1864 événements jusqu’au dernier curseur. Un ancien événement aux champs JSON nuls cassait la pagination tardive ; l’adaptateur est corrigé et testé. Ses connexions SQLite sont désormais explicitement fermées après lecture.
+
+Le panneau rend les150 événements les plus récents ; le journal complet reste persistant et paginé par l’API. La limite d’affichage n’efface aucun reçu. L’attente et les preuves restent identiques après redémarrage du service, avec la même session authentifiée.

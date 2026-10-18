@@ -7,7 +7,7 @@ import time
 import uuid
 from contextlib import nullcontext
 from pathlib import Path
-from .host_client import request
+from .host_client import request, BrokerError
 
 
 def invoke(op,args):
@@ -47,7 +47,7 @@ def enqueue(store,mission,task,args,verified_body=None,connection=None):
         existing=c.execute('SELECT id,state FROM publication_outbox WHERE mission=? AND branch=? AND file=? AND sha256=?',
                            (mission,args['branch'],args['file'],sha)).fetchone()
         if existing:return dict(existing)
-        c.execute("UPDATE publication_outbox SET state='superseded',updated=? WHERE mission=? AND branch=? AND file=? AND state IN ('pending','retrying')",(time.time(),mission,args['branch'],args['file']))
+        c.execute("UPDATE publication_outbox SET state='superseded',updated=? WHERE mission=? AND branch=? AND file=? AND state IN ('pending','retrying','needs_revision')",(time.time(),mission,args['branch'],args['file']))
         ident=uuid.uuid4().hex
         c.execute('INSERT INTO publication_outbox(id,mission,task,repository,branch,workspace,file,sha256,state,updated) VALUES(?,?,?,?,?,?,?,?,?,?)',
                   (ident,mission,task,args['repository'],args['branch'],str(workspace),str(relative),sha,'pending',time.time()))
@@ -77,5 +77,7 @@ def deliver_one(store):
     except Exception as exc:
         attempts=row['attempts']+1
         with store.db() as c:
-            c.execute("UPDATE publication_outbox SET state='retrying',attempts=?,last_error=?,next_run=?,updated=? WHERE id=? AND state!='superseded'",(attempts,str(exc),time.time()+min(300,2**min(attempts,8)),time.time(),row['id']))
-            store.event(row['mission'],'publication_retry',row['task'],result={'file':row['file'],'error':str(exc)},connection=c)
+            needs_revision=isinstance(exc,BrokerError) and exc.response.get('error_code')=='PublicationRevisionRequired'
+            state='needs_revision' if needs_revision else 'retrying'
+            c.execute("UPDATE publication_outbox SET state=?,attempts=?,last_error=?,next_run=?,updated=? WHERE id=? AND state!='superseded'",(state,attempts,str(exc),0 if needs_revision else time.time()+min(300,2**min(attempts,8)),time.time(),row['id']))
+            store.event(row['mission'],'publication_needs_revision' if needs_revision else 'publication_retry',row['task'],result={'file':row['file'],'error':str(exc)},connection=c)

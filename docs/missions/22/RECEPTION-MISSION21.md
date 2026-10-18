@@ -10,7 +10,7 @@
 | 04 Concordance | Sources GitHub effectivement consultées, accès manquants signalés | [Rapport04](../21/RAPPORTS/04-CONCORDANCE-MISSIONS.md) |
 | 05 Administration | Identité gardée, SSH/Ansible, copie réelle et seconde passe sans changement | [Rapport05](../21/RAPPORTS/05-ADMINISTRATION-DELL.md) |
 | 06 Service | Collecteur/timer installés par appel JARVIS, nouveau résultat réel vérifié | [Rapport06](../21/RAPPORTS/06-INSTALLATION-SERVICE.md) |
-| 07 Bureau distant | KDE/VNC, authentification RFB, image reçue et clavier français ; LAN reçu, Tailscale direct non reçu | Rapport partiel et état courant sur la branche21 ; aucune coche de réception complète |
+| 07 Bureau distant | KDE/VNC, authentification RFB, image reçue et clavier français ; LAN reçu, Tailscale direct non reçu | [Rapport07 partiel](../21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md), publié ; aucune coche de réception complète |
 
 ## Blocage technique réel
 
@@ -31,3 +31,11 @@ Les rapports du modèle comportent aussi des réserves sémantiques : date histo
 ## Reprise attendue
 
 Conserver la même mission et ses six tâches validées. Après enrôlement réel, vérifier l’identité Dell, l’état Tailscale et une authentification RFB avec réception d’image via son adresse du tailnet, puis refaire seulement les contrôles affectés. Faire clôturer07 et le rapport final par JARVIS. Aucun déploiement Dell2 ni reprise des installations déjà reçues.
+
+
+## Publications de clôture partielle
+
+JARVIS a lui-même rédigé et publié une synthèse finale **partielle** sur la branche21, commit `999e6f620d5c5731b684d25c95df6e0f86a91484`, contenu vérifié par l’outbox. Cela ne clôture pas les sept tâches. Les premières versions proposées de SUIVI/ROADMAP auraient effacé le pilotage global ; leur publication a été refusée. JARVIS a ensuite conservé les originaux et ajouté son bilan : les deux publications sont vérifiées, les versions rejetées remplacées. La [vérification indépendante](PRESERVATION-PILOTAGE-MISSION21.json) confirme le préfixe documentaire d’origine et tous ses identifiants. JARVIS a lui-même appelé `mission_block` ; état final `waiting_external`, tâche07 `blocked`, aucune livraison restante. Le [redémarrage du service](ATTENTE-EXTERNE-REDEMARRAGE.json) conserve exactement cet état et les six empreintes de réception. Les états définitifs figurent dans PREUVES-MISSION21.json.
+
+
+Réserve de synthèse : le rapport final brut du modèle attribue à05 le déploiement Plasma/TigerVNC, alors que05 reçoit la configuration Ansible de supervision et que le bureau est réalisé en07. Le tableau de réception et les invocations réelles ci-dessus prévalent. Le rapport brut reste inchangé pour conserver sa provenance.

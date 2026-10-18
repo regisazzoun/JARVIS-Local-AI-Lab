@@ -32,5 +32,8 @@
   ],
   "lab_enabled": false,
   "voice_length": "short",
-  "voice_summary": true
+  "voice_summary": true,
+  "durable_num_ctx": 32768,
+  "durable_num_predict": -1,
+  "durable_think": false
 }

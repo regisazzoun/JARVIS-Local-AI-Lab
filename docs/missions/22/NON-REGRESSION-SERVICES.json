@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-18T17:26:34+0200",
+  "checked_at": "2026-10-18T17:54:05+0200",
   "actor": "Codex independent verification",
   "mac_services": {
     "jarvis-conversation": "active",
@@ -11,16 +11,16 @@
   "dell": {
     "services": {
       "ok": true,
-      "evidence_id": "f97a2cecc82f4638a8a5e3629008c247",
+      "evidence_id": "7cf8384a2a974dd68c4ecf2f9f98c70c",
       "returncode": 0,
       "stdout": "active\nactive\n",
       "stderr": ""
     },
     "tailscale_status": {
       "ok": false,
-      "evidence_id": "a31c0ba2799b42c6a193ecbee9ad5a51",
+      "evidence_id": "ab672964474b4ef0b9a93e6a212e6276",
       "returncode": 2,
-      "stdout": "{\"installed\": true, \"service\": \"active\", \"backend_state\": \"NeedsLogin\", \"online\": false, \"has_tailnet_address\": false, \"auth_url_private\": true}\n",
+      "stdout": "{\"installed\": true, \"service\": \"active\", \"backend_state\": \"NeedsLogin\", \"online\": false, \"has_tailnet_address\": false, \"auth_url_private\": true, \"external_dependency\": {\"id\": \"dell-tailnet-enrollment\", \"resolved\": false, \"reason\": \"Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity\"}}\n",
       "stderr": ""
     }
   }

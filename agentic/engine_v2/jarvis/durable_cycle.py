@@ -10,6 +10,20 @@ from pathlib import Path
 from .mission_store import encoded, signature
 
 
+def model_observation(value, limit=8000):
+    """Bound a model view, never the canonical tool receipt stored in SQLite."""
+    if isinstance(value,list):return [model_observation(item,limit) for item in value]
+    if not isinstance(value,dict):return value
+    result={}
+    for key,item in value.items():
+        if key in ('stdout','content') and isinstance(item,str) and len(item)>limit:
+            result[key]=item[:limit*3//4]+'\n[MODEL VIEW EXCERPT; full receipt in mission_evidence]\n'+item[-limit//4:]
+            result[key+'_full_chars']=len(item)
+            result[key+'_model_excerpt']=True
+        else:result[key]=model_observation(item,limit)
+    return result
+
+
 class DurableCycle:
     def __init__(self, core, store):
         self.core, self.store = core, store
@@ -87,6 +101,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                         if isinstance(dependency,dict) and dependency.get('id'):dependencies[dependency['id']]={**dependency,'evidence_id':observation['id']}
                     except (ValueError,TypeError):pass
                 state_data['observed_external_dependencies']=[d for d in dependencies.values() if not d.get('resolved')]
+                with store.db() as c:state_data['publication_issues']=[dict(r) for r in c.execute("SELECT file,state,last_error FROM publication_outbox WHERE mission=? AND state IN ('needs_revision','retrying') ORDER BY updated DESC LIMIT 6",(ident,))]
                 base[1]['content']=encoded(state_data)
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
             if len(encoded(messages)) > context_chars:
@@ -144,7 +159,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                 result={**result,'invocation_id':token}
                 effect=name=='host_github' and args.get('action')=='download' and result.get('result',{}).get('changed',True) or name in ('host_write_file','host_delete_file','host_exec') or name=='host_package' and args.get('action') in ('install','configure') or name=='host_service' and args.get('action') not in ('status','is-active','is-enabled') or name in ('host_remote','host_ansible') and (args.get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or args.get('action')=='service' and args.get('service_action') not in ('status','is-active','is-enabled'))
                 if result.get('ok') and effect:repeats.clear() # A new state requires fresh observations.
-                messages.append({'role': 'tool', 'tool_name': name, 'content': encoded(result)})
+                messages.append({'role': 'tool', 'tool_name': name, 'content': encoded(model_observation(result))})
                 if name == 'intervention_report' and result.get('ok'):
                     report = result['result']
                 with store.db() as c:

@@ -22,3 +22,10 @@ class GithubPaths(unittest.TestCase):
    result=bridge.execute('host_github',{'repository':'owner/repo','action':'download','path':'ROADMAP.md','destination':'/work/ROADMAP.md'},{'repositories':['owner/repo'],'user':'test'})
   self.assertFalse(result['changed'])
   self.assertTrue(json.loads(result['stdout'])['verified'])
+
+ def test_append_preserves_project_history(self):
+  self.assertTrue(bridge.preserves_project_document('# All missions\n01: done\n02: pending\n','# All missions\n01: done\n02: pending\n\nMission21: blocked'))
+ def test_mission_only_summary_cannot_replace_project_history(self):
+  self.assertFalse(bridge.preserves_project_document('# All missions\n01: done\n02: pending\n','# Mission21: blocked'))
+ def test_privacy_redaction_is_allowed_when_preserving_history(self):
+  self.assertTrue(bridge.preserves_project_document('Target 192.168.1.1\n01: done\n','Target [adresse privée masquée]\n01: done\n\n21: blocked'))
