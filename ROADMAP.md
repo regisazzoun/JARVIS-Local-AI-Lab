@@ -475,3 +475,45 @@ RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/
 Le propriétaire autorise la fusion des documents consolidés dans main et demande un README plus lisible, cohérent avec SUIVI. Les anciens rappels de non-fusion décrivent la consigne précédente ; cette autorisation reste limitée à la publication documentaire, sans déploiement ni import du code d’installation de PR5.
 
 Publication effective : PR6 et PR7 fusionnées, documents disponibles sur main. Les 68 identifiants et états du catalogue README correspondent au suivi.
+
+
+---
+## Mission 21 - Point d'étape (octobre 2026)
+
+### Avancement global : 85% complété
+
+#### ✅ Tâches validées (6/7)
+| ID | Objet | Preuve SHA-256 |
+|----|-------|----------------|
+| 01 | Rapport santé Mac mini + Dell | 31b316b8ca78fc9e... |
+| 02 | Analyse journaux système | f75193128af8c646... |
+| 03 | Synthèse technique | 3b3abd957930e823... |
+| 04 | Concordance documentaire | 308f79ea0eab3d73... |
+| 05 | Administration Dell Ansible | 6d4d44162fac31f1... |
+| 06 | Installation service supervision | 68fb7782772cf78e... |
+
+#### ⏸️ Tâche en attente (1/7)
+**ID 07** : Bureau Plasma privé + VNC sécurisé + Tailscale
+- **État** : BLOQUÉE - dépendance externe non résolue
+- **Réalisé** : Infrastructure complète (KDE, TigerVNC, tunnel SSH LAN)
+- **Manquant** : Identité d'enrôlement Tailscale
+- **Preuve blocage** : evidence_id c741ca01de6d48788cd95b8a4f50b289
+
+#### Publications GitHub
+Branch : `jarvis/mission-21-autonomie`
+- ✅ SUIVI.md (avec append mission 21)
+- ✅ ROADMAP.md (avec append mission 21)
+- ✅ docs/missions/21/RAPPORTS/01 à 06 (validés)
+- ⚠️ docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md (marqué PARTIEL)
+- ✅ docs/missions/21/RAPPORT-FINAL.md (synthèse partielle)
+
+#### Réserves documentées
+1. **Tailscale** : Nécessite intervention propriétaire pour authentification
+2. **Accès bureau distant** : Fonctionnel uniquement via tunnel SSH local (non direct LAN)
+3. **Secrets** : Fichier VNC chiffré préservé, jamais lu par le modèle
+
+#### Reprise automatique
+La mission reprendra après résolution externe sans recréation de plan. Les checkpoints sont persistants dans la mémoire SQLite canonique.
+
+**Date référence** : 2026-10-18T17:39 CET
+
