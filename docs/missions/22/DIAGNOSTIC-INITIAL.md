@@ -9,3 +9,8 @@ Causes démontrées : plafond de cinq tentatives du worker, appels de chat non r
 Les lectures de /dev dans le terminal confiné ne prouvent pas l’absence de matériel sur l’hôte. Les anomalies GPU doivent être associées à leur machine et à la vue réellement interrogée.
 
 Le service conversation est plafonné à 2 Gio et 128 tâches, CPU sans quota ; le Mac possède 12 threads et environ 32 Gio de RAM. La directive propriétaire demande l’utilisation des ressources disponibles : ces limites et le contexte seront ajustés après inventaire/mesures, sans prétendre que consommer davantage suffit à améliorer la réussite.
+
+
+### Réserve héritée de 13D-E : Tailscale absent du Dell
+
+Le 18 octobre 2026, le propriétaire demande de consigner cette absence comme un loupé de la mission 13 de déploiement. Binaire absent et service inactif observés lors de la reprise ; aucun accès direct au tailnet reçu. Voir les addenda de [réception 13D-E](../13D-E/RECEPTION-MISSION14.md) et du [rapport final](../13D-E/RAPPORT-FINAL.md). Une passerelle sur le Mac ne remplace pas cette installation manquante. Correctif non déclaré réalisé.

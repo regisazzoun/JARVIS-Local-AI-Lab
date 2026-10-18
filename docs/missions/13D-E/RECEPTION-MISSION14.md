@@ -42,3 +42,12 @@ Le [bilan des erreurs et scripts corrigés](RAPPORT-FINAL.md#bilan-explicite-des
 ## Clarification documentaire — mission 00, 17 octobre 2026
 
 Dans la ligne NVIDIA, la formule historique « final reboot persistence pending » décrit le contrôle intermédiaire du pilote. Le contrôle final de la ligne `reboot` confirme un nouvel identifiant de démarrage, NVIDIA et une inférence Qwen réelle après reboot ; la réception et son périmètre prévalent pour ce point. Aucun nouveau test n’est exécuté en mission 00. Les réserves Plasma interactif, microphone physique, retrait de NVMe, seconde carte non alimentée et correctif du contrôleur restent conservées. Le titre historique « 13D-E / 14 » concerne le premier Dell ; la mission 14 du second Dell par JARVIS reste à réaliser.
+
+
+## Loupé du déploiement 13D-E — client Tailscale absent (18 octobre 2026)
+
+Le propriétaire signale et classe explicitement cette omission parmi les loupés de la mission 13 de déploiement du Dell n°1. Le client Tailscale n’a pas été installé sur le Dell : le contrôle de reprise constate l’absence du binaire et un service `tailscaled` inactif. L’accès direct au Dell par le tailnet n’est donc pas opérationnel et ne doit pas être présenté comme réceptionné.
+
+Les accès LAN et les accès relayés par le Mac mini sont distincts d’un client Tailscale installé sur le Dell ; ils ne corrigent pas cette omission du déploiement initial. Les résultats Debian, RAID, SSH et IA déjà vérifiés restent conservés, avec cette réserve réseau supplémentaire.
+
+Correctif restant : installer et configurer un client Tailscale propre au Dell, puis vérifier son identité réseau, une connexion SSH depuis un autre client du tailnet et la persistance après redémarrage. Cette entrée documentaire ne constitue ni une installation ni une validation de ce correctif.
