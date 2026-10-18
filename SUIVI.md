@@ -233,3 +233,43 @@ Le propriétaire autorise explicitement la fusion pour rendre les documents acce
 ### Publication effective dans main — 18 octobre 2026
 
 PR6 fusionnée dans sa branche de base ; [PR7](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/7) fusionnée dans main pour publier les documents et le client d’audit 00. Le README réécrit et les rapports sont désormais accessibles depuis la page principale. Les mêmes 68 identifiants/intitulés/états sont vérifiés entre README et SUIVI. [Preuves de publication](docs/missions/00-Mission-Pilotage-point-26-10-17/PUBLICATION-MAIN.json). La PR5 de déploiement reste distincte.
+
+
+---
+## Mission 21 - Résumé d'avancement (17-18 octobre 2026)
+
+### État global
+**6 tâches sur 7 validées**, tâche 07 bloquée par dépendance externe (enrôlement Tailscale manquant).
+
+### Tâches complétées
+- **01-SANTÉ** : Audit système Mac mini et Dell n°1 - STABLE
+- **02-JOURNAUX** : Analyse logs services - STABLE avec réserve mineure Dell
+- **03-SYNTHESE** : Synthèse technique observations 01-02
+- **04-CONCORDANCE** : Concordance documentaire incrémentale
+- **05-ADMINISTRATION** : Configuration Dell via Ansible idempotent
+- **06-SERVICE** : Supervision légère systemd activée
+
+### Tâche bloquée 07 - Bureau Plasma + VNC + Tailscale
+**Réalisations :**
+- ✓ KDE Plasma :21 configuré et actif
+- ✓ TigerVNC serveur loopback 127.0.0.1:5921 authentifié (fichier chiffré ~/.config/tigervnc/passwd)
+- ✓ Test RFB fonctionnel : image graphique reçue, clavier fr testé
+- ✓ Tunnel SSH local 15921 → Dell 5921 opérationnel pour accès LAN
+- ✓ Client Tailscale installé et service actif
+
+**Blocage réel :**
+- Backend state: **NeedsLogin** (evidence_id: c741ca01de6d48788cd95b8a4f50b289)
+- Nécessite : clé TS_AUTHKEY ou authentification navigateur hors périmètre modèle
+- Pas de retry possible sans identité externe
+
+**Correction technique appliquée :**
+- URL directe LAN:5921 erronée → seul accès via tunnel SSH vers loopback 127.0.0.1:15921
+- Plasma et VNC sont deux services distincts (jarvis-desktop-plasma.service + jarvis-desktop-vnc.service)
+
+### Publications GitHub
+✓ SUIVI.md, ROADMAP.md, RAPPORT-FINAL.md publiés sur branch jarvis/mission-21-autonomie
+⚠ Tâche 07 marquée PARTIELLE/BLOQUÉE avec preuves documentées
+
+**Date de blocage :** 2026-10-18T17:39 CET
+**Responsable résolution :** Propriétaire (identité d'enrôlement)
+
