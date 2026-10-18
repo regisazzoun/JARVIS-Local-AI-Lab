@@ -1,16 +1,15 @@
-# Mission 21 — État séquentiel
-**Date initiale :** 18 octobre 2026  
-**Phase :** non lancée par JARVIS  
-**Prochaine tâche :** 01
+# État de mission
 
-| Tâche | État | Rapport | Preuves / blocages |
-|---|---|---|---|
-| 01 | À faire | RAPPORTS/01-RAPPORT-SANTE.md | — |
-| 02 | À faire | RAPPORTS/02-ANALYSE-JOURNAUX.md | — |
-| 03 | À faire | RAPPORTS/03-SYNTHESE-TECHNIQUE.md | — |
-| 04 | À faire | RAPPORTS/04-CONCORDANCE-MISSIONS.md | — |
-| 05 | À faire | RAPPORTS/05-ADMINISTRATION-DELL.md | — |
-| 06 | À faire | RAPPORTS/06-INSTALLATION-SERVICE.md | — |
-| 07 | À faire | RAPPORTS/07-VNC-LOCAL-TAILSCALE.md | — |
+Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont rédigés par le modèle.
 
-JARVIS : après chaque lot, renseigne la **dernière action réelle**, l'identifiant de preuve ou un extrait expurgé, l'issue et la prochaine tâche. Si une publication GitHub est bloquée, conserve le checkpoint sur `/var/lib/jarvis/projects/mission21/ETAT.md`, puis republie quand possible. Ne relance pas les tâches déjà validées.
+| Tâche | État | Rapport vérifié |
+| --- | --- | --- |
+| 01 — Santé actuelle Mac mini et Dell n°1 | running | non reçu |
+| 02 — Analyse des journaux et réserves actuelles | pending | non reçu |
+| 03 — Synthèse technique des observations01 et02 | pending | non reçu |
+| 04 — Concordance documentaire incrémentale | pending | non reçu |
+| 05 — Configuration Dell via Ansible idempotent | pending | non reçu |
+| 06 — Supervision légère systemd du Dell | pending | non reçu |
+| 07 — Bureau Plasma privé via VNC et tunnels LAN/Tailscale | pending | non reçu |
+
+Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
