@@ -25,6 +25,6 @@ Les rapports JSON de réception sont disponibles dans ce dossier ; aucune captur
 
 ## Réception finale du suivi
 
-[22 assertions Chromium](RECEPTION-NAVIGATEUR-FINALE.json) passent sur l’état réel `waiting_external` : sept liens de rapports accessibles, six coches seulement, événement de blocage et attribution Codex/JARVIS visibles. [14 pages API](RECEPTION-EVENEMENTS-COMPLETS.json) parcourent les1864 événements jusqu’au dernier curseur. Un ancien événement aux champs JSON nuls cassait la pagination tardive ; l’adaptateur est corrigé et testé. Ses connexions SQLite sont désormais explicitement fermées après lecture.
+[22 assertions Chromium](RECEPTION-NAVIGATEUR-FINALE.json) passent sur l’état réel `waiting_external` : sept liens de rapports accessibles, six coches seulement, événement de blocage et attribution Codex/JARVIS visibles. [14 pages API](RECEPTION-EVENEMENTS-COMPLETS.json) parcourent les1865 événements jusqu’au dernier curseur. Un ancien événement aux champs JSON nuls cassait la pagination tardive ; l’adaptateur est corrigé et testé. Ses connexions SQLite sont désormais explicitement fermées après lecture.
 
 Le panneau rend les150 événements les plus récents ; le journal complet reste persistant et paginé par l’API. La limite d’affichage n’efface aucun reçu. L’attente et les preuves restent identiques après redémarrage du service, avec la même session authentifiée.

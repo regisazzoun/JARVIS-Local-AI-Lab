@@ -9,7 +9,7 @@
 | Frontières broker |12 contrôles initiaux réussis ; contrôles ciblés supplémentaires des chemins GitHub et de la préservation documentaire dans la suite V2 |
 | JavaScript |Deux suites existantes réussies ; syntaxe de la dernière version app.js validée |
 | Navigateur connecté |22 assertions Chromium réelles : attente externe, sept rapports accessibles, six coches, acteurs JARVIS/Codex, événement de blocage, trois formats et ascenseurs internes : [preuve](RECEPTION-NAVIGATEUR-FINALE.json) |
-| Journal intégral |14 pages API authentifiées,1864 événements, acteurs JARVIS/JARVIS-engine/Codex et aucun échec de pagination : [preuve](RECEPTION-EVENEMENTS-COMPLETS.json) |
+| Journal intégral |14 pages API authentifiées,1865 événements, acteurs JARVIS/JARVIS-engine/Codex et aucun échec de pagination : [preuve](RECEPTION-EVENEMENTS-COMPLETS.json) |
 | Attente après redémarrage |Nouveau processus, même cookie authentifié, état/checkpoints/empreintes inchangés et aucune reprise intempestive de la dépendance externe : [preuve](ATTENTE-EXTERNE-REDEMARRAGE.json) |
 
 ## Essais exécutés par le vrai modèle et le vrai broker

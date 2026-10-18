@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-10-18T17:51:43+0200",
+  "collected_at": "2026-10-18T18:01:52+0200",
   "mission": {
     "id": "e370b0bef74f4deaa390b5c46bfdc299",
     "state": "waiting_external",
@@ -82,7 +82,7 @@
   "event_actors": {
     "JARVIS-engine": 567,
     "JARVIS": 1285,
-    "Codex": 12
+    "Codex": 13
   },
   "publications": [
     {
@@ -784,5 +784,61 @@
         }
       }
     }
-  ]
+  ],
+  "remaining_reception_contract": {
+    "checks": [
+      {
+        "action": "desktop_configure",
+        "tool": "host_remote"
+      },
+      {
+        "action": "desktop_test",
+        "tool": "host_remote"
+      },
+      {
+        "action": "desktop_network_test",
+        "tool": "host_remote",
+        "stdout_contains": "\"mode\": \"direct\""
+      },
+      {
+        "action": "services",
+        "tool": "host_remote"
+      },
+      {
+        "tool": "mission_publish",
+        "arguments": {
+          "file": "SUIVI.md"
+        }
+      },
+      {
+        "tool": "mission_publish",
+        "arguments": {
+          "file": "ROADMAP.md"
+        }
+      },
+      {
+        "tool": "host_remote",
+        "action": "tailscale_configure"
+      },
+      {
+        "tool": "host_remote",
+        "action": "tailscale_status"
+      },
+      {
+        "tool": "host_github",
+        "action": "download",
+        "result_fields": {
+          "github_path": "SUIVI.md"
+        }
+      },
+      {
+        "tool": "host_github",
+        "action": "download",
+        "result_fields": {
+          "github_path": "ROADMAP.md"
+        }
+      }
+    ],
+    "report_path": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md"
+  }
 }

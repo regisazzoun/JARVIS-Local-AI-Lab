@@ -1,12 +1,12 @@
 {
   "source": "Actual authenticated launcher API; every event page read through latest cursor",
   "pages": 14,
-  "events": 1864,
-  "cursor": 2077,
+  "events": 1865,
+  "cursor": 2078,
   "actors": {
     "JARVIS-engine": 567,
     "JARVIS": 1285,
-    "Codex": 12
+    "Codex": 13
   },
   "kind_counts": {
     "mission_created": 1,
@@ -35,7 +35,8 @@
     "publication_retry": 6,
     "publication_needs_revision": 2,
     "remaining_work_reconciled": 1,
-    "external_dependency_blocked": 1
+    "external_dependency_blocked": 1,
+    "future_resume_checkpoint_prepared": 1
   },
   "mission_state": "waiting_external",
   "progress": {

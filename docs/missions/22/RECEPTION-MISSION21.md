@@ -39,3 +39,6 @@ JARVIS a lui-même rédigé et publié une synthèse finale **partielle** sur la
 
 
 Réserve de synthèse : le rapport final brut du modèle attribue à05 le déploiement Plasma/TigerVNC, alors que05 reçoit la configuration Ansible de supervision et que le bureau est réalisé en07. Le tableau de réception et les invocations réelles ci-dessus prévalent. Le rapport brut reste inchangé pour conserver sa provenance.
+
+
+Le checkpoint de reprise a été préparé sans changer l’état d’attente : après enrôlement et reprise de cette même mission, JARVIS doit relire l’état Tailscale et recevoir le bureau via LAN et l’adresse Tailscale propre au Dell. Le contrat exige explicitement le mode réseau `direct` ; une ancienne preuve de passerelle ne pourra pas valider07. Les instructions intermédiaires de réparation ROADMAP sont remplacées, car cette publication est déjà reçue.

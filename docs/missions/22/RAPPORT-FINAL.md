@@ -34,7 +34,7 @@ La promotion d’un chat ordinaire a créé une mission avant toute écriture pu
 
 ## Livraison
 
-36 tests V2 réussis et22 contrôles navigateur connectés. Le journal complet a été parcouru sur14 pages,1864 événements, avec attribution des trois acteurs. La mission longue a consommé48 cycles et639 intentions d’outils : ces chiffres documentent aussi ses redondances, pas un succès d’efficacité. Toutes ses intentions de publication sont vérifiées ou remplacées, aucune livraison restante.
+36 tests V2 réussis et22 contrôles navigateur connectés. Le journal complet a été parcouru sur14 pages,1865 événements, avec attribution des trois acteurs. La mission longue a consommé48 cycles et639 intentions d’outils : ces chiffres documentent aussi ses redondances, pas un succès d’efficacité. Toutes ses intentions de publication sont vérifiées ou remplacées, aucune livraison restante.
 
 Code et huit documents requis : [architecture](ARCHITECTURE.md), [diagnostic](DIAGNOSTIC-INITIAL.md), [modifications](MODIFICATIONS.md), [ressources](OPTIMISATION-RESSOURCES.md), [tests](TESTS-AGENTIQUES.md), [JL-02](INTEGRATION-JL02.md), [réception21](RECEPTION-MISSION21.md), présent rapport. README/SUIVI partagent les70 identifiants du registre courant ; l’audit00 historique conserve ses68 identifiants.
 
