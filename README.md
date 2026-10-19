@@ -14,7 +14,7 @@ Le projet avance sur du matériel réel, avec des essais, des corrections et des
 
 ## 🚀 Nouveau cycle prioritaire — 23 à 31 (19 octobre 2026)
 
-**D'abord 23 — LiveKit**, ensuite **24 — JL-03**, puis missions **25–31** : moteur de missions résilient, MCP/Skill Lab, modèles distribués, mémoire enrichie, satellites vocaux, proactivité et réception de bout en bout. Ces neuf missions sont **planifiées, non exécutées**. [Cahier détaillé](docs/missions/CYCLE-23-31.md) · [Roadmap](ROADMAP.md) · [Suivi](SUIVI.md).
+**Ordre révisé par le propriétaire :** **23 LiveKit → 24 Mémoire enrichie → 25 MCP/Skill Lab → 26 Mission Engine → 27 JL-03 → 28 Routage multi-modèles → 29 Satellites vocaux → 30 Proactivité → 31 Réception**. La mission 23 mesure l'autonomie initiale de JARVIS ; les missions 24 à 26 renforcent ses connaissances et ses outils avant son essai de développement de JL-03. Ces neuf missions sont **planifiées, non exécutées**. [Cahier détaillé](docs/missions/CYCLE-23-31.md) · [Roadmap](ROADMAP.md) · [Suivi](SUIVI.md).
 
 ## 🎯 Ce que nous construisons
 
@@ -143,11 +143,11 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES |
 | **23** | LiveKit — voix temps réel | 📋 Planifiée, non exécutée |
-| **24** | JL-03 — cockpit unifié | 📋 Planifiée, non exécutée |
-| **25** | Mission Engine résilient | 📋 Planifiée, non exécutée |
-| **26** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée |
-| **27** | Routage multi-modèles et calcul distribué | 📋 Planifiée, non exécutée |
-| **28** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée |
+| **24** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée |
+| **25** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée |
+| **26** | Mission Engine résilient | 📋 Planifiée, non exécutée |
+| **27** | JL-03 — cockpit unifié | 📋 Planifiée, non exécutée |
+| **28** | Routage multi-modèles et calcul distribué | 📋 Planifiée, non exécutée |
 | **29** | Satellites vocaux et clients distants | 📋 Planifiée, non exécutée |
 | **30** | Proactivité et planification | 📋 Planifiée, non exécutée |
 | **31** | Réception transversale | 📋 Planifiée, non exécutée |
