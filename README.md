@@ -12,6 +12,10 @@ Le projet avance sur du matériel réel, avec des essais, des corrections et des
 
 **[📋 Suivi des missions](SUIVI.md)** · **[🧭 Feuille de route](ROADMAP.md)** · **[📚 Rapports et preuves](docs/missions/README.md)** · **[🚀 Launcher V2](https://regisazzoun.github.io/JARVIS-Launcher2/)**
 
+### Légende de présentation des statuts
+
+✅ **GO** : réalisé et validé · ✅🟡 **GO avec réserves / GO partiel** : acquis vérifié, limites non bloquantes consignées · 🟡 **En cours / incomplet** : objectif non encore validé · 📋 **Planifiée** · ❌ **NO-GO** : échec démontré. Ces pictogrammes n'effacent pas les verdicts historiques.
+
 ## 🚀 Nouveau cycle prioritaire — 23 à 31 (19 octobre 2026)
 
 **Ordre révisé par le propriétaire :** **23 LiveKit → 24 Mémoire enrichie → 25 MCP/Skill Lab → 26 Mission Engine → 27 JL-03 → 28 Routage multi-modèles → 29 Satellites vocaux → 30 Proactivité → 31 Réception**. La mission 23 mesure l'autonomie initiale de JARVIS ; les missions 24 à 26 renforcent ses connaissances et ses outils avant son essai de développement de JL-03. Ces neuf missions sont **planifiées, non exécutées**. [Cahier détaillé](docs/missions/CYCLE-23-31.md) · [Roadmap](ROADMAP.md) · [Suivi](SUIVI.md).
@@ -74,12 +78,12 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 
 | Mission | Objet / étapes | État |
 | --- | --- | --- |
-| **00** | Audit général et concordance documentaire | ✅ GO avec réserves |
+| **00** | Audit général et concordance documentaire | ✅🟡 GO avec réserves |
 | **01** | Audit de JARVIS | 🟡 PARTIEL |
 | **02** | Configuration Apple T2 et administration Debian | 🟡 PARTIEL |
 | **02B** | Administration et préparation système | 🟡 Préparation et script testés ; administration non exécutée |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves |
-| **04** | GRUB, Thunderbolt et eGPU NVIDIA | 🟡 Réalisée avec réserves |
+| **04** | GRUB, Thunderbolt et eGPU NVIDIA | ✅🟡 Réalisée avec réserves |
 | **04B** | À confirmer : intitulé à réconcilier | 🟡 À confirmer |
 | **04C** | Plan exact, non exécuté | 📋 Préparée |
 | **04E** | Plan d’essai et récupération | 📋 Préparée |
@@ -87,45 +91,45 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 | **04H** | validation de la réallocation PCIe | 🟡 Échec historique |
 | **04I** | Entrée réserve PCIe 512M installée | 🟡 Configuration installée, essai non établi |
 | **04J** | vérification avant branchement | 🟡 Non concluante |
-| **04K** | limitations PCIe du Mac mini 2018 | 🟡 Étude terminée |
+| **04K** | limitations PCIe du Mac mini 2018 | ✅🟡 Étude terminée |
 | **04L** | préparation de la réallocation PCIe ciblée | 🟡 Configuration installée, essai non établi |
 | **04M** | validation de la réallocation PCIe ciblée | 🟡 Non concluante |
 | **04N** | Complément Mission 04N — Installation autorisée | 🟡 Configuration installée, candidat non testé |
-| **04O** | Vérification des ressources PCIe NP/PREF avant essai eGPU | 🟡 Vérification préparatoire positive |
-| **04P** | validation de la réallocation PCIe | 🟡 Allocation PCIe testée |
-| **04Q** | écran conservant le fond GRUB | 🟡 Diagnostic exécuté |
-| **04R** | disparition du GPU Intel avec Core présent au boot | 🟡 Diagnostic exécuté |
+| **04O** | Vérification des ressources PCIe NP/PREF avant essai eGPU | ✅🟡 Vérification préparatoire positive |
+| **04P** | validation de la réallocation PCIe | ✅🟡 Allocation PCIe testée |
+| **04Q** | écran conservant le fond GRUB | ✅🟡 Diagnostic exécuté |
+| **04R** | disparition du GPU Intel avec Core présent au boot | ✅🟡 Diagnostic exécuté |
 | **04S** | Essais comparatifs DEVEN avec/sans Core | 🟡 À confirmer : rapport autonome manquant |
 | **04T** | préparation du diagnostic pré-Linux de DEVEN | 📋 Préparée |
-| **04U** | localiser le masquage Intel entre GRUB et Linux | 🟡 Analyse exécutée |
+| **04U** | localiser le masquage Intel entre GRUB et Linux | ✅🟡 Analyse exécutée |
 | **04V** | préparation de la mesure DEVEN en fin de GRUB | 📋 Préparée |
-| **04W** | Analyse d'un démarrage interrompu | 🟡 Analyse réalisée |
+| **04W** | Analyse d'un démarrage interrompu | ✅🟡 Analyse réalisée |
 | **05A** | Sélection du pilote NVIDIA | ✅ Préparation réalisée |
-| **05B** | Installation contrôlée du pilote | 🟡 Réalisée avec réserves |
-| **05B-A** | audit des avertissements NVIDIA objtool | 🟡 Audit terminé avec conditions |
+| **05B** | Installation contrôlée du pilote | ✅🟡 Réalisée avec réserves |
+| **05B-A** | audit des avertissements NVIDIA objtool | ✅🟡 Audit terminé avec conditions |
 | **05B-P** | préparation sécurisée NVIDIA | 📋 Préparation terminée |
 | **05C** | Détection eGPU et CUDA initial | ✅ Testée |
 | **05D** | Calcul GPU, Ollama et Llama 3.1 8B | ✅ Validée sur Mac mini, confortée par 13F |
-| **06** | Open WebUI et accès conversationnel | 🟡 Fonctionnelle, disponibilité reconfirmée par 13F |
+| **06** | Open WebUI et accès conversationnel | ✅🟡 Fonctionnelle, disponibilité reconfirmée par 13F |
 | **07** | Qualité des réponses et RAG | 🟡 Partiellement confortée par 13F |
-| **08** | Ministral3 14B et comparaison de raisonnement | 🟡 Installation testée ; qualité limitée |
+| **08** | Ministral3 14B et comparaison de raisonnement | ✅🟡 Installation testée ; qualité limitée |
 | **09** | validation rapide RTX 3090 / CUDA | 🟡 CUDA validé ; Ollama GPU en échec historique |
-| **09B** | Correction du verrou GPU Ollama | 🟡 Correction testée |
-| **10** | Qwen 3.5 27B : installation et évaluation | 🟡 Installation testée ; qualité partielle |
-| **11** | Audit statique Jarvis Voice | 🟡 Étude terminée ; intégration intégrale NO-GO |
-| **11-Agentic** | Habilitations hôte persistantes | 🟡 GO AVEC RÉSERVES |
-| **11B** | Compute Expansion et administration Dell | 🟡 Raccordement validé ; extension complète partielle |
+| **09B** | Correction du verrou GPU Ollama | ✅🟡 Correction testée |
+| **10** | Qwen 3.5 27B : installation et évaluation | ✅🟡 Installation testée ; qualité partielle |
+| **11** | Audit statique Jarvis Voice | ✅🟡 Étude terminée ; intégration intégrale NO-GO |
+| **11-Agentic** | Habilitations hôte persistantes | ✅🟡 GO AVEC RÉSERVES |
+| **11B** | Compute Expansion et administration Dell | ✅🟡 Raccordement validé ; extension complète partielle |
 | **12** | Étude voix et mémoire | ✅ GO sous conditions historique ; architecture consolidée en 13F |
 | **13A** | Socle vocal durable Whisper/Piper | ✅ Réussie ; fonctionnement backend consolidé par 13F |
-| **13B** | Interface vocale, Push-to-Talk | 🟡 GO PARTIEL historique ; consolidation technique 13F |
-| **13C** | Mémoire persistante canonique | 🟡 GO PARTIEL historique ; fonctions centrales consolidées |
-| **13D** | Sécurisation des accès distants (mission globale) | 🟡 GO AVEC RÉSERVES — accès multi-postes |
+| **13B** | Interface vocale, Push-to-Talk | ✅🟡 GO PARTIEL historique ; consolidation technique 13F |
+| **13C** | Mémoire persistante canonique | ✅🟡 GO PARTIEL historique ; fonctions centrales consolidées |
+| **13D** | Sécurisation des accès distants (mission globale) | ✅🟡 GO AVEC RÉSERVES — accès multi-postes |
 | **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | ✅ Réception complète 17/10/2026 |
 | **13D.1** | MacBook : Tailscale, SSH par clé et par mot de passe | ✅ Validée le 15/10 |
 | **13D.2** | MacBook : alias `ssh jarvis`, reconnexion et tmux | ✅ Validée le 15/10 |
-| **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | 🟡 Accès multi-postes validés, contrôles finaux à compléter |
-| **13E** | Passerelle conversation, voix et mémoire | 🟡 GO AVEC RÉSERVES retrouvé |
-| **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** |
+| **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | ✅🟡 Accès multi-postes validés, contrôles finaux à compléter |
+| **13E** | Passerelle conversation, voix et mémoire | ✅🟡 GO AVEC RÉSERVES retrouvé |
+| **13F** | Conversation, mémoire v3 et outils agentiques | ✅🟡 **GO AVEC RÉSERVES** |
 | **14** | **Deuxième Dell Precision — déploiement par JARVIS lui-même, sans Codex comme opérateur** | ⏳ Prévue, non réceptionnée |
 | **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 Progression prouvée ; réception globale ouverte |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée |
@@ -140,8 +144,8 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 | **15B.3** | iOS — Conversation, voix et mémoire | 📋 Prévue, non exécutée |
 | **15B.4** | iOS — Mémoire et validations | 📋 Prévue, non exécutée |
 | **15B.5** | iOS — Installation gratuite et réception | 📋 Prévue, non exécutée |
-| **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés |
-| **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES |
+| **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅🟡 GO AVEC RÉSERVES — deux Macs utilisés |
+| **JL-02** | LauncherV2 — conversation et supervision agentique | ✅🟡 Livrée — GO AVEC RÉSERVES |
 | **23** | LiveKit — voix temps réel | 📋 Planifiée, non exécutée |
 | **24** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée |
 | **25** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée |
