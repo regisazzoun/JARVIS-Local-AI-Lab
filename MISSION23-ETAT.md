@@ -16,6 +16,6 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | t10_correction_erreurs — Corriger les erreurs rencontrées et réitérer les tests | validated | 180d904e445272813f40190dce7221c08f4e160bca5b1609cc5be4d45c4d69bd |
 | t11_test_tailscale — Tester l'accès distant via Tailscale depuis le Mac | validated | 6da40600e35ac4dd03a453718ce6da4db5a43d295af445c0193a0e6091ec53e6 |
 | t12_code_github — Publier le code, configs et documentation sur une branche GitHub dédiée | validated | db28d98d115822a04ef6a0f5babfc6f9c177e27f74de2d28b3bd65aab4249463 |
-| t13_rapport_final — Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie | pending | non reçu |
+| t13_rapport_final — Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie | running | non reçu |
 
 Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
