@@ -165,10 +165,11 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
             # Owner-authorized coordinator instructions must reach the next inference,
             # even when prior model messages still contain stale completion claims.
             with store.db() as c:
-                guidance=[dict(r) for r in c.execute("SELECT id,result FROM mission_events WHERE mission=? AND actor='Codex' AND kind='coordinator_instruction' AND (task=? OR task IS NULL) AND id>? ORDER BY id DESC LIMIT 3",(ident,task_id,last_coordinator_event))]
+                guidance=[dict(r) for r in c.execute("SELECT id,result FROM mission_events WHERE mission=? AND actor='Codex' AND kind='coordinator_instruction' AND (task=? OR task IS NULL) ORDER BY id DESC LIMIT 3",(ident,task_id))]
             if guidance:
-                last_coordinator_event=max(r['id'] for r in guidance)
-                messages.append({'role':'user','content':'Coordination autorisée récente, à appliquer avant les anciennes conclusions du modèle : '+encoded([json.loads(r['result']) for r in reversed(guidance)])})
+                state_data=json.loads(base[1]['content'])
+                state_data['latest_authorized_coordinator_instructions']=[json.loads(r['result']) for r in reversed(guidance)]
+                base[1]['content']=encoded(state_data)
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
@@ -184,6 +185,9 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                     messages=base+([{'role':'user','content':'Historique résumé ; le dernier échange réel est conservé ci-dessous : '+encoded(old)}] if old else [])+tail
                 else:
                     messages=base+[{'role':'user','content':'Checkpoint réel, suite à poursuivre : '+encoded(latest)}]
+            if guidance and max(r['id'] for r in guidance)>last_coordinator_event:
+                last_coordinator_event=max(r['id'] for r in guidance)
+                messages.append({'role':'user','content':'Coordination autorisée récente, à appliquer avant les anciennes conclusions du modèle : '+encoded([json.loads(r['result']) for r in reversed(guidance)])})
             schemas=core.tools.schemas()
             current_tasks=store.tasks(ident)
             if not current_tasks:
