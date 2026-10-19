@@ -1,6 +1,6 @@
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
-**Dernière mise à jour : 18 octobre 2026**  
+**Dernière mise à jour : 19 octobre 2026**  
 **Références :** [Feuille de route](ROADMAP.md) · [Chronologie](docs/chronologie.md) · [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Roadmap Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md)
 
 > **Tableau de pilotage permanent.** Conserver la présentation, l'ordre des colonnes, les intitulés, les identifiants de missions et les lignes historiques lors de chaque mise à jour. Modifier uniquement les informations nécessaires, ajouter une ligne si un nouveau jalon apparaît, dater et expliquer les changements dans le journal. Ne jamais déduire un GO de la seule existence de fichiers. Les étapes sans rapport complet restent « à confirmer ». Les statuts représentent la dernière information documentée, pas une surveillance temps réel.
@@ -8,9 +8,13 @@
 
 > **Point du 17 octobre — mission 00 :** [README courant](README.md) et [registre](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) réconciliés : 68 missions/sous-missions, 28 anomalies. 13D-E = Dell n°1 reçu ; 14 = Dell n°2 futur exécuté par JARVIS ; 14A ouverte ; 11B partielle ; JL-02 livrée avec réserves. Les sections datées ci-dessous conservent leurs états historiques.
 
+## Nouvelles missions du 19 octobre 2026
+
+Priorité arrêtée : **23 LiveKit**, puis **24 JL-03**, puis 25 à 31 selon dépendances. Les neuf missions sont **planifiées, non exécutées** ; voir [cahier détaillé](docs/missions/CYCLE-23-31.md) et [roadmap](ROADMAP.md). Le bilan 00 du 17 octobre conserve son comptage historique de 68 identifiants.
+
 ## Vue d'ensemble — toutes les missions
 
-**68 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--68-identifiants) reprend les mêmes missions et états.
+**77 identifiants comptés** : 68 historiques au 18 octobre et neuf nouveaux (23–31) planifiés le 19 octobre, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--77-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
@@ -42,6 +46,15 @@
 | **15B** | Application native SwiftUI iOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15B-IOS-CODEX.md) ; installation gratuite Xcode/Personal Team retenue | Contrat API commun et prototype iPhone |
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés | Mac mini fonctionnel confirmé le 14/10 ; MacBook : compagnon local, connexion SSH, reprise tmux et trois actions du site GitHub Pages déclarées fonctionnelles par l'utilisateur le 15/10. Autres commandes et sécurité complète non toutes réceptionnées | Garder les tests acquis ; documenter uniquement les actions restantes sans retester inutilement |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES | SiteV2publié ; Qwenoutilsréels,voix synthétique,métriques etévénements testés ; espaceconnecté confirmé propriétaire | Suivre réserves nativesetfiabilitéagentique ; préserver V1 |
+| **23** | LiveKit — voix temps réel | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Démarrer l'audit LiveKit isolé |
+| **24** | JL-03 — cockpit unifié | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après API LiveKit stable |
+| **25** | Mission Engine résilient | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **26** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **27** | Routage multi-modèles et calcul distribué | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **28** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **29** | Satellites vocaux et clients distants | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **30** | Proactivité et planification | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **31** | Réception transversale | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
 | **00** | Audit général et concordance documentaire | ✅ GO avec réserves | 68 missions, 28 anomalies ; 671 fichiers inventoriés par JARVIS ; 129 documents/preuves récupérés ; analyses guidées et corrigées | Publiée dans main le 18/10 ; maintenir le pilotage et les réserves agentiques |
 | **01** | Audit de JARVIS | 🟡 PARTIEL | Audit matériel en lecture seule ; accès hôte limité par le bac à sable. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
@@ -233,3 +246,7 @@ Le propriétaire autorise explicitement la fusion pour rendre les documents acce
 ### Publication effective dans main — 18 octobre 2026
 
 PR6 fusionnée dans sa branche de base ; [PR7](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/7) fusionnée dans main pour publier les documents et le client d’audit 00. Le README réécrit et les rapports sont désormais accessibles depuis la page principale. Les mêmes 68 identifiants/intitulés/états sont vérifiés entre README et SUIVI. [Preuves de publication](docs/missions/00-Mission-Pilotage-point-26-10-17/PUBLICATION-MAIN.json). La PR5 de déploiement reste distincte.
+
+### Ajout documentaire du 19 octobre 2026 — missions 23 à 31
+
+Neuf identifiants ajoutés au suivi courant (77 au total). Ordre LiveKit → JL-03 confirmé. Aucun service déployé, aucun résultat d'essai ni réception déduit de cet ajout. Les chiffres du bilan mission 00 demeurent des instantanés historiques.
