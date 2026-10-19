@@ -1,5 +1,24 @@
 # Roadmap
 
+## Nouveau cycle prioritaire — missions 23 à 31 (19 octobre 2026)
+
+**Ordre arrêté : 23 — LiveKit, puis 24 — JL-03.** Les missions 25 à 31 sont ensuite organisées selon les dépendances. Toutes sont **planifiées et non exécutées**. Le détail, les objectifs, critères de réception et références figurent dans [Cycle 23–31](docs/missions/CYCLE-23-31.md).
+
+| Priorité | Mission | Livrable principal |
+| --- | --- | --- |
+| 1 | **23 — LiveKit voix temps réel** | Prototype vocal WebRTC local, interruptions, mesures et rollback |
+| 2 | **24 — JL-03** | Cockpit texte/voix et suivi de tâches intégré, sans remplacer JL-02 avant réception |
+| 3 | **25 — Mission Engine** | Checkpoints, vérificateurs, reprise fiable |
+| 4 | **26 — MCP / Skill Lab** | Registre d'outils et compétences testables |
+| 5 | **27 — Routage multi-modèles** | Mesures, routage et repli Mac mini/Dell |
+| 6 | **28 — Mémoire enrichie** | Ingestion documentaire et recherche avec provenance |
+| 7 | **29 — Satellites vocaux** | Clients voix multi-appareils et reconnectivité |
+| 8 | **30 — Proactivité** | Tâches récurrentes pilotables et auditables |
+| 9 | **31 — Réception transversale** | Démonstration voix → action → preuve → mémoire → JL-03 |
+
+**Concordance :** cette section complète la roadmap, mais n'altère pas rétroactivement les 68 identifiants et états du registre de mission 00 / SUIVI.md ; leur synchronisation devra suivre la procédure du dépôt. Les chantiers historiques 14, 15A/15B, 20/21 et JL-02 ne sont pas déclarés terminés ni renumérotés.
+
+
 ## Pilotage courant consolidé — mission 00, point du 17 octobre 2026
 
 [README courant](README.md) · [Registre exhaustif](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) · [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md). Ces conclusions prévalent sur les instantanés datés de préparation conservés ci-dessous. Leur maintien ne révoque pas une autorisation récente.
