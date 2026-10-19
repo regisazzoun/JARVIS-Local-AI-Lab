@@ -33,8 +33,8 @@ class Launcher:
     def missions(self):
         with self.db() as c:
             rows=[]
-            for r in c.execute('SELECT id,goal,model,state,attempts,updated,created,conversation,last_progress,active_task FROM missions ORDER BY updated DESC LIMIT 80'):
-                d=dict(r);tasks=[]
+            for r in c.execute('SELECT id,goal,model,state,attempts,updated,created,conversation,last_progress,active_task,spec FROM missions ORDER BY updated DESC LIMIT 80'):
+                d=dict(r);metadata=json.loads(d.pop('spec') or '{}');d['original_goal']=d['goal'];d['goal']=metadata.get('display_title',d['goal']);d['related_mission']=metadata.get('related_mission');tasks=[]
                 for t in c.execute('SELECT id,title,state,deps,evidence,updated,started,artifact,report_sha256 FROM tasks WHERE mission=?',(r['id'],)):
                     t=dict(t);t['evidence']=json.loads(t['evidence']);t['agent']='JARVIS';tasks.append(t)
                 count=sum(t['state']=='validated' and bool(t['evidence']) for t in tasks)

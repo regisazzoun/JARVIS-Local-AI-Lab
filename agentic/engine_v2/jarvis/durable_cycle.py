@@ -142,6 +142,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
             if prior:
                 messages=base+prior[2:]
                 messages.append({'role':'user','content':'Reprise durable : continue depuis le dernier résultat. Ne recrée pas le test ni la panne déjà corrigée. Si la vérification fonctionnelle a réussi, enregistre le rapport puis valide la tâche. Un refus de preuve exige de corriger la preuve, pas de réintroduire une panne.'})
+        last_coordinator_event = 0
         repeats = {}
         before = len(observations)
         report = None
@@ -161,6 +162,13 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                 state_data['external_dependency_recheck_since']=recheck
                 with store.db() as c:state_data['publication_issues']=[dict(r) for r in c.execute("SELECT file,state,last_error FROM publication_outbox WHERE mission=? AND state IN ('needs_revision','retrying') ORDER BY updated DESC LIMIT 6",(ident,))]
                 base[1]['content']=encoded(state_data)
+            # Owner-authorized coordinator instructions must reach the next inference,
+            # even when prior model messages still contain stale completion claims.
+            with store.db() as c:
+                guidance=[dict(r) for r in c.execute("SELECT id,result FROM mission_events WHERE mission=? AND actor='Codex' AND kind='coordinator_instruction' AND (task=? OR task IS NULL) AND id>? ORDER BY id DESC LIMIT 3",(ident,task_id,last_coordinator_event))]
+            if guidance:
+                last_coordinator_event=max(r['id'] for r in guidance)
+                messages.append({'role':'user','content':'Coordination autorisée récente, à appliquer avant les anciennes conclusions du modèle : '+encoded([json.loads(r['result']) for r in reversed(guidance)])})
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.

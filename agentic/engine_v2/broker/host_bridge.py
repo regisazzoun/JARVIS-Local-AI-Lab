@@ -130,6 +130,9 @@ def execute(op,a,cfg):
     if op=='host_github':
         repo=a['repository']; action=a['action']
         if repo not in cfg['repositories'] and not (action in ('file','inspect','download','branches') and repo in cfg.get('read_repositories',[])):raise PermissionError('Dépôt hors politique')
+        if action in ('repositories','commits','verify_commit','prs','pr_status','diff','branch_create','push_tree','verify_tree','pull_request'):
+            from github_connector import execute as github_execute
+            return github_execute(a,cfg,run,sandbox,root_for)
         if action=='create':
             if repo!='regisazzoun/JARVIS-Launcher2':raise PermissionError('Création limitée au projet JL-02 accordé')
             return run(['/usr/bin/gh','repo','create',repo,'--public','--description','JARVIS Launcher V2'],30,cfg['user'])
@@ -204,7 +207,7 @@ def execute(op,a,cfg):
                 import base64,shlex
                 probe='from pathlib import Path; import base64; p=Path('+repr(str(source))+'); assert p.is_file() and p.stat().st_size<1000000; print(base64.b64encode(p.read_bytes()).decode())'
                 file_result=sandbox('python3 -c '+shlex.quote(probe),cfg,output_limit=1400000)
-                if file_result['returncode'] or file_result['stdout_truncated']:raise ValueError('Fichier régulier lisible <1Mo requis')
+                if file_result['returncode'] or file_result['stdout_truncated']:raise ValueError('push: path doit être le DOSSIER racine ; file est relatif à ce dossier. Fichier absent, illisible ou >=1Mo : '+str(source))
                 content=base64.b64decode(file_result['stdout'].strip(),validate=True)
                 if re.search(rb'gh[pousr]_|github_pat_|PRIVATE KEY|password\s*[:=]|token\s*[:=]',content,re.I):raise PermissionError('Publication contenant un secret potentiel refusée')
                 dest=clean/relative
@@ -244,6 +247,20 @@ def execute(op,a,cfg):
         if profile.get('identity_check'):
             checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
             if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
+        if action=='project_exec':
+            if op!='host_remote' or not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Remote project execution not granted')
+            project=a.get('project','')
+            if project not in profile.get('project_exec_projects',[]):raise PermissionError('Remote project not granted')
+            root='/home/'+profile['user']+'/jarvis-projects/'+project
+            script="""import pathlib,subprocess,os
+root=pathlib.Path(ROOT);root.mkdir(parents=True,exist_ok=True)
+argv=['/usr/bin/bwrap','--die-with-parent','--new-session','--unshare-pid','--unshare-ipc','--unshare-uts','--cap-drop','ALL','--ro-bind','/usr','/usr','--symlink','usr/bin','/bin','--symlink','usr/sbin','/sbin','--symlink','usr/lib','/lib','--symlink','usr/lib64','/lib64','--proc','/proc','--dev','/dev','--tmpfs','/tmp','--dir','/etc']
+for path in ['/etc/ssl','/etc/resolv.conf','/etc/hosts','/etc/passwd','/etc/group','/etc/nsswitch.conf']:
+ if pathlib.Path(path).exists():argv+=['--ro-bind',path,path]
+argv+=['--bind',str(root),str(root),'--chdir',str(root),'--clearenv','--setenv','HOME',str(root),'--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8','--','/bin/bash','-c',COMMAND]
+raise SystemExit(subprocess.call(argv))
+""".replace('ROOT',repr(root)).replace('COMMAND',repr(a['command']))
+            return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',script])],600)
         if action=='desktop_gateway_configure':
             if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Passerelle bureau hors profil')
             from remote_operations import configure_gateway

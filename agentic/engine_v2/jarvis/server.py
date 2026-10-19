@@ -57,7 +57,30 @@ def make_handler(core,auth=None):
                 if auth and not auth.valid(self.headers):self.send({'error':'Authentification requise'},401);return
                 if p=='/api/logout' and auth:
                     auth.logout(self.headers);self.new_cookie='jarvis_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0';self.send({'ok':True});return
+                if p=='/api/missions':
+                    from .intent import classify,mission_answer
+                    intent=classify(d['goal'])
+                    factual=mission_answer(d['goal'],core.missions.store)
+                    if factual:self.send(factual);return
+                    if intent=='question':
+                        self.send(core.chat(d['goal'],d['model'],d.get('conversation'),d.get('project',''),True,False));return
+                    if intent=='resume23':
+                        ident='7971ec0311124fb4be9e3125dcb291fd';row=core.missions.store.get(ident)
+                        result=core.missions.resume(ident) if row['state'] not in ('running','queued','completed') else {'id':ident,'state':row['state']}
+                        result.update(mission_id=ident,conversation=row['conversation'],answer='Mission 23 : '+result['state']+' ; checkpoints conservés.')
+                        self.send(result);return
                 if p=='/api/chat':
+                    from .intent import classify,mission_answer
+                    intent=classify(d['text'])
+                    factual=mission_answer(d['text'],core.missions.store)
+                    if factual:self.send(factual);return
+                    if intent=='resume23':
+                        ident='7971ec0311124fb4be9e3125dcb291fd'
+                        row=core.missions.store.get(ident)
+                        result=core.missions.resume(ident) if row['state'] not in ('running','queued','completed') else {'id':ident,'state':row['state']}
+                        result.update(mission_id=ident,conversation=row['conversation'],answer='Mission 23 : '+result['state']+' ; exécution originale et checkpoints conservés.',tools=[])
+                        self.send(result);return
+                    if intent=='question':d['agent_mode']=False
                     if d.get('agent_mode',False):
                         result=core.missions.submit(d['text'],d['model'],d.get('conversation'),d.get('project',''))
                         result.update(answer='Mission enregistrée ; exécution et preuves dans le Sandbox.',tools=[])
