@@ -1,0 +1,8 @@
+{
+  "actor": "Codex independent verifier diagnostic",
+  "ok": false,
+  "evidence_id": "542f31ed54374df8a15cc431037f14ca",
+  "returncode": 1,
+  "diagnostic_tail": "^^^^\n  File \"/usr/lib/python3.13/asyncio/runners.py\", line 195, in run\n    return runner.run(main)\n           ~~~~~~~~~~^^^^^^\n  File \"/usr/lib/python3.13/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"/usr/lib/python3.13/asyncio/base_events.py\", line 725, in run_until_complete\n    return future.result()\n           ~~~~~~~~~~~~~^^\n  File \"/usr/local/lib/jarvis-host/verify_livekit_agent.py\", line 23, in verify\n    manifest=json.loads((project/'verification.json').read_text())\n                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 548, in read_text\n    return PathBase.read_text(self, encoding, errors, newline)\n           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 539, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission23/livekit-agent/verification.json'\n",
+  "expected": "A missing manifest/application factory must fail rather than print success"
+}

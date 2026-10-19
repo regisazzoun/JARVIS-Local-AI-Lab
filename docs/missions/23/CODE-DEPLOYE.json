@@ -1,0 +1,160 @@
+{
+  "code_files": [
+    {
+      "file": "agentic/engine_v2/jarvis/protocol.py",
+      "sha256": "76195f56ac24defab24209ac7b1cff3597e76e7393d8c85abc8f65adce8afa40",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/memory.py",
+      "sha256": "66acf6954f164acb4b989011029a85a063a481aa07ce52a519b3516fdfc35cc2",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/auth.py",
+      "sha256": "6d0e68bf3775558dfe7dfb8e0a15ebeb119673c420090f89cfc574167886dd2a",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/launcher_api.py",
+      "sha256": "7f38edc96f99790dcf814bf0de268f0b31cc867689582ad8572b0927181e92e5",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/server.py",
+      "sha256": "29b4043e9536e42b656d2e0590c7100d3a619c386688f831120753eabc58cec9",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/cli.py",
+      "sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/host_client.py",
+      "sha256": "69ede2aa3daf507e5459c217ed31ba3f0f384906bbecc4f1ec682e1bc17db4ea",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/durable_tools.py",
+      "sha256": "950931983137a9a19cf925abe153448bbde50216808f6802535b134c6c7b611d",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/mission_store.py",
+      "sha256": "f2d5b258d7d7065af9c97857a2e07bfaa72606485ea764ae05b5a2fd19d57d8f",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/voice_worker.py",
+      "sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/launcher_telemetry.py",
+      "sha256": "8e079b51495e10b89aeb078011fa53acbe4b92b1cf121c0973fe8ceeaa9fcb25",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/missions.py",
+      "sha256": "0508f9eccfb52e8bb1bc6a1ccc940b9b6d6908062aa91ca65ac8ba54c643d777",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/task_tools.py",
+      "sha256": "9fcfd0693bce22c46fbade68ee1ab97ab2456d73fccebe81735b5cbc8c4488de",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/durable_cycle.py",
+      "sha256": "4212b23d844285e72c9cd337de0bdc38f02d23a526e3339a30d6034389ac90aa",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/agent.py",
+      "sha256": "41c3105c5f6f1f025fc29dc5646b29c2c48371bba9fc711b6f99040d0ff55938",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/publication.py",
+      "sha256": "61555ee1557b4088556efbe976aab920239bd636e63c9c4e868d78ec94245767",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/tools.py",
+      "sha256": "bdcd22db109073fdaff3afa468efeabe79a25d6b56f16a58652255e8230d330c",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/preferences.py",
+      "sha256": "71be4786c2259e818589ade213294e50f36d4aa1f2c307e24c63367c67083ad0",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/jarvis/core.py",
+      "sha256": "0360515f03e3ed4093a3adb85b9aa57fd91465d74e8ae5fab7ad2c327d523f80",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/broker/host_bridge.py",
+      "sha256": "6551e0adfdaa68c3996ec7ec3ae45db51a145ef7f79cbc0aee227e23be83feb7",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/broker/desktop_gateway.py",
+      "sha256": "c0c621644860224369dd75f188546d00f46ee15d33ffe4eb54eb0716b24ea663",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/broker/remote_operations.py",
+      "sha256": "778cabba3e3668c5a39a88a2da260f008c568b58aaba42fb844c438d9895e8ef",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/broker/project_service.py",
+      "sha256": "5dca5baa6674768af38c86796dbc61c8121401668d7238fdc59c49b45c00ebb5",
+      "matches_runtime": true
+    },
+    {
+      "file": "agentic/engine_v2/broker/verify_livekit_agent.py",
+      "sha256": "2858973c4d29da06dd2c9d044b4ebfb491af36e4bad09c99a5a678457f1f6a6c",
+      "matches_runtime": true
+    }
+  ],
+  "unit_tests": {
+    "command": "PYTHONPATH=agentic/engine_v2 python3 -m unittest discover -s agentic/engine_v2/tests -q",
+    "passed": 49
+  },
+  "config": {
+    "durable_think": true,
+    "durable_num_ctx": 32768,
+    "durable_num_predict": -1
+  },
+  "policy": {
+    "existing_remote_profiles_unchanged": true,
+    "existing_services_unchanged": true,
+    "existing_write_repositories_unchanged": true,
+    "added_readonly_repositories": [
+      "livekit-examples/agent-starter-python",
+      "livekit-examples/python-agents-examples",
+      "livekit/agents",
+      "livekit/livekit"
+    ],
+    "project_services": {
+      "mission23": "/var/lib/jarvis/projects/mission23"
+    },
+    "added_voice_paths_read_only": true
+  },
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-ollama": "active",
+    "jarvis-open-webui": "active",
+    "tailscaled": "active"
+  }
+}

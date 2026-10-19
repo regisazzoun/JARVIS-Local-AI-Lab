@@ -24,6 +24,42 @@ def model_observation(value, limit=8000):
     return result
 
 
+def compact_observations(briefs, latest_result, available):
+    """Keep the last actual structured tool result, not just an empty batch summary."""
+    rows=[dict(r) for r in briefs]
+    if not rows:return rows
+    rows[-1]['latest_tool_result']=model_observation(latest_result)
+    while len(encoded(rows))>available and len(rows)>1:rows.pop(0)
+    def leaves(value):
+        if isinstance(value,list):return sum(leaves(x) for x in value)
+        if not isinstance(value,dict):return 0
+        return sum(1 if k in ('stdout','content') and isinstance(v,str) else leaves(v) for k,v in value.items())
+    limit=max(128,(available-len(encoded(briefs[-1]))-1500)//max(1,leaves(latest_result)))
+    while len(encoded(rows))>available:
+        rows[-1]['latest_tool_result']=model_observation(latest_result,limit)
+        if limit<=128:break
+        limit=max(128,limit//2)
+    if len(encoded(rows))>available:
+        text=encoded(latest_result);room=max(128,available-len(encoded(briefs[-1]))-500)
+        rows[-1]['latest_tool_result']={'explicit_excerpt':text[:room//2]+' [full result in mission_evidence] '+text[-room//2:],'full_chars':len(text)}
+    return rows
+
+
+def native_tail(messages, available):
+    """Keep the most recent assistant/tool exchange in its native protocol."""
+    start=next((i for i in range(len(messages)-1,-1,-1) if messages[i].get('role')=='assistant' and messages[i].get('tool_calls')),None)
+    if start is None:return []
+    tail=[dict(m) for m in messages[start:]]
+    limit=8000
+    while len(encoded(tail))>available and limit>=128:
+        limit//=2
+        for message in tail:
+            if message.get('role')=='tool':
+                try:message['content']=encoded(model_observation(json.loads(message['content']),limit))
+                except (ValueError,TypeError):pass
+    return tail if len(encoded(tail))<=available else []
+
+
 def dependency_state(observations, since=0):
     """A requested recheck makes earlier blockers historical, never successful."""
     dependencies={}
@@ -43,11 +79,11 @@ def debugging_state(observations):
     for o in observations:
         args=o.get('arguments',{});result=o.get('result') or {};value=result.get('result',{})
         if o['tool']=='host_exec':
-            command=args.get('command','');commands[command]={'invocation':o['id'],'created':o['created'],'command':command[:1200],'ok':result.get('ok'),'returncode':value.get('returncode'),'diagnostic':(value.get('stdout','')+'\n'+value.get('stderr',''))[-1800:]}
+            command=args.get('command','');commands[command]={'invocation':o['id'],'created':o['created'],'command':command[:600],'ok':result.get('ok'),'returncode':value.get('returncode'),'diagnostic':(value.get('stdout','')+'\n'+value.get('stderr',''))[-900:]}
         if o['tool']=='host_write_file' and result.get('ok'):
             files[args.get('path','')]={'path':args.get('path'),'created':o['created'],'sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),'invocation':o['id']}
-    checks=list(commands.values())
-    return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-6:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-4:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds.'}
+    checks=sorted(commands.values(),key=lambda x:x['created'])
+    return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-2:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-2:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds.'}
 
 
 class DurableCycle:
@@ -128,10 +164,18 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
-                latest=[brief(o) for o in store.observations(ident)[-16:]]
+                current_observations=store.observations(ident)[-16:]
                 available=max(2000,context_chars-len(encoded(base))-1000)
-                while len(encoded(latest))>available and len(latest)>1:latest.pop(0)
-                messages=base+[{'role':'user','content':'Checkpoint réel, suite à poursuivre : '+encoded(latest)}]
+                latest=compact_observations([brief(o) for o in current_observations],(current_observations[-1].get('result') or {}) if current_observations else {},available)
+                store.event(ident,'context_compacted',task_id,'JARVIS-engine',result={'previous_chars':len(encoded(messages)),'budget_chars':context_chars,'base_chars':len(encoded(base)),'checkpoint_chars':len(encoded(latest)),'latest_invocation':current_observations[-1]['id'] if current_observations else None,'latest_structured_result_retained':True})
+                tail=native_tail(messages,available)
+                if tail:
+                    old=[brief(o) for o in current_observations[:-1]]
+                    room=available-len(encoded(tail))-500
+                    while old and len(encoded(old))>room:old.pop(0)
+                    messages=base+([{'role':'user','content':'Historique résumé ; le dernier échange réel est conservé ci-dessous : '+encoded(old)}] if old else [])+tail
+                else:
+                    messages=base+[{'role':'user','content':'Checkpoint réel, suite à poursuivre : '+encoded(latest)}]
             schemas=core.tools.schemas()
             current_tasks=store.tasks(ident)
             if not current_tasks:
