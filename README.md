@@ -79,9 +79,9 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 | Mission | Objet / étapes | État |
 | --- | --- | --- |
 | **00** | Audit général et concordance documentaire | ✅🟡 GO avec réserves |
-| **01** | Audit de JARVIS | 🟡 PARTIEL |
-| **02** | Configuration Apple T2 et administration Debian | 🟡 PARTIEL |
-| **02B** | Administration et préparation système | 🟡 Préparation et script testés ; administration non exécutée |
+| **01** | Audit de JARVIS | ✅ GO — Réserve historique d'accès hôte levée par 11-Agentic et 11B (audit initial conservé) |
+| **02** | Configuration Apple T2 et administration Debian | ✅ GO — Socle Debian/T2 confirmé par 03 ; NVIDIA/CUDA et IA confirmés par 05D et 13F |
+| **02B** | Administration et préparation système | ✅ GO — Administration hôte et SSH réalisés ensuite par 03, 11-Agentic et 13D |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves |
 | **04** | GRUB, Thunderbolt et eGPU NVIDIA | ✅🟡 Réalisée avec réserves |
 | **04B** | À confirmer : intitulé à réconcilier | 🟡 À confirmer |
