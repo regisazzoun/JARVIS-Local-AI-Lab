@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JARVIS LiveKit Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/livekit-client@2.4.0/dist/livekit-client.js"></script>
+</head>
+<body>
+    <h1>JARVIS LiveKit Test</h1>
+    <div id="status">Démarrage...</div>
+    <button id="btn-start">Démarrer audio</button>
+    <button id="btn-stop">Arrêter</button>
+    
+    <script>
+        const room = new livekit.Room();
+        const statusDiv = document.getElementById('status');
+        
+        async function connect() {
+            try {
+                statusDiv.textContent = "Connexion à ws://localhost:7880...";
+                await room.connect('ws://localhost:7880', 'test-token', { autoSubscribe: true });
+                statusDiv.textContent = "CONNECTÉ ! Room: " + room.name;
+                
+                room.on('participantConnected', (p) => {
+                    statusDiv.textContent += "<br>Participant: " + p.identity;
+                });
+                
+                room.localTrackPublication.map(tr => {
+                    if(tr.track.kind === 'audio') {
+                        console.log("Microphone actif");
+                    }
+                });
+            } catch (e) {
+                statusDiv.textContent = "ÉCHEC: " + e.message;
+                console.error(e);
+            }
+        }
+        
+        document.getElementById('btn-start').onclick = connect;
+        document.getElementById('btn-stop').onclick = () => {
+            room.disconnect();
+            statusDiv.textContent = "Déconnecté";
+        };
+    </script>
+</body>
+</html>

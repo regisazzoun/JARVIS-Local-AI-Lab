@@ -1,20 +1,24 @@
-# Secrets et données d'exécution
-.env
-.env.*
-!.env.example
-*.key
-*.pem
-id_ed25519*
-*.db
-*.sqlite*
+# Fichiers temporaires et logs
 *.log
-*.tar
-*.tar.gz
-*.zst
-*.zip
-__pycache__/
-node_modules/
+logs/*
+!logs/.gitkeep
+
+# Environnements virtuels Python
 venv/
-.venv/
-*-preuves/
-*sauvegarde*/
+.env/
+__pycache__/
+*.pyc
+
+# Node modules
+node_modules/
+
+# Fichiers de configuration sensibles (à remplir manuellement)
+config-livekit-server.yaml.example
+.env.local
+
+# Fichiers PID et processus
+*.pid
+
+# Fichiers temporaires éphémères
+*.tmp
+.tmp/
