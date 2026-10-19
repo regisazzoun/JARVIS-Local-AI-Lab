@@ -12,6 +12,9 @@ Le projet avance sur du matériel réel, avec des essais, des corrections et des
 
 **[📋 Suivi des missions](SUIVI.md)** · **[🧭 Feuille de route](ROADMAP.md)** · **[📚 Rapports et preuves](docs/missions/README.md)** · **[🚀 Launcher V2](https://regisazzoun.github.io/JARVIS-Launcher2/)**
 
+
+**Consolidation du chantier 04 — 19 octobre 2026 :** la série 04 à 04W relève désormais d'un **objectif technique global atteint**, démontré par les essais GPU réels de [05C et 05D](SUIVI.md). Les étapes préparatoires non exécutées, les anciens essais négatifs et les rapports introuvables restent explicitement identifiés dans le registre historique de la mission 00 ; leur affichage GO signifie que le *blocage global* est levé, non que chaque essai intermédiaire aurait réussi.
+
 ### Légende de présentation des statuts
 
 ✅ **GO** : réalisé et validé · ✅🟡 **GO avec réserves / GO partiel** : acquis vérifié, limites non bloquantes consignées · 🟡 **En cours / incomplet** : objectif non encore validé · 📋 **Planifiée** · ❌ **NO-GO** : échec démontré. Ces pictogrammes n'effacent pas les verdicts historiques.
@@ -83,27 +86,27 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 | **02** | Configuration Apple T2 et administration Debian | ✅ GO — Socle Debian/T2 confirmé par 03 ; NVIDIA/CUDA et IA confirmés par 05D et 13F |
 | **02B** | Administration et préparation système | ✅ GO — Administration hôte et SSH réalisés ensuite par 03, 11-Agentic et 13D |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves |
-| **04** | GRUB, Thunderbolt et eGPU NVIDIA | ✅🟡 Réalisée avec réserves |
-| **04B** | À confirmer : intitulé à réconcilier | 🟡 À confirmer |
-| **04C** | Plan exact, non exécuté | 📋 Préparée |
-| **04E** | Plan d’essai et récupération | 📋 Préparée |
-| **04G** | vérification après branchement du Razer Core | 🟡 Non concluante |
-| **04H** | validation de la réallocation PCIe | 🟡 Échec historique |
-| **04I** | Entrée réserve PCIe 512M installée | 🟡 Configuration installée, essai non établi |
-| **04J** | vérification avant branchement | 🟡 Non concluante |
-| **04K** | limitations PCIe du Mac mini 2018 | ✅🟡 Étude terminée |
-| **04L** | préparation de la réallocation PCIe ciblée | 🟡 Configuration installée, essai non établi |
-| **04M** | validation de la réallocation PCIe ciblée | 🟡 Non concluante |
-| **04N** | Complément Mission 04N — Installation autorisée | 🟡 Configuration installée, candidat non testé |
-| **04O** | Vérification des ressources PCIe NP/PREF avant essai eGPU | ✅🟡 Vérification préparatoire positive |
-| **04P** | validation de la réallocation PCIe | ✅🟡 Allocation PCIe testée |
-| **04Q** | écran conservant le fond GRUB | ✅🟡 Diagnostic exécuté |
-| **04R** | disparition du GPU Intel avec Core présent au boot | ✅🟡 Diagnostic exécuté |
-| **04S** | Essais comparatifs DEVEN avec/sans Core | 🟡 À confirmer : rapport autonome manquant |
-| **04T** | préparation du diagnostic pré-Linux de DEVEN | 📋 Préparée |
-| **04U** | localiser le masquage Intel entre GRUB et Linux | ✅🟡 Analyse exécutée |
-| **04V** | préparation de la mesure DEVEN en fin de GRUB | 📋 Préparée |
-| **04W** | Analyse d'un démarrage interrompu | ✅🟡 Analyse réalisée |
+| **04** | GRUB, Thunderbolt et eGPU NVIDIA | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04B** | À confirmer : intitulé à réconcilier | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04C** | Plan exact, non exécuté | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04E** | Plan d’essai et récupération | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04G** | vérification après branchement du Razer Core | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04H** | validation de la réallocation PCIe | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04I** | Entrée réserve PCIe 512M installée | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04J** | vérification avant branchement | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04K** | limitations PCIe du Mac mini 2018 | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04L** | préparation de la réallocation PCIe ciblée | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04M** | validation de la réallocation PCIe ciblée | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04N** | Complément Mission 04N — Installation autorisée | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04O** | Vérification des ressources PCIe NP/PREF avant essai eGPU | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04P** | validation de la réallocation PCIe | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04Q** | écran conservant le fond GRUB | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04R** | disparition du GPU Intel avec Core présent au boot | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04S** | Essais comparatifs DEVEN avec/sans Core | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04T** | préparation du diagnostic pré-Linux de DEVEN | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04U** | localiser le masquage Intel entre GRUB et Linux | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
+| **04V** | préparation de la mesure DEVEN en fin de GRUB | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D (étape historique conservée) |
+| **04W** | Analyse d'un démarrage interrompu | ✅ GO — Objectif global eGPU/NVIDIA validé par 05C/05D |
 | **05A** | Sélection du pilote NVIDIA | ✅ Préparation réalisée |
 | **05B** | Installation contrôlée du pilote | ✅🟡 Réalisée avec réserves |
 | **05B-A** | audit des avertissements NVIDIA objtool | ✅🟡 Audit terminé avec conditions |
