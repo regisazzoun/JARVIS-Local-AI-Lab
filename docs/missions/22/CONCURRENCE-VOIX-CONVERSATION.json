@@ -1,0 +1,37 @@
+{
+  "mission_active_before": true,
+  "interactive_lock_before": false,
+  "voice": {
+    "wav_header": true,
+    "bytes": 273964,
+    "sha256": "7bb4fa5bf657f4520a191e6c06162aad58e79a8ba7ce5a4f9a76a43441f366c2",
+    "elapsed_s": 2.1157399030053057,
+    "physical_microphone_tested": false
+  },
+  "conversation": {
+    "answer": "Conversation parallèle disponible",
+    "elapsed_s": 39.1397791269701,
+    "model": "qwen3.5:27b-q4_K_M",
+    "inference_metrics": [
+      {
+        "load_duration": 33699844261,
+        "prompt_eval_duration": 3744590000,
+        "eval_duration": 148881000,
+        "eval_count": 5,
+        "prompt_eval_count": 4559,
+        "total_duration": 38954106302,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "route_failures": [],
+        "request_elapsed_s": 38.955668643000536
+      }
+    ]
+  },
+  "health_after": {
+    "application": "ok",
+    "database": "ok",
+    "ollama": "0.40.3",
+    "busy": false,
+    "mission_busy": true
+  }
+}

@@ -1,0 +1,1946 @@
+[
+  {
+    "identifiant": "00",
+    "nom": "Pilotage — point du17/10",
+    "fonction_principale": "Audit et consolidation documentaire",
+    "objectifs": "Audit et consolidation documentaire",
+    "materiel": "Mac mini / dépôts GitHub ; Qwen sur Dell1",
+    "composants": "Git, GitHub, passerelle agentique, Markdown/JSON",
+    "executant_reel": "Codex coordination/consolidation ; JARVIS analyses outillées",
+    "documents_sources": [
+      {
+        "path": "docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO avec réserves — audit consolidé et exécution agentique guidée",
+    "resultats_prouves": "68 missions, 28 anomalies, 671 fichiers inventoriés par JARVIS ; 129 rapports/fiches/preuves récupérés ; cinq lots exécutés avec réception et corrections Codex",
+    "reserves": "Guidage et erreurs modèle documentés ; fonctions non établies et sources manquantes restent À confirmer ; aucune réception globale 14A",
+    "dependances": "Rapports existants",
+    "prochaine_action": "Documents publiés dans main le 18/10 ; maintenir le pilotage et traiter les réserves dans leurs missions",
+    "derniere_actualisation": "2026-10-18"
+  },
+  {
+    "identifiant": "01",
+    "nom": "Audit de JARVIS",
+    "fonction_principale": "Audit de JARVIS",
+    "objectifs": "Audit de JARVIS",
+    "materiel": "Mac mini / Macmini8,1",
+    "composants": "Debian / T2Linux / NVIDIA / Ollama / Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-01/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-01/README.md"
+      },
+      {
+        "path": "docs/missions/historique/01/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/01/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "PARTIEL",
+    "resultats_prouves": "Audit matériel en lecture seule ; accès hôte limité par le bac à sable.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "02",
+    "nom": "Configuration Apple T2 et administration Debian",
+    "fonction_principale": "Configuration Apple T2 et administration Debian",
+    "objectifs": "Configuration Apple T2 et administration Debian",
+    "materiel": "Mac mini / Macmini8,1 / Quadro RTX 5000 / Razer Core",
+    "composants": "Debian / T2Linux / CUDA / NVIDIA / Ollama / Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-02/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-02/README.md"
+      },
+      {
+        "path": "docs/missions/historique/02/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/02/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "PARTIEL",
+    "resultats_prouves": "Préparer Debian et le support T2 ; validation complète différée.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "02B",
+    "nom": "Administration et préparation système",
+    "fonction_principale": "Administration et préparation système",
+    "objectifs": "Administration et préparation système",
+    "materiel": "Mac mini",
+    "composants": "Debian / T2Linux / NVIDIA",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-02b/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-02b/README.md"
+      },
+      {
+        "path": "docs/missions/historique/02B/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/02B/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "Préparation et script testés ; administration non exécutée",
+    "resultats_prouves": "Diagnostics accessibles, script créé et syntaxe/aide/refus en bac à sable testés ; aucun OpenSSH Server installé dans cette mission",
+    "reserves": "Exécution sur hôte et installation T2 non réalisées à ce stade ; voir la chronologie ultérieure",
+    "dependances": "À confirmer",
+    "prochaine_action": "Conserver le verdict préparatoire sans réécrire son historique",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "03",
+    "nom": "Démarrage T2, réseau et administration Debian",
+    "fonction_principale": "Socle Debian et diagnostic du Mac mini",
+    "objectifs": "À confirmer : intitulé à réconcilier",
+    "materiel": "Mac mini Debian",
+    "composants": "Debian 13 T2Linux, SSH, Wi-Fi/Bluetooth",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-03/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-03/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission03.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/03/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/03/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/03/mission03.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/03/mission03.md"
+      }
+    ],
+    "etat": "Réalisée avec réserves",
+    "resultats_prouves": "Rapport mission03 retrouvé ; démarrage et scans documentés",
+    "reserves": "Association Wi-Fi et appairage Bluetooth non établis par les scans seuls ; la proposition eGPU sous le numéro03 dans le rapport02 a été suivie d’un périmètre réel système/T2, eGPU traité en04",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04",
+    "nom": "préparation du premier GPU NVIDIA",
+    "fonction_principale": "préparation du premier GPU NVIDIA",
+    "objectifs": "préparation du premier GPU NVIDIA",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04.md"
+      },
+      {
+        "path": "docs/missions/historique/04/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04/mission04.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04/mission04.md"
+      }
+    ],
+    "etat": "Préparation exécutée",
+    "resultats_prouves": "Diagnostic initial en lecture seule ; aucun GPU détecté à cette étape",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04B",
+    "nom": "À confirmer : intitulé à réconcilier",
+    "fonction_principale": "À confirmer : intitulé à réconcilier",
+    "objectifs": "À confirmer : intitulé à réconcilier",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04b/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04b/README.md"
+      },
+      {
+        "path": "docs/missions/historique/04B/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04B/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "À confirmer",
+    "resultats_prouves": "Références et preuves identifiées ; rapport autonome non retrouvé",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04C",
+    "nom": "Plan exact, non exécuté",
+    "fonction_principale": "Plan exact, non exécuté",
+    "objectifs": "Plan exact, non exécuté",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04c/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04c/README.md"
+      },
+      {
+        "path": "docs/missions/historique/04C/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04C/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "Préparée",
+    "resultats_prouves": "Plan exact non exécuté",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04E",
+    "nom": "Plan d’essai et récupération",
+    "fonction_principale": "Plan d’essai et récupération",
+    "objectifs": "Plan d’essai et récupération",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04e/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04e/README.md"
+      },
+      {
+        "path": "docs/missions/historique/04E/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04E/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "Préparée",
+    "resultats_prouves": "Plan d’essai et de récupération",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04G",
+    "nom": "vérification après branchement du Razer Core",
+    "fonction_principale": "vérification après branchement du Razer Core",
+    "objectifs": "vérification après branchement du Razer Core",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04g/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04g/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04G.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04G.md"
+      },
+      {
+        "path": "docs/missions/historique/04G/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04G/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04G/mission04G.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04G/mission04G.md"
+      }
+    ],
+    "etat": "Non concluante",
+    "resultats_prouves": "Branchement déclaré ; visibilité hôte insuffisante",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04H",
+    "nom": "validation de la réallocation PCIe",
+    "fonction_principale": "validation de la réallocation PCIe",
+    "objectifs": "validation de la réallocation PCIe",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04h/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04h/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04H.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04H.md"
+      },
+      {
+        "path": "docs/missions/historique/04H/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04H/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04H/mission04H.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04H/mission04H.md"
+      }
+    ],
+    "etat": "Échec historique",
+    "resultats_prouves": "BAR1/BAR3 non attribués dans cet essai",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04I",
+    "nom": "Entrée réserve PCIe 512M installée",
+    "fonction_principale": "Entrée réserve PCIe 512M installée",
+    "objectifs": "Entrée réserve PCIe 512M installée",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04i/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04i/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04I.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04I.md"
+      },
+      {
+        "path": "docs/missions/historique/04I/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04I/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04I/mission04I.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04I/mission04I.md"
+      }
+    ],
+    "etat": "Configuration installée, essai non établi",
+    "resultats_prouves": "Entrée GRUB réserve PCIe 512M installée après autorisation ; addendum prioritaire",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04J",
+    "nom": "vérification avant branchement",
+    "fonction_principale": "vérification avant branchement",
+    "objectifs": "vérification avant branchement",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04j/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04j/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04J.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04J/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04J/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04J/mission04J.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04J/mission04J.md"
+      }
+    ],
+    "etat": "Non concluante",
+    "resultats_prouves": "Vérification avant branchement, données hôte manquantes",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04K",
+    "nom": "limitations PCIe du Mac mini 2018",
+    "fonction_principale": "limitations PCIe du Mac mini 2018",
+    "objectifs": "limitations PCIe du Mac mini 2018",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04k/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04k/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04K.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04K/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04K/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04K/mission04K.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04K/mission04K.md"
+      }
+    ],
+    "etat": "Étude terminée",
+    "resultats_prouves": "Analyse des limitations PCIe, aucun essai",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04L",
+    "nom": "préparation de la réallocation PCIe ciblée",
+    "fonction_principale": "préparation de la réallocation PCIe ciblée",
+    "objectifs": "préparation de la réallocation PCIe ciblée",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04l/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04l/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04L.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04L/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04L/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04L/mission04L.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04L/mission04L.md"
+      }
+    ],
+    "etat": "Configuration installée, essai non établi",
+    "resultats_prouves": "Addendum : entrée de réallocation installée, pas de reboot dans cette étape",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04M",
+    "nom": "validation de la réallocation PCIe ciblée",
+    "fonction_principale": "validation de la réallocation PCIe ciblée",
+    "objectifs": "validation de la réallocation PCIe ciblée",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04m/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04m/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04M.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04M/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04M/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04M/mission04M.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04M/mission04M.md"
+      }
+    ],
+    "etat": "Non concluante",
+    "resultats_prouves": "PREF reconstruit, NP insuffisant ; visibilité incomplète",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04N",
+    "nom": "Complément Mission 04N — Installation autorisée",
+    "fonction_principale": "Complément Mission 04N — Installation autorisée",
+    "objectifs": "Complément Mission 04N — Installation autorisée",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04n/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04n/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04N.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04N/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04N/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04N/mission04N.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04N/mission04N.md"
+      }
+    ],
+    "etat": "Configuration installée, candidat non testé",
+    "resultats_prouves": "Candidat NP32M + PREF512M installé avant reboot manuel",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04O",
+    "nom": "Vérification des ressources PCIe NP/PREF avant essai eGPU",
+    "fonction_principale": "Vérification des ressources PCIe NP/PREF avant essai eGPU",
+    "objectifs": "Vérifier les ressources NP/PREF avant un éventuel essai eGPU, selon le rapport 04O",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04o/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04o/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04O.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04O/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04O/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04O/mission04O.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04O/mission04O.md"
+      }
+    ],
+    "etat": "Vérification préparatoire positive",
+    "resultats_prouves": "NP/PREF utilisables sans Core ; ne démontre pas le fonctionnement GPU",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04P",
+    "nom": "validation de la réallocation PCIe",
+    "fonction_principale": "validation de la réallocation PCIe",
+    "objectifs": "validation de la réallocation PCIe",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04p/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04p/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04P.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/historique/04P/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04P/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04P/mission04P.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04P/mission04P.md"
+      }
+    ],
+    "etat": "Allocation PCIe testée",
+    "resultats_prouves": "Quadro et fonctions associées correctement allouées ; pilote/calcul non validés ici",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04Q",
+    "nom": "écran conservant le fond GRUB",
+    "fonction_principale": "écran conservant le fond GRUB",
+    "objectifs": "écran conservant le fond GRUB",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04q/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04q/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04Q.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04Q-preuves/mission04Q.md"
+      },
+      {
+        "path": "docs/missions/historique/04Q/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04Q/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04Q/mission04Q.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04Q/mission04Q.md"
+      }
+    ],
+    "etat": "Diagnostic exécuté",
+    "resultats_prouves": "Écran fond GRUB : collecte en lecture seule",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04R",
+    "nom": "disparition du GPU Intel avec Core présent au boot",
+    "fonction_principale": "disparition du GPU Intel avec Core présent au boot",
+    "objectifs": "disparition du GPU Intel avec Core présent au boot",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04r/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04r/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04R.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04R-preuves/mission04R.md"
+      },
+      {
+        "path": "docs/missions/historique/04R/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04R/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04R/mission04R.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04R/mission04R.md"
+      }
+    ],
+    "etat": "Diagnostic exécuté",
+    "resultats_prouves": "Intel masqué avec Core présent ; origine firmware probable non prouvée",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04S",
+    "nom": "Essais comparatifs de DEVEN rapportés par le propriétaire",
+    "fonction_principale": "Comparaison démarrage avec/sans Core et visibilité Intel",
+    "objectifs": "Documenter les états DEVEN et Intel selon la présence du Core au démarrage",
+    "materiel": "Mac mini / Razer Core / Intel i915",
+    "composants": "DEVEN / PCIe / démarrage",
+    "executant_reel": "Propriétaire : résultats rapportés dans le contexte utilisateur, repris par Codex en 04T/04U",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04T.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04T.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04U.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04U.md"
+      },
+      {
+        "path": "docs/missions/historique/04T/mission04T.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04T/mission04T.md"
+      },
+      {
+        "path": "docs/missions/historique/04U/mission04U.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04U/mission04U.md"
+      }
+    ],
+    "etat": "À confirmer — essais rapportés, rapport autonome non retrouvé",
+    "resultats_prouves": "04T/04U citent explicitement les essais A1/B1/A2 et leurs observations ; aucune nouvelle mesure dans cet audit",
+    "reserves": "Rapport 04S et preuves originales non retrouvés ; résultats de seconde main, pas une réception autonome",
+    "dependances": "04R et comparaison dans 04T/04U",
+    "prochaine_action": "Retrouver le rapport et les relevés originaux ; conserver la référence sans inventer de contenu",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04T",
+    "nom": "préparation du diagnostic pré-Linux de DEVEN",
+    "fonction_principale": "préparation du diagnostic pré-Linux de DEVEN",
+    "objectifs": "préparation du diagnostic pré-Linux de DEVEN",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04t/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04t/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04T.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04T.md"
+      },
+      {
+        "path": "docs/missions/historique/04T/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04T/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04T/mission04T.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04T/mission04T.md"
+      }
+    ],
+    "etat": "Préparée",
+    "resultats_prouves": "Méthode de mesure pré-Linux DEVEN, non exécutée",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04U",
+    "nom": "localiser le masquage Intel entre GRUB et Linux",
+    "fonction_principale": "localiser le masquage Intel entre GRUB et Linux",
+    "objectifs": "localiser le masquage Intel entre GRUB et Linux",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04u/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04u/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04U.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04U.md"
+      },
+      {
+        "path": "docs/missions/historique/04U/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04U/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04U/mission04U.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04U/mission04U.md"
+      }
+    ],
+    "etat": "Analyse exécutée",
+    "resultats_prouves": "Transition DEVEN observée entre GRUB et Linux ; auteur non identifié",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04V",
+    "nom": "préparation de la mesure DEVEN en fin de GRUB",
+    "fonction_principale": "préparation de la mesure DEVEN en fin de GRUB",
+    "objectifs": "préparation de la mesure DEVEN en fin de GRUB",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04v/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04v/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04V.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04V.md"
+      },
+      {
+        "path": "docs/missions/historique/04V/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04V/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04V/mission04V.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04V/mission04V.md"
+      }
+    ],
+    "etat": "Préparée",
+    "resultats_prouves": "Mesure de fin GRUB conçue ; pas d’essai",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "04W",
+    "nom": "analyse du démarrage interrompu",
+    "fonction_principale": "analyse du démarrage interrompu",
+    "objectifs": "analyse du démarrage interrompu",
+    "materiel": "Mac mini / Razer Core / Quadro RTX 5000 (selon étape)",
+    "composants": "GRUB / PCIe / Thunderbolt / T2Linux",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-04w/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-04w/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission04W.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission04W.md"
+      },
+      {
+        "path": "docs/missions/historique/04W/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04W/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/04W/mission04W.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/04W/mission04W.md"
+      }
+    ],
+    "etat": "Analyse exécutée, traces insuffisantes",
+    "resultats_prouves": "Entrée dans le noyau non démontrée pour l’essai considéré",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "Famille 04 ; chronologie propre à chaque rapport",
+    "prochaine_action": "Conserver le résultat historique ; aucune nouvelle expérience dans mission 00",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "05A",
+    "nom": "sélection du pilote NVIDIA pour le serveur IA",
+    "fonction_principale": "sélection du pilote NVIDIA pour le serveur IA",
+    "objectifs": "sélection du pilote NVIDIA pour le serveur IA",
+    "materiel": "Macmini8,1 / Quadro RTX 5000",
+    "composants": "Debian / T2Linux / CUDA / NVIDIA / Ollama / Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-05a/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-05a/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission05A.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission05A.md"
+      },
+      {
+        "path": "docs/missions/historique/05A/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05A/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/05A/mission05A.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05A/mission05A.md"
+      }
+    ],
+    "etat": "Sélection préparée",
+    "resultats_prouves": "Étude de sélection du pilote NVIDIA ; fonctionnement non prouvé par cette seule étape",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "05B",
+    "nom": "installation contrôlée NVIDIA",
+    "fonction_principale": "installation contrôlée NVIDIA",
+    "objectifs": "installation contrôlée NVIDIA",
+    "materiel": "Razer Core",
+    "composants": "Debian / CUDA / NVIDIA / Ollama",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-05b/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-05b/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission05B.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission05B.md"
+      },
+      {
+        "path": "docs/missions/historique/05B/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05B/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/05B/mission05B.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05B/mission05B.md"
+      }
+    ],
+    "etat": "Installation exécutée avec réserves",
+    "resultats_prouves": "Installation DKMS réussie ; avertissements objtool et chargement GPU encore non qualifiés.",
+    "reserves": "Avertissements objtool et chargement initial non qualifiés dans cette étape ; voir 05C/05D",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "05B-A",
+    "nom": "audit des avertissements NVIDIA objtool",
+    "fonction_principale": "audit des avertissements NVIDIA objtool",
+    "objectifs": "audit des avertissements NVIDIA objtool",
+    "materiel": "Macmini8,1 / Quadro RTX 5000",
+    "composants": "Debian / CUDA / NVIDIA / Ollama",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-05b-a/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-05b-a/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission05B-A.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission05B-A.md"
+      },
+      {
+        "path": "docs/missions/historique/05B-A/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05B-A/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/05B-A/mission05B-A.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05B-A/mission05B-A.md"
+      }
+    ],
+    "etat": "Audit terminé avec conditions",
+    "resultats_prouves": "Audit objtool et modules sur disque ; pas une qualification GPU de production",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "05B-P",
+    "nom": "préparation sécurisée NVIDIA",
+    "fonction_principale": "préparation sécurisée NVIDIA",
+    "objectifs": "préparation sécurisée NVIDIA",
+    "materiel": "Macmini8,1 / Quadro RTX 5000",
+    "composants": "Debian / CUDA / NVIDIA / Ollama",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-05b-p/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-05b-p/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission05B-P.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission05B-P.md"
+      },
+      {
+        "path": "docs/missions/historique/05B-P/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05B-P/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/05B-P/mission05B-P.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05B-P/mission05B-P.md"
+      }
+    ],
+    "etat": "Préparation terminée",
+    "resultats_prouves": "Qualification APT, authenticité et sauvegardes prévues ; aucune installation à ce stade",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "05C",
+    "nom": "premier test Quadro RTX 5000",
+    "fonction_principale": "premier test Quadro RTX 5000",
+    "objectifs": "premier test Quadro RTX 5000",
+    "materiel": "Quadro RTX 5000",
+    "composants": "CUDA / NVIDIA / Ollama",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-05c/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-05c/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission05C.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission05C.md"
+      },
+      {
+        "path": "docs/missions/historique/05C/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05C/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/05C/mission05C.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05C/mission05C.md"
+      }
+    ],
+    "etat": "PARTIEL",
+    "resultats_prouves": "Premier test fonctionnel GPU réussi ; stabilité prolongée non démontrée.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "05D",
+    "nom": "calcul CUDA réel et première inférence GPU",
+    "fonction_principale": "calcul CUDA réel et première inférence GPU",
+    "objectifs": "calcul CUDA réel et première inférence GPU",
+    "materiel": "Quadro RTX 5000",
+    "composants": "CUDA / NVIDIA / Ollama / Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-05d/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-05d/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission05D.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission05D.md"
+      },
+      {
+        "path": "docs/missions/historique/05D/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05D/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/05D/mission05D.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/05D/mission05D.md"
+      }
+    ],
+    "etat": "VALIDÉ",
+    "resultats_prouves": "Calcul CUDA contrôlé et première inférence Llama sur Quadro confirmés dans le périmètre court testé.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "06",
+    "nom": "Open WebUI et utilisation quotidienne",
+    "fonction_principale": "Open WebUI et utilisation quotidienne",
+    "objectifs": "Open WebUI et utilisation quotidienne",
+    "materiel": "Non documenté dans les rapports retenus.",
+    "composants": "Debian / CUDA / NVIDIA / Ollama / Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-06/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-06/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission06.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission06.md"
+      },
+      {
+        "path": "docs/missions/historique/06/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/06/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/06/mission06.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/06/mission06.md"
+      }
+    ],
+    "etat": "VALIDÉ",
+    "resultats_prouves": "Interface authentifiée, persistance et inférence GPU confirmées par les essais archivés ; pas une validation de sécurité exhaustive.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "07",
+    "nom": "compréhension, raisonnement et contexte conversationnel",
+    "fonction_principale": "compréhension, raisonnement et contexte conversationnel",
+    "objectifs": "compréhension, raisonnement et contexte conversationnel",
+    "materiel": "Non documenté dans les rapports retenus.",
+    "composants": "Debian / CUDA / NVIDIA / Ollama / Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-07/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-07/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission07.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission07.md"
+      },
+      {
+        "path": "docs/missions/historique/07/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/07/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/07/mission07.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/07/mission07.md"
+      }
+    ],
+    "etat": "PARTIEL",
+    "resultats_prouves": "Amélioration des résultats de tests ; raisonnement et fidélité documentaire restent limités.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "08",
+    "nom": "Ministral 3 14B et comparaison du raisonnement",
+    "fonction_principale": "Catalogue de modèles et qualité de diagnostic",
+    "objectifs": "Réponses originales et évaluations — Mission08",
+    "materiel": "Mac mini / Quadro RTX 5000",
+    "composants": "Ollama, Open WebUI, Llama 3.1 8B, Ministral 3 14B",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-08/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-08/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission08.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission08.md"
+      },
+      {
+        "path": "docs/missions/historique/08/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/08/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/08/mission08.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/08/mission08.md"
+      }
+    ],
+    "etat": "Installation testée ; évaluation avec réserves",
+    "resultats_prouves": "Ministral installé, 41/41 couches GPU ; comparaison documentée",
+    "reserves": "Propositions dangereuses dans les réponses ; aucune commande proposée exécutée, supériorité générale non démontrée",
+    "dependances": "06, 07",
+    "prochaine_action": "Conserver verdict de qualité ; utiliser les protections indépendantes du modèle",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "09",
+    "nom": "validation rapide RTX 3090 / CUDA",
+    "fonction_principale": "validation rapide RTX 3090 / CUDA",
+    "objectifs": "validation rapide RTX 3090 / CUDA",
+    "materiel": "Mac mini / RTX 3090",
+    "composants": "CUDA / NVIDIA / Ollama",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-09/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-09/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission09.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission09.md"
+      },
+      {
+        "path": "docs/missions/historique/09/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/09/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/09/mission09.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/09/mission09.md"
+      }
+    ],
+    "etat": "CUDA validé ; Ollama GPU en échec historique",
+    "resultats_prouves": "Calcul CUDA correct ; Ollama s’exécutait sur CPU",
+    "reserves": "Verrou CUDA_VISIBLE_DEVICES ancien ; corrigé en 09B",
+    "dependances": "À confirmer",
+    "prochaine_action": "Lire 09B sans effacer le constat initial",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "09B",
+    "nom": "Correction du verrou GPU Ollama",
+    "fonction_principale": "Réactivation inférence GPU après changement de carte",
+    "objectifs": "",
+    "materiel": "Mac mini / RTX 3090",
+    "composants": "CUDA / NVIDIA / Ollama",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-09b/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-09b/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission09B.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission09B.md"
+      },
+      {
+        "path": "docs/missions/historique/09B/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/09B/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/09B/mission09B.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/09B/mission09B.md"
+      }
+    ],
+    "etat": "Correction testée",
+    "resultats_prouves": "Retrait du verrou ancien ; 33/33 couches Llama et inférence GPU réelles",
+    "reserves": "Essai court, aucune généralisation des débits",
+    "dependances": "09",
+    "prochaine_action": "Préserver la correction ; pas de répétition du benchmark",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "10",
+    "nom": "Qwen 3.5 27B : installation et évaluation",
+    "fonction_principale": "Modèle Qwen local et qualité de diagnostic",
+    "objectifs": "Réponses Qwen et évaluation",
+    "materiel": "Mac mini / RTX 3090",
+    "composants": "Qwen 3.5 27B, Ollama, Open WebUI",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-10/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-10/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission10.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission10.md"
+      },
+      {
+        "path": "docs/missions/historique/10/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/10/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/10/mission10.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/10/mission10.md"
+      }
+    ],
+    "etat": "Installation testée ; qualité partielle",
+    "resultats_prouves": "65/65 couches GPU et échanges WebUI ; comparaison indicative",
+    "reserves": "Un essai par condition ; réponses à risque ; cela ne prouve pas une administration autonome générale",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "11",
+    "nom": "Audit statique Jarvis Voice",
+    "fonction_principale": "Étude de réutilisation modulaire voix/outils/mémoire",
+    "objectifs": "audit de Jarvis Voice et préparation de l’intégration",
+    "materiel": "Mac mini (analyse locale)",
+    "composants": "Debian / T2Linux / CUDA / NVIDIA / Ollama / Open WebUI / Whisper / Piper / SQLite / FTS5",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-11/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-11/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission11.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission11.md"
+      },
+      {
+        "path": "docs/missions/historique/11/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/11/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/11/mission11.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/11/mission11.md"
+      }
+    ],
+    "etat": "Étude terminée ; intégration intégrale NO-GO",
+    "resultats_prouves": "Audit statique du candidat bigsk1 et alternatives ; option modulaire sous conditions",
+    "reserves": "Code candidat non installé/exécuté ; identité du projet initial et licence à qualifier selon usage",
+    "dependances": "06–10",
+    "prochaine_action": "Conserver cet audit distinct du jalon 11-Agentic",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "11-Agentic",
+    "nom": "Habilitations hôte persistantes",
+    "fonction_principale": "Outils Debian hôte et demandes de capacité",
+    "objectifs": "Outils Debian hôte et demandes de capacité",
+    "materiel": "Mac mini Debian",
+    "composants": "Broker root, outils host_*, registre, missions.sqlite",
+    "executant_reel": "Codex raccordement ; JARVIS opérations testées",
+    "documents_sources": [
+      {
+        "path": "docs/missions/11/RAPPORT.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/11/RAPPORT.md"
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES",
+    "resultats_prouves": "42 contrôles documentés, outils réels, reprise Qwen",
+    "reserves": "Ne clôture ni audit historique11 ni11B ; réserves réception propres",
+    "dependances": "13F et autorisations propriétaire",
+    "prochaine_action": "Réutiliser les capacités acquises",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "11B",
+    "nom": "Compute Expansion et administration Dell",
+    "fonction_principale": "Administration distante IA et extension de calcul",
+    "objectifs": "Administration distante IA et extension de calcul",
+    "materiel": "Mac mini / Dell1",
+    "composants": "SSH, Ansible, Ollama, politique persistante",
+    "executant_reel": "Codex politique/raccordement ; JARVIS exécution SSH/Ansible",
+    "documents_sources": [
+      {
+        "path": "docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md"
+      }
+    ],
+    "etat": "Raccordement validé ; extension complète partielle",
+    "resultats_prouves": "Écriture/relecture réelle Qwen avant et après restart, SSH/Ansible testés",
+    "reserves": "Routage/repli automatique global et réception complète11B non démontrés par le raccordement ; checkpoint durable observé incomplet après cinq tentatives, sans relance dans mission00",
+    "dependances": "13D-E et11-Agentic",
+    "prochaine_action": "Reprendre le checkpoint sans réinstallation ; vérifier les capacités restantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "12",
+    "nom": "modules vocaux et mémoire persistante",
+    "fonction_principale": "modules vocaux et mémoire persistante",
+    "objectifs": "modules vocaux et mémoire persistante",
+    "materiel": "Mac mini Debian / CPU",
+    "composants": "Debian / CUDA / Ollama / Open WebUI / Whisper / Piper / SQLite / FTS5",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-12/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-12/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission12.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission12.md"
+      },
+      {
+        "path": "docs/missions/historique/12/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/12/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/12/mission12.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/12/mission12.md"
+      }
+    ],
+    "etat": "Étude GO sous conditions",
+    "resultats_prouves": "Synthèses/transcriptions réelles sur fichiers et mémoire fictive ; choix Whisper Small/Piper/SQLite",
+    "reserves": "Profils simulés pour mémoire ; pas de micro physique ; consolidation ultérieure 13F",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13A",
+    "nom": "installation durable et isolée du socle vocal",
+    "fonction_principale": "installation durable et isolée du socle vocal",
+    "objectifs": "installation durable et isolée du socle vocal",
+    "materiel": "Mac mini / RTX 3090",
+    "composants": "Debian / T2Linux / CUDA / NVIDIA / Ollama / Open WebUI / Whisper / Piper",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-13a/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-13a/README.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/mission13a.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/mission13a.md"
+      },
+      {
+        "path": "docs/missions/historique/13A/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/13A/FICHE-ARCHIVEE.md"
+      },
+      {
+        "path": "docs/missions/historique/13A/mission13a.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/13A/mission13a.md"
+      }
+    ],
+    "etat": "VALIDÉ",
+    "resultats_prouves": "Deux cycles fichiers Piper/Whisper réels, hors réseau, installés durablement ; validation limitée aux fichiers audio.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13B",
+    "nom": "Rapport 13B — GO PARTIEL",
+    "fonction_principale": "Rapport 13B — GO PARTIEL",
+    "objectifs": "Rapport 13B — GO PARTIEL",
+    "materiel": "Non documenté dans les rapports retenus.",
+    "composants": "CUDA / Ollama / Open WebUI / Whisper / Piper",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-13b/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-13b/README.md"
+      },
+      {
+        "path": "docs/missions/historique/13B/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/13B/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "PARTIEL",
+    "resultats_prouves": "Passerelle et mémoire testées ; Ollama réel et navigateur non validés à cette étape.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13C",
+    "nom": "Rapport 13C — GO PARTIEL",
+    "fonction_principale": "Rapport 13C — GO PARTIEL",
+    "objectifs": "Rapport 13C — GO PARTIEL",
+    "materiel": "Non documenté dans les rapports retenus.",
+    "composants": "Open WebUI / SQLite / FTS5",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS-Documentation/missions/mission-13c/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/missions/mission-13c/README.md"
+      },
+      {
+        "path": "docs/missions/historique/13C/FICHE-ARCHIVEE.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/13C/FICHE-ARCHIVEE.md"
+      }
+    ],
+    "etat": "PARTIEL",
+    "resultats_prouves": "Mémoire structurée et persistance testées ; validation intégrée différée.",
+    "reserves": "Aucune réception supplémentaire déduite de la présence des fichiers",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13D",
+    "nom": "Accès distant SSH/Tailscale",
+    "fonction_principale": "Administration distante multi-postes",
+    "objectifs": "À confirmer : intitulé à réconcilier",
+    "materiel": "MacBook Pro / Mac mini macOS → Mac mini Debian",
+    "composants": "Non documenté dans les rapports retenus.",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "SUIVI.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES",
+    "resultats_prouves": "Connexions clé et mot de passe, alias et tmux confirmés les 14–15/10 ; espace connecté JL02 confirmé le17/10",
+    "reserves": "Réception exhaustive après reboot et journaux clients non acquise",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13D-E",
+    "nom": "Premier Dell — installation complète Codex",
+    "fonction_principale": "Serveur d’inférence de référence",
+    "objectifs": "Serveur d’inférence de référence",
+    "materiel": "Dell1 / une RTX3090 alimentée",
+    "composants": "Debian13, mdadm RAID1, deux ESP, SSH, Ansible, NVIDIA550.163.01/CUDA, Ollama0.40.3, Plasma",
+    "executant_reel": "Codex opérateur ; propriétaire lancement PXE et interventions physiques",
+    "documents_sources": [
+      {
+        "path": "docs/missions/13D-E/RECEPTION-MISSION14.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/13D-E/RECEPTION-MISSION14.md"
+      }
+    ],
+    "etat": "Réception complète17/10",
+    "resultats_prouves": "Réinstallation, SSH clé/mot de passe/sudo, idempotence, trois modèles GPU, intégration et reboot validés",
+    "reserves": "Seconde carte non alimentée ; pas retrait physique NVMe/micro/session Plasma interactive ; défaut reboot installateur reste à corriger ; loupé Tailscale omis au déploiement, installé en22 mais enrôlement NeedsLogin ouvert",
+    "dependances": "13D, chaîne PXE existante",
+    "prochaine_action": "Tailscale omis puis installé par JARVIS ; enrôlement propriétaire et accès SSH/VNC direct reçus19/10. Corriger reboot forcé du contrôleur avant prochain déploiement.",
+    "derniere_actualisation": "2026-10-19"
+  },
+  {
+    "identifiant": "13D.1",
+    "nom": "Tailscale et SSH MacBook",
+    "fonction_principale": "Accès distant",
+    "objectifs": "Accès distant",
+    "materiel": "Macs clients → Mac mini Debian",
+    "composants": "SSH, Tailscale, tmux",
+    "executant_reel": "Codex préparation ; propriétaire essais clients confirmés",
+    "documents_sources": [
+      {
+        "path": "SUIVI.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/SUIVI.md"
+      }
+    ],
+    "etat": "Validée dans le périmètre ; réserves globales13D",
+    "resultats_prouves": "Clé et mot de passe confirmés le15/10",
+    "reserves": "Pas de réception complète de résilience reboot et journaux clients",
+    "dependances": "13D",
+    "prochaine_action": "Conserver les deux authentifications",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13D.2",
+    "nom": "Alias, reconnexion et tmux MacBook",
+    "fonction_principale": "Accès distant",
+    "objectifs": "Accès distant",
+    "materiel": "Macs clients → Mac mini Debian",
+    "composants": "SSH, Tailscale, tmux",
+    "executant_reel": "Codex préparation ; propriétaire essais clients confirmés",
+    "documents_sources": [
+      {
+        "path": "SUIVI.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/SUIVI.md"
+      }
+    ],
+    "etat": "Validée dans le périmètre ; réserves globales13D",
+    "resultats_prouves": "Création/détachement/reprise jarvis-test confirmés",
+    "reserves": "Pas de réception complète de résilience reboot et journaux clients",
+    "dependances": "13D",
+    "prochaine_action": "Conserver les deux authentifications",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13D.3",
+    "nom": "Accès multi-postes et secours",
+    "fonction_principale": "Accès distant",
+    "objectifs": "Accès distant",
+    "materiel": "Macs clients → Mac mini Debian",
+    "composants": "SSH, Tailscale, tmux",
+    "executant_reel": "Codex préparation ; propriétaire essais clients confirmés",
+    "documents_sources": [
+      {
+        "path": "SUIVI.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/SUIVI.md"
+      }
+    ],
+    "etat": "Validée dans le périmètre ; réserves globales13D",
+    "resultats_prouves": "Accès Mac mini macOS et MacBook confirmés ; persistance globale à compléter",
+    "reserves": "Pas de réception complète de résilience reboot et journaux clients",
+    "dependances": "13D",
+    "prochaine_action": "Conserver les deux authentifications",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13E",
+    "nom": "Passerelle conversationnelle, voix et mémoire canonique",
+    "fonction_principale": "Intégration backend et navigateur",
+    "objectifs": "tests et recette",
+    "materiel": "Mac mini Debian / clients navigateur",
+    "composants": "CUDA / Ollama / Open WebUI / Whisper / Piper / SQLite / FTS5",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/MISSION-13E-RAPPORT.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/MISSION-13E-RAPPORT.md"
+      },
+      {
+        "path": "/home/adminjarvis/JARVIS/rapports/MISSION-13E-TESTS.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjarvis-reorganisation-documentaire/archives/recuperation-2026-10-14/sources/home/adminjarvis/JARVIS/rapports/MISSION-13E-TESTS.md"
+      },
+      {
+        "path": "docs/missions/historique/13E/MISSION-13E-RAPPORT.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/13E/MISSION-13E-RAPPORT.md"
+      },
+      {
+        "path": "docs/missions/historique/13E/MISSION-13E-TESTS.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/historique/13E/MISSION-13E-TESTS.md"
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES retrouvé",
+    "resultats_prouves": "Rapport et tests 13E du14/10 : Ollama réel, Whisper/Piper, mémoire, Chromium ; service installé",
+    "reserves": "Micro artificiel ; Safari/iPhone physique et HTTPS distant non réceptionnés",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "13F",
+    "nom": "Finalisation conversation, mémoire v3 et agent de laboratoire",
+    "fonction_principale": "Conversation intégrée, mémoire et réparation outillée",
+    "objectifs": "À confirmer : intitulé à réconcilier",
+    "materiel": "Mac mini Debian",
+    "composants": "Non documenté dans les rapports retenus.",
+    "executant_reel": "Codex dans les rapports ; interventions physiques propriétaire selon sources",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-13F-DEBRIEF.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-13F-DEBRIEF.md"
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES",
+    "resultats_prouves": "27 tests backend, contrôles API/navigateur et réparation par Qwen en Bubblewrap documentés",
+    "reserves": "Pas de déploiement Dell ni preuve de 14A globale ; acoustique physique non validée",
+    "dependances": "À confirmer",
+    "prochaine_action": "Retrouver le verdict et les preuves manquantes",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "14",
+    "nom": "Déploiement du deuxième Dell par JARVIS",
+    "fonction_principale": "Autonomie de déploiement système complet",
+    "objectifs": "À confirmer : intitulé à réconcilier",
+    "materiel": "Dell n°2 (cible à identifier)",
+    "composants": "PXE, Debian, RAID, SSH/Ansible, NVIDIA/CUDA, Ollama",
+    "executant_reel": "JARVIS prévu ; aucune exécution physique Dell2 attestée",
+    "documents_sources": [
+      {
+        "path": "ROADMAP.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/13D-E/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/13D-E/RAPPORT-FINAL.md"
+      }
+    ],
+    "etat": "Prévue, non réceptionnée",
+    "resultats_prouves": "Décision de périmètre propriétaire, aucune installation Dell2",
+    "reserves": "Dell1 Codex ne vaut pas Dell2 JARVIS ; corriger reboot forcé avant réemploi, causalité resync non certaine",
+    "dependances": "14A et identification/autorisation de la cible Dell2",
+    "prochaine_action": "Préparer JARVIS et corriger contrôleur avant lancement physique",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "14A",
+    "nom": "Capacité agentique réelle",
+    "fonction_principale": "Planifier/exécuter/diagnostiquer/corriger/vérifier",
+    "objectifs": "Planifier/exécuter/diagnostiquer/corriger/vérifier",
+    "materiel": "Mac mini et Dell selon scénarios",
+    "composants": "Outils agentiques, planificateur, SSH/Ansible, preuves",
+    "executant_reel": "JARVIS exécutant ; Codex construit/vérifie les raccordements",
+    "documents_sources": [
+      {
+        "path": "docs/missions/13D-E/AGENT-14A.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/13D-E/AGENT-14A.md"
+      },
+      {
+        "path": "docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md"
+      }
+    ],
+    "etat": "Progression documentée, non réceptionnée globalement",
+    "resultats_prouves": "13F laboratoire ;11/11B hôte/distant ;JL02 tâches réelles ;00 apporte analyses documentaires",
+    "reserves": "Succès ciblés avec assistance ne démontrent pas déploiement autonome complet ; voir bilan00",
+    "dependances": "13F,11-Agentic,11B",
+    "prochaine_action": "Rassembler les critères14A et combler ceux non prouvés",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15A",
+    "nom": "Application native macOS",
+    "fonction_principale": "Client natif JARVIS",
+    "objectifs": "Client natif JARVIS",
+    "materiel": "Macs",
+    "composants": "Swift/SwiftUI, Xcode, API canonique",
+    "executant_reel": "Exécution à venir ; cahier Codex",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15A-MACOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15A-MACOS-CODEX.md"
+      }
+    ],
+    "etat": "Cahier préparé, non lancé",
+    "resultats_prouves": "Cahier et découpage disponibles",
+    "reserves": "Aucune compilation, installation ou réception physique attestée ; JL02 Web ne les remplace pas",
+    "dependances": "API conversation/mémoire/voix ;14 non bloquante",
+    "prochaine_action": "Lancer sur instruction distincte ; définir contrat API",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15A.1",
+    "nom": "Architecture/UI",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "Macs",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15A-MACOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15A-MACOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15A ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15A",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15A.2",
+    "nom": "Connectivité sécurisée",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "Macs",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15A-MACOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15A-MACOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15A ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15A",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15A.3",
+    "nom": "Conversation, voix et mémoire",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "Macs",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15A-MACOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15A-MACOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15A ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15A",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15A.4",
+    "nom": "Pilotage des missions",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "Macs",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15A-MACOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15A-MACOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15A ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15A",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15A.5",
+    "nom": "Distribution et tests",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "Macs",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15A-MACOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15A-MACOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15A ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15A",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15B",
+    "nom": "Application native iOS",
+    "fonction_principale": "Client natif JARVIS",
+    "objectifs": "Client natif JARVIS",
+    "materiel": "iPhone/iPad",
+    "composants": "Swift/SwiftUI, Xcode, API canonique",
+    "executant_reel": "Exécution à venir ; cahier Codex",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15B-IOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15B-IOS-CODEX.md"
+      }
+    ],
+    "etat": "Cahier préparé, non lancé",
+    "resultats_prouves": "Cahier et découpage disponibles",
+    "reserves": "Aucune compilation, installation ou réception physique attestée ; JL02 Web ne les remplace pas",
+    "dependances": "API conversation/mémoire/voix ;14 non bloquante",
+    "prochaine_action": "Lancer sur instruction distincte ; définir contrat API",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15B.1",
+    "nom": "Architecture/UI",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "iPhone/iPad",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15B-IOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15B-IOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15B ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15B",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15B.2",
+    "nom": "Connectivité sécurisée",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "iPhone/iPad",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15B-IOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15B-IOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15B ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15B",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15B.3",
+    "nom": "Conversation, voix et mémoire",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "iPhone/iPad",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15B-IOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15B-IOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15B ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15B",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15B.4",
+    "nom": "Mémoire et validations",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "iPhone/iPad",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15B-IOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15B-IOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15B ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15B",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "15B.5",
+    "nom": "Installation gratuite et réception",
+    "fonction_principale": "Incrément prévu du client natif",
+    "objectifs": "Incrément prévu du client natif",
+    "materiel": "iPhone/iPad",
+    "composants": "SwiftUI / API JARVIS / Xcode",
+    "executant_reel": "À venir",
+    "documents_sources": [
+      {
+        "path": "docs/missions/MISSION-15B-IOS-CODEX.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/MISSION-15B-IOS-CODEX.md"
+      }
+    ],
+    "etat": "Prévue, non exécutée",
+    "resultats_prouves": "Découpage explicite du cahier",
+    "reserves": "Aucune réalisation déduite du cahier",
+    "dependances": "15B ; API existantes, pas de dépendance bloquante14",
+    "prochaine_action": "À exécuter dans 15B",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "JL-01",
+    "nom": "JARVIS Launcher V1",
+    "fonction_principale": "Accès rapides macOS SSH/Codex/tmux",
+    "objectifs": "Accès rapides macOS SSH/Codex/tmux",
+    "materiel": "Macs clients / Mac mini Debian",
+    "composants": "GitHub Pages, compagnon macOS, SSH/Tailscale",
+    "executant_reel": "Codex développement ; propriétaire validations clientes",
+    "documents_sources": [
+      {
+        "path": "regisazzoun/JARVIS-Launcher",
+        "url": "https://github.com/regisazzoun/JARVIS-Launcher"
+      },
+      {
+        "path": "docs/missions/JL-01/RAPPORT-JL-01.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/JL-01/RAPPORT-JL-01.md"
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES",
+    "resultats_prouves": "Site publié, actions et deux postes confirmés ; V1 préservée enJL02",
+    "reserves": "Toutes actions natives non physiquement retestées enJL02",
+    "dependances": "13D",
+    "prochaine_action": "Préserver V1 ; nouvelles fonctions dans V2",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "JL-02",
+    "nom": "JARVIS Launcher V2",
+    "fonction_principale": "Conversation et supervision agentique",
+    "objectifs": "Conversation et supervision agentique",
+    "materiel": "Macs/tablette/téléphone clients ; Mac mini / Dell1",
+    "composants": "Pages V2, passerelle privée, Whisper/Piper, SQLite canonique, métriques réelles",
+    "executant_reel": "Codex application/raccordements ; JARVIS prototype, correction/tests/commit et tâche UI prouvés",
+    "documents_sources": [
+      {
+        "path": "JARVIS-Launcher2/docs/RAPPORT-JL-02.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Launcher2/blob/main/docs/RAPPORT-JL-02.md"
+      },
+      {
+        "path": "JARVIS-Launcher2/docs/RAPPORT-AGENTIQUE-JL-02.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Launcher2/blob/main/docs/RAPPORT-AGENTIQUE-JL-02.md"
+      },
+      {
+        "path": "docs/missions/JL-02/RAPPORT-JL-02.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-00-pilotage-20261017/docs/missions/JL-02/RAPPORT-JL-02.md"
+      }
+    ],
+    "etat": "Livrée — GO AVEC RÉSERVES",
+    "resultats_prouves": "Conversation/voix synthétique, supervision, événements et tâches Qwen réelles ; accès connecté confirmé utilisateur",
+    "reserves": "Planification JARVIS variable, assistance Codex ; physique Safari/micro/macOS non réceptionné exhaustivement",
+    "dependances": "JL01,13D,13E/F,11/11B",
+    "prochaine_action": "Suivre réserves natives et fiabilité agentique ; garder le tunnel existant",
+    "derniere_actualisation": "2026-10-17"
+  },
+  {
+    "identifiant": "21",
+    "nom": "Autonomie opérationnelle JARVIS",
+    "fonction_principale": "Sept tâches ordonnées : santé, journaux, documentation, concordance, administration Dell, service, VNC",
+    "objectifs": "Sept tâches ordonnées : santé, journaux, documentation, concordance, administration Dell, service, VNC",
+    "materiel": "Mac mini Debian / Dell n°1",
+    "composants": "Backend, broker, Ollama, SQLite canonique, Launcher2",
+    "executant_reel": "Codex infrastructure ; JARVIS opérations réellement tracées",
+    "documents_sources": [
+      {
+        "path": "docs/missions/21/README.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-22-agentic-engine-v2/docs/missions/21/README.md"
+      }
+    ],
+    "etat": "7/7 validées — GO avec réserves d’autonomie",
+    "resultats_prouves": "Même exécution durable reprise ; sept tâches, rapports et publications vérifiés ; Tailscale Running ; SSH/RFB LAN et direct tailnet, authentification et image reçue",
+    "reserves": "Corrections infrastructure et guidage Codex ; synthèse périmée refusée puis reprise ; pas de réception globale14A",
+    "dependances": "11B,13F,14A,JL-02",
+    "prochaine_action": "Maintenir les preuves et améliorer la fiabilité sémantique",
+    "derniere_actualisation": "2026-10-19",
+    "date_derniere_actualisation": "2026-10-18"
+  },
+  {
+    "identifiant": "22",
+    "nom": "JARVIS Agentic Engine V2",
+    "fonction_principale": "Fiabilisation du moteur durable et réception réelle sur mission21",
+    "objectifs": "Fiabilisation du moteur durable et réception réelle sur mission21",
+    "materiel": "Mac mini Debian / Dell n°1",
+    "composants": "Backend, broker, Ollama, SQLite canonique, Launcher2",
+    "executant_reel": "Codex infrastructure ; JARVIS opérations réellement tracées",
+    "documents_sources": [
+      {
+        "path": "docs/missions/22/DIAGNOSTIC-INITIAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-22-agentic-engine-v2/docs/missions/22/DIAGNOSTIC-INITIAL.md"
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES — mission21 reçue7/7",
+    "resultats_prouves": "41 tests V2 ;25 contrôles navigateur actuels ; mission persistante, reprise, outils réels, sept validations et publications",
+    "reserves": "Répétitions et erreurs de contexte/synthèse ; corrections Codex pendant réception ; aucune autonomie intégrale revendiquée",
+    "dependances": "11B,13F,14A,JL-02",
+    "prochaine_action": "Réduire les répétitions et fiabiliser les synthèses",
+    "derniere_actualisation": "2026-10-19",
+    "date_derniere_actualisation": "2026-10-18"
+  }
+]

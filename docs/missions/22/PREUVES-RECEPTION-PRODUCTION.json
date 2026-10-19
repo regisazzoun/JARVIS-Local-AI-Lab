@@ -1,0 +1,811 @@
+{
+  "mission": "310306c2d763431c8b07d3d61a8abbfd",
+  "state": "completed",
+  "cycles": 7,
+  "elapsed_wall_s": 478.66330766677856,
+  "model": "qwen3.5:27b-q4_K_M",
+  "tools": 30,
+  "successful_tool_returns": 27,
+  "validated_tasks": 3,
+  "tasks_total": 3,
+  "proofs": [
+    {
+      "invocation": "097280786e8d49e99401278851af8073",
+      "task": "a",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.134,
+      "evidence_id": "1ef1f67142f04726aa9ae24f4d825041"
+    },
+    {
+      "invocation": "d912af04ed2f4726ba7bfd3cc3c1c65a",
+      "task": "a",
+      "tool": "host_exec",
+      "ok": true,
+      "elapsed_s": 0.166,
+      "evidence_id": "72d77232403a4067b064742769f742d7",
+      "nonzero_observed": false
+    },
+    {
+      "invocation": "f9fc7b7f48134af7859a77fa26ac3425",
+      "task": "a",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.133,
+      "evidence_id": "8b6bcd6ef7b84b7d9fd995da2323251a"
+    },
+    {
+      "invocation": "e6741978434747eb976c2a813df071d6",
+      "task": "a",
+      "tool": "host_exec",
+      "ok": true,
+      "elapsed_s": 0.166,
+      "evidence_id": "4a2b6e4703354b2989ba301d3d2f43aa",
+      "nonzero_observed": false
+    },
+    {
+      "invocation": "53ee0586adaa477ab4659306ba4599b0",
+      "task": "a",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.153,
+      "evidence_id": "d1996e094c2f49978b230f8ad3136ed8"
+    },
+    {
+      "invocation": "7e72bd0e2f264ecd94161aadb4cfc995",
+      "task": "a",
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.134,
+      "evidence_id": "2c8941e9c09d466c963aeda4faec188e"
+    },
+    {
+      "invocation": "ec27e310c66746dfabec2aaa3c426983",
+      "task": "a",
+      "tool": "mission_task_complete",
+      "ok": false,
+      "elapsed_s": 0.1,
+      "evidence_id": null
+    },
+    {
+      "invocation": "03233f92d87f427b833110a7d194a16f",
+      "task": "a",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.132,
+      "evidence_id": "425175b3b60b4d758020bd0e123d198e"
+    },
+    {
+      "invocation": "fd79d4df8f944af0ad3ee608003c1684",
+      "task": "a",
+      "tool": "host_exec",
+      "ok": false,
+      "elapsed_s": 0.101,
+      "evidence_id": "c5b699e639154f228465a1d777f46d6e",
+      "nonzero_observed": true
+    },
+    {
+      "invocation": "7860827c14ed416f963afc1ee67a1d47",
+      "task": "a",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.132,
+      "evidence_id": "d3b4bdac17ce49e181ad220539ff6c27"
+    },
+    {
+      "invocation": "621082f21b0a4b27b6266e7c55f7cdf7",
+      "task": "a",
+      "tool": "host_exec",
+      "ok": true,
+      "elapsed_s": 0.16,
+      "evidence_id": "b2550f2741ab49b5a57113474e5f4288",
+      "nonzero_observed": false
+    },
+    {
+      "invocation": "fd26d257e3634e0dae4ab839c6098c45",
+      "task": "a",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.132,
+      "evidence_id": "2dbc2d014def41be94e87e2d659780ab"
+    },
+    {
+      "invocation": "12eb1b1fbf9c4f9fba226569db5a2a06",
+      "task": "a",
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.133,
+      "evidence_id": "391fd243b2b74d699c4d713058b3e56a"
+    },
+    {
+      "invocation": "e82a40e26b1c47b498756c2c321edfe2",
+      "task": "a",
+      "tool": "mission_task_complete",
+      "ok": true,
+      "elapsed_s": 0.228,
+      "evidence_id": null
+    },
+    {
+      "invocation": "3c61192ec21c4087b687a4641a944da8",
+      "task": "b",
+      "tool": "host_policy",
+      "ok": true,
+      "elapsed_s": 0.068,
+      "evidence_id": "993f2611de8f4ab2b9305fedc22e0847"
+    },
+    {
+      "invocation": "26cf7e958fa346cb838382f4701497cc",
+      "task": "b",
+      "tool": "host_ansible",
+      "ok": true,
+      "elapsed_s": 2.282,
+      "evidence_id": "911c1f7b884c4f58b7dae359f3a12e39",
+      "action": "deploy_file",
+      "changed_false": false
+    },
+    {
+      "invocation": "39e2fa58aff04aef917e929bf002dc4e",
+      "task": "b",
+      "tool": "host_ansible",
+      "ok": true,
+      "elapsed_s": 2.084,
+      "evidence_id": "b1278c3705d54c629275baa293331bc0",
+      "action": "deploy_file",
+      "changed_false": true
+    },
+    {
+      "invocation": "e14f106375e546c4ba28b63344b3d54f",
+      "task": "b",
+      "tool": "host_remote",
+      "ok": true,
+      "elapsed_s": 0.717,
+      "evidence_id": "df759309cede47aabf4fa92ea46b7a2b"
+    },
+    {
+      "invocation": "f4d84db636944269b00fefad35640d32",
+      "task": "b",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.135,
+      "evidence_id": "a4a166b1980240d58279f5fc8e1cc908"
+    },
+    {
+      "invocation": "0539e3ae5a2e43cb852eb8e3a4051800",
+      "task": "b",
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.263,
+      "evidence_id": "daee98f09a9b4f8ab6776047694a2a9d"
+    },
+    {
+      "invocation": "897abac444d043bf859ef38489669641",
+      "task": "b",
+      "tool": "mission_task_complete",
+      "ok": true,
+      "elapsed_s": 0.198,
+      "evidence_id": null
+    },
+    {
+      "invocation": "1b19787fed4d4f329ff60254e5e9b6f2",
+      "task": "c",
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.096,
+      "evidence_id": "4f114a0703624f928ea61fe05ccd82d3"
+    },
+    {
+      "invocation": "675078d6bffa408f8fcb81532a07c5d2",
+      "task": "c",
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.184,
+      "evidence_id": "8cb884f724f94312ba753e3ac419a773"
+    },
+    {
+      "invocation": "e7356ef481d24bdea836a98f6ab2bed8",
+      "task": "c",
+      "tool": "host_write_file",
+      "ok": true,
+      "elapsed_s": 0.132,
+      "evidence_id": "6b40c7f04f5748d9bf4c59d4037a7406"
+    },
+    {
+      "invocation": "fa122a9c390340d98613ef4fd2694c0e",
+      "task": "c",
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.134,
+      "evidence_id": "2d2552b43acd4902aa77c144fb4fd3ed"
+    },
+    {
+      "invocation": "d2b56fb204e643c5ad81af0ae0872e3b",
+      "task": "c",
+      "tool": "mission_task_complete",
+      "ok": true,
+      "elapsed_s": 0.235,
+      "evidence_id": null
+    },
+    {
+      "invocation": "ee82761578f5460c8c19a51c66217353",
+      "task": null,
+      "tool": "intervention_report",
+      "ok": false,
+      "elapsed_s": 0.0,
+      "evidence_id": null
+    },
+    {
+      "invocation": "91bff0871b5a4f6d9dd3c38c036bd3bc",
+      "task": null,
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.135,
+      "evidence_id": "93f35ed482eb413bb3c648f9f8b9b6ba"
+    },
+    {
+      "invocation": "cbe9df37955b44db83641ffa44a61864",
+      "task": null,
+      "tool": "host_read_file",
+      "ok": true,
+      "elapsed_s": 0.114,
+      "evidence_id": "5010549a3e6d468a94ce0f6e2533b4d5"
+    },
+    {
+      "invocation": "eff9a76be1d747eeb51f0fcfa467a733",
+      "task": null,
+      "tool": "intervention_report",
+      "ok": true,
+      "elapsed_s": 0.124,
+      "evidence_id": null
+    }
+  ],
+  "broker_correlation": [
+    {
+      "evidence_id": "1ef1f67142f04726aa9ae24f4d825041",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "72d77232403a4067b064742769f742d7",
+      "operation": "host_exec",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "8b6bcd6ef7b84b7d9fd995da2323251a",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "4a2b6e4703354b2989ba301d3d2f43aa",
+      "operation": "host_exec",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "d1996e094c2f49978b230f8ad3136ed8",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "2c8941e9c09d466c963aeda4faec188e",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "425175b3b60b4d758020bd0e123d198e",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "c5b699e639154f228465a1d777f46d6e",
+      "operation": "host_exec",
+      "caller": "JARVIS-runtime",
+      "ok": false
+    },
+    {
+      "evidence_id": "d3b4bdac17ce49e181ad220539ff6c27",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "b2550f2741ab49b5a57113474e5f4288",
+      "operation": "host_exec",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "2dbc2d014def41be94e87e2d659780ab",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "391fd243b2b74d699c4d713058b3e56a",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "993f2611de8f4ab2b9305fedc22e0847",
+      "operation": "host_policy",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "911c1f7b884c4f58b7dae359f3a12e39",
+      "operation": "host_ansible",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "b1278c3705d54c629275baa293331bc0",
+      "operation": "host_ansible",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "df759309cede47aabf4fa92ea46b7a2b",
+      "operation": "host_remote",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "a4a166b1980240d58279f5fc8e1cc908",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "daee98f09a9b4f8ab6776047694a2a9d",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "4f114a0703624f928ea61fe05ccd82d3",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "8cb884f724f94312ba753e3ac419a773",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "6b40c7f04f5748d9bf4c59d4037a7406",
+      "operation": "host_write_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "2d2552b43acd4902aa77c144fb4fd3ed",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "93f35ed482eb413bb3c648f9f8b9b6ba",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "evidence_id": "5010549a3e6d468a94ce0f6e2533b4d5",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    }
+  ],
+  "publications": [
+    {
+      "file": "docs/missions/22/reception/A-ERREUR-CORRECTION.md",
+      "sha256": "e504a82908f3bd65ac653dd7101a0bcc904f53d7fd17d44a3719b75785b2bdbf",
+      "state": "verified",
+      "attempts": 7,
+      "commit_sha": "97c0d350b2adf30462c7c1626af961225fa151bb"
+    },
+    {
+      "file": "docs/missions/22/reception/B-DELL-ANSIBLE.md",
+      "sha256": "f152ecc1cccc019f2201e267529922a0c17fb8675dd2c2c1bb5e5188170fd034",
+      "state": "verified",
+      "attempts": 6,
+      "commit_sha": "904c6b2260d0f59db98e3bc9df35fc47ec375d5c"
+    },
+    {
+      "file": "docs/missions/22/reception/C-SYNTHESE.md",
+      "sha256": "d35b6481409b7a3cd3d60edeeaa9a237066f3656a025e428a0383a6f01181374",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "6531a2bd3ca61e37355349f07aa68b5f160b8377"
+    },
+    {
+      "file": "docs/missions/22/reception/RAPPORT-AGENT-FINAL.md",
+      "sha256": "61d933d271c6b2d5c9790a5cda68566380edc1471ab6f9f32c8a6884f435ae20",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "70ec63afdb967a10d984bdd6a7f15c49dbfbd2c4"
+    },
+    {
+      "file": "docs/missions/22/reception/B-DELL-ANSIBLE.md",
+      "sha256": "300034407fef9b1f6134789812c03cd29696f59068b1cff644aab58a60a58939",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "33d90364fef1df11841e0984bab02cbf20f80f96"
+    }
+  ],
+  "inference_metrics": [
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 217,
+        "eval_duration": 5598738000,
+        "load_duration": 4296854,
+        "prompt_eval_count": 5496,
+        "prompt_eval_duration": 4289694000,
+        "total_duration": 51341683482
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 90,
+        "eval_duration": 2317422000,
+        "load_duration": 7492453,
+        "prompt_eval_count": 5885,
+        "prompt_eval_duration": 505392000,
+        "total_duration": 2884785420
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 176,
+        "eval_duration": 4534877000,
+        "load_duration": 8122690,
+        "prompt_eval_count": 6158,
+        "prompt_eval_duration": 402774000,
+        "total_duration": 5011884407
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 84,
+        "eval_duration": 2156764000,
+        "load_duration": 9735792,
+        "prompt_eval_count": 6501,
+        "prompt_eval_duration": 477465000,
+        "total_duration": 2735787285
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 656,
+        "eval_duration": 17004596000,
+        "load_duration": 8862922,
+        "prompt_eval_count": 6760,
+        "prompt_eval_duration": 411316000,
+        "total_duration": 17513263594
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 67,
+        "eval_duration": 1725898000,
+        "load_duration": 10460634,
+        "prompt_eval_count": 7586,
+        "prompt_eval_duration": 820027000,
+        "total_duration": 2653292223
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 134,
+        "eval_duration": 3470099000,
+        "load_duration": 9849573,
+        "prompt_eval_count": 8378,
+        "prompt_eval_duration": 798130000,
+        "total_duration": 4378983925
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 264,
+        "eval_duration": 6864697000,
+        "load_duration": 9882092,
+        "prompt_eval_count": 8604,
+        "prompt_eval_duration": 382075000,
+        "total_duration": 7363719515
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 46,
+        "eval_duration": 1177685000,
+        "load_duration": 8156956,
+        "prompt_eval_count": 9043,
+        "prompt_eval_duration": 541084000,
+        "total_duration": 1799308375
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 175,
+        "eval_duration": 4544745000,
+        "load_duration": 8784403,
+        "prompt_eval_count": 9263,
+        "prompt_eval_duration": 362795000,
+        "total_duration": 5012087306
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 46,
+        "eval_duration": 1178407000,
+        "load_duration": 7874846,
+        "prompt_eval_count": 9605,
+        "prompt_eval_duration": 473537000,
+        "total_duration": 1747882470
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 800,
+        "eval_duration": 20931954000,
+        "load_duration": 7781104,
+        "prompt_eval_count": 9820,
+        "prompt_eval_duration": 365229000,
+        "total_duration": 21401409458
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 87,
+        "eval_duration": 2263349000,
+        "load_duration": 9905290,
+        "prompt_eval_count": 10871,
+        "prompt_eval_duration": 8571584000,
+        "total_duration": 11886635408
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 140,
+        "eval_duration": 3664994000,
+        "load_duration": 6579223,
+        "prompt_eval_count": 11756,
+        "prompt_eval_duration": 891132000,
+        "total_duration": 4659912051
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 67,
+        "eval_duration": 1740638000,
+        "load_duration": 9843884,
+        "prompt_eval_count": 8677,
+        "prompt_eval_duration": 6816522000,
+        "total_duration": 9283983176
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 216,
+        "eval_duration": 5636661000,
+        "load_duration": 8362762,
+        "prompt_eval_count": 9674,
+        "prompt_eval_duration": 965149000,
+        "total_duration": 6699731920
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 127,
+        "eval_duration": 3312836000,
+        "load_duration": 9085303,
+        "prompt_eval_count": 10411,
+        "prompt_eval_duration": 778690000,
+        "total_duration": 4198918122
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 102,
+        "eval_duration": 2660749000,
+        "load_duration": 9012270,
+        "prompt_eval_count": 10979,
+        "prompt_eval_duration": 641038000,
+        "total_duration": 3427468100
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 1253,
+        "eval_duration": 33003667000,
+        "load_duration": 9128498,
+        "prompt_eval_count": 11253,
+        "prompt_eval_duration": 421967000,
+        "total_duration": 33535334743
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 67,
+        "eval_duration": 1754211000,
+        "load_duration": 11955577,
+        "prompt_eval_count": 12677,
+        "prompt_eval_duration": 1378824000,
+        "total_duration": 3276628480
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 179,
+        "eval_duration": 4677731000,
+        "load_duration": 8790278,
+        "prompt_eval_count": 9709,
+        "prompt_eval_duration": 7668227000,
+        "total_duration": 13258934522
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 139,
+        "eval_duration": 3625078000,
+        "load_duration": 9405509,
+        "prompt_eval_count": 10524,
+        "prompt_eval_duration": 8338316999,
+        "total_duration": 12436357698
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 1843,
+        "eval_duration": 48816534000,
+        "load_duration": 7284727,
+        "prompt_eval_count": 12810,
+        "prompt_eval_duration": 2068309000,
+        "total_duration": 50990968703
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 88,
+        "eval_duration": 2289853000,
+        "load_duration": 7839906,
+        "prompt_eval_count": 10760,
+        "prompt_eval_duration": 8546668000,
+        "total_duration": 11500395504
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 129,
+        "eval_duration": 3379573000,
+        "load_duration": 9609054,
+        "prompt_eval_count": 12811,
+        "prompt_eval_duration": 1890949000,
+        "total_duration": 5384113122
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 291,
+        "eval_duration": 7635375000,
+        "load_duration": 9203394,
+        "prompt_eval_count": 11010,
+        "prompt_eval_duration": 8683052000,
+        "total_duration": 16928045610
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 2342,
+        "eval_duration": 61757977000,
+        "load_duration": 6023634,
+        "prompt_eval_count": 11335,
+        "prompt_eval_duration": 443055000,
+        "total_duration": 62277109686
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 304,
+        "eval_duration": 8057585000,
+        "load_duration": 26213461,
+        "prompt_eval_count": 11017,
+        "prompt_eval_duration": 8753340000,
+        "total_duration": 17423310077
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 55,
+        "eval_duration": 1466772000,
+        "load_duration": 32494423,
+        "prompt_eval_count": 12115,
+        "prompt_eval_duration": 1084229000,
+        "total_duration": 2711155757
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "metrics": {
+        "done_reason": "stop",
+        "eval_count": 1566,
+        "eval_duration": 41247413000,
+        "load_duration": 5252405,
+        "prompt_eval_count": 11186,
+        "prompt_eval_duration": 8848947000,
+        "total_duration": 50182769008
+      },
+      "model": "qwen3.5:27b-q4_K_M"
+    }
+  ],
+  "limits": [
+    "Codex corrected nested publication directory ownership during this run.",
+    "Codex reconciled private address redaction after a model report contained an address.",
+    "Not a controlled speed benchmark against mission21."
+  ]
+}

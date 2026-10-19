@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-18T17:51:42+0200",
+  "actor": "Codex independent reception",
+  "same_authenticated_cookie_survived": true,
+  "new_service_process_confirmed": true,
+  "checkpoint_exactly_unchanged": true,
+  "automatic_worker_did_not_reclaim_external_dependency": true,
+  "snapshot": {
+    "state": "waiting_external",
+    "attempts": 48,
+    "tasks": [
+      {
+        "id": "01",
+        "state": "validated",
+        "report_sha256": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b"
+      },
+      {
+        "id": "02",
+        "state": "validated",
+        "report_sha256": "f75193128af8c646982b759f326734026f0f87ceca8f7e87a5010d99970d7afa"
+      },
+      {
+        "id": "03",
+        "state": "validated",
+        "report_sha256": "3b3abd957930e823d4ac63d0d1e3df65a53db4f38bb613f45b8fdb421efab1ed"
+      },
+      {
+        "id": "04",
+        "state": "validated",
+        "report_sha256": "308f79ea0eab3d731fa29e9e2b90621076f4a08eab964296ea69a5c1c41e886a"
+      },
+      {
+        "id": "05",
+        "state": "validated",
+        "report_sha256": "6d4d44162fac31f1ab9e66738d2ff5a26bc72cf8d59e00c95d6175384048fbb8"
+      },
+      {
+        "id": "06",
+        "state": "validated",
+        "report_sha256": "68fb7782772cf78eb0a00c6d53d4cd9b5b722c54ba1a1c523bbddc5d898cacd7"
+      },
+      {
+        "id": "07",
+        "state": "blocked",
+        "report_sha256": "b589f8470a782b7280bd1b686d9b9ee5ea35a04bdae7f50f0f5377b08fd2281e"
+      }
+    ],
+    "undelivered": 0
+  }
+}

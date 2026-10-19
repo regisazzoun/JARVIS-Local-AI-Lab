@@ -8,12 +8,14 @@
 | --- | --- | --- |
 | 00 / consolidation | GO avec réserves : 68 missions, 28 anomalies, 129 documents/preuves récupérés ; délégation réelle guidée | Documents publiés dans main le 18/10 ; traiter les réserves d’autonomie dans leur périmètre |
 | Historique 01–13 | Archives et rapports 08, 09, 09B, 10, 11 et 13E retrouvés ; niveaux de preuve distincts | Conserver les verdicts et les réserves, sans relancer les campagnes |
-| 13D-E / Dell n°1 | Réception complète du 17/10 par Codex ; une RTX 3090 alimentée | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
+| 13D-E / Dell n°1 | Réception du17/10 conservée ; loupé Tailscale identifié18/10 et corrigé19/10 | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
 | 11-Agentic / 11B | Outils hôte et raccordement SSH/Ansible validés ; Compute Expansion encore partielle | Checkpoint 11B observé incomplet après cinq tentatives ; reprise hors mission 00 pour les capacités restantes, notamment routage/repli |
 | 14A | Progrès réels en 13F, 11B, JL-02 et 00 ; réception globale ouverte | Confronter critères et preuves sans supposer un déploiement autonome complet |
 | 14 / Dell n°2 | Prévue ; JARVIS doit être exécutant, aucune installation dans cet audit | Identifier la cible, préparer JARVIS et corriger le contrôleur |
 | JL-01 / JL-02 | V1 préservée ; V2 livrée GO AVEC RÉSERVES, espace connecté confirmé | Fiabiliser l’agent et réceptionner les clients physiques ; réutiliser le tunnel actif |
 | 15A / 15B | Cahiers et cinq incréments chacun préparés, non lancés | Contrat API commun ; mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team |
+| 21 / autonomie | Sept tâches reçues ; reprise même checkpoint ; Tailscale Running et image VNC reçue via SSH LAN/tailnet direct | Rapports publiés ; préserver les acquis et suivre les réserves sémantiques |
+| 22 / moteur V2 | GO AVEC RÉSERVES ;41 tests V2,25 contrôles navigateur actuels ;21 clôturée7/7 | Réduire les répétitions et les synthèses périmées ; interventions Codex déclarées |
 | Architecture distribuée | Mac mini : mémoire, voix, outils et passerelle ; Dell n°1 : inférence Ollama | Placement dynamique, équilibrage, repli et orchestration multi-nœuds non réceptionnés globalement |
 
 La mission 00 autorise et réalise l’audit documentaire auparavant différé. Elle ne déclenche aucune réinstallation, aucun effacement, aucune modification RAID ni aucun déploiement du Dell n°2. Aucun nouveau GO intermédiaire ni fusion automatique dans main.
@@ -475,3 +477,11 @@ RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/
 Le propriétaire autorise la fusion des documents consolidés dans main et demande un README plus lisible, cohérent avec SUIVI. Les anciens rappels de non-fusion décrivent la consigne précédente ; cette autorisation reste limitée à la publication documentaire, sans déploiement ni import du code d’installation de PR5.
 
 Publication effective : PR6 et PR7 fusionnées, documents disponibles sur main. Les 68 identifiants et états du catalogue README correspondent au suivi.
+
+## 18 octobre 2026 — mission 22 en cours
+
+Moteur agentique V2 : tâches durables, checkpoints, reprise, vérification et livraison asynchrone. Mission21 constitue le banc de réception ; ses sept tâches sont reçues le19 octobre2026, avec réserves sur l’autonomie sans assistance. Voir [diagnostic](docs/missions/22/DIAGNOSTIC-INITIAL.md). Dell n°2 et mission14 exclus. Publication sur branches dédiées, sans fusion main.
+
+### Réception du19 octobre2026
+
+Mission21 : même identifiant, six premières réceptions conservées,07 validée par JARVIS après tests SSH/RFB directs. Mission22 : GO AVEC RÉSERVES, corrections de contexte et synthèse nécessaires ; aucune réception globale14A déduite. [Bilan](docs/missions/22/RAPPORT-FINAL.md).

@@ -1,0 +1,940 @@
+{
+  "collected_at": "2026-10-19T14:02:26+0200",
+  "mission": {
+    "id": "e370b0bef74f4deaa390b5c46bfdc299",
+    "state": "completed",
+    "model": "qwen3.5:27b-q4_K_M",
+    "attempts": 63,
+    "active_task": "07",
+    "created": 1792331445.364225,
+    "updated": 1792411265.0025797,
+    "last_progress": 1792411216.4883885,
+    "report_path": "/opt/jarvis/conversation/runtime/reports/e370b0bef74f4deaa390b5c46bfdc299/RAPPORT-FINAL.md"
+  },
+  "tasks": [
+    {
+      "id": "01",
+      "title": "Santé actuelle Mac mini et Dell n°1",
+      "state": "validated",
+      "attempts": 2,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/01-RAPPORT-SANTE.md",
+      "report_sha256": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b",
+      "last_error": null
+    },
+    {
+      "id": "02",
+      "title": "Analyse des journaux et réserves actuelles",
+      "state": "validated",
+      "attempts": 11,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/02-ANALYSE-JOURNAUX.md",
+      "report_sha256": "f75193128af8c646982b759f326734026f0f87ceca8f7e87a5010d99970d7afa",
+      "last_error": null
+    },
+    {
+      "id": "03",
+      "title": "Synthèse technique des observations01 et02",
+      "state": "validated",
+      "attempts": 1,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/03-SYNTHESE-TECHNIQUE.md",
+      "report_sha256": "3b3abd957930e823d4ac63d0d1e3df65a53db4f38bb613f45b8fdb421efab1ed",
+      "last_error": null
+    },
+    {
+      "id": "04",
+      "title": "Concordance documentaire incrémentale",
+      "state": "validated",
+      "attempts": 4,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/04-CONCORDANCE-MISSIONS.md",
+      "report_sha256": "308f79ea0eab3d731fa29e9e2b90621076f4a08eab964296ea69a5c1c41e886a",
+      "last_error": null
+    },
+    {
+      "id": "05",
+      "title": "Configuration Dell via Ansible idempotent",
+      "state": "validated",
+      "attempts": 3,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/05-ADMINISTRATION-DELL.md",
+      "report_sha256": "6d4d44162fac31f1ab9e66738d2ff5a26bc72cf8d59e00c95d6175384048fbb8",
+      "last_error": null
+    },
+    {
+      "id": "06",
+      "title": "Supervision légère systemd du Dell",
+      "state": "validated",
+      "attempts": 1,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/06-INSTALLATION-SERVICE.md",
+      "report_sha256": "68fb7782772cf78eb0a00c6d53d4cd9b5b722c54ba1a1c523bbddc5d898cacd7",
+      "last_error": null
+    },
+    {
+      "id": "07",
+      "title": "Bureau Plasma privé via VNC et tunnels LAN/Tailscale",
+      "state": "validated",
+      "attempts": 31,
+      "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
+      "report_sha256": "1556c17184dd1dd011e99ecb197bae6c00abadeed27b798b8c4c926b31238536",
+      "last_error": null
+    }
+  ],
+  "total_tool_intents": 672,
+  "finished_tool_calls": 671,
+  "successful_tool_returns": 446,
+  "event_actors": {
+    "JARVIS-engine": 650,
+    "JARVIS": 1354,
+    "Codex": 21
+  },
+  "publications": [
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "016d71b198f213aa7e370f9a51baf5cef34ca02e",
+      "sha256": "fa5fad3d61066da03620a5cbf16fd67b22b3b06dc5f22ea8dc7014ff05393b45"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/01-RAPPORT-SANTE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "6a7e648ff68a95ce05325d8252a5a6c222fc5456",
+      "sha256": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "e6ff2ac720c4ab60acc85bf9de0b73e7f59eb462",
+      "sha256": "90539b55f7d40981f7564bfafc1314de05b1204d2354fcdfcffaad75e5fd9130"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "c70b762df0973782080ffc561998b8767fff8972",
+      "sha256": "df4c63124b168d54e783682d02e94b465b07295637f03cccf1bf2a073e10e810"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/02-ANALYSE-JOURNAUX.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "3e0a8c96d43933594613476779bb41c3f1e35758",
+      "sha256": "f75193128af8c646982b759f326734026f0f87ceca8f7e87a5010d99970d7afa"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "b84e745cbbe3cef970959c1875c7293d2ccce081",
+      "sha256": "a3a26e71c13d96694363a316812dc744a0f96b5d9214d290238bc1e33b8bfeba"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/03-SYNTHESE-TECHNIQUE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "21feea9aa64ecda7394ab67a62d036421c69e0e7",
+      "sha256": "3b3abd957930e823d4ac63d0d1e3df65a53db4f38bb613f45b8fdb421efab1ed"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "97366041caade8d5cafcc85ae37701866287b21d",
+      "sha256": "9ac0a24d1cc08aced354df1603cb680025d62ca7329433b9e985673564be80b9"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "12867100e5779ba69eb640a9bdd4b10e55b3c032",
+      "sha256": "29e3531399de764f7e4b50329c7c209a5704609a1a58a7f238054f0f4f2346c2"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/04-CONCORDANCE-MISSIONS.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "7ec3ef987a62ecaa8c325bd4e787facea4bdefb9",
+      "sha256": "308f79ea0eab3d731fa29e9e2b90621076f4a08eab964296ea69a5c1c41e886a"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "8ef8b14adb069381e2aaaafa6372b17262a739b3",
+      "sha256": "40313349731bd7dbf12f044f2e0949fc9e3a5e47ddad4b87320ce1266c91de01"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "e9ac7b54ec423b017c427862264c204ac1d79032",
+      "sha256": "a727ae75a4195ff35b0cf5ac5fbf246c4ccafcc40c060920220b857170cd28e3"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/05-ADMINISTRATION-DELL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "b87aff2f439c7b89d3292cf7247aebaa8f32d7e9",
+      "sha256": "6d4d44162fac31f1ab9e66738d2ff5a26bc72cf8d59e00c95d6175384048fbb8"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "fce7e0832e028573ceb42637d5c87bd283030867",
+      "sha256": "4c63906951e526bebb7b4f2fad6d248b5540d2cd4422ab8bb9b7a724fdb205be"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/06-INSTALLATION-SERVICE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "ecb3d2ffaea7c9e02bc4224a8d6a3c09ac6b1cd7",
+      "sha256": "68fb7782772cf78eb0a00c6d53d4cd9b5b722c54ba1a1c523bbddc5d898cacd7"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "f031adeee33be34ab464f651f20d9494782efbde",
+      "sha256": "73742f1357b8bf12ae87fb1348be1dcc6e42634a56106970141a2b94ed3e35e5"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "90945a668ac9deed78f4fd048019a761bce0b879",
+      "sha256": "c3cfbd7ee3310c4cb1e3c182af0622bb7bae62fa8e9aeac550fbaf21c5c6705b"
+    },
+    {
+      "file": "SUIVI.md",
+      "state": "superseded",
+      "attempts": 4,
+      "commit_sha": null,
+      "sha256": "1461ac3122208032abed0a9041c5dadaeadf59c72bacb9a56c5017a975458f24"
+    },
+    {
+      "file": "ROADMAP.md",
+      "state": "superseded",
+      "attempts": 4,
+      "commit_sha": null,
+      "sha256": "c9f5c6fd9026a39743198a135578a9f10451e4e5fd8e73da854fd9777b6feb06"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "999e6f620d5c5731b684d25c95df6e0f86a91484",
+      "sha256": "5fceda674f69d91e397c436a00d757261628d4a4fc886eec3ee69eb16074c1a9"
+    },
+    {
+      "file": "SUIVI.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "ba16504b42bd01fd4830cedcaa8311fadbaf5b65",
+      "sha256": "253e2c5969972b69f28cc7897144ce090189a6780d3616734e38e6a25ad0ae5c"
+    },
+    {
+      "file": "ROADMAP.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "8ddbf87b31e81926e049ee2bffeea2b0d492c5ff",
+      "sha256": "0164446ebdd39177da232b7db8c5f838439d36733fd240b5fa70fd943f585f81"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "125b9117e1eaa2e6476c9d8af6c06c4eca353caa",
+      "sha256": "b589f8470a782b7280bd1b686d9b9ee5ea35a04bdae7f50f0f5377b08fd2281e"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "91e5e790dcfa2a9eb17ec7f5f5016f2b5c842b7f",
+      "sha256": "7f50022ded68c43793ff7cdf0aa59177efbc6a4683c6c0e689e931f7cd62fa78"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "7f3f32b8411a94f33da8052ecf7fe86c78caf4a6",
+      "sha256": "e51860881b286c593d0925caec1fe08c6b9eaf646e452db1c9d021b8e92f4d30"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "9f8f6bb3b9f9443a9dec1ac4252b68348c75103b",
+      "sha256": "1556c17184dd1dd011e99ecb197bae6c00abadeed27b798b8c4c926b31238536"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "93a958fb896e0a6db6387196abbc6cf16beb9057",
+      "sha256": "c32bdd080d5c6c018e531d868d83685340c4b30a8f3c94ba5f7e186bc56930ba"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "0b5b888e68a0e6d6eb3161455365497edef326c2",
+      "sha256": "f7274b766d6b8533f3e9090ad904a4c9f9324ae2bf38ec2b25cc0f22122a54fd"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "a4d2e3ba173295e399326f1b044871d8d397228e",
+      "sha256": "717504799a644015335478dc7618ae660f96a66a569bb5e552668006947d1931"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "6ce80f482342cba3e8e48c3918b0e32ec3473d30",
+      "sha256": "b04ad9a02a455494765760d08938d68a1772dc576da8748377f031635777c37a"
+    }
+  ],
+  "operational_proofs": [
+    {
+      "invocation": "d62d53978c6144eea1da9e5afc1a0b6d",
+      "task": "06",
+      "tool": "host_remote",
+      "action": "supervision_install",
+      "created": 1792334551.4141026,
+      "ok": true,
+      "broker_evidence": "b59a00f7aaea4f8ab353625cce583bf4",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "interval_seconds": 300,
+        "service": "jarvis-supervision.service",
+        "timer": "jarvis-supervision.timer",
+        "collector_source": "Codex infrastructure, invoked by JARVIS when broker caller is JARVIS-runtime"
+      }
+    },
+    {
+      "invocation": "3e896773993c4f17a6572d75835e7518",
+      "task": "06",
+      "tool": "host_remote",
+      "action": "supervision_test",
+      "created": 1792334577.4600775,
+      "ok": true,
+      "broker_evidence": "e0925e4deb4a46f4a2523d2f91c198fc",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "fresh_result": true,
+        "timer": "active",
+        "metrics": {
+          "collector": "mission21",
+          "disk_free": 1863523352576,
+          "disk_total": 2013961142272,
+          "gpu": "Use canonical GPU telemetry; not collected in this confined service",
+          "load": [
+            5.4609375,
+            6.07568359375,
+            6.67138671875
+          ],
+          "memory_available": "252581332 kB",
+          "memory_total": "263631460 kB",
+          "timestamp": 1792334578.2855844
+        }
+      }
+    },
+    {
+      "invocation": "a2c75c7634cb4bfc8998f9bd008edf75",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_configure",
+      "created": 1792334784.7350774,
+      "ok": false,
+      "broker_evidence": "fd5e437226474eea8bbfafdb46e929b5",
+      "broker_caller": "JARVIS-runtime",
+      "observation": "Non-JSON output omitted"
+    },
+    {
+      "invocation": "360bd218baa54b18ab361f3852a3d585",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_configure",
+      "created": 1792334948.7661643,
+      "ok": false,
+      "broker_evidence": "5ca2bf76ba3a4fd98d9cbc8ed1141a66",
+      "broker_caller": "JARVIS-runtime",
+      "observation": "Non-JSON output omitted"
+    },
+    {
+      "invocation": "bbbefecc05334e62b7bfcdda585bf615",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_configure",
+      "created": 1792335000.3572743,
+      "ok": false,
+      "broker_evidence": "7f9da11dff704a9e97e73cd18ee99088",
+      "broker_caller": "JARVIS-runtime",
+      "observation": "Non-JSON output omitted"
+    },
+    {
+      "invocation": "e02a8039adad46deb23e872a96525abb",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_configure",
+      "created": 1792335107.4501781,
+      "ok": true,
+      "broker_evidence": "fd492a3f40a6456bb164935ce287aba2",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "configured": true,
+        "display": ":21",
+        "port": 5921,
+        "binding": "loopback only; access over existing SSH LAN/Tailscale tunnels",
+        "password": "generated/reused privately on Dell; not returned to model",
+        "physical_session": "not replaced"
+      }
+    },
+    {
+      "invocation": "a6dd399307a94ef5b2907111f64074a8",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_test",
+      "created": 1792335122.5498958,
+      "ok": true,
+      "broker_evidence": "9a28b1362e554f4dab6e6b41189b26e7",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "rfb_authenticated": true,
+        "framebuffer_received": true,
+        "width": 1440,
+        "height": 900,
+        "plasma_display21": true,
+        "keyboard_layout": "fr",
+        "transport_test": "Dell loopback only; LAN/Tailscale client test separate"
+      }
+    },
+    {
+      "invocation": "eb805e4f05304926806641526dac6188",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792335138.604631,
+      "ok": false,
+      "broker_evidence": "9c416db549474c3eb6b58e4535d120b2",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ]
+      }
+    },
+    {
+      "invocation": "69905438863d4eb5afe9d27a7fc18aab",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792335294.2432888,
+      "ok": false,
+      "broker_evidence": "6f3fd6b49f81487a853f1cfb74e53021",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ]
+      }
+    },
+    {
+      "invocation": "9f393cbe9d4c48e0bfd1bc9804b33ae9",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792335494.127274,
+      "ok": false,
+      "broker_evidence": "709fe808d3f14503b84935746d2e0c0a",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ]
+      }
+    },
+    {
+      "invocation": "359c5bc3f88043a9a9386ee97c8fe787",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792335610.574474,
+      "ok": false,
+      "broker_evidence": "aa69ea7a0f57409ca4b9214c31e874dd",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ]
+      }
+    },
+    {
+      "invocation": "473cefc1c79b4691b48a59353c2be8a1",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_gateway_configure",
+      "created": 1792335684.1272848,
+      "ok": true,
+      "broker_evidence": "3b2a7718e77f4f1dbcb0d75c45994d8b",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "jarvis-dell-desktop-gateway.service",
+        "mac_binding": "127.0.0.1:5921",
+        "destination": "Verified Dell loopback VNC through pinned SSH",
+        "tailnet_access": "Existing JARVIS Mac SSH endpoint plus client local forward to Mac loopback5921",
+        "external_tailnet_client_tested": false,
+        "credentials": "No credential returned"
+      }
+    },
+    {
+      "invocation": "08e69651a2bc43c584b3eaa3b6d6d6e3",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792335699.6772676,
+      "ok": true,
+      "broker_evidence": "1bab75b712bb4c699155383af3c06f15",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          },
+          {
+            "transport": "Mac-gateway-loopback",
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ],
+        "coverage": {
+          "external_tailnet_client_tested": false,
+          "mode": "Mac-gateway",
+          "mac_tailnet_online": true,
+          "gateway_service_active": true,
+          "verdict": "GO_WITH_RESERVES",
+          "reserve": "Gateway is connected and authenticates the Dell desktop; no distinct external Tailnet client was available for end-to-end validation"
+        }
+      }
+    },
+    {
+      "invocation": "25b7a0b754994d0e817cd838df97e501",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_configure",
+      "created": 1792337031.1812844,
+      "ok": true,
+      "broker_evidence": "2ec15064efdc411998364d9ae9fdf7f4",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service_enabled": true,
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "authentication_required": true,
+        "enrollment_log": "root-private on Dell; no URL or credential returned",
+        "mac_identity_copied": false
+      }
+    },
+    {
+      "invocation": "8955cf71f6844073b3ab42bdda8138ab",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337090.77632,
+      "ok": false,
+      "broker_evidence": "49c5591bbbdf467d89b2e2b39d3983d5",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true
+      }
+    },
+    {
+      "invocation": "c3c519777fc5438badb28100c6d275a3",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337157.1714332,
+      "ok": false,
+      "broker_evidence": "a53dd2324ecd4c63bc174f7c8003e829",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true
+      }
+    },
+    {
+      "invocation": "5a8a300df19a46e68a7426e43be2bccd",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337184.8816464,
+      "ok": false,
+      "broker_evidence": "52dec3b30b7e4526934834045c8819c1",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true
+      }
+    },
+    {
+      "invocation": "a433703b747f4224b11b03ecd575a97f",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337243.002775,
+      "ok": false,
+      "broker_evidence": "f7d8f530979a42fab2cf215c8bcd4baf",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true
+      }
+    },
+    {
+      "invocation": "c7c18c19f0b6477d8ede250cb20de23c",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337315.0253146,
+      "ok": false,
+      "broker_evidence": "7c8a74bc56c34a0e8f79eacc4707e8a8",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true
+      }
+    },
+    {
+      "invocation": "f25fe2b3e0dd474f9e8044ba5288c2bf",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337353.7645926,
+      "ok": false,
+      "broker_evidence": "97a7c82c306b4f05b4f767759a1982ad",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true
+      }
+    },
+    {
+      "invocation": "00fd9e0e90ef4c2c96134780f701232e",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337538.844025,
+      "ok": false,
+      "broker_evidence": "f2fc42626bbe42a0a3cdb2c33752df33",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "6c9f419674cb4e9ab4e3572cf6268c9b",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337610.0970275,
+      "ok": false,
+      "broker_evidence": "88ef2750dfef4dc9a8d84d0f7a0087e2",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "b3843a65ed2f4588a40b6af6ab930aed",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337667.0050108,
+      "ok": false,
+      "broker_evidence": "58a015ccbf7640088c30f5a28e84f9c0",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "1ee035dc184a47cca8c5ef9087c4d093",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337819.384938,
+      "ok": false,
+      "broker_evidence": "ac4ed862119f492abb6b0895b102079b",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "5dce97ab86d343d1a356bff1eb8e181a",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792337898.111753,
+      "ok": false,
+      "broker_evidence": "65feff80eb4d4d03ba0e2b87136fa6b2",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "2b26e31c6a864c1caaee34099ee2ca4b",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792338240.883935,
+      "ok": false,
+      "broker_evidence": "c741ca01de6d48788cd95b8a4f50b289",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "NeedsLogin",
+        "online": false,
+        "has_tailnet_address": false,
+        "auth_url_private": true,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": false,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "274212426b9c484fba7082dad7ffcfd2",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792410163.540156,
+      "ok": true,
+      "broker_evidence": "2c83f7c93a154cfaa9b16a8440452630",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "Running",
+        "online": true,
+        "has_tailnet_address": true,
+        "auth_url_private": false,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": true,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "5d4f8e57d16547aea9527768953d9387",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792410180.5364702,
+      "ok": false,
+      "broker_evidence": "50a4817e8f244a92bbf5c316a1b9c25f",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "authenticated": false,
+            "error": "AssertionError: "
+          },
+          {
+            "transport": "Tailscale",
+            "authenticated": false,
+            "error": "AssertionError: "
+          }
+        ],
+        "coverage": {
+          "external_tailnet_client_tested": false,
+          "mode": "Mac-gateway"
+        }
+      }
+    },
+    {
+      "invocation": "daea079e65254cd38a798d02786414e1",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792410428.2934875,
+      "ok": true,
+      "broker_evidence": "43c1d569d0684ea0aa56227fb2523acd",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "Running",
+        "online": true,
+        "has_tailnet_address": true,
+        "auth_url_private": false,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": true,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "39494beffbf842cd830445b9b4003986",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792410456.53122,
+      "ok": true,
+      "broker_evidence": "5e5b4dbea3504540a74ce37c898bc216",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          },
+          {
+            "transport": "Tailscale",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ],
+        "coverage": {
+          "external_tailnet_client_tested": true,
+          "mode": "direct"
+        }
+      }
+    }
+  ]
+}

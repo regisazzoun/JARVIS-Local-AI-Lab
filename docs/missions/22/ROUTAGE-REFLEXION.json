@@ -1,0 +1,48 @@
+[
+  {
+    "think": false,
+    "elapsed_s": 1.0303393210051581,
+    "answer": "python3 test.py || exit $?",
+    "metrics": {
+      "load_duration": 12284004,
+      "prompt_eval_duration": 226877000,
+      "eval_duration": 206208000,
+      "eval_count": 8,
+      "prompt_eval_count": 60,
+      "total_duration": 1020829669,
+      "done_reason": "stop",
+      "node": "Mac-mini",
+      "route_failures": [
+        {
+          "node": "unavailable-test",
+          "error_type": "URLError"
+        }
+      ],
+      "request_elapsed_s": 1.0214206340024248
+    },
+    "scope": "Real model generation only; no shell command executed by this parameter test"
+  },
+  {
+    "think": true,
+    "elapsed_s": 245.5593603060115,
+    "answer": "( python3 test.py; RC=$?; echo \"RC=$RC\"; exit $RC )",
+    "metrics": {
+      "load_duration": 2941916,
+      "prompt_eval_duration": 262380000,
+      "eval_duration": 245288134000,
+      "eval_count": 9115,
+      "prompt_eval_count": 58,
+      "total_duration": 245558540415,
+      "done_reason": "stop",
+      "node": "Mac-mini",
+      "route_failures": [
+        {
+          "node": "unavailable-test",
+          "error_type": "URLError"
+        }
+      ],
+      "request_elapsed_s": 245.5591803729767
+    },
+    "scope": "Real model generation only; no shell command executed by this parameter test"
+  }
+]

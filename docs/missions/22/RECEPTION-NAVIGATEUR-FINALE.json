@@ -1,0 +1,93 @@
+{
+  "kind": "Real Chromium connected to canonical gateway; no mocked events",
+  "checks": [
+    {
+      "name": "real_gateway_authenticated",
+      "passed": true
+    },
+    {
+      "name": "real_persistent_mission_events_visible",
+      "passed": true
+    },
+    {
+      "name": "jarvis_actor_visible",
+      "passed": true
+    },
+    {
+      "name": "neutral_events_present",
+      "passed": true
+    },
+    {
+      "name": "neutral_events_not_failed",
+      "passed": true
+    },
+    {
+      "name": "seven_tasks_visible",
+      "passed": true
+    },
+    {
+      "name": "six_verified_tasks_only",
+      "passed": true
+    },
+    {
+      "name": "actual_external_wait_state_visible",
+      "passed": true
+    },
+    {
+      "name": "seven_report_links",
+      "passed": true
+    },
+    {
+      "name": "actual_report_link_accessible",
+      "passed": true
+    },
+    {
+      "name": "codex_actor_visible_in_actual_timeline",
+      "passed": true
+    },
+    {
+      "name": "external_block_event_visible",
+      "passed": true
+    },
+    {
+      "name": "desktop_fixed_height",
+      "passed": true
+    },
+    {
+      "name": "desktop_no_horizontal_overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop_independent_scroll",
+      "passed": true
+    },
+    {
+      "name": "tablet_fixed_height",
+      "passed": true
+    },
+    {
+      "name": "tablet_no_horizontal_overflow",
+      "passed": true
+    },
+    {
+      "name": "tablet_independent_scroll",
+      "passed": true
+    },
+    {
+      "name": "phone_fixed_height",
+      "passed": true
+    },
+    {
+      "name": "phone_no_horizontal_overflow",
+      "passed": true
+    },
+    {
+      "name": "phone_independent_scroll",
+      "passed": true
+    },
+    {
+      "name": "no_browser_javascript_error",
+      "passed": true
+    }
+  ]
+}

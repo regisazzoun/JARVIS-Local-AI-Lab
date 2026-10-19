@@ -1,0 +1,10 @@
+{
+  "authenticated_before": true,
+  "authenticated_after_same_cookie": true,
+  "health": {
+    "application": "ok",
+    "database": "ok",
+    "ollama": "0.40.3",
+    "busy": false
+  }
+}

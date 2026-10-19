@@ -1,0 +1,27 @@
+{
+  "mission": "e370b0bef74f4deaa390b5c46bfdc299",
+  "test_executor": "Codex infrastructure",
+  "signal": "SIGKILL",
+  "before": {
+    "state": "running",
+    "attempts": 4
+  },
+  "validated_task": "01",
+  "report_sha256_before": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b",
+  "crash_time": 1792331693.1826026,
+  "state": "passed",
+  "after": {
+    "state": "running",
+    "attempts": 5
+  },
+  "recovery_elapsed_s": 122.92211747169495,
+  "new_service_pid_confirmed": true,
+  "report_sha256_after": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b",
+  "resumed_tool_results": 1,
+  "health": {
+    "application": "ok",
+    "database": "ok",
+    "ollama": "0.40.3",
+    "busy": true
+  }
+}

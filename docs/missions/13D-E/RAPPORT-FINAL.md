@@ -226,3 +226,22 @@ La réception finale reste en cours : attendre la fin de resynchronisation RAID,
 Le propriétaire demande KDE Plasma sur le Dell avant le redémarrage final. Une dix-huitième tâche KDE Plasma est ajoutée au tableau, en cours jusqu'à validation effective. Installation de kde-plasma-desktop, SDDM, Xorg/KWin X11 et outils de base, avec configuration française ; le réseau existant reste piloté par systemd-networkd. Le gestionnaire de connexion est préparé pour le prochain boot, sans autologin.
 
 La réception finale est retenue jusqu'à la fin de cette installation, en plus de la synchronisation RAID. La reprise automatique reprend ensuite les contrôles finaux, avec vérification de SDDM et Xorg après reboot. L'ouverture interactive d'une session Plasma n'est pas déclarée testée tant qu'elle n'a pas été observée. SSH, sudo, le secours par mot de passe et les services IA restent à préserver.
+
+
+## Loupé du déploiement 13D-E — client Tailscale absent (18 octobre 2026)
+
+Le propriétaire signale et classe explicitement cette omission parmi les loupés de la mission 13 de déploiement du Dell n°1. Le client Tailscale n’a pas été installé sur le Dell : le contrôle de reprise constate l’absence du binaire et un service `tailscaled` inactif. L’accès direct au Dell par le tailnet n’est donc pas opérationnel et ne doit pas être présenté comme réceptionné.
+
+Les accès LAN et les accès relayés par le Mac mini sont distincts d’un client Tailscale installé sur le Dell ; ils ne corrigent pas cette omission du déploiement initial. Les résultats Debian, RAID, SSH et IA déjà vérifiés restent conservés, avec cette réserve réseau supplémentaire.
+
+Correctif restant : installer et configurer un client Tailscale propre au Dell, puis vérifier son identité réseau, une connexion SSH depuis un autre client du tailnet et la persistance après redémarrage. Cette entrée documentaire ne constitue ni une installation ni une validation de ce correctif.
+
+
+### Correction partielle du loupé Tailscale — mission22, 18 octobre 2026
+
+JARVIS a lui-même appelé `tailscale_configure` sur le Dell identifié : le client Debian13 a été installé et `tailscaled` activé. Son contrôle `tailscale_status` puis une vérification indépendante Codex constatent le service actif mais `NeedsLogin`, sans adresse du tailnet. L’omission d’installation est corrigée ; l’enrôlement et les tests d’accès direct restent bloqués faute d’authentification disponible. Aucune identité du Mac n’a été copiée. La réserve réseau reste ouverte. Voir [réception21 sous moteur22](../22/RECEPTION-MISSION21.md).
+
+
+## Actualisation réseau du19 octobre2026 — mission22
+
+Le loupé initial reste reconnu : le client Tailscale était absent du déploiement13D-E. Il a été installé par JARVIS ; le propriétaire confirme maintenant l’enrôlement du Dell1 et l’accès KDE/VNC depuis son Mac. JARVIS vérifie séparément `Running`, le tunnel SSH direct Tailscale, l’authentification RFB et la réception effective d’image. [Réception et provenance des preuves](../22/RECEPTION-MISSION21.md). Cette correction clôt la réserve d’accès Tailscale du Dell1 ; elle ne clôt ni la mission14 du Dell2 ni le correctif de reboot forcé du contrôleur PXE.

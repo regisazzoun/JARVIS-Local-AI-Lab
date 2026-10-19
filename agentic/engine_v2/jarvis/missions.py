@@ -1,0 +1,176 @@
+"""Durable execution with leases, immediate checkpoints and automatic continuation."""
+import json
+import logging
+from pathlib import Path
+import threading
+import time
+import uuid
+from .mission_store import MissionStore
+from .durable_cycle import DurableCycle
+
+class MissionInterrupted(RuntimeError):
+    pass
+
+class Missions:
+    def __init__(self, core, root, start_worker=True, recover_exclusive=False):
+        self.core = core
+        self.store = MissionStore(root)
+        if recover_exclusive:
+            # server.main already owns runtime/application.lock: no old worker can remain.
+            with self.store.db() as c:
+                abandoned=[r['id'] for r in c.execute("SELECT id FROM missions WHERE state='running' AND origin!='legacy'")]
+                for ident in abandoned:
+                    c.execute("UPDATE missions SET state='queued',lease_owner=NULL,lease_until=NULL WHERE id=?",(ident,))
+                    self.store.event(ident,'exclusive_restart_recovered',result={'basis':'Canonical process holds exclusive application flock; persisted work preserved'},connection=c)
+        self.path = self.store.path
+        self.stop = threading.Event()
+        self.owner = uuid.uuid4().hex
+        # A long durable task must not monopolize conversation/STT/TTS locks.
+        from .core import Core
+        self.execution_core=Core(dict(core.config),core.memory)
+        self.execution_core.config['ollama_route']=core.config.get('mission_ollama_route',core.config.get('ollama_route',[]))
+        self.execution_core.tools.root=core.tools.root
+        self.execution_core.missions=self
+        self.execution_core.tools.mission_controller=self
+        self.cycle = DurableCycle(self.execution_core, self.store)
+        core.missions = self
+        core.tools.mission_controller = self
+        if start_worker:
+            threading.Thread(target=self.worker, daemon=True, name='jarvis-missions-v2').start()
+            threading.Thread(target=self.publisher, daemon=True, name='jarvis-publisher-v2').start()
+
+    def connect(self):
+        return self.store.db()
+
+    def submit(self, goal, model, conversation=None, project='', spec=None):
+        if not isinstance(goal, str) or not goal.strip() or len(goal) > self.core.config['max_text_chars']:
+            raise ValueError('Objectif invalide')
+        if model not in self.core.config['models']:
+            raise ValueError('Modèle inconnu')
+        if spec is not None and not isinstance(spec,dict):raise ValueError('spec doit être un objet')
+        if conversation and conversation not in {r['id'] for r in self.core.memory.list_conversations()}:raise ValueError('Conversation absente')
+        conversation = conversation or self.core.memory.conversation(project)
+        ident = self.store.create(goal, model, conversation, project, spec)
+        if (spec or {}).get('tasks'):
+            self.store.plan(ident,spec['tasks'])
+            self.store.transition(ident,'queued')
+        self.core.memory.mission_message(ident,'goal',conversation,'user',goal,model)
+        self.core.memory.mission_message(ident,'ack',conversation,'assistant','Mission durable enregistrée : '+ident,'JARVIS-engine')
+        return {'id': ident, 'mission_id': ident, 'conversation': conversation, 'state': 'queued'}
+
+    def resume(self, ident):
+        row = self.store.get(ident)
+        if row['state'] in ('running', 'queued', 'completed'):
+            raise ValueError('Mission déjà active ou terminée')
+        if row['state']=='waiting_external':
+            self.store.rebase_context(ident,'Explicit external-dependency resume: rebuild working view from preserved proof ledger')
+            self.store.event(ident,'external_dependency_recheck_requested',result={'basis':'Explicit resume requests a fresh observation; older blockers stay in history, no success inferred'})
+        self.store.transition(ident, 'queued')
+        return {'id': ident, 'state': 'queued'}
+
+    def interrupt(self, ident):
+        self.store.get(ident)
+        self.store.transition(ident, 'interrupted')
+        return {'id': ident, 'state': 'interrupted', 'note': 'La commande engagée peut se terminer ; arrêt avant le prochain outil.'}
+
+    def is_interrupted(self, ident):
+        return self.store.get(ident)['state'] == 'interrupted'
+
+    def checkpoint(self, ident, tool, result):
+        # Legacy chat path; V2 records intent + result in DurableCycle, not twice.
+        if getattr(self.core.tools, 'mission_store', None) is self.store:
+            return
+        with self.store.db() as c:
+            c.execute('INSERT INTO checkpoints(mission,tool,result,created) VALUES(?,?,?,?)',
+                      (ident, tool, json.dumps(result, ensure_ascii=False), time.time()))
+
+    def list(self):
+        with self.store.db() as c:
+            rows = [dict(r) for r in c.execute('SELECT * FROM missions ORDER BY updated DESC LIMIT 100')]
+        for row in rows:
+            tasks = self.store.tasks(row['id'])
+            done = sum(t['state'] == 'validated' for t in tasks)
+            row['tasks'] = tasks
+            row['progress'] = {'validated': done, 'total': len(tasks), 'percent': round(done*100/len(tasks)) if tasks else None}
+            row['checkpoints'] = []
+        return rows
+
+    def heartbeat(self, ident, finished):
+        while not finished.wait(20):
+            self.store.heartbeat(ident, self.owner)
+
+    def publisher(self):
+        from .publication import deliver_one
+        while not self.stop.wait(2):
+            try: deliver_one(self.store)
+            except Exception: logging.exception('Persistent publisher retry after storage failure')
+
+    def record_final(self,row):
+        report=self.store.get(row['id']).get('report_path')
+        if report:
+            self.core.memory.mission_message(row['id'],'final',row['conversation'],'assistant',Path(report).read_text(),row['model'])
+
+    def publish_progress(self,row):
+        spec=json.loads(row['spec'])
+        if not spec.get('progress_file') or not spec.get('publication'):return
+        from .publication import invoke,enqueue
+        publication=spec['publication'];relative=spec['progress_file']
+        body='# État de mission\n\nGénéré par JARVIS-engine depuis les checkpoints réels. Les rapports sont rédigés par le modèle.\n\n| Tâche | État | Rapport vérifié |\n| --- | --- | --- |\n'
+        for task in self.store.tasks(row['id']):
+            body+='| '+task['id']+' — '+task['title'].replace('|','/')+' | '+task['state']+' | '+(task.get('report_sha256') or 'non reçu')+' |\n'
+        body+='\nLes livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.\n'
+        path=str(Path(publication['workspace'])/relative)
+        invoke('host_write_file',{'path':path,'content':body})
+        confirmed=invoke('host_read_file',{'path':path})['stdout']
+        if body!=confirmed:raise ValueError('ETAT local non confirmé')
+        enqueue(self.store,row['id'],None,{**publication,'file':relative},verified_body=body)
+
+    def worker(self):
+        while not self.stop.wait(1):
+            if not self.execution_core.lock.acquire(blocking=False):
+                continue
+            row = None
+            done = threading.Event()
+            try:
+                row = self.store.claim(self.owner)
+                if not row:
+                    continue
+                threading.Thread(target=self.heartbeat, args=(row['id'], done), daemon=True).start()
+                if row.get('report_path'):
+                    with self.store.db() as c:
+                        pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]
+                    if not pending:self.record_final(row)
+                    self.store.transition(row['id'],'publishing' if pending else 'completed',delay=10 if pending else 0)
+                    continue
+                result = self.cycle.run(row)
+                tasks = self.store.tasks(row['id'])
+                if result.get('progress'):self.publish_progress(row)
+                if result.get('external_block'):continue
+                completed = bool(tasks) and all(t['state'] == 'validated' for t in tasks) and result.get('report')
+                with self.store.db() as c:
+                    pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]
+                if completed:
+                    with self.store.db() as c:c.execute('UPDATE missions SET report_path=? WHERE id=?',(result['report']['path'],row['id']))
+                state = ('publishing' if pending else 'completed') if completed else 'queued'
+                if not result.get('progress') and state=='queued':
+                    with self.store.db() as c:
+                        c.execute('UPDATE missions SET stagnant_cycles=stagnant_cycles+1 WHERE id=?',(row['id'],))
+                        stagnant=c.execute('SELECT stagnant_cycles FROM missions WHERE id=?',(row['id'],)).fetchone()[0]
+                    if stagnant>=3:
+                        state='blocked'
+                        result['blockage']='Trois cycles sans nouvelle observation utile ; reprise technique automatique après attente, sans nouvelle validation humaine.'
+                if state=='completed':self.record_final(row)
+                self.store.transition(row['id'], state, result, delay=60 if state=='blocked' else 0 if result.get('progress') else 10,
+                                      progress=bool(result.get('progress')))
+            except MissionInterrupted:
+                if row: self.store.transition(row['id'], 'interrupted')
+            except Exception as exc:
+                if row:
+                    # No fixed attempt limit: a recoverable transport failure retains all work.
+                    self.store.event(row['id'], 'cycle_error', result={'error': str(exc), 'type': type(exc).__name__})
+                    self.store.transition(row['id'], 'retrying', {'error': str(exc)}, delay=min(60, 2**min(row['attempts'], 6)))
+            finally:
+                done.set()
+                self.execution_core.tools.context = {}
+                self.execution_core.tools.__dict__.pop('mission_store', None)
+                self.execution_core.lock.release()

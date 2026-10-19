@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-19T14:02:26+0200",
+  "actor": "Codex independent verification",
+  "mac_services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-ollama": "active",
+    "jarvis-open-webui": "active",
+    "tailscaled": "active"
+  },
+  "dell": {
+    "services": {
+      "ok": true,
+      "evidence_id": "ea1670d7c6d2415dbc6e5902ee569756",
+      "returncode": 0,
+      "stdout": "active\nactive\n",
+      "stderr": ""
+    },
+    "tailscale_status": {
+      "ok": true,
+      "evidence_id": "2f163c9c374648d790b28df51ea923b8",
+      "returncode": 0,
+      "stdout": "{\"installed\": true, \"service\": \"active\", \"backend_state\": \"Running\", \"online\": true, \"has_tailnet_address\": true, \"auth_url_private\": false, \"external_dependency\": {\"id\": \"dell-tailnet-enrollment\", \"resolved\": true, \"reason\": \"Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity\"}}\n",
+      "stderr": ""
+    }
+  }
+}
