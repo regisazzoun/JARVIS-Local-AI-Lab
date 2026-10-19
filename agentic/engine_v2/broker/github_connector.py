@@ -17,7 +17,7 @@ def relative_path(value):
 def check_content(name,content):
     relative_path(name)
     if b'\x00' in content:raise ValueError('Binary source excluded: '+name)
-    if re.search(rb'gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|-----BEGIN .*PRIVATE KEY-----',content):raise PermissionError('Secret detected in '+name)
+    if re.search(rb'gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|-----BEGIN .*PRIVATE KEY-----|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+',content):raise PermissionError('Secret detected in '+name)
     if re.search(rb'(?:LIVEKIT_API_SECRET|api_secret|password)\s*[:=]\s*[\'"][^\'"\n]{8,}[\'"]',content,re.I):raise PermissionError('Literal secret requires sanitization: '+name)
 
 def execute(a,cfg,run,sandbox,root_for):
@@ -46,7 +46,7 @@ def execute(a,cfg,run,sandbox,root_for):
         if base['returncode']:return base
         return run(['/usr/bin/gh','api','--method','POST','repos/'+repo+'/git/refs','-f','ref=refs/heads/'+branch,'-f','sha='+base['stdout'].strip()],30,user)
     if action=='pull_request':
-        branch=branch_name(a['branch']);r=run(['/usr/bin/gh','pr','list','--repo',repo,'--head',branch,'--state','open','--json','url,number'],30,user)
+        branch=branch_name(a.get('branch',''));r=run(['/usr/bin/gh','pr','list','--repo',repo,'--head',branch,'--state','open','--json','url,number'],30,user)
         if r['returncode']:return r
         existing=json.loads(r['stdout'])
         with tempfile.TemporaryDirectory(prefix='jarvis-pr-') as td:
@@ -60,12 +60,20 @@ def execute(a,cfg,run,sandbox,root_for):
     if not isinstance(files,list) or not files or len(files)>1000:raise ValueError('files must be a JSON array of 1..1000 relative source files')
     files=[relative_path(x) for x in files]
     code='''import pathlib,json,base64,subprocess
-root=pathlib.Path(ROOT).resolve();out={}
+root=pathlib.Path(ROOT).resolve();out={};secrets=[]
+for envname in ['.env','livekit-agent/.env']:
+ envpath=root/envname
+ if envpath.is_file() and envpath.resolve().is_relative_to(root):
+  for line in envpath.read_text().splitlines():
+   if '=' in line and not line.lstrip().startswith('#'):
+    key,value=line.split('=',1);value=value.strip().strip(chr(34)+chr(39))
+    if any(k in key.upper() for k in ['SECRET','PASSWORD','TOKEN']) and len(value)>=8:secrets.append(value.encode())
 for name in FILES:
  p=root/name
- if p.is_symlink() or not p.resolve().is_relative_to(root) or not p.is_file():raise ValueError("Invalid source: "+name)
+ if p.is_symlink() or any(parent.is_symlink() for parent in p.parents if parent.is_relative_to(root)) or not p.resolve().is_relative_to(root) or not p.is_file():raise ValueError("Invalid source: "+name)
  data=p.read_bytes()
  if len(data)>1000000:raise ValueError("Source exceeds 1MB: "+name)
+ if any(secret in data for secret in secrets):raise ValueError("Private environment credential copied into source: "+name)
  out[name]=base64.b64encode(data).decode()
 print(json.dumps(out))
 '''.replace('ROOT',repr(str(root))).replace('FILES',repr(files))

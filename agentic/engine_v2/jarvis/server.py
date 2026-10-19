@@ -43,6 +43,13 @@ def make_handler(core,auth=None):
                 else:self.send({'error':'Introuvable'},404)
             except PermissionError as e:self.send({'error':str(e)},403)
             except Exception:self.send({'error':'Lecture impossible'},500)
+        def factual_reply(self,data,text,result):
+            if data.get('retain',True):
+                conversation=data.get('conversation') or core.memory.conversation(data.get('project',''))
+                core.memory.exchange(conversation,text,result['answer'],'JARVIS-engine')
+                result['conversation']=conversation
+            else:result['conversation']=data.get('conversation')
+            self.send(result)
         def do_POST(self):
             try:
                 self.guarded()
@@ -61,7 +68,7 @@ def make_handler(core,auth=None):
                     from .intent import classify,mission_answer
                     intent=classify(d['goal'])
                     factual=mission_answer(d['goal'],core.missions.store)
-                    if factual:self.send(factual);return
+                    if factual:self.factual_reply(d,d['goal'],factual);return
                     if intent=='question':
                         self.send(core.chat(d['goal'],d['model'],d.get('conversation'),d.get('project',''),True,False));return
                     if intent=='resume23':
@@ -73,7 +80,7 @@ def make_handler(core,auth=None):
                     from .intent import classify,mission_answer
                     intent=classify(d['text'])
                     factual=mission_answer(d['text'],core.missions.store)
-                    if factual:self.send(factual);return
+                    if factual:self.factual_reply(d,d['text'],factual);return
                     if intent=='resume23':
                         ident='7971ec0311124fb4be9e3125dcb291fd'
                         row=core.missions.store.get(ident)

@@ -53,8 +53,9 @@ async def verify(args):
             await source.capture_frame(rtc.AudioFrame(data=bytes(960),sample_rate=24000,num_channels=1,samples_per_channel=480))
         await asyncio.wait_for(first.wait(),args.timeout)
         await asyncio.sleep(3)
-        non_silent=[f for f in audio if f['rms']>20]
+        non_silent=[f for f in audio if f['rms']>20 and f['t']>=speech_end]
         assert non_silent and sum(f['samples'] for f in non_silent)>2400,'Remote audio must contain real non-silent PCM'
+        assert any('bonjour' in t['text'].lower() and t['participant']=='independent-verifier' for t in transcripts),'No real French input transcription received over LiveKit'
         result={'check':'independent_real_webrtc_wav_to_remote_audio','verified':True,'physical_microphone':False,'url':args.url or env['LIVEKIT_URL'],'room':room_name,'remote_participants':list(room.remote_participants),'input_duration_s':len(converted)/24000,'input_started_s':begin,'input_end_s':speech_end,'first_remote_non_silent_s':non_silent[0]['t'],'end_to_first_audio_s':non_silent[0]['t']-speech_end,'received_audio_samples':sum(f['samples'] for f in audio),'peak_frame_rms':max(f['rms'] for f in audio),'transcriptions':transcripts,'limits':['No physical microphone/listening','Interruption and reconnection require separate evidence']}
         args.output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))
     finally:

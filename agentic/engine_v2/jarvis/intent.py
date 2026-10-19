@@ -20,7 +20,7 @@ def mission_answer(text,store):
     ident='7971ec0311124fb4be9e3125dcb291fd';row=store.get(ident);tasks=store.tasks(ident)
     done=sum(t['state']=='validated' for t in tasks)
     answer=f"Mission 23 — LiveKit : {row['state']}, tâche active {row['active_task']}, {done}/{len(tasks)} tâches validées par le moteur. Ce compteur ne prouve pas une réception vocale complète."
-    answer+=' Dernière activité : '+datetime.datetime.fromtimestamp(row['updated'],ZoneInfo('Europe/Paris')).isoformat()+'.'
+    answer+=' État enregistré à : '+datetime.datetime.fromtimestamp(row['updated'],ZoneInfo('Europe/Paris')).isoformat()+'.'
     if re.search(r'pourquoi|blocage|echou',value):
         with store.db() as c:
             events=[dict(r) for r in c.execute("SELECT kind,arguments,result FROM mission_events WHERE mission=? AND tool='host_github' AND kind='tool_finished' ORDER BY id DESC",(ident,))]

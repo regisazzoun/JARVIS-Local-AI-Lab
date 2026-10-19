@@ -39,3 +39,17 @@ class PublicationRecovery(unittest.TestCase):
   r,calls=self.invoke(False);self.assertTrue(r['verified']);self.assertFalse(r['changed']);self.assertFalse(any('commit' in c or 'push' in c for c in calls))
  def test_branch_conflict_is_not_force_pushed(self):
   r,calls=self.invoke(True,True);self.assertEqual(r['returncode'],1);self.assertIn('retry',r['diagnostic']);self.assertFalse(any('--force' in c for c in calls))
+class DeliveryContract(unittest.TestCase):
+ def test_required_files_ignore_json_spacing_and_allow_additional_sources(self):
+  from jarvis.mission_store import arguments_match
+  self.assertTrue(arguments_match({'files':'["b.py","a.py","extra.py"]'},{'files':'["a.py", "b.py"]'}))
+  self.assertFalse(arguments_match({'files':'["a.py"]'},{'files':'["a.py", "b.py"]'}))
+class RemoteProjectScope(unittest.TestCase):
+ def test_ungranted_project_and_non_admin_profile_are_denied(self):
+  import importlib.util
+  spec=importlib.util.spec_from_file_location('scope_bridge',Path(__file__).parents[1]/'broker/host_bridge.py');bridge=importlib.util.module_from_spec(spec);spec.loader.exec_module(bridge)
+  profile={'identity':'/private/key','known_hosts':'/private/known','user':'admin','address':'192.0.2.1','allow_admin':True,'administration_operations':['project_exec'],'project_exec_projects':['mission23']}
+  args={'host':'dell','action':'project_exec','project':'other-project','command':'true'}
+  with self.assertRaises(PermissionError):bridge.execute('host_remote',args,{'remote_hosts':{'dell':profile}})
+  profile['allow_admin']=False;args['project']='mission23'
+  with self.assertRaises(PermissionError):bridge.execute('host_remote',args,{'remote_hosts':{'dell':profile}})

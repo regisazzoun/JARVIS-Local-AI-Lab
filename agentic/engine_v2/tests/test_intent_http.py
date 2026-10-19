@@ -11,7 +11,7 @@ class Controller:
  def resume(self,ident):self.resumes.append(ident);return {'id':ident,'state':'queued'}
 class HttpIntent(unittest.TestCase):
  def test_question_resume_and_memory_routing(self):
-  control=Controller();core=SimpleNamespace(config={},missions=control,memory=SimpleNamespace())
+  control=Controller();core=SimpleNamespace(config={},missions=control,memory=SimpleNamespace(conversation=lambda project: "conversation",exchange=lambda *args: None))
   core.config.update(max_audio_bytes=100000,max_text_chars=100000)
   server=ThreadingHTTPServer(('127.0.0.1',0),make_handler(core));thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
   def post(goal):

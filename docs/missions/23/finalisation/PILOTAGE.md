@@ -16,3 +16,5 @@ Les reçus intégraux et instructions horodatées sont dans mission_events et le
 Contrôle Codex supplémentaire : depuis le Dell1, dans project_exec confiné, HTTP sur le Tailscale du Mac mini actuel retourne `OK` (reçu broker a8a24c01f9694c60931ef988fa2f7ba8). Le refus historique vers l'ancien Mac ne justifie donc pas une modification aveugle de pare-feu. Le transport audio distant reste à démontrer par JARVIS.
 
 Correction de contexte : les directives récentes du coordinateur sont épinglées dans la vue durable, afin qu'une compression n'en conserve pas seulement les anciennes conclusions du modèle. Les preuves canoniques restent intactes.
+
+JARVIS a révisé le README et l'addendum après refus ; il reconnaît désormais l'absence de WAV dans le script historique et le caractère partiel du prototype. Une nouvelle correction ciblée a été demandée sur le pare-feu (HTTP actuel réussi par Codex), le flux LLM4491 (réel, pas seulement construction) et le job qui échoue sans arrêter le worker. Réception sémantique finale encore en cours.

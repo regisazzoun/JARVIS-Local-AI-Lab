@@ -21,7 +21,15 @@ def arguments_match(actual, expected):
     def normalized(key,value):
         if key=='command' and isinstance(value,str):return re.sub(r'\s+2>&1\s*$','',value).strip()
         return value
-    return all(normalized(k,actual.get(k))==normalized(k,v) for k,v in expected.items())
+    def matches(key,value):
+        if key=='files':
+            try:
+                wanted=json.loads(value) if isinstance(value,str) else value
+                supplied=actual.get(key,[]);supplied=json.loads(supplied) if isinstance(supplied,str) else supplied
+                return isinstance(wanted,list) and isinstance(supplied,list) and set(wanted)<=set(supplied)
+            except (ValueError,TypeError):return False
+        return normalized(key,actual.get(key))==normalized(key,value)
+    return all(matches(k,v) for k,v in expected.items())
 
 
 class MissionStore:

@@ -28,4 +28,10 @@ Les appels t12 passaient un fichier dans path alors que le broker ajoutait file.
 
 ## Vérification
 
-Tests automatisés : questions/exécution, restrictions de branches/chemins/secrets, snapshot inchangé sans doublon et conflit sans force push ; suite complète à58 tests réussis au premier déploiement. Les reçus réels JARVIS sont conservés dans la mission originale, distincts des vérifications Codex.
+Tests automatisés : questions/exécution, restrictions de branches/chemins/secrets, snapshot inchangé sans doublon et conflit sans force push ; suite complète à61 tests réussis après extension et contrôles de routage. Les reçus réels JARVIS sont conservés dans la mission originale, distincts des vérifications Codex.
+
+## Client distant de réception
+
+Le besoin de tester réellement depuis Dell1 a révélé l'absence d'exécution de client de projet dans host_remote. `project_exec(host="dell-observe", project="mission23", command=...)` est ajouté sous la politique administrative existante et le contrôle d'identité déjà installé. Le programme s'exécute comme l'utilisateur permanent dans Bubblewrap, avec seul le dossier `/home/adminjarvis/jarvis-projects/mission23` modifiable et un /tmp éphémère. Réseau Dell/Tailscale réel, /usr en lecture seule, clésSSH et bus système absents, aucun sudo applicatif. Les sondes système restent les opérations structurées existantes.
+
+Une absence effective de Bubblewrap a été corrigée par Codex dans l'environnement Dell1. Ce déploiement n'est pas un test JARVIS ; son retest reste exigé. `configure_permissions23.py` reproduit uniquement ces ajouts sur le profil Dell1 déjà validé, sans inventer de cible ni fournir de credentials au modèle.
