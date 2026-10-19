@@ -1,22 +1,24 @@
 # Roadmap
 
-## Nouveau cycle prioritaire — missions 23 à 31 (19 octobre 2026)
+## Nouveau cycle prioritaire — missions 23 à 31 (ordre révisé le 19 octobre 2026)
 
-**Ordre arrêté : 23 — LiveKit, puis 24 — JL-03.** Les missions 25 à 31 sont ensuite organisées selon les dépendances. Toutes sont **planifiées et non exécutées**. Le détail, les objectifs, critères de réception et références figurent dans [Cycle 23–31](docs/missions/CYCLE-23-31.md).
+**Décision du propriétaire :** 23 LiveKit → 24 mémoire → 25 MCP/skills → 26 moteur → 27 JL-03 → 28 routage → 29 satellites → 30 proactivité → 31 réception. Ces missions restent **planifiées, non exécutées**.
+
+**Correspondance ancien numéro → nouveau numéro :** 23→23 (LiveKit), 28→24 (mémoire), 26→25 (skills), 25→26 (moteur), 24→27 (JL-03), 27→28 (routage), 29→29, 30→30, 31→31. Les autres missions et les noms de produits JL-01/JL-02/JL-03 sont inchangés.
 
 | Priorité | Mission | Livrable principal |
 | --- | --- | --- |
-| 1 | **23 — LiveKit voix temps réel** | Prototype vocal WebRTC local, interruptions, mesures et rollback |
-| 2 | **24 — JL-03** | Cockpit texte/voix et suivi de tâches intégré, sans remplacer JL-02 avant réception |
-| 3 | **25 — Mission Engine** | Checkpoints, vérificateurs, reprise fiable |
-| 4 | **26 — MCP / Skill Lab** | Registre d'outils et compétences testables |
-| 5 | **27 — Routage multi-modèles** | Mesures, routage et repli Mac mini/Dell |
-| 6 | **28 — Mémoire enrichie** | Ingestion documentaire et recherche avec provenance |
-| 7 | **29 — Satellites vocaux** | Clients voix multi-appareils et reconnectivité |
-| 8 | **30 — Proactivité** | Tâches récurrentes pilotables et auditables |
-| 9 | **31 — Réception transversale** | Démonstration voix → action → preuve → mémoire → JL-03 |
+| 1 | **23 — LiveKit voix temps réel** | Prototype WebRTC, test initial de développement autonome |
+| 2 | **24 — Mémoire enrichie** | Ingestion documentaire et décisions du laboratoire avec provenance |
+| 3 | **25 — MCP / Skill Lab** | Registre, développement et tests de compétences |
+| 4 | **26 — Mission Engine** | Plans, corrections, vérifications, checkpoints et reprise |
+| 5 | **27 — JL-03** | Cockpit texte/voix et test d'autonomie de développement après enrichissement |
+| 6 | **28 — Routage multi-modèles** | Routage et repli Mac mini / Dell n°1 |
+| 7 | **29 — Satellites vocaux** | Clients distants et reconnexions |
+| 8 | **30 — Proactivité** | Déclencheurs, tâches périodiques et historique vérifiable |
+| 9 | **31 — Réception transversale** | Scénario voix → action → preuve → mémoire → JL-03 |
 
-**Concordance :** cette section complète la roadmap, mais n'altère pas rétroactivement les 68 identifiants et états du registre de mission 00 / SUIVI.md ; leur synchronisation devra suivre la procédure du dépôt. Les chantiers historiques 14, 15A/15B, 20/21 et JL-02 ne sont pas déclarés terminés ni renumérotés.
+**Cahier détaillé :** [Cycle 23–31](docs/missions/CYCLE-23-31.md). Révision documentaire uniquement ; aucune installation du second Dell, aucun nouveau service ni fusion automatique.
 
 
 ## Pilotage courant consolidé — mission 00, point du 17 octobre 2026

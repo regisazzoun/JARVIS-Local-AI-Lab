@@ -12,6 +12,18 @@
 - Lorsqu'une directive récente remplace une consigne historique, la nouvelle décision prévaut dans son périmètre. Les textes historiques restent des traces, pas des ordres concurrents.
 - Ne pas relancer une mission, campagne VM ou suite de diagnostics déjà validée pour satisfaire une préférence de prudence de l'assistant.
 
+## Convention permanente de présentation des statuts — décision du propriétaire du 19 octobre 2026
+
+Dans les tableaux de pilotage (README, SUIVI, interfaces de suivi dont JL-02), utiliser les pictogrammes suivants, sans modifier le résultat technique documenté :
+
+- **✅ GO / réalisée / validée** : objectif de la mission ou de l'étape atteint et vérifié dans son périmètre.
+- **✅🟡 GO partiel / GO avec réserves / résultat réalisé avec réserves non bloquantes** : acquis réellement démontré et exploitable, mais périmètre restant ou réserve explicite. Conserver le texte historique « GO PARTIEL », « GO AVEC RÉSERVES » et les limites dans les colonnes explicatives.
+- **🟡 En cours / incomplet / preuve insuffisante** : objectif global non encore atteint, ou résultat seulement préparé, non testé, incertain ; ne pas lui attribuer une coche de réussite.
+- **📋 Planifiée** : pas encore exécutée.
+- **❌ NO-GO / échec** : l'objectif testé a effectivement échoué ; conserver les faits et les limites.
+
+Une étude ou un diagnostic effectivement terminé peut porter ✅ si son objectif se limitait à l'étude ou au diagnostic, même si la technologie étudiée reçoit un NO-GO : préciser cette distinction. **Ne pas qualifier de ✅🟡 un échec avéré, une installation non testée, une preuve absente, ni une mission simplement en cours.** Les rapports historiques et les preuves restent inchangés. Cette convention de présentation s'applique également aux futurs rapports, missions et tableaux ; elle ne déclenche pas de nouveaux tests ou validations.
+
 ## 2. Contexte de risque assumé
 
 - Le projet s'exécute dans un **laboratoire expérimental sur un réseau local privé et considéré isolé par le propriétaire**, avec du matériel dédié aux essais. L'utilisateur accepte explicitement que les machines cibles et leurs partitions puissent être réinstallées ou effacées dans le cadre du déploiement convenu ; pas d'exigence de continuité de production.
@@ -97,3 +109,7 @@ Réception documentaire 00 : GO avec réserves. Les productions du modèle sont 
 ## Publication documentaire dans main — autorisation du 18 octobre 2026
 
 Le propriétaire demande explicitement : « Alors fusionne je veux quelque chose de coherent », avec README réécrit et SUIVI à jour. La fusion des livrables documentaires 00 et du correctif de concordance est maintenant autorisée, y compris leur intégration dans main. Cette décision remplace les consignes antérieures de non-fusion pour cette publication précise. La PR6 documentaire peut être fusionnée dans sa branche de base ; une intégration documentaire dédiée publie le résultat dans main sans importer les changements de déploiement de la PR5. Aucun déploiement matériel ou changement des services n’est déclenché. Les règles de fusion des autres missions ne sont pas étendues implicitement.
+
+### Règle de consolidation des réserves historiques — décision du propriétaire du 19 octobre 2026
+
+Lorsqu'une mission postérieure démontre par un rapport et des preuves le critère resté ouvert d'une mission antérieure, afficher dans le tableau de pilotage **✅ GO — Réserves historiques levées par mission XX**, avec référence explicite aux missions ultérieures. Le rapport d'origine, son statut à sa date et les éventuelles limites hors critères couverts restent inchangés. Ne jamais inventer de test rétroactif, ni étendre une preuve à un autre matériel ou à un autre objectif. Si une réserve essentielle reste réellement ouverte, conserver **✅🟡** ou **🟡**, suivant les faits.
