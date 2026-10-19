@@ -12,6 +12,10 @@ Le projet avance sur du matériel réel, avec des essais, des corrections et des
 
 **[📋 Suivi des missions](SUIVI.md)** · **[🧭 Feuille de route](ROADMAP.md)** · **[📚 Rapports et preuves](docs/missions/README.md)** · **[🚀 Launcher V2](https://regisazzoun.github.io/JARVIS-Launcher2/)**
 
+## 🚀 Nouveau cycle prioritaire — 23 à 31 (19 octobre 2026)
+
+**D'abord 23 — LiveKit**, ensuite **24 — JL-03**, puis missions **25–31** : moteur de missions résilient, MCP/Skill Lab, modèles distribués, mémoire enrichie, satellites vocaux, proactivité et réception de bout en bout. Ces neuf missions sont **planifiées, non exécutées**. [Cahier détaillé](docs/missions/CYCLE-23-31.md) · [Roadmap](ROADMAP.md) · [Suivi](SUIVI.md).
+
 ## 🎯 Ce que nous construisons
 
 ### 💬 Converser avec plusieurs modèles
@@ -58,15 +62,15 @@ L’intégration distante existe. Le placement automatique des modèles, l’éq
 
 ## 📊 Toutes les missions, avec le même comptage que SUIVI
 
-Le registre et le suivi comptent **68 identifiants**, dont **10 incréments natifs prévus, non exécutés**. Les regroupements et activités transversales ne créent pas de missions supplémentaires. Le catalogue ci-dessous reprend exactement les intitulés et états du tableau courant de SUIVI.
+Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi courant en compte **77**, avec neuf missions supplémentaires planifiées le 19 octobre, dont **10 incréments natifs prévus, non exécutés**. Les regroupements et activités transversales ne créent pas de missions supplémentaires. Le catalogue ci-dessous reprend exactement les intitulés et états du tableau courant de SUIVI.
 
 <details>
-<summary><strong>📋 Consulter les 68 missions et sous-missions</strong></summary>
+<summary><strong>📋 Consulter les 77 missions et sous-missions</strong></summary>
 
 <!-- BEGIN MISSION CATALOGUE -->
-## Catalogue des missions — 68 identifiants
+## Catalogue des missions — 77 identifiants
 
-**68 missions et sous-missions recensées**, dont dix incréments 15A/15B prévus, non exécutés. Cette liste reprend exactement les identifiants, intitulés et états du tableau courant de [SUIVI.md](SUIVI.md). Les lignes « 09 à 11 » (regroupement historique) et « Documentation » (activité transversale) ne sont pas des missions supplémentaires et ne sont pas comptées.
+**77 missions et sous-missions recensées**, dont dix incréments 15A/15B prévus, non exécutés. Cette liste reprend exactement les identifiants, intitulés et états du tableau courant de [SUIVI.md](SUIVI.md). Les lignes « 09 à 11 » (regroupement historique) et « Documentation » (activité transversale) ne sont pas des missions supplémentaires et ne sont pas comptées.
 
 | Mission | Objet / étapes | État |
 | --- | --- | --- |
@@ -138,8 +142,17 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **15B.5** | iOS — Installation gratuite et réception | 📋 Prévue, non exécutée |
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES |
+| **23** | LiveKit — voix temps réel | 📋 Planifiée, non exécutée |
+| **24** | JL-03 — cockpit unifié | 📋 Planifiée, non exécutée |
+| **25** | Mission Engine résilient | 📋 Planifiée, non exécutée |
+| **26** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée |
+| **27** | Routage multi-modèles et calcul distribué | 📋 Planifiée, non exécutée |
+| **28** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée |
+| **29** | Satellites vocaux et clients distants | 📋 Planifiée, non exécutée |
+| **30** | Proactivité et planification | 📋 Planifiée, non exécutée |
+| **31** | Réception transversale | 📋 Planifiée, non exécutée |
 
-Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
+Catalogue mis à jour pour refléter les 9 missions nouvelles (19/10) ; vérifier la concordance par le script existant avant toute synchronisation automatique. Historique 00 = 68 au 18/10. Commande : `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->
 
 </details>
