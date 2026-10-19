@@ -1,5 +1,10 @@
 # Index courant des missions JARVIS
 
+## Cycle 23–31 — planifié le 19 octobre 2026
+
+[Documentation détaillée des neuf missions](CYCLE-23-31.md) · [ROADMAP](../../ROADMAP.md) · [SUIVI](../../SUIVI.md). **Ordre : 23 LiveKit → 24 JL-03**, puis 25 Mission Engine, 26 MCP/Skill Lab, 27 routage multi-modèles, 28 mémoire, 29 satellites audio, 30 proactivité, 31 réception. Toutes sont planifiées, non exécutées ; aucun déploiement réalisé.
+
+
 Point du 17 octobre 2026, mission 00. [Registre exhaustif](00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) · [Inventaire GitHub](00-Mission-Pilotage-point-26-10-17/INVENTAIRE-GITHUB.md) · [Sources](00-Mission-Pilotage-point-26-10-17/INDEX-SOURCES.md) · [Bilan agentique](00-Mission-Pilotage-point-26-10-17/BILAN-AGENTIQUE-JARVIS.md).
 
 - [Dell n°1 / 13D-E](13D-E/RECEPTION-MISSION14.md) : réception du 17 octobre. Le titre historique « 14 » ne clôture pas le Dell n°2.
