@@ -10,7 +10,10 @@
 
 ## Nouvelles missions du 19 octobre 2026
 
-Priorité arrêtée : **23 LiveKit**, puis **24 JL-03**, puis 25 à 31 selon dépendances. Les neuf missions sont **planifiées, non exécutées** ; voir [cahier détaillé](docs/missions/CYCLE-23-31.md) et [roadmap](ROADMAP.md). Le bilan 00 du 17 octobre conserve son comptage historique de 68 identifiants.
+**Correspondance ancien numéro → nouveau numéro :** 23→23 (LiveKit), 28→24 (mémoire), 26→25 (skills), 25→26 (moteur), 24→27 (JL-03), 27→28 (routage), 29→29, 30→30, 31→31. Les autres missions et les noms de produits JL-01/JL-02/JL-03 sont inchangés.
+
+
+Ordre révisé par le propriétaire : **23 LiveKit → 24 mémoire → 25 MCP/skills → 26 Mission Engine → 27 JL-03 → 28 routage → 29 satellites → 30 proactivité → 31 réception**. Les neuf missions sont **planifiées, non exécutées** ; voir [cahier détaillé](docs/missions/CYCLE-23-31.md) et [roadmap](ROADMAP.md). Le bilan 00 du 17 octobre conserve son comptage historique de 68 identifiants.
 
 ## Vue d'ensemble — toutes les missions
 
@@ -47,11 +50,11 @@ Priorité arrêtée : **23 LiveKit**, puis **24 JL-03**, puis 25 à 31 selon dé
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés | Mac mini fonctionnel confirmé le 14/10 ; MacBook : compagnon local, connexion SSH, reprise tmux et trois actions du site GitHub Pages déclarées fonctionnelles par l'utilisateur le 15/10. Autres commandes et sécurité complète non toutes réceptionnées | Garder les tests acquis ; documenter uniquement les actions restantes sans retester inutilement |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES | SiteV2publié ; Qwenoutilsréels,voix synthétique,métriques etévénements testés ; espaceconnecté confirmé propriétaire | Suivre réserves nativesetfiabilitéagentique ; préserver V1 |
 | **23** | LiveKit — voix temps réel | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Démarrer l'audit LiveKit isolé |
-| **24** | JL-03 — cockpit unifié | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après API LiveKit stable |
-| **25** | Mission Engine résilient | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
-| **26** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
-| **27** | Routage multi-modèles et calcul distribué | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
-| **28** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **24** | Mémoire enrichie et ingestion documentaire | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **25** | MCP, registre de capacités et Skill Lab | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **26** | Mission Engine résilient | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
+| **27** | JL-03 — cockpit unifié | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après API LiveKit stable |
+| **28** | Routage multi-modèles et calcul distribué | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
 | **29** | Satellites vocaux et clients distants | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
 | **30** | Proactivité et planification | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
 | **31** | Réception transversale | 📋 Planifiée, non exécutée | Nouvelle mission définie le 19/10/2026, sans test d'exécution ; [cahier](docs/missions/CYCLE-23-31.md) | Après réception des dépendances prévues |
@@ -249,4 +252,4 @@ PR6 fusionnée dans sa branche de base ; [PR7](https://github.com/regisazzoun/JA
 
 ### Ajout documentaire du 19 octobre 2026 — missions 23 à 31
 
-Neuf identifiants ajoutés au suivi courant (77 au total). Ordre LiveKit → JL-03 confirmé. Aucun service déployé, aucun résultat d'essai ni réception déduit de cet ajout. Les chiffres du bilan mission 00 demeurent des instantanés historiques.
+Neuf identifiants ajoutés au suivi courant (77 au total). Ordre révisé : LiveKit → mémoire → skills → moteur → JL-03 → routage → satellites → proactivité → réception. Aucun service déployé, aucun résultat d'essai ni réception déduit de cet ajout. Les chiffres du bilan mission 00 demeurent des instantanés historiques.
