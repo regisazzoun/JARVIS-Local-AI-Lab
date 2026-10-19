@@ -1,0 +1,1020 @@
+{
+  "id": "7971ec0311124fb4be9e3125dcb291fd",
+  "state": "running",
+  "attempts": 36,
+  "tasks": [
+    {
+      "id": "t01_analyse_docs",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t01_analyse_docs_rapport.md",
+      "report_sha256": "ea2410c369b3aea22e290e51501f51bc759788b97c12e7464750e79882ee446b"
+    },
+    {
+      "id": "t02_etat_labo",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t02_etat_labo_rapport.md",
+      "report_sha256": "d45bfdd2cd711404a119ac8897e07e8b8e5303c10ae45c728e4cc314a195b357"
+    },
+    {
+      "id": "t03_conception_livekit",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t03_conception_livekit_rapport.md",
+      "report_sha256": "ec0e2b5f5ad6ac38fd86d6b5d876bf8b9cc81babba2458a59269bbdc7b9fb228"
+    },
+    {
+      "id": "t04_install_livekit_server",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t04_install_livekit_server_rapport.md",
+      "report_sha256": "e8cc6c6918f7229a2e003bf8240f4aa0f3a247eec1501f67a8b014d3fc98bd35"
+    },
+    {
+      "id": "t05_dev_agent_python",
+      "state": "running",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t06_dev_client_web",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t07_integration_services",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t08_tests_fonctionnels",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t09_mesures_latence",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t10_correction_erreurs",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t11_test_tailscale",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t12_code_github",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t13_rapport_final",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    }
+  ],
+  "tool_intents": 541,
+  "tool_returns": 541,
+  "tool_results": [
+    {
+      "tool": "host_github",
+      "ok": true,
+      "count": 14
+    },
+    {
+      "tool": "mission_plan",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "host_github",
+      "ok": false,
+      "count": 22
+    },
+    {
+      "tool": "host_policy",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "tool": "jarvis_services",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "tool": "hardware_inventory",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "tool": "host_write_file",
+      "ok": true,
+      "count": 53
+    },
+    {
+      "tool": "mission_task_complete",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "tool": "host_remote",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "tool": "host_read_file",
+      "ok": true,
+      "count": 81
+    },
+    {
+      "tool": "host_diagnostics",
+      "ok": false,
+      "count": 1
+    },
+    {
+      "tool": "software_versions",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "tool": "system_status",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "tool": "mission_read_batch",
+      "ok": false,
+      "count": 11
+    },
+    {
+      "tool": "web_search",
+      "ok": true,
+      "count": 34
+    },
+    {
+      "tool": "host_exec",
+      "ok": true,
+      "count": 183
+    },
+    {
+      "tool": "host_resources",
+      "ok": true,
+      "count": 3
+    },
+    {
+      "tool": "active_memories",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "disk_usage",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "mission_read_batch",
+      "ok": true,
+      "count": 8
+    },
+    {
+      "tool": "host_logs",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "tool": "web_fetch",
+      "ok": false,
+      "count": 17
+    },
+    {
+      "tool": "service_logs",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "tool": "web_fetch",
+      "ok": true,
+      "count": 19
+    },
+    {
+      "tool": "host_exec",
+      "ok": false,
+      "count": 51
+    },
+    {
+      "tool": "mission_evidence",
+      "ok": true,
+      "count": 4
+    },
+    {
+      "tool": "read_configuration",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "mission_note",
+      "ok": true,
+      "count": 2
+    },
+    {
+      "tool": "capability_request",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "host_service",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "mission_evidence",
+      "ok": false,
+      "count": 1
+    },
+    {
+      "tool": "host_read_batch",
+      "ok": false,
+      "count": 1
+    },
+    {
+      "tool": "host_diagnostics",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "host_package",
+      "ok": false,
+      "count": 2
+    },
+    {
+      "tool": "capability_status",
+      "ok": true,
+      "count": 1
+    },
+    {
+      "tool": "host_service",
+      "ok": false,
+      "count": 2
+    }
+  ],
+  "identical_argument_repeats": 112,
+  "inference": {
+    "samples": 394,
+    "done_reasons": {
+      "stop": 394
+    },
+    "prompt_max": 26517,
+    "generation_max": 4479,
+    "mean_request_s": 13.51,
+    "max_request_s": 133.06262842996512,
+    "route_failures": 0
+  },
+  "significant_errors": [
+    {
+      "invocation": "70935c0748c644e69f6dcccd29cb1dbc",
+      "task": null,
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "4a0fa4e0e27247b5a1fe0246616b8d72"
+    },
+    {
+      "invocation": "5fe2d1729bab4cf9a3aaa62234d9828d",
+      "task": null,
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "fb42448483c14bce8e3cf4ad81fc2142"
+    },
+    {
+      "invocation": "fc0d91cc6aa44371a33f2ac57519f3d1",
+      "task": null,
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "a0e532d9b668469ca74808e9efcdaada"
+    },
+    {
+      "invocation": "58d0bb0094c74d2a89fde0834b212633",
+      "task": null,
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "aac53c4a88ae46bbb9d90335e7907c15"
+    },
+    {
+      "invocation": "7d8fa15dc74a40bdb4f33f52b149b86a",
+      "task": null,
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "3063bd3b549e4c81bb06b12d4133d904"
+    },
+    {
+      "invocation": "ed1e3a841222445481490111b6ade845",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: No commit found for the ref codex/mission13f-20261014-a0ed2a (HTTP 404)\n",
+      "broker_evidence": "6175c980c9804ae9bee41b89c91507fe"
+    },
+    {
+      "invocation": "9e9bc986b6764f5cb568514089bdb4a2",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "731b6839db434332b16804633aab9251"
+    },
+    {
+      "invocation": "9c0b029bd872427cbc246cec9ad169de",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "f669cebd810b42e594097ceb5cdd057b"
+    },
+    {
+      "invocation": "0e4630e0382643dc90fdb325fc94e628",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "5030e5c1ac2f4535baa056ddef8e9ccd"
+    },
+    {
+      "invocation": "b1b7d80ae91d481b8afc270d50a08803",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "adbc47ec8ea9409883ca302968bd0a38"
+    },
+    {
+      "invocation": "4ae57043a81c47fdad6c96c8229041d4",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "fa68ec92516b46d4957f738dc9e385e2"
+    },
+    {
+      "invocation": "1a23c65b768f41f0beeb0d6d93da830b",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "7c39cf40a06646e4b4633b3b282cac06"
+    },
+    {
+      "invocation": "ec9e824b3ead4fd8bfb5ccf772e35203",
+      "task": "t01_analyse_docs",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "gh: Not Found (HTTP 404)\n",
+      "broker_evidence": "99b441b948084002bef57070534b3ffc"
+    },
+    {
+      "invocation": "5d81713ba5f44d0b83982a3b971729a4",
+      "task": "t02_etat_labo",
+      "tool": "host_diagnostics",
+      "operation": "storage_state",
+      "error": "cat: /proc/mdstat: No such file or directory\n",
+      "broker_evidence": "34e8462370b543eea257206e4b1ef8c6"
+    },
+    {
+      "invocation": "70773bdb4f95442ea3fcbff58afd7969",
+      "task": "t02_etat_labo",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "09d51c9e07c94e55bcb58c9d182eceef",
+      "task": "t02_etat_labo",
+      "tool": "mission_read_batch",
+      "operation": null,
+      "error": "Expecting property name enclosed in double quotes: line 1 column 194 (char 193)",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "3803c58c19ef4b79a41bb0e80d61d191",
+      "task": "t03_conception_livekit",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "fe5c05ac64bc4756ad7e25f012dd2acc",
+      "task": "t04_install_livekit_server",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "jq: error (at <stdin>:271): Cannot index string with string \"name\"\n",
+      "broker_evidence": "3e0abd48c918477c8199975d301dde5e"
+    },
+    {
+      "invocation": "0ba52250a94f475cb5b64e074196ab37",
+      "task": "t04_install_livekit_server",
+      "tool": "host_github",
+      "operation": "inspect",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "d34f3c9618f74438b61dc12421780a7f"
+    },
+    {
+      "invocation": "5a0a638d6b5a497e983c84894c9d5b0f",
+      "task": "t04_install_livekit_server",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 301: Moved Permanently",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "f4a347c3d34d4be0be68fd78e4557770",
+      "task": "t04_install_livekit_server",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 404: Not Found",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "75278acfc52a42bb82e09c0981fc5ee8",
+      "task": "t04_install_livekit_server",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "433f8c95716d4fe3ba58dcf652fcc330",
+      "task": "t04_install_livekit_server",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 302: Found",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "8532fef2231b46de9ed98c3eec575f38",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: USER",
+      "broker_evidence": "51c5978db04243a3b922566a20d261ea"
+    },
+    {
+      "invocation": "9770f1672fe54e5eb1885b1e3c015034",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "pydantic_core._pydantic_core.ValidationError: 1 validation error for ChatMessage",
+      "broker_evidence": "97cd6a4d071441e6b7bf385c3595b3d0"
+    },
+    {
+      "invocation": "031360465dd442b092991687645a79ce",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: ChatContext.__init__() got an unexpected keyword argument 'messages'",
+      "broker_evidence": "a2dae665f40245a7a016440abdac6a6a"
+    },
+    {
+      "invocation": "35bd88b3c22f49aaa9a7ed4fdc9d7bb4",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "httpx.HTTPStatusError: Client error '404 Not Found' for url 'http://localhost:11434/api/chat'",
+      "broker_evidence": "ea442c7f1d3147b1a5a3eb64f5d464d2"
+    },
+    {
+      "invocation": "01c3cc4c572a4ffda8f23f226f6ae027",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "d1af16e3048f40d68ffb9e400db78bf7"
+    },
+    {
+      "invocation": "efc3d4fdd48944b1be17285d667790c0",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'ttsevents' from 'livekit.agents' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/__init__.py)",
+      "broker_evidence": "1ed5affc9331480b827dc95563e90ee7"
+    },
+    {
+      "invocation": "33c3c1f4ce92495298f5accb2066e0f4",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'AudioBuffer' from 'livekit.rtc' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/rtc/__init__.py)",
+      "broker_evidence": "64996cb8232e418e9c4d0e0b7c29e1aa"
+    },
+    {
+      "invocation": "cb12b19870fe44cc82fdbaeb1869db7e",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'ApiConnectOptions' from 'livekit.agents' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/__init__.py)",
+      "broker_evidence": "9da4c154819d4fa3b007f0b0a0fdaa72"
+    },
+    {
+      "invocation": "a66e0e2539df49cf949dd15e3a2dfc42",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "fc5717e675d24d51a68ff4a406ec3931"
+    },
+    {
+      "invocation": "bad7de0fe3b24d4a853151f0122ad050",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 404: Not Found",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "2ac80b84de2742b1809b0962b3ed8994",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "W: Unable to read /etc/apt/apt.conf.d/ - DirectoryExists (2: No such file or directory)\nW: Unable to read /etc/apt/sources.list.d/ - DirectoryExists (2: No such file or directory)\nW: Unable to read /etc/apt/sources.list - RealFileExists (2: No such file or directory)\nE: List directory /var/lib/apt/lists/partial is missing. - Acquire (2: No such file or directory)\n",
+      "broker_evidence": "398d84dff1ef44128076297e280aad05"
+    },
+    {
+      "invocation": "7c7bae392bf24ec0a3d6fe2b7524c09f",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "/bin/bash: -c: line 1: unexpected EOF while looking for matching `''\n",
+      "broker_evidence": "3fcb5d0a921d462d8881830623b565a7"
+    },
+    {
+      "invocation": "79bdd8b9273e44968f8bc493428a36eb",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "SyntaxError: invalid syntax",
+      "broker_evidence": "b4dbcbd0556a432ea6972d334ea58ccb"
+    },
+    {
+      "invocation": "a5d3013cb17441059a3169634b944c0c",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "daf5cbce8f0340a289502bdd9047e8f2"
+    },
+    {
+      "invocation": "d61f7f81f8f2440a8ff521bff7c4e5df",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "b9a2185f42d642d7a0c466cad02b6674",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "99ad5155a5934ce9bb19d1fa114eecd2",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "af81a1aab9644f24a267603697da7919"
+    },
+    {
+      "invocation": "1fa53de77b6943928f040e438b199a20",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "SyntaxError: invalid syntax",
+      "broker_evidence": "366404097054446798ca536d32c56583"
+    },
+    {
+      "invocation": "05247e8054714c318db72e7bb5f09ae7",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "a1f315e8db88488ca669067c37f2edee",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'AudioBuffer' from 'livekit.agents.stt' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/stt/__init__.py)",
+      "broker_evidence": "4af19165a875447ebe85908dd60296fb"
+    },
+    {
+      "invocation": "74d11a24ef9e4434bdd60e22f7e04e62",
+      "task": "t05_dev_agent_python",
+      "tool": "mission_evidence",
+      "operation": null,
+      "error": "Preuve absente de cette mission",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "f6894f58f7374099b1c5c49733c5191c",
+      "task": "t05_dev_agent_python",
+      "tool": "host_read_batch",
+      "operation": null,
+      "error": "Outil inconnu ou non autorisé",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "7cabd2d39f1a446db4423e5ce131feb3",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: module 'livekit.agents.cli' has no attribute 'WorkerOptions'",
+      "broker_evidence": "01a1943fd29143359f9fb1ea537cb678"
+    },
+    {
+      "invocation": "83be17e0f0514c3da41caa9cbfd3d68a",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'LLMInputItem' from 'livekit.agents.llm' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/llm/__init__.py)",
+      "broker_evidence": "5981fac9e1c449de924ef50bb38a4ea1"
+    },
+    {
+      "invocation": "1d068ef972244f47a8bde10d0c6f4825",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "97d6e17951144d67bd631a754e3f5238",
+      "task": "t05_dev_agent_python",
+      "tool": "mission_read_batch",
+      "operation": null,
+      "error": "Expecting property name enclosed in double quotes: line 1 column 1227 (char 1226)",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "60650fc615794750868c27ee60cd75ba",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'StreamingSTT' from 'livekit.agents.stt' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/stt/__init__.py)",
+      "broker_evidence": "9ffa52e17b08496fbdd375182e062165"
+    },
+    {
+      "invocation": "098152778346448db8425b2800f6e23e",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: Can't instantiate abstract class WhisperLocalAdapter without an implementation for abstract method '_recognize_impl'",
+      "broker_evidence": "c33df6cf518c4c73ab2dbc1639e88629"
+    },
+    {
+      "invocation": "4ef8a07733c24f7881f2558a8c3e95bf",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: module 'livekit.agents.stt' has no attribute 'NOT_GIVEN'",
+      "broker_evidence": "f6223071d07740508f320ccddf4e4871"
+    },
+    {
+      "invocation": "61f97fa65aef4013935c7b110a7f1030",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "SyntaxError: invalid decimal literal",
+      "broker_evidence": "3c2fda25613e46148af78e78fae15faa"
+    },
+    {
+      "invocation": "ab7e35d73c7c48c8ba47bc18921229e7",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "NameError: name 'WHISPER_AVAILABLE' is not defined. Did you mean: 'FASTER_WHISPER_AVAILABLE'?",
+      "broker_evidence": "2884f87bf3ec416a94d203f96aa06043"
+    },
+    {
+      "invocation": "5db357ae57fb40e986b49a5ff2932595",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: STTCapabilities.__init__() got an unexpected keyword argument 'interleaved'",
+      "broker_evidence": "d5a02683df404cbca387d2123ae19df5"
+    },
+    {
+      "invocation": "124bfeb312384f7da183f7290b0576c9",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "/bin/bash: line 1: pip3: command not found",
+      "broker_evidence": "22ce3b0d71aa44fba49fb0f960a84d3c"
+    },
+    {
+      "invocation": "763fe1820e4a4de297ca7049d67939b9",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "b893af0a57aa4980994db86b3421b022",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: 'AgentServer' object has no attribute '_proc_pool'",
+      "broker_evidence": "c1ea6ba5204a472c915fef3fe1ef9a8e"
+    },
+    {
+      "invocation": "bcaec574f48b4b81b78d64996783c149",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ModuleNotFoundError: No module named 'httpx'",
+      "broker_evidence": "073b1ccb2be94669b1a2004e2159a915"
+    },
+    {
+      "invocation": "20124fcb5b9b45e9953b4ee2889a204c",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ModuleNotFoundError: No module named 'livekit.agent'",
+      "broker_evidence": "123942b5822d4eb592d35c48908c5977"
+    },
+    {
+      "invocation": "7db9565df06349eebb32954c53dab915",
+      "task": "t05_dev_agent_python",
+      "tool": "host_package",
+      "operation": "status",
+      "error": "Paquet absent de la politique propriétaire",
+      "broker_evidence": "2b15784f91864500b420c3d84a5c2c99"
+    },
+    {
+      "invocation": "dda8fe9bf816462c8c2121dd99b81c43",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'TextContent' from 'livekit.agents.llm' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/llm/__init__.py)",
+      "broker_evidence": "99446140342447d4bfe7a41a6aedbae3"
+    },
+    {
+      "invocation": "cbd96edddf6e498eaf10a861018cbc78",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "SyntaxError: cannot assign to False",
+      "broker_evidence": "20c59eb9edd24ee8b5ed96b60bcd344a"
+    },
+    {
+      "invocation": "c55c3239d3b544deb0c47c50a8f40235",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "9a5e300a46a34621b7cf33f42a93b4c4"
+    },
+    {
+      "invocation": "f2e101d36567401c8a2eac0d4a8b0160",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: typing.Literal['developer', 'system', 'user', 'assistant'] is not a generic class",
+      "broker_evidence": "af0a3937fcd042f186342d3d8aa514fa"
+    },
+    {
+      "invocation": "8c953c8a34c645dc9f63ce91fc8144f8",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: SpeechEvent.__init__() got an unexpected keyword argument 'text'",
+      "broker_evidence": "23611175bcd44034abd4aa40909fa599"
+    },
+    {
+      "invocation": "b773e110255e42b4b78c0cc066587e22",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "b821ca48650d49e2961c2171306cf64e",
+      "task": "t05_dev_agent_python",
+      "tool": "mission_read_batch",
+      "operation": null,
+      "error": "Expecting ',' delimiter: line 1 column 420 (char 419)",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "05ca5f43831744a599bff56333b0bf7a",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "1b57c82076824763971056191da415db"
+    },
+    {
+      "invocation": "616ffa81824b4273b76737f85c175580",
+      "task": "t05_dev_agent_python",
+      "tool": "mission_read_batch",
+      "operation": null,
+      "error": "Expecting property name enclosed in double quotes: line 1 column 280 (char 279)",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "270a6d11d67246e5b7b0d4d7469debee",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'NotGiven' from 'pydantic' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/pydantic/__init__.py)",
+      "broker_evidence": "b92676a0a526421cbdbc9073d84c8bed"
+    },
+    {
+      "invocation": "0e3ccf94529242e988da9bdaa58f22fc",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 404: Not Found",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "39f485f9e8914100a191f61c3b37e360",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'UserMessage' from 'livekit.agents.llm' (/var/lib/jarvis/projects/mission23/livekit-agent/venv/lib/python3.13/site-packages/livekit/agents/llm/__init__.py)",
+      "broker_evidence": "1380f5e43a314a46bde5ae82b16a8812"
+    },
+    {
+      "invocation": "cf3ca4cadb5a48c9b4aa7d1c0df85fda",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: 'types.UnionType' object is not callable",
+      "broker_evidence": "c948fac9af134cd086cd78da2053ae52"
+    },
+    {
+      "invocation": "c001add4687d4691a44bbfc30db43bd1",
+      "task": "t05_dev_agent_python",
+      "tool": "mission_read_batch",
+      "operation": null,
+      "error": "Expecting property name enclosed in double quotes: line 1 column 131 (char 130)",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "05859e7f43e348ebafcdb74ad0d0f562",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: module 'livekit.plugins.deepgram' has no attribute 'prerecorded_transcription_to_speech_event'",
+      "broker_evidence": "71627e7e1459462fb6ffabb554b32fb2"
+    },
+    {
+      "invocation": "fc8a60da8a024649b70f378737e3e014",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: type object 'TTS' has no attribute '_synthesize_impl'",
+      "broker_evidence": "f8fd5bef1296411fb754a671f610a834"
+    },
+    {
+      "invocation": "9e25386c8fb847578219fee0652216f8",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "/bin/bash: line 1: python: command not found",
+      "broker_evidence": "2592da349f6d4cfe87d074926cb613d6"
+    },
+    {
+      "invocation": "b25eff5ec44d46f58acd762cae002f09",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 404: Not Found",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "81c657aa721f4c71b7e32ebd694e9bab",
+      "task": "t05_dev_agent_python",
+      "tool": "host_service",
+      "operation": "status",
+      "error": "Action/service hors politique",
+      "broker_evidence": "98cbbb4a3a4848a38cec175674ce0796"
+    },
+    {
+      "invocation": "7c75ae0e9c2a44328bc0dfddc3a9d6a3",
+      "task": "t05_dev_agent_python",
+      "tool": "host_package",
+      "operation": "status",
+      "error": "Paquet absent de la politique propriétaire",
+      "broker_evidence": "e5a5bd0f87e84706ad2d99d3e28fa3ab"
+    },
+    {
+      "invocation": "0ee77db14e44470b8f243c709d2f0ea3",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: module 'livekit.rtc' has no attribute 'AudioBuffer'. Did you mean: 'AudioFilter'?",
+      "broker_evidence": "a639f5f4cb494e078de52a9b1d20e5ca"
+    },
+    {
+      "invocation": "976802b551c24e89a9fe5c738aaa162f",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ModuleNotFoundError: No module named 'livekit_local_inference'",
+      "broker_evidence": "565d71fd566d494d91451f56adccaeee"
+    },
+    {
+      "invocation": "f88a5331e458445b8002312aa02f7e4a",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "41c0a5c764674078a555ca410f80cdc5"
+    },
+    {
+      "invocation": "b6227ceba58a46519fd34872065c37c6",
+      "task": "t05_dev_agent_python",
+      "tool": "host_github",
+      "operation": "file",
+      "error": "Dépôt hors politique",
+      "broker_evidence": "7f692fb8ce304aa68383d8ec21181e32"
+    },
+    {
+      "invocation": "990956fc3aa843f48a0253aa242c4402",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "HTTP Error 404: Not Found",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "0b2ab14f47e74460837c5421cf998001",
+      "task": "t05_dev_agent_python",
+      "tool": "web_fetch",
+      "operation": null,
+      "error": "Source HTTPS hors domaines documentaires autorisés",
+      "broker_evidence": null
+    },
+    {
+      "invocation": "7e1e1363fa90498f85c092a085c3a335",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "AttributeError: module 'livekit.agents.tts.tts' has no attribute 'SynthesisContext'",
+      "broker_evidence": "b0105c29dd064b72a65dfbf596b0cdd1"
+    },
+    {
+      "invocation": "b1f64d06f6ed4791a6c30d45babd5e21",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "TypeError: TTS.__init__() missing 2 required keyword-only arguments: 'sample_rate' and 'num_channels'",
+      "broker_evidence": "1960be9b6c9c4763a73ec9490ececf09"
+    },
+    {
+      "invocation": "fa54cf7cc7e142709d1b88faaeced0c2",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ImportError: cannot import name 'openai' from 'livekit.plugins' (unknown location)",
+      "broker_evidence": "63234e7a80c2408faed8f86e671a902a"
+    },
+    {
+      "invocation": "35a5612270f34708a91b4d3be6249c31",
+      "task": "t05_dev_agent_python",
+      "tool": "host_exec",
+      "operation": null,
+      "error": "ModuleNotFoundError: No module named 'livekit_local_inference'",
+      "broker_evidence": "d66da8ae91524f799a5b6b1f8fc10749"
+    },
+    {
+      "invocation": "032305c886114dfaa8be983521f94f90",
+      "task": "t05_dev_agent_python",
+      "tool": "host_service",
+      "operation": "is-active",
+      "error": "Action/service hors politique",
+      "broker_evidence": "5f4bc9c3fc154888aa9f917b9eccf1e8"
+    }
+  ],
+  "limits": "Repeated identical arguments are not all useless: some are legitimate retests. This snapshot records actions, not autonomous task success."
+}

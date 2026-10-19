@@ -31,3 +31,7 @@ Les index `missions/` et `indexes/` des branches documentaires PR2/3 restent des
 - [Registre courant](REGISTRE-MISSIONS.json), [README](../../README.md) et [SUIVI](../../SUIVI.md) :70 identifiants courants ; le bilan00 historique conserve ses68 identifiants.
 
 Aucune fusion automatique dans main, aucun déploiement Dell2. Les documents de mission21 sont des productions du modèle conservées sans réécriture ; les vérifications et réserves Codex figurent en22.
+
+## Intervention corrective23 — LiveKit
+
+[Diagnostic](23/DIAGNOSTIC.md), [corrections](23/CORRECTIONS.md), [tests](23/TESTS.md). Lancement effectif du propriétaire et même exécution persistante conservée ; JARVIS reste développeur principal. Ce correctif dépend du moteur22 et ne lance pas JL-03 ni Dell2. Le cycle documentaire23–31 est conservé dans [sa référence](CYCLE-23-31.md).

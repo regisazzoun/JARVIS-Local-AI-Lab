@@ -1,0 +1,39 @@
+{
+  "canonical_voice_mount": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "CANONICAL_VOICE_CONFIG_READABLE\n",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.032,
+      "stdout_truncated": false,
+      "stderr_truncated": false
+    },
+    "caller": "local-operator",
+    "evidence_id": "84770b3455314cb1a8bbf952d5c9669b",
+    "elapsed_s": 0.032
+  },
+  "upstream_read": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.466,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "github_path": "README.md",
+      "github_branch": null,
+      "github_repository": "livekit/agents"
+    },
+    "caller": "local-operator",
+    "evidence_id": "ae6e85f1a15c41ffb34da11df054c71f",
+    "elapsed_s": 0.485
+  },
+  "upstream_write_denied": {
+    "denied": true,
+    "reason": "Dépôt hors politique"
+  },
+  "no_livekit_application_changes_by_codex": true
+}

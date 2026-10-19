@@ -29,7 +29,7 @@ def register(registry):
             return {**response['result'],'evidence_id':response['evidence_id']}
         registry.specs[name]=(description,props,list(required if required is not None else fields),'host_authorized',execute)
     spec('host_policy','Lire les autorisations hôte persistantes réellement accordées ; ne peut pas les modifier',[])
-    spec('host_exec','Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. /tmp est neuf et éphémère à chaque appel ; conserve les fichiers de reprise dans write_roots. Pas de sudo.', ['command'])
+    spec('host_exec','Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. /tmp est neuf et éphémère à chaque appel ; conserve les fichiers de reprise dans write_roots. Les processus de ce shell meurent à la fin de l’appel ; utilise host_project_service pour un serveur durable accordé. Pas de sudo.', ['command'])
     spec('host_read_file','Lire un fichier réel dans les chemins accordés',['path'])
     spec('host_write_file','Écrire/remplacer un fichier réel, créer les parents',['path','content'])
     spec('host_delete_file','Supprimer un fichier réel accordé',['path'])
@@ -44,3 +44,8 @@ def register(registry):
     spec('capability_request','Consigner une demande durable à Codex. Ne confère aucun droit. persistent : oui/non ; fournir diagnostic réel et test concret.',['capability','mission','resource','required_access','diagnosis','solution','validation','persistent'])
     spec('capability_status','Registre persistant et demandes/résultats Codex. resource optionnel retourne le détail complet de la ressource.',['resource'],[])
     spec('capability_test','Tester réellement une capacité et enregistrer VALIDÉ/ÉCHEC. capacity host_package (resource nom paquet), host_service (unité), host_github (dépôt), host_files (dossier).',['capability','resource'])
+
+    def project_service(args):
+        response=request('host_project_service',args)
+        return {**response['result'],'evidence_id':response['evidence_id']}
+    registry.specs['host_project_service']=('Service de projet persistant dans le même confinement que host_exec. Actions install (argv exécutable absolu et arguments, projet accordé), status, start, stop, restart, logs. Exécution comme identité technique, jamais root ; conserve le serveur entre appels et redémarrages du moteur. Pas de modification des services centraux.',{'project':{'type':'string'},'name':{'type':'string'},'action':{'type':'string','enum':['install','status','start','stop','restart','logs','enable','disable']},'argv':{'type':'array','items':{'type':'string'}}},['project','name','action'],'host_authorized',project_service)

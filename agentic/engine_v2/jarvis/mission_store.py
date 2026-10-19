@@ -220,6 +220,7 @@ class MissionStore:
                 if any(args.get(k)!=v for k,v in check.get('arguments',{}).items()):continue
                 if check.get('stdout_contains') and check['stdout_contains'] not in result.get('result',{}).get('stdout',''):continue
                 if any(result.get('result',{}).get(k)!=v for k,v in check.get('result_fields',{}).items()):continue
+                if any(text in result.get('result',{}).get('stdout','') for text in check.get('stdout_not_contains',[])):continue
                 matches.append(item['id'])
             latest=next((o for o in reversed(observations) if o['id'] in matches),None)
             fact={'created':latest['created'],'stdout':str((latest.get('result') or {}).get('result',{}).get('stdout',''))[:700]} if latest else None
