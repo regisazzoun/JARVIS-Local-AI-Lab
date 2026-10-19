@@ -2,7 +2,7 @@
 import hashlib
 import json
 import time
-from .mission_store import encoded
+from .mission_store import encoded, arguments_match
 
 
 def register(registry):
@@ -72,7 +72,7 @@ def register(registry):
             if not any(r['tool'] == required and (r['result'] or {}).get('ok') for r in observations):
                 raise ValueError('Contrat non satisfait : outil réussi requis '+required)
         for check in contract.get('checks',[]):
-            actual=[r for r in observations if r['tool'] in (check.get('tools') or [check['tool']]) and (r['result'] or {}).get('ok')==check.get('ok',True) and all(r['arguments'].get(k)==v for k,v in check.get('arguments',{}).items()) and (not check.get('action') or r['arguments'].get('action')==check['action']) and all((r['result'] or {}).get('result',{}).get(k)==v for k,v in check.get('result_fields',{}).items()) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout','')) and not any(text in (r['result'] or {}).get('result',{}).get('stdout','') for text in check.get('stdout_not_contains',[]))]
+            actual=[r for r in observations if r['tool'] in (check.get('tools') or [check['tool']]) and (r['result'] or {}).get('ok')==check.get('ok',True) and arguments_match(r['arguments'],check.get('arguments',{})) and (not check.get('action') or r['arguments'].get('action')==check['action']) and all((r['result'] or {}).get('result',{}).get(k)==v for k,v in check.get('result_fields',{}).items()) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout','')) and not any(text in (r['result'] or {}).get('result',{}).get('stdout','') for text in check.get('stdout_not_contains',[]))]
             if len(actual)<check.get('minimum',1):raise ValueError('Assertion fonctionnelle manquante : '+encoded(check))
         # A mutation must have a later independent observation, not only its write receipt.
         writes = [r for r in observations if r['tool'] in ('host_write_file', 'host_remote', 'host_ansible')

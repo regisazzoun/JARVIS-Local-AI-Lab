@@ -42,12 +42,12 @@
     },
     {
       "file": "agentic/engine_v2/jarvis/durable_tools.py",
-      "sha256": "950931983137a9a19cf925abe153448bbde50216808f6802535b134c6c7b611d",
+      "sha256": "0eeee8f0a39e19aa2d7427e2c1d6cf16981c4a68690e9fd286b9801acb6a8487",
       "matches_runtime": true
     },
     {
       "file": "agentic/engine_v2/jarvis/mission_store.py",
-      "sha256": "f2d5b258d7d7065af9c97857a2e07bfaa72606485ea764ae05b5a2fd19d57d8f",
+      "sha256": "8a6ab5ee13c71b5a787f5b9448d9408e71b03aeeba4e43e92fccc3421a0d95ff",
       "matches_runtime": true
     },
     {
@@ -128,7 +128,7 @@
   ],
   "unit_tests": {
     "command": "PYTHONPATH=agentic/engine_v2 python3 -m unittest discover -s agentic/engine_v2/tests -q",
-    "passed": 49
+    "passed": 50
   },
   "config": {
     "durable_think": true,

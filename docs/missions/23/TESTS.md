@@ -1,6 +1,6 @@
 # Vérifications du correctif23
 
--49 tests V2 réussis, dont maintien du résultat d’un test échoué malgré une écriture, résolution après retest réussi, refus d’une unité/projet/exécutable hors politique, échappement des paramètres systemd, accès en lecture à un dépôt tiers sans permettre push, pagination documentaire et résumé d’erreur avec stderr redirigé et refus d’un test code0 contenant une panne fonctionnelle explicite, conservation du dernier lot structuré pendant la compression du contexte.
+-50 tests V2 réussis, dont maintien du résultat d’un test échoué malgré une écriture, résolution après retest réussi, refus d’une unité/projet/exécutable hors politique, échappement des paramètres systemd, accès en lecture à un dépôt tiers sans permettre push, pagination documentaire et résumé d’erreur avec stderr redirigé et refus d’un test code0 contenant une panne fonctionnelle explicite, conservation du dernier lot structuré pendant la compression du contexte.
 - Compilation des modules broker réussie.
 - Deux lectures HTTPS réelles des documents LiveKit auparavant refusés réussissent ; le modèle effectue ensuite ses propres lectures officielles avec succès.
 - Sonde de service réelle installée/démarrée via le broker, puis observée active dans une requête indépendante ; elle conserve le même confinement que host_exec. Sonde arrêtée et unité retirée. Ce test est Codex, pas JARVIS et pas une validation LiveKit.
@@ -16,3 +16,6 @@ Collecte reproductible en lecture seule : `sudo python3 docs/missions/23/collect
 
 
 Le vérificateur indépendant est compilé et testé négativement dans le véritable confinement : un manifeste manquant produit un échec code1, sans faux marqueur de validation. Il n’implémente pas l’application. Les commandes de recette exactes sont inscrites au contrat05 ; les scripts permissifs de JARVIS ne peuvent pas les remplacer.
+
+
+Le contrat et son affichage normalisent la seule redirection finale `2>&1` : elle ne transforme pas une commande en autre test. Un suffixe de substitution comme `|| echo PASS` reste refusé. Le même résultat doit être reconnu par le suivi et par la validation, pour éviter une nouvelle boucle sur un contrôle réellement réussi.

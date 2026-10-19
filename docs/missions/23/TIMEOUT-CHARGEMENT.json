@@ -1,0 +1,16 @@
+{
+  "source": "Read-only Ollama journal + configured Dell /api/ps and /v1/models",
+  "mac_failure": "SDK10s cancels loading before ready, repeated4 attempts; whole test45.884s",
+  "dell": {
+    "/api/ps": [
+      "qwen3.5:27b-q4_K_M"
+    ],
+    "/v1/models": [
+      "qwen3.5:27b-q4_K_M",
+      "ministral-3:14b-instruct-2512-q4_K_M",
+      "llama3.1:8b"
+    ]
+  },
+  "diagnosis": "App factory points to Mac localhost; required inference target is existing Dell with resident Qwen",
+  "action_assigned_to": "JARVIS must correct own factory and rerun independent check"
+}

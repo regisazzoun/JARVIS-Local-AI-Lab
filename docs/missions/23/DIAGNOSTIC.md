@@ -29,3 +29,12 @@ Le modèle répond et appelle effectivement ses outils, mais cela ne démontre p
 ## Ce que les quatre validations signifient
 
 Les quatre empreintes et états ne sont pas modifiés. Leur validation historique n’est pas étendue :04 prouve installation/configuration et démarrage ponctuel, pas un service permanent ni une conversation WebRTC. Les contrats créés par le modèle étaient vides : la présence d’un rapport et d’un reçu ne vérifie pas toutes ses affirmations. Les critères de05 ne sont pas abaissés ; son import, ses adaptateurs et ses tests doivent réellement progresser.
+
+
+## Nouveau blocage exposé par le test indépendant
+
+Le premier appel réel du vérificateur LLM échoue après45,884s : le SDK fait quatre tentatives de10s. Les journaux Ollama Mac montrent des annulations499 qui interrompent le chargement de Qwen avant disponibilité. La factory développée par JARVIS vise localhost, alors que le projet prévoit l’inférence Dell. Le modèle Qwen est réellement résident sur le Dell configuré et son API compatible répond. Codex a transmis ce diagnostic et assigné à JARVIS la correction de sa factory ; aucune modification applicative par Codex. [Preuves](TIMEOUT-CHARGEMENT.json). Ce délai applicatif ne doit pas être confondu avec une erreur d’inférence du worker, dont les appels Dell continuent normalement.
+
+## Inventaire complet des échecs
+
+Voir l’[inventaire détaillé](INVENTAIRE-ERREURS.md) et le [bilan correctif](RAPPORT-CORRECTIF.md).
