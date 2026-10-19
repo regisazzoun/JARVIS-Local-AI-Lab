@@ -1,80 +1,109 @@
-# RAPPORT FINAL - MISSION 21 (État Définitif)
+# RAPPORT FINAL – MISSION 21 (État définitif)
 
 **Date de production :** 2026-10-19  
-**Mission ID :** e370b0bef74f4deaa390b5c46bfdc299  
-**Statut Global :** **ACCOMPLIE – 7/7 Tâches Validées**
+**Mission :** e370b0bef74f4deaa390b5c46bfdc299  
+**Statut global :** **ACCOMPLIE – 7/7 tâches validées**
 
 ---
 
-## 1. Résumé Exécutif
+## 1. Synthèse Exécutive
 
-La Mission 21 est officiellement close avec succès. Les sept tâches contractuelles sont validées, incluant la résolution de la dépendance externe Tailscale initialement identifiée comme blocage. L'infrastructure complète (Mac mini Debian + Dell n°1) fonctionne en mode autonome :
-- **État Système :** STABLE sur les deux cibles.
-- **Bureau Virtuel :** Plasma 21 fonctionnel, accessible via VNC authentifié.
-- **Connectivité Réseaux :** Tunnels LAN et Tailscale opérationnels avec réception confirmée de **259 200 octets** de framebuffer (Preuve : `5e5b4dbea3504540a74ce37c898bc216`).
-- **Supervision :** Services systemd actifs et métriques collectées en continu.
+La Mission 21 est pleinement accomplie avec les sept tâches validées. Le bureau virtuel Plasma privé sur la Dell n°1 (dell-observe) est opérationnel via tunnels SSH LAN et Tailscale, avec authentification RFB confirmée par réception de **259200 octets** (preuve `5e5b4dbea3504540a74ce37c898bc216`). L'état Tailscale est **Running**, l'ancienne mention « NeedsLogin » du 18 octobre ayant été résolue par une intervention physique du propriétaire sur son Mac, suivie d'une reprise technique par Codex dans le périmètre autorisé.
 
 ---
 
-## 2. Résolution Factuelle de la Tâche 07 (Bureau & Réseau)
+## 2. Détails des Sept Tâches Validées
 
-Contrairement aux rapports partiels du 18 octobre, l'état actuel est confirmé par les outils du 19 octobre :
+### Tâche 01 – Rapport de Santé (Mac mini + Dell)
+- **État :** STABLE  
+- **Méthode :** host_resources, jarvis_services, host_remote  
+- **Résultats :** CPU/RAM/disques en ordre sur les deux machines  
+- **Preuve :** sha256 `31b316b8...`
 
-### 2.1 État Tailscale
-*   **Ancien statut (18 oct) :** `NeedsLogin` (Blocage externe).
-*   **Statut actuel (19 oct) :** `Running`, `online: true`, `has_tailnet_address: true`.
-*   **Preuve technique :** Sortie de `host_remote tailscale_status` confirmant l'absence d'exigence d'authentification supplémentaire.
+### Tâche 02 – Analyse des Journaux
+- **État :** STABLE avec réserve mineure (drkonqi-coredump)  
+- **Méthode :** service_logs, host_logs, journal_recent  
+- **Résultats :** Aucun incident critique sur les services JARVIS  
+- **Preuve :** sha256 `f7519312...`
 
-### 2.2 Preuve de Fonctionnement Réseau (Evidence ID : `5e5b4dbea3504540a74ce37c898bc216`)
-Le test `desktop_network_test` a validé la réception d'image graphique sur les deux chemins :
-```json
-{
-  "transport": "Tailscale",
-  "authenticated": true,
-  "framebuffer_bytes": 259200,
-  "mode": "direct"
-}
-```
+### Tâche 03 – Synthèse Technique
+- **État :** STABLE  
+- **Méthode :** host_read_file des rapports 01 et 02  
+- **Résultats :** Consolidation des observations systèmes  
+- **Preuve :** sha256 `3b3abd95...`
 
-### 2.3 Attribution de la Résolution
-*   **Intervention Propriétaire :** La clé d'enrôlement Tailscale (`TS_AUTHKEY`) a été fournie physiquement par le propriétaire sur son Mac (hors périmètre direct du modèle).
-*   **Action Codex :** Correction de la lecture du secret VNC et mise à jour du contexte privé permettant la reprise automatique.
-*   **Validation JARVIS :** Confirmation technique de l'état `Running` sans nouvelle exigence externe.
+### Tâche 04 – Concordance Documentaire
+- **État :** STABLE  
+- **Méthode :** host_github (SUIVI.md, ROADMAP.md)  
+- **Résultats :** Alignement avec l'historique des missions 11/11B  
+- **Preuve :** sha256 `308f79ea...`
+
+### Tâche 05 – Administration Dell via Ansible
+- **État :** STABLE  
+- **Méthode :** host_ansible (ping, deploy_file)  
+- **Résultats :** Configuration idempotente de mission21-supervision.json  
+- **Preuve :** sha256 `6d4d4416...`
+
+### Tâche 06 – Supervision légère systemd
+- **État :** STABLE  
+- **Méthode :** host_remote (supervision_install, supervision_test)  
+- **Résultats :** Timer actif, intervalle 300s, métriques collectées  
+- **Preuve :** sha256 `68fb7782...`
+
+### Tâche 07 – Bureau Plasma via VNC et tunnels
+- **État :** **VALIDÉ**  
+- **Méthode :** host_remote (desktop_configure, desktop_test, desktop_network_test)  
+- **Résultats :**
+  - RFB authentifié sur loopback Dell
+  - Transport LAN : framebuffer reçu, identité pinée
+  - Transport Tailscale : mode direct, **259200 octets** reçus
+- **Preuve :** sha256 `1556c171...` / evidence `5e5b4dbea3504540a74ce37c898bc216`
+
+---
+
+## 3. Résolution du Blocage Tailscale (Tâche 07)
+
+Contrairement aux rapports précédents du 18 octobre indiquant un blocage « NeedsLogin », les vérifications du 19 octobre confirment :
+- **État actuel :** Tailscale `Running` avec adresse Tailnet attribuée
+- **Dépendance externe résolue :** `dell-tailnet-enrollment` → resolved = true
+- **Méthode de résolution :** Intervention physique du propriétaire sur son Mac (enrôlement par méthode non précisée), reprise par Codex dans le périmètre autorisé
+
+**Limite d'autonomie JARVIS :**  
+- Le modèle ne peut pas fournir une identité Tailscale ni effectuer un test utilisateur physique depuis un MacBook
+- Aucune clé TS_AUTHKEY n'a été fournie ou mentionnée (méthode inconnue)
+- La preuve de succès repose sur les outils réels (host_remote), pas sur une simulation
+
+**Distinction explicite :**
+1. **Test utilisateur :** Le propriétaire confirme KDE/VNC réellement utilisé depuis son Mac via tunnel SSH tailnet et enrôlement Dell (méthode non précisée)
+2. **Nouvelles preuves JARVIS sur Mac mini Debian :** Tailscale Running, SSH direct LAN et tailnet, RFB authentifié et 259200 octets reçus, mode direct, preuve `5e5b4dbea3504540a74ce37c898bc216`
 
 ---
 
-## 3. État des 7 Tâches (Preuves Persistantes)
+## 4. Limites et Précautions
 
-| ID | Titre | Statut | Preuve Clé (Evidence/SHA) |
-|:--|:---|:-------|:-------------------------|
-| 01 | Santé Mac mini & Dell | ✅ Validée | `31b316b8...` |
-| 02 | Analyse Journaux | ✅ Validée | `f7519312...` |
-| 03 | Synthèse Technique | ✅ Validée | `3b3abd95...` |
-| 04 | Concordance Docs | ✅ Validée | `308f79ea...` |
-| 05 | Admin Dell (Ansible) | ✅ Validée | `6d4d4416...` |
-| 06 | Supervision systemd | ✅ Validée | `68fb7782...` |
-| 07 | Bureau VNC & Tailscale | ✅ Validée | `1556c171...` (Rapport), `5e5b4dbe...` (Test) |
+- **Test utilisateur :** Non réalisé par le modèle (hors périmètre technique) ; seule absence de test physique PAR LE MODELE
+- **Clé d'enrôlement :** Non fournie ni requise dans les preuves techniques actuelles
+- **Intervention humaine :** Nécessaire pour la validation physique et future maintenance
 
 ---
 
-## 4. Limites et Observations Critiques
+## 5. Publications GitHub
 
-1.  **Autonomie Contrôlée :** JARVIS ne génère pas les identités d'enrôlement Tailscale. La mission est accomplie grâce à une intervention humaine externe validée dans le périmètre autorisé.
-2.  **Tests Physiques :** Aucun test sur MacBook distant n'a été réalisé ; les validations reposent sur des clients headless RFB via tunnel SSH, ce qui constitue une preuve technique suffisante de l'accessibilité réseau et graphique.
-3.  **Données Sensibles :** Le mot de passe VNC et la clé Tailscale restent dans le contexte privé (`root-private`) et ne sont jamais exposés dans les rapports publics.
+- **Repository :** regisazzoun/JARVIS-Local-AI-Lab  
+- **Branche :** jarvis/mission-21-autonomie  
+- **Fichiers publiés :** SUIVI.md, ROADMAP.md, 7 rapports techniques (01 à 07), RAPPORT-FINAL.md  
+- **Evidence publication finale :** f19024711c1f42b1889ce16baed1881c
+
+---
+
+## 6. Conclusion
+
+La Mission 21 est accomplie sans blocage technique résiduel. L'architecture bureau virtuel sécurisé (VNC + SSH + Tailscale) est fonctionnelle et documentée. Les limites d'autonomie du modèle sont respectées : aucune clé ni test utilisateur n'a été inventé ou simulé. La publication asynchrone sur GitHub clôt le cycle.
+
+**Horloge serveur :** 2026-10-19T13:55:48+02:00  
+**Modèle :** qwen3.5:27b-q4_K_M  
+**Générateur :** JARVIS (pas JARVIS-engine)
 
 ---
 
-## 5. Publication et Conclusion
-
-Le rapport final sera publié sur :
-- **Repository :** `regisazzoun/JARVIS-Local-AI-Lab`
-- **Branch :** `jarvis/mission-21-autonomie`
-- **Fichier :** `docs/missions/21/RAPPORT-FINAL.md`
-
-**Conclusion :** Mission 21 achevée avec succès (7/7). L'infrastructure est opérationnelle, surveillée et accessible à distance. Aucun blocage actif ne subsiste.
-
----
-*Rapport généré par JARVIS (qwen3.5:27b-q4_K_M)*  
-*Horloge Serveur : 2026-10-19T13:53:15+02:00*  
-*Fin du rapport final.*
+*Fin du rapport final – mission 21 terminée.*
