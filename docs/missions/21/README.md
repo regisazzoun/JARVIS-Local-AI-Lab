@@ -1,4 +1,4 @@
-> **État courant —18 octobre2026 :6/7 tâches reçues,07 bloquée par l’enrôlement Tailscale.** Les rapports et ETAT ci-dessous sont récupérés sans réécriture depuis la branche21. Voir la [réception22](../22/RECEPTION-MISSION21.md), les [preuves](../22/PREUVES-MISSION21.json) et le [manifeste](../22/MANIFESTE-RAPPORTS-MISSION21.json). La synthèse finale est partielle ; aucune réception complète déclarée.
+> **État courant —19 octobre2026 :7/7 tâches reçues, avec réserves sur l’autonomie sans assistance.** Rapports et ETAT récupérés sans réécriture depuis la branche21 ; [réception indépendante](../22/RECEPTION-MISSION21.md), [preuves](../22/PREUVES-MISSION21.json), [provenance](../22/MANIFESTE-RAPPORTS-MISSION21.json).
 
 # Mission 21 — Autonomie opérationnelle JARVIS
 **Statut initial : prévue, non exécutée.** Exécutant : **JARVIS seul**, via ses outils hôte/SSH/Ansible/GitHub. Matériel : Mac mini Debian et **Dell n°1**. Cette mission ne concerne ni le Dell n°2 (mission 14) ni le calcul distribué (mission 20).

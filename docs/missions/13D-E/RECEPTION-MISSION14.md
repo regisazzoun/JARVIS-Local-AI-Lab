@@ -56,3 +56,8 @@ Correctif restant : installer et configurer un client Tailscale propre au Dell, 
 ### Correction partielle du loupé Tailscale — mission22, 18 octobre 2026
 
 JARVIS a lui-même appelé `tailscale_configure` sur le Dell identifié : le client Debian13 a été installé et `tailscaled` activé. Son contrôle `tailscale_status` puis une vérification indépendante Codex constatent le service actif mais `NeedsLogin`, sans adresse du tailnet. L’omission d’installation est corrigée ; l’enrôlement et les tests d’accès direct restent bloqués faute d’authentification disponible. Aucune identité du Mac n’a été copiée. La réserve réseau reste ouverte. Voir [réception21 sous moteur22](../22/RECEPTION-MISSION21.md).
+
+
+## Actualisation réseau du19 octobre2026 — mission22
+
+Le loupé initial reste reconnu : le client Tailscale était absent du déploiement13D-E. Il a été installé par JARVIS ; le propriétaire confirme maintenant l’enrôlement du Dell1 et l’accès KDE/VNC depuis son Mac. JARVIS vérifie séparément `Running`, le tunnel SSH direct Tailscale, l’authentification RFB et la réception effective d’image. [Réception et provenance des preuves](../22/RECEPTION-MISSION21.md). Cette correction clôt la réserve d’accès Tailscale du Dell1 ; elle ne clôt ni la mission14 du Dell2 ni le correctif de reboot forcé du contrôleur PXE.

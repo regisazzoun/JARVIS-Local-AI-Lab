@@ -33,6 +33,7 @@ class MissionStore:
             CREATE TABLE IF NOT EXISTS tool_calls(id TEXT PRIMARY KEY,mission TEXT NOT NULL,task TEXT,signature TEXT NOT NULL,tool TEXT NOT NULL,arguments TEXT NOT NULL,state TEXT NOT NULL,result TEXT,created REAL,updated REAL);
             CREATE INDEX IF NOT EXISTS mission_call_lookup ON tool_calls(mission,task,signature,state);
             CREATE TABLE IF NOT EXISTS mission_context(mission TEXT PRIMARY KEY,task TEXT,messages TEXT,updated REAL);
+            CREATE TABLE IF NOT EXISTS mission_context_archives(id INTEGER PRIMARY KEY,mission TEXT,task TEXT,messages TEXT,reason TEXT,created REAL);
             CREATE TABLE IF NOT EXISTS publication_outbox(id TEXT PRIMARY KEY,mission TEXT,task TEXT,repository TEXT,branch TEXT,workspace TEXT,file TEXT,sha256 TEXT,state TEXT,attempts INTEGER DEFAULT 0,next_run REAL DEFAULT 0,last_error TEXT,commit_sha TEXT,updated REAL);
             ''')
             for table, columns in {
@@ -220,11 +221,22 @@ class MissionStore:
                 if check.get('stdout_contains') and check['stdout_contains'] not in result.get('result',{}).get('stdout',''):continue
                 if any(result.get('result',{}).get(k)!=v for k,v in check.get('result_fields',{}).items()):continue
                 matches.append(item['id'])
-            status.append({'check':check,'satisfied':len(matches)>=check.get('minimum',1),'matching_count':len(matches),'invocations':matches[-3:]})
+            latest=next((o for o in reversed(observations) if o['id'] in matches),None)
+            fact={'created':latest['created'],'stdout':str((latest.get('result') or {}).get('result',{}).get('stdout',''))[:700]} if latest else None
+            status.append({'latest_verified_fact':fact,'check':check,'satisfied':len(matches)>=check.get('minimum',1),'matching_count':len(matches),'invocations':matches[-3:]})
         path=contract.get('report_path')
         return {'requirements':status,'all_satisfied':all(s['satisfied'] for s in status),
                 'report_path':path,'report_written':any(o['tool']=='host_write_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations),
                 'report_read':any(o['tool']=='host_read_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)}
+
+    def rebase_context(self, ident, reason, actor='JARVIS-engine'):
+        with self.db() as c:
+            row=c.execute('SELECT * FROM mission_context WHERE mission=?',(ident,)).fetchone()
+            if not row:return False
+            c.execute('INSERT INTO mission_context_archives(mission,task,messages,reason,created) VALUES(?,?,?,?,?)',(ident,row['task'],row['messages'],reason,time.time()))
+            c.execute('DELETE FROM mission_context WHERE mission=?',(ident,))
+            self.event(ident,'working_context_rebased',row['task'],actor,result={'reason':reason,'archive_sha256':hashlib.sha256(row['messages'].encode()).hexdigest(),'proofs_and_tasks_preserved':True},connection=c)
+            return True
 
     def import_observation(self, ident, observation):
         """Preserve an actual earlier chat read; do not execute or fabricate it again."""

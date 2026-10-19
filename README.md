@@ -35,20 +35,20 @@ Les outils existants permettent des opérations de fichiers, de terminal, de Git
 | Machine | Rôle documenté | État et limites |
 | --- | --- | --- |
 | **Mac mini Debian** | Passerelle JARVIS, mémoire canonique, Whisper/Piper, outils et supervision ; terrain initial des essais eGPU | Socle existant préservé ; la mémoire n’est pas une base répliquée sur chaque nœud |
-| **Dell Precision n°1** | Inférence Ollama, modèles et accélération NVIDIA/CUDA | Réception **13D-E** conservée ; réserve réseau : client Tailscale installé en22 mais enrôlement `NeedsLogin` ; une RTX3090 alimentée |
+| **Dell Precision n°1** | Inférence Ollama, modèles et accélération NVIDIA/CUDA | Réception **13D-E** conservée ; Tailscale enrôlé ; tunnels SSH/VNC LAN et tailnet direct reçus le19/10 ; une RTX3090 alimentée |
 | **Dell Precision n°2** | Extension future du laboratoire | **Mission 14 à réaliser par JARVIS lui-même**, distincte du premier Dell installé par Codex |
 
 L’intégration distante existe. En mission22, le routage interactif sur Mac, les missions sur Dell et un repli Ollama ont été testés. Le placement dynamique et l’équilibrage global restent à compléter pour progresser vers une seule entité JARVIS distribuée.
 
 ## 📍 Où en est le projet ?
 
-**Dernier bilan :18 octobre2026 — réception du moteur22 avec réserves et mission21 en attente externe.** Les états ci-dessous décrivent les preuves disponibles, pas une surveillance en direct.
+**Dernier bilan :19 octobre2026 — mission21 reçue7/7 et moteur22 GO AVEC RÉSERVES.** Les états ci-dessous décrivent les preuves disponibles, pas une surveillance en direct.
 
 | Chantier | Résultat établi | Suite |
 | --- | --- | --- |
-| **22 — Moteur agentique V2** | **GO avec réserves** :36 tests V2,22 contrôles navigateur ; reprise et publications vérifiées | [Bilan et preuves](docs/missions/22/RAPPORT-FINAL.md) ; autonomie longue encore partielle |
-| **21 — Autonomie opérationnelle** | **6/7 tâches reçues**, sept rapports et synthèse partielle publiés par JARVIS | Enrôler le client Tailscale Dell (`NeedsLogin`), puis reprendre07 au même checkpoint |
-| **13D-E — Dell n°1** | Debian, RAID1, deux ESP, SSH/sudo, Ansible, NVIDIA/CUDA, Ollama, modèles et intégration reçus | Loupé : Tailscale absent au déploiement, installé en22 mais enrôlement ouvert ; correctif reboot du contrôleur toujours distinct |
+| **22 — Moteur agentique V2** | **GO avec réserves** :41 tests V2,25 contrôles navigateur ; reprise et publications vérifiées | [Bilan et preuves](docs/missions/22/RAPPORT-FINAL.md) ; autonomie longue encore partielle |
+| **21 — Autonomie opérationnelle** | **7/7 tâches reçues**, accès VNC direct Tailscale testé par JARVIS | Rapports publiés ; interventions Codex et réserves sémantiques conservées |
+| **13D-E — Dell n°1** | Debian, RAID1, deux ESP, SSH/sudo, Ansible, NVIDIA/CUDA, Ollama, modèles et intégration reçus | Loupé : Tailscale absent au déploiement, installé par JARVIS, enrôlé et accès direct reçu19/10 ; correctif reboot du contrôleur toujours distinct |
 | **11-Agentic / 11B** | Outils hôte et administration SSH/Ansible permanente validés | Compute Expansion reste partielle ; checkpoint incomplet à reprendre dans son périmètre |
 | **JL-01 / JL-02** | V1 conservée ; V2 livrée **GO avec réserves**, avec actions agentiques réelles | Fiabiliser l’agent et compléter les réceptions des clients physiques |
 | **00 — Pilotage** | **68 missions/sous-missions**, **28 anomalies** et **129 documents/preuves** récupérés ; cinq tâches JARVIS exécutées | Conserver la traçabilité et la concordance README/SUIVI ; analyses guidées et corrections Codex explicites |
@@ -118,7 +118,7 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **13B** | Interface vocale, Push-to-Talk | 🟡 GO PARTIEL historique ; consolidation technique 13F |
 | **13C** | Mémoire persistante canonique | 🟡 GO PARTIEL historique ; fonctions centrales consolidées |
 | **13D** | Sécurisation des accès distants (mission globale) | 🟡 GO AVEC RÉSERVES — accès multi-postes |
-| **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | 🟡 Réception du17/10 conservée ; réserve Tailscale ajoutée18/10 |
+| **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | ✅ Réception du17/10 conservée ; réserve Tailscale corrigée19/10 |
 | **13D.1** | MacBook : Tailscale, SSH par clé et par mot de passe | ✅ Validée le 15/10 |
 | **13D.2** | MacBook : alias `ssh jarvis`, reconnexion et tmux | ✅ Validée le 15/10 |
 | **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | 🟡 Accès multi-postes validés, contrôles finaux à compléter |
@@ -140,8 +140,8 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **15B.5** | iOS — Installation gratuite et réception | 📋 Prévue, non exécutée |
 | **JL-01** | Launcher macOS et GitHub Pages : SSH, Terminal, Codex, tmux | ✅ GO AVEC RÉSERVES — deux Macs utilisés |
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES |
-| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 6/7 validées — attente externe Tailscale |
-| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 Réception avec réserves — mission21 non complète |
+| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie |
+| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->

@@ -1,6 +1,6 @@
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
-**Dernière mise à jour : 18 octobre 2026**  
+**Dernière mise à jour : 19 octobre 2026**  
 **Références :** [Feuille de route](ROADMAP.md) · [Chronologie](docs/chronologie.md) · [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Roadmap Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md)
 
 > **Tableau de pilotage permanent.** Conserver la présentation, l'ordre des colonnes, les intitulés, les identifiants de missions et les lignes historiques lors de chaque mise à jour. Modifier uniquement les informations nécessaires, ajouter une ligne si un nouveau jalon apparaît, dater et expliquer les changements dans le journal. Ne jamais déduire un GO de la seule existence de fichiers. Les étapes sans rapport complet restent « à confirmer ». Les statuts représentent la dernière information documentée, pas une surveillance temps réel.
@@ -14,8 +14,8 @@
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
-| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | 🟠 6/7 validées — attente externe Tailscale | Six tâches reçues ; sept rapports et synthèse partielle publiés ; attente persistante après reboot du service ; Tailscale Dell NeedsLogin | Enrôler le Dell, tester VNC via son adresse Tailscale puis clôturer07 et le rapport final ; [preuves](docs/missions/22/RECEPTION-MISSION21.md) |
-| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 Réception avec réserves — mission21 non complète | Moteur déployé ;36 tests V2,22 contrôles navigateur ; crash/reprise et publications vérifiés ;21 en attente externe,6/7 reçues | Lever l’authentification Tailscale externe, terminer21 ; réserves sémantiques et interventions infrastructure documentées |
+| **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |
+| **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée | Moteur déployé ;41 tests V2 et25 contrôles navigateur actuels ; reprise, preuves et publications vérifiées ; correction de synthèse nécessaire | Traiter les répétitions et la fiabilité sémantique ; aucune autonomie sans assistance revendiquée ; [bilan](docs/missions/22/RAPPORT-FINAL.md) |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves | Diagnostics et premières procédures documentés ; certains états intermédiaires historiques | Consolider les procédures et preuves |
 | **04** | GRUB, Thunderbolt et eGPU NVIDIA | 🟡 Réalisée avec réserves | Investigations et contournements documentés ; essais de démarrage non concluants | Documenter les cas restant ouverts |
 | **04W** | Analyse d'un démarrage interrompu | 🟡 Analyse réalisée | Entrée dans le noyau non prouvée sur les traces considérées | Conserver la réserve |
@@ -34,7 +34,7 @@
 | **13D.1** | MacBook : Tailscale, SSH par clé et par mot de passe | ✅ Validée le 15/10 | Connexion SSH par les deux méthodes testée ; clé publique ajoutée sans retirer les accès existants | Préserver **les deux méthodes** d'accès |
 | **13D.2** | MacBook : alias `ssh jarvis`, reconnexion et tmux | ✅ Validée le 15/10 | Alias SSH fonctionnel ; sessions existantes préservées ; création, détachement et reprise de `jarvis-test` réussis | Réutiliser les accès dans Launcher |
 | **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | 🟡 Accès multi-postes validés, contrôles finaux à compléter | Mac mini macOS confirmé fonctionnel lors des tests du 14/10 par l'utilisateur ; MacBook testé le 15/10 (clé + mot de passe, alias, tmux). Aucun changement de configuration SSH serveur signalé, hormis l'ajout de la clé publique MacBook | Vérifier uniquement la persistance après reboot et la journalisation lorsque l'accès de secours sur place sera disponible |
-| **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | 🟡 Réception du17/10 conservée ; réserve Tailscale ajoutée18/10 | Debian/RAID1/deux ESP, SSH mot de passe + clé et sudo, Ansible idempotent, RTX 3090/CUDA, Ollama Qwen/Ministral/Llama, intégration JARVIS ; contrôle supplémentaire 17 h 18 sans service en échec ; voir [réception](docs/missions/13D-E/RECEPTION-MISSION14.md) et [rapport final](docs/missions/13D-E/RAPPORT-FINAL.md) | Loupé : client Tailscale omis au déploiement ; installé par JARVIS en22 mais NeedsLogin ; corriger le reboot forcé du contrôleur avant nouveau déploiement ; ne pas confondre avec mission 14 sur Dell n°2 |
+| **13D-E** | Premier Dell Precision — installation et serveur IA via Codex | ✅ Réception du17/10 conservée ; réserve Tailscale corrigée19/10 | Debian/RAID1/deux ESP, SSH mot de passe + clé et sudo, Ansible idempotent, RTX 3090/CUDA, Ollama Qwen/Ministral/Llama, intégration JARVIS ; contrôle supplémentaire 17 h 18 sans service en échec ; voir [réception](docs/missions/13D-E/RECEPTION-MISSION14.md) et [rapport final](docs/missions/13D-E/RAPPORT-FINAL.md) | Loupé : client Tailscale omis au déploiement ; installé par JARVIS en22, désormais enrôlé et accès SSH/VNC direct reçu ; corriger le reboot forcé du contrôleur avant nouveau déploiement ; ne pas confondre avec mission 14 sur Dell n°2 |
 | **13D** | Sécurisation des accès distants (mission globale) | 🟡 GO AVEC RÉSERVES — accès multi-postes | Accès des deux Macs confirmés ; clés et mots de passe préservés ; administration Dell distincte réceptionnée 13D-E/11B | Conserver réserves clients/reboot/journaux13D ; ne plus bloquer sur SSHDell déjà validé |
 | **13E** | Passerelle conversation, voix et mémoire | 🟡 GO AVEC RÉSERVES retrouvé | Rapport et tests 13E publiés dans PR1 ; Ollama/STT/TTS/Chromium réels, audio artificiel ; confortés 13F | ClientsApple/micro/HTTPSdistants restent à réceptionner |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** | 27 tests backend, 8 API, 8 navigateur et 6 finaux ; autonomie Qwen prouvée dans laboratoire isolé, non sur Dell | Suivre réserves voix physique, reboot et opérations longues ; [débrief](docs/missions/MISSION-13F-DEBRIEF.md) |
@@ -107,7 +107,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 ## Mise à jour du 17 octobre 2026 — répartition des deux Dell
 
-- **Dell n°1 / 13D-E :** réception complète par Codex, voir [réception](docs/missions/13D-E/RECEPTION-MISSION14.md) et [bilan de corrections](docs/missions/13D-E/RAPPORT-FINAL.md). RAID [UU] et services essentiels actifs à 17 h 18 ; défaut de reboot forcé du contrôleur à corriger avant réemploi. Loupé constaté18/10 : Tailscale absent du déploiement ; désormais installé par JARVIS mais enrôlement NeedsLogin non résolu. Le titre historique « mission 14 » du rapport ne clôture pas la mission 14 du deuxième Dell.
+- **Dell n°1 / 13D-E :** réception complète par Codex, voir [réception](docs/missions/13D-E/RECEPTION-MISSION14.md) et [bilan de corrections](docs/missions/13D-E/RAPPORT-FINAL.md). RAID [UU] et services essentiels actifs à 17 h 18 ; défaut de reboot forcé du contrôleur à corriger avant réemploi. Loupé constaté18/10 : Tailscale absent du déploiement ; installé par JARVIS, enrôlement confirmé par le propriétaire et accès SSH/VNC direct vérifié par JARVIS le19/10. Le titre historique « mission 14 » du rapport ne clôture pas la mission 14 du deuxième Dell.
 - **Dell n°2 / 14 :** installation et intégration à effectuer par JARVIS lui-même, sans Codex comme exécutant. 14A reste la démonstration agentique distincte. Aucune approbation humaine intermédiaire à ajouter une fois la mission autorisée lancée.
 
 ## Décision 13D-E / mission 14 — autonomie en laboratoire
@@ -239,3 +239,7 @@ PR6 fusionnée dans sa branche de base ; [PR7](https://github.com/regisazzoun/JA
 ### 18 octobre 2026 — mission 22 lancée
 
 Ajout des missions21 et22 au registre courant (70 identifiants). Le bilan00 demeure son instantané historique de68. Diagnostic21 fondé sur traces réelles, développement V2 en cours sur branche dédiée ; aucune fusion main ni réception globale déclarée.
+
+### Actualisation du19 octobre2026 — réception22
+
+Même exécution21 reprise depuis waiting_external ; six premières empreintes préservées, sept tâches validées. Tests utilisateur et techniques distincts. Les corrections Codex de reprise/contexte/test VNC et le rejet de la première synthèse finale contradictoire sont documentés en22 ; verdict GO AVEC RÉSERVES. Pas de fusion main.

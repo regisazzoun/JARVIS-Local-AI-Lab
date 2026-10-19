@@ -1,4 +1,6 @@
-# Ressources — mission 22
+# Ressources — mission22
+
+**Configuration actuelle : contexte durable32768, génération sans plafond d’économie ; interactive Mac, missions Dell.** Les mesures8192/16384 ci-dessous documentent les premiers essais historiques, pas la configuration finale.
 
 Inventaire réel Codex : Mac mini,12 threads, environ32 Gio RAM et une RTX3090 réellement détectée ; Dell n°1, environ256 Gio RAM, une RTX3090 opérationnelle. L'API Ollama confirme le modèle Qwen27B entièrement chargé en VRAM avec contexte16384. Observation GPU réelle pendant l'essai :100% d'utilisation, environ17,5 Gio utilisés ; le second GPU n'est pas sollicité.
 

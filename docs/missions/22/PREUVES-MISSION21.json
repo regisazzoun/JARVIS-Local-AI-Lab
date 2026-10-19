@@ -1,15 +1,15 @@
 {
-  "collected_at": "2026-10-18T18:01:52+0200",
+  "collected_at": "2026-10-19T14:02:26+0200",
   "mission": {
     "id": "e370b0bef74f4deaa390b5c46bfdc299",
-    "state": "waiting_external",
+    "state": "completed",
     "model": "qwen3.5:27b-q4_K_M",
-    "attempts": 48,
+    "attempts": 63,
     "active_task": "07",
     "created": 1792331445.364225,
-    "updated": 1792338621.2802942,
-    "last_progress": 1792338621.2802947,
-    "report_path": null
+    "updated": 1792411265.0025797,
+    "last_progress": 1792411216.4883885,
+    "report_path": "/opt/jarvis/conversation/runtime/reports/e370b0bef74f4deaa390b5c46bfdc299/RAPPORT-FINAL.md"
   },
   "tasks": [
     {
@@ -69,20 +69,20 @@
     {
       "id": "07",
       "title": "Bureau Plasma privé via VNC et tunnels LAN/Tailscale",
-      "state": "blocked",
-      "attempts": 26,
+      "state": "validated",
+      "attempts": 31,
       "artifact": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
-      "report_sha256": "b589f8470a782b7280bd1b686d9b9ee5ea35a04bdae7f50f0f5377b08fd2281e",
-      "last_error": "Identité d'enrôlement Tailscale absente - client installé (package tailscale) et service actif sur Dell n°1, mais état backend_state=NeedsLogin confirmé par host_remote/tailscale_status. Nécessite clé auth TS_AUTHKEY ou authentification navigateur hors périmètre modèle. Accès LAN par tunnel SSH fonctionnel, exigence Tailscale non satisfaite."
+      "report_sha256": "1556c17184dd1dd011e99ecb197bae6c00abadeed27b798b8c4c926b31238536",
+      "last_error": null
     }
   ],
-  "total_tool_intents": 639,
-  "finished_tool_calls": 638,
-  "successful_tool_returns": 420,
+  "total_tool_intents": 672,
+  "finished_tool_calls": 671,
+  "successful_tool_returns": 446,
   "event_actors": {
-    "JARVIS-engine": 567,
-    "JARVIS": 1285,
-    "Codex": 13
+    "JARVIS-engine": 650,
+    "JARVIS": 1354,
+    "Codex": 21
   },
   "publications": [
     {
@@ -252,6 +252,48 @@
       "attempts": 1,
       "commit_sha": "91e5e790dcfa2a9eb17ec7f5f5016f2b5c842b7f",
       "sha256": "7f50022ded68c43793ff7cdf0aa59177efbc6a4683c6c0e689e931f7cd62fa78"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "7f3f32b8411a94f33da8052ecf7fe86c78caf4a6",
+      "sha256": "e51860881b286c593d0925caec1fe08c6b9eaf646e452db1c9d021b8e92f4d30"
+    },
+    {
+      "file": "docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "9f8f6bb3b9f9443a9dec1ac4252b68348c75103b",
+      "sha256": "1556c17184dd1dd011e99ecb197bae6c00abadeed27b798b8c4c926b31238536"
+    },
+    {
+      "file": "docs/missions/21/ETAT.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "93a958fb896e0a6db6387196abbc6cf16beb9057",
+      "sha256": "c32bdd080d5c6c018e531d868d83685340c4b30a8f3c94ba5f7e186bc56930ba"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "0b5b888e68a0e6d6eb3161455365497edef326c2",
+      "sha256": "f7274b766d6b8533f3e9090ad904a4c9f9324ae2bf38ec2b25cc0f22122a54fd"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "a4d2e3ba173295e399326f1b044871d8d397228e",
+      "sha256": "717504799a644015335478dc7618ae660f96a66a569bb5e552668006947d1931"
+    },
+    {
+      "file": "docs/missions/21/RAPPORT-FINAL.md",
+      "state": "verified",
+      "attempts": 1,
+      "commit_sha": "6ce80f482342cba3e8e48c3918b0e32ec3473d30",
+      "sha256": "b04ad9a02a455494765760d08938d68a1772dc576da8748377f031635777c37a"
     }
   ],
   "operational_proofs": [
@@ -783,62 +825,116 @@
           "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
         }
       }
-    }
-  ],
-  "remaining_reception_contract": {
-    "checks": [
-      {
-        "action": "desktop_configure",
-        "tool": "host_remote"
-      },
-      {
-        "action": "desktop_test",
-        "tool": "host_remote"
-      },
-      {
-        "action": "desktop_network_test",
-        "tool": "host_remote",
-        "stdout_contains": "\"mode\": \"direct\""
-      },
-      {
-        "action": "services",
-        "tool": "host_remote"
-      },
-      {
-        "tool": "mission_publish",
-        "arguments": {
-          "file": "SUIVI.md"
-        }
-      },
-      {
-        "tool": "mission_publish",
-        "arguments": {
-          "file": "ROADMAP.md"
-        }
-      },
-      {
-        "tool": "host_remote",
-        "action": "tailscale_configure"
-      },
-      {
-        "tool": "host_remote",
-        "action": "tailscale_status"
-      },
-      {
-        "tool": "host_github",
-        "action": "download",
-        "result_fields": {
-          "github_path": "SUIVI.md"
-        }
-      },
-      {
-        "tool": "host_github",
-        "action": "download",
-        "result_fields": {
-          "github_path": "ROADMAP.md"
+    },
+    {
+      "invocation": "274212426b9c484fba7082dad7ffcfd2",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792410163.540156,
+      "ok": true,
+      "broker_evidence": "2c83f7c93a154cfaa9b16a8440452630",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "Running",
+        "online": true,
+        "has_tailnet_address": true,
+        "auth_url_private": false,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": true,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
         }
       }
-    ],
-    "report_path": "/var/lib/jarvis/projects/mission21/publication/docs/missions/21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md"
-  }
+    },
+    {
+      "invocation": "5d4f8e57d16547aea9527768953d9387",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792410180.5364702,
+      "ok": false,
+      "broker_evidence": "50a4817e8f244a92bbf5c316a1b9c25f",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "authenticated": false,
+            "error": "AssertionError: "
+          },
+          {
+            "transport": "Tailscale",
+            "authenticated": false,
+            "error": "AssertionError: "
+          }
+        ],
+        "coverage": {
+          "external_tailnet_client_tested": false,
+          "mode": "Mac-gateway"
+        }
+      }
+    },
+    {
+      "invocation": "daea079e65254cd38a798d02786414e1",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "tailscale_status",
+      "created": 1792410428.2934875,
+      "ok": true,
+      "broker_evidence": "43c1d569d0684ea0aa56227fb2523acd",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "Running",
+        "online": true,
+        "has_tailnet_address": true,
+        "auth_url_private": false,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": true,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "invocation": "39494beffbf842cd830445b9b4003986",
+      "task": "07",
+      "tool": "host_remote",
+      "action": "desktop_network_test",
+      "created": 1792410456.53122,
+      "ok": true,
+      "broker_evidence": "5e5b4dbea3504540a74ce37c898bc216",
+      "broker_caller": "JARVIS-runtime",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          },
+          {
+            "transport": "Tailscale",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ],
+        "coverage": {
+          "external_tailnet_client_tested": true,
+          "mode": "direct"
+        }
+      }
+    }
+  ]
 }

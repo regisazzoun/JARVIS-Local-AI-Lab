@@ -119,7 +119,10 @@ print(json.dumps({'configured':True,'display':':21','port':5921,'binding':'loopb
 DESKTOP_TEST = r'''
 import pathlib,socket,struct,json,time,subprocess,pwd,os
 from Cryptodome.Cipher import DES
-password=pathlib.Path('/etc/jarvis/private/mission21-vnc-password').read_bytes().strip()
+stored=(pathlib.Path(pwd.getpwnam('adminjarvis').pw_dir)/'.config/tigervnc/passwd').read_bytes()[:8]
+assert len(stored)==8,'Invalid VNC password file'
+obfuscation_key=bytes(int(f'{x:08b}'[::-1],2) for x in (23,82,107,6,35,78,88,7))
+password=DES.new(obfuscation_key,DES.MODE_ECB).decrypt(stored).split(b'\0',1)[0]
 with socket.create_connection(('127.0.0.1',5921),timeout=15) as s:
  def exact(n):
   value=b''
@@ -161,10 +164,13 @@ def network_test(profile, common, run):
     """
     import ipaddress,json,pathlib,shlex,socket,struct,subprocess,time
     from Cryptodome.Cipher import DES
-    code="import json,pathlib,subprocess; print(json.dumps({'password':pathlib.Path('/etc/jarvis/private/mission21-vnc-password').read_text().strip(),'addresses':json.loads(subprocess.check_output(['ip','-j','address'])),'route':json.loads(subprocess.check_output(['ip','-j','route','get','1.1.1.1']))}))"
+    code="import json,pathlib,subprocess; print(json.dumps({'password_file':(pathlib.Path('/home/adminjarvis/.config/tigervnc/passwd').read_bytes()[:8]).hex(),'addresses':json.loads(subprocess.check_output(['ip','-j','address'])),'route':json.loads(subprocess.check_output(['ip','-j','route','get','1.1.1.1']))}))"
     response=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['sudo','-n','python3','-c',code])],30)
     if response['returncode']:return {'returncode':1,'stderr':'Private VNC credential/route discovery failed; no credential returned'}
-    private=json.loads(response['stdout']);password=private['password'].encode()
+    private=json.loads(response['stdout']);stored=bytes.fromhex(private['password_file'])
+    if len(stored)!=8:raise ValueError('Invalid current VNC password file')
+    obfuscation_key=bytes(int(f'{x:08b}'[::-1],2) for x in (23,82,107,6,35,78,88,7))
+    password=DES.new(obfuscation_key,DES.MODE_ECB).decrypt(stored).split(b'\0',1)[0]
     addresses={}
     lan=private['route'][0].get('prefsrc')
     if lan:addresses['LAN']=lan

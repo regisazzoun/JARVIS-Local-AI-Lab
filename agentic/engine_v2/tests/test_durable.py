@@ -38,6 +38,17 @@ class DurableJournalTest(unittest.TestCase):
     def test_nullable_historical_event_is_readable(self):
         with self.store.db() as c:c.execute('INSERT INTO mission_events(mission,actor,kind,created) VALUES(?,?,?,?)',(self.ident,'Codex','legacy-import',time.time()))
         self.assertEqual(self.store.events(self.ident)[-1]['arguments'],{})
+    def test_external_rebase_archives_context_without_erasing_proofs_or_tasks(self):
+        self.store.plan(self.ident,[{'id':'a','title':'A','depends':[]}])
+        with self.store.db() as c:c.execute('INSERT INTO mission_context VALUES(?,?,?,?)',(self.ident,'a','[{"role":"assistant","content":"obsolete blocker"}]',time.time()))
+        token=self.store.begin_call(self.ident,'a','host_remote',{'action':'tailscale_status'})
+        self.store.finish_call(token,{'ok':True,'result':{'stdout':'Running'}},.1)
+        self.store.rebase_context(self.ident,'new external state')
+        with self.store.db() as c:
+            self.assertEqual(c.execute('select count(*) from mission_context').fetchone()[0],0)
+            self.assertIn('obsolete blocker',c.execute('select messages from mission_context_archives').fetchone()[0])
+        self.assertEqual(self.store.observations(self.ident)[0]['id'],token)
+        self.assertEqual(self.store.tasks(self.ident)[0]['id'],'a')
     def test_invalid_plan_is_atomic(self):
         with self.assertRaises(ValueError):self.store.plan(self.ident,[{'id':'a','title':'A','depends':['b']}])
         self.assertEqual(self.store.tasks(self.ident),[])

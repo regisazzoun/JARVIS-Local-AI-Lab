@@ -62,6 +62,9 @@ class Missions:
         row = self.store.get(ident)
         if row['state'] in ('running', 'queued', 'completed'):
             raise ValueError('Mission déjà active ou terminée')
+        if row['state']=='waiting_external':
+            self.store.rebase_context(ident,'Explicit external-dependency resume: rebuild working view from preserved proof ledger')
+            self.store.event(ident,'external_dependency_recheck_requested',result={'basis':'Explicit resume requests a fresh observation; older blockers stay in history, no success inferred'})
         self.store.transition(ident, 'queued')
         return {'id': ident, 'state': 'queued'}
 

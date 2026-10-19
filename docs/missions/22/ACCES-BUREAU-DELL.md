@@ -1,4 +1,4 @@
-# Bureau Dell — procédure vérifiée et réserve Tailscale
+# Bureau Dell — accès LAN et Tailscale reçus le19 octobre2026
 
 Rédigé par Codex lors de la vérification indépendante du18 octobre2026. Les appels de configuration et de test ont été exécutés par JARVIS. Le serveur TigerVNC et la session Plasma sont des services distincts, sur le bureau virtuel :21, avec clavier français vérifié. Le port5921 écoute uniquement sur le loopback du Dell.
 
@@ -10,8 +10,14 @@ ssh -N -L 15921:127.0.0.1:5921 adminjarvis@<DELL_LAN>
 
 Le client VNC se connecte ensuite à `127.0.0.1:15921` avec l’authentification VNC existante conservée privée. Une connexion directe à l’adresse LAN du Dell sur5921 n’est pas la procédure configurée. Aucun port Bbox n’est redirigé.
 
-JARVIS a installé le client Tailscale et activé son service. L’état observé est `NeedsLogin`, sans adresse du tailnet : aucun test VNC direct par Tailscale ne peut être déclaré reçu. L’enrôlement nécessite une identité de compte authentifiée ou une clé d’enrôlement valide, absente des emplacements privés vérifiés. Aucun état Tailscale du Mac n’est copié sur Dell. Les instructions officielles sont [installation Linux](https://tailscale.com/docs/install/linux) et [enrôlement par clé](https://tailscale.com/docs/features/access-control/auth-keys).
+Le Dell possède désormais son client Tailscale enrôlé et en ligne (`Running`). Le propriétaire confirme l’usage KDE/VNC depuis son Mac. JARVIS a séparément testé les tunnels LAN et Tailscale avec authentification RFB et réception effective d’image ; voir les [preuves](RECEPTION-MISSION21.md).
 
-Après enrôlement, reprendre la même mission persistante et tester le même tunnel en utilisant la destination Tailscale du Dell. Le contrôle doit authentifier RFB et recevoir une image du bureau, pas seulement ouvrir un port. Le test LAN antérieur utilise un client réel sans écran depuis le Mac ; il ne démontre pas l’utilisation d’un MacBook physique.
+Pour le trajet direct sur le tailnet, utiliser le nom/adresse Tailscale réel du Dell, vérifié dans son client Tailscale :
 
-Une passerelle Mac vers le bureau existe aussi. Son fonctionnement ne remplace ni l’installation d’un client propre au Dell ni la réception de l’accès direct au tailnet. Les formulations divergentes éventuelles du rapport brut du modèle sont des réserves sémantiques, pas une configuration alternative.
+```sh
+ssh -N -L 15921:127.0.0.1:5921 adminjarvis@jarvis-dell
+```
+
+`jarvis-dell` nécessite la résolution MagicDNS du poste ; à défaut utiliser son adresse tailnet connue. Fermer le tunnel précédent avant de réutiliser le même port local, ou choisir un autre port libre. Se connecter ensuite en VNC à `127.0.0.1:15921` avec le secret existant, conservé privé. Le profil interne du broker `dell-observe` n’est pas un nom DNS.
+
+Historique conservé : le18oct, le client était installé mais `NeedsLogin`, et seule la voie LAN était reçue. Le test par passerelle Mac ne suffisait pas à valider le trajet direct. Le19oct, Codex a corrigé la lecture du secret par le client de test ; le mot de passe du serveur et les accès utilisateur fonctionnels ont été préservés.

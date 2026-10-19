@@ -91,7 +91,7 @@ def register(registry):
                 db.event(ident,'report_redacted',task['id'],result={'editor':'JARVIS-engine','path':args['report_path']})
         sha = hashlib.sha256(body.encode()).hexdigest()
         with db.db() as c:
-            c.execute("UPDATE tasks SET state='validated',evidence=?,artifact=?,report_sha256=?,updated=? WHERE mission=? AND id=?",
+            c.execute("UPDATE tasks SET state='validated',last_error=NULL,evidence=?,artifact=?,report_sha256=?,updated=? WHERE mission=? AND id=?",
                       (encoded([chosen]), args['report_path'], sha, time.time(), ident, task['id']))
             db.event(ident, 'task_verified', task['id'], 'JARVIS-engine', result={'report_path': args['report_path'], 'sha256': sha, 'evidence': chosen['id']}, connection=c)
             publication=json.loads(db.get(ident)['spec']).get('publication')

@@ -62,11 +62,13 @@ class Memory:
             c.execute('CREATE TABLE IF NOT EXISTS mission_messages(mission TEXT,kind TEXT,message TEXT,PRIMARY KEY(mission,kind))')
             c.execute('BEGIN IMMEDIATE')
             existing=c.execute('SELECT message FROM mission_messages WHERE mission=? AND kind=?',(mission,kind)).fetchone()
-            if existing:return existing[0]
+            if existing:
+                prior=c.execute('SELECT content FROM messages WHERE id=?',(existing[0],)).fetchone()
+                if kind!='final' or prior and prior[0]==content:return existing[0]
             mid=uid()
             c.execute('INSERT INTO messages VALUES(?,?,?,?,?,?)',(mid,conversation,role,content,model,now()))
             c.execute('INSERT INTO messages_fts VALUES(?,?)',(mid,content))
-            c.execute('INSERT INTO mission_messages VALUES(?,?,?)',(mission,kind,mid))
+            c.execute('INSERT OR REPLACE INTO mission_messages VALUES(?,?,?)',(mission,kind,mid))
             return mid
     def propose(self,content,kind='persistent',project='',conversation=None):
         if kind not in ('persistent','project','temporary'):raise ValueError('Type de mémoire invalide')

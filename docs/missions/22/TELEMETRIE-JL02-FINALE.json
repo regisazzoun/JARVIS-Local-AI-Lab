@@ -1,32 +1,32 @@
 {
   "source": "Actual authenticated Launcher telemetry after final deployment",
-  "sampled_at": 1792339140.6653025,
+  "sampled_at": 1792411206.944716,
   "machines": {
     "mac-mini": {
       "available": true,
-      "cpu_percent": 7.7,
-      "ram_used_mb": 1729,
+      "cpu_percent": 3.9,
+      "ram_used_mb": 2239,
       "ram_total_mb": 31948,
       "ollama": true,
       "gpu": {
         "name": "NVIDIA GeForce RTX 3090",
         "utilization": 0.0,
-        "temperature": 40.0,
+        "temperature": 38.0,
         "vram_used_mb": 6.0,
         "vram_total_mb": 24576.0
       }
     },
     "dell-1": {
       "available": true,
-      "cpu_percent": 0.0,
-      "ram_used_mb": 12602,
+      "cpu_percent": 29.1,
+      "ram_used_mb": 12365,
       "ram_total_mb": 257453,
       "ollama": true,
       "gpu": {
         "name": "NVIDIA GeForce RTX 3090",
-        "utilization": 0.0,
-        "temperature": 32.0,
-        "vram_used_mb": 18958.0,
+        "utilization": 90.0,
+        "temperature": 71.0,
+        "vram_used_mb": 18960.0,
         "vram_total_mb": 24576.0
       }
     },

@@ -4,6 +4,14 @@ from jarvis.memory import Memory
 from jarvis.publication import redact_public
 
 class CanonicalMissionMemoryTest(unittest.TestCase):
+    def test_final_revision_preserves_old_message_and_deduplicates_latest(self):
+        with tempfile.TemporaryDirectory() as temp:
+            memory=Memory(Path(temp)/'memory.sqlite');conv=memory.conversation('revision')
+            old=memory.mission_message('m','final',conv,'assistant','Ancienne conclusion','local')
+            new=memory.mission_message('m','final',conv,'assistant','Conclusion corrigée','local')
+            self.assertNotEqual(old,new)
+            self.assertEqual(new,memory.mission_message('m','final',conv,'assistant','Conclusion corrigée','local'))
+            self.assertEqual([m['content'] for m in memory.history(conv)],['Ancienne conclusion','Conclusion corrigée'])
     def test_mission_messages_survive_and_are_not_duplicated(self):
         with tempfile.TemporaryDirectory() as temp:
             path=Path(temp)/'memory.sqlite';memory=Memory(path);conv=memory.conversation('test')

@@ -1423,8 +1423,8 @@
     "resultats_prouves": "Réinstallation, SSH clé/mot de passe/sudo, idempotence, trois modèles GPU, intégration et reboot validés",
     "reserves": "Seconde carte non alimentée ; pas retrait physique NVMe/micro/session Plasma interactive ; défaut reboot installateur reste à corriger ; loupé Tailscale omis au déploiement, installé en22 mais enrôlement NeedsLogin ouvert",
     "dependances": "13D, chaîne PXE existante",
-    "prochaine_action": "Préserver la référence, corriger reboot avant prochain déploiement",
-    "derniere_actualisation": "2026-10-17"
+    "prochaine_action": "Tailscale omis puis installé par JARVIS ; enrôlement propriétaire et accès SSH/VNC direct reçus19/10. Corriger reboot forcé du contrôleur avant prochain déploiement.",
+    "derniere_actualisation": "2026-10-19"
   },
   {
     "identifiant": "13D.1",
@@ -1913,12 +1913,12 @@
         "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-22-agentic-engine-v2/docs/missions/21/README.md"
       }
     ],
-    "etat": "6/7 validées ; tâche07 bloquée par enrôlement Tailscale",
-    "resultats_prouves": "Six tâches reçues ; sept rapports et synthèse partielle publiés ; SUIVI/ROADMAP préservés ; attente externe persistante après redémarrage du service",
-    "reserves": "NeedsLogin ; aucun accès direct Tailscale reçu ; rapport final complet non reçu",
+    "etat": "7/7 validées — GO avec réserves d’autonomie",
+    "resultats_prouves": "Même exécution durable reprise ; sept tâches, rapports et publications vérifiés ; Tailscale Running ; SSH/RFB LAN et direct tailnet, authentification et image reçue",
+    "reserves": "Corrections infrastructure et guidage Codex ; synthèse périmée refusée puis reprise ; pas de réception globale14A",
     "dependances": "11B,13F,14A,JL-02",
-    "prochaine_action": "Enrôler Dell puis reprendre07 au checkpoint",
-    "derniere_actualisation": "2026-10-18",
+    "prochaine_action": "Maintenir les preuves et améliorer la fiabilité sémantique",
+    "derniere_actualisation": "2026-10-19",
     "date_derniere_actualisation": "2026-10-18"
   },
   {
@@ -1935,12 +1935,12 @@
         "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-22-agentic-engine-v2/docs/missions/22/DIAGNOSTIC-INITIAL.md"
       }
     ],
-    "etat": "Réception avec réserves ; mission21 non complète",
-    "resultats_prouves": "Moteur V2 déployé,36 tests unitaires,22 assertions navigateur, mission ciblée3 tâches achevée, crash/reprise et publications vérifiés ; six tâches21 reçues",
-    "reserves": "Dépendance externe Tailscale ; interventions infrastructure Codex et limites sémantiques documentées",
+    "etat": "GO AVEC RÉSERVES — mission21 reçue7/7",
+    "resultats_prouves": "41 tests V2 ;25 contrôles navigateur actuels ; mission persistante, reprise, outils réels, sept validations et publications",
+    "reserves": "Répétitions et erreurs de contexte/synthèse ; corrections Codex pendant réception ; aucune autonomie intégrale revendiquée",
     "dependances": "11B,13F,14A,JL-02",
-    "prochaine_action": "Réception finale21 après enrôlement",
-    "derniere_actualisation": "2026-10-18",
+    "prochaine_action": "Réduire les répétitions et fiabiliser les synthèses",
+    "derniere_actualisation": "2026-10-19",
     "date_derniere_actualisation": "2026-10-18"
   }
 ]

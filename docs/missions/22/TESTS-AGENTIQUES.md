@@ -1,6 +1,8 @@
 # Réception et tests — mission22
 
-**18 octobre2026 : moteur exploitable avec réserves ; mission21 en attente externe,6/7 tâches reçues.** Les tests unitaires ne remplacent pas les opérations du modèle.
+**19 octobre2026 : GO AVEC RÉSERVES ; mission21 reçue7/7.** Réception actuelle : [bilan](RAPPORT-FINAL.md), [preuves21](PREUVES-MISSION21.json), [navigateur19oct](RECEPTION-NAVIGATEUR-19OCT.json).41 tests V2 passent après corrections de reprise, archives de contexte et contrat de synthèse.
+
+Les paragraphes ci-dessous conservent les mesures historiques du18oct ; leur attente Tailscale est résolue le19oct. Les tests unitaires ne remplacent pas les opérations du modèle.
 
 | Vérification | Résultat |
 | --- | --- |
@@ -36,4 +38,9 @@ Avant :55/78 retours réussis dans deux échanges historiques, sans rapport fina
 
 Les rapports modèle gardent des défauts sémantiques : date/attribution dans01, formulations de réception prématurées, confusion entre étapes07 et tâches de mission, commande utilisant un alias broker comme nom SSH. La [procédure vérifiée](ACCES-BUREAU-DELL.md) et les reçus d’outils font autorité. Le contexte a été adapté à32768 et les vues volumineuses sont explicitement abrégées, avec preuves intégrales conservées ; cela n’efface pas les échecs antérieurs.
 
-Le test VNC direct par Tailscale et la clôture complète21 restent **non reçus**, faute d’identité d’enrôlement disponible. Aucun client physique MacBook ni déploiement Dell2 revendiqué.
+Au18oct, le test VNC direct par Tailscale et la clôture complète21 restaient **non reçus**, faute d’identité d’enrôlement disponible. Aucun client physique MacBook ni déploiement Dell2 revendiqué.
+
+
+## Réception technique du19oct
+
+JARVIS a lui-même testé Tailscale Running, le tunnel SSH direct LAN/tailnet, RFB authentifié et réception de259200 octets par trajet. Le propriétaire confirme séparément l’usage physique depuis son Mac. Les six premières empreintes sont conservées ;07 est validée et le rapport final publié. Les défauts de synthèse nécessitant intervention Codex sont explicités dans le bilan. Le nouveau test navigateur connecté confirme sept coches et progression100%, sans changer l’historique de réception six coches du18oct.

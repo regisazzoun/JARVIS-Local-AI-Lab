@@ -1,0 +1,167 @@
+{
+  "collected_at": "2026-10-19T14:02:26+0200",
+  "actor": "Codex independent verification of actual JARVIS tool receipts",
+  "mission": {
+    "id": "e370b0bef74f4deaa390b5c46bfdc299",
+    "state": "completed",
+    "attempts": 63,
+    "report_path": "/opt/jarvis/conversation/runtime/reports/e370b0bef74f4deaa390b5c46bfdc299/RAPPORT-FINAL.md"
+  },
+  "original_state": "waiting_external",
+  "same_identifier": true,
+  "first_six_receipts_exactly_unchanged": true,
+  "tasks": [
+    {
+      "id": "01",
+      "state": "validated",
+      "report_sha256": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b"
+    },
+    {
+      "id": "02",
+      "state": "validated",
+      "report_sha256": "f75193128af8c646982b759f326734026f0f87ceca8f7e87a5010d99970d7afa"
+    },
+    {
+      "id": "03",
+      "state": "validated",
+      "report_sha256": "3b3abd957930e823d4ac63d0d1e3df65a53db4f38bb613f45b8fdb421efab1ed"
+    },
+    {
+      "id": "04",
+      "state": "validated",
+      "report_sha256": "308f79ea0eab3d731fa29e9e2b90621076f4a08eab964296ea69a5c1c41e886a"
+    },
+    {
+      "id": "05",
+      "state": "validated",
+      "report_sha256": "6d4d44162fac31f1ab9e66738d2ff5a26bc72cf8d59e00c95d6175384048fbb8"
+    },
+    {
+      "id": "06",
+      "state": "validated",
+      "report_sha256": "68fb7782772cf78eb0a00c6d53d4cd9b5b722c54ba1a1c523bbddc5d898cacd7"
+    },
+    {
+      "id": "07",
+      "state": "validated",
+      "report_sha256": "1556c17184dd1dd011e99ecb197bae6c00abadeed27b798b8c4c926b31238536"
+    }
+  ],
+  "owner_test": "Separate declaration: CONFIRMATION-UTILISATEUR-TAILSCALE.json; enrollment method not inferred",
+  "jarvis_technical_receipts": [
+    {
+      "id": 2159,
+      "actor": "JARVIS",
+      "tool": "host_remote",
+      "arguments": {
+        "action": "tailscale_status",
+        "host": "dell-observe"
+      },
+      "created": 1792410429.3000267,
+      "broker_evidence": "43c1d569d0684ea0aa56227fb2523acd",
+      "observation": {
+        "installed": true,
+        "service": "active",
+        "backend_state": "Running",
+        "online": true,
+        "has_tailnet_address": true,
+        "auth_url_private": false,
+        "external_dependency": {
+          "id": "dell-tailnet-enrollment",
+          "resolved": true,
+          "reason": "Node enrollment requires an auth key or authenticated account; no retry can supply a missing identity"
+        }
+      }
+    },
+    {
+      "id": 2162,
+      "actor": "JARVIS",
+      "tool": "host_remote",
+      "arguments": {
+        "action": "desktop_network_test",
+        "host": "dell-observe"
+      },
+      "created": 1792410458.858537,
+      "broker_evidence": "5e5b4dbea3504540a74ce37c898bc216",
+      "observation": {
+        "clients": "Real headless RFB clients on Mac mini; no physical MacBook test",
+        "results": [
+          {
+            "transport": "LAN",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          },
+          {
+            "transport": "Tailscale",
+            "identity_pinned": true,
+            "authenticated": true,
+            "framebuffer_bytes": 259200,
+            "width": 1440,
+            "height": 900
+          }
+        ],
+        "coverage": {
+          "external_tailnet_client_tested": true,
+          "mode": "direct"
+        }
+      }
+    }
+  ],
+  "codex_context_and_report_interventions": [
+    {
+      "id": 2166,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "result": {
+        "archive_sha256": "15d0cb694471c3a38e425694061f9cd59735eecfeeb799882eb073c7dff276a9",
+        "proofs_and_tasks_preserved": true,
+        "reason": "Owner confirmed external resolution; stale working notes contradicted actual Running receipt. Full old context archived, proof ledger and task state untouched."
+      }
+    },
+    {
+      "id": 2196,
+      "kind": "final_report_rejected",
+      "actor": "Codex",
+      "result": {
+        "reason": "Stale 6/7 contradicts seven validated tasks and actual direct authenticated framebuffer receipt",
+        "rejected_sha256": "a1f0ebca1f0bc6986872f4505ce84927712031296ff3300f512693fb2eef8fb4",
+        "task_receipts_preserved": true
+      }
+    },
+    {
+      "id": 2197,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "result": {
+        "archive_sha256": "fdf335284cbe5e77c8da86162a6f9be1f376dce3c7f96d9a65c2424db9515d65",
+        "proofs_and_tasks_preserved": true,
+        "reason": "Reprise rédactionnelle : rapport final contradictoire, sept validations préservées"
+      }
+    },
+    {
+      "id": 2212,
+      "kind": "final_report_attribution_rejected",
+      "actor": "Codex",
+      "result": {
+        "all_seven_receipts_preserved": true,
+        "reason": "Enrollment method invented; owner confirmed result and physical use, not an auth-key provisioning method",
+        "sha256": "717504799a644015335478dc7618ae660f96a66a569bb5e552668006947d1931"
+      }
+    },
+    {
+      "id": 2213,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "result": {
+        "archive_sha256": "900e78604d5b2391dbdd50007418fe2b330c613959ab81169dc6a571b05b67ff",
+        "proofs_and_tasks_preserved": true,
+        "reason": "Correction attribution uniquement ; test utilisateur explicite, méthode enrôlement inconnue"
+      }
+    }
+  ],
+  "all_publications_settled": true,
+  "publication_versions": 30
+}

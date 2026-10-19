@@ -6,7 +6,7 @@ Le backend expose les événements SQLite : intention, résultat, tâches vérif
 
 La migration des sessions ajoute seulement des empreintes et dates d'expiration à la base canonique. Les anciens cookies stockés uniquement dans la RAM de l'ancien processus ne peuvent être récupérés par l'API existante : une reconnexion peut être nécessaire au premier redémarrage. Les sessions créées ensuite doivent survivre aux redémarrages et rester révocables.
 
-Déploiement et contrôle connecté : en cours ; aucun affichage navigateur réel n'est encore déclaré reçu pour V2.
+État courant19oct : passerelle déployée, réception connectée réelle effectuée ; les sections suivantes conservent la chronologie des contrôles.
 
 
 ## Déploiement et observation
@@ -28,3 +28,8 @@ Les rapports JSON de réception sont disponibles dans ce dossier ; aucune captur
 [22 assertions Chromium](RECEPTION-NAVIGATEUR-FINALE.json) passent sur l’état réel `waiting_external` : sept liens de rapports accessibles, six coches seulement, événement de blocage et attribution Codex/JARVIS visibles. [14 pages API](RECEPTION-EVENEMENTS-COMPLETS.json) parcourent les1865 événements jusqu’au dernier curseur. Un ancien événement aux champs JSON nuls cassait la pagination tardive ; l’adaptateur est corrigé et testé. Ses connexions SQLite sont désormais explicitement fermées après lecture.
 
 Le panneau rend les150 événements les plus récents ; le journal complet reste persistant et paginé par l’API. La limite d’affichage n’efface aucun reçu. L’attente et les preuves restent identiques après redémarrage du service, avec la même session authentifiée.
+
+
+## Actualisation19oct — sept tâches reçues
+
+[25 contrôles connectés actuels](RECEPTION-NAVIGATEUR-19OCT.json) confirment sept coches, progression100%, rapports et acteurs distincts. L’API expose la même mission persistante et son journal intégral. Le test utilisateur KDE/VNC depuis le Mac est confirmé par le propriétaire ; les nouveaux clients techniques JARVIS ont authentifié RFB et reçu une image via tunnel SSH direct LAN/tailnet. Les captures privées ne sont pas publiées. La reprise rédactionnelle et le rejet de synthèses erronées sont des interventions Codex visibles ; aucun résultat n’est attribué silencieusement à JARVIS.

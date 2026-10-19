@@ -4,6 +4,13 @@ from pathlib import Path
 from .memory import now
 from .agent import fetch,search,lab_command
 
+def validate_final_report(content, spec):
+    contract=spec.get('final_report_contract',{})
+    missing=[text for text in contract.get('required',[]) if text.casefold() not in content.casefold()]
+    forbidden=[text for text in contract.get('forbidden',[]) if text.casefold() in content.casefold()]
+    if missing or forbidden:
+        raise ValueError('Synthèse finale non conforme au contrat courant : '+json.dumps({'missing':missing,'contradictions':forbidden},ensure_ascii=False))
+
 def command(argv):
     p=subprocess.run(argv,capture_output=True,text=True,timeout=8,env={**os.environ,'LC_ALL':'C'})
     return {'returncode':p.returncode,'stdout':p.stdout[:12000],'stderr':p.stderr[:2000]}
@@ -59,6 +66,7 @@ class Registry:
         if getattr(self,'mission_store',None):
             tasks=self.mission_store.tasks(self.context['mission_id'])
             if not tasks or any(t['state']!='validated' for t in tasks):raise ValueError('Rapport final : toutes les tâches doivent être vérifiées auparavant ; écris les rapports partiels avec host_write_file.')
+            validate_final_report(args['content'],json.loads(self.mission_store.get(self.context['mission_id'])['spec']))
         sources=self.context.get('verified_sources',[])
         canonical=set()
         for url in sources:

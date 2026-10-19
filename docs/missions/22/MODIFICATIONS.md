@@ -69,3 +69,24 @@ Les sauvegardes temporaires choisies par le modèle dans `/tmp` ne persistent pa
 L’adaptateur JL-02 traitait encore les champs JSON nuls sans valeur par défaut : le premier écran passait mais une page tardive échouait. Le correctif s’applique au journal entier ;36 tests V2 passent, dont une pagination au-delà de150 événements. Les connexions SQLite de l’adaptateur sont fermées explicitement. Les rapports de tâches ont désormais des liens authentifiés, y compris le rapport partiel07 sans coche de réception.22 assertions navigateur et14 pages API réelles ont été vérifiées.
 
 JARVIS a corrigé lui-même SUIVI/ROADMAP avec conservation du contenu antérieur, publié tous les bilans puis enregistré le blocage d’enrôlement. Le redémarrage du service conserve son état, ses empreintes et sa session. Le paquet Tailscale installé ne constitue toujours pas un accès direct validé.
+
+## Reprise du19 octobre2026 — corrections de continuité
+
+Le propriétaire confirme l’enrôlement de `jarvis-dell` et un essai graphique réussi depuis son Mac. Cette confirmation est conservée séparément dans CONFIRMATION-UTILISATEUR-TAILSCALE.json. Codex reprend le même identifiant, sans recréer de mission ni réinitialiser les six tâches reçues.
+
+Deux défauts de contexte ont été constatés : le moteur conservait l’ancien blocage après résolution externe et le modèle répétait la synthèse NeedsLogin malgré un nouveau reçu Running. Les observations antérieures restent dans le journal mais ne sont plus des blocages actifs après une demande explicite de revérification. Le contexte de travail précédent est archivé dans la même base technique, puis reconstruit depuis les tâches/preuves ; aucune preuve n’est supprimée. Les notes portent auteur/heure et ne sont pas des faits vérifiés ; les exigences satisfaites exposent un extrait de leur reçu effectif. Le message d’erreur d’une tâche est effacé après réception réussie, sans supprimer son historique.
+
+Le premier client RFB échouait avec l’ancien secret privé de déploiement. Le contrôleur utilise désormais le fichier TigerVNC actuellement configuré, uniquement dans son processus privilégié, sans retourner le secret ou son fichier au modèle. Aucun mot de passe ni service Dell modifié. Implémentation conforme au [format TigerVNC](https://github.com/TigerVNC/tigervnc/blob/master/common/rfb/obfuscate.cxx) et à son [ordre des bits DES](https://github.com/TigerVNC/tigervnc/blob/master/common/rfb/d3des.c). Le test réel est ensuite réexécuté par JARVIS, pas par Codex.
+
+38 tests unitaires passent après ces corrections. Les modifications de moteur, d’outil et de contexte sont des interventions Codex ; elles empêchent de qualifier cette reprise de fonctionnement entièrement sans assistance.
+
+
+### Clôture cohérente —19 octobre
+
+Après validation réelle07, le modèle a encore produit une synthèse «6/7, enrôlement bloqué». Codex a rejeté cette synthèse, archivé son contexte et relancé uniquement la rédaction sur la même mission, sans toucher aux sept validations. `intervention_report` accepte désormais un contrat de synthèse optionnel (mentions requises et contradictions interdites), contrôlé avant écriture/publication ; les missions sans contrat restent compatibles. Le contexte de fin contient les états et derniers faits vérifiés de tous les contrats.40 tests V2 passent, dont le refus d’une synthèse périmée avant publication. Ce garde-fou ne constitue pas une vérification sémantique universelle : les rapports restent à confronter aux traces.
+
+
+La mémoire conversationnelle dédoublonnait auparavant tous les rapports finaux sous la même clé, même après correction : l’ancien texte pouvait rester visible. Le moteur conserve désormais une nouvelle version finale dans la même conversation canonique, conserve l’ancien message historique et dédoublonne uniquement la version courante identique.41 tests passent, dont conservation des deux versions et absence de troisième copie. Codex a également corrigé le contrat de synthèse trop littéral : une négation citant l’ancienne attribution erronée ne doit pas être refusée comme si elle l’affirmait. Les refus techniques restent tracés.
+
+
+Le Launcher mémorise maintenant la version finale par identifiant et date de mise à jour, pour recharger une conversation révisée de la même mission. Deux suites JavaScript passent ;25 contrôles Chromium réels confirment le rechargement de la synthèse canonique7/7, sa distinction du test utilisateur, l’état terminé et les sept coches. L’ancien test exigeant encore l’événement de blocage dans les150 événements affichés a été adapté à l’événement de révision courant ; le journal historique complet reste vérifié séparément via l’API.

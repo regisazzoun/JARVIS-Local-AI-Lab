@@ -18,3 +18,8 @@ Le Launcher lit le journal SQLite et conserve le lecteur historique pour les anc
 L’état `waiting_external` conserve le plan et les rapports sans relancer des générations identiques face à un enrôlement absent. `mission_block` exige une observation effective de la tâche et une relecture indépendante du rapport, publie ce rapport par l’outbox et ne crée aucune validation fonctionnelle. Une reprise remet la même mission en file et réutilise les tâches déjà reçues. Les erreurs de transport et les fins de quantum conservent leurs reprises automatiques.
 
 Les contrats peuvent vérifier des champs du résultat réel, notamment `github_path`, pour distinguer le document demandé du document réellement obtenu. Les téléchargements sont des mutations locales autorisées, exécutées sous l’identité technique et relues intégralement. Aucun jeton GitHub ou Tailscale n’est transmis au modèle.
+
+
+## Reprise et révision —19 octobre2026
+
+La reprise explicite d’une attente externe ouvre une nouvelle borne de recontrôle. Les anciens blocages restent dans le journal, mais ne suffisent plus à rebloquer la nouvelle vérification. Le contexte de travail est archivé avant reconstruction ; les tâches, preuves et rapports ne sont pas effacés. Les faits vérifiés récents sont épinglés et distingués des notes de travail. La réception finale peut imposer un contrat de mentions/contradictions propre à la mission avant écriture et publication. Ce contrat ne remplace pas l’analyse sémantique indépendante. Les rapports finaux révisés sont conservés comme nouveaux messages canoniques, avec historique et dédoublonnage de la version courante.

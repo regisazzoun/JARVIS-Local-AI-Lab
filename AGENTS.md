@@ -63,3 +63,7 @@ Le propriétaire demande explicitement : « Alors fusionne je veux quelque chose
 ## Mission 22 — finalisation autorisée, 18 octobre 2026
 
 Poursuivre sur `codex/mission-22-agentic-engine-v2`, PR8, sans fusion dans main ni déploiement Dell2. Conserver les tâches21 déjà reçues ; JARVIS reste leur exécutant réel. Codex corrige le moteur, raccorde les capacités et vérifie indépendamment. Le propriétaire inclut désormais explicitement l’installation et l’enrôlement du client Tailscale propre au Dell1 : une passerelle Mac ne remplace pas cette correction. Aucune copie d’identité Tailscale ou exposition de secrets au modèle. Une absence réelle d’authentification d’enrôlement doit être documentée comme dépendance externe, sans réception fictive ni nouveau GO de mission. Préserver services, mémoire canonique, ressources disponibles et accès existants.
+
+## Reprise finale22 —19 octobre2026
+
+Le propriétaire confirme `jarvis-dell` enrôlé dans Tailscale et KDE/VNC utilisé depuis son Mac via tunnel SSH sur le tailnet. Ce témoignage utilisateur est distinct des nouvelles preuves du modèle. Reprendre la mission persistante `e370b0bef74f4deaa390b5c46bfdc299`, sans créer de mission ni recommencer les six tâches reçues. JARVIS vérifie lui-même Tailscale, SSH direct et RFB/image, clôture07 et publie ses rapports ; Codex vérifie et consolide22. Aucune validation intermédiaire, aucune fusion main, acquis/services/identités préservés.

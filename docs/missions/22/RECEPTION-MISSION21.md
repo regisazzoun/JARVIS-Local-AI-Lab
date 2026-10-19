@@ -1,44 +1,34 @@
 # Réception de la mission21 par le moteur22
 
-**Six tâches sur sept reçues. Réception complète non acquise.** Exécution persistante `e370b0bef74f4deaa390b5c46bfdc299`, véritable Qwen27B et broker installé. Les états et preuves courants sont exportés dans [PREUVES-MISSION21.json](PREUVES-MISSION21.json). La branche de publication du modèle est [jarvis/mission-21-autonomie](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/tree/jarvis/mission-21-autonomie/docs/missions/21).
+**19 octobre2026 : sept tâches sur sept validées. Verdict GO AVEC RÉSERVES sur l’autonomie démontrée.** Même exécution `e370b0bef74f4deaa390b5c46bfdc299`, reprise depuis `waiting_external`, sans nouvelle mission ni réexécution des six tâches reçues. [État et preuves](PREUVES-MISSION21.json), [rapports du modèle](../21/RAPPORTS/), [manifestes GitHub](MANIFESTE-RAPPORTS-MISSION21.json).
 
-| Tâche | Résultat réellement reçu | Rapport du modèle |
-| --- | --- | --- |
-| 01 Santé | Lectures Mac/Dell et rapport vérifié | [Rapport01](../21/RAPPORTS/01-RAPPORT-SANTE.md) |
-| 02 Journaux | Journaux autorisés Mac/Dell, réserves conservées | [Rapport02](../21/RAPPORTS/02-ANALYSE-JOURNAUX.md) |
-| 03 Synthèse | Rapports01/02 relus et synthèse enregistrée | [Rapport03](../21/RAPPORTS/03-SYNTHESE-TECHNIQUE.md) |
-| 04 Concordance | Sources GitHub effectivement consultées, accès manquants signalés | [Rapport04](../21/RAPPORTS/04-CONCORDANCE-MISSIONS.md) |
-| 05 Administration | Identité gardée, SSH/Ansible, copie réelle et seconde passe sans changement | [Rapport05](../21/RAPPORTS/05-ADMINISTRATION-DELL.md) |
-| 06 Service | Collecteur/timer installés par appel JARVIS, nouveau résultat réel vérifié | [Rapport06](../21/RAPPORTS/06-INSTALLATION-SERVICE.md) |
-| 07 Bureau distant | KDE/VNC, authentification RFB, image reçue et clavier français ; LAN reçu, Tailscale direct non reçu | [Rapport07 partiel](../21/RAPPORTS/07-VNC-LOCAL-TAILSCALE.md), publié ; aucune coche de réception complète |
+| Tâche | Résultat réellement reçu |
+| --- | --- |
+| 01 Santé | Lectures Mac/Dell et rapport vérifié |
+| 02 Journaux | Journaux autorisés et réserves conservées |
+| 03 Synthèse | Rapports01/02 relus et synthèse enregistrée |
+| 04 Concordance | Sources GitHub consultées, accès manquants signalés |
+| 05 Administration | SSH/Ansible gardés, copie réelle et seconde passe sans changement |
+| 06 Service | Collecteur/timer installé par JARVIS, nouveau résultat vérifié |
+| 07 Bureau | KDE/VNC ; authentification et image reçue via tunnels SSH LAN et directement Tailscale |
 
-## Blocage technique réel
+## Réception de07 : deux sources distinctes
 
-Le client Tailscale était absent du déploiement13D-E : ce loupé est conservé dans les rapports13. Codex a raccordé une opération d’installation officielle limitée au Dell identifié. **JARVIS l’a effectivement appelée** : client installé, service activé. JARVIS puis Codex constatent `NeedsLogin`, sans adresse du tailnet. Aucun identifiant d’enrôlement valide n’a été retrouvé dans les emplacements privés vérifiés ; aucune identité du Mac n’a été copiée.
+**Propriétaire :** confirme l’enrôlement de `jarvis-dell` et l’utilisation réelle de KDE/VNC depuis son Mac via tunnel SSH sur le tailnet. C’est un test utilisateur déclaré, pas une observation physique de Codex : [confirmation](CONFIRMATION-UTILISATEUR-TAILSCALE.json).
 
-L’installation du paquet est donc corrigée, mais l’enrôlement reste une dépendance externe. Une clé d’enrôlement ou une session de compte Tailscale authentifiée est nécessaire. Ce n’est pas une nouvelle autorisation de mission. Les liens de connexion et secrets restent privés ; aucun n’est publié sur GitHub. [Sources officielles](https://tailscale.com/docs/features/access-control/auth-keys).
+**JARVIS/Qwen :** nouvel appel `tailscale_status`, reçu `43c1d569d0684ea0aa56227fb2523acd`, confirme service actif, `Running`, en ligne, adresse tailnet présente. Appel `desktop_network_test`, reçu `5e5b4dbea3504540a74ce37c898bc216`, confirme deux clients RFB réels, tunnel SSH et identité épinglée, authentification réussie et **259200 octets d’image reçus par transport**, géométrie annoncée1440×900. `coverage.mode=direct` : le trajet Tailscale ne passe pas par la passerelle de bureau Mac. Le client technique est exécuté sur le Mac mini Debian ; il ne remplace pas le test physique du propriétaire. Aucune capture d’écran privée publiée.
 
-Une passerelle Mac fonctionne et authentifie réellement le bureau. Elle ne remplace pas le client direct demandé sur Dell. Aucun test physique MacBook ni microphone n’est revendiqué. La [procédure de tunnel](ACCES-BUREAU-DELL.md) distingue LAN, passerelle et futur accès direct Tailscale.
+Les six empreintes initiales sont inchangées. JARVIS a appelé lui-même `mission_task_complete` pour07 ; le moteur a relu le rapport et validé le contrat, puis vérifié son contenu publié sur GitHub. La synthèse finale est produite par le modèle, avec vérification distante : [rapport21](../21/RAPPORT-FINAL.md).
 
-## Autonomie et limites
+## Corrections et limites conservées
 
-Les six rapports ont été produits par le modèle, relus par le moteur et publiés avec vérification distante. Codex a récupéré les documents sans les réécrire : [manifestes](MANIFESTE-RAPPORTS-MISSION21.json). Les originaux historiques ont été sauvegardés avant la reprise. Les anciennes78 opérations ne constituaient pas une mission durable ni une réception ; leur bilan reste dans BASELINE-MISSION21.json.
+Le18oct, Tailscale était installé par JARVIS mais non enrôlé. L’omission du déploiement13D-E reste documentée ; son état courant est corrigé. Aucune identité Tailscale Mac copiée sur Dell.
 
-Codex a défini les contrats à partir des sept fiches du propriétaire, corrigé le moteur/broker, fourni des capacités fixes et revu des erreurs de procédure. JARVIS a choisi et appelé les outils réels. Cette exécution n’est pas une preuve d’autonomie intégrale sans intervention d’infrastructure. Les boucles de lectures sont encore trop nombreuses ; les compteurs bruts restent publiés, sans transformer chaque retour réussi en progrès utile.
+Le19oct, le premier test RFB a échoué : le contrôleur lisait un ancien secret de déploiement. Codex a corrigé le client privilégié pour lire le fichier de mot de passe réellement utilisé par TigerVNC, sans exposer le secret au modèle et sans modifier le mot de passe ni les services Dell fonctionnels. JARVIS a ensuite exécuté le test réussi. Une tentative du modèle de déposer un script de réinitialisation a été refusée pour droits insuffisants ; elle n’a pas changé le mot de passe.
 
-Les rapports du modèle comportent aussi des réserves sémantiques : date historique/attribution erronées dans01, formulations de réception intermédiaires, procédure VNC initiale confondant écoute loopback et accès direct LAN. Les preuves d’outils et la procédure vérifiée font autorité ; la présence d’un rapport ne valide pas toutes ses phrases.
+La reprise réutilisait aussi une ancienne dépendance non résolue et des notes périmées. Codex a corrigé le filtrage temporel des observations, archivé le contexte de travail, épinglé les preuves récentes et fourni un objectif de reprise ciblé. Les preuves et checkpoints originaux restent conservés. La première synthèse finale répétait faussement6/7 et l’ancien blocage ; Codex l’a refusée et a fait reprendre uniquement sa rédaction par JARVIS. Un contrat de synthèse explicite empêche cette version contradictoire d’être reçue à nouveau.
 
-## Reprise attendue
-
-Conserver la même mission et ses six tâches validées. Après enrôlement réel, vérifier l’identité Dell, l’état Tailscale et une authentification RFB avec réception d’image via son adresse du tailnet, puis refaire seulement les contrôles affectés. Faire clôturer07 et le rapport final par JARVIS. Aucun déploiement Dell2 ni reprise des installations déjà reçues.
+Cela démontre une exécution réelle persistante, des outils, des preuves et des publications ; **cela ne démontre pas une autonomie longue sans correction ni guidage Codex**. Répétitions, erreurs sémantiques et attribution imprécise dans certains rapports bruts restent des réserves. La réception14A globale et le déploiement Dell2 ne sont pas déduits de cette mission. Les anciens rapports sont conservés dans l’historique Git et les archives privées ; aucune réécriture silencieuse par Codex des productions du modèle.
 
 
-## Publications de clôture partielle
-
-JARVIS a lui-même rédigé et publié une synthèse finale **partielle** sur la branche21, commit `999e6f620d5c5731b684d25c95df6e0f86a91484`, contenu vérifié par l’outbox. Cela ne clôture pas les sept tâches. Les premières versions proposées de SUIVI/ROADMAP auraient effacé le pilotage global ; leur publication a été refusée. JARVIS a ensuite conservé les originaux et ajouté son bilan : les deux publications sont vérifiées, les versions rejetées remplacées. La [vérification indépendante](PRESERVATION-PILOTAGE-MISSION21.json) confirme le préfixe documentaire d’origine et tous ses identifiants. JARVIS a lui-même appelé `mission_block` ; état final `waiting_external`, tâche07 `blocked`, aucune livraison restante. Le [redémarrage du service](ATTENTE-EXTERNE-REDEMARRAGE.json) conserve exactement cet état et les six empreintes de réception. Les états définitifs figurent dans PREUVES-MISSION21.json.
-
-
-Réserve de synthèse : le rapport final brut du modèle attribue à05 le déploiement Plasma/TigerVNC, alors que05 reçoit la configuration Ansible de supervision et que le bureau est réalisé en07. Le tableau de réception et les invocations réelles ci-dessus prévalent. Le rapport brut reste inchangé pour conserver sa provenance.
-
-
-Le checkpoint de reprise a été préparé sans changer l’état d’attente : après enrôlement et reprise de cette même mission, JARVIS doit relire l’état Tailscale et recevoir le bureau via LAN et l’adresse Tailscale propre au Dell. Le contrat exige explicitement le mode réseau `direct` ; une ancienne preuve de passerelle ne pourra pas valider07. Les instructions intermédiaires de réparation ROADMAP sont remplacées, car cette publication est déjà reçue.
+La synthèse définitive distingue désormais explicitement le test utilisateur et les contrôles JARVIS. Réserves de formulation conservées : l’expression « intervention physique sur son Mac » est celle du modèle ; le propriétaire n’a pas détaillé sa méthode d’enrôlement. Les noms d’outils résumés et références raccourcies ne remplacent pas le journal complet. Le résultat technique reçu et la déclaration utilisateur font autorité, sans déduire de clé fournie ni de manipulation précise.
