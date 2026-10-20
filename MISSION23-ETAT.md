@@ -22,6 +22,6 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | m23d_03 — Publier code et réception23D | validated | e219be6eed3a95fe0aafa82d596024a517643f962deac13a3f70804fb05a308c |
 | m23d_04 — Corriger réellement client et composants | validated | 3aa6d77f349680eb7f178f82de418d194753d13cc0f4841eaac33a95381ee3ba |
 | m23d_05 — Exécuter six scénarios et recevoir sur mesures | validated | b7296a7c6eb15cbec798d7f0d7ad96ea0eefc7e765087d37a880a779d0957028 |
-| m23d_06 — Corriger le warmup AEC puis recevoir trois interruptions | pending | non reçu |
+| m23d_06 — Corriger le warmup AEC puis recevoir trois interruptions | validated | c2569c01e98ae7c2dcfb2e3d9ddf19edbf531a9b707d067573d5990d044915b2 |
 
 Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
