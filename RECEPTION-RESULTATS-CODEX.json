@@ -155,5 +155,14 @@
     "new_agent_llm_api_timeout_s": 90,
     "openai_http_timeout_s": 120,
     "basis": "Installed LiveKit SDK AgentSession default APIConnectOptions timeout=10s; targeted Ollama control first token=57.105s."
+  },
+  "physical_microphone_client": {
+    "available": true,
+    "client": "test-client.html",
+    "room_helper": "livekit-agent/tests/prepare_microphone_room.py",
+    "javascript_syntax_checked": true,
+    "temporary_room_create_and_delete_checked": true,
+    "physical_microphone_tested": false,
+    "remote_tailscale_browser_media_tested": false
   }
 }
