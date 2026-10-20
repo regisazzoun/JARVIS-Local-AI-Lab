@@ -1,3 +1,9 @@
+## Mission24 — rétablissement du broker (décision du20 octobre2026)
+
+🟡 En cours, transport non rétabli : [rapport24](docs/missions/24/RAPPORT-FINAL.md), suite explicite de23C. Confinement Codex démontré (seccomp, espaces de noms, connect Unix et création TCP refusés). Correctifs23C non déployés ; aucun nouvel essai JARVIS ni redémarrage reçu. Autorisations propriétaire complètes conservées, aucune validation humaine intermédiaire. LiveKit23 reste NO-GO.
+
+**Collision de numérotation :**24 est affecté au rétablissement du broker. Le chantier historique «24 — Mémoire enrichie» reste planifié, avec contenu et historique conservés ; réaffectation ultérieure nécessaire. Ne pas renuméroter les autres missions automatiquement. Les mentions antérieures réservant24 à la mémoire sont historiques.
+
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
 **Dernière mise à jour : 19 octobre 2026**  

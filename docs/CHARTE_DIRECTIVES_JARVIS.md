@@ -102,3 +102,10 @@ Le propriétaire demande explicitement : « Alors fusionne je veux quelque chose
 ## Mission23 — finalisation et capacités durables,20 octobre2026
 
 Le propriétaire autorise Codex à coordonner la finalisation de l'exécution originale7971ec0311124fb4be9e3125dcb291fd, réparer/développer les outils GitHub et le routage conversationnel, déployer puis faire retester par JARVIS, exécutant principal. Aucune validation humaine intermédiaire ; conserver les onze validations historiques, preuves, commits et mémoire. Compléter les tests manquants par addenda et recevoir sur preuves. Diagnostic df542051560b44b3851124b09d8319c2 lié23, jamais mission24 mémoire. Publication sur branches dédiées des dépôts propriétaire concernés, secrets hors Git/modèle, aucune fusion main ni Dell2. Sources et méthode : docs/missions/23/finalisation/SOURCES-ET-AUTORISATIONS.md.
+
+
+## Mission24 — rétablissement du broker (décision du20 octobre2026)
+
+🟡 En cours, transport non rétabli : [rapport24](missions/24/RAPPORT-FINAL.md), suite explicite de23C. Confinement Codex démontré (seccomp, espaces de noms, connect Unix et création TCP refusés). Correctifs23C non déployés ; aucun nouvel essai JARVIS ni redémarrage reçu. Autorisations propriétaire complètes conservées, aucune validation humaine intermédiaire. LiveKit23 reste NO-GO.
+
+**Collision de numérotation :**24 est affecté au rétablissement du broker. Le chantier historique «24 — Mémoire enrichie» reste planifié, avec contenu et historique conservés ; réaffectation ultérieure nécessaire. Ne pas renuméroter les autres missions automatiquement. Les mentions antérieures réservant24 à la mémoire sont historiques.

@@ -1,3 +1,9 @@
+## Mission24 — rétablissement du broker (décision du20 octobre2026)
+
+🟡 En cours, transport non rétabli : [rapport24](24/RAPPORT-FINAL.md), suite explicite de23C. Confinement Codex démontré (seccomp, espaces de noms, connect Unix et création TCP refusés). Correctifs23C non déployés ; aucun nouvel essai JARVIS ni redémarrage reçu. Autorisations propriétaire complètes conservées, aucune validation humaine intermédiaire. LiveKit23 reste NO-GO.
+
+**Collision de numérotation :**24 est affecté au rétablissement du broker. Le chantier historique «24 — Mémoire enrichie» reste planifié, avec contenu et historique conservés ; réaffectation ultérieure nécessaire. Ne pas renuméroter les autres missions automatiquement. Les mentions antérieures réservant24 à la mémoire sont historiques.
+
 # Cycle 23–31 — Évolution JARVIS (19 octobre 2026)
 
 > **Actualisation mission23 : lancée par le propriétaire, exécution JARVIS en cours.** Le reste du cycle demeure planifié ; le plan initial est conservé dans l’historique de la PR9. [Diagnostic correctif23](23/DIAGNOSTIC.md). Ordre révisé par décision du propriétaire : **23 LiveKit → 24 mémoire → 25 MCP/skills → 26 Mission Engine → 27 JL-03 → 28 routage → 29 satellites → 30 proactivité → 31 réception**. Les numéros 14, 15A/15B, JL-01 et JL-02 existants restent inchangés. Aucun déploiement matériel ni modification des services en production n'est autorisé par la seule inscription dans la roadmap.
