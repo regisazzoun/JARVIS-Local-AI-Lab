@@ -1,0 +1,97 @@
+test_restart_and_logout (test_auth_persistence.SessionPersistenceTest.test_restart_and_logout) ... ok
+test_catalog_is_derived_from_exposed_tools_and_never_claims_success (test_broker23c.Broker23C.test_catalog_is_derived_from_exposed_tools_and_never_claims_success) ... ok
+test_failure_classes_and_redaction (test_broker23c.Broker23C.test_failure_classes_and_redaction) ... ok
+test_policy_fingerprint_changes_on_permission_change (test_broker23c.Broker23C.test_policy_fingerprint_changes_on_permission_change) ... ok
+test_scope_never_returns_remote_secrets (test_broker23c.Broker23C.test_scope_never_returns_remote_secrets) ... ok
+test_transport_denial_is_not_a_policy_denial (test_broker23c.Broker23C.test_transport_denial_is_not_a_policy_denial) ... ok
+test_final_revision_preserves_old_message_and_deduplicates_latest (test_canonical_mission_memory.CanonicalMissionMemoryTest.test_final_revision_preserves_old_message_and_deduplicates_latest) ... ok
+test_mission_messages_survive_and_are_not_duplicated (test_canonical_mission_memory.CanonicalMissionMemoryTest.test_mission_messages_survive_and_are_not_duplicated) ... ok
+test_redaction_preserves_proof_references (test_canonical_mission_memory.CanonicalMissionMemoryTest.test_redaction_preserves_proof_references) ... ok
+test_prior_read_is_preserved_and_mutation_is_deferred_before_effect (test_chat_promotion.ChatPromotionTest.test_prior_read_is_preserved_and_mutation_is_deferred_before_effect) ... ok
+test_success_resolves_same_command_but_write_does_not (test_debugging_checkpoint.DebuggingCheckpointTest.test_success_resolves_same_command_but_write_does_not) ... ok
+test_truncated_document_can_be_continued_and_untrusted_redirect_policy_remains (test_document_pagination.DocumentationTest.test_truncated_document_can_be_continued_and_untrusted_redirect_policy_remains) ... ok
+test_contract_proof_survives_a_long_sequence (test_durable.DurableJournalTest.test_contract_proof_survives_a_long_sequence) ... ok
+test_dependency_order_and_restart (test_durable.DurableJournalTest.test_dependency_order_and_restart) ... ok
+test_exact_github_path_required_for_source_proof (test_durable.DurableJournalTest.test_exact_github_path_required_for_source_proof) ... ok
+test_explicit_interruption_wins_over_worker_finish (test_durable.DurableJournalTest.test_explicit_interruption_wins_over_worker_finish) ... ok
+test_external_rebase_archives_context_without_erasing_proofs_or_tasks (test_durable.DurableJournalTest.test_external_rebase_archives_context_without_erasing_proofs_or_tasks) ... ok
+test_intent_survives_crash_without_claiming_success (test_durable.DurableJournalTest.test_intent_survives_crash_without_claiming_success) ... ok
+test_invalid_plan_is_atomic (test_durable.DurableJournalTest.test_invalid_plan_is_atomic) ... ok
+test_lost_lease_recovers_after_more_than_five_cycles (test_durable.DurableJournalTest.test_lost_lease_recovers_after_more_than_five_cycles) ... ok
+test_nullable_historical_event_is_readable (test_durable.DurableJournalTest.test_nullable_historical_event_is_readable) ... ok
+test_plan_cannot_overwrite_completed_work (test_durable.DurableJournalTest.test_plan_cannot_overwrite_completed_work) ... ok
+test_empty_replacement_is_valid_for_deletion (test_exact_edit.EditRegistry.test_empty_replacement_is_valid_for_deletion) ... ok
+test_ambiguous_match_changes_nothing (test_exact_edit.ExactEdit.test_ambiguous_match_changes_nothing) ... ok
+test_delete_line (test_exact_edit.ExactEdit.test_delete_line) ... ok
+test_exact_patch_preserves_rest_and_literal_shell_text (test_exact_edit.ExactEdit.test_exact_patch_preserves_rest_and_literal_shell_text) ... ok
+test_stale_hash_changes_nothing (test_exact_edit.ExactEdit.test_stale_hash_changes_nothing) ... ok
+test_durable_lock_does_not_block_conversation (test_execution_isolation.ExecutionIsolationTest.test_durable_lock_does_not_block_conversation) ... ok
+test_existing_missions_without_contract_still_supported (test_final_report.FinalReportTest.test_existing_missions_without_contract_still_supported) ... ok
+test_stale_report_rejected_before_write_or_publication (test_final_report.FinalReportTest.test_stale_report_rejected_before_write_or_publication) ... ok
+test_current_activation_newest_errors_are_not_hidden_by_old_startup_logs (test_finalisation_capabilities.CurrentServiceLogs.test_current_activation_newest_errors_are_not_hidden_by_old_startup_logs) ... ok
+test_required_files_ignore_json_spacing_and_allow_additional_sources (test_finalisation_capabilities.DeliveryContract.test_required_files_ignore_json_spacing_and_allow_additional_sources) ... ok
+test_branches (test_finalisation_capabilities.Finalisation.test_branches) ... ok
+test_execution_routing (test_finalisation_capabilities.Finalisation.test_execution_routing) ... ok
+test_publication_private_paths (test_finalisation_capabilities.Finalisation.test_publication_private_paths) ... ok
+test_questions_never_launch (test_finalisation_capabilities.Finalisation.test_questions_never_launch) ... ok
+test_safe_sources (test_finalisation_capabilities.Finalisation.test_safe_sources) ... ok
+test_secret_rejected (test_finalisation_capabilities.Finalisation.test_secret_rejected) ... ok
+test_existing_pr_is_updated_without_duplicate (test_finalisation_capabilities.PrRecovery.test_existing_pr_is_updated_without_duplicate) ... ok
+test_branch_conflict_is_not_force_pushed (test_finalisation_capabilities.PublicationRecovery.test_branch_conflict_is_not_force_pushed) ... ok
+test_repeated_snapshot_no_duplicate_commit (test_finalisation_capabilities.PublicationRecovery.test_repeated_snapshot_no_duplicate_commit) ... ok
+test_ungranted_project_and_non_admin_profile_are_denied (test_finalisation_capabilities.RemoteProjectScope.test_ungranted_project_and_non_admin_profile_are_denied) ... ok
+test_ambiguous_file_is_rejected (test_github_paths.GithubPaths.test_ambiguous_file_is_rejected) ... ok
+test_append_preserves_project_history (test_github_paths.GithubPaths.test_append_preserves_project_history) ... ok
+test_file_alias_is_respected (test_github_paths.GithubPaths.test_file_alias_is_respected) ... ok
+test_identical_download_does_not_write_or_claim_a_change (test_github_paths.GithubPaths.test_identical_download_does_not_write_or_claim_a_change) ... ok
+test_mission_only_summary_cannot_replace_project_history (test_github_paths.GithubPaths.test_mission_only_summary_cannot_replace_project_history) ... ok
+test_privacy_redaction_is_allowed_when_preserving_history (test_github_paths.GithubPaths.test_privacy_redaction_is_allowed_when_preserving_history) ... ok
+test_question_resume_and_memory_routing (test_intent_http.HttpIntent.test_question_resume_and_memory_routing) ... ERROR
+test_nullable_historical_event_does_not_break_later_pages (test_launcher_events.LauncherEvents.test_nullable_historical_event_does_not_break_later_pages) ... ok
+test_middle_unicode_page_and_eof_are_complete_and_versioned (test_local_pagination.LocalPagination.test_middle_unicode_page_and_eof_are_complete_and_versioned) ... ok
+test_negative_offset_is_rejected (test_local_pagination.LocalPagination.test_negative_offset_is_rejected) ... ok
+test_compaction_preserves_latest_batch_class_body_and_original_proof (test_model_observation.ModelObservation.test_compaction_preserves_latest_batch_class_body_and_original_proof) ... ok
+test_external_resume_requires_new_observation_without_rewriting_old_proof (test_model_observation.ModelObservation.test_external_resume_requires_new_observation_without_rewriting_old_proof) ... ok
+test_large_batch_keeps_both_ends_and_full_receipt_unchanged (test_model_observation.ModelObservation.test_large_batch_keeps_both_ends_and_full_receipt_unchanged) ... ok
+test_native_tool_exchange_keeps_link_and_content_across_compaction (test_model_observation.ModelObservation.test_native_tool_exchange_keeps_link_and_content_across_compaction) ... ok
+test_readonly_repository_policy_does_not_grant_write (test_project_service.ProjectServiceTest.test_readonly_repository_policy_does_not_grant_write) ... ok
+test_same_sandbox_identity_and_no_unit_injection (test_project_service.ProjectServiceTest.test_same_sandbox_identity_and_no_unit_injection) ... ok
+test_ministral_whole_message_preserves_native_authorization_path (test_protocol.SharedProtocolTest.test_ministral_whole_message_preserves_native_authorization_path) ... ok
+test_native_message_is_not_rewritten (test_protocol.SharedProtocolTest.test_native_message_is_not_rewritten) ... ok
+test_quoted_or_unknown_text_does_not_execute (test_protocol.SharedProtocolTest.test_quoted_or_unknown_text_does_not_execute) ... ok
+test_failed_delivery_keeps_local_reference_and_retries (test_publication.PublicationTest.test_failed_delivery_keeps_local_reference_and_retries) ... ok
+test_local_first_and_remote_verification (test_publication.PublicationTest.test_local_first_and_remote_verification) ... ok
+test_semantic_rejection_waits_for_revision_without_repeated_push (test_publication.PublicationTest.test_semantic_rejection_waits_for_revision_without_repeated_push) ... ok
+test_valid_reads_continue_after_invalid_entry_and_normalize_explicit_fields (test_read_batch.ReadBatchTest.test_valid_reads_continue_after_invalid_entry_and_normalize_explicit_fields) ... ok
+test_read_only_project_service_calls_allowed_but_restart_rejected (test_read_batch.ServiceReadBatchTest.test_read_only_project_service_calls_allowed_but_restart_rejected) ... ok
+test_fresh_service_observation_is_allowed_after_reconfiguration (test_repetition_epoch.RepetitionEpochTest.test_fresh_service_observation_is_allowed_after_reconfiguration) ... ok
+test_redirected_traceback_not_reported_as_empty_error (test_tool_error_feedback.ErrorFeedbackTest.test_redirected_traceback_not_reported_as_empty_error) ... ok
+test_broker_id_is_a_valid_reference_for_block_and_evidence (test_verification.VerificationTest.test_broker_id_is_a_valid_reference_for_block_and_evidence) ... ok
+test_exact_checker_allows_stderr_redirect_but_not_shell_substitution (test_verification.VerificationTest.test_exact_checker_allows_stderr_redirect_but_not_shell_substitution) ... ok
+test_missing_functional_assertion_is_rejected (test_verification.VerificationTest.test_missing_functional_assertion_is_rejected) ... ok
+test_policy_read_cannot_validate_task (test_verification.VerificationTest.test_policy_read_cannot_validate_task) ... ok
+test_real_external_block_preserves_received_tasks (test_verification.VerificationTest.test_real_external_block_preserves_received_tasks) ... ok
+test_recoverable_publication_revision_must_not_be_hidden_by_external_block (test_verification.VerificationTest.test_recoverable_publication_revision_must_not_be_hidden_by_external_block) ... ok
+test_report_write_does_not_invalidate_prior_functional_verification (test_verification.VerificationTest.test_report_write_does_not_invalidate_prior_functional_verification) ... ok
+test_zero_exit_with_runtime_failure_cannot_satisfy_functional_contract (test_verification.VerificationTest.test_zero_exit_with_runtime_failure_cannot_satisfy_functional_contract) ... ok
+
+======================================================================
+ERROR: test_question_resume_and_memory_routing (test_intent_http.HttpIntent.test_question_resume_and_memory_routing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adminjarvis/JARVIS/mission23c/agentic/engine_v2/tests/test_intent_http.py", line 16, in test_question_resume_and_memory_routing
+    server=ThreadingHTTPServer(('127.0.0.1',0),make_handler(core));thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+  File "/usr/lib/python3.13/socketserver.py", line 453, in __init__
+    self.socket = socket.socket(self.address_family,
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                                self.socket_type)
+                                ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+
+----------------------------------------------------------------------
+Ran 76 tests in 0.723s
+
+FAILED (errors=1)
