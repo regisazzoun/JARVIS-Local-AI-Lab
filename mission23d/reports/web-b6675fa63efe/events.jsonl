@@ -1,0 +1,20 @@
+{"utc": "2026-10-20T20:13:00.345796+00:00", "t": 0.35613826394546777, "event": "connected", "room": "m23d-codex-3f54fb9aa4"}
+{"utc": "2026-10-20T20:13:02.727140+00:00", "t": 2.737481118994765, "event": "participant_connected", "identity": "agent-AJ_ibL3V7skufjB"}
+{"utc": "2026-10-20T20:13:02.774110+00:00", "t": 2.7844510909635574, "event": "audio_track_subscribed", "identity": "agent-AJ_ibL3V7skufjB"}
+{"utc": "2026-10-20T20:13:03.791938+00:00", "t": 3.802287509897724, "event": "wav_started", "label": "initial", "file": "initial.wav", "sha256": "f4798854dc487221171a2a21c7bbc1638e40350e1e57088441946d7647289f0c", "duration_s": 13.769458333333333}
+{"utc": "2026-10-20T20:13:17.636533+00:00", "t": 17.646904871915467, "event": "wav_ended", "label": "initial"}
+{"utc": "2026-10-20T20:13:21.171058+00:00", "t": 21.181397641892545, "event": "participant_attributes", "identity": "agent-AJ_ibL3V7skufjB", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T20:13:21.172525+00:00", "t": 21.182865790906362, "event": "transcription_final", "text": " Bonjour Jervis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T20:13:23.324829+00:00", "t": 23.3351705808891, "event": "participant_attributes", "identity": "agent-AJ_ibL3V7skufjB", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T20:13:25.912975+00:00", "t": 25.923327804892324, "event": "wav_started", "label": "interruption", "file": "interrupt.wav", "sha256": "4644976ad29cbd79bc3ef36b1dac7584b37be443d461625c5f91dc5f40a3f76c", "duration_s": 7.801916666666667}
+{"utc": "2026-10-20T20:13:26.578196+00:00", "t": 26.588558849995025, "event": "participant_attributes", "identity": "agent-AJ_ibL3V7skufjB", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T20:13:26.582716+00:00", "t": 26.59307287388947, "event": "transcription_final", "text": "Bonsoir, voici votre itinéraire pour le musée des sciences : d'abord, prenez l'entrée", "identity": "agent-AJ_ibL3V7skufjB"}
+{"utc": "2026-10-20T20:13:33.821491+00:00", "t": 33.8318568529794, "event": "wav_ended", "label": "interruption"}
+{"utc": "2026-10-20T20:13:36.086180+00:00", "t": 36.09652548097074, "event": "participant_attributes", "identity": "agent-AJ_ibL3V7skufjB", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T20:13:36.086802+00:00", "t": 36.09714221395552, "event": "transcription_final", "text": " Stop. Change le programme dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T20:14:04.147576+00:00", "t": 64.15791919291951, "event": "participant_attributes", "identity": "agent-AJ_ibL3V7skufjB", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T20:14:16.822669+00:00", "t": 76.83302830799948, "event": "transcription_final", "text": "J'ai bien noté vos modifications : la visite est désormais prévue ce dimanche à 10 heures avec un budget réduit de 20 euros. Tout est mis à jour dans votre agenda. Je reste à votre disposition pour toute autre précision.", "identity": "agent-AJ_ibL3V7skufjB"}
+{"utc": "2026-10-20T20:14:16.828583+00:00", "t": 76.8389398609288, "event": "participant_attributes", "identity": "agent-AJ_ibL3V7skufjB", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T20:14:17.886644+00:00", "t": 77.89698434493039, "event": "disconnect_requested"}
+{"utc": "2026-10-20T20:14:17.890665+00:00", "t": 77.90100625297055, "event": "disconnected"}
+{"utc": "2026-10-20T20:14:17.893784+00:00", "t": 77.90412759699393, "event": "room_deleted"}

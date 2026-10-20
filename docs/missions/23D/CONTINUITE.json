@@ -1,0 +1,25 @@
+{
+  "original_mission": "7971ec0311124fb4be9e3125dcb291fd",
+  "validated_before": 12,
+  "historical_validations_identical": true,
+  "history_tables": {
+    "checkpoints": {
+      "before_rows": 3225,
+      "old_rows_identical": 3225,
+      "all_preserved": true
+    },
+    "mission_events": {
+      "before_rows": 8844,
+      "old_rows_identical": 8844,
+      "all_preserved": true
+    },
+    "tool_calls": {
+      "before_rows": 2670,
+      "old_rows_identical": 2670,
+      "all_preserved": true
+    }
+  },
+  "working_context": "Archived and rebuilt; not treated as immutable table",
+  "no_new_mission": true,
+  "policy_sha256_expected": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9"
+}

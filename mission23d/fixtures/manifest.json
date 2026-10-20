@@ -1,0 +1,23 @@
+{
+  "initial": {
+    "text": "Bonjour JARVIS. Préparons une visite fictive du musée des sciences samedi à quatorze heures, pour deux adultes, avec un budget de quarante euros. Décris un programme détaillé en six étapes, pendant au moins quinze secondes.",
+    "sha256": "f4798854dc487221171a2a21c7bbc1638e40350e1e57088441946d7647289f0c",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_s": 13.769433106575963
+  },
+  "interrupt": {
+    "text": "Stop. Change le programme : dimanche à dix heures, budget vingt euros. Confirme uniquement les nouveaux horaires et le budget.",
+    "sha256": "4644976ad29cbd79bc3ef36b1dac7584b37be443d461625c5f91dc5f40a3f76c",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_s": 7.801904761904762
+  },
+  "continuity": {
+    "text": "Quel est maintenant le jour de la visite, son horaire et le budget ?",
+    "sha256": "855ff3e974b0d81f7149646f594f7ceac099ac4d3932548ed7ba081b0e4dea43",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_s": 3.6281179138321997
+  }
+}

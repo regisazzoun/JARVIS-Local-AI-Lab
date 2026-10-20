@@ -1,0 +1,14 @@
+{
+  "actor": "Codex-test-run-by-JARVIS",
+  "utc": "2026-10-20T19:42:33Z",
+  "checks": {
+    "page_http": true,
+    "real_fixture_http": true,
+    "signed_short_lived_room_token": true,
+    "real_named_dispatch": true,
+    "rtc_connected_real_agent_audio_track": true,
+    "own_room_cleanup": true
+  },
+  "room": "m23d-web-a5dda9cdb04a",
+  "ok": true
+}

@@ -23,7 +23,7 @@ class JarvisAgent(Agent):
         super().__init__(
             instructions=instructions,
             llm=llm_provider,
-            turn_handling={"interruption": {"enabled": True, "mode": "vad"}},
+            turn_handling={"interruption": {"enabled": True, "mode": "vad", "min_duration": 0.3, "resume_false_interruption": False}},
         )
 
 
@@ -42,13 +42,38 @@ async def jarvis_voice_agent(ctx: JobContext):
     # first-token latency was measured at 57.1s while Ollama remained reachable;
     # allow that measured inference to complete without retrying/aborting it.
     session = AgentSession(
+        # Explicit prototype policy: browser AEC remains enabled; first-turn barge-in is tested.
+        aec_warmup_duration=0.0,
+        turn_handling={"interruption": {"enabled": True, "mode": "vad", "min_duration": 0.3, "min_words": 0, "resume_false_interruption": False}, "preemptive_generation": {"enabled": False}},
         stt=stt_provider,
         tts=tts_provider,
         vad=vad,
         conn_options=SessionConnectOptions(
             llm_conn_options=APIConnectOptions(timeout=90.0, max_retry=2)
         ),
+        # Avoid concurrent preemptive and confirmed Ollama requests across an
+        # interrupted turn; the model accepts the exact follow-up prompt in
+        # isolation, while the session otherwise remained in `thinking`.
     )
+
+    # Keep privacy-preserving turn diagnostics in journald: state changes and
+    # transcript sizes only, never transcript contents. This distinguishes a
+    # missing VAD transition from a later STT/LLM failure during barge-in.
+    @session.on("user_state_changed")
+    def on_user_state_changed(event):
+        logger.info("État parole utilisateur: %s -> %s", event.old_state, event.new_state)
+
+    @session.on("agent_state_changed")
+    def on_agent_state_changed(event):
+        logger.info("État parole agent: %s -> %s", event.old_state, event.new_state)
+
+    @session.on("user_input_transcribed")
+    def on_user_input_transcribed(event):
+        logger.info(
+            "Transcription utilisateur reçue: final=%s, caractères=%d",
+            event.is_final,
+            len(event.transcript),
+        )
     await ctx.connect()
     await session.start(agent=JarvisAgent(llm_provider), room=ctx.room)
 

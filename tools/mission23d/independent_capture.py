@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Codex independent measurement tool; real RTC PCM, no application replacement."""
-import argparse,asyncio,datetime,hashlib,json,time,uuid,wave
+import signal
+signal.signal(signal.SIGINT, signal.default_int_handler)
+import argparse,asyncio,datetime,hashlib,json,re,time,uuid,wave
 from pathlib import Path
 import numpy as np
 from livekit import api,rtc
+CODE_SHA256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 async def run(a):
     a.output.mkdir(parents=True,exist_ok=True)
@@ -20,7 +23,7 @@ async def run(a):
     url=env['LIVEKIT_URL'];room_name='m23d-codex-'+uuid.uuid4().hex[:10]
     server=api.LiveKitAPI(url=url.replace('ws://','http://').replace('wss://','https://'),api_key=env['LIVEKIT_API_KEY'],api_secret=env['LIVEKIT_API_SECRET'])
     room=rtc.Room();source=None;queue=asyncio.Queue();first=asyncio.Event();second=asyncio.Event();joined=asyncio.Event();reason=None;interrupt=None;input_end=None
-    identity='codex-measurement'
+    identity='codex-measurement';state={'agent':None};followup_started=None;continuity=None
     @room.on('participant_connected')
     def participant(peer):log('participant_connected',identity=peer.identity);joined.set()
     @room.on('transcription_received')
@@ -35,7 +38,9 @@ async def run(a):
         except Exception:return
         log('data_received',topic=packet.topic,body=body)
     @room.on('participant_attributes_changed')
-    def attributes(changed,peer):log('participant_attributes',identity=peer.identity,attributes=dict(changed))
+    def attributes(changed,peer):
+        if 'lk.agent.state' in changed:state['agent']=changed['lk.agent.state']
+        log('participant_attributes',identity=peer.identity,attributes=dict(changed))
     @room.on('track_subscribed')
     def track_subscribed(track,pub,peer):
         if track.kind!=rtc.TrackKind.KIND_AUDIO:return
@@ -81,8 +86,13 @@ async def run(a):
         await room.local_participant.publish_track(track,rtc.TrackPublishOptions(source=rtc.TrackSource.SOURCE_MICROPHONE))
         tasks.append(asyncio.create_task(pump()));await asyncio.sleep(1)
         _,input_end=await send(a.wav,'initial')
-        await asyncio.wait_for(first.wait(),300)
-        if a.interrupt_wav:
+        if a.negative:
+            await asyncio.sleep(20)
+            if first.is_set() or any(x['identity']==identity for x in transcripts):
+                reason='Unexpected response or user transcript to silence/noise'
+        else:
+            await asyncio.wait_for(first.wait(),300)
+        if a.interrupt_wav and not a.negative:
             await asyncio.sleep(a.delay)
             # Wait for actively audible PCM, not the historical first-audio latch.
             for _ in range(500):
@@ -95,15 +105,28 @@ async def run(a):
             if reason is None:
                 second_at=next(x['t'] for x in transcripts if x['identity']==identity and x['t']>interrupt)
                 for _ in range(int(a.timeout*10)):
-                    if any(f['rms']>20 and f['t']>second_at+1 for f in frames):break
+                    if any(f['rms']>20 and f['t']>second_at+.05 for f in frames):break
                     await asyncio.sleep(.1)
-                await asyncio.sleep(6)
-        else:await asyncio.sleep(12)
+                else:reason='No resumed audio after second final transcription'
+                for _ in range(600):
+                    if state['agent']=='listening':break
+                    await asyncio.sleep(.1)
+                await asyncio.sleep(1)
+                if a.followup_wav and state['agent']=='listening' and reason is None:
+                    followup_started,_=await send(a.followup_wav,'continuity')
+                    for _ in range(int(a.timeout*10)):
+                        replies=[x for x in transcripts if x['identity']!=identity and x['t']>followup_started]
+                        if replies and state['agent']=='listening':break
+                        await asyncio.sleep(.1)
+                    text=' '.join(x['text'] for x in transcripts if x['identity']!=identity and x['t']>followup_started).lower()
+                    continuity=bool('dimanche' in text and re.search(r'(?:10|dix)',text) and re.search(r'(?:20|vingt)',text))
+        elif not a.negative:await asyncio.sleep(12)
         from google.protobuf.json_format import MessageToDict
         stats=await room.get_rtc_stats()
         routes={k:[MessageToDict(v,preserving_proto_field_name=True) for v in values if v.WhichOneof('stats') in ('transport','candidate_pair')] for k,values in [('publisher',stats.publisher_stats),('subscriber',stats.subscriber_stats)]}
         # Private route evidence may contain addresses. Publish only its hash.
         (a.output/'routes-private.json').write_text(json.dumps(routes,indent=2))
+    except asyncio.CancelledError:reason='Cancelled by operator or bounded test timeout';log('cancelled',reason=reason)
     except Exception as e:reason=f'{type(e).__name__}: {e}';log('error',reason=reason)
     finally:
         log('disconnect_requested');await room.disconnect();log('disconnected')
@@ -132,11 +155,18 @@ async def run(a):
                 if len(span)>=45 and span[-1]['t']-f['t']>=.48 and all(x['rms']<=20 for x in span):
                     stop_latency=f['t']-interrupt;break
             second_row=next((x for x in transcripts if x['identity']==identity and x['t']>interrupt),None)
-            if second_row:resumed=next((f['t']-second_row['t'] for f in frames if f['rms']>20 and f['t']>second_row['t']+1),None)
-        result={'actor':'Codex-independent-tool','physical_microphone':False,'room':room_name,'reason':reason,'input_end_s':input_end,'interrupt_s':interrupt,'audio_active_before_interrupt':active,'stable_silence_latency_s':stop_latency,'second_user_final':second_row,'resumed_audio_after_transcript_s':resumed,'transcripts':transcripts,'first_non_silent_s':next((f['t'] for f in frames if f['rms']>20),None),'criteria':{'active_required':True,'stop_max_s':1,'silence_window_s':.5,'rms_threshold':20},'interruption_audio_pass':bool(active and stop_latency is not None and stop_latency<=1),'limits':['Synthetic WAV; no physical microphone','Arrival-aligned PCM; timings are client observations','Continuity and UI Stop require separate checks'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in a.output.iterdir() if p.is_file()}}
+            if second_row:resumed=next((f['t']-second_row['t'] for f in frames if f['rms']>20 and f['t']>second_row['t']+.05),None)
+        result={'actor':'Codex-independent-tool','tool_sha256':CODE_SHA256,'negative_input':a.negative,'continuity_started_s':followup_started,'continuity_pass':continuity,'physical_microphone':False,'room':room_name,'reason':reason,'input_end_s':input_end,'interrupt_s':interrupt,'audio_active_before_interrupt':active,'stable_silence_latency_s':stop_latency,'second_user_final':second_row,'resumed_audio_after_transcript_s':resumed,'transcripts':transcripts,'first_non_silent_s':next((f['t'] for f in frames if f['rms']>20),None),'criteria':{'active_required':True,'stop_max_s':1,'silence_window_s':.5,'rms_threshold':20},'interruption_audio_pass':bool(active and stop_latency is not None and stop_latency<=1),'limits':['Synthetic WAV; no physical microphone','Arrival-aligned PCM; timings are client observations','UI Stop requires separate browser evidence','Continuity uses third-turn remote final transcript when requested'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in a.output.iterdir() if p.is_file()}}
+        interrupt_end=next((e['t'] for e in events if e['event']=='wav_ended' and e.get('label')=='interruption'),None)
+        second_text=(second_row or {}).get('text','').lower()
+        result['second_transcription_correct']=bool('dimanche' in second_text and re.search(r'(?:10|dix)',second_text) and re.search(r'(?:20|vingt)',second_text))
+        result['second_transcription_delay_s']=second_row['t']-interrupt_end if second_row and interrupt_end else None
+        interruption_complete=bool(result['interruption_audio_pass'] and result['second_transcription_correct'] and result['second_transcription_delay_s'] is not None and 0<=result['second_transcription_delay_s']<=20 and resumed is not None and resumed<=90)
+        result['passed']=bool(not reason and (not a.interrupt_wav or interruption_complete) and (not a.followup_wav or continuity is True))
+        result['status']='ABORTED' if reason and reason.startswith('Cancelled') else 'PASS' if result['passed'] else 'FAIL'
         (a.output/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ('artifacts','transcripts')},ensure_ascii=False))
-    return 0 if not reason and (not a.interrupt_wav or result['interruption_audio_pass']) else 1
+    return 0 if result['passed'] else 1
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--project',type=Path,default=Path('/var/lib/jarvis/projects/mission23/livekit-agent'));p.add_argument('--wav',type=Path,required=True);p.add_argument('--interrupt-wav',type=Path);p.add_argument('--delay',type=float,default=.6);p.add_argument('--timeout',type=float,default=150);p.add_argument('--output',type=Path,required=True)
+    p=argparse.ArgumentParser();p.add_argument('--negative',action='store_true');p.add_argument('--project',type=Path,default=Path('/var/lib/jarvis/projects/mission23/livekit-agent'));p.add_argument('--wav',type=Path,required=True);p.add_argument('--followup-wav',type=Path);p.add_argument('--interrupt-wav',type=Path);p.add_argument('--delay',type=float,default=.6);p.add_argument('--timeout',type=float,default=150);p.add_argument('--output',type=Path,required=True)
     raise SystemExit(asyncio.run(run(p.parse_args())))

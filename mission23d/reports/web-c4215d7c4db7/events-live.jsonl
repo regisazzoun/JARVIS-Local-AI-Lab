@@ -1,0 +1,8 @@
+{"utc": "2026-10-20T20:16:12.320403+00:00", "t": 0.3799871099181473, "event": "connected", "room": "m23d-codex-c157a76e6f"}
+{"utc": "2026-10-20T20:16:14.635286+00:00", "t": 2.694867947953753, "event": "participant_connected", "identity": "agent-AJ_bFq7HQRpsBYR"}
+{"utc": "2026-10-20T20:16:14.678080+00:00", "t": 2.737659913022071, "event": "audio_track_subscribed", "identity": "agent-AJ_bFq7HQRpsBYR"}
+{"utc": "2026-10-20T20:16:15.737419+00:00", "t": 3.7970366049557924, "event": "wav_started", "label": "initial", "file": "silence.wav", "sha256": "cb285321577f2cae96d045a03703d8dab14a24b2d1ac8a931dfcbb35f46a1f94", "duration_s": 3.0}
+{"utc": "2026-10-20T20:16:18.832046+00:00", "t": 6.891649657976814, "event": "wav_ended", "label": "initial"}
+{"utc": "2026-10-20T20:16:38.838873+00:00", "t": 26.89847504091449, "event": "disconnect_requested"}
+{"utc": "2026-10-20T20:16:38.854040+00:00", "t": 26.913647864945233, "event": "disconnected"}
+{"utc": "2026-10-20T20:16:38.864874+00:00", "t": 26.924484136980027, "event": "room_deleted"}

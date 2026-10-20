@@ -1,0 +1,59 @@
+{
+  "actor": "JARVIS page + Codex client tool",
+  "physicalMicrophoneTested": false,
+  "events": [
+    {
+      "utc": "2026-10-20T19:43:22.890Z",
+      "t": 0.001,
+      "type": "client_ready"
+    },
+    {
+      "utc": "2026-10-20T19:43:32.934Z",
+      "t": 10.0455,
+      "type": "room_created",
+      "room": "m23d-web-67979489834b"
+    },
+    {
+      "utc": "2026-10-20T19:43:34.485Z",
+      "t": 11.595800000000745,
+      "type": "wav_track_published"
+    },
+    {
+      "utc": "2026-10-20T19:43:34.485Z",
+      "t": 11.596,
+      "type": "connected",
+      "room": "m23d-web-67979489834b"
+    },
+    {
+      "utc": "2026-10-20T19:43:35.466Z",
+      "t": 12.577199999999255,
+      "type": "remote_audio_track",
+      "peer": "agent-AJ_KN2tavqArigQ"
+    },
+    {
+      "utc": "2026-10-20T19:44:22.070Z",
+      "t": 59.181300000000746,
+      "type": "local_audio_stopped",
+      "elapsed_ms": 0.5
+    },
+    {
+      "utc": "2026-10-20T19:44:22.076Z",
+      "t": 59.18760000000149,
+      "type": "audio_recorded",
+      "bytes": 750183,
+      "mime": "audio/webm;codecs=opus"
+    },
+    {
+      "utc": "2026-10-20T19:44:22.081Z",
+      "t": 59.191900000002235,
+      "type": "rtc_disconnected"
+    },
+    {
+      "utc": "2026-10-20T19:44:22.101Z",
+      "t": 59.21240000000223,
+      "type": "stopped"
+    }
+  ],
+  "transcripts": [],
+  "tests": []
+}

@@ -20,6 +20,7 @@ def create_llm():
         model=DELL_OLLAMA_MODEL,
         base_url=DELL_OLLAMA_URL,
         api_key=FAKE_API_KEY,
+        reasoning_effort="none",
         timeout=120.0  # L'inférence Qwen observée peut prendre 58s au premier token
     )
 

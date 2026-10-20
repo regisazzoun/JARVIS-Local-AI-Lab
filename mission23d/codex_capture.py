@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Codex independent measurement tool; real RTC PCM, no application replacement."""
+import signal
+signal.signal(signal.SIGINT, signal.default_int_handler)
 import argparse,asyncio,datetime,hashlib,json,re,time,uuid,wave
 from pathlib import Path
 import numpy as np
@@ -103,13 +105,14 @@ async def run(a):
             if reason is None:
                 second_at=next(x['t'] for x in transcripts if x['identity']==identity and x['t']>interrupt)
                 for _ in range(int(a.timeout*10)):
-                    if any(f['rms']>20 and f['t']>second_at+1 for f in frames):break
+                    if any(f['rms']>20 and f['t']>second_at+.05 for f in frames):break
                     await asyncio.sleep(.1)
+                else:reason='No resumed audio after second final transcription'
                 for _ in range(600):
                     if state['agent']=='listening':break
                     await asyncio.sleep(.1)
                 await asyncio.sleep(1)
-                if a.followup_wav and state['agent']=='listening':
+                if a.followup_wav and state['agent']=='listening' and reason is None:
                     followup_started,_=await send(a.followup_wav,'continuity')
                     for _ in range(int(a.timeout*10)):
                         replies=[x for x in transcripts if x['identity']!=identity and x['t']>followup_started]
@@ -123,6 +126,7 @@ async def run(a):
         routes={k:[MessageToDict(v,preserving_proto_field_name=True) for v in values if v.WhichOneof('stats') in ('transport','candidate_pair')] for k,values in [('publisher',stats.publisher_stats),('subscriber',stats.subscriber_stats)]}
         # Private route evidence may contain addresses. Publish only its hash.
         (a.output/'routes-private.json').write_text(json.dumps(routes,indent=2))
+    except asyncio.CancelledError:reason='Cancelled by operator or bounded test timeout';log('cancelled',reason=reason)
     except Exception as e:reason=f'{type(e).__name__}: {e}';log('error',reason=reason)
     finally:
         log('disconnect_requested');await room.disconnect();log('disconnected')
@@ -151,10 +155,15 @@ async def run(a):
                 if len(span)>=45 and span[-1]['t']-f['t']>=.48 and all(x['rms']<=20 for x in span):
                     stop_latency=f['t']-interrupt;break
             second_row=next((x for x in transcripts if x['identity']==identity and x['t']>interrupt),None)
-            if second_row:resumed=next((f['t']-second_row['t'] for f in frames if f['rms']>20 and f['t']>second_row['t']+1),None)
-        result={'actor':'Codex-independent-tool','tool_sha256':CODE_SHA256,'negative_input':a.negative,'continuity_started_s':followup_started,'continuity_pass':continuity,'physical_microphone':False,'room':room_name,'reason':reason,'input_end_s':input_end,'interrupt_s':interrupt,'audio_active_before_interrupt':active,'stable_silence_latency_s':stop_latency,'second_user_final':second_row,'resumed_audio_after_transcript_s':resumed,'transcripts':transcripts,'first_non_silent_s':next((f['t'] for f in frames if f['rms']>20),None),'criteria':{'active_required':True,'stop_max_s':1,'silence_window_s':.5,'rms_threshold':20},'interruption_audio_pass':bool(active and stop_latency is not None and stop_latency<=1),'limits':['Synthetic WAV; no physical microphone','Arrival-aligned PCM; timings are client observations','Continuity and UI Stop require separate checks'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in a.output.iterdir() if p.is_file()}}
-        result['passed']=bool(not reason and (not a.interrupt_wav or result['interruption_audio_pass']) and (not a.followup_wav or continuity is True))
-        result['status']='PASS' if result['passed'] else 'FAIL'
+            if second_row:resumed=next((f['t']-second_row['t'] for f in frames if f['rms']>20 and f['t']>second_row['t']+.05),None)
+        result={'actor':'Codex-independent-tool','tool_sha256':CODE_SHA256,'negative_input':a.negative,'continuity_started_s':followup_started,'continuity_pass':continuity,'physical_microphone':False,'room':room_name,'reason':reason,'input_end_s':input_end,'interrupt_s':interrupt,'audio_active_before_interrupt':active,'stable_silence_latency_s':stop_latency,'second_user_final':second_row,'resumed_audio_after_transcript_s':resumed,'transcripts':transcripts,'first_non_silent_s':next((f['t'] for f in frames if f['rms']>20),None),'criteria':{'active_required':True,'stop_max_s':1,'silence_window_s':.5,'rms_threshold':20},'interruption_audio_pass':bool(active and stop_latency is not None and stop_latency<=1),'limits':['Synthetic WAV; no physical microphone','Arrival-aligned PCM; timings are client observations','UI Stop requires separate browser evidence','Continuity uses third-turn remote final transcript when requested'],'artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in a.output.iterdir() if p.is_file()}}
+        interrupt_end=next((e['t'] for e in events if e['event']=='wav_ended' and e.get('label')=='interruption'),None)
+        second_text=(second_row or {}).get('text','').lower()
+        result['second_transcription_correct']=bool('dimanche' in second_text and re.search(r'(?:10|dix)',second_text) and re.search(r'(?:20|vingt)',second_text))
+        result['second_transcription_delay_s']=second_row['t']-interrupt_end if second_row and interrupt_end else None
+        interruption_complete=bool(result['interruption_audio_pass'] and result['second_transcription_correct'] and result['second_transcription_delay_s'] is not None and 0<=result['second_transcription_delay_s']<=20 and resumed is not None and resumed<=90)
+        result['passed']=bool(not reason and (not a.interrupt_wav or interruption_complete) and (not a.followup_wav or continuity is True))
+        result['status']='ABORTED' if reason and reason.startswith('Cancelled') else 'PASS' if result['passed'] else 'FAIL'
         (a.output/'result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ('artifacts','transcripts')},ensure_ascii=False))
     return 0 if result['passed'] else 1
 

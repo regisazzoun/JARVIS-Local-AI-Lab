@@ -1,3 +1,9 @@
+## Mission23D — réception numérique du20 octobre2026
+
+✅🟡 **GO numérique avec réserves acoustiques, STT et d’autonomie.** Banc LiveKit et page temporaire réellement exécutés par JARVIS avec outils/corrections Codex. Six exécutions initiales conservées ; après correction du warmup AEC, trois interruptions mesurées à0,727 /0,559 /0,717s (seuil≤1s). Stop actif navigateur0,6ms, exports JSON/audio et contrôle d’annulation reçus. Le microphone/écho physique reste non testé ; une erreur de transcription du jour initial est documentée. [Réception finale23D](docs/missions/23D/RAPPORT-FINAL.md) · [Utilisation](docs/missions/23D/UTILISATION.md).
+
+23D complète la même mission23, sans reset des douze validations ni création de mission moteur. Le NO-GO historique reste inchangé dans ses rapports ; son critère d’interruption numérique est désormais reçu par23D. Le périmètre global23, la route média distante et l’acoustique ne sont pas réceptionnés par procuration. Acquis du broker24 conservés. Publication sur `codex/mission-23d-interruption-livekit`, aucune fusion main. Les comptages historiques ci-dessous restent leurs instantanés datés.
+
 # 🤖 JARVIS — Local AI Lab
 
 ![JARVIS : IA locale, voix, mémoire et outils](docs/assets/jarvis-banner.svg)

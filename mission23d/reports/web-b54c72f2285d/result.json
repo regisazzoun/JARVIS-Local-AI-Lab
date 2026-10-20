@@ -1,0 +1,43 @@
+{
+  "actor": "Codex-independent-tool",
+  "tool_sha256": "107927dfec47040fda966d8f7661bcd48549e58806c5972caf60410e5d78a19e",
+  "negative_input": true,
+  "continuity_started_s": null,
+  "continuity_pass": null,
+  "physical_microphone": false,
+  "room": "m23d-codex-50555970cf",
+  "reason": null,
+  "input_end_s": 6.896865762886591,
+  "interrupt_s": null,
+  "audio_active_before_interrupt": null,
+  "stable_silence_latency_s": null,
+  "second_user_final": null,
+  "resumed_audio_after_transcript_s": null,
+  "transcripts": [],
+  "first_non_silent_s": null,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": false,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "UI Stop requires separate browser evidence",
+    "Continuity uses third-turn remote final transcript when requested"
+  ],
+  "artifacts": {
+    "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+    "received.wav": "68386351a030dc0a4b08a88c7e4191ba6d39aaf23acdf4db26981b372b8633e1",
+    "events-live.jsonl": "5a8a219720fd334821b6102416df0c4da9be4f66195a8aec5c8f7b7e17bbb485",
+    "frames.json": "e476b2095196765496353f9ea6178d4d6f49ffe729fcae82120c7246694f96d9",
+    "routes-private.json": "d53b874682b9a9235c047e84598c0823eac69cd18a500b812a44bf489f069c5a",
+    "events.jsonl": "5a8a219720fd334821b6102416df0c4da9be4f66195a8aec5c8f7b7e17bbb485"
+  },
+  "second_transcription_correct": false,
+  "second_transcription_delay_s": null,
+  "passed": true,
+  "status": "PASS"
+}

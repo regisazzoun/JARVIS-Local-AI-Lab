@@ -1,0 +1,78 @@
+{
+  "actor": "Codex-independent-tool",
+  "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+  "negative_input": false,
+  "continuity_started_s": null,
+  "continuity_pass": null,
+  "physical_microphone": false,
+  "room": "m23d-codex-c8f1021e5a",
+  "reason": null,
+  "input_end_s": 17.653195519931614,
+  "interrupt_s": 23.55110451800283,
+  "audio_active_before_interrupt": true,
+  "stable_silence_latency_s": 0.5588598179165274,
+  "second_user_final": {
+    "utc": "2026-10-20T20:12:46.655915+00:00",
+    "t": 33.87447953794617,
+    "event": "transcription_final",
+    "text": " Stop. Change le programme dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+    "identity": "codex-measurement"
+  },
+  "resumed_audio_after_transcript_s": 1.1157496010418981,
+  "transcripts": [
+    {
+      "utc": "2026-10-20T20:12:33.981571+00:00",
+      "t": 21.200135908904485,
+      "event": "transcription_final",
+      "text": " Bonjour Jervis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T20:12:36.844640+00:00",
+      "t": 24.063219956005923,
+      "event": "transcription_final",
+      "text": "Je confirme la planification",
+      "identity": "agent-AJ_WE2uRnqVdXZy"
+    },
+    {
+      "utc": "2026-10-20T20:12:46.655915+00:00",
+      "t": 33.87447953794617,
+      "event": "transcription_final",
+      "text": " Stop. Change le programme dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T20:12:57.556500+00:00",
+      "t": 44.775084925000556,
+      "event": "transcription_final",
+      "text": "Programme modifié pour dimanche à 10 heures avec un budget de 20 euros. Paramètres mis à jour et validés. Je suis prêt à exécuter cette nouvelle directive.",
+      "identity": "agent-AJ_WE2uRnqVdXZy"
+    }
+  ],
+  "first_non_silent_s": 22.93987171095796,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": true,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "UI Stop requires separate browser evidence",
+    "Continuity uses third-turn remote final transcript when requested"
+  ],
+  "artifacts": {
+    "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+    "received.wav": "34bf0b734e542f95e235aaa140ea4f94cc6aad2e0d043cb4a50432e83e20162f",
+    "events-live.jsonl": "4265bd36f01e358da9113aef4aea6658e534fecbf34fa86565902ef9d2ded59d",
+    "frames.json": "fbb80248789904f942d2b48f476f0dac30289aa754634b15bf136507d4b47ced",
+    "routes-private.json": "b9b828c02973a6c8df94256c45ef95ce071a25dc1a9641f250c2ad536bd652d5",
+    "events.jsonl": "4265bd36f01e358da9113aef4aea6658e534fecbf34fa86565902ef9d2ded59d"
+  },
+  "second_transcription_correct": true,
+  "second_transcription_delay_s": 2.403984462027438,
+  "passed": true,
+  "status": "PASS"
+}

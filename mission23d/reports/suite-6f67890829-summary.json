@@ -1,0 +1,472 @@
+{
+  "suite": "6f67890829",
+  "started_utc": "2026-10-20T19:53:12.872560+00:00",
+  "actor": "Codex scheduler invoked by JARVIS",
+  "completed": true,
+  "runs": [
+    {
+      "name": "nominal",
+      "output": "suite-6f67890829-nominal",
+      "elapsed_s": 63.811,
+      "returncode": 0,
+      "result_present": true,
+      "audio_present": true,
+      "result": {
+        "actor": "Codex-independent-tool",
+        "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+        "negative_input": false,
+        "continuity_started_s": null,
+        "continuity_pass": null,
+        "physical_microphone": false,
+        "room": "m23d-codex-107033a051",
+        "reason": null,
+        "input_end_s": 17.692512094974518,
+        "interrupt_s": null,
+        "audio_active_before_interrupt": null,
+        "stable_silence_latency_s": null,
+        "second_user_final": null,
+        "resumed_audio_after_transcript_s": null,
+        "transcripts": [
+          {
+            "utc": "2026-10-20T19:53:34.291018+00:00",
+            "t": 21.171027621021494,
+            "event": "transcription_final",
+            "text": " Bonjour Jervis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.",
+            "identity": "codex-measurement"
+          }
+        ],
+        "first_non_silent_s": 51.269217576947995,
+        "criteria": {
+          "active_required": true,
+          "stop_max_s": 1,
+          "silence_window_s": 0.5,
+          "rms_threshold": 20
+        },
+        "interruption_audio_pass": false,
+        "limits": [
+          "Synthetic WAV; no physical microphone",
+          "Arrival-aligned PCM; timings are client observations",
+          "UI Stop requires separate browser evidence",
+          "Continuity uses third-turn remote final transcript when requested"
+        ],
+        "artifacts": {
+          "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+          "received.wav": "6185da2d36b1745080650fd52b5cc328ca7b43c4eabc7971821f044652cc3f0b",
+          "events-live.jsonl": "f7df355d2832f30c548700a2d8917e2fd6b7eac1da5dc2d799770b4916c3a2a3",
+          "frames.json": "101cb8007623c070e3ea93869019f6798e1c7a2cf9c7a50cdc52c5c83fc85425",
+          "routes-private.json": "0cc03434897fe2bd2252b207dc24dcd216146ed6354f9e8c3eccc489780baf79",
+          "events.jsonl": "f7df355d2832f30c548700a2d8917e2fd6b7eac1da5dc2d799770b4916c3a2a3"
+        },
+        "second_transcription_correct": false,
+        "second_transcription_delay_s": null,
+        "passed": true,
+        "status": "PASS"
+      }
+    },
+    {
+      "name": "barge-early-1",
+      "output": "suite-6f67890829-barge-early-1",
+      "elapsed_s": 62.956,
+      "returncode": 1,
+      "result_present": true,
+      "audio_present": true,
+      "result": {
+        "actor": "Codex-independent-tool",
+        "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+        "negative_input": false,
+        "continuity_started_s": 44.53689619991928,
+        "continuity_pass": true,
+        "physical_microphone": false,
+        "room": "m23d-codex-3521815d97",
+        "reason": null,
+        "input_end_s": 17.650194876012392,
+        "interrupt_s": 23.396746936952695,
+        "audio_active_before_interrupt": true,
+        "stable_silence_latency_s": 2.4534902150044218,
+        "second_user_final": {
+          "utc": "2026-10-20T19:54:50.377010+00:00",
+          "t": 33.429109495016746,
+          "event": "transcription_final",
+          "text": " Dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+          "identity": "codex-measurement"
+        },
+        "resumed_audio_after_transcript_s": 1.330919957952574,
+        "transcripts": [
+          {
+            "utc": "2026-10-20T19:54:38.182808+00:00",
+            "t": 21.23490606492851,
+            "event": "transcription_final",
+            "text": " Bonjour Jervis, préparons une visite fictive du musée des sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en six étapes pendant au moins 15 secondes.",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:54:50.375488+00:00",
+            "t": 33.427588045015,
+            "event": "transcription_final",
+            "text": "Je ne peux pas visiter de musée nommé Sciences Sunday car ce nom semble",
+            "identity": "agent-AJ_WiggygVTskNm"
+          },
+          {
+            "utc": "2026-10-20T19:54:50.377010+00:00",
+            "t": 33.429109495016746,
+            "event": "transcription_final",
+            "text": " Dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:55:00.243823+00:00",
+            "t": 43.29594379197806,
+            "event": "transcription_final",
+            "text": "La visite est confirmée pour dimanche à 10 heures avec un budget de 20 euros. Les nouvelles conditions ont bien été enregistrées. C'est noté.",
+            "identity": "agent-AJ_WiggygVTskNm"
+          },
+          {
+            "utc": "2026-10-20T19:55:07.292394+00:00",
+            "t": 50.344494526972994,
+            "event": "transcription_final",
+            "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:55:19.034936+00:00",
+            "t": 62.0870609539561,
+            "event": "transcription_final",
+            "text": "La visite est prévue ce dimanche à 10 heures avec un budget de 20 euros. Toutes les informations sont bien mises à jour dans mon système. Je suis prêt à vous accompagner pour ce trajet.",
+            "identity": "agent-AJ_WiggygVTskNm"
+          }
+        ],
+        "first_non_silent_s": 22.77977489400655,
+        "criteria": {
+          "active_required": true,
+          "stop_max_s": 1,
+          "silence_window_s": 0.5,
+          "rms_threshold": 20
+        },
+        "interruption_audio_pass": false,
+        "limits": [
+          "Synthetic WAV; no physical microphone",
+          "Arrival-aligned PCM; timings are client observations",
+          "UI Stop requires separate browser evidence",
+          "Continuity uses third-turn remote final transcript when requested"
+        ],
+        "artifacts": {
+          "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+          "received.wav": "07d2cb971df3f8c5e73787cc470ae651a3fefe62595be231fc61cf7283e1150f",
+          "events-live.jsonl": "352c5bdb35496634d3a3071b9dc382e31a2a48757ffa2c17c3835ba7d3ac4ee7",
+          "frames.json": "42fc8889c226585dc36ffbc19805df7417fa58584288a3a9e401cfdddb26abba",
+          "routes-private.json": "26f226ea61264b7908e2a3a59f6c386705586ccf45f513871d3b9d7fda04242f",
+          "events.jsonl": "352c5bdb35496634d3a3071b9dc382e31a2a48757ffa2c17c3835ba7d3ac4ee7"
+        },
+        "second_transcription_correct": true,
+        "second_transcription_delay_s": 2.1233739950694144,
+        "passed": false,
+        "status": "FAIL"
+      }
+    },
+    {
+      "name": "barge-early-2",
+      "output": "suite-6f67890829-barge-early-2",
+      "elapsed_s": 61.506,
+      "returncode": 1,
+      "result_present": true,
+      "audio_present": true,
+      "result": {
+        "actor": "Codex-independent-tool",
+        "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+        "negative_input": false,
+        "continuity_started_s": 43.65095750801265,
+        "continuity_pass": true,
+        "physical_microphone": false,
+        "room": "m23d-codex-8a998b010d",
+        "reason": null,
+        "input_end_s": 17.720402215025388,
+        "interrupt_s": 23.532253051991574,
+        "audio_active_before_interrupt": true,
+        "stable_silence_latency_s": 2.4077937280526385,
+        "second_user_final": {
+          "utc": "2026-10-20T19:55:53.570689+00:00",
+          "t": 33.653068599058315,
+          "event": "transcription_final",
+          "text": " Dimanche à 10h, budget 20€, confirme uniquement les nouveaux horaires et le budget.",
+          "identity": "codex-measurement"
+        },
+        "resumed_audio_after_transcript_s": 1.1464218898909166,
+        "transcripts": [
+          {
+            "utc": "2026-10-20T19:55:41.155897+00:00",
+            "t": 21.238274520961568,
+            "event": "transcription_final",
+            "text": " Bonjour Jervis, préparons une visite fictive du musée des sciences samedi à 14 heures pour deux adultes avec un budget de 40 euros. Décris un programme détaillé en six étapes pendant au moins 15 secondes.",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:55:53.562296+00:00",
+            "t": 33.644679925986566,
+            "event": "transcription_final",
+            "text": "Bonjour, je confirme la réservation fictive pour samedi",
+            "identity": "agent-AJ_Yu63kf8cKiXa"
+          },
+          {
+            "utc": "2026-10-20T19:55:53.570689+00:00",
+            "t": 33.653068599058315,
+            "event": "transcription_final",
+            "text": " Dimanche à 10h, budget 20€, confirme uniquement les nouveaux horaires et le budget.",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:56:02.508119+00:00",
+            "t": 42.590522184967995,
+            "event": "transcription_final",
+            "text": "Entendu, la visite est maintenue ce dimanche à 10 heures. Je note également votre nouveau budget de 20 euros pour cette session.",
+            "identity": "agent-AJ_Yu63kf8cKiXa"
+          },
+          {
+            "utc": "2026-10-20T19:56:09.445302+00:00",
+            "t": 49.52768190903589,
+            "event": "transcription_final",
+            "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:56:20.701900+00:00",
+            "t": 60.7843043130124,
+            "event": "transcription_final",
+            "text": "La visite est désormais prévue ce dimanche à 10 heures. Votre budget total s'élève à 20 euros pour cette séance. C'est bien pris en compte dans le système.",
+            "identity": "agent-AJ_Yu63kf8cKiXa"
+          }
+        ],
+        "first_non_silent_s": 22.919512948952615,
+        "criteria": {
+          "active_required": true,
+          "stop_max_s": 1,
+          "silence_window_s": 0.5,
+          "rms_threshold": 20
+        },
+        "interruption_audio_pass": false,
+        "limits": [
+          "Synthetic WAV; no physical microphone",
+          "Arrival-aligned PCM; timings are client observations",
+          "UI Stop requires separate browser evidence",
+          "Continuity uses third-turn remote final transcript when requested"
+        ],
+        "artifacts": {
+          "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+          "received.wav": "9664fd5182d6c46a30829ac5485b44bc0d09bd733d282b54d20616cba282e850",
+          "events-live.jsonl": "b3c58084041dee40bf928495c205729d95aae7a9dde3ae414e4f3e71405fbe7e",
+          "frames.json": "3242160a2260531ea789f4defcc94f0e80666b1bf562e6066e490a898b3f816b",
+          "routes-private.json": "720922b74a42c91f6208575b53c44249b835f2c3133bd0f80a938d88befd41bd",
+          "events.jsonl": "b3c58084041dee40bf928495c205729d95aae7a9dde3ae414e4f3e71405fbe7e"
+        },
+        "second_transcription_correct": true,
+        "second_transcription_delay_s": 2.1953813600121066,
+        "passed": false,
+        "status": "FAIL"
+      }
+    },
+    {
+      "name": "barge-late",
+      "output": "suite-6f67890829-barge-late",
+      "elapsed_s": 164.516,
+      "returncode": 0,
+      "result_present": true,
+      "audio_present": true,
+      "result": {
+        "actor": "Codex-independent-tool",
+        "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+        "negative_input": false,
+        "continuity_started_s": 145.83911177900154,
+        "continuity_pass": true,
+        "physical_microphone": false,
+        "room": "m23d-codex-3f1167a6bb",
+        "reason": null,
+        "input_end_s": 17.464548132033087,
+        "interrupt_s": 69.73442203202285,
+        "audio_active_before_interrupt": true,
+        "stable_silence_latency_s": 0.9458802930312231,
+        "second_user_final": {
+          "utc": "2026-10-20T19:57:41.222881+00:00",
+          "t": 79.82817888597492,
+          "event": "transcription_final",
+          "text": " Change le programme dimanche à 10h, budget 20€ Confirme uniquement les nouveaux horaires et le budget",
+          "identity": "codex-measurement"
+        },
+        "resumed_audio_after_transcript_s": 35.87230373208877,
+        "transcripts": [
+          {
+            "utc": "2026-10-20T19:56:42.455660+00:00",
+            "t": 21.06095794402063,
+            "event": "transcription_final",
+            "text": " Bonjour Jarvis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:57:41.221088+00:00",
+            "t": 79.82638757303357,
+            "event": "transcription_final",
+            "text": "Je ne peux pas préparer cette visite car le Musée des Sciences Sunday n'existe pas et je",
+            "identity": "agent-AJ_8tN2fd9zysmT"
+          },
+          {
+            "utc": "2026-10-20T19:57:41.222881+00:00",
+            "t": 79.82817888597492,
+            "event": "transcription_final",
+            "text": " Change le programme dimanche à 10h, budget 20€ Confirme uniquement les nouveaux horaires et le budget",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:58:45.412607+00:00",
+            "t": 144.0179302500328,
+            "event": "transcription_final",
+            "text": "Visite confirmée pour dimanche à 10h avec un budget de 20€. Je prends en compte cette nouvelle programmation. C'est noté dans votre agenda fictif.\n\nBonjour Jarvis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.\nChange le programme dimanche à 10h, budget 20€ Confirme uniquement les nouveaux horaires et le budget",
+            "identity": "agent-AJ_8tN2fd9zysmT"
+          },
+          {
+            "utc": "2026-10-20T19:58:53.078806+00:00",
+            "t": 151.68410182301886,
+            "event": "transcription_final",
+            "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?",
+            "identity": "codex-measurement"
+          },
+          {
+            "utc": "2026-10-20T19:59:04.985817+00:00",
+            "t": 163.59113637101837,
+            "event": "transcription_final",
+            "text": "La visite est prévue ce dimanche à 10 heures avec un budget fixé à 20 euros. C'est bien ce qui a été confirmé lors de votre dernière modification. Tout est prêt pour cet agenda fictif.",
+            "identity": "agent-AJ_8tN2fd9zysmT"
+          }
+        ],
+        "first_non_silent_s": 67.1991342700785,
+        "criteria": {
+          "active_required": true,
+          "stop_max_s": 1,
+          "silence_window_s": 0.5,
+          "rms_threshold": 20
+        },
+        "interruption_audio_pass": true,
+        "limits": [
+          "Synthetic WAV; no physical microphone",
+          "Arrival-aligned PCM; timings are client observations",
+          "UI Stop requires separate browser evidence",
+          "Continuity uses third-turn remote final transcript when requested"
+        ],
+        "artifacts": {
+          "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+          "received.wav": "c9cd8f46cc60d9350aa56cc53fab74daa08f8de8dd094562da47bcf4972dfe48",
+          "events-live.jsonl": "947d9de029ecc3e6b1fdd35299d39cf73a2fbaa30785d2ddc498507c2dde4d95",
+          "frames.json": "a9d6cdd03fbde9a7fe47bf87c0d2b8c14893b2fa4cda490acdd967ad22b17fbe",
+          "routes-private.json": "0efde86e2ca7d7d122031e7185cd8c314e3364c244396270b98514b42e298cd6",
+          "events.jsonl": "947d9de029ecc3e6b1fdd35299d39cf73a2fbaa30785d2ddc498507c2dde4d95"
+        },
+        "second_transcription_correct": true,
+        "second_transcription_delay_s": 2.1890868599293754,
+        "passed": true,
+        "status": "PASS"
+      }
+    },
+    {
+      "name": "silence",
+      "output": "suite-6f67890829-silence",
+      "elapsed_s": 27.428,
+      "returncode": 0,
+      "result_present": true,
+      "audio_present": true,
+      "result": {
+        "actor": "Codex-independent-tool",
+        "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+        "negative_input": true,
+        "continuity_started_s": null,
+        "continuity_pass": null,
+        "physical_microphone": false,
+        "room": "m23d-codex-0aca163e9a",
+        "reason": null,
+        "input_end_s": 6.873479080037214,
+        "interrupt_s": null,
+        "audio_active_before_interrupt": null,
+        "stable_silence_latency_s": null,
+        "second_user_final": null,
+        "resumed_audio_after_transcript_s": null,
+        "transcripts": [],
+        "first_non_silent_s": null,
+        "criteria": {
+          "active_required": true,
+          "stop_max_s": 1,
+          "silence_window_s": 0.5,
+          "rms_threshold": 20
+        },
+        "interruption_audio_pass": false,
+        "limits": [
+          "Synthetic WAV; no physical microphone",
+          "Arrival-aligned PCM; timings are client observations",
+          "UI Stop requires separate browser evidence",
+          "Continuity uses third-turn remote final transcript when requested"
+        ],
+        "artifacts": {
+          "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+          "received.wav": "231180d2a6ac5e8c4408cb92c980e461af54d762245e8323ecbdb76a5334f32b",
+          "events-live.jsonl": "c748d770056404651507f9ebc367c2fa120ab0b3ab11acacc4702c3b67de3cdd",
+          "frames.json": "b1c381ace72ce98179f64ef6b3d928ab2600d446d66af5a9d9444a86543cded3",
+          "routes-private.json": "16ff0a983b51fda665df06768c295a3aa481b487a935d1ae3e332bd287d5e8b7",
+          "events.jsonl": "c748d770056404651507f9ebc367c2fa120ab0b3ab11acacc4702c3b67de3cdd"
+        },
+        "second_transcription_correct": false,
+        "second_transcription_delay_s": null,
+        "passed": true,
+        "status": "PASS"
+      }
+    },
+    {
+      "name": "noise",
+      "output": "suite-6f67890829-noise",
+      "elapsed_s": 27.181,
+      "returncode": 0,
+      "result_present": true,
+      "audio_present": true,
+      "result": {
+        "actor": "Codex-independent-tool",
+        "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+        "negative_input": true,
+        "continuity_started_s": null,
+        "continuity_pass": null,
+        "physical_microphone": false,
+        "room": "m23d-codex-5067b6b021",
+        "reason": null,
+        "input_end_s": 6.664506672997959,
+        "interrupt_s": null,
+        "audio_active_before_interrupt": null,
+        "stable_silence_latency_s": null,
+        "second_user_final": null,
+        "resumed_audio_after_transcript_s": null,
+        "transcripts": [],
+        "first_non_silent_s": null,
+        "criteria": {
+          "active_required": true,
+          "stop_max_s": 1,
+          "silence_window_s": 0.5,
+          "rms_threshold": 20
+        },
+        "interruption_audio_pass": false,
+        "limits": [
+          "Synthetic WAV; no physical microphone",
+          "Arrival-aligned PCM; timings are client observations",
+          "UI Stop requires separate browser evidence",
+          "Continuity uses third-turn remote final transcript when requested"
+        ],
+        "artifacts": {
+          "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+          "received.wav": "f4ba936ba55e788aa1025b6111fdeef8d920a027807b57cf8eb1962af1bb588e",
+          "events-live.jsonl": "6408a2bde3e26896f6b05efb2f39dbe0a29dacb19c60b847a254c29d12ca5b8c",
+          "frames.json": "ea8a9f1726641437c48fc76854ebd250bcfcd824f879cfc0c939b7aba42558f2",
+          "routes-private.json": "dc4fa23fd63c518c594c197f0714122ccf7323836a25d8245bad306fcda80736",
+          "events.jsonl": "6408a2bde3e26896f6b05efb2f39dbe0a29dacb19c60b847a254c29d12ca5b8c"
+        },
+        "second_transcription_correct": false,
+        "second_transcription_delay_s": null,
+        "passed": true,
+        "status": "PASS"
+      }
+    }
+  ],
+  "voice_received": false,
+  "finished_utc": "2026-10-20T20:00:00.273576+00:00",
+  "verdict": "NO-GO vocal / critères ou preuves manquants"
+}

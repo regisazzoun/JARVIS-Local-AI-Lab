@@ -1,0 +1,65 @@
+{
+  "actor": "JARVIS page + Codex client tool",
+  "physicalMicrophoneTested": false,
+  "events": [
+    {
+      "utc": "2026-10-20T20:19:30.101Z",
+      "t": 0.0003999999985098839,
+      "type": "client_ready"
+    },
+    {
+      "utc": "2026-10-20T20:19:30.163Z",
+      "t": 0.0625,
+      "type": "test_started",
+      "id": "3259150ce86b",
+      "scenario": "noise"
+    },
+    {
+      "utc": "2026-10-20T20:19:30.428Z",
+      "t": 0.327,
+      "type": "test_stop_requested",
+      "id": "3259150ce86b"
+    },
+    {
+      "utc": "2026-10-20T20:19:30.428Z",
+      "t": 0.32709999999776485,
+      "type": "local_audio_stopped",
+      "elapsed_ms": 12.5,
+      "audio_active_in_previous_200ms": false,
+      "last_rms": 0,
+      "remaining_audio_elements": 0
+    },
+    {
+      "utc": "2026-10-20T20:19:30.428Z",
+      "t": 0.32709999999776485,
+      "type": "stopped"
+    },
+    {
+      "utc": "2026-10-20T20:19:31.177Z",
+      "t": 1.0763999999985099,
+      "type": "test_finished",
+      "id": "3259150ce86b",
+      "returncode": -2,
+      "status": "ABORTED",
+      "captured_result_present": false
+    },
+    {
+      "utc": "2026-10-20T20:19:32.437Z",
+      "t": 2.3358999999985097,
+      "type": "stop_observation_2s",
+      "session_still_disconnected": true,
+      "audio_elements": 0
+    }
+  ],
+  "transcripts": [],
+  "tests": [
+    {
+      "id": "3259150ce86b",
+      "done": true,
+      "returncode": -2,
+      "result": null,
+      "audio": "/reports/web-3259150ce86b/received.wav",
+      "status": "ABORTED"
+    }
+  ]
+}

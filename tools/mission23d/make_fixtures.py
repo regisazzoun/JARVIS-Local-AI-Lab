@@ -1,7 +1,9 @@
+import argparse
 from pathlib import Path
 import hashlib,json,wave
 from piper import PiperVoice
-root=Path('/home/adminjarvis/JARVIS/mission23d-private/fixtures');root.mkdir(exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+root=args.output;root.mkdir(parents=True,exist_ok=True)
 voice=PiperVoice.load('/opt/jarvis/voice/models/tts/fr_FR-tom-medium.onnx')
 texts={
  'initial':'Bonjour JARVIS. Préparons une visite fictive du musée des sciences samedi à quatorze heures, pour deux adultes, avec un budget de quarante euros. Décris un programme détaillé en six étapes, pendant au moins quinze secondes.',

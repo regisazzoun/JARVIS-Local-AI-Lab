@@ -1,0 +1,13 @@
+{
+  "actor": "Codex exact correction tool executed by JARVIS",
+  "utc": "2026-10-20T20:09:46Z",
+  "before_sha256": "cbb2bf23a081d69aa5ab15c9c2e575a6a8065aaf3e769c7c16fb8320be35fb69",
+  "after_sha256": "eb564d7b5da499e6655622deb75a9a8a26cf19dfc1ee294b878ff96bf1eda0d0",
+  "sdk_default_aec_warmup_s": 3.0,
+  "configured_aec_warmup_s": 0.0,
+  "session_min_interruption_duration_s": 0.3,
+  "session_resume_false_interruption": false,
+  "preemptive_generation": false,
+  "scope": "Prototype first-turn barge-in; browser echo cancellation unchanged",
+  "limit": "Physical microphone echo robustness untested"
+}

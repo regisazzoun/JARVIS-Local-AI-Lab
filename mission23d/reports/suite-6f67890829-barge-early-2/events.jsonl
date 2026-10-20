@@ -1,0 +1,27 @@
+{"utc": "2026-10-20T19:55:20.343596+00:00", "t": 0.4259810990188271, "event": "connected", "room": "m23d-codex-8a998b010d"}
+{"utc": "2026-10-20T19:55:22.691442+00:00", "t": 2.7738211350515485, "event": "participant_connected", "identity": "agent-AJ_Yu63kf8cKiXa"}
+{"utc": "2026-10-20T19:55:22.734246+00:00", "t": 2.816626094048843, "event": "audio_track_subscribed", "identity": "agent-AJ_Yu63kf8cKiXa"}
+{"utc": "2026-10-20T19:55:23.790694+00:00", "t": 3.8730815099552274, "event": "wav_started", "label": "initial", "file": "initial.wav", "sha256": "f4798854dc487221171a2a21c7bbc1638e40350e1e57088441946d7647289f0c", "duration_s": 13.769458333333333}
+{"utc": "2026-10-20T19:55:37.637611+00:00", "t": 17.720033620018512, "event": "wav_ended", "label": "initial"}
+{"utc": "2026-10-20T19:55:41.153542+00:00", "t": 21.235920861014165, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:55:41.155897+00:00", "t": 21.238274520961568, "event": "transcription_final", "text": " Bonjour Jervis, préparons une visite fictive du musée des sciences samedi à 14 heures pour deux adultes avec un budget de 40 euros. Décris un programme détaillé en six étapes pendant au moins 15 secondes.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:55:42.780180+00:00", "t": 22.862563114031218, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:55:43.449867+00:00", "t": 23.532253051991574, "event": "wav_started", "label": "interruption", "file": "interrupt.wav", "sha256": "4644976ad29cbd79bc3ef36b1dac7584b37be443d461625c5f91dc5f40a3f76c", "duration_s": 7.801916666666667}
+{"utc": "2026-10-20T19:55:45.793641+00:00", "t": 25.876033841981553, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T19:55:51.375276+00:00", "t": 31.45768723904621, "event": "wav_ended", "label": "interruption"}
+{"utc": "2026-10-20T19:55:53.562296+00:00", "t": 33.644679925986566, "event": "transcription_final", "text": "Bonjour, je confirme la réservation fictive pour samedi", "identity": "agent-AJ_Yu63kf8cKiXa"}
+{"utc": "2026-10-20T19:55:53.569737+00:00", "t": 33.65211815899238, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:55:53.570689+00:00", "t": 33.653068599058315, "event": "transcription_final", "text": " Dimanche à 10h, budget 20€, confirme uniquement les nouveaux horaires et le budget.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:55:54.672914+00:00", "t": 34.755295156966895, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:56:02.508119+00:00", "t": 42.590522184967995, "event": "transcription_final", "text": "Entendu, la visite est maintenue ce dimanche à 10 heures. Je note également votre nouveau budget de 20 euros pour cette session.", "identity": "agent-AJ_Yu63kf8cKiXa"}
+{"utc": "2026-10-20T19:56:02.516889+00:00", "t": 42.599289434961975, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T19:56:03.568548+00:00", "t": 43.65095750801265, "event": "wav_started", "label": "continuity", "file": "continuity.wav", "sha256": "855ff3e974b0d81f7149646f594f7ceac099ac4d3932548ed7ba081b0e4dea43", "duration_s": 3.628125}
+{"utc": "2026-10-20T19:56:07.319404+00:00", "t": 47.401817640056834, "event": "wav_ended", "label": "continuity"}
+{"utc": "2026-10-20T19:56:09.444530+00:00", "t": 49.526910893036984, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:56:09.445302+00:00", "t": 49.52768190903589, "event": "transcription_final", "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:56:10.301512+00:00", "t": 50.38389222905971, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:56:20.701900+00:00", "t": 60.7843043130124, "event": "transcription_final", "text": "La visite est désormais prévue ce dimanche à 10 heures. Votre budget total s'élève à 20 euros pour cette séance. C'est bien pris en compte dans le système.", "identity": "agent-AJ_Yu63kf8cKiXa"}
+{"utc": "2026-10-20T19:56:20.727634+00:00", "t": 60.810039889998734, "event": "participant_attributes", "identity": "agent-AJ_Yu63kf8cKiXa", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T19:56:20.830463+00:00", "t": 60.91286561405286, "event": "disconnect_requested"}
+{"utc": "2026-10-20T19:56:20.842147+00:00", "t": 60.924553535995074, "event": "disconnected"}
+{"utc": "2026-10-20T19:56:20.854189+00:00", "t": 60.93659831502009, "event": "room_deleted"}
