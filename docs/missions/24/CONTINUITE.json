@@ -1,0 +1,52 @@
+{
+  "captured_at": 1792503351.480096,
+  "after_controlled_restart": true,
+  "mission_ids_unchanged": true,
+  "historical_tasks": [
+    {
+      "execution": "7971ec0311124fb4be9e3125dcb291fd",
+      "unchanged_historical_tasks": 13
+    },
+    {
+      "execution": "df542051560b44b3851124b09d8319c2",
+      "unchanged_historical_tasks": 4
+    }
+  ],
+  "historical_ledgers": {
+    "checkpoints": {
+      "preserved_rows": 3153,
+      "current_rows": 3215,
+      "identical": true
+    },
+    "mission_events": {
+      "preserved_rows": 8546,
+      "current_rows": 8771,
+      "identical": true
+    },
+    "tool_calls": {
+      "preserved_rows": 2598,
+      "current_rows": 2660,
+      "identical": true
+    }
+  },
+  "personal_memory": {
+    "memories": {
+      "rows": 5,
+      "unchanged": true,
+      "sha256": "747b84a83fc73d16af66ef8393f023a3c06faacd36fb19d8f13bd6e4bbdd3532"
+    },
+    "preferences": {
+      "rows": 4,
+      "unchanged": true,
+      "sha256": "5643f1af620ad04b6248667776156da1071766858a7874ddc8e57205cbd2b742"
+    }
+  },
+  "fts5_tables": [
+    "messages_fts",
+    "memories_fts",
+    "documents_fts"
+  ],
+  "fts5_query_executable": true,
+  "memory_integrity": "ok",
+  "missions_integrity": "ok"
+}

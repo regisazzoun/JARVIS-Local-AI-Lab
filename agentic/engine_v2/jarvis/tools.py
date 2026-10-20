@@ -146,6 +146,12 @@ class Registry:
             if hasattr(e,'response'):
                 response=e.response
                 result={'ok':False,'error':response.get('error') or response.get('result',{}).get('stderr') or response.get('result',{}).get('stdout','')[-2000:] or 'Échec outil sans sortie textuelle','result':{**response.get('result',{}),'evidence_id':response.get('evidence_id')}}
+                # Keep broker/transport diagnostics through the registry boundary.
+                # Without these fields the model cannot distinguish a denied
+                # transport from a received policy or parameter refusal.
+                if 'error_code' in response:result['error_code']=response['error_code']
+                for field in ('diagnostic','caller'):
+                    if field in response:result['result'][field]=response[field]
             else:result={'ok':False,'error':str(e)}
         result.update(tool=name,elapsed_s=round(time.monotonic()-start,3))
         with self.memory.connect() as c:

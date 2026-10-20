@@ -2,14 +2,42 @@
   "mission": "24",
   "actor": "Codex",
   "captured_at": "2026-10-20T11:33:20.642205+00:00",
-  "status": "in_progress_transport_blocked",
-  "broker_reply_received": false,
-  "jarvis_instruction_transmitted": false,
-  "jarvis_actions": [],
-  "deployed": false,
-  "restart_performed": false,
-  "persistence_verified": false,
-  "observations": {
+  "status": "GO_WITH_RESERVATIONS",
+  "broker_reply_received": true,
+  "jarvis_instruction_transmitted": true,
+  "jarvis_actions": {
+    "evidence_file": "PREUVES-JARVIS.json",
+    "model_tool_calls": 62,
+    "broker_correlated_calls": 52
+  },
+  "deployed": true,
+  "restart_performed": true,
+  "persistence_verified": true,
+  "historical_23c_tests": {
+    "passed": 75,
+    "total": 76,
+    "rerun_in_24": false
+  },
+  "historical_livekit_status": "NO-GO",
+  "resume": {
+    "at": "2026-10-20T13:13:14.827821+00:00",
+    "transport_restored": true,
+    "initial_broker_evidence_id": "07a6d878603d4da9bad8d88823b8fedd",
+    "preflight_evidence_id": "0545289360b84f0d9515138fafe68037",
+    "deployed": true,
+    "policy_unchanged": true,
+    "unit_tests": {
+      "passed": 78,
+      "total": 78
+    },
+    "independent_evidence_file": "RECEPTION-CODEX.json",
+    "deployment_manifest": "DEPLOIEMENT.json",
+    "transmission": "TRANSMISSION.json",
+    "jarvis_reception": "received_with_documentary_reservations"
+  },
+  "initial_session_status": "in_progress_transport_blocked",
+  "transport_restored": true,
+  "initial_observations": {
     "uid": 1000,
     "gid": 1000,
     "codex_pid_in_namespace": 1,
@@ -42,7 +70,7 @@
     "launcher_identity": "unknown",
     "exact_seccomp_rule": "unknown"
   },
-  "installed_comparison": [
+  "initial_installed_comparison": [
     {
       "candidate": "agentic/engine_v2/jarvis/host_client.py",
       "installed": "/opt/jarvis/conversation/jarvis/host_client.py",
@@ -62,10 +90,15 @@
       "installed_sha256": null
     }
   ],
-  "historical_23c_tests": {
-    "passed": 75,
-    "total": 76,
-    "rerun_in_24": false
-  },
-  "historical_livekit_status": "NO-GO"
+  "current_observations_reference": "RECEPTION-CODEX.json",
+  "final_evidence": [
+    "DEPLOIEMENT.json",
+    "CODE-INSTALLE.json",
+    "RECEPTION-CODEX.json",
+    "PREUVES-JARVIS.json",
+    "CONTINUITE.json",
+    "REDEMARRAGE.json",
+    "NOUVELLE-SESSION.json",
+    "VERIFICATION-GITHUB-JARVIS.json"
+  ]
 }

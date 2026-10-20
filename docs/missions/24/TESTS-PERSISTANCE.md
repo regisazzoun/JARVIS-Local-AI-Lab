@@ -1,5 +1,7 @@
-# Persistance — non réceptionnée
+# Persistance réellement vérifiée
 
-Aucun redémarrage de service ou d'hôte exécuté. Aucune nouvelle session hôte fonctionnelle reçue. Mémoire, checkpoints et identifiants historiques n'ont pas été modifiés par cette intervention ; leur conservation fonctionnelle actuelle n'est pas prouvée par une lecture des bases privées.
+Les seuls composants redémarrés sont jarvis-host-bridge et jarvis-conversation. Une interruption explicite par l'API a précédé le redémarrage ; les appels déjà réussis, identifiants et rapports historiques restent en base. Les PID/InvocationID changent, le socket est recréé et le prévol répond avec la même politique. REDEMARRAGE.json conserve le checkpoint avant et l'état après ; cela ne repose pas sur le seul statut active.
 
-Après raccordement et déploiement, conserver les empreintes/checkpoints initiaux, redémarrer uniquement les composants nécessaires, faire réexécuter une opération par JARVIS, corréler événements/reçus et vérifier indépendamment. Refaire une connexion depuis un nouveau contexte opérateur autorisé. Le simple statut active ne reçoit aucun de ces critères.
+JARVIS a réellement repris la même exécution, consulté le marqueur de redémarrage et réutilisé les outils ; les nouveaux appels JARVIS-runtime et leurs résultats sont corrélés dans PREUVES-JARVIS.json. Codex reçoit indépendamment politique/catalogue/service et processus Python hôte après redémarrage. Une nouvelle session HTTP authentifiée indépendante accède aux41 schémas exposés : NOUVELLE-SESSION.json. Aucune dépendance à un serveur temporaire de cette intervention.
+
+CONTINUITE.json compare les bases courantes aux sauvegardes SQLite cohérentes : mêmes identifiants, treize tâches historiques23 et quatre du diagnostic inchangées, checkpoints/événements/appels historiques identiques, cinq souvenirs et quatre préférences inchangés. Tables FTS5 conservées et requête réelle possible ; quick_check des bases réussit. Aucun reset de mémoire ni replanification des tâches reçues. Ce test couvre les redémarrages de composants et nouvelles sessions, pas un reboot complet de l'hôte.

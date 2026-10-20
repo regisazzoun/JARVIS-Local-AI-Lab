@@ -1,0 +1,81 @@
+{
+  "timestamp": 1792502523.6848338,
+  "before": {
+    "jarvis-host-bridge.service": {
+      "MainPID": "2816406",
+      "ActiveState": "active",
+      "InvocationID": "87e46699202a4e7fbf7121a6c71fc28f"
+    },
+    "jarvis-conversation.service": {
+      "MainPID": "2816412",
+      "ActiveState": "active",
+      "InvocationID": "c68187d287ec40ea9333fda8cabfd62b"
+    }
+  },
+  "after": {
+    "jarvis-host-bridge.service": {
+      "MainPID": "2818295",
+      "ActiveState": "active",
+      "InvocationID": "ee9a340a1e2448428d8d885a0716f401"
+    },
+    "jarvis-conversation.service": {
+      "MainPID": "2818301",
+      "ActiveState": "active",
+      "InvocationID": "f1f65a374cbe457d97d4cb5b65cd784c"
+    }
+  },
+  "tasks_before": [
+    {
+      "id": "m24_01",
+      "state": "running",
+      "report_sha256": null
+    },
+    {
+      "id": "m24_02",
+      "state": "pending",
+      "report_sha256": null
+    },
+    {
+      "id": "t01_diag_blocage_t12",
+      "state": "validated",
+      "report_sha256": "8dc99335f76a8db69049c71ae5aee479571d3b13e464a6c315bbcc1bd44e52cd"
+    },
+    {
+      "id": "t02_relever_preuves_evidence",
+      "state": "validated",
+      "report_sha256": "85f8888143dabe1d3fc042a97e905ac2aea6f2c359c00e042b5630f8c1353956"
+    },
+    {
+      "id": "t03_analyser_cause_racine",
+      "state": "validated",
+      "report_sha256": "31fd354d0bf3650624994e2940deef066813645eea1d7a7fd33cd803dbb1fb03"
+    },
+    {
+      "id": "t04_synthesiser_reponse",
+      "state": "validated",
+      "report_sha256": "bdf0fbd26a5e8957069aa9076443df25fa29b338e666b7ed80e011e5e81aee14"
+    }
+  ],
+  "deployed_modules": [
+    {
+      "module": "jarvis/tools.py",
+      "sha256": "fe61b4aaae3ed0cf1900a01ffbeaf71ee23dc0962d7e11b6dc95fe2fdb160571"
+    },
+    {
+      "module": "broker/project_service.py",
+      "sha256": "ee593adedf9cd15b5af049a91d735e5d2f9f8e72af3ee0129e83814e8956c105"
+    },
+    {
+      "module": "jarvis/host_client.py",
+      "sha256": "9ff9b0975bd3ae99171177126e4c14697fddebfe75c0167182d8f0afd7ab5726"
+    }
+  ],
+  "interruption": {
+    "at": 1792502523.1351683,
+    "reply": {
+      "id": "df542051560b44b3851124b09d8319c2",
+      "state": "interrupted",
+      "note": "La commande engag\u00e9e peut se terminer ; arr\u00eat avant le prochain outil."
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Diagnostic des sockets — observations Codex
 
+**Lecture chronologique :** le premier état ci-dessous décrit la session initiale confinée. Les sections «Reprise hôte» et suivantes rendent compte du rétablissement réel ; voir [la réception actuelle](RAPPORT-FINAL.md).
+
 ## Point de refus démontré
 
 Le processus Python de diagnostic et son parent bash descendent de `codex`, PID1 de la vue courante, PPid0. UID/EUID/GID1000. Les groupes extérieurs non mappés apparaissent65534 ; le groupe1000 est présent. `NoNewPrivs=1`, `Seccomp=2`, un filtre, `CapEff=0`. Les mappings utilisateur/groupe contiennent `1000 0 1` : la vue utilise un espace utilisateur distinct. La racine et /run sont montés en lecture seule. Le cgroup visible correspond à une session utilisateur systemd.
@@ -31,3 +33,7 @@ Le confinement est démontré ; l'attribution de chaque refus à une règle secc
 La politique privée renvoie EACCES13 à l'ouverture ; ce refus de fichier est distinct d'EPERM1 sur transport. Aucun contenu privé publié. Les sources sous /usr/local et /opt sont lisibles, mais les destinations de déploiement ne sont pas inscriptibles.
 
 Aucune session hôte autorisée disponible via les outils courants n'a fourni de comparaison effective. Les appels EPERM ne sont pas réessayés en boucle.
+
+## Reprise hôte du20 octobre2026
+
+La session relancée par le propriétaire fournit le contexte hôte : codex PID214400, parent codex2082 puis systemd1, Seccomp=0, NoNewPrivs=0. Réseau4026531833, montage4026531832, utilisateur4026531837, PID4026531836. Les groupes Debian réels sont visibles. Connexion au socket inchangé réussie, reçu `07a6d878603d4da9bad8d88823b8fedd`, appelant local-operator. systemctl retourne effectivement les PID/états ; sudo opérateur réussit. Le changement du contexte Codex résout le transport sans chmod/chown du socket, ni modification de politique JARVIS. La comparaison avant/après rattache le blocage à l’ancien contexte isolé ; la règle seccomp exacte de l’ancienne session reste inaccessible, sans attribution inventée à Bubblewrap.

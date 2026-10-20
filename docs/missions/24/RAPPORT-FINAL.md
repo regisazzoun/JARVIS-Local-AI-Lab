@@ -1,25 +1,29 @@
-# Rapport d'étape mission24 — non clôturée
+# Réception mission24 — transport et outils
 
-**🟡 EN COURS — bloquée techniquement par le confinement de la session Codex. Aucun GO.**
+**✅ GO AVEC RÉSERVES : raccordement, déploiement et reprise reçus ; autonomie documentaire encore guidée.** LiveKit23 conserve son **❌ NO-GO sur interruption vocale**.
 
-Le refus initial est précisé : création Unix permise, connexion au socket exact EPERM ; création TCP IPv4/IPv6 EPERM ; transport systemd EPERM. Codex est PID1 d'une vue isolée, seccomp actif, NoNewPrivs, sans capacités, racine hôte en lecture seule. L'identité exacte du lanceur et la règle seccomp responsable restent non accessibles. Le socket existe et son groupe correspond à la session ; aucune panne générale du broker ni révocation d'habilitations démontrée.
+Le blocage initial était celui du contexte Codex isolé : connect Unix, socket TCP et bus systemd refusés avant réponse. Dans la session hôte relancée par le propriétaire, seccomp et NoNewPrivs valent0 ; le même socket répond. Aucune modification de permissions du socket ni de politique JARVIS n'a été nécessaire. La règle exacte de l'ancien filtre reste inconnue ; aucune panne générale du broker ou révocation historique n'en est déduite.
 
-Le code23C local concorde avec le commit distant de PR14 pour les neuf fichiers comparés. Le code installé diffère ; capability_view.py y manque. Aucun déploiement, redémarrage, échange JARVIS ou test de persistance réalisé. Les tests75/76 restent historiques. Aucun succès attribué à JARVIS à partir des actions Codex.
+Les correctifs23C sont déployés : diagnostics de transport, catégories, empreinte/provenance de politique, catalogue issu du registre et prévol. Trois compléments24 corrigent les limites observées : processus réels du cgroup dans le statut de projet, diagnostics conservés à travers Registry.execute, résumé compact du catalogue structuré. Les cinq modules installés concordent avec leurs sources ; politique inchangée, sauvegardes privées et78 tests réussis.
 
-| Critère de réception | État |
+JARVIS a effectué les opérations réelles de réception : outils/politique, services/journaux LiveKit, contrôle LLM, sources/preuves23, liaison Dell1 SSH/Ansible, lecture GitHub, erreur volontaire puis correction, publication et vérification distante. Après interruption et redémarrage broker/conversation, la même exécution reprend et réutilise les outils. Codex vérifie indépendamment reçus JARVIS-runtime, services/processus, empreintes, fichiers GitHub et conservation des bases. Aucun nouveau run de mission créé, aucun acquis historique réinitialisé.
+
+| Critère | Preuve de réception |
 | --- | --- |
-|1 Refus sockets caractérisé | Partiel : point de refus et confinement établis ; filtre exact inconnu |
-|2 Transport Codex/broker | Non rétabli |
-|3 Communication JARVIS | Non obtenue |
-|4 Déploiement23C | Non réalisé |
-|5 Découverte capacités JARVIS | Non exécutée |
-|6 Opérations réelles23 JARVIS | Non exécutées |
-|7 Échec/reprise d'outil JARVIS | Non exécuté |
-|8 GitHub JARVIS | Non testé ; GitHub Codex fonctionnel |
-|9 Persistance | Non testée |
-|10 Vérification indépendante | Diagnostic et comparaison sources réalisés ; réception système manquante |
-|11 Publication | Voir PUBLICATION.json une fois la vérification distante réalisée |
+|1 Refus initial caractérisé | DIAGNOSTIC-SOCKETS ; contexte isolé puis comparaison hôte, filtre exact non récupéré |
+|2 Codex ↔ broker | Reçus réels et prévol avant/après redémarrage |
+|3 Codex ↔ JARVIS | Instruction persistée, inférences et appels JARVIS-runtime corrélés |
+|4 Déploiement23C | DEPLOIEMENT et CODE-INSTALLE, processus relancés et diagnostics réellement reçus |
+|5 Découverte effective | Catalogue/politique et catalogue_summary lus par JARVIS ; états de ressources séparés de l'exposition d'outil |
+|6 Opérations23 | Services/journaux/sources, LLM stream réel, SSH/Ansible et preuves persistantes |
+|7 Erreur et reprise | Script invoqué avec interpréteur ; paramètre branch manquant puis corrigé ; processus hôte retestés |
+|8 GitHub JARVIS | Branches/PR/commit, push_tree/verify_tree et vérification indépendante distante |
+|9 Persistance | Interruption contrôlée, redémarrage2 services, nouveaux appels et nouvelle session authentifiée |
+|10 Vérification Codex | PREUVES-JARVIS, RECEPTION-CODEX, CONTINUITE et VERIFICATION-GITHUB-JARVIS |
+|11 Publication | Branche24 et PR15 dépendante de14 ; voir PUBLICATION.json, aucune fusion |
 
-La poursuite dépend d'un contexte opérateur hôte autorisé ou d'un outil hôte exposé par la plateforme. Aucun chemin accessible permettant l'exécution hôte n'a été démontré. L'autorisation propriétaire est acquise ; le blocage ne nécessite pas une nouvelle validation de mission. Le contexte actuel ne permet ni réparation effective ni réception réelle ; ne pas prétendre le contraire.
+## Réserves
 
-La décision de numéro24 est propagée sans supprimer le chantier mémoire historiquement24, qui reste planifié et nécessite réaffectation ultérieure. PR11–14 préservées, aucune fusion. LiveKit23 conserve son NO-GO indépendant.
+Le premier rapport JARVIS contient des erreurs de synthèse malgré les opérations réussies. Elles sont identifiées dans TESTS-JARVIS et corrigées par un erratum prioritaire séparé ; le rapport initial reste une trace avec réserves. Codex a fourni du guidage et corrigé l'infrastructure : pas de démonstration d'autonomie longue sans assistance. Le test LLM n'est ni un essai STT/TTS audio ni une réception de l'interruption. Aucun reboot complet de l'hôte n'est revendiqué.
+
+Le numéro24 désigne désormais ce rétablissement. Le chantier mémoire historiquement24 reste planifié, contenu/historique préservés ; réaffectation ultérieure nécessaire. PR11–14, SSH/Tailscale, mémoire, checkpoints, Ollama et modèles, services LiveKit et Launcher sont préservés. Aucun Dell2, matériel, BIOS, RAID, partition, DHCP ni autre mission. Aucune fusion main.

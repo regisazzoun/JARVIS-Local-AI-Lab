@@ -1,0 +1,35 @@
+{
+  "policy_unchanged": true,
+  "modules": [
+    {
+      "source": "agentic/engine_v2/broker/host_bridge.py",
+      "installed": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "sha256": "aa14d6707ee2939f74d7e1417b468ee7feda01e7341b4ec8100a57719b985fb4",
+      "equal": true
+    },
+    {
+      "source": "agentic/engine_v2/broker/capability_view.py",
+      "installed": "/usr/local/lib/jarvis-host/capability_view.py",
+      "sha256": "2ae0086376a56fd564c20403ffc718c0061d2d04e6c7ba0b90c190a9fe715f0c",
+      "equal": true
+    },
+    {
+      "source": "agentic/engine_v2/broker/project_service.py",
+      "installed": "/usr/local/lib/jarvis-host/project_service.py",
+      "sha256": "ee593adedf9cd15b5af049a91d735e5d2f9f8e72af3ee0129e83814e8956c105",
+      "equal": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/host_client.py",
+      "installed": "/opt/jarvis/conversation/jarvis/host_client.py",
+      "sha256": "9ff9b0975bd3ae99171177126e4c14697fddebfe75c0167182d8f0afd7ab5726",
+      "equal": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/tools.py",
+      "installed": "/opt/jarvis/conversation/jarvis/tools.py",
+      "sha256": "fe61b4aaae3ed0cf1900a01ffbeaf71ee23dc0962d7e11b6dc95fe2fdb160571",
+      "equal": true
+    }
+  ]
+}

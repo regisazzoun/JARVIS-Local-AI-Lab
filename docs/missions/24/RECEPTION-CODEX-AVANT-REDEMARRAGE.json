@@ -1,0 +1,199 @@
+{
+  "uid": 1000,
+  "groups": [
+    24,
+    25,
+    27,
+    29,
+    30,
+    44,
+    46,
+    100,
+    101,
+    102,
+    106,
+    108,
+    1000
+  ],
+  "NoNewPrivs": "0",
+  "Seccomp": "0",
+  "namespaces": {
+    "net": "net:[4026531833]",
+    "mnt": "mnt:[4026531832]",
+    "user": "user:[4026531837]",
+    "pid": "pid:[4026531836]"
+  },
+  "broker_reply": true,
+  "policy_identity": {
+    "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+    "policy_path": "/etc/jarvis/host-policy.json",
+    "selection": "single-persistent-owner-policy",
+    "reload": "each-request",
+    "broker_version": "23C.1"
+  },
+  "catalogue_tools": 18,
+  "services": {
+    "jarvis-host-bridge.service": {
+      "MainPID": "2816406",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 15:10:00 CEST",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "87e46699202a4e7fbf7121a6c71fc28f"
+    },
+    "jarvis-conversation.service": {
+      "MainPID": "2816412",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 15:10:00 CEST",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "c68187d287ec40ea9333fda8cabfd62b"
+    },
+    "jarvis-mission23-livekit-server.service": {
+      "MainPID": "2791313",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 11:43:52 CEST",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "5a7ad7e8712946619b35e4791ba677f2"
+    },
+    "jarvis-mission23-livekit-agent.service": {
+      "MainPID": "2794640",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 11:54:04 CEST",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "95b01dae0a324a9f8f27e310568fcfd5"
+    }
+  },
+  "checks": [
+    {
+      "operation": "host_policy",
+      "arguments": {},
+      "ok": true,
+      "caller": "local-operator",
+      "evidence_id": "c28c6af0c7604f368549d79d4921f2f1",
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_policy",
+        "parameters": {},
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "returncode": null
+    },
+    {
+      "operation": "capability_status",
+      "arguments": {},
+      "ok": true,
+      "caller": "local-operator",
+      "evidence_id": "8f551816479b4447979d50d4f80007e9",
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "capability_status",
+        "parameters": {},
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "returncode": null
+    },
+    {
+      "operation": "host_service",
+      "arguments": {
+        "service": "jarvis-conversation.service",
+        "action": "is-active"
+      },
+      "ok": true,
+      "caller": "local-operator",
+      "evidence_id": "1b43094d0148481cad0e5b1909d3a272",
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_service",
+        "parameters": {
+          "service": "jarvis-conversation.service",
+          "action": "is-active"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "returncode": 0
+    },
+    {
+      "operation": "host_github",
+      "arguments": {
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+        "action": "verify_commit",
+        "commit": "3abcea394b141a3290895dbc7ac5593d0c70f6be"
+      },
+      "ok": false,
+      "caller": "local-operator",
+      "evidence_id": "9a970ea642f84be3895583e5e4c515aa",
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+          "action": "verify_commit"
+        },
+        "omitted_parameters": [
+          "commit"
+        ],
+        "error_category": "invalid_parameter",
+        "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+        "alternative": null
+      },
+      "returncode": null
+    },
+    {
+      "operation": "host_github",
+      "arguments": {
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+        "action": "verify_commit",
+        "branch": "codex/mission-24-transport-broker",
+        "commit": "3abcea394b141a3290895dbc7ac5593d0c70f6be"
+      },
+      "ok": true,
+      "caller": "local-operator",
+      "evidence_id": "cfed8c169fa64fb8905ba1fdc6f59b80",
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+          "action": "verify_commit",
+          "branch": "codex/mission-24-transport-broker"
+        },
+        "omitted_parameters": [
+          "commit"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "returncode": 0
+    }
+  ],
+  "captured_at": 1792501915.7129295
+}
