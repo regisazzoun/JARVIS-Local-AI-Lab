@@ -1,0 +1,47 @@
+{
+  "recorded_at": "2026-10-20T10:36:18.307144+00:00",
+  "mission": "23C",
+  "status": "🟡 En cours / partiel",
+  "jarvis_actions": [],
+  "jarvis_new_capabilities_received": [],
+  "broker_receipts": [],
+  "codex_tests": [
+    {
+      "operation": "preflight23c",
+      "exit_code": 1,
+      "result": {
+        "actor": "Codex-preflight",
+        "ok": false,
+        "error": "[Errno 1] Operation not permitted",
+        "error_code": "PermissionError",
+        "diagnostic": {
+          "operation": "capability_status",
+          "error_category": "transport_denied",
+          "stage": "before_broker_reply",
+          "endpoint": "/run/jarvis-host/bridge.sock",
+          "policy_identity": null,
+          "evidence_id": null,
+          "retry": "Check client confinement and broker connectivity; policy denial is not established."
+        }
+      }
+    },
+    {
+      "operation": "new_unit_tests",
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "operation": "full_suite",
+      "total": 76,
+      "passed": 75,
+      "errors": 1,
+      "error": "test_intent_http: PermissionError errno1 during socket creation",
+      "system_reception": false
+    }
+  ],
+  "deployment_executed": false,
+  "restarts_executed": false,
+  "historical_mission23_id": "7971ec0311124fb4be9e3125dcb291fd",
+  "historical_mission23_status": "❌ NO-GO",
+  "claims_only": []
+}

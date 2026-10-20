@@ -1,0 +1,98 @@
+{
+  "actor": "Codex",
+  "jarvis_publication": false,
+  "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+  "branch": "codex/mission-23c-broker-autonomie",
+  "pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/14",
+  "base_pr": 13,
+  "commit": "ca31af6488c593474e5ef71877baa67adf5a383a",
+  "method": "existing GitHub connector; create_tree/create_commit/update_ref; no merge",
+  "verification": {
+    "method": "reread each file at exact commit and compare full text",
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "equal": true
+      },
+      {
+        "path": "SUIVI.md",
+        "equal": true
+      },
+      {
+        "path": "ROADMAP.md",
+        "equal": true
+      },
+      {
+        "path": "agentic/engine_v2/install.py",
+        "equal": true
+      },
+      {
+        "path": "agentic/engine_v2/broker/host_bridge.py",
+        "equal": true
+      },
+      {
+        "path": "agentic/engine_v2/broker/capability_view.py",
+        "equal": true
+      },
+      {
+        "path": "agentic/engine_v2/broker/preflight23c.py",
+        "equal": true
+      },
+      {
+        "path": "agentic/engine_v2/jarvis/host_client.py",
+        "equal": true
+      },
+      {
+        "path": "agentic/engine_v2/tests/test_broker23c.py",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/ARCHITECTURE-BROKER.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/DIAGNOSTIC.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/CORRECTIONS.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/REGISTRE-CAPACITES.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/TESTS-REELS.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/PREUVES-JARVIS.json",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/CONTINUITE-ET-PERSISTANCE.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/RAPPORT-FINAL.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/INSTRUCTION-JARVIS.md",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/SOURCES-GITHUB.json",
+        "equal": true
+      },
+      {
+        "path": "docs/missions/23C/TESTS-UNITAIRES.log",
+        "equal": true
+      }
+    ],
+    "passed": true
+  },
+  "deployment": false,
+  "jarvis_reception": false
+}

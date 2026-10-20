@@ -1,14 +1,33 @@
 """Tools shared by text, voice and durable mission worker."""
 import json,socket
 
+SOCKET = '/run/jarvis-host/bridge.sock'
+
+def transport_failure(operation, exc):
+    if isinstance(exc, PermissionError): category='transport_denied'
+    elif isinstance(exc, FileNotFoundError): category='resource_missing'
+    elif isinstance(exc, TimeoutError): category='timeout'
+    elif isinstance(exc, (ConnectionError, BrokenPipeError)): category='service_unavailable'
+    else: category='transport_error'
+    return {'ok':False,'error':str(exc),'error_code':type(exc).__name__,
+            'diagnostic':{'operation':operation,'error_category':category,'stage':'before_broker_reply',
+                          'endpoint':SOCKET,'policy_identity':None,'evidence_id':None,
+                          'retry':'Check client confinement and broker connectivity; policy denial is not established.'}}
+
 class BrokerError(RuntimeError):
     def __init__(self,response):
         self.response=response
         super().__init__(json.dumps(response,ensure_ascii=False))
 
 def request(operation,arguments):
+    try:
+        return _request(operation,arguments)
+    except OSError as exc:
+        raise BrokerError(transport_failure(operation,exc)) from exc
+
+def _request(operation,arguments):
     with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as s:
-        s.settimeout(660);s.connect('/run/jarvis-host/bridge.sock')
+        s.settimeout(660);s.connect(SOCKET)
         s.sendall(json.dumps({'operation':operation,'arguments':arguments}).encode()+b'\n')
         data=b''
         while not data.endswith(b'\n'):
@@ -26,10 +45,23 @@ def register(registry):
         def execute(args):
             # Host authority comes from root-owned broker policy, never from agent_mode or a prompt.
             response=request(name,args)
-            return {**response['result'],'evidence_id':response['evidence_id']}
+            result={**response['result'],'evidence_id':response['evidence_id']}
+            if name=='capability_status':
+                # One tool registry: derive schemas from the registry actually exposed to this model.
+                scope=result.get('effective_scope')
+                result['tools']=[{'name':key,'function':value[0],'parameters':value[1],
+                                 'required':value[2],'mode':value[3],
+                                 'availability':'unverified' if scope is not None else 'policy_visibility_unavailable',
+                                 'scope_reference':'effective_scope; action and resource must be checked',
+                                 'documentation':'docs/missions/23C/REGISTRE-CAPACITES.md',
+                                 'test_method':'capability_test where supported; otherwise execute a scoped read and inspect its receipt'}
+                                for key,value in registry.specs.items() if value[3]=='host_authorized']
+            if 'diagnostic' in response:result['diagnostic']=response['diagnostic']
+            return result
         registry.specs[name]=(description,props,list(required if required is not None else fields),'host_authorized',execute)
     spec('host_policy','Lire les autorisations hôte persistantes réellement accordées ; ne peut pas les modifier',[])
     spec('host_exec','Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. /tmp est neuf et éphémère à chaque appel ; conserve les fichiers de reprise dans write_roots. Les processus de ce shell meurent à la fin de l’appel ; utilise host_project_service pour un serveur durable accordé. Pas de sudo.', ['command'])
+    registry.specs['host_exec'][1]['timeout']={'type':'integer','minimum':1,'maximum':300}
     spec('host_read_file','Lire un fichier réel accordé. Pour source longue ou vue modèle excerptée : offset en caractères et limit=6000 ; next_offset permet la suite, source_sha256 vérifie même version. Sans pagination, lecture complète conservée pour réception des rapports. Les pages indépendantes sont admises en mission_read_batch.',['path'])
     registry.specs['host_read_file'][1].update(offset={'type':'integer'},limit={'type':'integer'})
     spec('host_write_file','Écrire/remplacer un fichier réel, créer les parents',['path','content'])

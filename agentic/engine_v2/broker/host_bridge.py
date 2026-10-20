@@ -1,5 +1,6 @@
 """Owner-policy Unix broker. No policy changes are accepted over the model socket."""
 import concurrent.futures, datetime, hashlib, json, os, pathlib, pwd, re, signal, socket, socketserver, sqlite3, struct, subprocess, tempfile, time, uuid
+from capability_view import policy_identity, public_scope, diagnostic
 P = pathlib.Path
 POLICY = P('/etc/jarvis/host-policy.json')
 STATE = P('/var/lib/jarvis-agent')
@@ -59,18 +60,19 @@ def sandbox_args(command, cfg):
     return args
 
 def sandbox(command, cfg, timeout=60, output_limit=16000):
-    return run(sandbox_args(command,cfg),min(timeout,120),cfg['user'],output_limit)
+    return run(sandbox_args(command,cfg),min(timeout,300),cfg['user'],output_limit)
 
 def grant(cap,resource,state,result,cfg,mode='owner-policy'):
     with db() as c:
         c.execute('INSERT INTO capabilities VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(capability,resource) DO UPDATE SET state=excluded.state,last_test=excluded.last_test',
-          (cap,resource,resource if cap in ('host_remote','host_ansible') else 'local',json.dumps(cfg['scope'],ensure_ascii=False),mode,state,now(),json.dumps(result,ensure_ascii=False),'11','Owner policy withdrawal or failed functional test'))
+          (cap,resource,resource if cap in ('host_remote','host_ansible') else 'local',json.dumps(cfg['scope'],ensure_ascii=False),mode,state,now(),json.dumps(result,ensure_ascii=False),'persistent-owner-policy','Owner policy withdrawal or failed functional test'))
 
 def execute(op,a,cfg):
     if op=='host_policy':
         result={k:cfg[k] for k in ('scope','write_roots','read_roots','packages','services','repositories')}
         result['read_repositories']=cfg.get('read_repositories',[])
         result['project_services']=cfg.get('project_services',{})
+        result['policy_identity']=policy_identity(cfg)
         # The model needs operations and permissions, never SSH material locations.
         result['remote_hosts']={name:{**{k:v for k,v in h.items() if k not in ('identity','known_hosts','identity_check','commands')},'commands':list(h.get('commands',{})),'identity_checked':bool(h.get('identity_check'))} for name,h in cfg['remote_hosts'].items()}
         return result
@@ -82,7 +84,11 @@ def execute(op,a,cfg):
                   'storage_state':['/usr/bin/cat','/proc/mdstat']}
         if action not in cfg.get('diagnostics',[]) or action not in commands:raise PermissionError('Diagnostic hors politique')
         return run(commands[action],30)
-    if op=='host_exec':return sandbox(a['command'],cfg)
+    if op=='host_exec':
+        timeout=a.get('timeout',60)
+        if not isinstance(timeout,int) or isinstance(timeout,bool) or not 1<=timeout<=300:
+            raise ValueError('host_exec timeout must be an integer from 1 to 300 seconds')
+        return sandbox(a['command'],cfg,timeout=timeout)
     if op=='host_project_service':
         from project_service import execute as project_service
         return project_service(a,cfg,run,sandbox_args)
@@ -354,7 +360,14 @@ raise SystemExit(subprocess.call(argv))
                 payload=json.loads(row['payload']);requests.append({'id':row['id'],'state':row['state'],'capability':payload['capability'],'resource':payload['resource'],'resolution':row['resolution'][:600]})
             if a.get('resource'):
                 caps=[dict(row) for row in c.execute('SELECT * FROM capabilities WHERE resource=?',(a['resource'],))]
-            return {'scope':cfg['scope'],'machine':'local','capabilities':caps,'requests':requests,'full_registry':'root-private /var/lib/jarvis-agent/state.sqlite; no model write access'}
+            failures=[]
+            for row in c.execute('SELECT id,created,operation,result FROM events ORDER BY created DESC LIMIT 100'):
+                receipt=json.loads(row['result'])
+                if not receipt.get('ok'):
+                    failures.append({'evidence_id':row['id'],'created':row['created'],'operation':row['operation'],
+                                     'diagnostic':receipt.get('diagnostic',{'error_category':'legacy_unclassified'})})
+                    if len(failures)==10:break
+            return {'scope':cfg['scope'],'machine':'local','capabilities':caps,'requests':requests,'recent_failures':failures,'effective_scope':public_scope(cfg),'policy_identity':policy_identity(cfg),'full_registry':'root-private /var/lib/jarvis-agent/state.sqlite; no model write access'}
     if op=='capability_test':
         # A model assertion is never accepted as test evidence. Broker executes the fixed probe.
         cap=a['capability'];resource=a['resource']
@@ -383,8 +396,11 @@ class Handler(socketserver.StreamRequestHandler):
         try:
             if len(raw)>100000:raise ValueError('Requête trop grande')
             req=json.loads(raw);op=req['operation'];a=req['arguments']
+            if not isinstance(op,str) or not isinstance(a,dict):
+                op='invalid';a={};raise ValueError('operation texte et arguments objet requis')
             result=execute(op,a,cfg);result={'ok':result.get('returncode',0)==0,'result':result}
         except Exception as e:result={'ok':False,'error':str(e),'error_code':type(e).__name__}
+        result['diagnostic']=diagnostic(op,a,result,cfg)
         result.update(caller=caller,evidence_id=ident,elapsed_s=round(time.monotonic()-started,3))
         if caller=='JARVIS-runtime' and result.get('ok'):
             resources={'host_exec':'local','host_resources':'local','host_remote':a.get('host'),'host_ansible':a.get('host'),'host_logs':a.get('service')}

@@ -1,5 +1,9 @@
 # Roadmap
 
+## Mission23C — correction du broker et autonomie des outils
+
+🟡 En cours / partiel : [dossier23C](docs/missions/23C/RAPPORT-FINAL.md). Suivi distinct, diagnostic statique et améliorations de découverte/diagnostic préparées par Codex. Aucun nouveau test JARVIS ni redémarrage reçu : cette session ne peut créer les sockets vers le broker et l'API. La cause historique reste à confirmer sur la politique et les reçus privés. Mission23 reste ❌ NO-GO sur interruption ;24 « Mémoire enrichie » et les autres missions conservent leurs identifiants. Publication dédiée sans fusion.
+
 ## Pilotage courant consolidé — mission 00, point du 17 octobre 2026
 
 [README courant](README.md) · [Registre exhaustif](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) · [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md). Ces conclusions prévalent sur les instantanés datés de préparation conservés ci-dessous. Leur maintien ne révoque pas une autorisation récente.
