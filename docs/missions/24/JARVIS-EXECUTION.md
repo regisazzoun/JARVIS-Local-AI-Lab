@@ -220,7 +220,7 @@ UnitFileState=enabled
 **Commande :** `capability_status` sans paramètre
 
 **Résultat structuré (récapitulatif de la lecture précédente) :**
-- `catalogue_summary` : 32 catalogues, 28 outils, 5 demandes persistantes
+- `catalogue_summary` : 32 capacités enregistrées, 28 outils, 5 demandes persistantes
 - Les champs sont structurés et non vides (contrairement à une première impression dans le rapport JARVIS-CAPACITES.md initial avant correction)
 
 **Evidence ID :** `7432f4d474ce48cf85b50734729361ea`  
@@ -237,7 +237,7 @@ Le rapport validé `JARVIS-CAPACITES.md` contient trois affirmations erronées q
 | Section | Affirmation initiale | Correction requise |
 |---------|---------------------|-------------------|
 | 6 | "Mission23 fonctionnelle" par simple blocage rédactionnel | Mission23 NO-GO : interruption WebRTC échouée (audio poursuivi après Stop) |
-| 7 | "Registre capability_status vide" | Catalogue non vide : 32 catalogues, 28 outils, 5 demandes (champ `catalogue_summary`) |
+| 7 | "Registre capability_status vide" | Catalogue non vide : 32 capacités enregistrées, 28 outils, 5 demandes (champ `catalogue_summary`) |
 | 8 | "STT fonctionnel" par contrôle LLM | Contrôle LLM uniquement ; aucune acquisition microphone physique testée ici |
 
 ### 4.2 Correction appliquée (déjà effectuée)
@@ -261,7 +261,7 @@ Deux corrections ont été appliquées via `host_edit_file` :
 
 ### 5.2 Limites fonctionnelles (mission23)
 - **GO partiel** : transport broker et contrôle applicatif LLM fonctionnels
-- **NO-GO persistant** : interruption audio WebRTC non testée physiquement (microphone absent dans ce cycle de validation)
+- **NO-GO persistant** : interruption WebRTC ÉCHOUÉE lors du test réel historique (audio agent continu après Stop). Aucun nouveau test audio ni microphone physique reçu dans ce cycle24.
 - Aucun merge GitHub effectué ; la PR #15 reste ouverte
 
 ### 5.3 Périmètre de publication
