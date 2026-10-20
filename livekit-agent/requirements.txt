@@ -1,0 +1,21 @@
+# Dépendances LiveKit Agent - Mission 23
+livekit-agents>=1.8.0
+livekit-plugins-silero>=1.8.0
+livekit-local-inference>=0.2.0
+
+# STT local
+faster-whisper>=1.0.0
+
+# TTS local  
+piper-phonemize>=0.1.0
+numpy>=1.24.0
+
+# HTTP et async
+aiohttp>=3.9.0
+websockets>=12.0
+
+# Configuration
+pyyaml>=6.0
+
+# Client Ollama (pour LLM distant)
+ollama>=0.1.0

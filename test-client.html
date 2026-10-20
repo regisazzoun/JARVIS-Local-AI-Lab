@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Réception vocale JARVIS — Mission 23</title>
+  <script src="https://cdn.jsdelivr.net/npm/livekit-client@2.4.0/dist/livekit-client.js"></script>
+  <style>
+    body{font:16px system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem;color:#172033}
+    label{display:block;margin:.8rem 0 .25rem}input{box-sizing:border-box;width:100%;padding:.6rem}
+    button{padding:.65rem 1rem;margin:1rem .5rem 1rem 0}#status{padding:.8rem;background:#eef2f7;white-space:pre-wrap}
+    #transcripts{min-height:5rem;border:1px solid #ccd3df;padding:.75rem;white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <h1>Réception vocale JARVIS</h1>
+  <p>Collez le jeton temporaire créé par <code>prepare_microphone_room.py</code>. Le navigateur demandera l’accès au microphone et lira l’audio distant.</p>
+  <label for="url">URL LiveKit</label>
+  <input id="url" value="ws://localhost:7880" autocomplete="url">
+  <label for="token">Jeton temporaire de la salle</label>
+  <input id="token" type="password" autocomplete="off" spellcheck="false">
+  <button id="start">Se connecter et activer le microphone</button>
+  <button id="stop" disabled>Arrêter</button>
+  <div id="status">En attente.</div>
+  <h2>Transcriptions reçues</h2>
+  <div id="transcripts"></div>
+  <script>
+    const status = document.querySelector('#status');
+    const transcripts = document.querySelector('#transcripts');
+    let room;
+    const say = text => { status.textContent = text; };
+    document.querySelector('#start').onclick = async () => {
+      const url = document.querySelector('#url').value.trim();
+      const token = document.querySelector('#token').value.trim();
+      if (!url || !token) { say('URL et jeton requis.'); return; }
+      try {
+        room = new LivekitClient.Room({ adaptiveStream: true, dynacast: true });
+        room.on(LivekitClient.RoomEvent.ParticipantConnected, p => say(`Connecté — participant ${p.identity}`));
+        room.on(LivekitClient.RoomEvent.TrackSubscribed, (track, publication, participant) => {
+          if (track.kind === LivekitClient.Track.Kind.Audio) document.body.appendChild(track.attach());
+          say(`Connecté — média reçu de ${participant.identity}`);
+        });
+        room.on(LivekitClient.RoomEvent.TranscriptionReceived, (segments, participant) => {
+          for (const segment of segments) transcripts.textContent += `${participant?.identity || 'participant'}: ${segment.text}\n`;
+        });
+        room.on(LivekitClient.RoomEvent.Disconnected, () => say('Déconnecté.'));
+        say('Connexion à la salle…');
+        await room.connect(url, token, { autoSubscribe: true });
+        await room.localParticipant.setMicrophoneEnabled(true);
+        document.querySelector('#start').disabled = true;
+        document.querySelector('#stop').disabled = false;
+        say(`Connecté à ${room.name}; microphone actif. En attente de l’agent.`);
+      } catch (error) {
+        say(`Échec : ${error.message}`);
+        if (room) await room.disconnect();
+        room = undefined;
+      }
+    };
+    document.querySelector('#stop').onclick = async () => {
+      if (room) await room.disconnect();
+      room = undefined;
+      document.querySelector('#start').disabled = false;
+      document.querySelector('#stop').disabled = true;
+    };
+  </script>
+</body>
+</html>
