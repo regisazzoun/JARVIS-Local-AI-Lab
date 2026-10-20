@@ -1,0 +1,95 @@
+{
+  "actor": "Codex",
+  "jarvis_publication": false,
+  "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+  "branch": "codex/mission-24-transport-broker",
+  "pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/15",
+  "base_pr": 14,
+  "base_commit": "76f60c5bcc41acc55b8db7f829ab523ef0eebc44",
+  "verified_commit": "9d5625aa601950a49531f226d4a9787e9e85ad69",
+  "method": "existing GitHub connector; no merge",
+  "verification": {
+    "method": "reread every published file at exact commit and compare full text",
+    "passed": true,
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "equal": true,
+        "blob": "b51c3ae0ca0e2d24b75ce3331a64ae65b612e486"
+      },
+      {
+        "path": "ROADMAP.md",
+        "equal": true,
+        "blob": "161e7ecc67120c16cc7549c855e6a73158a129b5"
+      },
+      {
+        "path": "SUIVI.md",
+        "equal": true,
+        "blob": "89d97f1b9a82d145e9c0536abc2ec450f19c39f8"
+      },
+      {
+        "path": "docs/CHARTE_DIRECTIVES_JARVIS.md",
+        "equal": true,
+        "blob": "01da538b191bc970d073685d767ed739b0734bf4"
+      },
+      {
+        "path": "docs/missions/CYCLE-23-31.md",
+        "equal": true,
+        "blob": "0f826a2251281f22cd53e0831cf188f0b08533e5"
+      },
+      {
+        "path": "docs/missions/24/ORDRE-MISSION.md",
+        "equal": true,
+        "blob": "99e5ea7064560bd672a5ec07f68eb96167ce7e4b"
+      },
+      {
+        "path": "docs/missions/24/DIAGNOSTIC-SOCKETS.md",
+        "equal": true,
+        "blob": "a38bba79264152e68f7b2407edbd087ef2d3e98b"
+      },
+      {
+        "path": "docs/missions/24/ARCHITECTURE-TRANSPORT.md",
+        "equal": true,
+        "blob": "58fda04e7e84d02cab9a834766e628553c306814"
+      },
+      {
+        "path": "docs/missions/24/CORRECTIONS-DEPLOYEES.md",
+        "equal": true,
+        "blob": "0010b4cdf168703aa9b3e2d94bb8e8977ef5bce0"
+      },
+      {
+        "path": "docs/missions/24/TESTS-BROKER.md",
+        "equal": true,
+        "blob": "80fd21be1d09eb004acb2c35db90f7f0cfe832ab"
+      },
+      {
+        "path": "docs/missions/24/TESTS-JARVIS.md",
+        "equal": true,
+        "blob": "141b2c69ce7f688417df85e6f179ba919f2629f7"
+      },
+      {
+        "path": "docs/missions/24/PREUVES-EXECUTION.json",
+        "equal": true,
+        "blob": "55c8dcea18cad4d40f8e0a9a8f93c025a7e06bd8"
+      },
+      {
+        "path": "docs/missions/24/TESTS-PERSISTANCE.md",
+        "equal": true,
+        "blob": "d94bdead74b1b65bc47946e23d6b5cfa75301491"
+      },
+      {
+        "path": "docs/missions/24/RAPPORT-FINAL.md",
+        "equal": true,
+        "blob": "cd27035a4eaca45e6291e620281711b21367d0a2"
+      },
+      {
+        "path": "docs/missions/24/SOURCES-GITHUB.json",
+        "equal": true,
+        "blob": "ffa52aa4066aca6df4c9e2cb4232ea4bdb9e84af"
+      }
+    ]
+  },
+  "deployment": false,
+  "transport_restored": false,
+  "jarvis_reception": false
+}
