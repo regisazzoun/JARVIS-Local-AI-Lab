@@ -1,9 +1,12 @@
+> BROUILLON OBSOLÈTE — ne pas publier comme rapport canonique. Voir `t13_rapport_final.md`.
+> Conservé pour provenance; résultats et statut remplacés après essais complémentaires.
+
 # RAPPORT D'INTERVENTION FINAL — MISSION 23
 
 **Mission :** `7971ec0311124fb4be9e3125dcb291fd`  
 **Date de clôture :** 2026-10-20T11:15:00+02:00  
 **Statut global :** ❌ **NO-GO — INTERRUCTION NON VALIDÉE**  
-**Autonomie JARVIS :** ~75% (avec corrections Codex documentées)
+**Autonomie JARVIS :** non mesurée (aucune méthode de mesure définie) (avec corrections Codex documentées)
 
 ---
 
@@ -177,7 +180,7 @@ Ces documents sont conservés pour traçabilité mais **supplantés** par le pr�
 
 Justification : Le contrat exige 5 vérifications contractuelles, dont une seule (`"interrupt_confirmed": true`) échoue systématiquement après 51+ tentatives. Sans cette preuve, la mission ne peut être clôturée comme réussie.
 
-**Autonomie JARVIS :** ~75%  
+**Autonomie JARVIS :** non mesurée (aucune méthode de mesure définie)  
 - ✅ Analyse docs, conception, développement agent, intégration services, publication GitHub
 - ✅ Corrections partielles (factories.py chemins, configuration)
 - ⚠️ Corrections critiques codex : timeout host_exec, vérificateur WebRTC, VAD interruption
