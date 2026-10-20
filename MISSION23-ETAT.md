@@ -21,6 +21,6 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | m23d_02 — Exécuter les scénarios et corriger interruption | validated | aef98e3cf4a8d88dc7e64ad9f8fbc308c1bebdc2bbd5f62dea6543a0f5a2a083 |
 | m23d_03 — Publier code et réception23D | validated | e219be6eed3a95fe0aafa82d596024a517643f962deac13a3f70804fb05a308c |
 | m23d_04 — Corriger réellement client et composants | validated | 3aa6d77f349680eb7f178f82de418d194753d13cc0f4841eaac33a95381ee3ba |
-| m23d_05 — Exécuter six scénarios et recevoir sur mesures | pending | non reçu |
+| m23d_05 — Exécuter six scénarios et recevoir sur mesures | running | non reçu |
 
 Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
