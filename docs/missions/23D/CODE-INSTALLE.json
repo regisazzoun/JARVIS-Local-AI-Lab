@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "file": "livekit-agent/agent.py",
+      "runtime_sha256": "eb564d7b5da499e6655622deb75a9a8a26cf19dfc1ee294b878ff96bf1eda0d0",
+      "committed_sha256": "eb564d7b5da499e6655622deb75a9a8a26cf19dfc1ee294b878ff96bf1eda0d0",
+      "equal": true,
+      "runtime_mtime_utc": "2026-10-20T20:09:46Z"
+    },
+    {
+      "file": "livekit-agent/factories.py",
+      "runtime_sha256": "ff3954ab3e6758148c030a00238d17618f84d385575e3a5d4f56c5ed8212792d",
+      "committed_sha256": "ff3954ab3e6758148c030a00238d17618f84d385575e3a5d4f56c5ed8212792d",
+      "equal": true,
+      "runtime_mtime_utc": "2026-10-20T19:42:03Z"
+    },
+    {
+      "file": "livekit-agent/tts_adapter.py",
+      "runtime_sha256": "81a1ba45e8eaf649245b5be06b52aa3b0f10c99a769ffb148ec2a05b080a9031",
+      "committed_sha256": "81a1ba45e8eaf649245b5be06b52aa3b0f10c99a769ffb148ec2a05b080a9031",
+      "equal": true,
+      "runtime_mtime_utc": "2026-10-20T19:42:03Z"
+    }
+  ],
+  "services": {
+    "jarvis-host-bridge.service": {
+      "MainPID": "2818295",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 15:22:03 CEST",
+      "ActiveState": "active",
+      "InvocationID": "ee9a340a1e2448428d8d885a0716f401"
+    },
+    "jarvis-conversation.service": {
+      "MainPID": "2823138",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 15:46:37 CEST",
+      "ActiveState": "active",
+      "InvocationID": "7fd42d47e93e48beac5aa2082976ea40"
+    },
+    "jarvis-mission23-livekit-agent.service": {
+      "MainPID": "2868497",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 22:10:17 CEST",
+      "ActiveState": "active",
+      "InvocationID": "cd32a557600347d48b9517353b9de2da"
+    },
+    "jarvis-mission23-livekit-server.service": {
+      "MainPID": "2791313",
+      "ExecMainStartTimestamp": "Tue 2026-10-20 11:43:52 CEST",
+      "ActiveState": "active",
+      "InvocationID": "5a7ad7e8712946619b35e4791ba677f2"
+    }
+  },
+  "scope": "Only the LiveKit agent was restarted for23D corrections; broker policy/services preserved"
+}
