@@ -10,7 +10,9 @@ async def run(a):
     t0=time.monotonic();events=[];frames=[];transcripts=[];tasks=[];pcm=[]
     def now():return time.monotonic()-t0
     def log(kind,**values):
-        row={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'t':now(),'event':kind,**values};events.append(row);return row
+        row={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'t':now(),'event':kind,**values};events.append(row)
+        with (a.output/'events-live.jsonl').open('a') as f:f.write(json.dumps(row,ensure_ascii=False)+'\n')
+        return row
     env={}
     for line in (a.project/'.env').read_text().splitlines():
         if '=' in line and not line.lstrip().startswith('#'):
@@ -63,7 +65,7 @@ async def run(a):
         start=log('wav_started',label=label,file=path.name,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),duration_s=len(s)/24000)['t']
         for i in range(0,len(s),480):queue.put_nowait(np.pad(s[i:i+480],(0,max(0,480-len(s[i:i+480])))).tobytes())
         while not queue.empty():await asyncio.sleep(.01)
-        await source.wait_for_playout();log('wav_ended',label=label)
+        await asyncio.sleep(.12);log('wav_ended',label=label)
         return start,now()
     try:
         await server.room.create_room(api.CreateRoomRequest(name=room_name))
@@ -79,7 +81,7 @@ async def run(a):
         await room.local_participant.publish_track(track,rtc.TrackPublishOptions(source=rtc.TrackSource.SOURCE_MICROPHONE))
         tasks.append(asyncio.create_task(pump()));await asyncio.sleep(1)
         _,input_end=await send(a.wav,'initial')
-        await asyncio.wait_for(first.wait(),a.timeout)
+        await asyncio.wait_for(first.wait(),300)
         if a.interrupt_wav:
             await asyncio.sleep(a.delay)
             # Wait for actively audible PCM, not the historical first-audio latch.
