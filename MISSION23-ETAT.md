@@ -17,7 +17,7 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | t11_test_tailscale — Tester l'accès distant via Tailscale depuis le Mac | validated | 6da40600e35ac4dd03a453718ce6da4db5a43d295af445c0193a0e6091ec53e6 |
 | t12_code_github — Publier le code, configs et documentation sur une branche GitHub dédiée | validated | db28d98d115822a04ef6a0f5babfc6f9c177e27f74de2d28b3bd65aab4249463 |
 | t13_rapport_final — Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie | blocked | 9d21a3d8f4d9402a11963f4f95a8b3875df487cd5b7e563e7c3a909769b2298d |
-| m23d_01 — Développer le banc de test réel et la page temporaire | running | non reçu |
+| m23d_01 — Développer le banc de test réel et la page temporaire | validated | 6377a81ef135c00e59537fd366ec5d4fdd92cc2c6172bca79f386a33be537c51 |
 | m23d_02 — Exécuter les scénarios et corriger interruption | pending | non reçu |
 | m23d_03 — Publier code et réception23D | pending | non reçu |
 
