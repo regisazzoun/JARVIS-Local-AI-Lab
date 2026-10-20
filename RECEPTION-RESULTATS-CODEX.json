@@ -3,7 +3,8 @@
   "updated": "2026-10-20",
   "attribution": {
     "original_work": "JARVIS",
-    "targeted_sdk_agent_verifier_timeout_and_reception_corrections": "Codex"
+    "targeted_sdk_agent_verifier_timeout_and_reception_corrections": "Codex",
+    "piper_prewarm_and_llm_conn_timeout_corrections": "Codex (based on agent logs and installed SDK defaults)"
   },
   "final_status": "NO-GO — t13 blocked; 12 historical tasks validated, one final task blocked",
   "sigkill": {
@@ -77,6 +78,39 @@
     },
     "physical_microphone_and_speaker": {
       "tested": false
+    },
+    "barge_in_codex_active_response": {
+      "check": "webrtc_active_response_interruption",
+      "verified": false,
+      "physical_microphone": false,
+      "room": "independent23-73d64e71ce",
+      "first_user_transcription_s": 8.945,
+      "first_agent_non_silent_audio_s": 41.488,
+      "interrupt_started_s": 42.089,
+      "interrupt_ended_s": 44.431,
+      "interrupt_input_duration_s": 2.342,
+      "transcriptions": [
+        {
+          "text": " Bonjour. Réponds simplement bonjour en français.",
+          "participant": "independent-verifier",
+          "t": 8.94528392504435
+        },
+        {
+          "text": "Bonjour. Je suis à votre écoute. Comment puis-je vous servir aujourd'hui ?",
+          "participant": "agent-AJ_SPftWzko972F",
+          "t": 56.72894803003874
+        }
+      ],
+      "second_user_transcript_received": false,
+      "last_agent_non_silent_audio_s": 57.409,
+      "agent_audio_continued_after_interrupt_start_s": 15.321,
+      "agent_audio_frames_over_rms20": 1178,
+      "all_frames": 19287,
+      "failure": "Second final user transcription did not arrive within 150s; remote agent audio continued after interruption began.",
+      "detailed_evidence_file": "RECEPTION-INTERRUPTION-CODEX-TIMEOUTFIX.json",
+      "detailed_evidence_sha256": "33c76bcdf56b9b9f9ac2b1068cb126b1234217bd6f6d31fb8ddc0bcf0a7fca33",
+      "piper_event_loop_block_after_prewarm": false,
+      "qwen_model": "qwen3.5:27b-q4_K_M on Ollama Dell1"
     }
   },
   "component_measurements": {
@@ -93,11 +127,21 @@
       "gpu_temp_c": 72,
       "vram_used_mib": 17136,
       "vram_total_mib": 24576
-    }
+    },
+    "qwen_ollama_short_stream_control": {
+      "http_status": 200,
+      "first_token_s": 57.105,
+      "total_s": 57.926,
+      "max_tokens": 32,
+      "interpretation": "Ollama reachable; short prompt first-token latency measured near 57s under concurrent Dell1 load. Single control, not a general benchmark."
+    },
+    "piper_first_load_event_loop_before_fix_s": 1.636,
+    "piper_prewarm_duration_s": 1.828,
+    "piper_prewarm_threaded": true
   },
   "service_state": {
     "jarvis-mission23-livekit-server.service": "active/enabled",
-    "jarvis-mission23-livekit-agent.service": "active/enabled"
+    "jarvis-mission23-livekit-agent.service": "active/enabled after Piper warmup and LLM timeout changes"
   },
   "pending": {
     "conversational_interruption": true,
@@ -105,5 +149,11 @@
     "physical_microphone_reception": true
   },
   "report": "t13_rapport_final.md",
-  "archive": "historique/t13_rapport_final_JARVIS_20261020_1045_historique.md"
+  "archive": "historique/t13_rapport_final_JARVIS_20261020_1045_historique.md",
+  "sdk_timeout_correction": {
+    "previous_agent_llm_api_timeout_s": 10,
+    "new_agent_llm_api_timeout_s": 90,
+    "openai_http_timeout_s": 120,
+    "basis": "Installed LiveKit SDK AgentSession default APIConnectOptions timeout=10s; targeted Ollama control first token=57.105s."
+  }
 }

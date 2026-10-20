@@ -1,0 +1,33 @@
+{
+  "check": "webrtc_active_response_interruption",
+  "verified": false,
+  "physical_microphone": false,
+  "room": "independent23-73d64e71ce",
+  "first_user_transcription_s": 8.945,
+  "first_agent_non_silent_audio_s": 41.488,
+  "interrupt_started_s": 42.089,
+  "interrupt_ended_s": 44.431,
+  "interrupt_input_duration_s": 2.342,
+  "transcriptions": [
+    {
+      "text": " Bonjour. Réponds simplement bonjour en français.",
+      "participant": "independent-verifier",
+      "t": 8.94528392504435
+    },
+    {
+      "text": "Bonjour. Je suis à votre écoute. Comment puis-je vous servir aujourd'hui ?",
+      "participant": "agent-AJ_SPftWzko972F",
+      "t": 56.72894803003874
+    }
+  ],
+  "second_user_transcript_received": false,
+  "last_agent_non_silent_audio_s": 57.409,
+  "agent_audio_continued_after_interrupt_start_s": 15.321,
+  "agent_audio_frames_over_rms20": 1178,
+  "all_frames": 19287,
+  "failure": "Second final user transcription did not arrive within 150s; remote agent audio continued after interruption began.",
+  "detailed_evidence_file": "RECEPTION-INTERRUPTION-CODEX-TIMEOUTFIX.json",
+  "detailed_evidence_sha256": "33c76bcdf56b9b9f9ac2b1068cb126b1234217bd6f6d31fb8ddc0bcf0a7fca33",
+  "piper_event_loop_block_after_prewarm": false,
+  "qwen_model": "qwen3.5:27b-q4_K_M on Ollama Dell1"
+}
