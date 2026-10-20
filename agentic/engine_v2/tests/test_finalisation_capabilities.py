@@ -53,3 +53,24 @@ class RemoteProjectScope(unittest.TestCase):
   with self.assertRaises(PermissionError):bridge.execute('host_remote',args,{'remote_hosts':{'dell':profile}})
   profile['allow_admin']=False;args['project']='mission23'
   with self.assertRaises(PermissionError):bridge.execute('host_remote',args,{'remote_hosts':{'dell':profile}})
+class PrRecovery(unittest.TestCase):
+ def test_existing_pr_is_updated_without_duplicate(self):
+  from github_connector import execute
+  calls=[]
+  def run(argv,*args):
+   calls.append(argv)
+   if 'list' in argv:return {'returncode':0,'stdout':'[{"number":14,"url":"https://example.test/pr/14"}]'}
+   import json
+   payload=json.loads(Path(argv[argv.index('--input')+1]).read_text());self.assertEqual(payload['body'],'line1\nline2');self.assertEqual(payload['title'],'Updated scope')
+   return {'returncode':0,'stdout':json.dumps({'number':14,'url':'https://example.test/pr/14','head':'jarvis/test'})}
+  execute({'action':'pull_request','repository':'owner/repo','branch':'jarvis/test','title':'Updated scope','body':'line1\nline2'},{'user':'test'},run,None,None)
+  self.assertFalse(any('create' in c for c in calls));self.assertIn('PATCH',calls[-1])
+class CurrentServiceLogs(unittest.TestCase):
+ def test_current_activation_newest_errors_are_not_hidden_by_old_startup_logs(self):
+  from project_service import execute
+  calls=[]
+  def run(argv,*args,**kwargs):
+   calls.append((argv,kwargs))
+   return {'returncode':0,'stdout':'a'*32 if 'InvocationID' in ' '.join(argv) else 'latest failure first'}
+  result=execute({'project':'mission23','name':'livekit-agent','action':'logs'},{'project_services':{'mission23':'/tmp/m23'},'write_roots':['/tmp']},run,None)
+  self.assertIn('--reverse',calls[-1][0]);self.assertIn('_SYSTEMD_INVOCATION_ID='+'a'*32,calls[-1][0]);self.assertTrue(result['current_activation_only']);self.assertEqual(result['journal_order'],'newest_first')

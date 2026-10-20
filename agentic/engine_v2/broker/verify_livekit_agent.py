@@ -2,7 +2,7 @@
 """Independent mission23 acceptance test. Not application implementation.
 Run through the existing confined host_exec with the project's Python environment.
 """
-import argparse,asyncio,importlib,inspect,json,re,sys
+import argparse,asyncio,importlib,inspect,json,re,sys,time
 from pathlib import Path
 
 def factory(project,entry):
@@ -28,16 +28,19 @@ async def verify(project,part):
         context=llm.ChatContext();context.add_message(role='user',content='Réponds simplement bonjour en français.')
         text=''
         try:
+            first_start=time.monotonic()
             stream=provider.chat(chat_ctx=context)
             assert isinstance(stream,llm.LLMStream),'chat must return an actual LLMStream, not a coroutine or generator'
             async with stream:
                 async for chunk in stream:
                     if chunk.delta and chunk.delta.content:
                         text+=chunk.delta.content
-                        if text.strip():break
+                        if text.strip():
+                            first_nonempty_chunk_s=time.monotonic()-first_start
+                            break
             assert text.strip(),'No real nonempty response received'
         finally:await provider.aclose()
-        print(json.dumps({'check':'real_app_livekit_llm_stream','received_text_chars':len(text),'sdk_type_verified':True}))
+        print(json.dumps({'check':'real_app_livekit_llm_stream','received_text_chars':len(text),'sdk_type_verified':True,'first_nonempty_chunk_s':first_nonempty_chunk_s}))
         print('LLM_STREAM_VERIFIED')
     else:
         importlib.import_module('agent') # the actual application entry point must import successfully

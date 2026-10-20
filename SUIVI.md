@@ -243,3 +243,9 @@ Ajout des missions21 et22 au registre courant (70 identifiants). Le bilan00 deme
 ### Actualisation du19 octobre2026 — réception22
 
 Même exécution21 reprise depuis waiting_external ; six premières empreintes préservées, sept tâches validées. Tests utilisateur et techniques distincts. Les corrections Codex de reprise/contexte/test VNC et le rejet de la première synthèse finale contradictoire sont documentés en22 ; verdict GO AVEC RÉSERVES. Pas de fusion main.
+
+## Mission23 — finalisation et capacités autonomes,20 octobre2026
+
+Exécution originale `7971ec0311124fb4be9e3125dcb291fd`, reprise sans reset et onze validations historiques conservées. **En cours ; réception vocale partielle.** JARVIS a publié les sources et rapports08–11, vérifié les blobs distants et mis à jour la [PR12 applicative](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/12) après correction du connecteur par Codex. Le premier essai WebRTC indépendant a déclenché un job puis confirmé une erreur dans le callback agent ; aucun micro physique ni conversation complète n'est reçu à ce jalon.
+
+Codex complète les capacités GitHub persistantes, le client distant confiné et le routage des questions ; correctifs sur [PR13](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/13), à la suite de la [PR11](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/11). Sources/preuves et pilotage : [dossier finalisation23](docs/missions/23/finalisation/PILOTAGE.md). Les publications et validations de moteur ne constituent pas une réception vocale. Le diagnostic `df542051560b44b3851124b09d8319c2` reste lié23 ; la vraie mission24 mémoire n'est pas lancée. Aucun Dell2 ni fusion main.

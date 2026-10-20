@@ -35,8 +35,18 @@ def execute(a,cfg,run,sandbox_args):
             result=run(['/usr/bin/systemctl','daemon-reload'],30)
             if result['returncode']:return result
         return {'returncode':0,'unit':unit,'changed':changed,'installed':True,'started':False,'scope':'same host_exec confinement, no secrets'}
-    if action=='logs':return run(['/usr/bin/journalctl','-u',unit,'-n','50','--no-pager'],30)
+    if action=='logs':
+        activation=run(['/usr/bin/systemctl','show',unit,'--property=InvocationID','--value'],30)
+        invocation=activation.get('stdout','').strip()
+        current=activation.get('returncode')==0 and bool(re.fullmatch('[0-9a-f]{32}',invocation))
+        argv=['/usr/bin/journalctl','-u',unit,'-n','50','--reverse','--no-pager']
+        history=a.get('history',False)
+        if not isinstance(history,bool):raise ValueError('history doit être booléen')
+        if current and not history:argv+=['_SYSTEMD_INVOCATION_ID='+invocation]
+        result=run(argv,30,output_limit=64000)
+        result.update(journal_order='newest_first',current_activation_only=current and not history,history_available=True)
+        return result
     if action not in ('status','start','stop','restart','enable','disable'):raise ValueError('Action de service invalide')
-    if action=='status':return run(['/usr/bin/systemctl','show',unit,'--property=LoadState,ActiveState,SubState,MainPID,ExecMainStatus','--no-pager'],30)
+    if action=='status':return run(['/usr/bin/systemctl','show',unit,'--property=LoadState,ActiveState,SubState,MainPID,ExecMainStatus,UnitFileState','--no-pager'],30)
     if not (Path('/etc/systemd/system')/unit).exists():raise ValueError('Installer le service de projet avant de le lancer')
     return run(['/usr/bin/systemctl',action,unit],30)

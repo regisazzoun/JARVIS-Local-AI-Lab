@@ -31,7 +31,8 @@ for module in (source/'jarvis').glob('*.py'):
 if not compileall.compile_dir(target/'jarvis',quiet=1,force=True):raise SystemExit('Compilation cible échouée')
 # Install the reusable broker connector and optional gateway assets atomically.
 broker_target=Path('/usr/local/lib/jarvis-host')
-for name in ('host_bridge.py','github_connector.py'):
+if broker_target.exists():shutil.copytree(broker_target,backup/'broker')
+for name in ('host_bridge.py','github_connector.py','project_service.py','verify_livekit_agent.py','verify_livekit_voice.py','verify_livekit_components.py'):
     if (source/'broker'/name).exists():
         dest=broker_target/name;temp=dest.with_suffix('.py.new')
         shutil.copyfile(source/'broker'/name,temp);os.chmod(temp,0o644);os.replace(temp,dest)

@@ -80,8 +80,11 @@ def debugging_state(observations):
         args=o.get('arguments',{});result=o.get('result') or {};value=result.get('result',{})
         if o['tool']=='host_exec':
             command=args.get('command','');commands[command]={'invocation':o['id'],'created':o['created'],'command':command[:600],'ok':result.get('ok'),'returncode':value.get('returncode'),'diagnostic':(value.get('stdout','')+'\n'+value.get('stderr',''))[-900:]}
-        if o['tool']=='host_write_file' and result.get('ok'):
-            files[args.get('path','')]={'path':args.get('path'),'created':o['created'],'sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),'invocation':o['id']}
+        if o['tool'] in ('host_write_file','host_edit_file') and result.get('ok'):
+            
+            try:receipt=json.loads(value.get('stdout','{}'))
+            except (ValueError,TypeError):receipt={}
+            files[args.get('path','')]={'path':args.get('path'),'created':o['created'],'sha256':receipt.get('after_sha256') if o['tool']=='host_edit_file' else hashlib.sha256(args.get('content','').encode()).hexdigest(),'invocation':o['id']}
     checks=sorted(commands.values(),key=lambda x:x['created'])
     return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-2:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-2:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds.'}
 

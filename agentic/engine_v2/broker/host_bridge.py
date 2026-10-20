@@ -86,10 +86,36 @@ def execute(op,a,cfg):
     if op=='host_project_service':
         from project_service import execute as project_service
         return project_service(a,cfg,run,sandbox_args)
-    if op in ('host_read_file','host_write_file','host_delete_file'):
+    if op in ('host_read_file','host_write_file','host_edit_file','host_delete_file'):
         path=root_for(a['path'],cfg['write_roots']+(cfg['read_roots'] if op=='host_read_file' else []))
         # Perform file access as the technical identity inside the same protected mounts.
+        if op=='host_read_file' and ('offset' in a or 'limit' in a):
+            offset=a.get('offset',0);limit=a.get('limit',6000)
+            if not isinstance(offset,int) or offset<0 or not isinstance(limit,int) or not 1<=limit<=1000000:raise ValueError('offset entier positif, limit entre1 et1000000 caractères')
+            import shlex
+            code='from pathlib import Path; import json,hashlib; p=Path('+repr(str(path))+'); assert p.stat().st_size<=1000000, "Use host_exec ranges for files over1MB"; raw=p.read_bytes(); text=raw.decode("utf-8"); start='+repr(offset)+'; stop=min(len(text),start+'+repr(limit)+'); print(json.dumps({"content":text[start:stop],"total_chars":len(text),"offset":start,"next_offset":stop if stop<len(text) else None,"source_sha256":hashlib.sha256(raw).hexdigest()}))'
+            result=sandbox('python3 -c '+shlex.quote(code),cfg,output_limit=1400000)
+            if result['returncode']==0:
+                if result.get('stdout_truncated'):return {**result,'returncode':1,'stderr':'Page too large; request a smaller limit'}
+                page=json.loads(result['stdout']);result['stdout']=page.pop('content');result.update(page)
+            return result
         if op=='host_read_file':script='from pathlib import Path; import sys; p=Path('+repr(str(path))+'); assert p.stat().st_size<=1000000, "Use explicit paginated reads for files over 1MB"; sys.stdout.write(p.read_text())'
+        elif op=='host_edit_file':
+            old=a['old'];new=a['new'];count=a.get('count',1);expected=a.get('expected_sha256')
+            if not isinstance(old,str) or not old or not isinstance(new,str) or not isinstance(count,int) or count<1:raise ValueError('old non vide, new texte et count positif requis')
+            if expected and not re.fullmatch('[0-9a-f]{64}',expected):raise ValueError('expected_sha256 invalide')
+            script="""from pathlib import Path
+import hashlib,json,os,tempfile
+p=Path(path);body=p.read_bytes().decode('utf-8');before=hashlib.sha256(body.encode()).hexdigest()
+if expected and before!=expected:raise ValueError('Source changed; reread before editing. Current SHA256='+before)
+if body.count(old)!=count:raise ValueError('Exact edit rejected: expected '+str(count)+' occurrence(s), found '+str(body.count(old))+'. Reread the file; nothing changed.')
+updated=body.replace(old,new,count);mode=p.stat().st_mode&0o777
+with tempfile.NamedTemporaryFile(mode='w',dir=p.parent,delete=False) as f:
+ f.write(updated);name=f.name
+os.chmod(name,mode);os.replace(name,p)
+print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':hashlib.sha256(updated.encode()).hexdigest(),'replacements':count}))
+"""
+            script="path="+repr(str(path))+";old="+repr(old)+";new="+repr(new)+";count="+repr(count)+";expected="+repr(expected)+"\n"+script
         elif op=='host_write_file':script='from pathlib import Path; p=Path('+repr(str(path))+'); p.parent.mkdir(parents=True,exist_ok=True); p.write_text('+repr(a['content'])+'); print(p.stat().st_size)'
         else:script='from pathlib import Path; Path('+repr(a['path'])+').unlink(); print("deleted")'
         import shlex

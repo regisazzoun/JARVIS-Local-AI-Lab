@@ -5,6 +5,7 @@ import base64,hashlib,json,os,pwd,re,shlex,tempfile
 from pathlib import Path
 
 def branch_name(value):
+    if not value:raise ValueError('Paramètre branch obligatoire absent : fournir la branche réelle jarvis/... ou codex/... ; ne pas omettre branch pour pull_request, push_tree ou verify_commit.')
     if not re.fullmatch(r'(?:jarvis|codex)/[A-Za-z0-9_./-]+',value) or '..' in value:raise PermissionError('Dedicated jarvis/ or codex/ branch required; no main')
     return value
 
@@ -49,11 +50,22 @@ def execute(a,cfg,run,sandbox,root_for):
         branch=branch_name(a.get('branch',''));r=run(['/usr/bin/gh','pr','list','--repo',repo,'--head',branch,'--state','open','--json','url,number'],30,user)
         if r['returncode']:return r
         existing=json.loads(r['stdout'])
+        # gh2.46 pr edit queries removed projectCards; REST avoids that obsolete GraphQL path.
         with tempfile.TemporaryDirectory(prefix='jarvis-pr-') as td:
-            os.chmod(td,0o755);body=Path(td)/'body.md';body.write_text(a.get('body','JARVIS delivery; independent review required.'));body.chmod(0o644)
+            os.chmod(td,0o755)
+            payload={'body':a.get('body','JARVIS delivery; independent review required.')}
+            if a.get('title'):payload['title']=a['title']
             if existing:
-                return run(['/usr/bin/gh','pr','edit',str(existing[0]['number']),'--repo',repo,'--body-file',str(body)],30,user)
-            return run(['/usr/bin/gh','pr','create','--repo',repo,'--head',branch,'--base','main','--draft','--title',a.get('title','Mission JARVIS'),'--body-file',str(body)],30,user)
+                endpoint='repos/'+repo+'/pulls/'+str(existing[0]['number']);method='PATCH'
+            else:
+                payload.update(title=a.get('title','Mission JARVIS'),head=branch,base='main',draft=True)
+                endpoint='repos/'+repo+'/pulls';method='POST'
+            data=Path(td)/'request.json';data.write_text(json.dumps(payload,ensure_ascii=False));data.chmod(0o644)
+            r=run(['/usr/bin/gh','api','--method',method,endpoint,'--input',str(data),'--jq','{number,url:.html_url,state,head:.head.ref,draft}'],30,user)
+            if r['returncode']==0:
+                value=json.loads(r['stdout']);r.update(pr_number=value['number'],pr_url=value['url'],pr_verified=value['head']==branch)
+                if not r['pr_verified']:r.update(returncode=1,stderr='Returned PR head does not match requested branch')
+            return r
     if action not in ('push_tree','verify_tree'):raise ValueError('Unsupported scoped operation')
     branch=branch_name(a['branch']);root=root_for(a['path'],cfg['write_roots'])
     files=json.loads(a['files'])
