@@ -19,5 +19,3 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | t13_rapport_final — Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie | blocked | da2b0e4dddd9584668c58964a68c7c83fe94c3ec927199661cd5bc462094d996 |
 
 Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
-
-État de réception Codex du 20/10/2026 : t01–t12 conservées validated; t13 blocked (barge-in échoué sur réponse audible, aucune clôture). Le rapport canonique inclut le nouveau run Piper warmup / délai LLM.
