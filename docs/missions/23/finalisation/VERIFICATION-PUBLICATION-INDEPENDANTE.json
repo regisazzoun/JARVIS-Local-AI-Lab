@@ -1,0 +1,95 @@
+{
+  "collected_at": "2026-10-19T23:46:56.591698+00:00",
+  "verifier": "Codex independent gh API/tree comparison",
+  "commit_sha": "b521ccc239e4d0022a08aaa985450da3b9ba5050",
+  "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/commit/b521ccc239e4d0022a08aaa985450da3b9ba5050",
+  "files": [
+    {
+      "path": "livekit-agent/agent.py",
+      "matches": true,
+      "sha256": "bc2445e4c66ae9a7bac092353164ef33e8360afb7db3e6249533e58fa1c38113"
+    },
+    {
+      "path": "livekit-agent/factories.py",
+      "matches": true,
+      "sha256": "4865a98452b15df0cddb10b3f9171a49352228985b7a55526b17c0f861c4aef3"
+    },
+    {
+      "path": "livekit-agent/stt_adapter.py",
+      "matches": true,
+      "sha256": "ad41d91a0b979d913b44812e1b8a91c98b66d9f2a15d861c9eacd3286edc4fb9"
+    },
+    {
+      "path": "livekit-agent/tts_adapter.py",
+      "matches": true,
+      "sha256": "38b2bec0b2f8fe5f37930f073896d162b10f85c7431fa417e76ebff239692bfb"
+    },
+    {
+      "path": "livekit-agent/requirements.txt",
+      "matches": true,
+      "sha256": "a3441cd21c7a1a3707f9802c8ba29a8139851723ea6d9677bda65b0811578359"
+    },
+    {
+      "path": "livekit-client-web/src/App.jsx",
+      "matches": true,
+      "sha256": "eae70dbc727d07b6fb79663321c1c6f1358d3a66c7069b2a29b89dc5c9261a33"
+    },
+    {
+      "path": "livekit-client-web/src/App.css",
+      "matches": true,
+      "sha256": "0dcfbc6138fea1a0d55f8a11c938183fe45b0050d74f98e3b0410c14c563eed0"
+    },
+    {
+      "path": "livekit-client-web/src/main.jsx",
+      "matches": true,
+      "sha256": "4b4b864dbe45253425d0c925337180ec07e204295179f80f59551216f466f618"
+    },
+    {
+      "path": "livekit-client-web/package.json",
+      "matches": true,
+      "sha256": "5dc22ea458028b42a5f958d279405291fd60d9a48879c44422a6d18edb612391"
+    },
+    {
+      "path": "livekit-client-web/package-lock.json",
+      "matches": true,
+      "sha256": "38b145081cd483631c28885e6d24a48c69215833dec2ef7e5ab0531bd8acaeb0"
+    },
+    {
+      "path": "livekit-client-web/index.html",
+      "matches": true,
+      "sha256": "01a37f1d47c13708c2efebd5ca271a7cda585ba51fcddf1bf4b462e996d85246"
+    },
+    {
+      "path": "livekit-client-web/vite.config.js",
+      "matches": true,
+      "sha256": "e1eefd0ed1639c88d1213884ef760516884db9e168190e223fee6b063ad3e088"
+    },
+    {
+      "path": "t08_tests_fonctionnels_rapport.md",
+      "matches": true,
+      "sha256": "c2e1e88e1c1be5b1ec582873d183d410a6840d669ad38c37c9c79e068ac212d6"
+    },
+    {
+      "path": "t09_mesures_latence_rapport.md",
+      "matches": true,
+      "sha256": "95d47da34726e2a46f88a97c0e3aa632068d07474633330d2687ee186c14cb0e"
+    },
+    {
+      "path": "t10_correction_erreurs_rapport.md",
+      "matches": true,
+      "sha256": "180d904e445272813f40190dce7221c08f4e160bca5b1609cc5be4d45c4d69bd"
+    },
+    {
+      "path": "t11_test_tailscale_rapport.md",
+      "matches": true,
+      "sha256": "6da40600e35ac4dd03a453718ce6da4db5a43d295af445c0193a0e6091ec53e6"
+    },
+    {
+      "path": "ADDENDUM-PREUVES-08-11.md",
+      "matches": true,
+      "sha256": "a1e745478999b2d004575f5307030062f1c2264e9a55e3e9d877a71a98245f4f"
+    }
+  ],
+  "all_match": true,
+  "voice_functionality_verified": false
+}

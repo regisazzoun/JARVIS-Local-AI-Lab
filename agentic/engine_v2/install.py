@@ -29,6 +29,17 @@ for module in (source/'jarvis').glob('*.py'):
     temp=dest.with_suffix('.py.new')
     shutil.copyfile(module,temp);os.chmod(temp,0o644);os.replace(temp,dest)
 if not compileall.compile_dir(target/'jarvis',quiet=1,force=True):raise SystemExit('Compilation cible échouée')
+# Install the reusable broker connector and optional gateway assets atomically.
+broker_target=Path('/usr/local/lib/jarvis-host')
+if broker_target.exists():shutil.copytree(broker_target,backup/'broker')
+for name in ('host_bridge.py','github_connector.py','project_service.py','verify_livekit_agent.py','verify_livekit_voice.py','verify_livekit_components.py'):
+    if (source/'broker'/name).exists():
+        dest=broker_target/name;temp=dest.with_suffix('.py.new')
+        shutil.copyfile(source/'broker'/name,temp);os.chmod(temp,0o644);os.replace(temp,dest)
+for asset in (source/'launcher2').glob('*.js'):
+    dest=target/'launcher2'/asset.name
+    shutil.copyfile(asset,dest);os.chmod(dest,0o644)
+subprocess.run(['systemctl','restart','jarvis-host-bridge.service'],check=True)
 # Owner explicitly excludes artificial resource-saving ceilings.
 override=Path('/etc/systemd/system/jarvis-conversation.service.d/22-resources.conf')
 override.parent.mkdir(parents=True,exist_ok=True)

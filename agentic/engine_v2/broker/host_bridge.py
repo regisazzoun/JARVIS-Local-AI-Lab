@@ -86,10 +86,36 @@ def execute(op,a,cfg):
     if op=='host_project_service':
         from project_service import execute as project_service
         return project_service(a,cfg,run,sandbox_args)
-    if op in ('host_read_file','host_write_file','host_delete_file'):
+    if op in ('host_read_file','host_write_file','host_edit_file','host_delete_file'):
         path=root_for(a['path'],cfg['write_roots']+(cfg['read_roots'] if op=='host_read_file' else []))
         # Perform file access as the technical identity inside the same protected mounts.
+        if op=='host_read_file' and ('offset' in a or 'limit' in a):
+            offset=a.get('offset',0);limit=a.get('limit',6000)
+            if not isinstance(offset,int) or offset<0 or not isinstance(limit,int) or not 1<=limit<=1000000:raise ValueError('offset entier positif, limit entre1 et1000000 caractères')
+            import shlex
+            code='from pathlib import Path; import json,hashlib; p=Path('+repr(str(path))+'); assert p.stat().st_size<=1000000, "Use host_exec ranges for files over1MB"; raw=p.read_bytes(); text=raw.decode("utf-8"); start='+repr(offset)+'; stop=min(len(text),start+'+repr(limit)+'); print(json.dumps({"content":text[start:stop],"total_chars":len(text),"offset":start,"next_offset":stop if stop<len(text) else None,"source_sha256":hashlib.sha256(raw).hexdigest()}))'
+            result=sandbox('python3 -c '+shlex.quote(code),cfg,output_limit=1400000)
+            if result['returncode']==0:
+                if result.get('stdout_truncated'):return {**result,'returncode':1,'stderr':'Page too large; request a smaller limit'}
+                page=json.loads(result['stdout']);result['stdout']=page.pop('content');result.update(page)
+            return result
         if op=='host_read_file':script='from pathlib import Path; import sys; p=Path('+repr(str(path))+'); assert p.stat().st_size<=1000000, "Use explicit paginated reads for files over 1MB"; sys.stdout.write(p.read_text())'
+        elif op=='host_edit_file':
+            old=a['old'];new=a['new'];count=a.get('count',1);expected=a.get('expected_sha256')
+            if not isinstance(old,str) or not old or not isinstance(new,str) or not isinstance(count,int) or count<1:raise ValueError('old non vide, new texte et count positif requis')
+            if expected and not re.fullmatch('[0-9a-f]{64}',expected):raise ValueError('expected_sha256 invalide')
+            script="""from pathlib import Path
+import hashlib,json,os,tempfile
+p=Path(path);body=p.read_bytes().decode('utf-8');before=hashlib.sha256(body.encode()).hexdigest()
+if expected and before!=expected:raise ValueError('Source changed; reread before editing. Current SHA256='+before)
+if body.count(old)!=count:raise ValueError('Exact edit rejected: expected '+str(count)+' occurrence(s), found '+str(body.count(old))+'. Reread the file; nothing changed.')
+updated=body.replace(old,new,count);mode=p.stat().st_mode&0o777
+with tempfile.NamedTemporaryFile(mode='w',dir=p.parent,delete=False) as f:
+ f.write(updated);name=f.name
+os.chmod(name,mode);os.replace(name,p)
+print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':hashlib.sha256(updated.encode()).hexdigest(),'replacements':count}))
+"""
+            script="path="+repr(str(path))+";old="+repr(old)+";new="+repr(new)+";count="+repr(count)+";expected="+repr(expected)+"\n"+script
         elif op=='host_write_file':script='from pathlib import Path; p=Path('+repr(str(path))+'); p.parent.mkdir(parents=True,exist_ok=True); p.write_text('+repr(a['content'])+'); print(p.stat().st_size)'
         else:script='from pathlib import Path; Path('+repr(a['path'])+').unlink(); print("deleted")'
         import shlex
@@ -130,6 +156,9 @@ def execute(op,a,cfg):
     if op=='host_github':
         repo=a['repository']; action=a['action']
         if repo not in cfg['repositories'] and not (action in ('file','inspect','download','branches') and repo in cfg.get('read_repositories',[])):raise PermissionError('Dépôt hors politique')
+        if action in ('repositories','commits','verify_commit','prs','pr_status','diff','branch_create','push_tree','verify_tree','pull_request'):
+            from github_connector import execute as github_execute
+            return github_execute(a,cfg,run,sandbox,root_for)
         if action=='create':
             if repo!='regisazzoun/JARVIS-Launcher2':raise PermissionError('Création limitée au projet JL-02 accordé')
             return run(['/usr/bin/gh','repo','create',repo,'--public','--description','JARVIS Launcher V2'],30,cfg['user'])
@@ -204,7 +233,7 @@ def execute(op,a,cfg):
                 import base64,shlex
                 probe='from pathlib import Path; import base64; p=Path('+repr(str(source))+'); assert p.is_file() and p.stat().st_size<1000000; print(base64.b64encode(p.read_bytes()).decode())'
                 file_result=sandbox('python3 -c '+shlex.quote(probe),cfg,output_limit=1400000)
-                if file_result['returncode'] or file_result['stdout_truncated']:raise ValueError('Fichier régulier lisible <1Mo requis')
+                if file_result['returncode'] or file_result['stdout_truncated']:raise ValueError('push: path doit être le DOSSIER racine ; file est relatif à ce dossier. Fichier absent, illisible ou >=1Mo : '+str(source))
                 content=base64.b64decode(file_result['stdout'].strip(),validate=True)
                 if re.search(rb'gh[pousr]_|github_pat_|PRIVATE KEY|password\s*[:=]|token\s*[:=]',content,re.I):raise PermissionError('Publication contenant un secret potentiel refusée')
                 dest=clean/relative
@@ -244,6 +273,20 @@ def execute(op,a,cfg):
         if profile.get('identity_check'):
             checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
             if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
+        if action=='project_exec':
+            if op!='host_remote' or not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Remote project execution not granted')
+            project=a.get('project','')
+            if project not in profile.get('project_exec_projects',[]):raise PermissionError('Remote project not granted')
+            root='/home/'+profile['user']+'/jarvis-projects/'+project
+            script="""import pathlib,subprocess,os
+root=pathlib.Path(ROOT);root.mkdir(parents=True,exist_ok=True)
+argv=['/usr/bin/bwrap','--die-with-parent','--new-session','--unshare-pid','--unshare-ipc','--unshare-uts','--cap-drop','ALL','--ro-bind','/usr','/usr','--symlink','usr/bin','/bin','--symlink','usr/sbin','/sbin','--symlink','usr/lib','/lib','--symlink','usr/lib64','/lib64','--proc','/proc','--dev','/dev','--tmpfs','/tmp','--dir','/etc']
+for path in ['/etc/ssl','/etc/resolv.conf','/etc/hosts','/etc/passwd','/etc/group','/etc/nsswitch.conf']:
+ if pathlib.Path(path).exists():argv+=['--ro-bind',path,path]
+argv+=['--bind',str(root),str(root),'--chdir',str(root),'--clearenv','--setenv','HOME',str(root),'--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8','--','/bin/bash','-c',COMMAND]
+raise SystemExit(subprocess.call(argv))
+""".replace('ROOT',repr(root)).replace('COMMAND',repr(a['command']))
+            return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',script])],600)
         if action=='desktop_gateway_configure':
             if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Passerelle bureau hors profil')
             from remote_operations import configure_gateway

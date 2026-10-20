@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Quel est l'état de la mission 23 ?",
+    "response": {
+      "answer": "Mission 23 — LiveKit : running, tâche active t13_rapport_final, 12/13 tâches validées par le moteur. Ce compteur ne prouve pas une réception vocale complète. État enregistré à : 2026-10-20T01:56:07.174614+02:00. Le diagnostic df542051560b44b3851124b09d8319c2 est lié à la mission23 ; la mission24 de roadmap reste Mémoire enrichie et ingestion documentaire.",
+      "tools": [],
+      "conversation": "a00da290-f300-4945-87cc-266c16d9bacc",
+      "source": "JARVIS-engine/canonical-mission-store",
+      "state": "running"
+    }
+  },
+  {
+    "question": "Pourquoi t12 a-t-elle échoué ?",
+    "response": {
+      "answer": "Mission 23 — LiveKit : running, tâche active t13_rapport_final, 12/13 tâches validées par le moteur. Ce compteur ne prouve pas une réception vocale complète. État enregistré à : 2026-10-20T01:56:07.174614+02:00. Historique t12 : les anciens push échouaient notamment avec « Fichier régulier lisible <1Mo requis ». Le broker attend un dossier dans path puis y ajoute file ; les tentatives passant un fichier dans path étaient incorrectes. Le diagnostic de panne générale GitHub ne découle pas de ce message. Derniers diagnostics conservés : Passerelle interrompue : vérifier état avant toute reprise ; GraphQL: Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. (repository.pullRequest.projectCards)\n ; Dedicated jarvis/ or codex/ branch required; no main. Une opération GitHub ultérieure a réussi : pull_request ; cela ne suffit pas à déclarer toute la livraison terminée. Le diagnostic df542051560b44b3851124b09d8319c2 est lié à la mission23 ; la mission24 de roadmap reste Mémoire enrichie et ingestion documentaire.",
+      "tools": [],
+      "conversation": "29362c7f-e01e-4b83-90e4-8daf0c811708",
+      "source": "JARVIS-engine/canonical-mission-store",
+      "state": "running"
+    }
+  }
+]

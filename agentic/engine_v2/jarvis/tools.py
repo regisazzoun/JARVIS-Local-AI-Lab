@@ -124,11 +124,14 @@ class Registry:
             unknown=set(args)-set(props);missing=[k for k in required if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
             for k,v in args.items():
-                if props[k]['type']=='string' and (not isinstance(v,str) or not v.strip() or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')
+                if props[k]['type']=='string' and (not isinstance(v,str) or (not v.strip() and props[k].get('minLength',1)>0) or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')
             controller=getattr(self,'mission_controller',None)
             action=args.get('action','')
-            mutating=name in ('host_exec','host_write_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','clone','download','create','enable_pages','pull_request'))
+            mutating=name in ('host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
+                from .intent import classify
+                if classify(self.context.get('owner_text',''))=='question':
+                    raise ValueError('Question de statut/explication : réponds avec les observations en lecture seule ; aucune nouvelle mission ni mutation autorisée par cette question.')
                 mission=controller.submit(self.context['owner_text'],self.context['model'],self.context.get('conversation'),self.context.get('project',''))
                 for observation in self.context.get('turn_records',[]):controller.store.import_observation(mission['id'],observation)
                 controller.store.event(mission['id'],'chat_promoted',actor='JARVIS-engine',tool=name,arguments=args,result={'executed':False})

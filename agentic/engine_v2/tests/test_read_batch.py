@@ -21,4 +21,13 @@ class ReadBatchTest(unittest.TestCase):
             self.assertEqual(result['returncode'],1)
             self.assertEqual(len(store.observations(ident)),1)
 
+class ServiceReadBatchTest(unittest.TestCase):
+    def test_read_only_project_service_calls_allowed_but_restart_rejected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            store=MissionStore(Path(temp));ident=store.create('test','local','conversation');executed=[]
+            def execute(name,args):executed.append(args['action']);return {'ok':True,'result':{'stdout':'fixture'}}
+            registry=SimpleNamespace(mission_store=store,context={'mission_id':ident,'task_id':'a'},specs={},execute=execute);register(registry)
+            result=registry.specs['mission_read_batch'][4]({'calls':[{'tool':'host_project_service','arguments':{'project':'mission23','name':'agent','action':action}} for action in ['logs','status','restart']]})
+            self.assertEqual(set(executed),{'logs','status'});self.assertFalse(result['results'][2]['ok'])
+
 if __name__=='__main__':unittest.main()

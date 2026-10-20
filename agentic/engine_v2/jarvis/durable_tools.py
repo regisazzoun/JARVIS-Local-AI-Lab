@@ -75,8 +75,8 @@ def register(registry):
             actual=[r for r in observations if r['tool'] in (check.get('tools') or [check['tool']]) and (r['result'] or {}).get('ok')==check.get('ok',True) and arguments_match(r['arguments'],check.get('arguments',{})) and (not check.get('action') or r['arguments'].get('action')==check['action']) and all((r['result'] or {}).get('result',{}).get(k)==v for k,v in check.get('result_fields',{}).items()) and (not check.get('stdout_contains') or check['stdout_contains'] in (r['result'] or {}).get('result',{}).get('stdout','')) and not any(text in (r['result'] or {}).get('result',{}).get('stdout','') for text in check.get('stdout_not_contains',[]))]
             if len(actual)<check.get('minimum',1):raise ValueError('Assertion fonctionnelle manquante : '+encoded(check))
         # A mutation must have a later independent observation, not only its write receipt.
-        writes = [r for r in observations if r['tool'] in ('host_write_file', 'host_remote', 'host_ansible')
-                  and (r['tool'] == 'host_write_file' or (r['arguments'].get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or (r['arguments'].get('action')=='service' and r['arguments'].get('service_action') in ('start','stop','restart','enable','disable'))))
+        writes = [r for r in observations if r['tool'] in ('host_write_file', 'host_edit_file', 'host_remote', 'host_ansible')
+                  and (r['tool'] in ('host_write_file','host_edit_file') or (r['arguments'].get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or (r['arguments'].get('action')=='service' and r['arguments'].get('service_action') in ('start','stop','restart','enable','disable'))))
                   and (r['result'] or {}).get('ok') and r['arguments'].get('path') != args['report_path']]
         if writes and chosen['created'] <= writes[-1]['created']:
             raise ValueError('Vérification indépendante postérieure à la dernière modification requise')
@@ -144,7 +144,7 @@ def register(registry):
                     if field in arguments and arguments[field]!=value:raise ValueError('Argument contradictoire : '+field)
                     arguments[field]=value
                 if name=='host_github' and 'action' not in arguments:arguments['action']='file' if 'path' in arguments or 'file' in arguments else 'inspect'
-                allowed=name in safe or name=='host_remote' and arguments.get('action') in ('identity','resources','services','desktop_status','desktop_logs','journal_recent','supervision_status','models','storage','telemetry','tailscale_status') or name=='host_github' and arguments.get('action') in ('file','inspect','branches','pages')
+                allowed=name in safe or name=='host_project_service' and arguments.get('action') in ('status','logs') or name=='host_remote' and arguments.get('action') in ('identity','resources','services','desktop_status','desktop_logs','journal_recent','supervision_status','models','storage','telemetry','tailscale_status') or name=='host_github' and arguments.get('action') in ('file','inspect','branches','pages')
                 if not allowed:raise ValueError('Opération batch non admise : '+name+'. Appelle cet outil directement ; download écrit un fichier et host_exec exécute une commande, ils ne sont pas des lectures batch.')
                 token=store().begin_call(key(),registry.context.get('task_id'),name,arguments)
                 invoked=True

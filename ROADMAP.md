@@ -485,3 +485,7 @@ Moteur agentique V2 : tâches durables, checkpoints, reprise, vérification et l
 ### Réception du19 octobre2026
 
 Mission21 : même identifiant, six premières réceptions conservées,07 validée par JARVIS après tests SSH/RFB directs. Mission22 : GO AVEC RÉSERVES, corrections de contexte et synthèse nécessaires ; aucune réception globale14A déduite. [Bilan](docs/missions/22/RAPPORT-FINAL.md).
+
+## Actualisation mission23 —20 octobre2026
+
+La mission23 LiveKit est lancée et en finalisation ; publication GitHub réellement exécutée par JARVIS, réception vocale encore partielle au jalon documenté. Correctifs persistants et vérification Codex : [pilotage23](docs/missions/23/finalisation/PILOTAGE.md), PR13 ; application JARVIS sur PR12. La mission24 reste **Mémoire enrichie et ingestion documentaire** et n'a pas été lancée par le diagnostic t12. Le [cycle23–31](docs/missions/CYCLE-23-31.md) demeure la référence d'ordonnancement. Aucun statut ancien ne révoque l'exécution autorisée.

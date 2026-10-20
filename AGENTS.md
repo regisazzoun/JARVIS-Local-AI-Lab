@@ -71,3 +71,8 @@ Le propriétaire confirme `jarvis-dell` enrôlé dans Tailscale et KDE/VNC utili
 ## Mission23 — correctif agentique autorisé,19 octobre2026
 
 Le propriétaire confie à Codex le diagnostic et la correction des limitations constatées pendant le développement LiveKit. JARVIS conserve le développement principal, l’exécution persistante originale et les quatre tâches reçues. Codex peut corriger moteur, outils, habilitations déjà autorisées et environnement, puis vérifier une progression réelle, sans écrire l’application à sa place. Aucun reset, nouvelle mission, plafond arbitraire ou validation humaine intermédiaire. Préserver voix/mémoire/accès/services, aucun Dell2 ni fusion main. Source de plan : CYCLE-23-31 et PR9 ; LiveKit=23, JL-03=27. Les anciens états «planifié» ne révoquent pas le lancement explicite actuel.
+
+
+## Mission23 — finalisation et capacités durables,20 octobre2026
+
+Le propriétaire autorise Codex à coordonner la finalisation de l'exécution originale7971ec0311124fb4be9e3125dcb291fd, réparer/développer les outils GitHub et le routage conversationnel, déployer puis faire retester par JARVIS, exécutant principal. Aucune validation humaine intermédiaire ; conserver les onze validations historiques, preuves, commits et mémoire. Compléter les tests manquants par addenda et recevoir sur preuves. Diagnostic df542051560b44b3851124b09d8319c2 lié23, jamais mission24 mémoire. Publication sur branches dédiées des dépôts propriétaire concernés, secrets hors Git/modèle, aucune fusion main ni Dell2. Sources et méthode : docs/missions/23/finalisation/SOURCES-ET-AUTORISATIONS.md.
