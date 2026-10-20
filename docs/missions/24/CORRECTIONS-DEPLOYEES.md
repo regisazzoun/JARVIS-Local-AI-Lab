@@ -19,3 +19,15 @@ L'appel ps de JARVIS dans host_exec a réellement échoué à voir LiveKit : cet
 ## Complément24 : diagnostic conservé jusqu'au modèle
 
 L'inspection de Registry.execute montre que l'enveloppe BrokerError perdait error_code et diagnostic avant l'observation du modèle, malgré leur présence dans les reçus23C. Le registre conserve désormais catégorie, appelant et référence de preuve, y compris transport_denied sans reçu broker. Test de non-régression couvrant transport_denied/permission_denied et absence de preuve inventée ; suite78/78 réussie. Un résumé compact du catalogue expose également les nombres d'outils, capacités et demandes pour éviter l'interprétation erronée «stdout absent = registre vide» observée dans le premier rapport JARVIS, refusé et demandé en correction. Retest réel prévu après déploiement par JARVIS.
+
+## Dernier complément : rapport final intégral
+
+Le vrai appel intervention_report de JARVIS a été rejeté pour sa longueur7453 caractères, au-delà de l'ancien plafond6000. Le contrat accepte désormais16000 caractères, cohérent avec l'écriture de contenu du broker. Test de non-régression : sauvegarde intégrale, marqueur de fin et empreinte d'un rapport de plus de6000 caractères. Suite79/79. Seul tools.py est redéployé, sauvegarde conservée et service conversation redémarré ; aucune tâche reçue ni opération système réexécutée. JARVIS doit réutiliser son brouillon pour le retest réel de clôture ; preuve finale dans PREUVES-JARVIS et SYNTHESE-RECEPTION.json après réception.
+
+## Récupération d'un rapport final déjà exécuté
+
+Incident réel : un intervention_report réussi était présent dans tool_calls et sur disque, mais la reprise avait perdu le pointeur final missions.report_path, provoquant des conclusions textuelles répétées sans clôture. Le worker réconcilie désormais le reçu durable seulement si toutes les tâches sont validées, que le reçu est postérieur aux tâches et à toute demande explicite de révision, que le chemin est canonique, que le fichier concorde avec SHA256 et que le contrat de réception est satisfait. Il respecte ensuite l'outbox avant completed. Aucun texte de succès seul n'est accepté.
+
+Test de non-régression : reçu valide récupéré, fichier modifié/rapport périmé/révision demandée refusés, tâches inchangées. Suite80/80. Le contrat local de réception du rapport long impose6001 caractères pour éprouver la correction de l'ancien plafond, sans changer ce minimum pour les autres missions. La preuve réelle de récupération après redémarrage et sans réinférence est consignée dans SYNTHESE-RECEPTION.json.
+
+Réception finale des deux compléments de clôture :7453 caractères effectivement enregistrés par JARVIS, puis récupération réelle du même rapport après perte contrôlée du pointeur et redémarrage, sans nouvelle inférence. Voir SYNTHESE-RECEPTION.json ; aucune capacité uniquement développée n'est comptée comme réceptionnée dans ce lot.

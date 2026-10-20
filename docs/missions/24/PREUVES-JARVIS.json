@@ -2,7 +2,7 @@
   "execution": "df542051560b44b3851124b09d8319c2",
   "new_mission_created": false,
   "related_mission": "7971ec0311124fb4be9e3125dcb291fd",
-  "captured_at": 1792503329.12052,
+  "captured_at": 1792504084.2782018,
   "tasks": [
     {
       "id": "m24_01",
@@ -41,7 +41,7 @@
       "report_sha256": "bdf0fbd26a5e8957069aa9076443df25fa29b338e666b7ed80e011e5e81aee14"
     }
   ],
-  "broker_correlated_calls": 52,
+  "broker_correlated_calls": 56,
   "calls": [
     {
       "invocation": "6b262ccc5967486f92e86c0a0dde693b",
@@ -53,6 +53,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792501972.4718077,
+      "error": "",
+      "error_truncated": false,
       "returncode": 1,
       "diagnostic": null
     },
@@ -66,6 +68,8 @@
       "evidence_id": "aa444a142e54443e98a81af9ec44171d",
       "broker_caller": "JARVIS-runtime",
       "created": 1792501972.5612667,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -95,6 +99,8 @@
       "evidence_id": "5cedc34dfb8c42f48b8ca0f6c5b3845e",
       "broker_caller": "JARVIS-runtime",
       "created": 1792501972.5625384,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -131,6 +137,8 @@
       "evidence_id": "443a17af900a438d82408ca764b63bda",
       "broker_caller": "JARVIS-runtime",
       "created": 1792501972.562882,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -161,6 +169,8 @@
       "evidence_id": "8246f2b2e04e4f3a95c8421bf0429f95",
       "broker_caller": "JARVIS-runtime",
       "created": 1792501972.5648375,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -188,6 +198,8 @@
       "evidence_id": "8c3ba95288ce4354b4e6f6e3f2c11d6c",
       "broker_caller": "JARVIS-runtime",
       "created": 1792501972.5653937,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -215,6 +227,8 @@
       "evidence_id": "c7b79524e88547b09bc7b13681137d93",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502007.1177897,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -249,6 +263,8 @@
       "evidence_id": "dd09e44f7c404af7b9c82b1197c719ad",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502007.9140427,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -280,6 +296,8 @@
       "evidence_id": "f2c1f25a2af94f7bba78ac1a20bf73ae",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502040.7794828,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -308,6 +326,8 @@
       "evidence_id": "ce74b06233104ca38a3eae06b140af06",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502041.8714073,
+      "error": "Échec outil sans sortie textuelle",
+      "error_truncated": false,
       "returncode": 1,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -338,6 +358,8 @@
       "evidence_id": "df69e722588a4211bb9f9617642a8cef",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502042.3168783,
+      "error": "/bin/bash: line 1: /usr/local/lib/jarvis-host/verify_livekit_agent.py: Permission denied\n",
+      "error_truncated": false,
       "returncode": 126,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -368,6 +390,8 @@
       "evidence_id": "5360c1a540fe42629264bda69854b3bb",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502066.6316895,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -398,6 +422,8 @@
       "evidence_id": "56aee9076dc94237aac162f133d8977e",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502067.209396,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -428,6 +454,8 @@
       "evidence_id": "0d15576e487c43e6800c9cf25c25a037",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502067.7266185,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -455,6 +483,8 @@
       "evidence_id": "d1fe3ec5f1d74ef692adf30fedeaacc8",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502092.0575156,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -485,6 +515,8 @@
       "evidence_id": "3d949be227c14425822825a61b7017b9",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502114.0886648,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -515,6 +547,8 @@
       "evidence_id": "96675ace6c20403e97ccde5f656d9460",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502262.9095726,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -547,6 +581,8 @@
       "evidence_id": "a0fcd289770641e28fbe8547062ac9bf",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502295.2875617,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -583,6 +619,8 @@
       "evidence_id": "f9706aac8d334382b20b01592c1e7d8e",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502295.5343444,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -616,6 +654,8 @@
       "evidence_id": "d5abd9b9464e4b1095907d82c7ed8d43",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502295.8922513,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -644,6 +684,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502319.823452,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": null
     },
@@ -661,6 +703,8 @@
       "evidence_id": "685c2e5982e54d3395f24bda55040694",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502319.8505824,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -697,6 +741,8 @@
       "evidence_id": "67285e13f1fc4cb794acf67631d8bebe",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502319.8507483,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -727,6 +773,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502354.8078244,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
     },
@@ -740,6 +788,8 @@
       "evidence_id": "31dd9f6fc2d947e6bafc8f76a45daf8d",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502377.5724983,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -767,6 +817,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502409.0664601,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
     },
@@ -780,6 +832,8 @@
       "evidence_id": "4b10968d895c4377b7eb9d7ad09e5a24",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502438.164879,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -807,6 +861,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502467.5426996,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
     },
@@ -820,6 +876,8 @@
       "evidence_id": "44d2cdeee2fe438aa5ce84974e3aef90",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502501.1697361,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -850,6 +908,8 @@
       "evidence_id": "724dc05b448442a4b695faf9b89955d5",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502507.085094,
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 6, in <module>\n    if body.count(old)!=count:raise ValueError('Exact edit rejected: expected '+str(count)+' occurrence(s), found '+str(body.count(old))+'. Reread the file; nothing changed.')\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Exact edit rejected: expected 1 occurrence(s), found 0. Reread the file; nothing changed.\n",
+      "error_truncated": false,
       "returncode": 1,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -880,6 +940,8 @@
       "evidence_id": "dffcd66245404937904fb1b27b130a9b",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502510.6136894,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -907,6 +969,8 @@
       "evidence_id": "674963579059481eb5a0fe837fe6bae7",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502550.3849845,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -934,6 +998,8 @@
       "evidence_id": "5cdb1b16d6dc446192d3163d96fc7238",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502571.7171586,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -964,6 +1030,8 @@
       "evidence_id": "3ab44099533a47debed54ed3f349dd2b",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502581.10532,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -994,6 +1062,8 @@
       "evidence_id": "fac75950f5ca4b57a14c288f9456f0b9",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502585.459885,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1021,6 +1091,8 @@
       "evidence_id": "006931fe81584d2292ed784c9b3216d5",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502614.7707522,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1051,6 +1123,8 @@
       "evidence_id": "d9f5a6ecb4d74060ad845a6fa54ac2d4",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502624.4062257,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1081,6 +1155,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502628.5080807,
+      "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
     },
@@ -1094,6 +1170,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502641.2354095,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
     },
@@ -1107,6 +1185,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502647.8792317,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
     },
@@ -1123,6 +1203,8 @@
       "evidence_id": "fa03efe1cd304b11b5ae232a632c8eed",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502676.1650171,
+      "error": "branch obligatoire pour commits, verify_commit, diff, prs et pr_status : fournir la branche head jarvis/... ou codex/...; verify_commit exige aussi le SHA attendu",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1158,6 +1240,8 @@
       "evidence_id": "3615be8cf9c14e1fada2a5100d5a1c12",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502701.7738516,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1192,6 +1276,8 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792502736.0011425,
+      "error": "",
+      "error_truncated": false,
       "returncode": 1,
       "diagnostic": null
     },
@@ -1208,6 +1294,8 @@
       "evidence_id": "832c9659903f4ff5a4773c6d209f1bb8",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502736.0927885,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1240,6 +1328,8 @@
       "evidence_id": "6fa600ce82464604bf28d772c87994e9",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502736.0945652,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1275,6 +1365,8 @@
       "evidence_id": "009636f478f0448aa639c45f2f7f298e",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502776.0485315,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1308,6 +1400,8 @@
       "evidence_id": "7bb337ee5f494fea8d6bdb34b00a54f0",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502801.745167,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1337,6 +1431,8 @@
       "evidence_id": "04e11e114d0a4825a0e7097812713064",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502847.1640143,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1364,6 +1460,8 @@
       "evidence_id": "6f0b3230fffa47118c58a7eda7eaa2ae",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502847.731601,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1389,6 +1487,8 @@
       "evidence_id": "7432f4d474ce48cf85b50734729361ea",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502848.1479003,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1430,6 +1530,8 @@
       "evidence_id": "fefe253e32e84e7fbe29e6912658aec7",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502848.6710649,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1588,6 +1690,8 @@
       "evidence_id": "7ca735c4975643969ebc6512e92484be",
       "broker_caller": "JARVIS-runtime",
       "created": 1792502985.3999698,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1620,6 +1724,8 @@
       "evidence_id": "c00a6e0e510d4aa190a17984d78f5139",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503015.5446124,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1656,6 +1762,8 @@
       "evidence_id": "818202d0fed74d0d8b61b64aff2f1f17",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503140.3149488,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1683,6 +1791,8 @@
       "evidence_id": "605d2ae9b8834bcdb7f29594e10b9641",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503166.9678812,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1710,6 +1820,8 @@
       "evidence_id": "35600a2e07eb4ef691f9e7ee31c70a19",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503204.0513139,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1740,6 +1852,8 @@
       "evidence_id": "e80408ec5d774fa694b025f6202ace3c",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503208.4320717,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1769,6 +1883,8 @@
       "evidence_id": "33fe4046d3af4d08ae30a1cbe10b65fe",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503212.6154604,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1803,6 +1919,8 @@
       "evidence_id": "b82d82883e1b480195ec9727c098f60c",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503217.8239539,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1843,6 +1961,8 @@
       "evidence_id": "2f13b28a12cc4400b33910d919d1ee37",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503257.8714337,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1881,6 +2001,8 @@
       "evidence_id": "a1fb569f652443f8b63e465e26f48e4f",
       "broker_caller": "JARVIS-runtime",
       "created": 1792503280.9821775,
+      "error": "",
+      "error_truncated": false,
       "returncode": 0,
       "diagnostic": {
         "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
@@ -1916,8 +2038,232 @@
       "evidence_id": null,
       "broker_caller": null,
       "created": 1792503307.6139407,
+      "error": "",
+      "error_truncated": false,
       "returncode": null,
       "diagnostic": null
+    },
+    {
+      "invocation": "f6aedddcac3641ab8266be5df3cf7e04",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503404.662229,
+      "error": "Texte invalide pour le champ content (non vide, longueur maximale 6000)",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 7453,
+      "report_sha256": null,
+      "report_path": null
+    },
+    {
+      "invocation": "4e32d860ed344f7db4287ed5894e68b5",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503459.8471248,
+      "error": "Synthèse finale non conforme au contrat courant : {\"missing\": [], \"contradictions\": [\"STT fonctionnel\"]}",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 2707,
+      "report_sha256": null,
+      "report_path": null
+    },
+    {
+      "invocation": "f45196a156334aad98bd7d1f21c6ff9e",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503515.1586165,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 3567,
+      "report_sha256": "f0071d6bbe49a0295d7692975a67d7d466b1cf97ad56982aca0d28fb75289c18",
+      "report_path": "/opt/jarvis/conversation/runtime/reports/df542051560b44b3851124b09d8319c2/RAPPORT-FINAL.md"
+    },
+    {
+      "invocation": "fe44e898f17445f8b1336478f9d52cb4",
+      "task": null,
+      "tool": "mission_progress",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503662.041575,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "dda0ba39f71444379926b0d181a70927",
+      "task": null,
+      "tool": "mission_progress",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503743.5791454,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "c1c351f7c479450cbee7167153ec83d3",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "65de9a1bcfbf42bc8bd6e97e2f81155f",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503769.2394352,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "f00d43788bad42f49d4825e0c4e1296d",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "97156a9d54724b2e9af213ff384151be",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503821.1671054,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "b971502acece43a9bd815ae4e4d1c57d",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "3e5a18b7095a4b8fb64796602e42dcb9",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503853.5739596,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "limit",
+          "offset",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "06b0e028d0254997ae4a5b9ac3ac064b",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "ed02231d65e549fa9cc26fc38d3bf23e",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503879.0075414,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "limit",
+          "offset",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "b70b3f04e38246a598e2a40ad307130d",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503983.8416607,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 7453,
+      "report_sha256": "7060fb4d61862ee031261b1c2382da9130ec1fd9ac1ca844bd02205af0d78745",
+      "report_path": "/opt/jarvis/conversation/runtime/reports/df542051560b44b3851124b09d8319c2/RAPPORT-FINAL.md"
     }
   ],
   "events": [
@@ -3495,6 +3841,517 @@
       "actor": "JARVIS-engine",
       "task": "m24_02",
       "created": 1792503313.428973
+    },
+    {
+      "id": 8772,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503404.5717194
+    },
+    {
+      "id": 8773,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503404.6641335
+    },
+    {
+      "id": 8774,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503404.8378148
+    },
+    {
+      "id": 8775,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503459.7515616
+    },
+    {
+      "id": 8776,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503459.8490775
+    },
+    {
+      "id": 8777,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503460.012665
+    },
+    {
+      "id": 8778,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503460.22768
+    },
+    {
+      "id": 8779,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503515.06687
+    },
+    {
+      "id": 8780,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503515.1608057
+    },
+    {
+      "id": 8781,
+      "kind": "publication_queued",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503515.4188166
+    },
+    {
+      "id": 8782,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503515.5742266
+    },
+    {
+      "id": 8783,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503515.9088478
+    },
+    {
+      "id": 8784,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503517.053499
+    },
+    {
+      "id": 8785,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503517.144463
+    },
+    {
+      "id": 8786,
+      "kind": "publication_verified",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503522.4783409
+    },
+    {
+      "id": 8787,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503527.2558582
+    },
+    {
+      "id": 8788,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503527.4138265
+    },
+    {
+      "id": 8789,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503543.378564
+    },
+    {
+      "id": 8790,
+      "kind": "final_revision_for_report_capacity",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503543.4710865
+    },
+    {
+      "id": 8791,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503543.620734
+    },
+    {
+      "id": 8792,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503544.1242027
+    },
+    {
+      "id": 8793,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503544.7233136
+    },
+    {
+      "id": 8794,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503576.6076744
+    },
+    {
+      "id": 8795,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503576.7338145
+    },
+    {
+      "id": 8796,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503576.8586328
+    },
+    {
+      "id": 8797,
+      "kind": "reception_contract_refined",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503619.166432
+    },
+    {
+      "id": 8798,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503623.1080334
+    },
+    {
+      "id": 8799,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503623.1982658
+    },
+    {
+      "id": 8800,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503623.298028
+    },
+    {
+      "id": 8801,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503661.929305
+    },
+    {
+      "id": 8802,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503662.0433123
+    },
+    {
+      "id": 8803,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503662.210076
+    },
+    {
+      "id": 8804,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503662.427501
+    },
+    {
+      "id": 8805,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503698.4821308
+    },
+    {
+      "id": 8806,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503698.5701227
+    },
+    {
+      "id": 8807,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503743.486909
+    },
+    {
+      "id": 8808,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503743.5808222
+    },
+    {
+      "id": 8809,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503743.7766314
+    },
+    {
+      "id": 8810,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503743.9985127
+    },
+    {
+      "id": 8811,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503769.1483364
+    },
+    {
+      "id": 8812,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503769.2412524
+    },
+    {
+      "id": 8813,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503769.5579543
+    },
+    {
+      "id": 8814,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503796.9014356
+    },
+    {
+      "id": 8815,
+      "kind": "final_report_revision_requested",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503796.995362
+    },
+    {
+      "id": 8816,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503797.1497786
+    },
+    {
+      "id": 8817,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503797.2332454
+    },
+    {
+      "id": 8818,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503797.7289689
+    },
+    {
+      "id": 8819,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503798.371182
+    },
+    {
+      "id": 8820,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503821.0741487
+    },
+    {
+      "id": 8821,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503821.1688032
+    },
+    {
+      "id": 8822,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503821.501969
+    },
+    {
+      "id": 8823,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503853.4849195
+    },
+    {
+      "id": 8824,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503853.5756943
+    },
+    {
+      "id": 8825,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503853.9397337
+    },
+    {
+      "id": 8826,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503854.1780574
+    },
+    {
+      "id": 8827,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503878.9174905
+    },
+    {
+      "id": 8828,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503879.0092869
+    },
+    {
+      "id": 8829,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503879.397055
+    },
+    {
+      "id": 8830,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503983.7513456
+    },
+    {
+      "id": 8831,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503983.8442008
+    },
+    {
+      "id": 8832,
+      "kind": "publication_queued",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503984.1141324
+    },
+    {
+      "id": 8833,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503984.2683096
+    },
+    {
+      "id": 8834,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503984.5704288
+    },
+    {
+      "id": 8835,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503985.6591105
+    },
+    {
+      "id": 8836,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503985.825883
+    },
+    {
+      "id": 8837,
+      "kind": "publication_verified",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503992.4199443
+    },
+    {
+      "id": 8838,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503995.9544628
+    },
+    {
+      "id": 8839,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503996.120032
+    },
+    {
+      "id": 8840,
+      "kind": "controlled_final_receipt_recovery_test",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503997.7693326
+    },
+    {
+      "id": 8841,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503998.4184237
+    },
+    {
+      "id": 8842,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503999.0689335
+    },
+    {
+      "id": 8843,
+      "kind": "final_report_recovered",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503999.168625
+    },
+    {
+      "id": 8844,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503999.2625592
     }
   ]
 }

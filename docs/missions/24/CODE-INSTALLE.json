@@ -28,8 +28,14 @@
     {
       "source": "agentic/engine_v2/jarvis/tools.py",
       "installed": "/opt/jarvis/conversation/jarvis/tools.py",
-      "sha256": "fe61b4aaae3ed0cf1900a01ffbeaf71ee23dc0962d7e11b6dc95fe2fdb160571",
+      "sha256": "0f167d515355d9870694aab520ef277932d8f8f863b4b90a18f236c6465bc5b7",
       "equal": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/missions.py",
+      "installed": "/opt/jarvis/conversation/jarvis/missions.py",
+      "equal": true,
+      "sha256": "097d8debf146ebc074bf63aeffb17fa6923ab63e532b93abd3cf36b400c12334"
     }
   ]
 }

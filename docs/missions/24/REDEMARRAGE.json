@@ -77,5 +77,23 @@
       "state": "interrupted",
       "note": "La commande engag\u00e9e peut se terminer ; arr\u00eat avant le prochain outil."
     }
+  },
+  "report_capacity_update": {
+    "timestamp": 1792503543.620509,
+    "service": "jarvis-conversation.service",
+    "before": {
+      "MainPID": "2818301",
+      "ActiveState": "active",
+      "InvocationID": "f1f65a374cbe457d97d4cb5b65cd784c"
+    },
+    "after": {
+      "MainPID": "2822043",
+      "ActiveState": "active",
+      "InvocationID": "9d05d45034d44d13b0f0a3f32eaeb7b6"
+    },
+    "module_sha256": "1019e388662be5a2afa241618cce59ed42304bc00f6c0a4fd652d922c82dbfcc",
+    "rejected_model_draft_chars": 7453,
+    "new_report_max_chars": 16000,
+    "validated_tasks_preserved": true
   }
 }

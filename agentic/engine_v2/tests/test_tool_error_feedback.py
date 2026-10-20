@@ -22,3 +22,15 @@ class ErrorFeedbackTest(unittest.TestCase):
     self.assertEqual(result['result']['diagnostic']['error_category'],category)
     self.assertEqual(result['error_code'],'PermissionError')
     self.assertEqual(result['result']['evidence_id'],evidence)
+
+ def test_long_final_report_preserves_full_body_and_end_marker(self):
+  with tempfile.TemporaryDirectory() as t:
+   root=Path(t);r=Registry(Memory(root/'runtime/memory.sqlite'),root)
+   r.context={'mission_id':'existing-execution','host_target':True}
+   content='Réception et preuves conservées. '*250+'FIN_DU_RAPPORT_VÉRIFIABLE'
+   self.assertGreater(len(content),6000)
+   result=r.execute('intervention_report',{'content':content})
+   self.assertTrue(result['ok'],result)
+   self.assertEqual(Path(result['result']['path']).read_text(),content)
+   import hashlib
+   self.assertEqual(result['result']['sha256'],hashlib.sha256(content.encode()).hexdigest())
