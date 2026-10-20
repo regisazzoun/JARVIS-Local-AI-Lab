@@ -1,0 +1,14 @@
+{
+  "check": "real_stt_tts_application_adapters",
+  "verified": true,
+  "physical_microphone": false,
+  "transcript": " Bonjour. Réponds simplement bonjour en français.",
+  "stt_wall_s": 2.3544500180287287,
+  "tts_wall_s": 2.2339986349688843,
+  "tts_first_pcm_s": 2.2273601229535416,
+  "tts_frames": 58,
+  "tts_samples": 170656,
+  "tts_sample_rate": 16000,
+  "tts_rms": 3590.061436419319,
+  "scope": "Actual French WAV recognition and non-silent SDK TTS stream; no WebRTC or physical listening claimed"
+}

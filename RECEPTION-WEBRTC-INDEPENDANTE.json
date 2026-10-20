@@ -1,0 +1,315 @@
+{
+  "check": "independent_real_webrtc_wav_to_remote_audio",
+  "verified": true,
+  "physical_microphone": false,
+  "url": "ws://localhost:7880",
+  "room": "independent23-0671682170",
+  "remote_participants": [
+    "agent-AJ_nuGPF9xQ97w6"
+  ],
+  "input_duration_s": 3.5642916666666666,
+  "input_started_s": 1.080556333065033,
+  "input_end_s": 4.679680405999534,
+  "first_remote_non_silent_s": 39.10069940506946,
+  "end_to_first_audio_s": 34.42101899906993,
+  "received_audio_samples": 988560,
+  "peak_frame_rms": 11338.638839164072,
+  "transcriptions": [
+    {
+      "text": " Bonjour. Réponds simplement bonjour en français.",
+      "participant": "independent-verifier",
+      "t": 7.568415874033235
+    }
+  ],
+  "interruption": null,
+  "limits": [
+    "No physical microphone/listening",
+    "Interruption and reconnection require separate evidence",
+    "A Tailscale signaling URL alone does not establish the selected media route; inspect RTC candidate-pair stats."
+  ],
+  "rtc_route_stats": {
+    "publisher": [
+      {
+        "candidate_pair": {
+          "rtc": {
+            "id": "CPFngblH6a_yBY/SVyz",
+            "timestamp": "1792486736030216"
+          },
+          "candidate_pair": {
+            "transport_id": "T01",
+            "local_candidate_id": "IFngblH6a",
+            "remote_candidate_id": "IyBY/SVyz",
+            "state": "PAIR_SUCCEEDED",
+            "nominated": false,
+            "packets_sent": "0",
+            "packets_received": "0",
+            "bytes_sent": "0",
+            "bytes_received": "0",
+            "last_packet_sent_timestamp": 0.0,
+            "last_packet_received_timestamp": 0.0,
+            "total_round_trip_time": 0.001,
+            "current_round_trip_time": 0.0,
+            "available_outgoing_bitrate": 0.0,
+            "available_incoming_bitrate": 0.0,
+            "requests_received": "1",
+            "requests_sent": "2",
+            "responses_received": "2",
+            "responses_sent": "1",
+            "consent_requests_sent": "1",
+            "packets_discarded_on_send": 0,
+            "bytes_discarded_on_send": "0"
+          }
+        }
+      },
+      {
+        "candidate_pair": {
+          "rtc": {
+            "id": "CPUK9SIvmq_yBY/SVyz",
+            "timestamp": "1792486736030216"
+          },
+          "candidate_pair": {
+            "transport_id": "T01",
+            "local_candidate_id": "IUK9SIvmq",
+            "remote_candidate_id": "IyBY/SVyz",
+            "state": "PAIR_SUCCEEDED",
+            "nominated": true,
+            "packets_sent": "11",
+            "packets_received": "10",
+            "bytes_sent": "1465",
+            "bytes_received": "1351",
+            "last_packet_sent_timestamp": 1792486694002.0,
+            "last_packet_received_timestamp": 1792486694002.0,
+            "total_round_trip_time": 0.001,
+            "current_round_trip_time": 0.0,
+            "available_outgoing_bitrate": 0.0,
+            "available_incoming_bitrate": 0.0,
+            "requests_received": "5",
+            "requests_sent": "4",
+            "responses_received": "4",
+            "responses_sent": "5",
+            "consent_requests_sent": "3",
+            "packets_discarded_on_send": 0,
+            "bytes_discarded_on_send": "0"
+          }
+        }
+      },
+      {
+        "candidate_pair": {
+          "rtc": {
+            "id": "CPge/9nXiU_fCc+1IfN",
+            "timestamp": "1792486736030216"
+          },
+          "candidate_pair": {
+            "transport_id": "T01",
+            "local_candidate_id": "Ige/9nXiU",
+            "remote_candidate_id": "IfCc+1IfN",
+            "state": "PAIR_SUCCEEDED",
+            "nominated": false,
+            "packets_sent": "0",
+            "packets_received": "0",
+            "bytes_sent": "0",
+            "bytes_received": "0",
+            "last_packet_sent_timestamp": 0.0,
+            "last_packet_received_timestamp": 0.0,
+            "total_round_trip_time": 0.001,
+            "current_round_trip_time": 0.0,
+            "available_outgoing_bitrate": 0.0,
+            "available_incoming_bitrate": 0.0,
+            "requests_received": "1",
+            "requests_sent": "2",
+            "responses_received": "2",
+            "responses_sent": "1",
+            "consent_requests_sent": "1",
+            "packets_discarded_on_send": 0,
+            "bytes_discarded_on_send": "0"
+          }
+        }
+      },
+      {
+        "candidate_pair": {
+          "rtc": {
+            "id": "CPqZqsgF9t_fCc+1IfN",
+            "timestamp": "1792486736030216"
+          },
+          "candidate_pair": {
+            "transport_id": "T01",
+            "local_candidate_id": "IqZqsgF9t",
+            "remote_candidate_id": "IfCc+1IfN",
+            "state": "PAIR_SUCCEEDED",
+            "nominated": true,
+            "packets_sent": "525",
+            "packets_received": "667",
+            "bytes_sent": "48601",
+            "bytes_received": "83481",
+            "last_packet_sent_timestamp": 1792486735711.0,
+            "last_packet_received_timestamp": 1792486736016.0,
+            "total_round_trip_time": 0.007,
+            "current_round_trip_time": 0.0,
+            "available_outgoing_bitrate": 6273523.0,
+            "available_incoming_bitrate": 0.0,
+            "requests_received": "21",
+            "requests_sent": "20",
+            "responses_received": "20",
+            "responses_sent": "21",
+            "consent_requests_sent": "19",
+            "packets_discarded_on_send": 0,
+            "bytes_discarded_on_send": "0"
+          }
+        }
+      },
+      {
+        "local_candidate": {
+          "rtc": {
+            "id": "IFngblH6a",
+            "timestamp": "1792486736030216"
+          },
+          "candidate": {
+            "transport_id": "T01",
+            "address": "100.74.214.86",
+            "port": 37071,
+            "protocol": "udp",
+            "candidate_type": "HOST",
+            "priority": 2122063615,
+            "url": "",
+            "foundation": "618056869",
+            "related_address": "",
+            "related_port": 0,
+            "username_fragment": "9mjX"
+          }
+        }
+      },
+      {
+        "local_candidate": {
+          "rtc": {
+            "id": "IUK9SIvmq",
+            "timestamp": "1792486736030216"
+          },
+          "candidate": {
+            "transport_id": "T01",
+            "address": "192.168.1.99",
+            "port": 38718,
+            "protocol": "udp",
+            "candidate_type": "HOST",
+            "priority": 2122129151,
+            "url": "",
+            "foundation": "1279565783",
+            "related_address": "",
+            "related_port": 0,
+            "username_fragment": "9mjX"
+          }
+        }
+      },
+      {
+        "remote_candidate": {
+          "rtc": {
+            "id": "IfCc+1IfN",
+            "timestamp": "1792486736030216"
+          },
+          "candidate": {
+            "transport_id": "T01",
+            "address": "2001:861:3895:b000:76ff:c836:8914:ca30",
+            "port": 52046,
+            "protocol": "udp",
+            "candidate_type": "HOST",
+            "priority": 2130706431,
+            "url": "",
+            "foundation": "1484659744",
+            "related_address": "",
+            "related_port": 0,
+            "username_fragment": "fGaiHHdgWCWGAblX"
+          }
+        }
+      },
+      {
+        "local_candidate": {
+          "rtc": {
+            "id": "Ige/9nXiU",
+            "timestamp": "1792486736030216"
+          },
+          "candidate": {
+            "transport_id": "T01",
+            "address": "2001:861:3895:b000:f382:99f4:4d10:76",
+            "port": 35513,
+            "protocol": "udp",
+            "candidate_type": "HOST",
+            "priority": 2122197247,
+            "url": "",
+            "foundation": "2644988813",
+            "related_address": "",
+            "related_port": 0,
+            "username_fragment": "9mjX"
+          }
+        }
+      },
+      {
+        "local_candidate": {
+          "rtc": {
+            "id": "IqZqsgF9t",
+            "timestamp": "1792486736030216"
+          },
+          "candidate": {
+            "transport_id": "T01",
+            "address": "fd7a:115c:a1e0::6e01:d6c9",
+            "port": 40494,
+            "protocol": "udp",
+            "candidate_type": "HOST",
+            "priority": 2122265343,
+            "url": "",
+            "foundation": "1430837905",
+            "related_address": "",
+            "related_port": 0,
+            "username_fragment": "9mjX"
+          }
+        }
+      },
+      {
+        "remote_candidate": {
+          "rtc": {
+            "id": "IyBY/SVyz",
+            "timestamp": "1792486736030216"
+          },
+          "candidate": {
+            "transport_id": "T01",
+            "address": "192.168.1.99",
+            "port": 53891,
+            "protocol": "udp",
+            "candidate_type": "HOST",
+            "priority": 2130706431,
+            "url": "",
+            "foundation": "2107635646",
+            "related_address": "",
+            "related_port": 0,
+            "username_fragment": "fGaiHHdgWCWGAblX"
+          }
+        }
+      },
+      {
+        "transport": {
+          "rtc": {
+            "id": "T01",
+            "timestamp": "1792486736030216"
+          },
+          "transport": {
+            "packets_sent": "536",
+            "packets_received": "677",
+            "bytes_sent": "50066",
+            "bytes_received": "84832",
+            "ice_role": "ICE_CONTROLLING",
+            "ice_local_username_fragment": "9mjX",
+            "dtls_state": "DTLS_TRANSPORT_CONNECTED",
+            "ice_state": "ICE_TRANSPORT_CONNECTED",
+            "selected_candidate_pair_id": "CPqZqsgF9t_fCc+1IfN",
+            "local_certificate_id": "CF20:20:DC:12:AF:F0:84:8F:82:24:F5:87:A3:3E:2D:C8:EE:7C:0E:00:F2:75:4F:5D:44:B0:CA:45:74:40:FA:89",
+            "remote_certificate_id": "CFBB:0B:F3:71:14:00:D8:DB:13:94:9D:3A:62:41:0A:F3:C2:EE:F8:DB:95:43:DB:12:7D:13:B6:B1:DF:D7:E6:63",
+            "tls_version": "FEFD",
+            "dtls_cipher": "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+            "dtls_role": "DTLS_SERVER",
+            "srtp_cipher": "AES_CM_128_HMAC_SHA1_80",
+            "selected_candidate_pair_changes": 2
+          }
+        }
+      }
+    ],
+    "subscriber": []
+  }
+}
