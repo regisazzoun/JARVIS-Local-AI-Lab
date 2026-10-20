@@ -20,27 +20,30 @@ def create_llm():
         model=DELL_OLLAMA_MODEL,
         base_url=DELL_OLLAMA_URL,
         api_key=FAKE_API_KEY,
-        timeout=60.0  # Timeout plus long pour le cold start sur Dell
+        timeout=120.0  # L'inférence Qwen observée peut prendre 58s au premier token
     )
 
 
 async def create_stt():
-    """Create STT adapter using faster-whisper local."""
+    """Create STT adapter using faster-whisper local with canonical model."""
     return WhisperLocalAdapter(
-        model_name="tiny-fr",  # Modèle petit pour test rapide
+        model_name="/opt/jarvis/voice/models/stt/whisper-small",
         language="fr",
-        compute_type="cpu_int8",
+        compute_type="int8",
         device="cpu"
     )
 
 
 async def create_tts():
-    """Create TTS adapter using Piper local."""
-    return PiperLocalAdapter(
-        voice_name="fr_FR-keran_16k-low",
-        voice_dir="/opt/jarvis/tts/piper/voices",
-        sample_rate=16000
+    """Create TTS adapter using Piper local with canonical voice."""
+    adapter = PiperLocalAdapter(
+        model_path="/opt/jarvis/voice/models/tts/fr_FR-tom-medium.onnx"
     )
+    # Charger Piper avant que la session commence à recevoir le microphone.
+    # PiperVoice.load initialise ONNX Runtime de façon synchrone; le warmup
+    # le déporte dans un thread via l'adaptateur.
+    await adapter.warmup()
+    return adapter
 
 
 async def create_session(session_id: str = "default"):
