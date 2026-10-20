@@ -1,0 +1,109 @@
+{
+  "mission_id": "7971ec0311124fb4be9e3125dcb291fd",
+  "updated": "2026-10-20",
+  "attribution": {
+    "original_work": "JARVIS",
+    "targeted_sdk_agent_verifier_timeout_and_reception_corrections": "Codex"
+  },
+  "final_status": "NO-GO — t13 blocked; 12 historical tasks validated, one final task blocked",
+  "sigkill": {
+    "cause": "host_bridge SIGKILL process-group termination after host_exec TimeoutExpired at 60s",
+    "not_oom": true,
+    "cgroup_memory_events": {
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "memory_max": "infinity",
+    "host_available_ram_during_samples_gib": [
+      27.3,
+      28.8
+    ]
+  },
+  "integration_tests": {
+    "webrtc_wav_single_turn_codex": {
+      "passed": true,
+      "evidence_id": "8ee873c394e04a9186dc120413c68775",
+      "input_duration_s": 3.564,
+      "user_transcription_s": 7.677,
+      "end_input_to_first_remote_audio_s": 78.459,
+      "first_remote_audio_s": 83.126,
+      "non_silent_remote_pcm": true,
+      "physical_microphone": false,
+      "source_sha256": "45306dffe96ef649c11cfae43e7962965435203d6389de9af07218a7615720e1"
+    },
+    "webrtc_wav_single_turn_jarvis": {
+      "passed": true,
+      "evidence_id": "6818c2e3768a476795833c43137a4065",
+      "end_input_to_first_remote_audio_s": 34.421,
+      "non_silent_remote_pcm": true,
+      "physical_microphone": false,
+      "source_sha256": "6decd5274780e06ac67e8def758052916ddd9e898bef9312e24bef8b434587e4"
+    },
+    "barge_in_codex": {
+      "passed": false,
+      "evidence_id": "d06bdbe6d9b24970a3cc6d0409becba3",
+      "input_transcription_s": 7.178,
+      "second_audio_started_s": 35.217,
+      "agent_transcript_s": 44.053,
+      "second_user_transcript_received": false,
+      "test_interpretation": "No valid active-response interruption proof",
+      "source_sha256": "ee695928277953b6282ffb8e3cdf6f91d3129a7513cd4d6fab18af6cdd2b854b"
+    },
+    "barge_in_jarvis_long_turn": {
+      "passed": false,
+      "evidence_id": "b1f7e9593fc3445888197c7b286c8acd",
+      "returncode": 1,
+      "duration_s": 130.861,
+      "inner_timeout_s": 120,
+      "reason": "No first agent audio before timeout; STT processed 8.896s input"
+    },
+    "disconnect_reconnect": {
+      "passed": true,
+      "physical_microphone": false,
+      "source": "livekit-agent/tests/verify_reconnect.py",
+      "evidence_file": "RECEPTION-RECONNECT-CODEX.json",
+      "source_sha256": "3035e2af836cf7f557302cb2800037951da1f7d2415475c1449c15771f2a834a",
+      "first_agent_join_s": 0.976,
+      "agent_departure_confirmed_s": 21.711,
+      "agent_rejoined_s": 22.786
+    },
+    "tailscale_http_from_dell1": {
+      "passed": true,
+      "evidence_id": "1dd75ffe36d949ae93e215fb271ca4a2",
+      "http_status": 200,
+      "latency_s": 0.017828,
+      "remote_webrtc_media_passed": false
+    },
+    "physical_microphone_and_speaker": {
+      "tested": false
+    }
+  },
+  "component_measurements": {
+    "whisper_french_wav_s": 2.17,
+    "piper_wav_s": 2.33,
+    "llm_first_chunk_independent_s": 16.49,
+    "agent_worker_pss_warning_mib": 1143.2,
+    "pss_warning_is_advisory": true,
+    "dell_metrics_unsynchronized": {
+      "cpu_percent": 27.8,
+      "ram_used_mib": 4309,
+      "ram_total_mib": 257453,
+      "gpu_percent": 84,
+      "gpu_temp_c": 72,
+      "vram_used_mib": 17136,
+      "vram_total_mib": 24576
+    }
+  },
+  "service_state": {
+    "jarvis-mission23-livekit-server.service": "active/enabled",
+    "jarvis-mission23-livekit-agent.service": "active/enabled"
+  },
+  "pending": {
+    "conversational_interruption": true,
+    "remote_webrtc_media_via_tailscale": true,
+    "physical_microphone_reception": true
+  },
+  "report": "t13_rapport_final.md",
+  "archive": "historique/t13_rapport_final_JARVIS_20261020_1045_historique.md"
+}
