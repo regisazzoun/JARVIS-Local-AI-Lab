@@ -1,0 +1,4357 @@
+{
+  "execution": "df542051560b44b3851124b09d8319c2",
+  "new_mission_created": false,
+  "related_mission": "7971ec0311124fb4be9e3125dcb291fd",
+  "captured_at": 1792504084.2782018,
+  "tasks": [
+    {
+      "id": "m24_01",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission24/docs/missions/24/JARVIS-CAPACITES.md",
+      "report_sha256": "1057bcbea9397e065870e8881c8dcb9e37018ffe163e1482fe7c38031b34d41f"
+    },
+    {
+      "id": "m24_02",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission24/docs/missions/24/JARVIS-EXECUTION.md",
+      "report_sha256": "08fe5db0a27176ac5fbb9e90c102aa9579ae6927d24d7de240dec48141996c39"
+    },
+    {
+      "id": "t01_diag_blocage_t12",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission24/t01_diag_blocage_t12_rapport.md",
+      "report_sha256": "8dc99335f76a8db69049c71ae5aee479571d3b13e464a6c315bbcc1bd44e52cd"
+    },
+    {
+      "id": "t02_relever_preuves_evidence",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission24/t02_relever_preuves_evidence_rapport.md",
+      "report_sha256": "85f8888143dabe1d3fc042a97e905ac2aea6f2c359c00e042b5630f8c1353956"
+    },
+    {
+      "id": "t03_analyser_cause_racine",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission24/t03_analyser_cause_racine_rapport.md",
+      "report_sha256": "31fd354d0bf3650624994e2940deef066813645eea1d7a7fd33cd803dbb1fb03"
+    },
+    {
+      "id": "t04_synthesiser_reponse",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission24/t04_synthesiser_reponse_rapport.md",
+      "report_sha256": "bdf0fbd26a5e8957069aa9076443df25fa29b338e666b7ed80e011e5e81aee14"
+    }
+  ],
+  "broker_correlated_calls": 56,
+  "calls": [
+    {
+      "invocation": "6b262ccc5967486f92e86c0a0dde693b",
+      "task": "m24_01",
+      "tool": "mission_read_batch",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792501972.4718077,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 1,
+      "diagnostic": null
+    },
+    {
+      "invocation": "89354df53ce64c698c1041cea575125f",
+      "task": "m24_01",
+      "tool": "host_policy",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "aa444a142e54443e98a81af9ec44171d",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792501972.5612667,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_policy",
+        "parameters": {},
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "2bb25bc2520e4ce39ed7427669419172",
+      "task": "m24_01",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "status",
+        "name": "livekit-server",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "5cedc34dfb8c42f48b8ca0f6c5b3845e",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792501972.5625384,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "status",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "status": "MainPID=2791313\nExecMainStatus=0\nLoadState=loaded\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+      "host_processes": null
+    },
+    {
+      "invocation": "9ac93f9e18d0443083d602491583bb70",
+      "task": "m24_01",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "logs",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "443a17af900a438d82408ca764b63bda",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792501972.562882,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "logs",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "d8f2ca714562432eaa77ab0b011008db",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "8246f2b2e04e4f3a95c8421bf0429f95",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792501972.5648375,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "77aedf6591394b5195ecc75c572b13c8",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "8c3ba95288ce4354b4e6f6e3f2c11d6c",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792501972.5653937,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "d7e2a99c1dfa46509e4bdc8d46715f31",
+      "task": "m24_01",
+      "tool": "capability_status",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "c7b79524e88547b09bc7b13681137d93",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502007.1177897,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "capability_status",
+        "parameters": {},
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "catalogue": {
+        "tools": 28,
+        "capabilities": 32,
+        "requests": 5,
+        "summary": null
+      }
+    },
+    {
+      "invocation": "1fb340a046c74a8dbb17ba430a24cb61",
+      "task": "m24_01",
+      "tool": "host_ansible",
+      "arguments_selectors": {
+        "action": "ping",
+        "host": "dell-observe"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "dd09e44f7c404af7b9c82b1197c719ad",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502007.9140427,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_ansible",
+        "parameters": {
+          "action": "ping",
+          "host": "dell-observe"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "26e8ad34dec2408fb22c95133f593773",
+      "task": "m24_01",
+      "tool": "host_remote",
+      "arguments_selectors": {
+        "action": "identity",
+        "host": "dell-observe"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "f2c1f25a2af94f7bba78ac1a20bf73ae",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502040.7794828,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_remote",
+        "parameters": {
+          "action": "identity",
+          "host": "dell-observe"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "70f44d7b9b324d88aaf73eb1ca08b38a",
+      "task": "m24_01",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": "ce74b06233104ca38a3eae06b140af06",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502041.8714073,
+      "error": "Échec outil sans sortie textuelle",
+      "error_truncated": false,
+      "returncode": 1,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command",
+          "timeout"
+        ],
+        "error_category": "application_error",
+        "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+        "alternative": "Use host_service/host_logs for systemd; host_exec has no system bus."
+      },
+      "command": "ps aux | grep -E \"livekit|python\" | grep -v grep",
+      "stdout_excerpt": null
+    },
+    {
+      "invocation": "d1b6987210974f81bebdee25c4eb023e",
+      "task": "m24_01",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": "df69e722588a4211bb9f9617642a8cef",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502042.3168783,
+      "error": "/bin/bash: line 1: /usr/local/lib/jarvis-host/verify_livekit_agent.py: Permission denied\n",
+      "error_truncated": false,
+      "returncode": 126,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command",
+          "timeout"
+        ],
+        "error_category": "application_error",
+        "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+        "alternative": "Use host_service/host_logs for systemd; host_exec has no system bus."
+      },
+      "command": "/usr/local/lib/jarvis-host/verify_livekit_agent.py --help",
+      "stdout_excerpt": ""
+    },
+    {
+      "invocation": "05994a5f708b4fceb9f61a459d9f1f07",
+      "task": "m24_01",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "5360c1a540fe42629264bda69854b3bb",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502066.6316895,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command",
+          "timeout"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "command": "ls -la /usr/local/lib/jarvis-host/verify_livekit_agent.py",
+      "stdout_excerpt": "-rw-r--r-- 1 nobody nogroup 3485 Oct 20 00:09 /usr/local/lib/jarvis-host/verify_livekit_agent.py\n"
+    },
+    {
+      "invocation": "94f0a518a80f4f19a0ec928f441f5952",
+      "task": "m24_01",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "56aee9076dc94237aac162f133d8977e",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502067.209396,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command",
+          "timeout"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "command": "echo \"test host_exec\"",
+      "stdout_excerpt": null
+    },
+    {
+      "invocation": "a0d0eeb24eb24906942eb00fbe9cfb91",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "0d15576e487c43e6800c9cf25c25a037",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502067.7266185,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "a5364083b1544e64a7039ad690b1f6bc",
+      "task": "m24_01",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "d1fe3ec5f1d74ef692adf30fedeaacc8",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502092.0575156,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command",
+          "timeout"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /usr/local/lib/jarvis-host/verify_livekit_agent.py --help",
+      "stdout_excerpt": "usage: verify_livekit_agent.py [-h] --project PROJECT --part {llm,adapters}\n\noptions:\n  -h, --help            show this help message and exit\n  --project PROJECT\n  --part {llm,adapters}\n"
+    },
+    {
+      "invocation": "de3ebfb7e1ef48ad96ab711eec4153f4",
+      "task": "m24_01",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "3d949be227c14425822825a61b7017b9",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502114.0886648,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command",
+          "timeout"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /usr/local/lib/jarvis-host/verify_livekit_agent.py --project /var/lib/jarvis/projects/mission23/livekit-agent --part llm",
+      "stdout_excerpt": "[STT Adapter] faster-whisper disponible\n{\"check\": \"real_app_livekit_llm_stream\", \"received_text_chars\": 7, \"sdk_type_verified\": true, \"first_nonempty_chunk_s\": 13.015991432010196}\nLLM_STREAM_VERIFIED\n"
+    },
+    {
+      "invocation": "9a899e35652c42d88025e12e84fde828",
+      "task": "m24_01",
+      "tool": "host_write_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "96675ace6c20403e97ccde5f656d9460",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502262.9095726,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_write_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "content",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "efed9640b8fd4264a376fc3ea68d1c72",
+      "task": "m24_01",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "status",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "a0fcd289770641e28fbe8547062ac9bf",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502295.2875617,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "status",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "status": "MainPID=2794640\nExecMainStatus=0\nLoadState=loaded\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+      "host_processes": null
+    },
+    {
+      "invocation": "316257bcc1b9424e998a8e3e16a03062",
+      "task": "m24_01",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "logs",
+        "name": "livekit-server",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "f9706aac8d334382b20b01592c1e7d8e",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502295.5343444,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "logs",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "f45c8b64660a489c9f601ed279166794",
+      "task": "m24_01",
+      "tool": "host_remote",
+      "arguments_selectors": {
+        "action": "services",
+        "host": "dell-observe"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "d5abd9b9464e4b1095907d82c7ed8d43",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502295.8922513,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_remote",
+        "parameters": {
+          "action": "services",
+          "host": "dell-observe"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "14a42fc62acd471bb14f072ecbe223e0",
+      "task": "m24_01",
+      "tool": "mission_read_batch",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502319.823452,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": null
+    },
+    {
+      "invocation": "e8590c2931df4a18914a64774f4ab82b",
+      "task": "m24_01",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "status",
+        "name": "livekit-server",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "685c2e5982e54d3395f24bda55040694",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502319.8505824,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "status",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "status": "MainPID=2791313\nExecMainStatus=0\nLoadState=loaded\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+      "host_processes": null
+    },
+    {
+      "invocation": "2cb1184c6b644ac6857ad06fbd1a12b1",
+      "task": "m24_01",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "logs",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "67285e13f1fc4cb794acf67631d8bebe",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502319.8507483,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "logs",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "062601b1a144403890cb71bbf8a8867f",
+      "task": "m24_01",
+      "tool": "mission_evidence",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502354.8078244,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "cb55944345c54de485d8a7dad890ff76",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "31dd9f6fc2d947e6bafc8f76a45daf8d",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502377.5724983,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "6bf67e643cb543b19c96b1d4fd2008e1",
+      "task": "m24_01",
+      "tool": "mission_evidence",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502409.0664601,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "1421b691847a47509717e75e15c3411e",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "4b10968d895c4377b7eb9d7ad09e5a24",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502438.164879,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "4724f514fe9344338a5ee970619ed25c",
+      "task": "m24_01",
+      "tool": "mission_evidence",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502467.5426996,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "088ed965874d4f26ac017002c144f6b1",
+      "task": "m24_01",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "44d2cdeee2fe438aa5ce84974e3aef90",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502501.1697361,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "684575c93f244980a5af8aa5404d6ed2",
+      "task": "m24_01",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": "724dc05b448442a4b695faf9b89955d5",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502507.085094,
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 6, in <module>\n    if body.count(old)!=count:raise ValueError('Exact edit rejected: expected '+str(count)+' occurrence(s), found '+str(body.count(old))+'. Reread the file; nothing changed.')\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Exact edit rejected: expected 1 occurrence(s), found 0. Reread the file; nothing changed.\n",
+      "error_truncated": false,
+      "returncode": 1,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": "application_error",
+        "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "e6710863152f467ebc216512d26212e1",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "dffcd66245404937904fb1b27b130a9b",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502510.6136894,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "44f4fd5b3bbb4ec18c082c5cd684d2c7",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "674963579059481eb5a0fe837fe6bae7",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502550.3849845,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "e675ec4d9e7f4750a71eccdefbdc5949",
+      "task": "m24_01",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "5cdb1b16d6dc446192d3163d96fc7238",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502571.7171586,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "ebf02d04794a4769a2d9576070b708dd",
+      "task": "m24_01",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "3ab44099533a47debed54ed3f349dd2b",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502581.10532,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "09255779e7b94fe7ac47058e4c7d1f96",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "fac75950f5ca4b57a14c288f9456f0b9",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502585.459885,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "b8212510dc6548e48f68d54ed3bbff66",
+      "task": "m24_01",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "006931fe81584d2292ed784c9b3216d5",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502614.7707522,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "8ce58d50dd254c59a8bb8ac289886a25",
+      "task": "m24_01",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "d9f5a6ecb4d74060ad845a6fa54ac2d4",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502624.4062257,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "4423c8e16c5d43c4bd063b23a3b314c9",
+      "task": "m24_01",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502628.5080807,
+      "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "a7c9ba23fb0a4d5f93ff5d38e1f34c77",
+      "task": "m24_01",
+      "tool": "mission_evidence",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502641.2354095,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "f06b708c89274c10b6c09263bf454814",
+      "task": "m24_01",
+      "tool": "mission_task_complete",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502647.8792317,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "01c11e202a564d9d9bd3a1f785000fa5",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "verify_commit",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": false,
+      "evidence_id": "fa03efe1cd304b11b5ae232a632c8eed",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502676.1650171,
+      "error": "branch obligatoire pour commits, verify_commit, diff, prs et pr_status : fournir la branche head jarvis/... ou codex/...; verify_commit exige aussi le SHA attendu",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "verify_commit",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [
+          "commit"
+        ],
+        "error_category": "invalid_parameter",
+        "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+        "alternative": null
+      },
+      "github_result": {}
+    },
+    {
+      "invocation": "e871fef41e764a45a83ea17f77231d87",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "verify_commit",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "3615be8cf9c14e1fada2a5100d5a1c12",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502701.7738516,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "verify_commit",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [
+          "commit"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "github_result": {
+        "sha": "3abcea394b141a3290895dbc7ac5593d0c70f6be"
+      }
+    },
+    {
+      "invocation": "52af0fc66b1d4140ace945593e935ff6",
+      "task": "m24_02",
+      "tool": "mission_read_batch",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792502736.0011425,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 1,
+      "diagnostic": null
+    },
+    {
+      "invocation": "24651ca30a9044f4b2ebca15f9b2bb0f",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "branches",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "832c9659903f4ff5a4773c6d209f1bb8",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502736.0927885,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "branches",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "7330326bd9ad47acb473a1d7622b1926",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "file",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "6fa600ce82464604bf28d772c87994e9",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502736.0945652,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "file",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [
+          "file"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "18fc1089d4614f64948910b14cabfe7f",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "prs",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "009636f478f0448aa639c45f2f7f298e",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502776.0485315,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "prs",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "bb29c8d4d6df4f609ce231ef34474679",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "pr_status",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "7bb337ee5f494fea8d6bdb34b00a54f0",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502801.745167,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "pr_status",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "b0fb696f74da400988d4aa39780661d4",
+      "task": "m24_02",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "04e11e114d0a4825a0e7097812713064",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502847.1640143,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "673b504f879748c3a0f8d585f1d64719",
+      "task": "m24_02",
+      "tool": "host_policy",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "6f0b3230fffa47118c58a7eda7eaa2ae",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502847.731601,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_policy",
+        "parameters": {},
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "52171acd5f894360b3a2aba2d3ddde58",
+      "task": "m24_02",
+      "tool": "capability_status",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "7432f4d474ce48cf85b50734729361ea",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502848.1479003,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "capability_status",
+        "parameters": {},
+        "omitted_parameters": [],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "catalogue": {
+        "tools": 28,
+        "capabilities": 32,
+        "requests": 5,
+        "summary": {
+          "availability": "Per-resource capabilities retain their observed state; tool exposure alone is not functional validation.",
+          "capabilities_count": 32,
+          "fields": "Structured fields tools, capabilities and requests; absence of stdout does not mean an empty registry.",
+          "requests_count": 5,
+          "tools_count": 28
+        }
+      }
+    },
+    {
+      "invocation": "3872c7cd7cd54474b74ee660e09f3581",
+      "task": "m24_02",
+      "tool": "host_project_service",
+      "arguments_selectors": {
+        "action": "status",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "fefe253e32e84e7fbe29e6912658aec7",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502848.6710649,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_project_service",
+        "parameters": {
+          "action": "status",
+          "project": "mission23"
+        },
+        "omitted_parameters": [
+          "name"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "status": "MainPID=2794640\nExecMainStatus=0\nControlGroup=/system.slice/jarvis-mission23-livekit-agent.service\nLoadState=loaded\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+      "host_processes": {
+        "available": true,
+        "processes": [
+          {
+            "executable": "/usr/bin/bwrap",
+            "name": "bwrap",
+            "pid": 2794640,
+            "ppid": 1,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/bwrap",
+            "name": "bwrap",
+            "pid": 2794641,
+            "ppid": 2794640,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794643,
+            "ppid": 2794641,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794736,
+            "ppid": 2794643,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794738,
+            "ppid": 2794643,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794756,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794758,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794766,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794771,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794776,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794778,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794783,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794791,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794793,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794798,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2794996,
+            "ppid": 2794738,
+            "uid": 1000
+          },
+          {
+            "executable": "/usr/bin/python3.13",
+            "name": "python3",
+            "pid": 2796939,
+            "ppid": 2794738,
+            "uid": 1000
+          }
+        ],
+        "raced_pids": [],
+        "total_pids": 17,
+        "truncated": false
+      }
+    },
+    {
+      "invocation": "9c2f94f0c3cf465893b7fce3c84f8d41",
+      "task": "m24_02",
+      "tool": "host_write_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "7ca735c4975643969ebc6512e92484be",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792502985.3999698,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_write_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "content",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "13417bb0f4a148fb81884dc118b35126",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "push_tree",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "c00a6e0e510d4aa190a17984d78f5139",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503015.5446124,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+          "action": "push_tree",
+          "branch": "codex/mission-24-transport-broker"
+        },
+        "omitted_parameters": [
+          "files",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "github_result": {
+        "commit_sha": "9c8be2a44f5fac753752ed54e18600e6ac48876f",
+        "verified": true
+      }
+    },
+    {
+      "invocation": "afb8d697781c4cfcaca54cc3d1b4ff79",
+      "task": "m24_02",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "818202d0fed74d0d8b61b64aff2f1f17",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503140.3149488,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "ce1badd40d4f40e6a997f6e75deec5fd",
+      "task": "m24_02",
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "605d2ae9b8834bcdb7f29594e10b9641",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503166.9678812,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "7171adfd9c46476983a799faa215af17",
+      "task": "m24_02",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "35600a2e07eb4ef691f9e7ee31c70a19",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503204.0513139,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "a06b1e8075704c1b95ed02c423a20d86",
+      "task": "m24_02",
+      "tool": "host_exec",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "e80408ec5d774fa694b025f6202ace3c",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503208.4320717,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "command": "grep -n \"32 catalogues\" /var/lib/jarvis/projects/mission24/docs/missions/24/JARVIS-EXECUTION.md",
+      "stdout_excerpt": null
+    },
+    {
+      "invocation": "0b76109b2a14448f9ad44f36baac67d1",
+      "task": "m24_02",
+      "tool": "host_edit_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "33fe4046d3af4d08ae30a1cbe10b65fe",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503212.6154604,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_edit_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "count",
+          "new",
+          "old",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "73de1ac402c54e39b369696f61b4ea9b",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "push_tree",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "b82d82883e1b480195ec9727c098f60c",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503217.8239539,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "push_tree",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [
+          "files",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "github_result": {
+        "commit_sha": "36015bfc93f2e34ed9be040240d09b21f41d5116",
+        "verified": true
+      }
+    },
+    {
+      "invocation": "aa7dbfe6f4854ee7ad37da7c27d198ea",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "verify_commit",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "2f13b28a12cc4400b33910d919d1ee37",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503257.8714337,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "verify_commit",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [
+          "commit"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "github_result": {
+        "sha": "36015bfc93f2e34ed9be040240d09b21f41d5116"
+      }
+    },
+    {
+      "invocation": "7abd19c53e264fdf880a984571f3aaee",
+      "task": "m24_02",
+      "tool": "host_github",
+      "arguments_selectors": {
+        "action": "verify_tree",
+        "branch": "codex/mission-24-transport-broker",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "a1fb569f652443f8b63e465e26f48e4f",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503280.9821775,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_github",
+        "parameters": {
+          "action": "verify_tree",
+          "branch": "codex/mission-24-transport-broker",
+          "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+        },
+        "omitted_parameters": [
+          "files",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      },
+      "github_result": {
+        "tree_sha": "36015bfc93f2e34ed9be040240d09b21f41d5116"
+      }
+    },
+    {
+      "invocation": "6b5a42bab70444209adfe6a80f5c4c3a",
+      "task": "m24_02",
+      "tool": "mission_task_complete",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503307.6139407,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "f6aedddcac3641ab8266be5df3cf7e04",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503404.662229,
+      "error": "Texte invalide pour le champ content (non vide, longueur maximale 6000)",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 7453,
+      "report_sha256": null,
+      "report_path": null
+    },
+    {
+      "invocation": "4e32d860ed344f7db4287ed5894e68b5",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503459.8471248,
+      "error": "Synthèse finale non conforme au contrat courant : {\"missing\": [], \"contradictions\": [\"STT fonctionnel\"]}",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 2707,
+      "report_sha256": null,
+      "report_path": null
+    },
+    {
+      "invocation": "f45196a156334aad98bd7d1f21c6ff9e",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503515.1586165,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 3567,
+      "report_sha256": "f0071d6bbe49a0295d7692975a67d7d466b1cf97ad56982aca0d28fb75289c18",
+      "report_path": "/opt/jarvis/conversation/runtime/reports/df542051560b44b3851124b09d8319c2/RAPPORT-FINAL.md"
+    },
+    {
+      "invocation": "fe44e898f17445f8b1336478f9d52cb4",
+      "task": null,
+      "tool": "mission_progress",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503662.041575,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "dda0ba39f71444379926b0d181a70927",
+      "task": null,
+      "tool": "mission_progress",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503743.5791454,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null
+    },
+    {
+      "invocation": "c1c351f7c479450cbee7167153ec83d3",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "65de9a1bcfbf42bc8bd6e97e2f81155f",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503769.2394352,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "f00d43788bad42f49d4825e0c4e1296d",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "97156a9d54724b2e9af213ff384151be",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503821.1671054,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "b971502acece43a9bd815ae4e4d1c57d",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "3e5a18b7095a4b8fb64796602e42dcb9",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503853.5739596,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "limit",
+          "offset",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "06b0e028d0254997ae4a5b9ac3ac064b",
+      "task": null,
+      "tool": "host_read_file",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "ed02231d65e549fa9cc26fc38d3bf23e",
+      "broker_caller": "JARVIS-runtime",
+      "created": 1792503879.0075414,
+      "error": "",
+      "error_truncated": false,
+      "returncode": 0,
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_read_file",
+        "parameters": {},
+        "omitted_parameters": [
+          "limit",
+          "offset",
+          "path"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    {
+      "invocation": "b70b3f04e38246a598e2a40ad307130d",
+      "task": null,
+      "tool": "intervention_report",
+      "arguments_selectors": {},
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "created": 1792503983.8416607,
+      "error": "",
+      "error_truncated": false,
+      "returncode": null,
+      "diagnostic": null,
+      "report_chars": 7453,
+      "report_sha256": "7060fb4d61862ee031261b1c2382da9130ec1fd9ac1ca844bd02205af0d78745",
+      "report_path": "/opt/jarvis/conversation/runtime/reports/df542051560b44b3851124b09d8319c2/RAPPORT-FINAL.md"
+    }
+  ],
+  "events": [
+    {
+      "id": 8547,
+      "kind": "mission24_addendum_attached",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792501887.9246635
+    },
+    {
+      "id": 8548,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792501887.9247236
+    },
+    {
+      "id": 8549,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792501888.039979
+    },
+    {
+      "id": 8550,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792501888.736605
+    },
+    {
+      "id": 8551,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792501888.845075
+    },
+    {
+      "id": 8552,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792501888.9614415
+    },
+    {
+      "id": 8553,
+      "kind": "historical_final_pointer_archived_for_addendum",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792501940.6529777
+    },
+    {
+      "id": 8554,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792501941.2856722
+    },
+    {
+      "id": 8555,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792501942.1950526
+    },
+    {
+      "id": 8556,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792501972.3808477
+    },
+    {
+      "id": 8557,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501972.4734678
+    },
+    {
+      "id": 8558,
+      "kind": "batch_entry_rejected",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792501972.5611126
+    },
+    {
+      "id": 8559,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501972.625017
+    },
+    {
+      "id": 8560,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501972.6511936
+    },
+    {
+      "id": 8561,
+      "kind": "batch_entry_rejected",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792501972.563792
+    },
+    {
+      "id": 8562,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501972.8851814
+    },
+    {
+      "id": 8563,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501972.9491186
+    },
+    {
+      "id": 8564,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.002602
+    },
+    {
+      "id": 8565,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.1029603
+    },
+    {
+      "id": 8566,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.2045598
+    },
+    {
+      "id": 8567,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.258525
+    },
+    {
+      "id": 8568,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.4873168
+    },
+    {
+      "id": 8569,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.682961
+    },
+    {
+      "id": 8570,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792501973.8426635
+    },
+    {
+      "id": 8571,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502007.0265207
+    },
+    {
+      "id": 8572,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502007.1196601
+    },
+    {
+      "id": 8573,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502007.5080674
+    },
+    {
+      "id": 8574,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502007.9144423
+    },
+    {
+      "id": 8575,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502009.91192
+    },
+    {
+      "id": 8576,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502010.1364923
+    },
+    {
+      "id": 8577,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502040.673349
+    },
+    {
+      "id": 8578,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502040.781098
+    },
+    {
+      "id": 8579,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502041.697774
+    },
+    {
+      "id": 8580,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502041.8718266
+    },
+    {
+      "id": 8581,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502042.1330483
+    },
+    {
+      "id": 8582,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502042.3185658
+    },
+    {
+      "id": 8583,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502042.6140137
+    },
+    {
+      "id": 8584,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502042.7966359
+    },
+    {
+      "id": 8585,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502066.5419693
+    },
+    {
+      "id": 8586,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502066.6326637
+    },
+    {
+      "id": 8587,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502067.0124848
+    },
+    {
+      "id": 8588,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502067.2097147
+    },
+    {
+      "id": 8589,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502067.5027254
+    },
+    {
+      "id": 8590,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502067.7279265
+    },
+    {
+      "id": 8591,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502067.958787
+    },
+    {
+      "id": 8592,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502092.031559
+    },
+    {
+      "id": 8593,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502092.0594878
+    },
+    {
+      "id": 8594,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502092.396458
+    },
+    {
+      "id": 8595,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502114.0631146
+    },
+    {
+      "id": 8596,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502114.089989
+    },
+    {
+      "id": 8597,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502129.1194174
+    },
+    {
+      "id": 8598,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": "m24_01",
+      "created": 1792502151.9368079
+    },
+    {
+      "id": 8599,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502262.8830876
+    },
+    {
+      "id": 8600,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502262.9123597
+    },
+    {
+      "id": 8601,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502263.1835806
+    },
+    {
+      "id": 8602,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502295.2614818
+    },
+    {
+      "id": 8603,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502295.2890277
+    },
+    {
+      "id": 8604,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502295.4869778
+    },
+    {
+      "id": 8605,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502295.5350053
+    },
+    {
+      "id": 8606,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502295.8139071
+    },
+    {
+      "id": 8607,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502295.893653
+    },
+    {
+      "id": 8608,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502296.7327726
+    },
+    {
+      "id": 8609,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502296.8490512
+    },
+    {
+      "id": 8610,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": "m24_01",
+      "created": 1792502305.9472854
+    },
+    {
+      "id": 8611,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502319.7971377
+    },
+    {
+      "id": 8612,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502319.8252356
+    },
+    {
+      "id": 8613,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502319.8513691
+    },
+    {
+      "id": 8614,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502319.8849351
+    },
+    {
+      "id": 8615,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502320.0440319
+    },
+    {
+      "id": 8616,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502320.2139065
+    },
+    {
+      "id": 8617,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502320.307831
+    },
+    {
+      "id": 8618,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502354.7175143
+    },
+    {
+      "id": 8619,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502354.809494
+    },
+    {
+      "id": 8620,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502354.9908075
+    },
+    {
+      "id": 8621,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502355.2213833
+    },
+    {
+      "id": 8622,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502377.445395
+    },
+    {
+      "id": 8623,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502377.5741675
+    },
+    {
+      "id": 8624,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502377.8760028
+    },
+    {
+      "id": 8625,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502408.9772463
+    },
+    {
+      "id": 8626,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502409.0668297
+    },
+    {
+      "id": 8627,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502409.2194881
+    },
+    {
+      "id": 8628,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502409.394142
+    },
+    {
+      "id": 8629,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502410.497248
+    },
+    {
+      "id": 8630,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502410.6267583
+    },
+    {
+      "id": 8631,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502438.1392076
+    },
+    {
+      "id": 8632,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502438.166222
+    },
+    {
+      "id": 8633,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502438.417676
+    },
+    {
+      "id": 8634,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502438.5091548
+    },
+    {
+      "id": 8635,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": "m24_01",
+      "created": 1792502461.38489
+    },
+    {
+      "id": 8636,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502467.5170755
+    },
+    {
+      "id": 8637,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502467.544557
+    },
+    {
+      "id": 8638,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502467.692076
+    },
+    {
+      "id": 8639,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502501.1439364
+    },
+    {
+      "id": 8640,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502501.1713388
+    },
+    {
+      "id": 8641,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502501.4774883
+    },
+    {
+      "id": 8642,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502507.0594635
+    },
+    {
+      "id": 8643,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502507.0865417
+    },
+    {
+      "id": 8644,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502507.3218377
+    },
+    {
+      "id": 8645,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502510.5644467
+    },
+    {
+      "id": 8646,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502510.6151602
+    },
+    {
+      "id": 8647,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502510.9105577
+    },
+    {
+      "id": 8648,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502511.0067797
+    },
+    {
+      "id": 8649,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502523.049411
+    },
+    {
+      "id": 8650,
+      "kind": "owner_goal_addendum",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792502523.2212675
+    },
+    {
+      "id": 8651,
+      "kind": "controlled_restart_checkpoint",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792502523.3848026
+    },
+    {
+      "id": 8652,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "task": "m24_01",
+      "created": 1792502523.6863534
+    },
+    {
+      "id": 8653,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792502523.7719588
+    },
+    {
+      "id": 8654,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502524.3629315
+    },
+    {
+      "id": 8655,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502524.9213455
+    },
+    {
+      "id": 8656,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502550.2721949
+    },
+    {
+      "id": 8657,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502550.3867157
+    },
+    {
+      "id": 8658,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502550.8310146
+    },
+    {
+      "id": 8659,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502571.6248024
+    },
+    {
+      "id": 8660,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502571.7189565
+    },
+    {
+      "id": 8661,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502572.0691433
+    },
+    {
+      "id": 8662,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502581.0078013
+    },
+    {
+      "id": 8663,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502581.1071498
+    },
+    {
+      "id": 8664,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502581.4302797
+    },
+    {
+      "id": 8665,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502585.367869
+    },
+    {
+      "id": 8666,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502585.461568
+    },
+    {
+      "id": 8667,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502585.7762067
+    },
+    {
+      "id": 8668,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502586.0060546
+    },
+    {
+      "id": 8669,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502614.6805878
+    },
+    {
+      "id": 8670,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502614.7724626
+    },
+    {
+      "id": 8671,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502615.077296
+    },
+    {
+      "id": 8672,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502624.3159518
+    },
+    {
+      "id": 8673,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502624.408007
+    },
+    {
+      "id": 8674,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502624.7004967
+    },
+    {
+      "id": 8675,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502628.3982384
+    },
+    {
+      "id": 8676,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502628.5090768
+    },
+    {
+      "id": 8677,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502628.622473
+    },
+    {
+      "id": 8678,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502641.1448934
+    },
+    {
+      "id": 8679,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502641.237076
+    },
+    {
+      "id": 8680,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502641.4218109
+    },
+    {
+      "id": 8681,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502647.7849624
+    },
+    {
+      "id": 8682,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502647.8808978
+    },
+    {
+      "id": 8683,
+      "kind": "report_redacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502648.5085096
+    },
+    {
+      "id": 8684,
+      "kind": "task_verified",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502648.6024606
+    },
+    {
+      "id": 8685,
+      "kind": "publication_queued",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502648.6090522
+    },
+    {
+      "id": 8686,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_01",
+      "created": 1792502648.83276
+    },
+    {
+      "id": 8687,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502649.0244188
+    },
+    {
+      "id": 8688,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792502650.1325374
+    },
+    {
+      "id": 8689,
+      "kind": "publication_verified",
+      "actor": "JARVIS-engine",
+      "task": "m24_01",
+      "created": 1792502657.1856558
+    },
+    {
+      "id": 8690,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502676.0747795
+    },
+    {
+      "id": 8691,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502676.1667328
+    },
+    {
+      "id": 8692,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502676.3913076
+    },
+    {
+      "id": 8693,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502701.6842358
+    },
+    {
+      "id": 8694,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502701.7746017
+    },
+    {
+      "id": 8695,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502703.202534
+    },
+    {
+      "id": 8696,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": "m24_02",
+      "created": 1792502716.634637
+    },
+    {
+      "id": 8697,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502735.911151
+    },
+    {
+      "id": 8698,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502736.0030715
+    },
+    {
+      "id": 8699,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502736.0957093
+    },
+    {
+      "id": 8700,
+      "kind": "batch_entry_rejected",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502736.0934935
+    },
+    {
+      "id": 8701,
+      "kind": "batch_entry_rejected",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502736.092636
+    },
+    {
+      "id": 8702,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502736.2267818
+    },
+    {
+      "id": 8703,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502737.1022477
+    },
+    {
+      "id": 8704,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502737.3081613
+    },
+    {
+      "id": 8705,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502737.4820948
+    },
+    {
+      "id": 8706,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502775.9560382
+    },
+    {
+      "id": 8707,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502776.0502372
+    },
+    {
+      "id": 8708,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502776.787003
+    },
+    {
+      "id": 8709,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502777.0322132
+    },
+    {
+      "id": 8710,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502801.6551077
+    },
+    {
+      "id": 8711,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502801.7468586
+    },
+    {
+      "id": 8712,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502802.4905124
+    },
+    {
+      "id": 8713,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502820.4469702
+    },
+    {
+      "id": 8714,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502820.5345678
+    },
+    {
+      "id": 8715,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502847.0734472
+    },
+    {
+      "id": 8716,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502847.1657026
+    },
+    {
+      "id": 8717,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502847.5259573
+    },
+    {
+      "id": 8718,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502847.7332091
+    },
+    {
+      "id": 8719,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502847.96278
+    },
+    {
+      "id": 8720,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502848.1496658
+    },
+    {
+      "id": 8721,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502848.4833496
+    },
+    {
+      "id": 8722,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502848.672769
+    },
+    {
+      "id": 8723,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502848.9198196
+    },
+    {
+      "id": 8724,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502849.1478884
+    },
+    {
+      "id": 8725,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792502985.309035
+    },
+    {
+      "id": 8726,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502985.4027965
+    },
+    {
+      "id": 8727,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792502985.6992602
+    },
+    {
+      "id": 8728,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": "m24_02",
+      "created": 1792503015.2810307
+    },
+    {
+      "id": 8729,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503015.3807583
+    },
+    {
+      "id": 8730,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503015.546317
+    },
+    {
+      "id": 8731,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503022.2600594
+    },
+    {
+      "id": 8732,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503131.5758471
+    },
+    {
+      "id": 8733,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503131.6652677
+    },
+    {
+      "id": 8734,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503140.2217965
+    },
+    {
+      "id": 8735,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503140.3166878
+    },
+    {
+      "id": 8736,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503140.664899
+    },
+    {
+      "id": 8737,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503140.8958416
+    },
+    {
+      "id": 8738,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503166.879556
+    },
+    {
+      "id": 8739,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503166.969496
+    },
+    {
+      "id": 8740,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503167.2717652
+    },
+    {
+      "id": 8741,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503167.4918349
+    },
+    {
+      "id": 8742,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503168.579328
+    },
+    {
+      "id": 8743,
+      "kind": "reception_contract_updated",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503175.4835632
+    },
+    {
+      "id": 8744,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503203.9609718
+    },
+    {
+      "id": 8745,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503204.0530384
+    },
+    {
+      "id": 8746,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503204.3969443
+    },
+    {
+      "id": 8747,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503208.3418944
+    },
+    {
+      "id": 8748,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503208.433716
+    },
+    {
+      "id": 8749,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503208.939603
+    },
+    {
+      "id": 8750,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503212.5250082
+    },
+    {
+      "id": 8751,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503212.617201
+    },
+    {
+      "id": 8752,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503212.9134943
+    },
+    {
+      "id": 8753,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503217.7282925
+    },
+    {
+      "id": 8754,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503217.8252409
+    },
+    {
+      "id": 8755,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": "m24_02",
+      "created": 1792503223.153016
+    },
+    {
+      "id": 8756,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503224.2190075
+    },
+    {
+      "id": 8757,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503257.7782264
+    },
+    {
+      "id": 8758,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503257.8731253
+    },
+    {
+      "id": 8759,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503259.3401392
+    },
+    {
+      "id": 8760,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503259.5668848
+    },
+    {
+      "id": 8761,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503280.8921945
+    },
+    {
+      "id": 8762,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503280.983962
+    },
+    {
+      "id": 8763,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503281.8019724
+    },
+    {
+      "id": 8764,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503307.5226095
+    },
+    {
+      "id": 8765,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503307.6156404
+    },
+    {
+      "id": 8766,
+      "kind": "task_verified",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503307.9131157
+    },
+    {
+      "id": 8767,
+      "kind": "publication_queued",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503307.92019
+    },
+    {
+      "id": 8768,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "m24_02",
+      "created": 1792503308.145218
+    },
+    {
+      "id": 8769,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503308.3431509
+    },
+    {
+      "id": 8770,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503309.5217843
+    },
+    {
+      "id": 8771,
+      "kind": "publication_verified",
+      "actor": "JARVIS-engine",
+      "task": "m24_02",
+      "created": 1792503313.428973
+    },
+    {
+      "id": 8772,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503404.5717194
+    },
+    {
+      "id": 8773,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503404.6641335
+    },
+    {
+      "id": 8774,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503404.8378148
+    },
+    {
+      "id": 8775,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503459.7515616
+    },
+    {
+      "id": 8776,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503459.8490775
+    },
+    {
+      "id": 8777,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503460.012665
+    },
+    {
+      "id": 8778,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503460.22768
+    },
+    {
+      "id": 8779,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503515.06687
+    },
+    {
+      "id": 8780,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503515.1608057
+    },
+    {
+      "id": 8781,
+      "kind": "publication_queued",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503515.4188166
+    },
+    {
+      "id": 8782,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503515.5742266
+    },
+    {
+      "id": 8783,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503515.9088478
+    },
+    {
+      "id": 8784,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503517.053499
+    },
+    {
+      "id": 8785,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503517.144463
+    },
+    {
+      "id": 8786,
+      "kind": "publication_verified",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503522.4783409
+    },
+    {
+      "id": 8787,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503527.2558582
+    },
+    {
+      "id": 8788,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503527.4138265
+    },
+    {
+      "id": 8789,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503543.378564
+    },
+    {
+      "id": 8790,
+      "kind": "final_revision_for_report_capacity",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503543.4710865
+    },
+    {
+      "id": 8791,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503543.620734
+    },
+    {
+      "id": 8792,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503544.1242027
+    },
+    {
+      "id": 8793,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503544.7233136
+    },
+    {
+      "id": 8794,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503576.6076744
+    },
+    {
+      "id": 8795,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503576.7338145
+    },
+    {
+      "id": 8796,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503576.8586328
+    },
+    {
+      "id": 8797,
+      "kind": "reception_contract_refined",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503619.166432
+    },
+    {
+      "id": 8798,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503623.1080334
+    },
+    {
+      "id": 8799,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503623.1982658
+    },
+    {
+      "id": 8800,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503623.298028
+    },
+    {
+      "id": 8801,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503661.929305
+    },
+    {
+      "id": 8802,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503662.0433123
+    },
+    {
+      "id": 8803,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503662.210076
+    },
+    {
+      "id": 8804,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503662.427501
+    },
+    {
+      "id": 8805,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503698.4821308
+    },
+    {
+      "id": 8806,
+      "kind": "model_checkpoint",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503698.5701227
+    },
+    {
+      "id": 8807,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503743.486909
+    },
+    {
+      "id": 8808,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503743.5808222
+    },
+    {
+      "id": 8809,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503743.7766314
+    },
+    {
+      "id": 8810,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503743.9985127
+    },
+    {
+      "id": 8811,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503769.1483364
+    },
+    {
+      "id": 8812,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503769.2412524
+    },
+    {
+      "id": 8813,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503769.5579543
+    },
+    {
+      "id": 8814,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503796.9014356
+    },
+    {
+      "id": 8815,
+      "kind": "final_report_revision_requested",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503796.995362
+    },
+    {
+      "id": 8816,
+      "kind": "working_context_rebased",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503797.1497786
+    },
+    {
+      "id": 8817,
+      "kind": "coordinator_instruction",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503797.2332454
+    },
+    {
+      "id": 8818,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503797.7289689
+    },
+    {
+      "id": 8819,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503798.371182
+    },
+    {
+      "id": 8820,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503821.0741487
+    },
+    {
+      "id": 8821,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503821.1688032
+    },
+    {
+      "id": 8822,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503821.501969
+    },
+    {
+      "id": 8823,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503853.4849195
+    },
+    {
+      "id": 8824,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503853.5756943
+    },
+    {
+      "id": 8825,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503853.9397337
+    },
+    {
+      "id": 8826,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503854.1780574
+    },
+    {
+      "id": 8827,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503878.9174905
+    },
+    {
+      "id": 8828,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503879.0092869
+    },
+    {
+      "id": 8829,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503879.397055
+    },
+    {
+      "id": 8830,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503983.7513456
+    },
+    {
+      "id": 8831,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503983.8442008
+    },
+    {
+      "id": 8832,
+      "kind": "publication_queued",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503984.1141324
+    },
+    {
+      "id": 8833,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792503984.2683096
+    },
+    {
+      "id": 8834,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503984.5704288
+    },
+    {
+      "id": 8835,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503985.6591105
+    },
+    {
+      "id": 8836,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503985.825883
+    },
+    {
+      "id": 8837,
+      "kind": "publication_verified",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503992.4199443
+    },
+    {
+      "id": 8838,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503995.9544628
+    },
+    {
+      "id": 8839,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503996.120032
+    },
+    {
+      "id": 8840,
+      "kind": "controlled_final_receipt_recovery_test",
+      "actor": "Codex",
+      "task": null,
+      "created": 1792503997.7693326
+    },
+    {
+      "id": 8841,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503998.4184237
+    },
+    {
+      "id": 8842,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503999.0689335
+    },
+    {
+      "id": 8843,
+      "kind": "final_report_recovered",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503999.168625
+    },
+    {
+      "id": 8844,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792503999.2625592
+    }
+  ]
+}

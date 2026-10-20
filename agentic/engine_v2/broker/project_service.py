@@ -2,6 +2,27 @@
 from pathlib import Path
 import re,shlex
 
+def process_snapshot(group, unit, cgroup_root=Path('/sys/fs/cgroup'), proc_root=Path('/proc')):
+    """Read only the selected service cgroup; never expose argv or environment."""
+    if not group.startswith('/') or '..' in Path(group).parts or Path(group).name != unit:
+        return {'available': False, 'reason': 'service_cgroup_unavailable'}
+    directory=cgroup_root/group.lstrip('/')
+    if not directory.is_dir():
+        return {'available':False,'reason':'service_cgroup_unavailable'}
+    try:
+        pids=sorted({int(value) for file in directory.rglob('cgroup.procs') for value in file.read_text().split()})
+    except OSError:
+        return {'available': False, 'reason': 'cgroup_read_failed'}
+    processes=[];raced=[]
+    for pid in pids[:256]:
+        try:
+            status=dict(line.split(':',1) for line in (proc_root/str(pid)/'status').read_text().splitlines() if ':' in line)
+            processes.append({'pid':pid,'ppid':int(status['PPid']), 'name':status['Name'].strip(),
+                              'uid':int(status['Uid'].split()[0]),
+                              'executable':str((proc_root/str(pid)/'exe').readlink())})
+        except (OSError,ValueError,KeyError):raced.append(pid)
+    return {'available':True,'processes':processes,'raced_pids':raced,'total_pids':len(pids),'truncated':len(pids)>256}
+
 def unit_arg(value):
     if not isinstance(value,str) or any(c in value for c in '\x00\n\r'):raise ValueError('Argument de service invalide')
     return '"'+value.replace('\\','\\\\').replace('"','\\"').replace('%','%%').replace('$','$$')+'"'
@@ -47,6 +68,11 @@ def execute(a,cfg,run,sandbox_args):
         result.update(journal_order='newest_first',current_activation_only=current and not history,history_available=True)
         return result
     if action not in ('status','start','stop','restart','enable','disable'):raise ValueError('Action de service invalide')
-    if action=='status':return run(['/usr/bin/systemctl','show',unit,'--property=LoadState,ActiveState,SubState,MainPID,ExecMainStatus,UnitFileState','--no-pager'],30)
+    if action=='status':
+        result=run(['/usr/bin/systemctl','show',unit,'--property=LoadState,ActiveState,SubState,MainPID,ExecMainStatus,UnitFileState,ControlGroup','--no-pager'],30)
+        if result.get('returncode')==0:
+            values=dict(line.split('=',1) for line in result.get('stdout','').splitlines() if '=' in line)
+            result['host_processes']=process_snapshot(values.get('ControlGroup',''),unit)
+        return result
     if not (Path('/etc/systemd/system')/unit).exists():raise ValueError('Installer le service de projet avant de le lancer')
     return run(['/usr/bin/systemctl',action,unit],30)

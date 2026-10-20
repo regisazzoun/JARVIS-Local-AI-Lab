@@ -1,0 +1,131 @@
+{
+  "evidence_id": "daeb89b30f6b4045b4e6f91dcff9c186",
+  "caller": "local-operator",
+  "host_processes": {
+    "available": true,
+    "processes": [
+      {
+        "pid": 2794640,
+        "ppid": 1,
+        "name": "bwrap",
+        "uid": 1000,
+        "executable": "/usr/bin/bwrap"
+      },
+      {
+        "pid": 2794641,
+        "ppid": 2794640,
+        "name": "bwrap",
+        "uid": 1000,
+        "executable": "/usr/bin/bwrap"
+      },
+      {
+        "pid": 2794643,
+        "ppid": 2794641,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794736,
+        "ppid": 2794643,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794738,
+        "ppid": 2794643,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794756,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794758,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794766,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794771,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794776,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794778,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794783,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794791,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794793,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794798,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2794996,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      },
+      {
+        "pid": 2796939,
+        "ppid": 2794738,
+        "name": "python3",
+        "uid": 1000,
+        "executable": "/usr/bin/python3.13"
+      }
+    ],
+    "raced_pids": [],
+    "total_pids": 17,
+    "truncated": false
+  }
+}

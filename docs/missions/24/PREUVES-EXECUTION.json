@@ -1,0 +1,108 @@
+{
+  "mission": "24",
+  "actor": "Codex",
+  "captured_at": "2026-10-20T11:33:20.642205+00:00",
+  "status": "GO_WITH_RESERVATIONS",
+  "broker_reply_received": true,
+  "jarvis_instruction_transmitted": true,
+  "jarvis_actions": {
+    "evidence_file": "PREUVES-JARVIS.json",
+    "model_tool_calls": 72,
+    "broker_correlated_calls": 56
+  },
+  "deployed": true,
+  "restart_performed": true,
+  "persistence_verified": true,
+  "historical_23c_tests": {
+    "passed": 75,
+    "total": 76,
+    "rerun_in_24": false
+  },
+  "historical_livekit_status": "NO-GO",
+  "resume": {
+    "at": "2026-10-20T13:13:14.827821+00:00",
+    "transport_restored": true,
+    "initial_broker_evidence_id": "07a6d878603d4da9bad8d88823b8fedd",
+    "preflight_evidence_id": "0545289360b84f0d9515138fafe68037",
+    "deployed": true,
+    "policy_unchanged": true,
+    "unit_tests": {
+      "passed": 80,
+      "total": 80
+    },
+    "independent_evidence_file": "RECEPTION-CODEX.json",
+    "deployment_manifest": "DEPLOIEMENT.json",
+    "transmission": "TRANSMISSION.json",
+    "jarvis_reception": "received_with_documentary_reservations"
+  },
+  "initial_session_status": "in_progress_transport_blocked",
+  "transport_restored": true,
+  "initial_observations": {
+    "uid": 1000,
+    "gid": 1000,
+    "codex_pid_in_namespace": 1,
+    "codex_ppid": 0,
+    "NoNewPrivs": 1,
+    "Seccomp": 2,
+    "Seccomp_filters": 1,
+    "CapEff": "0000000000000000",
+    "uid_map": "1000 0 1",
+    "gid_map": "1000 0 1",
+    "namespace_inodes": {
+      "net": 4026533078,
+      "mnt": 4026533075,
+      "user": 4026533133,
+      "pid": 4026533077
+    },
+    "apparmor_current": "unconfined",
+    "socket_path": "/run/jarvis-host/bridge.sock",
+    "socket_mode": "0660",
+    "socket_uid_visible": 65534,
+    "socket_gid_visible": 1000,
+    "unix_socket_create": "ok",
+    "unix_connect_errno": 1,
+    "ipv4_socket_create_errno": 1,
+    "ipv6_socket_create_errno": 1,
+    "systemd_transport": "EPERM",
+    "policy_read_errno": 13,
+    "unix_listeners_visible": 0,
+    "host_process_state": "unknown",
+    "launcher_identity": "unknown",
+    "exact_seccomp_rule": "unknown"
+  },
+  "initial_installed_comparison": [
+    {
+      "candidate": "agentic/engine_v2/jarvis/host_client.py",
+      "installed": "/opt/jarvis/conversation/jarvis/host_client.py",
+      "candidate_sha256": "57c1f2a8c5b58369859bbe98eb8b69b11ba3859415e68426e4fa11d25679250b",
+      "installed_sha256": "411db22c1a1ff53e5cad3282a0f3915cf36c2987aea7b0dad0d47b9059301568"
+    },
+    {
+      "candidate": "agentic/engine_v2/broker/host_bridge.py",
+      "installed": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "candidate_sha256": "aa14d6707ee2939f74d7e1417b468ee7feda01e7341b4ec8100a57719b985fb4",
+      "installed_sha256": "88192b8e5bb6d5bbabcaaad4c4a2ceecdb280b4174150348f4382a9b655b01b6"
+    },
+    {
+      "candidate": "agentic/engine_v2/broker/capability_view.py",
+      "installed": "/usr/local/lib/jarvis-host/capability_view.py",
+      "candidate_sha256": "2ae0086376a56fd564c20403ffc718c0061d2d04e6c7ba0b90c190a9fe715f0c",
+      "installed_sha256": null
+    }
+  ],
+  "current_observations_reference": "RECEPTION-CODEX.json",
+  "final_evidence": [
+    "DEPLOIEMENT.json",
+    "CODE-INSTALLE.json",
+    "RECEPTION-CODEX.json",
+    "PREUVES-JARVIS.json",
+    "CONTINUITE.json",
+    "REDEMARRAGE.json",
+    "NOUVELLE-SESSION.json",
+    "VERIFICATION-GITHUB-JARVIS.json",
+    "SYNTHESE-RECEPTION.json"
+  ],
+  "final_engine_state": "completed",
+  "final_recovery_reference": "SYNTHESE-RECEPTION.json",
+  "final_preflight_evidence_id": "710c42d9cc4e42dbbbc301b6441bdbf2"
+}

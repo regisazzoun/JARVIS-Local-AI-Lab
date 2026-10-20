@@ -1,0 +1,91 @@
+{
+  "actor": "Codex",
+  "pr_observations": [
+    {
+      "number": 11,
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/11",
+      "state": "open",
+      "merged": false,
+      "head": "codex/mission-23-agentic-corrections",
+      "head_sha": "eeca8d913f248e59cc7a0e1029e568327b6656a4",
+      "base": "codex/mission-22-agentic-engine-v2"
+    },
+    {
+      "number": 12,
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/12",
+      "state": "open",
+      "merged": false,
+      "head": "jarvis/mission-23-livekit",
+      "head_sha": "859df33a42ed74d7340471242854783e2697afcb",
+      "base": "main"
+    },
+    {
+      "number": 13,
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/13",
+      "state": "open",
+      "merged": false,
+      "head": "codex/mission-23-finalisation-autonomie",
+      "head_sha": "db5ab74ee52f52939df84325d41b8c24bcf71847",
+      "base": "codex/mission-23-agentic-corrections"
+    },
+    {
+      "number": 14,
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/14",
+      "state": "open",
+      "merged": false,
+      "head": "codex/mission-23c-broker-autonomie",
+      "head_sha": "76f60c5bcc41acc55b8db7f829ab523ef0eebc44",
+      "base": "codex/mission-23-finalisation-autonomie"
+    }
+  ],
+  "comparison": {
+    "ref": "76f60c5bcc41acc55b8db7f829ab523ef0eebc44",
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "equal": true,
+        "remote_blob": "2ebb34e35f1e4b4c8b0b4cb8c770d13d1b69f945"
+      },
+      {
+        "path": "ROADMAP.md",
+        "equal": true,
+        "remote_blob": "f218b2c7b29410eac10a338204148ed7e19b8d6e"
+      },
+      {
+        "path": "SUIVI.md",
+        "equal": true,
+        "remote_blob": "d4c4c91ca66ed2ea68ae91f8f8024f73387c6d16"
+      },
+      {
+        "path": "agentic/engine_v2/install.py",
+        "equal": true,
+        "remote_blob": "39e0a47c51e37f43daf4523c28835dfc0fd34c7c"
+      },
+      {
+        "path": "agentic/engine_v2/broker/host_bridge.py",
+        "equal": true,
+        "remote_blob": "b0a02dad6cee55c304bd0a44d6362d98a09eaae3"
+      },
+      {
+        "path": "agentic/engine_v2/broker/capability_view.py",
+        "equal": true,
+        "remote_blob": "b8734bd676d981c29098eba1492764c332ac5429"
+      },
+      {
+        "path": "agentic/engine_v2/broker/preflight23c.py",
+        "equal": true,
+        "remote_blob": "a12ad6808777b39af6b58b41d46930a6bb3d46df"
+      },
+      {
+        "path": "agentic/engine_v2/jarvis/host_client.py",
+        "equal": true,
+        "remote_blob": "36bbdf6f35dc97a4ceb3ea89dbc4e7e79d840fca"
+      },
+      {
+        "path": "agentic/engine_v2/tests/test_broker23c.py",
+        "equal": true,
+        "remote_blob": "d3948b4bc2b7f98860ea60e2fb1560a2a731c4df"
+      }
+    ]
+  }
+}

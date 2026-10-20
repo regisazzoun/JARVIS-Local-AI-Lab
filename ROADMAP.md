@@ -1,3 +1,9 @@
+## Mission24 — rétablissement du broker (décision du20 octobre2026)
+
+✅ GO avec réserves de synthèse/autonomie : [rapport24](docs/missions/24/RAPPORT-FINAL.md), suite explicite de23C. Ancien confinement caractérisé, transport hôte rétabli ; correctifs23C et compléments24 déployés,80 tests réussis. JARVIS a exécuté et publié ses essais réels ; reprise après interruption/redémarrage et nouvelle session vérifiées. Les erreurs du premier rapport JARVIS sont conservées et corrigées par erratum prioritaire ; autonomie guidée, pas sans assistance. Autorisations propriétaire complètes conservées, aucune validation humaine intermédiaire. LiveKit23 reste NO-GO.
+
+**Collision de numérotation :**24 est affecté au rétablissement du broker. Le chantier historique «24 — Mémoire enrichie» reste planifié, avec contenu et historique conservés ; réaffectation ultérieure nécessaire. Ne pas renuméroter les autres missions automatiquement. Les mentions antérieures réservant24 à la mémoire sont historiques.
+
 # Roadmap
 
 ## Mission23C — correction du broker et autonomie des outils

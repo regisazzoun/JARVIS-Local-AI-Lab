@@ -25,3 +25,8 @@ Codex a préparé et testé cinq améliorations ciblées : diagnostic de transpo
 Mission23 : **❌ NO-GO**, interruption vocale non reçue. Les PR11,12,13 restent distinctes, non fusionnées et non modifiées par23C. La vraie24 reste « Mémoire enrichie ». Dell2/JL01/JL02, mémoire, voix, accès et matériel sont préservés.
 
 Les prochains critères sont les opérations réelles de [l'instruction JARVIS](INSTRUCTION-JARVIS.md), puis le contrôle indépendant de Codex. Aucun GO23C ne peut être déduit de cette publication.
+
+
+## Réception ultérieure par mission24
+
+Le constat ci-dessus reste l'instantané23C. La [mission24](../24/RAPPORT-FINAL.md), PR15 dépendante de14, a ensuite rétabli le transport par une session hôte autorisée, déployé les correctifs23C et fait exécuter les essais par JARVIS. Voir ses preuves et réserves de synthèse/autonomie ; le NO-GO LiveKit23 demeure indépendant. Aucun commit ni PR14 effacé ou fusionné.

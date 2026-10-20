@@ -125,6 +125,33 @@ class Missions:
         if body!=confirmed:raise ValueError('ETAT local non confirmé')
         enqueue(self.store,row['id'],None,{**publication,'file':relative},verified_body=body)
 
+    def recover_final_report(self,row):
+        """Recover the crash window after the durable final-tool receipt."""
+        import hashlib
+        from .tools import validate_final_report
+        tasks=self.store.tasks(row['id'])
+        if row.get('report_path') or not tasks or any(t['state']!='validated' for t in tasks):return
+        with self.store.db() as c:
+            revision=c.execute("SELECT coalesce(max(created),0) FROM mission_events WHERE mission=? AND kind='final_report_revision_requested'",(row['id'],)).fetchone()[0]
+            since=max(revision,max(t['updated'] for t in tasks))
+            calls=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND tool='intervention_report' AND state='finished' AND created>=? ORDER BY created DESC",(row['id'],since)).fetchall()
+        for call in calls:
+            receipt=json.loads(call['result'] or '{}')
+            if not receipt.get('ok'):continue
+            report=receipt.get('result',{})
+            expected=self.store.root/'runtime/reports'/row['id']/'RAPPORT-FINAL.md'
+            try:
+                if Path(report.get('path','')).resolve()!=expected.resolve():return
+                body=expected.read_bytes()
+                if hashlib.sha256(body).hexdigest()!=report.get('sha256'):return
+                validate_final_report(body.decode(),json.loads(row['spec']))
+            except (OSError,ValueError,UnicodeError):return
+            with self.store.db() as c:
+                c.execute('UPDATE missions SET report_path=? WHERE id=?',(str(expected),row['id']))
+                self.store.event(row['id'],'final_report_recovered',result={'invocation':call['id'],'path':str(expected),'sha256':report['sha256'],'basis':'durable successful tool receipt and unchanged file; all tasks validated'},connection=c)
+            row['report_path']=str(expected)
+            return
+
     def worker(self):
         while not self.stop.wait(1):
             if not self.execution_core.lock.acquire(blocking=False):
@@ -136,6 +163,7 @@ class Missions:
                 if not row:
                     continue
                 threading.Thread(target=self.heartbeat, args=(row['id'], done), daemon=True).start()
+                self.recover_final_report(row)
                 if row.get('report_path'):
                     with self.store.db() as c:
                         pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]

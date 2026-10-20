@@ -57,4 +57,6 @@ class Broker23C(unittest.TestCase):
             view = registry.specs['capability_status'][4]({})
         self.assertEqual({t['name'] for t in view['tools']}, set(registry.specs))
         self.assertTrue(all(t['availability'] == 'unverified' for t in view['tools']))
+        self.assertEqual(view['catalogue_summary']['tools_count'],len(registry.specs))
+        self.assertEqual(view['catalogue_summary']['capabilities_count'],0)
         self.assertEqual(next(t for t in view['tools'] if t['name'] == 'host_service')['required'], ['service', 'action'])

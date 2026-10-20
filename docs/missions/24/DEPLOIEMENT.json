@@ -1,0 +1,414 @@
+{
+  "timestamp": "20261020T130959Z",
+  "policy_file_sha256": "5c1081080b52e43c2004429a5e8704cc8028610a29daaf22ddbd35893c15a3fa",
+  "modules": [
+    {
+      "source": "broker/host_bridge.py",
+      "target": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "before_sha256": "88192b8e5bb6d5bbabcaaad4c4a2ceecdb280b4174150348f4382a9b655b01b6",
+      "after_sha256": "aa14d6707ee2939f74d7e1417b468ee7feda01e7341b4ec8100a57719b985fb4"
+    },
+    {
+      "source": "broker/capability_view.py",
+      "target": "/usr/local/lib/jarvis-host/capability_view.py",
+      "before_sha256": null,
+      "after_sha256": "2ae0086376a56fd564c20403ffc718c0061d2d04e6c7ba0b90c190a9fe715f0c"
+    },
+    {
+      "source": "jarvis/host_client.py",
+      "target": "/opt/jarvis/conversation/jarvis/host_client.py",
+      "before_sha256": "411db22c1a1ff53e5cad3282a0f3915cf36c2987aea7b0dad0d47b9059301568",
+      "after_sha256": "d80d4a6b99bd8f65da8c92cc35151cd4714567fb2dcab20cba261fc88a100ed2"
+    }
+  ],
+  "missions": {
+    "f0424fb67bcb41a5a9994095324a84fa": {
+      "state": "reported",
+      "tasks": [
+        {
+          "id": "correction",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "diag",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "fix",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "prep",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "prepare",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "report",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "run_error",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "t1",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "t2",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "t3",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "verification",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "verifier",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "verify",
+          "state": "pending",
+          "report_sha256": null
+        }
+      ]
+    },
+    "a79b09eda5ef441bb5a57179516662ef": {
+      "state": "completed",
+      "tasks": [
+        {
+          "id": "t1",
+          "state": "validated",
+          "report_sha256": null
+        },
+        {
+          "id": "t2",
+          "state": "validated",
+          "report_sha256": null
+        },
+        {
+          "id": "t3",
+          "state": "validated",
+          "report_sha256": null
+        }
+      ]
+    },
+    "4d824f2bbc664b5789144f146e845e14": {
+      "state": "incomplete",
+      "tasks": [
+        {
+          "id": "audit",
+          "state": "validated",
+          "report_sha256": null
+        },
+        {
+          "id": "expansion",
+          "state": "pending",
+          "report_sha256": null
+        },
+        {
+          "id": "modeles",
+          "state": "pending",
+          "report_sha256": null
+        }
+      ]
+    },
+    "a5f86bfdbd6c471993be9ecff01b23e2": {
+      "state": "interrupted",
+      "tasks": [
+        {
+          "id": "composant",
+          "state": "pending",
+          "report_sha256": null
+        }
+      ]
+    },
+    "0aa1ab3057b74f10a441bc83980d4761": {
+      "state": "completed",
+      "tasks": [
+        {
+          "id": "correction",
+          "state": "validated",
+          "report_sha256": null
+        }
+      ]
+    },
+    "64c4652077174b65ba6d57ebefc04c96": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "8972fe23abce430286cbfcbde8afc6d9": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "5b4c31ecf1e44fcd8d41b217f19a141b": {
+      "state": "reported",
+      "tasks": []
+    },
+    "129d98a5b0db4d869bcf067bd79a66b2": {
+      "state": "reported",
+      "tasks": []
+    },
+    "f15bc7de6fff4ff3a9aaf6e2823b03eb": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "1bbf1fc30dfa4670ab229233d121b585": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "6217134999864a11985c0c3534b2ba0c": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "18d63ac2fd9a43b9a914babf004dc307": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "c6e2e37187e64e6ab8cdbf84ccc37573": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "41aaef22645440dfa1a5394b51db1a09": {
+      "state": "interrupted",
+      "tasks": []
+    },
+    "310306c2d763431c8b07d3d61a8abbfd": {
+      "state": "completed",
+      "tasks": [
+        {
+          "id": "a",
+          "state": "validated",
+          "report_sha256": "e504a82908f3bd65ac653dd7101a0bcc904f53d7fd17d44a3719b75785b2bdbf"
+        },
+        {
+          "id": "b",
+          "state": "validated",
+          "report_sha256": "300034407fef9b1f6134789812c03cd29696f59068b1cff644aab58a60a58939"
+        },
+        {
+          "id": "c",
+          "state": "validated",
+          "report_sha256": "d35b6481409b7a3cd3d60edeeaa9a237066f3656a025e428a0383a6f01181374"
+        }
+      ]
+    },
+    "e370b0bef74f4deaa390b5c46bfdc299": {
+      "state": "completed",
+      "tasks": [
+        {
+          "id": "01",
+          "state": "validated",
+          "report_sha256": "31b316b8ca78fc9ed1a2172d5337368e5a64fb95a6487607cf4215bf7c88337b"
+        },
+        {
+          "id": "02",
+          "state": "validated",
+          "report_sha256": "f75193128af8c646982b759f326734026f0f87ceca8f7e87a5010d99970d7afa"
+        },
+        {
+          "id": "03",
+          "state": "validated",
+          "report_sha256": "3b3abd957930e823d4ac63d0d1e3df65a53db4f38bb613f45b8fdb421efab1ed"
+        },
+        {
+          "id": "04",
+          "state": "validated",
+          "report_sha256": "308f79ea0eab3d731fa29e9e2b90621076f4a08eab964296ea69a5c1c41e886a"
+        },
+        {
+          "id": "05",
+          "state": "validated",
+          "report_sha256": "6d4d44162fac31f1ab9e66738d2ff5a26bc72cf8d59e00c95d6175384048fbb8"
+        },
+        {
+          "id": "06",
+          "state": "validated",
+          "report_sha256": "68fb7782772cf78eb0a00c6d53d4cd9b5b722c54ba1a1c523bbddc5d898cacd7"
+        },
+        {
+          "id": "07",
+          "state": "validated",
+          "report_sha256": "1556c17184dd1dd011e99ecb197bae6c00abadeed27b798b8c4c926b31238536"
+        }
+      ]
+    },
+    "e0361823e67b44aa855401ce0fa62917": {
+      "state": "completed",
+      "tasks": [
+        {
+          "id": "task1_ecrire_preuve",
+          "state": "validated",
+          "report_sha256": "2932899933969ebf70f79ec1417d1f8cbfb8b9a3fcb57213c658e8e8fe96cc1b"
+        },
+        {
+          "id": "task2_lire_preuve",
+          "state": "validated",
+          "report_sha256": "201062fe6422c654c3974b08cfcd266c5c766365fda6f925263c190c875dfe39"
+        },
+        {
+          "id": "task3_ecrire_rapport",
+          "state": "validated",
+          "report_sha256": "bb83db92c0decc49aaab0e3c0787f9732368cd0ecf9bef822db947a7b39ea12c"
+        },
+        {
+          "id": "task4_publier",
+          "state": "validated",
+          "report_sha256": "bb83db92c0decc49aaab0e3c0787f9732368cd0ecf9bef822db947a7b39ea12c"
+        }
+      ]
+    },
+    "7971ec0311124fb4be9e3125dcb291fd": {
+      "state": "waiting_external",
+      "tasks": [
+        {
+          "id": "t01_analyse_docs",
+          "state": "validated",
+          "report_sha256": "ea2410c369b3aea22e290e51501f51bc759788b97c12e7464750e79882ee446b"
+        },
+        {
+          "id": "t02_etat_labo",
+          "state": "validated",
+          "report_sha256": "d45bfdd2cd711404a119ac8897e07e8b8e5303c10ae45c728e4cc314a195b357"
+        },
+        {
+          "id": "t03_conception_livekit",
+          "state": "validated",
+          "report_sha256": "ec0e2b5f5ad6ac38fd86d6b5d876bf8b9cc81babba2458a59269bbdc7b9fb228"
+        },
+        {
+          "id": "t04_install_livekit_server",
+          "state": "validated",
+          "report_sha256": "e8cc6c6918f7229a2e003bf8240f4aa0f3a247eec1501f67a8b014d3fc98bd35"
+        },
+        {
+          "id": "t05_dev_agent_python",
+          "state": "validated",
+          "report_sha256": "3b746227fd5f8187c8a18aefdecb602ddf073f442df519755406722de495f057"
+        },
+        {
+          "id": "t06_dev_client_web",
+          "state": "validated",
+          "report_sha256": "7ac0843f0886c3d6723c9ef67ed63b77c05679b12fd65fbcc5ed1fdc0e852965"
+        },
+        {
+          "id": "t07_integration_services",
+          "state": "validated",
+          "report_sha256": "4fc142dd57c2c31a9cd001e01472ae10d9bf65fde6336f66f17c12488e157a6c"
+        },
+        {
+          "id": "t08_tests_fonctionnels",
+          "state": "validated",
+          "report_sha256": "c2e1e88e1c1be5b1ec582873d183d410a6840d669ad38c37c9c79e068ac212d6"
+        },
+        {
+          "id": "t09_mesures_latence",
+          "state": "validated",
+          "report_sha256": "95d47da34726e2a46f88a97c0e3aa632068d07474633330d2687ee186c14cb0e"
+        },
+        {
+          "id": "t10_correction_erreurs",
+          "state": "validated",
+          "report_sha256": "180d904e445272813f40190dce7221c08f4e160bca5b1609cc5be4d45c4d69bd"
+        },
+        {
+          "id": "t11_test_tailscale",
+          "state": "validated",
+          "report_sha256": "6da40600e35ac4dd03a453718ce6da4db5a43d295af445c0193a0e6091ec53e6"
+        },
+        {
+          "id": "t12_code_github",
+          "state": "validated",
+          "report_sha256": "db28d98d115822a04ef6a0f5babfc6f9c177e27f74de2d28b3bd65aab4249463"
+        },
+        {
+          "id": "t13_rapport_final",
+          "state": "blocked",
+          "report_sha256": "9d21a3d8f4d9402a11963f4f95a8b3875df487cd5b7e563e7c3a909769b2298d"
+        }
+      ]
+    },
+    "df542051560b44b3851124b09d8319c2": {
+      "state": "completed",
+      "tasks": [
+        {
+          "id": "t01_diag_blocage_t12",
+          "state": "validated",
+          "report_sha256": "8dc99335f76a8db69049c71ae5aee479571d3b13e464a6c315bbcc1bd44e52cd"
+        },
+        {
+          "id": "t02_relever_preuves_evidence",
+          "state": "validated",
+          "report_sha256": "85f8888143dabe1d3fc042a97e905ac2aea6f2c359c00e042b5630f8c1353956"
+        },
+        {
+          "id": "t03_analyser_cause_racine",
+          "state": "validated",
+          "report_sha256": "31fd354d0bf3650624994e2940deef066813645eea1d7a7fd33cd803dbb1fb03"
+        },
+        {
+          "id": "t04_synthesiser_reponse",
+          "state": "validated",
+          "report_sha256": "bdf0fbd26a5e8957069aa9076443df25fa29b338e666b7ed80e011e5e81aee14"
+        }
+      ]
+    }
+  },
+  "counts": {
+    "checkpoints": 3153,
+    "mission_events": 8546,
+    "tool_calls": 2598
+  },
+  "memory_tables": {
+    "schema_version": 3,
+    "conversations": 119,
+    "messages": 190,
+    "messages_fts": 190,
+    "messages_fts_data": 43,
+    "messages_fts_idx": 41,
+    "messages_fts_content": 190,
+    "messages_fts_docsize": 190,
+    "messages_fts_config": 1,
+    "memories": 5,
+    "memories_fts": 5,
+    "memories_fts_data": 9,
+    "memories_fts_idx": 7,
+    "memories_fts_content": 5,
+    "memories_fts_docsize": 5,
+    "memories_fts_config": 1,
+    "audit": 28,
+    "documents": 34,
+    "documents_fts": 34,
+    "documents_fts_data": 33,
+    "documents_fts_idx": 31,
+    "documents_fts_content": 34,
+    "documents_fts_docsize": 34,
+    "documents_fts_config": 1,
+    "tool_audit": 4036,
+    "preferences": 4,
+    "preference_history": 13,
+    "auth_sessions": 2,
+    "mission_messages": 11
+  },
+  "backup": "/var/backups/jarvis/mission24/20261020T130959Z",
+  "policy_unchanged": true
+}

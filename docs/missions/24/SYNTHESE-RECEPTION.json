@@ -1,0 +1,25 @@
+{
+  "execution": "df542051560b44b3851124b09d8319c2",
+  "model_final_invocation": "b70b3f04e38246a598e2a40ad307130d",
+  "model_report_chars": 7453,
+  "model_report_sha256": "7060fb4d61862ee031261b1c2382da9130ec1fd9ac1ca844bd02205af0d78745",
+  "long_report_really_accepted": true,
+  "old_limit": 6000,
+  "new_limit": 16000,
+  "state": "completed",
+  "recovery_event": 8843,
+  "recovery_method": "controlled final-pointer loss then actual conversation restart; restored from unchanged durable model receipt",
+  "tasks_unchanged": true,
+  "inferences_replayed": 0,
+  "before": {
+    "MainPID": "2822525",
+    "ActiveState": "active",
+    "InvocationID": "3d30aebc16224086b82801c926c6a763"
+  },
+  "after": {
+    "MainPID": "2823138",
+    "ActiveState": "active",
+    "InvocationID": "7fd42d47e93e48beac5aa2082976ea40"
+  },
+  "captured_at": 1792503999.5264077
+}
