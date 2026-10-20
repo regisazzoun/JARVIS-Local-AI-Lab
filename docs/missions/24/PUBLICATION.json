@@ -1,95 +1,235 @@
 {
   "actor": "Codex",
-  "jarvis_publication": false,
   "repository": "regisazzoun/JARVIS-Local-AI-Lab",
   "branch": "codex/mission-24-transport-broker",
   "pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/15",
   "base_pr": 14,
   "base_commit": "76f60c5bcc41acc55b8db7f829ab523ef0eebc44",
-  "verified_commit": "9d5625aa601950a49531f226d4a9787e9e85ad69",
-  "method": "existing GitHub connector; no merge",
+  "verified_commit": "727402bb4959bddc9d7874b5f5d453a771a8c00f",
+  "method": "fast-forward Git push; independent GitHub API tree hashes for every changed file except this verification record",
   "verification": {
-    "method": "reread every published file at exact commit and compare full text",
     "passed": true,
     "files": [
       {
         "path": "AGENTS.md",
         "equal": true,
-        "blob": "b51c3ae0ca0e2d24b75ce3331a64ae65b612e486"
+        "remote_blob": "11cef4a6a690c0c8482b11c2d18506d4d7d71d4e"
       },
       {
         "path": "ROADMAP.md",
         "equal": true,
-        "blob": "161e7ecc67120c16cc7549c855e6a73158a129b5"
+        "remote_blob": "8209d3410f0a34ca6b480323a40191ec7abec274"
       },
       {
         "path": "SUIVI.md",
         "equal": true,
-        "blob": "89d97f1b9a82d145e9c0536abc2ec450f19c39f8"
+        "remote_blob": "1e56bb263050ff074dc24d5e2e6492b09572c8a1"
+      },
+      {
+        "path": "agentic/engine_v2/broker/project_service.py",
+        "equal": true,
+        "remote_blob": "4c198fe028086fa9f8c25f64ba1a138fdfc24931"
+      },
+      {
+        "path": "agentic/engine_v2/jarvis/host_client.py",
+        "equal": true,
+        "remote_blob": "6efb3a4e5ad9c9dad9368b0d0e40cc7526bb1185"
+      },
+      {
+        "path": "agentic/engine_v2/jarvis/missions.py",
+        "equal": true,
+        "remote_blob": "689b4372ea334c67adeded7995bfcbb3872071f2"
+      },
+      {
+        "path": "agentic/engine_v2/jarvis/tools.py",
+        "equal": true,
+        "remote_blob": "b125eb901691bc6698451cfec499bf7c9196a703"
+      },
+      {
+        "path": "agentic/engine_v2/tests/test_broker23c.py",
+        "equal": true,
+        "remote_blob": "c675ce92cd9bac363e3b9d78be6b3251eef2795f"
+      },
+      {
+        "path": "agentic/engine_v2/tests/test_final_recovery24.py",
+        "equal": true,
+        "remote_blob": "2cde756b43cc69f902b218a029e5f5ad442bd7f9"
+      },
+      {
+        "path": "agentic/engine_v2/tests/test_service_processes24.py",
+        "equal": true,
+        "remote_blob": "1efcb1cb22995509e89723dd88cbcbad70ce1cdc"
+      },
+      {
+        "path": "agentic/engine_v2/tests/test_tool_error_feedback.py",
+        "equal": true,
+        "remote_blob": "7be0ed77708b1f99dd8f5ca927e35f1c26d725d2"
       },
       {
         "path": "docs/CHARTE_DIRECTIVES_JARVIS.md",
         "equal": true,
-        "blob": "01da538b191bc970d073685d767ed739b0734bf4"
+        "remote_blob": "d2866cde7f28384a1856e0613bec7ac1be98cfad"
       },
       {
-        "path": "docs/missions/CYCLE-23-31.md",
+        "path": "docs/missions/23C/RAPPORT-FINAL.md",
         "equal": true,
-        "blob": "0f826a2251281f22cd53e0831cf188f0b08533e5"
-      },
-      {
-        "path": "docs/missions/24/ORDRE-MISSION.md",
-        "equal": true,
-        "blob": "99e5ea7064560bd672a5ec07f68eb96167ce7e4b"
-      },
-      {
-        "path": "docs/missions/24/DIAGNOSTIC-SOCKETS.md",
-        "equal": true,
-        "blob": "a38bba79264152e68f7b2407edbd087ef2d3e98b"
+        "remote_blob": "87e32988a7f7c940f7bb3288bf2c4d1aaf7ee3e6"
       },
       {
         "path": "docs/missions/24/ARCHITECTURE-TRANSPORT.md",
         "equal": true,
-        "blob": "58fda04e7e84d02cab9a834766e628553c306814"
+        "remote_blob": "b7f220812822a8ebf144e1d6858694f57ee97a4d"
+      },
+      {
+        "path": "docs/missions/24/CODE-INSTALLE.json",
+        "equal": true,
+        "remote_blob": "7174b33f44e0d0698188f524d64f87d3ece3daf9"
+      },
+      {
+        "path": "docs/missions/24/CONTINUITE.json",
+        "equal": true,
+        "remote_blob": "9ba1f7e2bc98b3aef7a8354cafc1341e990bf6c3"
       },
       {
         "path": "docs/missions/24/CORRECTIONS-DEPLOYEES.md",
         "equal": true,
-        "blob": "0010b4cdf168703aa9b3e2d94bb8e8977ef5bce0"
+        "remote_blob": "6c32e99c670d429959776da276b16affe4555153"
       },
       {
-        "path": "docs/missions/24/TESTS-BROKER.md",
+        "path": "docs/missions/24/DEPLOIEMENT.json",
         "equal": true,
-        "blob": "80fd21be1d09eb004acb2c35db90f7f0cfe832ab"
+        "remote_blob": "ad930ee721e4af0b493e85ad1676b52db318608b"
       },
       {
-        "path": "docs/missions/24/TESTS-JARVIS.md",
+        "path": "docs/missions/24/DIAGNOSTIC-SOCKETS.md",
         "equal": true,
-        "blob": "141b2c69ce7f688417df85e6f179ba919f2629f7"
+        "remote_blob": "f9500b7ba6a14a7d18afe0e3fb7048c406e81bab"
+      },
+      {
+        "path": "docs/missions/24/HISTORIQUE-CONSERVE.json",
+        "equal": true,
+        "remote_blob": "436cc3fd117f4f1b3ce747601f9801af92327096"
+      },
+      {
+        "path": "docs/missions/24/JARVIS-CAPACITES.md",
+        "equal": true,
+        "remote_blob": "7cedd743d0533c5563543679b1f0f18e523e607a"
+      },
+      {
+        "path": "docs/missions/24/JARVIS-EXECUTION.md",
+        "equal": true,
+        "remote_blob": "37e6471a9151c7d195d15883c26b01051babd655"
+      },
+      {
+        "path": "docs/missions/24/JARVIS-SYNTHESE.md",
+        "equal": true,
+        "remote_blob": "30a8aebd9e122bc00512a574d3e3bb526d161750"
+      },
+      {
+        "path": "docs/missions/24/NOUVELLE-SESSION.json",
+        "equal": true,
+        "remote_blob": "f3bb2b6d75de554f1e87de0465f504cfd130f29b"
+      },
+      {
+        "path": "docs/missions/24/ORDRE-MISSION.md",
+        "equal": true,
+        "remote_blob": "99e5ea7064560bd672a5ec07f68eb96167ce7e4b"
       },
       {
         "path": "docs/missions/24/PREUVES-EXECUTION.json",
         "equal": true,
-        "blob": "55c8dcea18cad4d40f8e0a9a8f93c025a7e06bd8"
+        "remote_blob": "5a69e9d6a63a4200435a6047c808c4d9560ca30e"
       },
       {
-        "path": "docs/missions/24/TESTS-PERSISTANCE.md",
+        "path": "docs/missions/24/PREUVES-JARVIS.json",
         "equal": true,
-        "blob": "d94bdead74b1b65bc47946e23d6b5cfa75301491"
+        "remote_blob": "9647c7d7dbe5a3df6413784ecbb60db45a9e2f45"
+      },
+      {
+        "path": "docs/missions/24/PROCESSUS-CODEX.json",
+        "equal": true,
+        "remote_blob": "bd69a697af794ee2686a92e0ec234c45fcf4f9fd"
       },
       {
         "path": "docs/missions/24/RAPPORT-FINAL.md",
         "equal": true,
-        "blob": "cd27035a4eaca45e6291e620281711b21367d0a2"
+        "remote_blob": "269f0217930337210e12814238463d8206f91353"
+      },
+      {
+        "path": "docs/missions/24/RECEPTION-CODEX-AVANT-REDEMARRAGE.json",
+        "equal": true,
+        "remote_blob": "df45d7af603d6c8175f55d1589e856325ae0fc46"
+      },
+      {
+        "path": "docs/missions/24/RECEPTION-CODEX.json",
+        "equal": true,
+        "remote_blob": "92d7c55727cb1071df90d384f70c0ceb59018f5a"
+      },
+      {
+        "path": "docs/missions/24/REDEMARRAGE.json",
+        "equal": true,
+        "remote_blob": "68e1c00375b0aee48e3703e45920909f8b88be1c"
       },
       {
         "path": "docs/missions/24/SOURCES-GITHUB.json",
         "equal": true,
-        "blob": "ffa52aa4066aca6df4c9e2cb4232ea4bdb9e84af"
+        "remote_blob": "ffa52aa4066aca6df4c9e2cb4232ea4bdb9e84af"
+      },
+      {
+        "path": "docs/missions/24/SYNTHESE-RECEPTION.json",
+        "equal": true,
+        "remote_blob": "47745c4dd38c8912b0471cc0c88b2a0e00db20cd"
+      },
+      {
+        "path": "docs/missions/24/TESTS-BROKER.md",
+        "equal": true,
+        "remote_blob": "fc02d0a025a563cabca626ad13e99bd98c84fc96"
+      },
+      {
+        "path": "docs/missions/24/TESTS-JARVIS.md",
+        "equal": true,
+        "remote_blob": "fa95984790db8e8dac3a69863cf1dac7da3de065"
+      },
+      {
+        "path": "docs/missions/24/TESTS-PERSISTANCE.md",
+        "equal": true,
+        "remote_blob": "33def405dbb72c705249df848a849e8d2341a614"
+      },
+      {
+        "path": "docs/missions/24/TRANSMISSION.json",
+        "equal": true,
+        "remote_blob": "4002442432ad10ad809f971ca3c50995a3a4d504"
+      },
+      {
+        "path": "docs/missions/24/VERIFICATION-GITHUB-JARVIS.json",
+        "equal": true,
+        "remote_blob": "7ca67f5ba439cc6e5a7ae58eea745d9f30f6a895"
+      },
+      {
+        "path": "docs/missions/CYCLE-23-31.md",
+        "equal": true,
+        "remote_blob": "708baa00d4f18d66a4c67d4e751af77b5f1f2f75"
       }
     ]
   },
-  "deployment": false,
-  "transport_restored": false,
-  "jarvis_reception": false
+  "previous_publication": {
+    "verified_commit": "9d5625aa601950a49531f226d4a9787e9e85ad69",
+    "transport_restored": false,
+    "jarvis_reception": false
+  },
+  "jarvis_publication": {
+    "native_model_commit": "36015bfc93f2e34ed9be040240d09b21f41d5116",
+    "synthesis_outbox_commit": "57fad45c72d78c9922104e337bc6bddcda8f65e6",
+    "independently_verified": true
+  },
+  "deployment": true,
+  "transport_restored": true,
+  "jarvis_reception": true,
+  "reception_verdict": "GO_WITH_RESERVATIONS",
+  "unit_tests": {
+    "passed": 80,
+    "total": 80
+  },
+  "final_receipt_recovery": "SYNTHESE-RECEPTION.json",
+  "no_merge": true
 }
