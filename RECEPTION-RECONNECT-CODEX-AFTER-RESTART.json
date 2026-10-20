@@ -1,0 +1,13 @@
+{
+  "check": "livekit_client_disconnect_reconnect_agent_redispatch",
+  "verified": true,
+  "physical_microphone": false,
+  "room": "reconnect23-21e2ac2db0",
+  "first_agent_join_s": 2.542163374950178,
+  "agent_left_s": 23.011325148981996,
+  "agent_rejoined_s": 25.556686369003728,
+  "participant_after_reconnect": [
+    "reconnect-verifier-2",
+    "agent-AJ_uhfCXyC8UB44"
+  ]
+}

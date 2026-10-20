@@ -111,6 +111,21 @@
       "detailed_evidence_sha256": "33c76bcdf56b9b9f9ac2b1068cb126b1234217bd6f6d31fb8ddc0bcf0a7fca33",
       "piper_event_loop_block_after_prewarm": false,
       "qwen_model": "qwen3.5:27b-q4_K_M on Ollama Dell1"
+    },
+    "disconnect_reconnect_after_livekit_server_restart": {
+      "check": "livekit_client_disconnect_reconnect_agent_redispatch",
+      "verified": true,
+      "physical_microphone": false,
+      "room": "reconnect23-21e2ac2db0",
+      "first_agent_join_s": 2.542163374950178,
+      "agent_left_s": 23.011325148981996,
+      "agent_rejoined_s": 25.556686369003728,
+      "participant_after_reconnect": [
+        "reconnect-verifier-2",
+        "agent-AJ_uhfCXyC8UB44"
+      ],
+      "evidence_file": "RECEPTION-RECONNECT-CODEX-AFTER-RESTART.json",
+      "source_sha256": "318a0864f2427570bd81a9874f08d570a62e5d0f532bbd0ba9cab449c8f80f5d"
     }
   },
   "component_measurements": {
@@ -140,8 +155,8 @@
     "piper_prewarm_threaded": true
   },
   "service_state": {
-    "jarvis-mission23-livekit-server.service": "active/enabled",
-    "jarvis-mission23-livekit-agent.service": "active/enabled after Piper warmup and LLM timeout changes"
+    "jarvis-mission23-livekit-server.service": "active/enabled after explicit restart; agent re-registered, reconnect integration passed",
+    "jarvis-mission23-livekit-agent.service": "active/enabled; reconnected after LiveKit server restart"
   },
   "pending": {
     "conversational_interruption": true,
