@@ -24,6 +24,42 @@ def model_observation(value, limit=8000):
     return result
 
 
+def compact_observations(briefs, latest_result, available):
+    """Keep the last actual structured tool result, not just an empty batch summary."""
+    rows=[dict(r) for r in briefs]
+    if not rows:return rows
+    rows[-1]['latest_tool_result']=model_observation(latest_result)
+    while len(encoded(rows))>available and len(rows)>1:rows.pop(0)
+    def leaves(value):
+        if isinstance(value,list):return sum(leaves(x) for x in value)
+        if not isinstance(value,dict):return 0
+        return sum(1 if k in ('stdout','content') and isinstance(v,str) else leaves(v) for k,v in value.items())
+    limit=max(128,(available-len(encoded(briefs[-1]))-1500)//max(1,leaves(latest_result)))
+    while len(encoded(rows))>available:
+        rows[-1]['latest_tool_result']=model_observation(latest_result,limit)
+        if limit<=128:break
+        limit=max(128,limit//2)
+    if len(encoded(rows))>available:
+        text=encoded(latest_result);room=max(128,available-len(encoded(briefs[-1]))-500)
+        rows[-1]['latest_tool_result']={'explicit_excerpt':text[:room//2]+' [full result in mission_evidence] '+text[-room//2:],'full_chars':len(text)}
+    return rows
+
+
+def native_tail(messages, available):
+    """Keep the most recent assistant/tool exchange in its native protocol."""
+    start=next((i for i in range(len(messages)-1,-1,-1) if messages[i].get('role')=='assistant' and messages[i].get('tool_calls')),None)
+    if start is None:return []
+    tail=[dict(m) for m in messages[start:]]
+    limit=8000
+    while len(encoded(tail))>available and limit>=128:
+        limit//=2
+        for message in tail:
+            if message.get('role')=='tool':
+                try:message['content']=encoded(model_observation(json.loads(message['content']),limit))
+                except (ValueError,TypeError):pass
+    return tail if len(encoded(tail))<=available else []
+
+
 def dependency_state(observations, since=0):
     """A requested recheck makes earlier blockers historical, never successful."""
     dependencies={}
@@ -35,6 +71,19 @@ def dependency_state(observations, since=0):
             if isinstance(dependency,dict) and dependency.get('id'):dependencies[dependency['id']]={**dependency,'evidence_id':observation['id']}
         except (ValueError,TypeError):pass
     return [d for d in dependencies.values() if not d.get('resolved')]
+
+
+def debugging_state(observations):
+    """Pin actual checks and writes across compaction; never invent a fix or success."""
+    commands={};files={}
+    for o in observations:
+        args=o.get('arguments',{});result=o.get('result') or {};value=result.get('result',{})
+        if o['tool']=='host_exec':
+            command=args.get('command','');commands[command]={'invocation':o['id'],'created':o['created'],'command':command[:600],'ok':result.get('ok'),'returncode':value.get('returncode'),'diagnostic':(value.get('stdout','')+'\n'+value.get('stderr',''))[-900:]}
+        if o['tool']=='host_write_file' and result.get('ok'):
+            files[args.get('path','')]={'path':args.get('path'),'created':o['created'],'sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),'invocation':o['id']}
+    checks=sorted(commands.values(),key=lambda x:x['created'])
+    return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-2:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-2:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds.'}
 
 
 class DurableCycle:
@@ -62,7 +111,7 @@ class DurableCycle:
 Commence par mission_plan si aucun plan n'existe. Respecte les dépendances et travaille sur la tâche prête indiquée. Consulte host_policy pour connaître les capacités, sans le répéter inutilement.
 Pour les lectures indépendantes, mission_read_batch permet des appels réels en parallèle. Avant de modifier, observe. Après modification, vérifie indépendamment avec un nouvel appel d'outil. Ne confonds jamais tentative, succès d'une commande et réception fonctionnelle.
 Écris un rapport par tâche dans un chemin autorisé avec host_write_file puis mission_task_complete avec id, report_path et evidence_id de la vérification réelle. Le rapport doit exposer les limites. Une lecture de politique seule ne valide pas une tâche.
-Les résultats et références sont persistants. mission_evidence permet de relire les résultats complets. Ne refais pas les tâches validées. Une opération started sans résultat peut avoir eu lieu : réobserve avant toute répétition.
+Le debugging_checkpoint conserve les derniers tests et empreintes des fichiers de la tâche. Réutilise les signatures Python réellement observées et la documentation de la version installée ; ne remplace pas un adaptateur par une autre API supposée. Après modification, relance le contrôle qui échouait. Un pip show réussi ou une lecture de code ne constitue pas un test fonctionnel. mission_read_batch attend une liste JSON structurée, pas une chaîne JSON ; n’y mets pas host_exec. Les résultats et références sont persistants. mission_evidence permet de relire les résultats complets. Ne refais pas les tâches validées. Une opération started sans résultat peut avoir eu lieu : réobserve avant toute répétition.
 En cas d'erreur, analyse et change de stratégie. Ne répète pas les mêmes arguments en échec. Quand toutes les tâches sont validées, écris intervention_report avec la synthèse finale factuelle et les références. N'annonce aucune publication sans vérification distante.
 Les exigences déjà satisfaites et leurs identifiants sont indiqués dans active_task_contract_status. Réutilise ces preuves ; si le rapport est écrit et relu, valide la tâche au lieu de recommencer les mêmes collectes. Une fin de cycle n'est pas une fin de mission : conserve mission_note pour transmettre objectifs, observations et prochaine action. Ne demande pas au propriétaire de relancer.
 Si observed_external_dependencies contient une dépendance non résolue (identité de compte ou clé d’enrôlement absente), ne répète pas ses contrôles ni installations sans changement externe. Termine les autres publications possibles, écris un rapport partiel précis puis appelle mission_block avec sa preuve réelle. Cela ne valide ni la tâche ni la mission ; ne cherche pas à obtenir un succès artificiel pour satisfaire le contrat.'''
@@ -83,7 +132,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS avec le modèle '+mission['model']+', pas par JARVIS-engine. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,
-               'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
+               'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
         ledger=[brief(o) for o in observations[-16:]]
         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]
         with store.db() as c:
@@ -115,10 +164,18 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
-                latest=[brief(o) for o in store.observations(ident)[-16:]]
+                current_observations=store.observations(ident)[-16:]
                 available=max(2000,context_chars-len(encoded(base))-1000)
-                while len(encoded(latest))>available and len(latest)>1:latest.pop(0)
-                messages=base+[{'role':'user','content':'Checkpoint réel, suite à poursuivre : '+encoded(latest)}]
+                latest=compact_observations([brief(o) for o in current_observations],(current_observations[-1].get('result') or {}) if current_observations else {},available)
+                store.event(ident,'context_compacted',task_id,'JARVIS-engine',result={'previous_chars':len(encoded(messages)),'budget_chars':context_chars,'base_chars':len(encoded(base)),'checkpoint_chars':len(encoded(latest)),'latest_invocation':current_observations[-1]['id'] if current_observations else None,'latest_structured_result_retained':True})
+                tail=native_tail(messages,available)
+                if tail:
+                    old=[brief(o) for o in current_observations[:-1]]
+                    room=available-len(encoded(tail))-500
+                    while old and len(encoded(old))>room:old.pop(0)
+                    messages=base+([{'role':'user','content':'Historique résumé ; le dernier échange réel est conservé ci-dessous : '+encoded(old)}] if old else [])+tail
+                else:
+                    messages=base+[{'role':'user','content':'Checkpoint réel, suite à poursuivre : '+encoded(latest)}]
             schemas=core.tools.schemas()
             current_tasks=store.tasks(ident)
             if not current_tasks:
@@ -170,7 +227,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                     result = core.tools.execute(name, args)
                 store.finish_call(token, result, time.monotonic()-started)
                 result={**result,'invocation_id':token}
-                effect=name=='host_github' and args.get('action')=='download' and result.get('result',{}).get('changed',True) or name in ('host_write_file','host_delete_file','host_exec') or name=='host_package' and args.get('action') in ('install','configure') or name=='host_service' and args.get('action') not in ('status','is-active','is-enabled') or name in ('host_remote','host_ansible') and (args.get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or args.get('action')=='service' and args.get('service_action') not in ('status','is-active','is-enabled'))
+                effect=name=='host_github' and args.get('action')=='download' and result.get('result',{}).get('changed',True) or name in ('host_write_file','host_delete_file','host_exec') or name=='host_project_service' and args.get('action') not in ('status','logs') or name=='host_package' and args.get('action') in ('install','configure') or name=='host_service' and args.get('action') not in ('status','is-active','is-enabled') or name in ('host_remote','host_ansible') and (args.get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or args.get('action')=='service' and args.get('service_action') not in ('status','is-active','is-enabled'))
                 if result.get('ok') and effect:repeats.clear() # A new state requires fresh observations.
                 messages.append({'role': 'tool', 'tool_name': name, 'content': encoded(model_observation(result))})
                 if name == 'intervention_report' and result.get('ok'):

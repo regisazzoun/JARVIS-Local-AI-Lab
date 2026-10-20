@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-19T17:42:06+0200",
+  "same_mission_id": "7971ec0311124fb4be9e3125dcb291fd",
+  "original_goal_unchanged": true,
+  "original_four_validations_unchanged": true,
+  "original_four": [
+    {
+      "id": "t01_analyse_docs",
+      "state": "validated",
+      "report_sha256": "ea2410c369b3aea22e290e51501f51bc759788b97c12e7464750e79882ee446b"
+    },
+    {
+      "id": "t02_etat_labo",
+      "state": "validated",
+      "report_sha256": "d45bfdd2cd711404a119ac8897e07e8b8e5303c10ae45c728e4cc314a195b357"
+    },
+    {
+      "id": "t03_conception_livekit",
+      "state": "validated",
+      "report_sha256": "ec0e2b5f5ad6ac38fd86d6b5d876bf8b9cc81babba2458a59269bbdc7b9fb228"
+    },
+    {
+      "id": "t04_install_livekit_server",
+      "state": "validated",
+      "report_sha256": "e8cc6c6918f7229a2e003bf8240f4aa0f3a247eec1501f67a8b014d3fc98bd35"
+    }
+  ],
+  "original_python_files_still_present": true,
+  "current_python_sha256": {
+    "livekit-agent/config.py": "06fd6b5f22b2d919d25b64ee1919646eabb4b4e54e65e6de12f4cec28e2f3400",
+    "livekit-agent/stt_adapter.py": "ad41d91a0b979d913b44812e1b8a91c98b66d9f2a15d861c9eacd3286edc4fb9",
+    "livekit-agent/tts_adapter.py": "38b2bec0b2f8fe5f37930f073896d162b10f85c7431fa417e76ebff239692bfb",
+    "livekit-agent/agent.py": "af69ebfd002f4efaeaf058d88a744d34f8b76ac862139d7b5d49adac6655c5f1",
+    "livekit-agent/llm_client.py": "ff36652bb436aa791476d639d56d64da59efe758e5cefdf558f2862b01ffd082",
+    "livekit-agent/llm_adapter.py": "59d64a04ce8aea16ac460a69e8c760a9e33a210f7d2e1a91aedf6109be7b5009"
+  },
+  "application_development": "JARVIS; Codex only added CHECKPOINT-INFRA-CODEX.md outside application directory",
+  "state": {
+    "state": "running",
+    "attempts": 45,
+    "active_task": "t05_dev_agent_python"
+  },
+  "contract_05_modified_explicitly": "False-positive selftest detection; first four contracts/receipts not reset"
+}

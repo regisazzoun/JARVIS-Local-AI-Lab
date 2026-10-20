@@ -1,0 +1,54 @@
+{
+  "https://docs.livekit.io/agents/logic/sessions/": {
+    "content_chars": 9000,
+    "truncated": true
+  },
+  "https://docs.livekit.io/reference/python/livekit/agents/tts/index.html": {
+    "content_chars": 9000,
+    "truncated": true
+  },
+  "install": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "unit": "jarvis-mission23-infra-probe.service",
+      "changed": true,
+      "installed": true,
+      "started": false,
+      "scope": "same host_exec confinement, no secrets"
+    },
+    "caller": "local-operator",
+    "evidence_id": "a2a50ef665a542e7868b85ff4d5b7999",
+    "elapsed_s": 0.269
+  },
+  "start": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.016,
+      "stdout_truncated": false,
+      "stderr_truncated": false
+    },
+    "caller": "local-operator",
+    "evidence_id": "427fe766c3f044f48b701d0c29c2001c",
+    "elapsed_s": 0.016
+  },
+  "status": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "MainPID=690354\nExecMainStatus=0\nLoadState=loaded\nActiveState=active\nSubState=running\n",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.017,
+      "stdout_truncated": false,
+      "stderr_truncated": false
+    },
+    "caller": "local-operator",
+    "evidence_id": "f98815a92904444b95558461349eca05",
+    "elapsed_s": 0.017
+  }
+}

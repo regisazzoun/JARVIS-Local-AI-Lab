@@ -1,0 +1,2276 @@
+{
+  "collected_at": "2026-10-19T18:00:53+0200",
+  "mission": {
+    "id": "7971ec0311124fb4be9e3125dcb291fd",
+    "state": "running",
+    "attempts": 51,
+    "active_task": "t05_dev_agent_python",
+    "updated": 1792425652.3164058
+  },
+  "window_start_event": 3953,
+  "tasks": [
+    {
+      "id": "t01_analyse_docs",
+      "title": "Analyser les documents GitHub de référence pour comprendre le contexte et l'architecture",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t01_analyse_docs_rapport.md",
+      "report_sha256": "ea2410c369b3aea22e290e51501f51bc759788b97c12e7464750e79882ee446b"
+    },
+    {
+      "id": "t02_etat_labo",
+      "title": "Évaluer l'état actuel du laboratoire : services, ressources, interfaces existantes",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t02_etat_labo_rapport.md",
+      "report_sha256": "d45bfdd2cd711404a119ac8897e07e8b8e5303c10ae45c728e4cc314a195b357"
+    },
+    {
+      "id": "t03_conception_livekit",
+      "title": "Concevoir l'architecture LiveKit avec les composants disponibles (Whisper, Piper, Ollama)",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t03_conception_livekit_rapport.md",
+      "report_sha256": "ec0e2b5f5ad6ac38fd86d6b5d876bf8b9cc81babba2458a59269bbdc7b9fb228"
+    },
+    {
+      "id": "t04_install_livekit_server",
+      "title": "Installer et configurer LiveKit Server sur le Mac mini",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission23/t04_install_livekit_server_rapport.md",
+      "report_sha256": "e8cc6c6918f7229a2e003bf8240f4aa0f3a247eec1501f67a8b014d3fc98bd35"
+    },
+    {
+      "id": "t05_dev_agent_python",
+      "title": "Développer l'agent Python LiveKit avec adaptateurs STT/TTS/LLM",
+      "state": "running",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t06_dev_client_web",
+      "title": "Développer un client Web de démonstration pour tester le prototype",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t07_integration_services",
+      "title": "Intégrer les services : démarrage, gestion sessions, journalisation",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t08_tests_fonctionnels",
+      "title": "Exécuter les tests fonctionnels : connexion, audio, reconnaissance, synthèse, interruption",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t09_mesures_latence",
+      "title": "Mesurer les latences et l'utilisation des ressources (CPU/GPU)",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t10_correction_erreurs",
+      "title": "Corriger les erreurs rencontrées et réitérer les tests",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t11_test_tailscale",
+      "title": "Tester l'accès distant via Tailscale depuis le Mac",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t12_code_github",
+      "title": "Publier le code, configs et documentation sur une branche GitHub dédiée",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    },
+    {
+      "id": "t13_rapport_final",
+      "title": "Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie",
+      "state": "pending",
+      "artifact": null,
+      "report_sha256": null
+    }
+  ],
+  "validated": 4,
+  "total": 13,
+  "progress_percent": 31,
+  "tool_results": {
+    "success": 83,
+    "failure": 14
+  },
+  "tool_receipts": [
+    {
+      "event": 3956,
+      "invocation": "57149480aaa64a31a1c6c6d6b5d00d7f",
+      "actor": "JARVIS",
+      "tool": "jarvis_services",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424165.9810069,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3959,
+      "invocation": "9dafa45a47f248fe96b11cc5a7d76de3",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424171.9822388,
+      "command_sha256": "e4c6198b02906035f7adf186b469be5319823e19004b6b66852366cc2a10a810",
+      "returncode": 0,
+      "broker_evidence": "a949d67c76b649bba5b99d4fff26c55d",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3962,
+      "invocation": "4d694e044d0d4c67b212b5e1b3ef5725",
+      "actor": "JARVIS",
+      "tool": "jarvis_services",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424206.156629,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3965,
+      "invocation": "af88cc3e0d4a454db133eb930398a161",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424241.4401543,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "39d51479e27744d1817107e28312aefb",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 3969,
+      "invocation": "e973e37bb6e74f298dbf1724116ca46c",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424266.667299,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "74fe5803c1ef4fa29504365a8ed758e4",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 3972,
+      "invocation": "426ee7c0dfb8490fa4fe2a7ad6dd212d",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": false,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424301.4934506,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3979,
+      "invocation": "c76807b5ab54491789c1cb20c4a18886",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792424336.2002778,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "e8c3f746adfa48b897eaa94f9525c5a5",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3980,
+      "invocation": "e67389f1f46946968856ecc757fb4aa2",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py",
+      "created": 1792424336.4247844,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "c9ccc97775dd435ba1420ec670405d7a",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3981,
+      "invocation": "2a4cfced8b004f27ba1ba158edc7cb26",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792424336.5389555,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "717e6dce77914dfda9c20de5b5e40259",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3982,
+      "invocation": "850bf7a52267462c95a5e3f0afb20c7a",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424336.7137918,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "7c21feb11d71491ba4d83e8ff87e0d0b",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 3983,
+      "invocation": "29455665f36141a6a205be726131722a",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424336.8721154,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3990,
+      "invocation": "ddd76a73d26545adb34e248a0d12f452",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424367.6861987,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "2a7ad5c0f0794b07b547c6bfb0606f13",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 3991,
+      "invocation": "c13bd7f1ca474ac8852bbd5b46e3402d",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792424367.8847098,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "f5facbef4f8c4afba2f301bf36525954",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3992,
+      "invocation": "8b43d87cf043496e987ddd0bacf6a2d7",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/config.yaml",
+      "created": 1792424368.0715327,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "6b0784ec1dd64894beb96f453ea56ac3",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3993,
+      "invocation": "f09be4b6339c4ba882b20cc2683588a1",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792424368.236271,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "ee21795804d94f29acf14c3c343eb340",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 3994,
+      "invocation": "bd1079d2ab164750890d30b41dd1d2e3",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424368.3877108,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4001,
+      "invocation": "8b066de6805d47df96ba984aa90ea654",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792424396.3581767,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "050797b690e34d39ba9b006cbb49b726",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4002,
+      "invocation": "3999231b944e4ae7bc64917c48e9ef70",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792424396.6194358,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "c57d47288d984565850b4f204be1aa03",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4003,
+      "invocation": "4dfdc7296e3c4302ac4346a34e0bc525",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py",
+      "created": 1792424396.8269062,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "0d825b750b23443d8060380984cf7236",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4004,
+      "invocation": "d77fc31bb6504a12a0d1210d60cab19b",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424396.994102,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "6b1e896de3fe491f8ffdc7f5372e66af",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4005,
+      "invocation": "b79cef13fade4c4f8d42d34473d48b04",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424397.1760697,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4011,
+      "invocation": "08a3f11240734a7a905560343d76b6bf",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424430.5164063,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "38a5443bb5fb4f299dddc88b286617f7",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4012,
+      "invocation": "a924a2cf6e6e4d07891c5da729baff02",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/requirements.txt",
+      "created": 1792424430.7890563,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "0ccf2862564346d8a7e0ff1cabfd8e47",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4013,
+      "invocation": "b6b9ee8215bb433d8651557ccd2a6535",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/config.yaml",
+      "created": 1792424430.9121218,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "359a6219b2044563ac7a55b5f7f33240",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4014,
+      "invocation": "3431ca87890b4204913cca79d19fa3f3",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424431.050191,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4024,
+      "invocation": "8fc9f4b3036f444e9d87227c888c4695",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py",
+      "created": 1792424465.7539427,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "1471cf3fc6b84f419c6eae27a1d25328",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4025,
+      "invocation": "96e7dc2a4d4a4e68a921322ed31a61ad",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792424466.002701,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "6d58fa084bb84fd99529dfae1da3a204",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4026,
+      "invocation": "9cf8e222f2e24e59b7d0d26331f9e594",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792424466.155716,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "3f700f462090418ba5a72146c396095b",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4027,
+      "invocation": "81d3b3c5a4f6471a82c4aa898d97c5d8",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424466.2779434,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "5c8e9f50363d4505980ce90174097299",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4028,
+      "invocation": "b884e76a23fa4ba6b2b2102150ea3faa",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424466.438026,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4037,
+      "invocation": "63b2a9b3af2a43598855062953be8f02",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424505.0074747,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "a30d349d93ef418d8464a5792428c48d",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4038,
+      "invocation": "59501965a5a34d57a02ace8a65613a7d",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792424505.2115798,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "3737e15f4e0545a8bc83f334aec7e30c",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4039,
+      "invocation": "34e561d79d9f4970b4391798c919518e",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792424505.462469,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "b939a61c4995443e9fb6ebfacbcab543",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4040,
+      "invocation": "296b8f06c9ad4d769d7d2042731b2ac8",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/config.py",
+      "created": 1792424505.6607783,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "418e5aedae9048c98eecd18f4dbf2c2d",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4041,
+      "invocation": "4e40613a60cd4e28ba952a00561c9b54",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py",
+      "created": 1792424505.790386,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "6f26778bcce4492abecfa1498394444d",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4042,
+      "invocation": "12371fafe2544787822c526019753f01",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424505.9513402,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4049,
+      "invocation": "85bcb37a6f0249dbbd5f4e7614a971d1",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424535.1883268,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "8a8b4fa715ae4e1d84a1d1b15039a31d",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4050,
+      "invocation": "fca75e74008d455cb4cb773ba5375fb4",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792424535.426356,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "bfb5778fbfb4448a80e63939c441297a",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4051,
+      "invocation": "8e7eb37afedb4a0ca7273a101401feac",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792424535.6129503,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "2104fd4f40fe4937b65893e8c8f5912a",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4052,
+      "invocation": "c6949e91258746ebb41234cb145c63bf",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424535.7888463,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4056,
+      "invocation": "01f89283014a473f84d036f36c6d0425",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424560.9791508,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "46adb136d0aa4144af16b3b41030840a",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4060,
+      "invocation": "9c577e15ef5e49d0920761afaf988777",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424588.9640508,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "6cd1f2afc05c41eba79500ee47b8b61f",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4064,
+      "invocation": "e24ef37694da49b9bdc76f861010a65a",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": false,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792424617.1182194,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4070,
+      "invocation": "a47c2fa23db3435897993f9ccb8d01c0",
+      "actor": "JARVIS",
+      "tool": "web_search",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424669.1838152,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4073,
+      "invocation": "a28b514949ed4108b6c7c6a680b5a972",
+      "actor": "JARVIS",
+      "tool": "web_fetch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424672.2424316,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4076,
+      "invocation": "57de199c2e0b44d2b2e1d81b5dc4c042",
+      "actor": "JARVIS",
+      "tool": "host_github",
+      "ok": false,
+      "action": "file",
+      "path": "agents/src/livekit/agents/llm.py",
+      "created": 1792424678.2348218,
+      "command_sha256": null,
+      "returncode": 1,
+      "broker_evidence": "94c4a53e61bb44aabb7c4146c15d9848",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4079,
+      "invocation": "9a75275bb5ad4d93a3e952bfaa6db895",
+      "actor": "JARVIS",
+      "tool": "web_search",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424682.0757186,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4085,
+      "invocation": "930509c529f748b2aab18f1a566ee75e",
+      "actor": "JARVIS",
+      "tool": "web_fetch",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424704.188717,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4087,
+      "invocation": "5ffcdbfcf50044668d5ffdf588bc1160",
+      "actor": "JARVIS",
+      "tool": "host_github",
+      "ok": false,
+      "action": "file",
+      "path": "README.md",
+      "created": 1792424704.59877,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": "a9bf41357581438abc447abbb3c954c2",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4090,
+      "invocation": "7600a450f3ea43558aa4ed92bafb4e1a",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424730.589444,
+      "command_sha256": "ffb40e1433f9f228c43b7ee9b8b1627107e9f8385ffc79b2a07e4ff3040e071e",
+      "returncode": 0,
+      "broker_evidence": "853e2f0c4ad64890996b8c177028ea8a",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4093,
+      "invocation": "c2481f247c71404f92252e5730e81bc6",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/test_llm_stream.py",
+      "created": 1792424791.3300917,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "04f5b6837c794aaca5c0927c12b91c8f",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4097,
+      "invocation": "4012070d64434e04a3bdc86f4b463114",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792424815.5049374,
+      "command_sha256": "3337bf122cb6696e99a0ab53ccf687cd00fd6405835362ee2c79d95c5f18b516",
+      "returncode": 1,
+      "broker_evidence": "a2a36a38ae0842228c9b99c6a36e5e62",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4100,
+      "invocation": "347811e0361a4c3988a24f7b30350e74",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424822.1140122,
+      "command_sha256": "27e658cd9184eb20942b26d31b30b7f1f8175778e51d3419513ea20d3d9d677a",
+      "returncode": 0,
+      "broker_evidence": "5895abd5dc3d45429d41e7f0b7968630",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4103,
+      "invocation": "511c38011c224dfc9a7110ba167c3059",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/test_llm_stream.py",
+      "created": 1792424890.5447938,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "01a066490eb7411293c44690de897788",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4107,
+      "invocation": "0b433bf382c042eb95142b13da565766",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792424915.162082,
+      "command_sha256": "3337bf122cb6696e99a0ab53ccf687cd00fd6405835362ee2c79d95c5f18b516",
+      "returncode": 1,
+      "broker_evidence": "ea474e3b502c48e5a1041007f586f665",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4112,
+      "invocation": "1ba8dc1bbded470aad4a2bfe6ddf69c2",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424924.774777,
+      "command_sha256": "4c4d86c1db2ac568b70ca7f52c08db230653a83cc23bf3a76aa5832101bc41fa",
+      "returncode": 0,
+      "broker_evidence": "baba883bce4d4f49b39ac2cfb47c9517",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4117,
+      "invocation": "2537ed673e1c496bbfe182f8869435aa",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792424959.1926727,
+      "command_sha256": "9b11b044dc4861b11962f1b140d8c73d50f96cff2df6ee2221b3a5178b9c0e85",
+      "returncode": 1,
+      "broker_evidence": "e6c4c62b3a704f86a75a44e3342e4f36",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4121,
+      "invocation": "e1cf7b9742384669b3cf71898742acd6",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792424984.827732,
+      "command_sha256": "6aaa9a5bf56d3e468065af71e6c0441cf15584c75d1f9f56a5f7015ee545d2af",
+      "returncode": 0,
+      "broker_evidence": "9acc9f386a6b4c25a4ba44f273c92f5b",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4124,
+      "invocation": "e4f4604274b34e5e9d0f15e83c1a7c7a",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792424993.944141,
+      "command_sha256": "5eee603a828eedb4994ea5a64daad1dffdc2d055b54cfda9152ba401ec9bdee8",
+      "returncode": 1,
+      "broker_evidence": "d99625b7d9984f48ad91aef8069c75fc",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4127,
+      "invocation": "2f0e3056813041e8bd47d054e7d64211",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792425002.3131664,
+      "command_sha256": "3c363f2aebd066af3cf59ab6898377c1392053402527131a35bcc9b7a39a7d3f",
+      "returncode": 1,
+      "broker_evidence": "4936ea63dc654664b4acfdd54d2b0e2e",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4130,
+      "invocation": "e2b2391634754e358ba75ceb9bbeca0c",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425011.0067976,
+      "command_sha256": "fd812eaaa1c1c6aee4043b1b797b9737319d07734ab132b77bf4adb378509736",
+      "returncode": 0,
+      "broker_evidence": "3a7be3c28973443580c1d59228345a74",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4133,
+      "invocation": "21d2074826e449fd93efbdafcc05cf8c",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792425019.839461,
+      "command_sha256": "4a725eecb93f3603fc9bca24711230e480c09e8d055f087ad99fe1144279bdb8",
+      "returncode": 1,
+      "broker_evidence": "cd976f6fcacb431dbef94506b970dac0",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4136,
+      "invocation": "a9505f53b6744ed4bd1fb420f06cf353",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425028.6695154,
+      "command_sha256": "bdcf74c367a85306511cc5b6c09ad91442462c14c142f50f5f9c2429b75a78a5",
+      "returncode": 0,
+      "broker_evidence": "f7f677dd1a644bcaa0d0171ba6fcb9ab",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4139,
+      "invocation": "f79bbedcd0a049b6802d59ce84663fac",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425037.3087127,
+      "command_sha256": "3ba5c66154fec1ddf9b352b0f29131780aca6918d96df248b4977afc3bc2cd2c",
+      "returncode": 0,
+      "broker_evidence": "a7053f55f3204424b317c30cf040c3f2",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4146,
+      "invocation": "47f89538d425486f9ef06a60c218b618",
+      "actor": "JARVIS",
+      "tool": "host_read_batch",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792425072.536188,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4149,
+      "invocation": "8f6379bf635a4ed9ace1278d6550706a",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425082.7796736,
+      "command_sha256": "5e8dc08372c8930a97363eda1c8d2c0fe9ece1f165ab4108667e3cfc6cb26eb4",
+      "returncode": 0,
+      "broker_evidence": "1444c4a09275430dbd121869dba7a76a",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4152,
+      "invocation": "30760714836c46a8a574e6acc2d4b33f",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425089.0918846,
+      "command_sha256": "4530faa0d694cbdfc7d6bee175fc7518741caf213dbe06d7e8428ea90f876251",
+      "returncode": 0,
+      "broker_evidence": "382c22d3aa4b42aabbf4413ba4222bc5",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": true,
+        "AGENT_ADAPTERS_VERIFIED": true,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4156,
+      "invocation": "1a51da0e74324f708bf6f826e2d19b89",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py",
+      "created": 1792425123.3898773,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "9710543473cb40cba4aceed64f9924bd",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4159,
+      "invocation": "d10d04b94dc0468bae8bcf9bd85ed262",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/verification.json",
+      "created": 1792425128.0936267,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "706079c2d042451abe0782fe8958c608",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4162,
+      "invocation": "b42862d82b2b4b5d910402c0129f84a4",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792425178.3160374,
+      "command_sha256": "8afc290dd95b0bcd02acb7a8e4bbce408754b6b78c6727283fa493eb75013a61",
+      "returncode": 1,
+      "broker_evidence": "c03c18987a4c49e995b49d5581efb40f",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4166,
+      "invocation": "fc6381dcd7db4325a0d79576deec202e",
+      "actor": "JARVIS",
+      "tool": "mission_read_batch",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792425205.223382,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4169,
+      "invocation": "92abec93a0e64b4c896110d9b65825df",
+      "actor": "JARVIS",
+      "tool": "jarvis_services",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425210.8841987,
+      "command_sha256": null,
+      "returncode": null,
+      "broker_evidence": null,
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4171,
+      "invocation": "b7a201209fed47cc93c981f84a68c931",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425211.4753542,
+      "command_sha256": "999cac2386a89e704e407c7cfaebd159d7f66f6b22acf4ff50692d20e634f985",
+      "returncode": 0,
+      "broker_evidence": "127c1884520244f193d9732d9c8084ed",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4173,
+      "invocation": "0b1a27f8f0c340ac95d87f55194645b8",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425212.055916,
+      "command_sha256": "f935750492b68a26311e07b34c81f64b2a966e12b03b37eef15a3da76874156a",
+      "returncode": 0,
+      "broker_evidence": "d80fa142e51a43edb0e26b5ef90f3fe0",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4177,
+      "invocation": "f74874492228491cbc0ff07fa354f9f5",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/verification.json",
+      "created": 1792425249.1445675,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "a426569ff0ed423c81fba46dc96de69b",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4179,
+      "invocation": "b0e1f1ab685f4e24817921792f3041d1",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py",
+      "created": 1792425249.6664598,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "656bb1be405242d2a378e2790b478124",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4182,
+      "invocation": "d91193074f1f421e949c787a06ced1d2",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py",
+      "created": 1792425259.728654,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "772f13dffa4b4f6184b6037cf29c5a59",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4185,
+      "invocation": "ce4360691cc94af29ba1a0c728964dee",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425272.6692812,
+      "command_sha256": "8afc290dd95b0bcd02acb7a8e4bbce408754b6b78c6727283fa493eb75013a61",
+      "returncode": 0,
+      "broker_evidence": "f750cfaab3b9414fb4ddd7a03157a8a0",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": true,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4188,
+      "invocation": "5a8faea374c34004828db781c8e45581",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792425282.402156,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "ac8eee8fcb6b41a58de62a1ef2414716",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4190,
+      "invocation": "38aedaf7f7994f5bb6420cc5a8fcc778",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792425282.955963,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "8c7c4392f8294fc6ad53b606570a172c",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4192,
+      "invocation": "95950dd91ea046809325ec576d472676",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/config.py",
+      "created": 1792425283.48583,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "5238c28293ce4b08b61288e54497aa05",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4198,
+      "invocation": "81b9eb1e7bf0423b90f0dfe7e9f8fec0",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py",
+      "created": 1792425312.7287047,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "3795a3d69a0246bbaac90f3576ef0916",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4204,
+      "invocation": "eea8a2fc4d904626aee3977fb8e62071",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792425338.1895542,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "7d4b78e13865459188c7eb065c86c533",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4206,
+      "invocation": "f3877915a21b420bbf6dc309f5fccfec",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792425338.7320228,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "f723b9108ec04f6b8aebe0737cd1ec74",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4208,
+      "invocation": "e93cfff3748a42ff92dff5f0e25ac32f",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/llm_adapter.py",
+      "created": 1792425339.252971,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "3df7faacecba4e50981c0e4a5d8607fa",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": true
+      }
+    },
+    {
+      "event": 4218,
+      "invocation": "a2d330734e564558924b9f870ef411e7",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py",
+      "created": 1792425406.8501875,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "d4c386af83c24df0a1a195b9e2e3136e",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4220,
+      "invocation": "4bef45409c594787adc653eb694f179c",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/verification.json",
+      "created": 1792425407.3839223,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "591f7d4f917d4ef185212f745f17350c",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4224,
+      "invocation": "c8bcc228a6ac4210baa8588f3801c28f",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425434.292358,
+      "command_sha256": "1ab83f91578dfd928f883a37aa904a1936fb56e177b73ab1a8be32fe0e0d7ccf",
+      "returncode": 0,
+      "broker_evidence": "84947316aa3e4b7b980f5bf90d79fa97",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4227,
+      "invocation": "6572c89fe9304dc68f46ee06dae0d6eb",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py",
+      "created": 1792425442.2018085,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "b01e14147c384e058693a44686b02b6e",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4229,
+      "invocation": "375ae817484b46dfb84a0876927e3688",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py",
+      "created": 1792425442.7309542,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "242bc88ac96246a68163bd45cbbdb770",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4233,
+      "invocation": "63b6afc907df4ec58fced94275cebac9",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py",
+      "created": 1792425535.2081652,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "b029e111670f40519244e26b67164455",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4237,
+      "invocation": "ff75ef20bcac41d5b135b27d3161b96d",
+      "actor": "JARVIS",
+      "tool": "host_write_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/verification.json",
+      "created": 1792425560.4820845,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "abd7028f7bcc48a18f175ae5ce5534ca",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4240,
+      "invocation": "6e527ad236f340f4b6fc37a9b97a3289",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425579.1228518,
+      "command_sha256": "8afc290dd95b0bcd02acb7a8e4bbce408754b6b78c6727283fa493eb75013a61",
+      "returncode": 0,
+      "broker_evidence": "26b3198555f7490ea5147b497c20ed93",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": true,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4243,
+      "invocation": "70b78a72437e4e85b6824af787e4bf43",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": false,
+      "action": null,
+      "path": null,
+      "created": 1792425611.7552032,
+      "command_sha256": "5456836fe374bd2e93ea4bab9f47dce486211671b3d7ec18b2c1f062c63f25a7",
+      "returncode": 1,
+      "broker_evidence": "23d0dfa5bb024829b2c09dcdb694d3ae",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4247,
+      "invocation": "4d7c0e84ff13429e921be9311aee6eee",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425639.1268575,
+      "command_sha256": "e39f54e2240c095ebbe6c74365993fd688a4d4f17cf39e6cd5c800246ff05f1f",
+      "returncode": 0,
+      "broker_evidence": "24d91d3186584f75afc62e0fa7154bf8",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4250,
+      "invocation": "bba75875ab774a69a76483747b40cb0a",
+      "actor": "JARVIS",
+      "tool": "host_read_file",
+      "ok": true,
+      "action": null,
+      "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py",
+      "created": 1792425643.5058813,
+      "command_sha256": null,
+      "returncode": 0,
+      "broker_evidence": "fa9909dce1394e34a29ba74afa8e3ce0",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": false,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    },
+    {
+      "event": 4253,
+      "invocation": "01be05a2ccf5420e98027d4e1a9e955f",
+      "actor": "JARVIS",
+      "tool": "host_exec",
+      "ok": true,
+      "action": null,
+      "path": null,
+      "created": 1792425652.3162823,
+      "command_sha256": "8ac5f9b42e5e55bfd378368cd3316848cc450a0be885025c2cb5aaef43d9945f",
+      "returncode": 0,
+      "broker_evidence": "43c0b8a55d5a4df5af92a9540b81c813",
+      "flags": {
+        "RuntimeWarning": false,
+        "Traceback": true,
+        "LLM_STREAM_VERIFIED": false,
+        "AGENT_ADAPTERS_VERIFIED": false,
+        "Génération non disponible": false
+      }
+    }
+  ],
+  "inference_done_reasons": {
+    "stop": 60
+  },
+  "route_failure_count": 0,
+  "compaction_receipts": [
+    {
+      "event": 4017,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 18807,
+      "latest_invocation": "a924a2cf6e6e4d07891c5da729baff02",
+      "latest_structured_result_retained": true,
+      "previous_chars": 87857
+    },
+    {
+      "event": 4029,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 21037,
+      "latest_invocation": "9cf8e222f2e24e59b7d0d26331f9e594",
+      "latest_structured_result_retained": true,
+      "previous_chars": 109744
+    },
+    {
+      "event": 4043,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 21015,
+      "latest_invocation": "296b8f06c9ad4d769d7d2042731b2ac8",
+      "latest_structured_result_retained": true,
+      "previous_chars": 116245
+    },
+    {
+      "event": 4053,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 20480,
+      "latest_invocation": "8e7eb37afedb4a0ca7273a101401feac",
+      "latest_structured_result_retained": true,
+      "previous_chars": 106086
+    },
+    {
+      "event": 4057,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 21055,
+      "latest_invocation": "01f89283014a473f84d036f36c6d0425",
+      "latest_structured_result_retained": true,
+      "previous_chars": 85949
+    },
+    {
+      "event": 4061,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 20233,
+      "latest_invocation": "9c577e15ef5e49d0920761afaf988777",
+      "latest_structured_result_retained": true,
+      "previous_chars": 86917
+    },
+    {
+      "event": 4065,
+      "base_chars": 54823,
+      "budget_chars": 77044,
+      "checkpoint_chars": 18665,
+      "latest_invocation": "e24ef37694da49b9bdc76f861010a65a",
+      "latest_structured_result_retained": true,
+      "previous_chars": 77678
+    },
+    {
+      "event": 4080,
+      "base_chars": 41012,
+      "budget_chars": 77044,
+      "checkpoint_chars": 17855,
+      "latest_invocation": "9a75275bb5ad4d93a3e952bfaa6db895",
+      "latest_structured_result_retained": true,
+      "previous_chars": 78501
+    },
+    {
+      "event": 4094,
+      "base_chars": 40925,
+      "budget_chars": 77044,
+      "checkpoint_chars": 14094,
+      "latest_invocation": "c2481f247c71404f92252e5730e81bc6",
+      "latest_structured_result_retained": true,
+      "previous_chars": 78255
+    },
+    {
+      "event": 4104,
+      "base_chars": 40925,
+      "budget_chars": 77044,
+      "checkpoint_chars": 14527,
+      "latest_invocation": "511c38011c224dfc9a7110ba167c3059",
+      "latest_structured_result_retained": true,
+      "previous_chars": 82067
+    },
+    {
+      "event": 4118,
+      "base_chars": 44702,
+      "budget_chars": 77044,
+      "checkpoint_chars": 16318,
+      "latest_invocation": "2537ed673e1c496bbfe182f8869435aa",
+      "latest_structured_result_retained": true,
+      "previous_chars": 78187
+    },
+    {
+      "event": 4153,
+      "base_chars": 46409,
+      "budget_chars": 77044,
+      "checkpoint_chars": 26903,
+      "latest_invocation": "30760714836c46a8a574e6acc2d4b33f",
+      "latest_structured_result_retained": true,
+      "previous_chars": 77599
+    },
+    {
+      "event": 4163,
+      "base_chars": 46409,
+      "budget_chars": 77044,
+      "checkpoint_chars": 27164,
+      "latest_invocation": "b42862d82b2b4b5d910402c0129f84a4",
+      "latest_structured_result_retained": true,
+      "previous_chars": 81615
+    },
+    {
+      "event": 4174,
+      "base_chars": 46409,
+      "budget_chars": 77044,
+      "checkpoint_chars": 19283,
+      "latest_invocation": "0b1a27f8f0c340ac95d87f55194645b8",
+      "latest_structured_result_retained": true,
+      "previous_chars": 78717
+    },
+    {
+      "event": 4195,
+      "base_chars": 44588,
+      "budget_chars": 77044,
+      "checkpoint_chars": 17410,
+      "latest_invocation": "95950dd91ea046809325ec576d472676",
+      "latest_structured_result_retained": true,
+      "previous_chars": 96518
+    },
+    {
+      "event": 4199,
+      "base_chars": 44588,
+      "budget_chars": 77044,
+      "checkpoint_chars": 14479,
+      "latest_invocation": "81b9eb1e7bf0423b90f0dfe7e9f8fec0",
+      "latest_structured_result_retained": true,
+      "previous_chars": 77674
+    },
+    {
+      "event": 4209,
+      "base_chars": 45377,
+      "budget_chars": 77044,
+      "checkpoint_chars": 23486,
+      "latest_invocation": "e93cfff3748a42ff92dff5f0e25ac32f",
+      "latest_structured_result_retained": true,
+      "previous_chars": 89310
+    },
+    {
+      "event": 4212,
+      "base_chars": 45142,
+      "budget_chars": 77044,
+      "checkpoint_chars": 23486,
+      "latest_invocation": "e93cfff3748a42ff92dff5f0e25ac32f",
+      "latest_structured_result_retained": true,
+      "previous_chars": 89377
+    },
+    {
+      "event": 4215,
+      "base_chars": 45366,
+      "budget_chars": 77044,
+      "checkpoint_chars": 23486,
+      "latest_invocation": "e93cfff3748a42ff92dff5f0e25ac32f",
+      "latest_structured_result_retained": true,
+      "previous_chars": 89601
+    },
+    {
+      "event": 4221,
+      "base_chars": 45366,
+      "budget_chars": 77044,
+      "checkpoint_chars": 14622,
+      "latest_invocation": "4bef45409c594787adc653eb694f179c",
+      "latest_structured_result_retained": true,
+      "previous_chars": 77702
+    },
+    {
+      "event": 4230,
+      "base_chars": 45366,
+      "budget_chars": 77044,
+      "checkpoint_chars": 24007,
+      "latest_invocation": "375ae817484b46dfb84a0876927e3688",
+      "latest_structured_result_retained": true,
+      "previous_chars": 83228
+    },
+    {
+      "event": 4234,
+      "base_chars": 45366,
+      "budget_chars": 77044,
+      "checkpoint_chars": 15475,
+      "latest_invocation": "63b6afc907df4ec58fced94275cebac9",
+      "latest_structured_result_retained": true,
+      "previous_chars": 85086
+    },
+    {
+      "event": 4244,
+      "base_chars": 45446,
+      "budget_chars": 77044,
+      "checkpoint_chars": 20373,
+      "latest_invocation": "70b78a72437e4e85b6824af787e4bf43",
+      "latest_structured_result_retained": true,
+      "previous_chars": 77288
+    },
+    {
+      "event": 4254,
+      "base_chars": 45446,
+      "budget_chars": 77044,
+      "checkpoint_chars": 16643,
+      "latest_invocation": "01be05a2ccf5420e98027d4e1a9e955f",
+      "latest_structured_result_retained": true,
+      "previous_chars": 77411
+    }
+  ],
+  "interpretation": "Flags are observations, not proof that a marker corresponds to a valid test; inspect the generated test and actual response before reception. No application text or private inventory exported."
+}

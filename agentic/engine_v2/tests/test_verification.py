@@ -14,6 +14,26 @@ class VerificationTest(unittest.TestCase):
     def tearDown(self):self.tmp.cleanup()
     def call(self,tool,args,result):
         token=self.store.begin_call(self.ident,'a',tool,args);self.store.finish_call(token,result,.1);return token
+    def test_zero_exit_with_runtime_failure_cannot_satisfy_functional_contract(self):
+        import json
+        with self.store.db() as c:
+            c.execute('UPDATE tasks SET contract=? WHERE mission=?',(json.dumps({'checks':[{'tool':'host_exec','stdout_contains':'PASS','stdout_not_contains':['RuntimeWarning']}]}),self.ident))
+        proof=self.call('host_exec',{'command':'python selftest.py'},{'ok':True,'result':{'stdout':'PASS RuntimeWarning: coroutine was never awaited'}})
+        self.assertFalse(self.store.contract_status(self.ident,'a')['all_satisfied'])
+        with self.assertRaisesRegex(ValueError,'Assertion fonctionnelle'):
+            self.registry.specs['mission_task_complete'][4]({'id':'a','evidence_id':proof,'report_path':'/work/report.md'})
+    def test_exact_checker_allows_stderr_redirect_but_not_shell_substitution(self):
+        from jarvis.mission_store import arguments_match
+        expected={'command':'python /protected/check.py --part llm'}
+        self.assertTrue(arguments_match({'command':expected['command']+' 2>&1'},expected))
+        self.assertFalse(arguments_match({'command':expected['command']+' || echo PASS'},expected))
+        self.assertFalse(arguments_match({'command':'echo PASS 2>&1'},expected))
+        import json
+        with self.store.db() as c:c.execute('update tasks set contract=? where mission=?',(json.dumps({'checks':[{'tool':'host_exec','arguments':expected,'stdout_contains':'PASS'}]}),self.ident))
+        proof=self.call('host_exec',{'command':expected['command']+' 2>&1'},{'ok':True,'result':{'stdout':'PASS'}})
+        self.assertTrue(self.store.contract_status(self.ident,'a')['all_satisfied'])
+        result=self.registry.specs['mission_task_complete'][4]({'id':'a','evidence_id':proof,'report_path':'/work/report.md'})
+        self.assertEqual(result['state'],'validated')
     def test_report_write_does_not_invalidate_prior_functional_verification(self):
         with self.store.db() as c:c.execute("UPDATE tasks SET last_error='Old external blocker' WHERE mission=?",(self.ident,))
         self.call('host_write_file',{'path':'/work/code.py'},{'ok':True})

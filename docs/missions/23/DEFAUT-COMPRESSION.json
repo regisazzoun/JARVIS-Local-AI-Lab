@@ -1,0 +1,16 @@
+{
+  "source": "Consistent private SQLite snapshot before corrective intervention",
+  "stored_context_chars": 88542,
+  "base_chars": 32522,
+  "messages": 13,
+  "checkpoint_summaries": 1,
+  "latest_result_chars": 9416,
+  "confirmed_current_observation": {
+    "saved_context_chars": 103483,
+    "base_chars": 54879,
+    "budget_chars": 76511,
+    "schema_chars": 17697,
+    "latest_message_chars": 30541
+  },
+  "defect": "Compaction summarized latest nested tool batch with top-level stdout absent, losing actual class source. New checkpoint keeps nested latest result with explicit excerpts and evidence ID."
+}

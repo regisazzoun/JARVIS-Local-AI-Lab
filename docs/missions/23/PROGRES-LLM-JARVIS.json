@@ -1,0 +1,41 @@
+{
+  "collected_at": "2026-10-19T18:00:52+0200",
+  "mission": "7971ec0311124fb4be9e3125dcb291fd",
+  "positive_verifier": {
+    "id": 4240,
+    "actor": "JARVIS",
+    "tool": "host_exec",
+    "created": 1792425579.1228518,
+    "invocation": "6e527ad236f340f4b6fc37a9b97a3289",
+    "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /usr/local/lib/jarvis-host/verify_livekit_agent.py --project /var/lib/jarvis/projects/mission23/livekit-agent --part llm 2>&1",
+    "broker_evidence": "26b3198555f7490ea5147b497c20ed93",
+    "broker_caller": "JARVIS-runtime",
+    "returncode": 0,
+    "duration_s": 13.551,
+    "stdout": "[STT Adapter] faster-whisper disponible\n{\"check\": \"real_app_livekit_llm_stream\", \"received_text_chars\": 7, \"sdk_type_verified\": true}\nLLM_STREAM_VERIFIED\n",
+    "sdk_type_verified": true,
+    "received_text_chars": 7,
+    "test_scope": "First nonempty chunk via actual application factory and installed LiveKit LLMStream; not full audio/WebRTC reception"
+  },
+  "application_changes": {
+    "actor": "JARVIS",
+    "factory_write_event": 4233,
+    "factory_path": "livekit-agent/factories.py",
+    "factory_sha256": "f1688d962c561e33d6933ff75d30dc361c3d1cba6714c7394c3c1c460a526bc6",
+    "manifest_write_event": 4237,
+    "manifest_sha256": "8e830cda47b938d18171579be909ef1211b1d3f8a0b470e5819bc2e46f5721be",
+    "target": "Configured Dell1 Ollama, warm Qwen27B; addresses kept private"
+  },
+  "independent_test": {
+    "author": "Codex",
+    "path": "agentic/engine_v2/broker/verify_livekit_agent.py",
+    "sha256": "2858973c4d29da06dd2c9d044b4ebfb491af36e4bad09c99a5a678457f1f6a6c"
+  },
+  "codex_contribution": "Infrastructure repairs, read-only diagnosis, objective focus, test contract and immutable independent verifier. No LiveKit application file written by Codex.",
+  "limits": [
+    "No physical microphone test",
+    "No complete WebRTC conversation received",
+    "No complete task05 reception yet at this milestone",
+    "Guidance by Codex disclosed, not unassisted autonomy"
+  ]
+}

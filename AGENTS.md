@@ -67,3 +67,7 @@ Poursuivre sur `codex/mission-22-agentic-engine-v2`, PR8, sans fusion dans main 
 ## Reprise finale22 —19 octobre2026
 
 Le propriétaire confirme `jarvis-dell` enrôlé dans Tailscale et KDE/VNC utilisé depuis son Mac via tunnel SSH sur le tailnet. Ce témoignage utilisateur est distinct des nouvelles preuves du modèle. Reprendre la mission persistante `e370b0bef74f4deaa390b5c46bfdc299`, sans créer de mission ni recommencer les six tâches reçues. JARVIS vérifie lui-même Tailscale, SSH direct et RFB/image, clôture07 et publie ses rapports ; Codex vérifie et consolide22. Aucune validation intermédiaire, aucune fusion main, acquis/services/identités préservés.
+
+## Mission23 — correctif agentique autorisé,19 octobre2026
+
+Le propriétaire confie à Codex le diagnostic et la correction des limitations constatées pendant le développement LiveKit. JARVIS conserve le développement principal, l’exécution persistante originale et les quatre tâches reçues. Codex peut corriger moteur, outils, habilitations déjà autorisées et environnement, puis vérifier une progression réelle, sans écrire l’application à sa place. Aucun reset, nouvelle mission, plafond arbitraire ou validation humaine intermédiaire. Préserver voix/mémoire/accès/services, aucun Dell2 ni fusion main. Source de plan : CYCLE-23-31 et PR9 ; LiveKit=23, JL-03=27. Les anciens états «planifié» ne révoquent pas le lancement explicite actuel.

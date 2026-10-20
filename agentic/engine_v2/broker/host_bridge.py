@@ -50,13 +50,16 @@ def root_for(path, roots):
     if not any(resolved.is_relative_to(P(x).resolve()) for x in roots):raise PermissionError('Ressource hors politique : '+str(path))
     return resolved
 
-def sandbox(command, cfg, timeout=60, output_limit=16000):
+def sandbox_args(command, cfg):
     # These are real host files, not a simulation or a copy. No home/auth/runtime mounts.
     args=['/usr/bin/bwrap','--die-with-parent','--new-session','--unshare-pid','--unshare-ipc','--unshare-uts','--cap-drop','ALL','--ro-bind','/usr','/usr','--symlink','usr/bin','/bin','--symlink','usr/sbin','/sbin','--symlink','usr/lib','/lib','--symlink','usr/lib64','/lib64','--proc','/proc','--dev','/dev','--tmpfs','/tmp','--dir','/etc','--ro-bind','/etc/alternatives','/etc/alternatives','--ro-bind','/etc/ssl','/etc/ssl','--ro-bind','/etc/resolv.conf','/etc/resolv.conf','--ro-bind','/etc/hosts','/etc/hosts','--ro-bind','/etc/passwd','/etc/passwd','--ro-bind','/etc/group','/etc/group','--ro-bind','/etc/nsswitch.conf','/etc/nsswitch.conf']
     for x in cfg['write_roots']:args+=['--bind',x,x]
     for x in cfg['read_roots']:args+=['--ro-bind',x,x]
     args+=['--remount-ro','/','--chdir',cfg['write_roots'][0],'--clearenv','--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8','--setenv','HOME',cfg['write_roots'][0],'--','/bin/bash','-c',command]
-    return run(args,min(timeout,120),cfg['user'],output_limit)
+    return args
+
+def sandbox(command, cfg, timeout=60, output_limit=16000):
+    return run(sandbox_args(command,cfg),min(timeout,120),cfg['user'],output_limit)
 
 def grant(cap,resource,state,result,cfg,mode='owner-policy'):
     with db() as c:
@@ -66,6 +69,8 @@ def grant(cap,resource,state,result,cfg,mode='owner-policy'):
 def execute(op,a,cfg):
     if op=='host_policy':
         result={k:cfg[k] for k in ('scope','write_roots','read_roots','packages','services','repositories')}
+        result['read_repositories']=cfg.get('read_repositories',[])
+        result['project_services']=cfg.get('project_services',{})
         # The model needs operations and permissions, never SSH material locations.
         result['remote_hosts']={name:{**{k:v for k,v in h.items() if k not in ('identity','known_hosts','identity_check','commands')},'commands':list(h.get('commands',{})),'identity_checked':bool(h.get('identity_check'))} for name,h in cfg['remote_hosts'].items()}
         return result
@@ -78,6 +83,9 @@ def execute(op,a,cfg):
         if action not in cfg.get('diagnostics',[]) or action not in commands:raise PermissionError('Diagnostic hors politique')
         return run(commands[action],30)
     if op=='host_exec':return sandbox(a['command'],cfg)
+    if op=='host_project_service':
+        from project_service import execute as project_service
+        return project_service(a,cfg,run,sandbox_args)
     if op in ('host_read_file','host_write_file','host_delete_file'):
         path=root_for(a['path'],cfg['write_roots']+(cfg['read_roots'] if op=='host_read_file' else []))
         # Perform file access as the technical identity inside the same protected mounts.
@@ -121,7 +129,7 @@ def execute(op,a,cfg):
         return results
     if op=='host_github':
         repo=a['repository']; action=a['action']
-        if repo not in cfg['repositories']:raise PermissionError('Dépôt hors politique')
+        if repo not in cfg['repositories'] and not (action in ('file','inspect','download','branches') and repo in cfg.get('read_repositories',[])):raise PermissionError('Dépôt hors politique')
         if action=='create':
             if repo!='regisazzoun/JARVIS-Launcher2':raise PermissionError('Création limitée au projet JL-02 accordé')
             return run(['/usr/bin/gh','repo','create',repo,'--public','--description','JARVIS Launcher V2'],30,cfg['user'])

@@ -22,3 +22,27 @@ class ModelObservation(unittest.TestCase):
   self.assertFalse(json.loads(old['result']['result']['stdout'])['external_dependency']['resolved'])
   new={**old,'created':21,'id':'new'}
   self.assertEqual(dependency_state([old,new],20)[0]['evidence_id'],'new')
+
+ def test_compaction_preserves_latest_batch_class_body_and_original_proof(self):
+  from jarvis.durable_cycle import compact_observations
+  from jarvis.mission_store import encoded
+  text='class CrucialAdapter: required_signature = True\n'+'x'*14000+'\nassert integration'
+  actual={'ok':True,'result':{'results':[{'result':{'stdout':text}},{'result':{'stdout':text}}]}}
+  briefs=[{'id':'older','stdout':'z'*9000},{'id':'latest-real-invocation','stdout':''}]
+  view=compact_observations(briefs,actual,12000)
+  self.assertLessEqual(len(encoded(view)),12000)
+  self.assertEqual(view[-1]['id'],'latest-real-invocation')
+  for item in view[-1]['latest_tool_result']['result']['results']:
+   self.assertIn('class CrucialAdapter',item['result']['stdout'])
+   self.assertTrue(item['result']['stdout'].endswith('assert integration'))
+  self.assertEqual(actual['result']['results'][0]['result']['stdout'],text)
+
+ def test_native_tool_exchange_keeps_link_and_content_across_compaction(self):
+  from jarvis.durable_cycle import native_tail
+  from jarvis.mission_store import encoded
+  import json
+  messages=[{'role':'system','content':'old'},{'role':'assistant','tool_calls':[{'function':{'name':'mission_read_batch','arguments':{'calls':[]}}}]},{'role':'tool','tool_name':'mission_read_batch','content':json.dumps({'result':{'results':[{'result':{'stdout':'class ActualAdapter\n'+'x'*20000+'\nend'}}]}})}]
+  tail=native_tail(messages,7000)
+  self.assertEqual([x['role'] for x in tail],['assistant','tool'])
+  self.assertEqual(tail[1]['tool_name'],'mission_read_batch');self.assertIn('ActualAdapter',tail[1]['content']);self.assertLessEqual(len(encoded(tail)),7000)
+  self.assertGreater(len(messages[-1]['content']),20000)
