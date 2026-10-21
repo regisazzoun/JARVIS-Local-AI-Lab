@@ -1,0 +1,598 @@
+{
+  "utc": "2026-10-20T20:22:38Z",
+  "files": [
+    {
+      "path": "mission23d/codex_smoke.py",
+      "sha256": "93d89ca0d5146e92803e1d3a292329f4d121a92bdf88f0b879e6362929c09e3c",
+      "bytes": 3001
+    },
+    {
+      "path": "mission23d/repair_components.py",
+      "sha256": "2d222d0215a3eacf55a2f98bfda923aa5bb8853efda96139e3d3120c474a2c24",
+      "bytes": 1809
+    },
+    {
+      "path": "mission23d/JARVIS-23D.command",
+      "sha256": "39101c6da1c586511d835f9c436e1774a23c8c087255888550389ef2add83c00",
+      "bytes": 1222
+    },
+    {
+      "path": "mission23d/server.py",
+      "sha256": "f4e1547dc1456e2c800db602de7e66e964e41e903fc7043cc0085868e6eb2c80",
+      "bytes": 2655
+    },
+    {
+      "path": "mission23d/repair_aec.py",
+      "sha256": "70538ccc55799c46b8d7576cbc12c9a8b9886cc9817d55809632d7e5b905a953",
+      "bytes": 1648
+    },
+    {
+      "path": "mission23d/integrate_codex_tools.py",
+      "sha256": "75e7a46299db16ee013d14f2014ba2bf0e50953493d104867fb2283a0e14b159",
+      "bytes": 1427
+    },
+    {
+      "path": "mission23d/codex_capture.py",
+      "sha256": "46da3ff7187e8a3d9ee5c914bd30dfdd0ed920bc616591e54bcf25ad3dcb4553",
+      "bytes": 13220
+    },
+    {
+      "path": "mission23d/codex_retest.py",
+      "sha256": "143db368786cf1516db228fe9adf5ead0ec4c26afd38c691e6d5fe141675b9c6",
+      "bytes": 2086
+    },
+    {
+      "path": "mission23d/index.html",
+      "sha256": "c545ea6592272729e5427e020e39080a4d2e6e4825bf15d5a37860cc4cdaf004",
+      "bytes": 4714
+    },
+    {
+      "path": "mission23d/codex_suite.py",
+      "sha256": "3a7cc1832df4a850d6a5041a4c41e160962ca96e15d2d75831dd96e3d73d0c23",
+      "bytes": 3429
+    },
+    {
+      "path": "mission23d/codex_gateway.py",
+      "sha256": "b5856772dad22d8c67b6635db2f57a3eba098b386753470ccf6e2305a756ee74",
+      "bytes": 7375
+    },
+    {
+      "path": "mission23d/test_interruption_23d.py",
+      "sha256": "3d81cf38c3c41088d88533984da4e6398fd0ae6ab0d686bc572a63e50bc65774",
+      "bytes": 226
+    },
+    {
+      "path": "mission23d/historique/index-jarvis-de8e7307c54f.html",
+      "sha256": "de8e7307c54f124b5a4ba4305b06d9ca229fa2373d3b759f2b73bf81b83fe428",
+      "bytes": 14689
+    },
+    {
+      "path": "mission23d/historique/tts_adapter.py.811312652720.txt",
+      "sha256": "8113126527209c087491ab899f2e89f0877462c366bffd0ae847b61264a74d13",
+      "bytes": 6066
+    },
+    {
+      "path": "mission23d/historique/agent-before-aec-cbb2bf23a081.py.txt",
+      "sha256": "cbb2bf23a081d69aa5ab15c9c2e575a6a8065aaf3e769c7c16fb8320be35fb69",
+      "bytes": 3245
+    },
+    {
+      "path": "mission23d/historique/codex_capture-tested-bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1.py.txt",
+      "sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+      "bytes": 12969
+    },
+    {
+      "path": "mission23d/historique/codex_capture-tested-107927dfec47040fda966d8f7661bcd48549e58806c5972caf60410e5d78a19e.py.txt",
+      "sha256": "107927dfec47040fda966d8f7661bcd48549e58806c5972caf60410e5d78a19e",
+      "bytes": 13149
+    },
+    {
+      "path": "mission23d/historique/agent.py.f42f873ddac9.txt",
+      "sha256": "f42f873ddac9c07bba8a71cd759a15d3047e0381db8df1e0482864448e2eb572",
+      "bytes": 3188
+    },
+    {
+      "path": "mission23d/historique/runner-jarvis-initial.py.txt",
+      "sha256": "fccc172b1f20fa0053cba840da0859cc9e0842c1027a56ba6b7955d20eac9934",
+      "bytes": 13395
+    },
+    {
+      "path": "mission23d/historique/factories.py.3805507d3dbb.txt",
+      "sha256": "3805507d3dbbc9aa920c9f9a43dbbbe9c8c624a217b3457642b68fe31b84aa1e",
+      "bytes": 3605
+    },
+    {
+      "path": "mission23d/reports/server-smoke.json",
+      "sha256": "f6af7b7be9f00bb712aed78dc173aa1b54ed1944166e4b2fcf3fd179266eaff0",
+      "bytes": 352
+    },
+    {
+      "path": "mission23d/reports/browser-full-conversation.json",
+      "sha256": "c1aa24b5c552f5b00dd8aada2f91bf55739332cb3a286ca5ec791fdea6c7c82c",
+      "bytes": 200246
+    },
+    {
+      "path": "mission23d/reports/browser-auto-before-cancel-fix.json",
+      "sha256": "ccf3695159180956e2c12c24a8b0eb9cebb9a05a299a9e1cfc6dd96394445650",
+      "bytes": 5762
+    },
+    {
+      "path": "mission23d/reports/browser-auto-cancel-fixed.json",
+      "sha256": "6869334d78631f06f508b4370b8c29fd6b8820b6606c44cdccdba97b583ae561",
+      "bytes": 1528
+    },
+    {
+      "path": "mission23d/reports/browser-full-conversation.webm",
+      "sha256": "77205f317ef1a3cd5c984c87c05fb492b3d4080ce7794283edafa6679573d2b7",
+      "bytes": 1763586
+    },
+    {
+      "path": "mission23d/reports/integration.json",
+      "sha256": "d4c798cf5a12d88c483de91e548ee0de66b2d46b1a7031e157ae69bf8c5e5b8d",
+      "bytes": 392
+    },
+    {
+      "path": "mission23d/reports/components-real.json",
+      "sha256": "478c4c9e6345a65bb1d217925987c2af1606f46d24f72f9184bd0da1681e2769",
+      "bytes": 658
+    },
+    {
+      "path": "mission23d/reports/page-final-23d.png",
+      "sha256": "e9330dee45d61692fdf0acd42333ef84535901ceb36fa1658cf22a1b77799fb5",
+      "bytes": 216005
+    },
+    {
+      "path": "mission23d/reports/browser-session-01.json",
+      "sha256": "babb3665dcc5961c135f791092bb3da66b485f99f567d35cfb453191a7a2d980",
+      "bytes": 1350
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-summary.json",
+      "sha256": "a7a9f4cd7caa1edf27ff9a70da154ff155c1eabc9aa6d515e7426d9f202c5b70",
+      "bytes": 21274
+    },
+    {
+      "path": "mission23d/reports/component-correction.json",
+      "sha256": "461f824b171729ad370f254f84852eaa84ad5579f8b605a14cbc267817a9b13e",
+      "bytes": 802
+    },
+    {
+      "path": "mission23d/reports/browser-stop-active.json",
+      "sha256": "ab50d9d9277e9960bef81ab81b3272cd325771856d4dabbe4221df5332141c77",
+      "bytes": 53038
+    },
+    {
+      "path": "mission23d/reports/aec-correction.json",
+      "sha256": "ed65f21b29e8b9871b04169a1000b7b620f605b2527a5d9a8ce039a251d63c06",
+      "bytes": 605
+    },
+    {
+      "path": "mission23d/reports/browser-stop-active.webm",
+      "sha256": "7fec194b72a89a741bdbfe2637e56cfdc32fc95fa138391e725df7ec29297539",
+      "bytes": 455913
+    },
+    {
+      "path": "mission23d/reports/suite-summary.json",
+      "sha256": "a7a9f4cd7caa1edf27ff9a70da154ff155c1eabc9aa6d515e7426d9f202c5b70",
+      "bytes": 21274
+    },
+    {
+      "path": "mission23d/reports/retest-summary.json",
+      "sha256": "b2b2ba91534b7f234e991742d124bf510faf6e3df36abe621f620304f1d412ed",
+      "bytes": 11975
+    },
+    {
+      "path": "mission23d/vendor/client-tools.js",
+      "sha256": "f60c45dac877dc7def13050d3bb7b824ded26514025ff0f3c21adc903a98aca1",
+      "bytes": 10812
+    },
+    {
+      "path": "mission23d/vendor/LICENSE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "bytes": 10142
+    },
+    {
+      "path": "mission23d/vendor/livekit-client.umd.js",
+      "sha256": "d7f50777e95b779f5594d2ba7f40cc7b322f3210fe1d0f3453669bcc561050a4",
+      "bytes": 350410
+    },
+    {
+      "path": "mission23d/fixtures/manifest.json",
+      "sha256": "c384bce3f0acaaa7d0245e6ed7b9aff36302de8cd1fa08d482bc3592b8ec50e9",
+      "bytes": 1032
+    },
+    {
+      "path": "mission23d/fixtures/initial.wav",
+      "sha256": "f4798854dc487221171a2a21c7bbc1638e40350e1e57088441946d7647289f0c",
+      "bytes": 1214508
+    },
+    {
+      "path": "mission23d/fixtures/noise.wav",
+      "sha256": "7949ecd4bbf294532ed5dd8585f1a434ac0e4e0cb4cfa9ec52fad99130a2ecaa",
+      "bytes": 144044
+    },
+    {
+      "path": "mission23d/fixtures/silence.wav",
+      "sha256": "cb285321577f2cae96d045a03703d8dab14a24b2d1ac8a931dfcbb35f46a1f94",
+      "bytes": 144044
+    },
+    {
+      "path": "mission23d/fixtures/interrupt.wav",
+      "sha256": "4644976ad29cbd79bc3ef36b1dac7584b37be443d461625c5f91dc5f40a3f76c",
+      "bytes": 688172
+    },
+    {
+      "path": "mission23d/fixtures/continuity.wav",
+      "sha256": "855ff3e974b0d81f7149646f594f7ceac099ac4d3932548ed7ba081b0e4dea43",
+      "bytes": 320044
+    },
+    {
+      "path": "mission23d/reports/codex-baseline-02/received.wav",
+      "sha256": "62880c770f42a7ce2036b1a9b02f272adffd58db1a7f3fcd78f1c46d78644305",
+      "bytes": 9221788
+    },
+    {
+      "path": "mission23d/reports/codex-baseline-02/frames.json",
+      "sha256": "b8541f1831c6a64b1910073404a77e675bb857bed491d688bff4c3fb2b09b70b",
+      "bytes": 1307238
+    },
+    {
+      "path": "mission23d/reports/codex-baseline-02/events.jsonl",
+      "sha256": "e1cc9a7dd251bc3a44dcb3bf3649c3e03331f9c00dc44572071b4b2939c28dca",
+      "bytes": 3126
+    },
+    {
+      "path": "mission23d/reports/codex-baseline-02/result.json",
+      "sha256": "7b44767cf8f8c65b1bc0472fcbb36cde2ed8b69648f2cc71641fc82766a148fa",
+      "bytes": 2395
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-2/received.wav",
+      "sha256": "9664fd5182d6c46a30829ac5485b44bc0d09bd733d282b54d20616cba282e850",
+      "bytes": 2928548
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-2/events-live.jsonl",
+      "sha256": "b3c58084041dee40bf928495c205729d95aae7a9dde3ae414e4f3e71405fbe7e",
+      "bytes": 5063
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-2/frames.json",
+      "sha256": "3242160a2260531ea789f4defcc94f0e80666b1bf562e6066e490a898b3f816b",
+      "bytes": 399349
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-2/events.jsonl",
+      "sha256": "b3c58084041dee40bf928495c205729d95aae7a9dde3ae414e4f3e71405fbe7e",
+      "bytes": 5063
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-2/result.json",
+      "sha256": "54d9f6f680c04afc6aa8a30f299062c3f91e0886849d6113d79ca132d87549fc",
+      "bytes": 3825
+    },
+    {
+      "path": "mission23d/reports/web-ad2cd6d0d1bb/received.wav",
+      "sha256": "365b824fadb3b6c3ad7ff497f9762127a2d30c37ae04e826d5d5bd44e318ca77",
+      "bytes": 2362126
+    },
+    {
+      "path": "mission23d/reports/web-ad2cd6d0d1bb/events-live.jsonl",
+      "sha256": "ae65a95711dac80418ab54e0863ca74bf0e599785964cdc4c18e834c36a4a5fc",
+      "bytes": 3599
+    },
+    {
+      "path": "mission23d/reports/web-ad2cd6d0d1bb/frames.json",
+      "sha256": "bd3e07a1dd813a266ce391dd1a1032b0b277ce0adc1b7af72910c404d10eb0ac",
+      "bytes": 318798
+    },
+    {
+      "path": "mission23d/reports/web-ad2cd6d0d1bb/events.jsonl",
+      "sha256": "ae65a95711dac80418ab54e0863ca74bf0e599785964cdc4c18e834c36a4a5fc",
+      "bytes": 3599
+    },
+    {
+      "path": "mission23d/reports/web-ad2cd6d0d1bb/result.json",
+      "sha256": "fac744aa28df1c8f46865ffed5d2e80b1d65043d7ca50cdebb2631e4ff935142",
+      "bytes": 3211
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-noise/received.wav",
+      "sha256": "f4ba936ba55e788aa1025b6111fdeef8d920a027807b57cf8eb1962af1bb588e",
+      "bytes": 1285082
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-noise/events-live.jsonl",
+      "sha256": "6408a2bde3e26896f6b05efb2f39dbe0a29dacb19c60b847a254c29d12ca5b8c",
+      "bytes": 1033
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-noise/frames.json",
+      "sha256": "ea8a9f1726641437c48fc76854ebd250bcfcd824f879cfc0c939b7aba42558f2",
+      "bytes": 166431
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-noise/events.jsonl",
+      "sha256": "6408a2bde3e26896f6b05efb2f39dbe0a29dacb19c60b847a254c29d12ca5b8c",
+      "bytes": 1033
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-noise/result.json",
+      "sha256": "02c2256bfc8ea6faeefbbc788f8034784584545ec674a7998586a8fa4653bda7",
+      "bytes": 1638
+    },
+    {
+      "path": "mission23d/reports/web-b6675fa63efe/received.wav",
+      "sha256": "42520635794b6a3a24b4f33baa951a5d5773b91ac0b1b597fff7a423709596a9",
+      "bytes": 3743570
+    },
+    {
+      "path": "mission23d/reports/web-b6675fa63efe/events-live.jsonl",
+      "sha256": "6b7b4c18d9f1f345f2a30ebfb3b9fa1b0a4bc293af3115f252da66f7c0ee35ba",
+      "bytes": 3755
+    },
+    {
+      "path": "mission23d/reports/web-b6675fa63efe/frames.json",
+      "sha256": "a9814531ef1fbbb215f44a6aed7bc5c857d5592ef94a2dd75eab73b70a84e1c3",
+      "bytes": 514147
+    },
+    {
+      "path": "mission23d/reports/web-b6675fa63efe/events.jsonl",
+      "sha256": "6b7b4c18d9f1f345f2a30ebfb3b9fa1b0a4bc293af3115f252da66f7c0ee35ba",
+      "bytes": 3755
+    },
+    {
+      "path": "mission23d/reports/web-b6675fa63efe/result.json",
+      "sha256": "c9ee5e9f2948be47da14d0f84ad6d4780cad00e3b6124660cf3bd5e4524cf291",
+      "bytes": 3369
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-silence/received.wav",
+      "sha256": "231180d2a6ac5e8c4408cb92c980e461af54d762245e8323ecbdb76a5334f32b",
+      "bytes": 1295132
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-silence/events-live.jsonl",
+      "sha256": "c748d770056404651507f9ebc367c2fa120ab0b3ab11acacc4702c3b67de3cdd",
+      "bytes": 1034
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-silence/frames.json",
+      "sha256": "b1c381ace72ce98179f64ef6b3d928ab2600d446d66af5a9d9444a86543cded3",
+      "bytes": 166804
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-silence/events.jsonl",
+      "sha256": "c748d770056404651507f9ebc367c2fa120ab0b3ab11acacc4702c3b67de3cdd",
+      "bytes": 1034
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-silence/result.json",
+      "sha256": "772f715e07c1190f68a3145d38cb687c9805e6395bea797abcda9960cbdb7516",
+      "bytes": 1638
+    },
+    {
+      "path": "mission23d/reports/web-c4215d7c4db7/received.wav",
+      "sha256": "ada27d7927871cdfd7737f51dff7f2385f8108b125eab28a3484289d52f91c5e",
+      "bytes": 1295814
+    },
+    {
+      "path": "mission23d/reports/web-c4215d7c4db7/events-live.jsonl",
+      "sha256": "2e6447e2d9a85c179c6a29a3319c71c55f04bbed4591c4193f0074a64a178797",
+      "bytes": 1035
+    },
+    {
+      "path": "mission23d/reports/web-c4215d7c4db7/frames.json",
+      "sha256": "c6ce7268d3dc434a6f6e8456e77e9c9c5efbda9d191f6dd35853939b9188f4ce",
+      "bytes": 166396
+    },
+    {
+      "path": "mission23d/reports/web-c4215d7c4db7/events.jsonl",
+      "sha256": "2e6447e2d9a85c179c6a29a3319c71c55f04bbed4591c4193f0074a64a178797",
+      "bytes": 1035
+    },
+    {
+      "path": "mission23d/reports/web-c4215d7c4db7/result.json",
+      "sha256": "3b64f079395e3df43d2d572f79fc2c5374a561547930162166574b440c517c7d",
+      "bytes": 1638
+    },
+    {
+      "path": "mission23d/reports/web-b54c72f2285d/received.wav",
+      "sha256": "68386351a030dc0a4b08a88c7e4191ba6d39aaf23acdf4db26981b372b8633e1",
+      "bytes": 1296048
+    },
+    {
+      "path": "mission23d/reports/web-b54c72f2285d/events-live.jsonl",
+      "sha256": "5a8a219720fd334821b6102416df0c4da9be4f66195a8aec5c8f7b7e17bbb485",
+      "bytes": 1036
+    },
+    {
+      "path": "mission23d/reports/web-b54c72f2285d/frames.json",
+      "sha256": "e476b2095196765496353f9ea6178d4d6f49ffe729fcae82120c7246694f96d9",
+      "bytes": 167503
+    },
+    {
+      "path": "mission23d/reports/web-b54c72f2285d/events.jsonl",
+      "sha256": "5a8a219720fd334821b6102416df0c4da9be4f66195a8aec5c8f7b7e17bbb485",
+      "bytes": 1036
+    },
+    {
+      "path": "mission23d/reports/web-b54c72f2285d/result.json",
+      "sha256": "f4675eb101abadaeb59965ee54346746ecd2016746f9af8b7aacbd4c5920ce0a",
+      "bytes": 1638
+    },
+    {
+      "path": "mission23d/reports/web-a9831c2eaad5/received.wav",
+      "sha256": "34bf0b734e542f95e235aaa140ea4f94cc6aad2e0d043cb4a50432e83e20162f",
+      "bytes": 2230632
+    },
+    {
+      "path": "mission23d/reports/web-a9831c2eaad5/events-live.jsonl",
+      "sha256": "4265bd36f01e358da9113aef4aea6658e534fecbf34fa86565902ef9d2ded59d",
+      "bytes": 3630
+    },
+    {
+      "path": "mission23d/reports/web-a9831c2eaad5/frames.json",
+      "sha256": "fbb80248789904f942d2b48f476f0dac30289aa754634b15bf136507d4b47ced",
+      "bytes": 301253
+    },
+    {
+      "path": "mission23d/reports/web-a9831c2eaad5/events.jsonl",
+      "sha256": "4265bd36f01e358da9113aef4aea6658e534fecbf34fa86565902ef9d2ded59d",
+      "bytes": 3630
+    },
+    {
+      "path": "mission23d/reports/web-a9831c2eaad5/result.json",
+      "sha256": "f3cbe11c806a2d114021c83dea4b13e47b22bc22a5b1e26c1da6916af977818b",
+      "bytes": 3244
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-1/received.wav",
+      "sha256": "07d2cb971df3f8c5e73787cc470ae651a3fefe62595be231fc61cf7283e1150f",
+      "bytes": 2999164
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-1/events-live.jsonl",
+      "sha256": "352c5bdb35496634d3a3071b9dc382e31a2a48757ffa2c17c3835ba7d3ac4ee7",
+      "bytes": 5108
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-1/frames.json",
+      "sha256": "42fc8889c226585dc36ffbc19805df7417fa58584288a3a9e401cfdddb26abba",
+      "bytes": 410749
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-1/events.jsonl",
+      "sha256": "352c5bdb35496634d3a3071b9dc382e31a2a48757ffa2c17c3835ba7d3ac4ee7",
+      "bytes": 5108
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-early-1/result.json",
+      "sha256": "9824e156e744a3bb5debebd050afb4a8ea537d7d28bc072542855696456e5093",
+      "bytes": 3872
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-nominal/received.wav",
+      "sha256": "6185da2d36b1745080650fd52b5cc328ca7b43c4eabc7971821f044652cc3f0b",
+      "bytes": 3041826
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-nominal/events-live.jsonl",
+      "sha256": "f7df355d2832f30c548700a2d8917e2fd6b7eac1da5dc2d799770b4916c3a2a3",
+      "bytes": 1769
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-nominal/frames.json",
+      "sha256": "101cb8007623c070e3ea93869019f6798e1c7a2cf9c7a50cdc52c5c83fc85425",
+      "bytes": 415598
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-nominal/events.jsonl",
+      "sha256": "f7df355d2832f30c548700a2d8917e2fd6b7eac1da5dc2d799770b4916c3a2a3",
+      "bytes": 1769
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-nominal/result.json",
+      "sha256": "cbba1f5fb79155b655032e384ac0d01985ad79c6f6e4ed91659ca224c16ff4c9",
+      "bytes": 2044
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-late/received.wav",
+      "sha256": "c9cd8f46cc60d9350aa56cc53fab74daa08f8de8dd094562da47bcf4972dfe48",
+      "bytes": 7871548
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-late/events-live.jsonl",
+      "sha256": "947d9de029ecc3e6b1fdd35299d39cf73a2fbaa30785d2ddc498507c2dde4d95",
+      "bytes": 5461
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-late/frames.json",
+      "sha256": "a9d6cdd03fbde9a7fe47bf87c0d2b8c14893b2fa4cda490acdd967ad22b17fbe",
+      "bytes": 1109724
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-late/events.jsonl",
+      "sha256": "947d9de029ecc3e6b1fdd35299d39cf73a2fbaa30785d2ddc498507c2dde4d95",
+      "bytes": 5461
+    },
+    {
+      "path": "mission23d/reports/suite-6f67890829-barge-late/result.json",
+      "sha256": "d135d9a4c810461983aeb575d4e5518fad5f79612bfc4b50c1ba4886bc38bdfd",
+      "bytes": 4238
+    },
+    {
+      "path": "docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md",
+      "sha256": "b7296a7c6eb15cbec798d7f0d7ad96ea0eefc7e765087d37a880a779d0957028",
+      "bytes": 6546
+    },
+    {
+      "path": "docs/missions/23D/RETEST-AEC-JARVIS.md",
+      "sha256": "c2569c01e98ae7c2dcfb2e3d9ddf19edbf531a9b707d067573d5990d044915b2",
+      "bytes": 10245
+    },
+    {
+      "path": "docs/missions/23D/PLAN-ET-IMPLEMENTATION.md",
+      "sha256": "6377a81ef135c00e59537fd366ec5d4fdd92cc2c6172bca79f386a33be537c51",
+      "bytes": 7521
+    },
+    {
+      "path": "docs/missions/23D/TESTS-JARVIS.md",
+      "sha256": "aef98e3cf4a8d88dc7e64ad9f8fbc308c1bebdc2bbd5f62dea6543a0f5a2a083",
+      "bytes": 7831
+    },
+    {
+      "path": "docs/missions/23D/RAPPORT-JARVIS.md",
+      "sha256": "e219be6eed3a95fe0aafa82d596024a517643f962deac13a3f70804fb05a308c",
+      "bytes": 8957
+    },
+    {
+      "path": "docs/missions/23D/ERRATUM-JARVIS.md",
+      "sha256": "b08d492f5961bf6cac3ba7f09a76381817034573b62ceea7e3e04ccc8793128b",
+      "bytes": 7766
+    },
+    {
+      "path": "docs/missions/23D/CORRECTIONS-REELLES-JARVIS.md",
+      "sha256": "3aa6d77f349680eb7f178f82de418d194753d13cc0f4841eaac33a95381ee3ba",
+      "bytes": 5880
+    },
+    {
+      "path": "docs/missions/23D/m23d_01_rapport.md",
+      "sha256": "fea0204bae1611b8f0a81157f12bd3e6bcda3dd295e1c7608e1b48cd60575ed2",
+      "bytes": 8015
+    },
+    {
+      "path": "docs/missions/23D/INSTRUCTION-JARVIS.md",
+      "sha256": "c9b5b46ba15d4777423a80aaaf9e87c8acc3f9827f733735ce12a849eef9effa",
+      "bytes": 5717
+    },
+    {
+      "path": "livekit-agent/agent.py",
+      "sha256": "eb564d7b5da499e6655622deb75a9a8a26cf19dfc1ee294b878ff96bf1eda0d0",
+      "bytes": 3517
+    },
+    {
+      "path": "livekit-agent/factories.py",
+      "sha256": "ff3954ab3e6758148c030a00238d17618f84d385575e3a5d4f56c5ed8212792d",
+      "bytes": 3638
+    },
+    {
+      "path": "livekit-agent/tts_adapter.py",
+      "sha256": "81a1ba45e8eaf649245b5be06b52aa3b0f10c99a769ffb148ec2a05b080a9031",
+      "bytes": 6275
+    },
+    {
+      "path": "tools/mission23d/independent_capture.py",
+      "sha256": "46da3ff7187e8a3d9ee5c914bd30dfdd0ed920bc616591e54bcf25ad3dcb4553",
+      "bytes": 13220
+    }
+  ],
+  "excluded": [
+    ".env",
+    "routes-private.json",
+    "logs",
+    "runtime",
+    "venv",
+    "SQLite backups"
+  ]
+}

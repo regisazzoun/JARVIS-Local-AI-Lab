@@ -1,0 +1,27 @@
+{"utc": "2026-10-20T19:54:17.305137+00:00", "t": 0.35724217095412314, "event": "connected", "room": "m23d-codex-3521815d97"}
+{"utc": "2026-10-20T19:54:19.599341+00:00", "t": 2.6514435469871387, "event": "participant_connected", "identity": "agent-AJ_WiggygVTskNm"}
+{"utc": "2026-10-20T19:54:19.640014+00:00", "t": 2.692115079960786, "event": "audio_track_subscribed", "identity": "agent-AJ_WiggygVTskNm"}
+{"utc": "2026-10-20T19:54:20.756972+00:00", "t": 3.8090812949230894, "event": "wav_started", "label": "initial", "file": "initial.wav", "sha256": "f4798854dc487221171a2a21c7bbc1638e40350e1e57088441946d7647289f0c", "duration_s": 13.769458333333333}
+{"utc": "2026-10-20T19:54:34.597870+00:00", "t": 17.649981112917885, "event": "wav_ended", "label": "initial"}
+{"utc": "2026-10-20T19:54:38.182177+00:00", "t": 21.234274453949183, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:54:38.182808+00:00", "t": 21.23490606492851, "event": "transcription_final", "text": " Bonjour Jervis, préparons une visite fictive du musée des sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en six étapes pendant au moins 15 secondes.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:54:39.681402+00:00", "t": 22.73350368195679, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:54:40.344641+00:00", "t": 23.396746936952695, "event": "wav_started", "label": "interruption", "file": "interrupt.wav", "sha256": "4644976ad29cbd79bc3ef36b1dac7584b37be443d461625c5f91dc5f40a3f76c", "duration_s": 7.801916666666667}
+{"utc": "2026-10-20T19:54:42.711097+00:00", "t": 25.76321254996583, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T19:54:48.253612+00:00", "t": 31.305735499947332, "event": "wav_ended", "label": "interruption"}
+{"utc": "2026-10-20T19:54:50.375488+00:00", "t": 33.427588045015, "event": "transcription_final", "text": "Je ne peux pas visiter de musée nommé Sciences Sunday car ce nom semble", "identity": "agent-AJ_WiggygVTskNm"}
+{"utc": "2026-10-20T19:54:50.377010+00:00", "t": 33.429109495016746, "event": "transcription_final", "text": " Dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:54:50.385217+00:00", "t": 33.43731615901925, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:54:51.623068+00:00", "t": 34.67516778991558, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:55:00.243823+00:00", "t": 43.29594379197806, "event": "transcription_final", "text": "La visite est confirmée pour dimanche à 10 heures avec un budget de 20 euros. Les nouvelles conditions ont bien été enregistrées. C'est noté.", "identity": "agent-AJ_WiggygVTskNm"}
+{"utc": "2026-10-20T19:55:00.397186+00:00", "t": 43.44931590592023, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T19:55:01.484769+00:00", "t": 44.53689619991928, "event": "wav_started", "label": "continuity", "file": "continuity.wav", "sha256": "855ff3e974b0d81f7149646f594f7ceac099ac4d3932548ed7ba081b0e4dea43", "duration_s": 3.628125}
+{"utc": "2026-10-20T19:55:05.213628+00:00", "t": 48.265767589909956, "event": "wav_ended", "label": "continuity"}
+{"utc": "2026-10-20T19:55:07.288865+00:00", "t": 50.340965712908655, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:55:07.292394+00:00", "t": 50.344494526972994, "event": "transcription_final", "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:55:08.400470+00:00", "t": 51.45257636602037, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:55:19.034936+00:00", "t": 62.0870609539561, "event": "transcription_final", "text": "La visite est prévue ce dimanche à 10 heures avec un budget de 20 euros. Toutes les informations sont bien mises à jour dans mon système. Je suis prêt à vous accompagner pour ce trajet.", "identity": "agent-AJ_WiggygVTskNm"}
+{"utc": "2026-10-20T19:55:19.227870+00:00", "t": 62.2800025169272, "event": "participant_attributes", "identity": "agent-AJ_WiggygVTskNm", "attributes": {"lk.agent.state": "listening"}}
+{"utc": "2026-10-20T19:55:19.336835+00:00", "t": 62.38896916795056, "event": "disconnect_requested"}
+{"utc": "2026-10-20T19:55:19.348830+00:00", "t": 62.40095337491948, "event": "disconnected"}
+{"utc": "2026-10-20T19:55:19.360736+00:00", "t": 62.412873056018725, "event": "room_deleted"}

@@ -1,0 +1,2914 @@
+{
+  "actor": "Codex independent extraction from canonical tool ledger",
+  "execution_actor": "JARVIS native mission engine",
+  "checks": [
+    {
+      "id": "17e7d528ef83474591e81841d90b8df8",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "action": "file",
+              "file": "AGENTS.md",
+              "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+            },
+            "tool": "host_github"
+          },
+          {
+            "arguments": {
+              "action": "file",
+              "branch": "plan/reordonnancement-missions-23-31",
+              "file": "docs/missions/CYCLE-23-31.md",
+              "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+            },
+            "tool": "host_github"
+          },
+          {
+            "arguments": {
+              "path": "/usr/local/lib/jarvis-host/verify_livekit_voice.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "action": "status",
+              "name": "livekit-server",
+              "project": "mission23"
+            },
+            "tool": "host_project_service"
+          },
+          {
+            "arguments": {
+              "action": "status",
+              "name": "livekit-agent",
+              "project": "mission23"
+            },
+            "tool": "host_project_service"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792505959.9562132,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "9833255f0c140b85c0c9620dc73c3b4670e0ac9b7bdc0e50f3eb7e6012d9aae7"
+    },
+    {
+      "id": "8ebad646634942d29ad02a401bd9b1b2",
+      "task": "m23d_01",
+      "tool": "host_github",
+      "arguments": {
+        "action": "file",
+        "branch": "plan/reordonnancement-missions-23-31",
+        "file": "docs/missions/CYCLE-23-31.md",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "created": 1792505960.0478785,
+      "ok": true,
+      "evidence_id": "9b93661920bc43a783d2041d79eb3d62",
+      "returncode": 0,
+      "result_sha256": "6d90cf307cb86b4c457c78aee81ef7c08b8798ad063f83e830e7198a2aafdd55"
+    },
+    {
+      "id": "d2b975babdbb460a8665d2d3baa9ab50",
+      "task": "m23d_01",
+      "tool": "host_github",
+      "arguments": {
+        "action": "file",
+        "file": "AGENTS.md",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "created": 1792505960.048049,
+      "ok": true,
+      "evidence_id": "bc8db974b5064b688a743f0f0c8563e0",
+      "returncode": 0,
+      "result_sha256": "7738d9ce825ef2fa4fb986b49f2827050a18ee974403efa9ce7fdb5cbc0d75a9"
+    },
+    {
+      "id": "699e7e6eda0b4225bae89c2f0f73a369",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/usr/local/lib/jarvis-host/verify_livekit_voice.py"
+      },
+      "state": "finished",
+      "created": 1792505960.048345,
+      "ok": true,
+      "evidence_id": "f73244cf1ab24243b26001dc2ff4da1f",
+      "returncode": 0,
+      "result_sha256": "550f3bb77bfeabac07807974f053b78d4a05385ded6fc39a7f786ab7a8de3ffb"
+    },
+    {
+      "id": "65576811f1444f1a90dc28d9ff8d92e1",
+      "task": "m23d_01",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "status",
+        "name": "livekit-server",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792505960.0492833,
+      "ok": true,
+      "evidence_id": "5487fdbf036745458a67075b90736571",
+      "returncode": 0,
+      "result_sha256": "a86719b46b2d8836e9c1749084c7c58a10ea2c339843a10872d60f5d07ddc6de"
+    },
+    {
+      "id": "198f897818884a1bb125ddb786c59d3b",
+      "task": "m23d_01",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "status",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792505960.0500977,
+      "ok": true,
+      "evidence_id": "294d90a2afad4313b96b5ebcef984b77",
+      "returncode": 0,
+      "result_sha256": "57852becf6f70f2cd367e12ac5fac972f142d18e227ab80d3835aba19d13ac3b"
+    },
+    {
+      "id": "a4ba172bd91546528954037ec5837940",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "find /var/lib/jarvis/projects/mission23 -type f -name \"*.py\" | head -50",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792505992.8232913,
+      "ok": true,
+      "evidence_id": "33d51868fa764eceb127674c6aaef628",
+      "returncode": 0,
+      "result_sha256": "984eaa3f6196ec80c899135c0545940f8f00b4e79c4b6650131c4d52c7d333a0"
+    },
+    {
+      "id": "eb4f6403faee4bdea3944ea42dfb6c24",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/ 2>/dev/null || echo \"Dossier inexistant\"",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792505993.3879404,
+      "ok": true,
+      "evidence_id": "823a30574cfa4e8ba82559d095daa0c3",
+      "returncode": 0,
+      "result_sha256": "c63ff6ebb0b9186dd20024b4e4e395a06d7215f060f0a150533f2b7a2eed6fd4"
+    },
+    {
+      "id": "88feff5716d34f5da7abe3d3f51c077f",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "pip3 show livekit-agents livekit-api livekit-rtc 2>/dev/null | grep -E \"^(Name|Version):\" || echo \"Paquets non trouvés\"",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792505993.9540045,
+      "ok": true,
+      "evidence_id": "414a3132837c4003ab6aeea38aac1b76",
+      "returncode": 0,
+      "result_sha256": "de63cc158db5b82b80b3f28a2438e1e3cd5f39b4637a6e37b73bb36fedc8ffa4"
+    },
+    {
+      "id": "635365ea726344079cd2f10b3c288fd8",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/config.py"
+      },
+      "state": "finished",
+      "created": 1792506028.2098036,
+      "ok": true,
+      "evidence_id": "edf95cfa1eda449e8ec9419db094f637",
+      "returncode": 0,
+      "result_sha256": "619e87832e7c088ce6f013431a32f8c99ed3df45c3397ef9123e42768ae3c993"
+    },
+    {
+      "id": "542156d4837c4a1ab0f7ff28f54a5876",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/livekit-agent/ 2>/dev/null | head -30",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792506028.7492418,
+      "ok": true,
+      "evidence_id": "4ce061b46947441492f2df0bef47c989",
+      "returncode": 0,
+      "result_sha256": "9f667414b64bb01672f94210ac686306e656d5c923b0278384d8a394ef1a227f"
+    },
+    {
+      "id": "c67fbde2170b4b70976087bbbacf2419",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/pip list 2>/dev/null | grep -iE \"(livekit|whisper|piper|silero)\" || echo \"Packages non trouvés\"",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792506029.3343093,
+      "ok": true,
+      "evidence_id": "19e72d647e64427c8b3767d2e237bf27",
+      "returncode": 0,
+      "result_sha256": "4b437b65c81b710543164209fe475ea29efb294261fc48a4953f3dbe069a0c42"
+    },
+    {
+      "id": "48fb7de2f0bf418190b857dd23a68bfe",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792506150.3669631,
+      "ok": true,
+      "evidence_id": "72ded3176e554517b0300e4048752929",
+      "returncode": 0,
+      "result_sha256": "85ded82e52f5b994605d61161592d1e147a77f625d02952a8fa97800b485ed59"
+    },
+    {
+      "id": "a770dd16ccd24f4dba02009e4d532b4c",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "mkdir -p /var/lib/jarvis/projects/mission23/mission23d/{fixtures,reports,logs}",
+        "timeout": 5
+      },
+      "state": "finished",
+      "created": 1792506179.4624853,
+      "ok": true,
+      "evidence_id": "a0dab56e25e54120873e3050edac0a4f",
+      "returncode": 0,
+      "result_sha256": "a5f19c6ac0d481b8201922979e271c060ce8a561b22c10d71cbdd16380498b67"
+    },
+    {
+      "id": "ae50a96a164d476c9ce055ee135b577d",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792506294.808173,
+      "ok": true,
+      "evidence_id": "7e1ebe44baea4ea98605f305a57fb051",
+      "returncode": 0,
+      "result_sha256": "1a179f13481a0ca4bb0e862af764f781aa147113d6713dbda29082850821d987"
+    },
+    {
+      "id": "4e2d63ccc8eb4a7f80ef157820308f74",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792506438.8380265,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "af6ca307c8e940affa5fdb8d88a207702fe6fc65d0a586332aee48362648c72c"
+    },
+    {
+      "id": "e5892144f9b746919d4b13099714dbf0",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/tts_adapter.py"
+      },
+      "state": "finished",
+      "created": 1792506438.935912,
+      "ok": true,
+      "evidence_id": "cc975e3040594183bbc448313e1f7852",
+      "returncode": 0,
+      "result_sha256": "f97e3219a0298e9b8881bc9e6a978c11f93f8f60a58f0bf8294c4452984b23c9"
+    },
+    {
+      "id": "66ccc1862b4741a7a077c8ee8c36707e",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/stt_adapter.py"
+      },
+      "state": "finished",
+      "created": 1792506438.9366214,
+      "ok": true,
+      "evidence_id": "0a998c82d2b0464a8d6934a6ae4bfc97",
+      "returncode": 0,
+      "result_sha256": "fb3ceba61fb2f7ac2ad7ff4c42df32d62f12e6fd87a7ae98e57d18a3d830b764"
+    },
+    {
+      "id": "1ae0d3eca98540cf8fe33bce745b754c",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792506471.8480437,
+      "ok": true,
+      "evidence_id": "90f6048e49da42fab7944d790356d8bd",
+      "returncode": 0,
+      "result_sha256": "689cf8a81b996706cb3e039f728aed5e46cd3de9513628780e29275809ecba01"
+    },
+    {
+      "id": "bef7f1eab7f84102b8a404cb7060110c",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "sha256sum /var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md && ls -la /var/lib/jarvis/projects/mission23/docs/missions/23D/",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792506500.766694,
+      "ok": true,
+      "evidence_id": "b83b69efbd3240b881c52b8dc57435bc",
+      "returncode": 0,
+      "result_sha256": "d966cf4f5b59a5ca2bdf1ea65b8e0db1315408e37eb07592d69c321102e9dfe6"
+    },
+    {
+      "id": "80ba14bcc7494286b3b2d05c6644ba4c",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/home/adminjarvis/JARVIS/mission23d-private/independent_capture.py"
+      },
+      "state": "finished",
+      "created": 1792506638.9737606,
+      "ok": false,
+      "evidence_id": "6a05f5bd189841e1ae4e1acb180f8923",
+      "returncode": null,
+      "result_sha256": "4d339e9027a1cb5b6fedfc87591c8b69a2e0da74f13e26917946bee26a1af827"
+    },
+    {
+      "id": "aa0e3087e44f4d3ca75bab5c4aa16132",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/test-client.html"
+      },
+      "state": "finished",
+      "created": 1792506639.4245684,
+      "ok": true,
+      "evidence_id": "cb63a2fd44454c729e9808f9b8379238",
+      "returncode": 0,
+      "result_sha256": "861017859a337b42c61cad8ab0e9412cb03cf07d84400819e4d496fcb0f7b44a"
+    },
+    {
+      "id": "e00c8535f2ef425b971661c0a21aa8a4",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /home/adminjarvis/JARVIS/mission23d-private/ 2>/dev/null | head -20",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792506640.0159168,
+      "ok": true,
+      "evidence_id": "050fb35e91a84126a85fc52b700ba61b",
+      "returncode": 0,
+      "result_sha256": "2c6b096b90d85448199bd7e081eead73defca013ea7769df282087550a605807"
+    },
+    {
+      "id": "6391820a1ab7455d8b858bd8a5f45501",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792506824.389288,
+      "ok": true,
+      "evidence_id": "d41e80ee41f646ffa4f064fafeb8f8e4",
+      "returncode": 0,
+      "result_sha256": "f084eace452c897edef159cba30037ee8e2f6e36cbb3877a44c9ee7e9505fb7f"
+    },
+    {
+      "id": "b5e093f818bc4183bdd95f696b6f9588",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792506885.9945276,
+      "ok": true,
+      "evidence_id": "84562a55ed04420d8f748274df3a665c",
+      "returncode": 0,
+      "result_sha256": "e216786a0d23f5a4c7cf85c661847612204f6116e6f79f004dd3735eeb37ec35"
+    },
+    {
+      "id": "c997766c965449338432bceac67f724d",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792506924.3281598,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "e0aacbed97fc898ff554b0285fa387088415e15aa11f014ff98bcd58c151638f"
+    },
+    {
+      "id": "688a1bba5dd64fd7a4609d8198435803",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792506924.4283412,
+      "ok": true,
+      "evidence_id": "dcfecb5d938f49bb9e5a7b20c3922b81",
+      "returncode": 0,
+      "result_sha256": "3b2cb658ae187b8dd05895ec775282b119010cc46b9b53af9fba3e047cdccb0a"
+    },
+    {
+      "id": "187b88b70a6d488380d028c59e89616f",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792506924.4291692,
+      "ok": true,
+      "evidence_id": "f9a5f47634e24521b2feef1d08134578",
+      "returncode": 0,
+      "result_sha256": "4d2ef8d69a4fe30d33f458fce6d74fd8f058b81e7fb99fa40666bda2a66aca24"
+    },
+    {
+      "id": "6c0b3ec2ded64656b4ea7efd034fb30b",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/ && echo \"---\" && ls -la /var/lib/jarvis/projects/mission23/mission23d/fixtures/ 2>/dev/null | head -20 && echo \"---\" && ls -la /var/lib/jarvis/projects/mission23/mission23d/reports/codex-baseline-02/ 2>/dev/null",
+        "timeout": 15
+      },
+      "state": "finished",
+      "created": 1792506959.4929872,
+      "ok": true,
+      "evidence_id": "31058698108d4497b087c5dd10b01ec7",
+      "returncode": 0,
+      "result_sha256": "c500b2ab477203c4cb84e4a2e869d5d15f824c7e639a7db61582ac76f15a9661"
+    },
+    {
+      "id": "a91db519006a4c978695f0fdd77c7e9f",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/fixtures/manifest.json"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/codex-baseline-02/result.json"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/livekit-agent/core.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792506986.1330466,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": 1,
+      "result_sha256": "66012080bbd82c1ad2b7d8fedc322c06c189930b5003a80999f291107b3cee87"
+    },
+    {
+      "id": "39a736b2ff824a29887c734b8a90dc1a",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/fixtures/manifest.json"
+      },
+      "state": "finished",
+      "created": 1792506986.2368515,
+      "ok": true,
+      "evidence_id": "111ba7c5cfe04981bc9d271f4ccb23fb",
+      "returncode": 0,
+      "result_sha256": "d6da1a2bdc9b7130258ff88420a27367f9ad7c7b5d1063d14a40c0250d44c607"
+    },
+    {
+      "id": "7ad12279e8164690ae7b1b6570c8e5cc",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/codex-baseline-02/result.json"
+      },
+      "state": "finished",
+      "created": 1792506986.23751,
+      "ok": true,
+      "evidence_id": "0780471cddb24d629072557faa81b25a",
+      "returncode": 0,
+      "result_sha256": "0ab09c75a7b9d986df4364e271dc6e47264aac08bd66290b2f6c64ee2203d3c7"
+    },
+    {
+      "id": "da51f7055d6b4f63a0ac08ffe9288b8c",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/core.py"
+      },
+      "state": "finished",
+      "created": 1792506986.2382803,
+      "ok": false,
+      "evidence_id": "3084aaba59af4ed292e563475758e40b",
+      "returncode": 1,
+      "result_sha256": "2681f85127ed16a77921b8acf2fb3e66598d59d21cfba1bf150e844fe5613c2a"
+    },
+    {
+      "id": "b1d8e3de0458427a8c1cd29b89e7f0d6",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "find /var/lib/jarvis/projects/mission23 -name \"*.py\" -path \"*livekit*\" 2>/dev/null | head -20",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792507018.8458707,
+      "ok": true,
+      "evidence_id": "95334d9c14124868bdce329bdb123a07",
+      "returncode": 0,
+      "result_sha256": "84ab4d1bc5d977ba989f74d7814722eabcaab6f151013428b7f538bd0a6b18d8"
+    },
+    {
+      "id": "563e82313be74e96ba3894392797ee9a",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_capture.py"
+      },
+      "state": "finished",
+      "created": 1792507052.894305,
+      "ok": true,
+      "evidence_id": "667f8d62474046df9571e1ee5191b132",
+      "returncode": 0,
+      "result_sha256": "cdedfe95a22e43a951fab7f8e39a71a527b3c77c520296ef0b9ec7a427209ede"
+    },
+    {
+      "id": "c04fac1af7204fc6abe128029644d05f",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/core.py"
+      },
+      "state": "finished",
+      "created": 1792507079.2189796,
+      "ok": false,
+      "evidence_id": "3ac295135abe42d0a0732a2f0b8bf2cf",
+      "returncode": 1,
+      "result_sha256": "ee330b8d530cfcfe415c44e19ae6b2b474bf6b3da7f52f3e63a8a805a1537635"
+    },
+    {
+      "id": "878c3df4e4734a38a29d885582885a8a",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/.env"
+      },
+      "state": "finished",
+      "created": 1792507109.8423536,
+      "ok": true,
+      "evidence_id": "4eba9d836c33414e8f9ee0d9c8ec5c82",
+      "returncode": 0,
+      "result_sha256": "fe308caeff92718f37ec48ea86dc52dd65acad116139a319561a9c82a9146694"
+    },
+    {
+      "id": "441702ea42ae4eabb6726e3e403a7ab7",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/livekit-agent/codex_capture.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/livekit-agent/test_llm_stream.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792507135.1912878,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": 1,
+      "result_sha256": "f68b1fb2d7b992f481aadd5910592af12b61203e23eb91d568840ff159f4d90d"
+    },
+    {
+      "id": "e7d92118f67445b383dd5ad7d79c6bc9",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/codex_capture.py"
+      },
+      "state": "finished",
+      "created": 1792507135.2943463,
+      "ok": false,
+      "evidence_id": "5f7dd4756f634982a52d956abf2db95f",
+      "returncode": 1,
+      "result_sha256": "9feb7e2ef67f5f149b172eb4a684c7c1e5eff4608f50eedaab13a7d330236db8"
+    },
+    {
+      "id": "33aed10e9b0d4791a5e5af8e43dd704b",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/test_llm_stream.py"
+      },
+      "state": "finished",
+      "created": 1792507135.2948382,
+      "ok": true,
+      "evidence_id": "eda604fcee8648aaab8b257484656c96",
+      "returncode": 0,
+      "result_sha256": "7a178e1ab41b4707b83dd9a0bac4ebbd3ea53e8deedd481879286a38b4ddab1a"
+    },
+    {
+      "id": "b7115180690d4a8ba3876fd9591aa723",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "find /var/lib/jarvis/projects/mission23 -name \"codex_smoke.py\" -o -name \"codex_capture.py\" 2>/dev/null | head -10",
+        "timeout": 5
+      },
+      "state": "finished",
+      "created": 1792507163.0339663,
+      "ok": true,
+      "evidence_id": "a80cba6354374c1abda53f70286a55ff",
+      "returncode": 0,
+      "result_sha256": "e27b057cb68cc3a2225a8fe677d140d45c8b323351717b1fa1e0d094f1369dd3"
+    },
+    {
+      "id": "ea76bdef290b486c839799befebc0293",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_capture.py"
+      },
+      "state": "finished",
+      "created": 1792507193.4630206,
+      "ok": true,
+      "evidence_id": "a0c6309186c74d6fb478ab7187595b4b",
+      "returncode": 0,
+      "result_sha256": "ea25d8f9f89dcafb2a868f1466a4edb088e84426e48cd5260c3fbb814dbff482"
+    },
+    {
+      "id": "851ff6cd59754dbbb4ff1a59cb736d2f",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py"
+      },
+      "state": "finished",
+      "created": 1792507194.0753138,
+      "ok": true,
+      "evidence_id": "bbcec64985ad496484b0d3ef5a8ddae3",
+      "returncode": 0,
+      "result_sha256": "e63afe7b5dda6cd0718fe656d4418911db9674471ff06be2d26ad8593f19df4b"
+    },
+    {
+      "id": "6dc461e5663d4e3bbf114ddc7c9fd061",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792507225.9404051,
+      "ok": true,
+      "evidence_id": "d893bc01c8ee415a967589726aa73b47",
+      "returncode": 0,
+      "result_sha256": "16377f5701800900e15474b092fcb4157930153f7379866558686fd4e74f49a7"
+    },
+    {
+      "id": "f5895391326547bebd8d41ab65ce30e1",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792507226.4822886,
+      "ok": true,
+      "evidence_id": "fd3d3ca62f9046feb6358b3a2b134e0d",
+      "returncode": 0,
+      "result_sha256": "515f8e791128436ea1b9c884a9b7280a69be7d0a6426089efd3502f9bbe6fd86"
+    },
+    {
+      "id": "28a9e813cea84e55ad63047d6dab508d",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py"
+      },
+      "state": "finished",
+      "created": 1792507263.2580552,
+      "ok": true,
+      "evidence_id": "44ac5e918e8c45f08c636735b725e06d",
+      "returncode": 0,
+      "result_sha256": "7f77fd95f35b23f03fc6959134ea800bd3458a5c861fa8cc8a0dd7a3ea3c673b"
+    },
+    {
+      "id": "d122a8a2d07347a28426f417708c79de",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792507582.3262904,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "e993a2b976471dc2f6bcacc74777524fe47c01e5ec7900f56cd66dc41b1fea78"
+    },
+    {
+      "id": "e65a753aeb4c452888e8542f64727b62",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792507582.4231136,
+      "ok": true,
+      "evidence_id": "7d76dd609e914cbf8a08ff86b17d5872",
+      "returncode": 0,
+      "result_sha256": "be360f9c8f9d496cc0ae0e51d8af1b5d577a7e7278b13a4c36de0f928c17b056"
+    },
+    {
+      "id": "a3538c5a2f744cb4abe405e5801f2f60",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792507582.4235783,
+      "ok": true,
+      "evidence_id": "e4aca81000fb47288b60847c6620a239",
+      "returncode": 0,
+      "result_sha256": "9ea655f670bf3dfa321ebe9d2bf159691b201535dc555dd7fe089dbafbbb73ef"
+    },
+    {
+      "id": "7e18b6224f3a45b8a8139e6359bc8115",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+      },
+      "state": "finished",
+      "created": 1792507582.4239144,
+      "ok": true,
+      "evidence_id": "e108c2e33b0741d0a38e4489c1640a02",
+      "returncode": 0,
+      "result_sha256": "e90e2bc0fc113540427723610d3b328588a46a0a5e2378112dbed2680e2065f9"
+    },
+    {
+      "id": "da41aefc19c348a9a80bd08cc583fb0d",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792507618.40374,
+      "ok": true,
+      "evidence_id": "f9e426573f5747a9b0b0c81765b04a92",
+      "returncode": 0,
+      "result_sha256": "e3aba366d8a599b32b47c370269492c86c2c99920d9252d267e777440f2cb4e3"
+    },
+    {
+      "id": "fc583cb86ec349efb94ae1093d97be61",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+      },
+      "state": "finished",
+      "created": 1792507650.991152,
+      "ok": true,
+      "evidence_id": "f5be5f798e5c4527a4b826bd64503048",
+      "returncode": 0,
+      "result_sha256": "2687e0dc504af374c04bfd6e7120563ef227976dd8ca0081f84c2a2ee8cd2fba"
+    },
+    {
+      "id": "fbebeea34a6f4bc590a046ba3b3cf4e1",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792507708.8940454,
+      "ok": true,
+      "evidence_id": "50fbc32a7d444c5dba1793a306f1b0c8",
+      "returncode": 0,
+      "result_sha256": "d16c30a1c3a78ed2c24479df23eeca0cc3b50d006f0bedf34143cbc9b50527af"
+    },
+    {
+      "id": "1ab8363d5b184bbe99a6475c2dec4611",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792507733.638786,
+      "ok": true,
+      "evidence_id": "70992b2038284dada16ffa0cdbdef748",
+      "returncode": 0,
+      "result_sha256": "fff3b21f79628fbe7886e07856c3213245c00509750d969f72ec27326e3def98"
+    },
+    {
+      "id": "9cd37a3579164b91a7829e2386cc2ba8",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792507852.4887938,
+      "ok": true,
+      "evidence_id": "7d5c58b5cc3a4d55a9d6f8f43dcc6bc4",
+      "returncode": 0,
+      "result_sha256": "f5979fcbd8265f2c8ccd5c677f6ef11b5318666d1c78e29ccf83dbfbb1d6fb63"
+    },
+    {
+      "id": "fe8db84c98104e1ba4ad9bc9ae0297ae",
+      "task": "m23d_01",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "f9e426573f5747a9b0b0c81765b04a92",
+        "id": "m23d_01",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792507884.42875,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "db532bb626002a145be5319449d29653ef54d46ba8a1cec3be95eab64f329b2c"
+    },
+    {
+      "id": "90593d09509242f9831bc5d085675f77",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792507889.4986129,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "c44a54edc3fa08a67b0d0e8c61da9f3b1829d0ee1e2ba38db2c3aa587a6ef73e"
+    },
+    {
+      "id": "ca8bc313208145c4b9bd7ac15f62169e",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792507889.6158373,
+      "ok": true,
+      "evidence_id": "de5ca6267fbe4fb5be34250f188a9b89",
+      "returncode": 0,
+      "result_sha256": "c7c21294b7424c507a6c6148d484f9ef5d0a0fc0edbf7e2abe6242dc0ad8a28c"
+    },
+    {
+      "id": "c0c4ec2bab0042e49e16711fe20e651a",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792507889.6161504,
+      "ok": true,
+      "evidence_id": "83afbbbf38c7498b965c026e058ac480",
+      "returncode": 0,
+      "result_sha256": "f5accccaf98b7f4a1d65a5a58b4a1fc1c4d7e5a0342b253306999aeb50ca8d23"
+    },
+    {
+      "id": "f4de3e19b8d947f89472a2f706bf4439",
+      "task": "m23d_01",
+      "tool": "host_edit_file",
+      "arguments": {
+        "count": 1,
+        "new": "  <script src=\"/vendor/livekit-client.umd.js\"></script>",
+        "old": "  <script src=\"https://cdn.jsdelivr.net/npm/livekit-client@2.4.0/dist/livekit-client.js\"></script>",
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792507924.8870912,
+      "ok": true,
+      "evidence_id": "c02ba7654109415a9bee88f77e0afe92",
+      "returncode": 0,
+      "result_sha256": "1f15674e6e854c52125629ee8d8a4d09bb42f090bc7c45712f94d32d61dec06c"
+    },
+    {
+      "id": "b2551c4324304653b629e52710ecc5a0",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/vendor/livekit-client.umd.js"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792507951.0464272,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "1fb408210c5cdf8f77ee7bea4b04da4de2923ad699876a0881697d8c160d45c6"
+    },
+    {
+      "id": "1f7d08dc386a4678937d2751e097fd31",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792507951.156537,
+      "ok": true,
+      "evidence_id": "aecc862a40d5488d86a83e2646fcbca3",
+      "returncode": 0,
+      "result_sha256": "6cac050f58ad3f2c54fcc25263fc67979a511c2857de785c99df18d482649d7c"
+    },
+    {
+      "id": "5552cc90d82448009950ea6abf7b28da",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/vendor/livekit-client.umd.js"
+      },
+      "state": "finished",
+      "created": 1792507951.1571488,
+      "ok": true,
+      "evidence_id": "e52f7327c62142f8a5696eabfe122a22",
+      "returncode": 0,
+      "result_sha256": "be0af7119215313c66807fd8893e88ff066ba15296193d33f003e1ff03a4ca0d"
+    },
+    {
+      "id": "9d9623e25a584b9f9a1b6005cfc8281f",
+      "task": "m23d_01",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "da41aefc19c348a9a80bd08cc583fb0d",
+        "id": "m23d_01",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792507989.9828792,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "d7a2b10250190909cd9c4e7fa46874dc054bc7631206cd6b1f254e38d882ac1c"
+    },
+    {
+      "id": "3bc709bea4b54a2da6059a44f9a391f8",
+      "task": "m23d_01",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "curl -s http://localhost:8783/health 2>&1 | head -50",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792507996.2718976,
+      "ok": true,
+      "evidence_id": "e77f1174ee4249c4952765413db95218",
+      "returncode": 0,
+      "result_sha256": "0e53199ea14876243a2f2997be4d5134e59c07ba47d989ba58f14b5ad1a142be"
+    },
+    {
+      "id": "204623466176471980c392ff1bb52766",
+      "task": "m23d_01",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792508035.3637197,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "883afdb80f3c233a45c82f3b8f8f7856d5cc7f5a14d5015bd2b649ae8113d377"
+    },
+    {
+      "id": "b286e5cc004343a89a00c2cf6c00b77e",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792508035.4934773,
+      "ok": true,
+      "evidence_id": "b46db48b58b84a60a1d2a2a99125f3c7",
+      "returncode": 0,
+      "result_sha256": "f31dfd380ef1f4117d8956603f73a9163fc699a94d8ef413f708224ab5fed0dc"
+    },
+    {
+      "id": "14b5f786935a45feb1529ca47633fb87",
+      "task": "m23d_01",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792508035.4937098,
+      "ok": true,
+      "evidence_id": "f50729db4f2c4930a2d4a01c181260ca",
+      "returncode": 0,
+      "result_sha256": "c8adbe735bec102930e6f1716179de2f66eac01ae932eceb4971f07e2f21dabf"
+    },
+    {
+      "id": "dbf79b61bfe44011bd78c0ca1ca749e8",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/m23d_01_rapport.md"
+      },
+      "state": "finished",
+      "created": 1792508136.2414486,
+      "ok": true,
+      "evidence_id": "b4bf3192cf5344cf81dd0f3f50a8bdf3",
+      "returncode": 0,
+      "result_sha256": "608868bb623a1a366b0d9cd2eeef033326abbf6f53ac710d34822c0bf1109a6f"
+    },
+    {
+      "id": "729e31ffd1954451882ff3ecd7fb9dea",
+      "task": "m23d_01",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "da41aefc19c348a9a80bd08cc583fb0d",
+        "id": "m23d_01",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/m23d_01_rapport.md"
+      },
+      "state": "finished",
+      "created": 1792508162.5837245,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "8a8667fe8e0f5cdd3ed0b7208ab3d89263dd7973f577a0ec4fe4fe2e8b76f783"
+    },
+    {
+      "id": "46c86598aee94f69bb259b87f03c2bec",
+      "task": "m23d_01",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792508231.1045165,
+      "ok": true,
+      "evidence_id": "aa09ca46edbe487d9e986dcf6713849f",
+      "returncode": 0,
+      "result_sha256": "75ae51c8b7eb0bb9ee3e3caf37cb2e4d06e798486ccefce63b2558ba4bc8ddf6"
+    },
+    {
+      "id": "25b678fb6a6a42d5a6ce2d0bd4ca4c0c",
+      "task": "m23d_01",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "aa09ca46edbe487d9e986dcf6713849f",
+        "id": "m23d_01",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792508282.6099286,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "e02c68a67951ded957e6da45694ca412d7a9795bcf92b5f2c1ad05e14a6d1260"
+    },
+    {
+      "id": "7524f53e6695445e97c72582fbb940d4",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py",
+        "timeout": 180
+      },
+      "state": "finished",
+      "created": 1792508314.8243346,
+      "ok": true,
+      "evidence_id": "890b650205424d548558323df4cb8341",
+      "returncode": 0,
+      "result_sha256": "9f3dbe677cbfc7b3b807271d2c41d11eb865055cf5bc6302a008cf389764b3aa"
+    },
+    {
+      "id": "8308bad8516c449dbcd4274c7635198a",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/*.py 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792508343.8229544,
+      "ok": true,
+      "evidence_id": "1d187b89a7314d558272c921069030b2",
+      "returncode": 0,
+      "result_sha256": "5151f6d0cc3d72b52422777c027136c4602f6f5070c43d3e3dc1724071dbe8fc"
+    },
+    {
+      "id": "6e53b0e54cba4611a5f33c485ce52af7",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508369.597592,
+      "ok": true,
+      "evidence_id": "fc6d489271ba463c99b3e69d87284faa",
+      "returncode": 0,
+      "result_sha256": "025e9e86053abd2b6a3be1647fe7a381221c1110d7efc601a9131d18d82cddd1"
+    },
+    {
+      "id": "24fcb393ccb14da4bf08a483b4ed879e",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/fixtures/ 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792508398.098815,
+      "ok": true,
+      "evidence_id": "9911bc64b7b94b67be3211e3d7c32b39",
+      "returncode": 0,
+      "result_sha256": "15566e5b55bda075facdf6e6725cde1a072167d177619337e4aab0ee5b28146a"
+    },
+    {
+      "id": "eb7219352f0c499aa4a2fbf1c854c759",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"import sys; sys.path.insert(0, '/var/lib/jarvis/projects/mission23/mission23d'); import test_interruption_23d; print('Syntaxe OK')\" 2>&1",
+        "timeout": 15
+      },
+      "state": "finished",
+      "created": 1792508426.2469683,
+      "ok": false,
+      "evidence_id": "d7d11dbf6967481da47568eccb551829",
+      "returncode": 1,
+      "result_sha256": "9a3985f570493227c6ca1836b6536605b4e79afb7457efb4b0d8db7302aa707e"
+    },
+    {
+      "id": "f227708c68cf47e985c52028568cf572",
+      "task": "m23d_02",
+      "tool": "host_edit_file",
+      "arguments": {
+        "count": 1,
+        "new": "from livekit.rtc import Room, RoomEvent, AudioFrame, VideoTrackPublicationState",
+        "old": "from livekit rtc import Room, RoomEvent, AudioFrame, VideoTrackPublicationState",
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508432.7439692,
+      "ok": true,
+      "evidence_id": "4d2016e27e234e1b92ecd0b838cd0862",
+      "returncode": 0,
+      "result_sha256": "d27d9d81a79f7931bfd128159610ec85ccdfa5f62bd92b2932cf58b9e885e519"
+    },
+    {
+      "id": "aa59ed6ad5d547988a29a3fda747e8aa",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508438.0178816,
+      "ok": true,
+      "evidence_id": "19b819a65a724c258fa2b6166c6cdf94",
+      "returncode": 0,
+      "result_sha256": "3aef35b36efa07d430f94ec9eece579f4d6b951921b81d3350c436a753a7f223"
+    },
+    {
+      "id": "0ecba03284a1490f92ea7ca8ba826e37",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508464.047849,
+      "ok": true,
+      "evidence_id": "0f0b868adcf74efdae4cf12421ecac12",
+      "returncode": 0,
+      "result_sha256": "9f732f7a95fd4c6b238a5dcacc441385a49606fdd4c0702dfe852ba1d270a80c"
+    },
+    {
+      "id": "0a8b438cbedb47c196d3d63c4efcb623",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508488.2982957,
+      "ok": true,
+      "evidence_id": "9c9a2dfa73c94077b6049d8cc419f620",
+      "returncode": 0,
+      "result_sha256": "ad5d1eae93b86c9b617f60024dfdba6e6095938fa2b07e5fd33aba7e3b622c03"
+    },
+    {
+      "id": "799e521501ec4af28b4f659210a11eda",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"import sys; sys.path.insert(0, '/var/lib/jarvis/projects/mission23/mission23d'); import test_interruption_23d; print('Syntaxe OK')\" 2>&1",
+        "timeout": 15
+      },
+      "state": "finished",
+      "created": 1792508516.3860302,
+      "ok": false,
+      "evidence_id": "89d842af5db7419cad0fa46dad87ff0a",
+      "returncode": 1,
+      "result_sha256": "5fe2959c707efe22d117f3cc5095132c3726561acba626a43b08b514e8ac8f2f"
+    },
+    {
+      "id": "e818b4c722bb41b684034e35895418aa",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"import livekit.agents; print(dir(livekit.agents))\" 2>&1",
+        "timeout": 15
+      },
+      "state": "finished",
+      "created": 1792508525.0558376,
+      "ok": true,
+      "evidence_id": "b590f3bc91dc4cb1bf5e92d4e451c45c",
+      "returncode": 0,
+      "result_sha256": "f7be7093d816b46df3ae4c64ef1d5035af0e14319fd84d46b2991b203cd58c80"
+    },
+    {
+      "id": "0fe0b13416ff4e949d25235a6a12c37e",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/core.py"
+      },
+      "state": "finished",
+      "created": 1792508526.7539942,
+      "ok": false,
+      "evidence_id": "08e77dc45c5042fbbc852b4675c0c10d",
+      "returncode": 1,
+      "result_sha256": "18b9eb374274e1e21f2d4eb71c7cfaa5bc05625c309add478f013db62a99313a"
+    },
+    {
+      "id": "3642abfba5de4afa98ee3a009a572ba7",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/livekit-agent/*.py 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792508560.4605684,
+      "ok": true,
+      "evidence_id": "150a91ed55944322a8064812cc27ec39",
+      "returncode": 0,
+      "result_sha256": "5ff9faf8f948c07fc0efe96a182dc120a8bcbd04484115b64771313d7a68a65a"
+    },
+    {
+      "id": "77493d238a7a4f8e963419deda026512",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/config.py"
+      },
+      "state": "finished",
+      "created": 1792508561.0615768,
+      "ok": true,
+      "evidence_id": "af477ae3d084429f9f186e1ee73962b8",
+      "returncode": 0,
+      "result_sha256": "683da927738fc3ca87e82637fb0d84fdf3ec4a85c215fc6e4331a64d3e8016d3"
+    },
+    {
+      "id": "611275dd005d4ee5926ec66782d938d5",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508600.2009063,
+      "ok": true,
+      "evidence_id": "b1ad178dc8e046868efec4e8e50d66d3",
+      "returncode": 0,
+      "result_sha256": "99f0ac2f471dfc1ea33d0aaedc836e64a9d6d3d812a2b5d846d6f4a4050fc9a2"
+    },
+    {
+      "id": "e0962f1775ba4dddb04f4da5cf73bc95",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py"
+      },
+      "state": "finished",
+      "created": 1792508625.602333,
+      "ok": true,
+      "evidence_id": "7e4f19d4341c46db95530683bc6eadd3",
+      "returncode": 0,
+      "result_sha256": "2c455c6ccf5b71fd06558578cf3a528a4eab04f127ae991e390b688ed14487f0"
+    },
+    {
+      "id": "cc7ba25cd67d494c8a1acf8fb856d99b",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py"
+      },
+      "state": "finished",
+      "created": 1792508652.3373785,
+      "ok": true,
+      "evidence_id": "1a057c3424c647a38ad2e26c172becdc",
+      "returncode": 0,
+      "result_sha256": "6f96fe03991fb425e9fd922e6c00c84c698c421779670c325e4f2a31feb02881"
+    },
+    {
+      "id": "d4f33afd55b6428cad5832affac1f510",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/factories.py"
+      },
+      "state": "finished",
+      "created": 1792508677.0283577,
+      "ok": true,
+      "evidence_id": "6b2f386f958f47578ed329029df56f8d",
+      "returncode": 0,
+      "result_sha256": "de00f171384e21e9145120570f0cc2d1f25de348122120370252927d4ec03591"
+    },
+    {
+      "id": "af301dcf66e74b5c833f2d44a68e9b09",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508708.9422226,
+      "ok": true,
+      "evidence_id": "b798382d8c3843f4a1e57ef7c5b6f053",
+      "returncode": 0,
+      "result_sha256": "4bf6b75e57f2f53b8226a8af3bbc32efd4ed6ba9eaef32a87d9f603a71397586"
+    },
+    {
+      "id": "032cf410ebe5431291820063e0a17ed1",
+      "task": "m23d_02",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "limit": 500,
+              "offset": 20,
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792508736.5500324,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "7198545c4102c305cd81cfe6efc778f2857ded913bfa1d364efcd18e97c0f001"
+    },
+    {
+      "id": "84decfbe06434d44829fb76c5058b16b",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/livekit-agent/agent.py"
+      },
+      "state": "finished",
+      "created": 1792508736.644387,
+      "ok": true,
+      "evidence_id": "3ef7accdde2b4f6fb33dfebe6a7bf2d6",
+      "returncode": 0,
+      "result_sha256": "6b4c826d092911ad59e2cb9c9ec8b8cc4aadcbeb3952c4ab9afb49fa5ae5ab75"
+    },
+    {
+      "id": "bd00c437817e4a89a8ee980752e639c3",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792508736.6445484,
+      "ok": true,
+      "evidence_id": "cab0f21fd9e84d05abe0e6c4ebe4a034",
+      "returncode": 0,
+      "result_sha256": "652a173a4043a3ca73989706f91ca72cfdfabb8309d29ef1d47871cf59181613"
+    },
+    {
+      "id": "6cea0f4b010540bcb8242f3a9e8085ff",
+      "task": "m23d_02",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/ 2>&1",
+              "timeout": 10
+            },
+            "tool": "host_exec"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792508772.0572276,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": 1,
+      "result_sha256": "7c070dbba0210ed2f3122b11dd7df8fe42c1bc5e17f948eed2c916684065f6a9"
+    },
+    {
+      "id": "02d5b4b5373246ea9c82915b1fb0dda3",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+      },
+      "state": "finished",
+      "created": 1792508772.1520505,
+      "ok": true,
+      "evidence_id": "8c0fc525d5dc4865b6159da8e884d1d1",
+      "returncode": 0,
+      "result_sha256": "9adab13360a737a56faa28e8e99ff04b4bfead10ba31e193fb72739019cfea96"
+    },
+    {
+      "id": "5467c256fefd4e9db49af2d8c2b5336c",
+      "task": "m23d_02",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792508772.1525295,
+      "ok": true,
+      "evidence_id": "3de8f19e9bce497b978b49343f8653cf",
+      "returncode": 0,
+      "result_sha256": "567e245e2cf1c0bd9b780ce2e1d0897aa9e82ab3c11c5209b6b89d03786dac73"
+    },
+    {
+      "id": "2705777902e94feaa766f04c578904e4",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/ 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792508798.8496644,
+      "ok": true,
+      "evidence_id": "a82be2cf57d540d6a7c3a230ff082b6e",
+      "returncode": 0,
+      "result_sha256": "4913a0fff8bd92a45cc4103763a9712e3e95aecd606aec16c5f2661a01b1e239"
+    },
+    {
+      "id": "ed64fcbbfd304c05968676d94fb18ac4",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/vendor/ 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792508824.5791433,
+      "ok": true,
+      "evidence_id": "1629280d69644bfa854e52c289aeffb9",
+      "returncode": 0,
+      "result_sha256": "6471e25391087f29f645c71da93edc7898161f17c983b8d27fb84ad50e75c738"
+    },
+    {
+      "id": "913d233080df4737a2392dbd5afb6b62",
+      "task": "m23d_02",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py 2>&1",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792508852.2224574,
+      "ok": true,
+      "evidence_id": "8aa19c1a7f3f45b0b22b5d8f5f46ab43",
+      "returncode": 0,
+      "result_sha256": "7f990cb844656aa75416dfc74744916f4324ae414892def7f59d4a658fe500c0"
+    },
+    {
+      "id": "3cf6c65912d544dfbcabea3aa219130c",
+      "task": "m23d_02",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/TESTS-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792508954.4159749,
+      "ok": true,
+      "evidence_id": "bcb6abae301a44c580f6cebf2b5f4737",
+      "returncode": 0,
+      "result_sha256": "bcb2e03226a03db3d624f7630a5b5f2f626145ff9eea6ed7c0c71864a50127df"
+    },
+    {
+      "id": "eb1c68d2cb2f4ebb99cdcc2b23e0be08",
+      "task": "m23d_02",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "bcb6abae301a44c580f6cebf2b5f4737",
+        "id": "m23d_02",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/TESTS-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792508989.7445729,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "69b28bc383b16ded3852506651227034c739babb5973cc3ef67c8be5ef0af1e9"
+    },
+    {
+      "id": "f9292413d05542cc81fd807ab937527f",
+      "task": "m23d_03",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RAPPORT-JARVIS.md"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/TESTS-JARVIS.md"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "limit": 200,
+              "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792509022.538086,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": 1,
+      "result_sha256": "9fcc57a3be649cd866bcc618adbf95151a3a4056acfc4cb54b5141b4b79afaa0"
+    },
+    {
+      "id": "1731d13f6c06450b8f17c100e634b00e",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RAPPORT-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792509022.629191,
+      "ok": false,
+      "evidence_id": "e26b7f03677b44afa010dc112d65a28a",
+      "returncode": 1,
+      "result_sha256": "c901c5991e3a9a2fbfc123182686ca69279ca7c7045347081fab2ee8614dd7dc"
+    },
+    {
+      "id": "aa1e083acc404adb959d0c20081915ae",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/TESTS-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792509022.6299736,
+      "ok": true,
+      "evidence_id": "8568a1c0f9e840e797eae9031c341045",
+      "returncode": 0,
+      "result_sha256": "ab5251ab174caf80334a76dbee284d6768f40da6bc4f18af1ebd48393d85932c"
+    },
+    {
+      "id": "6e5b1203f05840f48f9d6721bf563a27",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792509022.63073,
+      "ok": true,
+      "evidence_id": "54ffa4af820b469badadf4ba20804060",
+      "returncode": 0,
+      "result_sha256": "b85dd79f19d3f9047db4bee1e93f4e9fb51085d3c8d9b7b3468d6464a851d84c"
+    },
+    {
+      "id": "a73070b2bf2d402d9c096f5b7304fa20",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/PLAN-ET-IMPLEMENTATION.md"
+      },
+      "state": "finished",
+      "created": 1792509058.2150493,
+      "ok": true,
+      "evidence_id": "65adc23f94354ca9a573598b4bb0f801",
+      "returncode": 0,
+      "result_sha256": "851dac67bc324ac6fec2296f2fc42c950eb1d17544fc6ce5a22ceba75ecff4cf"
+    },
+    {
+      "id": "566ef8b367fc48359f0093b163b3039b",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && ls -la mission23d/*.py 2>&1 | head -20",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509058.7975938,
+      "ok": true,
+      "evidence_id": "a50bd5401a3942b79797256a0c60d7ab",
+      "returncode": 0,
+      "result_sha256": "a404131fea5e0aae6ed0017148d30508666b6a1afa98ac30ed92f2a741056cf3"
+    },
+    {
+      "id": "4c6b614db03b4990bab832bfb0a4e7ce",
+      "task": "m23d_03",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/TESTS-JARVIS.md"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "limit": 500,
+              "offset": 0,
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792509088.1605334,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "dfb2d4c955259534e422ea5091994792c9e15d9fc9fbff377667db214a15184a"
+    },
+    {
+      "id": "9ae92159d2484d24b8ace6984c537dee",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/TESTS-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792509088.2549167,
+      "ok": true,
+      "evidence_id": "5d2df351c6c64079a8c4a060cc2ec3ed",
+      "returncode": 0,
+      "result_sha256": "127cc0ff6475877f3880654fa29b0b80773a7413e57a522ab9e858cbccdef7a2"
+    },
+    {
+      "id": "321ac6fd9d38422ab7ab4360a88b0e79",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_gateway.py"
+      },
+      "state": "finished",
+      "created": 1792509088.2556605,
+      "ok": true,
+      "evidence_id": "7410117b6da04865ade17dae1a97a25d",
+      "returncode": 0,
+      "result_sha256": "719995e9ec6efd16609f1800fc1f8f59484f5e56ff9943ead17d913d1d3b755e"
+    },
+    {
+      "id": "f5814fa0c0c64943af0dc215643eb66c",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792509088.2560987,
+      "ok": true,
+      "evidence_id": "5f984c25ccb1405f921461e189f73af0",
+      "returncode": 0,
+      "result_sha256": "eb295b8bab4b12b17d2b26da860f737f76deea68c3602df069a38d6522f3bd54"
+    },
+    {
+      "id": "f5ce46e890a8404c8814a4ef40e520e0",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792509120.3775053,
+      "ok": true,
+      "evidence_id": "1f2f05e3faa747a1a73a684dc970f1be",
+      "returncode": 0,
+      "result_sha256": "3d46d06108b493bf501d1aa90bc7fac8bfcb1e6dafb2347195806c761a856fb8"
+    },
+    {
+      "id": "eda42ed1505d4305a1ad93dd6d1cefb4",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_capture.py"
+      },
+      "state": "finished",
+      "created": 1792509120.9712465,
+      "ok": true,
+      "evidence_id": "690218e60b0743f08a33ca19c8f962e9",
+      "returncode": 0,
+      "result_sha256": "449c29df2753196a723a658e8d1ad2d89157859c34ed6dc5fb75b7a72d906d88"
+    },
+    {
+      "id": "5731bf905767424f8258a30457682405",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792509147.0165372,
+      "ok": true,
+      "evidence_id": "e6ddf48a707941ed870b949731971477",
+      "returncode": 0,
+      "result_sha256": "818be636b5c5f1d5387fd068325c7413af679d3c7ca57d4fd02b712e9e64cc6d"
+    },
+    {
+      "id": "e1d229c39af54f18b945b85e44d2ceee",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/codex_capture.py"
+      },
+      "state": "finished",
+      "created": 1792509147.5974565,
+      "ok": true,
+      "evidence_id": "41101de4e27641cf8b2ed3f4e6285adb",
+      "returncode": 0,
+      "result_sha256": "67ce63e7fa620b260ffa06d3a935420bc45c08c428adb605f7ffbbcfdbf49ace"
+    },
+    {
+      "id": "77570b1401fb46c4a6b840d5c919e8df",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"import livekit.agents; print(livekit.agents.__version__)\" 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509156.342269,
+      "ok": true,
+      "evidence_id": "4fde35901ae44a77a33b8c7b08b683eb",
+      "returncode": 0,
+      "result_sha256": "a20524860dd7e1fa7333edec23580f11f26d695c999a2a45ba0f01c91cdebbe2"
+    },
+    {
+      "id": "d918249a2033424a933b8fce287ec78d",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"from livekit.agents import JobContext; print('OK')\" 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509158.0374584,
+      "ok": true,
+      "evidence_id": "eebdc9e09e0a498c8eeea36091cd6127",
+      "returncode": 0,
+      "result_sha256": "314d4a4d82ebdba1d6b1bd7ca9dd6240b3fd93ad6fb3e8a10375989aba01302f"
+    },
+    {
+      "id": "3d2d787860e04bbc9ee9eaa88deac88b",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792509188.7987938,
+      "ok": true,
+      "evidence_id": "6b033cc1fd8c4a3ba2840b7a71401f42",
+      "returncode": 0,
+      "result_sha256": "2a1ead4026bc05b2a71dc6243154c758358ca05f8baf6e82900b5cccefe2171b"
+    },
+    {
+      "id": "822ac4e299114139809de7a987b33ba6",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"from livekit.agents.pipeline import VoiceAssistant; print('OK')\" 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509195.2018821,
+      "ok": false,
+      "evidence_id": "5314549c306c4ea4988945d13cb6f958",
+      "returncode": 1,
+      "result_sha256": "2cc1f4ba5212be83acc6513de577a880306fd7c65ef0d0274b400f6e03f1b013"
+    },
+    {
+      "id": "dcaa6076f072429eba8787955cd345f0",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"import livekit.agents; import inspect; print([m for m in dir(livekit.agents) if not m.startswith('_')])\" 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509221.1666043,
+      "ok": true,
+      "evidence_id": "4ba73d2af9d14b759daae91b6fa6c6e5",
+      "returncode": 0,
+      "result_sha256": "8d37c10142402ef6ddcff63389b637d53eee4a730f1e674852999ffcc27d67bd"
+    },
+    {
+      "id": "b5bf7e9438594fedb745aafc73808871",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"from livekit.agents.voice import VoiceAssistant; print('OK')\" 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509248.5944762,
+      "ok": false,
+      "evidence_id": "6dae6cf45c0d4e1e8b9e460d26858c48",
+      "returncode": 1,
+      "result_sha256": "0f7e2edb7e53e4755d075d8614ac367d2b74daf0be58a4c06767314793c4ddf9"
+    },
+    {
+      "id": "94fed441fcac49ceb944c15f80b85db4",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"from livekit.agents import voice; print([x for x in dir(voice) if not x.startswith('_')])\" 2>&1",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792509255.0817797,
+      "ok": true,
+      "evidence_id": "9ca891edf8f44217a7564e4599a17089",
+      "returncode": 0,
+      "result_sha256": "f6aa097a75c5e9dd910bff93949c4f1f9c4dacdb8bbcb7ed4e7d8f51a59c7165"
+    },
+    {
+      "id": "f427561429724fdb888806aa2ebbd401",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/livekit-agent/*.py 2>&1 | head -20",
+        "timeout": 5
+      },
+      "state": "finished",
+      "created": 1792509282.7671118,
+      "ok": true,
+      "evidence_id": "6478208eb9554d3db1ea6205b9dc25c4",
+      "returncode": 0,
+      "result_sha256": "c44c7d50eb5876306be124647d5d590ffd6653e9948168317ca44a80eeaef242"
+    },
+    {
+      "id": "5588c47f5855433f881489172336106e",
+      "task": "m23d_03",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "limit": 150,
+              "offset": 0,
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "limit": 200,
+              "offset": 0,
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792509315.422268,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "a95ff00e27910ac154a0b877c84acbf3e62289b2c08849d896fd7f619762d056"
+    },
+    {
+      "id": "34f83b74e5994522932daaff5c620da5",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/server.py"
+      },
+      "state": "finished",
+      "created": 1792509315.519841,
+      "ok": true,
+      "evidence_id": "cbe8821eb5104ba1b2a44586183fe31e",
+      "returncode": 0,
+      "result_sha256": "656c3dbe34c52d9fcf03d09bdc0644b163bbbef6c0eaa7b6f86d1b898748dc6f"
+    },
+    {
+      "id": "86a4f350fbed48d2ba890d9698ef6b3e",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792509315.520133,
+      "ok": true,
+      "evidence_id": "376858f0a6794e02b9891b065e83f937",
+      "returncode": 0,
+      "result_sha256": "0bf9d079f8cbd008bb7abdae0e7fa7f27a4d3470edfcf5e4d646d4d61a8ba583"
+    },
+    {
+      "id": "e06716c394724348bc80946539046201",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792509340.966294,
+      "ok": true,
+      "evidence_id": "b5e80430e3984301b30f806b221298c8",
+      "returncode": 0,
+      "result_sha256": "cf4ee57bd54ee44dc98f699ceeabb381c1c93f75cfae5fbc3a18a681e8e708a9"
+    },
+    {
+      "id": "2c3aba7d26c04fe2a646aa6de08c78f3",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/index.html"
+      },
+      "state": "finished",
+      "created": 1792509372.1834893,
+      "ok": true,
+      "evidence_id": "cd25d65083fa488c922d9bd1a185fa1f",
+      "returncode": 0,
+      "result_sha256": "6bdd9cb1eb0bc9a30c5d67edf84c4be6bf12c01fe4e589dd45dce80874eae104"
+    },
+    {
+      "id": "8f562d384d75444baf279ba1418c3795",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ls -la /var/lib/jarvis/projects/mission23/mission23d/vendor/ 2>&1",
+        "timeout": 5
+      },
+      "state": "finished",
+      "created": 1792509423.0124898,
+      "ok": true,
+      "evidence_id": "9453bc4e11cc488080219b99b574b65c",
+      "returncode": 0,
+      "result_sha256": "9f31f57f18ed4aa83ff7b946cca65a8548ed04e3f267fa5e72d830afdaade8cf"
+    },
+    {
+      "id": "8ddbc46b8e9e4fd8a7f59798f1636de2",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission23 && /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py 2>&1",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792509450.1814854,
+      "ok": true,
+      "evidence_id": "f2f6b3d93f0746b38d6e20726a0d4bef",
+      "returncode": 0,
+      "result_sha256": "53ca028484528bbb76e6a9eabcc18df270a593a8f95e6eb669cde8bcfe814eec"
+    },
+    {
+      "id": "bc583db8174543f79bdd4ed80afbfef8",
+      "task": "m23d_03",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "find /var/lib/jarvis/projects/mission23/mission23d -type f -name \"*.py\" -o -name \"*.html\" -o -name \"*.js\" -o -name \"*.md\" 2>&1 | sort",
+        "timeout": 5
+      },
+      "state": "finished",
+      "created": 1792509483.645736,
+      "ok": true,
+      "evidence_id": "9cd1d772b214443288f32ff3be300933",
+      "returncode": 0,
+      "result_sha256": "7810d95588e4f8ac4dd782ea1e99678274145d06f23074c9b42c7c84de5f9a5e"
+    },
+    {
+      "id": "f652ac503d514277bc6aedad2b5e44e0",
+      "task": "m23d_03",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/test_interruption_23d.py"
+      },
+      "state": "finished",
+      "created": 1792509508.7118878,
+      "ok": true,
+      "evidence_id": "e8f192aeb14a4764914dc20096368f1e",
+      "returncode": 0,
+      "result_sha256": "803bb29f595cdfe1b01e5ba26e8adb8915401539b9437d13b4e1f5b6aaaaef7e"
+    },
+    {
+      "id": "5b79ef9c02184316bfa22c6bf7d9c54f",
+      "task": "m23d_03",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RAPPORT-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792509591.995498,
+      "ok": true,
+      "evidence_id": "c0a8b9221fcf4211a8bce5d701697ab2",
+      "returncode": 0,
+      "result_sha256": "68636fb581b9167b7b0d1152f5f876c939807c219ed54a2ec56e2e86951ae43a"
+    },
+    {
+      "id": "232804be04e048a6bbb497a635201477",
+      "task": "m23d_03",
+      "tool": "host_github",
+      "arguments": {
+        "branch": "codex/mission-23d-interruption-livekit",
+        "files": "[\"mission23d/codex_capture.py\",\"mission23d/codex_gateway.py\",\"mission23d/codex_smoke.py\",\"mission23d/index.html\",\"mission23d/server.py\",\"mission23d/test_interruption_23d.py\",\"mission23d/vendor/livekit-client.umd.js\"]",
+        "message": "Mission 23D : banc de test LiveKit avec interruption et page temporaire\n\n- codex_gateway.py : passerelle HTTP loopback port 8783, jetons JWT réels TTL600s\n- codex_capture.py : capture et test scénario d'interruption audio\n- codex_smoke.py : test de fumée validé (ok:true)\n- index.html : client Web avec micro, buttons Démarrer/Arrêter/Test/Export\n- server.py : lanceur minimal codex_gateway\n- test_interruption_23d.py : banc de test étendu critères stricts\n- vendor/livekit-client.umd.js : bundle LiveKit Client v2.4\n\nSmoke test réussi 2026-10-20T15:17:30Z, room m23d-web-c65000d408d1.\nNO-GO interruption23 maintenu jusqu'à preuve acoustique physique.",
+        "path": "/var/lib/jarvis/projects/mission23",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "created": 1792509627.9132216,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "26933c2905c34caf73b1b850d431c3896fb1347dab3d68ef19d16bdb1f68f083"
+    },
+    {
+      "id": "9912febcc5b64585a0056869564bdce1",
+      "task": "m23d_03",
+      "tool": "host_github",
+      "arguments": {
+        "action": "push_tree",
+        "branch": "codex/mission-23d-interruption-livekit",
+        "files": "[\"mission23d/codex_capture.py\",\"mission23d/codex_gateway.py\",\"mission23d/codex_smoke.py\",\"mission23d/index.html\",\"mission23d/server.py\",\"mission23d/test_interruption_23d.py\",\"mission23d/vendor/livekit-client.umd.js\"]",
+        "message": "Mission 23D : banc de test LiveKit avec interruption et page temporaire\n\n- codex_gateway.py : passerelle HTTP loopback port 8783, jetons JWT réels TTL600s\n- codex_capture.py : capture et test scénario d'interruption audio\n- codex_smoke.py : test de fumée validé (ok:true)\n- index.html : client Web avec micro, buttons Démarrer/Arrêter/Test/Export\n- server.py : lanceur minimal codex_gateway\n- test_interruption_23d.py : banc de test étendu critères stricts\n- vendor/livekit-client.umd.js : bundle LiveKit Client v2.4\n\nSmoke test réussi 2026-10-20T15:17:30Z, room m23d-web-c65000d408d1.\nNO-GO interruption23 maintenu jusqu'à preuve acoustique physique.",
+        "path": "/var/lib/jarvis/projects/mission23",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "created": 1792509640.8020349,
+      "ok": true,
+      "evidence_id": "8f41c285891e4bb9b970241a246e68b6",
+      "returncode": 0,
+      "result_sha256": "3c28f5bfc4506ad384d85ff2304eb02c7264550486b16fe8db9887292148d959"
+    },
+    {
+      "id": "097b8cf37d0241fea62476c560bce3f2",
+      "task": "m23d_03",
+      "tool": "host_github",
+      "arguments": {
+        "action": "verify_tree",
+        "branch": "codex/mission-23d-interruption-livekit",
+        "files": "[\"mission23d/codex_capture.py\",\"mission23d/codex_gateway.py\",\"mission23d/codex_smoke.py\",\"mission23d/index.html\",\"mission23d/server.py\",\"mission23d/test_interruption_23d.py\",\"mission23d/vendor/livekit-client.umd.js\"]",
+        "path": "/var/lib/jarvis/projects/mission23",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "state": "finished",
+      "created": 1792509675.4168003,
+      "ok": true,
+      "evidence_id": "3ee6d51fe8ae4f84a5bf6f3a06f5bacc",
+      "returncode": 0,
+      "result_sha256": "2c371572e28cf9d1348e2474e246d5151709afe473b0ccf6aa6c33ae739c21ab"
+    },
+    {
+      "id": "30218ab335f148a18b9acf934e71551d",
+      "task": "m23d_03",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "c0a8b9221fcf4211a8bce5d701697ab2",
+        "id": "m23d_03",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RAPPORT-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792509712.898012,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "52759e3db9441696a8817f805b589f313b726b8ab74542f3abb17198b9980025"
+    },
+    {
+      "id": "acdd66db40e44c8d881df358c9c8729a",
+      "task": "m23d_04",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/integrate_codex_tools.py",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792525322.7252274,
+      "ok": true,
+      "evidence_id": "31d73a06e48441f98658650441ad6884",
+      "returncode": 0,
+      "result_sha256": "289bb123d28b24df410c41941705075c6e97d0f8a42a25c0fd27a489c27bc052"
+    },
+    {
+      "id": "f962c3e646fa4ae5bf1bf4d9b8698b45",
+      "task": "m23d_04",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/repair_components.py",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792525323.3512046,
+      "ok": true,
+      "evidence_id": "230e42ab16df4aa488f89904b58be8ea",
+      "returncode": 0,
+      "result_sha256": "3eefa5022882f199594ad1eb6775577ef7d5efc4fe502af5bdd69c3e6553c39f"
+    },
+    {
+      "id": "ad5b3a513b9e4d3787a1c84b74a052de",
+      "task": "m23d_04",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_smoke.py",
+        "timeout": 180
+      },
+      "state": "finished",
+      "created": 1792525353.48344,
+      "ok": true,
+      "evidence_id": "09d8b899f0ec4b63a0675c556bb9ee4c",
+      "returncode": 0,
+      "result_sha256": "816b23f062a146beeb6d5c2ba9c03d027f7e56edcdf719f847291ba0f9d4c1c0"
+    },
+    {
+      "id": "c4c19db529964220aefecff2be5eeb8d",
+      "task": "m23d_04",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/CORRECTIONS-REELLES-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792525448.406558,
+      "ok": true,
+      "evidence_id": "954f74ea41dc421da6124cb6b0578902",
+      "returncode": 0,
+      "result_sha256": "5f6c1dfedc76424b698229e9823341b5f153319a9049bc531fc16245661e9243"
+    },
+    {
+      "id": "0efafa0697be488ba9a732c06de2a5cd",
+      "task": "m23d_04",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "ad5b3a513b9e4d3787a1c84b74a052de",
+        "id": "m23d_04",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/CORRECTIONS-REELLES-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792525477.7117925,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "91e6588b8a4de8f032b55f55fda7cb8734ad9b6e6d2696d2e4402a4178ab847f"
+    },
+    {
+      "id": "35155971126a4a0ca2465d9ac3bb3318",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "nohup /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_suite.py > /var/lib/jarvis/projects/mission23/mission23d/logs/suite.log 2>&1 < /dev/null &",
+        "timeout": 30
+      },
+      "state": "finished",
+      "created": 1792525505.9595897,
+      "ok": true,
+      "evidence_id": "7f19b5fc74e94a65a56e85c13ce8926d",
+      "returncode": 0,
+      "result_sha256": "a1e3f95dfd23328dc8d4f7c6c1e14acf59a6a0fff61363a198f3fb3b4deadea8"
+    },
+    {
+      "id": "3f1d508b362d4abcb63e8469b5156443",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "timeout 180 /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"\nimport time, os, json\npath = '/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json'\nstart = time.time()\nwhile time.time() - start < 160:\n    if os.path.exists(path):\n        with open(path) as f:\n            data = json.load(f)\n            print(json.dumps({'exists': True, 'completed': data.get('completed', False), 'progress': data.get('scenarios', []), 'elapsed': int(time.time()-start)}, ensure_ascii=False))\n            if data.get('completed'):\n                break\n    time.sleep(10)\nelse:\n    print(json.dumps({'exists': os.path.exists(path), 'timeout': True, 'elapsed': int(time.time()-start)}))\n\"",
+        "timeout": 200
+      },
+      "state": "finished",
+      "created": 1792525536.7609403,
+      "ok": true,
+      "evidence_id": "e8b781f95ea742e4b6716cc79234bfa3",
+      "returncode": 0,
+      "result_sha256": "6dcf4411acadb3bd524c6ac5fc71f29dcd292c05a87ea558298811243a2bafb9"
+    },
+    {
+      "id": "02beab3560ce4993a86bf7eb4a353941",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "timeout 180 /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"\nimport time, os, json\npath = '/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json'\nstart = time.time()\nwhile time.time() - start < 160:\n    if os.path.exists(path):\n        with open(path) as f:\n            data = json.load(f)\n            print(json.dumps({'exists': True, 'completed': data.get('completed', False), 'progress': data.get('scenarios', []), 'elapsed': int(time.time()-start)}, ensure_ascii=False))\n            if data.get('completed'):\n                break\n    time.sleep(10)\nelse:\n    print(json.dumps({'exists': os.path.exists(path), 'timeout': True, 'elapsed': int(time.time()-start)}))\n\"",
+        "timeout": 200
+      },
+      "state": "finished",
+      "created": 1792525728.3629787,
+      "ok": true,
+      "evidence_id": "2582b2ec7f484960ae48a22798d92003",
+      "returncode": 0,
+      "result_sha256": "5f359872634de4e7ec69cd10932d51012eed54e567d638509fe5c1338861a641"
+    },
+    {
+      "id": "a40a87b18f654d76802860fd3ec0d266",
+      "task": "m23d_05",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "restart",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792525922.0862033,
+      "ok": true,
+      "evidence_id": "71314cf3406145c58753045f87bdff7d",
+      "returncode": 0,
+      "result_sha256": "5e56f0d67cfbe182112f04a01332f5310bf4c2a368b2bf36343d8cb4f08c43dd"
+    },
+    {
+      "id": "ca6a2383cdb14780b89134d76d6880d8",
+      "task": "m23d_05",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "status",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792525946.682508,
+      "ok": true,
+      "evidence_id": "d9f3bef6522341588bb79ad035c1848b",
+      "returncode": 0,
+      "result_sha256": "059c4a18771f0c128ab9ccce960bfd5c4ae27ad76aa1be4cca91ea8dd205c401"
+    },
+    {
+      "id": "72d3bbf58cdd40f5aa63caae2d5f27b0",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "timeout 180 /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /usr/local/lib/jarvis-host/verify_livekit_components.py --wav /var/lib/jarvis/projects/mission23/mission23d/fixtures/initial.wav --output /var/lib/jarvis/projects/mission23/mission23d/reports/components-real.json",
+        "timeout": 190
+      },
+      "state": "finished",
+      "created": 1792525957.0420387,
+      "ok": true,
+      "evidence_id": "31687ea7f06a46fbbe590fbb660da1c3",
+      "returncode": 0,
+      "result_sha256": "03e15004673e9d1eeb99004cfdbf1c1a47062daf2a8b84b8a991efa7df6b1af1"
+    },
+    {
+      "id": "1ddfba1ac06e4d16a126859ad4b1770b",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "curl -fsS -X POST http://127.0.0.1:8783/suite -H \"Content-Type: application/json\" -d '{}'",
+        "timeout": 10
+      },
+      "state": "finished",
+      "created": 1792525992.650291,
+      "ok": true,
+      "evidence_id": "6ca27957f2c2404f80893fcf0a0468f3",
+      "returncode": 0,
+      "result_sha256": "1869bc0dcb3aa7382fe303644604af676febd68cc495c54c6d3e267e68126961"
+    },
+    {
+      "id": "562ad7c29f944e08a247e52231a685bb",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "timeout 180 /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"\nimport time, os, json, urllib.request\npath = '/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json'\nstart = time.time()\nelapsed_max = 160\nwhile time.time() - start < elapsed_max:\n    # Check via HTTP first\n    try:\n        with urllib.request.urlopen('http://127.0.0.1:8783/suite', timeout=5) as response:\n            data = json.loads(response.read().decode())\n            print(json.dumps({'http_status': 'ok', 'running': data.get('running', False), 'elapsed': int(time.time()-start)}, ensure_ascii=False))\n            if not data.get('running', True):\n                # Suite completed, check file\n                if os.path.exists(path):\n                    with open(path) as f:\n                        summary = json.load(f)\n                        print(json.dumps({'exists': True, 'completed': summary.get('completed', False), 'progress': [s.get('name') for s in summary.get('scenarios', [])], 'elapsed': int(time.time()-start)}, ensure_ascii=False))\n                        if summary.get('completed'):\n                            break\n    except Exception as e:\n        pass  # HTTP check failed, continue\n    \n    # Fallback to file check\n    if os.path.exists(path):\n        with open(path) as f:\n            data = json.load(f)\n            result = {'exists': True, 'completed': data.get('completed', False), 'progress': [s.get('name') for s in data.get('scenarios', [])], 'elapsed': int(time.time()-start)}\n            print(json.dumps(result, ensure_ascii=False))\n            if data.get('completed'):\n                break\n    \n    time.sleep(15)\nelse:\n    result = {'exists': os.path.exists(path), 'timeout': True, 'elapsed': int(time.time()-start)}\n    if os.path.exists(path):\n        with open(path) as f:\n            summary = json.load(f)\n            result['completed'] = summary.get('completed', False)\n            result['progress'] = [s.get('name') for s in summary.get('scenarios', [])]\n    print(json.dumps(result, ensure_ascii=False))\n\"",
+        "timeout": 200
+      },
+      "state": "finished",
+      "created": 1792526033.1660478,
+      "ok": true,
+      "evidence_id": "637c1968047a4d0dbaae8b0c2227f2c9",
+      "returncode": 0,
+      "result_sha256": "93d0a5da24e0953288c7121837bb13e49ab47c8cba1fd908377610836bd274f6"
+    },
+    {
+      "id": "17ad46b081f14cbc9d1fa52f11a01923",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "timeout 300 /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"\nimport time, os, json, urllib.request\npath = '/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json'\nstart = time.time()\nelapsed_max = 280  # Max wait time\nwhile time.time() - start < elapsed_max:\n    try:\n        with urllib.request.urlopen('http://127.0.0.1:8783/suite', timeout=5) as response:\n            data = json.loads(response.read().decode())\n            status = {'http_status': 'ok', 'running': data.get('running', False), 'elapsed': int(time.time()-start)}\n            print(json.dumps(status, ensure_ascii=False))\n            if not data.get('running', True):\n                # Suite completed\n                break\n    except Exception:\n        pass\n    \n    if os.path.exists(path):\n        with open(path) as f:\n            summary = json.load(f)\n            result = {'exists': True, 'completed': summary.get('completed', False), 'progress': [s.get('name') for s in summary.get('scenarios', [])], 'elapsed': int(time.time()-start)}\n            print(json.dumps(result, ensure_ascii=False))\n            if summary.get('completed'):\n                break\n    \n    time.sleep(20)\n\n# Final check\nif os.path.exists(path):\n    with open(path) as f:\n        final = json.load(f)\n        print(json.dumps({'FINAL': True, 'exists': True, 'completed': final.get('completed', False), 'scenarios_count': len(final.get('scenarios', [])), 'elapsed': int(time.time()-start)}, ensure_ascii=False))\n\"",
+        "timeout": 320
+      },
+      "state": "finished",
+      "created": 1792526240.7492204,
+      "ok": false,
+      "evidence_id": "7be786342efa428bbc55fde33aee99ef",
+      "returncode": null,
+      "result_sha256": "c6104ffdaab11dc45534d207afa8311c2291776dccb1410b10a34f63efe800d7"
+    },
+    {
+      "id": "01e71a719b1f4f67aa870fe0553a2d74",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "timeout 300 /var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python -c \"\nimport time, os, json, urllib.request\npath = '/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json'\nstart = time.time()\nelapsed_max = 280\nwhile time.time() - start < elapsed_max:\n    try:\n        with urllib.request.urlopen('http://127.0.0.1:8783/suite', timeout=5) as response:\n            data = json.loads(response.read().decode())\n            status = {'http_status': 'ok', 'running': data.get('running', False), 'elapsed': int(time.time()-start)}\n            print(json.dumps(status, ensure_ascii=False))\n            if not data.get('running', True):\n                break\n    except Exception:\n        pass\n    \n    if os.path.exists(path):\n        with open(path) as f:\n            summary = json.load(f)\n            result = {'exists': True, 'completed': summary.get('completed', False), 'progress': [s.get('name') for s in summary.get('scenarios', [])], 'elapsed': int(time.time()-start)}\n            print(json.dumps(result, ensure_ascii=False))\n            if summary.get('completed'):\n                break\n    \n    time.sleep(20)\n\nif os.path.exists(path):\n    with open(path) as f:\n        final = json.load(f)\n        print(json.dumps({'FINAL': True, 'exists': True, 'completed': final.get('completed', False), 'scenarios_count': len(final.get('scenarios', [])), 'elapsed': int(time.time()-start)}, ensure_ascii=False))\n\"",
+        "timeout": 300
+      },
+      "state": "finished",
+      "created": 1792526289.7670093,
+      "ok": true,
+      "evidence_id": "2b41ebaac2534565a3dfc97f6bbb850a",
+      "returncode": 0,
+      "result_sha256": "1668b88b1cf7345240ec153bdabd26ac838f545ec74687048399e13638864ff7"
+    },
+    {
+      "id": "2b7cfccf7fe2450e894351cd537211a6",
+      "task": "m23d_05",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_suite.py --verify"
+            },
+            "tool": "host_exec"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792526444.6063182,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": 1,
+      "result_sha256": "63b15fc65e2eca3827ca89129958a78304780393ccb238740fd6c9111362fc31"
+    },
+    {
+      "id": "7fc5272d57a44f5393c664a73a659908",
+      "task": "m23d_05",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+      },
+      "state": "finished",
+      "created": 1792526444.6992748,
+      "ok": true,
+      "evidence_id": "95a775ab9cc04474a6206003940ac6ef",
+      "returncode": 0,
+      "result_sha256": "df9dadea591b8bdd995dff435eacd5599bbb5090d78c16c0a550e594d44fe7fa"
+    },
+    {
+      "id": "4b10f59e66cb476ea73c5fc0063786e5",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_suite.py --verify",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792526473.9542766,
+      "ok": true,
+      "evidence_id": "4cd8a42f899c47649989f27ab74250fc",
+      "returncode": 0,
+      "result_sha256": "4327cb7c4e5fa8435ecd688fd6e27d3fe57f45e01fc6aa9fb367ebfa7df2bdae"
+    },
+    {
+      "id": "3564db9e2ef94fc7a52f432616a056b8",
+      "task": "m23d_05",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+      },
+      "state": "finished",
+      "created": 1792526507.308022,
+      "ok": true,
+      "evidence_id": "4240010585914dd1801010e11f878a66",
+      "returncode": 0,
+      "result_sha256": "9f73805c515bb042e5c98efa226c04c86cc9b9f870c6c38089994bbfddc71d7c"
+    },
+    {
+      "id": "3cc6d0f3c20543f7a619fcd501513235",
+      "task": "m23d_05",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "action": "status",
+              "name": "livekit-agent",
+              "project": "mission23"
+            },
+            "tool": "host_project_service"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792526540.6111715,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": 0,
+      "result_sha256": "acc38e9df97a86aa70fd8fbfbb440a04ac86057f071d535309412f47247f7f02"
+    },
+    {
+      "id": "b898a3f0b08545a6b274cbcd2195d236",
+      "task": "m23d_05",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+      },
+      "state": "finished",
+      "created": 1792526540.7061327,
+      "ok": true,
+      "evidence_id": "01c2722861de4d8284c33857817b9ee2",
+      "returncode": 0,
+      "result_sha256": "8b5e5d1b607728caeea378911c9db8274b267a11f9be6f14b358255e00256ce3"
+    },
+    {
+      "id": "7bdfe012ecc24420a90905a3174bb35f",
+      "task": "m23d_05",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "status",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792526540.7068565,
+      "ok": true,
+      "evidence_id": "62e5d0d57f1347019616d011a618a587",
+      "returncode": 0,
+      "result_sha256": "932891d4830b7b66a500e0a60c6de3f6e838c9723478fa50d060ece602cffdb9"
+    },
+    {
+      "id": "acc21f8b4c9d4e7f97ad9899f7688aa8",
+      "task": "m23d_05",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526640.6526346,
+      "ok": true,
+      "evidence_id": "6cb8533a7b2043d9aae144cdcd5eed4b",
+      "returncode": 0,
+      "result_sha256": "90156fb14e696508a0f68771bcebf42ceb4385e254dc08bacf94c219f626ec9a"
+    },
+    {
+      "id": "8b4303bd3e6b44eebe58b38ba340ecaa",
+      "task": "m23d_05",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/ERRATUM-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526732.6535907,
+      "ok": true,
+      "evidence_id": "42685462c4f243329482623c7a49c83f",
+      "returncode": 0,
+      "result_sha256": "7992edb51697fe9d202335b1b766581e6f6038b076e5a947c6062d2bb7a02a30"
+    },
+    {
+      "id": "785dfc45f36441ef9e9ef5a43a631f8c",
+      "task": "m23d_05",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "4cd8a42f899c47649989f27ab74250fc",
+        "id": "m23d_05",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526777.5717971,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "aa7afa299be19c0be0f7bccfcc339a1da9710600206e2f10c59950b596fff16c"
+    },
+    {
+      "id": "b6542be1978840ffaa00c76efd59bafb",
+      "task": "m23d_05",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526805.344107,
+      "ok": true,
+      "evidence_id": "c0fbfd10ec56490f96f16d631076b219",
+      "returncode": 0,
+      "result_sha256": "c9fb69eb9c364e20b6f13ce13ce6d72898cb37d173af94a3e8e7a21a35712503"
+    },
+    {
+      "id": "fd06494e9f3140bfbf7a41112dc5a3fd",
+      "task": "m23d_05",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+            },
+            "tool": "host_read_file"
+          },
+          {
+            "arguments": {
+              "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_suite.py --verify",
+              "timeout": 60
+            },
+            "tool": "host_exec"
+          }
+        ]
+      },
+      "state": "finished",
+      "created": 1792526841.632506,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": 1,
+      "result_sha256": "261eeb6f820ae72023c1d9a1878acbf0d3fb80e955331a953e09b6f3addb9c9a"
+    },
+    {
+      "id": "459312491fdd411ca12bebdf8051ef4a",
+      "task": "m23d_05",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/suite-summary.json"
+      },
+      "state": "finished",
+      "created": 1792526841.7311761,
+      "ok": true,
+      "evidence_id": "058d4af0c0aa44f3b7bbaba984395568",
+      "returncode": 0,
+      "result_sha256": "1162dd7f1b352ad3c3d3e43af36015e0d2927915b480703a3a45b86194de8b5c"
+    },
+    {
+      "id": "5a544c9cf83c48348ec35415728901cc",
+      "task": "m23d_05",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_suite.py --verify",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792526871.6084118,
+      "ok": true,
+      "evidence_id": "87e7bb0f30384de383ab017a7bc3c9fe",
+      "returncode": 0,
+      "result_sha256": "77f71b69495ca6d37fae3230eb29a780cda987a1d6f67d27e2b9402d66e0b511"
+    },
+    {
+      "id": "a3e31ededc144512b7de190cc7a87fd5",
+      "task": "m23d_05",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "01c2722861de4d8284c33857817b9ee2",
+        "id": "m23d_05",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526908.7839446,
+      "ok": false,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "15fd920731941b06632452682a3498b5cc29e84ede995f9b57e0b8801ef9097a"
+    },
+    {
+      "id": "9f876bf4a8764027b649878c8d32cad8",
+      "task": "m23d_05",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526916.2655594,
+      "ok": true,
+      "evidence_id": "8c13a02d84194346a540c0427a78e4b8",
+      "returncode": 0,
+      "result_sha256": "206abf8a4cee986d9f89fee8fe8fd4c42fc9841a29de840ec607c1aa5bc44c80"
+    },
+    {
+      "id": "8496a77f883743f4a2d200cf37f3e55b",
+      "task": "m23d_05",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "87e7bb0f30384de383ab017a7bc3c9fe",
+        "id": "m23d_05",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RECEPTION-EXECUTEE-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792526951.5731773,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "d4acd8ba5c78655847af2cdfe0c64333ed27701b8eeef98229b49071637b8398"
+    },
+    {
+      "id": "7fb9585d00f44e6f993c545dc60f1d18",
+      "task": "m23d_06",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/repair_aec.py",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792526986.0213737,
+      "ok": true,
+      "evidence_id": "c12906b5b0394f04b4f1c17c07637753",
+      "returncode": 0,
+      "result_sha256": "ea79f91b1807bbf5681b900429ee958e25252760bf419f4b50623667877f70bd"
+    },
+    {
+      "id": "2a43e094ada3451d8c1ed66475a84eeb",
+      "task": "m23d_06",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "restart",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792527017.3014886,
+      "ok": true,
+      "evidence_id": "50f56b3c2ccc44038401df94a997ce22",
+      "returncode": 0,
+      "result_sha256": "9aac3ef9ccae9c7eee144857fb9ca55255230c43a110112ad44a8bd5df9e5ac4"
+    },
+    {
+      "id": "3327c770a56246f18f8b937a86546cbc",
+      "task": "m23d_06",
+      "tool": "host_project_service",
+      "arguments": {
+        "action": "status",
+        "name": "livekit-agent",
+        "project": "mission23"
+      },
+      "state": "finished",
+      "created": 1792527045.003814,
+      "ok": true,
+      "evidence_id": "29d202a872354692a7e689aca8e07bce",
+      "returncode": 0,
+      "result_sha256": "6ab21c8001dfe9f54f3b3e89c0a8cd53ae4bda6a23a9f863a445ab0a77dfae6e"
+    },
+    {
+      "id": "53c5935bbc5a403f8f6bf5aa919892e6",
+      "task": "m23d_06",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_retest.py",
+        "timeout": 180
+      },
+      "state": "finished",
+      "created": 1792527082.5481448,
+      "ok": true,
+      "evidence_id": "27b5782571a14f3885c3c10c14864265",
+      "returncode": 0,
+      "result_sha256": "afce7779b05b1fc50659f1e87ecdadaa394bd2896402b68d3fe248ef60e20542"
+    },
+    {
+      "id": "a7a6e10a72684a5bb82ac9f4129528bd",
+      "task": "m23d_06",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_retest.py",
+        "timeout": 180
+      },
+      "state": "finished",
+      "created": 1792527236.3676772,
+      "ok": true,
+      "evidence_id": "491ab9bb9ce3454699c110e2885e776b",
+      "returncode": 0,
+      "result_sha256": "3523144189ac19fd2dae0530217faba5e00924ce1e20fe8040f6dca60ab21ef4"
+    },
+    {
+      "id": "c8143c5cf4ef45c3a416024e98bf4652",
+      "task": "m23d_06",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "/var/lib/jarvis/projects/mission23/livekit-agent/venv/bin/python /var/lib/jarvis/projects/mission23/mission23d/codex_retest.py --verify",
+        "timeout": 60
+      },
+      "state": "finished",
+      "created": 1792527291.8387792,
+      "ok": true,
+      "evidence_id": "16c0d2c911894c05a54fa28858b339cd",
+      "returncode": 0,
+      "result_sha256": "ed2e174d9f61c2df2e4a2482f52d6d46fd2c62f4c53e2873926b14b710f83f7f"
+    },
+    {
+      "id": "c803a03c97f8487cbdf3ec04e29e6f61",
+      "task": "m23d_06",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/mission23d/reports/retest-summary.json"
+      },
+      "state": "finished",
+      "created": 1792527318.9607558,
+      "ok": true,
+      "evidence_id": "abc91f34d2bb47a4a4fa9bae86a31551",
+      "returncode": 0,
+      "result_sha256": "afb5b0612350347bbe50eb1138aa0f7d075ccad056a6306b801b9ec9e258697f"
+    },
+    {
+      "id": "130d568f54b6458c98f9e23b200a6003",
+      "task": "m23d_06",
+      "tool": "host_write_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RETEST-AEC-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792527466.7459552,
+      "ok": true,
+      "evidence_id": "214cf3e00c574bacb0cc4b4fcad61c90",
+      "returncode": 0,
+      "result_sha256": "827a2c92b09355439e869cedb42cebbd0fa05799dc9f2ec1a9d3d06b06dfeea7"
+    },
+    {
+      "id": "b8cd177008074a8f8a4a7180a9723eca",
+      "task": "m23d_06",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "abc91f34d2bb47a4a4fa9bae86a31551",
+        "id": "m23d_06",
+        "report_path": "/var/lib/jarvis/projects/mission23/docs/missions/23D/RETEST-AEC-JARVIS.md"
+      },
+      "state": "finished",
+      "created": 1792527502.6482918,
+      "ok": true,
+      "evidence_id": null,
+      "returncode": null,
+      "result_sha256": "11ec312064f987487d2fafe1570374823cdc355c9e95860e1e73ed490ef21e42"
+    }
+  ]
+}

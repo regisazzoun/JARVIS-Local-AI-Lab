@@ -1,0 +1,78 @@
+{
+  "actor": "Codex-independent-tool",
+  "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+  "negative_input": false,
+  "continuity_started_s": null,
+  "continuity_pass": null,
+  "physical_microphone": false,
+  "room": "m23d-codex-3f54fb9aa4",
+  "reason": null,
+  "input_end_s": 17.647269805893302,
+  "interrupt_s": 25.923327804892324,
+  "audio_active_before_interrupt": true,
+  "stable_silence_latency_s": 0.7174102960852906,
+  "second_user_final": {
+    "utc": "2026-10-20T20:13:36.086802+00:00",
+    "t": 36.09714221395552,
+    "event": "transcription_final",
+    "text": " Stop. Change le programme dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+    "identity": "codex-measurement"
+  },
+  "resumed_audio_after_transcript_s": 28.152737685944885,
+  "transcripts": [
+    {
+      "utc": "2026-10-20T20:13:21.172525+00:00",
+      "t": 21.182865790906362,
+      "event": "transcription_final",
+      "text": " Bonjour Jervis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T20:13:26.582716+00:00",
+      "t": 26.59307287388947,
+      "event": "transcription_final",
+      "text": "Bonsoir, voici votre itinéraire pour le musée des sciences : d'abord, prenez l'entrée",
+      "identity": "agent-AJ_ibL3V7skufjB"
+    },
+    {
+      "utc": "2026-10-20T20:13:36.086802+00:00",
+      "t": 36.09714221395552,
+      "event": "transcription_final",
+      "text": " Stop. Change le programme dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T20:14:16.822669+00:00",
+      "t": 76.83302830799948,
+      "event": "transcription_final",
+      "text": "J'ai bien noté vos modifications : la visite est désormais prévue ce dimanche à 10 heures avec un budget réduit de 20 euros. Tout est mis à jour dans votre agenda. Je reste à votre disposition pour toute autre précision.",
+      "identity": "agent-AJ_ibL3V7skufjB"
+    }
+  ],
+  "first_non_silent_s": 23.38999094197061,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": true,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "UI Stop requires separate browser evidence",
+    "Continuity uses third-turn remote final transcript when requested"
+  ],
+  "artifacts": {
+    "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+    "received.wav": "42520635794b6a3a24b4f33baa951a5d5773b91ac0b1b597fff7a423709596a9",
+    "events-live.jsonl": "6b7b4c18d9f1f345f2a30ebfb3b9fa1b0a4bc293af3115f252da66f7c0ee35ba",
+    "frames.json": "a9814531ef1fbbb215f44a6aed7bc5c857d5592ef94a2dd75eab73b70a84e1c3",
+    "routes-private.json": "1c52ea215d7017c637338b33c5e938aeb3659b99314bb5db97d5b44e7b1768bb",
+    "events.jsonl": "6b7b4c18d9f1f345f2a30ebfb3b9fa1b0a4bc293af3115f252da66f7c0ee35ba"
+  },
+  "second_transcription_correct": true,
+  "second_transcription_delay_s": 2.2652853609761223,
+  "passed": true,
+  "status": "PASS"
+}

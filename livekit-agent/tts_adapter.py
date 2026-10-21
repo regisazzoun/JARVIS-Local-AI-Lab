@@ -101,8 +101,10 @@ class _PiperChunkedStream(lk_tts.ChunkedStream):
             piper_instance.synthesize_wav(text, wav_file)
         
         # Extraire les données PCM (sauter l'en-tête WAV de 44 bytes)
-        wav_buffer.seek(44)
-        pcm_data = wav_buffer.read()
+        with wave.open(io.BytesIO(wav_buffer.getvalue()), 'rb') as stream:
+            if stream.getframerate() != 44100:
+                raise RuntimeError('Unexpected Piper rate; explicit resampling required')
+            pcm_data = stream.readframes(stream.getnframes())
         
         return pcm_data
 
@@ -115,7 +117,7 @@ class PiperLocalAdapter(lk_tts.TTS):
     """
     
     def __init__(self, model_path: str = "/opt/jarvis/voice/models/tts/fr_FR-tom-medium.onnx",
-                 sample_rate: int = 16000):
+                 sample_rate: int = 44100):
         self._model_path = model_path
         self._piper_instance = None
         self._piper_lock = asyncio.Lock()

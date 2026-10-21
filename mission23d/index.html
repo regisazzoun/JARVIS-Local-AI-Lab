@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JARVIS Mission 23D — Interface Vocale Test</title>
+  <script src="/vendor/livekit-client.umd.js"></script>
+  <style>
+    :root { --bg:#f5f7fb; --card:#ffffff; --text:#1a202c; --muted:#718096; --primary:#3182ce; --danger:#e53e3e; --success:#38a169; --border:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); margin:0; padding:1rem; max-width:960px; margin:0 auto; }
+    h1 { font-size:1.25rem; margin:0 0 .5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1rem; margin-bottom:1rem; box-shadow:0 1px 3px rgba(0,0,0,.05); }
+    label { display:block; font-weight:600; margin:.5rem 0 .25rem; color:#2d3748; }
+    input[type="file"], select, input[type="text"] { width:100%; padding:.5rem; border:1px solid var(--border); border-radius:4px; font-size:14px; }
+    button { background:var(--primary); color:#fff; border:none; padding:.6rem 1.2rem; border-radius:4px; cursor:pointer; font-size:14px; margin-right:.5rem; margin-top:.5rem; }
+    button:hover { opacity:.9; }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    button.stop { background:var(--danger); }
+    button.export { background:var(--success); }
+    #status { font-weight:600; padding:.5rem; border-radius:4px; margin-top:.5rem; }
+    .status-idle { background:#edf2f7; color:#4a5568; }
+    .status-connecting { background:#bee3f8; color:#2b6cb0; }
+    .status-connected { background:#c6f6d5; color:#22543d; }
+    .status-error { background:#fed7d7; color:#742a2a; }
+    #transcripts, #logs { background:#fafbfc; border:1px solid var(--border); border-radius:4px; padding:.75rem; min-height:80px; max-height:300px; overflow:auto; font-family:monospace; font-size:12px; white-space:pre-wrap; word-break:break-all; }
+    .meta { font-size:11px; color:var(--muted); margin-top:.25rem; }
+    #timer { font-weight:700; color:var(--primary); }
+    details { background:#fafbfc; border:1px solid var(--border); border-radius:4px; padding:.5rem .75rem; margin-top:.5rem; cursor:pointer; }
+    summary { font-weight:600; color:#2d3748; }
+  </style>
+</head>
+<body>
+  <h1>JARVIS Mission 23D — Interface Vocale Test</h1>
+  <p class="meta">Page temporaire pour tests barge-in avec LiveKit (audio réel via WebRTC). Utilise la vraie pile Whisper/Ollama/Piper côté serveur.</p>
+
+  <div class="card">
+    <h2>Connexion LiveKit</h2>
+    <label for="url">URL Serveur LiveKit</label>
+    <input id="url" type="text" value="ws://localhost:7880" />
+    <label for="tokenApi">API Token Endpoint (serveur local)</label>
+    <input id="tokenApi" type="text" value="http://localhost:8783/token" />
+    <button id="gettoken">Obtenir jeton</button>
+    <span id="tokenStatus" class="meta"></span>
+
+    <h3 style="margin-top:1rem;">Source Audio</h3>
+    <label for="sourceMode">Mode</label>
+    <select id="sourceMode">
+      <option value="mic">Microphone navigateur (requis pour test physique)</option>
+      <option value="wav">Fichier WAV synthétique (test barge-in automatisé)</option>
+    </select>
+
+    <div id="wavSection" style="display:none;">
+      <label for="wavFile">Fichier WAV 16kHz mono</label>
+      <input id="wavFile" type="file" accept=".wav,audio/wav" />
+      <span id="wavMeta" class="meta"></span>
+    </div>
+
+    <button id="start">Démarrer session</button>
+    <button id="stop" class="stop" disabled>Arrêter</button>
+    <button id="testBargeIn" class="export" disabled>Test interruption (WAV)</button>
+
+    <div id="status" class="status-idle">En attente</div>
+    <div id="timer">Temps: 0.0s</div>
+  </div>
+
+  <div class="card">
+    <h2>Transcriptions (utilisateur)</h2>
+    <div id="transcripts"></div>
+  </div>
+
+  <div class="card">
+    <h2>Réponses Agent (audio joué + texte)</h2>
+    <div id="agentTexts" style="background:#fafbfc; border:1px solid var(--border); border-radius:4px; padding:.75rem; min-height:60px; max-height:300px; overflow:auto; font-family:monospace; font-size:12px; white-space:pre-wrap;"></div>
+  </div>
+
+  <div class="card">
+    <h2>Événements & Logs</h2>
+    <div id="logs"></div>
+  </div>
+
+  <div class="card">
+    <h2>Export</h2>
+    <button id="exportJson" class="export">Exporter JSON</button>
+    <details>
+      <summary>Voir données brutes (JSON)</summary>
+      <pre id="exportData" style="background:#fafbfc; padding:.5rem; overflow:auto; max-height:400px;"></pre>
+    </details>
+  </div>
+
+<script src="/vendor/client-tools.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{
+  "actor": "Codex-independent-tool",
+  "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+  "negative_input": false,
+  "continuity_started_s": 44.53689619991928,
+  "continuity_pass": true,
+  "physical_microphone": false,
+  "room": "m23d-codex-3521815d97",
+  "reason": null,
+  "input_end_s": 17.650194876012392,
+  "interrupt_s": 23.396746936952695,
+  "audio_active_before_interrupt": true,
+  "stable_silence_latency_s": 2.4534902150044218,
+  "second_user_final": {
+    "utc": "2026-10-20T19:54:50.377010+00:00",
+    "t": 33.429109495016746,
+    "event": "transcription_final",
+    "text": " Dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+    "identity": "codex-measurement"
+  },
+  "resumed_audio_after_transcript_s": 1.330919957952574,
+  "transcripts": [
+    {
+      "utc": "2026-10-20T19:54:38.182808+00:00",
+      "t": 21.23490606492851,
+      "event": "transcription_final",
+      "text": " Bonjour Jervis, préparons une visite fictive du musée des sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en six étapes pendant au moins 15 secondes.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T19:54:50.375488+00:00",
+      "t": 33.427588045015,
+      "event": "transcription_final",
+      "text": "Je ne peux pas visiter de musée nommé Sciences Sunday car ce nom semble",
+      "identity": "agent-AJ_WiggygVTskNm"
+    },
+    {
+      "utc": "2026-10-20T19:54:50.377010+00:00",
+      "t": 33.429109495016746,
+      "event": "transcription_final",
+      "text": " Dimanche à 10h, budget 20€. Confirme uniquement les nouveaux horaires et le budget.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T19:55:00.243823+00:00",
+      "t": 43.29594379197806,
+      "event": "transcription_final",
+      "text": "La visite est confirmée pour dimanche à 10 heures avec un budget de 20 euros. Les nouvelles conditions ont bien été enregistrées. C'est noté.",
+      "identity": "agent-AJ_WiggygVTskNm"
+    },
+    {
+      "utc": "2026-10-20T19:55:07.292394+00:00",
+      "t": 50.344494526972994,
+      "event": "transcription_final",
+      "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T19:55:19.034936+00:00",
+      "t": 62.0870609539561,
+      "event": "transcription_final",
+      "text": "La visite est prévue ce dimanche à 10 heures avec un budget de 20 euros. Toutes les informations sont bien mises à jour dans mon système. Je suis prêt à vous accompagner pour ce trajet.",
+      "identity": "agent-AJ_WiggygVTskNm"
+    }
+  ],
+  "first_non_silent_s": 22.77977489400655,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": false,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "UI Stop requires separate browser evidence",
+    "Continuity uses third-turn remote final transcript when requested"
+  ],
+  "artifacts": {
+    "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+    "received.wav": "07d2cb971df3f8c5e73787cc470ae651a3fefe62595be231fc61cf7283e1150f",
+    "events-live.jsonl": "352c5bdb35496634d3a3071b9dc382e31a2a48757ffa2c17c3835ba7d3ac4ee7",
+    "frames.json": "42fc8889c226585dc36ffbc19805df7417fa58584288a3a9e401cfdddb26abba",
+    "routes-private.json": "26f226ea61264b7908e2a3a59f6c386705586ccf45f513871d3b9d7fda04242f",
+    "events.jsonl": "352c5bdb35496634d3a3071b9dc382e31a2a48757ffa2c17c3835ba7d3ac4ee7"
+  },
+  "second_transcription_correct": true,
+  "second_transcription_delay_s": 2.1233739950694144,
+  "passed": false,
+  "status": "FAIL"
+}

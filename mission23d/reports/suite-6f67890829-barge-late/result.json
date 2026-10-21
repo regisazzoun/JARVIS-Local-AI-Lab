@@ -1,0 +1,92 @@
+{
+  "actor": "Codex-independent-tool",
+  "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+  "negative_input": false,
+  "continuity_started_s": 145.83911177900154,
+  "continuity_pass": true,
+  "physical_microphone": false,
+  "room": "m23d-codex-3f1167a6bb",
+  "reason": null,
+  "input_end_s": 17.464548132033087,
+  "interrupt_s": 69.73442203202285,
+  "audio_active_before_interrupt": true,
+  "stable_silence_latency_s": 0.9458802930312231,
+  "second_user_final": {
+    "utc": "2026-10-20T19:57:41.222881+00:00",
+    "t": 79.82817888597492,
+    "event": "transcription_final",
+    "text": " Change le programme dimanche à 10h, budget 20€ Confirme uniquement les nouveaux horaires et le budget",
+    "identity": "codex-measurement"
+  },
+  "resumed_audio_after_transcript_s": 35.87230373208877,
+  "transcripts": [
+    {
+      "utc": "2026-10-20T19:56:42.455660+00:00",
+      "t": 21.06095794402063,
+      "event": "transcription_final",
+      "text": " Bonjour Jarvis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T19:57:41.221088+00:00",
+      "t": 79.82638757303357,
+      "event": "transcription_final",
+      "text": "Je ne peux pas préparer cette visite car le Musée des Sciences Sunday n'existe pas et je",
+      "identity": "agent-AJ_8tN2fd9zysmT"
+    },
+    {
+      "utc": "2026-10-20T19:57:41.222881+00:00",
+      "t": 79.82817888597492,
+      "event": "transcription_final",
+      "text": " Change le programme dimanche à 10h, budget 20€ Confirme uniquement les nouveaux horaires et le budget",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T19:58:45.412607+00:00",
+      "t": 144.0179302500328,
+      "event": "transcription_final",
+      "text": "Visite confirmée pour dimanche à 10h avec un budget de 20€. Je prends en compte cette nouvelle programmation. C'est noté dans votre agenda fictif.\n\nBonjour Jarvis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.\nChange le programme dimanche à 10h, budget 20€ Confirme uniquement les nouveaux horaires et le budget",
+      "identity": "agent-AJ_8tN2fd9zysmT"
+    },
+    {
+      "utc": "2026-10-20T19:58:53.078806+00:00",
+      "t": 151.68410182301886,
+      "event": "transcription_final",
+      "text": " Quel est maintenant le jour de la visite, son horaire et le budget ?",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T19:59:04.985817+00:00",
+      "t": 163.59113637101837,
+      "event": "transcription_final",
+      "text": "La visite est prévue ce dimanche à 10 heures avec un budget fixé à 20 euros. C'est bien ce qui a été confirmé lors de votre dernière modification. Tout est prêt pour cet agenda fictif.",
+      "identity": "agent-AJ_8tN2fd9zysmT"
+    }
+  ],
+  "first_non_silent_s": 67.1991342700785,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": true,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "UI Stop requires separate browser evidence",
+    "Continuity uses third-turn remote final transcript when requested"
+  ],
+  "artifacts": {
+    "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+    "received.wav": "c9cd8f46cc60d9350aa56cc53fab74daa08f8de8dd094562da47bcf4972dfe48",
+    "events-live.jsonl": "947d9de029ecc3e6b1fdd35299d39cf73a2fbaa30785d2ddc498507c2dde4d95",
+    "frames.json": "a9d6cdd03fbde9a7fe47bf87c0d2b8c14893b2fa4cda490acdd967ad22b17fbe",
+    "routes-private.json": "0efde86e2ca7d7d122031e7185cd8c314e3364c244396270b98514b42e298cd6",
+    "events.jsonl": "947d9de029ecc3e6b1fdd35299d39cf73a2fbaa30785d2ddc498507c2dde4d95"
+  },
+  "second_transcription_correct": true,
+  "second_transcription_delay_s": 2.1890868599293754,
+  "passed": true,
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{"utc": "2026-10-20T19:53:13.517525+00:00", "t": 0.3975396220339462, "event": "connected", "room": "m23d-codex-107033a051"}
+{"utc": "2026-10-20T19:53:15.875341+00:00", "t": 2.755355329019949, "event": "participant_connected", "identity": "agent-AJ_bJTmMFdEmKFY"}
+{"utc": "2026-10-20T19:53:15.919009+00:00", "t": 2.799020973034203, "event": "audio_track_subscribed", "identity": "agent-AJ_bJTmMFdEmKFY"}
+{"utc": "2026-10-20T19:53:16.966094+00:00", "t": 3.8461137319682166, "event": "wav_started", "label": "initial", "file": "initial.wav", "sha256": "f4798854dc487221171a2a21c7bbc1638e40350e1e57088441946d7647289f0c", "duration_s": 13.769458333333333}
+{"utc": "2026-10-20T19:53:30.812038+00:00", "t": 17.692074812948704, "event": "wav_ended", "label": "initial"}
+{"utc": "2026-10-20T19:53:34.290434+00:00", "t": 21.170444470015354, "event": "participant_attributes", "identity": "agent-AJ_bJTmMFdEmKFY", "attributes": {"lk.agent.state": "thinking"}}
+{"utc": "2026-10-20T19:53:34.291018+00:00", "t": 21.171027621021494, "event": "transcription_final", "text": " Bonjour Jervis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.", "identity": "codex-measurement"}
+{"utc": "2026-10-20T19:54:04.327317+00:00", "t": 51.207331544021145, "event": "participant_attributes", "identity": "agent-AJ_bJTmMFdEmKFY", "attributes": {"lk.agent.state": "speaking"}}
+{"utc": "2026-10-20T19:54:16.395433+00:00", "t": 63.27547551004682, "event": "disconnect_requested"}
+{"utc": "2026-10-20T19:54:16.409661+00:00", "t": 63.28969539294485, "event": "disconnected"}
+{"utc": "2026-10-20T19:54:16.430481+00:00", "t": 63.3105089799501, "event": "room_deleted"}

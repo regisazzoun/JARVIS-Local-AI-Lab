@@ -1,0 +1,61 @@
+{
+  "actor": "Codex-independent-tool",
+  "physical_microphone": false,
+  "room": "m23d-codex-3226071a06",
+  "reason": null,
+  "input_end_s": 17.699475022032857,
+  "interrupt_s": 115.98839930200484,
+  "audio_active_before_interrupt": true,
+  "stable_silence_latency_s": 2.400904915994033,
+  "second_user_final": {
+    "utc": "2026-10-20T14:30:05.678448+00:00",
+    "t": 125.99171822902281,
+    "event": "transcription_final",
+    "text": " Dimanche à 10h, budget 20€, confirme uniquement les nouveaux horaires et le budget.",
+    "identity": "codex-measurement"
+  },
+  "resumed_audio_after_transcript_s": 60.00703545799479,
+  "transcripts": [
+    {
+      "utc": "2026-10-20T14:28:21.268103+00:00",
+      "t": 21.581377443973906,
+      "event": "transcription_final",
+      "text": " Bonjour Jervis, préparons une visite fictive du musée des sciences samedi à 14 heures pour deux adultes avec un budget de 40 euros. Décris un programme détaillé en six étapes pendant au moins 15 secondes.",
+      "identity": "codex-measurement"
+    },
+    {
+      "utc": "2026-10-20T14:30:05.677321+00:00",
+      "t": 125.99059427797329,
+      "event": "transcription_final",
+      "text": "Jai organisé votre visite au",
+      "identity": "agent-AJ_Z3pgrUscCPhq"
+    },
+    {
+      "utc": "2026-10-20T14:30:05.678448+00:00",
+      "t": 125.99171822902281,
+      "event": "transcription_final",
+      "text": " Dimanche à 10h, budget 20€, confirme uniquement les nouveaux horaires et le budget.",
+      "identity": "codex-measurement"
+    }
+  ],
+  "first_non_silent_s": 115.3686842439929,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": false,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "Continuity and UI Stop require separate checks"
+  ],
+  "artifacts": {
+    "received.wav": "62880c770f42a7ce2036b1a9b02f272adffd58db1a7f3fcd78f1c46d78644305",
+    "events-live.jsonl": "e1cc9a7dd251bc3a44dcb3bf3649c3e03331f9c00dc44572071b4b2939c28dca",
+    "frames.json": "b8541f1831c6a64b1910073404a77e675bb857bed491d688bff4c3fb2b09b70b",
+    "routes-private.json": "c72da2c7f00ee4ada29a71b5a885d4c91a1e9d507f8928775233e4137ed2927a",
+    "events.jsonl": "e1cc9a7dd251bc3a44dcb3bf3649c3e03331f9c00dc44572071b4b2939c28dca"
+  }
+}

@@ -16,8 +16,12 @@ Généré par JARVIS-engine depuis les checkpoints réels. Les rapports sont ré
 | t10_correction_erreurs — Corriger les erreurs rencontrées et réitérer les tests | validated | 180d904e445272813f40190dce7221c08f4e160bca5b1609cc5be4d45c4d69bd |
 | t11_test_tailscale — Tester l'accès distant via Tailscale depuis le Mac | validated | 6da40600e35ac4dd03a453718ce6da4db5a43d295af445c0193a0e6091ec53e6 |
 | t12_code_github — Publier le code, configs et documentation sur une branche GitHub dédiée | validated | db28d98d115822a04ef6a0f5babfc6f9c177e27f74de2d28b3bd65aab4249463 |
-| t13_rapport_final — Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie | blocked | da2b0e4dddd9584668c58964a68c7c83fe94c3ec927199661cd5bc462094d996 |
+| t13_rapport_final — Rédiger le rapport final avec preuves, résultats et évaluation de l'autonomie | blocked | 4143c74135107cb373383b15f3ab2d944a8c1f11422674a9b7e6cde03c08fa94 |
+| m23d_01 — Développer le banc de test réel et la page temporaire | validated | 6377a81ef135c00e59537fd366ec5d4fdd92cc2c6172bca79f386a33be537c51 |
+| m23d_02 — Exécuter les scénarios et corriger interruption | validated | aef98e3cf4a8d88dc7e64ad9f8fbc308c1bebdc2bbd5f62dea6543a0f5a2a083 |
+| m23d_03 — Publier code et réception23D | validated | e219be6eed3a95fe0aafa82d596024a517643f962deac13a3f70804fb05a308c |
+| m23d_04 — Corriger réellement client et composants | validated | 3aa6d77f349680eb7f178f82de418d194753d13cc0f4841eaac33a95381ee3ba |
+| m23d_05 — Exécuter six scénarios et recevoir sur mesures | validated | b7296a7c6eb15cbec798d7f0d7ad96ea0eefc7e765087d37a880a779d0957028 |
+| m23d_06 — Corriger le warmup AEC puis recevoir trois interruptions | validated | c2569c01e98ae7c2dcfb2e3d9ddf19edbf531a9b707d067573d5990d044915b2 |
 
 Les livraisons GitHub sont vérifiées séparément dans le Sandbox ; une tâche validée n’est pas une affirmation de livraison distante.
-
-État de réception Codex du 20/10/2026 : t01–t12 conservées validated; t13 blocked (barge-in échoué sur réponse audible, aucune clôture). Le rapport canonique inclut le nouveau run Piper warmup / délai LLM.

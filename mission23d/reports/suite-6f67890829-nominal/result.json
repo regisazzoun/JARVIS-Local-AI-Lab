@@ -1,0 +1,51 @@
+{
+  "actor": "Codex-independent-tool",
+  "tool_sha256": "bbcea31e3855354837e32b3f97d644b3cc4fed1f4307a991bdcae9855f6de5b1",
+  "negative_input": false,
+  "continuity_started_s": null,
+  "continuity_pass": null,
+  "physical_microphone": false,
+  "room": "m23d-codex-107033a051",
+  "reason": null,
+  "input_end_s": 17.692512094974518,
+  "interrupt_s": null,
+  "audio_active_before_interrupt": null,
+  "stable_silence_latency_s": null,
+  "second_user_final": null,
+  "resumed_audio_after_transcript_s": null,
+  "transcripts": [
+    {
+      "utc": "2026-10-20T19:53:34.291018+00:00",
+      "t": 21.171027621021494,
+      "event": "transcription_final",
+      "text": " Bonjour Jervis, préparons une visite fictive du Musée des Sciences Sunday à 14h pour deux adultes avec un budget de 40€. Décris un programme détaillé en 6 étapes pendant au moins 15 secondes.",
+      "identity": "codex-measurement"
+    }
+  ],
+  "first_non_silent_s": 51.269217576947995,
+  "criteria": {
+    "active_required": true,
+    "stop_max_s": 1,
+    "silence_window_s": 0.5,
+    "rms_threshold": 20
+  },
+  "interruption_audio_pass": false,
+  "limits": [
+    "Synthetic WAV; no physical microphone",
+    "Arrival-aligned PCM; timings are client observations",
+    "UI Stop requires separate browser evidence",
+    "Continuity uses third-turn remote final transcript when requested"
+  ],
+  "artifacts": {
+    "runner.log": "55cb517ed839b36a94d3cd87e043b1608120a0edd72715837280fdc460b786b4",
+    "received.wav": "6185da2d36b1745080650fd52b5cc328ca7b43c4eabc7971821f044652cc3f0b",
+    "events-live.jsonl": "f7df355d2832f30c548700a2d8917e2fd6b7eac1da5dc2d799770b4916c3a2a3",
+    "frames.json": "101cb8007623c070e3ea93869019f6798e1c7a2cf9c7a50cdc52c5c83fc85425",
+    "routes-private.json": "0cc03434897fe2bd2252b207dc24dcd216146ed6354f9e8c3eccc489780baf79",
+    "events.jsonl": "f7df355d2832f30c548700a2d8917e2fd6b7eac1da5dc2d799770b4916c3a2a3"
+  },
+  "second_transcription_correct": false,
+  "second_transcription_delay_s": null,
+  "passed": true,
+  "status": "PASS"
+}
