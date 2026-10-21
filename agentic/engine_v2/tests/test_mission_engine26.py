@@ -90,6 +90,17 @@ class Tests(unittest.TestCase):
         with self.assertRaises(ValueError):fn(args)
         self.assertEqual(r.calls,1)
 
+    def test_append_preserves_received_task_and_metadata(self):
+        self.store.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        with self.store.db() as c:c.execute("UPDATE tasks SET state='validated' WHERE mission=?",(self.m,))
+        b=task('b');b['depends']=['a']
+        self.store.plan(self.m,[b],author='JARVIS',expected_version=1,reason='new observation',append=True)
+        versions=self.store.plans(self.m)
+        self.assertEqual(versions[0]['plan']['tasks'][0],versions[1]['plan']['tasks'][0])
+        self.assertEqual(versions[1]['plan']['objective'],'raw goal')
+        self.assertEqual(self.store.tasks(self.m)[0]['state'],'validated')
+        self.assertEqual([t['id'] for t in self.store.ready(self.m)],['b'])
+
     def test_no_contract_weakening(self):
         self.store.plan(self.m,[task()],metadata=self.meta)
         t=task();t['contract']['semantic']=[]

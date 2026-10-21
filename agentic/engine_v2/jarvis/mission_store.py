@@ -114,11 +114,20 @@ class MissionStore:
                 result.append(d)
             return result
 
-    def plan(self, ident, tasks, author="operator", metadata=None, reason="initial plan", expected_version=None):
+    def plan(self, ident, tasks, author="operator", metadata=None, reason="initial plan", expected_version=None, append=False):
         if isinstance(tasks, str):
             tasks = json.loads(tasks)
         if not isinstance(tasks, list) or not tasks:
             raise ValueError('Plan non vide requis')
+        if append:
+            history=self.plans(ident)
+            if not history:raise ValueError('append requires an existing plan')
+            saved=history[-1]['plan']
+            existing_ids={t['id'] for t in saved['tasks']}
+            if any(t.get('id') in existing_ids for t in tasks):
+                raise ValueError('append accepts only NEW task ids; saved tasks are retained automatically')
+            tasks=saved['tasks']+tasks
+            metadata=metadata or {k:v for k,v in saved.items() if k!='tasks'}
         normalized = []
         for t in tasks:
             if not isinstance(t, dict) or not isinstance(t.get('id'), str) or not isinstance(t.get('title'), str):
@@ -187,7 +196,7 @@ class MissionStore:
                         if not any(exact(check,x) for x in mapping[key].get('contract',{}).get('semantic',[])):
                             raise ValueError('Cannot weaken existing semantic contract: '+key)
                 if t['state'] == 'validated' and (key not in mapping or (key in previous and mapping[key] != previous[key])):
-                    raise ValueError('Validated task immutable: '+key)
+                    raise ValueError('Validated task immutable: '+key+'. Copy it exactly from mission_progress or use append:true with NEW tasks only; existing tasks and metadata are retained automatically.')
                 if key not in mapping and self.observations(ident, key):
                     raise ValueError('Cannot remove an attempted task; revise it preserving evidence: '+key)
             for key in old.keys() - mapping.keys():
