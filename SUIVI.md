@@ -1,3 +1,7 @@
+## Tâche en attente — épreuve finale 14A (21 octobre 2026)
+
+📋 **À faire plus tard, non lancée.** Donner à JARVIS un objectif technique inédit non découpé ; lui faire produire son propre plan, créer/adapter un skill, se corriger sans nouvel ajustement Codex, vérifier sémantiquement les résultats et rédiger un rapport fidèle aux preuves et aux auteurs des actions. La clôture **14A reste 🟡 ouverte** dans l'attente de cette épreuve ciblée. Ne pas répéter les validations déjà acquises. [Cahier de l'épreuve](docs/missions/25/BILAN-14A.md#tâche-à-faire--épreuve-finale-14a-décision-propriétaire-du-21-octobre-2026).
+
 ## Décision du propriétaire — 21 octobre 2026 : priorité mission 25
 
 ✅🟡 **Mission25 reçue avec réserves — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).

@@ -31,3 +31,19 @@ Codex conçoit/déploie Skill Lab/MCP, fournit les trois compétences initiales 
 Un scénario inédit peut couvrir les réserves restantes : confier à JARVIS un objectif technique non prédécoupé, lui faire enregistrer son propre plan et créer/adopter une compétence avec les interfaces désormais installées, résoudre son échec sans nouvel ajustement d'infrastructure par Codex, vérifier le résultat par une observation séparée et produire un rapport exact sur le code, les reçus et les contributions. Renforcer les vérifications du skill créé au-delà d'une présence textuelle de `status` ; confronter notamment port et conservation des champs au résultat réellement écrit.
 
 La seconde opération25 montre déjà une moindre dépendance pour la réutilisation. Elle ne prouve pas à elle seule une nouvelle création complète sans aide. La réserve de rapport reste actuelle : `JARVIS-DEVELOPPEMENT.md` annonce source-b à0 alors qu'elle contient une chaîne, décrit une correction «si !=8091» alors que le programme accepte les entiers positifs, et omet l'origine Codex de la nouvelle interface `argv`. Ces erreurs ne sont pas effacées ni attribuées à un transport qui fonctionne.
+
+## Tâche à faire — épreuve finale 14A (décision propriétaire du 21 octobre 2026)
+
+**Statut : 📋 planifiée, à reprendre ultérieurement. Aucun test, aucune exécution et aucune clôture 14A demandés pour l'instant.**
+
+Objectif : évaluer de manière ciblée l'autonomie globale restante de JARVIS en capitalisant sur les acquis reçus des missions 11/11B, 21/22, 24 et 25, sans répéter les vérifications déjà acquises.
+
+Critères de la future épreuve :
+1. Confier à JARVIS un **objectif technique inédit non prédécoupé** ; JARVIS élabore et enregistre lui-même son plan, ses étapes et ses critères de succès.
+2. JARVIS choisit ses outils, **crée ou adapte un skill**, le teste, le corrige après une erreur représentative puis l'utilise réellement **sans nouvel ajustement d'infrastructure ou plan imposé par Codex pendant l'épreuve**.
+3. JARVIS contrôle indépendamment le résultat effectif, au-delà d'un code de retour 0 ou de la présence de `status` : état exact produit, conservation des éléments attendus, gestion des erreurs et idempotence selon le scénario retenu.
+4. Il produit un rapport final fidèle aux preuves, distinguant **actions JARVIS, interventions Codex, résultats prouvés, hypothèses et erreurs**, avec correspondance aux reçus d'exécution et aux fichiers/commits.
+5. La réception confronte ces résultats aux critères historiques de 14A. Attribuer **✅ GO** uniquement si les critères sont effectivement satisfaits ; sinon conserver **🟡 ouverte** avec écarts précis. Codex peut vérifier indépendamment après l'exécution sans se substituer à JARVIS.
+
+**Important :** cette inscription est une tâche future, **pas le lancement de l'épreuve**, ni une autorisation de lancer un nouvel environnement, ni une remise en question des réceptions 25/24 et des anciens acquis.
+

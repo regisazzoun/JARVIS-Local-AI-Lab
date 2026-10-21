@@ -1,3 +1,7 @@
+## Tâche en attente — épreuve finale 14A (21 octobre 2026)
+
+📋 **À faire plus tard, non lancée.** Donner à JARVIS un objectif technique inédit non découpé ; lui faire produire son propre plan, créer/adapter un skill, se corriger sans nouvel ajustement Codex, vérifier sémantiquement les résultats et rédiger un rapport fidèle aux preuves et aux auteurs des actions. La clôture **14A reste 🟡 ouverte** dans l'attente de cette épreuve ciblée. Ne pas répéter les validations déjà acquises. [Cahier de l'épreuve](docs/missions/25/BILAN-14A.md#tâche-à-faire--épreuve-finale-14a-décision-propriétaire-du-21-octobre-2026).
+
 ## Consolidation documentaire25 —21 octobre2026
 
 Les réserves de déploiement/découverte de23C sont effectivement levées par les essais24 déjà reçus ; sa ligne de suivi est corrigée sans retest. Le registre courant réintègre23C/23D déjà présentes au tableau ;73 identifiants cohérents, historique00 conservé.
