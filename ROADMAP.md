@@ -2,13 +2,13 @@
 
 Les réserves de déploiement/découverte de23C sont effectivement levées par les essais24 déjà reçus ; sa ligne de suivi est corrigée sans retest. Le registre courant réintègre23C/23D déjà présentes au tableau ;73 identifiants cohérents, historique00 conservé.
 
-## Exécution mission25 —21 octobre2026
+## Réception mission25 —21 octobre2026
 
-🔄 Infrastructure déployée ; JARVIS inventorie, teste les skills et doit créer/corriger/réutiliser une compétence.14A demeure ouverte dans l’attente des preuves. [État initial](docs/missions/25/INVENTAIRE-INITIAL.md) · [Architecture](docs/missions/25/ARCHITECTURE.md). Aucun changement de24-Old ni raccordement vocal déclaré.
+✅🟡 GO AVEC RÉSERVES : quatre lots JARVIS reçus, quatre skills actifs, programme créé puis réutilisé, MCP stdio réel,89 tests.14A reste 🟡 en cours : plan global fourni, ajoutargv Codex et erreurs de rapport encore observées. [Réception25](docs/missions/25/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/25/BILAN-14A.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18).24-Old mémoire reste planifiée ; aucun raccordement vocal global ni fusion.
 
 ## Décision du propriétaire — 21 octobre 2026 : priorité mission 25
 
-🔄 **Mission25 lancée — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).
+✅🟡 **Mission25 reçue avec réserves — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).
 
 ## Décision du propriétaire — 21 octobre 2026 : mémoire enrichie et AutoDream en mission unique
 

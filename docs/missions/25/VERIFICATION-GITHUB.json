@@ -1,0 +1,60 @@
+{
+  "actor": "Codex-independent-read",
+  "captured": 1792607147.2412057,
+  "model_publications": [
+    {
+      "model_commit": "550ff137fd481ca7e03a61b68c6078bd82387a6f",
+      "created": 1792605677.7030795,
+      "branch": "codex/mission-25-skill-lab",
+      "files": [
+        {
+          "file": "docs/missions/25/JARVIS-INVENTAIRE.md",
+          "remote_commit": "550ff137fd481ca7e03a61b68c6078bd82387a6f",
+          "remote_blob_sha": "5b3416622c3e18f2453d03c156c5fe277d1af987",
+          "remote_sha256": "aaa7d18866042a57ccdd52c480cf8ae03f41dc1302f3ecec527e656c1bc15d94",
+          "local_sha256": "aaa7d18866042a57ccdd52c480cf8ae03f41dc1302f3ecec527e656c1bc15d94",
+          "receipt_sha256": "aaa7d18866042a57ccdd52c480cf8ae03f41dc1302f3ecec527e656c1bc15d94",
+          "same_bytes": true,
+          "same_as_current_workspace": true
+        }
+      ]
+    },
+    {
+      "model_commit": "56175c44bc7ce0e626c006790cf9eff7d346b4a8",
+      "created": 1792607030.5598557,
+      "branch": "codex/mission-25-skill-lab",
+      "files": [
+        {
+          "file": "docs/missions/25/JARVIS-REUTILISATION.md",
+          "remote_commit": "56175c44bc7ce0e626c006790cf9eff7d346b4a8",
+          "remote_blob_sha": "13458f93156b23316770aa0113e0f65f6efcfcb7",
+          "remote_sha256": "5b7f24fef661e90eeec5c3ea2070231ed763a0cec738b2ab63d992a5496e10c5",
+          "local_sha256": "5b7f24fef661e90eeec5c3ea2070231ed763a0cec738b2ab63d992a5496e10c5",
+          "receipt_sha256": "5b7f24fef661e90eeec5c3ea2070231ed763a0cec738b2ab63d992a5496e10c5",
+          "same_bytes": true,
+          "same_as_current_workspace": true
+        },
+        {
+          "file": "source-b.json",
+          "remote_commit": "56175c44bc7ce0e626c006790cf9eff7d346b4a8",
+          "remote_blob_sha": "3a04009d0ed606c8540d341940c62fd53d51fffe",
+          "remote_sha256": "35df2d796675d79c6c1493f5dcd1a088429f5303c958257b14caf80115fddc73",
+          "local_sha256": "35df2d796675d79c6c1493f5dcd1a088429f5303c958257b14caf80115fddc73",
+          "receipt_sha256": "35df2d796675d79c6c1493f5dcd1a088429f5303c958257b14caf80115fddc73",
+          "same_bytes": true,
+          "same_as_current_workspace": true
+        },
+        {
+          "file": "source-b-corrected.json",
+          "remote_commit": "56175c44bc7ce0e626c006790cf9eff7d346b4a8",
+          "remote_blob_sha": "11b05b1dd0c60f50e98302612fd2d87e23f8d09a",
+          "remote_sha256": "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5",
+          "local_sha256": "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5",
+          "receipt_sha256": "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5",
+          "same_bytes": true,
+          "same_as_current_workspace": true
+        }
+      ]
+    }
+  ]
+}

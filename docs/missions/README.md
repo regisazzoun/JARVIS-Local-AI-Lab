@@ -43,4 +43,6 @@ Aucune fusion automatique dans main, aucun déploiement Dell2. Les documents de 
 
 ## Mission25 — MCP et Skill Lab
 
-Mission lancée, JARVIS opérateur réel : [état initial](25/INVENTAIRE-INITIAL.md), [architecture](25/ARCHITECTURE.md), [preuves](25/PREUVES-JARVIS.json), [installation](25/INSTALLATION-UTILISATION.md). Bilan14A distinct ;24-Old mémoire reste reportée.
+Mission reçue avec réserves, JARVIS opérateur réel : [état initial](25/INVENTAIRE-INITIAL.md), [architecture](25/ARCHITECTURE.md), [preuves](25/PREUVES-JARVIS.json), [installation](25/INSTALLATION-UTILISATION.md). Bilan14A distinct ;24-Old mémoire reste reportée.
+
+[Réception25](25/RAPPORT-FINAL.md) · [Bilan14A](25/BILAN-14A.md) · [Comparaison](25/AVANT-APRES.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18).

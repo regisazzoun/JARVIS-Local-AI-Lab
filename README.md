@@ -1,3 +1,7 @@
+## Mission25 — capacités reçues avec réserves,21 octobre2026
+
+Quatre compétences exécutables actives, création/réutilisation par JARVIS et MCP réel ;14A reste ouverte sur les limites mesurées. [Réception25](docs/missions/25/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/25/BILAN-14A.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18).
+
 ## Mission23D — réception numérique du20 octobre2026
 
 ✅🟡 **GO numérique avec réserves acoustiques, STT et d’autonomie.** Banc LiveKit et page temporaire réellement exécutés par JARVIS avec outils/corrections Codex. Six exécutions initiales conservées ; après correction du warmup AEC, trois interruptions mesurées à0,727 /0,559 /0,717s (seuil≤1s). Stop actif navigateur0,6ms, exports JSON/audio et contrôle d’annulation reçus. Le microphone/écho physique reste non testé ; une erreur de transcription du jour initial est documentée. [Réception finale23D](docs/missions/23D/RAPPORT-FINAL.md) · [Utilisation](docs/missions/23D/UTILISATION.md).
@@ -131,7 +135,7 @@ Le registre et le suivi comptent **73 identifiants**, dont **10 incréments nati
 | **13E** | Passerelle conversation, voix et mémoire | 🟡 GO AVEC RÉSERVES retrouvé |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** |
 | **14** | **Deuxième Dell Precision — déploiement par JARVIS lui-même, sans Codex comme opérateur** | ⏳ Prévue, non réceptionnée |
-| **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 Progression prouvée ; réception globale ouverte |
+| **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 En cours — progrès25 démontrés |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée |
 | **15A.1** | macOS — Architecture/UI | 📋 Prévue, non exécutée |
 | **15A.2** | macOS — Connectivité sécurisée | 📋 Prévue, non exécutée |
@@ -150,7 +154,7 @@ Le registre et le suivi comptent **73 identifiants**, dont **10 incréments nati
 | **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
-| **25** | MCP et Skill Lab exécutables | 🔄 En cours — JARVIS opérateur |
+| **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues |
 | **09 à 11** | Regroupement historique — détaillé ci-dessous | 📋 Rapports retrouvés et réconciliés |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu |
 | **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves |

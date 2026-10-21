@@ -1,0 +1,18 @@
+{
+  "cutoff_first_deployment": 1792605436.0373049,
+  "scope": "Native host-operation calls in the durable ledger, including nested skill steps; macros and mission-control tools excluded. Different scenarios, not a controlled performance comparison. A successful return is not semantic acceptance.",
+  "observed_calls": {
+    "before": {
+      "host_invocations": 17,
+      "success": 11,
+      "failure": 6,
+      "no_result": 0
+    },
+    "after": {
+      "host_invocations": 52,
+      "success": 49,
+      "failure": 3,
+      "no_result": 0
+    }
+  }
+}

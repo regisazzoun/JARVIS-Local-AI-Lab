@@ -1,0 +1,48 @@
+{
+  "changelog": "v2.0.0 (2026-10-21): Correction fondamentale - substitution directe ${input_file} et ${output_file} comme paramètres complets de l'appel, vérifie 'status' dans stdout",
+  "description": "Normalise une configuration JSON en corrigeant le port invalide vers 8091, préserve les autres champs, rejette proprement les JSON invalides.",
+  "name": "config-repair",
+  "on_error": "Si host_exec retourne code != 0, le script a rejeté un JSON invalide ou une erreur est survenue. Le stdout contient le rapport d'erreur en JSON.",
+  "parameters": {
+    "additionalProperties": false,
+    "properties": {
+      "input_file": {
+        "description": "Chemin absolu vers le fichier JSON d'entrée",
+        "type": "string"
+      },
+      "output_file": {
+        "description": "Chemin absolu vers le fichier de sortie",
+        "type": "string"
+      }
+    },
+    "required": [
+      "input_file",
+      "output_file"
+    ],
+    "type": "object"
+  },
+  "prerequisites": [
+    "Le script /var/lib/jarvis/projects/mission25/config_repair.py doit exister",
+    "Le fichier JSON d'entrée doit être accessible en lecture"
+  ],
+  "requires_tools": [
+    "host_exec"
+  ],
+  "steps": [
+    {
+      "arguments": {
+        "command": "python3 /var/lib/jarvis/projects/mission25/config_repair.py -i ${input_file} -o ${output_file}"
+      },
+      "checks": [
+        {
+          "op": "contains",
+          "path": "result.stdout",
+          "value": "status"
+        }
+      ],
+      "tool": "host_exec",
+      "verify": true
+    }
+  ],
+  "when": "Pour normaliser des fichiers de configuration JSON avec ports invalides dans /var/lib/jarvis/projects/mission25"
+}

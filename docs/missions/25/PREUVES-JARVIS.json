@@ -1,12 +1,12 @@
 {
   "mission": "4612213a05624836abec58385813439c",
   "started": 1792605102.4304643,
-  "captured": 1792606727.7466686,
+  "captured": 1792607435.830093,
   "state": {
-    "state": "running",
-    "active_task": "c_develop",
-    "attempts": 8,
-    "report_path": null
+    "state": "completed",
+    "active_task": "d_reuse",
+    "attempts": 11,
+    "report_path": "/opt/jarvis/conversation/runtime/reports/4612213a05624836abec58385813439c/RAPPORT-FINAL.md"
   },
   "tasks": [
     {
@@ -28,21 +28,21 @@
     {
       "id": "c_develop",
       "title": "Créer, tester et corriger une compétence manquante",
-      "state": "running",
-      "artifact": null,
-      "report_sha256": null,
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission25/docs/missions/25/JARVIS-DEVELOPPEMENT.md",
+      "report_sha256": "b986a87d4bb69bda8f065320763d87fba56e1a583b1139bb57f420bffdf5836d",
       "attempts": 4
     },
     {
       "id": "d_reuse",
       "title": "Réutilisation indépendante et publication",
-      "state": "pending",
-      "artifact": null,
-      "report_sha256": null,
-      "attempts": 0
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission25/docs/missions/25/JARVIS-REUTILISATION.md",
+      "report_sha256": "5b7f24fef661e90eeec5c3ea2070231ed763a0cec738b2ab63d992a5496e10c5",
+      "attempts": 2
     }
   ],
-  "broker_correlated_calls": 53,
+  "broker_correlated_calls": 69,
   "calls": [
     {
       "invocation": "733fe1439fd148899987ec38f8ed5ea1",
@@ -1269,6 +1269,7 @@
       "selectors": {},
       "returncode": 0,
       "error": "",
+      "argv": null,
       "command": "python3 /var/lib/jarvis/projects/mission25/config_repair.py --input /var/lib/jarvis/projects/mission25/broken.json --output /tmp/broken-out.json 2>&1; echo \"EXIT_CODE=$?\"",
       "stdout_excerpt": "{\n  \"status\": \"error\",\n  \"message\": \"JSON invalide: JSON invalide: Expecting value: line 1 column 10 (char 9)\",\n  \"original_port\": null,\n  \"new_port\": null\n}\nEXIT_CODE=1\n",
       "stderr_excerpt": ""
@@ -1285,6 +1286,7 @@
       "selectors": {},
       "returncode": 0,
       "error": "",
+      "argv": null,
       "command": "python3 /var/lib/jarvis/projects/mission25/config_repair.py --input /var/lib/jarvis/projects/mission25/source-a.json --output /tmp/source-a-out.json 2>&1; echo \"EXIT_CODE=$?\"",
       "stdout_excerpt": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: 0 → 8091\",\n  \"original_port\": 0,\n  \"new_port\": 8091\n}\nEXIT_CODE=0\n",
       "stderr_excerpt": ""
@@ -1316,6 +1318,7 @@
       "selectors": {},
       "returncode": 0,
       "error": "",
+      "argv": null,
       "command": "python3 /var/lib/jarvis/projects/mission25/config_repair.py --input /var/lib/jarvis/projects/mission25/source-a.json --output /var/lib/jarvis/projects/mission25/source-a-corrected.json 2>&1; echo \"EXIT_CODE=$?\"",
       "stdout_excerpt": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: 0 → 8091\",\n  \"original_port\": 0,\n  \"new_port\": 8091\n}\nEXIT_CODE=0\n",
       "stderr_excerpt": ""
@@ -1349,6 +1352,10 @@
       },
       "returncode": null,
       "error": "Parameter substitution must occupy the whole value; no shell interpolation",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-a.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-a-test.json"
+      },
       "skill_result": {}
     },
     {
@@ -1467,6 +1474,9 @@
       },
       "returncode": null,
       "error": "Parameter substitution must occupy the whole value; no shell interpolation",
+      "parameters": {
+        "job_file": "/var/lib/jarvis/projects/mission25/job-test.json"
+      },
       "skill_result": {}
     },
     {
@@ -1532,6 +1542,10 @@
       },
       "returncode": null,
       "error": "Parameter substitution must occupy the whole value; no shell interpolation",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-a.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-a-test.json"
+      },
       "skill_result": {}
     },
     {
@@ -1613,6 +1627,10 @@
       },
       "returncode": 0,
       "error": "",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-a.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-a-skill-test.json"
+      },
       "skill_result": {
         "name": "config-repair",
         "version": 6,
@@ -1644,6 +1662,14 @@
       "selectors": {},
       "returncode": 0,
       "error": "",
+      "argv": [
+        "python3",
+        "/var/lib/jarvis/projects/mission25/config_repair.py",
+        "-i",
+        "/var/lib/jarvis/projects/mission25/source-a.json",
+        "-o",
+        "/var/lib/jarvis/projects/mission25/source-a-skill-test.json"
+      ],
       "command": "",
       "stdout_excerpt": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: 0 → 8091\",\n  \"original_port\": 0,\n  \"new_port\": 8091\n}\n",
       "stderr_excerpt": ""
@@ -1684,6 +1710,10 @@
       },
       "returncode": 0,
       "error": "",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-a.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-a-final.json"
+      },
       "skill_result": {
         "name": "config-repair",
         "version": 6,
@@ -1715,9 +1745,554 @@
       "selectors": {},
       "returncode": 0,
       "error": "",
+      "argv": [
+        "python3",
+        "/var/lib/jarvis/projects/mission25/config_repair.py",
+        "-i",
+        "/var/lib/jarvis/projects/mission25/source-a.json",
+        "-o",
+        "/var/lib/jarvis/projects/mission25/source-a-final.json"
+      ],
       "command": "",
       "stdout_excerpt": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: 0 → 8091\",\n  \"original_port\": 0,\n  \"new_port\": 8091\n}\n",
       "stderr_excerpt": ""
+    },
+    {
+      "invocation": "d8943105d7fa4925902878c9c732ffb3",
+      "task": "c_develop",
+      "tool": "host_read_file",
+      "created": 1792606743.053392,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "7a7ba957a66f47a5af75a9ef957f598c",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/source-a-final.json"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "e63672f9512f4c059d612d9b44a57c4f",
+      "task": "c_develop",
+      "tool": "host_read_file",
+      "created": 1792606745.8946137,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "079a5bbb2e8e421ebbe5164381b7ccc9",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/source-a.json"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "cd2bfa08ef1147d78b055ee88f89f67f",
+      "task": "c_develop",
+      "tool": "host_read_file",
+      "created": 1792606749.4456172,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "6c04a10f341d4031a59c8f85a8851c42",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/broken.json"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "ec4f659dbd42422f8adaf1cc04e42d40",
+      "task": "c_develop",
+      "tool": "host_exec",
+      "created": 1792606754.8330986,
+      "state": "finished",
+      "ok": false,
+      "evidence_id": "c11db299579e45c89f9d7acc6b80781b",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {},
+      "returncode": 1,
+      "error": "{\n  \"status\": \"error\",\n  \"message\": \"JSON invalide: JSON invalide: Expecting value: line 1 column 10 (char 9)\",\n  \"original_port\": null,\n  \"new_port\": null\n}\n",
+      "argv": [
+        "python3",
+        "/var/lib/jarvis/projects/mission25/config_repair.py",
+        "-i",
+        "/var/lib/jarvis/projects/mission25/broken.json",
+        "-o",
+        "/tmp/broken-out.json"
+      ],
+      "command": "",
+      "stdout_excerpt": "{\n  \"status\": \"error\",\n  \"message\": \"JSON invalide: JSON invalide: Expecting value: line 1 column 10 (char 9)\",\n  \"original_port\": null,\n  \"new_port\": null\n}\n",
+      "stderr_excerpt": ""
+    },
+    {
+      "invocation": "4a2228b7f6b743bbafb7fbdce57eec68",
+      "task": "c_develop",
+      "tool": "host_write_file",
+      "created": 1792606805.7659838,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "7d5f0c9d67d94b78b76f6663e20807a1",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/docs/missions/25/JARVIS-DEVELOPPEMENT.md"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "cb935be3ec4d45caa2dd47f34f99992f",
+      "task": "c_develop",
+      "tool": "mission_task_complete",
+      "created": 1792606828.6581042,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {},
+      "returncode": null,
+      "error": ""
+    },
+    {
+      "invocation": "b33c5a0962694f4baa844f7c58bc1325",
+      "task": "d_reuse",
+      "tool": "skill_list",
+      "created": 1792606859.8142412,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "name": "config-repair"
+      },
+      "returncode": null,
+      "error": "",
+      "skill_result": {}
+    },
+    {
+      "invocation": "220bd79175f04c68b7d2cda3315edb1c",
+      "task": "d_reuse",
+      "tool": "skill_list",
+      "created": 1792606860.1660068,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "name": "github-publish"
+      },
+      "returncode": null,
+      "error": "",
+      "skill_result": {}
+    },
+    {
+      "invocation": "fcf943eebcb74d978877d668aec19a66",
+      "task": "d_reuse",
+      "tool": "host_read_file",
+      "created": 1792606860.518911,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "fe4059186b38402081bb777b124a168b",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/source-b.json"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "edb238b6d5f14621aaa65dbfb8dfb3a1",
+      "task": "d_reuse",
+      "tool": "skill_activate",
+      "created": 1792606871.1026587,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "enabled": false,
+        "name": "config-repair"
+      },
+      "returncode": null,
+      "error": "",
+      "skill_result": {
+        "name": "config-repair",
+        "active": false
+      }
+    },
+    {
+      "invocation": "28fbd19563464151a225bb55f6238c8a",
+      "task": "d_reuse",
+      "tool": "skill_run",
+      "created": 1792606874.947597,
+      "state": "finished",
+      "ok": false,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "name": "config-repair"
+      },
+      "returncode": null,
+      "error": "Skill disabled or untested",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-b.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-b-test.json"
+      },
+      "skill_result": {}
+    },
+    {
+      "invocation": "72bfa309ef6b4ff2b78fa5ead84ffc7d",
+      "task": "d_reuse",
+      "tool": "skill_activate",
+      "created": 1792606878.4946525,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "enabled": true,
+        "name": "config-repair"
+      },
+      "returncode": null,
+      "error": "",
+      "skill_result": {
+        "name": "config-repair",
+        "version": 6,
+        "sha256": "409ca3b484ea4e5384b76dc7ec7d684653f0f2fbbbf5987577340ec16ceeb3a7",
+        "active": true
+      }
+    },
+    {
+      "invocation": "2c7ef28dd8e14de085e6a958ac6060e1",
+      "task": "d_reuse",
+      "tool": "host_exec",
+      "created": 1792606882.888887,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "92f9527bc36e4df89acc331cde5e397a",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {},
+      "returncode": 0,
+      "error": "",
+      "argv": [
+        "sha256sum",
+        "/var/lib/jarvis/projects/mission25/source-b.json"
+      ],
+      "command": "",
+      "stdout_excerpt": "35df2d796675d79c6c1493f5dcd1a088429f5303c958257b14caf80115fddc73  /var/lib/jarvis/projects/mission25/source-b.json\n",
+      "stderr_excerpt": ""
+    },
+    {
+      "invocation": "69746844ca384b008756bd2749c5835b",
+      "task": "d_reuse",
+      "tool": "skill_run",
+      "created": 1792606891.0416396,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "name": "config-repair"
+      },
+      "returncode": 0,
+      "error": "",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-b.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      },
+      "skill_result": {
+        "name": "config-repair",
+        "version": 6,
+        "sha256": "409ca3b484ea4e5384b76dc7ec7d684653f0f2fbbbf5987577340ec16ceeb3a7",
+        "state": "passed",
+        "run_id": "99396cce180c402a89276643232c20c7",
+        "testing": false,
+        "resumed": false
+      },
+      "step_checks": [
+        {
+          "index": 0,
+          "tool": "host_exec",
+          "ok": true,
+          "verification_error": null,
+          "evidence_id": "4b2c53ac95044f75a88031fbc672a7eb"
+        }
+      ]
+    },
+    {
+      "invocation": "985b90209d33434dae3c8ea60ae7576a",
+      "task": "d_reuse",
+      "tool": "host_exec",
+      "created": 1792606891.2150528,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "4b2c53ac95044f75a88031fbc672a7eb",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {},
+      "returncode": 0,
+      "error": "",
+      "argv": [
+        "python3",
+        "/var/lib/jarvis/projects/mission25/config_repair.py",
+        "-i",
+        "/var/lib/jarvis/projects/mission25/source-b.json",
+        "-o",
+        "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      ],
+      "command": "",
+      "stdout_excerpt": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: invalid → 8091\",\n  \"original_port\": \"invalid\",\n  \"new_port\": 8091\n}\n",
+      "stderr_excerpt": ""
+    },
+    {
+      "invocation": "20fb633757f8427d92c735563d809729",
+      "task": "d_reuse",
+      "tool": "host_read_file",
+      "created": 1792606914.9001446,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "d4727bd8fb954ec0946144884f86ec7e",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "02e912a9c4ee40b1910100bcb8fd7e5e",
+      "task": "d_reuse",
+      "tool": "host_exec",
+      "created": 1792606920.058118,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "d44f6ae4e1534c819c4b04c6d62e39ac",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {},
+      "returncode": 0,
+      "error": "",
+      "argv": [
+        "sha256sum",
+        "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      ],
+      "command": "",
+      "stdout_excerpt": "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5  /var/lib/jarvis/projects/mission25/source-b-corrected.json\n",
+      "stderr_excerpt": ""
+    },
+    {
+      "invocation": "bf21111fd3914ef3b49752006389848b",
+      "task": "d_reuse",
+      "tool": "skill_run",
+      "created": 1792606926.996705,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "name": "config-repair"
+      },
+      "returncode": 0,
+      "error": "",
+      "parameters": {
+        "input_file": "/var/lib/jarvis/projects/mission25/source-b.json",
+        "output_file": "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      },
+      "skill_result": {
+        "name": "config-repair",
+        "version": 6,
+        "sha256": "409ca3b484ea4e5384b76dc7ec7d684653f0f2fbbbf5987577340ec16ceeb3a7",
+        "state": "passed",
+        "run_id": "8198fe2069cb4bfa8e6211f2734b9f14",
+        "testing": false,
+        "resumed": false
+      },
+      "step_checks": [
+        {
+          "index": 0,
+          "tool": "host_exec",
+          "ok": true,
+          "verification_error": null,
+          "evidence_id": "427c431bbb2f4522a478085d3aee42a7"
+        }
+      ]
+    },
+    {
+      "invocation": "e0561b1b459d4c1ba6848280928fa396",
+      "task": "d_reuse",
+      "tool": "host_exec",
+      "created": 1792606927.16652,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "427c431bbb2f4522a478085d3aee42a7",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {},
+      "returncode": 0,
+      "error": "",
+      "argv": [
+        "python3",
+        "/var/lib/jarvis/projects/mission25/config_repair.py",
+        "-i",
+        "/var/lib/jarvis/projects/mission25/source-b.json",
+        "-o",
+        "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      ],
+      "command": "",
+      "stdout_excerpt": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: invalid → 8091\",\n  \"original_port\": \"invalid\",\n  \"new_port\": 8091\n}\n",
+      "stderr_excerpt": ""
+    },
+    {
+      "invocation": "76ca541806c8480faa16016fa32548e4",
+      "task": "d_reuse",
+      "tool": "host_exec",
+      "created": 1792606951.2706301,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "80ec0c2f31534feba516e3a6acb2b7ae",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {},
+      "returncode": 0,
+      "error": "",
+      "argv": [
+        "sha256sum",
+        "/var/lib/jarvis/projects/mission25/source-b-corrected.json"
+      ],
+      "command": "",
+      "stdout_excerpt": "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5  /var/lib/jarvis/projects/mission25/source-b-corrected.json\n",
+      "stderr_excerpt": ""
+    },
+    {
+      "invocation": "ca87de192810463dbbd8eaa3ca5d5343",
+      "task": "d_reuse",
+      "tool": "host_write_file",
+      "created": 1792606999.08553,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "20f7b96fb4fa4db5b9f99280a57e2578",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "path": "/var/lib/jarvis/projects/mission25/docs/missions/25/JARVIS-REUTILISATION.md"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "216a61528e574942b7b4a4c5df387115",
+      "task": "d_reuse",
+      "tool": "skill_run",
+      "created": 1792607030.4052074,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {
+        "name": "github-publish"
+      },
+      "returncode": 0,
+      "error": "",
+      "skill_result": {
+        "name": "github-publish",
+        "version": 1,
+        "sha256": "8311fa9c42b3e6f2fa9bcda61a6646a76d2be49cfd64ad3fdb59507795b81f71",
+        "state": "passed",
+        "run_id": "9a97a77dca9740eab233bd1fef6641c3",
+        "testing": false,
+        "resumed": false
+      },
+      "step_checks": [
+        {
+          "index": 0,
+          "tool": "host_github",
+          "ok": true,
+          "verification_error": null,
+          "evidence_id": "f2c2fe3b22d1487280051dd60143c076"
+        },
+        {
+          "index": 1,
+          "tool": "host_github",
+          "ok": true,
+          "verification_error": null,
+          "evidence_id": "eb9bdfdef8e8466eb0f93b7628133903"
+        }
+      ]
+    },
+    {
+      "invocation": "2e771155f92543b49b9584d4d0fccf67",
+      "task": "d_reuse",
+      "tool": "host_github",
+      "created": 1792607030.5598557,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "f2c2fe3b22d1487280051dd60143c076",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "action": "push_tree",
+        "branch": "codex/mission-25-skill-lab",
+        "path": "/var/lib/jarvis/projects/mission25",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "6f584dd4d3484c82908a5b6d8e137690",
+      "task": "d_reuse",
+      "tool": "host_github",
+      "created": 1792607039.4208965,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "eb9bdfdef8e8466eb0f93b7628133903",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "action": "verify_tree",
+        "branch": "codex/mission-25-skill-lab",
+        "path": "/var/lib/jarvis/projects/mission25",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "21bb13067908400b9c4ab9dce8be51f4",
+      "task": "d_reuse",
+      "tool": "host_github",
+      "created": 1792607081.6447737,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": "0371fb13a0884198af0f54f821843581",
+      "broker_caller": "JARVIS-runtime",
+      "selectors": {
+        "action": "pull_request",
+        "branch": "codex/mission-25-skill-lab",
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab"
+      },
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "invocation": "d859781b481144d8b53b3e64b528b7e6",
+      "task": "d_reuse",
+      "tool": "mission_task_complete",
+      "created": 1792607122.7675853,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {},
+      "returncode": null,
+      "error": ""
+    },
+    {
+      "invocation": "12a8935432434c088e5c9b1a931b1355",
+      "task": null,
+      "tool": "intervention_report",
+      "created": 1792607259.189965,
+      "state": "finished",
+      "ok": true,
+      "evidence_id": null,
+      "broker_caller": null,
+      "selectors": {},
+      "returncode": null,
+      "error": ""
     }
   ],
   "events": [
@@ -3659,6 +4234,601 @@
       "actor": "JARVIS-engine",
       "task": "c_develop",
       "created": 1792606724.9948428
+    },
+    {
+      "id": 10174,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606742.963361
+    },
+    {
+      "id": 10175,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606743.0551662
+    },
+    {
+      "id": 10176,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606743.3668175
+    },
+    {
+      "id": 10177,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606745.8023102
+    },
+    {
+      "id": 10178,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606745.896336
+    },
+    {
+      "id": 10179,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606746.153878
+    },
+    {
+      "id": 10180,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606749.3545785
+    },
+    {
+      "id": 10181,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606749.447349
+    },
+    {
+      "id": 10182,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606749.8006284
+    },
+    {
+      "id": 10183,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606754.744025
+    },
+    {
+      "id": 10184,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606754.8340318
+    },
+    {
+      "id": 10185,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606755.1304607
+    },
+    {
+      "id": 10187,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606805.6531377
+    },
+    {
+      "id": 10188,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606805.7680316
+    },
+    {
+      "id": 10189,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606806.065036
+    },
+    {
+      "id": 10190,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606828.566912
+    },
+    {
+      "id": 10191,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606828.659888
+    },
+    {
+      "id": 10192,
+      "kind": "task_verified",
+      "actor": "JARVIS-engine",
+      "task": "c_develop",
+      "created": 1792606828.9058287
+    },
+    {
+      "id": 10193,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "c_develop",
+      "created": 1792606829.1334531
+    },
+    {
+      "id": 10194,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792606829.3199644
+    },
+    {
+      "id": 10195,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792606830.4073403
+    },
+    {
+      "id": 10196,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606859.7242155
+    },
+    {
+      "id": 10197,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606859.8159978
+    },
+    {
+      "id": 10198,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606859.981594
+    },
+    {
+      "id": 10199,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606860.1678069
+    },
+    {
+      "id": 10200,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606860.3363986
+    },
+    {
+      "id": 10201,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606860.5205178
+    },
+    {
+      "id": 10202,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606860.8080244
+    },
+    {
+      "id": 10203,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606871.0124197
+    },
+    {
+      "id": 10204,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606871.104379
+    },
+    {
+      "id": 10205,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606871.3823984
+    },
+    {
+      "id": 10206,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606874.8564482
+    },
+    {
+      "id": 10207,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606874.949255
+    },
+    {
+      "id": 10208,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606875.1064255
+    },
+    {
+      "id": 10209,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606878.4020302
+    },
+    {
+      "id": 10210,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606878.4962845
+    },
+    {
+      "id": 10211,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606878.7275324
+    },
+    {
+      "id": 10212,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606882.7986243
+    },
+    {
+      "id": 10213,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606882.89056
+    },
+    {
+      "id": 10214,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606883.213137
+    },
+    {
+      "id": 10215,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606890.9513643
+    },
+    {
+      "id": 10216,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606891.043382
+    },
+    {
+      "id": 10217,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606891.216894
+    },
+    {
+      "id": 10218,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606891.5737793
+    },
+    {
+      "id": 10219,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606891.7959275
+    },
+    {
+      "id": 10220,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606914.8069599
+    },
+    {
+      "id": 10221,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606914.9017758
+    },
+    {
+      "id": 10222,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606915.1936169
+    },
+    {
+      "id": 10223,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606919.9690282
+    },
+    {
+      "id": 10224,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606920.0584912
+    },
+    {
+      "id": 10225,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606920.4115372
+    },
+    {
+      "id": 10226,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606926.9062994
+    },
+    {
+      "id": 10227,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606926.9983935
+    },
+    {
+      "id": 10228,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606927.1683989
+    },
+    {
+      "id": 10229,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606927.5202804
+    },
+    {
+      "id": 10230,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606927.7573233
+    },
+    {
+      "id": 10231,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606951.1791644
+    },
+    {
+      "id": 10232,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606951.2723422
+    },
+    {
+      "id": 10233,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606951.589811
+    },
+    {
+      "id": 10234,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792606998.9952416
+    },
+    {
+      "id": 10235,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606999.0876682
+    },
+    {
+      "id": 10236,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792606999.4300895
+    },
+    {
+      "id": 10237,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792607030.3166633
+    },
+    {
+      "id": 10238,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607030.4070187
+    },
+    {
+      "id": 10239,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607030.561757
+    },
+    {
+      "id": 10241,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607039.2697191
+    },
+    {
+      "id": 10242,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607039.4228802
+    },
+    {
+      "id": 10243,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607040.2371862
+    },
+    {
+      "id": 10244,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607040.4603982
+    },
+    {
+      "id": 10245,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792607040.6920793
+    },
+    {
+      "id": 10246,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792607041.7808928
+    },
+    {
+      "id": 10247,
+      "kind": "context_compacted",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792607042.015417
+    },
+    {
+      "id": 10248,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792607081.5543296
+    },
+    {
+      "id": 10249,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607081.6466942
+    },
+    {
+      "id": 10250,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607084.8725386
+    },
+    {
+      "id": 10251,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792607122.6771255
+    },
+    {
+      "id": 10252,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607122.7692792
+    },
+    {
+      "id": 10253,
+      "kind": "task_verified",
+      "actor": "JARVIS-engine",
+      "task": "d_reuse",
+      "created": 1792607122.9946666
+    },
+    {
+      "id": 10254,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": "d_reuse",
+      "created": 1792607123.240864
+    },
+    {
+      "id": 10255,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792607123.4299946
+    },
+    {
+      "id": 10256,
+      "kind": "cycle_started",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792607124.5196152
+    },
+    {
+      "id": 10257,
+      "kind": "inference_finished",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792607259.100917
+    },
+    {
+      "id": 10258,
+      "kind": "tool_started",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792607259.1924512
+    },
+    {
+      "id": 10259,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "task": null,
+      "created": 1792607259.375989
+    },
+    {
+      "id": 10260,
+      "kind": "state_changed",
+      "actor": "JARVIS-engine",
+      "task": null,
+      "created": 1792607259.754239
     }
   ]
 }
