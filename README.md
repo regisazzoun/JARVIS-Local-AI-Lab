@@ -135,7 +135,7 @@ Le registre et le suivi comptent **74 identifiants**, dont **10 incréments nati
 | **13E** | Passerelle conversation, voix et mémoire | 🟡 GO AVEC RÉSERVES retrouvé |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** |
 | **14** | **Deuxième Dell Precision — déploiement par JARVIS lui-même, sans Codex comme opérateur** | ⏳ Prévue, non réceptionnée |
-| **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 En cours — progrès25 démontrés |
+| **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 Ouverte — progrès26 démontrés, épreuve finale différée |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée |
 | **15A.1** | macOS — Architecture/UI | 📋 Prévue, non exécutée |
 | **15A.2** | macOS — Connectivité sécurisée | 📋 Prévue, non exécutée |
@@ -155,7 +155,7 @@ Le registre et le suivi comptent **74 identifiants**, dont **10 incréments nati
 | **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues |
 | **23C** | Correction du broker et autonomie des outils | ✅ GO — déploiement et essais reçus par24 |
 | **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves |
-| **26** | Mission Engine résilient et planification autonome | 🟡 En cours — moteur installé, démonstration JARVIS active |
+| **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->

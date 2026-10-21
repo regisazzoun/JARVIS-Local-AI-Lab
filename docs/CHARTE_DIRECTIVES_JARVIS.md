@@ -131,3 +131,8 @@ Lorsqu'une mission postérieure démontre par un rapport et des preuves le crit�
 ## Mission25 — lancement propriétaire du21 octobre2026
 
 Réalisation autonome complète du MCP/Skill Lab autorisée sans validations intermédiaires. Étendre le broker/registre existants, puis faire tester/créer/corriger/réutiliser les compétences par JARVIS lui-même. Codex construit les pièces absentes et vérifie sans usurper la provenance des opérations. Préserver tous les acquis24, identités, services et mémoire ; aucun Dell2 ni fusion automatique.24=broker ; «24-Old Mémoire enrichie» reste reportée après25. La réception vocale23D déclarée par le propriétaire ne reçoit pas son raccordement mémoire/outils. Bilan14A distinct, sans clôture artificielle.
+
+
+## Mission26 — objectif brut et preuve sémantique —21 octobre2026
+
+Mission26 lancée et reçue ✅🟡 avec réserves : [rapport](missions/26/RAPPORT-FINAL.md),3/3 tâches JARVIS, trois plans versionnés et105 tests logiciels. Les nouveaux objectifs sans tâches prédéfinies soumis à l’API/promus du chat utilisent le mode autonome à vérification sémantique par défaut ; les missions et contrats historiques gardent leur état. Codex développe l’infrastructure et vérifie ; JARVIS propose ses plans et exécute/corrige réellement ses opérations. Ne pas attribuer les interfaces Codex au modèle, ni le programme créé/corrigé par JARVIS à Codex. Conserver rapports bruts et errata, événements, versions, droits et services. L’épreuve finale14A reste distincte et différée ;14A demeure ouverte,24-Old et Dell2 non lancés. Aucune validation humaine intermédiaire ajoutée ni fusion main.

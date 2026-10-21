@@ -1,0 +1,416 @@
+[
+  {
+    "mission": "28c3fdf877ba47718dfc55e46f386656",
+    "version": 1,
+    "author": "JARVIS",
+    "reason": "initial plan",
+    "plan": {
+      "artifacts": [
+        "/var/lib/jarvis/projects/mission26/settings.json",
+        "/var/lib/jarvis/projects/mission26/RAPPORT.md"
+      ],
+      "objective": "Corriger settings.json pour port 8091, préserver toutes autres propriétés de original.json, vérifier fonctionnalité avec consumer.py",
+      "stop_conditions": [
+        "settings.json contient port=8091 (entier)",
+        "consumer.py accepte settings.json et renvoie functional:True",
+        "toutes les autres propriétés identiques à original.json"
+      ],
+      "success_criteria": [
+        "port entier 8091 dans settings.json",
+        "consumer.py produit functional:True sans erreur",
+        "label, enabled, preserve exactement conservés"
+      ],
+      "tasks": [
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/RAPPORT.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT.md",
+            "semantic": [
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/original.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label",
+                  "/enabled",
+                  "/preserve"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/settings.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [],
+          "id": "t01-correction-port",
+          "objective": "Corriger port de 70000 à 8091 dans settings.json en conservant toutes autres propriétés inchangées",
+          "observations": [
+            "original.json et settings.json identiques avec port=70000 invalide (>65535)",
+            "consumer.py rejette tout port non entier ou hors plage 1-65535"
+          ],
+          "recovery": "Restaurer settings.json depuis original.json si erreur de correction",
+          "title": "Corriger le port dans settings.json à 8091",
+          "tools": [
+            "host_exec"
+          ],
+          "verification": "python3 /var/lib/jarvis/projects/mission26/consumer.py /var/lib/jarvis/projects/mission26/settings.json produit JSON avec functional:True et port=8091"
+        }
+      ]
+    },
+    "sha256": "807621644ed35316a390f38051f5a3eb7f57c030e900e3fc8f77e47bea34955b",
+    "created": 1792612295.1323888
+  },
+  {
+    "mission": "28c3fdf877ba47718dfc55e46f386656",
+    "version": 2,
+    "author": "JARVIS",
+    "reason": "Ajout des tâches t02 (utilisation skill config-repair sur fichier lab) et t03 (rapport final) requises par coordination pour démontrer réparation réutilisable",
+    "plan": {
+      "artifacts": [
+        "/var/lib/jarvis/projects/mission26/settings.json",
+        "/var/lib/jarvis/projects/mission26/RAPPORT.md"
+      ],
+      "objective": "Corriger settings.json pour port 8091, préserver toutes autres propriétés de original.json, vérifier fonctionnalité avec consumer.py",
+      "stop_conditions": [
+        "settings.json contient port=8091 (entier)",
+        "consumer.py accepte settings.json et renvoie functional:True",
+        "toutes les autres propriétés identiques à original.json"
+      ],
+      "success_criteria": [
+        "port entier 8091 dans settings.json",
+        "consumer.py produit functional:True sans erreur",
+        "label, enabled, preserve exactement conservés"
+      ],
+      "tasks": [
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/RAPPORT.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT.md",
+            "semantic": [
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/original.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label",
+                  "/enabled",
+                  "/preserve"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/settings.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [],
+          "id": "t01-correction-port",
+          "objective": "Corriger port de 70000 à 8091 dans settings.json en conservant toutes autres propriétés inchangées",
+          "observations": [
+            "original.json et settings.json identiques avec port=70000 invalide (>65535)",
+            "consumer.py rejette tout port non entier ou hors plage 1-65535"
+          ],
+          "recovery": "Restaurer settings.json depuis original.json si erreur de correction",
+          "title": "Corriger le port dans settings.json à 8091",
+          "tools": [
+            "host_exec"
+          ],
+          "verification": "python3 /var/lib/jarvis/projects/mission26/consumer.py /var/lib/jarvis/projects/mission26/settings.json produit JSON avec functional:True et port=8091"
+        },
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/lab-test-before.json",
+            "/var/lib/jarvis/projects/mission26/lab-test.json",
+            "/var/lib/jarvis/projects/mission26/config-repair-log.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/config-repair-log.md",
+            "semantic": [
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test-before.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "t01-correction-port"
+          ],
+          "id": "t02-utilisation-skill",
+          "objective": "Créer un fichier lab test avec port invalide, utiliser skill config-repair pour le corriger idempotemment, vérifier résultat et documenter",
+          "observations": [
+            "Skill config-repair doit être disponible ou créé pour correction reproductible",
+            "Fichier lab-test-before.json contient port invalide (>65535)",
+            "Skill doit écrire vers lab-test.json avec port=8091"
+          ],
+          "recovery": "Recréer lab-test-before.json et réexécuter skill si corrompu",
+          "title": "Utiliser skill config-repair sur fichier lab de test pour démontrer reproductibilité",
+          "tools": [
+            "host_write_file",
+            "skill_run",
+            "host_read_file",
+            "mission_verify"
+          ],
+          "verification": "mission_verify PASS sur lab-test.json avec port=8091 et label préservé"
+        },
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md",
+            "semantic": [
+              {
+                "expected": {},
+                "kind": "text",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "t01-correction-port",
+            "t02-utilisation-skill"
+          ],
+          "id": "t03-rapport-final",
+          "objective": "Produire rapport final sourcé couvrant correction directe settings.json, utilisation skill config-repair sur lab test, diagnostics, preuves et limites",
+          "observations": [
+            "Rapport doit distinguer faits documentaires, observations d'outils, hypothèses",
+            "Doit inclure références aux preuves mission_verify et sorties réelles"
+          ],
+          "recovery": "Regénérer à partir des preuves existantes dans mission_evidence",
+          "title": "Rédiger rapport final Mission26 avec preuves complètes",
+          "tools": [
+            "host_write_file",
+            "mission_report_facts",
+            "mission_evidence"
+          ],
+          "verification": "Fichier RAPPORT-FINAL.md créé et lisible avec contenu factuel sourcé"
+        }
+      ]
+    },
+    "sha256": "5172112e91cd0d9612a610c9626a1582b3424478b335425edc4fe9975eac521b",
+    "created": 1792612920.255142
+  },
+  {
+    "mission": "28c3fdf877ba47718dfc55e46f386656",
+    "version": 3,
+    "author": "JARVIS",
+    "reason": "Correction du contrat sémantique pour t03-rapport-final : remplacement de expected:{} par sha256 vérifié (11f61d4c...) pour type 'text', conformément aux exigences de mission_verify",
+    "plan": {
+      "artifacts": [
+        "/var/lib/jarvis/projects/mission26/settings.json",
+        "/var/lib/jarvis/projects/mission26/RAPPORT.md"
+      ],
+      "objective": "Corriger settings.json pour port 8091, préserver toutes autres propriétés de original.json, vérifier fonctionnalité avec consumer.py",
+      "stop_conditions": [
+        "settings.json contient port=8091 (entier)",
+        "consumer.py accepte settings.json et renvoie functional:True",
+        "toutes les autres propriétés identiques à original.json"
+      ],
+      "success_criteria": [
+        "port entier 8091 dans settings.json",
+        "consumer.py produit functional:True sans erreur",
+        "label, enabled, preserve exactement conservés"
+      ],
+      "tasks": [
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/RAPPORT.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT.md",
+            "semantic": [
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/original.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label",
+                  "/enabled",
+                  "/preserve"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/settings.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [],
+          "id": "t01-correction-port",
+          "objective": "Corriger port de 70000 à 8091 dans settings.json en conservant toutes autres propriétés inchangées",
+          "observations": [
+            "original.json et settings.json identiques avec port=70000 invalide (>65535)",
+            "consumer.py rejette tout port non entier ou hors plage 1-65535"
+          ],
+          "recovery": "Restaurer settings.json depuis original.json si erreur de correction",
+          "title": "Corriger le port dans settings.json à 8091",
+          "tools": [
+            "host_exec"
+          ],
+          "verification": "python3 /var/lib/jarvis/projects/mission26/consumer.py /var/lib/jarvis/projects/mission26/settings.json produit JSON avec functional:True et port=8091"
+        },
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/lab-test-before.json",
+            "/var/lib/jarvis/projects/mission26/lab-test.json",
+            "/var/lib/jarvis/projects/mission26/config-repair-log.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/config-repair-log.md",
+            "semantic": [
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test-before.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "t01-correction-port"
+          ],
+          "id": "t02-utilisation-skill",
+          "objective": "Créer un fichier lab test avec port invalide, utiliser skill config-repair pour le corriger idempotemment, vérifier résultat et documenter",
+          "observations": [
+            "Skill config-repair doit être disponible ou créé pour correction reproductible",
+            "Fichier lab-test-before.json contient port invalide (>65535)",
+            "Skill doit écrire vers lab-test.json avec port=8091"
+          ],
+          "recovery": "Recréer lab-test-before.json et réexécuter skill si corrompu",
+          "title": "Utiliser skill config-repair sur fichier lab de test pour démontrer reproductibilité",
+          "tools": [
+            "host_write_file",
+            "skill_run",
+            "host_read_file",
+            "mission_verify"
+          ],
+          "verification": "mission_verify PASS sur lab-test.json avec port=8091 et label préservé"
+        },
+        {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+          ],
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md",
+            "semantic": [
+              {
+                "kind": "text",
+                "sha256": "11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "t01-correction-port",
+            "t02-utilisation-skill"
+          ],
+          "id": "t03-rapport-final",
+          "objective": "Produire rapport final sourcé couvrant correction directe settings.json, utilisation skill config-repair sur lab test, diagnostics, preuves et limites",
+          "observations": [
+            "Rapport écrit avec SHA256 11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+            "mission_verify réussi avec invocation_id 89f5b8ef01364d1cac09badf10c39f8f",
+            "Contenu inclut synthèse des deux tâches précédentes et preuves"
+          ],
+          "recovery": "Regénérer à partir des preuves existantes dans mission_evidence",
+          "title": "Rédiger rapport final Mission26 avec preuves complètes",
+          "tools": [
+            "host_write_file",
+            "mission_verify"
+          ],
+          "verification": "mission_verify PASS avec contrat sha256 sur RAPPORT-FINAL.md"
+        }
+      ]
+    },
+    "sha256": "faea9c471747e2350713ccebfb5f2e4745b98ce090a5c1cc24c01bdf49d9e144",
+    "created": 1792613837.0422482
+  }
+]

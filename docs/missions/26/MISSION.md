@@ -1,6 +1,6 @@
 # Mission 26 — Mission Engine résilient, planification autonome et vérification des preuves
 
-**Statut : 📋 planifiée ; prochaine mission à exécuter par Codex avec JARVIS comme agent opérateur.**
+**Statut actuel : ✅🟡 reçue avec réserves le21 octobre2026.** [Rapport de réception](RAPPORT-FINAL.md). Statut initial du cahier : 📋 planifiée ; ce lancement a ensuite été explicitement autorisé et exécuté par Codex avec JARVIS opérateur.
 **Priorité validée par le propriétaire le 21 octobre 2026 :** 25 (reçue) → **26** → épreuve finale 14A (distincte et différée) → **24-Old Mémoire enrichie et AutoDream** → 27 JL-03 → 28/29/30/31.
 
 ## Objectif

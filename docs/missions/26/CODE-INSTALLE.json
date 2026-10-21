@@ -1,0 +1,59 @@
+{
+  "actor": "Codex-independent-read",
+  "modules": [
+    {
+      "module": "missions.py",
+      "sha256": "9f022e093d3469cf6ffcfbaa4ad0ccc6b675b0a4895994a963f033bddb9f6dc2",
+      "matches_source": true
+    },
+    {
+      "module": "mission_store.py",
+      "sha256": "4f395773fb049aee7cd50213dcbe54dafa4d8f44471511d5b2e6a116641685d3",
+      "matches_source": true
+    },
+    {
+      "module": "durable_tools.py",
+      "sha256": "3c1b299cbdb1dc9a1542190c4a54cd898de213aebee803e3e5485bd4cfb2bce0",
+      "matches_source": true
+    },
+    {
+      "module": "durable_cycle.py",
+      "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b",
+      "matches_source": true
+    },
+    {
+      "module": "tools.py",
+      "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf",
+      "matches_source": true
+    },
+    {
+      "module": "skill_lab.py",
+      "sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128",
+      "matches_source": true
+    },
+    {
+      "module": "verification.py",
+      "sha256": "ca81b5ce04b3fc195cbc8902ed89aaf0bf881cd68ea0c3cb6e078348e3a73c22",
+      "matches_source": true
+    },
+    {
+      "module": "mission_reporting.py",
+      "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7",
+      "matches_source": true
+    },
+    {
+      "module": "mission_actions.py",
+      "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0",
+      "matches_source": true
+    }
+  ],
+  "jarvis_program": {
+    "path": "/var/lib/jarvis/projects/mission25/config_repair.py",
+    "actor": "JARVIS",
+    "sha256": "0a38047782be4ef991ae08f88c0d1c51a00197688c8be1fa14fcfef5f5cfd36e",
+    "matches_export": true,
+    "historical_program_preserved_in": "agentic/skill_lab25/jarvis-created/config_repair.py",
+    "manifest_version_unchanged": 6
+  },
+  "policy_unchanged": true
+}

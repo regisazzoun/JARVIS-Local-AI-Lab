@@ -1,0 +1,111 @@
+{
+  "actor": "Codex-real-skill-independent-test",
+  "not_jarvis_autonomy_evidence": true,
+  "legacy_skill_run": {
+    "returncode": 0,
+    "run_id": "c4a8d23da8cd4ce4bfcc968e7807b218",
+    "name": "config-repair",
+    "version": 6,
+    "sha256": "409ca3b484ea4e5384b76dc7ec7d684653f0f2fbbbf5987577340ec16ceeb3a7",
+    "state": "passed",
+    "testing": false,
+    "steps": [
+      {
+        "index": 0,
+        "tool": "host_exec",
+        "ok": true,
+        "verification_error": null,
+        "result": {
+          "ok": true,
+          "result": {
+            "returncode": 0,
+            "stdout": "{\n  \"status\": \"ok\",\n  \"message\": \"Port valide conservé: 70000\",\n  \"original_port\": 70000,\n  \"new_port\": null\n}\n",
+            "stderr": "",
+            "timeout": false,
+            "duration_s": 0.064,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "evidence_id": "e4056ba64ae0439e9ed59e992ac8abf3",
+            "diagnostic": {
+              "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+              "policy_path": "/etc/jarvis/host-policy.json",
+              "selection": "single-persistent-owner-policy",
+              "reload": "each-request",
+              "broker_version": "23C.1",
+              "operation": "host_exec",
+              "parameters": {},
+              "omitted_parameters": [
+                "command"
+              ],
+              "error_category": null,
+              "retry": null,
+              "alternative": null
+            }
+          },
+          "risk": "host_authorized",
+          "tool": "host_exec",
+          "elapsed_s": 0.131
+        },
+        "created": 1792612939.1767433
+      }
+    ],
+    "on_error": null,
+    "resumed": false
+  },
+  "semantic_receipt": {
+    "ok": false,
+    "result": {
+      "returncode": 1,
+      "status": "FAIL",
+      "checks": [
+        {
+          "path": "/port",
+          "expected": 8091,
+          "actual": 70000,
+          "pass": false
+        },
+        {
+          "path": "/port",
+          "type": "integer",
+          "pass": true
+        }
+      ],
+      "sha256": "1d4f3d11c2c67e94a1c7498835c449abe5828129961f3fb9d70073822370276a",
+      "contract": {
+        "kind": "json",
+        "source": {
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26/codex-false-skill-output.json"
+          }
+        },
+        "expected": {
+          "/port": 8091
+        },
+        "types": {
+          "/port": "integer"
+        }
+      },
+      "observations": [
+        {
+          "invocation": null,
+          "broker_evidence": "55e365be110d4c4cbd2768e5603059dc",
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26/codex-false-skill-output.json"
+          }
+        }
+      ],
+      "observed_at": 1792612939.441571,
+      "verifier": "deterministic26"
+    },
+    "risk": "host_authorized",
+    "tool": "mission_verify",
+    "elapsed_s": 0.199
+  },
+  "actual": {
+    "port": 70000,
+    "label": "codex-independent-false-success"
+  },
+  "false_success_detected": true
+}

@@ -1,0 +1,166 @@
+{
+  "actor": "Codex-independent-functional-tests",
+  "program_actor": "JARVIS",
+  "program_sha256": "0a38047782be4ef991ae08f88c0d1c51a00197688c8be1fa14fcfef5f5cfd36e",
+  "created": 1792613244.1699424,
+  "cases": [
+    {
+      "case": "zero",
+      "input_port": 0,
+      "expected_port": 8091,
+      "actual": {
+        "port": 8091,
+        "label": "zero",
+        "preserve": {
+          "array": [
+            true,
+            1,
+            "x"
+          ],
+          "nested": {
+            "key": "réservé"
+          }
+        }
+      },
+      "first_returncode": 0,
+      "second_returncode": 0,
+      "first_sha256": "21a70742efd944a1feb28756d003902e14af5d0663cd29fbd6ee9eb42fc62dd2",
+      "second_sha256": "21a70742efd944a1feb28756d003902e14af5d0663cd29fbd6ee9eb42fc62dd2",
+      "idempotent_bytes": true,
+      "pass": true
+    },
+    {
+      "case": "upper-invalid",
+      "input_port": 65536,
+      "expected_port": 8091,
+      "actual": {
+        "port": 8091,
+        "label": "upper-invalid",
+        "preserve": {
+          "array": [
+            true,
+            1,
+            "x"
+          ],
+          "nested": {
+            "key": "réservé"
+          }
+        }
+      },
+      "first_returncode": 0,
+      "second_returncode": 0,
+      "first_sha256": "45002cb48d89a4de333122cf35f74416c15e26aa6efcc9327620b95a3ca9851e",
+      "second_sha256": "45002cb48d89a4de333122cf35f74416c15e26aa6efcc9327620b95a3ca9851e",
+      "idempotent_bytes": true,
+      "pass": true
+    },
+    {
+      "case": "maximum",
+      "input_port": 65535,
+      "expected_port": 65535,
+      "actual": {
+        "port": 65535,
+        "label": "maximum",
+        "preserve": {
+          "array": [
+            true,
+            1,
+            "x"
+          ],
+          "nested": {
+            "key": "réservé"
+          }
+        }
+      },
+      "first_returncode": 0,
+      "second_returncode": 0,
+      "first_sha256": "f66f71ba5357bc84ef54850331454910195d477ea562c009878b18deb2a172f7",
+      "second_sha256": "f66f71ba5357bc84ef54850331454910195d477ea562c009878b18deb2a172f7",
+      "idempotent_bytes": true,
+      "pass": true
+    },
+    {
+      "case": "string",
+      "input_port": "invalid",
+      "expected_port": 8091,
+      "actual": {
+        "port": 8091,
+        "label": "string",
+        "preserve": {
+          "array": [
+            true,
+            1,
+            "x"
+          ],
+          "nested": {
+            "key": "réservé"
+          }
+        }
+      },
+      "first_returncode": 0,
+      "second_returncode": 0,
+      "first_sha256": "013f6d82be1e064aeb8fe67a972a473e8605d07304d291d9b4ed0ded89ae699c",
+      "second_sha256": "013f6d82be1e064aeb8fe67a972a473e8605d07304d291d9b4ed0ded89ae699c",
+      "idempotent_bytes": true,
+      "pass": true
+    },
+    {
+      "case": "bool",
+      "input_port": true,
+      "expected_port": 8091,
+      "actual": {
+        "port": 8091,
+        "label": "bool",
+        "preserve": {
+          "array": [
+            true,
+            1,
+            "x"
+          ],
+          "nested": {
+            "key": "réservé"
+          }
+        }
+      },
+      "first_returncode": 0,
+      "second_returncode": 0,
+      "first_sha256": "e78bcb5213ea7866986ad8127a6a4844a15bc4bb3dd84c17b512115dd3910976",
+      "second_sha256": "e78bcb5213ea7866986ad8127a6a4844a15bc4bb3dd84c17b512115dd3910976",
+      "idempotent_bytes": true,
+      "pass": true
+    },
+    {
+      "case": "valid-other-port",
+      "input_port": 8080,
+      "expected_port": 8080,
+      "actual": {
+        "port": 8080,
+        "label": "valid-other-port",
+        "preserve": {
+          "array": [
+            true,
+            1,
+            "x"
+          ],
+          "nested": {
+            "key": "réservé"
+          }
+        }
+      },
+      "first_returncode": 0,
+      "second_returncode": 0,
+      "first_sha256": "46cf4e54a428de67b0e64d3384daa8c8d1833b35a9dd804f99736639c3bdf525",
+      "second_sha256": "46cf4e54a428de67b0e64d3384daa8c8d1833b35a9dd804f99736639c3bdf525",
+      "idempotent_bytes": true,
+      "pass": true
+    },
+    {
+      "case": "invalid-json",
+      "expected_returncode": 1,
+      "actual_returncode": 1,
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "not_jarvis_autonomous_tests": true
+}

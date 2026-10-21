@@ -2028,15 +2028,19 @@
     "executant_reel": "Codex infrastructure et vérification ; JARVIS plans et opérations",
     "documents_sources": [
       {
-        "path": "docs/missions/26/ARCHITECTURE.md",
+        "path": "docs/missions/26/RAPPORT-FINAL.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/26/BILAN-14A.md",
         "url": ""
       }
     ],
-    "etat": "🟡 En cours",
-    "resultats_prouves": "Moteur installé,105 tests logiciels ; plan et vérification réels JARVIS",
-    "reserves": "Réception opérationnelle encore en cours ; interventions Codex et omissions du plan conservées",
+    "etat": "✅🟡 GO avec réserves",
+    "resultats_prouves": "Moteur installé,105 tests logiciels,3/3 tâches JARVIS reçues et3 plans versionnés ; faux succès détecté, correction de borne par JARVIS, reprise et contrôles indépendants",
+    "reserves": "Plan initial incomplet, interfaces et déploiements Codex pendant réception, prose libre erronée archivée ; mission_action testé logiciellement",
     "dependances": "21/22/24/25",
-    "prochaine_action": "Terminer démonstration, rapport et PR ;14A différée,24-Old non lancée",
+    "prochaine_action": "Conserver les acquis ; épreuve finale14A distincte différée,24-Old non lancée",
     "derniere_actualisation": "2026-10-21"
   }
 ]
