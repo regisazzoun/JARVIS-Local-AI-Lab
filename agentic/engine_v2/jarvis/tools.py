@@ -43,6 +43,10 @@ class Registry:
         register_tasks(self)
         from .durable_tools import register as register_durable
         register_durable(self)
+        from .skill_lab import register as register_skills
+        register_skills(self)
+        from .mcp_gateway import register as register_mcp
+        register_mcp(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):
@@ -125,11 +129,13 @@ class Registry:
             if not isinstance(args,dict):raise ValueError('Arguments : objet JSON requis pour '+name)
             unknown=set(args)-set(props);missing=[k for k in required if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
+            from jsonschema import Draft202012Validator
+            Draft202012Validator({'type':'object','properties':props,'required':required,'additionalProperties':False}).validate(args)
             for k,v in args.items():
                 if props[k]['type']=='string' and (not isinstance(v,str) or (not v.strip() and props[k].get('minLength',1)>0) or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')
             controller=getattr(self,'mission_controller',None)
             action=args.get('action','')
-            mutating=name in ('host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
+            mutating=name in ('skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
                 from .intent import classify
                 if classify(self.context.get('owner_text',''))=='question':

@@ -1,0 +1,51 @@
+{
+  "name": "debian-diagnostic",
+  "description": "Inspect Debian processes and systemd, read actual logs, verify conversation active",
+  "when": "Inspect Debian processes and systemd, read actual logs, verify conversation active",
+  "parameters": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "requires_tools": [
+    "host_exec",
+    "host_logs",
+    "host_service"
+  ],
+  "prerequisites": [
+    "Owner policy grants referenced resources; confirm with host_policy",
+    "Dedicated mission workspace; no existing services changed"
+  ],
+  "steps": [
+    {
+      "tool": "host_exec",
+      "arguments": {
+        "command": "ps -eo comm= | sort | uniq -c | sort -nr | head -12"
+      }
+    },
+    {
+      "tool": "host_logs",
+      "arguments": {
+        "service": "jarvis-conversation.service"
+      }
+    },
+    {
+      "tool": "host_service",
+      "arguments": {
+        "service": "jarvis-conversation.service",
+        "action": "is-active"
+      },
+      "verify": true,
+      "checks": [
+        {
+          "path": "result.stdout",
+          "op": "contains",
+          "value": "active"
+        }
+      ]
+    }
+  ],
+  "on_error": "Stop on failure; inspect receipt and correct only the observed cause, then retest or resume run_id with identical parameters.",
+  "changelog": "v1 bootstrap Codex mission25; JARVIS must test and activate"
+}

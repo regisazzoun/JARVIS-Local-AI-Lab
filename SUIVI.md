@@ -1,6 +1,6 @@
 ## Décision du propriétaire — 21 octobre 2026 : priorité mission 25
 
-📋 **Prochaine mission : 25 — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).
+🔄 **Mission25 lancée — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).
 
 ## Décision du propriétaire — 21 octobre 2026 : mémoire enrichie et AutoDream en mission unique
 
@@ -42,6 +42,7 @@
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
+| **25** | MCP et Skill Lab exécutables | 🔄 En cours — JARVIS opérateur | Six outils ajoutés, bootstrap déployé, inventaire réel et retests Dell ; [preuves](docs/missions/25/PREUVES-JARVIS.json) | Recevoir création/correction/réutilisation du skill et bilan14A |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |
 | **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée | Moteur déployé ;41 tests V2 et25 contrôles navigateur actuels ; reprise, preuves et publications vérifiées ; correction de synthèse nécessaire | Traiter les répétitions et la fiabilité sémantique ; aucune autonomie sans assistance revendiquée ; [bilan](docs/missions/22/RAPPORT-FINAL.md) |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves | Diagnostics et premières procédures documentés ; certains états intermédiaires historiques | Consolider les procédures et preuves |
@@ -176,6 +177,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-21 | 25 | Mission lancée, infrastructure installée, opérateur JARVIS persistant ;14A ouverte | [Inventaire mesuré](docs/missions/25/INVENTAIRE-INITIAL.md) · [Architecture](docs/missions/25/ARCHITECTURE.md) |
 | 2026-10-17 | 00 — pilotage | Réconciliation archives/branches ; rapports 08–11/13E retrouvés ; séparation 13D-E/14A/14,11/11B et JL-02 ; historique préservé | [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md) |
 | 2026-10-16 | 13D-E — installation autonome | Propriétaire autorise réseau/effacement/reboot/administration ; seul lancement PXE humain ; qualification RAID/EFI et deux boots isolés acquise, image réelle préparée | [Prompt prioritaire](docs/missions/13D-E/PROMPT-INSTALLATION-AUTONOME.md) · [Tests](docs/missions/13D-E/TESTS.md) |
 | 2026-10-16 | 13D-E — découverte physique | Rapport automatiquement reçu ; services temporaires arrêtés ; manifeste installation refusé (lecteur SD vide/profil DMI), BIOS à revoir ; aucun effacement | [Réception](docs/missions/13D-E/RAPPORT-FINAL.md) · [Tests](docs/missions/13D-E/TESTS.md) |

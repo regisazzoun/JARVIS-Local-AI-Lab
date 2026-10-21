@@ -1,0 +1,63 @@
+{
+  "versions": [
+    {
+      "name": "debian-diagnostic",
+      "version": 1,
+      "sha": "38379db1a9afc7621a36e91a2ba311d102de3a174f772ea13d276317ca47c8af",
+      "actor": "local-operator",
+      "created": 1792605475.9768019
+    },
+    {
+      "name": "dell-roundtrip",
+      "version": 1,
+      "sha": "916481a3ae444b18447fe70bd82d338cb498dd770e41f417ee83a8c70e3eab47",
+      "actor": "local-operator",
+      "created": 1792605476.0443666
+    },
+    {
+      "name": "github-publish",
+      "version": 1,
+      "sha": "8311fa9c42b3e6f2fa9bcda61a6646a76d2be49cfd64ad3fdb59507795b81f71",
+      "actor": "local-operator",
+      "created": 1792605476.116181
+    }
+  ],
+  "active": [
+    {
+      "name": "debian-diagnostic",
+      "version": 1
+    }
+  ],
+  "runs": [
+    {
+      "id": "117f48be90514814965b29d1c505628c",
+      "name": "debian-diagnostic",
+      "version": 1,
+      "testing": 1,
+      "state": "passed",
+      "created": 1792605542.6620166,
+      "updated": 1792605544.130077,
+      "mission": "4612213a05624836abec58385813439c"
+    },
+    {
+      "id": "aa0669f063e14b578e229e0671e4183b",
+      "name": "dell-roundtrip",
+      "version": 1,
+      "testing": 1,
+      "state": "failed",
+      "created": 1792605583.873927,
+      "updated": 1792605586.7154245,
+      "mission": "4612213a05624836abec58385813439c"
+    },
+    {
+      "id": "68d2c38d2f3f48cc82d6af707090eb28",
+      "name": "dell-roundtrip",
+      "version": 1,
+      "testing": 1,
+      "state": "running",
+      "created": 1792605620.0186536,
+      "updated": 1792605620.018655,
+      "mission": "4612213a05624836abec58385813439c"
+    }
+  ]
+}
