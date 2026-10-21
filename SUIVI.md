@@ -1,3 +1,7 @@
+## Décision du propriétaire — 21 octobre 2026 : réception vocale réelle 23D
+
+✅ **Mission 23D validée par le propriétaire, ainsi que ses dépendances opérationnelles.** Essai réel de la page 23D avec microphone sur MacBook : fonctionnement et interruption **5/5**, pertinence des réponses **5/5**, transcription **4/5** (erreurs n'altérant pas le sens général) ; latence ressentie négligeable et comparable à un assistant vocal. Le GO numérique antérieur est complété par cette réception d'usage ; les anciens échecs restent archivés. Restent à améliorer : transcription et essais dans d'autres contextes/appareils, sans annuler la validation. [Procès-verbal de réception utilisateur](docs/missions/23D/RECEPTION-UTILISATEUR.md).
+
 ## Mission23D — réception numérique du20 octobre2026
 
 ✅🟡 **GO numérique avec réserves acoustiques, STT et d’autonomie.** Banc LiveKit et page temporaire réellement exécutés par JARVIS avec outils/corrections Codex. Six exécutions initiales conservées ; après correction du warmup AEC, trois interruptions mesurées à0,727 /0,559 /0,717s (seuil≤1s). Stop actif navigateur0,6ms, exports JSON/audio et contrôle d’annulation reçus. Le microphone/écho physique reste non testé ; une erreur de transcription du jour initial est documentée. [Réception finale23D](docs/missions/23D/RAPPORT-FINAL.md) · [Utilisation](docs/missions/23D/UTILISATION.md).
