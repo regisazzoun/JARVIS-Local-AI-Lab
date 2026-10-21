@@ -1,3 +1,7 @@
+## Décision du propriétaire — 21 octobre 2026 : mémoire enrichie et AutoDream en mission unique
+
+📋 **Mission mémoire unifiée prévue, non démarrée** : mémoire structurée de type JARVIS-OS, ingestion type reels-vault, recherche hybride SQLite/FTS5 + vecteurs et **AutoDream nocturne par timer systemd**, avec consolidation des décisions et expériences, dédoublonnage, contradictions sourcées, anticipation et brief du matin. Une seule réalisation et une seule réception globale, intégrant l'accès mémoire vocal LiveKit et texte JARVIS. [Cahier de mission consolidé](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md). Ancien numéro historique 24 = mémoire ; numéro 24 actuel = broker ; nouvelle numérotation mémoire à décider, sans toucher à 25–31.
+
 ## Mission23D — réception numérique du20 octobre2026
 
 ✅🟡 **GO numérique avec réserves acoustiques, STT et d’autonomie.** Banc LiveKit et page temporaire réellement exécutés par JARVIS avec outils/corrections Codex. Six exécutions initiales conservées ; après correction du warmup AEC, trois interruptions mesurées à0,727 /0,559 /0,717s (seuil≤1s). Stop actif navigateur0,6ms, exports JSON/audio et contrôle d’annulation reçus. Le microphone/écho physique reste non testé ; une erreur de transcription du jour initial est documentée. [Réception finale23D](docs/missions/23D/RAPPORT-FINAL.md) · [Utilisation](docs/missions/23D/UTILISATION.md).
