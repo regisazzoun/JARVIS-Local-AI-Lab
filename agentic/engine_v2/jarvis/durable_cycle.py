@@ -97,12 +97,14 @@ class DurableCycle:
         core, store = self.core, self.store
         core.metrics=[]
         ident = mission['id']
-        from .mission_assurance import enabled, requirements, coverage_state
+        from .mission_assurance import enabled, requirements, coverage_state, ensure_plan_review, plan_view, VERSION
         core.tools.mission_store=store
         core.tools.context={'mission_id':ident,'task_id':None}
         core.tools.assurance_transport=core.transport
         assured=enabled(store,ident)
-        if assured: requirements(core.tools)
+        if assured:
+            requirements(core.tools)
+            ensure_plan_review(core.tools)
         ready = store.ready(ident)
         task = ready[0] if ready else None
         task_id = task['id'] if task else None
@@ -133,6 +135,7 @@ CONTRAT26 : Tu reçois un objectif brut, sans tâches préétablies. Produis ton
 CONTRAT26B (26b.1) : Le moteur extrait les exigences de l’objectif et contrôle automatiquement CHAQUE plan. Le retour de mission_plan inclut coverage et execution_allowed. Si FAIL, ton plan candidat est conservé mais ses opérations ne démarrent pas. Complète toi-même les résultats manquants via append:true ou patch:true, expected_version=version COURANTE ; ne recopies pas les tâches reçues. mission_progress expose exigences, audit, interface et exemples. Le contrôleur ne rédige aucune tâche à ta place.
 Rapports : rédige librement des explications fidèles aux preuves. mission_report_review contrôle ton brouillon ; mission_task_complete, mission_block et intervention_report le contrôlent aussi avant réception/publication. Corrige toi-même les affirmations refusées et réessaie ; les tentatives restent dans le journal. Consulte mission_progress/report_evidence et mission_report_facts pour les références d’origine. Cite au moins un id d’invocation ou event:N original, pas seulement ton propre fichier. Conserve explicitement tout FAIL, PARTIAL et INSUFFICIENT de la portée du rapport, même suivi d’un PASS. N’invente ni heure, nombre, comportement universel ni idempotence sans observation. Distingue Codex infrastructure/fixtures et JARVIS plan/opérations. La prose validée sera conservée avec une annexe déterministe ; elle n’est plus remplacée silencieusement. Une observation impossible doit être rapportée comme non vérifiée ; un rapport partiel fidèle se reçoit via mission_report_review et mission_block, sans valider la tâche technique.
 '''
+        if assured: instructions=instructions.replace("26b.1",VERSION)
         observations = store.observations(ident)
         notes = [{'actor':e['actor'],'created':e['created'],'working_note_not_verified_fact':e['result']} for e in store.events(ident, max(0, self._last_event(ident)-100)) if e['kind'] in ('working_note','model_checkpoint')][-5:]
         def brief(observation):
@@ -149,7 +152,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         documents=core.memory.document_search((task or {}).get('objective',mission['goal']),mission['project'])[:2]
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS avec le modèle '+mission['model']+', pas par JARVIS-engine. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
-              {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':store.plans(ident),
+              {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident) if assured else store.plans(ident),
                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
         ledger=[brief(o) for o in observations[-16:]]
         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]

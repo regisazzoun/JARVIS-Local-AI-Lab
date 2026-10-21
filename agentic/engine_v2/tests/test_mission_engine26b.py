@@ -18,21 +18,22 @@ class AssuranceTests(unittest.TestCase):
         self.r=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'a'})
         self.r.assurance_transport=lambda payload:{'tool_calls':[{'function':{'name':'submit_review','arguments':self.responses.pop(0)}}]}
     def extraction(self):
-        return {'requirements':[{'id':'R1','quote':'a file','outcome':'file'},{'id':'R2','quote':'a report','outcome':'report'}]}
+        return {'requirements':[{'id':'R1','source_segment':'G1','outcome':'file'},{'id':'R2','source_segment':'G1','outcome':'report'}],'output_constraints':[]}
     def coverage(self,complete=True):
         return {'coverage':[{'requirement':'R1','tasks':['a'],'covered':True,'reason':'exact state'}, {'requirement':'R2','tasks':['a'] if complete else [],'covered':complete,'reason':'report missing' if not complete else 'explicit final report'}],'issues':[]}
     def test_omission_blocks_effects_and_revision_survives_restart(self):
         self.responses=[self.extraction(),self.coverage(False),self.coverage(True)]
         requirements(self.r);self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
         self.assertEqual(audit_plan(self.r)['status'],'FAIL');self.assertEqual(self.s.ready(self.m),[])
-        self.s.plan(self.m,[task('b')],author='JARVIS',expected_version=1,append=True,reason='cover omission')
+        b=task('b');b['contract']['report_path']='/b-report.md'
+        self.s.plan(self.m,[b],author='JARVIS',expected_version=1,append=True,reason='cover omission')
         self.assertFalse(coverage_state(self.s,self.m)['accepted'])
         self.assertEqual(audit_plan(self.r)['status'],'PASS')
         reopened=MissionStore(self.s.root)
         self.assertTrue(coverage_state(reopened,self.m)['accepted']);self.assertEqual(len(reopened.plans(self.m)),2)
     def test_forged_extraction_and_incomplete_review_fail_closed(self):
-        bad=self.extraction();bad['requirements'][0]['quote']='invented'
-        self.responses=[bad]
+        bad=self.extraction();bad['requirements'][0]['source_segment']='G404'
+        self.responses=[bad,copy.deepcopy(bad)]
         with self.assertRaises(ValueError):requirements(self.r)
         self.responses=[self.extraction(),{'coverage':[],'issues':[]}]
         self.s.plan(self.m,[task()],metadata=self.meta)
@@ -48,7 +49,7 @@ class AssuranceTests(unittest.TestCase):
         return token
     def test_wrong_counts_hidden_failures_and_originals_retained(self):
         ref=self.observation();self.s.event(self.m,'semantic_verification','a',result={'status':'FAIL','contract':contract(),'observations':[]})
-        self.responses=[{'claims':[{'quote':'observations : 999','verdict':'contradicted','references':[ref],'reason':'only one read'}],'issues':[]}]
+        self.responses=[{'claims':[{'segment':'S1','verdict':'contradicted','references':[ref],'reason':'only one read'}],'issues':[]}]
         body='observations : 999. '+ref
         result=audit_report(self.r,body,'a');self.assertEqual(result['status'],'FAIL')
         self.assertTrue(any('FAIL' in x for x in result['issues']))
@@ -56,12 +57,12 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(len([x for x in self.s.events(self.m) if x['kind']=='narrative_review']),1)
     def test_corrected_explanation_retained_and_unknown_refs_rejected(self):
         ref=self.observation()
-        self.responses=[{'claims':[{'quote':'Lecture observée','verdict':'supported','references':[ref],'reason':'original read'}],'issues':[]}]
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'original read'}],'issues':[]}]
         body='Lecture observée : '+ref+'. La portée reste limitée au contenu relu.'
         result=require_report(self.r,body,'a');self.assertEqual(result['status'],'PASS')
         # Same receipt snapshot, no inference replay. A new observation invalidates approval.
         self.assertEqual(require_report(self.r,body,'a')['fingerprint'],result['fingerprint'])
-        self.observation();self.responses=[{'claims':[{'quote':'Lecture observée','verdict':'supported','references':['fake'],'reason':'x'}],'issues':[]}]
+        self.observation();bad={'claims':[{'segment':'S1','verdict':'supported','references':['fake'],'reason':'x'}],'issues':[]};self.responses=[bad,copy.deepcopy(bad)]
         with self.assertRaises(ValueError):require_report(self.r,body,'a')
     def test_report_prose_not_evidence_and_partial_not_success(self):
         t=task();self.s.plan(self.m,[t],metadata=self.meta)
@@ -72,7 +73,7 @@ class AssuranceTests(unittest.TestCase):
         snap=evidence_snapshot(self.s,self.m,'a')
         self.assertEqual(len(snap['receipts']),1)
         body='Lecture impossible, INSUFFICIENT. '+ref
-        self.responses=[{'claims':[{'quote':'Lecture impossible','verdict':'supported','references':[ref],'reason':'failed read'}],'issues':[]}]
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'failed read'}],'issues':[]}]
         self.assertEqual(require_report(self.r,body,'a')['status'],'PASS')
         self.assertFalse(coverage_state(self.s,self.m)['accepted'])
     def test_no_review_transport_no_publication(self):
@@ -138,3 +139,137 @@ class AssuranceTests(unittest.TestCase):
         self.assertIn('success_criteria',schema['properties']['metadata']['required'])
         self.s.plan(self.m,[task()],metadata=self.meta)
         schema=r.active_schema('mission_plan');self.assertNotIn('metadata',schema['required']);self.assertIn('expected_version',schema['required'])
+
+    def test_free_report_verified_against_receipts_without_guessed_hash(self):
+        from jarvis.verification import Verifier, validate_contract
+        ref=self.observation();body='Lecture indépendante observée : '+ref
+        t=task();self.s.plan(self.m,[t],metadata=self.meta)
+        self.r.execute=lambda name,args:{'ok':True,'result':{'stdout':body,'returncode':0}}
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'read receipt'}],'issues':[]}]
+        c={'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/report.md'}}}
+        validate_contract(c);self.assertEqual(Verifier(self.r).verify(c)['status'],'PASS')
+        wrong={'kind':'service','source':c['source'],'expected_state':'active'}
+        with self.assertRaises(ValueError):validate_contract(wrong)
+
+    def test_unattempted_candidate_criterion_can_be_corrected_but_owner_stays(self):
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        changed=task();changed['contract']['semantic'][0]['expected']={'/port':8092}
+        self.s.plan(self.m,[changed],metadata=self.meta,expected_version=1,reason='correct candidate before execution')
+        self.assertFalse(coverage_state(self.s,self.m)['accepted'])
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'autonomous':True,'assurance':True,'acceptance':[contract()]}),self.m))
+        other=copy.deepcopy(changed);other['id']='other'
+        with self.assertRaises(ValueError):self.s.plan(self.m,[changed,other],metadata=self.meta,expected_version=2)
+
+    def test_saved_candidate_without_review_is_recovered_without_replanning(self):
+        from jarvis.mission_assurance import ensure_plan_review
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        original=self.s.plans(self.m)
+        self.assertFalse(self.s.ready(self.m))
+        self.responses=[self.extraction(),self.coverage(True)]
+        self.assertEqual(ensure_plan_review(self.r)['status'],'PASS')
+        self.assertEqual(self.s.plans(self.m),original)
+        self.assertEqual(len(self.s.ready(self.m)),1)
+        self.assertEqual(ensure_plan_review(self.r)['status'],'PASS')
+
+    def test_failed_never_passed_inferred_criterion_can_be_repaired_with_history(self):
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        self.observation(False)
+        with self.s.db() as c:c.execute("UPDATE tasks SET state='running' WHERE mission=?",(self.m,))
+        self.s.event(self.m,'semantic_verification','a',result={'contract':contract(),'status':'FAIL'})
+        revised=task();revised['contract']['semantic'][0]['expected']={'/port':8092}
+        self.s.plan(self.m,[revised],metadata=self.meta,expected_version=1,reason='observed wrong inferred criterion')
+        self.assertFalse(coverage_state(self.s,self.m)['accepted'])
+        self.assertTrue(any(e['kind']=='failed_criterion_revision_proposed' for e in self.s.events(self.m)))
+        criterion=revised['contract']['semantic'][0]
+        self.s.event(self.m,'semantic_verification','a',result={'contract':criterion,'status':'PASS'})
+        self.s.event(self.m,'semantic_verification','a',result={'contract':criterion,'status':'FAIL'})
+        revised['contract']['semantic'][0]['expected']={'/port':8093}
+        with self.assertRaises(ValueError):self.s.plan(self.m,[revised],metadata=self.meta,expected_version=2,reason='cannot weaken proven criterion')
+
+    def test_plan_context_bounded_without_losing_historical_definitions(self):
+        from jarvis.mission_assurance import plan_view
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        for version in range(1,15):
+            t=task();t['objective']='x'*2000+str(version)
+            self.s.plan(self.m,[t],metadata=self.meta,expected_version=version,reason='new observation '+str(version))
+        history=self.s.plans(self.m);view=plan_view(self.s,self.m)
+        self.assertEqual(len(view),len(history))
+        self.assertEqual(view[-1]['plan'],history[-1]['plan'])
+        self.assertLess(len(json.dumps(view)),len(json.dumps(history))//3)
+        self.assertEqual(self.s.plans(self.m)[0]['plan']['tasks'][0]['objective'],'fix')
+
+    def test_shared_report_collision_blocks_even_when_model_says_covered(self):
+        self.responses=[self.extraction(),self.coverage(True)]
+        self.s.plan(self.m,[task(),task('b')],metadata=self.meta)
+        result=audit_plan(self.r)
+        self.assertEqual(result['status'],'FAIL')
+        self.assertTrue(any('collision' in issue for issue in result['issues']))
+        self.assertEqual(self.s.ready(self.m),[])
+
+    def test_reviewer_uses_exact_original_segments_and_original_reference_ids(self):
+        ref=self.observation();body='Lecture réellement observée : '+ref+'.\n\nHypothèse : la suite reste non vérifiée.'
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'actual read'},{'segment':'S2','verdict':'qualified_hypothesis','references':[],'reason':'explicitly uncertain'}],'issues':[]}]
+        result=require_report(self.r,body,'a')
+        self.assertEqual(result['status'],'PASS')
+        self.assertEqual([x['quote'] for x in result['claims']],body.split('\n\n'))
+
+    def test_review_format_fault_retried_without_blame_on_writer(self):
+        ref=self.observation();body='Lecture '+ref+'.\n\nAutre paragraphe factuel.'
+        bad={'claims':[{'segment':'S1','verdict':'supported','references':['receipts[0]'],'reason':'wrong addressing'}],'issues':[]}
+        self.responses=[bad,copy.deepcopy(bad)]
+        with self.assertRaises(ValueError):require_report(self.r,body,'a')
+        events=self.s.events(self.m)
+        self.assertEqual(len([e for e in events if e['kind']=='review_format_rejected']),2)
+        self.assertFalse(any(e['kind']=='narrative_review' for e in events))
+
+    def test_typed_goal_list_cannot_be_replaced_by_histogram_even_if_reviewer_says_yes(self):
+        goal='Create inventaire.json with a list and an integer count.'
+        with self.s.db() as c:c.execute('UPDATE missions SET goal=? WHERE id=?',(goal,self.m))
+        extraction={'requirements':[{'id':'R1','source_segment':'G1','outcome':'list'},{'id':'R2','source_segment':'G1','outcome':'total'}],'output_constraints':[{'artifact':'inventaire.json','source_segment':'G1','required_type':'array','meaning':'names list','relation':'none'},{'artifact':'inventaire.json','source_segment':'G1','required_type':'integer','meaning':'global total','relation':'length_of_array'}]}
+        self.responses=[extraction,self.coverage(True),self.coverage(True)]
+        t=task();t['contract']['semantic']=[{'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/inventaire.json'}},'expected':{'/a':1,'/b':1},'types':{'/a':'integer','/b':'integer'}}]
+        self.s.plan(self.m,[t],metadata=self.meta)
+        result=audit_plan(self.r)
+        self.assertEqual(result['status'],'FAIL');self.assertTrue(any('requires array' in issue for issue in result['issues']))
+        t['contract']['semantic'][0]['expected']={'/names':['a','b'],'/count':2};t['contract']['semantic'][0]['types']={'/names':'array','/count':'integer'}
+        self.s.plan(self.m,[t],metadata=self.meta,expected_version=1,reason='repair uncovered output representation')
+        self.assertEqual(audit_plan(self.r)['status'],'PASS')
+        self.assertEqual(len(self.s.plans(self.m)),2)
+
+    def test_report_can_cite_dependency_and_planning_receipts_but_not_unrelated_sibling(self):
+        a=task();b=task('b');b['depends']=['a'];b['contract']['report_path']='/b-report.md';c=task('c');c['contract']['report_path']='/c-report.md'
+        self.s.plan(self.m,[a,b,c],metadata=self.meta)
+        ancestor=self.observation();ids={}
+        for label in ['b','c',None]:
+            token=self.s.begin_call(self.m,label,'host_read_file',{'path':'/input-'+str(label)})
+            self.s.finish_call(token,{'ok':True,'result':{'stdout':'data','returncode':0}},0);ids[label]=token
+        snapshot=evidence_snapshot(self.s,self.m,'b');refs={r['reference'] for r in snapshot['receipts']}
+        self.assertIn(ancestor,refs);self.assertIn(ids['b'],refs);self.assertIn(ids[None],refs);self.assertNotIn(ids['c'],refs)
+
+    def test_raw_goal_change_invalidates_coverage_and_versions_requirements(self):
+        self.responses=[self.extraction(),self.coverage(True),self.extraction()]
+        self.s.plan(self.m,[task()],metadata=self.meta);audit_plan(self.r)
+        self.assertTrue(coverage_state(self.s,self.m)['accepted'])
+        with self.s.db() as c:c.execute('UPDATE missions SET goal=? WHERE id=?',('Produce a file and a report and a log',self.m))
+        self.assertFalse(coverage_state(self.s,self.m)['accepted'])
+        revised=requirements(self.r);self.assertEqual(revised['version'],2)
+        self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='goal_requirements']),2)
+
+    def test_review_native_json_containers_are_decoded_before_strict_validation(self):
+        ref=self.observation();body='Lecture réellement observée : '+ref
+        self.responses=[{'claims':json.dumps([{'segment':'S1','verdict':'supported','references':[ref],'reason':'real read'}]),'issues':'[]'}]
+        self.assertEqual(require_report(self.r,body,'a')['status'],'PASS')
+
+    def test_array_length_relation_refutes_incorrect_global_count(self):
+        from jarvis.verification import evaluate,validate_contract
+        contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/inventory.json'}},'relations':[{'kind':'length','array':'/names','count':'/count'}]}
+        validate_contract(contract)
+        self.assertEqual(evaluate('{"names":["a","b"],"count":1,"status":"ok"}',contract)['status'],'FAIL')
+        self.assertEqual(evaluate('{"names":["a","b"],"count":2}',contract)['status'],'PASS')
+        self.assertEqual(evaluate('{"names":["a"],"count":true}',contract)['status'],'FAIL')
+
+    def test_goal_quotes_are_original_spans_not_model_rewording(self):
+        self.responses=[self.extraction()]
+        result=requirements(self.r)
+        self.assertTrue(all(row['quote']=='Produce a file and a report' for row in result['requirements']))
+        self.assertTrue(all(row['source_segment']=='G1' for row in result['requirements']))

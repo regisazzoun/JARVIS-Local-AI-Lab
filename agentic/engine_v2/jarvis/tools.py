@@ -193,8 +193,19 @@ class Registry:
             props=schema['properties'];task=props['tasks']['items']
             task['required']=['id','title','depends','objective','tools','observations','verification','recovery','artifacts','contract']
             task['properties']['contract']['required']=['report_path','semantic']
-            task['properties']['contract']['properties']['semantic']['minItems']=1
+            semantic=task['properties']['contract']['properties']['semantic']
+            semantic['minItems']=1
+            semantic['items']['required']=['kind','source']
+            semantic['items']['allOf']=[
+                {'if':{'properties':{'kind':{'const':'text'}}},'then':{'anyOf':[{'required':['equals']},{'required':['sha256']}]}},
+                {'if':{'properties':{'kind':{'const':'digest'}}},'then':{'required':['baseline_source']}},
+                {'if':{'properties':{'kind':{'const':'service'}}},'then':{'required':['expected_state']}}]
+            for field in ('expected','types'):
+                semantic['items']['properties'][field]['propertyNames']={'pattern':'^(|/.*)$'}
             props['metadata']['required']=['objective','success_criteria','artifacts','stop_conditions']
+            for declaration in list(task['properties'].values())+list(props['metadata']['properties'].values()):
+                if declaration.get('type')=='array' and declaration is not task['properties']['depends']:declaration['minItems']=1
+                if declaration.get('type')=='string':declaration['minLength']=1
             if not store.plans(self.context['mission_id']):schema['required']=['tasks','metadata']
             else:schema['required']=['tasks','expected_version','reason']
         return schema
@@ -215,7 +226,8 @@ class Registry:
             if name=='mission_plan':
                 normalized=decode_plan_arguments(args,schema)
                 if normalized!=args and getattr(self,'mission_store',None):
-                    self.mission_store.event(self.context['mission_id'],'plan_format_decoded',actor='JARVIS-engine',result={'original_arguments_preserved_in_tool_receipt':True,'normalization':'JSON containers only; no scalar coercion','contract_version':'26b.1'})
+                    from .mission_assurance import VERSION
+                    self.mission_store.event(self.context['mission_id'],'plan_format_decoded',actor='JARVIS-engine',result={'original_arguments_preserved_in_tool_receipt':True,'normalization':'JSON containers only; no scalar coercion','contract_version':VERSION})
                 args=normalized
             error=next(Draft202012Validator(schema).iter_errors(args),None)
             if error:
