@@ -1,0 +1,22 @@
+{
+  "captured": 1792607771.8200498,
+  "actor": "Codex-final-verification",
+  "pr": {
+    "baseRefName": "plan/memoire-enrichie-autodream",
+    "headRefName": "codex/mission-25-skill-lab",
+    "headRefOid": "3d7c4fe53b171552d454769dc26f28462a787ecf",
+    "isDraft": false,
+    "mergedAt": null,
+    "number": 18,
+    "state": "OPEN",
+    "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18"
+  },
+  "verified_payload_commit": "3d7c4fe53b171552d454769dc26f28462a787ecf",
+  "verified_payload_tree": "4f75ff985a6249ec0d6eeaec9db6de5c4014a032",
+  "remote_tree_matches": true,
+  "jarvis_publication_commits_preserved": [
+    "550ff137fd481ca7e03a61b68c6078bd82387a6f",
+    "56175c44bc7ce0e626c006790cf9eff7d346b4a8"
+  ],
+  "note": "This manifest is committed after the payload commit; payload SHA identifies the independently verified code/reports tree. No automatic merge."
+}

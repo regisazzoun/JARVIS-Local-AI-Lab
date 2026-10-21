@@ -92,3 +92,27 @@ Le propriétaire confie à Codex le diagnostic et la correction des limitations 
 ## Mission23 — finalisation et capacités durables,20 octobre2026
 
 Le propriétaire autorise Codex à coordonner la finalisation de l'exécution originale7971ec0311124fb4be9e3125dcb291fd, réparer/développer les outils GitHub et le routage conversationnel, déployer puis faire retester par JARVIS, exécutant principal. Aucune validation humaine intermédiaire ; conserver les onze validations historiques, preuves, commits et mémoire. Compléter les tests manquants par addenda et recevoir sur preuves. Diagnostic df542051560b44b3851124b09d8319c2 lié23, jamais mission24 mémoire. Publication sur branches dédiées des dépôts propriétaire concernés, secrets hors Git/modèle, aucune fusion main ni Dell2. Sources et méthode : docs/missions/23/finalisation/SOURCES-ET-AUTORISATIONS.md.
+
+
+## Convention permanente de présentation des statuts — décision du propriétaire du 19 octobre 2026
+
+Dans les tableaux de pilotage (README, SUIVI, interfaces de suivi dont JL-02), utiliser les pictogrammes suivants, sans modifier le résultat technique documenté :
+
+- **✅ GO / réalisée / validée** : objectif de la mission ou de l'étape atteint et vérifié dans son périmètre.
+- **✅🟡 GO partiel / GO avec réserves / résultat réalisé avec réserves non bloquantes** : acquis réellement démontré et exploitable, mais périmètre restant ou réserve explicite. Conserver le texte historique « GO PARTIEL », « GO AVEC RÉSERVES » et les limites dans les colonnes explicatives.
+- **🟡 En cours / incomplet / preuve insuffisante** : objectif global non encore atteint, ou résultat seulement préparé, non testé, incertain ; ne pas lui attribuer une coche de réussite.
+- **📋 Planifiée** : pas encore exécutée.
+- **❌ NO-GO / échec** : l'objectif testé a effectivement échoué ; conserver les faits et les limites.
+
+Une étude ou un diagnostic effectivement terminé peut porter ✅ si son objectif se limitait à l'étude ou au diagnostic, même si la technologie étudiée reçoit un NO-GO : préciser cette distinction. **Ne pas qualifier de ✅🟡 un échec avéré, une installation non testée, une preuve absente, ni une mission simplement en cours.** Les rapports historiques et les preuves restent inchangés. Cette convention de présentation s'applique également aux futurs rapports, missions et tableaux ; elle ne déclenche pas de nouveaux tests ou validations.
+
+
+### Règle de consolidation des réserves historiques — décision du propriétaire du 19 octobre 2026
+
+Lorsqu'une mission postérieure démontre par un rapport et des preuves le critère resté ouvert d'une mission antérieure, afficher dans le tableau de pilotage **✅ GO — Réserves historiques levées par mission XX**, avec référence explicite aux missions ultérieures. Le rapport d'origine, son statut à sa date et les éventuelles limites hors critères couverts restent inchangés. Ne jamais inventer de test rétroactif, ni étendre une preuve à un autre matériel ou à un autre objectif. Si une réserve essentielle reste réellement ouverte, conserver **✅🟡** ou **🟡**, suivant les faits.
+
+## Mission25 — MCP et Skill Lab lancée le21 octobre2026
+
+Le propriétaire autorise l'exécution complète sans validation intermédiaire. Codex coordonne, développe l'infrastructure manquante et vérifie ; JARVIS reste l'opérateur observable des essais, de la création/correction d'un skill et de sa seconde utilisation. Ne pas réattribuer à JARVIS les corrections Codex. Exécution persistante `4612213a05624836abec58385813439c`, branche `codex/mission-25-skill-lab`, [dossier25](docs/missions/25/MISSION.md). Ne pas recréer cette exécution ni les tâches déjà reçues.
+
+Acquis24 broker préservés ; ne pas refaire leur réception. Le prototype vocal23D est reçu par le propriétaire, mais son raccordement complet aux outils/mémoire est distinct et non réalisé par procuration. «24-Old Mémoire enrichie» reste planifiée après25. Aucun Dell2, réinstallation/RAID/partition, secret publié ou fusion main.14A n'est reçue que sur critères et preuves réels, avec bilan séparé.

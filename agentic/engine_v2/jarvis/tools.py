@@ -17,6 +17,11 @@ def command(argv):
     p=subprocess.run(argv,capture_output=True,text=True,timeout=8,env={**os.environ,'LC_ALL':'C'})
     return {'returncode':p.returncode,'stdout':p.stdout[:12000],'stderr':p.stderr[:2000]}
 
+def parameter_schema(name, spec):
+    schema={'type':'object','properties':spec[1],'required':spec[2],'additionalProperties':False}
+    if name=='host_exec':schema['oneOf']=[{'required':['command']},{'required':['argv']}]
+    return schema
+
 class Registry:
     def __init__(self,memory,root,config=None):
         self.memory=memory;self.root=Path(root);self.context={};self.config=config or {}
@@ -43,6 +48,10 @@ class Registry:
         register_tasks(self)
         from .durable_tools import register as register_durable
         register_durable(self)
+        from .skill_lab import register as register_skills
+        register_skills(self)
+        from .mcp_gateway import register as register_mcp
+        register_mcp(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):
@@ -115,7 +124,7 @@ class Registry:
     def propose(self,args):
         return {'id':self.memory.propose(args['content'],project=self.context.get('project',''),conversation=self.context.get('conversation')),'status':'pending','approval_required':True}
     def schemas(self,all_tools=False):
-        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':{'type':'object','properties':s[1],'required':s[2],'additionalProperties':False}}} for name,s in self.specs.items() if not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
+        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':parameter_schema(name,s)}} for name,s in self.specs.items() if not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
         start=time.monotonic();start_wall=time.time();result=None
         try:
@@ -125,11 +134,14 @@ class Registry:
             if not isinstance(args,dict):raise ValueError('Arguments : objet JSON requis pour '+name)
             unknown=set(args)-set(props);missing=[k for k in required if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
+            from jsonschema import Draft202012Validator
+            Draft202012Validator(parameter_schema(name,self.specs[name])).validate(args)
             for k,v in args.items():
                 if props[k]['type']=='string' and (not isinstance(v,str) or (not v.strip() and props[k].get('minLength',1)>0) or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')
             controller=getattr(self,'mission_controller',None)
             action=args.get('action','')
-            mutating=name in ('host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
+            from .mcp_gateway import is_mutating as mcp_mutates
+            mutating=(name=='mcp_tools' and mcp_mutates(args)) or name in ('skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
                 from .intent import classify
                 if classify(self.context.get('owner_text',''))=='question':

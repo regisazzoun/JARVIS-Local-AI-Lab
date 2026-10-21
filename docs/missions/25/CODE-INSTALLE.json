@@ -1,0 +1,52 @@
+{
+  "captured": 1792607560.459063,
+  "actor": "Codex",
+  "modules": [
+    {
+      "source": "jarvis/tools.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/tools.py",
+      "source_sha256": "0530a73a6aab58f9c55c436fdd7be78073e7c509de6202213e396821af4890f1",
+      "installed_sha256": "0530a73a6aab58f9c55c436fdd7be78073e7c509de6202213e396821af4890f1",
+      "equal": true
+    },
+    {
+      "source": "jarvis/skill_lab.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/skill_lab.py",
+      "source_sha256": "4518eff8b682427b298f93ad85f779f6bd8f6ede1530ded9fe93df41695f6e1a",
+      "installed_sha256": "4518eff8b682427b298f93ad85f779f6bd8f6ede1530ded9fe93df41695f6e1a",
+      "equal": true
+    },
+    {
+      "source": "jarvis/mcp_gateway.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/mcp_gateway.py",
+      "source_sha256": "d938a3562f896cb637aae89fd19d98a7259623b2aa14b5811dd6d6db64aa8773",
+      "installed_sha256": "d938a3562f896cb637aae89fd19d98a7259623b2aa14b5811dd6d6db64aa8773",
+      "equal": true
+    },
+    {
+      "source": "jarvis/host_client.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/host_client.py",
+      "source_sha256": "55d4353b2c4c67b8798a4ff34ac1f2cce981158bb3e090f620a80b648d587171",
+      "installed_sha256": "55d4353b2c4c67b8798a4ff34ac1f2cce981158bb3e090f620a80b648d587171",
+      "equal": true
+    },
+    {
+      "source": "jarvis/core.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/core.py",
+      "source_sha256": "38fb3537ee7fbc00e7ca916e41618a4b378a6428aa4fb437d2ff7b4ee9e6b42f",
+      "installed_sha256": "38fb3537ee7fbc00e7ca916e41618a4b378a6428aa4fb437d2ff7b4ee9e6b42f",
+      "equal": true
+    },
+    {
+      "source": "broker/host_bridge.py",
+      "installed_path": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "source_sha256": "52beb9604ad3a7cb63599bd1a6c8988c8d115ed84889b98c8992e714d4252d3d",
+      "installed_sha256": "52beb9604ad3a7cb63599bd1a6c8988c8d115ed84889b98c8992e714d4252d3d",
+      "equal": true
+    }
+  ],
+  "dependencies": {
+    "mcp": "1.30.0",
+    "jsonschema": "4.26.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "actor": "Codex",
+  "created": 1792605436.0373049,
+  "policy_before": "5c1081080b52e43c2004429a5e8704cc8028610a29daaf22ddbd35893c15a3fa",
+  "modules": [
+    {
+      "source": "jarvis/tools.py",
+      "target": "/opt/jarvis/conversation/jarvis/tools.py",
+      "before": "0f167d515355d9870694aab520ef277932d8f8f863b4b90a18f236c6465bc5b7",
+      "after": "285637b4f0c2bfdc084c02012b7190e94738c3b0ff18bb147d26260973f37410"
+    },
+    {
+      "source": "jarvis/skill_lab.py",
+      "target": "/opt/jarvis/conversation/jarvis/skill_lab.py",
+      "before": null,
+      "after": "c831cefcb728b77313404c49977bbef3daa652363f8065fbdfb4410c86a0f105"
+    },
+    {
+      "source": "jarvis/mcp_gateway.py",
+      "target": "/opt/jarvis/conversation/jarvis/mcp_gateway.py",
+      "before": null,
+      "after": "9733b34404cfa1c5c9f08dd88a34bdeb13ed8ef2c477a19205a7e7fe278ef2d1"
+    },
+    {
+      "source": "broker/host_bridge.py",
+      "target": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "before": "aa14d6707ee2939f74d7e1417b468ee7feda01e7341b4ec8100a57719b985fb4",
+      "after": "52beb9604ad3a7cb63599bd1a6c8988c8d115ed84889b98c8992e714d4252d3d"
+    }
+  ],
+  "policy_after": "5c1081080b52e43c2004429a5e8704cc8028610a29daaf22ddbd35893c15a3fa",
+  "policy_unchanged": true,
+  "backup": "/var/backups/jarvis/mission25/1792605436"
+}

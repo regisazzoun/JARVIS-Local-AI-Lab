@@ -1,0 +1,50 @@
+{
+  "changelog": "v1.1.0 (2026-10-21): Simplification - utilise fichier job.json avec --job, substitution complète",
+  "description": "Normalise une configuration JSON en corrigeant le port invalide vers 8091, préserve les autres champs, rejette proprement les JSON invalides.",
+  "name": "config-repair",
+  "on_error": "Si host_exec retourne code != 0, le script a rejeté un JSON invalide ou une erreur est survenue. Le stdout contient le rapport d'erreur en JSON.",
+  "parameters": {
+    "additionalProperties": false,
+    "properties": {
+      "job_file": {
+        "description": "Chemin absolu vers un fichier job JSON contenant les clés input_file et output_file",
+        "type": "string"
+      }
+    },
+    "required": [
+      "job_file"
+    ],
+    "type": "object"
+  },
+  "prerequisites": [
+    "Le script /var/lib/jarvis/projects/mission25/config_repair.py doit exister",
+    "Le fichier job JSON doit contenir input_file et output_file valides"
+  ],
+  "requires_tools": [
+    "host_exec",
+    "host_read_file"
+  ],
+  "steps": [
+    {
+      "arguments": {
+        "command": "python3 /var/lib/jarvis/projects/mission25/config_repair.py --job ${job_file}"
+      },
+      "tool": "host_exec"
+    },
+    {
+      "arguments": {
+        "path": "${output_from_job}"
+      },
+      "checks": [
+        {
+          "op": "contains",
+          "path": "result.stdout",
+          "value": "{"
+        }
+      ],
+      "tool": "host_read_file",
+      "verify": true
+    }
+  ],
+  "when": "Pour normaliser des fichiers de configuration JSON avec ports invalides dans /var/lib/jarvis/projects/mission25"
+}

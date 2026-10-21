@@ -82,8 +82,8 @@ class Core:
                 from .intent import classify
                 if classify(text)=='question':
                     rows=self.missions.list()
-                    facts=[{k:r.get(k) for k in ('id','state','active_task','updated','progress','report_path')} for r in rows if r['id'] in ('7971ec0311124fb4be9e3125dcb291fd','df542051560b44b3851124b09d8319c2')]
-                    messages[0]['content']+='\nQuestion conversationnelle : répondre directement sans créer de mission. État technique actuel : '+json.dumps(facts,ensure_ascii=False)+'\nLa mission df542051560b44b3851124b09d8319c2 est un diagnostic lié23 ; la vraie24 est Mémoire enrichie et ingestion documentaire, non lancée par une question.'
+                    facts=[{k:r.get(k) for k in ('id','state','active_task','updated','progress','report_path')} for r in rows[:15]]
+                    messages[0]['content']+='\nQuestion conversationnelle : répondre directement sans créer de mission. État technique actuel : '+json.dumps(facts,ensure_ascii=False)+'\nLe diagnostic df542051560b44b3851124b09d8319c2, lié23, a été prolongé par24 pour le rétablissement du broker, reçu. Le chantier mémoire est nommé 24-Old Mémoire enrichie et reste reporté après25 MCP/Skill Lab. Le prototype vocal23D est reçu par le propriétaire ; son raccordement complet mémoire/outils reste distinct. Les états des missions ci-dessus sont les observations actuelles, pas une autorisation de les relancer.'
             self.tools.context={'host_target':bool(re.search(r'hôte|host_|debian\s+r[ée]el',text,re.I)) and not bool(re.search(r'Bubblewrap|/work',text,re.I)),'mission_id':mission_id,'owner_text':text,'model':model,'project':project,'conversation':conversation,'lab_authorized':agent_mode,'research_required':agent_mode and bool(re.search(r'\b(?:sources?|documentation|recherche)\b',text,flags=re.I)),'verified_sources':[]}
             self.metrics=[];tool_results=[];read_repeats={};generation_start=time.monotonic();answer=''
             rounds=self.config.get('tool_rounds',2)

@@ -1,0 +1,777 @@
+{
+  "tools": [
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Lire les autorisations hôte persistantes réellement accordées ; ne peut pas les modifier",
+      "mode": "host_authorized",
+      "name": "host_policy",
+      "parameters": {},
+      "required": [],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. timeout optionnel en secondes (défaut 60, maximum 300), pour les tests réels plus longs. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. /tmp est neuf et éphémère à chaque appel ; conserve les fichiers de reprise dans write_roots. Les processus de ce shell meurent à la fin de l’appel ; utilise host_project_service pour un serveur durable accordé. Pas de sudo.",
+      "mode": "host_authorized",
+      "name": "host_exec",
+      "parameters": {
+        "command": {
+          "maxLength": 16000,
+          "type": "string"
+        },
+        "timeout": {
+          "maximum": 300,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "command"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Lire un fichier réel accordé. Pour source longue ou vue modèle excerptée : offset en caractères et limit=6000 ; next_offset permet la suite, source_sha256 vérifie même version. Sans pagination, lecture complète conservée pour réception des rapports. Les pages indépendantes sont admises en mission_read_batch.",
+      "mode": "host_authorized",
+      "name": "host_read_file",
+      "parameters": {
+        "limit": {
+          "type": "integer"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "path": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Écrire/remplacer un fichier réel, créer les parents",
+      "mode": "host_authorized",
+      "name": "host_write_file",
+      "parameters": {
+        "content": {
+          "maxLength": 16000,
+          "type": "string"
+        },
+        "path": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "content"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Édition ciblée exacte d’un fichier accordé ; préserve le reste. path, old texte exact non vide, new remplacement (vide pour suppression), count occurrences attendu défaut1 ; expected_sha256 optionnel refuse source modifiée. Rien n’est écrit si précondition incorrecte. Retourne SHA avant/après ; retester le code ensuite.",
+      "mode": "host_authorized",
+      "name": "host_edit_file",
+      "parameters": {
+        "count": {
+          "type": "integer"
+        },
+        "expected_sha256": {
+          "type": "string"
+        },
+        "new": {
+          "maxLength": 16000,
+          "minLength": 0,
+          "type": "string"
+        },
+        "old": {
+          "maxLength": 16000,
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "old",
+        "new"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Supprimer un fichier réel accordé",
+      "mode": "host_authorized",
+      "name": "host_delete_file",
+      "parameters": {
+        "path": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "path"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Paquet Debian autorisé : action status, install ou configure (reprendre dpkg après interruption). Installation réelle persistante ; ensuite tester le logiciel avec host_exec/capability_test.",
+      "mode": "host_authorized",
+      "name": "host_package",
+      "parameters": {
+        "action": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "package": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "package",
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "systemd réel ; actions et unités définies dans host_policy. Préserver déploiement Dell.",
+      "mode": "host_authorized",
+      "name": "host_service",
+      "parameters": {
+        "action": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "service": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "service",
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Journaux réels des services accordés",
+      "mode": "host_authorized",
+      "name": "host_logs",
+      "parameters": {
+        "service": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "service"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Diagnostic Mac mini réel hors confinement : action failed_units, recent_warnings, kernel_warnings, storage_state. Lecture seule, journaux root sans secret de configuration.",
+      "mode": "host_authorized",
+      "name": "host_diagnostics",
+      "parameters": {
+        "action": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Ressources CPU RAM GPU et inventaire Tailscale réel",
+      "mode": "host_authorized",
+      "name": "host_resources",
+      "parameters": {},
+      "required": [],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "GitHub authentifié sans exposer le jeton. Actions inspect, file, download, branches, pages, clone, push (un fichier <1Mo), pull_request brouillon, create (Launcher2 seul), enable_pages (Launcher2 branche gh-pages). file lit path (ou file) exact ; download lit path et enregistre le fichier complet dans destination absolue autorisée, sans recopier son contenu. file et clone acceptent branch pour lire une branche précise. push nécessite path DOSSIER racine local, branch jarvis/..., file relatif (pas le fichier dans path). push_tree publie un lot explicite : path dossier, files chaîne JSON de chemins relatifs ; exclure .env/secrets/binaires. Produit commit_sha et verified, reprise idempotente sans force. verify_tree reprend path dossier et files JSON et compare chaque blob distant avec les sources locales ; absent ou différent échoue. Autres actions : repositories, branch_create, commits, verify_commit, diff, prs, pr_status. Pour commits, verify_commit, diff, prs et pr_status, branch est obligatoire et doit être la branche réelle jarvis/... ou codex/... (les PR sont listées par branche head). verify_commit exige en plus le commit SHA attendu. pull_request crée ou met à jour la PR existante. Les commits locaux via host_exec restent possibles ; push_tree crée un commit distant de sources contrôlées sans exporter les secrets/historique local. Jamais main ; gh-pages accepté pour Launcher2 seul.",
+      "mode": "host_authorized",
+      "name": "host_github",
+      "parameters": {
+        "action": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "body": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "branch": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "commit": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "destination": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "file": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "files": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "path": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "repository": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository",
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "SSH sur profil activé : identity/resources/services/proof, write_file/read_file (path/content), package_install (package), service (service/service_action). Opérations structurées supplémentaires si accordées : supervision_install, supervision_test, desktop_configure, desktop_test, desktop_network_test, tailscale_configure (installe le client sur Dell, réutilise uniquement une clé privée préprovisionnée), tailscale_status (état réel sans secret), desktop_gateway_configure (passerelle privée du Mac lorsque Dell n’a pas de client Tailscale). Elles exécutent une infrastructure fixe sans renvoyer de secret. Voir host_policy. project_exec(project,command) exécute dans un confinement distant du seul projet accordé, réseau hôte et /usr lecture seule, sans clés ni sudo ; pour client WebRTC de réception sur Dell1. Administration Dell activée selon la politique propriétaire 11B.",
+      "mode": "host_authorized",
+      "name": "host_remote",
+      "parameters": {
+        "action": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "command": {
+          "maxLength": 16000,
+          "type": "string"
+        },
+        "content": {
+          "maxLength": 16000,
+          "type": "string"
+        },
+        "host": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "package": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "path": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "project": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "service": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "service_action": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "host",
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Ansible réel sur profil activé : ping, resources, deploy_file (path/content), package_install (package), service (service/service_action). Aucune cible implicite ; profil Dell selon politique 11B.",
+      "mode": "host_authorized",
+      "name": "host_ansible",
+      "parameters": {
+        "action": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "content": {
+          "maxLength": 16000,
+          "type": "string"
+        },
+        "host": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "package": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "path": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "service": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "service_action": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "host",
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Consigner une demande durable à Codex. Ne confère aucun droit. persistent : oui/non ; fournir diagnostic réel et test concret.",
+      "mode": "host_authorized",
+      "name": "capability_request",
+      "parameters": {
+        "capability": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "diagnosis": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "mission": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "persistent": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "required_access": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "resource": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "solution": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "validation": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "capability",
+        "mission",
+        "resource",
+        "required_access",
+        "diagnosis",
+        "solution",
+        "validation",
+        "persistent"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Registre persistant et demandes/résultats Codex. resource optionnel retourne le détail complet de la ressource.",
+      "mode": "host_authorized",
+      "name": "capability_status",
+      "parameters": {
+        "resource": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Tester réellement une capacité et enregistrer VALIDÉ/ÉCHEC. capacity host_package (resource nom paquet), host_service (unité), host_github (dépôt), host_files (dossier).",
+      "mode": "host_authorized",
+      "name": "capability_test",
+      "parameters": {
+        "capability": {
+          "maxLength": 6000,
+          "type": "string"
+        },
+        "resource": {
+          "maxLength": 6000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "capability",
+        "resource"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Service de projet persistant dans le même confinement que host_exec. Actions install (argv exécutable absolu et arguments, projet accordé), status (inclut les processus hôte du cgroup du service : PID, nom et exécutable, sans arguments ni environnement), start, stop, restart, logs. Exécution comme identité technique, jamais root ; conserve le serveur entre appels et redémarrages du moteur. Pas de modification des services centraux. logs retourne les messages récents de l’activation courante ; history=true inclut les anciennes activations, toujours messages récents d’abord.",
+      "mode": "host_authorized",
+      "name": "host_project_service",
+      "parameters": {
+        "action": {
+          "enum": [
+            "install",
+            "status",
+            "start",
+            "stop",
+            "restart",
+            "logs",
+            "enable",
+            "disable"
+          ],
+          "type": "string"
+        },
+        "argv": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "history": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "project": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "project",
+        "name",
+        "action"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Enregistrer le plan durable avant exécution. Liste de tâches avec id,title,depends et contract optionnel.",
+      "mode": "host_authorized",
+      "name": "mission_plan",
+      "parameters": {
+        "tasks": {
+          "items": {
+            "properties": {
+              "contract": {
+                "properties": {
+                  "checks": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "depends": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "depends"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "tasks"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Relire les tâches persistantes ; id facultatif en conversation pour une autre mission.",
+      "mode": "host_authorized",
+      "name": "mission_progress",
+      "parameters": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Vérifier le rapport local et la preuve réelle de la tâche active ; ne valide pas une simple affirmation.",
+      "mode": "host_authorized",
+      "name": "mission_task_complete",
+      "parameters": {
+        "evidence_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "report_path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "evidence_id",
+        "report_path"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Capitaliser une procédure technique après au moins une tâche réellement validée. Ne confère aucun droit.",
+      "mode": "host_authorized",
+      "name": "procedure_save",
+      "parameters": {
+        "content": {
+          "maxLength": 10000,
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 10000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "content"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Consigner un blocage externe réel prouvé et son rapport. Préserve toutes les tâches acquises, publie le rapport sans déclarer de réussite et attend la résolution externe. Ne pas utiliser pour une erreur récupérable.",
+      "mode": "host_authorized",
+      "name": "mission_block",
+      "parameters": {
+        "evidence_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "report_path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "reason",
+        "report_path",
+        "evidence_id"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Lister les missions durables réelles pour répondre sur leur état en conversation.",
+      "mode": "host_authorized",
+      "name": "mission_list",
+      "parameters": {},
+      "required": [],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Exécuter en parallèle des lectures indépendantes réelles. Ne grouper aucune mutation ni commande host_exec.",
+      "mode": "host_authorized",
+      "name": "mission_read_batch",
+      "parameters": {
+        "calls": {
+          "items": {
+            "properties": {
+              "arguments": {
+                "type": "object"
+              },
+              "tool": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "arguments"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "calls"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Enregistrer un rapport local pour publication asynchrone avec vérification distante. Échec GitHub ne perd pas le fichier local.",
+      "mode": "host_authorized",
+      "name": "mission_publish",
+      "parameters": {
+        "branch": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "workspace": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository",
+        "branch",
+        "workspace",
+        "file"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Relire une preuve complète persistante par invocation id, avec pagination.",
+      "mode": "host_authorized",
+      "name": "mission_evidence",
+      "parameters": {
+        "id": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    },
+    {
+      "availability": "unverified",
+      "documentation": "docs/missions/23C/REGISTRE-CAPACITES.md",
+      "function": "Conserver observations, erreurs et prochaine action avant reprise.",
+      "mode": "host_authorized",
+      "name": "mission_note",
+      "parameters": {
+        "content": {
+          "maxLength": 16000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "scope_reference": "effective_scope; action and resource must be checked",
+      "test_method": "capability_test where supported; otherwise execute a scoped read and inspect its receipt"
+    }
+  ],
+  "summary": {
+    "availability": "Per-resource capabilities retain their observed state; tool exposure alone is not functional validation.",
+    "capabilities_count": 32,
+    "fields": "Structured fields tools, capabilities and requests; absence of stdout does not mean an empty registry.",
+    "requests_count": 5,
+    "tools_count": 28
+  },
+  "receipt": "dfb7c7abfed84f4f84ceec37b4b60ade",
+  "created": 1792605121.157884,
+  "meaning": "Last model capability_status receipt, which predates extension; actual complete installed schemas are in CATALOGUE-OUTILS.json"
+}

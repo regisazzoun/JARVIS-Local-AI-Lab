@@ -1,0 +1,101 @@
+{
+  "actor": "Codex-independent-read",
+  "created": 1792607435.8712158,
+  "mission": "4612213a05624836abec58385813439c",
+  "files": [
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a-corrected.json",
+      "sha256": "092a4d6f926b1bc2e83e9e60a2375a1e55dae9307ac4ed00ea1610deeda72919",
+      "label": "first-operation",
+      "port": 8091,
+      "all_fields_expected": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a-final.json",
+      "sha256": "092a4d6f926b1bc2e83e9e60a2375a1e55dae9307ac4ed00ea1610deeda72919",
+      "label": "first-operation",
+      "port": 8091,
+      "all_fields_expected": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a-skill-test.json",
+      "sha256": "092a4d6f926b1bc2e83e9e60a2375a1e55dae9307ac4ed00ea1610deeda72919",
+      "label": "first-operation",
+      "port": 8091,
+      "all_fields_expected": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a.json",
+      "sha256": "fb8829bf0255fffb95d49cdd3c5832535f8eebfb557e94d31039ffc7e47acf16",
+      "label": "first-operation",
+      "port": 0,
+      "all_fields_expected": false
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-b-corrected.json",
+      "sha256": "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5",
+      "label": "second-operation",
+      "port": 8091,
+      "all_fields_expected": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-b.json",
+      "sha256": "35df2d796675d79c6c1493f5dcd1a088429f5303c958257b14caf80115fddc73",
+      "label": "second-operation",
+      "port": "invalid",
+      "all_fields_expected": false
+    }
+  ],
+  "program_unchanged_during_second_task": true,
+  "both_operations_verified": true,
+  "tasks": [
+    {
+      "id": "a_inventory",
+      "state": "validated",
+      "report_sha256": "aaa7d18866042a57ccdd52c480cf8ae03f41dc1302f3ecec527e656c1bc15d94"
+    },
+    {
+      "id": "b_skills",
+      "state": "validated",
+      "report_sha256": "02374e693cbf650b9df6a3310621160edde142e67381745d068e815d9f804b11"
+    },
+    {
+      "id": "c_develop",
+      "state": "validated",
+      "report_sha256": "b986a87d4bb69bda8f065320763d87fba56e1a583b1139bb57f420bffdf5836d"
+    },
+    {
+      "id": "d_reuse",
+      "state": "validated",
+      "report_sha256": "5b7f24fef661e90eeec5c3ea2070231ed763a0cec738b2ab63d992a5496e10c5"
+    }
+  ],
+  "coordinator_instructions_during_second_task": 0,
+  "model_idempotence_hashes": [
+    "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5",
+    "f20dcba2ffa22326be7a73d3f2c9152312e3936cbc44d0f17b08a472c19695a5"
+  ],
+  "second_execution_same_bytes": true,
+  "coordinator_instructions_during_development": 1,
+  "historical_received_tasks": 43,
+  "historical_received_task_hashes_preserved": true,
+  "canonical_memory_quick_check": "ok",
+  "personal_tables": {
+    "memories": {
+      "before_rows": 5,
+      "after_rows": 5,
+      "all_previous_rows_preserved": true
+    },
+    "preferences": {
+      "before_rows": 4,
+      "after_rows": 4,
+      "all_previous_rows_preserved": true
+    }
+  },
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-mission23-livekit-agent": "active",
+    "jarvis-mission23-livekit-server": "active"
+  }
+}

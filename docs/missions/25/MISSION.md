@@ -1,7 +1,7 @@
 # Mission 25 — Registre MCP, Skills et développement des capacités de JARVIS
 
 **Décision de priorité du propriétaire, 21 octobre 2026 : prochaine mission à lancer via Codex, JARVIS exécutant réel.**
-**Statut : 📋 planifiée et prompt d'exécution préparé, non exécutée.**
+**Statut : ✅🟡 GO AVEC RÉSERVES — capacités déployées et utilisées, réception du21 octobre2026.**
 
 ## But
 
@@ -40,3 +40,5 @@ Codex coordonne, construit les pièces manquantes et vérifie indépendamment le
 - Exécution réelle bout en bout Mac mini + Dell1 + GitHub, erreur corrigée, checkpoint repris et rapport de JARVIS confronté aux preuves indépendantes.
 - Tests d'idempotence, de persistance du registre, de non-régression des capacités existantes.
 - État de 14A après mission 25 clairement séparé ; publication sur branche et PR de mission25 avec rapports/tests/procédure.
+
+Réception effective : [rapport final](RAPPORT-FINAL.md), [bilan14A](BILAN-14A.md), [preuves](PREUVES-JARVIS.json), [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18). Le cahier ci-dessus est conservé.

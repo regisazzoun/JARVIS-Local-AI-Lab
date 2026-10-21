@@ -26,7 +26,7 @@ def run(argv, timeout=60, user=None, output_limit=16000):
         argv=['/usr/sbin/runuser','-u',user,'--']+argv
     started=time.monotonic()
     with tempfile.TemporaryFile() as out, tempfile.TemporaryFile() as err:
-        p=subprocess.Popen(argv,stdout=out,stderr=err,env=env,start_new_session=True)
+        p=subprocess.Popen(argv,stdin=subprocess.DEVNULL,stdout=out,stderr=err,env=env,start_new_session=True)
         try: p.wait(timeout=timeout); timed=False
         except subprocess.TimeoutExpired: os.killpg(p.pid,signal.SIGKILL);p.wait();timed=True
         out_size=out.tell();err_size=err.tell();out.seek(0);err.seek(0)

@@ -1584,14 +1584,18 @@
       {
         "path": "docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md",
         "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex%2Fjl-02-launcher-v2/docs/missions/11B/RACCORDEMENT-ADMIN-DELL.md"
+      },
+      {
+        "path": "docs/missions/25/BILAN-14A.md",
+        "url": ""
       }
     ],
-    "etat": "Progression documentée, non réceptionnée globalement",
-    "resultats_prouves": "13F laboratoire ;11/11B hôte/distant ;JL02 tâches réelles ;00 apporte analyses documentaires",
-    "reserves": "Succès ciblés avec assistance ne démontrent pas déploiement autonome complet ; voir bilan00",
+    "etat": "En cours — progrès25 démontrés, réception globale ouverte",
+    "resultats_prouves": "Outils Debian/Dell/GitHub, MCP et création/réutilisation de skill démontrés en25",
+    "reserves": "Plan global fourni par Codex, aide d’infrastructure pendant création, erreurs de synthèse et vérification trop faible",
     "dependances": "13F,11-Agentic,11B",
-    "prochaine_action": "Rassembler les critères14A et combler ceux non prouvés",
-    "derniere_actualisation": "2026-10-17"
+    "prochaine_action": "Scénario inédit planifié par JARVIS, correction sans nouveau correctif Codex, vérification/rapport fidèles",
+    "derniere_actualisation": "2026-10-21"
   },
   {
     "identifiant": "15A",
@@ -1942,5 +1946,76 @@
     "prochaine_action": "Réduire les répétitions et fiabiliser les synthèses",
     "derniere_actualisation": "2026-10-19",
     "date_derniere_actualisation": "2026-10-18"
+  },
+  {
+    "identifiant": "25",
+    "nom": "MCP et Skill Lab",
+    "fonction_principale": "Extension des capacités agentiques",
+    "documents_sources": [
+      {
+        "path": "docs/missions/25/RAPPORT-FINAL.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/25/PREUVES-JARVIS.json",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/25/BILAN-14A.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO AVEC RÉSERVES — capacités déployées et utilisées",
+    "executant_reel": "Codex infrastructure ; JARVIS opérateur des essais",
+    "resultats_prouves": "Quatre tâches JARVIS reçues, quatre skills actifs dont config-repair créé/réutilisé, MCP réel,89 tests, PR18",
+    "reserves": "Création assistée par ajoutargv Codex ; rapports et vérifications internes encore imparfaits ;14A ouverte",
+    "derniere_actualisation": "2026-10-21",
+    "prochaine_action": "Préserver capacités ; lever écarts14A via scénario inédit",
+    "objectifs": "Découvrir, exécuter, créer, tester, corriger et réutiliser outils/skills par JARVIS",
+    "materiel": "Mac mini Debian ; Dell1 ; GitHub",
+    "composants": "Registry/broker existants, Skill Lab SQLite, JSON Schema, MCP stdio",
+    "dependances": "Acquis11/11B/13F/21/22/23C/24 ;14A évaluée séparément"
+  },
+  {
+    "identifiant": "23C",
+    "nom": "Correction broker et autonomie des outils",
+    "fonction_principale": "Correction broker et autonomie des outils",
+    "objectifs": "Correction broker et autonomie des outils",
+    "materiel": "Mac mini Debian / Dell1",
+    "composants": "Backend existant / LiveKit selon mission",
+    "executant_reel": "JARVIS essais ; Codex infrastructure et vérification",
+    "documents_sources": [
+      {
+        "path": "docs/missions/24/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO — réserves de déploiement23C levées par24",
+    "resultats_prouves": "Déploiement, appels JARVIS et persistance reçus en24 ; réserves synthèse/autonomie distinctes",
+    "reserves": "Périmètre exact des rapports conservé",
+    "dependances": "Missions précédentes",
+    "prochaine_action": "Préserver acquis ; autonomie évaluée en25",
+    "derniere_actualisation": "2026-10-21"
+  },
+  {
+    "identifiant": "23D",
+    "nom": "Prototype vocal LiveKit et interruption",
+    "fonction_principale": "Prototype vocal LiveKit et interruption",
+    "objectifs": "Prototype vocal LiveKit et interruption",
+    "materiel": "Mac mini Debian / Dell1",
+    "composants": "Backend existant / LiveKit selon mission",
+    "executant_reel": "JARVIS essais ; Codex infrastructure et vérification",
+    "documents_sources": [
+      {
+        "path": "docs/missions/23D/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO prototype reçu — raccordement mémoire/outils incomplet",
+    "resultats_prouves": "Essais numériques conservés ; réception vocale du prototype confirmée par propriétaire ; pas d’intégration mémoire/outils globale",
+    "reserves": "Périmètre exact des rapports conservé",
+    "dependances": "Missions précédentes",
+    "prochaine_action": "Préserver acquis ; autonomie évaluée en25",
+    "derniere_actualisation": "2026-10-21"
   }
 ]

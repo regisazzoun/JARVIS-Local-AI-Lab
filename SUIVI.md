@@ -1,6 +1,10 @@
+## Tâche en attente — épreuve finale 14A (21 octobre 2026)
+
+📋 **À faire plus tard, non lancée.** Donner à JARVIS un objectif technique inédit non découpé ; lui faire produire son propre plan, créer/adapter un skill, se corriger sans nouvel ajustement Codex, vérifier sémantiquement les résultats et rédiger un rapport fidèle aux preuves et aux auteurs des actions. La clôture **14A reste 🟡 ouverte** dans l'attente de cette épreuve ciblée. Ne pas répéter les validations déjà acquises. [Cahier de l'épreuve](docs/missions/25/BILAN-14A.md#tâche-à-faire--épreuve-finale-14a-décision-propriétaire-du-21-octobre-2026).
+
 ## Décision du propriétaire — 21 octobre 2026 : priorité mission 25
 
-📋 **Prochaine mission : 25 — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).
+✅🟡 **Mission25 reçue avec réserves — MCP et Skill Lab.** Construire et faire utiliser par JARVIS un registre de capacités, les outils MCP pertinents et des skills exécutables avec preuves réelles, pour progresser vers la réception 14A ; cette réception n'est pas automatique. 📋 Le chantier mémoire est renommé exactement **« 24-Old Mémoire enrichie »**, entièrement conservé (Memory Kernel, ingestion, RAG, AutoDream), et passe **après 25**. **Mission 24** désigne exclusivement le broker réalisé. [Cahier25](docs/missions/25/MISSION.md) · [Cahier 24-Old](docs/missions/memoire-enrichie/MISSION-UNIFIEE.md).
 
 ## Décision du propriétaire — 21 octobre 2026 : mémoire enrichie et AutoDream en mission unique
 
@@ -28,7 +32,7 @@
 
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
-**Dernière mise à jour : 19 octobre 2026**  
+**Dernière mise à jour : 21 octobre 2026**
 **Références :** [Feuille de route](ROADMAP.md) · [Chronologie](docs/chronologie.md) · [Débrief 13F](docs/missions/MISSION-13F-DEBRIEF.md) · [Roadmap Launcher](docs/parallel-projects/JARVIS-Launcher/ROADMAP.md)
 
 > **Tableau de pilotage permanent.** Conserver la présentation, l'ordre des colonnes, les intitulés, les identifiants de missions et les lignes historiques lors de chaque mise à jour. Modifier uniquement les informations nécessaires, ajouter une ligne si un nouveau jalon apparaît, dater et expliquer les changements dans le journal. Ne jamais déduire un GO de la seule existence de fichiers. Les étapes sans rapport complet restent « à confirmer ». Les statuts représentent la dernière information documentée, pas une surveillance temps réel.
@@ -38,10 +42,11 @@
 
 ## Vue d'ensemble — toutes les missions
 
-**70 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--70-identifiants) reprend les mêmes missions et états.
+**73 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--73-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
+| **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues | Quatre skills actifs dont un créé/réutilisé par JARVIS, MCP réel,89 tests ; [réception](docs/missions/25/RAPPORT-FINAL.md) | Autonomie globale14A encore ouverte ; [bilan précis](docs/missions/25/BILAN-14A.md) |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |
 | **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée | Moteur déployé ;41 tests V2 et25 contrôles navigateur actuels ; reprise, preuves et publications vérifiées ; correction de synthèse nécessaire | Traiter les répétitions et la fiabilité sémantique ; aucune autonomie sans assistance revendiquée ; [bilan](docs/missions/22/RAPPORT-FINAL.md) |
 | **03** | Debian 13, démarrage, diagnostic, SSH du Mac mini | ✅ Réalisée avec réserves | Diagnostics et premières procédures documentés ; certains états intermédiaires historiques | Consolider les procédures et preuves |
@@ -66,7 +71,7 @@
 | **13D** | Sécurisation des accès distants (mission globale) | 🟡 GO AVEC RÉSERVES — accès multi-postes | Accès des deux Macs confirmés ; clés et mots de passe préservés ; administration Dell distincte réceptionnée 13D-E/11B | Conserver réserves clients/reboot/journaux13D ; ne plus bloquer sur SSHDell déjà validé |
 | **13E** | Passerelle conversation, voix et mémoire | 🟡 GO AVEC RÉSERVES retrouvé | Rapport et tests 13E publiés dans PR1 ; Ollama/STT/TTS/Chromium réels, audio artificiel ; confortés 13F | ClientsApple/micro/HTTPSdistants restent à réceptionner |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅ **GO AVEC RÉSERVES** | 27 tests backend, 8 API, 8 navigateur et 6 finaux ; autonomie Qwen prouvée dans laboratoire isolé, non sur Dell | Suivre réserves voix physique, reboot et opérations longues ; [débrief](docs/missions/MISSION-13F-DEBRIEF.md) |
-| **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 Progression prouvée ; réception globale ouverte | 13F laboratoire,11/11Bhôte / distant,JL02tâchesréelles ;00 ajouteanalysesdocumentaires | Consolider critères 14A,ne pasdéclarer autonomiecomplète par procuration |
+| **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 En cours — progrès25 démontrés | Accès/outils acquis ; création, tests, reprise et seconde utilisation réels ; graphes et correctifs infrastructure Codex, synthèse encore inexacte | Un objectif inédit non prédécoupé, correction sans nouvel ajustement Codex, vérification et rapport fidèles ; [bilan25](docs/missions/25/BILAN-14A.md) |
 | **14** | **Deuxième Dell Precision — déploiement par JARVIS lui-même, sans Codex comme opérateur** | ⏳ Prévue, non réceptionnée | Dell n°1 installé par Codex (13D-E) ; cela ne démontre pas l'autonomie agentique de JARVIS sur Dell n°2 | Après 14A : JARVIS prépare, déploie, diagnostique et valide le second Dell dans le périmètre autorisé, sans GO intermédiaires |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15A-MACOS-CODEX.md) disponible | Inventaire API 13F, contrat commun, développement |
 | **15B** | Application native SwiftUI iOS | 📋 Préparée, non lancée | [Cahier Codex](docs/missions/MISSION-15B-IOS-CODEX.md) ; installation gratuite Xcode/Personal Team retenue | Contrat API commun et prototype iPhone |
@@ -74,7 +79,7 @@
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES | SiteV2publié ; Qwenoutilsréels,voix synthétique,métriques etévénements testés ; espaceconnecté confirmé propriétaire | Suivre réserves nativesetfiabilitéagentique ; préserver V1 |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
 | **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves | 6 exécutions initiales +3 retests ; coupures0,727/0,559/0,717s, Stop actif0,6ms ; broker24 conservé | Acoustique/écho physique et fiabilité STT ; [réception](docs/missions/23D/RAPPORT-FINAL.md) |
-| **23C** | Correction du broker et autonomie des outils | 🟡 En cours / partiel | Diagnostic statique et candidat outillage Codex ; accès au broker/API interdit avant réponse dans cette session | [Suivi23C](docs/missions/23C/RAPPORT-FINAL.md) ; exécution JARVIS, déploiement et persistance non reçus ;23 LiveKit reste NO-GO |
+| **23C** | Correction du broker et autonomie des outils | ✅ GO — déploiement et essais reçus par24 | Historique23C conservé ; transport, découverte et persistance validés en24 | Conserver les réserves d’autonomie, traitées en25 ; [réception24](docs/missions/24/RAPPORT-FINAL.md) |
 | **00** | Audit général et concordance documentaire | ✅ GO avec réserves | 68 missions, 28 anomalies ; 671 fichiers inventoriés par JARVIS ; 129 documents/preuves récupérés ; analyses guidées et corrigées | Publiée dans main le 18/10 ; maintenir le pilotage et les réserves agentiques |
 | **01** | Audit de JARVIS | 🟡 PARTIEL | Audit matériel en lecture seule ; accès hôte limité par le bac à sable. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
 | **02** | Configuration Apple T2 et administration Debian | 🟡 PARTIEL | Préparer Debian et le support T2 ; validation complète différée. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
@@ -176,6 +181,8 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-21 | 23C / registre | Réserves de déploiement23C levées par24 sans nouveau test ;23C/23D réintégrées au registre,73 identifiants cohérents | [Réception24](docs/missions/24/RAPPORT-FINAL.md) · [Référentiel25](docs/missions/25/REFERENTIEL-LU.md) |
+| 2026-10-21 | 25 / 14A | Réception25 avec réserves, quatre tâches JARVIS, quatre skills actifs,89 tests ;14A maintenue ouverte sur écarts actuels | [Réception25](docs/missions/25/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/25/BILAN-14A.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18) |
 | 2026-10-17 | 00 — pilotage | Réconciliation archives/branches ; rapports 08–11/13E retrouvés ; séparation 13D-E/14A/14,11/11B et JL-02 ; historique préservé | [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md) |
 | 2026-10-16 | 13D-E — installation autonome | Propriétaire autorise réseau/effacement/reboot/administration ; seul lancement PXE humain ; qualification RAID/EFI et deux boots isolés acquise, image réelle préparée | [Prompt prioritaire](docs/missions/13D-E/PROMPT-INSTALLATION-AUTONOME.md) · [Tests](docs/missions/13D-E/TESTS.md) |
 | 2026-10-16 | 13D-E — découverte physique | Rapport automatiquement reçu ; services temporaires arrêtés ; manifeste installation refusé (lecteur SD vide/profil DMI), BIOS à revoir ; aucun effacement | [Réception](docs/missions/13D-E/RAPPORT-FINAL.md) · [Tests](docs/missions/13D-E/TESTS.md) |

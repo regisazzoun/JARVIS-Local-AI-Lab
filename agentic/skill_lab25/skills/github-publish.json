@@ -1,0 +1,65 @@
+{
+  "name": "github-publish",
+  "description": "Publish explicit mission files and verify remote blobs against local sources",
+  "when": "Publish explicit mission files and verify remote blobs against local sources",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "files": {
+        "type": "string"
+      },
+      "branch": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "path",
+      "files",
+      "branch"
+    ],
+    "additionalProperties": false
+  },
+  "requires_tools": [
+    "host_github"
+  ],
+  "prerequisites": [
+    "Owner policy grants referenced resources; confirm with host_policy",
+    "Dedicated mission workspace; no existing services changed"
+  ],
+  "steps": [
+    {
+      "tool": "host_github",
+      "arguments": {
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+        "action": "push_tree",
+        "path": "${path}",
+        "files": "${files}",
+        "branch": "${branch}",
+        "message": "mission25: JARVIS operational evidence"
+      }
+    },
+    {
+      "tool": "host_github",
+      "arguments": {
+        "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+        "action": "verify_tree",
+        "path": "${path}",
+        "files": "${files}",
+        "branch": "${branch}"
+      },
+      "verify": true,
+      "checks": [
+        {
+          "path": "ok",
+          "op": "equals",
+          "value": true
+        }
+      ]
+    }
+  ],
+  "on_error": "Stop on failure; inspect receipt and correct only the observed cause, then retest or resume run_id with identical parameters.",
+  "changelog": "v1 bootstrap Codex mission25; JARVIS must test and activate"
+}

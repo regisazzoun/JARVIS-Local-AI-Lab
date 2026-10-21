@@ -1,0 +1,65 @@
+{
+  "name": "dell-roundtrip",
+  "description": "Deploy a mission proof with Ansible and independently reread it through SSH on Dell1",
+  "when": "Deploy a mission proof with Ansible and independently reread it through SSH on Dell1",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "content": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "path",
+      "content"
+    ],
+    "additionalProperties": false
+  },
+  "requires_tools": [
+    "host_ansible",
+    "host_remote"
+  ],
+  "prerequisites": [
+    "Owner policy grants referenced resources; confirm with host_policy",
+    "Dedicated mission workspace; no existing services changed"
+  ],
+  "steps": [
+    {
+      "tool": "host_ansible",
+      "arguments": {
+        "host": "dell-observe",
+        "action": "ping"
+      }
+    },
+    {
+      "tool": "host_ansible",
+      "arguments": {
+        "host": "dell-observe",
+        "action": "deploy_file",
+        "path": "${path}",
+        "content": "${content}"
+      }
+    },
+    {
+      "tool": "host_remote",
+      "arguments": {
+        "host": "dell-observe",
+        "action": "read_file",
+        "path": "${path}"
+      },
+      "verify": true,
+      "checks": [
+        {
+          "path": "result.stdout",
+          "op": "contains",
+          "value": "${content}"
+        }
+      ]
+    }
+  ],
+  "on_error": "Stop on failure; inspect receipt and correct only the observed cause, then retest or resume run_id with identical parameters.",
+  "changelog": "v1 bootstrap Codex mission25; JARVIS must test and activate"
+}
