@@ -13,11 +13,13 @@ L'installateur compile huit modules, sauvegarde les anciens sous `/var/backups/j
 
 L'API `/api/missions` authentifiée existante ou `Missions.submit` accepte un objectif général et `spec:{"autonomous":true,"acceptance":[...]}` ; ne pas transmettre `tasks` pour mesurer la planification. Les critères acceptance définissent les résultats utilisateur, pas le découpage. `mission_plan` enregistre le plan élaboré par JARVIS. Métadonnées : `objective,success_criteria,artifacts,stop_conditions`. Chaque tâche : `id,title,depends,objective,tools,observations,verification,recovery,artifacts,contract`.
 
-Exemple de contrat réutilisable dans `contract.semantic`, et en chaîne JSON pour `mission_verify` :
+Exemple de contrat réutilisable dans `contract.semantic`, et en objet (ou chaîne JSON compatible) pour `mission_verify` :
 
 ```json
 {"kind":"json","source":{"tool":"host_read_file","arguments":{"path":"/var/lib/jarvis/projects/demo/settings.json"}},"expected":{"/port":8091},"types":{"/port":"integer"},"baseline_source":{"tool":"host_read_file","arguments":{"path":"/var/lib/jarvis/projects/demo/original.json"}},"preserve":["/label","/preserve"]}
 ```
+
+Dans un skill, préférer un objet `contract` : ses chemins peuvent être des valeurs entières `${input_file}`/`${output_file}`, sans interpolation dans une chaîne JSON. Tout nouveau candidat créé dans une mission autonome exige une étape `mission_verify` avec `verify:true` ; les définitions historiques restent conservées.
 
 Les chemins sont des JSON Pointers (`/a/0`, `~0`, `~1`). Les types distinguent booléens et entiers. Pour une publication, source `host_github`, arguments `action:file,repo,branch,path`, kind `text` et SHA256 exact. Pour SSH : source `host_remote`, `action:read_file,host,path`. Pour un service : kind `service`, source `host_service`, `action:is-active,service`, `expected_state:active`. Un service actif ne prouve pas sa réponse applicative ; ajouter un test fonctionnel adapté.
 

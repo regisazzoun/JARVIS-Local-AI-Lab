@@ -159,6 +159,8 @@ class MissionStore:
             for t in normalized:
                 if not t.get('contract',{}).get('semantic') or not t.get('contract',{}).get('report_path'):
                     raise ValueError('Autonomous task '+t['id']+' requires contract.report_path and nonempty contract.semantic')
+                from .verification import validate_contract
+                for criterion in t['contract']['semantic']:validate_contract(criterion)
                 for field in ('objective', 'tools', 'observations', 'verification', 'recovery', 'artifacts'):
                     if not t.get(field):
                         raise ValueError('Task '+t['id']+' requires '+field)
@@ -193,6 +195,9 @@ class MissionStore:
             for key, t in old.items():
                 if key in mapping:
                     for check in t.get('contract',{}).get('semantic',[]):
+                        from .verification import validate_contract
+                        try:validate_contract(check)
+                        except ValueError:continue  # Repair an unexecutable historical declaration; never drop valid acceptance.
                         if not any(exact(check,x) for x in mapping[key].get('contract',{}).get('semantic',[])):
                             raise ValueError('Cannot weaken existing semantic contract: '+key)
                 if t['state'] == 'validated' and (key not in mapping or (key in previous and mapping[key] != previous[key])):

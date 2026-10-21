@@ -30,6 +30,30 @@ def pointer(value, path):
     return value
 
 
+def validate_contract(contract):
+    if not isinstance(contract,dict):raise ValueError('Semantic contract object required')
+    source=contract.get('source',{})
+    if not isinstance(source,dict) or not isinstance(source.get('tool'),str) or not isinstance(source.get('arguments'),dict):
+        raise ValueError('source requires tool and arguments object')
+    kind=contract.get('kind')
+    if kind=='text':
+        if not isinstance(contract.get('equals'),str) and not (isinstance(contract.get('sha256'),str) and len(contract['sha256'])==64):
+            raise ValueError('Text contract requires equals (entire exact content) or sha256; expected/contains is not a text proof. Revise invalid contract; final synthesis is also provided by intervention_report.')
+    elif kind=='json':
+        if not contract.get('expected') and not contract.get('types') and not contract.get('preserve'):
+            raise ValueError('At least one JSON predicate required')
+        for field in ('expected','types'):
+            if not isinstance(contract.get(field,{}),dict):raise ValueError(field+' must map JSON Pointers to values/types')
+        for path in list(contract.get('expected',{}))+list(contract.get('types',{}))+contract.get('preserve',[]):
+            if not isinstance(path,str) or path and not path.startswith('/'):
+                raise ValueError('Use JSON Pointer starting with /, e.g. /port')
+        if contract.get('preserve') and not contract.get('baseline_source'):
+            raise ValueError('preserve requires baseline_source')
+    elif kind=='service':
+        if contract.get('expected_state') not in ('active','inactive','failed'):raise ValueError('Explicit expected_state required')
+    else:raise ValueError('kind must be json, text or service')
+
+
 def evaluate(body, contract, baseline=None):
     """Pure predicates, also usable by skills. No stdout keyword success."""
     checks = []
@@ -123,11 +147,20 @@ class Verifier:
     def verify(self, contract):
         refs = []
         try:
+            validate_contract(contract)
             body, ref = self.read(contract['source']); refs.append(ref)
             baseline = None
+            baseline_error = None
             if contract.get('baseline_source'):
-                baseline, ref = self.read(contract['baseline_source']); refs.append(ref)
+                try:
+                    baseline, ref = self.read(contract['baseline_source']); refs.append(ref)
+                except (ValueError,KeyError,TypeError,OSError) as exc:
+                    baseline_error = str(exc)
             verdict = evaluate(body, contract, baseline)
+            if baseline_error:
+                verdict['baseline_error'] = baseline_error
+                if verdict['status']!='FAIL':
+                    verdict['status']='PARTIAL' if any(c['pass'] for c in verdict['checks']) else 'INSUFFICIENT'
         except (ValueError, KeyError, TypeError, OSError) as exc:
             verdict = {'status': 'INSUFFICIENT', 'error': str(exc), 'checks': []}
         verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier='deterministic26')
@@ -138,4 +171,4 @@ class Verifier:
 
 
 def register(registry):
-    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. kind text requires equals or sha256; service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':'string','maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract'])))
+    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. kind text requires equals or sha256; service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))

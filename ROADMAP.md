@@ -1,6 +1,6 @@
 ## Mission26 lancée —21 octobre2026
 
-🟡 En cours : moteur installé,100 tests logiciels réussis ; démonstration JARVIS depuis objectif brut sans tâches fournies. Plan versionné, lecture sémantique et contrôles indépendants ; réception opérationnelle encore en cours. [Architecture26](docs/missions/26/ARCHITECTURE.md).14A reste ouverte, épreuve finale différée ;24-Old non lancée.
+🟡 En cours : moteur installé,103 tests logiciels réussis ; démonstration JARVIS depuis objectif brut sans tâches fournies. Plan versionné, lecture sémantique et contrôles indépendants ; réception opérationnelle encore en cours. [Architecture26](docs/missions/26/ARCHITECTURE.md).14A reste ouverte, épreuve finale différée ;24-Old non lancée.
 
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 

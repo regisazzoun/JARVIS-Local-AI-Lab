@@ -101,6 +101,38 @@ class Tests(unittest.TestCase):
         self.assertEqual(self.store.tasks(self.m)[0]['state'],'validated')
         self.assertEqual([t['id'] for t in self.store.ready(self.m)],['b'])
 
+    def test_unexecutable_contract_rejected_and_old_invalid_contract_repairable(self):
+        bad=task();bad['contract']['semantic']=[{'kind':'text','source':contract()['source'],'expected':{}}]
+        with self.assertRaises(ValueError):self.store.plan(self.m,[bad],metadata=self.meta)
+        self.assertEqual(self.store.plans(self.m),[])
+        # Simulate a historical declaration accepted by an older engine.
+        legacy=self.store.create('legacy','model','conv')
+        self.store.plan(legacy,[bad])
+        with self.store.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'autonomous':True}),legacy))
+        good=task()
+        self.store.plan(legacy,[good],metadata=self.meta,expected_version=1,reason='repair invalid text predicate')
+        self.assertEqual(len(self.store.plans(legacy)),2)
+
+    def test_semantic_contract_object_allows_skill_parameter_substitution(self):
+        from jarvis.verification import register as register_verification
+        from jarvis.skill_lab import substitute
+        r=self.registry();register_verification(r)
+        c=contract();c['source']['arguments']['path']='${output_file}'
+        expanded=substitute({'contract':c},{'output_file':'/a'})
+        fn=r.specs['mission_verify'][4]
+        self.assertEqual(fn(expanded)['status'],'FAIL')
+        self.assertEqual(fn({'contract':json.dumps(expanded['contract'])})['status'],'FAIL')
+        self.assertEqual(r.calls,2)
+
+    def test_readable_result_with_unavailable_baseline_is_partial(self):
+        r=self.registry()
+        r.execute=lambda n,a: {'ok':True,'result':{'stdout':'{"port":8091,"label":"x"}'}} if a['path']=='/a' else {'ok':False,'error':'baseline unavailable'}
+        c=contract();c['preserve']=['/label'];c['baseline_source']={'tool':'host_read_file','arguments':{'path':'/missing'}}
+        verdict=Verifier(r).verify(c)
+        self.assertEqual(verdict['status'],'PARTIAL')
+        self.assertEqual(verdict['returncode'],1)
+        self.assertTrue(any(check['pass'] for check in verdict['checks']))
+
     def test_no_contract_weakening(self):
         self.store.plan(self.m,[task()],metadata=self.meta)
         t=task();t['contract']['semantic']=[]
