@@ -1,0 +1,620 @@
+{
+  "actor": "Codex-independent-read",
+  "created": 1792614074.8811207,
+  "mission": "28c3fdf877ba47718dfc55e46f386656",
+  "state": "completed",
+  "historical_received_tasks": 47,
+  "historical_task_states_and_hashes_preserved": true,
+  "personal_memory": {
+    "memories": {
+      "all_previous_rows_preserved": true,
+      "before_rows": 5,
+      "current_rows": 5
+    },
+    "preferences": {
+      "all_previous_rows_preserved": true,
+      "before_rows": 4,
+      "current_rows": 4
+    }
+  },
+  "memory_quick_check": "ok",
+  "historical_skill_versions_preserved": {
+    "config-repair": true,
+    "debian-diagnostic": true,
+    "dell-roundtrip": true,
+    "github-publish": true
+  },
+  "active_skills": [
+    [
+      "config-repair",
+      6
+    ],
+    [
+      "debian-diagnostic",
+      1
+    ],
+    [
+      "dell-roundtrip",
+      1
+    ],
+    [
+      "github-publish",
+      1
+    ]
+  ],
+  "policy_unchanged": true,
+  "modules": [
+    {
+      "module": "missions.py",
+      "sha256": "9f022e093d3469cf6ffcfbaa4ad0ccc6b675b0a4895994a963f033bddb9f6dc2",
+      "matches_source": true
+    },
+    {
+      "module": "mission_store.py",
+      "sha256": "4f395773fb049aee7cd50213dcbe54dafa4d8f44471511d5b2e6a116641685d3",
+      "matches_source": true
+    },
+    {
+      "module": "durable_tools.py",
+      "sha256": "3c1b299cbdb1dc9a1542190c4a54cd898de213aebee803e3e5485bd4cfb2bce0",
+      "matches_source": true
+    },
+    {
+      "module": "durable_cycle.py",
+      "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b",
+      "matches_source": true
+    },
+    {
+      "module": "tools.py",
+      "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf",
+      "matches_source": true
+    },
+    {
+      "module": "skill_lab.py",
+      "sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128",
+      "matches_source": true
+    },
+    {
+      "module": "verification.py",
+      "sha256": "ca81b5ce04b3fc195cbc8902ed89aaf0bf881cd68ea0c3cb6e078348e3a73c22",
+      "matches_source": true
+    },
+    {
+      "module": "mission_reporting.py",
+      "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7",
+      "matches_source": true
+    },
+    {
+      "module": "mission_actions.py",
+      "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0",
+      "matches_source": true
+    }
+  ],
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-mission23-livekit-agent": "active",
+    "jarvis-mission23-livekit-server": "active"
+  },
+  "application": {
+    "expected": {
+      "port": 8091,
+      "label": "mission26-fixture",
+      "enabled": true,
+      "preserve": {
+        "owners": [
+          "lab"
+        ],
+        "limits": {
+          "retries": 3
+        },
+        "unicode": "réservé"
+      }
+    },
+    "actual": {
+      "port": 8091,
+      "label": "mission26-fixture",
+      "enabled": true,
+      "preserve": {
+        "owners": [
+          "lab"
+        ],
+        "limits": {
+          "retries": 3
+        },
+        "unicode": "réservé"
+      }
+    },
+    "exact_object_match": true,
+    "port_exact_type": true,
+    "source_sha256": "fa1814e0bead774e66e914870488ec49be4e0519e355b202a4986f2c743fcf30",
+    "result_sha256": "9d95ad4ee6f9944445a230919cf371c539421a57c32d9abada78b13e1cdef211",
+    "consumer_returncode": 0,
+    "consumer_stdout": "{\"functional\": true, \"port\": 8091, \"label\": \"mission26-fixture\"}\n",
+    "consumer_stderr": ""
+  },
+  "tasks": [
+    {
+      "mission": "28c3fdf877ba47718dfc55e46f386656",
+      "id": "t01-correction-port",
+      "title": "Corriger le port dans settings.json à 8091",
+      "deps": [],
+      "state": "validated",
+      "evidence": [
+        {
+          "arguments": {
+            "contract": "{\"kind\":\"json\",\"source\":{\"tool\":\"host_read_file\",\"arguments\":{\"path\":\"/var/lib/jarvis/projects/mission26/settings.json\"}},\"expected\":{\"/port\":8091},\"types\":{\"/port\":\"integer\"},\"baseline_source\":{\"tool\":\"host_read_file\",\"arguments\":{\"path\":\"/var/lib/jarvis/projects/mission26/original.json\"}},\"preserve\":[\"/label\",\"/enabled\",\"/preserve\"]}"
+          },
+          "created": 1792612616.4799733,
+          "id": "b98c2eaa9c27493cbaa38d55bcb803ef",
+          "mission": "28c3fdf877ba47718dfc55e46f386656",
+          "result": {
+            "elapsed_s": 0.845,
+            "ok": true,
+            "result": {
+              "checks": [
+                {
+                  "actual": 8091,
+                  "expected": 8091,
+                  "pass": true,
+                  "path": "/port"
+                },
+                {
+                  "pass": true,
+                  "path": "/port",
+                  "type": "integer"
+                },
+                {
+                  "pass": true,
+                  "path": "/label",
+                  "preserved": true
+                },
+                {
+                  "pass": true,
+                  "path": "/enabled",
+                  "preserved": true
+                },
+                {
+                  "pass": true,
+                  "path": "/preserve",
+                  "preserved": true
+                }
+              ],
+              "contract": {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/original.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label",
+                  "/enabled",
+                  "/preserve"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/settings.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              },
+              "observations": [
+                {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/settings.json"
+                  },
+                  "broker_evidence": "27ffd93ea76a487e86dd2de97bad2823",
+                  "invocation": "100609af7af943ae9fdbdf0c97a55f85",
+                  "tool": "host_read_file"
+                },
+                {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/original.json"
+                  },
+                  "broker_evidence": "d67e49a9990a4cc09b3b81223763cc98",
+                  "invocation": "c44d593c428241a8a32a64f2c0a63123",
+                  "tool": "host_read_file"
+                }
+              ],
+              "observed_at": 1792612617.3564544,
+              "returncode": 0,
+              "sha256": "9d95ad4ee6f9944445a230919cf371c539421a57c32d9abada78b13e1cdef211",
+              "status": "PASS",
+              "verification_event": 10408,
+              "verifier": "deterministic26"
+            },
+            "risk": "host_authorized",
+            "tool": "mission_verify"
+          },
+          "signature": "33ed519bbd6a68080c1f09421e8cad9adeb3b14515eaa145c805d5b058234e19",
+          "state": "finished",
+          "task": "t01-correction-port",
+          "tool": "mission_verify",
+          "updated": 1792612617.5128398
+        }
+      ],
+      "updated": 1792612642.0508542,
+      "objective": "Corriger port de 70000 à 8091 dans settings.json en conservant toutes autres propriétés inchangées",
+      "contract": {
+        "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT.md",
+        "semantic": [
+          {
+            "baseline_source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/original.json"
+              },
+              "tool": "host_read_file"
+            },
+            "expected": {
+              "/port": 8091
+            },
+            "kind": "json",
+            "preserve": [
+              "/label",
+              "/enabled",
+              "/preserve"
+            ],
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/settings.json"
+              },
+              "tool": "host_read_file"
+            },
+            "types": {
+              "/port": "integer"
+            }
+          }
+        ]
+      },
+      "started": 1792612296.6649678,
+      "attempts": 3,
+      "last_error": null,
+      "artifact": "/var/lib/jarvis/projects/mission26/RAPPORT.md",
+      "report_sha256": "4096a7cff88bf7a7d9d5e62f05034a6e80df14c3698ea2729f1875da376fd673",
+      "stage": "execute"
+    },
+    {
+      "mission": "28c3fdf877ba47718dfc55e46f386656",
+      "id": "t02-utilisation-skill",
+      "title": "Utiliser skill config-repair sur fichier lab de test pour démontrer reproductibilité",
+      "deps": [
+        "t01-correction-port"
+      ],
+      "state": "validated",
+      "evidence": [
+        {
+          "arguments": {
+            "contract": {
+              "baseline_source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26/lab-test-before.json"
+                },
+                "tool": "host_read_file"
+              },
+              "expected": {
+                "/port": 8091
+              },
+              "kind": "json",
+              "preserve": [
+                "/label"
+              ],
+              "source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26/lab-test.json"
+                },
+                "tool": "host_read_file"
+              },
+              "types": {
+                "/port": "integer"
+              }
+            }
+          },
+          "created": 1792613175.7913425,
+          "id": "b399ab5be8254f6991f569fcf4ac6b7b",
+          "mission": "28c3fdf877ba47718dfc55e46f386656",
+          "result": {
+            "elapsed_s": 0.932,
+            "ok": true,
+            "result": {
+              "checks": [
+                {
+                  "actual": 8091,
+                  "expected": 8091,
+                  "pass": true,
+                  "path": "/port"
+                },
+                {
+                  "pass": true,
+                  "path": "/port",
+                  "type": "integer"
+                },
+                {
+                  "pass": true,
+                  "path": "/label",
+                  "preserved": true
+                }
+              ],
+              "contract": {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test-before.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "expected": {
+                  "/port": 8091
+                },
+                "kind": "json",
+                "preserve": [
+                  "/label"
+                ],
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/port": "integer"
+                }
+              },
+              "observations": [
+                {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test.json"
+                  },
+                  "broker_evidence": "176e16558ade466885c3c6798f38bf02",
+                  "invocation": "7d6345b57ab04c1d89a025eaf33f60ff",
+                  "tool": "host_read_file"
+                },
+                {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/lab-test-before.json"
+                  },
+                  "broker_evidence": "f41ac6148749461790e6a265784e5bbf",
+                  "invocation": "5a4803f86efc405885f5ca340926ff01",
+                  "tool": "host_read_file"
+                }
+              ],
+              "observed_at": 1792613176.729051,
+              "returncode": 0,
+              "sha256": "9e9b4a8c90d835061b0adac50c5de48bdfd9db2b0ed4fb88ca78fb64ee58b2f7",
+              "status": "PASS",
+              "verification_event": 10515,
+              "verifier": "deterministic26"
+            },
+            "risk": "host_authorized",
+            "tool": "mission_verify"
+          },
+          "signature": "82033d25dff49b3b08daa77569bdc891eae5a4614c0ebf20923a09a73937c179",
+          "state": "finished",
+          "task": "t02-utilisation-skill",
+          "tool": "mission_verify",
+          "updated": 1792613176.9016478
+        }
+      ],
+      "updated": 1792613253.2572498,
+      "objective": "Créer un fichier lab test avec port invalide, utiliser skill config-repair pour le corriger idempotemment, vérifier résultat et documenter",
+      "contract": {
+        "report_path": "/var/lib/jarvis/projects/mission26/config-repair-log.md",
+        "semantic": [
+          {
+            "baseline_source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/lab-test-before.json"
+              },
+              "tool": "host_read_file"
+            },
+            "expected": {
+              "/port": 8091
+            },
+            "kind": "json",
+            "preserve": [
+              "/label"
+            ],
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/lab-test.json"
+              },
+              "tool": "host_read_file"
+            },
+            "types": {
+              "/port": "integer"
+            }
+          }
+        ]
+      },
+      "started": 1792612921.7790935,
+      "attempts": 3,
+      "last_error": null,
+      "artifact": "/var/lib/jarvis/projects/mission26/config-repair-log.md",
+      "report_sha256": "4063414b3064dd81a64de389cdcf642bc8234418594a0a3ef1c3fc2f8334c46f",
+      "stage": "execute"
+    },
+    {
+      "mission": "28c3fdf877ba47718dfc55e46f386656",
+      "id": "t03-rapport-final",
+      "title": "Rédiger rapport final Mission26 avec preuves complètes",
+      "deps": [
+        "t01-correction-port",
+        "t02-utilisation-skill"
+      ],
+      "state": "validated",
+      "evidence": [
+        {
+          "arguments": {
+            "contract": {
+              "kind": "text",
+              "sha256": "11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+              "source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+                },
+                "tool": "host_read_file"
+              }
+            }
+          },
+          "created": 1792613584.2687688,
+          "id": "89f5b8ef01364d1cac09badf10c39f8f",
+          "mission": "28c3fdf877ba47718dfc55e46f386656",
+          "result": {
+            "elapsed_s": 0.515,
+            "ok": true,
+            "result": {
+              "checks": [
+                {
+                  "pass": true,
+                  "predicate": "sha256"
+                }
+              ],
+              "contract": {
+                "kind": "text",
+                "sha256": "11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              "observations": [
+                {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+                  },
+                  "broker_evidence": "2e949e77940944698dde483b40e49392",
+                  "invocation": "fb517e02d82249f0bffe41dde806dec6",
+                  "tool": "host_read_file"
+                }
+              ],
+              "observed_at": 1792613584.805865,
+              "returncode": 0,
+              "sha256": "11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+              "status": "PASS",
+              "verification_event": 10574,
+              "verifier": "deterministic26"
+            },
+            "risk": "host_authorized",
+            "tool": "mission_verify"
+          },
+          "signature": "eb3a7e534800799fa05806449932231526932e78c24f86f3239e499cbcdf442e",
+          "state": "finished",
+          "task": "t03-rapport-final",
+          "tool": "mission_verify",
+          "updated": 1792613584.9605982
+        }
+      ],
+      "updated": 1792613873.646159,
+      "objective": "Produire rapport final sourcé couvrant correction directe settings.json, utilisation skill config-repair sur lab test, diagnostics, preuves et limites",
+      "contract": {
+        "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md",
+        "semantic": [
+          {
+            "kind": "text",
+            "sha256": "11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md"
+              },
+              "tool": "host_read_file"
+            }
+          }
+        ]
+      },
+      "started": 1792613254.8531675,
+      "attempts": 5,
+      "last_error": null,
+      "artifact": "/var/lib/jarvis/projects/mission26/RAPPORT-FINAL.md",
+      "report_sha256": "11f61d4c55a03b3787a0f431e61c931487c77c8c72e41390c72d7b840f9f66de",
+      "stage": "execute"
+    }
+  ],
+  "plan_versions": 3,
+  "historical_journal_after_targeted_restart": {
+    "checkpoints": {
+      "before_rows": 3539,
+      "current_rows": 3539,
+      "entire_table_identical": true,
+      "all_previous_rows_preserved": true,
+      "new_rows": 0,
+      "new_event_kinds": []
+    },
+    "tool_calls": {
+      "before_rows": 2984,
+      "current_rows": 2984,
+      "entire_table_identical": true,
+      "all_previous_rows_preserved": true,
+      "new_rows": 0,
+      "new_event_kinds": []
+    },
+    "mission_events": {
+      "before_rows": 10281,
+      "current_rows": 10286,
+      "entire_table_identical": false,
+      "all_previous_rows_preserved": true,
+      "new_rows": 5,
+      "new_event_kinds": [
+        "publication_retry",
+        "publication_retry",
+        "publication_retry",
+        "publication_retry",
+        "publication_retry"
+      ]
+    }
+  },
+  "mission25_json_witnesses": [
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a-corrected.json",
+      "sha256_unchanged": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a-final.json",
+      "sha256_unchanged": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a-skill-test.json",
+      "sha256_unchanged": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-a.json",
+      "sha256_unchanged": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-b-corrected.json",
+      "sha256_unchanged": true
+    },
+    {
+      "path": "/var/lib/jarvis/projects/mission25/source-b.json",
+      "sha256_unchanged": true
+    }
+  ],
+  "jarvis_program": {
+    "path": "/var/lib/jarvis/projects/mission25/config_repair.py",
+    "actor": "JARVIS",
+    "sha256": "0a38047782be4ef991ae08f88c0d1c51a00197688c8be1fa14fcfef5f5cfd36e",
+    "matches_export": true,
+    "historical_program_preserved_in": "agentic/skill_lab25/jarvis-created/config_repair.py",
+    "manifest_version_unchanged": 6
+  },
+  "lab_repair": {
+    "expected": {
+      "port": 8091,
+      "label": "lab-test-fixture",
+      "enabled": true
+    },
+    "actual": {
+      "port": 8091,
+      "label": "lab-test-fixture",
+      "enabled": true
+    },
+    "exact_object_match": true
+  }
+}

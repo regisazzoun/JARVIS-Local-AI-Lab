@@ -1,0 +1,112 @@
+{
+  "native_count": 50,
+  "names": [
+    "active_memories",
+    "capability_request",
+    "capability_status",
+    "capability_test",
+    "disk_usage",
+    "hardware_inventory",
+    "host_ansible",
+    "host_delete_file",
+    "host_diagnostics",
+    "host_edit_file",
+    "host_exec",
+    "host_github",
+    "host_logs",
+    "host_package",
+    "host_policy",
+    "host_project_service",
+    "host_read_file",
+    "host_remote",
+    "host_resources",
+    "host_service",
+    "host_write_file",
+    "intervention_report",
+    "jarvis_services",
+    "lab_terminal",
+    "mcp_tools",
+    "mission_action",
+    "mission_block",
+    "mission_evidence",
+    "mission_list",
+    "mission_note",
+    "mission_plan",
+    "mission_progress",
+    "mission_publish",
+    "mission_read_batch",
+    "mission_report_facts",
+    "mission_task_complete",
+    "mission_verify",
+    "procedure_save",
+    "propose_memory",
+    "read_configuration",
+    "service_logs",
+    "skill_activate",
+    "skill_define",
+    "skill_list",
+    "skill_run",
+    "skill_test",
+    "software_versions",
+    "system_status",
+    "web_fetch",
+    "web_search"
+  ],
+  "new26": {
+    "mission_verify": {
+      "description": "Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:\"json\",source:{tool:\"host_read_file\",arguments:{path:\"...\"}},expected:{\"/port\":8091},types:{\"/port\":\"integer\"},baseline_source:{tool:\"host_read_file\",arguments:{path:\"original.json\"}},preserve:[\"/label\",\"/preserve\"]}. kind text requires equals or sha256; service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "contract": {
+            "type": [
+              "object",
+              "string"
+            ],
+            "maxLength": 64000
+          }
+        },
+        "required": [
+          "contract"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "mission_report_facts": {
+      "description": "Read factual ledger: actors, tools, parameters, observed receipts, plan versions, semantic verdicts and Codex interventions. Use before report; narrative is not evidence.",
+      "schema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    "mission_action": {
+      "description": "Execute existing host/skill tool with durable operation_key. Identical success reuses receipt across restart; different parameters need a new key. Unknown/failed effect requires a fresh mission_verify FAIL retry_evidence_id. Verify actual state afterwards; cached success is not current state.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "operation_key": {
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          },
+          "arguments": {
+            "type": "string",
+            "maxLength": 64000
+          },
+          "retry_evidence_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation_key",
+          "tool",
+          "arguments"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "mission": "26",
+  "verdict": "GO avec réserves",
+  "14A": "ouverte, épreuve finale différée et non lancée",
+  "criteria": [
+    {
+      "id": 1,
+      "criterion": "Plan global proposé par JARVIS sans tâches soumises",
+      "status": "GO avec réserves",
+      "evidence": [
+        "OBJECTIF-BRUT.json",
+        "PLANS-JARVIS.json"
+      ],
+      "reserve": "Premier plan incomplet ; rappel de résultat attendu et interfaces Codex"
+    },
+    {
+      "id": 2,
+      "criterion": "Plan exploitable et durable, versions et auteurs",
+      "status": "GO",
+      "evidence": [
+        "PLANS-JARVIS.json",
+        "REPRISE-DEUX-TACHES.json"
+      ]
+    },
+    {
+      "id": 3,
+      "criterion": "Opérations réellement exécutées par JARVIS",
+      "status": "GO",
+      "evidence": [
+        "PREUVES-JARVIS.json",
+        "CORRELATION-BROKER.json"
+      ]
+    },
+    {
+      "id": 4,
+      "criterion": "Détection de résultat incorrect malgré skill passed",
+      "status": "GO",
+      "evidence": [
+        "EVENEMENTS.json",
+        "SKILLS-JARVIS.json"
+      ],
+      "observed": "99999 conservé malgré succès puis FAIL exact"
+    },
+    {
+      "id": 5,
+      "criterion": "Diagnostic, correction et reprise",
+      "status": "GO avec réserves",
+      "evidence": [
+        "PREUVES-JARVIS.json",
+        "REPRISE-DEUX-TACHES.json"
+      ],
+      "reserve": "Programme corrigé par JARVIS ; interfaces et contexte aidés par Codex"
+    },
+    {
+      "id": 6,
+      "criterion": "Vérification par état effectivement relu",
+      "status": "GO",
+      "evidence": [
+        "VERIFICATION-INDEPENDANTE.json",
+        "TESTS-PROGRAMME-JARVIS-CODEX.json"
+      ],
+      "scope": "JSON et consommateur réels ; pas de réception universelle des autres systèmes"
+    },
+    {
+      "id": 7,
+      "criterion": "Rapport final fidèle aux événements et acteurs",
+      "status": "GO avec réserves",
+      "evidence": [
+        "JARVIS-RAPPORT-FACTUEL.md",
+        "FAITS-JOURNAL.json",
+        "TESTS-ET-REPRISES.md"
+      ],
+      "reserve": "Synthèse factuelle moteur ; prose brute modèle encore erronée, conservée avec errata"
+    },
+    {
+      "id": 8,
+      "criterion": "Capacités antérieures conservées",
+      "status": "GO",
+      "evidence": [
+        "VERIFICATION-INDEPENDANTE.json"
+      ],
+      "observed": "47 tâches, témoins25, mémoire, skills, politique et services préservés"
+    }
+  ]
+}

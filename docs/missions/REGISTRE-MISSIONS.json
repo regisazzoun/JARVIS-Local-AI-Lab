@@ -2017,5 +2017,30 @@
     "dependances": "Missions précédentes",
     "prochaine_action": "Préserver acquis ; autonomie évaluée en25",
     "derniere_actualisation": "2026-10-21"
+  },
+  {
+    "identifiant": "26",
+    "nom": "Mission Engine résilient et planification autonome",
+    "fonction_principale": "Planifier, exécuter, vérifier et reprendre avec preuves",
+    "objectifs": "Extension du moteur existant, démonstration JARVIS sans tâches préétablies",
+    "materiel": "Mac mini / Dell1 inférence existante",
+    "composants": "Mission Engine, broker24, Skill Lab25,SQLite",
+    "executant_reel": "Codex infrastructure et vérification ; JARVIS plans et opérations",
+    "documents_sources": [
+      {
+        "path": "docs/missions/26/RAPPORT-FINAL.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/26/BILAN-14A.md",
+        "url": ""
+      }
+    ],
+    "etat": "✅🟡 GO avec réserves",
+    "resultats_prouves": "Moteur installé,105 tests logiciels,3/3 tâches JARVIS reçues et3 plans versionnés ; faux succès détecté, correction de borne par JARVIS, reprise et contrôles indépendants",
+    "reserves": "Plan initial incomplet, interfaces et déploiements Codex pendant réception, prose libre erronée archivée ; mission_action testé logiciellement",
+    "dependances": "21/22/24/25",
+    "prochaine_action": "Conserver les acquis ; épreuve finale14A distincte différée,24-Old non lancée",
+    "derniere_actualisation": "2026-10-21"
   }
 ]

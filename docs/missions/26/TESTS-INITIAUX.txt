@@ -1,0 +1,16 @@
+......................E..................................................................
+======================================================================
+ERROR: test_plan_cannot_overwrite_completed_work (test_durable.DurableJournalTest.test_plan_cannot_overwrite_completed_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/adminjarvis/JARVIS/mission26/agentic/engine_v2/tests/test_durable.py", line 75, in test_plan_cannot_overwrite_completed_work
+    self.store.plan(self.ident,[{'id':'other','title':'other','depends':[]}])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adminjarvis/JARVIS/mission26/agentic/engine_v2/jarvis/mission_store.py", line 167, in plan
+    raise ValueError('Revision requires expected_version and reason; inspect mission_progress')
+ValueError: Revision requires expected_version and reason; inspect mission_progress
+
+----------------------------------------------------------------------
+Ran 89 tests in 2.700s
+
+FAILED (errors=1)

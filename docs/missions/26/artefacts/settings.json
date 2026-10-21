@@ -1,0 +1,14 @@
+{
+  "port": 8091,
+  "label": "mission26-fixture",
+  "enabled": true,
+  "preserve": {
+    "owners": [
+      "lab"
+    ],
+    "limits": {
+      "retries": 3
+    },
+    "unicode": "réservé"
+  }
+}

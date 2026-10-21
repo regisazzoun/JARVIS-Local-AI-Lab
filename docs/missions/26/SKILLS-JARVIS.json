@@ -1,0 +1,176 @@
+{
+  "runs": [
+    {
+      "id": "362bcb3a4fd2459aa883988864c65bde",
+      "name": "config-repair",
+      "version": 6,
+      "params": {
+        "input_file": "/var/lib/jarvis/projects/mission26/lab-test-before.json",
+        "output_file": "/var/lib/jarvis/projects/mission26/lab-test.json"
+      },
+      "testing": 0,
+      "state": "passed",
+      "steps": [
+        {
+          "created": 1792613001.5318134,
+          "index": 0,
+          "ok": true,
+          "result": {
+            "elapsed_s": 0.199,
+            "ok": true,
+            "result": {
+              "diagnostic": {
+                "alternative": null,
+                "broker_version": "23C.1",
+                "error_category": null,
+                "omitted_parameters": [
+                  "command"
+                ],
+                "operation": "host_exec",
+                "parameters": {},
+                "policy_path": "/etc/jarvis/host-policy.json",
+                "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+                "reload": "each-request",
+                "retry": null,
+                "selection": "single-persistent-owner-policy"
+              },
+              "duration_s": 0.065,
+              "evidence_id": "bcfcaa7fa4314d39ba14ba07e14ea8d3",
+              "returncode": 0,
+              "stderr": "",
+              "stderr_truncated": false,
+              "stdout": "{\n  \"status\": \"ok\",\n  \"message\": \"Port valide conservé: 99999\",\n  \"original_port\": 99999,\n  \"new_port\": null\n}\n",
+              "stdout_truncated": false,
+              "timeout": false
+            },
+            "risk": "host_authorized",
+            "tool": "host_exec"
+          },
+          "tool": "host_exec",
+          "verification_error": null
+        }
+      ],
+      "created": 1792613001.024092,
+      "updated": 1792613001.5322957,
+      "mission": "28c3fdf877ba47718dfc55e46f386656"
+    },
+    {
+      "id": "c5edd5fd9f5c419b8113fa34d7dd65c0",
+      "name": "config-repair",
+      "version": 6,
+      "params": {
+        "input_file": "/var/lib/jarvis/projects/mission26/lab-test-before.json",
+        "output_file": "/var/lib/jarvis/projects/mission26/lab-test.json"
+      },
+      "testing": 0,
+      "state": "passed",
+      "steps": [
+        {
+          "created": 1792613155.8093762,
+          "index": 0,
+          "ok": true,
+          "result": {
+            "elapsed_s": 0.191,
+            "ok": true,
+            "result": {
+              "diagnostic": {
+                "alternative": null,
+                "broker_version": "23C.1",
+                "error_category": null,
+                "omitted_parameters": [
+                  "command"
+                ],
+                "operation": "host_exec",
+                "parameters": {},
+                "policy_path": "/etc/jarvis/host-policy.json",
+                "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+                "reload": "each-request",
+                "retry": null,
+                "selection": "single-persistent-owner-policy"
+              },
+              "duration_s": 0.064,
+              "evidence_id": "bb752615b1004ab6b252faed9520f402",
+              "returncode": 0,
+              "stderr": "",
+              "stderr_truncated": false,
+              "stdout": "{\n  \"status\": \"ok\",\n  \"message\": \"Port corrigé: 99999 → 8091\",\n  \"original_port\": 99999,\n  \"new_port\": 8091\n}\n",
+              "stdout_truncated": false,
+              "timeout": false
+            },
+            "risk": "host_authorized",
+            "tool": "host_exec"
+          },
+          "tool": "host_exec",
+          "verification_error": null
+        }
+      ],
+      "created": 1792613155.3140814,
+      "updated": 1792613155.8094928,
+      "mission": "28c3fdf877ba47718dfc55e46f386656"
+    }
+  ],
+  "versions": [
+    {
+      "name": "config-repair",
+      "version": 6,
+      "manifest": {
+        "changelog": "v3.0.0 (2026-10-21): Utilisation argv tableau de chaînes avec substitution entière ${input_file} et ${output_file} comme éléments individuels du tableau",
+        "description": "Normalise une configuration JSON en corrigeant le port invalide vers 8091, préserve les autres champs, rejette proprement les JSON invalides.",
+        "name": "config-repair",
+        "on_error": "Si host_exec retourne code != 0, le script a rejeté un JSON invalide ou une erreur est survenue. Le stdout contient le rapport d'erreur en JSON.",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "input_file": {
+              "description": "Chemin absolu vers le fichier JSON d'entrée",
+              "type": "string"
+            },
+            "output_file": {
+              "description": "Chemin absolu vers le fichier de sortie",
+              "type": "string"
+            }
+          },
+          "required": [
+            "input_file",
+            "output_file"
+          ],
+          "type": "object"
+        },
+        "prerequisites": [
+          "Le script /var/lib/jarvis/projects/mission25/config_repair.py doit exister",
+          "Le fichier JSON d'entrée doit être accessible en lecture"
+        ],
+        "requires_tools": [
+          "host_exec"
+        ],
+        "steps": [
+          {
+            "arguments": {
+              "argv": [
+                "python3",
+                "/var/lib/jarvis/projects/mission25/config_repair.py",
+                "-i",
+                "${input_file}",
+                "-o",
+                "${output_file}"
+              ]
+            },
+            "checks": [
+              {
+                "op": "contains",
+                "path": "result.stdout",
+                "value": "status"
+              }
+            ],
+            "tool": "host_exec",
+            "verify": true
+          }
+        ],
+        "when": "Pour normaliser des fichiers de configuration JSON avec ports invalides dans /var/lib/jarvis/projects/mission25"
+      },
+      "sha": "409ca3b484ea4e5384b76dc7ec7d684653f0f2fbbbf5987577340ec16ceeb3a7",
+      "actor": "JARVIS",
+      "created": 1792606647.9563491
+    }
+  ]
+}

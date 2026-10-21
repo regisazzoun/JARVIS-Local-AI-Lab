@@ -1,0 +1,457 @@
+[
+  {
+    "deployment": 1,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792612106784469994",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "e663e4f96544a8ff9ab78f93d4c6153f75bc3b0cd2ed713e59318f18c143c345"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "04bfdd7017e46665f7bd8cc376030f2dbd5f86d059851cff20e326384312a9f0"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "41072a9baacc46fe5e27793753296a5b6fdae4f57584fddce6ac4dda2ade4b20"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "ce5c55cf49f44405f41021555845eb30a5f3240fd40030532b94275de1537353"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "d10e5491593a7bb6037356c1a933588bbf71861a06b71d915e502b6eb8efbd0b"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "22dfb1237201ee21a3b8de2d710b43dd50eb55d95d650fce650c06e01ae02ad4"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "e923510ad5a56cdd3c4c9c2b6961fce3e4c6f8b0653f30c6d6a7b5e410784815"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 2,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792612187621799428",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "e663e4f96544a8ff9ab78f93d4c6153f75bc3b0cd2ed713e59318f18c143c345"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "04bfdd7017e46665f7bd8cc376030f2dbd5f86d059851cff20e326384312a9f0"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d4a14682b9855ea2ef0c4db2724c3b2448c74f016609a896dc9636fb6955a546"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "d10e5491593a7bb6037356c1a933588bbf71861a06b71d915e502b6eb8efbd0b"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "0a9a352c71dd079c36089c4665c04d1bbba1c99fc6dba4085d7a8991d3a4aa72"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "e923510ad5a56cdd3c4c9c2b6961fce3e4c6f8b0653f30c6d6a7b5e410784815"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 3,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792612264748627478",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "e663e4f96544a8ff9ab78f93d4c6153f75bc3b0cd2ed713e59318f18c143c345"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "e474129b796ed7c1bff4f9125c7ed54b467ec0af20003378b0947e3a0a2dc6c3"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d4a14682b9855ea2ef0c4db2724c3b2448c74f016609a896dc9636fb6955a546"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "d10e5491593a7bb6037356c1a933588bbf71861a06b71d915e502b6eb8efbd0b"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "0a9a352c71dd079c36089c4665c04d1bbba1c99fc6dba4085d7a8991d3a4aa72"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "e923510ad5a56cdd3c4c9c2b6961fce3e4c6f8b0653f30c6d6a7b5e410784815"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 4,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792612449474312252",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "e663e4f96544a8ff9ab78f93d4c6153f75bc3b0cd2ed713e59318f18c143c345"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "e474129b796ed7c1bff4f9125c7ed54b467ec0af20003378b0947e3a0a2dc6c3"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "c5901429238713771dea6127fb796dce5df705334375d9f3be68bf2b835cd3d8"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "0a9a352c71dd079c36089c4665c04d1bbba1c99fc6dba4085d7a8991d3a4aa72"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 5,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792612587472962467",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "cf7d23860abbd4d1d09d8ddc449253db3f5fde17f36742e2f469d1a87ae72590"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "12f648e6968b7ce8faa04c67c48d1a1c346b9fe326b9bc28f41f2c56e0065577"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "c5901429238713771dea6127fb796dce5df705334375d9f3be68bf2b835cd3d8"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "0a9a352c71dd079c36089c4665c04d1bbba1c99fc6dba4085d7a8991d3a4aa72"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 6,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792612844021559703",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "39289d64e40a27b5bda5bcfba9d1462d5f89e96782c1f27e7241a03fe1d53250"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "a2d9c1d4a0c273656805f70e3cbf720442fc684ec82eb77601fea57ef8068304"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "c5901429238713771dea6127fb796dce5df705334375d9f3be68bf2b835cd3d8"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "0a9a352c71dd079c36089c4665c04d1bbba1c99fc6dba4085d7a8991d3a4aa72"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 7,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792613004954344777",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "97c045fa8b9339489b2593ce0972c767e98f560539f8eb22d2500eaa1da433a3"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "a2d9c1d4a0c273656805f70e3cbf720442fc684ec82eb77601fea57ef8068304"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "c5901429238713771dea6127fb796dce5df705334375d9f3be68bf2b835cd3d8"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "b4868a11aaa721b9c886ec59e451e7c0ecc07b59073b42c66dc13980df67d17f"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 8,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792613113428073042",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "97c045fa8b9339489b2593ce0972c767e98f560539f8eb22d2500eaa1da433a3"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "a2d9c1d4a0c273656805f70e3cbf720442fc684ec82eb77601fea57ef8068304"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "88ba22ff3ce6f77ca355555afc9edd1a6cd9b62dc79ff60342ad94f1582161a6"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 9,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792613289852358666",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "97c045fa8b9339489b2593ce0972c767e98f560539f8eb22d2500eaa1da433a3"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "a2d9c1d4a0c273656805f70e3cbf720442fc684ec82eb77601fea57ef8068304"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "ca81b5ce04b3fc195cbc8902ed89aaf0bf881cd68ea0c3cb6e078348e3a73c22"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 10,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792613656528606378",
+    "modules": [
+      {
+        "module": "mission_store.py",
+        "sha256": "241c20ae0deca329bf3868f1dc99df187605ac7ab755830f02ffe14968fcab09"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "3c1b299cbdb1dc9a1542190c4a54cd898de213aebee803e3e5485bd4cfb2bce0"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "ca81b5ce04b3fc195cbc8902ed89aaf0bf881cd68ea0c3cb6e078348e3a73c22"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  },
+  {
+    "deployment": 11,
+    "actor": "Codex",
+    "service_restarted": "jarvis-conversation",
+    "backup": "/var/backups/jarvis/mission-engine26/1792613793247076143",
+    "modules": [
+      {
+        "module": "missions.py",
+        "sha256": "9f022e093d3469cf6ffcfbaa4ad0ccc6b675b0a4895994a963f033bddb9f6dc2"
+      },
+      {
+        "module": "mission_store.py",
+        "sha256": "4f395773fb049aee7cd50213dcbe54dafa4d8f44471511d5b2e6a116641685d3"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "3c1b299cbdb1dc9a1542190c4a54cd898de213aebee803e3e5485bd4cfb2bce0"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf"
+      },
+      {
+        "module": "skill_lab.py",
+        "sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "ca81b5ce04b3fc195cbc8902ed89aaf0bf881cd68ea0c3cb6e078348e3a73c22"
+      },
+      {
+        "module": "mission_reporting.py",
+        "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7"
+      },
+      {
+        "module": "mission_actions.py",
+        "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0"
+      }
+    ],
+    "policy_unchanged": true
+  }
+]
