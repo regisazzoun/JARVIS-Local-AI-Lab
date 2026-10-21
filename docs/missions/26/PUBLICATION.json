@@ -1,0 +1,80 @@
+{
+  "actor": "Codex-independent-GitHub-readback",
+  "pull_request": {
+    "number": 20,
+    "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/20",
+    "state": "open",
+    "merged": false,
+    "mergeable": true,
+    "base": "plan/mission-26-moteur-agentique",
+    "base_sha": "3626237d77d24e22835ad4bc626867d85496334a",
+    "head": "codex/mission-26-mission-engine",
+    "verified_artifact_commit": "e605fb079617e65f76c88a06cac5045dd9e5f9be"
+  },
+  "report_exact_readback": {
+    "path": "docs/missions/26/RAPPORT-FINAL.md",
+    "commit": "e605fb079617e65f76c88a06cac5045dd9e5f9be",
+    "sha256": "f33261ed60c6ddded2293dcf9a51a215e3d757ffcf5afad6699bd06bf26d7e55",
+    "remote_git_blob": "92b2e7bf99797c9b605bafbdbbf7729a51cacf22",
+    "exact_content_equal": true
+  },
+  "automatic_merge": false,
+  "scope": "Artifacts read at exact commit; this publication receipt is committed afterwards without changing verified artifacts.",
+  "files": [
+    {
+      "path": "docs/missions/26/ARCHITECTURE.md",
+      "exact_content_equal": true,
+      "sha256": "5207527c597dc1cf285f248461554e81814400ec56b8302c962e78f1d21d28c0",
+      "remote_git_blob": "0b5d6d49d4c589549016c2c1aba338d799b17e39"
+    },
+    {
+      "path": "docs/missions/26/PLAN-JARVIS.md",
+      "exact_content_equal": true,
+      "sha256": "25972a5fe0db665c4d2e4db4a535ccd636380287fae5a5847446336110a01075",
+      "remote_git_blob": "a168aa3911389a6115ba987b4eb58b3206898d59"
+    },
+    {
+      "path": "docs/missions/26/TESTS-ET-REPRISES.md",
+      "exact_content_equal": true,
+      "sha256": "402464674b8dd703b0e8dbb6657553bf293490b0de170e6fcc6a978964ccedfd",
+      "remote_git_blob": "9b476ef405721cd34d695d1e05dd1221573103d1"
+    },
+    {
+      "path": "docs/missions/26/ATTRIBUTION-CODEX-JARVIS.md",
+      "exact_content_equal": true,
+      "sha256": "a5e43729c33f8539a23edc71849bb130df33b810a58c3aa1a716fcddf647e711",
+      "remote_git_blob": "486935bed5fecb29ca9d05221d72cd0767dc2dcc"
+    },
+    {
+      "path": "docs/missions/26/BILAN-14A.md",
+      "exact_content_equal": true,
+      "sha256": "d21bc979cd7ed4b1435d4ae36008222643c85dcf5378a42c808d2053323d5cd4",
+      "remote_git_blob": "9d3f594efd7fdd807ef444e53fda5cf0b09aa641"
+    },
+    {
+      "path": "docs/missions/26/INSTALLATION-UTILISATION.md",
+      "exact_content_equal": true,
+      "sha256": "3c0a2c5ff0a68a84c95a914a102858bb88e29e7d3ba649bfb222a007ecf9607e",
+      "remote_git_blob": "a85d6f866b685c3094f3d6f707d24e3885ad9cc8"
+    },
+    {
+      "path": "docs/missions/26/CODE-INSTALLE.json",
+      "exact_content_equal": true,
+      "sha256": "4738c3fb75fae2b062ab76e6a28ee26ef1eb0daf3bb18dbd0399bd21b3c7f2df",
+      "remote_git_blob": "ef2b17df40fa7f266a5288082d7c85dfb0833bb2"
+    },
+    {
+      "path": "docs/missions/26/PLANS-JARVIS.json",
+      "exact_content_equal": true,
+      "sha256": "de1976c9c9bf2f7a0b78e39fd552a806a60a52921d9d1705d205f885683979c4",
+      "remote_git_blob": "03f63813df6465b281634425e5af90edd27ad2fd"
+    },
+    {
+      "path": "agentic/engine_v2/jarvis/missions.py",
+      "exact_content_equal": true,
+      "sha256": "9f022e093d3469cf6ffcfbaa4ad0ccc6b675b0a4895994a963f033bddb9f6dc2",
+      "remote_git_blob": "03774970a130e444a813e1bbe0d5144c7714b876"
+    }
+  ],
+  "all_readbacks_equal": true
+}
