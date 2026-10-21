@@ -1,3 +1,7 @@
+## Précision de périmètre — 21 octobre 2026 : LiveKit pas encore totalement raccordé
+
+🟡 **Intégration JARVIS et mémoire persistante non réceptionnées.** La page 23D validée par le propriétaire est un prototype vocal **partiellement indépendant** : elle n'était pas complètement raccordée au service conversationnel/outils JARVIS, ni à sa mémoire persistante SQLite/FTS5. Les notes **5/5** interruption, **5/5** pertinence et **4/5** transcription restent valides **pour la conversation prototype uniquement**. Prévoir un chantier d'intégration et un test de rappel intersessions, sans rouvrir l'interruption déjà validée. [Périmètre exact de la réception](docs/missions/23D/RECEPTION-UTILISATEUR.md).
+
 ## Décision du propriétaire — 21 octobre 2026 : réception vocale réelle 23D
 
 ✅ **Mission 23D validée par le propriétaire, ainsi que ses dépendances opérationnelles.** Essai réel de la page 23D avec microphone sur MacBook : fonctionnement et interruption **5/5**, pertinence des réponses **5/5**, transcription **4/5** (erreurs n'altérant pas le sens général) ; latence ressentie négligeable et comparable à un assistant vocal. Le GO numérique antérieur est complété par cette réception d'usage ; les anciens échecs restent archivés. Restent à améliorer : transcription et essais dans d'autres contextes/appareils, sans annuler la validation. [Procès-verbal de réception utilisateur](docs/missions/23D/RECEPTION-UTILISATEUR.md).

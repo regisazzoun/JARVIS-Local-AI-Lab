@@ -23,6 +23,16 @@ Cette décision complète le GO numérique avec réserves du rapport de récepti
 - **24 — broker** : réception antérieure GO avec réserves, outils, transport et reprise démontrés ; acquis validés par le propriétaire dans le cadre de la dépendance à 23D.
 - **23 — LiveKit** : son défaut historique d'interruption est corrigé pour le parcours testé en 23D ; les anciens résultats NO-GO demeurent comme preuves datées, non comme verdict de cet essai utilisateur.
 
+## Précision du propriétaire — périmètre non encore raccordé
+
+La version évaluée est **un prototype vocal LiveKit partiellement indépendant de JARVIS**. Elle **n'était pas complètement raccordée à l'architecture conversationnelle et agentique canonique de JARVIS** et **ne bénéficiait pas de la mémoire persistante de JARVIS**.
+
+Par conséquent, l'évaluation 5/5 de la conversation, 5/5 de la pertinence et 4/5 de la transcription porte **uniquement sur le comportement vocal observé dans la session prototype**. Elle ne valide ni l'accès aux outils JARVIS par la voix, ni la continuité des conversations entre sessions, ni la consultation et l'écriture de la mémoire canonique SQLite/FTS5.
+
+**Travaux restant à accomplir :** raccorder LiveKit au même service conversationnel, aux outils et au système de mémoire persistante que JARVIS ; démontrer avec des essais réels qu'une préférence ou information mémorisée survit à une déconnexion, une nouvelle session et une reprise vocale, sans rupture des capacités d'interruption reçues. Ces travaux sont un chantier d'intégration distinct, **non réceptionné par 23D**.
+
+Cette précision ne retire pas la validation du prototype vocal ni celle des dépendances broker déjà démontrées. Les résultats historiques demeurent inchangés.
+
 ## Limites non effacées
 
 La qualité de transcription reste à améliorer (note utilisateur 4/5). La réception utilisateur sur MacBook ne démontre pas automatiquement Safari/iPhone, la robustesse acoustique dans tous les environnements, la route média distante directe ni l'autonomie longue de JARVIS sans Codex. Ces chantiers ne conditionnent pas rétroactivement la validation que le propriétaire vient d'accorder.
