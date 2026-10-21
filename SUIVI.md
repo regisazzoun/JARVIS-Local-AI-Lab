@@ -1,6 +1,6 @@
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 
-**Ordre validé :** ✅🟡 25 MCP/Skills déjà livrée → **📋 26 Mission Engine résilient (prochaine mission)** → **📋 épreuve finale 14A (distincte, ultérieure)** → **📋 24-Old Mémoire enrichie/AutoDream** → **📋 27 JL-03**, puis 28–31. Objectif26 : plan autonome, autocorrection, vérification sémantique et rapport factuel, en conservant les acquis25. [Cahier de26](docs/missions/26/MISSION.md) ; [épreuve14A différée](docs/missions/25/BILAN-14A.md). L'ancienne priorité 24-Old immédiatement après25 devient historique ; le n°24 sans suffixe demeure le broker reçu.
+**Ordre validé :** ✅🟡 25 MCP/Skills déjà livrée → **🟡 26 Mission Engine résilient (en cours)** → **📋 épreuve finale 14A (distincte, ultérieure)** → **📋 24-Old Mémoire enrichie/AutoDream** → **📋 27 JL-03**, puis 28–31. Objectif26 : plan autonome, autocorrection, vérification sémantique et rapport factuel, en conservant les acquis25. [Cahier de26](docs/missions/26/MISSION.md) ; [épreuve14A différée](docs/missions/25/BILAN-14A.md). L'ancienne priorité 24-Old immédiatement après25 devient historique ; le n°24 sans suffixe demeure le broker reçu.
 
 ## Tâche en attente — épreuve finale 14A (21 octobre 2026)
 
@@ -46,10 +46,11 @@
 
 ## Vue d'ensemble — toutes les missions
 
-**73 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--73-identifiants) reprend les mêmes missions et états.
+**74 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--74-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
+| **26** | Mission Engine résilient et planification autonome | 🟡 En cours — moteur installé, démonstration JARVIS active | Plan JARVIS versionné, vérificateur sémantique réel,99 tests logiciels ; [architecture](docs/missions/26/ARCHITECTURE.md) | Terminer skills, reprise et rapport sur preuves ;14A reste différée |
 | **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues | Quatre skills actifs dont un créé/réutilisé par JARVIS, MCP réel,89 tests ; [réception](docs/missions/25/RAPPORT-FINAL.md) | Autonomie globale14A encore ouverte ; [bilan précis](docs/missions/25/BILAN-14A.md) |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |
 | **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée | Moteur déployé ;41 tests V2 et25 contrôles navigateur actuels ; reprise, preuves et publications vérifiées ; correction de synthèse nécessaire | Traiter les répétitions et la fiabilité sémantique ; aucune autonomie sans assistance revendiquée ; [bilan](docs/missions/22/RAPPORT-FINAL.md) |
@@ -185,6 +186,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-21 | 26 | Lancement autorisé, base préparation19 conservant25, moteur installé et démonstration sans tâches fournies | [Sources26](docs/missions/26/REFERENTIEL-LU.md) · [Architecture](docs/missions/26/ARCHITECTURE.md) |
 | 2026-10-21 | 23C / registre | Réserves de déploiement23C levées par24 sans nouveau test ;23C/23D réintégrées au registre,73 identifiants cohérents | [Réception24](docs/missions/24/RAPPORT-FINAL.md) · [Référentiel25](docs/missions/25/REFERENTIEL-LU.md) |
 | 2026-10-21 | 25 / 14A | Réception25 avec réserves, quatre tâches JARVIS, quatre skills actifs,89 tests ;14A maintenue ouverte sur écarts actuels | [Réception25](docs/missions/25/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/25/BILAN-14A.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18) |
 | 2026-10-17 | 00 — pilotage | Réconciliation archives/branches ; rapports 08–11/13E retrouvés ; séparation 13D-E/14A/14,11/11B et JL-02 ; historique préservé | [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md) |

@@ -1,0 +1,181 @@
+{
+  "actor": "Codex-independent-read",
+  "created": 1792612488.465004,
+  "mission": "28c3fdf877ba47718dfc55e46f386656",
+  "state": "running",
+  "historical_received_tasks": 47,
+  "historical_task_states_and_hashes_preserved": true,
+  "personal_memory": {
+    "memories": {
+      "all_previous_rows_preserved": true,
+      "before_rows": 5,
+      "current_rows": 5
+    },
+    "preferences": {
+      "all_previous_rows_preserved": true,
+      "before_rows": 4,
+      "current_rows": 4
+    }
+  },
+  "memory_quick_check": "ok",
+  "historical_skill_versions_preserved": {
+    "config-repair": true,
+    "debian-diagnostic": true,
+    "dell-roundtrip": true,
+    "github-publish": true
+  },
+  "active_skills": [
+    [
+      "config-repair",
+      6
+    ],
+    [
+      "debian-diagnostic",
+      1
+    ],
+    [
+      "dell-roundtrip",
+      1
+    ],
+    [
+      "github-publish",
+      1
+    ]
+  ],
+  "policy_unchanged": true,
+  "modules": [
+    {
+      "module": "mission_store.py",
+      "sha256": "e663e4f96544a8ff9ab78f93d4c6153f75bc3b0cd2ed713e59318f18c143c345",
+      "matches_source": true
+    },
+    {
+      "module": "durable_tools.py",
+      "sha256": "e474129b796ed7c1bff4f9125c7ed54b467ec0af20003378b0947e3a0a2dc6c3",
+      "matches_source": true
+    },
+    {
+      "module": "durable_cycle.py",
+      "sha256": "d6e0946dc144743eb7e6f60e58737ce502d80736dd08dbe34bceb1da634ec17b",
+      "matches_source": true
+    },
+    {
+      "module": "tools.py",
+      "sha256": "c4bcdd9ce776a132d4589ad5e7fcf05db5a026173e85c6c600f0b367154efbcf",
+      "matches_source": true
+    },
+    {
+      "module": "skill_lab.py",
+      "sha256": "c5901429238713771dea6127fb796dce5df705334375d9f3be68bf2b835cd3d8",
+      "matches_source": true
+    },
+    {
+      "module": "verification.py",
+      "sha256": "0a9a352c71dd079c36089c4665c04d1bbba1c99fc6dba4085d7a8991d3a4aa72",
+      "matches_source": true
+    },
+    {
+      "module": "mission_reporting.py",
+      "sha256": "c89bc43846d3ad3d51e3cddf74a94e5d827a23466098ea1a6753d91c3267aaf7",
+      "matches_source": true
+    },
+    {
+      "module": "mission_actions.py",
+      "sha256": "a0a9afa608db5ab2ea8b54a2b5467aaf5dd3a0c605f05b3a83785c9b7f33ada0",
+      "matches_source": true
+    }
+  ],
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-mission23-livekit-agent": "active",
+    "jarvis-mission23-livekit-server": "active"
+  },
+  "application": {
+    "expected": {
+      "port": 8091,
+      "label": "mission26-fixture",
+      "enabled": true,
+      "preserve": {
+        "owners": [
+          "lab"
+        ],
+        "limits": {
+          "retries": 3
+        },
+        "unicode": "réservé"
+      }
+    },
+    "actual": {
+      "port": 8091,
+      "label": "mission26-fixture",
+      "enabled": true,
+      "preserve": {
+        "owners": [
+          "lab"
+        ],
+        "limits": {
+          "retries": 3
+        },
+        "unicode": "réservé"
+      }
+    },
+    "exact_object_match": true,
+    "port_exact_type": true,
+    "source_sha256": "fa1814e0bead774e66e914870488ec49be4e0519e355b202a4986f2c743fcf30",
+    "result_sha256": "9d95ad4ee6f9944445a230919cf371c539421a57c32d9abada78b13e1cdef211",
+    "consumer_returncode": 0,
+    "consumer_stdout": "{\"functional\": true, \"port\": 8091, \"label\": \"mission26-fixture\"}\n",
+    "consumer_stderr": ""
+  },
+  "tasks": [
+    {
+      "mission": "28c3fdf877ba47718dfc55e46f386656",
+      "id": "t01-correction-port",
+      "title": "Corriger le port dans settings.json à 8091",
+      "deps": [],
+      "state": "running",
+      "evidence": [],
+      "updated": 1792612450.8029544,
+      "objective": "Corriger port de 70000 à 8091 dans settings.json en conservant toutes autres propriétés inchangées",
+      "contract": {
+        "report_path": "/var/lib/jarvis/projects/mission26/RAPPORT.md",
+        "semantic": [
+          {
+            "baseline_source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/original.json"
+              },
+              "tool": "host_read_file"
+            },
+            "expected": {
+              "/port": 8091
+            },
+            "kind": "json",
+            "preserve": [
+              "/label",
+              "/enabled",
+              "/preserve"
+            ],
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26/settings.json"
+              },
+              "tool": "host_read_file"
+            },
+            "types": {
+              "/port": "integer"
+            }
+          }
+        ]
+      },
+      "started": 1792612296.6649678,
+      "attempts": 2,
+      "last_error": null,
+      "artifact": null,
+      "report_sha256": null,
+      "stage": "execute"
+    }
+  ],
+  "plan_versions": 1
+}

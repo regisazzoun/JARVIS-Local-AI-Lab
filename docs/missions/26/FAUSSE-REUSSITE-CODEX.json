@@ -1,0 +1,87 @@
+{
+  "actor": "Codex-operational-independent-test",
+  "action_receipt": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "status success\n",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.032,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "evidence_id": "9cf4c8a6fae84a8f89c16bfa16b14110",
+      "diagnostic": {
+        "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "selection": "single-persistent-owner-policy",
+        "reload": "each-request",
+        "broker_version": "23C.1",
+        "operation": "host_exec",
+        "parameters": {},
+        "omitted_parameters": [
+          "command"
+        ],
+        "error_category": null,
+        "retry": null,
+        "alternative": null
+      }
+    },
+    "risk": "host_authorized",
+    "tool": "host_exec",
+    "elapsed_s": 0.097
+  },
+  "semantic_receipt": {
+    "ok": false,
+    "result": {
+      "returncode": 1,
+      "status": "FAIL",
+      "checks": [
+        {
+          "path": "/port",
+          "expected": 8091,
+          "actual": 0,
+          "pass": false
+        },
+        {
+          "path": "/port",
+          "type": "integer",
+          "pass": true
+        }
+      ],
+      "sha256": "1cd4b8d95d70e48aac621b72c98d332a6cbf69de3a054b173b9b632e5333cb51",
+      "contract": {
+        "kind": "json",
+        "source": {
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26/false-success.json"
+          }
+        },
+        "expected": {
+          "/port": 8091
+        },
+        "types": {
+          "/port": "integer"
+        }
+      },
+      "observations": [
+        {
+          "invocation": null,
+          "broker_evidence": "cb29876a23204dcdb56ca4013eb329f1",
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26/false-success.json"
+          }
+        }
+      ],
+      "observed_at": 1792612329.1698978,
+      "verifier": "deterministic26"
+    },
+    "risk": "host_authorized",
+    "tool": "mission_verify",
+    "elapsed_s": 0.249
+  },
+  "false_success_detected": true,
+  "not_jarvis_autonomy_evidence": true
+}

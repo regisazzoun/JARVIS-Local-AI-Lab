@@ -1,6 +1,10 @@
+## Mission26 lancée —21 octobre2026
+
+🟡 En cours : moteur installé,99 tests logiciels réussis ; démonstration JARVIS depuis objectif brut sans tâches fournies. Plan versionné, lecture sémantique et contrôles indépendants ; réception opérationnelle encore en cours. [Architecture26](docs/missions/26/ARCHITECTURE.md).14A reste ouverte, épreuve finale différée ;24-Old non lancée.
+
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 
-**Ordre validé :** ✅🟡 25 MCP/Skills déjà livrée → **📋 26 Mission Engine résilient (prochaine mission)** → **📋 épreuve finale 14A (distincte, ultérieure)** → **📋 24-Old Mémoire enrichie/AutoDream** → **📋 27 JL-03**, puis 28–31. Objectif26 : plan autonome, autocorrection, vérification sémantique et rapport factuel, en conservant les acquis25. [Cahier de26](docs/missions/26/MISSION.md) ; [épreuve14A différée](docs/missions/25/BILAN-14A.md). L'ancienne priorité 24-Old immédiatement après25 devient historique ; le n°24 sans suffixe demeure le broker reçu.
+**Ordre validé :** ✅🟡 25 MCP/Skills déjà livrée → **🟡 26 Mission Engine résilient (en cours)** → **📋 épreuve finale 14A (distincte, ultérieure)** → **📋 24-Old Mémoire enrichie/AutoDream** → **📋 27 JL-03**, puis 28–31. Objectif26 : plan autonome, autocorrection, vérification sémantique et rapport factuel, en conservant les acquis25. [Cahier de26](docs/missions/26/MISSION.md) ; [épreuve14A différée](docs/missions/25/BILAN-14A.md). L'ancienne priorité 24-Old immédiatement après25 devient historique ; le n°24 sans suffixe demeure le broker reçu.
 
 ## Tâche en attente — épreuve finale 14A (21 octobre 2026)
 

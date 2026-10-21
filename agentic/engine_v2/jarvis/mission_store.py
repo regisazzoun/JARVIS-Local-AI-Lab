@@ -48,6 +48,7 @@ class MissionStore:
             CREATE INDEX IF NOT EXISTS mission_event_cursor ON mission_events(mission,id);
             CREATE TABLE IF NOT EXISTS tool_calls(id TEXT PRIMARY KEY,mission TEXT NOT NULL,task TEXT,signature TEXT NOT NULL,tool TEXT NOT NULL,arguments TEXT NOT NULL,state TEXT NOT NULL,result TEXT,created REAL,updated REAL);
             CREATE INDEX IF NOT EXISTS mission_call_lookup ON tool_calls(mission,task,signature,state);
+            CREATE TABLE IF NOT EXISTS mission_plans(mission TEXT,version INTEGER,author TEXT,reason TEXT,plan TEXT,sha256 TEXT,created REAL,PRIMARY KEY(mission,version));
             CREATE TABLE IF NOT EXISTS mission_context(mission TEXT PRIMARY KEY,task TEXT,messages TEXT,updated REAL);
             CREATE TABLE IF NOT EXISTS mission_context_archives(id INTEGER PRIMARY KEY,mission TEXT,task TEXT,messages TEXT,reason TEXT,created REAL);
             CREATE TABLE IF NOT EXISTS publication_outbox(id TEXT PRIMARY KEY,mission TEXT,task TEXT,repository TEXT,branch TEXT,workspace TEXT,file TEXT,sha256 TEXT,state TEXT,attempts INTEGER DEFAULT 0,next_run REAL DEFAULT 0,last_error TEXT,commit_sha TEXT,updated REAL);
@@ -113,7 +114,7 @@ class MissionStore:
                 result.append(d)
             return result
 
-    def plan(self, ident, tasks):
+    def plan(self, ident, tasks, author="operator", metadata=None, reason="initial plan", expected_version=None):
         if isinstance(tasks, str):
             tasks = json.loads(tasks)
         if not isinstance(tasks, list) or not tasks:
@@ -140,14 +141,72 @@ class MissionStore:
             visited.add(ident)
         for key in mapping:
             visit(key, set())
-        with self.db() as c:
-            if c.execute('SELECT 1 FROM tasks WHERE mission=?', (ident,)).fetchone():
-                return self.tasks(ident)
+        strict = json.loads(self.get(ident)['spec']).get('autonomous', False)
+        metadata = metadata or {}
+        if strict:
+            for field in ('objective', 'success_criteria', 'artifacts', 'stop_conditions'):
+                if not metadata.get(field):
+                    raise ValueError('Autonomous plan metadata required: '+field)
             for t in normalized:
+                if not t.get('contract',{}).get('semantic') or not t.get('contract',{}).get('report_path'):
+                    raise ValueError('Autonomous task '+t['id']+' requires contract.report_path and nonempty contract.semantic')
+                for field in ('objective', 'tools', 'observations', 'verification', 'recovery', 'artifacts'):
+                    if not t.get(field):
+                        raise ValueError('Task '+t['id']+' requires '+field)
+        document = {**metadata, 'tasks': normalized}
+        text = encoded(document)
+        sha = hashlib.sha256(text.encode()).hexdigest()
+        with self.db() as c:
+            c.execute('BEGIN IMMEDIATE')
+            latest = c.execute('SELECT * FROM mission_plans WHERE mission=? ORDER BY version DESC LIMIT 1', (ident,)).fetchone()
+            version = latest['version'] if latest else 0
+            if latest and latest['sha256'] == sha:
+                return self.tasks(ident)
+            existing = self.tasks(ident)
+            if existing and expected_version is None:
+                if not strict:
+                    return existing
+                raise ValueError('Revision requires expected_version and reason; inspect mission_progress')
+            if expected_version is not None and expected_version != version:
+                raise ValueError('Stale plan version: expected_version must equal CURRENT saved version '+str(version)+'; received '+str(expected_version)+'. Next version '+str(version+1)+' is assigned automatically. Failed proposals do not increment version.')
+            if existing and not reason.strip():
+                raise ValueError('Revision reason required')
+            old = {t['id']: t for t in existing}
+            previous = {t['id']: t for t in json.loads(latest['plan'])['tasks']} if latest else {}
+            # Acceptance predicates cannot disappear in a revision; add checks or
+            # fix implementation instead. Owner criteria also survive replanning.
+            required = json.loads(self.get(ident)['spec']).get('acceptance', [])
+            semantic = [x for t in normalized for x in t.get('contract',{}).get('semantic',[])]
+            from .verification import exact
+            for requirement in required:
+                if not any(exact(requirement, x) for x in semantic):
+                    raise ValueError('Plan must cover owner acceptance predicate: '+encoded(requirement))
+            for key, t in old.items():
+                if key in mapping:
+                    for check in t.get('contract',{}).get('semantic',[]):
+                        if not any(exact(check,x) for x in mapping[key].get('contract',{}).get('semantic',[])):
+                            raise ValueError('Cannot weaken existing semantic contract: '+key)
+                if t['state'] == 'validated' and (key not in mapping or (key in previous and mapping[key] != previous[key])):
+                    raise ValueError('Validated task immutable: '+key)
+                if key not in mapping and self.observations(ident, key):
+                    raise ValueError('Cannot remove an attempted task; revise it preserving evidence: '+key)
+            for key in old.keys() - mapping.keys():
+                c.execute('DELETE FROM tasks WHERE mission=? AND id=?', (ident, key))
+            for t in normalized:
+                if t['id'] in old:
+                    if old[t['id']]['state'] != 'validated':
+                        c.execute('UPDATE tasks SET title=?,deps=?,objective=?,contract=?,updated=? WHERE mission=? AND id=?',
+                                  (t['title'], encoded(t['depends']), t.get('objective',t['title']), encoded(t.get('contract',{})), time.time(), ident, t['id']))
+                    continue
                 c.execute('INSERT INTO tasks(mission,id,title,deps,state,evidence,updated,objective,contract) VALUES(?,?,?,?,?,?,?,?,?)',
                           (ident, t['id'], t['title'], encoded(t['depends']), 'pending', '[]', time.time(), t.get('objective', t['title']), encoded(t.get('contract', {}))))
-            self.event(ident, 'plan_saved', result={'tasks': len(normalized)}, connection=c)
+            c.execute('INSERT INTO mission_plans VALUES(?,?,?,?,?,?,?)', (ident, version+1, author, reason, text, sha, time.time()))
+            self.event(ident, 'plan_revised' if version else 'plan_saved', actor=author, result={'tasks': len(normalized), 'version':version+1,'sha256':sha,'reason':reason}, connection=c)
         return self.tasks(ident)
+
+    def plans(self, ident):
+        with self.db() as c:
+            return [{**dict(r), 'plan': json.loads(r['plan'])} for r in c.execute('SELECT * FROM mission_plans WHERE mission=? ORDER BY version', (ident,))]
 
     def ready(self, ident):
         tasks = self.tasks(ident)
@@ -242,7 +301,14 @@ class MissionStore:
             fact={'created':latest['created'],'stdout':str((latest.get('result') or {}).get('result',{}).get('stdout',''))[:700]} if latest else None
             status.append({'latest_verified_fact':fact,'check':check,'satisfied':len(matches)>=check.get('minimum',1),'matching_count':len(matches),'invocations':matches[-3:]})
         path=contract.get('report_path')
-        return {'requirements':status,'all_satisfied':all(s['satisfied'] for s in status),
+        from .verification import exact
+        semantic=[]
+        events=[e for e in self.events(ident,limit=1000000) if e['task']==task_id and e['kind']=='semantic_verification']
+        for criterion in contract.get('semantic',[]):
+            matches=[e for e in events if exact(e['result'].get('contract'),criterion)]
+            latest=matches[-1] if matches else None
+            semantic.append({'contract':criterion,'status':latest['result'].get('status') if latest else 'INSUFFICIENT','event':latest['id'] if latest else None,'freshness':'Rechecked at task completion; actions after observation require another read'})
+        return {'requirements':status,'semantic':semantic,'all_satisfied':all(s['satisfied'] for s in status) and all(s['status']=='PASS' for s in semantic),
                 'report_path':path,'report_written':any(o['tool']=='host_write_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations),
                 'report_read':any(o['tool']=='host_read_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)}
 

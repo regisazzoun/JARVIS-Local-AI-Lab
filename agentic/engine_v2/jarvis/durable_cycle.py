@@ -118,6 +118,10 @@ Le debugging_checkpoint conserve les derniers tests et empreintes des fichiers d
 En cas d'erreur, analyse et change de stratégie. Ne répète pas les mêmes arguments en échec. Quand toutes les tâches sont validées, écris intervention_report avec la synthèse finale factuelle et les références. N'annonce aucune publication sans vérification distante.
 Les exigences déjà satisfaites et leurs identifiants sont indiqués dans active_task_contract_status. Réutilise ces preuves ; si le rapport est écrit et relu, valide la tâche au lieu de recommencer les mêmes collectes. Une fin de cycle n'est pas une fin de mission : conserve mission_note pour transmettre objectifs, observations et prochaine action. Ne demande pas au propriétaire de relancer.
 Si observed_external_dependencies contient une dépendance non résolue (identité de compte ou clé d’enrôlement absente), ne répète pas ses contrôles ni installations sans changement externe. Termine les autres publications possibles, écris un rapport partiel précis puis appelle mission_block avec sa preuve réelle. Cela ne valide ni la tâche ni la mission ; ne cherche pas à obtenir un succès artificiel pour satisfaire le contrat.'''
+        if json.loads(mission['spec']).get('autonomous'):
+            instructions += '''
+CONTRAT26 : Tu reçois un objectif brut, sans tâches préétablies. Produis ton plan global toi-même via mission_plan : metadata {objective,success_criteria,artifacts,stop_conditions} ; chaque tâche {id,title,depends,objective,tools,observations,verification,recovery,artifacts,contract:{report_path,semantic:[contrats de mission_verify]}}. Chaque tâche doit avoir au moins une vérification sémantique exacte. Tu choisis toi-même les étapes, outils et critères à partir de l'objectif. mission_progress contient les versions ; tu peux réviser les étapes non reçues avec expected_version et reason après diagnostic. Les tâches reçues et leurs preuves restent intactes. mission_verify reçoit contract en chaîne JSON, effectue une lecture réelle et contrôle valeurs/types/conservation ou contenu exact ou état de service. Un échec de prédicat exige diagnostic puis correction et nouvelle vérification, même si l'outil initial disait ok. Après la dernière action, rejoue mission_verify avant mission_task_complete ; evidence_id doit être l'invocation_id du mission_verify réussi. Consigne hypothèse, cause et correction dans mission_note/procedure_save. Consulte mission_report_facts pour les faits et auteurs avant rapport. Le moteur publie un rapport final factuel déterministe et archive ton texte original séparément. Ne présente pas les développements Codex comme les tiens. Utilise mission_action avec operation_key pour protéger les opérations contre les doublons lors des reprises. Un contrat ne peut être affaibli pour masquer un échec.
+'''
         observations = store.observations(ident)
         notes = [{'actor':e['actor'],'created':e['created'],'working_note_not_verified_fact':e['result']} for e in store.events(ident, max(0, self._last_event(ident)-100)) if e['kind'] in ('working_note','model_checkpoint')][-5:]
         def brief(observation):
@@ -134,7 +138,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
         documents=core.memory.document_search((task or {}).get('objective',mission['goal']),mission['project'])[:2]
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS avec le modèle '+mission['model']+', pas par JARVIS-engine. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
-              {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,
+              {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':store.plans(ident),
                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
         ledger=[brief(o) for o in observations[-16:]]
         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]
@@ -194,9 +198,9 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
             schemas=core.tools.schemas()
             current_tasks=store.tasks(ident)
             if not current_tasks:
-                schemas=[s for s in schemas if s['function']['name'] in ('mission_plan','mission_note','host_policy')]
+                schemas=[s for s in schemas if s['function']['name'] in ('mission_plan','mission_note','host_policy','skill_list','capability_status','host_read_file','mission_progress')]
             elif all(t['state']=='validated' for t in current_tasks):
-                schemas=[s for s in schemas if s['function']['name'] in ('intervention_report','mission_progress','mission_evidence','mission_note','host_read_file','mission_publish')]
+                schemas=[s for s in schemas if s['function']['name'] in ('intervention_report','mission_progress','mission_evidence','mission_note','host_read_file','mission_publish','mission_report_facts','mission_plan')]
                 messages[0]['content']+='\nRÉCEPTION : toutes les tâches sont validées. Termine intervention_report, sans refaire leurs actions.'
                 reception={'verified_tasks':len(current_tasks),'total_tasks':len(current_tasks),
                            'contracts':{t['id']:store.contract_status(ident,t['id']) for t in current_tasks},
@@ -236,7 +240,9 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                 previous=[o for o in store.observations(ident,task_id) if o['id']!=token and signature(o['tool'],o['arguments'])==sig]
                 failed_previous=sum(not (o['result'] or {}).get('ok') for o in previous[-3:])
                 repaired=bool(previous) and any(o['created']>previous[-1]['created'] and (o['result'] or {}).get('ok') and (o['tool']=='host_package' or o['tool'] in ('host_remote','host_ansible') and o['arguments'].get('action') in ('package_install','write_file','deploy_file','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure')) for o in store.observations(ident,task_id))
-                if repeats[sig] > 2 or (len(previous)>=3 and failed_previous==3 and time.time()-previous[-1]['created']<30 and not repaired):
+                if name not in {s['function']['name'] for s in schemas}:
+                    result = {'ok':False,'tool':name,'error':'Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.'}
+                elif repeats[sig] > 2 or (len(previous)>=3 and failed_previous==3 and time.time()-previous[-1]['created']<30 and not repaired):
                     result = {'ok': False, 'tool': name, 'error': 'Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.'}
                 else:
                     result = core.tools.execute(name, args)
@@ -251,7 +257,7 @@ Si observed_external_dependencies contient une dépendance non résolue (identit
                     c.execute('INSERT OR REPLACE INTO mission_context VALUES(?,?,?,?)',(ident,task_id,encoded(messages),time.time()))
                 if name=='mission_block' and result.get('ok'):
                     return {'progress':True,'external_block':True,'report':None}
-                if name=='mission_plan' and result.get('ok') and task is None:
+                if name=='mission_plan' and result.get('ok'):
                     return {'progress':True,'report':None}
                 current = store.tasks(ident)
                 if task and next((t['state'] for t in current if t['id'] == task_id), None) == 'validated':

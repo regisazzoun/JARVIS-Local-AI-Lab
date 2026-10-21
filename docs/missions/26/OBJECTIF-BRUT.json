@@ -1,0 +1,37 @@
+{
+  "actor": "Codex as coordinator of owner-authorized mission26",
+  "mission_id": "28c3fdf877ba47718dfc55e46f386656",
+  "goal": "Mission26 — démonstration du moteur, distincte de l'épreuve finale14A. Rends exploitable et fiable la configuration applicative du laboratoire /var/lib/jarvis/projects/mission26/settings.json pour son consommateur Python consumer.py : port entier8091, toutes les autres propriétés conservées exactement comme original.json, application réellement fonctionnelle et réparation réutilisable/idempotente. Utilise les outils et compétences existants pertinents, diagnostique les difficultés réellement observées, laisse des preuves et un rapport fidèle publiable dans ce répertoire. Tu élabores toi-même le plan global et ses dépendances ; aucune tâche n'est fournie. Les contrats sémantiques de ton plan doivent couvrir le critère propriétaire acceptance fourni dans l'état moteur. Une utilisation réussie d'un skill ne suffit pas si le résultat technique reste incorrect. Tu peux adapter/créer un skill et du code de laboratoire ; conserve tes versions et la résolution technique. Ne modifie pas original.json, consumer.py ni les témoins de mission25. Les nouveaux programmes restent sous mission26.\nDirectives consultées par Codex : AGENTS, charte,26/MISSION,cycle23–31,SUIVI/ROADMAP,rapports11/11B,21/22,23C/24,25 et bilan14A. Autorisations préservées : Debian/Dell1/GitHub via outils existants, sans validation humaine intermédiaire ; préserver voix/mémoire/accès/services. Écarts : anciennes restrictions générales remplacées par décisions récentes. Infrastructure moteur26, fixtures settings/original/consumer : Codex ; plan, diagnostic, adaptation et opérations à réaliser : JARVIS. Pas d'épreuve14A,24-Old,Dell2,réinstallation,partitions/RAID ni fusion main. Le code consommateur est un banc applicatif local réel, pas un service de production. Publie uniquement des preuves expurgées ; Codex assure la PR26 finale. Les rapports doivent distinguer hypothèses et faits reçus, acteurs et erreurs historiques.",
+  "spec": {
+    "autonomous": true,
+    "acceptance": [
+      {
+        "kind": "json",
+        "source": {
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26/settings.json"
+          }
+        },
+        "expected": {
+          "/port": 8091
+        },
+        "types": {
+          "/port": "integer"
+        },
+        "baseline_source": {
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26/original.json"
+          }
+        },
+        "preserve": [
+          "/label",
+          "/enabled",
+          "/preserve"
+        ]
+      }
+    ]
+  },
+  "preprovided_tasks": false
+}

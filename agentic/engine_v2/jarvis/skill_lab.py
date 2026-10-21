@@ -83,7 +83,7 @@ class SkillLab:
         steps = manifest['steps']
         if not isinstance(steps,list) or not 1 <= len(steps) <= 20:
             raise ValueError('1..20 executable steps required')
-        allowed = {n for n in self.registry.specs if n.startswith('host_')} | {'web_fetch','web_search','capability_status'}
+        allowed = {n for n in self.registry.specs if n.startswith('host_')} | {'web_fetch','web_search','capability_status','mission_verify'}
         used = set()
         for s in steps:
             if set(s)-{'tool','arguments','verify','checks'} or not {'tool','arguments'} <= set(s):
@@ -92,8 +92,10 @@ class SkillLab:
                 raise ValueError('Unavailable or recursive tool: '+str(s['tool']))
             if not isinstance(s['arguments'],dict) or type(s.get('verify',False)) is not bool:
                 raise ValueError('Step arguments object and verify boolean required')
-            if s.get('verify') and not s.get('checks'):
+            if s.get('verify') and not s.get('checks') and s['tool']!='mission_verify':
                 raise ValueError('Verification requires independent observable checks')
+            if s['tool']=='mission_verify' and not s.get('verify'):
+                raise ValueError('mission_verify step must set verify:true')
             for check in s.get('checks',[]):
                 if set(check) != {'path','op','value'} or check['op'] not in ('equals','contains'):
                     raise ValueError('Check: path, op equals/contains, value')
@@ -105,6 +107,10 @@ class SkillLab:
 
     def define(self, manifest):
         self.validate(manifest)
+        store=getattr(self.registry,'mission_store',None)
+        if store and json.loads(store.get(self.registry.context['mission_id'])['spec']).get('autonomous'):
+            if not any(s['tool']=='mission_verify' and s.get('verify') for s in manifest['steps']):
+                raise ValueError('New autonomous skills require a mission_verify step with verify:true and exact semantic contract; code0 or contains status is insufficient. Existing historical versions remain preserved.')
         text, sha = encode(manifest), digest(manifest)
         with self.db() as c:
             c.execute('BEGIN IMMEDIATE')
@@ -214,7 +220,7 @@ def register(registry):
         registry.specs[name]=(description,props,required,'host_authorized',fn)
     text={'type':'string','maxLength':64000}
     spec('skill_list','Discover executable skills, versions, parameters, active status, missing tools and latest real run. Optional name returns full manifests.',{'name':text},[],lab.listing)
-    spec('skill_define','Create/improve an immutable candidate workflow. manifest is JSON STRING with exact fields name,description,when,parameters(JSON schema object with additionalProperties=false),requires_tools,prerequisites(list),steps(list of {tool,arguments,verify?,checks?}),on_error,changelog. A verify step requires checks [{path:"result.stdout",op:"contains" or "equals",value:...}]. Whole-value ${parameter} substitution only. Every tool executes through existing policy. New versions need skill_test before skill_activate.',{'manifest':text},['manifest'],lambda a:lab.define(json.loads(a['manifest'])))
+    spec('skill_define','Create/improve an immutable candidate workflow. manifest is JSON STRING with exact fields name,description,when,parameters(JSON schema object with additionalProperties=false),requires_tools,prerequisites(list),steps(list of {tool,arguments,verify?,checks?}),on_error,changelog. For autonomous missions include {tool:"mission_verify",arguments:{contract:"JSON string: kind,source,expected/types/preserve"},verify:true}; no checks needed there. Old-style checks remain for compatibility, but alone cannot validate a new autonomous skill. Whole-value ${parameter} substitution only. Every tool executes through existing policy. New versions need skill_test before skill_activate.',{'manifest':text},['manifest'],lambda a:lab.define(json.loads(a['manifest'])))
     spec('skill_test','Execute latest candidate with REAL effects in the authorized workspace, including independent verification. parameters is a JSON STRING object. Failed test never activates. run_id resumes same revision and parameters, skips successful action steps, repeats verification.',{'name':text,'parameters':text,'run_id':text},['name','parameters'],lambda a:lab.execute(a['name'],json.loads(a['parameters']),True,a.get('run_id')))
     spec('skill_activate','Activate latest candidate only after its latest real test passed, or disable without deleting history.',{'name':text,'enabled':{'type':'boolean'}},['name','enabled'],lambda a:lab.activate(a['name'],a['enabled']))
     spec('skill_run','Execute active version with parameters JSON STRING. Each subcall and independent check is traced; stops on first failure with run_id for checkpoint resume. Never claims a failed verifier succeeded.',{'name':text,'parameters':text,'run_id':text},['name','parameters'],lambda a:lab.execute(a['name'],json.loads(a['parameters']),False,a.get('run_id')))
