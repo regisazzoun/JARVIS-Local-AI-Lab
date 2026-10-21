@@ -49,6 +49,10 @@ class Missions:
             raise ValueError('Modèle inconnu')
         if spec is not None and not isinstance(spec,dict):raise ValueError('spec doit être un objet')
         if conversation and conversation not in {r['id'] for r in self.core.memory.list_conversations()}:raise ValueError('Conversation absente')
+        # New user goals use semantic/autonomous contracts by default.
+        # Explicit historical task specs and persisted missions keep their mode.
+        spec=dict(spec or {})
+        if not spec.get('tasks'):spec.setdefault('autonomous',True)
         conversation = conversation or self.core.memory.conversation(project)
         ident = self.store.create(goal, model, conversation, project, spec)
         if (spec or {}).get('tasks'):

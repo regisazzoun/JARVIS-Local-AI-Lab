@@ -114,19 +114,27 @@ class MissionStore:
                 result.append(d)
             return result
 
-    def plan(self, ident, tasks, author="operator", metadata=None, reason="initial plan", expected_version=None, append=False):
+    def plan(self, ident, tasks, author="operator", metadata=None, reason="initial plan", expected_version=None, append=False, patch=False):
         if isinstance(tasks, str):
             tasks = json.loads(tasks)
         if not isinstance(tasks, list) or not tasks:
             raise ValueError('Plan non vide requis')
-        if append:
+        if append and patch:raise ValueError('Choose append or patch, not both')
+        if append or patch:
             history=self.plans(ident)
             if not history:raise ValueError('append requires an existing plan')
             saved=history[-1]['plan']
             existing_ids={t['id'] for t in saved['tasks']}
-            if any(t.get('id') in existing_ids for t in tasks):
-                raise ValueError('append accepts only NEW task ids; saved tasks are retained automatically')
-            tasks=saved['tasks']+tasks
+            if append:
+                if any(t.get('id') in existing_ids for t in tasks):
+                    raise ValueError('append accepts only NEW task ids; use patch:true to update existing pending tasks without resending received tasks')
+                tasks=saved['tasks']+tasks
+            else:
+                if any(t.get('id') not in existing_ids for t in tasks):
+                    raise ValueError('patch requires existing ids; use append:true for new tasks')
+                if len({t['id'] for t in tasks})!=len(tasks):raise ValueError('Duplicate patch task ids')
+                replacements={t['id']:t for t in tasks}
+                tasks=[replacements.get(t['id'],t) for t in saved['tasks']]
             metadata=metadata or {k:v for k,v in saved.items() if k!='tasks'}
         normalized = []
         for t in tasks:
@@ -160,7 +168,9 @@ class MissionStore:
                 if not t.get('contract',{}).get('semantic') or not t.get('contract',{}).get('report_path'):
                     raise ValueError('Autonomous task '+t['id']+' requires contract.report_path and nonempty contract.semantic')
                 from .verification import validate_contract
-                for criterion in t['contract']['semantic']:validate_contract(criterion)
+                for criterion in t['contract']['semantic']:
+                    try:validate_contract(criterion)
+                    except ValueError as exc:raise ValueError('Task '+t['id']+': '+str(exc)+'. To change only an existing pending task use patch:true and omit unchanged tasks.') from exc
                 for field in ('objective', 'tools', 'observations', 'verification', 'recovery', 'artifacts'):
                     if not t.get(field):
                         raise ValueError('Task '+t['id']+' requires '+field)

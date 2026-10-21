@@ -133,6 +133,31 @@ class Tests(unittest.TestCase):
         self.assertEqual(verdict['returncode'],1)
         self.assertTrue(any(check['pass'] for check in verdict['checks']))
 
+    def test_patch_pending_task_keeps_received_task_and_history(self):
+        self.store.plan(self.m,[task(),task('b')],metadata=self.meta)
+        with self.store.db() as c:c.execute("UPDATE tasks SET state='validated' WHERE mission=? AND id='a'",(self.m,))
+        b=task('b');b['recovery']='new diagnosis'
+        self.store.plan(self.m,[b],author='JARVIS',patch=True,expected_version=1,reason='observed error')
+        self.assertEqual([t['id'] for t in self.store.tasks(self.m)],['a','b'])
+        self.assertEqual(self.store.tasks(self.m)[0]['state'],'validated')
+        versions=self.store.plans(self.m)
+        self.assertEqual(versions[0]['plan']['tasks'][0],versions[1]['plan']['tasks'][0])
+        self.assertEqual(versions[1]['plan']['tasks'][1]['recovery'],'new diagnosis')
+
+    def test_new_api_goals_default_to_autonomous_and_old_specs_remain_compatible(self):
+        from jarvis.core import Core,ROOT
+        from jarvis.memory import Memory
+        from jarvis.missions import Missions
+        memory=Memory(Path(self.tmp.name)/'runtime/memory.sqlite')
+        config=json.loads((ROOT/'config/example.json').read_text())
+        core=Core(config,memory,transport=lambda p:{'role':'assistant','content':''})
+        controller=Missions(core,self.tmp.name,start_worker=False)
+        new=controller.submit('raw objective',config['default_model'])
+        self.assertTrue(json.loads(controller.store.get(new['id'])['spec'])['autonomous'])
+        old=controller.submit('preplanned historical contract',config['default_model'],spec={'tasks':[{'id':'old','title':'old','depends':[]}]})
+        self.assertNotIn('autonomous',json.loads(controller.store.get(old['id'])['spec']))
+        self.assertEqual(controller.store.tasks(old['id'])[0]['id'],'old')
+
     def test_no_contract_weakening(self):
         self.store.plan(self.m,[task()],metadata=self.meta)
         t=task();t['contract']['semantic']=[]

@@ -7,7 +7,7 @@ import shutil
 import subprocess
 import time
 
-MODULES=['mission_store.py','durable_tools.py','durable_cycle.py','tools.py','skill_lab.py','verification.py','mission_reporting.py','mission_actions.py']
+MODULES=['missions.py','mission_store.py','durable_tools.py','durable_cycle.py','tools.py','skill_lab.py','verification.py','mission_reporting.py','mission_actions.py']
 
 def main():
     if os.geteuid()!=0:raise SystemExit('sudo required')
