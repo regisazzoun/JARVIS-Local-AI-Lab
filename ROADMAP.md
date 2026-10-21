@@ -1,3 +1,7 @@
+## Mission26B — lancement du22 octobre2026
+
+🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md).
+
 ## Mission26 reçue —21 octobre2026
 
 ✅🟡 GO avec réserves : moteur installé,105 tests logiciels réussis,3/3 tâches reçues et trois versions de plan JARVIS depuis un objectif brut. Fausse réussite du skill détectée, programme corrigé par JARVIS, relectures et reprise vérifiées. Autonomie encore assistée, erreurs de prose brute conservées et synthèse factuelle liée aux reçus. [Réception26](docs/missions/26/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/26/BILAN-14A.md).14A reste ouverte, épreuve finale distincte différée ;24-Old non lancée.

@@ -49,9 +49,14 @@ def validate_contract(contract):
                 raise ValueError('Use JSON Pointer starting with /, e.g. /port')
         if contract.get('preserve') and not contract.get('baseline_source'):
             raise ValueError('preserve requires baseline_source')
+    elif kind=='digest':
+        baseline=contract.get('baseline_source',{})
+        if not isinstance(baseline,dict) or not isinstance(baseline.get('tool'),str) or not isinstance(baseline.get('arguments'),dict):raise ValueError('digest requires baseline_source pointing to the actual file whose bytes are hashed')
+        field=contract.get('field','/sha256')
+        if not isinstance(field,str) or not field.startswith('/'):raise ValueError('digest field must be JSON Pointer, default /sha256')
     elif kind=='service':
         if contract.get('expected_state') not in ('active','inactive','failed'):raise ValueError('Explicit expected_state required')
-    else:raise ValueError('kind must be json, text or service')
+    else:raise ValueError('kind must be json, text, digest or service')
 
 
 def evaluate(body, contract, baseline=None):
@@ -100,12 +105,20 @@ def evaluate(body, contract, baseline=None):
             checks.append({'predicate': 'exact_content', 'pass': body == contract['equals']})
         if 'sha256' in contract:
             checks.append({'predicate': 'sha256', 'pass': hashlib.sha256(body.encode()).hexdigest() == contract['sha256']})
+    elif kind == 'digest':
+        if baseline is None:
+            checks.append({'predicate':'manifest_digest','unavailable':True,'pass':False})
+        else:
+            expected=hashlib.sha256(baseline.encode()).hexdigest()
+            try:actual=pointer(json.loads(body),contract.get('field','/sha256'))
+            except (ValueError,KeyError,TypeError,IndexError):actual=None
+            checks.append({'predicate':'manifest_digest','actual':actual,'expected':expected,'pass':type(actual) is str and actual==expected})
     elif kind == 'service':
         if contract.get('expected_state') not in ('active', 'inactive', 'failed'):
             raise ValueError('Explicit expected_state required')
         checks.append({'predicate': 'effective_service_state', 'actual': body.strip(), 'expected': contract['expected_state'], 'pass': body.strip() == contract['expected_state']})
     else:
-        raise ValueError('kind must be json, text or service')
+        raise ValueError('kind must be json, text, digest or service')
     if any(c.get('unavailable') for c in checks):
         status = 'PARTIAL' if any(c['pass'] for c in checks) else 'INSUFFICIENT'
     else:
@@ -171,4 +184,4 @@ class Verifier:
 
 
 def register(registry):
-    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. kind text requires equals or sha256; service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))
+    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. kind text requires equals (entire content, useful for CSV) or sha256; kind digest reads a JSON manifest source and the actual content baseline_source independently, checks field JSON Pointer (default /sha256) equals SHA256 of baseline bytes. No precomputed hash placeholder is needed. service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))

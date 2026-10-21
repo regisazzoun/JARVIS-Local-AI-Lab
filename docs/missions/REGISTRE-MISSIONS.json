@@ -2042,5 +2042,26 @@
     "dependances": "21/22/24/25",
     "prochaine_action": "Conserver les acquis ; épreuve finale14A distincte différée,24-Old non lancée",
     "derniere_actualisation": "2026-10-21"
+  },
+  {
+    "identifiant": "26B",
+    "nom": "Fiabilisation de la planification et des rapports",
+    "fonction_principale": "Contrôler couverture et affirmations avant exécution/publication",
+    "objectifs": "Lever deux réserves26 avec essais réels JARVIS",
+    "materiel": "Mac mini / Dell1 inférence existante",
+    "composants": "Mission Engine, broker24, Skill Lab25,SQLite",
+    "executant_reel": "Codex infrastructure et vérification ; JARVIS plans et opérations",
+    "documents_sources": [
+      {
+        "path": "docs/missions/26B/MISSION.md",
+        "url": ""
+      }
+    ],
+    "etat": "🟡 En cours",
+    "resultats_prouves": "Contrôles installés ; réception réelle en cours",
+    "reserves": "Réception non achevée",
+    "dependances": "26",
+    "prochaine_action": "Recevoir trois scénarios de planification/restitution sans rappel de livrable Codex",
+    "derniere_actualisation": "2026-10-22"
   }
 ]

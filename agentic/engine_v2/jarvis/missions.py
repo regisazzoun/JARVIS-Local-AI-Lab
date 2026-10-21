@@ -52,7 +52,9 @@ class Missions:
         # New user goals use semantic/autonomous contracts by default.
         # Explicit historical task specs and persisted missions keep their mode.
         spec=dict(spec or {})
-        if not spec.get('tasks'):spec.setdefault('autonomous',True)
+        if not spec.get('tasks'):
+            spec.setdefault('autonomous',True)
+            if spec.get('autonomous'): spec.setdefault('assurance',True)
         conversation = conversation or self.core.memory.conversation(project)
         ident = self.store.create(goal, model, conversation, project, spec)
         if (spec or {}).get('tasks'):

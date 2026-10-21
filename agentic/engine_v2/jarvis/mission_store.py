@@ -168,9 +168,12 @@ class MissionStore:
                 if not t.get('contract',{}).get('semantic') or not t.get('contract',{}).get('report_path'):
                     raise ValueError('Autonomous task '+t['id']+' requires contract.report_path and nonempty contract.semantic')
                 from .verification import validate_contract
-                for criterion in t['contract']['semantic']:
-                    try:validate_contract(criterion)
-                    except ValueError as exc:raise ValueError('Task '+t['id']+': '+str(exc)+'. To change only an existing pending task use patch:true and omit unchanged tasks.') from exc
+                contract_errors=[]
+                for candidate in normalized:
+                    for criterion in candidate.get('contract',{}).get('semantic',[]):
+                        try:validate_contract(criterion)
+                        except ValueError as exc:contract_errors.append('Task '+candidate['id']+': '+str(exc))
+                if contract_errors:raise ValueError(' | '.join(contract_errors)+'. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source. No plan saved; current version unchanged.')
                 for field in ('objective', 'tools', 'observations', 'verification', 'recovery', 'artifacts'):
                     if not t.get(field):
                         raise ValueError('Task '+t['id']+' requires '+field)
@@ -233,6 +236,8 @@ class MissionStore:
             return [{**dict(r), 'plan': json.loads(r['plan'])} for r in c.execute('SELECT * FROM mission_plans WHERE mission=? ORDER BY version', (ident,))]
 
     def ready(self, ident):
+        from .mission_assurance import enabled, coverage_state
+        if enabled(self, ident) and not coverage_state(self, ident)['accepted']: return []
         tasks = self.tasks(ident)
         done = {t['id'] for t in tasks if t['state'] == 'validated'}
         return [t for t in tasks if t['state'] in ('pending', 'running', 'retrying', 'blocked') and set(t['deps']) <= done]
