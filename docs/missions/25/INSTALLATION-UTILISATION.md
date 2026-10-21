@@ -49,3 +49,7 @@ Le registre procédural est `runtime/skill-lab.sqlite`. Sauvegarder avec l'API S
 ## Commandes paramétrées
 
 `host_exec` accepte maintenant soit `command` chaîne, soit `argv` tableau, jamais les deux. Pour un skill paramétré, préférer par exemple `{"argv":["python3","/chemin/programme.py","--input","${input_file}"]}`. Les arguments sont transmis comme valeurs littérales après échappement ; le broker et ses droits restent ceux déjà installés. Les fragments de template dans une chaîne de commande restent refusés, avec diagnostic indiquant cette alternative.
+
+## Restaurer la compétence créée par JARVIS
+
+Sur cet hôte, le programme et le registre restent en place après redémarrage. Pour reproduire sur une installation autorisée du même laboratoire, restaurer le fichier exact `agentic/skill_lab25/jarvis-created/config_repair.py` vers `/var/lib/jarvis/projects/mission25/config_repair.py`, puis fournir le manifeste `config-repair-v6.json` à `skill_define`. Préparer des fichiers de test dédiés, lancer `skill_test` avec `input_file`/`output_file`, puis `skill_activate` seulement après vérification du résultat. Les cinq révisions antérieures sont historiques et ne doivent pas être présentées comme des versions utilisables. L'installateur général ne restaure automatiquement que les trois candidats de bootstrap ; il ne remplace pas le programme ni le registre déjà créés par le modèle.
