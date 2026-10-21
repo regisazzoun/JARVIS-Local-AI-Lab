@@ -1,6 +1,8 @@
-# Mission unique — Mémoire enrichie, bibliothèque documentaire, recherche hybride et AutoDream
+# 24-Old Mémoire enrichie — mission unique (Memory Kernel, ingestion, RAG, AutoDream)
 
-**Décision propriétaire du 21 octobre 2026 — 📋 planifiée, non lancée.** Toute la réalisation, l'intégration, le déploiement et la validation de ces couches constituent **une seule mission indivisible dans sa réception globale**, et non quatre missions ou études séparées. La référence historique « mission 24 — mémoire » est conservée ; le numéro **24** a depuis été affecté au rétablissement du broker, déjà réceptionné. **Le nouveau numéro de la mission mémoire reste à attribuer explicitement ; ne pas recycler le 24 ni renuméroter les missions 25–31 sans décision.**
+**Décision propriétaire du 21 octobre 2026 — 📋 planifiée, non lancée.** Toute la réalisation, l'intégration, le déploiement et la validation de ces couches constituent **une seule mission indivisible dans sa réception globale**, et non quatre missions ou études séparées. La référence historique « mission 24 — mémoire » est conservée ; le numéro **24** a depuis été affecté au rétablissement du broker, déjà réceptionné. **Le propriétaire fixe le libellé « 24-Old Mémoire enrichie » et décide de lancer la mission 25 avant celle-ci.** Le n° 24 sans suffixe reste affecté au broker ; aucune mission 26–31 n'est renumérotée.
+
+**Priorité actualisée :** mission 25 MCP & Skills d'abord, puis cette mission unifiée ; état inchangé 📋 planifiée.
 
 ## Finalité
 
