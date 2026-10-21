@@ -23,3 +23,9 @@ Les sous-processus MCP lancés par le service gardent son cgroup et leurs appels
 ## Limites de cette version
 
 Exécution séquentielle et arrêt au premier échec ; la correction est conçue par JARVIS, pas par une boucle cachée du Skill Lab. Le checkpoint est écrit après chaque reçu ; après un arrêt entre effet externe et enregistrement, il faut observer l'état avant répétition. La version actuelle ne fournit pas de transaction distribuée exactement une fois. Les assertions sont déclarées par l'auteur du skill et exigent une réception indépendante pour éviter un test trop faible. MCP externe HTTP et chargement automatique de serveurs tiers ne sont pas implémentés.
+
+## Amélioration observée de l'interface de commande
+
+Les essais du modèle ont révélé plusieurs tentatives répétées d'interpolation d'un chemin dans une chaîne shell. Codex a donc étendu `host_exec` avec `argv`, tableau de chaînes exclusif avec `command` (contrat JSON Schema `oneOf`). Le client traduit le tableau avec `shlex.join` avant le même appel broker ; aucun nouveau droit ni outil hôte privilégié n'est introduit. Dans les skills, chaque paramètre peut occuper un élément entier d'`argv`. Le test de non-interprétation des espaces/métacaractères passe. JARVIS a effectivement adapté puis exécuté sa compétence avec cette interface : il ne s'agit pas d'un correctif de son programme réalisé par Codex.
+
+Cette amélioration est une intervention d'infrastructure pendant le scénario de développement. Elle ne permet pas de revendiquer que toute sa résolution s'est déroulée sans assistance. Les manifestes et le programme avant/après restent attribués au modèle ; l'erreur d'interface et son correction appartiennent au coordinateur.

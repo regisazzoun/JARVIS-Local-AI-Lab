@@ -1962,6 +1962,52 @@
     "resultats_prouves": "Infrastructure et six outils installés ; inventaire et retests réels",
     "reserves": "Scénarios création/correction/réutilisation et bilan14A à recevoir",
     "derniere_actualisation": "2026-10-21",
-    "prochaine_action": "Recevoir preuves opérationnelles"
+    "prochaine_action": "Recevoir preuves opérationnelles",
+    "objectifs": "Découvrir, exécuter, créer, tester, corriger et réutiliser outils/skills par JARVIS",
+    "materiel": "Mac mini Debian ; Dell1 ; GitHub",
+    "composants": "Registry/broker existants, Skill Lab SQLite, JSON Schema, MCP stdio",
+    "dependances": "Acquis11/11B/13F/21/22/23C/24 ;14A évaluée séparément"
+  },
+  {
+    "identifiant": "23C",
+    "nom": "Correction broker et autonomie des outils",
+    "fonction_principale": "Correction broker et autonomie des outils",
+    "objectifs": "Correction broker et autonomie des outils",
+    "materiel": "Mac mini Debian / Dell1",
+    "composants": "Backend existant / LiveKit selon mission",
+    "executant_reel": "JARVIS essais ; Codex infrastructure et vérification",
+    "documents_sources": [
+      {
+        "path": "docs/missions/24/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO — réserves de déploiement23C levées par24",
+    "resultats_prouves": "Déploiement, appels JARVIS et persistance reçus en24 ; réserves synthèse/autonomie distinctes",
+    "reserves": "Périmètre exact des rapports conservé",
+    "dependances": "Missions précédentes",
+    "prochaine_action": "Préserver acquis ; autonomie évaluée en25",
+    "derniere_actualisation": "2026-10-21"
+  },
+  {
+    "identifiant": "23D",
+    "nom": "Prototype vocal LiveKit et interruption",
+    "fonction_principale": "Prototype vocal LiveKit et interruption",
+    "objectifs": "Prototype vocal LiveKit et interruption",
+    "materiel": "Mac mini Debian / Dell1",
+    "composants": "Backend existant / LiveKit selon mission",
+    "executant_reel": "JARVIS essais ; Codex infrastructure et vérification",
+    "documents_sources": [
+      {
+        "path": "docs/missions/23D/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO prototype reçu — raccordement mémoire/outils incomplet",
+    "resultats_prouves": "Essais numériques conservés ; réception vocale du prototype confirmée par propriétaire ; pas d’intégration mémoire/outils globale",
+    "reserves": "Périmètre exact des rapports conservé",
+    "dependances": "Missions précédentes",
+    "prochaine_action": "Préserver acquis ; autonomie évaluée en25",
+    "derniere_actualisation": "2026-10-21"
   }
 ]

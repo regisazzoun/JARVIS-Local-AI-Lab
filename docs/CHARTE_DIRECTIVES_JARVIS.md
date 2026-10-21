@@ -127,3 +127,7 @@ Une étude ou un diagnostic effectivement terminé peut porter ✅ si son object
 ### Règle de consolidation des réserves historiques — décision du propriétaire du 19 octobre 2026
 
 Lorsqu'une mission postérieure démontre par un rapport et des preuves le critère resté ouvert d'une mission antérieure, afficher dans le tableau de pilotage **✅ GO — Réserves historiques levées par mission XX**, avec référence explicite aux missions ultérieures. Le rapport d'origine, son statut à sa date et les éventuelles limites hors critères couverts restent inchangés. Ne jamais inventer de test rétroactif, ni étendre une preuve à un autre matériel ou à un autre objectif. Si une réserve essentielle reste réellement ouverte, conserver **✅🟡** ou **🟡**, suivant les faits.
+
+## Mission25 — lancement propriétaire du21 octobre2026
+
+Réalisation autonome complète du MCP/Skill Lab autorisée sans validations intermédiaires. Étendre le broker/registre existants, puis faire tester/créer/corriger/réutiliser les compétences par JARVIS lui-même. Codex construit les pièces absentes et vérifie sans usurper la provenance des opérations. Préserver tous les acquis24, identités, services et mémoire ; aucun Dell2 ni fusion automatique.24=broker ; «24-Old Mémoire enrichie» reste reportée après25. La réception vocale23D déclarée par le propriétaire ne reçoit pas son raccordement mémoire/outils. Bilan14A distinct, sans clôture artificielle.

@@ -1,3 +1,7 @@
+## Consolidation documentaire25 —21 octobre2026
+
+Les réserves de déploiement/découverte de23C sont effectivement levées par les essais24 déjà reçus ; sa ligne de suivi est corrigée sans retest. Le registre courant réintègre23C/23D déjà présentes au tableau ;73 identifiants cohérents, historique00 conservé.
+
 ## Exécution mission25 —21 octobre2026
 
 🔄 Infrastructure déployée ; JARVIS inventorie, teste les skills et doit créer/corriger/réutiliser une compétence.14A demeure ouverte dans l’attente des preuves. [État initial](docs/missions/25/INVENTAIRE-INITIAL.md) · [Architecture](docs/missions/25/ARCHITECTURE.md). Aucun changement de24-Old ni raccordement vocal déclaré.

@@ -22,7 +22,7 @@ def main():
     subprocess.run([str(python),'-c','import jsonschema,mcp'],check=True)
     policy=Path('/etc/jarvis/host-policy.json');before=hashlib.sha256(policy.read_bytes()).hexdigest()
     backup.mkdir(parents=True,mode=0o700)
-    for source,target in [('jarvis/'+n,str(runtime/'jarvis'/n)) for n in ['skill_lab.py','mcp_gateway.py','tools.py']]+[('broker/host_bridge.py','/usr/local/lib/jarvis-host/host_bridge.py')]:
+    for source,target in [('jarvis/'+n,str(runtime/'jarvis'/n)) for n in ['skill_lab.py','mcp_gateway.py','tools.py','host_client.py']]+[('broker/host_bridge.py','/usr/local/lib/jarvis-host/host_bridge.py')]:
         src=repo/'agentic/engine_v2'/source;dst=Path(target)
         compile(src.read_text(),str(src),'exec')
         if dst.exists():shutil.copy2(dst,backup/dst.name)

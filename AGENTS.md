@@ -110,3 +110,9 @@ Une étude ou un diagnostic effectivement terminé peut porter ✅ si son object
 ### Règle de consolidation des réserves historiques — décision du propriétaire du 19 octobre 2026
 
 Lorsqu'une mission postérieure démontre par un rapport et des preuves le critère resté ouvert d'une mission antérieure, afficher dans le tableau de pilotage **✅ GO — Réserves historiques levées par mission XX**, avec référence explicite aux missions ultérieures. Le rapport d'origine, son statut à sa date et les éventuelles limites hors critères couverts restent inchangés. Ne jamais inventer de test rétroactif, ni étendre une preuve à un autre matériel ou à un autre objectif. Si une réserve essentielle reste réellement ouverte, conserver **✅🟡** ou **🟡**, suivant les faits.
+
+## Mission25 — MCP et Skill Lab lancée le21 octobre2026
+
+Le propriétaire autorise l'exécution complète sans validation intermédiaire. Codex coordonne, développe l'infrastructure manquante et vérifie ; JARVIS reste l'opérateur observable des essais, de la création/correction d'un skill et de sa seconde utilisation. Ne pas réattribuer à JARVIS les corrections Codex. Exécution persistante `4612213a05624836abec58385813439c`, branche `codex/mission-25-skill-lab`, [dossier25](docs/missions/25/MISSION.md). Ne pas recréer cette exécution ni les tâches déjà reçues.
+
+Acquis24 broker préservés ; ne pas refaire leur réception. Le prototype vocal23D est reçu par le propriétaire, mais son raccordement complet aux outils/mémoire est distinct et non réalisé par procuration. «24-Old Mémoire enrichie» reste planifiée après25. Aucun Dell2, réinstallation/RAID/partition, secret publié ou fusion main.14A n'est reçue que sur critères et preuves réels, avec bilan séparé.

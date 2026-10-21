@@ -40,3 +40,7 @@ Aucune fusion automatique dans main, aucun déploiement Dell2. Les documents de 
 ## Intervention corrective23 — LiveKit
 
 [Diagnostic](23/DIAGNOSTIC.md), [corrections](23/CORRECTIONS.md), [tests](23/TESTS.md). Lancement effectif du propriétaire et même exécution persistante conservée ; JARVIS reste développeur principal. Ce correctif dépend du moteur22 et ne lance pas JL-03 ni Dell2. Le cycle documentaire23–31 est conservé dans [sa référence](CYCLE-23-31.md).
+
+## Mission25 — MCP et Skill Lab
+
+Mission lancée, JARVIS opérateur réel : [état initial](25/INVENTAIRE-INITIAL.md), [architecture](25/ARCHITECTURE.md), [preuves](25/PREUVES-JARVIS.json), [installation](25/INSTALLATION-UTILISATION.md). Bilan14A distinct ;24-Old mémoire reste reportée.

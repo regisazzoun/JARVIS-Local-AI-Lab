@@ -27,9 +27,11 @@ def substitute(value, params):
     if isinstance(value, list):
         return [substitute(v, params) for v in value]
     if isinstance(value, str) and re.fullmatch(r'\$\{[a-zA-Z_][a-zA-Z_0-9]*\}', value):
-        return params[value[2:-1]]
+        key=value[2:-1]
+        if key not in params:raise ValueError('Parameter '+key+' missing; declare it in parameters schema and supply its value')
+        return params[key]
     if isinstance(value, str) and '${' in value:
-        raise ValueError('Parameter substitution must occupy the whole value; no shell interpolation')
+        raise ValueError('Partial template unsupported: '+repr(value)[:180]+'. For parameterized commands use host_exec arguments argv as an array, for example ["python3","/path/program.py","--input","${input_file}"]. Each parameter occupies a whole array element and must be declared in parameters schema. Or use a fixed command reading a fixed job file.')
     return value
 
 
@@ -178,7 +180,8 @@ class SkillLab:
         steps=[{**s,'arguments':substitute(s['arguments'],params),'checks':substitute(s.get('checks',[]),params)} for s in manifest['steps']]
         for s in steps:
             spec=self.registry.specs[s['tool']]
-            Draft202012Validator({'type':'object','properties':spec[1],'required':spec[2],'additionalProperties':False}).validate(s['arguments'])
+            from .tools import parameter_schema
+            Draft202012Validator(parameter_schema(s['tool'],spec)).validate(s['arguments'])
         run_id=run_id or uuid.uuid4().hex
         results=json.loads(old['steps']) if old else []
         if not old:

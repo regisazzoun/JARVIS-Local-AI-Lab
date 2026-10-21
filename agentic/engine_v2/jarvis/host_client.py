@@ -44,6 +44,16 @@ def register(registry):
         props={k:{'type':'string','maxLength':16000 if k in ('content','command') else 6000} for k in fields}
         def execute(args):
             # Host authority comes from root-owned broker policy, never from agent_mode or a prompt.
+            if name=='host_exec':
+                if 'argv' in args:
+                    import shlex
+                    if 'command' in args:raise ValueError('Provide argv OR command, never both')
+                    argv=args['argv']
+                    if not isinstance(argv,list) or not argv or any(not isinstance(v,str) or '\x00' in v for v in argv):raise ValueError('argv must be a nonempty list of NUL-free strings')
+                    args={k:v for k,v in args.items() if k!='argv'}
+                    args['command']=shlex.join(argv)
+                    if len(args['command'])>16000:raise ValueError('Encoded command exceeds16000 characters')
+                elif 'command' not in args:raise ValueError('host_exec requires command string OR argv array')
             response=request(name,args)
             result={**response['result'],'evidence_id':response['evidence_id']}
             if name=='capability_status':
@@ -68,6 +78,9 @@ def register(registry):
     spec('host_policy','Lire les autorisations hôte persistantes réellement accordées ; ne peut pas les modifier',[])
     spec('host_exec','Exécuter bash sur Debian réel comme adminjarvis dans les chemins hôte accordés. timeout optionnel en secondes (défaut 60, maximum 300), pour les tests réels plus longs. /usr réel lecture seule, secrets absents, réseau hôte disponible ; GitHub/SSH authentifiés via outils structurés. Pas de bus systemd ni de périphériques /dev dans ce confinement : pour journaux/états/GPU, utilise host_diagnostics, host_logs, host_service, host_resources. Ne conclus pas une panne à partir d’un accès absent ici. /tmp est neuf et éphémère à chaque appel ; conserve les fichiers de reprise dans write_roots. Les processus de ce shell meurent à la fin de l’appel ; utilise host_project_service pour un serveur durable accordé. Pas de sudo.', ['command'])
     registry.specs['host_exec'][1]['timeout']={'type':'integer','minimum':1,'maximum':300}
+    registry.specs['host_exec'][1]['argv']={'type':'array','minItems':1,'maxItems':256,'items':{'type':'string','maxLength':6000}}
+    old=registry.specs['host_exec']
+    registry.specs['host_exec']=(old[0]+' Alternative structurée : argv tableau de chaînes, exclusif avec command. Chaque argument est échappé littéralement ; dans un skill utiliser argv=["python3","/path/script.py","--input","${input_file}"] pour les paramètres, jamais une interpolation de fragment shell.',old[1],[],old[3],old[4])
     spec('host_read_file','Lire un fichier réel accordé. Pour source longue ou vue modèle excerptée : offset en caractères et limit=6000 ; next_offset permet la suite, source_sha256 vérifie même version. Sans pagination, lecture complète conservée pour réception des rapports. Les pages indépendantes sont admises en mission_read_batch.',['path'])
     registry.specs['host_read_file'][1].update(offset={'type':'integer'},limit={'type':'integer'})
     spec('host_write_file','Écrire/remplacer un fichier réel, créer les parents',['path','content'])

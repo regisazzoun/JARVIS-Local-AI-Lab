@@ -10,6 +10,18 @@ ROOT = Path('/opt/jarvis/conversation')
 EXPOSED = {'capability_status','host_service','host_logs','host_read_file','host_remote','host_ansible','skill_list','skill_run'}
 
 
+def is_mutating(arguments):
+    if arguments.get('action')!='call':return False
+    name=arguments.get('name')
+    value=json.loads(arguments.get('arguments','{}'))
+    if not isinstance(value,dict):raise ValueError('MCP arguments must be a JSON object')
+    if name=='skill_run':return True
+    if name=='host_service':return value.get('action') not in ('status','is-active','is-enabled')
+    if name=='host_ansible':return value.get('action') not in ('ping','resources')
+    if name=='host_remote':return value.get('action') not in ('identity','resources','services','proof','read_file','tailscale_status')
+    return False
+
+
 def build_registry():
     from .tools import Registry
     from .memory import Memory

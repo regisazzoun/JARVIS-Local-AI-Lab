@@ -66,15 +66,15 @@ L’intégration distante existe. En mission22, le routage interactif sur Mac, l
 
 ## 📊 Toutes les missions, avec le même comptage que SUIVI
 
-Le registre et le suivi comptent **68 identifiants**, dont **10 incréments natifs prévus, non exécutés**. Les regroupements et activités transversales ne créent pas de missions supplémentaires. Le catalogue ci-dessous reprend exactement les intitulés et états du tableau courant de SUIVI.
+Le registre et le suivi comptent **73 identifiants**, dont **10 incréments natifs prévus, non exécutés**. Les regroupements et activités transversales ne créent pas de missions supplémentaires. Le catalogue ci-dessous reprend exactement les intitulés et états du tableau courant de SUIVI.
 
 <details>
-<summary><strong>📋 Consulter les 68 missions et sous-missions</strong></summary>
+<summary><strong>📋 Consulter les 73 missions et sous-missions</strong></summary>
 
 <!-- BEGIN MISSION CATALOGUE -->
-## Catalogue des missions — 70 identifiants
+## Catalogue des missions — 73 identifiants
 
-**70 missions et sous-missions recensées**, dont dix incréments 15A/15B prévus, non exécutés. Cette liste reprend exactement les identifiants, intitulés et états du tableau courant de [SUIVI.md](SUIVI.md). Les lignes « 09 à 11 » (regroupement historique) et « Documentation » (activité transversale) ne sont pas des missions supplémentaires et ne sont pas comptées.
+**73 missions et sous-missions recensées**, dont dix incréments 15A/15B prévus, non exécutés. Cette liste reprend exactement les identifiants, intitulés et états du tableau courant de [SUIVI.md](SUIVI.md). Les lignes « 09 à 11 » (regroupement historique) et « Documentation » (activité transversale) ne sont pas des missions supplémentaires et ne sont pas comptées.
 
 | Mission | Objet / étapes | État |
 | --- | --- | --- |
@@ -150,6 +150,12 @@ Le registre et le suivi comptent **68 identifiants**, dont **10 incréments nati
 | **22** | JARVIS Agentic Engine V2 — fiabilisation et autonomie | 🟡 GO AVEC RÉSERVES — mission21 clôturée |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
+| **25** | MCP et Skill Lab exécutables | 🔄 En cours — JARVIS opérateur |
+| **09 à 11** | Regroupement historique — détaillé ci-dessous | 📋 Rapports retrouvés et réconciliés |
+| **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu |
+| **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves |
+| **23C** | Correction du broker et autonomie des outils | ✅ GO — déploiement et essais reçus par24 |
+
 <!-- END MISSION CATALOGUE -->
 
 </details>

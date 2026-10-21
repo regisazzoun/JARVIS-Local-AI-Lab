@@ -38,7 +38,7 @@
 
 ## Vue d'ensemble — toutes les missions
 
-**70 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--70-identifiants) reprend les mêmes missions et états.
+**73 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--73-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
@@ -75,7 +75,7 @@
 | **JL-02** | LauncherV2 — conversation et supervision agentique | 🟡 Livrée — GO AVEC RÉSERVES | SiteV2publié ; Qwenoutilsréels,voix synthétique,métriques etévénements testés ; espaceconnecté confirmé propriétaire | Suivre réserves nativesetfiabilitéagentique ; préserver V1 |
 | **Documentation** | Rapports, roadmap, gouvernance | 🔄 En continu | Synthèse, débrief 13F et cahiers 15A/15B présents | Synchroniser `SUIVI.md` après chaque changement d'état |
 | **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves | 6 exécutions initiales +3 retests ; coupures0,727/0,559/0,717s, Stop actif0,6ms ; broker24 conservé | Acoustique/écho physique et fiabilité STT ; [réception](docs/missions/23D/RAPPORT-FINAL.md) |
-| **23C** | Correction du broker et autonomie des outils | 🟡 En cours / partiel | Diagnostic statique et candidat outillage Codex ; accès au broker/API interdit avant réponse dans cette session | [Suivi23C](docs/missions/23C/RAPPORT-FINAL.md) ; exécution JARVIS, déploiement et persistance non reçus ;23 LiveKit reste NO-GO |
+| **23C** | Correction du broker et autonomie des outils | ✅ GO — déploiement et essais reçus par24 | Historique23C conservé ; transport, découverte et persistance validés en24 | Conserver les réserves d’autonomie, traitées en25 ; [réception24](docs/missions/24/RAPPORT-FINAL.md) |
 | **00** | Audit général et concordance documentaire | ✅ GO avec réserves | 68 missions, 28 anomalies ; 671 fichiers inventoriés par JARVIS ; 129 documents/preuves récupérés ; analyses guidées et corrigées | Publiée dans main le 18/10 ; maintenir le pilotage et les réserves agentiques |
 | **01** | Audit de JARVIS | 🟡 PARTIEL | Audit matériel en lecture seule ; accès hôte limité par le bac à sable. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
 | **02** | Configuration Apple T2 et administration Debian | 🟡 PARTIEL | Préparer Debian et le support T2 ; validation complète différée. | [Fiche, sources et réserves](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) ; Retrouver le verdict et les preuves manquantes |
@@ -177,6 +177,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-21 | 23C / registre | Réserves de déploiement23C levées par24 sans nouveau test ;23C/23D réintégrées au registre,73 identifiants cohérents | [Réception24](docs/missions/24/RAPPORT-FINAL.md) · [Référentiel25](docs/missions/25/REFERENTIEL-LU.md) |
 | 2026-10-21 | 25 | Mission lancée, infrastructure installée, opérateur JARVIS persistant ;14A ouverte | [Inventaire mesuré](docs/missions/25/INVENTAIRE-INITIAL.md) · [Architecture](docs/missions/25/ARCHITECTURE.md) |
 | 2026-10-17 | 00 — pilotage | Réconciliation archives/branches ; rapports 08–11/13E retrouvés ; séparation 13D-E/14A/14,11/11B et JL-02 ; historique préservé | [Rapport 00](docs/missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Anomalies](docs/missions/00-Mission-Pilotage-point-26-10-17/ANOMALIES-DOCUMENTAIRES.md) |
 | 2026-10-16 | 13D-E — installation autonome | Propriétaire autorise réseau/effacement/reboot/administration ; seul lancement PXE humain ; qualification RAID/EFI et deux boots isolés acquise, image réelle préparée | [Prompt prioritaire](docs/missions/13D-E/PROMPT-INSTALLATION-AUTONOME.md) · [Tests](docs/missions/13D-E/TESTS.md) |
