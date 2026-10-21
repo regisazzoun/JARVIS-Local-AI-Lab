@@ -2,7 +2,7 @@
 
 **Décision propriétaire du 21 octobre 2026 — 📋 planifiée, non lancée.** Toute la réalisation, l'intégration, le déploiement et la validation de ces couches constituent **une seule mission indivisible dans sa réception globale**, et non quatre missions ou études séparées. La référence historique « mission 24 — mémoire » est conservée ; le numéro **24** a depuis été affecté au rétablissement du broker, déjà réceptionné. **Le propriétaire fixe le libellé « 24-Old Mémoire enrichie » et décide de lancer la mission 25 avant celle-ci.** Le n° 24 sans suffixe reste affecté au broker ; aucune mission 26–31 n'est renumérotée.
 
-**Priorité actualisée :** mission 25 MCP & Skills d'abord, puis cette mission unifiée ; état inchangé 📋 planifiée.
+**Priorité la plus récente (21 octobre 2026) :** mission25 reçue → mission26 Mission Engine → épreuve finale14A (distincte, différée) → **24-Old Mémoire enrichie** → mission27 JL-03 ; cette mission reste 📋 planifiée, non lancée.
 
 ## Finalité
 
