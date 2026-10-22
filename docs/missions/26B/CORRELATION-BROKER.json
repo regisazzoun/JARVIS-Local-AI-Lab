@@ -293,7 +293,7 @@
     {
       "scenario": "C",
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
-      "matched_calls": 21,
+      "matched_calls": 23,
       "all_records_match": true,
       "calls": [
         {
@@ -568,6 +568,32 @@
           "returncode_matches": true,
           "stdout_matches": true,
           "broker_receipt_sha256": "15634b1b3c9dbca4418196fea103d62f5b2cf552c875251894cf57f114995662"
+        },
+        {
+          "invocation": "8011881254594de18c2246507b96097e",
+          "task": "T1",
+          "tool": "host_read_file",
+          "evidence_id": "0d582295991149599d0641553fcddc64",
+          "broker_record_exists": true,
+          "broker_operation": "host_read_file",
+          "broker_caller": "JARVIS-runtime",
+          "returncode": 0,
+          "returncode_matches": true,
+          "stdout_matches": true,
+          "broker_receipt_sha256": "f2267065f309e8e6d795622e1cb23a47217c9a07a3dc162d9b1a590e7e1a6b9a"
+        },
+        {
+          "invocation": "62cc3349c5084bfb8d5a507534e056c5",
+          "task": "T1",
+          "tool": "host_read_file",
+          "evidence_id": "d8a5411366f24f3bbb462497efc2be58",
+          "broker_record_exists": true,
+          "broker_operation": "host_read_file",
+          "broker_caller": "JARVIS-runtime",
+          "returncode": 0,
+          "returncode_matches": true,
+          "stdout_matches": true,
+          "broker_receipt_sha256": "b04be4575d52c64c2d060073cd94a17253b67ae4bab4eb3763222997b4cacc5e"
         }
       ]
     }

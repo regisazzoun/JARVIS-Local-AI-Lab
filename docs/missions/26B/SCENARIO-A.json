@@ -2,9 +2,9 @@
   "scenario": "A",
   "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
   "raw_goal": "À partir de stocks.csv dans /var/lib/jarvis/projects/mission26b/A, fournis un bilan JSON summary.json donnant exactement le nombre de lignes d’articles et la somme entière des quantités, ainsi qu’un manifeste manifest.json contenant l’empreinte SHA256 réelle de ce bilan. Je veux pouvoir vérifier la cohérence entre les deux fichiers et disposer d’un rapport explicatif final fondé sur les preuves. Les entrées restent intactes. L’objectif est un lot documentaire technique exploitable, pas seulement une annonce de création.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
-  "state": "queued",
+  "state": "running",
   "created": 1792620526.6577399,
-  "updated": 1792658288.6847734,
+  "updated": 1792659253.2568738,
   "tasks": [
     {
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
@@ -13,7 +13,7 @@
       "deps": [],
       "state": "running",
       "evidence": [],
-      "updated": 1792625238.5508335,
+      "updated": 1792658832.7821789,
       "objective": "Lire stocks.csv et confirmer le contenu exact",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
@@ -46,7 +46,7 @@
       ],
       "state": "pending",
       "evidence": [],
-      "updated": 1792625238.5509312,
+      "updated": 1792658832.7822146,
       "objective": "Écrire summary.json avec les données extraites",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
@@ -86,7 +86,7 @@
       ],
       "state": "pending",
       "evidence": [],
-      "updated": 1792625238.55097,
+      "updated": 1792658832.7822304,
       "objective": "Calculer empreinte SHA256 de summary.json et écrire manifest.json",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
@@ -125,7 +125,7 @@
       ],
       "state": "pending",
       "evidence": [],
-      "updated": 1792625238.551009,
+      "updated": 1792658832.782243,
       "objective": "Vérifier cohérence entre manifest.json et summary.json",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T4.md",
@@ -164,7 +164,7 @@
       ],
       "state": "pending",
       "evidence": [],
-      "updated": 1792625238.5510287,
+      "updated": 1792658832.7822535,
       "objective": "Confirmer que stocks.csv reste intact après toutes les opérations",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T5.md",
@@ -190,16 +190,17 @@
     },
     {
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "id": "T6",
+      "id": "T7",
       "title": "Rédaction du rapport final explicatif",
       "deps": [
         "T4",
-        "T5"
+        "T5",
+        "T8"
       ],
       "state": "pending",
       "evidence": [],
-      "updated": 1792625238.5510483,
-      "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites",
+      "updated": 1792658832.7822914,
+      "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la preuve technique des permissions de T8",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
         "semantic": [
@@ -223,24 +224,23 @@
     },
     {
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "id": "T7",
-      "title": "Rédaction du rapport final explicatif",
+      "id": "T8",
+      "title": "Vérification technique des permissions Debian",
       "deps": [
-        "T4",
-        "T5"
+        "T3"
       ],
       "state": "pending",
       "evidence": [],
-      "updated": 1792625238.5510662,
-      "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la conservation des permissions Debian par défaut",
+      "updated": 1792658832.78226,
+      "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la pour preuve technique R7",
       "contract": {
-        "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+        "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
         "semantic": [
           {
             "kind": "report",
             "source": {
               "arguments": {
-                "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
               },
               "tool": "host_read_file"
             }
@@ -1398,11 +1398,310 @@
       },
       "sha256": "392877b7f931dcceb6cb3c87241416eb39165b9572c4e57d4ef7662a91403937",
       "created": 1792625238.5510752
+    },
+    {
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "version": 5,
+      "author": "JARVIS",
+      "reason": "Remplacement complet du plan pour : (1) Éliminer la collision T6/T7 en retirant T6 redondante. (2) Ajouter T8 pour preuve technique des permissions Debian via host_exec ls -la, répondant à R7 qui exige une observation réelle et non déclarative.",
+      "plan": {
+        "artifacts": [
+          "/var/lib/jarvis/projects/mission26b/A/summary.json",
+          "/var/lib/jarvis/projects/mission26b/A/manifest.json",
+          "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+          "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+        ],
+        "objective": "Extraire de stocks.csv le nombre exact de lignes d'articles et la somme entière des quantités dans summary.json, puis générer manifest.json contenant l'empreinte SHA256 réelle de summary.json pour un lot documentaire exploitable avec vérification de cohérence et preuve technique des permissions.",
+        "stop_conditions": [
+          "Échec lecture stocks.csv",
+          "Impossibilité écriture fichiers autorisés",
+          "Divergence non corrigée empreinte",
+          "Permissions Debian altérées"
+        ],
+        "success_criteria": [
+          "summary.json contient 3 lignes articles et somme 12",
+          "manifest.json contient l'empreinte SHA256 exacte de summary.json",
+          "Vérification cohérence entre les deux fichiers réussie",
+          "stocks.csv reste intact",
+          "Permissions Debian conservées par défaut (0644)",
+          "Toutes les exigences R1-R7 couvertes techniquement"
+        ],
+        "tasks": [
+          {
+            "artifacts": [
+              "donnees_brutes: lines_articles=3, somme_quantites=12"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+              "semantic": [
+                {
+                  "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                  "kind": "text",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [],
+            "id": "T1",
+            "objective": "Lire stocks.csv et confirmer le contenu exact",
+            "observations": [
+              "Fichier CSV avec en-tête article,quantite",
+              "3 lignes de données: alpha(3), beta(4), gamma(5)",
+              "Somme des quantités: 3+4+5=12"
+            ],
+            "recovery": "Relire le fichier si tronqué",
+            "title": "Lecture et analyse de stocks.csv",
+            "tools": [
+              "host_read_file"
+            ],
+            "verification": "Contenu identique à la lecture initiale"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/summary.json"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+              "semantic": [
+                {
+                  "expected": {
+                    "/lines_articles": 3,
+                    "/somme_quantites": 12
+                  },
+                  "kind": "json",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                    },
+                    "tool": "host_read_file"
+                  },
+                  "types": {
+                    "/lines_articles": "integer",
+                    "/somme_quantites": "integer"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T1"
+            ],
+            "id": "T2",
+            "objective": "Écrire summary.json avec les données extraites",
+            "observations": [
+              "Contenu JSON: {\"lines_articles\": 3, \"somme_quantites\": 12}"
+            ],
+            "recovery": "Réécrire le fichier si validation échoue",
+            "title": "Création de summary.json",
+            "tools": [
+              "host_write_file"
+            ],
+            "verification": "Fichier existe avec valeurs exactes"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
+              "semantic": [
+                {
+                  "expected": {
+                    "/file": "summary.json"
+                  },
+                  "kind": "json",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                    },
+                    "tool": "host_read_file"
+                  },
+                  "types": {
+                    "/file": "string",
+                    "/sha256": "string"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T2"
+            ],
+            "id": "T3",
+            "objective": "Calculer empreinte SHA256 de summary.json et écrire manifest.json",
+            "observations": [
+              "Utiliser sha256sum pour obtenir l'empreinte hexadécimale 64 caractères",
+              "Écrire {\"file\": \"summary.json\", \"sha256\": \"<empreinte>\"} dans manifest.json"
+            ],
+            "recovery": "Recalculer et réécrire si validation échoue",
+            "title": "Calcul empreinte et création de manifest.json",
+            "tools": [
+              "host_exec",
+              "host_write_file"
+            ],
+            "verification": "manifest.json contient sha256 non vide"
+          },
+          {
+            "artifacts": [
+              "verification_cohérence: PASS"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T4.md",
+              "semantic": [
+                {
+                  "baseline_source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                    },
+                    "tool": "host_read_file"
+                  },
+                  "field": "/sha256",
+                  "kind": "digest",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T3"
+            ],
+            "id": "T4",
+            "objective": "Vérifier cohérence entre manifest.json et summary.json",
+            "observations": [
+              "Comparaison empreinte déclarée dans manifest.json vs calculée réelle de summary.json"
+            ],
+            "recovery": "Regénérer manifest.json si divergence",
+            "title": "Vérification de cohérence des fichiers",
+            "tools": [
+              "host_read_file",
+              "host_exec"
+            ],
+            "verification": "Empreintes identiques"
+          },
+          {
+            "artifacts": [
+              "intégrité_stocks.csv: PRÉSERVÉE"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T5.md",
+              "semantic": [
+                {
+                  "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                  "kind": "text",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T1"
+            ],
+            "id": "T5",
+            "objective": "Confirmer que stocks.csv reste intact après toutes les opérations",
+            "observations": [
+              "Relire et comparer avec lecture initiale T1"
+            ],
+            "recovery": "Aucune correction possible si modifié - rapport d'incident",
+            "title": "Vérification intégrité de stocks.csv",
+            "tools": [
+              "host_read_file"
+            ],
+            "verification": "Contenu identique à la première lecture"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T3"
+            ],
+            "id": "T8",
+            "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la pour preuve technique R7",
+            "observations": [
+              "Commande 'ls -la /var/lib/jarvis/projects/mission26b/A/' produira listing avec permissions octales et symboliques",
+              "Les écritures host_write_file créent des fichiers avec permissions standards 0644 (-rw-r--r--) non destructives",
+              "Ce rapport technique est la preuve exigée par R7"
+            ],
+            "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte dans le rapport",
+            "title": "Vérification technique des permissions Debian",
+            "tools": [
+              "host_exec",
+              "host_write_file"
+            ],
+            "verification": "Rapport listant les permissions (-rw-r--r--) et confirmant leur conservation par défaut"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T4",
+              "T5",
+              "T8"
+            ],
+            "id": "T7",
+            "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la preuve technique des permissions de T8",
+            "observations": [
+              "Sources: stocks.csv lu (evidence T1), summary.json créé (T2), manifest.json créé (T3) avec empreinte SHA256",
+              "Vérifications: cohérence T4, intégrité T5, permissions techniques T8",
+              "Erreurs historiques: plan initial v1 sans tâche rapport final, collisions report_path corrigées v2b-v3, omission R7 corrigée ici",
+              "Limites: périmètre strict mission26b/A, pas de validation externe requise"
+            ],
+            "recovery": "Ajouter sections manquantes si audit échoue (preuves absentes, références incomplètes)",
+            "title": "Rédaction du rapport final explicatif",
+            "tools": [
+              "host_write_file"
+            ],
+            "verification": "Rapport complet avec sections: contexte, méthodes, résultats, empreintes, preuves techniques permissions, références invocations, limitations"
+          }
+        ]
+      },
+      "sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+      "created": 1792658832.782297
     }
   ],
   "coverage": {
     "accepted": false,
-    "current_version": 4,
+    "current_version": 5,
     "requirements": {
       "author": "JARVIS-reviewer",
       "contract_version": "26b.4",
@@ -1481,81 +1780,22 @@
     },
     "review": {
       "author": "JARVIS-reviewer",
-      "contract_version": "26b.4",
-      "coverage": [
-        {
-          "covered": true,
-          "reason": "T2 écrit summary.json avec lines_articles=3 (entier) extrait de stocks.csv, vérifié par contrat sémantique JSON.",
-          "requirement": "R1",
-          "tasks": [
-            "T2"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "T2 écrit summary.json avec somme_quantites=12 (entier), somme correcte des quantités alpha(3)+beta(4)+gamma(5).",
-          "requirement": "R2",
-          "tasks": [
-            "T2"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "T3 calcule l'empreinte SHA256 réelle de summary.json et l'écrit dans manifest.json, vérifié par T4.",
-          "requirement": "R3",
-          "tasks": [
-            "T3"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "T7 produit rapport_final.md fondé sur preuves (invocations T1-T5), incluant cohérence T4 et erreurs historiques (v1-v3), répondant à l'exigence de rapport explicatif.",
-          "requirement": "R4",
-          "tasks": [
-            "T7"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "T5 relit stocks.csv et compare au contenu initial (T1), garantissant l'intégrité des entrées sans modification.",
-          "requirement": "R5",
-          "tasks": [
-            "T5"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "Toutes les tâches opèrent exclusivement dans /var/lib/jarvis/projects/mission26b/A et n'accèdent qu'aux fichiers autorisés.",
-          "requirement": "R6",
-          "tasks": [
-            "T1",
-            "T2",
-            "T3",
-            "T4",
-            "T5",
-            "T7"
-          ]
-        },
-        {
-          "covered": false,
-          "reason": "Le plan ne prévoit aucune tâche de vérification technique des permissions Debian (ex: host_exec ls -la). T7 mentionne la conservation déclarative mais sans preuve d'observation concrète via un outil, ce qui est insuffisant face à l'exigence de 'preuvelot documentaire technique exploitable'.",
-          "requirement": "R7",
-          "tasks": []
-        }
-      ],
+      "contract_version": "26b.6",
+      "coverage": [],
       "goal_sha256": "d3c3f523480c786557e884e4e94828b2121351a4138197dacedacbb9870e8610",
       "issues": [
-        "Omission critique R7 : Aucune tâche ne vérifie techniquement les permissions des fichiers créés (summary.json, manifest.json, rapport_final.md). L'objectif exige un lot documentaire technique avec preuves ; une déclaration dans T7 sans invocation d'outil de listing (host_exec) ne constitue pas une preuve observable.",
-        "Report artifact collision: T7 and T6 share /var/lib/jarvis/projects/mission26b/A/rapport_final.md. Use distinct task report paths so received hashes remain reproducible.",
-        "R7: Le plan ne prévoit aucune tâche de vérification technique des permissions Debian (ex: host_exec ls -la). T7 mentionne la conservation déclarative mais sans preuve d'observation concrète via un outil, ce qui est insuffisant face à l'exigence de 'preuvelot documentaire technique exploitable'."
+        "La tâche T8 génère rapport_permissions.md avec les preuves techniques des permissions, mais le rapport_final.md (T7) dépend de T8 sans inclure explicitement une tâche d'intégration ou de référence croisée qui assure que ces preuves sont effectivement citées et synthétisées dans le document final comme exigé par R4 et l'objectif.",
+        "Le plan évolutif montre des incohérences historiques : les versions 3 et 4 contiennent deux tâches (T6, T7) produisant toutes deux rapport_final.md avant la correction en v5. Bien que corrigées dans le plan final, l'absence de trace explicite de cette réconciliation dans les observations de T7 peut compromettre la traçabilité des erreurs historiques demandée par l'objectif.",
+        "La vérification de R6 (travail limité au répertoire) n'est pas explicitement couverte par une tâche dédiée ou un contrat de validation contraignant qui attesterait que toutes les opérations s'exécutent strictement dans le périmètre défini, reposant uniquement sur l'observation des chemins dans les tâches.",
+        "Review must address every extracted requirement exactly once"
       ],
-      "plan_sha256": "392877b7f931dcceb6cb3c87241416eb39165b9572c4e57d4ef7662a91403937",
-      "plan_version": 4,
+      "plan_sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+      "plan_version": 5,
       "requirements_sha256": "d4af787717cd76aab2cd075bcc4bdbd3d90ba0d2a3e5fe3f0286d96628dd799e",
       "requirements_version": 3,
       "status": "FAIL"
     },
-    "contract_version": "26b.5"
+    "contract_version": "26b.6"
   },
   "observations": [
     {
@@ -9261,6 +9501,1133 @@
       },
       "created": 1792625238.4175515,
       "updated": 1792625262.7351215
+    },
+    {
+      "id": "3e50d353bc294c1ab64cc7cd3d4c4223",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "ad35090361f45ae525ad8ddd03e326a7f27dd94ce689b48bbac8c30924231ba4",
+      "tool": "mission_plan",
+      "arguments": {
+        "append": true,
+        "expected_version": 4,
+        "reason": "Correction des deux défauts bloquants : (1) Suppression de T6 redondante pour éliminer la collision avec T7 sur rapport_final.md. (2) Ajout de T8 qui utilise host_exec 'ls -la' pour observer techniquement les permissions Debian des fichiers créés (summary.json, manifest.json, rapport_final.md), répondant à l'exigence R7 de preuve d'un lot documentaire technique exploitable avec conservation des autorisations réelles.",
+        "tasks": [
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "T8",
+            "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la",
+            "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte",
+            "title": "Vérification technique des permissions Debian",
+            "tools": [
+              "host_exec",
+              "host_write_file"
+            ],
+            "verification": "Rapport listant les permissions (drwxr-xr-x / -rw-r--r--) et confirmant leur conservation par défaut"
+          }
+        ]
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.007,
+        "error": "Schema mission_plan at /tasks/0: 'id' is a required property. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+        "ok": false,
+        "tool": "mission_plan"
+      },
+      "created": 1792658707.3229184,
+      "updated": 1792658707.5060139
+    },
+    {
+      "id": "8e951daad3de4c9c9a94dd21400ea257",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "d8b4411792d1260c0c55dadc82d103b9509877d6ba5772547f9d2c182b811a2c",
+      "tool": "mission_plan",
+      "arguments": {
+        "expected_version": 4,
+        "patch": true,
+        "reason": "Correction des deux défauts bloquants : (1) Suppression de T6 redondante pour éliminer la collision avec T7 sur rapport_final.md. (2) Ajout de T8 qui utilise host_exec 'ls -la' pour observer techniquement les permissions Debian des fichiers générés, répondant à l'exigence R7 de preuve technique d'un lot documentaire exploitable.",
+        "tasks": [
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T4",
+              "T5"
+            ],
+            "id": "T7",
+            "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la conservation des permissions Debian par défaut documentées par T8",
+            "observations": [
+              "Sources: stocks.csv lu (evidence T1), summary.json créé (T2), manifest.json créé (T3) avec empreinte SHA256",
+              "Vérifications: cohérence T4, intégrité T5, permissions T8",
+              "Erreurs historiques: plan initial v1 sans tâche rapport final, collisions report_path corrigées v2b-v3",
+              "Limites: périmètre strict mission26b/A, pas de validation externe requise"
+            ],
+            "recovery": "Ajouter sections manquantes si audit échoue (preuves absentes, références incomplètes)",
+            "title": "Rédaction du rapport final explicatif",
+            "tools": [
+              "host_write_file"
+            ],
+            "verification": "Rapport complet avec sections: contexte, méthodes, résultats, empreintes, références invocations, limitations"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T3"
+            ],
+            "id": "T8",
+            "objective": "Observer et documenter les permissions Debian réelles des fichiers générés (summary.json, manifest.json) via host_exec ls -la pour preuve technique R7",
+            "observations": [
+              "Commande 'ls -la /var/lib/jarvis/projects/mission26b/A/' produira listing avec permissions octales et symboliques",
+              "Les écritures host_write_file créent des fichiers avec permissions standards 0644 (-rw-r--r--) non destructives",
+              "Ce rapport technique est la preuve exigée par R7"
+            ],
+            "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte dans le rapport",
+            "title": "Vérification technique des permissions Debian",
+            "tools": [
+              "host_exec",
+              "host_write_file"
+            ],
+            "verification": "Rapport listant les permissions (-rw-r--r--) et confirmant leur conservation par défaut sans intervention manuelle"
+          }
+        ]
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.006,
+        "error": "patch requires existing ids; use append:true for new tasks",
+        "ok": false,
+        "tool": "mission_plan"
+      },
+      "created": 1792658743.4023182,
+      "updated": 1792658743.573385
+    },
+    {
+      "id": "b9f8906854f84ff68db8db4201d13ecd",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "fda759694ac2408ff1216d5afa8fb234240d2e4a31bd7be83d46e9961b4b6595",
+      "tool": "mission_plan",
+      "arguments": {
+        "expected_version": 4,
+        "metadata": {
+          "artifacts": [
+            "/var/lib/jarvis/projects/mission26b/A/summary.json",
+            "/var/lib/jarvis/projects/mission26b/A/manifest.json",
+            "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+            "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+          ],
+          "objective": "Extraire de stocks.csv le nombre exact de lignes d'articles et la somme entière des quantités dans summary.json, puis générer manifest.json contenant l'empreinte SHA256 réelle de summary.json pour un lot documentaire exploitable avec vérification de cohérence et preuve technique des permissions.",
+          "stop_conditions": [
+            "Échec lecture stocks.csv",
+            "Impossibilité écriture fichiers autorisés",
+            "Divergence non corrigée empreinte",
+            "Permissions Debian altérées"
+          ],
+          "success_criteria": [
+            "summary.json contient 3 lignes articles et somme 12",
+            "manifest.json contient l'empreinte SHA256 exacte de summary.json",
+            "Vérification cohérence entre les deux fichiers réussie",
+            "stocks.csv reste intact",
+            "Permissions Debian conservées par défaut (0644)",
+            "Toutes les exigences R1-R7 couvertes techniquement"
+          ]
+        },
+        "reason": "Remplacement complet du plan pour : (1) Éliminer la collision T6/T7 en retirant T6 redondante. (2) Ajouter T8 pour preuve technique des permissions Debian via host_exec ls -la, répondant à R7 qui exige une observation réelle et non déclarative.",
+        "tasks": [
+          {
+            "artifacts": [
+              "donnees_brutes: lines_articles=3, somme_quantites=12"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+              "semantic": [
+                {
+                  "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                  "kind": "text",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [],
+            "id": "T1",
+            "objective": "Lire stocks.csv et confirmer le contenu exact",
+            "observations": [
+              "Fichier CSV avec en-tête article,quantite",
+              "3 lignes de données: alpha(3), beta(4), gamma(5)",
+              "Somme des quantités: 3+4+5=12"
+            ],
+            "recovery": "Relire le fichier si tronqué",
+            "title": "Lecture et analyse de stocks.csv",
+            "tools": [
+              "host_read_file"
+            ],
+            "verification": "Contenu identique à la lecture initiale"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/summary.json"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+              "semantic": [
+                {
+                  "expected": {
+                    "/lines_articles": 3,
+                    "/somme_quantites": 12
+                  },
+                  "kind": "json",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                    },
+                    "tool": "host_read_file"
+                  },
+                  "types": {
+                    "/lines_articles": "integer",
+                    "/somme_quantites": "integer"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T1"
+            ],
+            "id": "T2",
+            "objective": "Écrire summary.json avec les données extraites",
+            "observations": [
+              "Contenu JSON: {\"lines_articles\": 3, \"somme_quantites\": 12}"
+            ],
+            "recovery": "Réécrire le fichier si validation échoue",
+            "title": "Création de summary.json",
+            "tools": [
+              "host_write_file"
+            ],
+            "verification": "Fichier existe avec valeurs exactes"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
+              "semantic": [
+                {
+                  "expected": {
+                    "/file": "summary.json"
+                  },
+                  "kind": "json",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                    },
+                    "tool": "host_read_file"
+                  },
+                  "types": {
+                    "/file": "string",
+                    "/sha256": "string"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T2"
+            ],
+            "id": "T3",
+            "objective": "Calculer empreinte SHA256 de summary.json et écrire manifest.json",
+            "observations": [
+              "Utiliser sha256sum pour obtenir l'empreinte hexadécimale 64 caractères",
+              "Écrire {\"file\": \"summary.json\", \"sha256\": \"<empreinte>\"} dans manifest.json"
+            ],
+            "recovery": "Recalculer et réécrire si validation échoue",
+            "title": "Calcul empreinte et création de manifest.json",
+            "tools": [
+              "host_exec",
+              "host_write_file"
+            ],
+            "verification": "manifest.json contient sha256 non vide"
+          },
+          {
+            "artifacts": [
+              "verification_cohérence: PASS"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T4.md",
+              "semantic": [
+                {
+                  "baseline_source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                    },
+                    "tool": "host_read_file"
+                  },
+                  "field": "/sha256",
+                  "kind": "digest",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T3"
+            ],
+            "id": "T4",
+            "objective": "Vérifier cohérence entre manifest.json et summary.json",
+            "observations": [
+              "Comparaison empreinte déclarée dans manifest.json vs calculée réelle de summary.json"
+            ],
+            "recovery": "Regénérer manifest.json si divergence",
+            "title": "Vérification de cohérence des fichiers",
+            "tools": [
+              "host_read_file",
+              "host_exec"
+            ],
+            "verification": "Empreintes identiques"
+          },
+          {
+            "artifacts": [
+              "intégrité_stocks.csv: PRÉSERVÉE"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T5.md",
+              "semantic": [
+                {
+                  "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                  "kind": "text",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T1"
+            ],
+            "id": "T5",
+            "objective": "Confirmer que stocks.csv reste intact après toutes les opérations",
+            "observations": [
+              "Relire et comparer avec lecture initiale T1"
+            ],
+            "recovery": "Aucune correction possible si modifié - rapport d'incident",
+            "title": "Vérification intégrité de stocks.csv",
+            "tools": [
+              "host_read_file"
+            ],
+            "verification": "Contenu identique à la première lecture"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T3"
+            ],
+            "id": "T8",
+            "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la pour preuve technique R7",
+            "observations": [
+              "Commande 'ls -la /var/lib/jarvis/projects/mission26b/A/' produira listing avec permissions octales et symboliques",
+              "Les écritures host_write_file créent des fichiers avec permissions standards 0644 (-rw-r--r--) non destructives",
+              "Ce rapport technique est la preuve exigée par R7"
+            ],
+            "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte dans le rapport",
+            "title": "Vérification technique des permissions Debian",
+            "tools": [
+              "host_exec",
+              "host_write_file"
+            ],
+            "verification": "Rapport listant les permissions (-rw-r--r--) et confirmant leur conservation par défaut"
+          },
+          {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+            ],
+            "contract": {
+              "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+              "semantic": [
+                {
+                  "kind": "report",
+                  "source": {
+                    "arguments": {
+                      "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                    },
+                    "tool": "host_read_file"
+                  }
+                }
+              ]
+            },
+            "depends": [
+              "T4",
+              "T5",
+              "T8"
+            ],
+            "id": "T7",
+            "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la preuve technique des permissions de T8",
+            "observations": [
+              "Sources: stocks.csv lu (evidence T1), summary.json créé (T2), manifest.json créé (T3) avec empreinte SHA256",
+              "Vérifications: cohérence T4, intégrité T5, permissions techniques T8",
+              "Erreurs historiques: plan initial v1 sans tâche rapport final, collisions report_path corrigées v2b-v3, omission R7 corrigée ici",
+              "Limites: périmètre strict mission26b/A, pas de validation externe requise"
+            ],
+            "recovery": "Ajouter sections manquantes si audit échoue (preuves absentes, références incomplètes)",
+            "title": "Rédaction du rapport final explicatif",
+            "tools": [
+              "host_write_file"
+            ],
+            "verification": "Rapport complet avec sections: contexte, méthodes, résultats, empreintes, preuves techniques permissions, références invocations, limitations"
+          }
+        ]
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 19.717,
+        "ok": true,
+        "result": {
+          "coverage": {
+            "author": "JARVIS-reviewer",
+            "contract_version": "26b.5",
+            "coverage": [
+              {
+                "covered": true,
+                "reason": "T2 écrit summary.json avec le champ lines_articles=3 (integer) vérifié par contrat sémantique.",
+                "requirement": "R1",
+                "tasks": [
+                  "T2"
+                ]
+              },
+              {
+                "covered": true,
+                "reason": "T2 écrit summary.json avec le champ somme_quantites=12 (integer) vérifié par contrat sémantique.",
+                "requirement": "R2",
+                "tasks": [
+                  "T2"
+                ]
+              },
+              {
+                "covered": true,
+                "reason": "T3 calcule l'empreinte SHA256 de summary.json et l'écrit dans manifest.json.",
+                "requirement": "R3",
+                "tasks": [
+                  "T3"
+                ]
+              },
+              {
+                "covered": true,
+                "reason": "T7 produit rapport_final.md synthétisant les preuves de T1 à T5 et T8 pour la vérification de cohérence.",
+                "requirement": "R4",
+                "tasks": [
+                  "T7"
+                ]
+              },
+              {
+                "covered": true,
+                "reason": "T5 relit stocks.csv après les opérations et compare le contenu à la lecture initiale (T1) pour confirmer l'intégrité.",
+                "requirement": "R5",
+                "tasks": [
+                  "T5"
+                ]
+              },
+              {
+                "covered": true,
+                "reason": "Toutes les tâches opèrent exclusivement dans /var/lib/jarvis/projects/mission26b/A sans modification externe.",
+                "requirement": "R6",
+                "tasks": [
+                  "T1",
+                  "T2",
+                  "T3",
+                  "T4",
+                  "T5",
+                  "T7",
+                  "T8"
+                ]
+              },
+              {
+                "covered": true,
+                "reason": "T8 invoque host_exec (ls -la) pour observer techniquement les permissions Debian et documenter la preuve dans rapport_permissions.md.",
+                "requirement": "R7",
+                "tasks": [
+                  "T8"
+                ]
+              }
+            ],
+            "goal_sha256": "d3c3f523480c786557e884e4e94828b2121351a4138197dacedacbb9870e8610",
+            "issues": [],
+            "plan_sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+            "plan_version": 5,
+            "requirements_sha256": "d4af787717cd76aab2cd075bcc4bdbd3d90ba0d2a3e5fe3f0286d96628dd799e",
+            "requirements_version": 3,
+            "status": "PASS"
+          },
+          "current_plan_version": 5,
+          "execution_allowed": true,
+          "next_action": "Execute ready task",
+          "plans": [
+            {
+              "author": "JARVIS",
+              "created": 1792621489.5465074,
+              "definitions": "historical; mission_progress plan_version retrieves the original",
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "reason": "initial plan",
+              "sha256": "4b6e83d35a34f1f27a2ecba131a53971ec8aebd6d503b01c9c3446c3fc4f2bc3",
+              "version": 1
+            },
+            {
+              "author": "JARVIS",
+              "created": 1792621834.021741,
+              "definitions": "historical; mission_progress plan_version retrieves the original",
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "reason": "Ajout critique de T7 pour couvrir R4 (rapport final explicatif) et R11 (rapport en français avec références/erreurs/limites). Le plan v1 échoue l'audit car aucune tâche ne génère le rapport final exigé. Cette tâche dépend de T5 et T6 (vérifications terminées) et produit rapport_final.md avec preuves, références d'invocation et limites.",
+              "sha256": "b0bccba5dd0edb6f73f64651e89c1af30302fbfe1a64aa5b7e9c6900b3ac5c4e",
+              "version": 2
+            },
+            {
+              "author": "JARVIS",
+              "created": 1792623601.9952366,
+              "definitions": "historical; mission_progress plan_version retrieves the original",
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "reason": "Correction des 3 défauts d'audit: (1) Chaque tâche reçoit un report_path distinct. (2) T3 remplace contrat sémantique vide par vérification de succès commande sha256sum via outil host_exec - mais comme contrat doit avoir au moins une vérification, je l'intègre dans T4 qui consomme le résultat. (3) Je fusionne T3 et T4 en une seule tâche pour éviter contrat vide: T3bis calcule ET écrit manifest.json directement.",
+              "sha256": "760d4506591fe0073801cf5ca0fc209187be55643aae8fc5a93d436a7cd42872",
+              "version": 3
+            },
+            {
+              "author": "JARVIS",
+              "created": 1792625238.5510752,
+              "definitions": "historical; mission_progress plan_version retrieves the original",
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "reason": "Correction collision report_path T6/T7 fusionnée en T7 unique. R7 couvert de manière déclarative dans rapport final car host_exec non autorisé dans contrat sémantique - les permissions sont conservées par nature des écritures non destructives.",
+              "sha256": "392877b7f931dcceb6cb3c87241416eb39165b9572c4e57d4ef7662a91403937",
+              "version": 4
+            },
+            {
+              "author": "JARVIS",
+              "created": 1792658832.782297,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "plan": {
+                "artifacts": [
+                  "/var/lib/jarvis/projects/mission26b/A/summary.json",
+                  "/var/lib/jarvis/projects/mission26b/A/manifest.json",
+                  "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+                  "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                ],
+                "objective": "Extraire de stocks.csv le nombre exact de lignes d'articles et la somme entière des quantités dans summary.json, puis générer manifest.json contenant l'empreinte SHA256 réelle de summary.json pour un lot documentaire exploitable avec vérification de cohérence et preuve technique des permissions.",
+                "stop_conditions": [
+                  "Échec lecture stocks.csv",
+                  "Impossibilité écriture fichiers autorisés",
+                  "Divergence non corrigée empreinte",
+                  "Permissions Debian altérées"
+                ],
+                "success_criteria": [
+                  "summary.json contient 3 lignes articles et somme 12",
+                  "manifest.json contient l'empreinte SHA256 exacte de summary.json",
+                  "Vérification cohérence entre les deux fichiers réussie",
+                  "stocks.csv reste intact",
+                  "Permissions Debian conservées par défaut (0644)",
+                  "Toutes les exigences R1-R7 couvertes techniquement"
+                ],
+                "tasks": [
+                  {
+                    "artifacts": [
+                      "donnees_brutes: lines_articles=3, somme_quantites=12"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+                      "semantic": [
+                        {
+                          "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                          "kind": "text",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                            },
+                            "tool": "host_read_file"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [],
+                    "id": "T1",
+                    "objective": "Lire stocks.csv et confirmer le contenu exact",
+                    "observations": [
+                      "Fichier CSV avec en-tête article,quantite",
+                      "3 lignes de données: alpha(3), beta(4), gamma(5)",
+                      "Somme des quantités: 3+4+5=12"
+                    ],
+                    "recovery": "Relire le fichier si tronqué",
+                    "title": "Lecture et analyse de stocks.csv",
+                    "tools": [
+                      "host_read_file"
+                    ],
+                    "verification": "Contenu identique à la lecture initiale"
+                  },
+                  {
+                    "artifacts": [
+                      "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+                      "semantic": [
+                        {
+                          "expected": {
+                            "/lines_articles": 3,
+                            "/somme_quantites": 12
+                          },
+                          "kind": "json",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                            },
+                            "tool": "host_read_file"
+                          },
+                          "types": {
+                            "/lines_articles": "integer",
+                            "/somme_quantites": "integer"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [
+                      "T1"
+                    ],
+                    "id": "T2",
+                    "objective": "Écrire summary.json avec les données extraites",
+                    "observations": [
+                      "Contenu JSON: {\"lines_articles\": 3, \"somme_quantites\": 12}"
+                    ],
+                    "recovery": "Réécrire le fichier si validation échoue",
+                    "title": "Création de summary.json",
+                    "tools": [
+                      "host_write_file"
+                    ],
+                    "verification": "Fichier existe avec valeurs exactes"
+                  },
+                  {
+                    "artifacts": [
+                      "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
+                      "semantic": [
+                        {
+                          "expected": {
+                            "/file": "summary.json"
+                          },
+                          "kind": "json",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                            },
+                            "tool": "host_read_file"
+                          },
+                          "types": {
+                            "/file": "string",
+                            "/sha256": "string"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [
+                      "T2"
+                    ],
+                    "id": "T3",
+                    "objective": "Calculer empreinte SHA256 de summary.json et écrire manifest.json",
+                    "observations": [
+                      "Utiliser sha256sum pour obtenir l'empreinte hexadécimale 64 caractères",
+                      "Écrire {\"file\": \"summary.json\", \"sha256\": \"<empreinte>\"} dans manifest.json"
+                    ],
+                    "recovery": "Recalculer et réécrire si validation échoue",
+                    "title": "Calcul empreinte et création de manifest.json",
+                    "tools": [
+                      "host_exec",
+                      "host_write_file"
+                    ],
+                    "verification": "manifest.json contient sha256 non vide"
+                  },
+                  {
+                    "artifacts": [
+                      "verification_cohérence: PASS"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T4.md",
+                      "semantic": [
+                        {
+                          "baseline_source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                            },
+                            "tool": "host_read_file"
+                          },
+                          "field": "/sha256",
+                          "kind": "digest",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                            },
+                            "tool": "host_read_file"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [
+                      "T3"
+                    ],
+                    "id": "T4",
+                    "objective": "Vérifier cohérence entre manifest.json et summary.json",
+                    "observations": [
+                      "Comparaison empreinte déclarée dans manifest.json vs calculée réelle de summary.json"
+                    ],
+                    "recovery": "Regénérer manifest.json si divergence",
+                    "title": "Vérification de cohérence des fichiers",
+                    "tools": [
+                      "host_read_file",
+                      "host_exec"
+                    ],
+                    "verification": "Empreintes identiques"
+                  },
+                  {
+                    "artifacts": [
+                      "intégrité_stocks.csv: PRÉSERVÉE"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T5.md",
+                      "semantic": [
+                        {
+                          "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                          "kind": "text",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                            },
+                            "tool": "host_read_file"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [
+                      "T1"
+                    ],
+                    "id": "T5",
+                    "objective": "Confirmer que stocks.csv reste intact après toutes les opérations",
+                    "observations": [
+                      "Relire et comparer avec lecture initiale T1"
+                    ],
+                    "recovery": "Aucune correction possible si modifié - rapport d'incident",
+                    "title": "Vérification intégrité de stocks.csv",
+                    "tools": [
+                      "host_read_file"
+                    ],
+                    "verification": "Contenu identique à la première lecture"
+                  },
+                  {
+                    "artifacts": [
+                      "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+                      "semantic": [
+                        {
+                          "kind": "report",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                            },
+                            "tool": "host_read_file"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [
+                      "T3"
+                    ],
+                    "id": "T8",
+                    "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la pour preuve technique R7",
+                    "observations": [
+                      "Commande 'ls -la /var/lib/jarvis/projects/mission26b/A/' produira listing avec permissions octales et symboliques",
+                      "Les écritures host_write_file créent des fichiers avec permissions standards 0644 (-rw-r--r--) non destructives",
+                      "Ce rapport technique est la preuve exigée par R7"
+                    ],
+                    "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte dans le rapport",
+                    "title": "Vérification technique des permissions Debian",
+                    "tools": [
+                      "host_exec",
+                      "host_write_file"
+                    ],
+                    "verification": "Rapport listant les permissions (-rw-r--r--) et confirmant leur conservation par défaut"
+                  },
+                  {
+                    "artifacts": [
+                      "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                    ],
+                    "contract": {
+                      "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+                      "semantic": [
+                        {
+                          "kind": "report",
+                          "source": {
+                            "arguments": {
+                              "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                            },
+                            "tool": "host_read_file"
+                          }
+                        }
+                      ]
+                    },
+                    "depends": [
+                      "T4",
+                      "T5",
+                      "T8"
+                    ],
+                    "id": "T7",
+                    "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la preuve technique des permissions de T8",
+                    "observations": [
+                      "Sources: stocks.csv lu (evidence T1), summary.json créé (T2), manifest.json créé (T3) avec empreinte SHA256",
+                      "Vérifications: cohérence T4, intégrité T5, permissions techniques T8",
+                      "Erreurs historiques: plan initial v1 sans tâche rapport final, collisions report_path corrigées v2b-v3, omission R7 corrigée ici",
+                      "Limites: périmètre strict mission26b/A, pas de validation externe requise"
+                    ],
+                    "recovery": "Ajouter sections manquantes si audit échoue (preuves absentes, références incomplètes)",
+                    "title": "Rédaction du rapport final explicatif",
+                    "tools": [
+                      "host_write_file"
+                    ],
+                    "verification": "Rapport complet avec sections: contexte, méthodes, résultats, empreintes, preuves techniques permissions, références invocations, limitations"
+                  }
+                ]
+              },
+              "reason": "Remplacement complet du plan pour : (1) Éliminer la collision T6/T7 en retirant T6 redondante. (2) Ajouter T8 pour preuve technique des permissions Debian via host_exec ls -la, répondant à R7 qui exige une observation réelle et non déclarative.",
+              "sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+              "version": 5
+            }
+          ],
+          "tasks": [
+            {
+              "artifact": null,
+              "attempts": 1,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+                "semantic": [
+                  {
+                    "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                    "kind": "text",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "deps": [],
+              "evidence": [],
+              "id": "T1",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Lire stocks.csv et confirmer le contenu exact",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": 1792622128.2295249,
+              "state": "running",
+              "title": "Lecture et analyse de stocks.csv",
+              "updated": 1792658832.7821789
+            },
+            {
+              "artifact": null,
+              "attempts": 0,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+                "semantic": [
+                  {
+                    "expected": {
+                      "/lines_articles": 3,
+                      "/somme_quantites": 12
+                    },
+                    "kind": "json",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                      },
+                      "tool": "host_read_file"
+                    },
+                    "types": {
+                      "/lines_articles": "integer",
+                      "/somme_quantites": "integer"
+                    }
+                  }
+                ]
+              },
+              "deps": [
+                "T1"
+              ],
+              "evidence": [],
+              "id": "T2",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Écrire summary.json avec les données extraites",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": null,
+              "state": "pending",
+              "title": "Création de summary.json",
+              "updated": 1792658832.7822146
+            },
+            {
+              "artifact": null,
+              "attempts": 0,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
+                "semantic": [
+                  {
+                    "expected": {
+                      "/file": "summary.json"
+                    },
+                    "kind": "json",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                      },
+                      "tool": "host_read_file"
+                    },
+                    "types": {
+                      "/file": "string",
+                      "/sha256": "string"
+                    }
+                  }
+                ]
+              },
+              "deps": [
+                "T2"
+              ],
+              "evidence": [],
+              "id": "T3",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Calculer empreinte SHA256 de summary.json et écrire manifest.json",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": null,
+              "state": "pending",
+              "title": "Calcul empreinte et création de manifest.json",
+              "updated": 1792658832.7822304
+            },
+            {
+              "artifact": null,
+              "attempts": 0,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T4.md",
+                "semantic": [
+                  {
+                    "baseline_source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                      },
+                      "tool": "host_read_file"
+                    },
+                    "field": "/sha256",
+                    "kind": "digest",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "deps": [
+                "T3"
+              ],
+              "evidence": [],
+              "id": "T4",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Vérifier cohérence entre manifest.json et summary.json",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": null,
+              "state": "pending",
+              "title": "Vérification de cohérence des fichiers",
+              "updated": 1792658832.782243
+            },
+            {
+              "artifact": null,
+              "attempts": 0,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T5.md",
+                "semantic": [
+                  {
+                    "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                    "kind": "text",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "deps": [
+                "T1"
+              ],
+              "evidence": [],
+              "id": "T5",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Confirmer que stocks.csv reste intact après toutes les opérations",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": null,
+              "state": "pending",
+              "title": "Vérification intégrité de stocks.csv",
+              "updated": 1792658832.7822535
+            },
+            {
+              "artifact": null,
+              "attempts": 0,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "deps": [
+                "T4",
+                "T5",
+                "T8"
+              ],
+              "evidence": [],
+              "id": "T7",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la preuve technique des permissions de T8",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": null,
+              "state": "pending",
+              "title": "Rédaction du rapport final explicatif",
+              "updated": 1792658832.7822914
+            },
+            {
+              "artifact": null,
+              "attempts": 0,
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "deps": [
+                "T3"
+              ],
+              "evidence": [],
+              "id": "T8",
+              "last_error": null,
+              "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+              "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la pour preuve technique R7",
+              "report_sha256": null,
+              "stage": "execute",
+              "started": null,
+              "state": "pending",
+              "title": "Vérification technique des permissions Debian",
+              "updated": 1792658832.78226
+            }
+          ]
+        },
+        "risk": "host_authorized",
+        "tool": "mission_plan"
+      },
+      "created": 1792658832.6801858,
+      "updated": 1792658852.5620787
     }
   ],
   "events": [
@@ -15086,6 +16453,828 @@
       "created": 1792658288.685032,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 12795,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792658532.8539696,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12796,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment12: evidence tool resolves original event:N references in its own mission; requirement evidence carries canonical reference; enum format repair gives actionable field/value diagnostic. No acceptance criteria or business tasks changed."
+      },
+      "created": 1792658532.9398158,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12808,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792658568.0345562,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12813,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 9
+      },
+      "created": 1792658569.344551,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12814,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "coverage_review_recovered",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "actions_replayed": false,
+        "plan_preserved": true,
+        "version": 4
+      },
+      "created": 1792658569.5317576,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12815,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.5",
+        "engine_contract_version": "26b.5",
+        "input_sha256": "a09f7a3e144e8d5467694d68a35597affe50b85541cbf0029b782e1cc0a00a13",
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "",
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": {
+                  "coverage": [
+                    {
+                      "covered": true,
+                      "reason": "T2 crée summary.json avec lines_articles=3 (entier) vérifié par contrat sémantique.",
+                      "requirement": "R1",
+                      "tasks": [
+                        "T2"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T2 crée summary.json avec somme_quantites=12 (entier) vérifié par contrat sémantique.",
+                      "requirement": "R2",
+                      "tasks": [
+                        "T2"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T3 calcule l'empreinte SHA256 de summary.json et écrit manifest.json avec le champ sha256.",
+                      "requirement": "R3",
+                      "tasks": [
+                        "T3"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T6 et T7 produisent rapport_final.md fondé sur les preuves (T1-T5) incluant contexte, méthodes, résultats, empreintes, références d'invocation et limites.",
+                      "requirement": "R4",
+                      "tasks": [
+                        "T6",
+                        "T7"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T5 vérifie l'intégrité de stocks.csv en comparant la lecture finale à la lecture initiale T1 (recovery: incident si modifié).",
+                      "requirement": "R5",
+                      "tasks": [
+                        "T5"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "Toutes les tâches opèrent strictement dans /var/lib/jarvis/projects/mission26b/A sans sortie externe.",
+                      "requirement": "R6",
+                      "tasks": [
+                        "T1",
+                        "T2",
+                        "T3",
+                        "T4",
+                        "T5",
+                        "T6",
+                        "T7"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "L'objectif stipule 'sans validation intermédiaire'. T7 documente la conservation déclarative des permissions Debian (0644 par défaut de host_write_file) sans exiger de commande de vérification technique absente dans le plan.",
+                      "requirement": "R7",
+                      "tasks": [
+                        "T2",
+                        "T3",
+                        "T7"
+                      ]
+                    }
+                  ],
+                  "issues": "[\"Collision de livrable : T6 et T7 produisent tous deux /var/lib/jarvis/projects/mission26b/A/rapport_final.md. Le contrat sémantique de T7 ne peut être distinct de T6 car le même artefact est modifié par deux tâches successives sans versioning explicite ou fusion des étapes.\"], \"requirement\": \"R4\", \"tasks\": [\"T6\"], \"covered\": true, \"reason\": \"T6 et T7 produisent le même fichier. Une tâche unique devrait suffire ou un mécanisme de fusion doit être spécifié pour éviter l'écrasement non tracé.\"}"
+                },
+                "index": 0,
+                "name": "submit_review"
+              },
+              "id": "call_6j2mxis1"
+            }
+          ]
+        },
+        "purpose": "coverage"
+      },
+      "created": 1792658591.5396163,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12816,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "review_format_rejected",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "author_not_blamed": true,
+        "error": "'[\"Collision de livrable : T6 et T7 produisent tous deux /var/lib/jarvis/projects/mission26b/A/rapport_final.md. Le contrat sémantique de T7 ne peut être distinct de T6 car le même artefact est modifié par deux tâches successives sans versioning explicite ou fusion des étapes.\"], \"requirement\": \"R4\", \"tasks\": [\"T6\"], \"covered\": true, \"reason\": \"T6 et T7 produisent le même fichier. Une tâche unique devrait suffire ou un mécanisme de fusion doit être spécifié pour éviter l\\'écrasement non tracé.\"}' is not of type 'array'\n\nFailed validating 'type' in schema['properties']['issues']:\n    {'type': 'array',\n     'items': {'type': 'string'},\n     'description': 'ONLY actual blocking defects. Return [] when '\n                    'complete. Positive conclusions belong in '\n                    'coverage.reason, never here.'}\n\nOn instance['issues']:\n    ('[\"Collision de livrable : T6 et T7 produisent tous deux '\n     '/var/lib/jarvis/projects/mission26b/A/rapport_final.md. Le contrat '\n     'sémantique de T7 ne peut être distinct de T6 car le même artefact '\n     'est modifié par deux tâches successives sans versioning explicite ou '\n     'fusion des étapes.\"], \"requirement\": \"R4\", \"tasks\": [\"",
+        "purpose": "coverage",
+        "status": "INSUFFICIENT"
+      },
+      "created": 1792658591.6420417,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12817,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 2,
+        "contract_version": "26b.5",
+        "engine_contract_version": "26b.5",
+        "input_sha256": "a09f7a3e144e8d5467694d68a35597affe50b85541cbf0029b782e1cc0a00a13",
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "",
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "function": {
+                "arguments": {
+                  "coverage": [
+                    {
+                      "covered": true,
+                      "reason": "T2 écrit summary.json avec lines_articles=3 (entier) extrait de stocks.csv via T1.",
+                      "requirement": "R1",
+                      "tasks": [
+                        "T2"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T2 écrit summary.json avec somme_quantites=12 (entier) calculée à partir des données de T1.",
+                      "requirement": "R2",
+                      "tasks": [
+                        "T2"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T3 calcule l'empreinte SHA256 de summary.json et l'écrit dans manifest.json avec le champ file.",
+                      "requirement": "R3",
+                      "tasks": [
+                        "T3"
+                      ]
+                    },
+                    {
+                      "covered": false,
+                      "reason": "Collision critique : T6 et T7 produisent tous deux rapport_final.md sans versioning ni fusion. L'écrasement d'un même artefact par deux tâches successives empêche la vérification de la cohérence finale et invalide le contrat sémantique.",
+                      "requirement": "R4",
+                      "tasks": [
+                        "T6",
+                        "T7"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "T5 vérifie l'intégrité de stocks.csv en relecture après T1, confirmant qu'il reste intact.",
+                      "requirement": "R5",
+                      "tasks": [
+                        "T1",
+                        "T5"
+                      ]
+                    },
+                    {
+                      "covered": true,
+                      "reason": "Toutes les tâches opèrent exclusivement dans /var/lib/jarvis/projects/mission26b/A et ne modifient pas le banc initial.",
+                      "requirement": "R6",
+                      "tasks": [
+                        "T1",
+                        "T2",
+                        "T3",
+                        "T4",
+                        "T5",
+                        "T6",
+                        "T7"
+                      ]
+                    },
+                    {
+                      "covered": false,
+                      "reason": "Omission critique : Aucune tâche n'observe techniquement les permissions des fichiers créés. La déclaration dans T7 'host_exec non autorisé dans contrat sémantique' contredit l'exigence de preuve d'un lot documentaire technique exploitable avec conservation des autorisations Debian réelles.",
+                      "requirement": "R7",
+                      "tasks": []
+                    }
+                  ],
+                  "issues": [
+                    "Collision bloquante : T6 et T7 écrivent tous deux rapport_final.md sans mécanisme de fusion ou versioning, rendant le résultat final non reproductible et invalide pour R4.",
+                    "Défaut bloquant R7 : Aucune tâche ne vérifie les permissions des fichiers générés (summary.json, manifest.json, rapport_final.md) via host_exec, contredisant l'exigence de preuve technique d'un lot documentaire exploitable."
+                  ]
+                },
+                "index": 0,
+                "name": "submit_review"
+              },
+              "id": "call_1gvbi3qt"
+            }
+          ]
+        },
+        "purpose": "coverage"
+      },
+      "created": 1792658607.852829,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12818,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "coverage_review",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "author": "JARVIS-reviewer",
+        "contract_version": "26b.5",
+        "coverage": [
+          {
+            "covered": true,
+            "reason": "T2 écrit summary.json avec lines_articles=3 (entier) extrait de stocks.csv via T1.",
+            "requirement": "R1",
+            "tasks": [
+              "T2"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T2 écrit summary.json avec somme_quantites=12 (entier) calculée à partir des données de T1.",
+            "requirement": "R2",
+            "tasks": [
+              "T2"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T3 calcule l'empreinte SHA256 de summary.json et l'écrit dans manifest.json avec le champ file.",
+            "requirement": "R3",
+            "tasks": [
+              "T3"
+            ]
+          },
+          {
+            "covered": false,
+            "reason": "Collision critique : T6 et T7 produisent tous deux rapport_final.md sans versioning ni fusion. L'écrasement d'un même artefact par deux tâches successives empêche la vérification de la cohérence finale et invalide le contrat sémantique.",
+            "requirement": "R4",
+            "tasks": [
+              "T6",
+              "T7"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T5 vérifie l'intégrité de stocks.csv en relecture après T1, confirmant qu'il reste intact.",
+            "requirement": "R5",
+            "tasks": [
+              "T1",
+              "T5"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Toutes les tâches opèrent exclusivement dans /var/lib/jarvis/projects/mission26b/A et ne modifient pas le banc initial.",
+            "requirement": "R6",
+            "tasks": [
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "T5",
+              "T6",
+              "T7"
+            ]
+          },
+          {
+            "covered": false,
+            "reason": "Omission critique : Aucune tâche n'observe techniquement les permissions des fichiers créés. La déclaration dans T7 'host_exec non autorisé dans contrat sémantique' contredit l'exigence de preuve d'un lot documentaire technique exploitable avec conservation des autorisations Debian réelles.",
+            "requirement": "R7",
+            "tasks": []
+          }
+        ],
+        "goal_sha256": "d3c3f523480c786557e884e4e94828b2121351a4138197dacedacbb9870e8610",
+        "issues": [
+          "Collision bloquante : T6 et T7 écrivent tous deux rapport_final.md sans mécanisme de fusion ou versioning, rendant le résultat final non reproductible et invalide pour R4.",
+          "Défaut bloquant R7 : Aucune tâche ne vérifie les permissions des fichiers générés (summary.json, manifest.json, rapport_final.md) via host_exec, contredisant l'exigence de preuve technique d'un lot documentaire exploitable.",
+          "Report artifact collision: T7 and T6 share /var/lib/jarvis/projects/mission26b/A/rapport_final.md. Use distinct task report paths so received hashes remain reproducible.",
+          "R4: Collision critique : T6 et T7 produisent tous deux rapport_final.md sans versioning ni fusion. L'écrasement d'un même artefact par deux tâches successives empêche la vérification de la cohérence finale et invalide le contrat sémantique.",
+          "R7: Omission critique : Aucune tâche n'observe techniquement les permissions des fichiers créés. La déclaration dans T7 'host_exec non autorisé dans contrat sémantique' contredit l'exigence de preuve d'un lot documentaire technique exploitable avec conservation des autorisations Debian réelles."
+        ],
+        "plan_sha256": "392877b7f931dcceb6cb3c87241416eb39165b9572c4e57d4ef7662a91403937",
+        "plan_version": 4,
+        "requirements_sha256": "d4af787717cd76aab2cd075bcc4bdbd3d90ba0d2a3e5fe3f0286d96628dd799e",
+        "requirements_version": 3,
+        "status": "FAIL"
+      },
+      "created": 1792658607.9613252,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12820,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792658645.8091254,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12821,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment13: tool-free review inference uses Ollama constrained JSON-schema format instead of advisory submit_review tool; actual deployed model transport probe passed. Semantic acceptance and business tasks unchanged; originals retained."
+      },
+      "created": 1792658645.8922148,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12830,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792658667.1258988,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12835,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 10
+      },
+      "created": 1792658668.5176404,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12837,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 713,
+          "eval_duration": 19423160000,
+          "load_duration": 15849632,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 21643,
+          "prompt_eval_duration": 18149694000,
+          "request_elapsed_s": 38.435061800992116,
+          "route_failures": [],
+          "total_duration": 38428729857
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792658707.2288992,
+      "duration": 38.435104361968115,
+      "invocation": null
+    },
+    {
+      "id": 12842,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 800,
+          "eval_duration": 21510928000,
+          "load_duration": 9246599,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 16662,
+          "prompt_eval_duration": 13685750000,
+          "request_elapsed_s": 35.38834123604465,
+          "route_failures": [],
+          "total_duration": 35384015362
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792658743.3110642,
+      "duration": 35.38837346993387,
+      "invocation": null
+    },
+    {
+      "id": 12845,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 3254,
+          "eval_duration": 87726713000,
+          "load_duration": 12583034,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 17463,
+          "prompt_eval_duration": 883074000,
+          "request_elapsed_s": 88.79581677599344,
+          "route_failures": [],
+          "total_duration": 88790573660
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792658832.5883963,
+      "duration": 88.79584775608964,
+      "invocation": null
+    },
+    {
+      "id": 12847,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS",
+      "kind": "plan_revised",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Remplacement complet du plan pour : (1) Éliminer la collision T6/T7 en retirant T6 redondante. (2) Ajouter T8 pour preuve technique des permissions Debian via host_exec ls -la, répondant à R7 qui exige une observation réelle et non déclarative.",
+        "sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+        "tasks": 7,
+        "version": 5
+      },
+      "created": 1792658832.7823293,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12848,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.5",
+        "engine_contract_version": "26b.5",
+        "input_sha256": "c755b88de817ed2d1d0c97af8e2c860620c3eaa09ca689348dd156cdf4864ec7",
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"coverage\": [\n    {\n      \"requirement\": \"R1\",\n      \"tasks\": [\"T2\"],\n      \"covered\": true,\n      \"reason\": \"T2 écrit summary.json avec le champ lines_articles=3 (integer) vérifié par contrat sémantique.\"\n    },\n    {\n      \"requirement\": \"R2\",\n      \"tasks\": [\"T2\"],\n      \"covered\": true,\n      \"reason\": \"T2 écrit summary.json avec le champ somme_quantites=12 (integer) vérifié par contrat sémantique.\"\n    },\n    {\n      \"requirement\": \"R3\",\n      \"tasks\": [\"T3\"],\n      \"covered\": true,\n      \"reason\": \"T3 calcule l'empreinte SHA256 de summary.json et l'écrit dans manifest.json.\"\n    },\n    {\n      \"requirement\": \"R4\",\n      \"tasks\": [\"T7\"],\n      \"covered\": true,\n      \"reason\": \"T7 produit rapport_final.md synthétisant les preuves de T1 à T5 et T8 pour la vérification de cohérence.\"\n    },\n    {\n      \"requirement\": \"R5\",\n      \"tasks\": [\"T5\"],\n      \"covered\": true,\n      \"reason\": \"T5 relit stocks.csv après les opérations et compare le contenu à la lecture initiale (T1) pour confirmer l'intégrité.\"\n    },\n    {\n      \"requirement\": \"R6\",\n      \"tasks\": [\"T1\", \"T2\", \"T3\", \"T4\", \"T5\", \"T7\", \"T8\"],\n      \"covered\": true,\n      \"reason\": \"Toutes les tâches opèrent exclusivement dans /var/lib/jarvis/projects/mission26b/A sans modification externe.\"\n    },\n    {\n      \"requirement\": \"R7\",\n      \"tasks\": [\"T8\"],\n      \"covered\": true,\n      \"reason\": \"T8 invoque host_exec (ls -la) pour observer techniquement les permissions Debian et documenter la preuve dans rapport_permissions.md.\"\n    }\n  ],\n  \"issues\": []\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "purpose": "coverage"
+      },
+      "created": 1792658852.288604,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12849,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "coverage_review",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "author": "JARVIS-reviewer",
+        "contract_version": "26b.5",
+        "coverage": [
+          {
+            "covered": true,
+            "reason": "T2 écrit summary.json avec le champ lines_articles=3 (integer) vérifié par contrat sémantique.",
+            "requirement": "R1",
+            "tasks": [
+              "T2"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T2 écrit summary.json avec le champ somme_quantites=12 (integer) vérifié par contrat sémantique.",
+            "requirement": "R2",
+            "tasks": [
+              "T2"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T3 calcule l'empreinte SHA256 de summary.json et l'écrit dans manifest.json.",
+            "requirement": "R3",
+            "tasks": [
+              "T3"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T7 produit rapport_final.md synthétisant les preuves de T1 à T5 et T8 pour la vérification de cohérence.",
+            "requirement": "R4",
+            "tasks": [
+              "T7"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T5 relit stocks.csv après les opérations et compare le contenu à la lecture initiale (T1) pour confirmer l'intégrité.",
+            "requirement": "R5",
+            "tasks": [
+              "T5"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Toutes les tâches opèrent exclusivement dans /var/lib/jarvis/projects/mission26b/A sans modification externe.",
+            "requirement": "R6",
+            "tasks": [
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "T5",
+              "T7",
+              "T8"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T8 invoque host_exec (ls -la) pour observer techniquement les permissions Debian et documenter la preuve dans rapport_permissions.md.",
+            "requirement": "R7",
+            "tasks": [
+              "T8"
+            ]
+          }
+        ],
+        "goal_sha256": "d3c3f523480c786557e884e4e94828b2121351a4138197dacedacbb9870e8610",
+        "issues": [],
+        "plan_sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+        "plan_version": 5,
+        "requirements_sha256": "d4af787717cd76aab2cd075bcc4bdbd3d90ba0d2a3e5fe3f0286d96628dd799e",
+        "requirements_version": 3,
+        "status": "PASS"
+      },
+      "created": 1792658852.3949966,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12851,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792658852.7549303,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12888,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792659233.2177293,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12889,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment14/contract26b.6: independent check found accepted C manifest can precede inventory correction; deterministic declared-artifact dependency check and prevent global wait stranding independent local tasks. Review actual current/cited plan definitions, distinguish faithful failure/future intention from technical success; remove old reviewer opinions as normative requirements. No Codex operational steps or file corrections."
+      },
+      "created": 1792659233.3035924,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12900,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792659251.9123905,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12905,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 11
+      },
+      "created": 1792659253.2571807,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12906,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "coverage_review_recovered",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "actions_replayed": false,
+        "plan_preserved": true,
+        "version": 5
+      },
+      "created": 1792659253.4229317,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12907,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.6",
+        "engine_contract_version": "26b.6",
+        "input_sha256": "372c90287df4b198a108e66ea1459c3769016456d301b6e8c7ba1334d6b372af",
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n\"coverage\": [],\n\"issues\": [\n\"La tâche T8 génère rapport_permissions.md avec les preuves techniques des permissions, mais le rapport_final.md (T7) dépend de T8 sans inclure explicitement une tâche d'intégration ou de référence croisée qui assure que ces preuves sont effectivement citées et synthétisées dans le document final comme exigé par R4 et l'objectif.\",\n\"Le plan évolutif montre des incohérences historiques : les versions 3 et 4 contiennent deux tâches (T6, T7) produisant toutes deux rapport_final.md avant la correction en v5. Bien que corrigées dans le plan final, l'absence de trace explicite de cette réconciliation dans les observations de T7 peut compromettre la traçabilité des erreurs historiques demandée par l'objectif.\",\n\"La vérification de R6 (travail limité au répertoire) n'est pas explicitement couverte par une tâche dédiée ou un contrat de validation contraignant qui attesterait que toutes les opérations s'exécutent strictement dans le périmètre défini, reposant uniquement sur l'observation des chemins dans les tâches.\"\n]\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "purpose": "coverage"
+      },
+      "created": 1792659265.5298376,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12908,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "coverage_review",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "author": "JARVIS-reviewer",
+        "contract_version": "26b.6",
+        "coverage": [],
+        "goal_sha256": "d3c3f523480c786557e884e4e94828b2121351a4138197dacedacbb9870e8610",
+        "issues": [
+          "La tâche T8 génère rapport_permissions.md avec les preuves techniques des permissions, mais le rapport_final.md (T7) dépend de T8 sans inclure explicitement une tâche d'intégration ou de référence croisée qui assure que ces preuves sont effectivement citées et synthétisées dans le document final comme exigé par R4 et l'objectif.",
+          "Le plan évolutif montre des incohérences historiques : les versions 3 et 4 contiennent deux tâches (T6, T7) produisant toutes deux rapport_final.md avant la correction en v5. Bien que corrigées dans le plan final, l'absence de trace explicite de cette réconciliation dans les observations de T7 peut compromettre la traçabilité des erreurs historiques demandée par l'objectif.",
+          "La vérification de R6 (travail limité au répertoire) n'est pas explicitement couverte par une tâche dédiée ou un contrat de validation contraignant qui attesterait que toutes les opérations s'exécutent strictement dans le périmètre défini, reposant uniquement sur l'observation des chemins dans les tâches.",
+          "Review must address every extracted requirement exactly once"
+        ],
+        "plan_sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307",
+        "plan_version": 5,
+        "requirements_sha256": "d4af787717cd76aab2cd075bcc4bdbd3d90ba0d2a3e5fe3f0286d96628dd799e",
+        "requirements_version": 3,
+        "status": "FAIL"
+      },
+      "created": 1792659265.6366074,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -15115,6 +17304,12 @@
         "author": "JARVIS",
         "reason": "Correction collision report_path T6/T7 fusionnée en T7 unique. R7 couvert de manière déclarative dans rapport final car host_exec non autorisé dans contrat sémantique - les permissions sont conservées par nature des écritures non destructives.",
         "sha256": "392877b7f931dcceb6cb3c87241416eb39165b9572c4e57d4ef7662a91403937"
+      },
+      {
+        "version": 5,
+        "author": "JARVIS",
+        "reason": "Remplacement complet du plan pour : (1) Éliminer la collision T6/T7 en retirant T6 redondante. (2) Ajouter T8 pour preuve technique des permissions Debian via host_exec ls -la, répondant à R7 qui exige une observation réelle et non déclarative.",
+        "sha256": "19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307"
       }
     ],
     "tasks": [
@@ -15149,13 +17344,13 @@
         "artifact": null
       },
       {
-        "id": "T6",
+        "id": "T7",
         "state": "pending",
         "report_sha256": null,
         "artifact": null
       },
       {
-        "id": "T7",
+        "id": "T8",
         "state": "pending",
         "report_sha256": null,
         "artifact": null
@@ -18944,6 +21139,454 @@
         "broker_evidence": null,
         "error": null,
         "created": 1792625238.4175515
+      },
+      {
+        "invocation": "3e50d353bc294c1ab64cc7cd3d4c4223",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_plan",
+        "parameters": {
+          "append": true,
+          "expected_version": 4,
+          "reason": "Correction des deux défauts bloquants : (1) Suppression de T6 redondante pour éliminer la collision avec T7 sur rapport_final.md. (2) Ajout de T8 qui utilise host_exec 'ls -la' pour observer techniquement les permissions Debian des fichiers créés (summary.json, manifest.json, rapport_final.md), répondant à l'exigence R7 de preuve d'un lot documentaire technique exploitable avec conservation des autorisations réelles.",
+          "tasks": [
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "T8",
+              "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la",
+              "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte",
+              "title": "Vérification technique des permissions Debian",
+              "tools": [
+                "host_exec",
+                "host_write_file"
+              ],
+              "verification": "Rapport listant les permissions (drwxr-xr-x / -rw-r--r--) et confirmant leur conservation par défaut"
+            }
+          ]
+        },
+        "observed_ok": false,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": "Schema mission_plan at /tasks/0: 'id' is a required property. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+        "created": 1792658707.3229184
+      },
+      {
+        "invocation": "8e951daad3de4c9c9a94dd21400ea257",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_plan",
+        "parameters": {
+          "expected_version": 4,
+          "patch": true,
+          "reason": "Correction des deux défauts bloquants : (1) Suppression de T6 redondante pour éliminer la collision avec T7 sur rapport_final.md. (2) Ajout de T8 qui utilise host_exec 'ls -la' pour observer techniquement les permissions Debian des fichiers générés, répondant à l'exigence R7 de preuve technique d'un lot documentaire exploitable.",
+          "tasks": [
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T4",
+                "T5"
+              ],
+              "id": "T7",
+              "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la conservation des permissions Debian par défaut documentées par T8",
+              "observations": [
+                "Sources: stocks.csv lu (evidence T1), summary.json créé (T2), manifest.json créé (T3) avec empreinte SHA256",
+                "Vérifications: cohérence T4, intégrité T5, permissions T8",
+                "Erreurs historiques: plan initial v1 sans tâche rapport final, collisions report_path corrigées v2b-v3",
+                "Limites: périmètre strict mission26b/A, pas de validation externe requise"
+              ],
+              "recovery": "Ajouter sections manquantes si audit échoue (preuves absentes, références incomplètes)",
+              "title": "Rédaction du rapport final explicatif",
+              "tools": [
+                "host_write_file"
+              ],
+              "verification": "Rapport complet avec sections: contexte, méthodes, résultats, empreintes, références invocations, limitations"
+            },
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T3"
+              ],
+              "id": "T8",
+              "objective": "Observer et documenter les permissions Debian réelles des fichiers générés (summary.json, manifest.json) via host_exec ls -la pour preuve technique R7",
+              "observations": [
+                "Commande 'ls -la /var/lib/jarvis/projects/mission26b/A/' produira listing avec permissions octales et symboliques",
+                "Les écritures host_write_file créent des fichiers avec permissions standards 0644 (-rw-r--r--) non destructives",
+                "Ce rapport technique est la preuve exigée par R7"
+              ],
+              "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte dans le rapport",
+              "title": "Vérification technique des permissions Debian",
+              "tools": [
+                "host_exec",
+                "host_write_file"
+              ],
+              "verification": "Rapport listant les permissions (-rw-r--r--) et confirmant leur conservation par défaut sans intervention manuelle"
+            }
+          ]
+        },
+        "observed_ok": false,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": "patch requires existing ids; use append:true for new tasks",
+        "created": 1792658743.4023182
+      },
+      {
+        "invocation": "b9f8906854f84ff68db8db4201d13ecd",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_plan",
+        "parameters": {
+          "expected_version": 4,
+          "metadata": {
+            "artifacts": [
+              "/var/lib/jarvis/projects/mission26b/A/summary.json",
+              "/var/lib/jarvis/projects/mission26b/A/manifest.json",
+              "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+              "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+            ],
+            "objective": "Extraire de stocks.csv le nombre exact de lignes d'articles et la somme entière des quantités dans summary.json, puis générer manifest.json contenant l'empreinte SHA256 réelle de summary.json pour un lot documentaire exploitable avec vérification de cohérence et preuve technique des permissions.",
+            "stop_conditions": [
+              "Échec lecture stocks.csv",
+              "Impossibilité écriture fichiers autorisés",
+              "Divergence non corrigée empreinte",
+              "Permissions Debian altérées"
+            ],
+            "success_criteria": [
+              "summary.json contient 3 lignes articles et somme 12",
+              "manifest.json contient l'empreinte SHA256 exacte de summary.json",
+              "Vérification cohérence entre les deux fichiers réussie",
+              "stocks.csv reste intact",
+              "Permissions Debian conservées par défaut (0644)",
+              "Toutes les exigences R1-R7 couvertes techniquement"
+            ]
+          },
+          "reason": "Remplacement complet du plan pour : (1) Éliminer la collision T6/T7 en retirant T6 redondante. (2) Ajouter T8 pour preuve technique des permissions Debian via host_exec ls -la, répondant à R7 qui exige une observation réelle et non déclarative.",
+          "tasks": [
+            {
+              "artifacts": [
+                "donnees_brutes: lines_articles=3, somme_quantites=12"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+                "semantic": [
+                  {
+                    "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                    "kind": "text",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [],
+              "id": "T1",
+              "objective": "Lire stocks.csv et confirmer le contenu exact",
+              "observations": [
+                "Fichier CSV avec en-tête article,quantite",
+                "3 lignes de données: alpha(3), beta(4), gamma(5)",
+                "Somme des quantités: 3+4+5=12"
+              ],
+              "recovery": "Relire le fichier si tronqué",
+              "title": "Lecture et analyse de stocks.csv",
+              "tools": [
+                "host_read_file"
+              ],
+              "verification": "Contenu identique à la lecture initiale"
+            },
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/summary.json"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+                "semantic": [
+                  {
+                    "expected": {
+                      "/lines_articles": 3,
+                      "/somme_quantites": 12
+                    },
+                    "kind": "json",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                      },
+                      "tool": "host_read_file"
+                    },
+                    "types": {
+                      "/lines_articles": "integer",
+                      "/somme_quantites": "integer"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T1"
+              ],
+              "id": "T2",
+              "objective": "Écrire summary.json avec les données extraites",
+              "observations": [
+                "Contenu JSON: {\"lines_articles\": 3, \"somme_quantites\": 12}"
+              ],
+              "recovery": "Réécrire le fichier si validation échoue",
+              "title": "Création de summary.json",
+              "tools": [
+                "host_write_file"
+              ],
+              "verification": "Fichier existe avec valeurs exactes"
+            },
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
+                "semantic": [
+                  {
+                    "expected": {
+                      "/file": "summary.json"
+                    },
+                    "kind": "json",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                      },
+                      "tool": "host_read_file"
+                    },
+                    "types": {
+                      "/file": "string",
+                      "/sha256": "string"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T2"
+              ],
+              "id": "T3",
+              "objective": "Calculer empreinte SHA256 de summary.json et écrire manifest.json",
+              "observations": [
+                "Utiliser sha256sum pour obtenir l'empreinte hexadécimale 64 caractères",
+                "Écrire {\"file\": \"summary.json\", \"sha256\": \"<empreinte>\"} dans manifest.json"
+              ],
+              "recovery": "Recalculer et réécrire si validation échoue",
+              "title": "Calcul empreinte et création de manifest.json",
+              "tools": [
+                "host_exec",
+                "host_write_file"
+              ],
+              "verification": "manifest.json contient sha256 non vide"
+            },
+            {
+              "artifacts": [
+                "verification_cohérence: PASS"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T4.md",
+                "semantic": [
+                  {
+                    "baseline_source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/summary.json"
+                      },
+                      "tool": "host_read_file"
+                    },
+                    "field": "/sha256",
+                    "kind": "digest",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/manifest.json"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T3"
+              ],
+              "id": "T4",
+              "objective": "Vérifier cohérence entre manifest.json et summary.json",
+              "observations": [
+                "Comparaison empreinte déclarée dans manifest.json vs calculée réelle de summary.json"
+              ],
+              "recovery": "Regénérer manifest.json si divergence",
+              "title": "Vérification de cohérence des fichiers",
+              "tools": [
+                "host_read_file",
+                "host_exec"
+              ],
+              "verification": "Empreintes identiques"
+            },
+            {
+              "artifacts": [
+                "intégrité_stocks.csv: PRÉSERVÉE"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T5.md",
+                "semantic": [
+                  {
+                    "equals": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+                    "kind": "text",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T1"
+              ],
+              "id": "T5",
+              "objective": "Confirmer que stocks.csv reste intact après toutes les opérations",
+              "observations": [
+                "Relire et comparer avec lecture initiale T1"
+              ],
+              "recovery": "Aucune correction possible si modifié - rapport d'incident",
+              "title": "Vérification intégrité de stocks.csv",
+              "tools": [
+                "host_read_file"
+              ],
+              "verification": "Contenu identique à la première lecture"
+            },
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T3"
+              ],
+              "id": "T8",
+              "objective": "Observer et documenter les permissions Debian réelles des fichiers générés via host_exec ls -la pour preuve technique R7",
+              "observations": [
+                "Commande 'ls -la /var/lib/jarvis/projects/mission26b/A/' produira listing avec permissions octales et symboliques",
+                "Les écritures host_write_file créent des fichiers avec permissions standards 0644 (-rw-r--r--) non destructives",
+                "Ce rapport technique est la preuve exigée par R7"
+              ],
+              "recovery": "Relancer la commande de listing si échec, documenter l'erreur exacte dans le rapport",
+              "title": "Vérification technique des permissions Debian",
+              "tools": [
+                "host_exec",
+                "host_write_file"
+              ],
+              "verification": "Rapport listant les permissions (-rw-r--r--) et confirmant leur conservation par défaut"
+            },
+            {
+              "artifacts": [
+                "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+              ],
+              "contract": {
+                "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md",
+                "semantic": [
+                  {
+                    "kind": "report",
+                    "source": {
+                      "arguments": {
+                        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_final.md"
+                      },
+                      "tool": "host_read_file"
+                    }
+                  }
+                ]
+              },
+              "depends": [
+                "T4",
+                "T5",
+                "T8"
+              ],
+              "id": "T7",
+              "objective": "Rédiger rapport final explicatif en français avec preuves, références d'invocation, erreurs historiques et limites incluant la preuve technique des permissions de T8",
+              "observations": [
+                "Sources: stocks.csv lu (evidence T1), summary.json créé (T2), manifest.json créé (T3) avec empreinte SHA256",
+                "Vérifications: cohérence T4, intégrité T5, permissions techniques T8",
+                "Erreurs historiques: plan initial v1 sans tâche rapport final, collisions report_path corrigées v2b-v3, omission R7 corrigée ici",
+                "Limites: périmètre strict mission26b/A, pas de validation externe requise"
+              ],
+              "recovery": "Ajouter sections manquantes si audit échoue (preuves absentes, références incomplètes)",
+              "title": "Rédaction du rapport final explicatif",
+              "tools": [
+                "host_write_file"
+              ],
+              "verification": "Rapport complet avec sections: contexte, méthodes, résultats, empreintes, preuves techniques permissions, références invocations, limitations"
+            }
+          ]
+        },
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792658832.6801858
       }
     ],
     "semantic_verifications": [
@@ -19100,9 +21743,30 @@
         "result": {
           "reason": "26b.5: bind report predicates to the actual task report/prose artifact, not frozen program input or raw log; preserve unchanged goal codec26b.4. Retain native read/skill evidence and broker IDs, label model-audited report verification honestly. No task or report written by Codex."
         }
+      },
+      {
+        "event": 12796,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment12: evidence tool resolves original event:N references in its own mission; requirement evidence carries canonical reference; enum format repair gives actionable field/value diagnostic. No acceptance criteria or business tasks changed."
+        }
+      },
+      {
+        "event": 12821,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment13: tool-free review inference uses Ollama constrained JSON-schema format instead of advisory submit_review tool; actual deployed model transport probe passed. Semantic acceptance and business tasks unchanged; originals retained."
+        }
+      },
+      {
+        "event": 12889,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment14/contract26b.6: independent check found accepted C manifest can precede inventory correction; deterministic declared-artifact dependency check and prevent global wait stranding independent local tasks. Review actual current/cited plan definitions, distinguish faithful failure/future intention from technical success; remove old reviewer opinions as normative requirements. No Codex operational steps or file corrections."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "c8b71cb0cff7adc7dd680c66dde47519d28da12109354b65cb37cf6f6bab366d"
+  "original_journal_sha256": "0ab46e7912aef903c6229b48c434eed8e95e3db14a29e82051c8647c92c3a32a"
 }

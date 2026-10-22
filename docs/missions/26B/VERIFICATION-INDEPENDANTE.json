@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792658303.2561362,
+  "created": 1792659284.0992012,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -49,7 +49,7 @@
     },
     {
       "module": "durable_tools.py",
-      "installed_sha256": "cbe87ffb9d63b756b950f219c4706af13837dc6530398677297c1a72ac769d31",
+      "installed_sha256": "5045851b11c4061384425fd722a0cb4b42b469479acdcac5e191ef7131d9c6e1",
       "matches_source": true
     },
     {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "8a0c391a4398ca5b34049732a2cf5583cc9581e3011f72780df8c35646fa0e30",
+      "installed_sha256": "3acab4c5ca1b7c7cd1abe6e753c1c3248090f476468b3ed6b0001edf2ee1c343",
       "matches_source": true
     },
     {
@@ -148,9 +148,9 @@
     {
       "case": "A",
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "state": "queued",
+      "state": "running",
       "coverage_accepted": false,
-      "versions": 4,
+      "versions": 5,
       "tasks": [
         [
           "T1",
@@ -173,11 +173,11 @@
           "pending"
         ],
         [
-          "T6",
+          "T7",
           "pending"
         ],
         [
-          "T7",
+          "T8",
           "pending"
         ]
       ],
@@ -357,6 +357,41 @@
             "R7: Le plan ne prévoit aucune tâche de vérification technique des permissions Debian (ex: host_exec ls -la). T7 mentionne la conservation déclarative mais sans preuve d'observation concrète via un outil, ce qui est insuffisant face à l'exigence de 'preuvelot documentaire technique exploitable'."
           ],
           "draft_sha256": null
+        },
+        {
+          "event": 12818,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Collision bloquante : T6 et T7 écrivent tous deux rapport_final.md sans mécanisme de fusion ou versioning, rendant le résultat final non reproductible et invalide pour R4.",
+            "Défaut bloquant R7 : Aucune tâche ne vérifie les permissions des fichiers générés (summary.json, manifest.json, rapport_final.md) via host_exec, contredisant l'exigence de preuve technique d'un lot documentaire exploitable.",
+            "Report artifact collision: T7 and T6 share /var/lib/jarvis/projects/mission26b/A/rapport_final.md. Use distinct task report paths so received hashes remain reproducible.",
+            "R4: Collision critique : T6 et T7 produisent tous deux rapport_final.md sans versioning ni fusion. L'écrasement d'un même artefact par deux tâches successives empêche la vérification de la cohérence finale et invalide le contrat sémantique.",
+            "R7: Omission critique : Aucune tâche n'observe techniquement les permissions des fichiers créés. La déclaration dans T7 'host_exec non autorisé dans contrat sémantique' contredit l'exigence de preuve d'un lot documentaire technique exploitable avec conservation des autorisations Debian réelles."
+          ],
+          "draft_sha256": null
+        },
+        {
+          "event": 12849,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 12908,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "La tâche T8 génère rapport_permissions.md avec les preuves techniques des permissions, mais le rapport_final.md (T7) dépend de T8 sans inclure explicitement une tâche d'intégration ou de référence croisée qui assure que ces preuves sont effectivement citées et synthétisées dans le document final comme exigé par R4 et l'objectif.",
+            "Le plan évolutif montre des incohérences historiques : les versions 3 et 4 contiennent deux tâches (T6, T7) produisant toutes deux rapport_final.md avant la correction en v5. Bien que corrigées dans le plan final, l'absence de trace explicite de cette réconciliation dans les observations de T7 peut compromettre la traçabilité des erreurs historiques demandée par l'objectif.",
+            "La vérification de R6 (travail limité au répertoire) n'est pas explicitement couverte par une tâche dédiée ou un contrat de validation contraignant qui attesterait que toutes les opérations s'exécutent strictement dans le périmètre défini, reposant uniquement sur l'observation des chemins dans les tâches.",
+            "Review must address every extracted requirement exactly once"
+          ],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -461,6 +496,18 @@
           "tool": "mission_plan",
           "error": "Stale plan version: expected_version must equal CURRENT saved version 3; received 2. Next version 4 is assigned automatically. Failed proposals do not increment version.",
           "result": null
+        },
+        {
+          "invocation": "3e50d353bc294c1ab64cc7cd3d4c4223",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks/0: 'id' is a required property. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "8e951daad3de4c9c9a94dd21400ea257",
+          "tool": "mission_plan",
+          "error": "patch requires existing ids; use append:true for new tasks",
+          "result": null
         }
       ],
       "no_codex_operational_reminder": true
@@ -470,7 +517,7 @@
       "mission": "54c634e56b8d4241964322700ea5d837",
       "state": "queued",
       "coverage_accepted": false,
-      "versions": 1,
+      "versions": 2,
       "tasks": [
         [
           "T01",
@@ -593,6 +640,26 @@
             "At least one original receipt/event reference must appear in the narrative"
           ],
           "draft_sha256": "36b5e5dba01b05e09f4332617fd93400592945563b6c516a60c4c123c5bffa4a"
+        },
+        {
+          "event": 12855,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Unexecutable contract T01: kind report must read the task report_path or a declared prose document artifact, not the source program, CSV or raw error log. Your report_path is /var/lib/jarvis/projects/mission26b/B/report_T01.txt. For input bytes use text equals; for a narrative use your own report with original proof references.",
+            "Unexecutable contract T02: kind report must read the task report_path or a declared prose document artifact, not the source program, CSV or raw error log. Your report_path is /var/lib/jarvis/projects/mission26b/B/report_T02.txt. For input bytes use text equals; for a narrative use your own report with original proof references.",
+            "Unexecutable contract T03: kind report must read the task report_path or a declared prose document artifact, not the source program, CSV or raw error log. Your report_path is /var/lib/jarvis/projects/mission26b/B/report_T03.txt. For input bytes use text equals; for a narrative use your own report with original proof references."
+          ],
+          "draft_sha256": null
+        },
+        {
+          "event": 12867,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -854,6 +921,18 @@
             "verification_event": 11309,
             "verifier": "deterministic26"
           }
+        },
+        {
+          "invocation": "7afbfdefbc54415abe119b9b9f023756",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks: '[{\"artifacts\": [\"/var/lib/jarvis/projects/mission26b/B/report_T01.txt\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/B/report_T01.txt\", \"semantic\": [{\"kind\": \"report\", \"source\": {\"arguments\": {\"path\": \"/var/lib/jarvis/projects/mission26b/B/report_T01.txt\"}, \"tool\": \"host_read_file\"}}]}, \"depends\": [], \"id\": \"T01\", \"objective\": \"Lire producer.py et mesures.csv pour comprendre la structure du banc applicatif et des données d\\'entrée\", \"observations\": [\"Fichils lus: producer.py utilise argparse avec --delimiter default=\\',\\', lit CSV, écrit JSON; mesures.csv utilise \\';\\' co. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "556415ce39ab4be6be137a418663c37d",
+          "tool": "mission_plan",
+          "error": "append accepts only NEW task ids; use patch:true to update existing pending tasks without resending received tasks",
+          "result": null
         }
       ],
       "producer_execution_receipts": [],
@@ -863,7 +942,7 @@
     {
       "case": "C",
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
-      "state": "running",
+      "state": "queued",
       "coverage_accepted": false,
       "versions": 4,
       "tasks": [
@@ -891,7 +970,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/C/T1-rapport.md",
-          "sha256": "b5e1d88a06afb5e01be31b755713b5879c4c9faa9bce6059c56410eb653b733d"
+          "sha256": "3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/C/inventaire.json",
@@ -1042,6 +1121,39 @@
             "R7: L'enregistrement du blocage dans un rapport final (rapport-blocage.md) n'est pas prouvé car ce fichier n'a jamais été écrit. La simple mention dans le plan ne suffit pas sans la preuve d'existence du livrable."
           ],
           "draft_sha256": null
+        },
+        {
+          "event": 12764,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 12806,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "S2: Le rapport affirme produire un fichier avec des 'compteurs entiers pour chaque nom', or les exigences R1/R2 exigent une structure array + total global, non un objet de compteurs.",
+            "## Objectif\nExtraire la liste des noms de input.json et créer un fichier inventaire.json avec les compteurs entiers pour chaque nom. => contradicted: L'affirmation de créer un fichier avec des 'compteurs entiers pour chaque nom' contredit les exigences R1 et R2 extraites qui demandent respectivement une liste (array) des noms et un nombre entier global (total), non un objet de compteurs par clé."
+          ],
+          "draft_sha256": "e30ebcc99371801b0963d86323246ff6ae2f0edfff7f230377561c5b47224558"
+        },
+        {
+          "event": 12878,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "## Objectif déclaré\nExtraire la liste des noms de input.json et créer un fichier inventaire.json avec des compteurs entiers pour chaque nom. => insufficient: L'objectif déclaré ('compteurs entiers pour chaque nom') contredit les exigences R1/R2 (array + total global) extraites dans goal_requirements. Aucune preuve technique ne justifie cet objectif comme conforme au goal.",
+            "## Opération réalisée\nChaque nom dans la liste `names` apparaît une seule fois. Le fichier inventaire.json a été créé avec un format objet contenant un compteur par clé: => insufficient: L'affirmation selon laquelle le fichier a été créé avec ce format est vérifiée par l'écriture 53bb224700e6445ea4ee21cd4cbe4417, mais le contenu lu ultérieurement (ex: b92cd675b2a541cf90ccb2991885d2e1) confirme bien la structure objet {capteur-a: 1...}, ce qui est techniquement correct comme description de l'état actuel, mais incorrect par rapport aux exigences R1/R2. Le segment décrit fidèlement l'opération réalisée.",
+            "### Correction prévue\nLa tâche T4 du plan v4 va **écraser** inventaire.json avec la structure correcte:\n```json\n{\"names\": [\"capteur-a\", \"capteur-b\"], \"total\": 2}\n```\nCette structure inclut un tableau `names` (array) et un champ `total` (integer) avec relation length vérifiée. => insufficient: La proposition de correction (écrasement par T4) est cohérente avec le plan 4, mais le segment affirme une structure future non encore observée dans l'état courant du système (les receipts ne montrent pas d'écriture de la nouvelle structure). C'est une hypothèse qualifiée basée sur le plan, mais aucune preuve technique actuelle ne montre que T4 a été exécutée ou que le fichier a été mis à jour."
+          ],
+          "draft_sha256": "3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8"
         }
       ],
       "negative_results": [
@@ -1176,6 +1288,36 @@
           "invocation": "92662ec786084c1ebbe1b48010771a52",
           "tool": "host_read_file",
           "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+          "result": null
+        },
+        {
+          "invocation": "2083b2a4c1644f4081b0c9075c51e7b0",
+          "tool": "mission_task_complete",
+          "error": "Preuve réelle réussie de cette tâche absente",
+          "result": null
+        },
+        {
+          "invocation": "ca79c22d44bc4f4ba5afad09cbd761a1",
+          "tool": "mission_evidence",
+          "error": "Preuve absente de cette mission",
+          "result": null
+        },
+        {
+          "invocation": "97ae130b3c684437aae0b7d133d9072f",
+          "tool": "mission_task_complete",
+          "error": "Review INSUFFICIENT: invalid structured response after format repair; retry with mission_progress",
+          "result": null
+        },
+        {
+          "invocation": "b86382c03a17430d8bb32c7151041acc",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport T1 - Création de inventaire.json (format intermédiaire)\", \"reason\": \"Titre descriptif sans affirmation technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Objectif déclaré\\nExtraire la liste des noms de input.json et créer un fichier inventaire.json avec des compteurs entiers pour chaque nom.\", \"reason\": \"L'objectif déclaré ('compteurs entiers pour chaque nom') contredit les exigences R1/R2 (array + total global) extraites dans goal_requirements. Aucune preuve technique ne justifie cet objectif comme conforme au goal.\", \"references\": [], \"segment\": \"S2\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Données d'entrée\\n- Fichier source: `/var/lib/jarvis/projects/mission26b/C/input.json`\\n- Contenu observé (invocation_id: 50d1beebfe704e2fa1b4dad90a719cf1): `{\\\"label\\\": \\\"fixture-C\\\", \\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"]}`\", \"reason\": \"Le contenu observé correspond exactement au stdout de la preuve 50d1beebfe704e2fa1b4dad90a719cf1 (host_read_file sur input.json).\", \"references\": [\"50d1beebfe704e2fa1b4dad90a719cf1\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Opération réalisée\\nChaque nom dans la liste `names` apparaît une seule fois. Le fichier inventaire.json a été créé avec un format objet contenant un compteur par clé:\", \"reason\": \"L'affirmation selon laquelle le fichier a été créé avec ce format est vérifiée par l'écriture 53bb224700e6445ea4ee21cd4cbe4417, mais le contenu lu ultérieurement (ex: b92cd675b2a541cf90ccb2991885d2e1) confirme bien la structure objet {capteur-a: 1...}, ce qui est techniquement correct comme description de l'état actuel, mais incorrect par rapport aux exigences R1/R2. Le segment décrit fidèlement l'opération réalisée.\", \"references\": [\"53bb224700e6445ea4ee21cd4cbe4417\"], \"segment\": \"S4\", \"verdict\": \"insufficient\"}, {\"quote\": \"```json\\n{\\n  \\\"capteur-a\\\": 1,\\n  \\\"capteur-b\\\": 1\\n}\\n```\", \"reason\": \"Le contenu JSON affiché correspond exactement au stdout de la preuve b92cd675b2a541cf90ccb2991885d2e1 (host_read_file sur inventaire.json).\", \"references\": [\"b92cd675b2a541cf90ccb2991885d2e1\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"SHA256 du fichier: `aa98f4e8b56892896d993a54d5a6527c83cae8c3fcbd078b47e9519e362240ad`\", \"reason\": \"Le SHA256 indiqué correspond à content_sha256 de la preuve d'écriture 53bb224700e6445ea4ee21cd4cbe4417.\", \"references\": [\"53bb224700e6445ea4ee21cd4cbe4417\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification du contrat T1\\nContrat vérifié via mission_verify (invocation_id: 4a12412fc47d45ab908daa8d7e4b8ac0):\\n- `/capteur-a`: 1 (entier) ✓\\n- `/capteur-b`: 1 (entier) ✓\\n- Status: PASS (verification_event: 12780)\", \"reason\": \"Les vérifications /capteur-a et /capteur-b avec valeurs 1 et type integer, ainsi que le statut PASS et l'événement de vérification 12780 correspondent aux données de la preuve mission_verify 4a12412fc47d45ab908daa8d7e4b8ac0.\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites et inexactitudes critiques\", \"reason\": \"Titre de section sans affirmation factuelle vérifiable.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Format incorrect par rapport aux exigences R1/R2\\nCe format **NE SATIFAIT PAS** les exigences R1 et R2 extraites du goal:\\n- **R1**: Demande un fichier avec \\\"la liste exacte des noms\\\" sous forme d'array, pas d'objet de compteurs\\n- **R2**: Demande \\\"le nombre entier correspondant à la liste des noms\\\" comme un compteur global (total), non des compteurs individuels\", \"reason\": \"L'analyse critique est correcte : les exigences R1 et R2 dans goal_requirements exigent respectivement un array de noms et un entier global, contrairement au format objet de compteurs produit.\", \"references\": [\"requirements:3\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"### Histoire des échecs\\nDeux tentatives antérieures de validation ont échoué:\\n- event:10978 et event:10988: échecs de mission_task_complete avec preuves invalides ou absentes\\n- Le contrôleur de couverture (review_event) a identifié cette contradiction entre le format produit et les exigences R1/R2\", \"reason\": \"Les événements 10978 et 10988 listés dans report_failures confirment des échecs antérieurs avec preuves invalides ou absentes, corroborant l'histoire des échecs.\", \"references\": [\"event:10978\", \"event:10988\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"### Correction prévue\\nLa tâche T4 du plan v4 va **écraser** inventaire.json avec la structure correcte:\\n```json\\n{\\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"], \\\"total\\\": 2}\\n```\\nCette structure inclut un tableau `names` (array) et un champ `total` (integer) avec relation length vérifiée.\", \"reason\": \"La proposition de correction (écrasement par T4) est cohérente avec le plan 4, mais le segment affirme une structure future non encore observée dans l'état courant du système (les receipts ne montrent pas d'écriture de la nouvelle structure). C'est une hypothèse qualifiée basée sur le plan, mais aucune preuve technique actuelle ne montre que T4 a été exécutée ou que le fichier a été mis à jour.\", \"references\": [\"plan:4\"], \"segment\": \"S11\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Preuves\\n- Lecture input.json: invocation_id 50d1beebfe704e2fa1b4dad90a719cf1\\n- Écriture inventaire.json (format objet): sha256 aa98f4e8b56892896d993a54d5a6527c83cae8c3fcbd078b47e9519e362240ad\\n- Vérification contrat T1: invocation_id 4a12412fc47d45ab908daa8d7e4b8ac0, status PASS\", \"reason\": \"Les invocation_ids et sha256 cités correspondent exactement aux preuves fournies dans allowed_references.\", \"references\": [\"50d1beebfe704e2fa1b4dad90a719cf1\", \"53bb224700e6445ea4ee21cd4cbe4417\", \"4a12412fc47d45ab908daa8d7e4b8ac0\"], \"segment\": \"S12\", \"verdict\": \"supported\"}, {\"quote\": \"## Conclusion\\nT1 produit un fichier inventaire.json validant son contrat immédiat (objet avec compteurs), mais ce format est **incorrect** par rapport aux exigences R1/R2 du goal. Le fichier sera remplacé par T4 avec la structure array+total requise. Cette tâche doit être considérée comme une étape intermédiaire non conforme aux exigences finales.\", \"reason\": \"La conclusion synthétise correctement la situation : T1 valide son contrat immédiat (preuves 4a12412fc47d45ab908daa8d7e4b8ac0) mais est non conforme aux exigences R1/R2 (requirements:3), et le plan:4 prévoit une correction via T4.\", \"references\": [\"requirements:3\", \"plan:4\"], \"segment\": \"S13\", \"verdict\": \"supported\"}], \"draft_sha256\": \"3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"## Objectif déclaré\\nExtraire la liste des noms de input.json et créer un fichier inventaire.json avec des compteurs entiers pour chaque nom. => insufficient: L'objectif déclaré ('compteurs entiers pour chaque nom') contredit les exigences R1/R2 (array + total global) extraites dans goal_requirements. Aucune preuve technique ne justifie cet objectif comme conforme au goal.\", \"## Opération réalisée\\nChaque nom dans la liste `names` apparaît une seule fois. Le fichier inventaire.json a été créé avec un format objet contenant un compteur par clé: => insufficient: L'affirmation selon laquelle le fichier a été créé avec ce format est vérifiée par l'écriture 53bb224700e6445ea4ee21cd4cbe4417, mais le contenu lu ultérieurement (ex: b92cd675b2a541cf90ccb2991885d2e1) confirme bien la structure objet {capteur-a: 1...}, ce qui est techniquement correct comme description de l'état actuel, mais incorrect par rapport aux exigences R1/R2. Le segment décrit fidèlement l'opération réalisée.\", \"### Correction prévue\\nLa tâche T4 du plan v4 va **écraser** inventaire.json avec la structure correcte:\\n```json\\n{\\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"], \\\"total\\\": 2}\\n```\\nCette structure inclut un tableau `names` (array) et un champ `total` (integer) avec relation length vérifiée. => insufficient: La proposition de correction (écrasement par T4) est cohérente avec le plan 4, mais le segment affirme une structure future non encore observée dans l'état courant du système (les receipts ne montrent pas d'écriture de la nouvelle structure). C'est une hypothèse qualifiée basée sur le plan, mais aucune preuve technique actuelle ne montre que T4 a été exécutée ou que le fichier a été mis à jour.\"]}",
+          "result": null
+        },
+        {
+          "invocation": "b33527dccd2540a5a82a974becc37418",
+          "tool": "mission_task_complete",
+          "error": "evidence_id must identify a successful mission_verify of active task",
           "result": null
         }
       ],

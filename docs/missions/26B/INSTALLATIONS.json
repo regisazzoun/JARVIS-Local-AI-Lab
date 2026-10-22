@@ -70,6 +70,111 @@
     "created": 1792658278.9538035
   },
   {
+    "backup": "/var/backups/jarvis/mission-engine26b/1792658567925422816",
+    "modules": [
+      {
+        "module": "missions.py",
+        "sha256": "8fd5d6891f855f12324851e4a29e9a3edfe4a81e37bc55741e6bc8d9e96886b1"
+      },
+      {
+        "module": "mission_store.py",
+        "sha256": "f9996cec084dabf6937847092145c3ea8dded1d4fc48272d0d615a676c8b10b6"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "988a3787900202b5f3dc65ca8952f360d2ac24674f9ebad2f6ca97282d811ee0"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "fa83361dac471de4b641f6e20d36caeeebf165e5eb52c64d219eda083d7b9fa5"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "fb2a927b0685c64a34105f564a8069387efe831f3726d18b1dcf0bc21a47aa14"
+      },
+      {
+        "module": "mission_assurance.py",
+        "sha256": "1ca8b3995f24b64880b97043b91fccffd594364e317650e578ef348cd9f173ce"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "b0d2a88d674056744999f50bdd5c8037dae6aca25b40c6a45a6a5bae8e8c8c6b"
+      }
+    ],
+    "policy_unchanged": true,
+    "created": 1792658567.9580753
+  },
+  {
+    "backup": "/var/backups/jarvis/mission-engine26b/1792658666386009297",
+    "modules": [
+      {
+        "module": "missions.py",
+        "sha256": "8fd5d6891f855f12324851e4a29e9a3edfe4a81e37bc55741e6bc8d9e96886b1"
+      },
+      {
+        "module": "mission_store.py",
+        "sha256": "f9996cec084dabf6937847092145c3ea8dded1d4fc48272d0d615a676c8b10b6"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "988a3787900202b5f3dc65ca8952f360d2ac24674f9ebad2f6ca97282d811ee0"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "fa83361dac471de4b641f6e20d36caeeebf165e5eb52c64d219eda083d7b9fa5"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "fb2a927b0685c64a34105f564a8069387efe831f3726d18b1dcf0bc21a47aa14"
+      },
+      {
+        "module": "mission_assurance.py",
+        "sha256": "e68711495a24cc6a985d21e12d7a8bf7f28d2de1e52b682108732c2d58133aec"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "b0d2a88d674056744999f50bdd5c8037dae6aca25b40c6a45a6a5bae8e8c8c6b"
+      }
+    ],
+    "policy_unchanged": true,
+    "created": 1792658667.0787456
+  },
+  {
+    "backup": "/var/backups/jarvis/mission-engine26b/1792659251810734415",
+    "modules": [
+      {
+        "module": "missions.py",
+        "sha256": "8fd5d6891f855f12324851e4a29e9a3edfe4a81e37bc55741e6bc8d9e96886b1"
+      },
+      {
+        "module": "mission_store.py",
+        "sha256": "f9996cec084dabf6937847092145c3ea8dded1d4fc48272d0d615a676c8b10b6"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "5045851b11c4061384425fd722a0cb4b42b469479acdcac5e191ef7131d9c6e1"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "fa83361dac471de4b641f6e20d36caeeebf165e5eb52c64d219eda083d7b9fa5"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "fb2a927b0685c64a34105f564a8069387efe831f3726d18b1dcf0bc21a47aa14"
+      },
+      {
+        "module": "mission_assurance.py",
+        "sha256": "3acab4c5ca1b7c7cd1abe6e753c1c3248090f476468b3ed6b0001edf2ee1c343"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "b0d2a88d674056744999f50bdd5c8037dae6aca25b40c6a45a6a5bae8e8c8c6b"
+      }
+    ],
+    "policy_unchanged": true,
+    "created": 1792659251.8412173
+  },
+  {
     "backup": "/var/backups/jarvis/mission-engine26b/1792620705289549285",
     "modules": [
       {

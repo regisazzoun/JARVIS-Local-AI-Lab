@@ -122,6 +122,16 @@ def register(registry):
         db=store();ident=key();task_id=registry.context.get('task_id')
         proof=next((o for o in db.observations(ident,task_id) if (o['id']==args['evidence_id'] or (o.get('result') or {}).get('result',{}).get('evidence_id')==args['evidence_id']) and o.get('result')),None)
         if not proof or proof['tool'].startswith('mission_'):raise ValueError('Une observation réelle de la tâche est requise')
+        from .mission_assurance import enabled
+        if enabled(db,ident):
+            tasks={t['id']:t for t in db.tasks(ident)}
+            def requires_current(candidate,seen=None):
+                seen=set() if seen is None else seen
+                if candidate in seen:return False
+                seen.add(candidate)
+                return any(dep==task_id or dep in tasks and requires_current(dep,seen) for dep in tasks[candidate].get('deps',[]))
+            local=[t['id'] for t in tasks.values() if t['id']!=task_id and t['state'] in ('pending','running') and not requires_current(t['id'])]
+            if local:raise ValueError('Global external wait would strand independently executable local tasks: '+', '.join(local)+'. Revise your own ordering/dependencies before mission_block; preserve the observed external failure without declaring success.')
         with db.db() as c:revisions=[r['file'] for r in c.execute("SELECT file FROM publication_outbox WHERE mission=? AND state='needs_revision'",(ident,))]
         if revisions:raise ValueError('Correct recoverable document publications before waiting on external authentication: '+', '.join(revisions)+'. Preserve summaries separately, download originals, append via host_exec/Python and mission_publish again.')
         read=registry.specs['host_read_file'][4]({'path':args['report_path']})

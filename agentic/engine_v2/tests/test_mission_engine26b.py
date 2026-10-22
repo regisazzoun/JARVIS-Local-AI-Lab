@@ -346,3 +346,44 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(value,{'reference':'requirements:3'})
         self.assertEqual(captured[0]['format'],schema)
         self.assertNotIn('tools',captured[0])
+
+    def test_manifest_reader_requires_latest_declared_writer(self):
+        from jarvis.mission_assurance import artifact_dependency_issues
+        first=task('first');first['tools']=['host_write_file'];first['artifacts']=['/inventory.json']
+        correction=copy.deepcopy(first);correction['id']='correct';correction['depends']=['first']
+        manifest=task('manifest');manifest['depends']=['first'];manifest['artifacts']=['/manifest.json']
+        manifest['contract']['semantic']=[{'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/manifest.json'}},'expected':{'/target':'/inventory.json'}}]
+        plan={'tasks':[first,correction,manifest]}
+        self.assertTrue(any('correct' in issue for issue in artifact_dependency_issues(plan)))
+        manifest['depends']=['correct']
+        self.assertEqual(artifact_dependency_issues(plan),[])
+
+    def test_external_wait_does_not_strand_independent_local_work(self):
+        from jarvis.durable_tools import register
+        from unittest.mock import patch
+        a=task('a');b=task('b');c=task('c');c['depends']=['a']
+        self.s.plan(self.m,[a,b,c],metadata=self.meta)
+        proof=self.observation(False)
+        self.r.specs={};register(self.r);fn=self.r.specs['mission_block'][4]
+        self.r.specs['host_read_file']=(None,None,None,None,lambda args:{'returncode':0,'stdout':'External witness unavailable. The local result remains partial; no external verification is claimed.'})
+        args={'reason':'unavailable','report_path':'/report.md','evidence_id':proof}
+        with self.assertRaisesRegex(ValueError,'independently executable local tasks: b'):fn(args)
+        self.assertNotEqual(self.s.get(self.m)['state'],'waiting_external')
+        with self.s.db() as connection:connection.execute("UPDATE tasks SET state='validated' WHERE mission=? AND id='b'",(self.m,))
+        with patch('jarvis.mission_assurance.require_report',return_value={'status':'PASS'}):
+            result=fn(args)
+        self.assertEqual(result['state'],'waiting_external')
+        self.assertEqual(next(t for t in self.s.tasks(self.m) if t['id']=='b')['state'],'validated')
+
+    def test_report_review_gets_cited_original_plan_definitions(self):
+        proposed=task();self.s.plan(self.m,[proposed],metadata=self.meta)
+        reference=self.observation();captured=[]
+        def transport(payload):
+            captured.append(json.loads(payload['messages'][1]['content']))
+            return {'content':json.dumps({'claims':[{'segment':'S1','verdict':'qualified_hypothesis','references':['plan:1'],'reason':'planned only'}],'issues':[]})}
+        self.r.assurance_transport=transport
+        result=audit_report(self.r,'Le plan v1 prévoit la tâche a. Correction future seulement, aucun succès annoncé. Référence : '+reference,'a')
+        self.assertEqual(result['status'],'PASS')
+        definitions=captured[0]['evidence']['plan_definitions']
+        self.assertEqual(definitions[0]['sha256'],self.s.plans(self.m)[0]['sha256'])
+        self.assertEqual(definitions[0]['plan']['tasks'][0]['contract'],proposed['contract'])
