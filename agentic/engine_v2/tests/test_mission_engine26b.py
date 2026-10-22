@@ -18,7 +18,7 @@ class AssuranceTests(unittest.TestCase):
         self.r=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'a'})
         self.r.assurance_transport=lambda payload:{'tool_calls':[{'function':{'name':'submit_review','arguments':self.responses.pop(0)}}]}
     def extraction(self):
-        return {'requirements':[{'id':'R1','source_segment':'G1','outcome':'file'},{'id':'R2','source_segment':'G1','outcome':'report'}],'output_constraints':[]}
+        return {'requirements':[{'id':'R1','source_segment':'G1','outcome':'file'},{'id':'R2','source_segment':'G1','outcome':'report'}],'output_constraints':[],'closure':{'on_unavailable':'report_only','source_segment':'G1','external_paths':[]}}
     def coverage(self,complete=True):
         return {'coverage':{'R1':{'tasks':['a'],'covered':True,'reason':'exact state'}, 'R2':{'tasks':['a'] if complete else [],'covered':complete,'reason':'report missing' if not complete else 'explicit final report'}},'issues':[]}
     def test_omission_blocks_effects_and_revision_survives_restart(self):
@@ -227,6 +227,7 @@ class AssuranceTests(unittest.TestCase):
         goal='Create inventaire.json with a list and an integer count.'
         with self.s.db() as c:c.execute('UPDATE missions SET goal=? WHERE id=?',(goal,self.m))
         extraction={'requirements':[{'id':'R1','source_segment':'G1','outcome':'list'},{'id':'R2','source_segment':'G1','outcome':'total'}],'output_constraints':[{'artifact':'inventaire.json','source_segment':'G1','required_type':'array','meaning':'names list','relation':'none'},{'artifact':'inventaire.json','source_segment':'G1','required_type':'integer','meaning':'global total','relation':'length_of_array'}]}
+        extraction['closure']=self.extraction()['closure']
         self.responses=[extraction,self.coverage(True),self.coverage(True)]
         t=task();t['contract']['semantic']=[{'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/inventaire.json'}},'expected':{'/a':1,'/b':1},'types':{'/a':'integer','/b':'integer'}}]
         self.s.plan(self.m,[t],metadata=self.meta)
@@ -549,3 +550,79 @@ class AssuranceTests(unittest.TestCase):
         self.assertTrue(any('Unordered artifact writers' in issue for issue in artifact_dependency_issues(plan)))
         new['depends']=['old']
         self.assertEqual(artifact_dependency_issues(plan),[])
+
+    def test_quoted_bad_count_and_measurements_are_not_tool_call_counts(self):
+        ref=self.observation()
+        snap=evidence_snapshot(self.s,self.m,'a')
+        historical='FAIL : le brouillon contenait « observations : 999 », erreur rejetée. '+ref
+        self.assertEqual(deterministic_report_issues(historical,snap),[])
+        self.assertEqual(deterministic_report_issues('Mesures du CSV : observations : 2. '+ref,snap),[])
+        self.assertTrue(any('observations_in_scope incorrect' in issue for issue in deterministic_report_issues('observations_in_scope: 999. '+ref,snap)))
+        self.responses=[{'claims':[{'segment':'S1','verdict':'contradicted','references':[ref],'reason':'Unqualified 999 unsupported'}],'issues':[]}]
+        self.assertEqual(audit_report(self.r,'observations : 999. '+ref,'a')['status'],'FAIL')
+
+    def test_semantic_report_source_cannot_prove_its_own_text_or_change_counts(self):
+        t=task();t['artifacts']=['/draft.md'];t['contract']['semantic']=[{'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/draft.md'}}}]
+        self.s.plan(self.m,[t],metadata=self.meta);ref=self.observation()
+        before=evidence_snapshot(self.s,self.m,'a')
+        for name in ('host_write_file','host_read_file'):
+            token=self.s.begin_call(self.m,'a',name,{'path':'/draft.md','content':'observations : 999'})
+            self.s.finish_call(token,{'ok':True,'result':{'returncode':0,'stdout':'observations : 999'}},0)
+        after=evidence_snapshot(self.s,self.m,'a')
+        self.assertEqual(after['counts'],before['counts']);self.assertEqual([o['reference'] for o in after['receipts']],[ref])
+
+    def test_closure_uses_latest_real_external_read_without_resetting_validated_tasks(self):
+        from jarvis.mission_assurance import closure_state
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        self.s.event(self.m,'goal_requirements',result={'closure':{'on_unavailable':'waiting_external','external_paths':['/external.json'],'quote':'wait'}})
+        with self.s.db() as c:c.execute("UPDATE tasks SET state='validated' WHERE mission=?",(self.m,))
+        self.assertEqual(closure_state(self.s,self.m)['unobserved'],['/external.json'])
+        token=self.s.begin_call(self.m,'a','host_read_file',{'path':'/external.json'})
+        self.s.finish_call(token,{'ok':False,'error':'FileNotFoundError','result':{'returncode':1}},0)
+        state=closure_state(self.s,self.m)
+        self.assertFalse(state['final_allowed']);self.assertEqual(state['unresolved'][0]['reference'],token)
+        self.assertEqual(self.s.tasks(self.m)[0]['state'],'validated')
+        token=self.s.begin_call(self.m,None,'host_read_file',{'path':'/external.json'})
+        self.s.finish_call(token,{'ok':True,'result':{'stdout':'{}','returncode':0}},0)
+        self.assertTrue(closure_state(self.s,self.m)['final_allowed'])
+
+    def test_final_tool_refuses_external_wait_even_when_local_tasks_all_validated(self):
+        from unittest.mock import patch
+        from jarvis.tools import Registry
+        from jarvis.memory import Memory
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        with self.s.db() as c:c.execute("UPDATE tasks SET state='validated' WHERE mission=?",(self.m,))
+        r=Registry(Memory(Path(self.s.root)/'memory.sqlite'),self.s.root);r.mission_store=self.s;r.context={'mission_id':self.m}
+        with patch('jarvis.mission_assurance.require_final_outcome',side_effect=ValueError('unresolved external')):
+            with self.assertRaisesRegex(ValueError,'unresolved external'):r.report({'content':'Local results verified, external dependency remains absent. No external verification.'})
+        self.assertFalse((self.s.root/'runtime/reports'/self.m/'RAPPORT-FINAL.md').exists())
+
+    def test_global_partial_block_preserves_all_validated_task_receipts(self):
+        from jarvis.durable_tools import register
+        from unittest.mock import patch
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        with self.s.db() as c:c.execute("UPDATE tasks SET state='validated',report_sha256='old-sha' WHERE mission=?",(self.m,))
+        proof=self.observation(False);self.r.context['task_id']=None
+        self.r.specs={};register(self.r)
+        self.r.specs['host_read_file']=(None,None,None,None,lambda a:{'returncode':0,'stdout':'Partial outcome: local artifacts verified; external witness unreadable, no content or success claimed. Original failure retained.'})
+        with patch('jarvis.mission_assurance.require_report',return_value={'status':'PASS'}):
+            value=self.r.specs['mission_block'][4]({'reason':'missing','report_path':'/partial.md','evidence_id':proof})
+        self.assertEqual(value['state'],'waiting_external');self.assertEqual(self.s.tasks(self.m)[0]['state'],'validated')
+        self.assertEqual(self.s.tasks(self.m)[0]['report_sha256'],'old-sha')
+
+    def test_successful_read_cannot_establish_external_block(self):
+        from jarvis.durable_tools import register
+        proof=self.observation(True);self.r.specs={};register(self.r)
+        with self.assertRaisesRegex(ValueError,'actually failed observation'):
+            self.r.specs['mission_block'][4]({'reason':'missing','report_path':'/partial.md','evidence_id':proof})
+
+    def test_explicit_external_wait_cannot_be_downgraded_to_accessibility_report(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET goal=? WHERE id=?',('Observe /external.json. Puis enregistre ce blocage externe.',self.m))
+        wrong=self.extraction();wrong['closure']['external_paths']=['/external.json']
+        corrected=copy.deepcopy(wrong);corrected['closure'].update(on_unavailable='waiting_external',source_segment='G2')
+        self.responses=[wrong,corrected]
+        value=requirements(self.r)
+        self.assertEqual(value['closure']['on_unavailable'],'waiting_external')
+        self.assertEqual(value['closure']['quote'],'Puis enregistre ce blocage externe.')
+        rejected=[e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']
+        self.assertEqual(len(rejected),1);self.assertTrue(rejected[0]['result']['author_not_blamed'])

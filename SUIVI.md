@@ -1,6 +1,6 @@
 ## Mission26B — lancement du22 octobre2026
 
-🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md). Code et preuves intermédiaires : [PR21 en brouillon](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), 155 tests logiciels réussis ; réception opérationnelle encore ouverte.
+🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md). Code et preuves intermédiaires : [PR21 en brouillon](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), 162 tests logiciels réussis ; réception opérationnelle encore ouverte.
 
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 
@@ -191,6 +191,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-23 | 26B | Reprise des blocages : métriques de prose et clôture externe, retests en cours | [Reprise](docs/missions/26B/REPRISE-23-OCTOBRE.md) |
 | 2026-10-22 | 26B | Lancement de la continuation26, contrôles de couverture et de prose ; essais réels en cours | [Mission26B](docs/missions/26B/MISSION.md) |
 | 2026-10-21 | 26 /14A | Réception26 avec réserves : moteur installé,3/3 tâches,3 plans,105 tests et correction JARVIS ;14A reste ouverte et différée | [Réception26](docs/missions/26/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/26/BILAN-14A.md) |
 | 2026-10-21 | 23C / registre | Réserves de déploiement23C levées par24 sans nouveau test ;23C/23D réintégrées au registre,73 identifiants cohérents | [Réception24](docs/missions/24/RAPPORT-FINAL.md) · [Référentiel25](docs/missions/25/REFERENTIEL-LU.md) |

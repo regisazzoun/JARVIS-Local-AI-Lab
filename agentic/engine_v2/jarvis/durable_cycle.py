@@ -223,8 +223,11 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             if not current_tasks or assured and not coverage_state(store,ident)['accepted']:
                 schemas=[s for s in schemas if s['function']['name'] in ('mission_plan','mission_note','host_policy','skill_list','capability_status','host_read_file','mission_progress')]
             elif all(t['state']=='validated' for t in current_tasks):
-                schemas=[s for s in schemas if s['function']['name'] in ('intervention_report','mission_progress','mission_evidence','mission_note','host_read_file','mission_publish','mission_report_facts','mission_report_review','mission_plan')]
-                messages[0]['content']+='\nRÉCEPTION : toutes les tâches sont validées. Termine intervention_report, sans refaire leurs actions.'
+                from .mission_assurance import closure_state
+                closure=closure_state(store,ident) if assured else {'final_allowed':True}
+                allowed=('intervention_report','mission_progress','mission_evidence','mission_note','host_read_file','mission_publish','mission_report_facts','mission_report_review','mission_plan','mission_block','host_write_file','host_edit_file')
+                schemas=[s for s in schemas if s['function']['name'] in allowed and (closure['final_allowed'] or s['function']['name']!='intervention_report')]
+                messages[0]['content']+='\nRÉCEPTION : tâches locales validées, leurs preuves restent acquises. Consulte closure : si une dépendance externe reste non résolue, écris et fais recevoir ton propre rapport partiel avec mission_block, sans modifier les tâches validées. Sinon termine intervention_report, sans refaire leurs actions.'
                 reception={'verified_tasks':len(current_tasks),'total_tasks':len(current_tasks),
                            'contracts':{t['id']:store.contract_status(ident,t['id']) for t in current_tasks},
                            'report_contract':json.loads(mission['spec']).get('final_report_contract',{})}

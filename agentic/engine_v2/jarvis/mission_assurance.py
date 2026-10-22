@@ -11,9 +11,9 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from .mission_store import encoded
 
-VERSION = '26b.9'
-GOAL_VERSION = '26b.4'
-REPORT_VERSION = '26b.report.7'
+VERSION = '26b.10'
+GOAL_VERSION = '26b.7'
+REPORT_VERSION = '26b.report.8'
 
 
 def enabled(store, ident):
@@ -106,15 +106,27 @@ def requirements(registry):
     segments=[{'id':'G'+str(i+1),'text':text.strip()} for i,text in enumerate(re.split(r'(?<=[.!?])\s+|\n+',goal)) if text.strip()]
     original={segment['id']:segment['text'] for segment in segments}
     source_schema={'type':'string','enum':list(original)}
+    explicit_wait_ids=[key for key,text in original.items() if re.search(r'\b(enregistre(?:r)?\s+(?:(?:ce|un|le)\s+)?blocage\s+externe|record\s+(?:(?:the|an)\s+)?external\s+(?:block|wait))\b',text,re.I) and not re.search(r"\b(ne\b.*\bpas|do not|don't)\b",text,re.I)]
     json_names=list(dict.fromkeys(re.findall(r'[\w.-]+\.json',goal)))
     artifact_schema={'type':'string',**({'enum':json_names} if json_names else {'pattern':'(?!)'})}
+    goal_paths=list(dict.fromkeys(path.rstrip('.') for path in re.findall(r'/[\w./-]+',goal)))
     schema=object_schema({'requirements':{'type':'array','minItems':1,'items':object_schema({
         'id':{'type':'string','pattern':'^R[1-9][0-9]*$'}, 'source_segment':source_schema, 'outcome':{'type':'string','minLength':1}})},
         'output_constraints':{'type':'array','items':object_schema({
             'artifact':artifact_schema,
             'source_segment':source_schema,'required_type':{'type':'string','enum':['array','integer','string','boolean','object','number']},
-            'meaning':{'type':'string','description':'Requested data, no invented property names, operations or tasks'},'relation':{'type':'string','enum':['none','length_of_array'],'description':'length_of_array only for an integer explicitly requested as total of an array in the SAME output; not counts of external CSV rows'}})}})
+            'meaning':{'type':'string','description':'Requested data, no invented property names, operations or tasks'},'relation':{'type':'string','enum':['none','length_of_array'],'description':'length_of_array only for an integer explicitly requested as total of an array in the SAME output; not counts of external CSV rows'}})},
+        'closure':object_schema({'on_unavailable':{'type':'string','enum':['waiting_external'] if explicit_wait_ids else ['report_only','waiting_external']},
+            'source_segment':{'type':'string','enum':explicit_wait_ids or list(original)},'external_paths':{'type':'array','minItems':1 if explicit_wait_ids else 0,'uniqueItems':True,'items':{'type':'string',**({'enum':goal_paths} if goal_paths else {'pattern':'(?!)'})}}})})
     def grounded(value):
+        value['closure']['quote']=original[value['closure']['source_segment']]
+        explicit_wait=[original[key] for key in explicit_wait_ids]
+        if explicit_wait and (value['closure']['on_unavailable']!='waiting_external' or value['closure']['quote'] not in explicit_wait):
+            raise ValueError('Raw goal explicitly requests recording external block/wait. closure must preserve waiting_external and cite the original segment containing that request, not just the accessibility report. Choose external_paths from raw goal, never tasks.')
+        if value['closure']['on_unavailable']=='report_only' and value['closure']['external_paths']:
+            raise ValueError('report_only has no terminal dependency paths; [] required. Preserve an explicit request to record an external blocker as waiting_external.')
+        if value['closure']['on_unavailable']=='waiting_external' and not value['closure']['external_paths']:
+            raise ValueError('External wait must name an external path explicitly present in the raw goal; do not invent a blocker')
         for requirement in value['requirements']:requirement['quote']=original[requirement['source_segment']]
         for constraint in value['output_constraints']:constraint['quote']=original[constraint['source_segment']]
         ids=[x['id'] for x in value['requirements']]
@@ -129,11 +141,39 @@ def requirements(registry):
             if integer and not array and constraint['required_type']!='integer':raise ValueError('An explicitly requested integer must remain integer')
     value=review_model(registry,'requirements',
         'Extrais TOUTES les exigences de résultat de l’objectif brut : livrables distincts, valeurs, conservation, preuves et rapport. Ne propose AUCUNE tâche, séquence, commande ni plan. Chaque exigence a un id R1,R2,..., un source_segment G fourni et le résultat demandé. Ne rédige pas de citation : le moteur reprend le texte exact du segment original. Respecte les mots : une liste exacte de noms est une liste, son nombre total est un entier global ; ne substitue pas un histogramme de compteurs par nom. output_constraints extrait séparément chaque type de donnée explicitement demandé dans un livrable JSON (liste=array, nombre entier=integer, empreinte textuelle=string), avec son fichier de sortie et source_segment. Plusieurs exigences peuvent citer le même segment ; garde des descriptions de résultats distinctes, sans recopier tout le but. Ne force ni nom de propriété ni schéma non demandé et ne confonds pas entrée et sortie. Plusieurs types demandés dans le même fichier nécessitent plusieurs contraintes. relation=length_of_array pour un nombre demandé comme taille totale d’une liste dans le MÊME fichier JSON ; relation=none pour les autres cas (dont compte de lignes d’un CSV source). Aucun type supplémentaire arbitraire. Si aucun livrable JSON typé n’est demandé, output_constraints=[]. Regroupe les règles de périmètre sans inventer de tâches. Une incapacité externe doit être rapportée comme telle, sans fausse réussite.',
-        {'raw_goal':goal,'goal_segments':segments,'json_filenames':json_names},schema,validator=grounded)
+        {'raw_goal':goal,'goal_segments':segments,'json_filenames':json_names,
+         'closure_contract':'Extract requested terminal behavior, never a task or a plan. closure.on_unavailable=waiting_external only if the raw goal explicitly requests recording/waiting on an unresolved external dependency, with its exact external_paths and source_segment. Otherwise report_only, external_paths=[]. Documenting a failed read is different from recording mission external wait. Do not interpret generic stop conditions as an actual dependency.'},schema,validator=grounded)
     version=sum(e['kind']=='goal_requirements' for e in store.events(ident,limit=1000000))+1
     value.update({'version':version,'goal_sha256':goal_sha,'author':'JARVIS-reviewer','contract_version':GOAL_VERSION})
     store.event(ident,'goal_requirements',actor='JARVIS-reviewer',result=value)
     return value
+
+
+def closure_state(store, ident):
+    """An accepted documentation task never resolves a missing external resource."""
+    requirement=latest(store,ident,'goal_requirements') or {}
+    closure=requirement.get('closure',{})
+    state={'final_allowed':True,'on_unavailable':closure.get('on_unavailable','report_only'),
+           'source_quote':closure.get('quote'),'unresolved':[],'unobserved':[]}
+    if state['on_unavailable']!='waiting_external':return state
+    observations=store.observations(ident)
+    for path in closure.get('external_paths',[]):
+        reads=[o for o in observations if o['tool']=='host_read_file' and o['arguments'].get('path')==path and o.get('result')]
+        if not reads:state['unobserved'].append(path);continue
+        last=reads[-1];result=last['result'];raw=result.get('result') or {}
+        if not result.get('ok') or raw.get('returncode',0)!=0:
+            state['unresolved'].append({'path':path,'reference':last['id'],'broker_evidence':raw.get('evidence_id'),'created':last['created'],'error':str(result.get('error') or raw.get('stderr',''))[-1000:]})
+    state['final_allowed']=not state['unresolved'] and not state['unobserved']
+    state['next_action']='Receive your own partial report with mission_block using the original failed read; preserve all verified local tasks. No technical success is implied.' if state['unresolved'] else 'Observe external paths before final reception' if state['unobserved'] else 'Final report allowed'
+    return state
+
+
+def require_final_outcome(registry):
+    requirements(registry)
+    state=closure_state(registry.mission_store,registry.context['mission_id'])
+    if not state['final_allowed']:
+        raise ValueError('Final reception refused: unresolved owner-required external outcome. '+encoded(state))
+    return state
 
 
 def typed_coverage_issues(requirements_data, plan):
@@ -283,6 +323,7 @@ def working_assurance_state(store, ident, task_id=None):
     tasks=store.tasks(ident)
     return {'coverage':coverage_state(store,ident),'plan_history':plan_view(store,ident),
             'tasks':[{k:task.get(k) for k in ('id','title','deps','state','artifact','report_sha256')} for task in tasks],
+            'closure':closure_state(store,ident),
             'pending_report_correction':pending_report_feedback(store,ident,task_id) if task_id or tasks and all(task['state']=='validated' for task in tasks) else None}
 
 
@@ -299,6 +340,7 @@ def evidence_snapshot(store, ident, task_id=None):
                 if dep not in scope_tasks:scope_tasks.add(dep);pending.append(dep)
     observations=[o for o in store.observations(ident) if scope_tasks is None or o['task'] in scope_tasks]
     report_paths={t.get('contract',{}).get('report_path') for t in all_tasks}
+    report_paths.update(criterion.get('source',{}).get('arguments',{}).get('path') for t in all_tasks for criterion in t.get('contract',{}).get('semantic',[]) if criterion.get('kind')=='report')
     receipts=[]
     for o in observations:
         name=o['tool']; args=o['arguments']; result=o.get('result') or {}
@@ -323,7 +365,7 @@ def evidence_snapshot(store, ident, task_id=None):
     data={'coverage_reviews':coverage_reviews,'report_failures':report_failures,'mission':ident,'raw_goal':store.get(ident)['goal'],'scope_task':task_id,'scope_includes_dependencies':True,'goal_requirements':latest(store,ident,'goal_requirements'),'plans':ledger['plans'],'tasks':ledger['tasks'],
         'receipts':receipts,'semantic_verifications':events,'codex_interventions':ledger['codex_interventions'],
         'created':datetime.fromtimestamp(store.get(ident)['created'],ZoneInfo('Europe/Paris')).isoformat(),
-        'infrastructure_author':'Codex','plan_and_operations_author':'JARVIS','active_contracts':{'reference':'contracts:active','engine':VERSION,'requirements':GOAL_VERSION,'report':REPORT_VERSION},
+        'infrastructure_author':'Codex','plan_and_operations_author':'JARVIS','closure':closure_state(store,ident),'active_contracts':{'reference':'contracts:active','engine':VERSION,'requirements':GOAL_VERSION,'report':REPORT_VERSION},
         'limitations':'Receipt excerpts are not full program specifications. Idempotence requires successful repeated application and compared state. No observation means unverified, never success.'}
     if data['goal_requirements']:
         data['goal_requirements']={**data['goal_requirements'],'reference':'requirements:'+str(data['goal_requirements'].get('version',1))}
@@ -341,7 +383,10 @@ def deterministic_report_issues(content, snapshot):
     for status in ('FAIL','PARTIAL','INSUFFICIENT'):
         if (counts[status] or status=='FAIL' and (snapshot.get('report_failures') or any(x.get('status')=='FAIL' for x in snapshot.get('coverage_reviews',[])))) and status not in content:
             issues.append('Historical '+status+' must be explicitly retained; see original semantic, coverage and editorial review events')
-    for label,expected in [('plans',snapshot['counts']['plans']),('observations',snapshot['counts']['observations_in_scope'])]:
+    # Explicit ledger metrics have fixed semantics. Natural-language "observations"
+    # can mean data rows, or quote a rejected draft: the semantic review must check
+    # the original statement and its evidence, never equate those with tool calls.
+    for label,expected in [('plan_versions_count',snapshot['counts']['plans']),('observations_in_scope',snapshot['counts']['observations_in_scope'])]:
         for value in re.findall(r'\b'+label+r'\s*[:=]\s*(\d+)\b',content,re.I):
             if int(value)!=expected: issues.append(label+' incorrect: expected '+str(expected)+', actual '+value)
     refs={r['reference'] for r in snapshot['receipts']}|{r['broker_evidence'] for r in snapshot['receipts'] if r.get('broker_evidence')}|{e['reference'] for e in snapshot['semantic_verifications']}|{e['reference'] for e in snapshot.get('coverage_reviews',[])+snapshot.get('report_failures',[])}
@@ -403,6 +448,8 @@ def report_model_view(snapshot, content, recent=4):
             card['complete_original_in_mission_evidence']=True
         cards.append(card)
     view={key:snapshot[key] for key in ('mission','created','scope_task','raw_goal','counts','tasks','plans','infrastructure_author','plan_and_operations_author','active_contracts')}
+    view['closure']=snapshot.get('closure',{})
+    view['count_semantics']='counts.observations_in_scope counts technical receipts, NOT CSV records/measurements. Natural-language observations must name their referent and be checked against the relevant file/receipt. A quoted rejected assertion is historical text, not a new assertion of that value; verify its actual rejection and correction.'
     view['view_contract']='Selected original facts, not the whole journal. Omitted content is NOT absent evidence. The index lists ALL receipt IDs in scope. Never call a known ID invented. Full originals remain in mission_evidence.'
     view['reference_aliases']={'mission':'mission:id','created':'mission:created','infrastructure_author':'actor:Codex','contracts':'contracts:active'}
     view['tasks']=[{**task,'reference':'task:'+task['id']} for task in snapshot['tasks']]

@@ -133,8 +133,9 @@ class Registry:
                         raise ValueError('Final owner acceptance failed: '+json.dumps(verdict,ensure_ascii=False))
                 original=args['content']
                 self.mission_store.event(self.context['mission_id'],'model_report_original',actor='JARVIS',result={'content':original,'status':'model narrative, not verified facts'})
-                from .mission_assurance import enabled, require_report
+                from .mission_assurance import enabled, require_report, require_final_outcome
                 if enabled(self.mission_store,self.context['mission_id']):
+                    require_final_outcome(self)
                     review=require_report(self,original)
                     args={**args,'content':original+'\n\n---\n\n'+render_final(self.mission_store,self.context['mission_id'],original)}
                     self.mission_store.event(self.context['mission_id'],'narrative_publication_approved',result={'draft_sha256':review['draft_sha256'],'snapshot_sha256':review['snapshot_sha256'],'reviewer':'JARVIS-reviewer'})

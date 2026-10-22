@@ -47,3 +47,7 @@ Le premier retest de la vue bornée a dépassé le budget et a été refusé ava
 Les raisons du contrôle sont bornées (200 caractères par passage,160 par événement), les références principales limitées à6 par passage et les constats généraux à8. Chaque passage et chaque source explicitement citée restent obligatoires : raccourcir les justifications ne supprime aucun contrôle. Le budget de sortie augmente avec ces contrôles requis, jusqu’à16384 tokens. Le texte source complet est conservé. La liste exhaustive des identifiants autorisés reste imposée par le schéma sans être dupliquée dans les données ; les alias de références de mission, tâche, plan et contrat sont explicites.
 
 Le contrat de couverture26b.9 exige également un ordre explicite entre tous les producteurs déclarés du même artefact : attendre plusieurs producteurs ne suffit pas si leurs propres écritures restent non ordonnées. Ce contrôle corrige le faux PASS observé sur le plan C/v7 ; le modèle choisit ses nouvelles dépendances ou réduit ses sorties redondantes, sans plan fourni par Codex.
+
+## Reprise du23 octobre2026
+
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 162 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.

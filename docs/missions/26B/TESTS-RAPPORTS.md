@@ -1,6 +1,6 @@
 # Tests des rapports26B — campagne en cours
 
-Statut : 🟡 incomplet. Les 155 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
+Statut : 🟡 incomplet. Les 162 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
 
 La réception attend trois rapports réels : réussite locale complète (A), échec du programme puis correction (B), résultat local vérifié avec dépendance externe impossible à observer (C). Aucun de ces trois rapports n’est encore reçu au déploiement24.
 
@@ -31,3 +31,7 @@ Le contrôle par événement du contrat26b.report.3 a ensuite détecté des déf
 ## Premières étapes opérationnelles
 
 A/T1 et B/T01 sont reçues par le moteur. La lecture indépendante du rapport B/T01 confirme le code, les données et les causes des deux refus cités11167/11197. Le programme B a réellement été lancé sans correction du délimiteur : la commande ajoute `|| true`, donc le shell annonce0 tandis que le programme émet un traceback. Le contrôle indépendant le classe comme échec applicatif masqué, sans compter une réussite du producteur. La correction fonctionnelle et les trois missions complètes restent à recevoir.
+
+## Reprise du23 octobre2026
+
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 162 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.

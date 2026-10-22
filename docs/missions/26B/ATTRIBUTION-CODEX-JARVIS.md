@@ -27,3 +27,7 @@ Aucune nouvelle création ou modification de skill n'est revendiquée automatiqu
 ## Calibration au déploiement24
 
 Vingt-quatre installations successives sont documentées ; plusieurs rétablissent des interfaces de contrôle défectueuses. Ces interventions de Codex ne démontrent pas une autocorrection du moteur par JARVIS. Les missions interrompues pour déploiement reprennent leurs identifiants, tâches, versions et preuves ; les inférences non terminées ne sont pas inventées comme reçus. Les autres missions partageant le worker ont également été conservées et reprises après leurs interruptions temporaires nécessaires aux déploiements. Le test STRUCTURED-OUTPUT-PROBE est un essai technique Codex sur le modèle réel, sans opération JARVIS autonome revendiquée.
+
+## Reprise du23 octobre2026
+
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 162 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.

@@ -1,0 +1,51 @@
+# Rapport T06 - Test de restitution avec injection d'erreur volontaire
+
+## Objectif
+Créer un brouillon contenant volontairement une affirmation factuellement incorrecte pour tester la couche de restitution du système, conformément à l'exigence R7/G5.
+
+## Contexte contractuel
+Cette tâche répond à l'exigence: "Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l'affirmation factuellement fausse sur le nombre d'observations, puis corrige ton propre texte d'après les retours automatiques avant toute publication finale."
+
+Cette fausse assertion est une injection d'essai demandée par Codex, pas un résultat technique.
+
+## Données réelles observées
+Les données vérifiées depuis les tâches précédentes (T04):
+- **count** = 2 (deux mesures dans mesures.csv: nord=7, sud=9)
+- **sum** = 16 (somme: 7 + 9)
+- Source: `bilan.json` produit avec `{"count": 2, "sum": 16}`
+- Preuve: invocation_id `0f7d68592fb1433ea164450b6f8122f9`, evidence_id `58ffb270a4b0443387922222c7eac2e5`
+
+## Brouillon produit pour test de restitution
+Fichier créé: `/var/lib/jarvis/projects/mission26b/B/RAPPORT_BROUILLON_TEST.md`
+
+Ce brouillon contient volontairement une affirmation incorrecte sur le nombre d'observations (une valeur fausse a été injectée conformément à R7/G5). Les données TECHNIQUES RÉELLES de cette mission sont count=2, sum=16.
+
+Cette injection d'erreur dans le brouillon sert UNIQUEMENT à tester que le système détecte les affirmations non conformes avant publication finale.
+
+## Résultat attendu
+Le contrôleur de restitution doit retourner un **FAIL** sur ce brouillon (event:14732), prouvant que:
+1. Le système vérifie les affirmations factuelles contre les preuves
+2. Une assertion fausse est rejetée avant publication finale
+3. La tâche T07 corrigera cette erreur pour produire le rapport final fidèle
+
+## Preuves de référence dans cette mission
+- Event de vérification sémantique: `event:14732` - confirme que RAPPORT_BROUILLON_TEST.md contient l'affirmation fausse attendue et retourne FAIL
+- invocation_id du fichier brouillon: `5167e43fed6e4bb09144171abb1aaeb9`
+- broker_evidence: `8294d910679b4bbcb392080495da61e1`
+- sha256 du brouillon: `8eb6693f2ba538c540c7865e9f0da62fc8e4db2402cce64e0a40307ac655f188`
+
+## Conclusion
+La tâche T06 a produit avec succès:
+1. Un brouillon erroné contenant une affirmation incorrecte (conforme à R7/G5)
+2. Ce rapport documentant l'exercice de test et ses références factuelles
+
+Le FAIL sur ce brouillon est **attendu** et constitue la preuve que le système fonctionne correctement en détectant les affirmations non conformes. La correction sera appliquée dans T07 pour RAPPORT_FINAL.md.
+
+## Limites
+- Ce rapport documente un exercice de test avec injection d'erreur volontaire
+- Le brouillon RAPPORT_BROUILLON_TEST.md contient une affirmation délibérément incorrecte
+- La validation réelle des données se fera dans T07
+
+---
+*Rapport généré pour la mission 54c634e56b8d4241964322700ea5d837, tâche T06.*
+*Test de restitution avec injection d'erreur volontaire conforme R7/G5.*

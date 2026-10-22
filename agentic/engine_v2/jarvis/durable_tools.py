@@ -125,6 +125,13 @@ def register(registry):
         if not proof or proof['tool'].startswith('mission_'):raise ValueError('Une observation réelle de la tâche est requise')
         from .mission_assurance import enabled
         if enabled(db,ident):
+            result=proof.get('result') or {};raw=result.get('result') or {}
+            if result.get('ok') and raw.get('returncode',0)==0:
+                raise ValueError('External wait requires an actually failed observation, not a successful command or written report')
+            from .mission_assurance import closure_state
+            closure=closure_state(db,ident)
+            if closure['on_unavailable']=='waiting_external' and proof['id'] not in {row['reference'] for row in closure['unresolved']}:
+                raise ValueError('Use the latest unresolved external read from closure state; a superseded failure or unrelated refusal cannot establish this blocker')
             tasks={t['id']:t for t in db.tasks(ident)}
             def requires_current(candidate,seen=None):
                 seen=set() if seen is None else seen

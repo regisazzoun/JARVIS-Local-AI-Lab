@@ -17,3 +17,7 @@ Les fichiers SCENARIO-A/B/C.json sont des exports datés, susceptibles d’être
 Au déploiement24, A a atteint une version5 acceptée et B une version2 acceptée par le contrôleur précédent ; les liaisons report de B ont été révisées par JARVIS. C avait aussi un PASS sur sa version4, mais la lecture indépendante a détecté que son manifeste pouvait précéder la correction de l’inventaire. Ce PASS ne vaut donc pas réception finale du plan. Le contrat26b.6 impose un nouveau contrôle et laisse JARVIS modifier son propre graphe. Aucun des trois scénarios complets n’est encore reçu.
 
 Le plan C/v7 a corrigé les collisions mais a été accepté à tort sous le contrat8 alors que des producteurs de l’inventaire et du manifeste restaient non ordonnés. Le contrôle indépendant a motivé le contrat9, qui impose une nouvelle vérification formelle. Cette ancienne acceptation reste au journal ; elle ne constitue pas une réception indépendante du plan.
+
+## Reprise du23 octobre2026
+
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 162 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
