@@ -1,0 +1,65 @@
+# Rapport T01 - Lecture des fichiers source
+
+## Objectif
+Lire producer.py et mesures.csv pour comprendre la structure du banc applicatif et des données d'entrée.
+
+## Historique des tentatives
+- Première tentative : rapport sans références suffisantes aux preuves originales → FAIL (mission_verify event 11167)
+- Deuxième tentative : ajout des références mais vérification échoue car "Historical FAIL must be explicitly retained" → FAIL (mission_verify event 11197)
+- Cette version inclut l'historique des erreurs comme exigé par le contrôleur de restitution
+
+## Observations réelles
+
+### Fichier producer.py
+Lecture effectuée (invocation_id: `ec4f3297dd3d42a9a3a3da1c2cd7554c`, evidence_id: `b776288ad3b947c8a362825e862df451`).
+
+Le script utilise :
+- argparse pour la ligne de commande avec arguments source, destination et --delimiter (défaut=',')
+- csv.DictReader pour lire le fichier CSV avec le délimiteur spécifié
+- Écrit un JSON avec `count` (nombre de lignes) et `sum` (somme des valeurs entières de la colonne 'valeur')
+
+Code observé :
+```python
+import argparse,csv,json
+from pathlib import Path
+p=argparse.ArgumentParser();p.add_argument('source');p.add_argument('destination');p.add_argument('--delimiter',default=',');a=p.parse_args()
+with open(a.source,newline='') as f: rows=list(csv.DictReader(f,delimiter=a.delimiter))
+result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}
+Path(a.destination).write_text(json.dumps(result,sort_keys=True)+'\n')
+print(json.dumps({'produced':a.destination,'result':result}))
+```
+
+### Fichier mesures.csv
+Lecture effectuée (invocation_id: `ce720ec4a2d447238634c70556456a54`, evidence_id: `3b30d64d03284331a6124366e73b5058`).
+
+Contenu observé :
+```csv
+nom;valeur
+nord;7
+sud;9
+```
+
+Structure :
+- En-tête : `nom;valeur`
+- Délimiteur utilisé : `;` (point-virgule)
+- 2 données : nord=7, sud=9
+- Somme attendue : 7 + 9 = 16
+- Nombre de mesures : 2
+
+## Analyse critique
+Le script producer.py utilise par défaut le délimiteur `,` (virgule), mais mesures.csv utilise `;` (point-virgule). Cette incompatibilité explique pourquoi l'exécution sans paramètre échouera - le parser CSV ne reconnaîtra pas correctement les colonnes.
+
+## Conclusion
+La tâche de lecture est complétée. Les données brutes sont :
+- 2 mesures avec valeurs 7 et 9
+- Somme = 16
+- Délimiteur réel du CSV : `;` (différent du défaut du script)
+
+## Références originales
+- producer.py: invocation_id=`ec4f3297dd3d42a9a3a3da1c2cd7554c`, evidence_id=`b776288ad3b947c8a362825e862df451`
+- mesures.csv: invocation_id=`ce720ec4a2d447238634c70556456a54`, evidence_id=`3b30d64d03284331a6124366e73b5058`
+- mission_verify event 11167: première tentative FAIL (manque de références)
+- mission_verify event 11197: deuxième tentative FAIL ("Historical FAIL must be explicitly retained")
+
+## Limites
+Ce rapport est une observation technique ; la validation complète requiert l'exécution réelle du banc applicatif pour confirmer le diagnostic.

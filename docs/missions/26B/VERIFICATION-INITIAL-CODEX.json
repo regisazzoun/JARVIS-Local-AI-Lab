@@ -1,0 +1,345 @@
+{
+  "actor": "Codex-independent-read",
+  "created": 1792621543.2754135,
+  "historical_tasks": 67,
+  "historical_task_states_hashes_preserved": true,
+  "memory": {
+    "quick_check": "ok",
+    "memories": {
+      "previous_rows": 5,
+      "current_rows": 5,
+      "all_previous_rows_preserved": true
+    },
+    "preferences": {
+      "previous_rows": 4,
+      "current_rows": 4,
+      "all_previous_rows_preserved": true
+    }
+  },
+  "skill-lab": {
+    "quick_check": "ok",
+    "versions": {
+      "previous_rows": 9,
+      "current_rows": 9,
+      "all_previous_rows_preserved": true
+    },
+    "active": {
+      "previous_rows": 4,
+      "current_rows": 4,
+      "all_previous_rows_preserved": true
+    }
+  },
+  "policy_unchanged": true,
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-mission23-livekit-agent": "active",
+    "jarvis-mission23-livekit-server": "active"
+  },
+  "modules": [
+    {
+      "module": "missions.py",
+      "installed_sha256": "8fd5d6891f855f12324851e4a29e9a3edfe4a81e37bc55741e6bc8d9e96886b1",
+      "matches_source": true
+    },
+    {
+      "module": "mission_store.py",
+      "installed_sha256": "8386f4e2f3c7f5458ee090911da83100a338e8c2b0e9f962df5a8920a07a3b66",
+      "matches_source": true
+    },
+    {
+      "module": "durable_tools.py",
+      "installed_sha256": "3e1665e1434c9ac474f3e46a004cf7de2daa8eeef7fdef966c155f46124baf6d",
+      "matches_source": true
+    },
+    {
+      "module": "durable_cycle.py",
+      "installed_sha256": "7a105bed875ff1204796b14f2afbf9e940b1521ff8d0c3a5f3501d05c18da1aa",
+      "matches_source": true
+    },
+    {
+      "module": "tools.py",
+      "installed_sha256": "ddfa2b9294ad7f7d600e98d4bdc4c9eb65508ce9cacd2d97b9e80c32d0638597",
+      "matches_source": true
+    },
+    {
+      "module": "mission_assurance.py",
+      "installed_sha256": "753d208e4f91451029aeb85260396200e1365cb538ef149f9245245b72c81b7d",
+      "matches_source": true
+    },
+    {
+      "module": "verification.py",
+      "installed_sha256": "1ce665fc37a410c82da124f7ecfb110995c5f44cba0fa7241806fffe6e978329",
+      "matches_source": true
+    }
+  ],
+  "other_installed_modules_unchanged": true,
+  "native_tools": 51,
+  "scenarios": [
+    {
+      "case": "A",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "state": "queued",
+      "coverage_accepted": false,
+      "versions": 1,
+      "tasks": [
+        [
+          "T1",
+          "pending"
+        ],
+        [
+          "T2",
+          "pending"
+        ],
+        [
+          "T3",
+          "pending"
+        ],
+        [
+          "T4",
+          "pending"
+        ],
+        [
+          "T5",
+          "pending"
+        ],
+        [
+          "T6",
+          "pending"
+        ]
+      ],
+      "files": [
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv",
+          "sha256": "4f6e046c791e025750a8b12d8f29b269f13a2e442b79877acc1faa436adbfc23"
+        }
+      ],
+      "expected": {
+        "count": 3,
+        "sum": 12
+      },
+      "input_unchanged": true,
+      "reviews": [],
+      "negative_results": [
+        {
+          "invocation": "bd229ad6ef874d33beaf92bc79b832b3",
+          "tool": "mission_plan",
+          "error": "'[{\"id\": \"T1\", \"title\": \"Lecture et analyse de stocks.csv\", \"depends\": [], \"objective\": \"Lire le fichier stocks.csv, compter les lignes d\\'articles (excluant l\\'en-tête) et sommer les quantités\", \"tools\": [\"host_read_file\"], \"observations\": [\"Fichier localisé à /var/lib/jarvis/projects/mission26b/A/stocks.csv\", \"Format CSV avec en-tête \\'article,quantite\\'\", \"3 lignes de données : alpha(3), beta(4), gamma(5)\"], \"verification\": \"Compter 3 lignes d\\'articles et somme = 12\", \"recovery\": \"Relire le fichier avec offset différent si tronqué\", \"artifacts\": [\"données_brutes: {lines_articles: 3, somme_quantites: 12}\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"json\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/stocks.csv\"}, \"expected\": {\"lines_articles\": 3, \"somme_quantites\": 12}, \"types\": {\"lines_articles\": \"integer\", \"somme_quantites\": \"integer\"}}]}}, {\"id\": \"T2\", \"title\": \"Génération de summary.json\", \"depends\": [\"T1\"], \"objective\": \"Créer summary.json contenant le nombre exact de lignes d\\'articles et la somme entière des quantités\", \"tools\": [\"host_write_file\"], \"observations\": [\"Structure JSON attendue: {\\\\\"lines_articles\\\\\": 3, \\\\\"somme_quantites\\\\\": 12}\"], \"verification\": \"Fichier summary.json existe avec contenu valide JSON et valeurs exactes\", \"recovery\": \"Réécrire le fichier si validation échoue\", \"artifacts\": [\"/var/lib/jarvis/projects/mission26b/A/summary.json\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"json\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/summary.json\"}, \"expected\": {\"lines_articles\": 3, \"somme_quantites\": 12}, \"types\": {\"lines_articles\": \"integer\", \"somme_quantites\": \"integer\"}}]}}, {\"id\": \"T3\", \"title\": \"Calcul de l\\'empreinte SHA256 de summary.json\", \"depends\": [\"T2\"], \"objective\": \"Calculer l\\'empreinte SHA256 réelle du contenu de summary.json\", \"tools\": [\"host_exec\"], \"observations\": [\"Utiliser sha256sum sur summary.json pour obtenir l\\'empreinte exacte\"], \"verification\": \"Empreinte calculée correspond à la lecture réelle du fichier\", \"recovery\": \"Recalculer après vérification d\\'intégrité de summary.json\", \"artifacts\": [\"empreinte_sha256: valeur_hexadécimale_64_caractères\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"text\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/summary.json\"}, \"expected\": {\"sha256\": \"empreinte_calculée_réellement\"}, \"preserve\": [\"sha256\"]}, {\"kind\": \"service\", \"expected_state\": \"sha256_match\", \"baseline_source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/summary.json\"}}]}}, {\"id\": \"T4\", \"title\": \"Génération de manifest.json\", \"depends\": [\"T3\"], \"objective\": \"Créer manifest.json contenant l\\'empreinte SHA256 de summary.json\", \"tools\": [\"host_write_file\"], \"observations\": [\"Structure JSON: {\\\\\"file\\\\\": \\\\\"summary.json\\\\\", \\\\\"sha256\\\\\": \\\\\"empreinte_calculée\\\\\"}\"], \"verification\": \"Fichier manifest.json existe avec empreinte correspondant à T3\", \"recovery\": \"Réécrire avec l\\'empreinte correcte si divergence\", \"artifacts\": [\"/var/lib/jarvis/projects/mission26b/A/manifest.json\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"json\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/manifest.json\"}, \"expected\": {\"file\": \"summary.json\"}, \"types\": {\"file\": \"string\", \"sha256\": \"string\"}}, {\"kind\": \"text\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/manifest.json\"}, \"preserve\": [\"sha256\"], \"equals\": \"empreinte_de_T3\"}]}}, {\"id\": \"T5\", \"title\": \"Vérification de cohérence entre summary.json et manifest.json\", \"depends\": [\"T4\"], \"objective\": \"Confirmer que l\\'empreinte dans manifest.json correspond au contenu réel de summary.json\", \"tools\": [\"host_read_file\", \"host_exec\"], \"observations\": [\"Recalculer sha256sum sur summary.json et comparer avec manifest.json\"], \"verification\": \"sha256(manifest.json.sha256) == sha256(summary.json réel)\", \"recovery\": \"Regénérer manifest.json si divergence détectée\", \"artifacts\": [\"vérification_cohérence: PASS/FAIL\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"service\", \"expected_state\": \"sha256_match_confirmed\", \"baseline_source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/summary.json\"}, \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/manifest.json\"}}]}}, {\"id\": \"T6\", \"title\": \"Vérification de l\\'intégrité de stocks.csv\", \"depends\": [\"T1\"], \"objective\": \"Confirmer que stocks.csv n\\'a pas été modifié pendant le traitement\", \"tools\": [\"host_read_file\"], \"observations\": [\"Relire stocks.csv et comparer avec lecture initiale\"], \"verification\": \"Contenu identique à la première lecture\", \"recovery\": \"Aucune action corrective possible si modifié (violation R6)\", \"artifacts\": [\"intégrité_stocks_csv: PRESERVÉE\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"text\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/stocks.csv\"}, \"expected_state\": \"unchanged_from_initial_read\", \"preserve\": [\"article,quantite\\\\\\\\nalpha,3\\\\\\\\nbeta,4\\\\\\\\ngamma,5\\\\\\\\n\"]]}}, {\"id\": \"T7\", \"title\": \"Rédaction du rapport final explicatif\", \"depends\": [\"T5\", \"T6\"], \"objective\": \"Produire un rapport détaillé en français incluant les données, opérations, preuves et limites\", \"tools\": [\"host_write_file\"], \"observations\": [\"Inclure : contexte, méthodes, résultats chiffrés, empreintes calculées, références aux invocations d\\'outils, limitations constatées\"], \"verification\": \"Rapport complet rédigé avec toutes les sections requises par R11\", \"recovery\": \"Ajouter les sections manquantes si audit échoue\", \"artifacts\": [\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", \"semantic\": [{\"kind\": \"text\", \"source\": {\"path\": \"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\"}, \"expected_state\": \"complet_avec_reférences_et_limites\"}]}}]' is not of type 'array'\n\nFailed validating 'type' in schema['properties']['tasks']:\n    {'type': 'array',\n     'items': {'type': 'object',\n               'properties': {'id': {'type': 'string'},\n                              'title': {'type': 'string'},\n                              'objective': {'type': 'string'},\n                              'tools': {'type': 'array',\n                                        'items': {'type': 'string'}},\n                              'observations': {'type': 'array',\n                                               'items': {'type': 'string'}},\n                              'verification': {'type': 'string'},\n                              'recovery': {'type': 'string'},\n                              'artifacts': {'type': 'array',\n                                            'items': {'type': 'string'}},\n                              'depends': {'type': 'array',\n                                          'items': {'type': 'string'}},\n                              'contract': {'type': 'object',\n                                           'properties': {'report_path': {'type': 'string'},\n                                                          'semantic': {'type': 'array',\n                                                                       'items': {'type': 'object',\n                                                                                 'properties': {'kind': {'type': 'string',\n                                                                                                         'enum': ['json',\n                                                                                                                  'text',\n                                                                                                                  'service']},\n                                                                                                'source': {'type': 'object'},\n                                                                                                'expected': {'type': 'object'},\n                                                                                                'types': {'type': 'object'},\n                                                                                                'baseline_source': {'type': 'object'},\n                                                                                                'preserve': {'type': 'array',\n                                                                                                             'items': {'type': 'string'}},\n                                                                                                'equals': {'type': 'string'},\n                                                                                                'sha256': {'type': 'string'},\n                                                                                                'expected_state': {'type': 'string'}}}},\n                                                          'checks': {'type': 'array',\n                                                                     'items': {'type': 'object'}}}}},\n               'required': ['id', 'title', 'depends']}}\n\nOn instance['tasks']:\n    ('[{\"id\": \"T1\", \"title\": \"Lecture et analyse de stocks.csv\", '\n     '\"depends\": [], \"objective\": \"Lire le fichier stocks.csv, compter les '\n     'lignes d\\'articles (excluant l\\'en-tête) et sommer les quantités\", '\n     '\"tools\": [\"host_read_file\"], \"observations\": [\"Fichier localisé à '\n     '/var/lib/jarvis/projects/mission26b/A/stocks.csv\", \"Format CSV avec '\n     'en-tête \\'article,quantite\\'\", \"3 lignes de données : alpha(3), '\n     'beta(4), gamma(5)\"], \"verification\": \"Compter 3 lignes d\\'articles '\n     'et somme = 12\", \"recovery\": \"Relire le fichier avec offset différent '\n     'si tronqué\", \"artifacts\": [\"données_brutes: {lines_articles: 3, '\n     'somme_quantites: 12}\"], \"contract\": {\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"json\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/stocks.csv\"}, \"expected\": '\n     '{\"lines_articles\": 3, \"somme_quantites\": 12}, \"types\": '\n     '{\"lines_articles\": \"integer\", \"somme_quantites\": \"integer\"}}]}}, '\n     '{\"id\": \"T2\", \"title\": \"Génération de summary.json\", \"depends\": '\n     '[\"T1\"], \"objective\": \"Créer summary.json contenant le nombre exact '\n     'de lignes d\\'articles et la somme entière des quantités\", \"tools\": '\n     '[\"host_write_file\"], \"observations\": [\"Structure JSON attendue: '\n     '{\\\\\"lines_articles\\\\\": 3, \\\\\"somme_quantites\\\\\": 12}\"], '\n     '\"verification\": \"Fichier summary.json existe avec contenu valide '\n     'JSON et valeurs exactes\", \"recovery\": \"Réécrire le fichier si '\n     'validation échoue\", \"artifacts\": '\n     '[\"/var/lib/jarvis/projects/mission26b/A/summary.json\"], \"contract\": '\n     '{\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"json\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/summary.json\"}, \"expected\": '\n     '{\"lines_articles\": 3, \"somme_quantites\": 12}, \"types\": '\n     '{\"lines_articles\": \"integer\", \"somme_quantites\": \"integer\"}}]}}, '\n     '{\"id\": \"T3\", \"title\": \"Calcul de l\\'empreinte SHA256 de '\n     'summary.json\", \"depends\": [\"T2\"], \"objective\": \"Calculer '\n     'l\\'empreinte SHA256 réelle du contenu de summary.json\", \"tools\": '\n     '[\"host_exec\"], \"observations\": [\"Utiliser sha256sum sur summary.json '\n     'pour obtenir l\\'empreinte exacte\"], \"verification\": \"Empreinte '\n     'calculée correspond à la lecture réelle du fichier\", \"recovery\": '\n     '\"Recalculer après vérification d\\'intégrité de summary.json\", '\n     '\"artifacts\": [\"empreinte_sha256: '\n     'valeur_hexadécimale_64_caractères\"], \"contract\": {\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"text\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/summary.json\"}, \"expected\": '\n     '{\"sha256\": \"empreinte_calculée_réellement\"}, \"preserve\": '\n     '[\"sha256\"]}, {\"kind\": \"service\", \"expected_state\": \"sha256_match\", '\n     '\"baseline_source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/summary.json\"}}]}}, {\"id\": '\n     '\"T4\", \"title\": \"Génération de manifest.json\", \"depends\": [\"T3\"], '\n     '\"objective\": \"Créer manifest.json contenant l\\'empreinte SHA256 de '\n     'summary.json\", \"tools\": [\"host_write_file\"], \"observations\": '\n     '[\"Structure JSON: {\\\\\"file\\\\\": \\\\\"summary.json\\\\\", \\\\\"sha256\\\\\": '\n     '\\\\\"empreinte_calculée\\\\\"}\"], \"verification\": \"Fichier manifest.json '\n     'existe avec empreinte correspondant à T3\", \"recovery\": \"Réécrire '\n     'avec l\\'empreinte correcte si divergence\", \"artifacts\": '\n     '[\"/var/lib/jarvis/projects/mission26b/A/manifest.json\"], \"contract\": '\n     '{\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"json\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/manifest.json\"}, \"expected\": '\n     '{\"file\": \"summary.json\"}, \"types\": {\"file\": \"string\", \"sha256\": '\n     '\"string\"}}, {\"kind\": \"text\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/manifest.json\"}, \"preserve\": '\n     '[\"sha256\"], \"equals\": \"empreinte_de_T3\"}]}}, {\"id\": \"T5\", \"title\": '\n     '\"Vérification de cohérence entre summary.json et manifest.json\", '\n     '\"depends\": [\"T4\"], \"objective\": \"Confirmer que l\\'empreinte dans '\n     'manifest.json correspond au contenu réel de summary.json\", \"tools\": '\n     '[\"host_read_file\", \"host_exec\"], \"observations\": [\"Recalculer '\n     'sha256sum sur summary.json et comparer avec manifest.json\"], '\n     '\"verification\": \"sha256(manifest.json.sha256) == sha256(summary.json '\n     'réel)\", \"recovery\": \"Regénérer manifest.json si divergence '\n     'détectée\", \"artifacts\": [\"vérification_cohérence: PASS/FAIL\"], '\n     '\"contract\": {\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"service\", \"expected_state\": '\n     '\"sha256_match_confirmed\", \"baseline_source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/summary.json\"}, \"source\": '\n     '{\"path\": \"/var/lib/jarvis/projects/mission26b/A/manifest.json\"}}]}}, '\n     '{\"id\": \"T6\", \"title\": \"Vérification de l\\'intégrité de stocks.csv\", '\n     '\"depends\": [\"T1\"], \"objective\": \"Confirmer que stocks.csv n\\'a pas '\n     'été modifié pendant le traitement\", \"tools\": [\"host_read_file\"], '\n     '\"observations\": [\"Relire stocks.csv et comparer avec lecture '\n     'initiale\"], \"verification\": \"Contenu identique à la première '\n     'lecture\", \"recovery\": \"Aucune action corrective possible si modifié '\n     '(violation R6)\", \"artifacts\": [\"intégrité_stocks_csv: PRESERVÉE\"], '\n     '\"contract\": {\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"text\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/stocks.csv\"}, '\n     '\"expected_state\": \"unchanged_from_initial_read\", \"preserve\": '\n     '[\"article,quantite\\\\\\\\nalpha,3\\\\\\\\nbeta,4\\\\\\\\ngamma,5\\\\\\\\n\"]]}}, '\n     '{\"id\": \"T7\", \"title\": \"Rédaction du rapport final explicatif\", '\n     '\"depends\": [\"T5\", \"T6\"], \"objective\": \"Produire un rapport détaillé '\n     'en français incluant les données, opérations, preuves et limites\", '\n     '\"tools\": [\"host_write_file\"], \"observations\": [\"Inclure : contexte, '\n     'méthodes, résultats chiffrés, empreintes calculées, références aux '\n     'invocations d\\'outils, limitations constatées\"], \"verification\": '\n     '\"Rapport complet rédigé avec toutes les sections requises par R11\", '\n     '\"recovery\": \"Ajouter les sections manquantes si audit échoue\", '\n     '\"artifacts\": '\n     '[\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\"], '\n     '\"contract\": {\"report_path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\", '\n     '\"semantic\": [{\"kind\": \"text\", \"source\": {\"path\": '\n     '\"/var/lib/jarvis/projects/mission26b/A/rapport_final.md\"}, '\n     '\"expected_state\": \"complet_avec_reférences_et_limites\"}]}}]')",
+          "result": null
+        },
+        {
+          "invocation": "11ed1b86b0a94624b2e9fabb246f3298",
+          "tool": "mission_plan",
+          "error": "Task T1: source requires tool and arguments object. To change only an existing pending task use patch:true and omit unchanged tasks.",
+          "result": null
+        },
+        {
+          "invocation": "7ebdbdc5c9634f82b9c9dc27b1f2ae8a",
+          "tool": "mission_plan",
+          "error": "Task T1: source requires tool and arguments object. To change only an existing pending task use patch:true and omit unchanged tasks.",
+          "result": null
+        },
+        {
+          "invocation": "d376d91c712b4b979b4e837949cc366a",
+          "tool": "mission_plan",
+          "error": "Autonomous task T1 requires contract.report_path and nonempty contract.semantic",
+          "result": null
+        },
+        {
+          "invocation": "8439fb0f20fb42df927bd5101ed5836a",
+          "tool": "mission_plan",
+          "error": "Task T1: source requires tool and arguments object. To change only an existing pending task use patch:true and omit unchanged tasks.",
+          "result": null
+        },
+        {
+          "invocation": "3da7018a8dc541eb8e65b7ab8cf85a59",
+          "tool": "mission_plan",
+          "error": "Task T1: Use JSON Pointer starting with /, e.g. /port | Task T2: Use JSON Pointer starting with /, e.g. /port | Task T3: digest requires baseline_source pointing to the actual file whose bytes are hashed | Task T4: Use JSON Pointer starting with /, e.g. /port | Task T6: Text contract requires equals (entire exact content) or sha256; expected/contains is not a text proof. Revise invalid contract; final synthesis is also provided by intervention_report. | Task T7: Text contract requires equals (entire exact content) or sha256; expected/contains is not a text proof. Revise invalid contract; final synthesis is also provided by intervention_report.. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source. No plan saved; current version unchanged.",
+          "result": null
+        },
+        {
+          "invocation": "201bb87148334fc58f112f9f4309fbbc",
+          "tool": "mission_plan",
+          "error": "Task T3: source requires tool and arguments object | Task T7: Text contract requires equals (entire exact content) or sha256; expected/contains is not a text proof. Revise invalid contract; final synthesis is also provided by intervention_report.. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source. No plan saved; current version unchanged.",
+          "result": null
+        },
+        {
+          "invocation": "0a7fa04927764daf8ec4c317ab58ed36",
+          "tool": "mission_plan",
+          "error": "Task T3: source requires tool and arguments object | Task T7: Text contract requires equals (entire exact content) or sha256; expected/contains is not a text proof. Revise invalid contract; final synthesis is also provided by intervention_report.. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source. No plan saved; current version unchanged.",
+          "result": null
+        }
+      ],
+      "no_codex_operational_reminder": true
+    },
+    {
+      "case": "B",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "state": "running",
+      "coverage_accepted": false,
+      "versions": 0,
+      "tasks": [],
+      "files": [
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/B/producer.py",
+          "sha256": "36b5e5dba01b05e09f4332617fd93400592945563b6c516a60c4c123c5bffa4a"
+        },
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/B/mesures.csv",
+          "sha256": "ed7746bd4a7dc30ce28e54e3ee3e0f779edcb60976978c6ea2a60fda683ee0e4"
+        }
+      ],
+      "expected": {
+        "count": 2,
+        "sum": 16
+      },
+      "input_unchanged": true,
+      "reviews": [],
+      "negative_results": [
+        {
+          "invocation": "9c40d51b639b4ac1a6e4d0b880f9e281",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks: '[{\"id\": \"task1\", \"title\": \"Exploration du répertoire mission26b/B\", \"depends\": [], \"objective\": \"Lister le contenu de /var/lib/jarvis/projects/mission26b/B et lire les fichiers producer.py et mesures.csv pour comprendre la structure du banc applicatif et des données d\\'entrée.\", \"tools\": [\"host_read_file\"], \"observations\": [], \"verification\": \"\", \"recovery\": \"\", \"artifacts\": [], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/B/report_task1.txt\", \"semantic\": [{\"kind\": \"json\", \"source\": {\"tool\": \"host_read_file\", \"arguments\": {\"path\": \"/var/lib/jarvis/projects/mission26b/B\"}},. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "6bfa85926f1246d4baa2cee1f71c52ec",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks: '[{\"id\": \"task1\", \"title\": \"Exploration du répertoire mission26b/B\", \"depends\": [], \"objective\": \"Lire les fichiers producer.py et mesures.csv pour comprendre la structure du banc applicatif et des données d\\'entrée.\", \"tools\": [\"host_read_file\"], \"observations\": [], \"verification\": \"\", \"recovery\": \"\", \"artifacts\": [], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/B/report_task1.txt\", \"semantic\": []}}, {\"id\": \"task2\", \"title\": \"Exécution initiale - observation de la panne\", \"depends\": [\"task1\"], \"objective\": \"Exécuter `python3 producer.py mesures.csv bilan.json` pour observe. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "1429c323ced942b7a440360df8468a4f",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks: '[{\"id\": \"task1\", \"title\": \"Lire producer.py et mesures.csv\", \"depends\": [], \"objective\": \"Comprendre la structure du banc applicatif et des données d\\'entrée.\", \"tools\": [\"host_read_file\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/B/report_task1.txt\"}}, {\"id\": \"task2\", \"title\": \"Exécution initiale - observer la panne\", \"depends\": [\"task1\"], \"objective\": \"Lancer python3 producer.py mesures.csv bilan.json et capturer l\\'erreur.\", \"tools\": [\"host_exec\"], \"contract\": {\"report_path\": \"/var/lib/jarvis/projects/mission26b/B/report_task2.txt\"}}, {\"id\": \"task3\", \"title\": \"Analy. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "5aee72b203b24175b4a57123ccdf5b76",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks: '[{\"id\": \"task1\", \"title\": \"Lire producer.py et mesures.csv\", \"depends\": [], \"objective\": \"Comprendre le banc applicatif et les données\", \"tools\": [\"host_read_file\"]}, {\"id\": \"task2\", \"title\": \"Observer la panne initiale\", \"depends\": [\"task1\"], \"objective\": \"Lancer python3 producer.py mesures.csv bilan.json pour voir l\\'erreur\", \"tools\": [\"host_exec\"]}, {\"id\": \"task3\", \"title\": \"Diagnostiquer la cause\", \"depends\": [\"task2\"], \"objective\": \"Analyser pourquoi l\\'exécution échoue\", \"tools\": [\"host_read_file\"]}, {\"id\": \"task4\", \"title\": \"Exécuter avec params corrigés\", \"depends\": [\"task3\"], \"object. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "40439e84390f46d7b7516ffc63be014b",
+          "tool": "mission_plan",
+          "error": "Schema mission_plan at /tasks: '[{\"id\": \"T01\", \"title\": \"Lire fichiers source\", \"depends\": [], \"objective\": \"Lire producer.py et mesures.csv pour comprendre la structure\", \"tools\": [\"host_read_file\"]}, {\"id\": \"T02\", \"title\": \"Observer panne initiale\", \"depends\": [\"T01\"], \"objective\": \"Exécuter python3 producer.py mesures.csv bilan.json et capturer l\\'erreur\", \"tools\": [\"host_exec\"]}, {\"id\": \"T03\", \"title\": \"Diagnostiquer cause\", \"depends\": [\"T02\"], \"objective\": \"Analyser pourquoi l\\'exécution échoue\", \"tools\": [\"host_read_file\"]}, {\"id\": \"T04\", \"title\": \"Exécuter correction\", \"depends\": [\"T03\"], \"objective\": \"Lancer produce. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.",
+          "result": null
+        },
+        {
+          "invocation": "b5d07772963d498b8dd8c6ba8fb44c08",
+          "tool": "mission_plan",
+          "error": "Autonomous plan metadata required: objective",
+          "result": null
+        },
+        {
+          "invocation": "3d440362e95a4c7bb2070b6939616edc",
+          "tool": "mission_plan",
+          "error": "Autonomous plan metadata required: success_criteria",
+          "result": null
+        },
+        {
+          "invocation": "a4e7cd4502b44df8b2cf614cdf157265",
+          "tool": "mission_plan",
+          "error": "Autonomous plan metadata required: artifacts",
+          "result": null
+        },
+        {
+          "invocation": "e44f172f9e134a868828b6d22cbccdca",
+          "tool": "mission_plan",
+          "error": "Autonomous plan metadata required: stop_conditions",
+          "result": null
+        },
+        {
+          "invocation": "2272b53f39ba46b78067ec7dee82ab49",
+          "tool": "mission_plan",
+          "error": "Autonomous task T1 requires contract.report_path and nonempty contract.semantic",
+          "result": null
+        }
+      ],
+      "no_codex_operational_reminder": true
+    },
+    {
+      "case": "C",
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "state": "queued",
+      "coverage_accepted": false,
+      "versions": 1,
+      "tasks": [
+        [
+          "T1",
+          "pending"
+        ],
+        [
+          "T2",
+          "pending"
+        ]
+      ],
+      "files": [
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/C/input.json",
+          "sha256": "a84a183574e7d16a291821e202ab1526a55c0e1a8ed10b59763670c23f526657"
+        }
+      ],
+      "expected": {
+        "names": [
+          "capteur-a",
+          "capteur-b"
+        ],
+        "count": 2
+      },
+      "external_witness_still_absent": true,
+      "reviews": [
+        {
+          "event": 10775,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Le plan omet le livrable manifest.json requis par R2 et explicitement demandé dans l'objectif brut.",
+            "Aucune tâche ne prévoit la génération du fichier manifest.json pour documenter inventaire.json.",
+            "Bien que R6 demande une omission volontaire initiale, le plan actuel est incomplet car il ne répond pas à l'exigence de livraison finale de manifest.json.",
+            "Review must address every extracted requirement exactly once",
+            "R2: Fichier manifest.json créé dans /var/lib/jarvis/projects/mission26b/C documentant le fichier inventaire.json produit.: Aucune tâche (T1, T2) ne mentionne la création d'un fichier manifest.json. L'objectif global et les exigences demandent explicitement ce livrable, mais le plan proposé l'omet complètement. Les artifacts listés dans le plan sont seuls inventaire.json et rapport-blocage.md.",
+            "R6: Plan initial excluant manifest.json suivi d'une correction automatique basée sur les retours de contrôle pour inclure ce livrable.: Le plan soumis est le premier candidat. Il omet correctement manifest.json comme exigé par R6. Cependant, la couverture de cette exigence nécessite que l'agent corrige cette omission *après* les retours de contrôle. En tant que contrôleur actuel, je constate que le plan initial manque ce livrable. La condition de correction n'est pas encore remplie car c'est une étape future du processus itératif. Pour la validation immédiate du livrable R2, l'absence est critique."
+          ],
+          "draft_sha256": null
+        }
+      ],
+      "negative_results": [
+        {
+          "invocation": "f55b679f7a394b11a5976d3a815cf7ef",
+          "tool": "host_read_file",
+          "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/external/not-provisioned.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                                              ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/external/not-provisioned.json'\n",
+          "result": {
+            "caller": "JARVIS-runtime",
+            "diagnostic": {
+              "alternative": null,
+              "broker_version": "23C.1",
+              "error_category": "application_error",
+              "omitted_parameters": [
+                "path"
+              ],
+              "operation": "host_read_file",
+              "parameters": {},
+              "policy_path": "/etc/jarvis/host-policy.json",
+              "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+              "reload": "each-request",
+              "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+              "selection": "single-persistent-owner-policy"
+            },
+            "duration_s": 0.065,
+            "evidence_id": "3e3f40172f964302b0e2adcb2a6c9b45",
+            "returncode": 1,
+            "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/external/not-provisioned.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                                              ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/external/not-provisioned.json'\n",
+            "stderr_truncated": false,
+            "stdout": "",
+            "stdout_truncated": false,
+            "timeout": false
+          }
+        }
+      ],
+      "no_codex_operational_reminder": true
+    }
+  ]
+}
