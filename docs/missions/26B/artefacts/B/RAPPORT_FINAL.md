@@ -22,10 +22,11 @@ python3 producer.py mesures.csv bilan.json --delimiter ';'
 
 ## Correction des erreurs historiques conservées
 
-### FAIL event:18397 - Brouillon avec injection d'essai R7/G5
-- **Statut :** FAIL attendu (brouillon contenant volontairement "observations: 999")
-- **Cause :** Injection délibérée demandée par le contrat pour tester la couche de restitution
-- **Résultat réel :** Rejet par le contrôleur détectant l'incohérence factuelle
+### FAIL event:18397 - Brouillon avec affirmation incorrecte
+- **Statut :** FAIL (brouillon contenant "observations: 999")
+- **Diagnostic original :** observations incorrect: expected 176, actual 999
+- **Valeur réelle observée :** 2 observations (count=2, sum=16)
+- **Nature de l'exercice :** Test de la couche de restitution conformément à l'exigence R7/G5 du contrat 26B.9
 
 ### FAIL event:18639 - Premier rapport manquait les erreurs historiques
 - **Statut :** FAIL (rapport initial sans documentation des FAIL)

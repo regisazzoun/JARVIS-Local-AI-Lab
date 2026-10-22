@@ -734,3 +734,36 @@ class AssuranceTests(unittest.TestCase):
         view=model_observation(original)
         self.assertIn('Historical FAIL missing',view['error']);self.assertIn('ACTUAL_WRONG_DATE',view['error'])
         self.assertNotIn('PERMITTED_HEADING',view['error']);self.assertIn('PERMITTED_HEADING',original['error'])
+
+    def test_large_original_event_exposes_diagnostics_before_paginating_classifications(self):
+        from jarvis.durable_tools import register
+        original=self.s.event(self.m,'narrative_review',result={'status':'FAIL','claims':[{'reason':'permitted heading '*1000}],'issues':['ACTUAL_REJECTION_REASON']})
+        self.r.specs={};register(self.r);result=self.r.specs['mission_evidence'][4]({'id':str(original)})
+        self.assertNotIn('ACTUAL_REJECTION_REASON',result['content'])
+        self.assertEqual(result['facts']['historical_findings_not_withdrawn'],['ACTUAL_REJECTION_REASON'])
+        self.assertEqual(result['facts']['recorded_status'],'FAIL');self.assertEqual(result['next_offset'],12000)
+        self.assertEqual(next(e for e in self.s.events(self.m) if e['id']==original)['result']['issues'],['ACTUAL_REJECTION_REASON'])
+
+    def test_event_facts_show_linked_withdrawal_without_turning_old_fail_into_pass(self):
+        from jarvis.durable_tools import register
+        finding='old incorrect numeric finding'
+        original=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':[finding,'reference absent']})
+        self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={'reason':'old controller bug','withdrawn':[{'event':original,'findings':[finding]}]})
+        self.r.specs={};register(self.r);result=self.r.specs['mission_evidence'][4]({'id':str(original)})
+        self.assertEqual(result['facts']['recorded_status'],'FAIL')
+        self.assertEqual(result['facts']['historical_findings_not_withdrawn'],['reference absent'])
+        self.assertEqual(result['facts']['withdrawn_findings'],[finding]);self.assertIn(finding,result['content'])
+
+    def test_full_review_model_view_keeps_faults_without_reinjecting_entire_snapshot(self):
+        from jarvis.durable_cycle import model_observation
+        original={'status':'FAIL','issues':['ACTUAL_CURRENT_FAULT'],'claims':[{'verdict':'not_factual','reason':'PERMITTED_TITLE'},{'verdict':'insufficient','reason':'BAD_ATTRIBUTION'}],'draft_sha256':'sha','report_contract_version':'test','review_event':123,'snapshot':{'large':'FULL_EVIDENCE_MARKER'*10000}}
+        view=model_observation({'result':original})['result']
+        self.assertEqual(view['issues'],['ACTUAL_CURRENT_FAULT']);self.assertEqual(view['classified_claims_count'],2)
+        self.assertEqual(view['full_review_reference'],'event:123')
+        self.assertNotIn('snapshot',view);self.assertNotIn('PERMITTED_TITLE',json.dumps(view))
+        self.assertIn('BAD_ATTRIBUTION',json.dumps(view));self.assertIn('snapshot',original)
+
+    def test_application_data_with_status_and_claims_is_not_a_report_review(self):
+        from jarvis.durable_cycle import model_observation
+        original={'status':'FAIL','issues':['app problem'],'claims':[{'domain':'insurance'}],'snapshot':{'business_data':[1,2,3]}}
+        self.assertEqual(model_observation(original),original)

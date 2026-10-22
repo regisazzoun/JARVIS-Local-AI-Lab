@@ -2,7 +2,7 @@
 
 **🟡 incomplet — campagne opérationnelle en cours, aucune clôture prononcée.** État actualisé le23 octobre2026 après les déploiements25–27 ; réception toujours ouverte. Les validations locales de A et C sont acquises au moteur, mais leur réception éditoriale est rouverte après contrôle indépendant. B conserve six tâches validées et sa dernière tâche en cours.
 
-Le code des contrôles est installé dans le moteur canonique. Les 174 tests logiciels passent. Les missions réelles A, B et C restent à recevoir ; leurs états et preuves intermédiaires sont publiés pour permettre la revue. Les anciens rapports26 ne sont pas modifiés.
+Le code des contrôles est installé dans le moteur canonique. Les 178 tests logiciels passent. Les missions réelles A, B et C restent à recevoir ; leurs états et preuves intermédiaires sont publiés pour permettre la revue. Les anciens rapports26 ne sont pas modifiés.
 
 | Question de réception | Réponse actuellement prouvée |
 | --- | --- |

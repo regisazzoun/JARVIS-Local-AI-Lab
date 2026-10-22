@@ -4,7 +4,7 @@
   "raw_goal": "À partir de stocks.csv dans /var/lib/jarvis/projects/mission26b/A, fournis un bilan JSON summary.json donnant exactement le nombre de lignes d’articles et la somme entière des quantités, ainsi qu’un manifeste manifest.json contenant l’empreinte SHA256 réelle de ce bilan. Je veux pouvoir vérifier la cohérence entre les deux fichiers et disposer d’un rapport explicatif final fondé sur les preuves. Les entrées restent intactes. L’objectif est un lot documentaire technique exploitable, pas seulement une annonce de création.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
   "state": "queued",
   "created": 1792620526.6577399,
-  "updated": 1792712253.3763247,
+  "updated": 1792712829.3082135,
   "tasks": [
     {
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
@@ -226662,6 +226662,100 @@
       "created": 1792712253.3765244,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 19396,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment32/evidence1: actual B paginated and repeatedly reread a large historical narrative_review; original issues were buried behind permitted classifications. mission_evidence now exposes deterministic facts (status, historical nonwithdrawn issues, linked exact errata) beside unchanged paginated original content. No model summary, operational plan, report prose or business-file correction by Codex."
+      },
+      "created": 1792712644.6439705,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19397,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792712644.782084,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19408,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792712645.482424,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19433,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment33/actionable-review-view: actual B requested include_evidence=true; its full tool result inflated context267902chars then compaction hid actionable issues. Preserve complete canonical receipt but expose verdict/actual faults/exact source references to the working model, with a pointer to the original review. No business prose or plan supplied."
+      },
+      "created": 1792712828.166305,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19434,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792712828.2532616,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19444,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792712829.3082554,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -234549,9 +234643,23 @@
           "proofs_and_tasks_preserved": true,
           "reason": "Rebuild reception context from unchanged receipts with corrected error-role view; old permitted classifications are not rejection causes. Independent factual findings persist; all seven validated task states and hashes retained."
         }
+      },
+      {
+        "event": 19396,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment32/evidence1: actual B paginated and repeatedly reread a large historical narrative_review; original issues were buried behind permitted classifications. mission_evidence now exposes deterministic facts (status, historical nonwithdrawn issues, linked exact errata) beside unchanged paginated original content. No model summary, operational plan, report prose or business-file correction by Codex."
+        }
+      },
+      {
+        "event": 19433,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment33/actionable-review-view: actual B requested include_evidence=true; its full tool result inflated context267902chars then compaction hid actionable issues. Preserve complete canonical receipt but expose verdict/actual faults/exact source references to the working model, with a pointer to the original review. No business prose or plan supplied."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "f0f92c7869fd05e2c81ebb78a3635c7ff0601211281dde5eff0179ef5657604d"
+  "original_journal_sha256": "5cd9ee62208791e3a13e8c5b5e6b12944eebc09b8a421bb5073ad8b16c125a5b"
 }

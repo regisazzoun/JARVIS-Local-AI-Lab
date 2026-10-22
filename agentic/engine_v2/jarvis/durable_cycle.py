@@ -25,6 +25,15 @@ def model_observation(value, limit=8000):
     """Bound a model view, never the canonical tool receipt stored in SQLite."""
     if isinstance(value,list):return [model_observation(item,limit) for item in value]
     if not isinstance(value,dict):return value
+    if {'status','issues','claims','draft_sha256','report_contract_version'}<=value.keys():
+        # include_evidence=True remains complete in the durable tool receipt.
+        # Reinjecting that entire corpus defeats compaction and hides its issues.
+        compact={key:value[key] for key in ('status','issues','draft_sha256','snapshot_sha256','review_event','contract_version','report_contract_version','task','cited_event_checks') if key in value}
+        compact['claims']=[claim for claim in value['claims'] if claim.get('verdict') in ('contradicted','insufficient')]
+        compact['classified_claims_count']=len(value['claims'])
+        compact['full_review_reference']='event:'+str(value['review_event']) if value.get('review_event') else None
+        compact['model_view_contract']='26b.review-actionable.1; full original tool receipt and review remain durable. not_factual and supported classifications are allowed, not faults.'
+        value=compact
     result={}
     for key,item in value.items():
         if key=='error':item=editorial_error_view(item)

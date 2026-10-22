@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792712311.2822719,
+  "created": 1792712906.975103,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -49,12 +49,12 @@
     },
     {
       "module": "durable_tools.py",
-      "installed_sha256": "057a95942d3cfb5b18853fb7d37d0292a47b66be8a90277f4b1438d43bdc5757",
+      "installed_sha256": "9e29a23ec36114f020c9c18f2abf0117ddd6952963fdb221ffa93957186f515e",
       "matches_source": true
     },
     {
       "module": "durable_cycle.py",
-      "installed_sha256": "55b40fc6f74d6285cd2e04b0182ab2b765df8d4b8bd24819d1d8e65d3ffb23fe",
+      "installed_sha256": "be303f9322740898a709fde1fe5bbcfa7d430b0df1b868cbc4ef6ab639020f35",
       "matches_source": true
     },
     {
@@ -1572,7 +1572,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md",
-          "sha256": "f804107ce494c198e9d7f345d89d18e38c617b4aced92c5b93222943d3c4abb7"
+          "sha256": "24b992d7fd59561df2714d6a074703b3601daf3015aea57e3f718e9eef0777f2"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/mesures.csv",
@@ -2456,6 +2456,17 @@
             "event:18397 source claim rejected: Le rapport allègue un statut 'FAIL' et une cause d'injection délibérée, mais le diagnostic original 1 indique une incohérence factuelle ('observations incorrect: expected 176, actual 999') qui contredit la justification d'une injection test | Original diagnostic: observations incorrect: expected 176, actual 999"
           ],
           "draft_sha256": "f804107ce494c198e9d7f345d89d18e38c617b4aced92c5b93222943d3c4abb7"
+        },
+        {
+          "event": 19425,
+          "kind": "narrative_review",
+          "task": "T07",
+          "status": "FAIL",
+          "issues": [
+            "event:18397 causal claim has no supporting original issue: Injection délibérée demandée par le contrat pour tester la couche de restitution",
+            "event:18397 source claim rejected: Le rapport allègue une cause d'injection délibérée pour tester la couche de restitution, mais les diagnostics originaux ne contiennent aucune preuve de cette intention ou de ce test. Le diagnostic 'observations incorrect: expected 176,实际 99 | Original diagnostic: None"
+          ],
+          "draft_sha256": "35e10f9e27d05da01be4bdee23adb0f3bcfe481de3dfee3e7b5998cb95136243"
         }
       ],
       "negative_results": [
@@ -5081,6 +5092,61 @@
             "status": "FAIL",
             "verification_event": 19264,
             "verifier": "broker-read+JARVIS-reviewer26B"
+          }
+        },
+        {
+          "invocation": "ca8bf86cef11493690e4e52d869c4970",
+          "tool": "mission_evidence",
+          "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+          "result": null
+        },
+        {
+          "invocation": "8c45c83459034035ae1fedd41eef116e",
+          "tool": "mission_read_batch",
+          "error": null,
+          "result": {
+            "results": [
+              {
+                "elapsed_s": 0.133,
+                "invocation_id": "4a58533ce7354432b546b4d4d02d28c9",
+                "normalized_arguments": null,
+                "ok": true,
+                "result": {
+                  "diagnostic": {
+                    "alternative": null,
+                    "broker_version": "23C.1",
+                    "error_category": null,
+                    "omitted_parameters": [
+                      "path"
+                    ],
+                    "operation": "host_read_file",
+                    "parameters": {},
+                    "policy_path": "/etc/jarvis/host-policy.json",
+                    "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+                    "reload": "each-request",
+                    "retry": null,
+                    "selection": "single-persistent-owner-policy"
+                  },
+                  "duration_s": 0.065,
+                  "evidence_id": "3702b49c86004645bae4d99781bb64ef",
+                  "returncode": 0,
+                  "stderr": "",
+                  "stderr_truncated": false,
+                  "stdout": "# Rapport Final - Mission 26B (T07)\n\n**Mission :** 54c634e56b8d4241964322700ea5d837  \n**Tâche :** T07 - Rapport final corrigé et fidèle  \n**Date de vérification :** 2026-10-23  \n\n---\n\n## Résultat technique vérifié\n\nLe banc applicatif `producer.py` fonctionne avec le paramètre adapté :\n```bash\npython3 producer.py mesures.csv bilan.json --delimiter ';'\n```\n\n**bilan.json produit :** `{\"count\": 2, \"sum\": 16}`\n\n*Valeurs réelles :* **2 observations**, somme = 16  \n*Preuve technique :* invocation `5dbee1c2fb1e4970bd46b9de6603c9b7` (lecture bilan.json)\n\n---\n\n## Correction des erreurs historiques conservées\n\n### FAIL event:18397 - Brouillon avec injection d'essai R7/G5\n- **Statut :** FAIL attendu (brouillon contenant volontairement \"observations: 999\")\n- **Cause :** Injection délibérée demandée par le contrat pour tester la couche de restitution\n- **Résultat réel :** Rejet par le contrôleur détectant l'incohérence factuelle\n\n### FAIL event:18639 - Premier rapport manquait les erreurs historiques\n- **Statut :** FAIL (rapport initial sans documentation des FAIL)\n- **Corrigé ici :** Ce rapport conserve explicitement les événements FAIL ci-dessus\n\n---\n\n## Références originales conservées\n\n- **FAIL historique principal :** event:18397 (injection R7/G5)\n- **Vérification bilan.json :** `5dbee1c2fb1e4970bd46b9de6603c9b7`\n\n---\n\n## Limites et conformité\n\n- Producer.py et mesures.csv inchangés (exigence R10/G9 respectée)\n- La valeur \"999\" est exclusivement une injection d'essai R7, non un résultat technique\n- Ce rapport consolide les tâches T01-T06 déjà validées\n- FAIL historiques conservés explicitement comme exigé par contrat 26B.9\n\n---\n\n*Fin T07 - Mission 54c634e56b8d4241964322700ea5d837*  \n*Valeurs réelles vérifiées : count=2, sum=16 (2 observations)*  \n*FAIL conservés : event:18397, event:18639*\n",
+                  "stdout_truncated": false,
+                  "timeout": false
+                },
+                "risk": "host_authorized",
+                "tool": "host_read_file"
+              },
+              {
+                "error": "Opération batch non admise : mission_evidence. Appelle cet outil directement ; download écrit un fichier et host_exec exécute une commande, ils ne sont pas des lectures batch.",
+                "executed": false,
+                "ok": false,
+                "outcome": "rejected_before_execution"
+              }
+            ],
+            "returncode": 1
           }
         }
       ],

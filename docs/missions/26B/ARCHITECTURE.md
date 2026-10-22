@@ -62,7 +62,7 @@ Le contrat de couverture26b.9 exige également un ordre explicite entre tous les
 
 ## Reprise du23 octobre2026
 
-Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.12, 174 tests et31 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.12, 178 tests et33 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
 
 ## Réceptions ciblées et nouvelle réserve factuelle
 
@@ -83,3 +83,11 @@ B a réellement corrigé son identifiant de mission via host_edit_file puis rapp
 Une autre friction réelle de A était mission_evidence(id="13053") : ce numéro existait mais le préfixe event: manquait. L’interface accepte maintenant cette représentation non ambiguë, conserve les arguments originaux et relit le même événement de la même mission. Cela ne fabrique aucune preuve, ne lit pas une autre mission et ne permet pas de recevoir une tâche avec un simple événement de revue.
 
 171 tests logiciels réussis, dont tests d’isolement des diagnostics entre inférences, alias numérique borné à la mission, rectification exacte sans effacement, refus d’une rectification étrangère ou d’une note modèle usurpant son autorité. Aucun nouveau moteur, worker, skill ou modèle installé. Les retests opérationnels des rapports continuent sur les mêmes trois missions ; les deux autres missions du worker sont conservées, sans opération métier de Codex.
+
+## Accès direct aux diagnostics et maîtrise du contexte — déploiements32–33
+
+B a effectivement utilisé l’alias numérique de mission_evidence pour18397,18514,18527,19264. Il a ensuite paginé l’ancien événement18397 mais en a relu le début à plusieurs reprises jusqu’au refus de répétition improductive. Ses véritables issues étaient précédées de nombreuses classifications autorisées. L’interface26b.evidence.1 ajoute donc facts à côté de content : statut enregistré, acteur, date, diagnostics historiques non retirés, constats retirés et rectification liée. content reste l’original paginé, avec son empreinte ; les faits ne sont pas un résumé produit par le modèle et ne prouvent jamais un résultat applicatif courant.
+
+B a aussi demandé include_evidence=true à mission_report_review. Ce retour complet a porté son contexte à267902 caractères avant réduction (événement19428). La vue26b.review-actionable.1 transmet désormais le verdict, les vrais défauts et les références, sans réinjecter tout le corpus de preuves ni les classifications positives. La réponse intégrale reste dans le reçu et la revue d’origine. Les données applicatives ordinaires portant des clés status/issues/claims ne subissent pas ce traitement sans les marqueurs de contrat de rapport.
+
+178 tests logiciels réussis au déploiement33. Les quatre nouveaux tests vérifient l’accès aux diagnostics avant pagination, les constats rectifiés sans changement du FAIL original, la maîtrise du retour complet d’une revue et la conservation des données applicatives. Les tâches, preuves et entrées sont préservées. Les retests réels de réception demeurent ouverts ; les nouveaux outils doivent aider JARVIS à écrire son propre texte, jamais le remplacer.

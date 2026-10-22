@@ -50,7 +50,7 @@ Le contrat de couverture26b.9 exige également un ordre explicite entre tous les
 
 ## Reprise du23 octobre2026
 
-Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.12, 174 tests et31 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.12, 178 tests et33 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
 
 ## Isolation des sources et rectifications liées — déploiements29–30
 
@@ -69,3 +69,11 @@ Le rapport A attribuait toujours des refus à des titres descriptifs. L’interf
 La préparation de correction conserve également les constats indépendants depuis le dernier PASS de la même portée. Un nouveau FAIL différent ne masque plus le constat antérieur de Codex-independent sur les causes historiques ; les issues exactes explicitement retirées restent annotées. Les constats anciens sont présentés comme éléments à recontrôler sur le brouillon courant, sans réintroduire une erreur déjà corrigée.
 
 Le contexte de réception A est reconstruit depuis ces preuves et vues corrigées ; ses sept tâches et empreintes restent conservées. Cela est une aide d’infrastructure Codex, pas une autocorrection du moteur par JARVIS. 174 tests réussissent au déploiement31, avec trois cas supplémentaires sur la conservation des constats, le filtrage du message de rejet et la vue des anciennes erreurs non modifiées. Les trois rapports opérationnels restent à recevoir.
+
+## Accès direct aux diagnostics et maîtrise du contexte — déploiements32–33
+
+B a effectivement utilisé l’alias numérique de mission_evidence pour18397,18514,18527,19264. Il a ensuite paginé l’ancien événement18397 mais en a relu le début à plusieurs reprises jusqu’au refus de répétition improductive. Ses véritables issues étaient précédées de nombreuses classifications autorisées. L’interface26b.evidence.1 ajoute donc facts à côté de content : statut enregistré, acteur, date, diagnostics historiques non retirés, constats retirés et rectification liée. content reste l’original paginé, avec son empreinte ; les faits ne sont pas un résumé produit par le modèle et ne prouvent jamais un résultat applicatif courant.
+
+B a aussi demandé include_evidence=true à mission_report_review. Ce retour complet a porté son contexte à267902 caractères avant réduction (événement19428). La vue26b.review-actionable.1 transmet désormais le verdict, les vrais défauts et les références, sans réinjecter tout le corpus de preuves ni les classifications positives. La réponse intégrale reste dans le reçu et la revue d’origine. Les données applicatives ordinaires portant des clés status/issues/claims ne subissent pas ce traitement sans les marqueurs de contrat de rapport.
+
+178 tests logiciels réussis au déploiement33. Les quatre nouveaux tests vérifient l’accès aux diagnostics avant pagination, les constats rectifiés sans changement du FAIL original, la maîtrise du retour complet d’une revue et la conservation des données applicatives. Les tâches, preuves et entrées sont préservées. Les retests réels de réception demeurent ouverts ; les nouveaux outils doivent aider JARVIS à écrire son propre texte, jamais le remplacer.
