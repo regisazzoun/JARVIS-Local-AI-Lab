@@ -1,6 +1,6 @@
 # Tests des rapports26B — campagne en cours
 
-Statut : 🟡 incomplet. Les 165 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
+Statut : 🟡 incomplet. Les 171 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
 
 La réception attend trois rapports réels : réussite locale complète (A), échec du programme puis correction (B), résultat local vérifié avec dépendance externe impossible à observer (C). Aucun de ces trois rapports n’est encore reçu au déploiement24.
 
@@ -34,7 +34,7 @@ A/T1 et B/T01 sont reçues par le moteur. La lecture indépendante du rapport B/
 
 ## Reprise du23 octobre2026
 
-Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 165 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 171 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
 
 ## Réceptions ciblées et nouvelle réserve factuelle
 
@@ -44,4 +44,14 @@ C a réellement utilisé mission_block après réextraction correcte de la clôt
 
 Le contrat de rapport26b.report.9 ajoute une comparaison déterministe des statuts directement attachés aux références d’événements prises en charge, puis une revue isolée des affirmations de source lorsque la revue générale est positive. Cette seconde vue fournit uniquement les passages concernés et chaque événement original, sans le récit global de mission. Le modèle extrait le statut/type/acteur allégués ; le moteur les compare aux champs originaux. Une cause citée doit être un passage exact du rapport et pointer vers un diagnostic original existant ; le contrôleur juge encore le soutien sémantique. Ce dernier contrôle reste un modèle, pas une preuve formelle de toute paraphrase.
 
-Le retest réel du rapport C inchangé est maintenant FAIL : l’attribution PASS à event10978 contredit son FAIL original. Aucun texte n’est réécrit par Codex ; JARVIS reprend sa propre correction éditoriale, tout en conservant son blocage externe réel. 165 tests logiciels passent au déploiement28. Les tests supplémentaires vérifient le refus malgré une première revue modèle PASS, une fausse cause et un diagnostic original correct.
+Le retest réel du rapport C inchangé est maintenant FAIL : l’attribution PASS à event10978 contredit son FAIL original. Aucun texte n’est réécrit par Codex ; JARVIS reprend sa propre correction éditoriale, tout en conservant son blocage externe réel. 171 tests logiciels passent au déploiement28. Les tests supplémentaires vérifient le refus malgré une première revue modèle PASS, une fausse cause et un diagnostic original correct.
+
+## Isolation des sources et rectifications liées — déploiements29–30
+
+Le retest réel PROBE-SOURCES-28.json détecte les deux fautes de C mais sa raison pour15355 mélange des diagnostics de10978. L’original est conservé. Le contrat10 interroge donc le modèle séparément pour chaque événement, avec uniquement ses diagnostics, et le moteur joint lui-même le diagnostic sélectionné. Le retest PROBE-SOURCES-29.json rejette correctement la cause « manifeste omis » de10978 et le statut INSUFFICIENT attribué à15355. Les incohérences scalaires génèrent un constat déterministe plutôt que la justification libre du modèle. Le modèle conserve des limites d’interprétation ; ces essais ne valent pas garantie universelle.
+
+B a réellement corrigé son identifiant de mission via host_edit_file puis rappelé mission_verify. Le contrôle ciblé a alors utilisé un ancien diagnostic de comptage retiré comme motif encore valable. Au contrat11, les rectifications exactes sont rattachées aux événements originaux concernés : événement canonique19287, acteur Codex. Seuls les constats réellement présents dans leurs issues sont annotés ; aucun verdict historique, autre diagnostic ou action JARVIS n’est effacé. Les revues et le contexte courant distinguent désormais l’ancienne erreur du contrôleur d’une erreur technique de l’application.
+
+Une autre friction réelle de A était mission_evidence(id="13053") : ce numéro existait mais le préfixe event: manquait. L’interface accepte maintenant cette représentation non ambiguë, conserve les arguments originaux et relit le même événement de la même mission. Cela ne fabrique aucune preuve, ne lit pas une autre mission et ne permet pas de recevoir une tâche avec un simple événement de revue.
+
+171 tests logiciels réussis, dont tests d’isolement des diagnostics entre inférences, alias numérique borné à la mission, rectification exacte sans effacement, refus d’une rectification étrangère ou d’une note modèle usurpant son autorité. Aucun nouveau moteur, worker, skill ou modèle installé. Les retests opérationnels des rapports continuent sur les mêmes trois missions ; les deux autres missions du worker sont conservées, sans opération métier de Codex.

@@ -13,7 +13,7 @@ from .mission_store import encoded
 
 VERSION = '26b.10'
 GOAL_VERSION = '26b.7'
-REPORT_VERSION = '26b.report.9'
+REPORT_VERSION = '26b.report.11'
 
 
 def enabled(store, ident):
@@ -318,12 +318,30 @@ def pending_report_feedback(store, ident, task_id=None):
             'required_action':'Revise your own report from these original findings and recheck it. A later technical PASS does not resolve an editorial FAIL. Do not rerun successful technical work just to correct prose.'}
 
 
+def finding_rectifications(store, ident):
+    """Append-only errata annotate exact old findings without altering their verdict."""
+    with store.db() as connection:
+        rows=connection.execute("SELECT id,actor,result FROM mission_events WHERE mission=? AND kind='controller_findings_rectified' ORDER BY id",(ident,)).fetchall()
+        result={}
+        for row in rows:
+            if row['actor'] not in ('Codex','Codex-independent','JARVIS-engine'):continue
+            data=json.loads(row['result'])
+            for item in data.get('withdrawn',[]):
+                original=connection.execute('SELECT result FROM mission_events WHERE mission=? AND id=?',(ident,item['event'])).fetchone()
+                if not original:continue
+                old=json.loads(original['result']);findings=[text for text in item['findings'] if text in old.get('issues',[])]
+                if not findings:continue
+                result['event:'+str(item['event'])]={'reference':'event:'+str(row['id']),'actor':row['actor'],'withdrawn_findings':findings,'reason':data['reason'],'original_status_unchanged':old.get('status'),'scope':'Only these exact findings are withdrawn. Other findings and the historical verdict remain original. Never promote a former controller count into business data.'}
+    return result
+
+
 def working_assurance_state(store, ident, task_id=None):
     """Current canonical state, including a save whose review was interrupted."""
     tasks=store.tasks(ident)
     return {'coverage':coverage_state(store,ident),'plan_history':plan_view(store,ident),
             'tasks':[{k:task.get(k) for k in ('id','title','deps','state','artifact','report_sha256')} for task in tasks],
             'closure':closure_state(store,ident),
+            'controller_rectifications':{'references':sorted({v['reference'] for v in finding_rectifications(store,ident).values()}),'meaning':'Some old controller findings were explicitly rectified. Original FAIL verdicts remain; cited original events include their linked exact errata. Do not reuse a withdrawn diagnostic as current technical truth.'},
             'pending_report_correction':pending_report_feedback(store,ident,task_id) if task_id or tasks and all(task['state']=='validated' for task in tasks) else None}
 
 
@@ -411,7 +429,7 @@ def cited_event_facts(store, ident, text):
     ids=set()
     for match in re.finditer(r'\b(?:events?|événements?|evenements?|verification_event)(?:\s*[:#]\s*|\s+)(\d+(?:\s*,\s*\d+)*)',text,re.I):
         ids.update(int(value) for value in re.findall(r'\d+',match.group(1)))
-    result=[]
+    result=[];rectifications=finding_rectifications(store,ident)
     for event_id in sorted(ids):
         reference='event:'+str(event_id)
         with store.db() as connection:
@@ -421,6 +439,7 @@ def cited_event_facts(store, ident, text):
         event=dict(row);original=json.loads(event['result'])
         facts={key:original[key] for key in ('status','error','error_code','reason','scope','faults','author','author_not_blamed','purpose','contract_version','report_contract_version','draft_sha256','contract','checks','observations','observed_at') if key in original}
         if 'issues' in original:facts['issues']=[str(issue)[:1000] for issue in original['issues'][:16]]
+        if reference in rectifications:facts['controller_rectification']=rectifications[reference]
         result.append({'reference':reference,'found_in_mission':True,'kind':event['kind'],'actor':event['actor'],'task':event['task'],
                        'created':datetime.fromtimestamp(event['created'],ZoneInfo('Europe/Paris')).isoformat(),'facts':facts,
                        'original_result_sha256':digest(original),'full_original_in_mission_evidence':True,
@@ -515,24 +534,32 @@ def focused_event_review(registry, content, cited):
         'claimed_kind':{'type':['string','null'],'enum':sorted({pair['source']['kind'] for pair in pairs}|{'coverage_review','narrative_review','semantic_verification','tool_started','tool_finished','infrastructure_correction','review_format_rejected'})+[None]},'claimed_actor':{'type':['string','null'],'enum':sorted({pair['source']['actor'] for pair in pairs}|{'JARVIS','JARVIS-engine','JARVIS-reviewer','Codex','Codex-independent','broker'})+[None]},
         'claimed_cause':{'type':['string','null'],'description':'Exact original report span asserting a failure cause, or null if none'},
         'supporting_diagnostic_index':{'type':['integer','null'],'minimum':0},'reason':{'type':'string','maxLength':240}})
-    schema=object_schema({'checks':object_schema({pair['source']['reference']:check for pair in pairs})})
-    def grounded(value):
-        for pair in pairs:
-            check=value['checks'][pair['source']['reference']];cause=check['claimed_cause'];index=check['supporting_diagnostic_index']
-            if cause and not any(cause in passage for passage in pair['original_report_passages']):raise ValueError('Source check must extract an exact causal claim from the original report, never paraphrase or invent it')
-            issues=pair['original_diagnostics']
-            if index is not None and index>=len(issues):raise ValueError('Source check issue index is absent from the original event')
-    if len(encoded(pairs))+len(encoded(schema))>50000:raise ValueError('Source review INSUFFICIENT: cited source claims exceed focused input budget; narrow your report, originals remain durable')
-    result=review_model(registry,'source_claims',
-        'Vérifie seulement les passages du rapport confrontés à CHAQUE événement original isolé. Le rapport peut être faux ; aucune présomption de vérité et aucun verdict précédent ne sont fournis. Extrais les statut/type/acteur explicitement attribués à cet événement dans le texte (claimed_*, null si non affirmé), PAS ceux que tu voudrais voir. Compare ensuite aux champs originaux. Pour une cause alléguée, claimed_cause est une citation exacte du rapport et supporting_diagnostic_index l’indice base zéro dans original_diagnostics de la véritable erreur qui l’étaye, ou null si aucune. Un refus pour référence inventée ne prouve PAS une omission de livrable ; un FAIL ne devient PAS INSUFFICIENT parce que ses issues parlent de preuve insuffisante. Un semantic_verification de texte ne prouve pas une autre vérification. supported=false pour toute contradiction ou preuve de cause absente. Les données source issues sont les diagnostics originaux, jamais la prose à croire. N’invente pas de cause commune. reason doit préciser le défaut réel, sans réécrire le rapport.',
-        {'source_report_pairs':pairs},schema,validator=grounded)
+    instruction=(
+        'Vérifie seulement les passages du rapport confrontés à CHAQUE événement original isolé. Le rapport peut être faux ; aucune présomption de vérité et aucun verdict précédent ne sont fournis. Extrais les statut/type/acteur explicitement attribués à cet événement dans le texte (claimed_*, null si non affirmé), PAS ceux que tu voudrais voir. Compare ensuite aux champs originaux. Pour une cause alléguée, claimed_cause est une citation exacte du rapport et supporting_diagnostic_index l’indice base zéro dans original_diagnostics de la véritable erreur qui l’étaye, ou null si aucune. Un refus pour référence inventée ne prouve PAS une omission de livrable ; un FAIL ne devient PAS INSUFFICIENT parce que ses issues parlent de preuve insuffisante. Un semantic_verification de texte ne prouve pas une autre vérification. supported=false pour toute contradiction ou preuve de cause absente. Les données source issues sont les diagnostics originaux, jamais la prose à croire. N’invente pas de cause commune. Si source.facts.controller_rectification existe, les seuls withdrawn_findings explicitement liés ont été retirés : ils prouvent une ancienne erreur du contrôleur, pas une mesure ni une faute technique du rédacteur. Le statut historique et les autres diagnostics restent conservés. reason doit préciser le défaut réel, sans réécrire le rapport.'
+    )
+    result={'checks':{}}
+    # Separate inference contexts prevent causes from leaking between events.
+    for pair in pairs:
+        reference=pair['source']['reference'];single_schema=object_schema({'checks':object_schema({reference:check})})
+        if len(encoded(pair))+len(encoded(single_schema))>50000:raise ValueError('Source review INSUFFICIENT: single cited event exceeds focused input budget; narrow the report, originals remain durable')
+        def single_grounded(value):
+            # Reuse only this source's diagnostics and original report spans.
+            selected=value['checks'][reference];cause=selected['claimed_cause'];index=selected['supporting_diagnostic_index']
+            if cause and not any(cause in passage for passage in pair['original_report_passages']):raise ValueError('Extract the exact causal claim from this source report span')
+            if index is not None and index>=len(pair['original_diagnostics']):raise ValueError('Diagnostic index absent from this original event')
+        value=review_model(registry,'source_claims',instruction,{'source_report_pairs':[pair]},single_schema,validator=single_grounded)
+        result['checks'].update(value['checks'])
     issues=[]
     for pair in pairs:
         source=pair['source'];check=result['checks'][source['reference']]
+        mismatches=[]
         for claim,actual in [('claimed_status',source['facts'].get('status')),('claimed_kind',source['kind']),('claimed_actor',source['actor'])]:
-            if check[claim] is not None and check[claim]!=actual:issues.append(source['reference']+' '+claim+' '+str(check[claim])+' contradicts original '+str(actual))
+            if check[claim] is not None and check[claim]!=actual:mismatches.append(source['reference']+' '+claim+' '+str(check[claim])+' contradicts original '+str(actual))
+        issues.extend(mismatches)
+        index=check['supporting_diagnostic_index']
+        check['original_supporting_diagnostic']=pair['original_diagnostics'][index] if index is not None else None
         if check['claimed_cause'] and check['supporting_diagnostic_index'] is None:issues.append(source['reference']+' causal claim has no supporting original issue: '+check['claimed_cause'])
-        if not check['supported']:issues.append(source['reference']+' source claim rejected: '+check['reason'])
+        if not check['supported'] and not mismatches:issues.append(source['reference']+' source claim rejected: '+check['reason']+' | Original diagnostic: '+str(check['original_supporting_diagnostic']))
     result['issues']=issues
     return result
 

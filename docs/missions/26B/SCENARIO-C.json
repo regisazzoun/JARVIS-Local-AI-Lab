@@ -4,7 +4,7 @@
   "raw_goal": "Dans /var/lib/jarvis/projects/mission26b/C, prépare inventaire.json à partir de input.json, avec la liste exacte des noms fournis et leur nombre entier, et un manifeste manifest.json du fichier produit. Je demande aussi un bilan d’accessibilité du témoin externe absent /var/lib/jarvis/projects/mission26b/external/not-provisioned.json : ne le crée pas et ne prétends pas vérifier son contenu si sa lecture est impossible. Conserve un rapport partiel lisible distinguant les fichiers locaux vérifiés et le témoin non vérifiable, puis enregistre ce blocage externe sans réception fictive. Afin d’éprouver le contrôleur de couverture, ton premier candidat de plan doit volontairement omettre le livrable manifeste ; corrige ensuite cette omission uniquement à partir des retours automatiques, sans rappel de Codex. Cette omission est une injection d’essai explicite, pas une consigne pour le plan final.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
   "state": "queued",
   "created": 1792620582.7978997,
-  "updated": 1792711459.9825275,
+  "updated": 1792712034.8026245,
   "tasks": [
     {
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
@@ -220824,6 +220824,483 @@
       "created": 1792711459.9827442,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 19219,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 19196,
+        "input_sha256": "fb85c842ee3dcd25a92d5fc6f5fec967e32f8b652806b0c0eb5923c73e2d7675",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 650,
+          "eval_duration": 15941536000,
+          "load_duration": 6241842,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 4686,
+          "prompt_eval_duration": 3706965000,
+          "request_elapsed_s": 55.370969100971706,
+          "route_failures": [],
+          "total_duration": 55351583606
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"checks\": {\n    \"event:10978\": {\n      \"supported\": false,\n      \"claimed_status\": \"FAIL\",\n      \"claimed_kind\": \"narrative_review\",\n      \"claimed_actor\": \"JARVIS-reviewer\",\n      \"claimed_cause\": \"premier plan candidat omettait manifest.json requis par R3\",\n      \"supporting_diagnostic_index\": 0,\n      \"reason\": \"Le rapport allègue une omission de manifest.json comme cause du FAIL, mais les diagnostics originaux (index 0) indiquent que la cause réelle est l'absence de rétention explicite des échecs historiques ('Historical FAIL must be explicitly').\"\n    },\n    \"event:15355\": {\n      \"supported\": false,\n      \"claimed_status\": \"INSUFFICIENT\",\n      \"claimed_kind\": \"narrative_review\",\n      \"claimed_actor\": \"JARVIS-reviewer\",\n      \"claimed_cause\": \"rapport initial omettait la mention explicite des échecs historiques\",\n      \"supporting_diagnostic_index\": 1,\n      \"reason\": \"Le rapport allègue une omission de mention des échecs historiques, ce qui correspond au diagnostic original (index 1), mais le rapport contient également des erreurs factuelles graves sur les evidence_ids (diagnostics 1 et 2) qui invalident\"\n    },\n    \"event:15888\": {\n      \"supported\": true,\n      \"claimed_status\": \"PASS\",\n      \"claimed_kind\": \"semantic_verification\",\n      \"claimed_actor\": \"JARVIS-engine\",\n      \"claimed_cause\": null,\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de contenu exact qui correspond à l'absence de contradictions dans les données source.\"\n    },\n    \"event:16732\": {\n      \"supported\": true,\n      \"claimed_status\": \"PASS\",\n      \"claimed_kind\": \"semantic_verification\",\n      \"claimed_actor\": \"JARVIS-engine\",\n      \"claimed_cause\": null,\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de contenu exact qui correspond à l'absence de contradictions dans les données source.\"\n    },\n    \"event:17449\": {\n      \"supported\": true,\n      \"claimed_status\": \"PASS\",\n      \"claimed_kind\": \"semantic_verification\",\n      \"claimed_actor\": \"JARVIS-engine\",\n      \"claimed_cause\": null,\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de structure JSON qui correspond à l'absence de contradictions dans les données source.\"\n    }\n  }\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "source_claims"
+      },
+      "created": 1792711606.558309,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19220,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "focused_source_component_check",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "result": {
+          "checks": {
+            "event:10978": {
+              "claimed_actor": "JARVIS-reviewer",
+              "claimed_cause": "premier plan candidat omettait manifest.json requis par R3",
+              "claimed_kind": "narrative_review",
+              "claimed_status": "FAIL",
+              "reason": "Le rapport allègue une omission de manifest.json comme cause du FAIL, mais les diagnostics originaux (index 0) indiquent que la cause réelle est l'absence de rétention explicite des échecs historiques ('Historical FAIL must be explicitly').",
+              "supported": false,
+              "supporting_diagnostic_index": 0
+            },
+            "event:15355": {
+              "claimed_actor": "JARVIS-reviewer",
+              "claimed_cause": "rapport initial omettait la mention explicite des échecs historiques",
+              "claimed_kind": "narrative_review",
+              "claimed_status": "INSUFFICIENT",
+              "reason": "Le rapport allègue une omission de mention des échecs historiques, ce qui correspond au diagnostic original (index 1), mais le rapport contient également des erreurs factuelles graves sur les evidence_ids (diagnostics 1 et 2) qui invalident",
+              "supported": false,
+              "supporting_diagnostic_index": 1
+            },
+            "event:15888": {
+              "claimed_actor": "JARVIS-engine",
+              "claimed_cause": null,
+              "claimed_kind": "semantic_verification",
+              "claimed_status": "PASS",
+              "reason": "Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de contenu exact qui correspond à l'absence de contradictions dans les données source.",
+              "supported": true,
+              "supporting_diagnostic_index": null
+            },
+            "event:16732": {
+              "claimed_actor": "JARVIS-engine",
+              "claimed_cause": null,
+              "claimed_kind": "semantic_verification",
+              "claimed_status": "PASS",
+              "reason": "Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de contenu exact qui correspond à l'absence de contradictions dans les données source.",
+              "supported": true,
+              "supporting_diagnostic_index": null
+            },
+            "event:17449": {
+              "claimed_actor": "JARVIS-engine",
+              "claimed_cause": null,
+              "claimed_kind": "semantic_verification",
+              "claimed_status": "PASS",
+              "reason": "Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de structure JSON qui correspond à l'absence de contradictions dans les données source.",
+              "supported": true,
+              "supporting_diagnostic_index": null
+            }
+          },
+          "issues": [
+            "event:10978 source claim rejected: Le rapport allègue une omission de manifest.json comme cause du FAIL, mais les diagnostics originaux (index 0) indiquent que la cause réelle est l'absence de rétention explicite des échecs historiques ('Historical FAIL must be explicitly').",
+            "event:15355 claimed_status INSUFFICIENT contradicts original FAIL",
+            "event:15355 source claim rejected: Le rapport allègue une omission de mention des échecs historiques, ce qui correspond au diagnostic original (index 1), mais le rapport contient également des erreurs factuelles graves sur les evidence_ids (diagnostics 1 et 2) qui invalident"
+          ]
+        },
+        "scope": "Codex read-only harness of actual unchanged partial report, no business action or plan/prose change"
+      },
+      "created": 1792711606.662698,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19238,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment29/report10: real focused-source28 check detected targeted errors but mixed diagnostics from different original events in a reason. Use one original event per separate inference, compare scalar claims deterministically, attach original selected diagnostic, and prefer factual mismatch feedback over a model explanation. No task/plan/business-text correction by Codex."
+      },
+      "created": 1792711784.6135561,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19239,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792711784.704612,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19245,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792711785.53311,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19252,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 8059,
+        "input_sha256": "3530005b3aa2abd52b01a92f9c89fc832d17883d38827eea5d653721003efc2e",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 164,
+          "eval_duration": 4178162999,
+          "load_duration": 4918751,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 2206,
+          "prompt_eval_duration": 1765782000,
+          "request_elapsed_s": 6.607818312011659,
+          "route_failures": [],
+          "total_duration": 6586483154
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"checks\": {\n    \"event:10978\": {\n      \"supported\": false,\n      \"claimed_status\": \"FAIL\",\n      \"claimed_kind\": \"narrative_review\",\n      \"claimed_actor\": \"JARVIS-reviewer\",\n      \"claimed_cause\": \"premier plan candidat omettait manifest.json requis par R3\",\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Le rapport allègue un échec historique (event:10978) dû à l'omission de manifest.json, mais aucun diagnostic original ne confirme cet événement spécifique ni cette cause. Les diagnostics originaux se concentrent exclusivement sur des IDs de\"\n    }\n  }\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "source_claims"
+      },
+      "created": 1792711792.6587873,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19257,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 4334,
+        "input_sha256": "71f3bf2569e31ca91355dfac97ae479b74e6fef861d9660df6d0f0cb9ea54edd",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 176,
+          "eval_duration": 4459472000,
+          "load_duration": 5538253,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 780,
+          "prompt_eval_duration": 715011000,
+          "request_elapsed_s": 31.569726091925986,
+          "route_failures": [],
+          "total_duration": 31560600259
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"checks\": {\n    \"event:15355\": {\n      \"supported\": false,\n      \"claimed_status\": \"INSUFFICIENT\",\n      \"claimed_kind\": \"narrative_review\",\n      \"claimed_actor\": \"JARVIS-reviewer\",\n      \"claimed_cause\": \"rapport initial omettait la mention explicite des échecs historiques\",\n      \"supporting_diagnostic_index\": 1,\n      \"reason\": \"Le rapport allègue que l'événement 15355 est un INSUFFICIENT dû à l'omission de la mention des échecs historiques. Le diagnostic original à l'indice 1 confirme explicitement que 'Historical INSUFFICIENT must be explicitly retained', validé.\"\n    }\n  }\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "source_claims"
+      },
+      "created": 1792711824.3628263,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19259,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 4823,
+        "input_sha256": "2b0d30907461cd142efb016b41dd6ec595fe6e1993df95b43a52f14e4fd909d6",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 148,
+          "eval_duration": 3843379000,
+          "load_duration": 4192893,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 1022,
+          "prompt_eval_duration": 711676000,
+          "request_elapsed_s": 54.344853635993786,
+          "route_failures": [],
+          "total_duration": 54335470873
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"checks\": {\n    \"event:15888\": {\n      \"supported\": true,\n      \"claimed_status\": \"PASS\",\n      \"claimed_kind\": \"semantic_verification\",\n      \"claimed_actor\": \"JARVIS-engine\",\n      \"claimed_cause\": null,\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Le rapport allègue un statut PASS pour une vérification sémantique (kind: semantic_verification) effectuée par JARVIS-engine. Les données source confirment explicitement un statut PASS, un kind de semantic_verification et un acteur JARVIS-é\"\n    }\n  }\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "source_claims"
+      },
+      "created": 1792711878.8196225,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19261,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 4488,
+        "input_sha256": "d1ebdf78f9f1e315841461406a9089848e0cdf828cb15e9c2a238175ad37faeb",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 150,
+          "eval_duration": 3801836000,
+          "load_duration": 4305216,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 928,
+          "prompt_eval_duration": 652118000,
+          "request_elapsed_s": 9.67851633601822,
+          "route_failures": [],
+          "total_duration": 9668110276
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"checks\": {\n    \"event:16732\": {\n      \"supported\": true,\n      \"claimed_status\": \"PASS\",\n      \"claimed_kind\": \"semantic_verification\",\n      \"claimed_actor\": \"JARVIS-engine\",\n      \"claimed_cause\": null,\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Le rapport allègue un statut PASS pour une vérification sémantique (T5) sur inventaire.json. Les données source confirment un statut PASS, un kind 'semantic_verification', un acteur 'JARVIS-engine' et un contenu exact correspondant à l'exig\"\n    }\n  }\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "source_claims"
+      },
+      "created": 1792711888.6069093,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19268,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 4692,
+        "input_sha256": "51f7fe77a338ca5e8c2f125afc4251828c84b98ccd2f928bbdf4bbf1b83e0851",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 148,
+          "eval_duration": 3804377000,
+          "load_duration": 4992273,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 982,
+          "prompt_eval_duration": 671211000,
+          "request_elapsed_s": 9.521328593953513,
+          "route_failures": [],
+          "total_duration": 9514011106
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"checks\": {\n    \"event:17449\": {\n      \"supported\": true,\n      \"claimed_status\": \"PASS\",\n      \"claimed_kind\": \"semantic_verification\",\n      \"claimed_actor\": \"JARVIS-engine\",\n      \"claimed_cause\": null,\n      \"supporting_diagnostic_index\": null,\n      \"reason\": \"Le rapport affirme un statut PASS pour l'événement 17449 (T6) avec un acteur JARVIS-engine et un type semantic_verification. Les données source confirment explicitement status: PASS, kind: semantic_verification et actor: JARVIS-engine pour \"}}\n  }",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "source_claims"
+      },
+      "created": 1792711898.2383122,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19269,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "focused_source_component_check29",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "result": {
+          "checks": {
+            "event:10978": {
+              "claimed_actor": "JARVIS-reviewer",
+              "claimed_cause": "premier plan candidat omettait manifest.json requis par R3",
+              "claimed_kind": "narrative_review",
+              "claimed_status": "FAIL",
+              "original_supporting_diagnostic": null,
+              "reason": "Le rapport allègue un échec historique (event:10978) dû à l'omission de manifest.json, mais aucun diagnostic original ne confirme cet événement spécifique ni cette cause. Les diagnostics originaux se concentrent exclusivement sur des IDs de",
+              "supported": false,
+              "supporting_diagnostic_index": null
+            },
+            "event:15355": {
+              "claimed_actor": "JARVIS-reviewer",
+              "claimed_cause": "rapport initial omettait la mention explicite des échecs historiques",
+              "claimed_kind": "narrative_review",
+              "claimed_status": "INSUFFICIENT",
+              "original_supporting_diagnostic": "Historical INSUFFICIENT must be explicitly retained; see original semantic, coverage and editorial review events",
+              "reason": "Le rapport allègue que l'événement 15355 est un INSUFFICIENT dû à l'omission de la mention des échecs historiques. Le diagnostic original à l'indice 1 confirme explicitement que 'Historical INSUFFICIENT must be explicitly retained', validé.",
+              "supported": false,
+              "supporting_diagnostic_index": 1
+            },
+            "event:15888": {
+              "claimed_actor": "JARVIS-engine",
+              "claimed_cause": null,
+              "claimed_kind": "semantic_verification",
+              "claimed_status": "PASS",
+              "original_supporting_diagnostic": null,
+              "reason": "Le rapport allègue un statut PASS pour une vérification sémantique (kind: semantic_verification) effectuée par JARVIS-engine. Les données source confirment explicitement un statut PASS, un kind de semantic_verification et un acteur JARVIS-é",
+              "supported": true,
+              "supporting_diagnostic_index": null
+            },
+            "event:16732": {
+              "claimed_actor": "JARVIS-engine",
+              "claimed_cause": null,
+              "claimed_kind": "semantic_verification",
+              "claimed_status": "PASS",
+              "original_supporting_diagnostic": null,
+              "reason": "Le rapport allègue un statut PASS pour une vérification sémantique (T5) sur inventaire.json. Les données source confirment un statut PASS, un kind 'semantic_verification', un acteur 'JARVIS-engine' et un contenu exact correspondant à l'exig",
+              "supported": true,
+              "supporting_diagnostic_index": null
+            },
+            "event:17449": {
+              "claimed_actor": "JARVIS-engine",
+              "claimed_cause": null,
+              "claimed_kind": "semantic_verification",
+              "claimed_status": "PASS",
+              "original_supporting_diagnostic": null,
+              "reason": "Le rapport affirme un statut PASS pour l'événement 17449 (T6) avec un acteur JARVIS-engine et un type semantic_verification. Les données source confirment explicitement status: PASS, kind: semantic_verification et actor: JARVIS-engine pour ",
+              "supported": true,
+              "supporting_diagnostic_index": null
+            }
+          },
+          "issues": [
+            "event:10978 causal claim has no supporting original issue: premier plan candidat omettait manifest.json requis par R3",
+            "event:10978 source claim rejected: Le rapport allègue un échec historique (event:10978) dû à l'omission de manifest.json, mais aucun diagnostic original ne confirme cet événement spécifique ni cette cause. Les diagnostics originaux se concentrent exclusivement sur des IDs de | Original diagnostic: None",
+            "event:15355 claimed_status INSUFFICIENT contradicts original FAIL"
+          ]
+        },
+        "scope": "Codex read-only harness of actual unchanged partial report, no business action or plan/prose change"
+      },
+      "created": 1792711898.3332515,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19292,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment30/report11: B actual focused check used withdrawn legacy numeric issue as current rejection truth. Link canonical exact-finding errata to cited original events without changing old statuses; expose rectifications in current context. Also accept unambiguous local numeric event IDs after actual A mission_evidence id13053 rejection. No business report or operational plan written by Codex."
+      },
+      "created": 1792712034.0366766,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19293,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792712034.1250708,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19299,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792712034.8026688,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -229266,9 +229743,23 @@
         "result": {
           "reason": "Actual report9 review now rejects original partial report. Reopen editorial reception only, external dependency remains unresolved and all six validated task states/hashes remain unchanged. JARVIS must revise its own prose from automatic findings."
         }
+      },
+      {
+        "event": 19238,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment29/report10: real focused-source28 check detected targeted errors but mixed diagnostics from different original events in a reason. Use one original event per separate inference, compare scalar claims deterministically, attach original selected diagnostic, and prefer factual mismatch feedback over a model explanation. No task/plan/business-text correction by Codex."
+        }
+      },
+      {
+        "event": 19292,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment30/report11: B actual focused check used withdrawn legacy numeric issue as current rejection truth. Link canonical exact-finding errata to cited original events without changing old statuses; expose rectifications in current context. Also accept unambiguous local numeric event IDs after actual A mission_evidence id13053 rejection. No business report or operational plan written by Codex."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "f55857976560c8b33b23e91d84690d794eb5415d48f076441c7e209cd840995d"
+  "original_journal_sha256": "486f10d8b31b59a9a20e34396a805fe20ccb0ebe62d91544d878194042e1277b"
 }

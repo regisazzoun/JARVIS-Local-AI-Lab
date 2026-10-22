@@ -652,3 +652,59 @@ class AssuranceTests(unittest.TestCase):
         ref='event:'+str(event);body='FAIL '+ref+' : unknown receipt.'
         self.responses=[{'checks':{ref:{'supported':True,'claimed_status':'FAIL','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'unknown receipt','supporting_diagnostic_index':0,'reason':'exact original diagnostic'}}}]
         self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])
+
+    def test_focused_source_inferences_do_not_share_other_event_diagnostics(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        first=self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','issues':['receipt unknown']})
+        second=self.s.event(self.m,'review_format_rejected','a',result={'status':'INSUFFICIENT','error':'schema invalid'})
+        refs=['event:'+str(first),'event:'+str(second)]
+        body='FAIL '+refs[0]+' : receipt unknown.\n\nINSUFFICIENT '+refs[1]+' : schema invalid.'
+        seen=[]
+        def transport(payload):
+            data=json.loads(payload['messages'][1]['content']);seen.append(data)
+            pair=data['source_report_pairs'][0];reference=pair['source']['reference']
+            return {'content':json.dumps({'checks':{reference:{'supported':True,'claimed_status':pair['source']['facts']['status'],'claimed_kind':pair['source']['kind'],'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':0,'reason':'original exact diagnostic'}}})}
+        self.r.assurance_transport=transport
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertEqual(result['issues'],[]);self.assertEqual(len(seen),2)
+        self.assertTrue(all(len(data['source_report_pairs'])==1 for data in seen))
+        self.assertNotIn('schema invalid',json.dumps(seen[0]));self.assertNotIn('receipt unknown',json.dumps(seen[1]))
+
+    def test_numeric_event_reference_alias_reads_same_original_without_new_evidence(self):
+        from jarvis.durable_tools import register
+        original=self.s.event(self.m,'semantic_verification','a',result={'status':'PASS'})
+        self.r.specs={};register(self.r);fn=self.r.specs['mission_evidence'][4]
+        before=len(self.s.events(self.m))
+        self.assertEqual(fn({'id':str(original)}),fn({'id':'event:'+str(original)}))
+        self.assertEqual(len(self.s.events(self.m)),before)
+
+    def test_numeric_event_reference_alias_never_reads_another_mission(self):
+        from jarvis.durable_tools import register
+        other=self.s.create('other','model','conversation');original=self.s.event(other,'working_note',result={'secret':'other mission'})
+        self.r.specs={};register(self.r)
+        with self.assertRaisesRegex(ValueError,'Preuve absente'):
+            self.r.specs['mission_evidence'][4]({'id':str(original)})
+
+    def test_exact_controller_erratum_links_original_without_erasing_failure(self):
+        from jarvis.mission_assurance import finding_rectifications,cited_event_facts
+        finding='observations incorrect: expected 176, actual 999'
+        original=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':[finding,'missing original reference']})
+        erratum=self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={'reason':'Ambiguous old regex, historical quote is not a new measurement','withdrawn':[{'event':original,'findings':[finding]}]})
+        linked=finding_rectifications(self.s,self.m)['event:'+str(original)]
+        self.assertEqual(linked['reference'],'event:'+str(erratum));self.assertEqual(linked['withdrawn_findings'],[finding])
+        facts=cited_event_facts(self.s,self.m,'event:'+str(original))[0]['facts']
+        self.assertEqual(facts['status'],'FAIL');self.assertEqual(facts['issues'],[finding,'missing original reference'])
+        self.assertIn('controller_rectification',facts)
+
+    def test_controller_erratum_cannot_link_foreign_or_nonexistent_findings(self):
+        from jarvis.mission_assurance import finding_rectifications
+        other=self.s.create('other','model','conversation');foreign=self.s.event(other,'narrative_review',result={'status':'FAIL','issues':['private']})
+        own=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['actual fault']})
+        self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={'reason':'test','withdrawn':[{'event':foreign,'findings':['private']},{'event':own,'findings':['invented fault']}]})
+        self.assertEqual(finding_rectifications(self.s,self.m),{})
+
+    def test_model_note_cannot_impersonate_controller_erratum(self):
+        from jarvis.mission_assurance import finding_rectifications
+        original=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['actual fault']})
+        self.s.event(self.m,'controller_findings_rectified',actor='JARVIS',result={'reason':'test','withdrawn':[{'event':original,'findings':['actual fault']}]})
+        self.assertEqual(finding_rectifications(self.s,self.m),{})
