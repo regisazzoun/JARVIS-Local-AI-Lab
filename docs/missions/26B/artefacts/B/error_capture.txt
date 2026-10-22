@@ -1,0 +1,14 @@
+L'exécution initiale python3 producer.py mesures.csv bilan.json produit une erreur Python :
+
+```
+Traceback (most recent call last):
+  File "/var/lib/jarvis/projects/mission26b/B/producer.py", line 5, in <module>
+    result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}
+                                    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lib/jarvis/projects/mission26b/B/producer.py", line 5, in <genexpr>
+    result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}
+                                            ~^^^^^^^^^^
+KeyError: 'valeur'
+```
+
+Cette erreur indique que le script ne trouve pas la clé 'valeur' dans les lignes du CSV. Cela confirme que le parser CSV avec le séparateur par défaut `,` ne reconnaît pas correctement la structure de mesures.csv qui utilise `;`.

@@ -347,6 +347,8 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(value,{'reference':'requirements:3'})
         self.assertEqual(captured[0]['format'],schema)
         self.assertNotIn('tools',captured[0])
+        self.assertEqual(captured[0]['options']['temperature'],0)
+        self.assertEqual(captured[0]['options']['presence_penalty'],0)
 
     def test_manifest_reader_requires_latest_declared_writer(self):
         from jarvis.mission_assurance import artifact_dependency_issues
@@ -417,3 +419,109 @@ class AssuranceTests(unittest.TestCase):
         rejected=[e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']
         self.assertEqual(len(rejected),1)
         self.assertTrue(rejected[0]['result']['author_not_blamed'])
+
+    def test_editorial_failure_survives_technical_pass_and_store_reopen(self):
+        from jarvis.mission_assurance import pending_report_feedback
+        event=self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','issues':['Historical FAIL must be retained'],'draft_sha256':'draft'})
+        self.observation()
+        self.s.event(self.m,'semantic_verification','a',result={'status':'PASS'})
+        self.s.event(self.m,'narrative_review','b',result={'status':'PASS'})
+        reopened=MissionStore(self.s.root)
+        pending=pending_report_feedback(reopened,self.m,'a')
+        self.assertEqual(pending['review_reference'],'event:'+str(event))
+        self.assertEqual(pending['issues'],['Historical FAIL must be retained'])
+        self.s.event(self.m,'narrative_review','a',result={'status':'PASS'})
+        self.assertIsNone(pending_report_feedback(reopened,self.m,'a'))
+
+    def test_injected_historical_faults_cannot_be_dismissed_nonfactual(self):
+        reference=self.observation()
+        body='Cet appel a été exécuté par Codex.\n\nCet appel a eu lieu en 2001.\n\nobservations : 999.\n\nRéférence : '+reference
+        bad={'claims':[{'segment':'S'+str(i),'verdict':'not_factual' if i<4 else 'supported','references':[] if i<4 else [reference],'reason':'test'} for i in range(1,5)],'issues':[]}
+        corrected=copy.deepcopy(bad)
+        for claim in corrected['claims'][:3]:claim.update(verdict='contradicted',references=[reference],reason='actual original receipt contradicts the assertion')
+        self.responses=[bad,corrected]
+        result=audit_report(self.r,body,'a')
+        self.assertEqual(result['status'],'FAIL')
+        self.assertTrue(all(c['verdict']=='contradicted' for c in result['claims'][:3]))
+        self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']),1)
+
+    def test_unqualified_past_fact_not_relabelled_as_hypothesis(self):
+        reference=self.observation()
+        claim={'segment':'S1','verdict':'qualified_hypothesis','references':[reference],'reason':'supposed'}
+        self.responses=[{'claims':[claim],'issues':[]},{'claims':[{**claim,'verdict':'contradicted'}],'issues':[]}]
+        result=audit_report(self.r,'Cet appel a été exécuté par Codex. '+reference,'a')
+        self.assertEqual(result['claims'][0]['verdict'],'contradicted')
+
+    def test_report_semantic_verdict_not_its_own_business_evidence(self):
+        reference=self.observation()
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[reference],'reason':'original technical read'}],'issues':[]}]
+        body='Lecture du fichier source confirmée par le reçu '+reference+'. Aucune autre opération n’est affirmée.'
+        first=audit_report(self.r,body,'a')
+        event=self.s.event(self.m,'semantic_verification','a',result={'status':'PASS','contract':{'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/report.md'}}}})
+        snapshot=evidence_snapshot(self.s,self.m,'a')
+        self.assertNotIn('event:'+str(event),[x['reference'] for x in snapshot['semantic_verifications']])
+        self.assertEqual(snapshot['counts']['semantic_verdicts']['PASS'],0)
+        self.assertEqual(audit_report(self.r,body,'a')['fingerprint'],first['fingerprint'])
+        self.s.event(self.m,'semantic_verification','a',result={'status':'PASS','contract':contract()})
+        self.assertEqual(evidence_snapshot(self.s,self.m,'a')['counts']['semantic_verdicts']['PASS'],1)
+
+    def test_cited_failure_causes_checked_separately_against_original_events(self):
+        first=self.s.event(self.m,'review_format_rejected','a',actor='JARVIS-reviewer',result={'status':'INSUFFICIENT','error':'unknown reference','author_not_blamed':True})
+        second=self.s.event(self.m,'narrative_review','a',actor='JARVIS-reviewer',result={'status':'FAIL','issues':['actor incorrect']})
+        refs=['event:'+str(first),'event:'+str(second)]
+        body='Les events: '+str(first)+', '+str(second)+' ont tous été FAIL pour attribution incorrecte.'
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':refs,'reason':'both rejected'}],'issues':[],
+                        'cited_event_checks':{refs[0]:{'supported':False,'reason':'reviewer format, not actor error'},refs[1]:{'supported':True,'reason':'actor incorrect'}}}]
+        result=audit_report(self.r,body,'a')
+        self.assertEqual(result['status'],'FAIL')
+        facts=result['snapshot']['cited_event_facts']
+        self.assertEqual(facts[0]['kind'],'review_format_rejected')
+        self.assertEqual(facts[0]['actor'],'JARVIS-reviewer')
+        self.assertIn('created',facts[0])
+        self.assertTrue(any('reviewer format' in issue for issue in result['issues']))
+
+    def test_cited_event_from_another_mission_is_not_imported(self):
+        other=self.s.create('other','model','conversation');foreign=self.s.event(other,'working_note',result={'content':'private'})
+        ref='event:'+str(foreign)
+        self.responses=[{'claims':[{'segment':'S1','verdict':'insufficient','references':[],'reason':'not found'}],'issues':[],
+                         'cited_event_checks':{ref:{'supported':False,'reason':'not in this mission'}}}]
+        result=audit_report(self.r,'Cet appel a été vérifié : '+ref,'a')
+        self.assertEqual(result['status'],'FAIL')
+        self.assertFalse(result['snapshot']['cited_event_facts'][0]['found_in_mission'])
+        self.assertNotIn('private',json.dumps(result['snapshot']))
+
+    def test_natural_event_references_resolve_original_semantic_contract(self):
+        from jarvis.mission_assurance import cited_event_facts
+        event=self.s.event(self.m,'semantic_verification','a',result={'status':'FAIL','contract':contract(),'checks':[{'actual':0,'expected':8091,'pass':False}]})
+        for prefix in ['event:','mission_verify event ','événement ','events: ']:
+            facts=cited_event_facts(self.s,self.m,prefix+str(event))
+            self.assertEqual(len(facts),1)
+            self.assertEqual(facts[0]['facts']['contract'],contract())
+            self.assertEqual(facts[0]['facts']['checks'][0]['actual'],0)
+
+    def test_bounded_report_view_preserves_cited_old_receipt_and_mission_identity(self):
+        from jarvis.mission_assurance import report_model_view
+        old=self.observation()
+        for i in range(30):
+            self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','issues':['unrelated protocol detail '*200],'draft_sha256':str(i)})
+        self.observation()
+        snapshot=evidence_snapshot(self.s,self.m,'a');snapshot['active_contracts']={'reference':'contracts:active','engine':'test'};snapshot['plan_definitions']=[]
+        view=report_model_view(snapshot,'Lecture originale '+old,recent=0)
+        self.assertEqual(view['mission'],self.m)
+        self.assertIn(old,view['known_receipt_references'])
+        self.assertIn(old,[row['reference'] for row in view['receipts']])
+        self.assertNotIn('unrelated protocol detail',json.dumps(view))
+        self.assertLess(len(json.dumps(view)),len(json.dumps(snapshot))/2)
+
+    def test_working_state_refreshes_saved_plan_even_before_its_review(self):
+        from jarvis.mission_assurance import working_assurance_state
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        first=working_assurance_state(self.s,self.m)
+        added=task('b');added['contract']['report_path']='/b.md'
+        self.s.plan(self.m,[added],append=True,expected_version=1,reason='new outcome')
+        current=working_assurance_state(self.s,self.m)
+        self.assertEqual(first['coverage']['current_version'],1)
+        self.assertEqual(current['coverage']['current_version'],2)
+        self.assertEqual({task['id'] for task in current['plan_history'][-1]['plan']['tasks']},{'a','b'})
+        self.assertEqual({task['id'] for task in current['tasks']},{'a','b'})
+        self.assertFalse(current['coverage']['accepted'])

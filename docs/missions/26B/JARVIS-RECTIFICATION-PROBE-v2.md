@@ -1,0 +1,9 @@
+Dans le cadre de la mission e1e5d6e8f31a43e7af4f44c0f08d37b3, une analyse factuelle des opérations exécutées révèle que l'appel à l'outil host_read_file portant la référence 322f2d2292a440c58e7806f35c3a0c72 a été initié et accompli par JARVIS, et non par Codex. Les données techniques confirment que Codex est l'auteur de l'infrastructure et des fixtures (event:10657), tandis que les tâches opérationnelles relèvent exclusivement de JARVIS.
+
+L'exécution de cette lecture a eu lieu le 22 octobre 2026 à 00:09:44.514686 (fuseau +02:00), et non le 1er janvier 2001 comme indiqué dans les brouillons erronés. Le fichier ciblé, /var/lib/jarvis/projects/mission26b/A/stocks.csv, contenait exactement trois entrées de données (alpha, beta, gamma) ainsi qu'une ligne d'en-tête.
+
+Le nombre total d'observations documentées dans le périmètre actuel est de 19, ce qui invalide la mention fictive de « 999 observations » présente dans les drafts rejetés. Les événements d'infrastructure (notamment event:13026 et event:13082) ont explicitement identifié ces trois erreurs factuelles (acteur, horodatage, compteur) comme des injections de défauts contrôlés.
+
+Il est impératif de noter l'historique des échecs : plusieurs brouillons de rapports (référencés events:10920, 10930, 10945, 13017, 13026, 13037, 13040, 13086) ont échoué l'audit sémantique en raison de ces mêmes affirmations non étayées et de l'omission des FAILs historiques. La version corrigée conserve la trace de ces échecs pour assurer la traçabilité requise par le contrat 26b.7.
+
+La référence technique exacte de cette lecture demeure 322f2d2292a440c58e7806f35c3a0c72, avec une preuve d'exécution (broker_evidence) : 33f46b23e6c74a5a8c695bf3572de86b. Aucune idempotence n'est supposée sans validation de l'état comparé, et aucune heure ou donnée n'a été inventée dans ce texte.

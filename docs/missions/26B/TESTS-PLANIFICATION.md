@@ -1,6 +1,6 @@
 # Tests de planification26B — campagne en cours
 
-Statut au déploiement16 : 🟡 incomplet. Les trois missions sont conservées dans le moteur canonique ; aucune n’est encore réceptionnée. Les plans et contrôles intermédiaires ne constituent pas une réception des opérations.
+Statut au déploiement20 : 🟡 incomplet. Les trois missions sont conservées dans le moteur canonique ; aucune n’est encore réceptionnée. Les plans et contrôles intermédiaires ne constituent pas une réception des opérations.
 
 | Scénario | Objectif brut et livrables | Résultat déjà observé | Reste à recevoir |
 | --- | --- | --- | --- |
@@ -14,4 +14,4 @@ Les essais ont aussi révélé des défauts des contrôleurs : confusion entre c
 
 Les fichiers SCENARIO-A/B/C.json sont des exports datés, susceptibles d’être remplacés par un export plus récent ; les versions et tentatives anciennes restent dans le journal et dans chaque export complet.
 
-Au déploiement16, A a atteint une version5 acceptée et B une version2 acceptée par le contrôleur précédent ; les liaisons report de B ont été révisées par JARVIS. C avait aussi un PASS sur sa version4, mais la lecture indépendante a détecté que son manifeste pouvait précéder la correction de l’inventaire. Ce PASS ne vaut donc pas réception finale du plan. Le contrat26b.6 impose un nouveau contrôle et laisse JARVIS modifier son propre graphe. Aucun des trois scénarios complets n’est encore reçu.
+Au déploiement20, A a atteint une version5 acceptée et B une version2 acceptée par le contrôleur précédent ; les liaisons report de B ont été révisées par JARVIS. C avait aussi un PASS sur sa version4, mais la lecture indépendante a détecté que son manifeste pouvait précéder la correction de l’inventaire. Ce PASS ne vaut donc pas réception finale du plan. Le contrat26b.6 impose un nouveau contrôle et laisse JARVIS modifier son propre graphe. Aucun des trois scénarios complets n’est encore reçu.

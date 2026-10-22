@@ -1,6 +1,22 @@
 [
   {
     "scenario": "A",
+    "source": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+    "export": "artefacts/A/rapport_T1.md",
+    "source_sha256": "762e92e67768fd6c32755d28bcf829b87dfd9ed129e2f82651e166af8de09a8e",
+    "export_sha256": "762e92e67768fd6c32755d28bcf829b87dfd9ed129e2f82651e166af8de09a8e",
+    "bytes_identical": true
+  },
+  {
+    "scenario": "A",
+    "source": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+    "export": "artefacts/A/rapport_T2.md",
+    "source_sha256": "04afc8141f53c2e63a2e1c9eb6aa78a8beddf351d97953d9aafe3489362b81a0",
+    "export_sha256": "04afc8141f53c2e63a2e1c9eb6aa78a8beddf351d97953d9aafe3489362b81a0",
+    "bytes_identical": true
+  },
+  {
+    "scenario": "A",
     "source": "/var/lib/jarvis/projects/mission26b/A/rapport_intermediaire.md",
     "export": "artefacts/A/rapport_intermediaire.md",
     "source_sha256": "45e157ebc64337347d9533d0260cddfa0df7b048ba49f31cad58187e54de7c80",
@@ -13,6 +29,22 @@
     "export": "artefacts/A/stocks.csv",
     "source_sha256": "4f6e046c791e025750a8b12d8f29b269f13a2e442b79877acc1faa436adbfc23",
     "export_sha256": "4f6e046c791e025750a8b12d8f29b269f13a2e442b79877acc1faa436adbfc23",
+    "bytes_identical": true
+  },
+  {
+    "scenario": "A",
+    "source": "/var/lib/jarvis/projects/mission26b/A/summary.json",
+    "export": "artefacts/A/summary.json",
+    "source_sha256": "5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df",
+    "export_sha256": "5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df",
+    "bytes_identical": true
+  },
+  {
+    "scenario": "B",
+    "source": "/var/lib/jarvis/projects/mission26b/B/error_capture.txt",
+    "export": "artefacts/B/error_capture.txt",
+    "source_sha256": "3a090a819b53f6a29e12c000cc609bed3af03610f5a1a163e6401606ad6a8428",
+    "export_sha256": "3a090a819b53f6a29e12c000cc609bed3af03610f5a1a163e6401606ad6a8428",
     "bytes_identical": true
   },
   {
@@ -37,6 +69,22 @@
     "export": "artefacts/B/report_T01.txt",
     "source_sha256": "2ca32ba38c2f57bcf7da40b10652bc5709f4ed678bb327572c2f1528acf3b812",
     "export_sha256": "2ca32ba38c2f57bcf7da40b10652bc5709f4ed678bb327572c2f1528acf3b812",
+    "bytes_identical": true
+  },
+  {
+    "scenario": "B",
+    "source": "/var/lib/jarvis/projects/mission26b/B/report_T02.txt",
+    "export": "artefacts/B/report_T02.txt",
+    "source_sha256": "5a02f5e805463d92c2a3a1004dc69ea834d1bdcaa84babfcb0555f8060b320c2",
+    "export_sha256": "5a02f5e805463d92c2a3a1004dc69ea834d1bdcaa84babfcb0555f8060b320c2",
+    "bytes_identical": true
+  },
+  {
+    "scenario": "B",
+    "source": "/var/lib/jarvis/projects/mission26b/B/report_T03.txt",
+    "export": "artefacts/B/report_T03.txt",
+    "source_sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073",
+    "export_sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073",
     "bytes_identical": true
   },
   {

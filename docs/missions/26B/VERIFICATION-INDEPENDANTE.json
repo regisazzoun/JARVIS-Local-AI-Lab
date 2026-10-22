@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792659642.2526212,
+  "created": 1792663452.0285537,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -49,12 +49,12 @@
     },
     {
       "module": "durable_tools.py",
-      "installed_sha256": "5045851b11c4061384425fd722a0cb4b42b469479acdcac5e191ef7131d9c6e1",
+      "installed_sha256": "d2933f05158b49e11fce98b8572e9ab957815508fb94cf2942d54b9e89134570",
       "matches_source": true
     },
     {
       "module": "durable_cycle.py",
-      "installed_sha256": "fa83361dac471de4b641f6e20d36caeeebf165e5eb52c64d219eda083d7b9fa5",
+      "installed_sha256": "c03c41d53ff028438a78007d3595a8831e8c95b231091af3a7659d036d6238f3",
       "matches_source": true
     },
     {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "3de703f1080ac637d766e6f5f8b25e40d63a3757add98f6f636d6f423c89a42b",
+      "installed_sha256": "9dc2cbaa9bdf9a4f649d9aacacf158909a606e56997090a71d8a99c7bbbf6d37",
       "matches_source": true
     },
     {
@@ -148,17 +148,17 @@
     {
       "case": "A",
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "state": "running",
+      "state": "queued",
       "coverage_accepted": true,
       "versions": 5,
       "tasks": [
         [
           "T1",
-          "running"
+          "validated"
         ],
         [
           "T2",
-          "pending"
+          "running"
         ],
         [
           "T3",
@@ -183,18 +183,35 @@
       ],
       "files": [
         {
+          "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+          "sha256": "762e92e67768fd6c32755d28bcf829b87dfd9ed129e2f82651e166af8de09a8e"
+        },
+        {
           "path": "/var/lib/jarvis/projects/mission26b/A/rapport_intermediaire.md",
           "sha256": "45e157ebc64337347d9533d0260cddfa0df7b048ba49f31cad58187e54de7c80"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv",
           "sha256": "4f6e046c791e025750a8b12d8f29b269f13a2e442b79877acc1faa436adbfc23"
+        },
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
+          "sha256": "04afc8141f53c2e63a2e1c9eb6aa78a8beddf351d97953d9aafe3489362b81a0"
+        },
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/A/summary.json",
+          "sha256": "5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df"
         }
       ],
       "expected": {
         "count": 3,
         "sum": 12
       },
+      "actual": {
+        "lines_articles": 3,
+        "somme_quantites": 12
+      },
+      "counts_match": true,
       "input_unchanged": true,
       "reviews": [
         {
@@ -400,6 +417,200 @@
           "status": "PASS",
           "issues": [],
           "draft_sha256": null
+        },
+        {
+          "event": 13017,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "d4f00a05bf5e5db6236a4a42ec654358402d4dd6764b7e84ed43ef9c0e8e23c9"
+        },
+        {
+          "event": 13026,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "observations incorrect: expected 15, actual 999",
+            "Acteur incorrect : S1 attribue l'exécution à Codex alors que JARVIS est l'acteur déclaré dans le reçu.",
+            "Horodatage erroné : S2 indique le 1er janvier 2001, tandis que le reçu date d'octobre 2026.",
+            "Nombre d'observations fictif : S3 déclare 999 observations sans preuve dans les reçus."
+          ],
+          "draft_sha256": "7dad9f896cfc3d0b9e0c04c788624be5ac5b7ec2ffaef725c644849d1f90f24a"
+        },
+        {
+          "event": 13037,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "85f02a5926d843216822a7ed4450d8bb95bdc4e184530705ec2c716ca58f2b7f"
+        },
+        {
+          "event": 13040,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "Segments S8, S9, S10, S11 contiennent des affirmations factuelles non étayées concernant des échecs et des erreurs historiques qui ne sont pas présentes dans les preuves techniques fournies (receipts tous ok=true pour les IDs cités).",
+            "### Tentatives initiales échouées\nPlusieurs tentatives de validation ont échoué avant la réussite finale : => insufficient: Affirme que plusieurs tentatives de validation ont échoué, mais les preuves techniques (receipts et semantic_verifications) montrent uniquement des succès ou des corrections d'infrastructure sans erreurs explicites liées à T1 avant ces dates.",
+            "1. **Échec avec evidence_id `b589a806a6254c2ab910569fbed473a3`** (invocation `aabde7a89e8a48d98c99e73abb0461aa`)\n   - Erreur : \"Semantic verification stale after action; re-read actual state\"\n   - Cause : L'observation était périmée après une action d'écriture du rapport. => insufficient: L'evidence_id b589a806a6254c2ab910569fbed473a3 correspond à une lecture réussie (ok=true) et non à un échec. L'erreur 'Semantic verification stale' n'est pas présente dans les logs de cet ID, ni l'invocation aabde7a89e8a48d98c99e73abb0461aa.",
+            "2. **Échec avec evidence_id `55372eb9b70e4c3295185292a5dc40be`** (invocation `ba8597e10db4429c866c2135affbdaa3`)\n   - Erreur : \"Semantic verification stale after action; re-read actual state\"\n   - Cause : Même problème de fraîcheur de l'observation. => insufficient: L'evidence_id 55372eb9b70e4c3295185292a5dc40be correspond à une lecture réussie (ok=true). L'invocation ba8597e10db4429c866c2135affbdaa3 est incorrecte (l'observation réelle est 1e064fe1e6ed48b09838fc9ed7475b10). Aucun échec n'est documenté pour ces IDs.",
+            "### Résolution\nUne nouvelle lecture a été effectuée et `mission_verify` a été exécuté avec succès pour obtenir une observation fraîche. => insufficient: Affirme une résolution d'échecs qui n'ont pas été observés dans les preuves techniques. Le premier succès de vérification est 750d3d88c6f842ef9033b3ee62b871c6 (event 10913), mais le récit des échecs précédents n'est pas étayé.",
+            "## Limites\n- Aucune limite technique observée lors de cette lecture initiale.\n- Le fichier est stable et n'a pas été modifié depuis sa création par Codex (fixtures).\n- Les erreurs historiques ont été résolues en relisant le fichier après chaque action d'écriture. => insufficient: Affirme que le fichier n'a pas été modifié depuis sa création par Codex et que des erreurs historiques ont été résolues par relecture, mais les preuves ne montrent pas d'erreurs historiques de lecture T1 à corriger, seulement des lectures réussies."
+          ],
+          "draft_sha256": "1f3f3830581c5db2250caa16eb92392dab43a706647f4690281659e04f1c6008"
+        },
+        {
+          "event": 13048,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "b5c1e7874fe195144ae5e12755146c51021c012bdd5e36614fabc3852197cad5"
+        },
+        {
+          "event": 13086,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "observations incorrect: expected 19, actual 999",
+            "L’appel host_read_file de référence 322f2d2292a440c58e7806f35c3a0c72 a été déclenché et exécuté par Codex. => insufficient: Le segment affirme que l'appel a été exécuté par Codex. Les preuves techniques (plans et receipts) indiquent que 'JARVIS' est l'acteur ('actor': 'JARVIS') qui effectue les opérations host_read_file, tandis que Codex est identifié comme l'auteur de l'infrastructure ou des fixtures ('infrastructure_author': 'Codex'). L'attribution à Codex est erronée.",
+            "Cet appel a eu lieu le 1er janvier 2001 à 00:00 UTC. => insufficient: Le segment affirme une date de janvier 2001. Les reçus techniques (ex: receipts[0], event:13026) montrent des horodatages en 2026 ('created': '2026-10-22T...'). La date indiquée est factuellement incorrecte.",
+            "observations : 999. => insufficient: Le segment affirme 999 observations. Aucun reçu ou compteur technique ne valide ce nombre. L'événement de défaut contrôlé event:13026 identifie explicitement 'observations incorrect: expected 15, actual 999' comme une erreur (fault), confirmant que cette valeur est fictive dans le contexte du brouillon."
+          ],
+          "draft_sha256": "7dad9f896cfc3d0b9e0c04c788624be5ac5b7ec2ffaef725c644849d1f90f24a"
+        },
+        {
+          "event": 13094,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "289f1948dcc9579a40eb3019e796883b897eea40058ea8bf1e8d7ff6808c8079"
+        },
+        {
+          "event": 13175,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "Ce rapport a été refusé par `mission_task_complete` à deux reprises pour non-conformité éditoriale : => insufficient: Affirme que le rapport a été refusé par mission_task_complete. Les preuves (report_failures) montrent des échecs d'événements event:10920, 10930, 10945 (et suivants) qui sont des validations de brouillon (review/editorial), pas d'appels mission_task_complete explicites avec ces IDs. Aucun reçu ne confirme un rejet par l'outil mission_task_complete à ces étapes spécifiques.",
+            "1. **Refus 1** (event 10924, invocation c6343b51cae34beabba5fa54f7d93549)\n   - Raison : \"Narrative withheld before publication\"\n   - Problème : Titres descriptifs et contexte non vérifiables par les receipts => insufficient: Affirme un refus spécifique à l'événement 10924 avec l'invocation c6343b51cae34beabba5fa54f7d93549. Aucun événement 10924 ni aucune invocation de cet ID n'est présent dans les listes d'échecs (report_failures) ou les reçus fournis. Les événements existants sont 10920, 10930, 10945, etc.",
+            "2. **Refus 2** (event 10940, invocation b3567af19027447fbfeaa820aa625aef)\n   - Raison : Même défaut éditorial persistant\n   - Correction appliquée : Élimination des affirmations non factuelles => insufficient: Affirme un refus spécifique à l'événement 10940 avec l'invocation b3567af19027447fbfeaa820aa625aef. Aucun événement 10940 n'est présent dans les preuves d'échec fournies."
+          ],
+          "draft_sha256": "a8ce5cbc206b9028cabd2c6022b7ec8a708ca3c530f424b53bec13c074a05c89"
+        },
+        {
+          "event": 13193,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "a768afb48308189075c162275b1f65225092f482489ceda246c10b49a838e8ea"
+        },
+        {
+          "event": 13210,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "762e92e67768fd6c32755d28bcf829b87dfd9ed129e2f82651e166af8de09a8e"
+        },
+        {
+          "event": 13259,
+          "kind": "narrative_review",
+          "task": "T2",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "2f8712a7c66c3c9e19d007da3c0f7eb9769647b8a0576f496c5fea92133be2e1"
+        },
+        {
+          "event": 13269,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "Unknown evidence reference: ['mission:e1e5d6e8f31a43e7af4f44c0f08d37b3']",
+            "Unknown evidence reference: ['322f2d2292a440c58e7806f35c3a0c72']",
+            "Reviewer quote absent from draft: review insufficient",
+            "Unknown evidence reference: ['33f46b23e6c74a5a8c695bf3572de86b']",
+            "event:10920 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "event:10930 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "event:10945 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "event:13017 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "event:13026 does not support the narrative: Cité comme preuve de défaut contrôlé, mais l'analyse doit se baser sur les `report_failures` explicites.",
+            "event:13037 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "event:13040 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "event:13082 does not support the narrative: Non présent dans la liste des `report_failures` fournies (la liste s'arrête à event:13259, mais 13082 n'est pas listé).",
+            "event:13086 does not support the narrative: Cité comme échec mais sans lien direct aux preuves techniques dans le texte.",
+            "Dans le cadre de la mission e1e5d6e8f31a43e7af4f44c0f08d37b3, une analyse factuelle des opérations exécutées révèle que l'appel à l'outil host_read_file portant la référence 322f2d2292a440c58e7806f35c3a0c72 a été initié et accompli par JARVIS, et non par Codex. Les données techniques confirment que Codex est l'auteur de l'infrastructure et des fixtures (event:10657), tandis que les tâches opérationnelles relèvent exclusivement de JARVIS. => insufficient: Unknown evidence reference: ['mission:e1e5d6e8f31a43e7af4f44c0f08d37b3']. L'ID de mission cité n'existe pas dans les données fournies (les missions observées sont liées à 'mission26b'). De plus, l'appel `host_read_file` avec la référence `322f2d2292a440c58e7806f35c3a0c72` n'est pas présent dans la liste des reçus (`receipts`). Aucune preuve ne valide cette affirmation spécifique.",
+            "L'exécution de cette lecture a eu lieu le 22 octobre 2026 à 00:09:44.514686 (fuseau +02:00), et non le 1er janvier 2001 comme indiqué dans les brouillons erronés. Le fichier ciblé, /var/lib/jarvis/projects/mission26b/A/stocks.csv, contenait exactement trois entrées de données (alpha, beta, gamma) ainsi qu'une ligne d'en-tête. => insufficient: Unknown evidence reference: ['322f2d2292a440c58e7806f35c3a0c72']. L'horodatage spécifique du 22 octobre 2026 à 00:09:44 correspond à un événement non listé dans les reçus fournis. Bien que des lectures aient eu lieu cette journée (ex: 00:35, 10:54), la référence précise citée est absente.",
+            "Le nombre total d'observations documentées dans le périmètre actuel est de 19, ce qui invalide la mention fictive de « 999 observations » présente dans les drafts rejetés. Les événements d'infrastructure (notamment event:13026 et event:13082) ont explicitement identifié ces trois erreurs factuelles (acteur, horodatage, compteur) comme des injections de défauts contrôlés. => insufficient: Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events. Le segment mentionne des événements d'infrastructure (event:13026, event:13082) comme preuves de 'défauts contrôlés', mais le rapport doit citer explicitement les événements d'échec (`report_failures`) listés dans les données (ex: event:10920, 10930, 10945, etc.) plutôt que de synthétiser des causes hypothétiques non étayées par un reçu spécifique.",
+            "Il est impératif de noter l'historique des échecs : plusieurs brouillons de rapports (référencés events:10920, 10930, 10945, 13017, 13026, 13037, 13040, 13086) ont échoué l'audit sémantique en raison de ces mêmes affirmations non étayées et de l'omission des FAILs historiques. La version corrigée conserve la trace de ces échecs pour assurer la traçabilité requise par le contrat 26b.7. => insufficient: Reviewer quote absent from draft: review insufficient. Le segment liste une série d'événements d'échec (10920, 10930...) mais ne fournit pas de citation directe du contenu de ces échecs ni ne relie explicitement chaque ID à un reçu ou une preuve technique spécifique pour justifier la correction apportée.",
+            "La référence technique exacte de cette lecture demeure 322f2d2292a440c58e7806f35c3a0c72, avec une preuve d'exécution (broker_evidence) : 33f46b23e6c74a5a8c695bf3572de86b. Aucune idempotence n'est supposée sans validation de l'état comparé, et aucune heure ou donnée n'a été inventée dans ce texte. => insufficient: Unknown evidence reference: ['322f2d2292a440c58e7806f35c3a0c72', '33f46b23e6c74a5a8c695bf3572de86b']. Les références `322...` et `33f...` ne figurent dans aucun des reçus (`receipts`) ou vérifications sémantiques (`semantic_verifications`) fournis. Le texte affirme l'existence de preuves qui sont absentes du contexte actuel."
+          ],
+          "draft_sha256": "0bcdef135ae5dab8c77ca1fd89b17aded2dc7f2de49b6ff72d4b69a4321ef5d2"
+        },
+        {
+          "event": 13281,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "0b19062906da6bcf9d0a2911ee1ba20a9439139978b558deb8615ab80e39bc70"
+        },
+        {
+          "event": 13283,
+          "kind": "narrative_review",
+          "task": "T2",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "Historical FAIL must be explicitly retained..."
+          ],
+          "draft_sha256": "128024b0864ccb4d5816b7ce34037b004063e34990feaea5d770b36a9f4bcc41"
+        },
+        {
+          "event": 13299,
+          "kind": "narrative_review",
+          "task": "T2",
+          "status": "FAIL",
+          "issues": [
+            "event:10920 does not support the narrative: Événement non cité dans l'entrée fournie.",
+            "event:10930 does not support the narrative: Aucune donnée d'événement technique extraite du prompt.",
+            "event:13249 does not support the narrative: L'entrée ne contient pas de trace d'exécution ou de rapport d'erreur réel à vérifier.",
+            "event:13283 does not support the narrative: Absence de données pour comparer le type, l'acteur, la date et le statut.",
+            "Écriture technique du fichier `/var/lib/jarvis/projects/mission26b/A/summary.json` avec l'invocation `c8fceeb1f8a7412fa87f5b710492e393` (host_write_file), evidence `a86d5fd496b4489e835fecd308509295`, timestamp 2026-10-22T11:33:23, produisant le contenu JSON exact suivant : => insufficient: Absence totale de données JSON et de segments originaux à contrôler. Impossible d'étayer ou d'infirmer des affirmations factuelles sans preuve fournie.",
+            "```json\n{\n\"lines_articles\": 3,\n\"somme_quantites\": 12\n}\n``` => insufficient: Le prompt contient uniquement des instructions de contrôle et un message d'erreur simulé, aucune donnée factuelle à valider ou réfuter.",
+            "Cette écriture satisfait l'exigence R1 (nombre de lignes d'articles = 3) et R2 (somme des quantités = 12) avec les types integer requis. => insufficient: Aucun segment technique ou assertion factuelle identifiable dans l'entrée pour appliquer la procédure de contrôle JARVIS.",
+            "Vérification sémantique par `mission_verify` avec contrat kind:json : statut **PASS** à l'événement 13249, evidence `1c616ce7f79a46c6856df6435ecf1a0c`. Contrats validés :\n- `/lines_articles`: valeur 3 attendue, type integer conforme\n- `/somme_quantites`: valeur 12 attendue, type integer conforme => insufficient: Manque d'événements cités et de reçus techniques originaux pour remplir les checks cited_event_checks.",
+            "Les valeurs proviennent de la lecture de stocks.csv validée en tâche T1 (evidence `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf`) contenant 3 lignes d'articles (alpha=3, beta=4, gamma=5) dont la somme est 3+4+5=12. => insufficient: Impossible de vérifier l'exactitude des acteurs, paramètres ou statuts en l'absence de corpus JSON source.",
+            "Limites techniques : le fichier summary.json est créé uniquement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file sans opération externe ; aucune donnée intermédiaire persistante au-delà de ce bilan JSON ; les permissions Debian par défaut (0644) sont conservées sans modification explicite. => insufficient: Le format d'entrée ne correspond pas à une demande de vérification factuelle structurée, empêchant toute conclusion 'supported' ou 'qualified_hypothesis'.",
+            "Conclusion : la tâche T2 est techniquement réussie avec le statut PASS confirmé à l'événement 13249. Le fichier summary.json contient les valeurs exactes exigées avec les types corrects et est prêt pour la tâche T3 (calcul de l'empreinte SHA256 et création de manifest.json). => insufficient: Aucune affirmation technique détectée pour classer comme 'not_factual' ou valider l'idempotence et les versions.",
+            "--- => insufficient: Absence de contrat actif ou de rapport partiel mentionné dans les données d'entrée pour analyse de fidélité.",
+            "**Échecs historiques conservés selon CONTRATA26B :** => insufficient: Le message 'Format refusé' est une instruction méta, non une assertion factuelle contrôlable sans contexte d'exécution réel.",
+            "- **Event 10920** : Première tentative de mission_task_complete rejetée avec le motif \"Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry.\" Le rapport initial contenait des titres de section non vérifiables (\"Titre descriptif sans assertion factuelle\"). => insufficient: Toutes les conditions de base pour l'analyse JARVIS (segments, preuves JSON) sont manquantes, rendant tout autre verdict non étayé.",
+            "- **Event 10930** : Deuxième tentative échouée pour le même motif - présence de segments purement structuraux sans assertions techniques fondées sur des preuves techniques adéquates. => insufficient: Aucun lien entre des affirmations narratives et des reçus techniques originaux n'est possible ici.",
+            "- **Event 13283** (review_reference) : Rapport rejeté avec issues [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"Historical FAIL must be explicitly retained...\"]. Le draft_sha256 était `128024b0864ccb4d5816b7ce34037b004063e34990feaea5d770b36a9f4bcc41`. => insufficient: Le contrôle exige une confrontation texte/reçu qui est impossible sur un ensemble vide de faits.",
+            "Cette version du rapport corrige les défauts en conservant explicitement les références aux événements d'échec originaux (10920, 10930, 13283) avec leurs motifs exacts, conformément à l'exigence CONTRATA26B de retenir tout FAIL, PARTIAL et INSUFFICIENT même suivi d'un PASS. => insufficient: Pas de version, date ou état courant observé pour vérifier la péremption des checkpoints."
+          ],
+          "draft_sha256": "edd48ad6fa0599d155d48964c71470264eb745f94531024e9b7f6ca72e96f2ae"
         }
       ],
       "negative_results": [
@@ -534,6 +745,66 @@
           "tool": "host_write_file",
           "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
           "result": null
+        },
+        {
+          "invocation": "aabde7a89e8a48d98c99e73abb0461aa",
+          "tool": "mission_task_complete",
+          "error": "Semantic verification stale after action; re-read actual state",
+          "result": null
+        },
+        {
+          "invocation": "ba8597e10db4429c866c2135affbdaa3",
+          "tool": "mission_task_complete",
+          "error": "Semantic verification stale after action; re-read actual state",
+          "result": null
+        },
+        {
+          "invocation": "c6343b51cae34beabba5fa54f7d93549",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport T1 - Lecture et analyse de stocks.csv\", \"reason\": \"Titre de section décrivant le rapport, sans assertion technique vérifiable par les reçus.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Contexte\\nTâche initiale de la mission 26b : lecture du fichier source `stocks.csv` dans le répertoire autorisé `/var/lib/jarvis/projects/mission26b/A/` pour confirmer son contenu exact avant toute extraction de données.\", \"reason\": \"Le plan version 5 (plan:5) définit bien la tâche T1 comme lecture du fichier stocks.csv dans /var/lib/jarvis/projects/mission26b/A/ pour confirmer le contenu.\", \"references\": [\"plan:5\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"## Méthode\\nUtilisation de l'outil `host_read_file` pour lire intégralement le fichier CSV sans modification.\", \"reason\": \"Le plan version 5 spécifie l'outil 'host_read_file' pour la tâche T1.\", \"references\": [\"plan:5\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Résultats observés\", \"reason\": \"Titre de section introductif sans assertion factuelle.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Contenu du fichier stocks.csv\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\", \"reason\": \"Le contenu affiché correspond exactement au stdout du reçu 33f46b23e6c74a5a8c695bf3572de86b (et d'autres lectures ultérieures).\", \"references\": [\"33f46b23e6c74a5a8c695bf3572de86b\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"### Analyse des données\\n- **Format** : CSV avec en-tête (`article,quantite`)\\n- **Nombre de lignes d'articles** : 3 (alpha, beta, gamma)\\n- **Quantités individuelles** : alpha=3, beta=4, gamma=5\\n- **Somme totale des quantités** : 3 + 4 + 5 = 12\", \"reason\": \"L'analyse déduite du contenu (3 lignes, sommes 3+4+5=12) est correcte par rapport aux données observées dans le reçu 33f46b23e6c74a5a8c695bf3572de86b.\", \"references\": [\"33f46b23e6c74a5a8c695bf3572de86b\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification sémantique\\nLe contrat de la tâche exige que le contenu soit exactement :\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\", \"reason\": \"Le contrat de la tâche T1 dans le plan:5 exige l'égalité exacte avec ce contenu textuel.\", \"references\": [\"plan:5\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"Cette vérification a été effectuée par le système de vérification déterministe et a obtenu le statut **PASS** à l'événement `10913`.\", \"reason\": \"La référence à l'événement 10913 correspond au semantic_verifications ayant un statut PASS pour la tâche T1.\", \"references\": [\"event:10913\"], \"segment\": \"S8\", \"verdict\": \"supported\"}, {\"quote\": \"### Référence d'invocation\\n- **Evidence ID** : `55372eb9b70e4c3295185292a5dc40be`\\n- **Invocation** : `1e064fe1e6ed48b09838fc9ed7475b10`\\n- **Outil** : `host_read_file`\\n- **Timestamp** : 2026-10-22T00:37:12.804447+02:00\\n- **SHA256 du résultat** : `4f6e046c791e025750a8b12d8f29b269f13a2e442b79877acc1faa436adbfc23`\", \"reason\": \"Les IDs d'evidence et d'invocation, ainsi que le SHA256, correspondent exactement aux données du reçu technique 1e064fe1e6ed48b09838fc9ed7475b10 qui contient l'evidence_id 55372eb9b70e4c3295185292a5dc40be et le timestamp indiqué.\", \"references\": [\"55372eb9b70e4c3295185292a5dc40be\", \"1e064fe1e6ed48b09838fc9ed7475b10\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites\\n- Aucune limite technique observée lors de cette lecture initiale.\\n- Le fichier est stable et n'a pas été modifié depuis sa création par Codex (fixtures).\", \"reason\": \"Les multiples lectures (reçus) montrent un contenu stable et identique, confirmant l'absence de modification.\", \"references\": [\"33f46b23e6c74a5a8c695bf3572de86b\", \"55372eb9b70e4c3295185292a5dc40be\", \"498e6c3f0252448e994129dd18531e2a\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"## Conclusion\\nLa tâche T1 est réussie. Les données extraites sont :\\n- `lines_articles = 3`\\n- `somme_quantites = 12`\", \"reason\": \"Les données extraites (3 lignes, somme 12) sont déduites avec exactitude du contenu observé et vérifié par le reçu.\", \"references\": [\"55372eb9b70e4c3295185292a5dc40be\"], \"segment\": \"S11\", \"verdict\": \"supported\"}, {\"quote\": \"Ces valeurs seront utilisées par la tâche T2 pour générer `summary.json`.\", \"reason\": \"Le plan version 5 définit la tâche T2 dépendant de T1 pour générer summary.json avec ces valeurs.\", \"references\": [\"plan:5\"], \"segment\": \"S12\", \"verdict\": \"supported\"}], \"draft_sha256\": \"d4f00a05bf5e5db6236a4a42ec654358402d4dd6764b7e84ed43ef9c0e8e23c9\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "b3567af19027447fbfeaa820aa625aef",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport T1 - Lecture et analyse de stocks.csv\", \"reason\": \"Titre descriptif sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Contexte\\nTâche initiale de la mission 26b : lecture du fichier source `stocks.csv` dans le répertoire autorisé `/var/lib/jarvis/projects/mission26b/A/` pour confirmer son contenu exact avant toute extraction de données.\", \"reason\": \"La mission et le contexte de la tâche T1 sont confirmés par les métadonnées de la mission.\", \"references\": [\"mission:id\", \"task:T1\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"## Méthode\\nUtilisation de l'outil `host_read_file` pour lire intégralement le fichier CSV sans modification.\", \"reason\": \"Le plan version 5 définit explicitement l'outil host_read_file pour la tâche T1.\", \"references\": [\"plan:5\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Résultats observés\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Contenu du fichier stocks.csv\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\", \"reason\": \"Le contenu exact du fichier stocks.csv correspond à la sortie de l'observation 04b100fe94804bc2b6b5f986bb90f62a.\", \"references\": [\"04b100fe94804bc2b6b5f986bb90f62a\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"### Analyse des données\\n- **Format** : CSV avec en-tête (`article,quantite`)\\n- **Nombre de lignes d'articles** : 3 (alpha, beta, gamma)\\n- **Quantités individuelles** : alpha=3, beta=4, gamma=5\\n- **Somme totale des quantités** : 3 + 4 + 5 = 12\", \"reason\": \"L'analyse (3 lignes, quantités 3, 4, 5, somme 12) est mathématiquement correcte et basée sur les données de l'observation 04b100fe94804bc2b6b5f986bb90f62a.\", \"references\": [\"04b100fe94804bc2b6b5f986bb90f62a\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"## Historique des tentatives et erreurs\", \"reason\": \"Titre de section.\", \"references\": [], \"segment\": \"S7\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Tentatives initiales échouées\\nPlusieurs tentatives de validation ont échoué avant la réussite finale :\", \"reason\": \"Affirme que plusieurs tentatives de validation ont échoué, mais les preuves techniques (receipts et semantic_verifications) montrent uniquement des succès ou des corrections d'infrastructure sans erreurs explicites liées à T1 avant ces dates.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"insufficient\"}, {\"quote\": \"1. **Échec avec evidence_id `b589a806a6254c2ab910569fbed473a3`** (invocation `aabde7a89e8a48d98c99e73abb0461aa`)\\n   - Erreur : \\\"Semantic verification stale after action; re-read actual state\\\"\\n   - Cause : L'observation était périmée après une action d'écriture du rapport.\", \"reason\": \"L'evidence_id b589a806a6254c2ab910569fbed473a3 correspond à une lecture réussie (ok=true) et non à un échec. L'erreur 'Semantic verification stale' n'est pas présente dans les logs de cet ID, ni l'invocation aabde7a89e8a48d98c99e73abb0461aa.\", \"references\": [\"b589a806a6254c2ab910569fbed473a3\"], \"segment\": \"S9\", \"verdict\": \"insufficient\"}, {\"quote\": \"2. **Échec avec evidence_id `55372eb9b70e4c3295185292a5dc40be`** (invocation `ba8597e10db4429c866c2135affbdaa3`)\\n   - Erreur : \\\"Semantic verification stale after action; re-read actual state\\\"\\n   - Cause : Même problème de fraîcheur de l'observation.\", \"reason\": \"L'evidence_id 55372eb9b70e4c3295185292a5dc40be correspond à une lecture réussie (ok=true). L'invocation ba8597e10db4429c866c2135affbdaa3 est incorrecte (l'observation réelle est 1e064fe1e6ed48b09838fc9ed7475b10). Aucun échec n'est documenté pour ces IDs.\", \"references\": [\"55372eb9b70e4c3295185292a5dc40be\"], \"segment\": \"S10\", \"verdict\": \"insufficient\"}, {\"quote\": \"### Résolution\\nUne nouvelle lecture a été effectuée et `mission_verify` a été exécuté avec succès pour obtenir une observation fraîche.\", \"reason\": \"Affirme une résolution d'échecs qui n'ont pas été observés dans les preuves techniques. Le premier succès de vérification est 750d3d88c6f842ef9033b3ee62b871c6 (event 10913), mais le récit des échecs précédents n'est pas étayé.\", \"references\": [], \"segment\": \"S11\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Vérification sémantique\\nLe contrat de la tâche exige que le contenu soit exactement :\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\", \"reason\": \"Le contrat sémantique de la tâche T1 dans le plan version 5 exige bien ce contenu exact.\", \"references\": [\"plan:5\"], \"segment\": \"S12\", \"verdict\": \"supported\"}, {\"quote\": \"Cette vérification a été effectuée par le système de vérification déterministe et a obtenu le statut **PASS** à l'événement `10913`.\", \"reason\": \"L'événement 10913 correspond à une vérification sémantique de statut PASS confirmant le contenu exact.\", \"references\": [\"event:10913\"], \"segment\": \"S13\", \"verdict\": \"supported\"}, {\"quote\": \"### Référence d'invocation finale validée\\n- **Evidence ID** : `6508ca907aa24bafa975ec23b6275833`\\n- **Outil** : `mission_verify` (contrat textuel)\\n- **Lecture source** : `host_read_file` (invocation `9e9882e8b4a54bdcb6ead4996fe13755`)\\n- **Timestamp lecture** : 2026-10-22T11:01:37.213443+02:00\", \"reason\": \"L'ID 6508ca907aa24bafa975ec23b6275833 est la référence d'une vérification mission_verify. Cependant, l'invocation source citée (9e9882e8b4a54bdcb6ead4996fe13755) est incorrecte pour cet événement spécifique (l'observation réelle associée à 6508... est 4b226c904f544db28773ac7a7e48f119 avec invocation 0f85ec1c390444c984b150de2cc77a3a). L'erreur sur l'ID d'invocation rend la référence partiellement incorrecte, mais le timestamp correspond à l'observation 04b100fe... qui est utilisée dans d'autres语境\", \"references\": [\"6508ca907aa24bafa975ec23b6275833\", \"0f85ec1c390444c984b150de2cc77a3a\"], \"segment\": \"S14\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites\\n- Aucune limite technique observée lors de cette lecture initiale.\\n- Le fichier est stable et n'a pas été modifié depuis sa création par Codex (fixtures).\\n- Les erreurs historiques ont été résolues en relisant le fichier après chaque action d'écriture.\", \"reason\": \"Affirme que le fichier n'a pas été modifié depuis sa création par Codex et que des erreurs historiques ont été résolues par relecture, mais les preuves ne montrent pas d'erreurs historiques de lecture T1 à corriger, seulement des lectures réussies.\", \"references\": [], \"segment\": \"S15\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Conclusion\\nLa tâche T1 est réussie. Les données extraites sont :\\n- `lines_articles = 3`\\n- `somme_quantites = 12`\", \"reason\": \"La conclusion sur les données extraites (lines_articles=3, somme_quantites=12) est correcte et étayée par le contenu du fichier lu.\", \"references\": [\"04b100fe94804bc2b6b5f986bb90f62a\"], \"segment\": \"S16\", \"verdict\": \"supported\"}, {\"quote\": \"Ces valeurs seront utilisées par la tâche T2 pour générer `summary.json`.\", \"reason\": \"Le plan version 5 définit T2 comme dépendant de T1 pour générer summary.json avec ces données.\", \"references\": [\"plan:5\"], \"segment\": \"S17\", \"verdict\": \"supported\"}], \"draft_sha256\": \"1f3f3830581c5db2250caa16eb92392dab43a706647f4690281659e04f1c6008\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"Segments S8, S9, S10, S11 contiennent des affirmations factuelles non étayées concernant des échecs et des erreurs historiques qui ne sont pas présentes dans les preuves techniques fournies (receipts tous ok=true pour les IDs cités).\", \"### Tentatives initiales échouées\\nPlusieurs tentatives de validation ont échoué avant la réussite finale : => insufficient: Affirme que plusieurs tentatives de validation ont échoué, mais les preuves techniques (receipts et semantic_verifications) montrent uniquement des succès ou des corrections d'infrastructure sans erreurs explicites liées à T1 avant ces dates.\", \"1. **Échec avec evidence_id `b589a806a6254c2ab910569fbed473a3`** (invocation `aabde7a89e8a48d98c99e73abb0461aa`)\\n   - Erreur : \\\"Semantic verification stale after action; re-read actual state\\\"\\n   - Cause : L'observation était périmée après une action d'écriture du rapport. => insufficient: L'evidence_id b589a806a6254c2ab910569fbed473a3 correspond à une lecture réussie (ok=true) et non à un échec. L'erreur 'Semantic verification stale' n'est pas présente dans les logs de cet ID, ni l'invocation aabde7a89e8a48d98c99e73abb0461aa.\", \"2. **Échec avec evidence_id `55372eb9b70e4c3295185292a5dc40be`** (invocation `ba8597e10db4429c866c2135affbdaa3`)\\n   - Erreur : \\\"Semantic verification stale after action; re-read actual state\\\"\\n   - Cause : Même problème de fraîcheur de l'observation. => insufficient: L'evidence_id 55372eb9b70e4c3295185292a5dc40be correspond à une lecture réussie (ok=true). L'invocation ba8597e10db4429c866c2135affbdaa3 est incorrecte (l'observation réelle est 1e064fe1e6ed48b09838fc9ed7475b10). Aucun échec n'est documenté pour ces IDs.\", \"### Résolution\\nUne nouvelle lecture a été effectuée et `mission_verify` a été exécuté avec succès pour obtenir une observation fraîche. => insufficient: Affirme une résolution d'échecs qui n'ont pas été observés dans les preuves techniques. Le premier succès de vérification est 750d3d88c6f842ef9033b3ee62b871c6 (event 10913), mais le récit des échecs précédents n'est pas étayé.\", \"## Limites\\n- Aucune limite technique observée lors de cette lecture initiale.\\n- Le fichier est stable et n'a pas été modifié depuis sa création par Codex (fixtures).\\n- Les erreurs historiques ont été résolues en relisant le fichier après chaque action d'écriture. => insufficient: Affirme que le fichier n'a pas été modifié depuis sa création par Codex et que des erreurs historiques ont été résolues par relecture, mais les preuves ne montrent pas d'erreurs historiques de lecture T1 à corriger, seulement des lectures réussies.\"]}",
+          "result": null
+        },
+        {
+          "invocation": "0bccb9f7cd854da6befd33b1b7248317",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# T1 - Lecture de stocks.csv\", \"reason\": \"Segment titre sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Données observées\", \"reason\": \"Segment titre de section sans assertion factuelle.\", \"references\": [], \"segment\": \"S2\", \"verdict\": \"not_factual\"}, {\"quote\": \"Lecture du fichier `/var/lib/jarvis/projects/mission26b/A/stocks.csv` :\", \"reason\": \"Affirme la lecture du fichier stocks.csv, confirmée par le reçu 17e2b0fbb27d4dd3815ecab2c94cadbf (evidence fcc1cfa25a6c432f9bc0890656ffe0be).\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\", \"reason\": \"Contenu exact du fichier conforme au stdout du reçu fcc1cfa25a6c432f9bc0890656ffe0be.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"Preuve technique : evidence_id `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf` (host_read_file).\", \"reason\": \"L'ID d'évidence et l'invocation correspondent exactement aux données du reçu 17e2b0fbb27d4dd3815ecab2c94cadbf.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\", \"17e2b0fbb27d4dd3815ecab2c94cadbf\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"## Données extraites\", \"reason\": \"Segment titre de section sans assertion factuelle.\", \"references\": [], \"segment\": \"S6\", \"verdict\": \"not_factual\"}, {\"quote\": \"- Nombre de lignes d'articles : 3\\n- Somme des quantités : 3 + 4 + 5 = 12\", \"reason\": \"Le nombre de lignes (alpha, beta, gamma = 3) et la somme des quantités (3+4+5=12) sont dérivés correctement du contenu observé dans le reçu fcc1cfa25a6c432f9bc0890656ffe0be.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification sémantique\", \"reason\": \"Segment titre de section sans assertion factuelle.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"Contrat exécuté par `mission_verify` :\\n- kind: text\\n- equals: \\\"article,quantite\\\\nalpha,3\\\\nbeta,4\\\\ngamma,5\\\\n\\\"\\n- source: host_read_file sur /var/lib/jarvis/projects/mission26b/A/stocks.csv\", \"reason\": \"Les paramètres du contrat (kind, equals, source) correspondent exactement à la vérification sémantique documentée dans le reçu e33025a769bc444ba9878817cae6302eb.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"Résultat : **PASS** à l'événement 13053.\", \"reason\": \"Le statut PASS et l'identifiant d'événement 13053 sont confirmés par le reçu e33025769bc444ba9878817cae6302eb.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"Preuve de vérification : evidence_id `e33025769bc444ba9878817cae6302eb` (mission_verify).\", \"reason\": \"L'ID d'évidence de la vérification correspond au reçu e33025769bc444ba9878817cae6302eb.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\"], \"segment\": \"S11\", \"verdict\": \"supported\"}, {\"quote\": \"## Historique des validations du rapport\", \"reason\": \"Segment titre de section sans assertion factuelle.\", \"references\": [], \"segment\": \"S12\", \"verdict\": \"not_factual\"}, {\"quote\": \"Ce rapport a été refusé par `mission_task_complete` à deux reprises pour non-conformité éditoriale :\", \"reason\": \"Affirme que le rapport a été refusé par mission_task_complete. Les preuves (report_failures) montrent des échecs d'événements event:10920, 10930, 10945 (et suivants) qui sont des validations de brouillon (review/editorial), pas d'appels mission_task_complete explicites avec ces IDs. Aucun reçu ne confirme un rejet par l'outil mission_task_complete à ces étapes spécifiques.\", \"references\": [\"event:10920\", \"event:10930\", \"event:10945\"], \"segment\": \"S13\", \"verdict\": \"insufficient\"}, {\"quote\": \"1. **Refus 1** (event 10924, invocation c6343b51cae34beabba5fa54f7d93549)\\n   - Raison : \\\"Narrative withheld before publication\\\"\\n   - Problème : Titres descriptifs et contexte non vérifiables par les receipts\", \"reason\": \"Affirme un refus spécifique à l'événement 10924 avec l'invocation c6343b51cae34beabba5fa54f7d93549. Aucun événement 10924 ni aucune invocation de cet ID n'est présent dans les listes d'échecs (report_failures) ou les reçus fournis. Les événements existants sont 10920, 10930, 10945, etc.\", \"references\": [], \"segment\": \"S14\", \"verdict\": \"insufficient\"}, {\"quote\": \"2. **Refus 2** (event 10940, invocation b3567af19027447fbfeaa820aa625aef)\\n   - Raison : Même défaut éditorial persistant\\n   - Correction appliquée : Élimination des affirmations non factuelles\", \"reason\": \"Affirme un refus spécifique à l'événement 10940 avec l'invocation b3567af19027447fbfeaa820aa625aef. Aucun événement 10940 n'est présent dans les preuves d'échec fournies.\", \"references\": [], \"segment\": \"S15\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Limites\", \"reason\": \"Segment titre de section sans assertion factuelle.\", \"references\": [], \"segment\": \"S16\", \"verdict\": \"not_factual\"}, {\"quote\": \"- Périmètre strict : lecture seule de stocks.csv dans /var/lib/jarvis/projects/mission26b/A\\n- Aucune opération destructive effectuée\", \"reason\": \"La limite de périmètre (lecture seule, répertoire mission26b/A) est cohérente avec les opérations observées dans les reçus et le plan.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\"], \"segment\": \"S17\", \"verdict\": \"supported\"}, {\"quote\": \"## Conclusion technique\", \"reason\": \"Segment titre de section sans assertion factuelle.\", \"references\": [], \"segment\": \"S18\", \"verdict\": \"not_factual\"}, {\"quote\": \"La tâche T1 satisfait son contrat sémantique. Les données extraites sont prêtes pour la tâche T2 (création de summary.json).\", \"reason\": \"La conclusion selon laquelle le contrat sémantique est satisfait (PASS à event 13053) est étayée par les preuves techniques. La préparation pour T2 correspond au flux de dépendance défini dans le plan.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\", \"requirements:3\"], \"segment\": \"S19\", \"verdict\": \"supported\"}], \"draft_sha256\": \"a8ce5cbc206b9028cabd2c6022b7ec8a708ca3c530f424b53bec13c074a05c89\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"Ce rapport a été refusé par `mission_task_complete` à deux reprises pour non-conformité éditoriale : => insufficient: Affirme que le rapport a été refusé par mission_task_complete. Les preuves (report_failures) montrent des échecs d'événements event:10920, 10930, 10945 (et suivants) qui sont des validations de brouillon (review/editorial), pas d'appels mission_task_complete explicites avec ces IDs. Aucun reçu ne confirme un rejet par l'outil mission_task_complete à ces étapes spécifiques.\", \"1. **Refus 1** (event 10924, invocation c6343b51cae34beabba5fa54f7d93549)\\n   - Raison : \\\"Narrative withheld before publication\\\"\\n   - Problème : Titres descriptifs et contexte non vérifiables par les receipts => insufficient: Affirme un refus spécifique à l'événement 10924 avec l'invocation c6343b51cae34beabba5fa54f7d93549. Aucun événement 10924 ni aucune invocation de cet ID n'est présent dans les listes d'échecs (report_failures) ou les reçus fournis. Les événements existants sont 10920, 10930, 10945, etc.\", \"2. **Refus 2** (event 10940, invocation b3567af19027447fbfeaa820aa625aef)\\n   - Raison : Même défaut éditorial persistant\\n   - Correction appliquée : Élimination des affirmations non factuelles => insufficient: Affirme un refus spécifique à l'événement 10940 avec l'invocation b3567af19027447fbfeaa820aa625aef. Aucun événement 10940 n'est présent dans les preuves d'échec fournies.\"]}",
+          "result": null
+        },
+        {
+          "invocation": "d9c76a75b5204705b1fbec911b59eaa9",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"Lecture du fichier `/var/lib/jarvis/projects/mission26b/A/stocks.csv` a produit le contenu exact :\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\\nPreuve technique : evidence_id `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf` (host_read_file), timestamp 2026-10-22T11:02:43.843150+02:00.\", \"reason\": \"Le contenu exact du fichier et les identifiants de preuve (evidence_id et invocation) correspondent exactement aux données du reçu receipts[18] (created: 2026-10-22T11:09:23.843150+02:00, stdout contient 'article,quantite\\\\nalpha,3\\\\nbeta,4\\\\ngamma,5\\\\n'). Note: Le segment S1 indique un timestamp de 11:02:43 alors que le reçu réel est à 11:09:23. Cependant, l'heure du draft semble être une erreur mineure d'extraction si l'on considère que le contexte global correspond au même événement (verification\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\", \"17e2b0fbb27d4dd3815ecab2c94cadbf\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"Extraction des données du contenu observé : nombre de lignes d'articles égal à 3 (alpha, beta, gamma) ; somme des quantités égale à 12 (3 + 4 + 5). Ces valeurs sont dérivées directement du contenu lu dans le reçu `fcc1cfa25a6c432f9bc0890656ffe0be`.\", \"reason\": \"Les valeurs dérivées (3 lignes, somme 12) sont mathématiquement correctes par rapport au contenu brut du reçu fcc1cfa25a6c432f9bc0890656ffe0be (alpha=3, beta=4, gamma=5 => 3+4+5=12).\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"Vérification sémantique exécutée par `mission_verify` avec contrat kind: text, equals exact, source host_read_file sur `/var/lib/jarvis/projects/mission26b/A/stocks.csv`. Résultat : **PASS** à l'événement 13053. Preuve de vérification : evidence_id `e33025769bc444ba9878817cae6302eb` (mission_verify).\", \"reason\": \"Le reçu receipts[17] confirme l'exécution de mission_verify avec evidence_id e33025769bc444ba9878817cae6302eb, un statut PASS, et vérification_event 13053. Les détails du contrat (kind: text, equals exact) correspondent aux données observées.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\", \"event:13053\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"Limites observées : périmètre strict limité à la lecture seule de stocks.csv dans `/var/lib/jarvis/projects/mission26b/A` ; aucune opération destructive effectuée sur ce fichier source.\", \"reason\": \"La limitation à la lecture seule et l'absence d'opérations destructives sont cohérentes avec le plan v5 (task T1 utilise uniquement host_read_file) et les reçus fournis qui ne montrent aucune écriture sur stocks.csv.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\", \"plan:5\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"Conclusion technique : la tâche T1 satisfait son contrat sémantique avec statut PASS (événement 13053, evidence `e33025769bc444ba9878817cae6302eb`). Les données extraites (lines_articles=3, somme_quantites=12) sont prêtes pour la tâche T2 chargée de créer summary.json.\", \"reason\": \"L'affirmation que T1 satisfait son contrat avec PASS (événement 13053) est confirmée par le reçu de vérification e33025769bc444ba9878817cae6302eb. Les données extraites correspondent aux exigences du plan v5 pour la tâche T1 et préparent correctement T2.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\", \"event:13053\", \"plan:5\"], \"segment\": \"S5\", \"verdict\": \"supported\"}], \"draft_sha256\": \"a768afb48308189075c162275b1f65225092f482489ceda246c10b49a838e8ea\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "9d6e3857177f4e51b661dbd72392bc88",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport Technique T2 - Création de summary.json\", \"reason\": \"Segment is a title/header; contains no actionable technical assertion requiring evidence validation.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Preuve d'exécution\", \"reason\": \"Segment is a section header; contains no actionable technical assertion.\", \"references\": [], \"segment\": \"S2\", \"verdict\": \"not_factual\"}, {\"quote\": \"La tâche T2 a généré le fichier `/var/lib/jarvis/projects/mission26b/A/summary.json` contenant les données extraites de stocks.csv :\", \"reason\": \"Asserts T2 generated summary.json with specific path and source. Confirmed by receipt c8fceeb1f8a7412fa87f5b710492e393 (host_write_file to /var/lib/jarvis/projects/mission26b/A/summary.json) and its associated broker_evidence a86d5fd496b4489e835fecd308509295.\", \"references\": [\"c8fceeb1f8a7412fa87f5b710492e393\", \"a86d5fd496b4489e835fecd308509295\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"Asserts specific JSON content (lines_articles: 3, somme_quantites: 12). Confirmed by receipt ac881ac78cc34142a47a28f26d0a5ac7 (host_read_file) whose stdout matches exactly. Receipt 9860ca7485e9453d8dd8ff8b73bd6ad6 is the broker_evidence for this read, validating the content state.\", \"references\": [\"ac881ac78cc34142a47a28f26d0a5ac7\", \"9860ca7485e9453d8dd8ff8b73bd6ad6\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"**Evidence d'écriture** : `a86d5fd496b4489e835fecd308509295` (host_write_file), invocation `c8fceeb1f8a7412fa87f5b710492e393`, timestamp 2026-10-22T11:33:29.\", \"reason\": \"Asserts specific evidence ID for writing, invocation ID, and timestamp. Receipt c8fceeb1f8a7412fa87f5b710492e393 confirms the invocation ID and tool (host_write_file). Its broker_evidence field matches a86d5fd496b4489e835fecd308509295. The created timestamp 2026-10-22T11:33:23 aligns with the asserted 2026-10-22T11:33:29 (allowing for minor truncation/rounding in narrative vs raw seconds, or slight discrepancy within same second range, but IDs and tool are exact matches).\", \"references\": [\"c8fceeb1f8a7412fa87f5b710492e393\", \"a86d5fd496b4489e835fecd308509295\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification sémantique\", \"reason\": \"Segment is a section header; contains no actionable technical assertion.\", \"references\": [], \"segment\": \"S6\", \"verdict\": \"not_factual\"}, {\"quote\": \"La vérification par `mission_verify` avec contrat kind:json a obtenu le statut **PASS** à l'événement 13249 :\\n- `/lines_articles`: valeur 3 (attendu 3), type integer conforme ✓\\n- `/somme_quantites`: valeur 12 (attendu 12), type integer conforme ✓\", \"reason\": \"Asserts mission_verify PASS at event 13249 with specific values and types. Receipt 1c616ce7f79a46c6856df6435ecf1a0c is a mission_verify tool call. The cited_event_facts for event:13249 confirms status PASS, checks for /lines_articles (actual 3) and /somme_quantites (actual 12), and type integer for both. All assertions are technically supported.\", \"references\": [\"1c616ce7f79a46c6856df6435ecf1a0c\", \"event:13249\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"**Evidence de vérification** : `1c616ce7f79a46c6856df6435ecf1a0c` (mission_verify).\", \"reason\": \"Asserts evidence ID 1c616ce7f79a46c6856df6435ecf1a0c for mission_verify. This matches the reference field of the actual mission_verify receipt provided in the evidence list.\", \"references\": [\"1c616ce7f79a46c6856df6435ecf1a0c\"], \"segment\": \"S8\", \"verdict\": \"supported\"}, {\"quote\": \"## Données d'origine\", \"reason\": \"Segment is a section header; contains no actionable technical assertion.\", \"references\": [], \"segment\": \"S9\", \"verdict\": \"not_factual\"}, {\"quote\": \"Les valeurs proviennent de la lecture validée de stocks.csv (tâche T1, evidence `fcc1cfa25a6c432f9bc0890656ffe0be`) :\\n- 3 lignes d'articles : alpha(3), beta(4), gamma(5)\\n- Somme des quantités : 3 + 4 + 5 = 12\", \"reason\": \"Asserts values originate from validated read of stocks.csv (T1) with evidence fcc1cfa25a6c432f9bc0890656ffe0be, listing 3 articles and sum 12. Receipt 17e2b0fbb27d4dd3815ecab2c94cadbf is the host_read_file invocation with broker_evidence fcc1cfa25a6c432f9bc0890656ffe0be. Its stdout contains 'alpha,3', 'beta,4', 'gamma,5' which matches the 3 articles and sum 12 (3+4+5). The assertion is fully supported.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\", \"17e2b0fbb27d4dd3815ecab2c94cadbf\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites\", \"reason\": \"Segment is a section header; contains no actionable technical assertion.\", \"references\": [], \"segment\": \"S11\", \"verdict\": \"not_factual\"}, {\"quote\": \"- Le fichier summary.json est créé dans le répertoire autorisé `/var/lib/jarvis/projects/mission26b/A` sans opération externe.\\n- Aucune donnée intermédiaire persistante au-delà de ce bilan JSON.\\n- Les permissions Debian par défaut (0644) sont conservées sans modification explicite requise.\", \"reason\": \"Asserts file created in allowed directory without external operation. Receipt c8fceeb1f8a7412fa87f5b710492e393 confirms path /var/lib/jarvis/projects/mission26b/A/summary.json and tool host_write_file (internal). Asserts permissions 0644 conserved. Receipt shows no explicit chmod or error regarding permissions, consistent with default behavior for this tool in the absence of contrary evidence. The assertion of 'no intermediate data' is a negative claim supported by the lack of other write files;\", \"references\": [\"c8fceeb1f8a7412fa87f5b710492e393\"], \"segment\": \"S12\", \"verdict\": \"supported\"}, {\"quote\": \"## Conclusion\", \"reason\": \"Segment is a section header; contains no actionable technical assertion.\", \"references\": [], \"segment\": \"S13\", \"verdict\": \"not_factual\"}, {\"quote\": \"La tâche T2 est réussie. Le fichier summary.json contient exactement les valeurs exigées avec les types corrects. Prêt pour la tâche T3 : calcul de l'empreinte SHA256 et création de manifest.json.\", \"reason\": \"Asserts T2 successful, values correct, types correct. Supported by PASS status in event:13249 (receipt 1c616ce7f79a46c6856df6435ecf1a0c). Mentions readiness for T3; this is a planning state inference based on successful completion of T2, consistent with the plan definitions provided.\", \"references\": [\"1c616ce7f79a46c6856df6435ecf1a0c\", \"event:13249\"], \"segment\": \"S14\", \"verdict\": \"supported\"}], \"draft_sha256\": \"2f8712a7c66c3c9e19d007da3c0f7eb9769647b8a0576f496c5fea92133be2e1\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "c647b496fcaa4a5084d7188f593c485a",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"Écriture technique du fichier `/var/lib/jarvis/projects/mission26b/A/summary.json` avec l'invocation `c8fceeb1f8a7412fa87f5b710492e393` (host_write_file), evidence `a86d5fd496b4489e835fecd308509295`, timestamp 2026-10-22T11:33:29, produisant le contenu JSON exact suivant :\", \"reason\": \"Le segment cite correctement l'invocation `c8fceeb1f8a7412fa87f5b710492e393` et l'evidence `a86d5fd496b4489e835fecd308509295` correspondant à l'écriture de `summary.json`. Le contenu et l'horodatage (2026-10-22T11:33:23) sont confirmés par le reçu `host_write_file`.\", \"references\": [\"a86d5fd496b4489e835fecd308509295\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"Le bloc JSON présenté correspond exactement à la sortie attendue et vérifiée par les contrats sémantiques ultérieurs.\", \"references\": [\"a86d5fd496b4489e835fecd308509295\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"Cette écriture satisfait l'exigence R1 (nombre de lignes d'articles = 3) et R2 (somme des quantités = 12) avec les types integer requis.\", \"reason\": \"Les exigences R1 (lines_articles=3) et R2 (somme_quantites=12) avec le type integer sont validées par l'événement de vérification sémantique `13249`.\", \"references\": [\"1c616ce7f79a46c6856df6435ecf1a0c\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"Vérification sémantique par `mission_verify` avec contrat kind:json : statut **PASS** à l'événement 13249, evidence `1c616ce7f79a46c6856df6435ecf1a0c`. Contrats validés :\\n- `/lines_articles`: valeur 3 attendue, type integer conforme\\n- `/somme_quantites`: valeur 12 attendue, type integer conforme\", \"reason\": \"La référence à l'événement `13249` et à l'evidence `1c616ce7f79a46c6856df6435ecf1a0c` est exacte. Le statut PASS et les détails des checks (`/lines_articles`, `/somme_quantites`) correspondent aux données.\", \"references\": [\"1c616ce7f79a46c6856df6435ecf1a0c\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"Les valeurs proviennent de la lecture de stocks.csv validée en tâche T1 (evidence `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf`) contenant 3 lignes d'articles (alpha=3, beta=4, gamma=5) dont la somme est 3+4+5=12.\", \"reason\": \"L'evidence `fcc1cfa25a6c432f9bc0890656ffe0be` (invocation `17e2b0fbb27d4dd3815ecab2c94cadbf`) confirme la lecture de `stocks.csv` avec les lignes alpha(3), beta(4), gamma(5), justifiant la somme de 12.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"Limites techniques : le fichier summary.json est créé uniquement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file sans opération externe ; aucune donnée intermédiaire persistante au-delà de ce bilan JSON ; les permissions Debian par défaut (0644) sont conservées sans modification explicite.\", \"reason\": \"L'analyse des limites (fichier local, pas d'opérations externes) est cohérente avec la nature de l'outil `host_write_file` utilisé dans le contexte du projet `mission26b/A`. L'absence de modification explicite des permissions est une observation factuelle correcte basée sur les logs.\", \"references\": [\"a86d5fd496b4489e835fecd308509295\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"Conclusion : la tâche T2 est techniquement réussie avec le statut PASS confirmé à l'événement 13249. Le fichier summary.json contient les valeurs exactes exigées avec les types corrects et est prêt pour la tâche T3 (calcul de l'empreinte SHA256 et création de manifest.json).\", \"reason\": \"La conclusion de réussite technique basée sur l'événement `13249` est correcte. La mention de la tâche T3 suivante est logique dans le flux de mission.\", \"references\": [\"1c616ce7f79a46c6856df6435ecf1a0c\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Le séparateur est valide. La mention des échecs historiques fait référence aux événements `report_failures` (10920, 10930, etc.) qui sont explicitement listés dans les données fournies avec le statut FAIL.\", \"references\": [\"event:10920\", \"event:10930\", \"event:10945\"], \"segment\": \"S8\", \"verdict\": \"supported\"}, {\"quote\": \"Échecs historiques conservés selon CONTRATA26B :\\n- Tentative précédente de mission_task_complete rejetée car le rapport contenait des titres de section non vérifiables (\\\"Titre descriptif sans assertion factuelle\\\"). Cette correction élimine les segments purement structuraux et conserve uniquement les assertions techniques fondées sur les preuves.\", \"reason\": \"Le segment résume correctement la nature des échecs historiques (réf : event:10920, 10930) qui ont rejeté des rapports précédents pour \", \"references\": [\"event:10920\", \"event:10930\"], \"segment\": \"S9\", \"verdict\": \"supported\"}], \"draft_sha256\": \"128024b0864ccb4d5816b7ce34037b004063e34990feaea5d770b36a9f4bcc41\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"Historical FAIL must be explicitly retained...\"]}",
+          "result": null
+        },
+        {
+          "invocation": "7c1ef2c0d4b240c69aa047f3c8fd9622",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"Écriture technique du fichier `/var/lib/jarvis/projects/mission26b/A/summary.json` avec l'invocation `c8fceeb1f8a7412fa87f5b710492e393` (host_write_file), evidence `a86d5fd496b4489e835fecd308509295`, timestamp 2026-10-22T11:33:23, produisant le contenu JSON exact suivant :\", \"reason\": \"Absence totale de données JSON et de segments originaux à contrôler. Impossible d'étayer ou d'infirmer des affirmations factuelles sans preuve fournie.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"insufficient\"}, {\"quote\": \"```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"Le prompt contient uniquement des instructions de contrôle et un message d'erreur simulé, aucune donnée factuelle à valider ou réfuter.\", \"references\": [], \"segment\": \"S2\", \"verdict\": \"insufficient\"}, {\"quote\": \"Cette écriture satisfait l'exigence R1 (nombre de lignes d'articles = 3) et R2 (somme des quantités = 12) avec les types integer requis.\", \"reason\": \"Aucun segment technique ou assertion factuelle identifiable dans l'entrée pour appliquer la procédure de contrôle JARVIS.\", \"references\": [], \"segment\": \"S3\", \"verdict\": \"insufficient\"}, {\"quote\": \"Vérification sémantique par `mission_verify` avec contrat kind:json : statut **PASS** à l'événement 13249, evidence `1c616ce7f79a46c6856df6435ecf1a0c`. Contrats validés :\\n- `/lines_articles`: valeur 3 attendue, type integer conforme\\n- `/somme_quantites`: valeur 12 attendue, type integer conforme\", \"reason\": \"Manque d'événements cités et de reçus techniques originaux pour remplir les checks cited_event_checks.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"insufficient\"}, {\"quote\": \"Les valeurs proviennent de la lecture de stocks.csv validée en tâche T1 (evidence `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf`) contenant 3 lignes d'articles (alpha=3, beta=4, gamma=5) dont la somme est 3+4+5=12.\", \"reason\": \"Impossible de vérifier l'exactitude des acteurs, paramètres ou statuts en l'absence de corpus JSON source.\", \"references\": [], \"segment\": \"S5\", \"verdict\": \"insufficient\"}, {\"quote\": \"Limites techniques : le fichier summary.json est créé uniquement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file sans opération externe ; aucune donnée intermédiaire persistante au-delà de ce bilan JSON ; les permissions Debian par défaut (0644) sont conservées sans modification explicite.\", \"reason\": \"Le format d'entrée ne correspond pas à une demande de vérification factuelle structurée, empêchant toute conclusion 'supported' ou 'qualified_hypothesis'.\", \"references\": [], \"segment\": \"S6\", \"verdict\": \"insufficient\"}, {\"quote\": \"Conclusion : la tâche T2 est techniquement réussie avec le statut PASS confirmé à l'événement 13249. Le fichier summary.json contient les valeurs exactes exigées avec les types corrects et est prêt pour la tâche T3 (calcul de l'empreinte SHA256 et création de manifest.json).\", \"reason\": \"Aucune affirmation technique détectée pour classer comme 'not_factual' ou valider l'idempotence et les versions.\", \"references\": [], \"segment\": \"S7\", \"verdict\": \"insufficient\"}, {\"quote\": \"---\", \"reason\": \"Absence de contrat actif ou de rapport partiel mentionné dans les données d'entrée pour analyse de fidélité.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"insufficient\"}, {\"quote\": \"**Échecs historiques conservés selon CONTRATA26B :**\", \"reason\": \"Le message 'Format refusé' est une instruction méta, non une assertion factuelle contrôlable sans contexte d'exécution réel.\", \"references\": [], \"segment\": \"S9\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Event 10920** : Première tentative de mission_task_complete rejetée avec le motif \\\"Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry.\\\" Le rapport initial contenait des titres de section non vérifiables (\\\"Titre descriptif sans assertion factuelle\\\").\", \"reason\": \"Toutes les conditions de base pour l'analyse JARVIS (segments, preuves JSON) sont manquantes, rendant tout autre verdict non étayé.\", \"references\": [], \"segment\": \"S10\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Event 10930** : Deuxième tentative échouée pour le même motif - présence de segments purement structuraux sans assertions techniques fondées sur des preuves techniques adéquates.\", \"reason\": \"Aucun lien entre des affirmations narratives et des reçus techniques originaux n'est possible ici.\", \"references\": [], \"segment\": \"S11\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Event 13283** (review_reference) : Rapport rejeté avec issues [\\\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\\\", \\\"Historical FAIL must be explicitly retained...\\\"]. Le draft_sha256 était `128024b0864ccb4d5816b7ce34037b004063e34990feaea5d770b36a9f4bcc41`.\", \"reason\": \"Le contrôle exige une confrontation texte/reçu qui est impossible sur un ensemble vide de faits.\", \"references\": [], \"segment\": \"S12\", \"verdict\": \"insufficient\"}, {\"quote\": \"Cette version du rapport corrige les défauts en conservant explicitement les références aux événements d'échec originaux (10920, 10930, 13283) avec leurs motifs exacts, conformément à l'exigence CONTRATA26B de retenir tout FAIL, PARTIAL et INSUFFICIENT même suivi d'un PASS.\", \"reason\": \"Pas de version, date ou état courant observé pour vérifier la péremption des checkpoints.\", \"references\": [], \"segment\": \"S13\", \"verdict\": \"insufficient\"}], \"draft_sha256\": \"edd48ad6fa0599d155d48964c71470264eb745f94531024e9b7f6ca72e96f2ae\", \"issues\": [\"event:10920 does not support the narrative: Événement non cité dans l'entrée fournie.\", \"event:10930 does not support the narrative: Aucune donnée d'événement technique extraite du prompt.\", \"event:13249 does not support the narrative: L'entrée ne contient pas de trace d'exécution ou de rapport d'erreur réel à vérifier.\", \"event:13283 does not support the narrative: Absence de données pour comparer le type, l'acteur, la date et le statut.\", \"Écriture technique du fichier `/var/lib/jarvis/projects/mission26b/A/summary.json` avec l'invocation `c8fceeb1f8a7412fa87f5b710492e393` (host_write_file), evidence `a86d5fd496b4489e835fecd308509295`, timestamp 2026-10-22T11:33:23, produisant le contenu JSON exact suivant : => insufficient: Absence totale de données JSON et de segments originaux à contrôler. Impossible d'étayer ou d'infirmer des affirmations factuelles sans preuve fournie.\", \"```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n``` => insufficient: Le prompt contient uniquement des instructions de contrôle et un message d'erreur simulé, aucune donnée factuelle à valider ou réfuter.\", \"Cette écriture satisfait l'exigence R1 (nombre de lignes d'articles = 3) et R2 (somme des quantités = 12) avec les types integer requis. => insufficient: Aucun segment technique ou assertion factuelle identifiable dans l'entrée pour appliquer la procédure de contrôle JARVIS.\", \"Vérification sémantique par `mission_verify` avec contrat kind:json : statut **PASS** à l'événement 13249, evidence `1c616ce7f79a46c6856df6435ecf1a0c`. Contrats validés :\\n- `/lines_articles`: valeur 3 attendue, type integer conforme\\n- `/somme_quantites`: valeur 12 attendue, type integer conforme => insufficient: Manque d'événements cités et de reçus techniques originaux pour remplir les checks cited_event_checks.\", \"Les valeurs proviennent de la lecture de stocks.csv validée en tâche T1 (evidence `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf`) contenant 3 lignes d'articles (alpha=3, beta=4, gamma=5) dont la somme est 3+4+5=12. => insufficient: Impossible de vérifier l'exactitude des acteurs, paramètres ou statuts en l'absence de corpus JSON source.\", \"Limites techniques : le fichier summary.json est créé uniquement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file sans opération externe ; aucune donnée intermédiaire persistante au-delà de ce bilan JSON ; les permissions Debian par défaut (0644) sont conservées sans modification explicite. => insufficient: Le format d'entrée ne correspond pas à une demande de vérification factuelle structurée, empêchant toute conclusion 'supported' ou 'qualified_hypothesis'.\", \"Conclusion : la tâche T2 est techniquement réussie avec le statut PASS confirmé à l'événement 13249. Le fichier summary.json contient les valeurs exactes exigées avec les types corrects et est prêt pour la tâche T3 (calcul de l'empreinte SHA256 et création de manifest.json). => insufficient: Aucune affirmation technique détectée pour classer comme 'not_factual' ou valider l'idempotence et les versions.\", \"--- => insufficient: Absence de contrat actif ou de rapport partiel mentionné dans les données d'entrée pour analyse de fidélité.\", \"**Échecs historiques conservés selon CONTRATA26B :** => insufficient: Le message 'Format refusé' est une instruction méta, non une assertion factuelle contrôlable sans contexte d'exécution réel.\", \"- **Event 10920** : Première tentative de mission_task_complete rejetée avec le motif \\\"Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry.\\\" Le rapport initial contenait des titres de section non vérifiables (\\\"Titre descriptif sans assertion factuelle\\\"). => insufficient: Toutes les conditions de base pour l'analyse JARVIS (segments, preuves JSON) sont manquantes, rendant tout autre verdict non étayé.\", \"- **Event 10930** : Deuxième tentative échouée pour le même motif - présence de segments purement structuraux sans assertions techniques fondées sur des preuves techniques adéquates. => insufficient: Aucun lien entre des affirmations narratives et des reçus techniques originaux n'est possible ici.\", \"- **Event 13283** (review_reference) : Rapport rejeté avec issues [\\\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\\\", \\\"Historical FAIL must be explicitly retained...\\\"]. Le draft_sha256 était `128024b0864ccb4d5816b7ce34037b004063e34990feaea5d770b36a9f4bcc41`. => insufficient: Le contrôle exige une confrontation texte/reçu qui est impossible sur un ensemble vide de faits.\", \"Cette version du rapport corrige les défauts en conservant explicitement les références aux événements d'échec originaux (10920, 10930, 13283) avec leurs motifs exacts, conformément à l'exigence CONTRATA26B de retenir tout FAIL, PARTIAL et INSUFFICIENT même suivi d'un PASS. => insufficient: Pas de version, date ou état courant observé pour vérifier la péremption des checkpoints.\"]}",
+          "result": null
+        },
+        {
+          "invocation": "a24d8abb0dd0490f9bf01a0dc1f79c0e",
+          "tool": "mission_task_complete",
+          "error": "Review INSUFFICIENT: invalid structured response after format repair; retry with mission_progress",
+          "result": null
         }
       ],
       "no_codex_operational_reminder": true
@@ -541,21 +812,21 @@
     {
       "case": "B",
       "mission": "54c634e56b8d4241964322700ea5d837",
-      "state": "queued",
-      "coverage_accepted": false,
+      "state": "running",
+      "coverage_accepted": true,
       "versions": 2,
       "tasks": [
         [
           "T01",
-          "running"
+          "validated"
         ],
         [
           "T02",
-          "pending"
+          "validated"
         ],
         [
           "T03",
-          "pending"
+          "running"
         ],
         [
           "T04",
@@ -580,8 +851,20 @@
           "sha256": "36b5e5dba01b05e09f4332617fd93400592945563b6c516a60c4c123c5bffa4a"
         },
         {
+          "path": "/var/lib/jarvis/projects/mission26b/B/error_capture.txt",
+          "sha256": "3a090a819b53f6a29e12c000cc609bed3af03610f5a1a163e6401606ad6a8428"
+        },
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/B/report_T03.txt",
+          "sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073"
+        },
+        {
           "path": "/var/lib/jarvis/projects/mission26b/B/mesures.csv",
           "sha256": "ed7746bd4a7dc30ce28e54e3ee3e0f779edcb60976978c6ea2a60fda683ee0e4"
+        },
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/B/report_T02.txt",
+          "sha256": "5a02f5e805463d92c2a3a1004dc69ea834d1bdcaa84babfcb0555f8060b320c2"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/report_T01.txt",
@@ -696,6 +979,40 @@
             "Review must address every extracted requirement exactly once"
           ],
           "draft_sha256": null
+        },
+        {
+          "event": 13080,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 13109,
+          "kind": "narrative_review",
+          "task": "T01",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "2ca32ba38c2f57bcf7da40b10652bc5709f4ed678bb327572c2f1528acf3b812"
+        },
+        {
+          "event": 13369,
+          "kind": "narrative_review",
+          "task": "T02",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "60103883031d74762dfe0d8d423cc1fff535378e1c4ec4c63a8513444d43eab4"
+        },
+        {
+          "event": 13385,
+          "kind": "narrative_review",
+          "task": "T02",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "5a02f5e805463d92c2a3a1004dc69ea834d1bdcaa84babfcb0555f8060b320c2"
         }
       ],
       "negative_results": [
@@ -987,9 +1304,102 @@
           "tool": "mission_task_complete",
           "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
           "result": null
+        },
+        {
+          "invocation": "fb3b4a44f4c242ecb2229339317d248a",
+          "tool": "mission_task_complete",
+          "error": "Review INSUFFICIENT: invalid structured response after format repair; retry with mission_progress",
+          "result": null
+        },
+        {
+          "invocation": "e80016f412a144d6ad89c0f94f4603c1",
+          "tool": "mission_verify",
+          "error": null,
+          "result": {
+            "checks": [
+              {
+                "draft_sha256": "60103883031d74762dfe0d8d423cc1fff535378e1c4ec4c63a8513444d43eab4",
+                "pass": false,
+                "predicate": "narrative_matches_original_evidence"
+              }
+            ],
+            "contract": {
+              "kind": "report",
+              "source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26b/B/report_T02.txt"
+                },
+                "tool": "host_read_file"
+              }
+            },
+            "issues": [
+              "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+            ],
+            "observations": [
+              {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26b/B/report_T02.txt"
+                },
+                "broker_evidence": "a7d4d4a7a5684f848abd54588c21ae78",
+                "invocation": "a04a238a3e5b4d4998d1d34236e8e1fb",
+                "tool": "host_read_file"
+              }
+            ],
+            "observed_at": 1792663008.1936438,
+            "returncode": 1,
+            "sha256": "60103883031d74762dfe0d8d423cc1fff535378e1c4ec4c63a8513444d43eab4",
+            "status": "FAIL",
+            "verification_event": 13370,
+            "verifier": "broker-read+JARVIS-reviewer26B"
+          }
         }
       ],
-      "producer_execution_receipts": [],
+      "producer_execution_receipts": [
+        {
+          "invocation": "d8e944cec60949968d3b58fc05e48b1a",
+          "arguments": {
+            "command": "cd /var/lib/jarvis/projects/mission26b/B && python3 producer.py mesures.csv bilan.json 2>&1 || true",
+            "timeout": 30
+          },
+          "result": {
+            "elapsed_s": 0.2,
+            "ok": true,
+            "result": {
+              "diagnostic": {
+                "alternative": null,
+                "broker_version": "23C.1",
+                "error_category": null,
+                "omitted_parameters": [
+                  "command",
+                  "timeout"
+                ],
+                "operation": "host_exec",
+                "parameters": {},
+                "policy_path": "/etc/jarvis/host-policy.json",
+                "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+                "reload": "each-request",
+                "retry": null,
+                "selection": "single-persistent-owner-policy"
+              },
+              "duration_s": 0.065,
+              "evidence_id": "b281d2de73c74247a608b6d1756f026c",
+              "returncode": 0,
+              "stderr": "",
+              "stderr_truncated": false,
+              "stdout": "Traceback (most recent call last):\n  File \"/var/lib/jarvis/projects/mission26b/B/producer.py\", line 5, in <module>\n    result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}\n                                    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/lib/jarvis/projects/mission26b/B/producer.py\", line 5, in <genexpr>\n    result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}\n                                            ~^^^^^^^^^^\nKeyError: 'valeur'\n",
+              "stdout_truncated": false,
+              "timeout": false
+            },
+            "risk": "host_authorized",
+            "tool": "host_exec"
+          },
+          "tool_announced_success": true,
+          "program_failure_observed": true,
+          "masked_application_failure": true,
+          "exact_produced_payloads": [],
+          "program_success_observed": false
+        }
+      ],
       "producer_success_observed": false,
       "no_codex_operational_reminder": true
     },
@@ -998,7 +1408,7 @@
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
       "state": "queued",
       "coverage_accepted": false,
-      "versions": 4,
+      "versions": 6,
       "tasks": [
         [
           "T1",
@@ -1014,6 +1424,14 @@
         ],
         [
           "T4",
+          "pending"
+        ],
+        [
+          "T5",
+          "pending"
+        ],
+        [
+          "T6",
           "pending"
         ]
       ],
@@ -1208,6 +1626,41 @@
             "### Correction prévue\nLa tâche T4 du plan v4 va **écraser** inventaire.json avec la structure correcte:\n```json\n{\"names\": [\"capteur-a\", \"capteur-b\"], \"total\": 2}\n```\nCette structure inclut un tableau `names` (array) et un champ `total` (integer) avec relation length vérifiée. => insufficient: La proposition de correction (écrasement par T4) est cohérente avec le plan 4, mais le segment affirme une structure future non encore observée dans l'état courant du système (les receipts ne montrent pas d'écriture de la nouvelle structure). C'est une hypothèse qualifiée basée sur le plan, mais aucune preuve technique actuelle ne montre que T4 a été exécutée ou que le fichier a été mis à jour."
           ],
           "draft_sha256": "3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8"
+        },
+        {
+          "event": 13116,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Uncovered exact array outcome: inventaire.json requests an exact list, but type/length alone do not verify its members. Declare your own exact array predicate or independent baseline preservation for the requested list; no field names or values are supplied.",
+            "Artifact dependency T3: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T4. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed."
+          ],
+          "draft_sha256": null
+        },
+        {
+          "event": 13131,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Artifact dependency T3: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T4, T5. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed.",
+            "Artifact dependency T6: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T1, T4. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed.",
+            "Report artifact collision: T5 and T4 share /var/lib/jarvis/projects/mission26b/C/T4-rapport.md. Use distinct task report paths so received hashes remain reproducible.",
+            "Report artifact collision: T6 and T3 share /var/lib/jarvis/projects/mission26b/C/T3-rapport.md. Use distinct task report paths so received hashes remain reproducible."
+          ],
+          "draft_sha256": null
+        },
+        {
+          "event": 13322,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Artifact dependency T3: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T1. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed.",
+            "Artifact dependency T6: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T1. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed."
+          ],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -1372,6 +1825,12 @@
           "invocation": "b33527dccd2540a5a82a974becc37418",
           "tool": "mission_task_complete",
           "error": "evidence_id must identify a successful mission_verify of active task",
+          "result": null
+        },
+        {
+          "invocation": "e9d53eb7fadb4bee8c158646ddff3e5f",
+          "tool": "mission_plan",
+          "error": "Task T6: preserve requires baseline_source. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source, free prose uses kind report with broker read source (no predetermined hash). No plan saved; current version unchanged.",
           "result": null
         }
       ],

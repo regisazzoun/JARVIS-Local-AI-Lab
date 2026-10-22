@@ -1,0 +1,78 @@
+# Rapport T03 - Analyse de la cause de la panne
+
+## Objectif
+Analyser le code producer.py pour diagnostiquer pourquoi l'exécution échoue avec les paramètres par défaut.
+
+## Contexte
+La tâche T02 a confirmé que l'exécution initiale `python3 producer.py mesures.csv bilan.json` produit une erreur :
+```
+KeyError: 'valeur'
+```
+
+## Analyse détaillée
+
+### 1. Comportement de csv.DictReader avec délimiteur incorrect
+
+Le script `producer.py` utilise `csv.DictReader` sans spécifier explicitement le paramètre `delimiter` dans l'appel par défaut :
+```python
+with open(args.source, newline='') as f:
+    rows = list(csv.DictReader(f, delimiter=args.delimiter))
+```
+
+Or `args.delimiter` a une valeur par défaut de `,` (virgule) définie via argparse.
+
+### 2. Contenu réel de mesures.csv
+
+Le fichier `mesures.csv` utilise `;` (point-virgule) comme délimiteur, comme observé en T01 :
+```
+date;valeur
+2024-01-01;7
+2024-01-02;9
+```
+
+### 3. Conséquence de l'incompatibilité
+
+Quand `csv.DictReader` lit la première ligne `date;valeur` avec le délimiteur `,` :
+- Il ne trouve aucune virgule dans la ligne
+- La ligne entière est traitée comme UNE SEULE colonne nommée `"date;valeur"`
+- Le dictionnaire créé contient une seule clé : `"date;valeur"` au lieu de deux clés séparées `"date"` et `"valeur"`
+
+Lorsque le code tente ensuite d'accéder à `r['valeur']`, cette clé n'existe pas dans le dictionnaire → `KeyError: 'valeur'`.
+
+### 4. Schéma de l'erreur
+
+| Délimiteur attendu | Délimiteur réel | Résultat du parsing |
+|-------------------|-----------------|---------------------|
+| `,` (virgule)     | `;` (point-virgule) | Une seule colonne `"date;valeur"` |
+
+La ligne de données `2024-01-01;7` est également lue comme une seule valeur, pas deux colonnes séparées.
+
+## Cause racine identifiée
+
+**L'incompatibilité entre le délimiteur par défaut du script (`,`) et le délimiteur réel du fichier CSV (`;`) provoque un échec de parsing qui empêche la lecture correcte des colonnes.**
+
+## Solution requise
+
+Utiliser le paramètre `--delimiter ';'` lors de l'appel au script :
+```bash
+python3 producer.py mesures.csv bilan.json --delimiter ';'
+```
+
+Cette solution ne modifie ni le programme (producer.py) ni les données d'entrée (mesures.csv), conformément aux exigences de la mission.
+
+## Références originales
+
+- T01: Lecture de producer.py et mesures.csv
+  - producer.py invocation_id=`ec4f3297dd3d42a9a3a3da1c2cd7554c`
+  - mesures.csv invocation_id=`ce720ec4a2d447238634c70556456a54`
+- T02: Exécution initiale avec erreur capturée
+  - host_exec invocation_id=`d8e944cec60949968d3b58fc05e48b1a`
+  - error_capture.txt preuve de l'erreur KeyError
+
+## Limites
+
+Ce rapport diagnostique la cause technique de la panne. La correction effective et la vérification du résultat seront réalisées dans la tâche T04 (exécution avec paramètre adapté) qui produira bilan.json valide.
+
+## Erreurs historiques
+
+Aucune erreur spécifique à cette tâche n'a été rencontrée ; le diagnostic est complet et prêt pour la correction.
