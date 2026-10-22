@@ -167,11 +167,13 @@ class MissionStore:
             for t in normalized:
                 if not t.get('contract',{}).get('semantic') or not t.get('contract',{}).get('report_path'):
                     raise ValueError('Autonomous task '+t['id']+' requires contract.report_path and nonempty contract.semantic')
-                from .verification import validate_contract
+                from .verification import validate_contract, validate_report_source
                 contract_errors=[]
                 for candidate in normalized:
                     for criterion in candidate.get('contract',{}).get('semantic',[]):
-                        try:validate_contract(criterion)
+                        try:
+                            validate_contract(criterion)
+                            validate_report_source(candidate,criterion)
                         except ValueError as exc:contract_errors.append('Task '+candidate['id']+': '+str(exc))
                 if contract_errors:raise ValueError(' | '.join(contract_errors)+'. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source, free prose uses kind report with broker read source (no predetermined hash). No plan saved; current version unchanged.')
                 for field in ('objective', 'tools', 'observations', 'verification', 'recovery', 'artifacts'):
@@ -212,8 +214,10 @@ class MissionStore:
                 unattempted_candidate=(json.loads(self.get(ident)['spec']).get('assurance') and t['state']=='pending' and not self.observations(ident,key))
                 if key in mapping and not unattempted_candidate:
                     for check in t.get('contract',{}).get('semantic',[]):
-                        from .verification import validate_contract
-                        try:validate_contract(check)
+                        from .verification import validate_contract, validate_report_source
+                        try:
+                            validate_contract(check)
+                            validate_report_source(previous.get(key,{}),check)
                         except ValueError:continue  # Repair an unexecutable historical declaration; never drop valid acceptance.
                         if not any(exact(check,x) for x in mapping[key].get('contract',{}).get('semantic',[])):
                             results=[e['result'].get('status') for e in self.events(ident,limit=1000000) if e['task']==key and e['kind']=='semantic_verification' and exact(e['result'].get('contract'),check)]

@@ -1,6 +1,6 @@
 # Architecture26B
 
-Extension de `agentic/engine_v2/jarvis/mission_assurance.py` intégrée au Mission Engine existant ; mêmes SQLite, ordonnanceur, Registry, broker, Skill Lab et checkpoints. Aucune base ni exécution concurrente nouvelle. Contrat actif `26b.4` (les essais initiaux `26b.1` à `26b.3` restent archivés).
+Extension de `agentic/engine_v2/jarvis/mission_assurance.py` intégrée au Mission Engine existant ; mêmes SQLite, ordonnanceur, Registry, broker, Skill Lab et checkpoints. Aucune base ni exécution concurrente nouvelle. Contrat actif `26b.5` (les essais initiaux `26b.1` à `26b.4` restent archivés).
 
 ## Avant les opérations
 
@@ -23,3 +23,7 @@ Les événements `narrative_review` gardent le brouillon intégral, son empreint
 ## Portée et limites
 
 Le contrôle sémantique de langue naturelle utilise le même modèle dans un échange isolé, sans outils d’action et sans contexte du rédacteur. Cela réduit la complaisance contextuelle mais ne constitue ni un second modèle indépendant ni une preuve formelle universelle. Les barrières déterministes et observations originales gardent leur rôle. Les sorties longues sont explicitement abrégées pour la revue ; les originaux restent dans le journal et adressables. Les futurs travaux doivent mesurer les omissions de l’extracteur/relecteur sur d’autres objectifs et les récits complexes. Les contrôles n’affirment que ce qui est démontré aux instants observés. Les relations JSON de longueur vérifient sur le contenu réel qu’un entier global égale la taille de la liste ; un booléen ou des compteurs par nom ne remplacent pas cette propriété.
+
+## Corrections du contrôleur pendant les essais
+
+La couverture est prospective : les sorties prévues ne doivent pas déjà exister pour autoriser leur production. Le contrôleur ne reçoit plus les reçus d’exécution dans cette revue et distingue les autorisations du propriétaire des permissions Unix ; les anciennes conclusions erronées restent au journal. Le contrat d’extraction des objectifs reste `26b.4`, indépendamment du contrat de revue `26b.5`. Un prédicat report doit viser le rapport de la tâche ou un artefact de prose déclaré, jamais le programme source ou un journal brut. Une ancienne liaison invalide peut être réparée par le modèle, sans retirer une condition métier déjà prouvée. Les références originales du broker restent disponibles même pour un reçu long abrégé. La réponse de prélecture est compacte par défaut ; `include_evidence=true` permet la vue complète, conservée dans tous les cas dans le journal.

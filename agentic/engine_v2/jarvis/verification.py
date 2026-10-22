@@ -66,6 +66,16 @@ def validate_contract(contract):
     else:raise ValueError('kind must be json, text, digest, report or service')
 
 
+def validate_report_source(task, criterion):
+    if criterion.get('kind')!='report':return
+    from pathlib import Path
+    path=criterion.get('source',{}).get('arguments',{}).get('path')
+    allowed={task.get('contract',{}).get('report_path')}
+    allowed.update(p for p in task.get('artifacts',[]) if isinstance(p,str) and Path(p).suffix.lower() in ('.md','.markdown','.rst'))
+    if not isinstance(path,str) or path not in allowed:
+        raise ValueError('kind report must read the task report_path or a declared prose document artifact, not the source program, CSV or raw error log. Your report_path is '+str(task.get('contract',{}).get('report_path'))+'. For input bytes use text equals; for a narrative use your own report with original proof references.')
+
+
 def evaluate(body, contract, baseline=None):
     """Pure predicates, also usable by skills. No stdout keyword success."""
     checks = []
@@ -174,6 +184,10 @@ class Verifier:
         refs = []
         try:
             validate_contract(contract)
+            if contract.get('kind')=='report' and getattr(self.registry,'mission_store',None) and self.registry.context.get('task_id'):
+                plans=self.registry.mission_store.plans(self.registry.context['mission_id'])
+                task=next((t for t in plans[-1]['plan']['tasks'] if t['id']==self.registry.context['task_id']),None) if plans else None
+                if task:validate_report_source(task,contract)
             body, ref = self.read(contract['source']); refs.append(ref)
             baseline = None
             baseline_error = None
@@ -194,7 +208,7 @@ class Verifier:
                     verdict['status']='PARTIAL' if any(c['pass'] for c in verdict['checks']) else 'INSUFFICIENT'
         except (ValueError, KeyError, TypeError, OSError) as exc:
             verdict = {'status': 'INSUFFICIENT', 'error': str(exc), 'checks': []}
-        verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier='deterministic26')
+        verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier='broker-read+JARVIS-reviewer26B' if contract.get('kind')=='report' else 'deterministic26')
         store = getattr(self.registry, 'mission_store', None)
         if store:
             verdict['verification_event'] = store.event(self.registry.context['mission_id'], 'semantic_verification', self.registry.context.get('task_id'), 'JARVIS-engine', result=verdict)
@@ -202,4 +216,4 @@ class Verifier:
 
 
 def register(registry):
-    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length, never per-element counters. kind text requires equals (entire content, useful for CSV) or sha256; kind digest reads a JSON manifest source and the actual content baseline_source independently, checks field JSON Pointer (default /sha256) equals SHA256 of baseline bytes. No precomputed hash placeholder is needed. kind report independently reads a free-prose report and audits its claims against canonical receipts; no predetermined prose/hash needed. service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))
+    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length, never per-element counters. kind text requires equals (entire content, useful for CSV) or sha256; kind digest reads a JSON manifest source and the actual content baseline_source independently, checks field JSON Pointer (default /sha256) equals SHA256 of baseline bytes. No precomputed hash placeholder is needed. kind report reads the active task report_path or a declared prose .md artifact (not source program/CSV/raw log) and audits its claims against canonical receipts; no predetermined prose/hash needed. service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))

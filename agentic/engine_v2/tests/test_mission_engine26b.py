@@ -147,7 +147,7 @@ class AssuranceTests(unittest.TestCase):
         self.r.execute=lambda name,args:{'ok':True,'result':{'stdout':body,'returncode':0}}
         self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'read receipt'}],'issues':[]}]
         c={'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/report.md'}}}
-        validate_contract(c);self.assertEqual(Verifier(self.r).verify(c)['status'],'PASS')
+        validate_contract(c);result=Verifier(self.r).verify(c);self.assertEqual(result['status'],'PASS');self.assertEqual(result['verifier'],'broker-read+JARVIS-reviewer26B')
         wrong={'kind':'service','source':c['source'],'expected_state':'active'}
         with self.assertRaises(ValueError):validate_contract(wrong)
 
@@ -273,3 +273,53 @@ class AssuranceTests(unittest.TestCase):
         result=requirements(self.r)
         self.assertTrue(all(row['quote']=='Produce a file and a report' for row in result['requirements']))
         self.assertTrue(all(row['source_segment']=='G1' for row in result['requirements']))
+
+    def test_report_verification_cannot_mistake_source_program_for_task_report(self):
+        t=task();t['contract']['semantic']=[{'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/producer.py'}}}]
+        with self.assertRaisesRegex(ValueError,'kind report must read'):self.s.plan(self.m,[t],metadata=self.meta)
+        self.assertEqual(self.s.plans(self.m),[])
+
+    def test_legacy_misrouted_report_criterion_can_be_repaired_without_reset(self):
+        import hashlib
+        t=task();t['contract']['semantic']=[{'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/report.md'}}}]
+        self.s.plan(self.m,[t],author='JARVIS',metadata=self.meta)
+        previous=self.s.plans(self.m)[0]['plan'];previous['tasks'][0]['contract']['semantic'][0]['source']['arguments']['path']='/producer.py'
+        from jarvis.mission_store import encoded
+        with self.s.db() as c:
+            c.execute('UPDATE mission_plans SET plan=?,sha256=? WHERE mission=?',(encoded(previous),hashlib.sha256(encoded(previous).encode()).hexdigest(),self.m))
+            c.execute("UPDATE tasks SET contract=?,state='running' WHERE mission=?",(encoded(previous['tasks'][0]['contract']),self.m))
+        self.observation(False)
+        self.s.plan(self.m,[t],author='JARVIS',metadata=self.meta,expected_version=1,reason='correct source/report binding after old interface accepted program input')
+        self.assertEqual(len(self.s.plans(self.m)),2)
+        self.assertEqual(self.s.plans(self.m)[0]['plan']['tasks'][0]['contract']['semantic'][0]['source']['arguments']['path'],'/producer.py')
+        self.assertEqual(self.s.plans(self.m)[1]['plan']['tasks'][0]['contract']['semantic'][0]['source']['arguments']['path'],'/report.md')
+        self.assertEqual(len(self.s.observations(self.m)),1)
+
+    def test_real_tool_receipt_classes_include_web_and_skill_registry_reads(self):
+        refs=[]
+        for name,value in [('web_fetch',{'url':'https://docs.python.org/3/library/csv.html','content':'CSV reader documentation'}),('skill_list',{'active':[{'name':'known','version':6}]})]:
+            token=self.s.begin_call(self.m,'a',name,{})
+            self.s.finish_call(token,{'ok':True,'result':value},0);refs.append(token)
+        snapshot=evidence_snapshot(self.s,self.m,'a')
+        self.assertEqual({r['reference'] for r in snapshot['receipts']},set(refs))
+
+    def test_broker_reference_retained_even_when_receipt_body_is_excerpted(self):
+        token=self.s.begin_call(self.m,'a','host_read_file',{'path':'/a'})
+        self.s.finish_call(token,{'ok':True,'result':{'stdout':'data'*3000,'returncode':0,'evidence_id':'broker-proof-1'}},0)
+        snapshot=evidence_snapshot(self.s,self.m,'a')
+        self.assertIn('explicit_excerpt',snapshot['receipts'][0]['observed'])
+        self.assertEqual(snapshot['receipts'][0]['broker_evidence'],'broker-proof-1')
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':['broker-proof-1'],'reason':'actual successful read receipt'}],'issues':[]}]
+        self.assertEqual(require_report(self.r,'Lecture effectuée, preuve broker-proof-1.','a')['status'],'PASS')
+
+    def test_review_reply_is_actionable_while_original_snapshot_remains_durable(self):
+        from jarvis.mission_assurance import register
+        ref=self.observation();body='Lecture effectuée '+ref
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'read'}],'issues':[]}]
+        self.r.specs={};register(self.r);fn=self.r.specs['mission_report_review'][4]
+        reply=fn({'content':body,'scope':'task'})
+        self.assertEqual(reply['status'],'PASS');self.assertNotIn('snapshot',reply)
+        original=next(e for e in self.s.events(self.m) if e['id']==reply['review_event'])
+        self.assertEqual(original['result']['draft'],body);self.assertTrue(original['result']['snapshot']['receipts'])
+        expanded=fn({'content':body,'scope':'task','include_evidence':True})
+        self.assertIn('snapshot',expanded);self.assertEqual(expanded['review_event'],reply['review_event'])
