@@ -1,8 +1,8 @@
 # Réception26B — état provisoire
 
-**🟡 incomplet — campagne opérationnelle en cours, aucune clôture prononcée.** Ce fichier documente l’état disponible au déploiement23, pas une réception finale.
+**🟡 incomplet — campagne opérationnelle en cours, aucune clôture prononcée.** Ce fichier documente l’état disponible au déploiement24, pas une réception finale.
 
-Le code des contrôles est installé dans le moteur canonique. Les 154 tests logiciels passent. Les missions réelles A, B et C restent à recevoir ; leurs états et preuves intermédiaires sont publiés pour permettre la revue. Les anciens rapports26 ne sont pas modifiés.
+Le code des contrôles est installé dans le moteur canonique. Les 155 tests logiciels passent. Les missions réelles A, B et C restent à recevoir ; leurs états et preuves intermédiaires sont publiés pour permettre la revue. Les anciens rapports26 ne sont pas modifiés.
 
 | Question de réception | Réponse actuellement prouvée |
 | --- | --- |

@@ -539,3 +539,13 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(claim['reason']['maxLength'],200)
         self.assertEqual(schema['properties']['issues']['maxItems'],8)
         self.assertLessEqual(captured[0]['options']['num_predict'],16384)
+
+    def test_parallel_writers_need_explicit_order_even_when_reader_waits_for_both(self):
+        from jarvis.mission_assurance import artifact_dependency_issues
+        old=task('old');old['tools']=['host_write_file'];old['artifacts']=['/output.json']
+        new=copy.deepcopy(old);new['id']='new'
+        reader=task('reader');reader['depends']=['old','new'];reader['contract']['semantic']=[{'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/output.json'}},'types':{'':'object'}}]
+        plan={'tasks':[old,new,reader]}
+        self.assertTrue(any('Unordered artifact writers' in issue for issue in artifact_dependency_issues(plan)))
+        new['depends']=['old']
+        self.assertEqual(artifact_dependency_issues(plan),[])

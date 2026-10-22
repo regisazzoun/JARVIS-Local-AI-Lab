@@ -11,7 +11,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from .mission_store import encoded
 
-VERSION = '26b.8'
+VERSION = '26b.9'
 GOAL_VERSION = '26b.4'
 REPORT_VERSION = '26b.report.7'
 
@@ -201,6 +201,12 @@ def artifact_dependency_issues(plan):
         for child in children:result|=paths(child)
         return result
     issues=[]
+    for path,writers in producers.items():
+        ordered=sorted(writers)
+        for position,first in enumerate(ordered):
+            for second in ordered[position+1:]:
+                if first not in ancestors(second) and second not in ancestors(first):
+                    issues.append('Unordered artifact writers '+first+' and '+second+' both declare '+path+'. Declare a dependency order or revise the redundant output definitions; execution order must survive checkpoint scheduling.')
     for ident,task in tasks.items():
         observed=paths(task.get('contract',{}).get('semantic',[]))
         for path,writers in producers.items():

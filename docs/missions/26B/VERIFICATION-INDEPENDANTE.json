@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792665158.389506,
+  "created": 1792666376.3949275,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "cd1dd4da66c7a6adda38b0888cc2065b381c60942e3377813f2132a2c47e05a4",
+      "installed_sha256": "f5341282695a2aaa2405b01431dc78d17975a41b6c5b21c9f98de21f7d9f42c2",
       "matches_source": true
     },
     {
@@ -162,7 +162,7 @@
         ],
         [
           "T3",
-          "running"
+          "validated"
         ],
         [
           "T4",
@@ -204,7 +204,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T3.md",
-          "sha256": "d95bfdd0193c7adab4d6c7cae5a88142ffd388b335557643d10cda9e833aefcb"
+          "sha256": "cd7fbccb4a3421f0d2212192732b2982ba40428309b2828b1b6747fddb5ed5f3"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/A/summary.json",
@@ -697,6 +697,64 @@
             "**Conclusion**\nLe rapport final se base exclusivement sur les événements observés (PASS) et les échecs documentés (`report_failures`). Il rejette toute spéculation, correction fictive ou référence à des preuves inexistantes, assurant ainsi la traçabilité complète requise par le contrat 26b.7. => insufficient: Affirme un rapport final basé sur des événements observés, mais les preuves montrent que les derniers rapports ont échoué (FAIL) et n'ont pas été validés."
           ],
           "draft_sha256": "5e450c061c2561fa19e7eea9df17a155136915523741c2bf37b92d95f0ce750b"
+        },
+        {
+          "event": 13727,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Le rapport T1 a été finalisé avec succès en se conformant strictement aux preuves techniques fournies, éliminant toutes les affirmations non étayées et références fantômes présentes dans les brouillons précédents. => insufficient: Affirme la finalisation avec succès du rapport T1. Les preuves montrent 19 échecs de rapport (report_failures) et aucun état 'validated' pour un rapport final T1 complet. Les brouillons cités sont en ",
+            "**1. Analyse de la mission et des opérations exécutées**\nL'analyse porte sur le projet `mission26b` (répertoire `/var/lib/jarvis/projects/mission26b/A/`). L'acteur opérationnel identifié dans tous les reçus (`receipts`) est **JARVIS**. Les données techniques confirment que JARVIS a exécuté une série d'opérations de lecture sur le fichier `stocks.csv`. Aucune référence à un ID de mission inconnu (comme `e1e5d6e8f31a43e7af4f44c0f08d37b3`) n'a été retenue, car elle ne correspond à aucune donnée dans le contexte actuel. => insufficient: Affirme qu'aucune référence à l'ID de mission e1e5d6e8f31a43e7af4f44c0f08d37b3 n'a été retenue. Les preuves techniques (cited_event_facts) citent explicitement cet ID comme mission active. L'affirm de",
+            "**2. Preuves techniques des lectures (T1)**\nPlusieurs opérations `host_read_file` ont été effectuées sur le chemin `/var/lib/jarvis/projects/mission26b/A/stocks.csv`. Les preuves techniques suivantes sont extraites directement des reçus :\n- **Contenu du fichier** : Toutes les lectures ont retourné le même contenu exact (hash SHA256: `4f6e046c791e025750a8b12d8f29b269f13a2e442b79877acc1faa436adbfc23`) :\n  ```text\n  article,quantite\n  alpha,3\n  beta,4\n  gamma,5\n  ```\n- **Références d'exécution valides** (extraits des `receipts` et `semantic_verifications`) :\n  - Reference: `0f85ec1c390444c984b150de2cc77a3a` (event:13010), Evidence: `4b226c904f544db28773ac7a7e48f119`. Statut : PASS.\n  - Reference: `aa7022342611427388e8ce8cdac266c1` (event:13031), Evidence: `55b8043f4d2d45aea03a246f715ecccd`. Statut : PASS.\n  - Reference: `17e2b0fbb27d4dd3815ecab2c94cadbf` (event:13053), Evidence: `fcc1cfa25a6c432f9bc0890656ffe0be`. Statut : PASS.\n  - Reference: `de06fac8016a4f3088cff6177cc2bf9e` (event:13186), Evidence: `4f2728f31afd49e2b5c9b4002176bf59`. Statut : PASS. => insufficient: Affirme un hash SHA256 spécifique (4f6e046c...) pour le contenu du fichier. Les preuves techniques (semantic_verifications) ne contiennent pas ce hash, mais vérifient le contenu texte exact. L'ID de h",
+            "Les références inventées dans les brouillons rejetés (ex: `322f2d2292a440c58e7806f35c3a0c72`, `33f46b23e6c74a5a8c695bf3572de86b`) ont été exclues car absentes des logs. => insufficient: Affirme que les références 322f2d2292a440c58e7806f35c3a0c72 et 33f46b23e6c74a5a8c695bf3572de86b sont inventées et absentes des logs. Les preuves (receipts) confirment l'existence de ces références",
+            "**Conclusion**\nLe rapport final se base exclusivement sur les événements observés (PASS) et les échecs documentés (`report_failures`). Il rejette toute spéculation, correction fictive ou référence à des preuves inexistantes, assurant ainsi la traçabilité complète requise par le contrat 26b.7. => insufficient: Affirme que le rapport final se base sur les événements observés et rejette les spéculations. Cependant, les segments précédents (S1, S2, S3, S4) contiennent des affirmations factuelles non étayées ou"
+          ],
+          "draft_sha256": "5e450c061c2561fa19e7eea9df17a155136915523741c2bf37b92d95f0ce750b"
+        },
+        {
+          "event": 13729,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 13744,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "68f97468f61fb4cde423eaebdb81bca2c05e0624519ebce0c6287895529639a8"
+        },
+        {
+          "event": 13747,
+          "kind": "narrative_review",
+          "task": "T3",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "6b20f382950e1701a386dfcf0d02e6056226fb39fbd32da9393d7cb2490873af"
+        },
+        {
+          "event": 13757,
+          "kind": "narrative_review",
+          "task": "T3",
+          "status": "FAIL",
+          "issues": [
+            "Le fichier manifest.json est créé exclusivement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file. Aucune opération externe n'est effectuée. Les permissions Debian par défaut sont conservées sans modification explicite. => insufficient: L'écriture est prouvée par 47445c026bb84e148620466dff4a4f69, mais aucune preuve technique (ex: ls -la) ne confirme les permissions Debian par défaut dans les reçus fournis."
+          ],
+          "draft_sha256": "613e3f51408833e76cff867e169da1045bc57084bec17930c7a9b5b1db3d2fc2"
+        },
+        {
+          "event": 13772,
+          "kind": "narrative_review",
+          "task": "T3",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "cd7fbccb4a3421f0d2212192732b2982ba40428309b2828b1b6747fddb5ed5f3"
         }
       ],
       "negative_results": [
@@ -909,6 +967,18 @@
           "tool": "mission_task_complete",
           "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport technique - Tâche T3 : Calcul empreinte SHA256 et création de manifest.json\", \"reason\": \"Titre de section et balises Markdown sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Résultat technique vérifié\", \"reason\": \"Titre de section sans contenu factuel ou technique.\", \"references\": [], \"segment\": \"S2\", \"verdict\": \"not_factual\"}, {\"quote\": \"Le fichier `/var/lib/jarvis/projects/mission26b/A/manifest.json` a été créé avec succès, contenant l'empreinte SHA256 réelle du fichier summary.json.\", \"reason\": \"L'écriture (47445c026bb84e148620466dff4a4f69) et la lecture (92f595e939f94378918b245048f4b549) confirment la création et le contenu de manifest.json.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\", \"92f595e939f94378918b245048f4b549\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Données techniques observées\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Empreinte calculée\\nCommande `sha256sum /var/lib/jarvis/projects/mission26b/A/summary.json` exécutée via `host_exec` (evidence `d65c0e4e21d746c9ae4e372bc8ed0b2d`, invocation `a63f735cc745432682abf17d59955bb8`) produisant :\\n```\\n5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df  /var/lib/jarvis/projects/mission26b/A/summary.json\\n```\", \"reason\": \"L'exécution (a63f735cc745432682abf17d59955bb8) et la preuve (d65c0e4e21d746c9ae4e372bc8ed0b2d) confirment la commande et le hash exact.\", \"references\": [\"a63f735cc745432682abf17d59955bb8\", \"d65c0e4e21d746c9ae4e372bc8ed0b2d\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"### Contenu de manifest.json\\nÉcriture via `host_write_file` (evidence `52d8a85872ac4e23aa7de92768e1eaaa`, invocation `47445c026bb84e148620466dff4a4f69`) produisant :\\n```json\\n{\\n\\\"file\\\": \\\"summary.json\\\",\\n\\\"sha256\\\": \\\"5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df\\\"\\n}\\n```\", \"reason\": \"L'écriture (47445c026bb84e148620466dff4a4f69) et la preuve (52d8a85872ac4e23aa7de92768e1eaaa) confirment le contenu JSON exact.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\", \"52d8a85872ac4e23aa7de92768e1eaaa\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"### Vérification sémantique\\nAppel `mission_verify` (evidence `5c89284313994b45ad99de58b0204b86`) confirmant le statut **PASS** :\\n- `/file`: valeur \\\"summary.json\\\", type string conforme\\n- `/sha256`: chaîne de 64 caractères hexadécimaux, type string conforme\", \"reason\": \"La vérification (5c89284313994b45ad99de58b0204b86) et la lecture (85cd643b610b41dfa21265bb97fcfe29) confirment le statut PASS et les types.\", \"references\": [\"5c89284313994b45ad99de58b0204b86\", \"85cd643b610b41dfa21265bb97fcfe29\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"## Provenance des données\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"L'empreinte SHA256 provient du fichier summary.json créé lors de la tâche T2 (rapport validé evidence `41c73c6d91f84837b1b56b1ed612a058`), contenant :\\n```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"La vérification T2 (41c73c6d91f84837b1b56b1ed612a058) et la lecture (653d08b9121348aca63044a944da72b4) confirment le contenu de summary.json.\", \"references\": [\"41c73c6d91f84837b1b56b1ed612a058\", \"653d08b9121348aca63044a944da72b4\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites techniques\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S10\", \"verdict\": \"not_factual\"}, {\"quote\": \"Le fichier manifest.json est créé exclusivement dans `/var/lib/jarvis/projects/mission26b/A` via `host_write_file`. Aucune opération externe n'est effectuée. Les permissions Debian par défaut sont conservées sans modification explicite.\", \"reason\": \"L'écriture (47445c026bb84e148620466dff4a4f69) confirme le chemin et l'outil. L'absence de modification de permissions est cohérente avec les reçus.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\"], \"segment\": \"S11\", \"verdict\": \"supported\"}, {\"quote\": \"## État final\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S12\", \"verdict\": \"not_factual\"}, {\"quote\": \"La tâche T3 est techniquement achevée avec succès. Le fichier manifest.json contient l'empreinte SHA256 exacte et vérifiée du fichier summary.json, prête pour la tâche T4 (vérification de cohérence entre les deux fichiers).\", \"reason\": \"Le statut PASS (5c89284313994b45ad99de58b0204b86) et le contenu vérifié (92f595e939f94378918b245048f4b549) confirment l'achèvement technique.\", \"references\": [\"5c89284313994b45ad99de58b0204b86\", \"92f595e939f94378918b245048f4b549\"], \"segment\": \"S13\", \"verdict\": \"supported\"}], \"draft_sha256\": \"d95bfdd0193c7adab4d6c7cae5a88142ffd388b335557643d10cda9e833aefcb\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
           "result": null
+        },
+        {
+          "invocation": "5fa1fadd455943538bfcd7f43e0fd45d",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"L'exécution de la commande `sha256sum /var/lib/jarvis/projects/mission26b/A/summary.json` via host_exec (invocation `a63f735cc745432682abf17d59955bb8`, evidence `d65c0e4e21d746c9ae4e372bc8ed0b2d`) a produit l'empreinte hexadécimale : 5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df.\", \"reason\": \"L'invocation a63f735cc745432682abf17d59955bb8 (host_exec) produit l'evidence d65c0e4e21d746c9ae4e372bc8ed0b2d contenant l'empreinte exacte 5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb\", \"references\": [\"a63f735cc745432682abf17d59955bb8\", \"d65c0e4e21d746c9ae4e372bc8ed0b2d\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"Le fichier `/var/lib/jarvis/projects/mission26b/A/manifest.json` a été écrit via host_write_file (invocation `47445c026bb84e148620466dff4a4f69`, evidence `52d8a85872ac4e23aa7de92768e1eaaa`) avec le contenu JSON suivant :\\n```json\\n{\\n\\\"file\\\": \\\"summary.json\\\",\\n\\\"sha256\\\": \\\"5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df\\\"\\n}\\n```\", \"reason\": \"L'invocation 47445c026bb84e148620466dff4a4f69 (host_write_file) avec evidence 52d8a85872ac4e23aa7de92768e1eaaa confirme l'écriture du fichier manifest.json avec le contenu JSON spécifié.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\", \"52d8a85872ac4e23aa7de92768e1eaaa\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"La lecture de ce fichier via host_read_file (invocation `92f595e939f94378918b245048f4b549`, evidence `ce20402bb3234292b47fcf0249bb6e2c`) confirme le contenu exact ci-dessus.\", \"reason\": \"L'invocation 92f595e939f94378918b245048f4b549 (host_read_file) avec evidence ce20402bb3234292b47fcf0249bb6e2c retourne le contenu exact du fichier manifest.json tel que décrit.\", \"references\": [\"92f595e939f94378918b245048f4b549\", \"ce20402bb3234292b47fcf0249bb6e2c\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"La vérification sémantique mission_verify (invocation `5c89284313994b45ad99de58b0204b86`, evidence correspondante) a confirmé le statut PASS :\\n- Champ `/file` : valeur \\\"summary.json\\\", type string conforme\\n- Champ `/sha256` : chaîne de 64 caractères hexadécimaux, type string conforme\", \"reason\": \"L'invocation 5c89284313994b45ad99de58b0204b86 (mission_verify) confirme le statut PASS avec les champs /file et /sha256 conformes, basé sur l'evidence f7272f97f4e3448998ec600c1facd6f1.\", \"references\": [\"5c89284313994b45ad99de58b0204b86\", \"f7272f97f4e3448998ec600c1facd6f1\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"L'empreinte SHA256 provient du fichier summary.json créé lors de la tâche T2 (rapport validé, evidence `41c73c6d91f84837b1b56b1ed612a058`). La lecture de summary.json via host_read_file (invocation `653d08b9121348aca63044a944da72b4`, evidence `ff67fad2ad984cf0b42c8de8056b26da`) confirme son contenu :\\n```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"L'evidence 41c73c6d91f84837b1b56b1ed612a058 valide la tâche T2. L'invocation 653d08b9121348aca63044a944da72b4 (host_read_file) avec evidence ff67fad2ad984cf0b42c8de8056b26da confirme le contenu de\", \"references\": [\"41c73c6d91f84837b1b56b1ed612a058\", \"653d08b9121348aca63044a944da72b4\", \"ff67fad2ad984cf0b42c8de8056b26da\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"Le fichier manifest.json est créé exclusivement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file. Aucune opération externe n'est effectuée. Les permissions Debian par défaut sont conservées sans modification explicite.\", \"reason\": \"L'invocation 47445c026bb84e148620466dff4a4f69 confirme l'écriture dans le répertoire spécifié. Aucune preuve d'opération externe ou de modification de permissions n'est présente dans les reçus.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"La tâche T3 est techniquement achevée avec succès. Le fichier manifest.json contient l'empreinte SHA256 exacte et vérifiée du fichier summary.json, prête pour la tâche T4 (vérification de cohérence entre les deux fichiers).\", \"reason\": \"La vérification mission_verify (5c89284313994b45ad99de58b0204b86) et la lecture (92f595e939f94378918b245048f4b549) confirment que manifest.json contient l'empreinte exacte, validant l'achèvement de T3\", \"references\": [\"5c89284313994b45ad99de58b0204b86\", \"92f595e939f94378918b245048f4b549\"], \"segment\": \"S7\", \"verdict\": \"supported\"}], \"draft_sha256\": \"6b20f382950e1701a386dfcf0d02e6056226fb39fbd32da9393d7cb2490873af\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "0bab6ef8b7a24bb3b8e61e75924f6460",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"L'exécution de la commande `sha256sum /var/lib/jarvis/projects/mission26b/A/summary.json` via host_exec (invocation `a63f735cc745432682abf17d59955bb8`, evidence `d65c0e4e21d746c9ae4e372bc8ed0b2d`) a produit l'empreinte hexadécimale : 5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df.\", \"reason\": \"L'invocation a63f735cc745432682abf17d59955bb8 (host_exec) et l'evidence d65c0e4e21d746c9ae4e372bc8ed0b2d confirment la commande, l'acteur et l'empreinte exacte retournée.\", \"references\": [\"a63f735cc745432682abf17d59955bb8\", \"d65c0e4e21d746c9ae4e372bc8ed0b2d\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"Le fichier `/var/lib/jarvis/projects/mission26b/A/manifest.json` a été écrit via host_write_file (invocation `47445c026bb84e148620466dff4a4f69`, evidence `52d8a85872ac4e23aa7de92768e1eaaa`) avec le contenu JSON suivant :\\n```json\\n{\\n\\\"file\\\": \\\"summary.json\\\",\\n\\\"sha256\\\": \\\"5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df\\\"\\n}\\n```\", \"reason\": \"L'invocation 47445c026bb84e148620466dff4a4f69 (host_write_file) et l'evidence 52d8a85872ac4e23aa7de92768e1eaaa confirment l'écriture du fichier avec le contenu JSON exact cité.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\", \"52d8a85872ac4e23aa7de92768e1eaaa\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"La lecture de ce fichier via host_read_file (invocation `92f595e939f94378918b245048f4b549`, evidence `ce20402bb3234292b47fcf0249bb6e2c`) confirme le contenu exact ci-dessus.\", \"reason\": \"L'invocation 92f595e939f94378918b245048f4b549 (host_read_file) et l'evidence ce20402bb3234292b47fcf0249bb6e2c confirment la lecture et le contenu exact du fichier manifest.json.\", \"references\": [\"92f595e939f94378918b245048f4b549\", \"ce20402bb3234292b47fcf0249bb6e2c\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"La vérification sémantique mission_verify (invocation `5c89284313994b45ad99de58b0204b86`, evidence correspondante) a confirmé le statut PASS :\\n- Champ `/file` : valeur \\\"summary.json\\\", type string conforme\\n- Champ `/sha256` : chaîne de 64 caractères hexadécimaux, type string conforme\", \"reason\": \"L'invocation 5c89284313994b45ad99de58b0204b86 (mission_verify) confirme le statut PASS, la valeur du champ /file et le type string du champ /sha256.\", \"references\": [\"5c89284313994b45ad99de58b0204b86\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"L'empreinte SHA256 provient du fichier summary.json créé lors de la tâche T2 (rapport validé, evidence `41c73c6d91f84837b1b56b1ed612a058`). La lecture de summary.json via host_read_file (invocation `653d08b9121348aca63044a944da72b4`, evidence `ff67fad2ad984cf0b42c8de8056b26da`) confirme son contenu :\\n```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"L'invocation 41c73c6d91f84837b1b56b1ed612a058 (mission_verify) valide T2. L'invocation 653d08b9121348aca63044a944da72b4 et l'evidence ff67fad2ad984cf0b42c8de8056b26da confirment le contenu de summary.\", \"references\": [\"41c73c6d91f84837b1b56b1ed612a058\", \"653d08b9121348aca63044a944da72b4\", \"ff67fad2ad984cf0b42c8de8056b26da\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"Le fichier manifest.json est créé exclusivement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file. Aucune opération externe n'est effectuée. Les permissions Debian par défaut sont conservées sans modification explicite.\", \"reason\": \"L'écriture est prouvée par 47445c026bb84e148620466dff4a4f69, mais aucune preuve technique (ex: ls -la) ne confirme les permissions Debian par défaut dans les reçus fournis.\", \"references\": [\"47445c026bb84e148620466dff4a4f69\"], \"segment\": \"S6\", \"verdict\": \"insufficient\"}, {\"quote\": \"**Échecs historiques conservés :**\\n- Tentative de rapport T3 initiale (event:13747) : FAIL - Le rapport rejeté car titres de section non vérifiables (\\\"Titre descriptif sans assertion factuelle\\\", \\\"Titre de section sans contenu factuel ou technique\\\"). Ce rejet a conduit à la reformulation du rapport actuel avec uniquement des assertions techniques prouvées par les invocations d'outils.\\n- Le plan v1 initiale manquait la tâche T7 pour le rapport final (FAIL audit coverage).\\n- Les collisions de report_path entre tâches ont été corrigées dans les versions v2b-v4 du plan.\", \"reason\": \"L'événement event:13747 confirme le FAIL et la cause. Le plan v1 (plan:1) manque T7. Le plan v5 (plan:5) corrige les collisions et ajoute T8, confirmant l'historique.\", \"references\": [\"event:13747\", \"plan:1\", \"plan:5\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"La tâche T3 est techniquement achevée avec succès. Le fichier manifest.json contient l'empreinte SHA256 exacte et vérifiée du fichier summary.json, prête pour la tâche T4 (vérification de cohérence entre les deux fichiers).\", \"reason\": \"La vérification 5c89284313994b45ad99de58b0204b86 et la lecture 92f595e939f94378918b245048f4b549 confirment que manifest.json contient l'empreinte exacte de summary.json.\", \"references\": [\"5c89284313994b45ad99de58b0204b86\", \"92f595e939f94378918b245048f4b549\"], \"segment\": \"S8\", \"verdict\": \"supported\"}], \"draft_sha256\": \"613e3f51408833e76cff867e169da1045bc57084bec17930c7a9b5b1db3d2fc2\", \"issues\": [\"Le fichier manifest.json est créé exclusivement dans `/var/lib/jarvis/projects/mission26b/A` via host_write_file. Aucune opération externe n'est effectuée. Les permissions Debian par défaut sont conservées sans modification explicite. => insufficient: L'écriture est prouvée par 47445c026bb84e148620466dff4a4f69, mais aucune preuve technique (ex: ls -la) ne confirme les permissions Debian par défaut dans les reçus fournis.\"]}",
+          "result": null
         }
       ],
       "no_codex_operational_reminder": true
@@ -918,7 +988,7 @@
       "mission": "54c634e56b8d4241964322700ea5d837",
       "state": "running",
       "coverage_accepted": true,
-      "versions": 2,
+      "versions": 3,
       "tasks": [
         [
           "T01",
@@ -1156,6 +1226,22 @@
           "status": "PASS",
           "issues": [],
           "draft_sha256": "2da13c4258c0c1fdf90b4de824d3dbfa38385b89b11d7772b3f897d96ef520d9"
+        },
+        {
+          "event": 13637,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 13779,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -1773,7 +1859,7 @@
       "case": "C",
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
       "state": "queued",
-      "coverage_accepted": true,
+      "coverage_accepted": false,
       "versions": 7,
       "tasks": [
         [
@@ -1808,7 +1894,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/C/T1-rapport.md",
-          "sha256": "3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8"
+          "sha256": "f8f8f216929ba281833c7b4d98c2da5ae2c96a6d23cce0fb1db25fe5995c3bfc"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/C/inventaire.json",
@@ -2035,6 +2121,34 @@
           "status": "PASS",
           "issues": [],
           "draft_sha256": null
+        },
+        {
+          "event": 13653,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8"
+        },
+        {
+          "event": 13666,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "42d28336a013199f3e9d1ccb4ec4311d3cc16f750397bd4aca00c9f446c07244"
+        },
+        {
+          "event": 13694,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical INSUFFICIENT must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "f8f8f216929ba281833c7b4d98c2da5ae2c96a6d23cce0fb1db25fe5995c3bfc"
         }
       ],
       "negative_results": [
@@ -2205,6 +2319,106 @@
           "invocation": "e9d53eb7fadb4bee8c158646ddff3e5f",
           "tool": "mission_plan",
           "error": "Task T6: preserve requires baseline_source. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source, free prose uses kind report with broker read source (no predetermined hash). No plan saved; current version unchanged.",
+          "result": null
+        },
+        {
+          "invocation": "c010dd80b0b44bbf824303e2e6ca2184",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport T1 - Création de inventaire.json (format intermédiaire)\", \"reason\": \"Le titre annonce un rapport T1 pour inventaire.json. Les plans v4 et v7 définissent T1 avec cet artefact et ce titre. Le format intermédiaire est confirmé par le contenu du fichier lu.\", \"references\": [\"plan:4\", \"plan:7\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"## Objectif déclaré\\nExtraire la liste des noms de input.json et créer un fichier inventaire.json avec des compteurs entiers pour chaque nom.\", \"reason\": \"L'objectif déclaré correspond exactement à l'objectif de T1 dans les plans v4 et v7 : extraire les noms de input.json et créer inventaire.json avec des compteurs.\", \"references\": [\"plan:4\", \"plan:7\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"## Données d'entrée\\n- Fichier source: `/var/lib/jarvis/projects/mission26b/C/input.json`\\n- Contenu observé (invocation_id: 50d1beebfe704e2fa1b4dad90a719cf1): `{\\\"label\\\": \\\"fixture-C\\\", \\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"]}`\", \"reason\": \"Le receipt 50d1beebfe704e2fa1b4dad90a719cf1 confirme la lecture de input.json avec le contenu exact cité et l'invocation_id correct.\", \"references\": [\"50d1beebfe704e2fa1b4dad90a719cf1\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Opération réalisée\\nChaque nom dans la liste `names` apparaît une seule fois. Le fichier inventaire.json a été créé avec un format objet contenant un compteur par clé:\", \"reason\": \"Les receipts de lecture confirment que inventaire.json contient un objet avec un compteur par clé, chaque nom apparaissant une fois.\", \"references\": [\"8011881254594de18c2246507b96097e\", \"fc9fe99092d7489292060a447f1b5665\", \"81bd55ff32584ac7b7b21992b2aa04cd\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"```json\\n{\\n  \\\"capteur-a\\\": 1,\\n  \\\"capteur-b\\\": 1\\n}\\n```\", \"reason\": \"Le contenu JSON affiché correspond exactement au stdout du receipt 8011881254594de18c2246507b96097e lisant inventaire.json.\", \"references\": [\"8011881254594de18c2246507b96097e\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"SHA256 du fichier: `aa98f4e8b56892896d993a54d5a6527c83cae8c3fcbd078b47e9519e362240ad`\", \"reason\": \"Le receipt 4a12412fc47d45ab908daa8d7e4b8ac0 (mission_verify) confirme le sha256 du fichier inventaire.json comme cité.\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification du contrat T1\\nContrat vérifié via mission_verify (invocation_id: 4a12412fc47d45ab908daa8d7e4b8ac0):\\n- `/capteur-a`: 1 (entier) ✓\\n- `/capteur-b`: 1 (entier) ✓\\n- Status: PASS (verification_event: 12780)\", \"reason\": \"Le receipt 4a12412fc47d45ab908daa8d7e4b8ac0 et l'événement 12780 confirment les checks PASS pour /capteur-a et /capteur-b avec les valeurs et types attendus.\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\", \"event:12780\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites et inexactitudes critiques\", \"reason\": \"Titre de section sans assertion technique vérifiable, servant de transition méthodologique.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Format incorrect par rapport aux exigences R1/R2\\nCe format **NE SATIFAIT PAS** les exigences R1 et R2 extraites du goal:\\n- **R1**: Demande un fichier avec \\\"la liste exacte des noms\\\" sous forme d'array, pas d'objet de compteurs\\n- **R2**: Demande \\\"le nombre entier correspondant à la liste des noms\\\" comme un compteur global (total), non des compteurs individuels\", \"reason\": \"Les exigences R1/R2 (liste array, total global) sont explicitement définies dans le goal et les plans v4/v7, contredisant le format objet produit.\", \"references\": [\"plan:4\", \"plan:7\", \"requirements:3\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"### Histoire des échecs\\nDeux tentatives antérieures de validation ont échoué:\\n- event:10978 et event:10988: échecs de mission_task_complete avec preuves invalides ou absentes\\n- Le contrôleur de couverture (review_event) a identifié cette contradiction entre le format produit et les exigences R1/R2\", \"reason\": \"Les événements 10978 et 10988 sont des narrative_review avec status FAIL, confirmant les échecs de validation et les preuves invalides citées.\", \"references\": [\"event:10978\", \"event:10988\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"### Correction prévue\\nLa tâche T4 du plan v4 va **écraser** inventaire.json avec la structure correcte:\\n```json\\n{\\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"], \\\"total\\\": 2}\\n```\\nCette structure inclut un tableau `names` (array) et un champ `total` (integer) avec relation length vérifiée.\", \"reason\": \"La correction est explicitement prévue dans les plans v4 et v7 (tâche T4) avec la structure array+total, mais n'est pas encore exécutée dans les receipts.\", \"references\": [\"plan:4\", \"plan:7\"], \"segment\": \"S11\", \"verdict\": \"qualified_hypothesis\"}, {\"quote\": \"## Preuves\\n- Lecture input.json: invocation_id 50d1beebfe704e2fa1b4dad90a719cf1\\n- Écriture inventaire.json (format objet): sha256 aa98f4e8b56892896d993a54d5a6527c83cae8c3fcbd078b47e9519e362240ad\\n- Vérification contrat T1: invocation_id 4a12412fc47d45ab908daa8d7e4b8ac0, status PASS\", \"reason\": \"Les invocation_ids et le sha256 cités correspondent exactement aux receipts de lecture input.json et de vérification du contrat T1.\", \"references\": [\"50d1beebfe704e2fa1b4dad90a719cf1\", \"4a12412fc47d45ab908daa8d7e4b8ac0\"], \"segment\": \"S12\", \"verdict\": \"supported\"}, {\"quote\": \"## Conclusion\\nT1 produit un fichier inventaire.json validant son contrat immédiat (objet avec compteurs), mais ce format est **incorrect** par rapport aux exigences R1/R2 du goal. Le fichier sera remplacé par T4 avec la structure array+total requise. Cette tâche doit être considérée comme une étape intermédiaire non conforme aux exigences finales.\", \"reason\": \"Le contrat T1 est validé (PASS) mais le format est incorrect par rapport au goal (plan v7), confirmant le statut d'étape intermédiaire non conforme.\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\", \"plan:7\"], \"segment\": \"S13\", \"verdict\": \"supported\"}], \"draft_sha256\": \"3dbcaee288cc150f67526f9fe453ee08d96ed03c4346283cf83c327385167bd8\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "7641c897e3c8455c94a3749a751c9f0d",
+          "tool": "mission_evidence",
+          "error": "Preuve absente de cette mission. Utilise un id d’invocation, un reçu broker ou event:N du journal de cette mission. La réception de tâche exige une invocation technique réussie de la tâche, pas un événement de revue.",
+          "result": null
+        },
+        {
+          "invocation": "5ed839c3050c49fbaa1ded75a2420f28",
+          "tool": "mission_task_complete",
+          "error": "evidence_id must identify a successful mission_verify of active task",
+          "result": null
+        },
+        {
+          "invocation": "e916cab8323a40568e3d0a41b70e01f2",
+          "tool": "mission_verify",
+          "error": null,
+          "result": {
+            "checks": [],
+            "contract": {
+              "expected": {
+                "capteur-a": 1,
+                "capteur-b": 1
+              },
+              "kind": "json",
+              "source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26b/C/inventaire.json"
+                },
+                "tool": "host_read_file"
+              },
+              "types": {
+                "capteur-a": "integer",
+                "capteur-b": "integer"
+              }
+            },
+            "error": "Use JSON Pointer starting with /, e.g. /port",
+            "observations": [],
+            "observed_at": 1792665493.002134,
+            "returncode": 1,
+            "status": "INSUFFICIENT",
+            "verification_event": 13674,
+            "verifier": "deterministic26"
+          }
+        },
+        {
+          "invocation": "524d1585475a49b2847d56774c3c27a7",
+          "tool": "mission_verify",
+          "error": null,
+          "result": {
+            "checks": [],
+            "contract": {
+              "expected": "/capteur-a:1,/capteur-b:1",
+              "kind": "json",
+              "source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26b/C/inventaire.json"
+                },
+                "tool": "host_read_file"
+              },
+              "types": "/capteur-a:integer,/capteur-b:integer"
+            },
+            "error": "expected must map JSON Pointers to values/types",
+            "observations": [],
+            "observed_at": 1792665497.7200341,
+            "returncode": 1,
+            "status": "INSUFFICIENT",
+            "verification_event": 13678,
+            "verifier": "deterministic26"
+          }
+        },
+        {
+          "invocation": "d67f5d9407b542578e1e0f011e3aea39",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport T1 - Création de inventaire.json (format intermédiaire)\", \"reason\": \"Le titre correspond à l'objectif de T1 défini dans le plan v7 et l'état 'running' de la tâche.\", \"references\": [\"plan:7\", \"task:T1\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"## Objectif déclaré\\nExtraire la liste des noms de input.json et créer un fichier inventaire.json avec des compteurs entiers pour chaque nom.\", \"reason\": \"L'objectif déclaré correspond exactement à la description de la tâche T1 dans le plan v7.\", \"references\": [\"plan:7\", \"task:T1\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"## Données d'entrée\\n- Fichier source: `/var/lib/jarvis/projects/mission26b/C/input.json`\\n- Contenu observé (invocation_id: 50d1beebfe704e2fa1b4dad90a719cf1): `{\\\"label\\\": \\\"fixture-C\\\", \\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"]}`\", \"reason\": \"Le chemin et le contenu observé correspondent au receipt 50d1beebfe704e2fa1b4dad90a719cf1. L'ID cité est correct.\", \"references\": [\"50d1beebfe704e2fa1b4dad90a719cf1\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Opération réalisée\\nChaque nom dans la liste `names` apparaît une seule fois. Le fichier inventaire.json a été créé avec un format objet contenant un compteur par clé:\", \"reason\": \"Le format objet avec compteurs par clé est confirmé par le contenu du receipt 259d182bb9324785b490da501db98d00.\", \"references\": [\"259d182bb9324785b490da501db98d00\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"```json\\n{\\n  \\\"capteur-a\\\": 1,\\n  \\\"capteur-b\\\": 1\\n}\\n```\", \"reason\": \"Le contenu JSON affiché correspond exactement au stdout du receipt 259d182bb9324785b490da501db98d00.\", \"references\": [\"259d182bb9324785b490da501db98d00\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"SHA256 du fichier: `aa98f4e8b56892896d993a54d5a6527c83cae8c3fcbd078b47e9519e362240ad`\", \"reason\": \"Le SHA256 correspond à celui observé dans le receipt de vérification 4a12412fc47d45ab908daa8d7e4b8ac0.\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification du contrat T1\\nContrat vérifié via mission_verify (invocation_id: 4a12412fc47d45ab908daa8d7e4b8ac0):\\n- `/capteur-a`: 1 (entier) ✓\\n- `/capteur-b`: 1 (entier) ✓\\n- Status: PASS (verification_event: 12780)\", \"reason\": \"L'invocation_id, les chemins vérifiés, les valeurs et le statut PASS correspondent au receipt 4a12412fc47d45ab908daa8d7e4b8ac0 et à l'événement 12780.\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\", \"event:12780\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"## Limites et inexactitudes critiques\", \"reason\": \"Titre de section sans assertion technique vérifiable, servant de transition méthodologique.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"### Format incorrect par rapport aux exigences R1/R2\\nCe format **NE SATISFAIT PAS** les exigences R1 et R2 extraites du goal:\\n- **R1**: Demande un fichier avec \\\"la liste exacte des noms\\\" sous forme d'array, pas d'objet de compteurs\\n- **R2**: Demande \\\"le nombre entier correspondant à la liste des noms\\\" comme un compteur global (total), non des compteurs individuels\", \"reason\": \"L'analyse du non-respect des exigences R1/R2 (array vs objet) est étayée par la définition de T4 dans le plan v7 et les exigences du goal.\", \"references\": [\"plan:7\", \"task:T4\", \"requirements:3\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"### Histoire des échecs vérifiés\\nDeux tentatives antérieures de validation narrative ont échoué avec les événements suivants:\\n- **event:10978**: FAIL - preuve insuffisante pour mission_task_complete\\n- **event:10988**: FAIL - preuves invalides ou absentes\\n- **event:13653**: FAIL - \\\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\\\"\", \"reason\": \"Les événements cités existent dans cited_event_facts avec le statut FAIL et les motifs correspondants.\", \"references\": [\"event:10978\", \"event:10988\", \"event:13653\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"Ces échecs documentent que le format produit par T1 ne correspond pas aux exigences R1/R2 du goal final, malgré la validation du contrat immédiat de T1.\", \"reason\": \"La conclusion sur l'inadéquation du format T1 par rapport aux exigences finales est cohérente avec les FAIL historiques et la correction T4.\", \"references\": [\"event:10978\", \"event:10988\", \"event:13653\", \"plan:7\"], \"segment\": \"S11\", \"verdict\": \"supported\"}, {\"quote\": \"### Correction prévue\\nLa tâche T4 du plan v7 va **écraser** inventaire.json avec la structure correcte:\\n```json\\n{\\\"names\\\": [\\\"capteur-a\\\", \\\"capteur-b\\\"], \\\"total\\\": 2}\\n```\\nCette structure inclut un tableau `names` (array) et un champ `total` (integer) avec relation length vérifiée.\", \"reason\": \"L'affirmation de la correction future par T4 est explicitement qualifiée comme intention dans le plan v7, non comme un état exécuté.\", \"references\": [\"plan:7\", \"task:T4\"], \"segment\": \"S12\", \"verdict\": \"qualified_hypothesis\"}, {\"quote\": \"## Preuves\\n- Lecture input.json: invocation_id 50d1beebfe704e2fa1b4dad90a719cf1\\n- Écriture inventaire.json (format objet): sha256 aa98f4e8b56892896d993a54d5a6527c83cae8c3fcbd078b47e9519e362240ad\\n- Vérification contrat T1: invocation_id 4a12412fc47d45ab908daa8d7e4b8ac0, status PASS (event:12780)\\n- Échecs historiques de validation: events 10978, 10988, 13653\", \"reason\": \"Tous les IDs de preuve, SHA256 et événements cités correspondent aux données techniques fournies dans les receipts et cited_event_facts.\", \"references\": [\"50d1beebfe704e2fa1b4dad90a719cf1\", \"4a12412fc47d45ab908daa8d7e4b8ac0\", \"event:10978\", \"event:10988\", \"event:13653\"], \"segment\": \"S13\", \"verdict\": \"supported\"}, {\"quote\": \"## Conclusion\\nT1 produit un fichier inventaire.json validant son contrat immédiat (objet avec compteurs), mais ce format est **incorrect** par rapport aux exigences R1/R2 du goal. Le fichier sera remplacé par T4 avec la structure array+total requise. Cette tâche doit être considérée comme une étape intermédiaire non conforme aux exigences finales.\", \"reason\": \"La conclusion synthétise correctement le succès du contrat T1 (receipt 4a12...) et l'inadéquation par rapport au goal final (plan v7, T4).\", \"references\": [\"4a12412fc47d45ab908daa8d7e4b8ac0\", \"plan:7\", \"task:T4\"], \"segment\": \"S14\", \"verdict\": \"supported\"}], \"draft_sha256\": \"f8f8f216929ba281833c7b4d98c2da5ae2c96a6d23cce0fb1db25fe5995c3bfc\", \"issues\": [\"Historical INSUFFICIENT must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "018f7f88933e410f9b6e59ee834c871d",
+          "tool": "mission_evidence",
+          "error": "Preuve absente de cette mission. Utilise un id d’invocation, un reçu broker ou event:N du journal de cette mission. La réception de tâche exige une invocation technique réussie de la tâche, pas un événement de revue.",
+          "result": null
+        },
+        {
+          "invocation": "895334e346814d309f2a8d1397f30227",
+          "tool": "mission_evidence",
+          "error": "Preuve absente de cette mission. Utilise un id d’invocation, un reçu broker ou event:N du journal de cette mission. La réception de tâche exige une invocation technique réussie de la tâche, pas un événement de revue.",
+          "result": null
+        },
+        {
+          "invocation": "d0509b1b3da54a88a3c2cf9a0721b207",
+          "tool": "mission_evidence",
+          "error": "Preuve absente de cette mission. Utilise un id d’invocation, un reçu broker ou event:N du journal de cette mission. La réception de tâche exige une invocation technique réussie de la tâche, pas un événement de revue.",
           "result": null
         }
       ],
