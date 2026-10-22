@@ -86,7 +86,7 @@ def debugging_state(observations):
             except (ValueError,TypeError):receipt={}
             files[args.get('path','')]={'path':args.get('path'),'created':o['created'],'sha256':receipt.get('after_sha256') if o['tool']=='host_edit_file' else hashlib.sha256(args.get('content','').encode()).hexdigest(),'invocation':o['id']}
     checks=sorted(commands.values(),key=lambda x:x['created'])
-    return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-2:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-2:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds.'}
+    return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-2:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-2:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds. Command success means process exit zero only; inspect diagnostics and semantic verification for actual application success.'}
 
 
 class DurableCycle:

@@ -23,19 +23,19 @@ Or `args.delimiter` a une valeur par défaut de `,` (virgule) définie via argpa
 
 ### 2. Contenu réel de mesures.csv
 
-Le fichier `mesures.csv` utilise `;` (point-virgule) comme délimiteur, comme observé en T01 :
+Le fichier `mesures.csv` utilise `;` (point-virgule) comme délimiteur, comme observé en T01 (invocation `ce720ec4a2d447238634c70556456a54`) :
 ```
-date;valeur
-2024-01-01;7
-2024-01-02;9
+nom;valeur
+nord;7
+sud;9
 ```
 
 ### 3. Conséquence de l'incompatibilité
 
-Quand `csv.DictReader` lit la première ligne `date;valeur` avec le délimiteur `,` :
+Quand `csv.DictReader` lit la première ligne `nom;valeur` avec le délimiteur `,` :
 - Il ne trouve aucune virgule dans la ligne
-- La ligne entière est traitée comme UNE SEULE colonne nommée `"date;valeur"`
-- Le dictionnaire créé contient une seule clé : `"date;valeur"` au lieu de deux clés séparées `"date"` et `"valeur"`
+- La ligne entière est traitée comme UNE SEULE colonne nommée `"nom;valeur"`
+- Le dictionnaire créé contient une seule clé : `"nom;valeur"` au lieu de deux clés séparées `"nom"` et `"valeur"`
 
 Lorsque le code tente ensuite d'accéder à `r['valeur']`, cette clé n'existe pas dans le dictionnaire → `KeyError: 'valeur'`.
 
@@ -43,9 +43,9 @@ Lorsque le code tente ensuite d'accéder à `r['valeur']`, cette clé n'existe p
 
 | Délimiteur attendu | Délimiteur réel | Résultat du parsing |
 |-------------------|-----------------|---------------------|
-| `,` (virgule)     | `;` (point-virgule) | Une seule colonne `"date;valeur"` |
+| `,` (virgule)     | `;` (point-virgule) | Une seule colonne `"nom;valeur"` |
 
-La ligne de données `2024-01-01;7` est également lue comme une seule valeur, pas deux colonnes séparées.
+La ligne de données `nord;7` est également lue comme une seule valeur, pas deux colonnes séparées.
 
 ## Cause racine identifiée
 
@@ -64,15 +64,17 @@ Cette solution ne modifie ni le programme (producer.py) ni les données d'entré
 
 - T01: Lecture de producer.py et mesures.csv
   - producer.py invocation_id=`ec4f3297dd3d42a9a3a3da1c2cd7554c`
-  - mesures.csv invocation_id=`ce720ec4a2d447238634c70556456a54`
+  - mesures.csv invocation_id=`ce720ec4a2d447238634c70556456a54` (contenu réel: nom;valeur / nord;7 / sud;9)
 - T02: Exécution initiale avec erreur capturée
   - host_exec invocation_id=`d8e944cec60949968d3b58fc05e48b1a`
   - error_capture.txt preuve de l'erreur KeyError
 
+## Erreurs historiques conservées
+
+- mission_verify event 13443: FAIL avec issues sur données factuelles incorrectes (colonnes 'date'/'valeur' vs 'nom'/'nord'/'sud')
+
+Cette tâche documente l'analyse technique de la cause de la panne. Les erreurs antérieures sont conservées conformément aux exigences de restitution du contrôle contractuel26B.
+
 ## Limites
 
 Ce rapport diagnostique la cause technique de la panne. La correction effective et la vérification du résultat seront réalisées dans la tâche T04 (exécution avec paramètre adapté) qui produira bilan.json valide.
-
-## Erreurs historiques
-
-Aucune erreur spécifique à cette tâche n'a été rencontrée ; le diagnostic est complet et prêt pour la correction.

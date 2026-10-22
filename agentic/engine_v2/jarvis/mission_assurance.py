@@ -13,7 +13,7 @@ from .mission_store import encoded
 
 VERSION = '26b.8'
 GOAL_VERSION = '26b.4'
-REPORT_VERSION = '26b.report.4'
+REPORT_VERSION = '26b.report.5'
 
 
 def enabled(store, ident):
@@ -402,9 +402,10 @@ def report_model_view(snapshot, content, recent=4):
     view['receipts']=cards
     view['semantic_verifications']=snapshot['semantic_verifications'][-recent:] if recent else []
     view['cited_event_facts']=snapshot.get('cited_event_facts',[])
-    view['coverage_reviews']=[{k:row[k] for k in ('reference','status','plan_version')} for row in snapshot.get('coverage_reviews',[])]
-    view['report_failures']=[{k:row[k] for k in ('reference','status','draft_sha256')} for row in snapshot.get('report_failures',[])]
-    view['codex_interventions']=[{'reference':'event:'+str(row['event']),'kind':row['kind'],'actor':'Codex','details':'Original available by citation, not independent operational proof'} for row in snapshot.get('codex_interventions',[])]
+    view['coverage_reviews']={'references':[row['reference'] for row in snapshot.get('coverage_reviews',[])],'last':{key:snapshot['coverage_reviews'][-1][key] for key in ('reference','status','plan_version')} if snapshot.get('coverage_reviews') else None}
+    view['report_failures']={'count':len(snapshot.get('report_failures',[])),'status':'FAIL' if snapshot.get('report_failures') else None,'references':[row['reference'] for row in snapshot.get('report_failures',[])]}
+    view['codex_interventions']={'count':len(snapshot.get('codex_interventions',[])),'actor':'Codex','references':['event:'+str(row['event']) for row in snapshot.get('codex_interventions',[])],'details':'Original details only by explicit event citation; not independent operational proof'}
+    view['plans']=[{key:plan[key] for key in ('version','author','sha256','created') if key in plan} for plan in snapshot['plans']]
     view['goal_requirements']={k:v for k,v in (snapshot.get('goal_requirements') or {}).items() if k in ('reference','version','author','contract_version')}
     definitions=[]
     for original in snapshot.get('plan_definitions',[]):
@@ -467,7 +468,7 @@ def audit_report(registry, content, task_id=None):
             if claim['verdict']=='supported' and not claim['references']:
                 raise ValueError('Review format: supported factual segment requires actual reference IDs from allowed_references')
     model_view=report_model_view(snapshot,content)
-    model_data={'draft':content,'segments':segments,'allowed_references':refs,'evidence':model_view}
+    model_data={'segments':segments,'allowed_references':refs,'evidence':model_view}
     if len(encoded(model_data))+len(encoded(schema))>50000:
         model_view=report_model_view(snapshot,content,recent=0)
         model_data['evidence']=model_view

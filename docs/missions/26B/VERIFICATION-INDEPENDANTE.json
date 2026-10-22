@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792663452.0285537,
+  "created": 1792664398.7648625,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -54,7 +54,7 @@
     },
     {
       "module": "durable_cycle.py",
-      "installed_sha256": "c03c41d53ff028438a78007d3595a8831e8c95b231091af3a7659d036d6238f3",
+      "installed_sha256": "195b4a7b1667340023be92ae7fd4cd43537535b3491662198a1255f40a4f32f3",
       "matches_source": true
     },
     {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "9dc2cbaa9bdf9a4f649d9aacacf158909a606e56997090a71d8a99c7bbbf6d37",
+      "installed_sha256": "f4fa29e2a3e43004b6ae59a3189f02125c386b397bac474e2c90e5ea2714b12a",
       "matches_source": true
     },
     {
@@ -148,7 +148,7 @@
     {
       "case": "A",
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "state": "queued",
+      "state": "running",
       "coverage_accepted": true,
       "versions": 5,
       "tasks": [
@@ -196,7 +196,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T2.md",
-          "sha256": "04afc8141f53c2e63a2e1c9eb6aa78a8beddf351d97953d9aafe3489362b81a0"
+          "sha256": "2d79ce9d13abcc8d9afd69df9f015b82ccc39510c9bf252187c64855f0b8d912"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/A/summary.json",
@@ -611,6 +611,23 @@
             "Cette version du rapport corrige les défauts en conservant explicitement les références aux événements d'échec originaux (10920, 10930, 13283) avec leurs motifs exacts, conformément à l'exigence CONTRATA26B de retenir tout FAIL, PARTIAL et INSUFFICIENT même suivi d'un PASS. => insufficient: Pas de version, date ou état courant observé pour vérifier la péremption des checkpoints."
           ],
           "draft_sha256": "edd48ad6fa0599d155d48964c71470264eb745f94531024e9b7f6ca72e96f2ae"
+        },
+        {
+          "event": 13502,
+          "kind": "narrative_review",
+          "task": "T2",
+          "status": "FAIL",
+          "issues": [
+            "Unknown cited original event in this mission: event:7",
+            "Unknown cited original event in this mission: event:9",
+            "event:7 does not support the narrative: L'événement 7 n'est pas dans allowed_references.",
+            "event:9 does not support the narrative: L'événement 9 n'est pas dans allowed_references.",
+            "- **Event 9d6e3857177f4e51b661dbd72392bc88** : Première tentative de `mission_task_complete` rejetée avec le motif \"Narrative withheld before publication\". Le rapport initial contenait des titres de section non vérifiables (\"Titre descriptif sans assertion factuelle\") comme \"# Rapport Technique T2\" et \"## Preuve d'exécution\". => insufficient: L'ID d'événement 9d6e3857177f4e51b661dbd72392bc88 n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.",
+            "- **Event c647b496fcaa4a5084d7188f593c485a** : Deuxième tentative échouée pour cause de référence incorrecte - le rapport citait des événements (10920, 10930) qui ne figuraient pas dans les preuves techniques accessibles, produisant un statut INSUFFICIENT avec le message \"Absence totale de données JSON et de segments originaux à contrôler\". => insufficient: L'ID d'événement c647b496fcaa4a5084d7188f593c485a n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.",
+            "- **Event 7c1ef2c0d4b240c69aa047f3c8fd9622** : Troisième tentative rejetée avec motif identique d'INSUFFICIENT pour absence de données factuelles vérifiables. => insufficient: L'ID d'événement 7c1ef2c0d4b240c69aa047f3c8fd9622 n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.",
+            "- **Event a24d8abb0dd0490f9bf01a0dc1f79c0e** : Quatrième tentative échouée avec message \"Review INSUFFICIENT: invalid structured response after format repair\". => insufficient: L'ID d'événement a24d8abb0dd0490f9bf01a0dc1f79c0e n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable."
+          ],
+          "draft_sha256": "04afc8141f53c2e63a2e1c9eb6aa78a8beddf351d97953d9aafe3489362b81a0"
         }
       ],
       "negative_results": [
@@ -805,6 +822,12 @@
           "tool": "mission_task_complete",
           "error": "Review INSUFFICIENT: invalid structured response after format repair; retry with mission_progress",
           "result": null
+        },
+        {
+          "invocation": "37a8293d7d7741f68c7f493f926c1686",
+          "tool": "mission_task_complete",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Rapport technique - Tâche T2 : Création de summary.json\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Preuve d'exécution technique\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S2\", \"verdict\": \"not_factual\"}, {\"quote\": \"L'écriture du fichier `/var/lib/jarvis/projects/mission26b/A/summary.json` a été effectuée par l'appel `host_write_file` avec l'invocation `c8fceeb1f8a7412fa87f5b710492e393`, produisant l'evidence `a86d5fd496b4489e835fecd308509295`.\", \"reason\": \"L'invocation c8fceeb1f8a7412fa87f5b710492e393 correspond à l'écriture de summary.json et l'evidence_id observé est bien a86d5fd496b4489e835fecd308509295.\", \"references\": [\"c8fceeb1f8a7412fa87f5b710492e393\", \"a86d5fd496b4489e835fecd308509295\"], \"segment\": \"S3\", \"verdict\": \"supported\"}, {\"quote\": \"## Contenu du fichier créé\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"not_factual\"}, {\"quote\": \"La lecture de ce fichier via `host_read_file` (evidence `ee0644bcf73b4a48801e0cd37b4835b8`) confirme le contenu exact :\", \"reason\": \"L'evidence ee0644bcf73b4a48801e0cd37b4835b8 correspond à une lecture de summary.json confirmant le contenu.\", \"references\": [\"ee0644bcf73b4a48801e0cd37b4835b8\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\", \"reason\": \"Le contenu JSON affiché correspond exactement au stdout des receipts ee0644bcf73b4a48801e0cd37b4835b8 et 9860ca7485e9453d8dd8ff8b73bd6ad6.\", \"references\": [\"ee0644bcf73b4a48801e0cd37b4835b8\", \"9860ca7485e9453d8dd8ff8b73bd6ad6\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification sémantique\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S7\", \"verdict\": \"not_factual\"}, {\"quote\": \"La vérification `mission_verify` (id `41c73c6d91f84837b1b56b1ed612a058`) confirme le statut **PASS** :\\n- `/lines_articles`: valeur 3, type integer conforme\\n- `/somme_quantites`: valeur 12, type integer conforme\", \"reason\": \"Le receipt 41c73c6d91f84837b1b56b1ed612a058 confirme le statut PASS avec les valeurs 3 et 12 pour les chemins /lines_articles et /somme_quantites.\", \"references\": [\"41c73c6d91f84837b1b56b1ed612a058\"], \"segment\": \"S8\", \"verdict\": \"supported\"}, {\"quote\": \"## Provenance des valeurs\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S9\", \"verdict\": \"not_factual\"}, {\"quote\": \"Ces données sont extraites de `stocks.csv` (evidence T1: `fcc1cfa25a6c432f9bc0890656ffe0be`, invocation `17e2b0fbb27d4dd3815ecab2c94cadbf`) contenant :\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\\nSoit 3 lignes d'articles et une somme de quantités égale à 3+4+5=12.\", \"reason\": \"L'evidence fcc1cfa25a6c432f9bc0890656ffe0be (invocation 17e2b0fbb27d4dd3815ecab2c94cadbf) contient le CSV exact avec 3 lignes de données et une somme de 12.\", \"references\": [\"fcc1cfa25a6c432f9bc0890656ffe0be\", \"17e2b0fbb27d4dd3815ecab2c94cadbf\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"## Échecs historiques conservés (CONTRATA26B)\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S11\", \"verdict\": \"not_factual\"}, {\"quote\": \"Conformément à l'exigence CONTRATA26B de conserver explicitement tout FAIL, PARTIAL et INSUFFICIENT même suivi d'un PASS :\", \"reason\": \"Explication méthodologique sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S12\", \"verdict\": \"not_factual\"}, {\"quote\": \"- **Event 9d6e3857177f4e51b661dbd72392bc88** : Première tentative de `mission_task_complete` rejetée avec le motif \\\"Narrative withheld before publication\\\". Le rapport initial contenait des titres de section non vérifiables (\\\"Titre descriptif sans assertion factuelle\\\") comme \\\"# Rapport Technique T2\\\" et \\\"## Preuve d'exécution\\\".\", \"reason\": \"L'ID d'événement 9d6e3857177f4e51b661dbd72392bc88 n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"references\": [], \"segment\": \"S13\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Event c647b496fcaa4a5084d7188f593c485a** : Deuxième tentative échouée pour cause de référence incorrecte - le rapport citait des événements (10920, 10930) qui ne figuraient pas dans les preuves techniques accessibles, produisant un statut INSUFFICIENT avec le message \\\"Absence totale de données JSON et de segments originaux à contrôler\\\".\", \"reason\": \"L'ID d'événement c647b496fcaa4a5084d7188f593c485a n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"references\": [], \"segment\": \"S14\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Event 7c1ef2c0d4b240c69aa047f3c8fd9622** : Troisième tentative rejetée avec motif identique d'INSUFFICIENT pour absence de données factuelles vérifiables.\", \"reason\": \"L'ID d'événement 7c1ef2c0d4b240c69aa047f3c8fd9622 n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"references\": [], \"segment\": \"S15\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Event a24d8abb0dd0490f9bf01a0dc1f79c0e** : Quatrième tentative échouée avec message \\\"Review INSUFFICIENT: invalid structured response after format repair\\\".\", \"reason\": \"L'ID d'événement a24d8abb0dd0490f9bf01a0dc1f79c0e n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"references\": [], \"segment\": \"S16\", \"verdict\": \"insufficient\"}, {\"quote\": \"Cette version corrige les défauts en éliminant les citations d'événements non vérifiables et en se concentrant exclusivement sur les preuves techniques réellement accessibles (invocations T1, T2, mission_verify).\", \"reason\": \"Affirmation de correction future ou intentionnelle non étayée par un receipt d'exécution de cette version spécifique.\", \"references\": [], \"segment\": \"S17\", \"verdict\": \"qualified_hypothesis\"}, {\"quote\": \"## Limites techniques\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S18\", \"verdict\": \"not_factual\"}, {\"quote\": \"Le fichier summary.json est créé exclusivement dans `/var/lib/jarvis/projects/mission26b/A` via `host_write_file`. Aucune opération externe n'est effectuée. Les permissions Debian par défaut sont conservées sans modification explicite.\", \"reason\": \"Le receipt c8fceeb1f8a7412fa87f5b710492e393 confirme l'écriture dans le chemin spécifié. L'absence de modification de permissions est cohérente avec l'absence d'outils host_exec pour ls ou chmod dans les receipts fournis.\", \"references\": [\"c8fceeb1f8a7412fa87f5b710492e393\"], \"segment\": \"S19\", \"verdict\": \"supported\"}, {\"quote\": \"## État final\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S20\", \"verdict\": \"not_factual\"}, {\"quote\": \"La tâche T2 est techniquement achevée avec succès. Le fichier summary.json contient les valeurs exactes exigées avec les types corrects et est prêt pour la tâche T3 (calcul de l'empreinte SHA256 et création de manifest.json).\", \"reason\": \"Le statut PASS de la vérification (41c73c6d91f84837b1b56b1ed612a058) et le contenu exact (ee0644bcf73b4a48801e0cd37b4835b8) confirment l'achèvement technique de T2.\", \"references\": [\"41c73c6d91f84837b1b56b1ed612a058\", \"ee0644bcf73b4a48801e0cd37b4835b8\"], \"segment\": \"S21\", \"verdict\": \"supported\"}], \"draft_sha256\": \"04afc8141f53c2e63a2e1c9eb6aa78a8beddf351d97953d9aafe3489362b81a0\", \"issues\": [\"Unknown cited original event in this mission: event:7\", \"Unknown cited original event in this mission: event:9\", \"event:7 does not support the narrative: L'événement 7 n'est pas dans allowed_references.\", \"event:9 does not support the narrative: L'événement 9 n'est pas dans allowed_references.\", \"- **Event 9d6e3857177f4e51b661dbd72392bc88** : Première tentative de `mission_task_complete` rejetée avec le motif \\\"Narrative withheld before publication\\\". Le rapport initial contenait des titres de section non vérifiables (\\\"Titre descriptif sans assertion factuelle\\\") comme \\\"# Rapport Technique T2\\\" et \\\"## Preuve d'exécution\\\". => insufficient: L'ID d'événement 9d6e3857177f4e51b661dbd72392bc88 n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"- **Event c647b496fcaa4a5084d7188f593c485a** : Deuxième tentative échouée pour cause de référence incorrecte - le rapport citait des événements (10920, 10930) qui ne figuraient pas dans les preuves techniques accessibles, produisant un statut INSUFFICIENT avec le message \\\"Absence totale de données JSON et de segments originaux à contrôler\\\". => insufficient: L'ID d'événement c647b496fcaa4a5084d7188f593c485a n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"- **Event 7c1ef2c0d4b240c69aa047f3c8fd9622** : Troisième tentative rejetée avec motif identique d'INSUFFICIENT pour absence de données factuelles vérifiables. => insufficient: L'ID d'événement 7c1ef2c0d4b240c69aa047f3c8fd9622 n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\", \"- **Event a24d8abb0dd0490f9bf01a0dc1f79c0e** : Quatrième tentative échouée avec message \\\"Review INSUFFICIENT: invalid structured response after format repair\\\". => insufficient: L'ID d'événement a24d8abb0dd0490f9bf01a0dc1f79c0e n'apparaît pas dans la liste des allowed_references ni dans les report_failures. L'affirmation est invérifiable.\"]}",
+          "result": null
         }
       ],
       "no_codex_operational_reminder": true
@@ -812,7 +835,7 @@
     {
       "case": "B",
       "mission": "54c634e56b8d4241964322700ea5d837",
-      "state": "running",
+      "state": "queued",
       "coverage_accepted": true,
       "versions": 2,
       "tasks": [
@@ -826,7 +849,7 @@
         ],
         [
           "T03",
-          "running"
+          "validated"
         ],
         [
           "T04",
@@ -856,7 +879,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/report_T03.txt",
-          "sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073"
+          "sha256": "2da13c4258c0c1fdf90b4de824d3dbfa38385b89b11d7772b3f897d96ef520d9"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/mesures.csv",
@@ -1013,6 +1036,32 @@
           "status": "PASS",
           "issues": [],
           "draft_sha256": "5a02f5e805463d92c2a3a1004dc69ea834d1bdcaa84babfcb0555f8060b320c2"
+        },
+        {
+          "event": 13442,
+          "kind": "narrative_review",
+          "task": "T03",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "S9: Données factuelles incorrectes (colonnes 'date'/'valeur' et dates '2024-01-01' vs 'nom'/'nord'/'sud' dans le reçu).",
+            "S11: Analyse basée sur une prémisse erronée concernant le nom des colonnes.",
+            "S14: Tableau contenant une affirmation factuelle erronée sur le nom de la colonne unique résultante.",
+            "S15: Citation de lignes de données inexistantes dans le fichier source.",
+            "Le fichier `mesures.csv` utilise `;` (point-virgule) comme délimiteur, comme observé en T01 :\n```\ndate;valeur\n2024-01-01;7\n2024-01-02;9\n``` => insufficient: Le texte affirme que le fichier contient les lignes 'date;valeur', '2024-01-01;7', '2024-01-02;9'. Le reçu ce720ec4a2d447238634c70556456a54 montre en réalité 'nom;valeur', 'nord;7', 'sud;9'. Les données factuelles (noms des colonnes et valeurs) ne correspondent pas.",
+            "Quand `csv.DictReader` lit la première ligne `date;valeur` avec le délimiteur `,` :\n- Il ne trouve aucune virgule dans la ligne\n- La ligne entière est traitée comme UNE SEULE colonne nommée `\"date;valeur\"`\n- Le dictionnaire créé contient une seule clé : `\"date;valeur\"` au lieu de deux clés séparées `\"date\"` et `\"valeur\"` => insufficient: L'analyse suppose que la première ligne est 'date;valeur'. Le reçu ce720ec4a2d447238634c70556456a54 prouve que la première ligne est 'nom;valeur'. L'explication technique est donc basée sur une prémisse factuelle erronée concernant le contenu du fichier.",
+            "| Délimiteur attendu | Délimiteur réel | Résultat du parsing |\n|-------------------|-----------------|---------------------|\n| `,` (virgule)     | `;` (point-virgule) | Une seule colonne `\"date;valeur\"` | => insufficient: Le tableau indique que le résultat du parsing est une colonne 'date;valeur'. Le reçu ce720ec4a2d447238634c70556456a54 montre que l'en-tête réel est 'nom;valeur', donc la colonne unique serait 'nom;valeur', invalidant l'affirmation spécifique du tableau.",
+            "La ligne de données `2024-01-01;7` est également lue comme une seule valeur, pas deux colonnes séparées. => insufficient: Le texte cite la ligne de données '2024-01-01;7'. Le reçu ce720ec4a2d447238634c70556456a54 montre les lignes 'nord;7' et 'sud;9'. L'affirmation sur le contenu spécifique des données est fausse."
+          ],
+          "draft_sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073"
+        },
+        {
+          "event": 13458,
+          "kind": "narrative_review",
+          "task": "T03",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "2da13c4258c0c1fdf90b4de824d3dbfa38385b89b11d7772b3f897d96ef520d9"
         }
       ],
       "negative_results": [
@@ -1352,6 +1401,56 @@
             "verification_event": 13370,
             "verifier": "broker-read+JARVIS-reviewer26B"
           }
+        },
+        {
+          "invocation": "ee76f6e10bf949d7a3f30d632e88bc34",
+          "tool": "mission_verify",
+          "error": null,
+          "result": {
+            "checks": [
+              {
+                "draft_sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073",
+                "pass": false,
+                "predicate": "narrative_matches_original_evidence"
+              }
+            ],
+            "contract": {
+              "kind": "report",
+              "source": {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26b/B/report_T03.txt"
+                },
+                "tool": "host_read_file"
+              }
+            },
+            "issues": [
+              "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+              "S9: Données factuelles incorrectes (colonnes 'date'/'valeur' et dates '2024-01-01' vs 'nom'/'nord'/'sud' dans le reçu).",
+              "S11: Analyse basée sur une prémisse erronée concernant le nom des colonnes.",
+              "S14: Tableau contenant une affirmation factuelle erronée sur le nom de la colonne unique résultante.",
+              "S15: Citation de lignes de données inexistantes dans le fichier source.",
+              "Le fichier `mesures.csv` utilise `;` (point-virgule) comme délimiteur, comme observé en T01 :\n```\ndate;valeur\n2024-01-01;7\n2024-01-02;9\n``` => insufficient: Le texte affirme que le fichier contient les lignes 'date;valeur', '2024-01-01;7', '2024-01-02;9'. Le reçu ce720ec4a2d447238634c70556456a54 montre en réalité 'nom;valeur', 'nord;7', 'sud;9'. Les données factuelles (noms des colonnes et valeurs) ne correspondent pas.",
+              "Quand `csv.DictReader` lit la première ligne `date;valeur` avec le délimiteur `,` :\n- Il ne trouve aucune virgule dans la ligne\n- La ligne entière est traitée comme UNE SEULE colonne nommée `\"date;valeur\"`\n- Le dictionnaire créé contient une seule clé : `\"date;valeur\"` au lieu de deux clés séparées `\"date\"` et `\"valeur\"` => insufficient: L'analyse suppose que la première ligne est 'date;valeur'. Le reçu ce720ec4a2d447238634c70556456a54 prouve que la première ligne est 'nom;valeur'. L'explication technique est donc basée sur une prémisse factuelle erronée concernant le contenu du fichier.",
+              "| Délimiteur attendu | Délimiteur réel | Résultat du parsing |\n|-------------------|-----------------|---------------------|\n| `,` (virgule)     | `;` (point-virgule) | Une seule colonne `\"date;valeur\"` | => insufficient: Le tableau indique que le résultat du parsing est une colonne 'date;valeur'. Le reçu ce720ec4a2d447238634c70556456a54 montre que l'en-tête réel est 'nom;valeur', donc la colonne unique serait 'nom;valeur', invalidant l'affirmation spécifique du tableau.",
+              "La ligne de données `2024-01-01;7` est également lue comme une seule valeur, pas deux colonnes séparées. => insufficient: Le texte cite la ligne de données '2024-01-01;7'. Le reçu ce720ec4a2d447238634c70556456a54 montre les lignes 'nord;7' et 'sud;9'. L'affirmation sur le contenu spécifique des données est fausse."
+            ],
+            "observations": [
+              {
+                "arguments": {
+                  "path": "/var/lib/jarvis/projects/mission26b/B/report_T03.txt"
+                },
+                "broker_evidence": "0024484a5f0c48cfa6b2111e62283765",
+                "invocation": "8b39b2f6619747528537b680402fa4d8",
+                "tool": "host_read_file"
+              }
+            ],
+            "observed_at": 1792663552.4423149,
+            "returncode": 1,
+            "sha256": "e55648181ae81cb77d45b83b67373284f9b960bf9b75200269007593bf404073",
+            "status": "FAIL",
+            "verification_event": 13443,
+            "verifier": "broker-read+JARVIS-reviewer26B"
+          }
         }
       ],
       "producer_execution_receipts": [
@@ -1407,8 +1506,8 @@
       "case": "C",
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
       "state": "queued",
-      "coverage_accepted": false,
-      "versions": 6,
+      "coverage_accepted": true,
+      "versions": 7,
       "tasks": [
         [
           "T1",
@@ -1660,6 +1759,14 @@
             "Artifact dependency T3: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T1. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed.",
             "Artifact dependency T6: observes /var/lib/jarvis/projects/mission26b/C/inventaire.json but does not depend on declared writer(s) T1. Its proof may precede a later rewrite. Revise your own dependency graph or verification so the final artifact is observed."
           ],
+          "draft_sha256": null
+        },
+        {
+          "event": 13472,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
           "draft_sha256": null
         }
       ],
