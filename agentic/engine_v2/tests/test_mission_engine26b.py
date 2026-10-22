@@ -387,3 +387,19 @@ class AssuranceTests(unittest.TestCase):
         definitions=captured[0]['evidence']['plan_definitions']
         self.assertEqual(definitions[0]['sha256'],self.s.plans(self.m)[0]['sha256'])
         self.assertEqual(definitions[0]['plan']['tasks'][0]['contract'],proposed['contract'])
+
+    def test_exact_list_not_covered_by_type_and_length_only(self):
+        from jarvis.mission_assurance import typed_coverage_issues
+        requirement={'output_constraints':[{'artifact':'out.json','quote':'une liste exacte des noms','required_type':'array','meaning':'names','relation':'none'}]}
+        predicate={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/out.json'}},'types':{'/names':'array','/total':'integer'},'relations':[{'kind':'length','array':'/names','count':'/total'}]}
+        t=task();t['contract']['semantic']=[predicate];plan={'tasks':[t]}
+        self.assertTrue(any('exact array' in issue for issue in typed_coverage_issues(requirement,plan)))
+        predicate.update({'baseline_source':copy.deepcopy(predicate['source']),'preserve':['/names']})
+        self.assertTrue(typed_coverage_issues(requirement,plan))
+        predicate['baseline_source']['arguments']['path']='/input.json'
+        predicate['preserve']=['/label']
+        self.assertTrue(typed_coverage_issues(requirement,plan))
+        predicate['preserve']=['/names']
+        self.assertEqual(typed_coverage_issues(requirement,plan),[])
+        predicate.pop('baseline_source');predicate.pop('preserve');predicate['expected']={'/names':['a','b']}
+        self.assertEqual(typed_coverage_issues(requirement,plan),[])

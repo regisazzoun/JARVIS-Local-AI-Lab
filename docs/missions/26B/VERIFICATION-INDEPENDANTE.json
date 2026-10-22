@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792659284.0992012,
+  "created": 1792659479.342585,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "3acab4c5ca1b7c7cd1abe6e753c1c3248090f476468b3ed6b0001edf2ee1c343",
+      "installed_sha256": "96b7dea4ae96f4ee15cc934a505497b59fe7f12af794a8bd861bc88d3a9bbe2c",
       "matches_source": true
     },
     {
@@ -148,7 +148,7 @@
     {
       "case": "A",
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "state": "running",
+      "state": "queued",
       "coverage_accepted": false,
       "versions": 5,
       "tasks": [
@@ -508,6 +508,24 @@
           "tool": "mission_plan",
           "error": "patch requires existing ids; use append:true for new tasks",
           "result": null
+        },
+        {
+          "invocation": "703658b2916548c68424484247b24ee6",
+          "tool": "host_write_file",
+          "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+          "result": null
+        },
+        {
+          "invocation": "9ab25eab5d514a4aaeab549f749865f1",
+          "tool": "mission_task_complete",
+          "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+          "result": null
+        },
+        {
+          "invocation": "3ca48846a338465a89d0595823622b50",
+          "tool": "host_write_file",
+          "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+          "result": null
         }
       ],
       "no_codex_operational_reminder": true
@@ -515,7 +533,7 @@
     {
       "case": "B",
       "mission": "54c634e56b8d4241964322700ea5d837",
-      "state": "queued",
+      "state": "running",
       "coverage_accepted": false,
       "versions": 2,
       "tasks": [
@@ -659,6 +677,16 @@
           "task": null,
           "status": "PASS",
           "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 12959,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Review must address every extracted requirement exactly once"
+          ],
           "draft_sha256": null
         }
       ],

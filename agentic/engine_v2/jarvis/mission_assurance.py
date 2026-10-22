@@ -11,7 +11,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from .mission_store import encoded
 
-VERSION = '26b.6'
+VERSION = '26b.7'
 GOAL_VERSION = '26b.4'
 
 
@@ -143,7 +143,7 @@ def typed_coverage_issues(requirements_data, plan):
         return result
     issues=[]
     for constraint in requirements_data.get('output_constraints',[]):
-        available=set();length_relation=False
+        available=set();length_relation=False;exact_array=False
         for task in plan['tasks']:
             for criterion in task.get('contract',{}).get('semantic',[]):
                 source=criterion.get('source',{});path=source.get('arguments',{}).get('path',source.get('arguments',{}).get('file',''))
@@ -159,12 +159,16 @@ def typed_coverage_issues(requirements_data, plan):
                             except ValueError:available.add('object')
                     values=list(criterion.get('expected',{}).values())
                     for value in values:available|=types_in(value)
+                    exact_array|=any(type(value) is list for value in values) or bool(any(criterion.get('types',{}).get(path)=='array' for path in criterion.get('preserve',[])) and criterion.get('baseline_source') and digest(criterion['baseline_source'])!=digest(source))
                     length_relation|=any(r.get('kind')=='length' for r in criterion.get('relations',[])) or any(type(count) is int and count==len(array) for array in values if type(array) is list for count in values)
                 elif criterion.get('kind')=='text' and 'equals' in criterion:
-                    try:available|=types_in(json.loads(criterion['equals']))
+                    try:
+                        literal=json.loads(criterion['equals']);available|=types_in(literal);exact_array|='array' in types_in(literal)
                     except (ValueError,TypeError):pass
                 elif criterion.get('kind')=='digest':available.add('string')
         wanted=constraint['required_type']
+        if wanted=='array' and re.search(r'\bexact\w*\b',constraint['quote'],re.I) and not exact_array:
+            issues.append('Uncovered exact array outcome: '+constraint['artifact']+' requests an exact list, but type/length alone do not verify its members. Declare your own exact array predicate or independent baseline preservation for the requested list; no field names or values are supplied.')
         if constraint.get('relation')=='length_of_array' and not length_relation:
             issues.append('Uncovered relation: '+constraint['artifact']+' must verify a global integer equal to the array length; per-name counters or unrelated integer fields are insufficient. Declare a JSON length relation or exact array and total predicates, with your own property names.')
         if wanted not in available and not (wanted=='number' and 'integer' in available):

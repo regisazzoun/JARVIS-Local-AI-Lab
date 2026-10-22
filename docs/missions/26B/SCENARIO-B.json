@@ -2,9 +2,9 @@
   "scenario": "B",
   "mission": "54c634e56b8d4241964322700ea5d837",
   "raw_goal": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle. Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés. Ne change ni le programme du banc ni mesures.csv. Explique la cause à partir de son comportement observé. Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale. Cette fausse assertion est une injection d’essai demandée par Codex, pas un résultat technique.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
-  "state": "queued",
+  "state": "running",
   "created": 1792620582.455572,
-  "updated": 1792659251.9980137,
+  "updated": 1792659447.5893714,
   "tasks": [
     {
       "mission": "54c634e56b8d4241964322700ea5d837",
@@ -866,109 +866,19 @@
     },
     "review": {
       "author": "JARVIS-reviewer",
-      "contract_version": "26b.5",
-      "coverage": [
-        {
-          "covered": true,
-          "reason": "La tâche T04 produit bilan.json avec vérification des types entiers pour somme et nombre_mesures via le contrat semantic.",
-          "requirement": "R1",
-          "tasks": [
-            "T04"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T05 produit RESOLUTION.md documentant la panne, sa cause (délimiteur) et la correction appliquée.",
-          "requirement": "R2",
-          "tasks": [
-            "T05"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T07 produit RAPPORT_FINAL.md corrigé, en français, intégrant les observations réelles et références.",
-          "requirement": "R3",
-          "tasks": [
-            "T07"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T02 exécute la commande initiale sans paramètres pour observer et capturer la panne d'exécution.",
-          "requirement": "R4",
-          "tasks": [
-            "T02"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T04 applique la correction via --delimiter ';' sans modifier producer.py ni mesures.csv.",
-          "requirement": "R5",
-          "tasks": [
-            "T04"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T03 diagnostique la cause (incompatibilité délimiteur) et T05 l'explique dans RESOLUTION.md.",
-          "requirement": "R6",
-          "tasks": [
-            "T03",
-            "T05"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T06 produit RAPPORT_BROUILLON_TEST.md incluant volontairement l'affirmation fausse 'observations : 999'.",
-          "requirement": "R7",
-          "tasks": [
-            "T06"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T07 succède à T06 et corrige l'affirmation fausse pour produire le rapport final fidèle.",
-          "requirement": "R8",
-          "tasks": [
-            "T07"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "Les objectifs T06 et T07 distinguent l'injection d'essai du résultat technique dans la progression du rapport.",
-          "requirement": "R9",
-          "tasks": [
-            "T06",
-            "T07"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "Les tâches T02 et T04 utilisent des arguments de ligne de commande sans mutation des fichiers source.",
-          "requirement": "R10",
-          "tasks": [
-            "T02",
-            "T04"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "La tâche T07 produit un rapport final en français avec les contraintes de contenu requises.",
-          "requirement": "R11",
-          "tasks": [
-            "T07"
-          ]
-        }
-      ],
+      "contract_version": "26b.7",
+      "coverage": [],
       "goal_sha256": "cf983ebc7b39278e9fe5c8252f3cee0ff6b360f8d4c53c30eb297a6bcd72a9ff",
-      "issues": [],
+      "issues": [
+        "Review must address every extracted requirement exactly once"
+      ],
       "plan_sha256": "04aa992292844ce189b5d1a282527b7ce9e0e8c06aa3dd3231bdad385b670b5d",
       "plan_version": 2,
       "requirements_sha256": "617751c28cee960663ff2228c271931fd83188a15ad91adaea17d30d1ed1978e",
       "requirements_version": 2,
-      "status": "PASS"
+      "status": "FAIL"
     },
-    "contract_version": "26b.6"
+    "contract_version": "26b.7"
   },
   "observations": [
     {
@@ -13416,6 +13326,136 @@
       "created": 1792659251.998057,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 12943,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792659445.3026369,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12944,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment15/contract26b.7: exact-list goal cannot be covered by JSON array type/length alone; require model-chosen exact array or independent preservation of that array, not unrelated label or self-baseline. No field names/values supplied to planner, no business artifacts changed."
+      },
+      "created": 1792659445.3885493,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12951,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792659446.265915,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12956,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 10
+      },
+      "created": 1792659447.5909069,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12957,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "coverage_review_recovered",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "actions_replayed": false,
+        "plan_preserved": true,
+        "version": 2
+      },
+      "created": 1792659447.7558436,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12958,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.7",
+        "engine_contract_version": "26b.7",
+        "input_sha256": "0116175fc1f4bdfba6a39e4d2b6259069b4f4715d990340faded2470152cf041",
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"coverage\": [],\n  \"issues\": []\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "purpose": "coverage"
+      },
+      "created": 1792659452.9803758,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12959,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "coverage_review",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "author": "JARVIS-reviewer",
+        "contract_version": "26b.7",
+        "coverage": [],
+        "goal_sha256": "cf983ebc7b39278e9fe5c8252f3cee0ff6b360f8d4c53c30eb297a6bcd72a9ff",
+        "issues": [
+          "Review must address every extracted requirement exactly once"
+        ],
+        "plan_sha256": "04aa992292844ce189b5d1a282527b7ce9e0e8c06aa3dd3231bdad385b670b5d",
+        "plan_version": 2,
+        "requirements_sha256": "617751c28cee960663ff2228c271931fd83188a15ad91adaea17d30d1ed1978e",
+        "requirements_version": 2,
+        "status": "FAIL"
+      },
+      "created": 1792659453.1216903,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -16126,9 +16166,16 @@
         "result": {
           "reason": "26B deployment14/contract26b.6: independent check found accepted C manifest can precede inventory correction; deterministic declared-artifact dependency check and prevent global wait stranding independent local tasks. Review actual current/cited plan definitions, distinguish faithful failure/future intention from technical success; remove old reviewer opinions as normative requirements. No Codex operational steps or file corrections."
         }
+      },
+      {
+        "event": 12944,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment15/contract26b.7: exact-list goal cannot be covered by JSON array type/length alone; require model-chosen exact array or independent preservation of that array, not unrelated label or self-baseline. No field names/values supplied to planner, no business artifacts changed."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "8db1a8e4f99b7527af6c4c4db0234ed257eb1476bd1de1cf697d7e694caa9367"
+  "original_journal_sha256": "0f3b7e4c63a3c33af4a2c013a22872ee42ae184f4531bab43d14e05f4d83df38"
 }

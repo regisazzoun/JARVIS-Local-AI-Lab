@@ -2,9 +2,9 @@
   "scenario": "A",
   "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
   "raw_goal": "À partir de stocks.csv dans /var/lib/jarvis/projects/mission26b/A, fournis un bilan JSON summary.json donnant exactement le nombre de lignes d’articles et la somme entière des quantités, ainsi qu’un manifeste manifest.json contenant l’empreinte SHA256 réelle de ce bilan. Je veux pouvoir vérifier la cohérence entre les deux fichiers et disposer d’un rapport explicatif final fondé sur les preuves. Les entrées restent intactes. L’objectif est un lot documentaire technique exploitable, pas seulement une annonce de création.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
-  "state": "running",
+  "state": "queued",
   "created": 1792620526.6577399,
-  "updated": 1792659253.2568738,
+  "updated": 1792659446.4597116,
   "tasks": [
     {
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
@@ -1795,7 +1795,7 @@
       "requirements_version": 3,
       "status": "FAIL"
     },
-    "contract_version": "26b.6"
+    "contract_version": "26b.7"
   },
   "observations": [
     {
@@ -10628,6 +10628,200 @@
       },
       "created": 1792658832.6801858,
       "updated": 1792658852.5620787
+    },
+    {
+      "id": "b4dc9b5da409496bbfd2372f6c201eaf",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "a196754208cc675eceb5f5334847889d68fcb2d834530052a91e4c2287bbe0a9",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.097,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.032,
+          "evidence_id": "498e6c3f0252448e994129dd18531e2a",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_read_file"
+      },
+      "created": 1792659287.6542566,
+      "updated": 1792659287.9189079
+    },
+    {
+      "id": "703658b2916548c68424484247b24ee6",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "28717d07f2dc692ac12f87be4e9d622202c73439c2f50a2967fd4c12314a85f6",
+      "tool": "host_write_file",
+      "arguments": {
+        "content": "# Rapport T1 : Lecture et analyse de stocks.csv\n\n## Contexte\nTâche initiale de lecture du fichier source pour extraction des données brutes.\n\n## Preuve technique\nLecture effectuée via outil `host_read_file` avec invocation_id: b4dc9b5da409496bbfd2372f6c201eaf, evidence_id: 498e6c3f0252448e994129dd18531e2a.\n\n## Contenu exact lu\n```\narticle,quantite\nalpha,3\nbeta,4\ngamma,5\n```\n\n## Analyse\n- Nombre de lignes d'articles (hors en-tête): **3**\n- Somme des quantités: 3 + 4 + 5 = **12**\n- Format: CSV avec séparateur virgule, en-tête présent\n\n## Conclusion\nDonnées brutes confirmées : lines_articles=3, somme_quantites=12. Fichier intact et prêt pour extraction.\n",
+        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md"
+      },
+      "state": "finished",
+      "result": {
+        "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+        "ok": false,
+        "tool": "host_write_file"
+      },
+      "created": 1792659320.967189,
+      "updated": 1792659321.0571065
+    },
+    {
+      "id": "455e69065ae9445a8a821e744c96e840",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "2a0b5a67fd355b1be350dccc6666ac800fb1fd721e11f85e4e4479bf3be8d72d",
+      "tool": "mission_progress",
+      "arguments": {},
+      "state": "finished",
+      "result": {
+        "original_result_sha256": "f5f381c2c4a86ffe029e0c25d31cfcb74e3172db3ff6771b2c68dc54c805513f",
+        "ok": true,
+        "omitted": "catalogue/progress body; original retained in private canonical journal"
+      },
+      "created": 1792659324.430721,
+      "updated": 1792659324.6709023
+    },
+    {
+      "id": "e5b9ecb8603b4c0093eede9b97536efe",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "a196754208cc675eceb5f5334847889d68fcb2d834530052a91e4c2287bbe0a9",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.104,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.032,
+          "evidence_id": "b589a806a6254c2ab910569fbed473a3",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "article,quantite\nalpha,3\nbeta,4\ngamma,5\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_read_file"
+      },
+      "created": 1792659364.0074496,
+      "updated": 1792659364.304402
+    },
+    {
+      "id": "9ab25eab5d514a4aaeab549f749865f1",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "2c42ecfa17f8844d9f4ebd9804d29483400c09be79e2094ea855174f07d1dda0",
+      "tool": "mission_task_complete",
+      "arguments": {
+        "evidence_id": "b589a806a6254c2ab910569fbed473a3",
+        "id": "T1",
+        "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md"
+      },
+      "state": "finished",
+      "result": {
+        "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+        "ok": false,
+        "tool": "mission_task_complete"
+      },
+      "created": 1792659382.7291963,
+      "updated": 1792659382.8479195
+    },
+    {
+      "id": "3ca48846a338465a89d0595823622b50",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "fac9bf670aa62c21ac6bacf144f7488fafbfc854d28cf90166f47f90b3233970",
+      "tool": "host_write_file",
+      "arguments": {
+        "content_sha256": "f6345e60d3ad26c6de645babdfdae969a8c4b9420fdd8d7a1fa9bc11f192ddc0",
+        "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md"
+      },
+      "state": "finished",
+      "result": {
+        "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+        "ok": false,
+        "tool": "host_write_file"
+      },
+      "created": 1792659388.4010568,
+      "updated": 1792659388.4906821
+    },
+    {
+      "id": "e8a9e173cf97480fb78239fa191a8b37",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "89ff2a5badd79bbbcf5d3591eb38624575d318b3348763759e3efb7d4bb65b83",
+      "tool": "capability_status",
+      "arguments": {},
+      "state": "finished",
+      "result": {
+        "original_result_sha256": "ca29e81ea3f57c950db94dfb383400ae0b86bca943ffda6da362fe55748a398f",
+        "ok": true,
+        "omitted": "catalogue/progress body; original retained in private canonical journal"
+      },
+      "created": 1792659415.3487692,
+      "updated": 1792659415.7545507
+    },
+    {
+      "id": "40753baf1f5041f4bb8db0ad15213229",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "signature": "2a0b5a67fd355b1be350dccc6666ac800fb1fd721e11f85e4e4479bf3be8d72d",
+      "tool": "mission_progress",
+      "arguments": {},
+      "state": "finished",
+      "result": {
+        "original_result_sha256": "e0ac40a9e908d44375a171777925515b27352018b1ada7c35825423911d9717a",
+        "ok": true,
+        "omitted": "catalogue/progress body; original retained in private canonical journal"
+      },
+      "created": 1792659438.4660718,
+      "updated": 1792659438.7167737
     }
   ],
   "events": [
@@ -17275,6 +17469,320 @@
       "created": 1792659265.6366074,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 12910,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 185,
+          "eval_duration": 4989242000,
+          "load_duration": 14992934,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 19584,
+          "prompt_eval_duration": 16154316000,
+          "request_elapsed_s": 21.667309051961638,
+          "route_failures": [],
+          "total_duration": 21662716580
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659287.5644934,
+      "duration": 21.667345991008915,
+      "invocation": null
+    },
+    {
+      "id": 12914,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 157,
+          "eval_duration": 4235058000,
+          "load_duration": 12370098,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 17765,
+          "prompt_eval_duration": 14644805000,
+          "request_elapsed_s": 19.05924547603354,
+          "route_failures": [],
+          "total_duration": 19055777612
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659307.299728,
+      "duration": 19.059256294975057,
+      "invocation": null
+    },
+    {
+      "id": 12915,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS",
+      "kind": "model_checkpoint",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "text": "**Synthèse orale :**  \nJ'ai lu le fichier `stocks.csv` qui contient bien 3 lignes d'articles (alpha, beta, gamma) avec les quantités 3, 4 et 5. La somme totale est de 12. Je vais maintenant créer le fichier `summary.json` avec ces données exactes.\n\n**Détails :**  \nLe contenu exact de `stocks.csv` est confirmé :\n```\narticle,quantite\nalpha,3\nbeta,4\ngamma,5\n```\n\nCela correspond parfaitement aux observations attendues dans la tâche T1 du plan v5. Le fichier contient bien l'en-tête et 3 lignes de données. Je peux maintenant procéder à l'exécution des tâches."
+      },
+      "created": 1792659307.3870375,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12916,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 461,
+          "eval_duration": 12379871000,
+          "load_duration": 12154619,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 17950,
+          "prompt_eval_duration": 789013000,
+          "request_elapsed_s": 13.331528087030165,
+          "route_failures": [],
+          "total_duration": 13327481714
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659320.8450842,
+      "duration": 13.331539748935029,
+      "invocation": null
+    },
+    {
+      "id": 12919,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 89,
+          "eval_duration": 2380325000,
+          "load_duration": 12838316,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 18331,
+          "prompt_eval_duration": 527544999,
+          "request_elapsed_s": 3.1038124290062115,
+          "route_failures": [],
+          "total_duration": 3100063010
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659324.3401747,
+      "duration": 3.103840680094436,
+      "invocation": null
+    },
+    {
+      "id": 12923,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 810,
+          "eval_duration": 21968260000,
+          "load_duration": 12879900,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 20078,
+          "prompt_eval_duration": 16714264000,
+          "request_elapsed_s": 38.8626977520762,
+          "route_failures": [],
+          "total_duration": 38858261810
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659363.915836,
+      "duration": 38.86272960703354,
+      "invocation": null
+    },
+    {
+      "id": 12927,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 101,
+          "eval_duration": 2689847000,
+          "load_duration": 12483937,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 18237,
+          "prompt_eval_duration": 15061488000,
+          "request_elapsed_s": 17.958355464972556,
+          "route_failures": [],
+          "total_duration": 17954925477
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659382.6035163,
+      "duration": 17.95836515398696,
+      "invocation": null
+    },
+    {
+      "id": 12930,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 175,
+          "eval_duration": 4701395000,
+          "load_duration": 12643763,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 18427,
+          "prompt_eval_duration": 362910000,
+          "request_elapsed_s": 5.258675897028297,
+          "route_failures": [],
+          "total_duration": 5254768005
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659388.3155391,
+      "duration": 5.258688099915162,
+      "invocation": null
+    },
+    {
+      "id": 12933,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 965,
+          "eval_duration": 26074234000,
+          "load_duration": 12447744,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 18633,
+          "prompt_eval_duration": 372903000,
+          "request_elapsed_s": 26.58996761997696,
+          "route_failures": [],
+          "total_duration": 26585552024
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659415.2595499,
+      "duration": 26.589997251983732,
+      "invocation": null
+    },
+    {
+      "id": 12937,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 232,
+          "eval_duration": 6263180000,
+          "load_duration": 13160468,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 19027,
+          "prompt_eval_duration": 15778812000,
+          "request_elapsed_s": 22.23237288906239,
+          "route_failures": [],
+          "total_duration": 22228059117
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792659438.3741276,
+      "duration": 22.232414026977494,
+      "invocation": null
+    },
+    {
+      "id": 12941,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792659445.128631,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12942,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment15/contract26b.7: exact-list goal cannot be covered by JSON array type/length alone; require model-chosen exact array or independent preservation of that array, not unrelated label or self-baseline. No field names/values supplied to planner, no business artifacts changed."
+      },
+      "created": 1792659445.2127028,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 12955,
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792659446.4597878,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -21587,6 +22095,124 @@
         "broker_evidence": null,
         "error": null,
         "created": 1792658832.6801858
+      },
+      {
+        "invocation": "b4dc9b5da409496bbfd2372f6c201eaf",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "498e6c3f0252448e994129dd18531e2a",
+        "error": null,
+        "created": 1792659287.6542566
+      },
+      {
+        "invocation": "703658b2916548c68424484247b24ee6",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_write_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md",
+          "content_sha256": "f6345e60d3ad26c6de645babdfdae969a8c4b9420fdd8d7a1fa9bc11f192ddc0"
+        },
+        "observed_ok": false,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+        "created": 1792659320.967189
+      },
+      {
+        "invocation": "455e69065ae9445a8a821e744c96e840",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_progress",
+        "parameters": {},
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792659324.430721
+      },
+      {
+        "invocation": "e5b9ecb8603b4c0093eede9b97536efe",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/A/stocks.csv"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "b589a806a6254c2ab910569fbed473a3",
+        "error": null,
+        "created": 1792659364.0074496
+      },
+      {
+        "invocation": "9ab25eab5d514a4aaeab549f749865f1",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_task_complete",
+        "parameters": {
+          "evidence_id": "b589a806a6254c2ab910569fbed473a3",
+          "id": "T1",
+          "report_path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md"
+        },
+        "observed_ok": false,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+        "created": 1792659382.7291963
+      },
+      {
+        "invocation": "3ca48846a338465a89d0595823622b50",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_write_file",
+        "parameters": {
+          "content_sha256": "f6345e60d3ad26c6de645babdfdae969a8c4b9420fdd8d7a1fa9bc11f192ddc0",
+          "path": "/var/lib/jarvis/projects/mission26b/A/rapport_T1.md"
+        },
+        "observed_ok": false,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+        "created": 1792659388.4010568
+      },
+      {
+        "invocation": "e8a9e173cf97480fb78239fa191a8b37",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "capability_status",
+        "parameters": {},
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": "7df8c84215374140b4d3c8eea93c3a39",
+        "error": null,
+        "created": 1792659415.3487692
+      },
+      {
+        "invocation": "40753baf1f5041f4bb8db0ad15213229",
+        "task": null,
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_progress",
+        "parameters": {},
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792659438.4660718
       }
     ],
     "semantic_verifications": [
@@ -21764,9 +22390,16 @@
         "result": {
           "reason": "26B deployment14/contract26b.6: independent check found accepted C manifest can precede inventory correction; deterministic declared-artifact dependency check and prevent global wait stranding independent local tasks. Review actual current/cited plan definitions, distinguish faithful failure/future intention from technical success; remove old reviewer opinions as normative requirements. No Codex operational steps or file corrections."
         }
+      },
+      {
+        "event": 12942,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment15/contract26b.7: exact-list goal cannot be covered by JSON array type/length alone; require model-chosen exact array or independent preservation of that array, not unrelated label or self-baseline. No field names/values supplied to planner, no business artifacts changed."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "0ab46e7912aef903c6229b48c434eed8e95e3db14a29e82051c8647c92c3a32a"
+  "original_journal_sha256": "93f1e0a6b71147d5a905b0de506c5ecb55006cc3899209cd55339dc849ec2bf1"
 }

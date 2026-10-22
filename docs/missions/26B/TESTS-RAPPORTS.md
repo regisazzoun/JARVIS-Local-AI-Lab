@@ -1,8 +1,8 @@
 # Tests des rapports26B — campagne en cours
 
-Statut : 🟡 incomplet. Les 142 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
+Statut : 🟡 incomplet. Les 143 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
 
-La réception attend trois rapports réels : réussite locale complète (A), échec du programme puis correction (B), résultat local vérifié avec dépendance externe impossible à observer (C). Aucun de ces trois rapports n’est encore reçu au déploiement14.
+La réception attend trois rapports réels : réussite locale complète (A), échec du programme puis correction (B), résultat local vérifié avec dépendance externe impossible à observer (C). Aucun de ces trois rapports n’est encore reçu au déploiement15.
 
 Les tentatives originales sont conservées dans narrative_review avec texte intégral, empreinte, preuves et verdicts par passage. Les FAIL et INSUFFICIENT historiques ne sont pas effacés. Les défauts de format du relecteur sont journalisés séparément ; ils ne prouvent pas que la prose du rédacteur était factuellement fausse.
 
