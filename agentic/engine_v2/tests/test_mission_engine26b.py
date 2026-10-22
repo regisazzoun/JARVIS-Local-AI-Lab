@@ -323,3 +323,26 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(original['result']['draft'],body);self.assertTrue(original['result']['snapshot']['receipts'])
         expanded=fn({'content':body,'scope':'task','include_evidence':True})
         self.assertIn('snapshot',expanded);self.assertEqual(expanded['review_event'],reply['review_event'])
+
+    def test_evidence_lookup_own_event_and_reject_foreign_event(self):
+        from jarvis.durable_tools import register
+        self.r.specs={};register(self.r);fn=self.r.specs['mission_evidence'][4]
+        event=self.s.event(self.m,'semantic_verification','a',result={'status':'FAIL'})
+        result=fn({'id':'event:'+str(event)})
+        self.assertIn('FAIL',result['content'])
+        other=self.s.create('other','model','conversation')
+        foreign=self.s.event(other,'working_note',result={'content':'foreign'})
+        with self.assertRaises(ValueError):fn({'id':'event:'+str(foreign)})
+
+    def test_constrained_json_review_without_action_tools(self):
+        from jarvis.mission_assurance import review_model
+        captured=[]
+        def transport(payload):
+            captured.append(payload)
+            return {'content':'{"reference":"requirements:3"}'}
+        self.r.assurance_transport=transport
+        schema={'type':'object','properties':{'reference':{'type':'string','enum':['requirements:3']}},'required':['reference'],'additionalProperties':False}
+        value=review_model(self.r,'narrative','Review only',{},schema)
+        self.assertEqual(value,{'reference':'requirements:3'})
+        self.assertEqual(captured[0]['format'],schema)
+        self.assertNotIn('tools',captured[0])

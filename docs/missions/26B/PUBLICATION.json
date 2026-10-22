@@ -1,0 +1,20 @@
+{
+  "pr": 21,
+  "draft": true,
+  "head_commit": "6564763b3260b4edba3727839004e79e20698285",
+  "base": "codex/mission-26-mission-engine",
+  "checks": [
+    {
+      "path": "docs/missions/26B/RAPPORT-FINAL.md",
+      "git_blob_sha": "6305e0d241648f735820e7bc69311267081b52e1",
+      "display_url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/6564763b3260b4edba3727839004e79e20698285/docs/missions/26B/RAPPORT-FINAL.md",
+      "verification": "{\"path\": \"docs/missions/26B/RAPPORT-FINAL.md\", \"sha256\": \"e1c0f25b9f6b1f2eb2ce611e70b155ab741c20db51053f4a65d6a306b71a7523\", \"remote_equals_local\": true}\n"
+    },
+    {
+      "path": "agentic/engine_v2/jarvis/mission_assurance.py",
+      "git_blob_sha": "c6bfa3250ac8ba19a95fdbd7e283c70733d0bcd6",
+      "display_url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/6564763b3260b4edba3727839004e79e20698285/agentic/engine_v2/jarvis/mission_assurance.py",
+      "verification": "{\"path\": \"agentic/engine_v2/jarvis/mission_assurance.py\", \"sha256\": \"8a0c391a4398ca5b34049732a2cf5583cc9581e3011f72780df8c35646fa0e30\", \"remote_equals_local\": true}\n"
+    }
+  ]
+}
