@@ -11,7 +11,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from .mission_store import encoded
 
-VERSION = '26b.7'
+VERSION = '26b.8'
 GOAL_VERSION = '26b.4'
 
 
@@ -210,12 +210,13 @@ def artifact_dependency_issues(plan):
 def audit_plan(registry):
     store=registry.mission_store; ident=registry.context['mission_id']
     req=requirements(registry); saved=store.plans(ident)[-1]
-    schema=object_schema({'coverage':{'type':'array','items':object_schema({
-        'requirement':{'type':'string','enum':[x['id'] for x in req['requirements']]}, 'tasks':{'type':'array','items':{'type':'string','enum':[t['id'] for t in saved['plan']['tasks']]}}, 'covered':{'type':'boolean'}, 'reason':{'type':'string','maxLength':500}})},
+    row_schema=object_schema({'tasks':{'type':'array','items':{'type':'string','enum':[t['id'] for t in saved['plan']['tasks']]}},'covered':{'type':'boolean'},'reason':{'type':'string','maxLength':500}})
+    schema=object_schema({'coverage':object_schema({r['id']:row_schema for r in req['requirements']}),
         'issues':{'type':'array','items':{'type':'string'},'description':'ONLY actual blocking defects. Return [] when complete. Positive conclusions belong in coverage.reason, never here.'}})
     review=review_model(registry,'coverage',
         'Compare le plan à CHAQUE exigence ET à l’objectif brut pour détecter une extraction incomplète ou une paraphrase inexacte. Les types et relations demandés doivent être respectés : une liste demandée ne peut être remplacée par une autre représentation et un nombre global ne se confond pas avec des compteurs par élément. Utilise exactement les identifiants fournis, sans y ajouter de description. Justifications factuelles courtes (500 caractères maximum), sans délibération. Les exigences sur l’historique se vérifient sur plan_evolution : n’exige jamais de réintroduire dans le plan final une omission ou une erreur déjà corrigée. Vérifie les dépendances, les critères de réception et les observations concrètes. Quand plusieurs tâches modifient le même artefact, un manifeste ou contrôle final doit porter sur sa dernière version prévue, pas sur une version ensuite remplacée. Examine les producteurs déclarés et leur ordre, sans imposer de commandes. Compare les contrats aux lectures déjà disponibles sans exiger que les sorties futures existent déjà. Une lecture seule ne peut prouver un contenu différent de celui observé sans mutation prévue ; un manifeste ne se hache pas lui-même. Une mention dans metadata seule ne couvre pas un livrable : il faut une tâche et un contrat qui observent ce résultat, ou le rapport final moteur pour le compte rendu global. Pour un rapport explicitement demandé, un livrable final du moteur peut suffire si le plan le prévoit. Un objectif fonctionnel ne se prouve pas seulement en hachant un fichier arbitraire. N’écris pas le plan ni les commandes à la place du planificateur : expose seulement les résultats manquants/incohérences. Indique tasks=[] et covered=false pour toute omission. issues contient uniquement des défauts bloquants, JAMAIS un bilan positif ; issues=[] si le plan est complet. Une étape de blocage global doit être prévue après les autres livrables locaux possibles, sans transformer une non-vérification externe en réussite.',
         {'raw_goal':store.get(ident)['goal'],'requirements':req,'plan':saved['plan'],'declared_artifact_producers':{path:[t['id'] for t in saved['plan']['tasks'] if path in t.get('artifacts',[]) and set(t.get('tools',[])) & {'host_write_file','host_edit_file','host_exec','skill_run','mission_action'}] for path in {a for t in saved['plan']['tasks'] for a in t.get('artifacts',[]) if isinstance(a,str) and a.startswith('/')}},'plan_evolution':[{'version':p['version'],'author':p['author'],'sha256':p['sha256'],'tasks':[{'id':t['id'],'title':t['title'],'artifacts':t.get('artifacts',[])} for t in p['plan']['tasks']]} for p in store.plans(ident)],'execution_evidence_required_for_coverage':False,'historical_review_opinions_are_not_requirements':True},schema)
+    review['coverage']=[{'requirement':ident,**row} for ident,row in review['coverage'].items()]
     expected={x['id'] for x in req['requirements']}; rows=review['coverage']; seen=[x['requirement'] for x in rows]
     task_ids={t['id'] for t in saved['plan']['tasks']}
     issues=list(review['issues'])+typed_coverage_issues(req,saved['plan'])+artifact_dependency_issues(saved['plan'])
@@ -245,6 +246,8 @@ def ensure_plan_review(registry):
     plans=store.plans(ident)
     if not plans:return None
     previous=latest(store,ident,'coverage_review')
+    if previous and 'Review must address every extracted requirement exactly once' in previous.get('issues',[]) and previous.get('contract_version')!=VERSION:
+        store.event(ident,'coverage_format_rectification',actor='JARVIS-engine',result={'previous_plan_version':previous.get('plan_version'),'previous_status_preserved':previous.get('status'),'author_not_blamed':True,'reason':'Historical review omitted/duplicated requirement rows; a reviewer-format defect, not proof of an incomplete plan. Recheck using required requirement keys.'})
     if not previous or previous.get('plan_sha256')!=plans[-1]['sha256'] or previous.get('contract_version')!=VERSION or previous.get('requirements_sha256')!=digest(latest(store,ident,'goal_requirements')) or previous.get('goal_sha256')!=hashlib.sha256(store.get(ident)['goal'].encode()).hexdigest():
         store.event(ident,'coverage_review_recovered',result={'version':plans[-1]['version'],'plan_preserved':True,'actions_replayed':False})
         return audit_plan(registry)

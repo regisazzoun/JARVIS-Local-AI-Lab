@@ -20,7 +20,7 @@ class AssuranceTests(unittest.TestCase):
     def extraction(self):
         return {'requirements':[{'id':'R1','source_segment':'G1','outcome':'file'},{'id':'R2','source_segment':'G1','outcome':'report'}],'output_constraints':[]}
     def coverage(self,complete=True):
-        return {'coverage':[{'requirement':'R1','tasks':['a'],'covered':True,'reason':'exact state'}, {'requirement':'R2','tasks':['a'] if complete else [],'covered':complete,'reason':'report missing' if not complete else 'explicit final report'}],'issues':[]}
+        return {'coverage':{'R1':{'tasks':['a'],'covered':True,'reason':'exact state'}, 'R2':{'tasks':['a'] if complete else [],'covered':complete,'reason':'report missing' if not complete else 'explicit final report'}},'issues':[]}
     def test_omission_blocks_effects_and_revision_survives_restart(self):
         self.responses=[self.extraction(),self.coverage(False),self.coverage(True)]
         requirements(self.r);self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
@@ -35,11 +35,12 @@ class AssuranceTests(unittest.TestCase):
         bad=self.extraction();bad['requirements'][0]['source_segment']='G404'
         self.responses=[bad,copy.deepcopy(bad)]
         with self.assertRaises(ValueError):requirements(self.r)
-        self.responses=[self.extraction(),{'coverage':[],'issues':[]}]
+        self.responses=[self.extraction(),{'coverage':{},'issues':[]},{'coverage':{},'issues':[]}]
         self.s.plan(self.m,[task()],metadata=self.meta)
-        self.assertEqual(audit_plan(self.r)['status'],'FAIL');self.assertFalse(self.s.ready(self.m))
+        with self.assertRaises(ValueError):audit_plan(self.r)
+        self.assertFalse(self.s.ready(self.m))
     def test_unknown_task_review_and_unreviewed_revision_block(self):
-        a=self.coverage();a['coverage'][0]['tasks']=['not-real']
+        a=self.coverage();a['coverage']['R1']['tasks']=['not-real']
         self.responses=[self.extraction(),a,copy.deepcopy(a)];self.s.plan(self.m,[task()],metadata=self.meta)
         with self.assertRaises(ValueError):audit_plan(self.r)
         self.assertEqual(self.s.ready(self.m),[])
@@ -403,3 +404,16 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(typed_coverage_issues(requirement,plan),[])
         predicate.pop('baseline_source');predicate.pop('preserve');predicate['expected']={'/names':['a','b']}
         self.assertEqual(typed_coverage_issues(requirement,plan),[])
+
+    def test_coverage_requires_all_keys_and_repairs_reviewer_not_plan(self):
+        from jarvis.mission_assurance import latest
+        incomplete=self.coverage();incomplete['coverage'].pop('R2')
+        self.responses=[self.extraction(),incomplete,self.coverage()]
+        self.s.plan(self.m,[task()],metadata=self.meta)
+        result=audit_plan(self.r)
+        self.assertEqual(result['status'],'PASS')
+        self.assertEqual({row['requirement'] for row in result['coverage']},{'R1','R2'})
+        self.assertEqual(len(self.s.plans(self.m)),1)
+        rejected=[e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']
+        self.assertEqual(len(rejected),1)
+        self.assertTrue(rejected[0]['result']['author_not_blamed'])

@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792659479.342585,
+  "created": 1792659642.2526212,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "96b7dea4ae96f4ee15cc934a505497b59fe7f12af794a8bd861bc88d3a9bbe2c",
+      "installed_sha256": "3de703f1080ac637d766e6f5f8b25e40d63a3757add98f6f636d6f423c89a42b",
       "matches_source": true
     },
     {
@@ -148,8 +148,8 @@
     {
       "case": "A",
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "state": "queued",
-      "coverage_accepted": false,
+      "state": "running",
+      "coverage_accepted": true,
       "versions": 5,
       "tasks": [
         [
@@ -392,6 +392,14 @@
             "Review must address every extracted requirement exactly once"
           ],
           "draft_sha256": null
+        },
+        {
+          "event": 12991,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -533,7 +541,7 @@
     {
       "case": "B",
       "mission": "54c634e56b8d4241964322700ea5d837",
-      "state": "running",
+      "state": "queued",
       "coverage_accepted": false,
       "versions": 2,
       "tasks": [
@@ -960,6 +968,24 @@
           "invocation": "556415ce39ab4be6be137a418663c37d",
           "tool": "mission_plan",
           "error": "append accepts only NEW task ids; use patch:true to update existing pending tasks without resending received tasks",
+          "result": null
+        },
+        {
+          "invocation": "eed0a06ad2754d1a9d447121874eeed6",
+          "tool": "mission_verify",
+          "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+          "result": null
+        },
+        {
+          "invocation": "626d55e722eb4517b9daa600983a29ed",
+          "tool": "mission_verify",
+          "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
+          "result": null
+        },
+        {
+          "invocation": "9c7a4ae7a4834242869b744fc7e67aad",
+          "tool": "mission_task_complete",
+          "error": "Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.",
           "result": null
         }
       ],
