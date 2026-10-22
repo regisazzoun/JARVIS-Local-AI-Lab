@@ -15,6 +15,8 @@
 
 ✅ **GO** : réalisé et validé · ✅🟡 **GO avec réserves / GO partiel** : acquis vérifié, limites non bloquantes consignées · 🟡 **En cours / incomplet** : objectif non encore validé · 📋 **Planifiée** · ❌ **NO-GO** : échec démontré. Ces pictogrammes n'effacent pas les verdicts historiques.
 
+**Prémission JL-03 (22 octobre 2026) — préparation validée par le propriétaire :** [cahier de prémission mission 27 — orbe cristalline, égaliseur audio, interface et supervision](docs/missions/27-JL-03/PREMISSION-JL-03.md). **Document de référence pour la conversation « 00 — Pilotage général »**. Décisions de conception documentées ; mission 27 non démarrée, JL-02 préservée.
+
 ## Nouvelles missions du 19 octobre 2026
 
 **Correspondance ancien numéro → nouveau numéro :** 23→23 (LiveKit), 28→24 (mémoire), 26→25 (skills), 25→26 (moteur), 24→27 (JL-03), 27→28 (routage), 29→29, 30→30, 31→31. Les autres missions et les noms de produits JL-01/JL-02/JL-03 sont inchangés.
