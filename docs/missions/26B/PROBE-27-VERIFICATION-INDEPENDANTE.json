@@ -1,0 +1,45 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792711412.7115822,
+  "status": "PASS",
+  "scope": "Three deliberately injected factual faults on real T1 receipts; actual model wrote two revisions. Not a fourth autonomous mission and not reception of operational A/B/C final reports. Whole final prose read independently; actor/date/source values and cited semantic types/statuses checked against originals.",
+  "draft_sha256": "48a6d62cee02fb061f6299998377b8c0b60e2ff56d31715eb809e5e88bd795a3",
+  "model_final_status": "PASS",
+  "checks": {
+    "wrong_actor_detected": true,
+    "wrong_date_detected": true,
+    "wrong_count_detected": true,
+    "original_actor": "JARVIS",
+    "original_read_created": "2026-10-22T00:09:44.514686+02:00",
+    "source_csv_rows": 3,
+    "source_csv_sum": 12,
+    "codex_interventions_at_report_snapshot": 43,
+    "semantic_references": [
+      {
+        "event": 13010,
+        "kind": "semantic_verification",
+        "status": "PASS",
+        "task": "T1"
+      },
+      {
+        "event": 13031,
+        "kind": "semantic_verification",
+        "status": "PASS",
+        "task": "T1"
+      },
+      {
+        "event": 13053,
+        "kind": "semantic_verification",
+        "status": "PASS",
+        "task": "T1"
+      },
+      {
+        "event": 13186,
+        "kind": "semantic_verification",
+        "status": "PASS",
+        "task": "T1"
+      }
+    ]
+  },
+  "remaining_limits": "Same Qwen model in separate contexts; this bounded scenario does not prove general factual infallibility. Other C historical cause/status false PASS remains a separate open reception."
+}

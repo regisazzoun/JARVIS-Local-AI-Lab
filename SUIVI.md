@@ -1,6 +1,6 @@
 ## Mission26B — lancement du22 octobre2026
 
-🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md). Code et preuves intermédiaires : [PR21 en brouillon](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), 162 tests logiciels réussis ; réception opérationnelle encore ouverte.
+🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md). Code et preuves intermédiaires : [PR21 en brouillon](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), 165 tests logiciels réussis ; réception opérationnelle encore ouverte.
 
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 

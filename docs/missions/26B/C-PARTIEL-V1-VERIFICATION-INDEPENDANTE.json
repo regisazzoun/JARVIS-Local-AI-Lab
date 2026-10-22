@@ -1,0 +1,68 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792711532.9679716,
+  "status": "FAIL",
+  "scope": "Partial prose only; external wait was correctly recorded and six local validated tasks retained. This is not a failure of local inventory/hash results.",
+  "findings": [
+    "event10978 is narrative_review FAIL for missing historical failures and invalid receipt references; it is not a coverage omission event.",
+    "event15355 is narrative_review FAIL, not an INSUFFICIENT event, despite its issues requiring mention of historical INSUFFICIENT.",
+    "event19151 falsely accepted these prose claims. Original events and first partial text are retained."
+  ],
+  "sources": [
+    {
+      "event": 10978,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "status": "FAIL",
+      "issues": [
+        "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+        "Le segment S3 cite un evidence_id inexistant 'e92770ac8a5b4ab3be0834c92bbc14ec' au lieu du vrai ID '8b9eafefdb684d40a33e2f4c487fe4e8'.",
+        "Le segment S7 cite également l'evidence_id erroné 'e92770ac8a5b4ab3be0834c92bbc14ec' et confond les reference du receipt (ex: 53bb...) avec les evidence_id internes.",
+        "## Données d'entrée\n- Fichier source: `/var/lib/jarvis/projects/mission26b/C/input.json`\n- Contenu observé (evidence_id: e92770ac8a5b4ab3be0834c92bbc14ec): `{\"label\": \"fixture-C\", \"names\": [\"capteur-a\", \"capteur-b\"]}` => insufficient: Le segment cite un evidence_id 'e92770ac8a5b4ab3be0834c92bbc14ec' qui n'existe pas dans les allowed_references ni dans les receipts. Le vrai evidence_id pour la lecture de input.json est '8b9eafefdb684d40a33e2f4c487fe4e8' (voir receipt 50d1beebfe704e2fa1b4dad90a719cf1). Le contenu mentionné correspond bien au fichier lu, mais l'ID de preuve est erroné.",
+        "## Preuves\n- Lecture input.json: evidence_id e92770ac8a5b4ab3be0834c92bbc14ec\n- Écriture inventaire.json: evidence_id 3e724148092f42d89d8d719c5a883852\n- Vérification contrat: invocation_id a3eaffdec2454b2a8cfc20ee5bb8340b => insufficient: Le segment liste des IDs de preuve incorrects. 'e92770ac8a5b4ab3be0834c92bbc14ec' n'existe pas ; le bon ID pour la lecture de input.json est '8b9eafefdb684d40a33e2f4c487fe4e8'. Les autres IDs (3e724148092f42d89d8d719c5a883852 pour l'écriture) sont des evidence_ids internes non disponibles dans allowed_references sous cette forme exacte en tant que preuve externe, bien qu'ils correspondent à l'evidence_id observé dans le receipt. Cependant, les IDs de références autorisées sont les reference du receipt (ex: 53bb...) et non les evidence_id internes cités dans le texte du rapport si ceux-ci ne sont pas dans la liste blanche."
+      ],
+      "source_checks": null
+    },
+    {
+      "event": 15355,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "status": "FAIL",
+      "issues": [
+        "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+        "Historical INSUFFICIENT must be explicitly retained; see original semantic, coverage and editorial review events"
+      ],
+      "source_checks": null
+    },
+    {
+      "event": 19151,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "status": "PASS",
+      "issues": [],
+      "source_checks": {
+        "event:10978": {
+          "reason": "L'événement est un narrative_review FAIL citant l'omission de manifest.json, conforme au texte.",
+          "supported": true
+        },
+        "event:15355": {
+          "reason": "L'événement est un narrative_review INSUFFICIENT citant l'omission des échecs historiques, conforme au texte.",
+          "supported": true
+        },
+        "event:15888": {
+          "reason": "L'événement est une semantic_verification PASS confirmant le contenu de rapport-blocage.md.",
+          "supported": true
+        },
+        "event:16732": {
+          "reason": "L'événement est une semantic_verification PASS confirmant le contenu exact de inventaire.json.",
+          "supported": true
+        },
+        "event:17449": {
+          "reason": "L'événement est une semantic_verification PASS confirmant la structure de manifest.json.",
+          "supported": true
+        }
+      }
+    }
+  ],
+  "automatic_retest": "PROBE-C-28.json"
+}

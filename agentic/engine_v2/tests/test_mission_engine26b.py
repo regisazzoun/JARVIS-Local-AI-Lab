@@ -626,3 +626,29 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual(value['closure']['quote'],'Puis enregistre ce blocage externe.')
         rejected=[e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']
         self.assertEqual(len(rejected),1);self.assertTrue(rejected[0]['result']['author_not_blamed'])
+
+    def test_attached_event_status_cannot_be_overridden_by_reviewer_pass(self):
+        from jarvis.mission_assurance import event_status_issues,cited_event_facts
+        event=self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','issues':['unknown receipt']})
+        ref='event:'+str(event)
+        body='FAIL conservé ; '+ref+' - INSUFFICIENT : livrable omis.'
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'false positive'}],'issues':[], 'cited_event_checks':{ref:{'supported':True,'reason':'false positive'}}}]
+        result=audit_report(self.r,body,'a')
+        self.assertEqual(result['status'],'FAIL');self.assertTrue(any('status assertion INSUFFICIENT' in issue for issue in result['issues']))
+        self.assertEqual(event_status_issues('FAIL '+ref,cited_event_facts(self.s,self.m,ref)),[])
+
+    def test_focused_source_check_rejects_wrong_cause_after_global_model_pass(self):
+        event=self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','issues':['unknown receipt']})
+        ref='event:'+str(event);body='FAIL '+ref+' : manifeste omis.'
+        self.responses=[{'claims':[{'segment':'S1','verdict':'supported','references':[ref],'reason':'false positive'}],'issues':[], 'cited_event_checks':{ref:{'supported':True,'reason':'false positive'}}},
+            {'checks':{ref:{'supported':False,'claimed_status':'FAIL','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'manifeste omis','supporting_diagnostic_index':None,'reason':'original only reports unknown receipt'}}}]
+        result=audit_report(self.r,body,'a')
+        self.assertEqual(result['status'],'FAIL');self.assertIn('focused_source_review',result)
+        self.assertTrue(any('no supporting original issue' in issue for issue in result['issues']))
+
+    def test_focused_source_check_retains_correct_original_diagnostic(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        event=self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','issues':['unknown receipt']})
+        ref='event:'+str(event);body='FAIL '+ref+' : unknown receipt.'
+        self.responses=[{'checks':{ref:{'supported':True,'claimed_status':'FAIL','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'unknown receipt','supporting_diagnostic_index':0,'reason':'exact original diagnostic'}}}]
+        self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])

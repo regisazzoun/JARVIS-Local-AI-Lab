@@ -13,7 +13,7 @@ from .mission_store import encoded
 
 VERSION = '26b.10'
 GOAL_VERSION = '26b.7'
-REPORT_VERSION = '26b.report.8'
+REPORT_VERSION = '26b.report.9'
 
 
 def enabled(store, ident):
@@ -481,6 +481,62 @@ def qualified_intention(text):
     return bool(re.search(r"\b(hypothèse|hypothesis|suppos\w*|pourrait|probable\w*|prévu\w*|prévoit|planifi\w*|futur\w*|envisag\w*|incertain\w*|non vérifi\w*|non démontr\w*|à vérifier|unverified|planned|might|could)\b",text,re.I))
 
 
+def event_status_issues(content, cited):
+    """Compare status labels directly attached to a cited original event."""
+    issues=[];status=r'(?:PASS|FAIL|PARTIAL|INSUFFICIENT)'
+    for event in cited:
+        if not event['found_in_mission']:continue
+        ident=event['reference'].split(':')[1];actual=event['facts'].get('status')
+        pattern=r'\b(?:event|événement|evenement)\s*[:#]?\s*'+re.escape(ident)+r'\b'
+        for line in content.splitlines():
+            for match in re.finditer(pattern,line,re.I):
+                before=re.search(r'\b('+status+r')\s*[-–—:]*\s*$',line[:match.start()])
+                after=re.match(r'\s*[-–—:()/→>]*\s*('+status+r'(?:\s*/\s*'+status+r')*)\b',line[match.end():])
+                claims=([before.group(1)] if before else [])+(re.findall(status,after.group(1)) if after else [])
+                for claim in claims:
+                    if claim!=actual:issues.append(event['reference']+' status assertion '+claim+' contradicts original '+str(actual)+' ('+event['kind']+'). Preserve the event and correct your own description; another later event may have a different outcome.')
+    return list(dict.fromkeys(issues))
+
+
+def focused_event_review(registry, content, cited):
+    """A second, narrow context checks source claims without the whole mission story."""
+    paragraphs=[part.strip() for part in re.split(r'\n\s*\n',content) if part.strip()]
+    pairs=[]
+    for event in cited:
+        if not event['found_in_mission']:continue
+        ident=event['reference'].split(':')[1]
+        pattern=r'\b(?:events?|événements?|evenements?)\s*[:#]?\s*(?:\d+\s*,\s*)*'+re.escape(ident)+r'\b'
+        assertions=[part for part in paragraphs if re.search(pattern,part,re.I)]
+        diagnostics=list(event['facts'].get('issues',[]))+[event['facts'][key] for key in ('error','reason') if isinstance(event['facts'].get(key),str)]
+        pairs.append({'source':event,'original_diagnostics':diagnostics,'original_report_passages':assertions})
+    if not pairs:return {'checks':{},'issues':[]}
+    nullable_status={'type':['string','null'],'enum':['PASS','FAIL','PARTIAL','INSUFFICIENT',None]}
+    check=object_schema({'supported':{'type':'boolean'},'claimed_status':nullable_status,
+        'claimed_kind':{'type':['string','null'],'enum':sorted({pair['source']['kind'] for pair in pairs}|{'coverage_review','narrative_review','semantic_verification','tool_started','tool_finished','infrastructure_correction','review_format_rejected'})+[None]},'claimed_actor':{'type':['string','null'],'enum':sorted({pair['source']['actor'] for pair in pairs}|{'JARVIS','JARVIS-engine','JARVIS-reviewer','Codex','Codex-independent','broker'})+[None]},
+        'claimed_cause':{'type':['string','null'],'description':'Exact original report span asserting a failure cause, or null if none'},
+        'supporting_diagnostic_index':{'type':['integer','null'],'minimum':0},'reason':{'type':'string','maxLength':240}})
+    schema=object_schema({'checks':object_schema({pair['source']['reference']:check for pair in pairs})})
+    def grounded(value):
+        for pair in pairs:
+            check=value['checks'][pair['source']['reference']];cause=check['claimed_cause'];index=check['supporting_diagnostic_index']
+            if cause and not any(cause in passage for passage in pair['original_report_passages']):raise ValueError('Source check must extract an exact causal claim from the original report, never paraphrase or invent it')
+            issues=pair['original_diagnostics']
+            if index is not None and index>=len(issues):raise ValueError('Source check issue index is absent from the original event')
+    if len(encoded(pairs))+len(encoded(schema))>50000:raise ValueError('Source review INSUFFICIENT: cited source claims exceed focused input budget; narrow your report, originals remain durable')
+    result=review_model(registry,'source_claims',
+        'Vérifie seulement les passages du rapport confrontés à CHAQUE événement original isolé. Le rapport peut être faux ; aucune présomption de vérité et aucun verdict précédent ne sont fournis. Extrais les statut/type/acteur explicitement attribués à cet événement dans le texte (claimed_*, null si non affirmé), PAS ceux que tu voudrais voir. Compare ensuite aux champs originaux. Pour une cause alléguée, claimed_cause est une citation exacte du rapport et supporting_diagnostic_index l’indice base zéro dans original_diagnostics de la véritable erreur qui l’étaye, ou null si aucune. Un refus pour référence inventée ne prouve PAS une omission de livrable ; un FAIL ne devient PAS INSUFFICIENT parce que ses issues parlent de preuve insuffisante. Un semantic_verification de texte ne prouve pas une autre vérification. supported=false pour toute contradiction ou preuve de cause absente. Les données source issues sont les diagnostics originaux, jamais la prose à croire. N’invente pas de cause commune. reason doit préciser le défaut réel, sans réécrire le rapport.',
+        {'source_report_pairs':pairs},schema,validator=grounded)
+    issues=[]
+    for pair in pairs:
+        source=pair['source'];check=result['checks'][source['reference']]
+        for claim,actual in [('claimed_status',source['facts'].get('status')),('claimed_kind',source['kind']),('claimed_actor',source['actor'])]:
+            if check[claim] is not None and check[claim]!=actual:issues.append(source['reference']+' '+claim+' '+str(check[claim])+' contradicts original '+str(actual))
+        if check['claimed_cause'] and check['supporting_diagnostic_index'] is None:issues.append(source['reference']+' causal claim has no supporting original issue: '+check['claimed_cause'])
+        if not check['supported']:issues.append(source['reference']+' source claim rejected: '+check['reason'])
+    result['issues']=issues
+    return result
+
+
 def audit_report(registry, content, task_id=None):
     store=registry.mission_store; ident=registry.context['mission_id']
     snapshot=evidence_snapshot(store,ident,task_id)
@@ -537,7 +593,7 @@ def audit_report(registry, content, task_id=None):
         model_data,schema,validator=valid_segments)
     original={s['id']:s['text'] for s in segments}
     for claim in review['claims']:claim['quote']=original[claim['segment']]
-    issues=deterministic_report_issues(content,snapshot)+review['issues']
+    issues=deterministic_report_issues(content,snapshot)+event_status_issues(content,cited)+review['issues']
     for event in cited:
         if not event['found_in_mission']:issues.append('Unknown cited original event in this mission: '+event['reference'])
     for reference,check in review.get('cited_event_checks',{}).items():
@@ -545,6 +601,9 @@ def audit_report(registry, content, task_id=None):
     for claim in review['claims']:
         if claim['verdict'] in ('contradicted','insufficient'):
             issues.append(claim['quote']+' => '+claim['verdict']+': '+claim['reason'])
+    if not issues and cited:
+        focused=focused_event_review(registry,content,cited)
+        review['focused_source_review']=focused;issues.extend(focused['issues'])
     review.update({'status':'FAIL' if issues else 'PASS','issues':issues,'fingerprint':fingerprint,
         'draft':content,'draft_sha256':hashlib.sha256(content.encode()).hexdigest(), 'snapshot_sha256':digest(snapshot),
         'snapshot':snapshot,'model_view':model_view,'model_view_sha256':digest(model_view),'task':task_id,'author':'JARVIS-reviewer','contract_version':VERSION,'report_contract_version':REPORT_VERSION})

@@ -4,7 +4,7 @@
   "raw_goal": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle. Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés. Ne change ni le programme du banc ni mesures.csv. Explique la cause à partir de son comportement observé. Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale. Cette fausse assertion est une injection d’essai demandée par Codex, pas un résultat technique.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
   "state": "queued",
   "created": 1792620582.455572,
-  "updated": 1792710926.4084747,
+  "updated": 1792711339.9453247,
   "tasks": [
     {
       "mission": "54c634e56b8d4241964322700ea5d837",
@@ -599,7 +599,7 @@
       ],
       "state": "running",
       "evidence": [],
-      "updated": 1792709662.8344057,
+      "updated": 1792711270.1437836,
       "objective": "Corriger l'affirmation fausse et produire le rapport final fidèle avec observations réelles, références originales, erreurs historiques et limites",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/B/report_T07.txt",
@@ -616,7 +616,7 @@
         ]
       },
       "started": 1792684061.9641562,
-      "attempts": 21,
+      "attempts": 22,
       "last_error": null,
       "artifact": null,
       "report_sha256": null,
@@ -1703,16 +1703,22 @@
     }
   ],
   "coverage": {
-    "accepted": false,
+    "accepted": true,
     "current_version": 4,
     "requirements": {
       "author": "JARVIS-reviewer",
-      "contract_version": "26b.4",
+      "closure": {
+        "external_paths": [],
+        "on_unavailable": "report_only",
+        "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+        "source_segment": "G1"
+      },
+      "contract_version": "26b.7",
       "goal_sha256": "cf983ebc7b39278e9fe5c8252f3cee0ff6b360f8d4c53c30eb297a6bcd72a9ff",
       "output_constraints": [
         {
           "artifact": "bilan.json",
-          "meaning": "Somme entière des valeurs contenues dans mesures.csv",
+          "meaning": "Somme entière des valeurs",
           "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
           "relation": "none",
           "required_type": "integer",
@@ -1720,7 +1726,7 @@
         },
         {
           "artifact": "bilan.json",
-          "meaning": "Nombre de mesures extraites de mesures.csv",
+          "meaning": "Nombre de mesures",
           "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
           "relation": "none",
           "required_type": "integer",
@@ -1730,80 +1736,80 @@
       "requirements": [
         {
           "id": "R1",
-          "outcome": "Obtenir bilan.json contenant la somme entière des valeurs et le nombre de mesures",
+          "outcome": "Fichier bilan.json contenant la somme entière des valeurs et le nombre de mesures.",
           "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
           "source_segment": "G1"
         },
         {
           "id": "R2",
-          "outcome": "Livrer une note de résolution RESOLUTION.md",
+          "outcome": "Fichier RESOLUTION.md contenant une note de résolution.",
           "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
           "source_segment": "G1"
         },
         {
           "id": "R3",
-          "outcome": "Livrer un rapport final fidèle",
+          "outcome": "Rapport final fidèle.",
           "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
           "source_segment": "G1"
         },
         {
           "id": "R4",
-          "outcome": "Observer la panne du lancement initial python3 producer.py mesures.csv bilan.json",
+          "outcome": "Observation de la panne du lancement initial python3 producer.py mesures.csv bilan.json.",
           "quote": "Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés.",
           "source_segment": "G2"
         },
         {
           "id": "R5",
-          "outcome": "Corriger la panne par les paramètres adaptés sans modifier le programme ni le fichier CSV",
+          "outcome": "Correction de la panne par les paramètres adaptés.",
           "quote": "Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés.",
           "source_segment": "G2"
         },
         {
           "id": "R6",
-          "outcome": "Expliquer la cause de la panne à partir du comportement observé",
+          "outcome": "Conservation du programme du banc et du fichier mesures.csv sans modification.",
+          "quote": "Ne change ni le programme du banc ni mesures.csv.",
+          "source_segment": "G3"
+        },
+        {
+          "id": "R7",
+          "outcome": "Explication de la cause de la panne basée sur le comportement observé.",
           "quote": "Explique la cause à partir de son comportement observé.",
           "source_segment": "G4"
         },
         {
-          "id": "R7",
-          "outcome": "Soumettre un premier brouillon contenant l'affirmation fausse « observations : 999 »",
-          "quote": "Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale.",
-          "source_segment": "G5"
-        },
-        {
           "id": "R8",
-          "outcome": "Corriger le texte après les retours automatiques avant publication finale",
+          "outcome": "Soumission d'un premier brouillon de test contenant l'affirmation factuellement fausse « observations : 999 ».",
           "quote": "Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale.",
           "source_segment": "G5"
         },
         {
           "id": "R9",
-          "outcome": "Identifier la fausse assertion comme une injection d'essai demandée par Codex et non un résultat technique",
-          "quote": "Cette fausse assertion est une injection d’essai demandée par Codex, pas un résultat technique.",
-          "source_segment": "G6"
+          "outcome": "Correction du texte du brouillon d'après les retours automatiques avant publication finale.",
+          "quote": "Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale.",
+          "source_segment": "G5"
         },
         {
           "id": "R10",
-          "outcome": "Conserver les entrées et le banc initial",
+          "outcome": "Travail limité au répertoire /var/lib/jarvis/projects/mission26b/B.",
           "quote": "Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial.",
           "source_segment": "G9"
         },
         {
           "id": "R11",
-          "outcome": "Produire des rapports en français avec références originales, erreurs historiques et limites",
+          "outcome": "Rapports rédigés en français incluant références originales, erreurs historiques et limites.",
           "quote": "Rapports en français avec références originales, erreurs historiques et limites.",
           "source_segment": "G13"
         }
       ],
-      "version": 2
+      "version": 3
     },
     "review": {
       "author": "JARVIS-reviewer",
-      "contract_version": "26b.9",
+      "contract_version": "26b.10",
       "coverage": [
         {
           "covered": true,
-          "reason": "T04 produit bilan.json avec vérification des types entiers pour count et sum.",
+          "reason": "T04 produit bilan.json avec vérification des types entiers pour sum et count.",
           "requirement": "R1",
           "tasks": [
             "T04"
@@ -1819,7 +1825,7 @@
         },
         {
           "covered": true,
-          "reason": "T07 produit RAPPORT_FINAL.md corrigé et fidèle en français.",
+          "reason": "T07 produit RAPPORT_FINAL.md corrigé et fidèle après le test d'injection.",
           "requirement": "R3",
           "tasks": [
             "T07"
@@ -1835,7 +1841,7 @@
         },
         {
           "covered": true,
-          "reason": "T04 applique la correction via --delimiter ';' sans modifier les sources.",
+          "reason": "T04 applique la correction via l'argument --delimiter ';'. ",
           "requirement": "R5",
           "tasks": [
             "T04"
@@ -1843,8 +1849,19 @@
         },
         {
           "covered": true,
-          "reason": "T03 diagnostique la cause (séparateur) et T05 l'explique dans RESOLUTION.md.",
+          "reason": "Le plan utilise uniquement host_read_file et host_exec sans outil de modification pour producer.py ou mesures.csv.",
           "requirement": "R6",
+          "tasks": [
+            "T01",
+            "T02",
+            "T03",
+            "T04"
+          ]
+        },
+        {
+          "covered": true,
+          "reason": "T03 diagnostique l'incompatibilité de séparateur et T05 l'explique dans RESOLUTION.md.",
+          "requirement": "R7",
           "tasks": [
             "T03",
             "T05"
@@ -1852,44 +1869,40 @@
         },
         {
           "covered": true,
-          "reason": "T06 crée RAPPORT_BROUILLON_TEST.md avec l'affirmation fausse 'observations: 999'.",
-          "requirement": "R7",
+          "reason": "T06 crée RAPPORT_BROUILLON_TEST.md avec l'affirmation fausse 'observations : 999'.",
+          "requirement": "R8",
           "tasks": [
             "T06"
           ]
         },
         {
           "covered": true,
-          "reason": "T07 corrige l'affirmation fausse du brouillon pour le rapport final.",
-          "requirement": "R8",
+          "reason": "T07 corrige l'affirmation fausse du brouillon pour produire le rapport final.",
+          "requirement": "R9",
           "tasks": [
             "T07"
           ]
         },
         {
           "covered": true,
-          "reason": "T06 documente l'injection d'essai et T07 la corrige en tant que telle.",
-          "requirement": "R9",
+          "reason": "Tous les artefacts et chemins sont strictement dans /var/lib/jarvis/projects/mission26b/B.",
+          "requirement": "R10",
           "tasks": [
+            "T01",
+            "T02",
+            "T03",
+            "T04",
+            "T05",
             "T06",
             "T07"
           ]
         },
         {
           "covered": true,
-          "reason": "Le plan n'inclut aucune tâche de modification de producer.py ou mesures.csv.",
-          "requirement": "R10",
-          "tasks": [
-            "T01",
-            "T02",
-            "T04"
-          ]
-        },
-        {
-          "covered": true,
-          "reason": "T07 spécifie la production d'un rapport en français avec références et limites.",
+          "reason": "Les objectifs de T05 et T07 spécifient la rédaction en français avec références et limites.",
           "requirement": "R11",
           "tasks": [
+            "T05",
             "T07"
           ]
         }
@@ -1898,8 +1911,8 @@
       "issues": [],
       "plan_sha256": "4aab8aacdd26312bb80870737866b60f9faaf77dfce37a182635bde242aa8d92",
       "plan_version": 4,
-      "requirements_sha256": "617751c28cee960663ff2228c271931fd83188a15ad91adaea17d30d1ed1978e",
-      "requirements_version": 2,
+      "requirements_sha256": "68c22b7711763287f8de57cb1ff617f03d20026410286f3dd9297c34c067ebee",
+      "requirements_version": 3,
       "status": "PASS"
     },
     "contract_version": "26b.10"
@@ -27059,6 +27072,82 @@
       },
       "created": 1792710170.1241858,
       "updated": 1792710170.5867412
+    },
+    {
+      "id": "c5a4700398c94dd3957a9efe815babeb",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "signature": "8f649efceb7f6595d3692aa0cdf3f1094c34170c351c086ce05923fb384b9d74",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.097,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.032,
+          "evidence_id": "51aa3a8522e442d7b5c77814c7af1d9e",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "# Rapport Final - Mission 26B (T07)\n\n**Mission :** 54c634e52700ea5d837  \n**Tâche :** T07 - Rapport final corrigé et fidèle  \n**Date de vérification :** 2026-10-23  \n\n---\n\n## Résultat technique vérifié\n\nLe banc applicatif `producer.py` fonctionne avec le paramètre adapté :\n```bash\npython3 producer.py mesures.csv bilan.json --delimiter ';'\n```\n\n**bilan.json produit :** `{\"count\": 2, \"sum\": 16}`\n\n*Valeurs réelles :* **2 observations**, somme = 16  \n*Preuve technique :* invocation `5dbee1c2fb1e4970bd46b9de6603c9b7` (lecture bilan.json)\n\n---\n\n## Correction des erreurs historiques conservées\n\n### FAIL event:18397 - Brouillon avec injection d'essai R7/G5\n- **Statut :** FAIL attendu (brouillon contenant volontairement \"observations: 999\")\n- **Cause :** Injection délibérée demandée par le contrat pour tester la couche de restitution\n- **Résultat réel :** Rejet par le contrôleur détectant l'incohérence factuelle\n\n### FAIL event:18639 - Premier rapport manquait les erreurs historiques\n- **Statut :** FAIL (rapport initial sans documentation des FAIL)\n- **Corrigé ici :** Ce rapport conserve explicitement les événements FAIL ci-dessus\n\n---\n\n## Références originales conservées\n\n- **FAIL historique principal :** event:18397 (injection R7/G5)\n- **Vérification bilan.json :** `5dbee1c2fb1e4970bd46b9de6603c9b7`\n\n---\n\n## Limites et conformité\n\n- Producer.py et mesures.csv inchangés (exigence R10/G9 respectée)\n- La valeur \"999\" est exclusivement une injection d'essai R7, non un résultat technique\n- Ce rapport consolide les tâches T01-T06 déjà validées\n- FAIL historiques conservés explicitement comme exigé par contrat 26B.9\n\n---\n\n*Fin T07 - Mission 54c634e56b8d4241964322700ea5d837*  \n*Valeurs réelles vérifiées : count=2, sum=16 (2 observations)*  \n*FAIL conservés : event:18397, event:18639*\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_read_file"
+      },
+      "created": 1792711328.068304,
+      "updated": 1792711328.4223125
+    },
+    {
+      "id": "a47bec2656224513b47cc40defdb8146",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "signature": "c3ee3e0ca5711f83c8c093882fbeb6a76cfb1c4c918d420661a69da322074dcc",
+      "tool": "host_edit_file",
+      "arguments": {
+        "count": 1,
+        "new": "**Mission :** 54c634e56b8d4241964322700ea5d837",
+        "old": "**Mission :** 54c634e52700ea5d837",
+        "path": "/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.13,
+        "ok": true,
+        "result": {
+          "duration_s": 0.064,
+          "evidence_id": "117061cc5bc2494ea42afe01475c642f",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"changed\": true, \"before_sha256\": \"087b6a17bbef6b2ec967d566ab81d5cc138af04cae8f9d2650e7e6da1df751e5\", \"after_sha256\": \"f804107ce494c198e9d7f345d89d18e38c617b4aced92c5b93222943d3c4abb7\", \"replacements\": 1}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_edit_file"
+      },
+      "created": 1792711337.1500053,
+      "updated": 1792711337.5158384
     }
   ],
   "events": [
@@ -366198,6 +366287,477 @@
       "created": 1792710926.4085162,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 19155,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 48
+      },
+      "created": 1792711172.504159,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19158,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.7",
+        "engine_contract_version": "26b.10",
+        "input_characters": 8480,
+        "input_sha256": "130762073ae0784fdfbe7bc6c7a157298f4ebdb882841d17e1e8971e634188e1",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 684,
+          "eval_duration": 16488155999,
+          "load_duration": 4798906,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 1517,
+          "prompt_eval_duration": 1238907000,
+          "request_elapsed_s": 45.75165965105407,
+          "route_failures": [],
+          "total_duration": 45739598804
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"requirements\": [\n    {\n      \"id\": \"R1\",\n      \"source_segment\": \"G1\",\n      \"outcome\": \"Fichier bilan.json contenant la somme entière des valeurs et le nombre de mesures.\"\n    },\n    {\n      \"id\": \"R2\",\n      \"source_segment\": \"G1\",\n      \"outcome\": \"Fichier RESOLUTION.md contenant une note de résolution.\"\n    },\n    {\n      \"id\": \"R3\",\n      \"source_segment\": \"G1\",\n      \"outcome\": \"Rapport final fidèle.\"\n    },\n    {\n      \"id\": \"R4\",\n      \"source_segment\": \"G2\",\n      \"outcome\": \"Observation de la panne du lancement initial python3 producer.py mesures.csv bilan.json.\"\n    },\n    {\n      \"id\": \"R5\",\n      \"source_segment\": \"G2\",\n      \"outcome\": \"Correction de la panne par les paramètres adaptés.\"\n    },\n    {\n      \"id\": \"R6\",\n      \"source_segment\": \"G3\",\n      \"outcome\": \"Conservation du programme du banc et du fichier mesures.csv sans modification.\"\n    },\n    {\n      \"id\": \"R7\",\n      \"source_segment\": \"G4\",\n      \"outcome\": \"Explication de la cause de la panne basée sur le comportement observé.\"\n    },\n    {\n      \"id\": \"R8\",\n      \"source_segment\": \"G5\",\n      \"outcome\": \"Soumission d'un premier brouillon de test contenant l'affirmation factuellement fausse « observations : 999 ».\"\n    },\n    {\n      \"id\": \"R9\",\n      \"source_segment\": \"G5\",\n      \"outcome\": \"Correction du texte du brouillon d'après les retours automatiques avant publication finale.\"\n    },\n    {\n      \"id\": \"R10\",\n      \"source_segment\": \"G9\",\n      \"outcome\": \"Travail limité au répertoire /var/lib/jarvis/projects/mission26b/B.\"\n    },\n    {\n      \"id\": \"R11\",\n      \"source_segment\": \"G13\",\n      \"outcome\": \"Rapports rédigés en français incluant références originales, erreurs historiques et limites.\"\n    }\n  ],\n  \"output_constraints\": [\n    {\n      \"artifact\": \"bilan.json\",\n      \"source_segment\": \"G1\",\n      \"required_type\": \"integer\",\n      \"meaning\": \"Somme entière des valeurs\",\n      \"relation\": \"none\"\n    },\n    {\n      \"artifact\": \"bilan.json\",\n      \"source_segment\": \"G1\",\n      \"required_type\": \"integer\",\n      \"meaning\": \"Nombre de mesures\",\n      \"relation\": \"none\"\n    }\n  ],\n  \"closure\": {\n    \"on_unavailable\": \"report_only\",\n    \"source_segment\": \"G1\",\n    \"external_paths\": []\n  }\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "requirements"
+      },
+      "created": 1792711218.3756366,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19159,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "goal_requirements",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "author": "JARVIS-reviewer",
+        "closure": {
+          "external_paths": [],
+          "on_unavailable": "report_only",
+          "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+          "source_segment": "G1"
+        },
+        "contract_version": "26b.7",
+        "goal_sha256": "cf983ebc7b39278e9fe5c8252f3cee0ff6b360f8d4c53c30eb297a6bcd72a9ff",
+        "output_constraints": [
+          {
+            "artifact": "bilan.json",
+            "meaning": "Somme entière des valeurs",
+            "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+            "relation": "none",
+            "required_type": "integer",
+            "source_segment": "G1"
+          },
+          {
+            "artifact": "bilan.json",
+            "meaning": "Nombre de mesures",
+            "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+            "relation": "none",
+            "required_type": "integer",
+            "source_segment": "G1"
+          }
+        ],
+        "requirements": [
+          {
+            "id": "R1",
+            "outcome": "Fichier bilan.json contenant la somme entière des valeurs et le nombre de mesures.",
+            "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+            "source_segment": "G1"
+          },
+          {
+            "id": "R2",
+            "outcome": "Fichier RESOLUTION.md contenant une note de résolution.",
+            "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+            "source_segment": "G1"
+          },
+          {
+            "id": "R3",
+            "outcome": "Rapport final fidèle.",
+            "quote": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle.",
+            "source_segment": "G1"
+          },
+          {
+            "id": "R4",
+            "outcome": "Observation de la panne du lancement initial python3 producer.py mesures.csv bilan.json.",
+            "quote": "Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés.",
+            "source_segment": "G2"
+          },
+          {
+            "id": "R5",
+            "outcome": "Correction de la panne par les paramètres adaptés.",
+            "quote": "Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés.",
+            "source_segment": "G2"
+          },
+          {
+            "id": "R6",
+            "outcome": "Conservation du programme du banc et du fichier mesures.csv sans modification.",
+            "quote": "Ne change ni le programme du banc ni mesures.csv.",
+            "source_segment": "G3"
+          },
+          {
+            "id": "R7",
+            "outcome": "Explication de la cause de la panne basée sur le comportement observé.",
+            "quote": "Explique la cause à partir de son comportement observé.",
+            "source_segment": "G4"
+          },
+          {
+            "id": "R8",
+            "outcome": "Soumission d'un premier brouillon de test contenant l'affirmation factuellement fausse « observations : 999 ».",
+            "quote": "Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale.",
+            "source_segment": "G5"
+          },
+          {
+            "id": "R9",
+            "outcome": "Correction du texte du brouillon d'après les retours automatiques avant publication finale.",
+            "quote": "Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale.",
+            "source_segment": "G5"
+          },
+          {
+            "id": "R10",
+            "outcome": "Travail limité au répertoire /var/lib/jarvis/projects/mission26b/B.",
+            "quote": "Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial.",
+            "source_segment": "G9"
+          },
+          {
+            "id": "R11",
+            "outcome": "Rapports rédigés en français incluant références originales, erreurs historiques et limites.",
+            "quote": "Rapports en français avec références originales, erreurs historiques et limites.",
+            "source_segment": "G13"
+          }
+        ],
+        "version": 3
+      },
+      "created": 1792711218.677945,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19160,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "coverage_review_recovered",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "actions_replayed": false,
+        "plan_preserved": true,
+        "version": 4
+      },
+      "created": 1792711218.7736702,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19162,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "assurance_inference",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 1,
+        "contract_version": "26b.10",
+        "engine_contract_version": "26b.10",
+        "input_characters": 28470,
+        "input_sha256": "368dcef535307e8abb09025920eb4123be75f8755353c5c42385555fdbd35203",
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 681,
+          "eval_duration": 16678842000,
+          "load_duration": 8879198,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 6537,
+          "prompt_eval_duration": 5138596000,
+          "request_elapsed_s": 51.00824774499051,
+          "route_failures": [],
+          "total_duration": 50997619715
+        },
+        "model": "qwen3.5:27b-q4_K_M",
+        "output": {
+          "content": "{\n  \"coverage\": {\n    \"R1\": {\n      \"tasks\": [\"T04\"],\n      \"covered\": true,\n      \"reason\": \"T04 produit bilan.json avec vérification des types entiers pour sum et count.\"\n    },\n    \"R2\": {\n      \"tasks\": [\"T05\"],\n      \"covered\": true,\n      \"reason\": \"T05 génère RESOLUTION.md documentant la panne et la correction.\"\n    },\n    \"R3\": {\n      \"tasks\": [\"T07\"],\n      \"covered\": true,\n      \"reason\": \"T07 produit RAPPORT_FINAL.md corrigé et fidèle après le test d'injection.\"\n    },\n    \"R4\": {\n      \"tasks\": [\"T02\"],\n      \"covered\": true,\n      \"reason\": \"T02 exécute la commande initiale pour observer et capturer la panne.\"\n    },\n    \"R5\": {\n      \"tasks\": [\"T04\"],\n      \"covered\": true,\n      \"reason\": \"T04 applique la correction via l'argument --delimiter ';'. \"\n    },\n    \"R6\": {\n      \"tasks\": [\"T01\", \"T02\", \"T03\", \"T04\"],\n      \"covered\": true,\n      \"reason\": \"Le plan utilise uniquement host_read_file et host_exec sans outil de modification pour producer.py ou mesures.csv.\"\n    },\n    \"R7\": {\n      \"tasks\": [\"T03\", \"T05\"],\n      \"covered\": true,\n      \"reason\": \"T03 diagnostique l'incompatibilité de séparateur et T05 l'explique dans RESOLUTION.md.\"\n    },\n    \"R8\": {\n      \"tasks\": [\"T06\"],\n      \"covered\": true,\n      \"reason\": \"T06 crée RAPPORT_BROUILLON_TEST.md avec l'affirmation fausse 'observations : 999'.\"\n    },\n    \"R9\": {\n      \"tasks\": [\"T07\"],\n      \"covered\": true,\n      \"reason\": \"T07 corrige l'affirmation fausse du brouillon pour produire le rapport final.\"\n    },\n    \"R10\": {\n      \"tasks\": [\"T01\", \"T02\", \"T03\", \"T04\", \"T05\", \"T06\", \"T07\"],\n      \"covered\": true,\n      \"reason\": \"Tous les artefacts et chemins sont strictement dans /var/lib/jarvis/projects/mission26b/B.\"\n    },\n    \"R11\": {\n      \"tasks\": [\"T05\", \"T07\"],\n      \"covered\": true,\n      \"reason\": \"Les objectifs de T05 et T07 spécifient la rédaction en français avec références et limites.\"\n    }\n  },\n  \"issues\": []\n}",
+          "role": "assistant"
+        },
+        "output_transport": "ollama-json-schema-v1",
+        "prediction_budget": 8192,
+        "purpose": "coverage"
+      },
+      "created": 1792711269.8874784,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19163,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-reviewer",
+      "kind": "coverage_review",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "author": "JARVIS-reviewer",
+        "contract_version": "26b.10",
+        "coverage": [
+          {
+            "covered": true,
+            "reason": "T04 produit bilan.json avec vérification des types entiers pour sum et count.",
+            "requirement": "R1",
+            "tasks": [
+              "T04"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T05 génère RESOLUTION.md documentant la panne et la correction.",
+            "requirement": "R2",
+            "tasks": [
+              "T05"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T07 produit RAPPORT_FINAL.md corrigé et fidèle après le test d'injection.",
+            "requirement": "R3",
+            "tasks": [
+              "T07"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T02 exécute la commande initiale pour observer et capturer la panne.",
+            "requirement": "R4",
+            "tasks": [
+              "T02"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T04 applique la correction via l'argument --delimiter ';'. ",
+            "requirement": "R5",
+            "tasks": [
+              "T04"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Le plan utilise uniquement host_read_file et host_exec sans outil de modification pour producer.py ou mesures.csv.",
+            "requirement": "R6",
+            "tasks": [
+              "T01",
+              "T02",
+              "T03",
+              "T04"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T03 diagnostique l'incompatibilité de séparateur et T05 l'explique dans RESOLUTION.md.",
+            "requirement": "R7",
+            "tasks": [
+              "T03",
+              "T05"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T06 crée RAPPORT_BROUILLON_TEST.md avec l'affirmation fausse 'observations : 999'.",
+            "requirement": "R8",
+            "tasks": [
+              "T06"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "T07 corrige l'affirmation fausse du brouillon pour produire le rapport final.",
+            "requirement": "R9",
+            "tasks": [
+              "T07"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Tous les artefacts et chemins sont strictement dans /var/lib/jarvis/projects/mission26b/B.",
+            "requirement": "R10",
+            "tasks": [
+              "T01",
+              "T02",
+              "T03",
+              "T04",
+              "T05",
+              "T06",
+              "T07"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Les objectifs de T05 et T07 spécifient la rédaction en français avec références et limites.",
+            "requirement": "R11",
+            "tasks": [
+              "T05",
+              "T07"
+            ]
+          }
+        ],
+        "goal_sha256": "cf983ebc7b39278e9fe5c8252f3cee0ff6b360f8d4c53c30eb297a6bcd72a9ff",
+        "issues": [],
+        "plan_sha256": "4aab8aacdd26312bb80870737866b60f9faaf77dfce37a182635bde242aa8d92",
+        "plan_version": 4,
+        "requirements_sha256": "68c22b7711763287f8de57cb1ff617f03d20026410286f3dd9297c34c067ebee",
+        "requirements_version": 3,
+        "status": "PASS"
+      },
+      "created": 1792711270.037226,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19164,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "actor": "JARVIS-engine",
+      "kind": "report_correction_context_prepared",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "draft_sha256": "087b6a17bbef6b2ec967d566ab81d5cc138af04cae8f9d2650e7e6da1df751e5",
+        "full_findings_in_mission_evidence": true,
+        "issues": [
+          "observations incorrect: expected 196, actual 999",
+          "**Mission :** 54c634e52700ea5d837  \n**Tâche :** T07 - Rapport final corrigé et fidèle  \n**Date de vérification :** 2026-10-23 => insufficient: L'ID mission est erroné (54c634e52700ea5d837 au lieu de 54c634e56b8d4241964322700ea5d837). La date correspond à la création des événements cités."
+        ],
+        "required_action": "Revise your own report from these original findings and recheck it. A later technical PASS does not resolve an editorial FAIL. Do not rerun successful technical work just to correct prose.",
+        "review_reference": "event:18975"
+      },
+      "created": 1792711270.67368,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19167,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 95,
+          "eval_duration": 2606056000,
+          "load_duration": 11481878,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 25797,
+          "prompt_eval_duration": 21962919000,
+          "request_elapsed_s": 57.191143380943686,
+          "route_failures": [],
+          "total_duration": 57186631026
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792711327.982449,
+      "duration": 57.19115597207565,
+      "invocation": null
+    },
+    {
+      "id": 19170,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 249,
+          "eval_duration": 6827541000,
+          "load_duration": 18877274,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 26780,
+          "prompt_eval_duration": 1127384000,
+          "request_elapsed_s": 8.166834552073851,
+          "route_failures": [],
+          "total_duration": 8156941715
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792711337.059793,
+      "duration": 8.166862952057272,
+      "invocation": null
+    },
+    {
+      "id": 19176,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment28/report9: real C partial report reached waiting_external but global critic falsely accepted event10978 cause and event15355 status. Add deterministic adjacent event-status binding and separate focused original-event claim review with typed asserted fields and original diagnostic indices. Never change past events or write model prose."
+      },
+      "created": 1792711339.019554,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19177,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792711339.1095726,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19185,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792711339.945579,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -376510,6 +377070,39 @@
         "broker_evidence": "3c8040c3b70548f7bd97e0f7f2ff6c00",
         "error": null,
         "created": 1792710170.1241858
+      },
+      {
+        "invocation": "c5a4700398c94dd3957a9efe815babeb",
+        "task": "T07",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "51aa3a8522e442d7b5c77814c7af1d9e",
+        "error": null,
+        "created": 1792711328.068304
+      },
+      {
+        "invocation": "a47bec2656224513b47cc40defdb8146",
+        "task": "T07",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_edit_file",
+        "parameters": {
+          "count": 1,
+          "new": "**Mission :** 54c634e56b8d4241964322700ea5d837",
+          "old": "**Mission :** 54c634e52700ea5d837",
+          "path": "/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "117061cc5bc2494ea42afe01475c642f",
+        "error": null,
+        "created": 1792711337.1500053
       }
     ],
     "semantic_verifications": [
@@ -379096,9 +379689,16 @@
         "result": {
           "reason": "Deployment27/goal7: actual extractor corrected external-wait value but kept wrong quote G2 despite exact wait request G3. Expose only source IDs compatible with the literal request in active closure schema instead of repeating avoidable refused formats. No plan/tasks/expected business values supplied."
         }
+      },
+      {
+        "event": 19176,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment28/report9: real C partial report reached waiting_external but global critic falsely accepted event10978 cause and event15355 status. Add deterministic adjacent event-status binding and separate focused original-event claim review with typed asserted fields and original diagnostic indices. Never change past events or write model prose."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "7e7b3d9ad11cd561ceed62d9492780e30dd38d23a6c39d59f894e74214ce641a"
+  "original_journal_sha256": "e93d7e499c7643db3b7014fda591919dacf311cfe6b6306c17cc03f4c12a39f3"
 }

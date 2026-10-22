@@ -1,6 +1,6 @@
 # Tests des rapports26B — campagne en cours
 
-Statut : 🟡 incomplet. Les 162 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
+Statut : 🟡 incomplet. Les 165 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
 
 La réception attend trois rapports réels : réussite locale complète (A), échec du programme puis correction (B), résultat local vérifié avec dépendance externe impossible à observer (C). Aucun de ces trois rapports n’est encore reçu au déploiement24.
 
@@ -34,4 +34,14 @@ A/T1 et B/T01 sont reçues par le moteur. La lecture indépendante du rapport B/
 
 ## Reprise du23 octobre2026
 
-Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 162 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 165 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+
+## Réceptions ciblées et nouvelle réserve factuelle
+
+Le test réel PROBE-27.json a détecté les trois fautes injectées (acteur, date, comptage), puis JARVIS a produit deux révisions jusqu’à PASS. La lecture indépendante de l’intégralité de la prose et des reçus confirme l’acteur JARVIS, la lecture du22 octobre2026 à00:09:44 UTC+02, les trois articles et la somme12, les quatre événements sémantiques PASS cités et le comptage de43 interventions Codex dans le snapshot de ce rapport. Voir PROBE-27-VERIFICATION-INDEPENDANTE.json. Ce test de composant est reçu sur ces faits ; ce n’est ni une quatrième mission autonome ni la réception globale de26B.
+
+C a réellement utilisé mission_block après réextraction correcte de la clôture, puis atteint waiting_external (événements19152–19154), avec six validations locales intactes. Cela reçoit l’usage du mécanisme de clôture partielle ; la prose demeure refusée indépendamment : event10978 n’est pas un échec de couverture pour manifeste omis et event15355 n’est pas un verdict INSUFFICIENT. L’ancien PASS19151 est un faux positif du relecteur, conservé avec le texte original et C-PARTIEL-V1-VERIFICATION-INDEPENDANTE.json.
+
+Le contrat de rapport26b.report.9 ajoute une comparaison déterministe des statuts directement attachés aux références d’événements prises en charge, puis une revue isolée des affirmations de source lorsque la revue générale est positive. Cette seconde vue fournit uniquement les passages concernés et chaque événement original, sans le récit global de mission. Le modèle extrait le statut/type/acteur allégués ; le moteur les compare aux champs originaux. Une cause citée doit être un passage exact du rapport et pointer vers un diagnostic original existant ; le contrôleur juge encore le soutien sémantique. Ce dernier contrôle reste un modèle, pas une preuve formelle de toute paraphrase.
+
+Le retest réel du rapport C inchangé est maintenant FAIL : l’attribution PASS à event10978 contredit son FAIL original. Aucun texte n’est réécrit par Codex ; JARVIS reprend sa propre correction éditoriale, tout en conservant son blocage externe réel. 165 tests logiciels passent au déploiement28. Les tests supplémentaires vérifient le refus malgré une première revue modèle PASS, une fausse cause et un diagnostic original correct.

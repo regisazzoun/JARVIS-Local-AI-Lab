@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792710944.1635797,
+  "created": 1792711581.1743171,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "c2e44cf4684cb10c0e7e36362b63a6eb746b07d5372cc8389244c8329fe59ce0",
+      "installed_sha256": "45e9e0e30186dd956c5742db3e1e88d3dd58aa651214d17015b4d381244de7b2",
       "matches_source": true
     },
     {
@@ -148,7 +148,7 @@
     {
       "case": "A",
       "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
-      "state": "queued",
+      "state": "running",
       "coverage_accepted": true,
       "versions": 5,
       "tasks": [
@@ -946,6 +946,45 @@
           "status": "PASS",
           "issues": [],
           "draft_sha256": null
+        },
+        {
+          "event": 19145,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "L’appel host_read_file de référence 322f2d2292a440c58e7806f35c3a0c72 a été déclenché et exécuté par Codex. => insufficient: Le reçu 322f2d2292a440c58e7806f35c3a0c72 indique l'acteur 'JARVIS', non 'Codex'. L'affirmation sur l'acteur est contredite par la preuve technique.",
+            "Cet appel a eu lieu le 1er janvier 2001 à 00:00 UTC. => insufficient: Le reçu 322f2d2292a440c58e7806f35c3a0c72 date de 2026-10-22, non du 1er janvier 2001. La date affirmée est factuellement erronée.",
+            "observations : 999. => insufficient: Les reçus de vérification (e33025769bc444ba9878817cae6302eb, 606a6ad440454383be1e79c6c911720e) confirment 3 lignes de données, non 999 observations."
+          ],
+          "draft_sha256": "7dad9f896cfc3d0b9e0c04c788624be5ac5b7ec2ffaef725c644849d1f90f24a"
+        },
+        {
+          "event": 19157,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "e5971e3d09c59b023bcc6112641da407ee9349e9d8cea3ccee09f002a01bf9fa"
+        },
+        {
+          "event": 19166,
+          "kind": "narrative_review",
+          "task": "T1",
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "9b0e2697d5818df5ceee2c9096355bc0bd916a7ae9269cb7b3e14cbbe492d668"
+        },
+        {
+          "event": 19191,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -1398,7 +1437,7 @@
       "case": "B",
       "mission": "54c634e56b8d4241964322700ea5d837",
       "state": "queued",
-      "coverage_accepted": false,
+      "coverage_accepted": true,
       "versions": 4,
       "tasks": [
         [
@@ -1473,7 +1512,7 @@
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md",
-          "sha256": "087b6a17bbef6b2ec967d566ab81d5cc138af04cae8f9d2650e7e6da1df751e5"
+          "sha256": "f804107ce494c198e9d7f345d89d18e38c617b4aced92c5b93222943d3c4abb7"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/B/mesures.csv",
@@ -2339,6 +2378,14 @@
             "**Mission :** 54c634e52700ea5d837  \n**Tâche :** T07 - Rapport final corrigé et fidèle  \n**Date de vérification :** 2026-10-23 => insufficient: L'ID mission est erroné (54c634e52700ea5d837 au lieu de 54c634e56b8d4241964322700ea5d837). La date correspond à la création des événements cités."
           ],
           "draft_sha256": "087b6a17bbef6b2ec967d566ab81d5cc138af04cae8f9d2650e7e6da1df751e5"
+        },
+        {
+          "event": 19163,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
         }
       ],
       "negative_results": [
@@ -5069,8 +5116,8 @@
     {
       "case": "C",
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
-      "state": "running",
-      "coverage_accepted": false,
+      "state": "queued",
+      "coverage_accepted": true,
       "versions": 12,
       "tasks": [
         [
@@ -5122,6 +5169,10 @@
         {
           "path": "/var/lib/jarvis/projects/mission26b/C/T5-rapport.md",
           "sha256": "059efab1b0a8c2e17d710c85643fc9bf3c46333093ca5154d5688643adf2ea91"
+        },
+        {
+          "path": "/var/lib/jarvis/projects/mission26b/C/intervention_report.md",
+          "sha256": "8eb83f7a76a83b82ac7138491b0c77a46585cb8d4a0f2bcef51c58faaca4d549"
         },
         {
           "path": "/var/lib/jarvis/projects/mission26b/C/T3-rapport.md",
@@ -5810,6 +5861,32 @@
           "status": "PASS",
           "issues": [],
           "draft_sha256": null
+        },
+        {
+          "event": 19137,
+          "kind": "coverage_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": null
+        },
+        {
+          "event": 19151,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "PASS",
+          "issues": [],
+          "draft_sha256": "8eb83f7a76a83b82ac7138491b0c77a46585cb8d4a0f2bcef51c58faaca4d549"
+        },
+        {
+          "event": 19200,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "event:10978 status assertion PASS contradicts original FAIL (narrative_review). Preserve the event and correct your own description; another later event may have a different outcome."
+          ],
+          "draft_sha256": "8eb83f7a76a83b82ac7138491b0c77a46585cb8d4a0f2bcef51c58faaca4d549"
         }
       ],
       "negative_results": [
