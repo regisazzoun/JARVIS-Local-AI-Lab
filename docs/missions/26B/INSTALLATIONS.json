@@ -451,6 +451,76 @@
     "created": 1792664020.5442615
   },
   {
+    "backup": "/var/backups/jarvis/mission-engine26b/1792664772104911539",
+    "modules": [
+      {
+        "module": "missions.py",
+        "sha256": "8fd5d6891f855f12324851e4a29e9a3edfe4a81e37bc55741e6bc8d9e96886b1"
+      },
+      {
+        "module": "mission_store.py",
+        "sha256": "f9996cec084dabf6937847092145c3ea8dded1d4fc48272d0d615a676c8b10b6"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "d2933f05158b49e11fce98b8572e9ab957815508fb94cf2942d54b9e89134570"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "195b4a7b1667340023be92ae7fd4cd43537535b3491662198a1255f40a4f32f3"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "fb2a927b0685c64a34105f564a8069387efe831f3726d18b1dcf0bc21a47aa14"
+      },
+      {
+        "module": "mission_assurance.py",
+        "sha256": "ca948780cce570ec190f14bfe4222e24899f53455a9748dcdb5c7ca2f010de59"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "b0d2a88d674056744999f50bdd5c8037dae6aca25b40c6a45a6a5bae8e8c8c6b"
+      }
+    ],
+    "policy_unchanged": true,
+    "created": 1792664772.1365366
+  },
+  {
+    "backup": "/var/backups/jarvis/mission-engine26b/1792664957384570406",
+    "modules": [
+      {
+        "module": "missions.py",
+        "sha256": "8fd5d6891f855f12324851e4a29e9a3edfe4a81e37bc55741e6bc8d9e96886b1"
+      },
+      {
+        "module": "mission_store.py",
+        "sha256": "f9996cec084dabf6937847092145c3ea8dded1d4fc48272d0d615a676c8b10b6"
+      },
+      {
+        "module": "durable_tools.py",
+        "sha256": "d2933f05158b49e11fce98b8572e9ab957815508fb94cf2942d54b9e89134570"
+      },
+      {
+        "module": "durable_cycle.py",
+        "sha256": "195b4a7b1667340023be92ae7fd4cd43537535b3491662198a1255f40a4f32f3"
+      },
+      {
+        "module": "tools.py",
+        "sha256": "fb2a927b0685c64a34105f564a8069387efe831f3726d18b1dcf0bc21a47aa14"
+      },
+      {
+        "module": "mission_assurance.py",
+        "sha256": "cd1dd4da66c7a6adda38b0888cc2065b381c60942e3377813f2132a2c47e05a4"
+      },
+      {
+        "module": "verification.py",
+        "sha256": "b0d2a88d674056744999f50bdd5c8037dae6aca25b40c6a45a6a5bae8e8c8c6b"
+      }
+    ],
+    "policy_unchanged": true,
+    "created": 1792664957.4174323
+  },
+  {
     "backup": "/var/backups/jarvis/mission-engine26b/1792620871301824653",
     "modules": [
       {

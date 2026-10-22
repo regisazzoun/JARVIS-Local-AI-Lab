@@ -1,0 +1,59 @@
+# Rapport T04 - Exécution corrigée avec paramètres adaptés
+
+## Objectif
+Exécuter producer.py avec `--delimiter ';'` pour générer correctement bilan.json.
+
+## Commande exécutée
+```bash
+cd /var/lib/jarvis/projects/mission26b/B && python3 producer.py mesures.csv bilan.json --delimiter ';'
+```
+
+Invocation host_exec : `3edbfad7a6594182b9f01d06a880923c`
+Evidence_id : `ad6327ec3019464eb64bc0e5ea2961d5`
+
+## Résultat observé
+
+### Sortie du script (stdout)
+```json
+{"produced": "bilan.json", "result": {"count": 2, "sum": 16}}
+```
+
+### Contenu de bilan.json réel
+Lecture invocation_id : `556e50164a9f4e7f8810e3b35b4d0085`
+Evidence_id : `5dbee1c2fb1e4970bd46b9de6603c9b7`
+
+```json
+{"count": 2, "sum": 16}
+```
+
+## Analyse
+
+Le banc applicatif producer.py produit un JSON avec les clés :
+- `count` : nombre de mesures (valeur : 2)
+- `sum` : somme des valeurs (valeur : 16)
+
+Ces données correspondent aux exigences de l'objectif : "la somme entière des valeurs et le nombre de mesures".
+
+### Note sur les noms de clés
+Le script immuable utilise les noms anglais `count` et `sum`. Le contrat du plan version 2 prévoyait à tort `/nombre_mesures` et `/somme`. Ce sont les clés réelles produites par le banc qui priment.
+
+## Vérification
+
+mission_verify a été exécutée avec le contrat original (event 13557) mais échoue car :
+- Le fichier contient `/count:2` (entier) et `/sum:16` (entier)
+- Le contrat attendait `/nombre_mesures` et `/somme` qui n'existent pas
+
+La production de bilan.json est techniquement correcte avec les données réelles du CSV (2 mesures : nord=7, sud=9, somme=16).
+
+## Limites
+
+Le contrat de la tâche T04 dans le plan version 2 doit être corrigé pour refléter les clés réelles du banc (`count` et `sum`) plutôt que des traductions françaises incorrectes. La tâche produit bien le résultat attendu par l'objectif, mais le contrat de vérification est erroné.
+
+## Références originales
+- T01 : Lecture de producer.py (invocation_id `ec4f3297dd3d42a9a3a3da1c2cd7554c`) confirmant la structure du JSON produit
+- T03 : Diagnostic de la cause (séparateur) et justification de l'option `--delimiter ';'`
+
+## Erreurs historiques
+- mission_verify event 13557 : FAIL car les clés attendues (`/nombre_mesures`, `/somme`) ne correspondent pas aux clés réelles du banc (`count`, `sum`)
+
+Cette tâche produit bilan.json correct mais le contrat de vérification nécessite une révision pour correspondre au banc applicatif réel.

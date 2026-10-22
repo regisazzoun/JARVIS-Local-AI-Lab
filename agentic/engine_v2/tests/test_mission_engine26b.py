@@ -525,3 +525,17 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual({task['id'] for task in current['plan_history'][-1]['plan']['tasks']},{'a','b'})
         self.assertEqual({task['id'] for task in current['tasks']},{'a','b'})
         self.assertFalse(current['coverage']['accepted'])
+
+    def test_editorial_findings_are_bounded_without_losing_claim_checks(self):
+        reference=self.observation();captured=[]
+        def transport(payload):
+            captured.append(payload)
+            return {'content':json.dumps({'claims':[{'segment':'S1','verdict':'supported','references':[reference],'reason':'original read'}],'issues':[]})}
+        self.r.assurance_transport=transport
+        result=audit_report(self.r,'Lecture confirmée : '+reference,'a')
+        self.assertEqual(result['status'],'PASS')
+        schema=captured[0]['format'];claim=schema['properties']['claims']['items']['properties']
+        self.assertEqual(claim['references']['maxItems'],6)
+        self.assertEqual(claim['reason']['maxLength'],200)
+        self.assertEqual(schema['properties']['issues']['maxItems'],8)
+        self.assertLessEqual(captured[0]['options']['num_predict'],16384)

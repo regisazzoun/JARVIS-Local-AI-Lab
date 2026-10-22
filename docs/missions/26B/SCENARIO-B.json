@@ -2,9 +2,9 @@
   "scenario": "B",
   "mission": "54c634e56b8d4241964322700ea5d837",
   "raw_goal": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle. Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés. Ne change ni le programme du banc ni mesures.csv. Explique la cause à partir de son comportement observé. Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale. Cette fausse assertion est une injection d’essai demandée par Codex, pas un résultat technique.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
-  "state": "queued",
+  "state": "running",
   "created": 1792620582.455572,
-  "updated": 1792664020.7041702,
+  "updated": 1792665083.2457118,
   "tasks": [
     {
       "mission": "54c634e56b8d4241964322700ea5d837",
@@ -296,9 +296,9 @@
       "deps": [
         "T03"
       ],
-      "state": "pending",
+      "state": "running",
       "evidence": [],
-      "updated": 1792659013.7766557,
+      "updated": 1792664958.9076664,
       "objective": "Exécuter producer.py avec --delimiter ';' pour générer correctement bilan.json",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/B/report_T04.txt",
@@ -318,8 +318,8 @@
           }
         ]
       },
-      "started": null,
-      "attempts": 0,
+      "started": 1792664717.8876586,
+      "attempts": 2,
       "last_error": null,
       "artifact": null,
       "report_sha256": null,
@@ -6516,6 +6516,412 @@
       },
       "created": 1792663733.9195812,
       "updated": 1792663734.4943197
+    },
+    {
+      "id": "d3a9bfb099fc4724b44a77926557a67d",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "d54ffd622c07de63e0187a3ab0aa791dc46d5fa160ace9e746e1c47b2204e565",
+      "tool": "mission_read_batch",
+      "arguments": {
+        "calls": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+            },
+            "tool": "host_read_file"
+          }
+        ]
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.428,
+        "ok": false,
+        "result": {
+          "results": [
+            {
+              "elapsed_s": 0.183,
+              "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/B/bilan.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                             ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/B/bilan.json'\n",
+              "invocation_id": "8720b68200f0492dbf81fd2934a692ab",
+              "normalized_arguments": null,
+              "ok": false,
+              "result": {
+                "caller": "JARVIS-runtime",
+                "diagnostic": {
+                  "alternative": null,
+                  "broker_version": "23C.1",
+                  "error_category": "application_error",
+                  "omitted_parameters": [
+                    "path"
+                  ],
+                  "operation": "host_read_file",
+                  "parameters": {},
+                  "policy_path": "/etc/jarvis/host-policy.json",
+                  "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+                  "reload": "each-request",
+                  "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+                  "selection": "single-persistent-owner-policy"
+                },
+                "duration_s": 0.115,
+                "evidence_id": "b58a96da76274cdbaf6c9b458a2cffbc",
+                "returncode": 1,
+                "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/B/bilan.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                             ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/B/bilan.json'\n",
+                "stderr_truncated": false,
+                "stdout": "",
+                "stdout_truncated": false,
+                "timeout": false
+              },
+              "tool": "host_read_file"
+            }
+          ],
+          "returncode": 1
+        },
+        "risk": "host_authorized",
+        "tool": "mission_read_batch"
+      },
+      "created": 1792664741.6443477,
+      "updated": 1792664742.2290852
+    },
+    {
+      "id": "8720b68200f0492dbf81fd2934a692ab",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "790f00cfa92c07130e21589efbb4adce8b5fd018e7a5ece0bcdf2cdf5ffe3cda",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.183,
+        "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/B/bilan.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                             ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/B/bilan.json'\n",
+        "ok": false,
+        "result": {
+          "caller": "JARVIS-runtime",
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": "application_error",
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.115,
+          "evidence_id": "b58a96da76274cdbaf6c9b458a2cffbc",
+          "returncode": 1,
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/B/bilan.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                             ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/B/bilan.json'\n",
+          "stderr_truncated": false,
+          "stdout": "",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "tool": "host_read_file"
+      },
+      "created": 1792664741.7355776,
+      "updated": 1792664742.0745873
+    },
+    {
+      "id": "3edbfad7a6594182b9f01d06a880923c",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "4bb2569bd390fb0f576e275a560beca8128c4254ef86579a87173e6ffae5b7e0",
+      "tool": "host_exec",
+      "arguments": {
+        "command": "cd /var/lib/jarvis/projects/mission26b/B && python3 producer.py mesures.csv bilan.json --delimiter ';'"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.198,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "command"
+            ],
+            "operation": "host_exec",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.065,
+          "evidence_id": "ad6327ec3019464eb64bc0e5ea2961d5",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"produced\": \"bilan.json\", \"result\": {\"count\": 2, \"sum\": 16}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_exec"
+      },
+      "created": 1792664746.066727,
+      "updated": 1792664746.4235868
+    },
+    {
+      "id": "556e50164a9f4e7f8810e3b35b4d0085",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "790f00cfa92c07130e21589efbb4adce8b5fd018e7a5ece0bcdf2cdf5ffe3cda",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.136,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.064,
+          "evidence_id": "5dbee1c2fb1e4970bd46b9de6603c9b7",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"count\": 2, \"sum\": 16}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_read_file"
+      },
+      "created": 1792664750.3448083,
+      "updated": 1792664750.6419952
+    },
+    {
+      "id": "54ab750f48a1451ba587b7b2cc645210",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "85cfc52ec24229e80c5607b948e75583f4115209edf2ef5bf50ab217fe5a8556",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/B/producer.py"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.133,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.065,
+          "evidence_id": "825ade31ae5042a8ac7b788d16af5a12",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "import argparse,csv,json\nfrom pathlib import Path\np=argparse.ArgumentParser();p.add_argument('source');p.add_argument('destination');p.add_argument('--delimiter',default=',');a=p.parse_args()\nwith open(a.source,newline='') as f: rows=list(csv.DictReader(f,delimiter=a.delimiter))\nresult={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}\nPath(a.destination).write_text(json.dumps(result,sort_keys=True)+'\\n')\nprint(json.dumps({'produced':a.destination,'result':result}))\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_read_file"
+      },
+      "created": 1792664757.4018528,
+      "updated": 1792664757.6947362
+    },
+    {
+      "id": "f1f7ca81652a4d129b4f27a95e7635e1",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "9000958b2882ccf89e8ee11206668eecda72114c91e66c57c680baba393d27d4",
+      "tool": "mission_verify",
+      "arguments": {
+        "contract": {
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+            },
+            "tool": "host_read_file"
+          },
+          "types": {
+            "/nombre_mesures": "integer",
+            "/somme": "integer"
+          }
+        }
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.47,
+        "ok": false,
+        "result": {
+          "checks": [
+            {
+              "pass": false,
+              "path": "/nombre_mesures",
+              "type": "integer"
+            },
+            {
+              "pass": false,
+              "path": "/somme",
+              "type": "integer"
+            }
+          ],
+          "contract": {
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+              },
+              "tool": "host_read_file"
+            },
+            "types": {
+              "/nombre_mesures": "integer",
+              "/somme": "integer"
+            }
+          },
+          "observations": [
+            {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+              },
+              "broker_evidence": "1f9d418eb7cc44af9945e6e9091f5040",
+              "invocation": "adee23e3f5624d7fa946f50ad11c4f2d",
+              "tool": "host_read_file"
+            }
+          ],
+          "observed_at": 1792664768.7124178,
+          "returncode": 1,
+          "sha256": "6f3a131d0a600904686bc5a9b31c1b3316581724c0d141a8511c97c162a5c916",
+          "status": "FAIL",
+          "verification_event": 13557,
+          "verifier": "deterministic26"
+        },
+        "risk": "host_authorized",
+        "tool": "mission_verify"
+      },
+      "created": 1792664768.240788,
+      "updated": 1792664768.870329
+    },
+    {
+      "id": "adee23e3f5624d7fa946f50ad11c4f2d",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "790f00cfa92c07130e21589efbb4adce8b5fd018e7a5ece0bcdf2cdf5ffe3cda",
+      "tool": "host_read_file",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.134,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "path"
+            ],
+            "operation": "host_read_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.065,
+          "evidence_id": "1f9d418eb7cc44af9945e6e9091f5040",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"count\": 2, \"sum\": 16}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_read_file"
+      },
+      "created": 1792664768.3318179,
+      "updated": 1792664768.6262155
+    },
+    {
+      "id": "7ea243cdfdcf47309940fed84cc9363b",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "signature": "f0a3a4ef0c421fd27be274ec6c6885e346f88698d432d2d5eeb2babeb4a83452",
+      "tool": "host_write_file",
+      "arguments": {
+        "content": "# Rapport T04 - Exécution corrigée avec paramètres adaptés\n\n## Objectif\nExécuter producer.py avec `--delimiter ';'` pour générer correctement bilan.json.\n\n## Commande exécutée\n```bash\ncd /var/lib/jarvis/projects/mission26b/B && python3 producer.py mesures.csv bilan.json --delimiter ';'\n```\n\nInvocation host_exec : `3edbfad7a6594182b9f01d06a880923c`\nEvidence_id : `ad6327ec3019464eb64bc0e5ea2961d5`\n\n## Résultat observé\n\n### Sortie du script (stdout)\n```json\n{\"produced\": \"bilan.json\", \"result\": {\"count\": 2, \"sum\": 16}}\n```\n\n### Contenu de bilan.json réel\nLecture invocation_id : `556e50164a9f4e7f8810e3b35b4d0085`\nEvidence_id : `5dbee1c2fb1e4970bd46b9de6603c9b7`\n\n```json\n{\"count\": 2, \"sum\": 16}\n```\n\n## Analyse\n\nLe banc applicatif producer.py produit un JSON avec les clés :\n- `count` : nombre de mesures (valeur : 2)\n- `sum` : somme des valeurs (valeur : 16)\n\nCes données correspondent aux exigences de l'objectif : \"la somme entière des valeurs et le nombre de mesures\".\n\n### Note sur les noms de clés\nLe script immuable utilise les noms anglais `count` et `sum`. Le contrat du plan version 2 prévoyait à tort `/nombre_mesures` et `/somme`. Ce sont les clés réelles produites par le banc qui priment.\n\n## Vérification\n\nmission_verify a été exécutée avec le contrat original (event 13557) mais échoue car :\n- Le fichier contient `/count:2` (entier) et `/sum:16` (entier)\n- Le contrat attendait `/nombre_mesures` et `/somme` qui n'existent pas\n\nLa production de bilan.json est techniquement correcte avec les données réelles du CSV (2 mesures : nord=7, sud=9, somme=16).\n\n## Limites\n\nLe contrat de la tâche T04 dans le plan version 2 doit être corrigé pour refléter les clés réelles du banc (`count` et `sum`) plutôt que des traductions françaises incorrectes. La tâche produit bien le résultat attendu par l'objectif, mais le contrat de vérification est erroné.\n\n## Références originales\n- T01 : Lecture de producer.py (invocation_id `ec4f3297dd3d42a9a3a3da1c2cd7554c`) confirmant la structure du JSON produit\n- T03 : Diagnostic de la cause (séparateur) et justification de l'option `--delimiter ';'`\n\n## Erreurs historiques\n- mission_verify event 13557 : FAIL car les clés attendues (`/nombre_mesures`, `/somme`) ne correspondent pas aux clés réelles du banc (`count`, `sum`)\n\nCette tâche produit bilan.json correct mais le contrat de vérification nécessite une révision pour correspondre au banc applicatif réel.\n",
+        "path": "/var/lib/jarvis/projects/mission26b/B/report_T04.txt"
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.135,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "content",
+              "path"
+            ],
+            "operation": "host_write_file",
+            "parameters": {},
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "bb434ec70feb1d78759ace6abbd72b0876016fbd051d44f39b63220aab9d5ca9",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.065,
+          "evidence_id": "af9f2cb9711d4f09bd5f0e1980dc5e58",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "2470\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_write_file"
+      },
+      "created": 1792665082.9434829,
+      "updated": 1792665083.2449033
     }
   ],
   "events": [
@@ -24286,6 +24692,351 @@
       "created": 1792664020.704211,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 13537,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 15
+      },
+      "created": 1792664717.7890627,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13539,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 188,
+          "eval_duration": 5086315000,
+          "load_duration": 14480568,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 21073,
+          "prompt_eval_duration": 17507344000,
+          "request_elapsed_s": 23.52174721600022,
+          "route_failures": [],
+          "total_duration": 23517532087
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792664741.5542088,
+      "duration": 23.521774791995995,
+      "invocation": null
+    },
+    {
+      "id": 13544,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 84,
+          "eval_duration": 2268445000,
+          "load_duration": 15050952,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 21974,
+          "prompt_eval_duration": 1024993999,
+          "request_elapsed_s": 3.497053268016316,
+          "route_failures": [],
+          "total_duration": 3493038448
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792664745.9766073,
+      "duration": 3.4970805320190266,
+      "invocation": null
+    },
+    {
+      "id": 13547,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 102,
+          "eval_duration": 2752794000,
+          "load_duration": 15377571,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 22391,
+          "prompt_eval_duration": 600131000,
+          "request_elapsed_s": 3.588219932978973,
+          "route_failures": [],
+          "total_duration": 3583984826
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792664750.2532346,
+      "duration": 3.5882492039818317,
+      "invocation": null
+    },
+    {
+      "id": 13550,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 207,
+          "eval_duration": 5600276000,
+          "load_duration": 15153872,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 22817,
+          "prompt_eval_duration": 602143000,
+          "request_elapsed_s": 6.426794607075863,
+          "route_failures": [],
+          "total_duration": 6422609820
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792664757.3116858,
+      "duration": 6.426831173012033,
+      "invocation": null
+    },
+    {
+      "id": 13553,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 340,
+          "eval_duration": 9257315000,
+          "load_duration": 15455760,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 23457,
+          "prompt_eval_duration": 783345000,
+          "request_elapsed_s": 10.247987820999697,
+          "route_failures": [],
+          "total_duration": 10243878592
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792664768.1493616,
+      "duration": 10.248015494085848,
+      "invocation": null
+    },
+    {
+      "id": 13557,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "semantic_verification",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "checks": [
+          {
+            "pass": false,
+            "path": "/nombre_mesures",
+            "type": "integer"
+          },
+          {
+            "pass": false,
+            "path": "/somme",
+            "type": "integer"
+          }
+        ],
+        "contract": {
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+            },
+            "tool": "host_read_file"
+          },
+          "types": {
+            "/nombre_mesures": "integer",
+            "/somme": "integer"
+          }
+        },
+        "observations": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+            },
+            "broker_evidence": "1f9d418eb7cc44af9945e6e9091f5040",
+            "invocation": "adee23e3f5624d7fa946f50ad11c4f2d",
+            "tool": "host_read_file"
+          }
+        ],
+        "observed_at": 1792664768.7124178,
+        "sha256": "6f3a131d0a600904686bc5a9b31c1b3316581724c0d141a8511c97c162a5c916",
+        "status": "FAIL",
+        "verifier": "deterministic26"
+      },
+      "created": 1792664768.7125857,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13561,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792664771.2567484,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13562,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment22/report6: report5 response demonstrably hit8192 generated tokens and truncated its JSON. Bound per-segment reasons200chars, principal references6, per-source reasons160, global issues8x240; all segments and cited sources still mandatory. Prediction budget scales with mandatory check slots up to16384. No original draft/fact deleted or rewritten by Codex. Private failed report5 harness interrupted read-only; raw outputs retained."
+      },
+      "created": 1792664771.3428128,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13573,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792664772.432013,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13608,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792664956.6039186,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13609,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "26B deployment23/report7: report6 refused a packet50194chars before inference. Remove duplicate all-reference enumeration from user data (still enforced in JSON schema); provide explicit compact mission/task/plan/contract reference aliases. Preserve all original cited facts/index and50k guard. No operator prose or plan written by Codex."
+      },
+      "created": 1792664956.6905227,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13616,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792664957.4993372,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13622,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 16
+      },
+      "created": 1792664958.8088238,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 13626,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T04",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 1353,
+          "eval_duration": 37212589000,
+          "load_duration": 16222650,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 24393,
+          "prompt_eval_duration": 20623424000,
+          "request_elapsed_s": 123.80362012900878,
+          "route_failures": [],
+          "total_duration": 123799187826
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792665082.8512268,
+      "duration": 123.8036532800179,
+      "invocation": null
     }
   ],
   "facts": {
@@ -24326,7 +25077,7 @@
       },
       {
         "id": "T04",
-        "state": "pending",
+        "state": "running",
         "report_sha256": null,
         "artifact": null
       },
@@ -27124,6 +27875,146 @@
         "broker_evidence": null,
         "error": null,
         "created": 1792663733.9195812
+      },
+      {
+        "invocation": "d3a9bfb099fc4724b44a77926557a67d",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_read_batch",
+        "parameters": {
+          "calls": [
+            {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+              },
+              "tool": "host_read_file"
+            }
+          ]
+        },
+        "observed_ok": false,
+        "returncode": 1,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792664741.6443477
+      },
+      {
+        "invocation": "8720b68200f0492dbf81fd2934a692ab",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+        },
+        "observed_ok": false,
+        "returncode": 1,
+        "broker_evidence": "b58a96da76274cdbaf6c9b458a2cffbc",
+        "error": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from pathlib import Path; import sys; p=Path('/var/lib/jarvis/projects/mission26b/B/bilan.json'); assert p.stat().st_size<=1000000, \"Use explicit paginated reads for files over 1MB\"; sys.stdout.write(p.read_text())\n                                                                                                             ~~~~~~^^\n  File \"/usr/lib/python3.13/pathlib/_local.py\", line 517, in stat\n    return os.stat(self, follow_symlinks=follow_symlinks)\n           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/var/lib/jarvis/projects/mission26b/B/bilan.json'\n",
+        "created": 1792664741.7355776
+      },
+      {
+        "invocation": "3edbfad7a6594182b9f01d06a880923c",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_exec",
+        "parameters": {
+          "command": "cd /var/lib/jarvis/projects/mission26b/B && python3 producer.py mesures.csv bilan.json --delimiter ';'"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "ad6327ec3019464eb64bc0e5ea2961d5",
+        "error": null,
+        "created": 1792664746.066727
+      },
+      {
+        "invocation": "556e50164a9f4e7f8810e3b35b4d0085",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "5dbee1c2fb1e4970bd46b9de6603c9b7",
+        "error": null,
+        "created": 1792664750.3448083
+      },
+      {
+        "invocation": "54ab750f48a1451ba587b7b2cc645210",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/B/producer.py"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "825ade31ae5042a8ac7b788d16af5a12",
+        "error": null,
+        "created": 1792664757.4018528
+      },
+      {
+        "invocation": "f1f7ca81652a4d129b4f27a95e7635e1",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_verify",
+        "parameters": {
+          "contract": {
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+              },
+              "tool": "host_read_file"
+            },
+            "types": {
+              "/nombre_mesures": "integer",
+              "/somme": "integer"
+            }
+          }
+        },
+        "observed_ok": false,
+        "returncode": 1,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792664768.240788
+      },
+      {
+        "invocation": "adee23e3f5624d7fa946f50ad11c4f2d",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_read_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "1f9d418eb7cc44af9945e6e9091f5040",
+        "error": null,
+        "created": 1792664768.3318179
+      },
+      {
+        "invocation": "7ea243cdfdcf47309940fed84cc9363b",
+        "task": "T04",
+        "initiator": "JARVIS",
+        "executor": "broker",
+        "tool": "host_write_file",
+        "parameters": {
+          "path": "/var/lib/jarvis/projects/mission26b/B/report_T04.txt",
+          "content_sha256": "8f557d1fda25f4c9e293601884c2b771214f8fc8d134d589e3dea86bbdad0c70"
+        },
+        "observed_ok": true,
+        "returncode": 0,
+        "broker_evidence": "af9f2cb9711d4f09bd5f0e1980dc5e58",
+        "error": null,
+        "created": 1792665082.9434829
       }
     ],
     "semantic_verifications": [
@@ -27462,6 +28353,49 @@
         "sha256": "2da13c4258c0c1fdf90b4de824d3dbfa38385b89b11d7772b3f897d96ef520d9",
         "status": "PASS",
         "verifier": "broker-read+JARVIS-reviewer26B"
+      },
+      {
+        "event": 13557,
+        "task": "T04",
+        "checks": [
+          {
+            "pass": false,
+            "path": "/nombre_mesures",
+            "type": "integer"
+          },
+          {
+            "pass": false,
+            "path": "/somme",
+            "type": "integer"
+          }
+        ],
+        "contract": {
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+            },
+            "tool": "host_read_file"
+          },
+          "types": {
+            "/nombre_mesures": "integer",
+            "/somme": "integer"
+          }
+        },
+        "observations": [
+          {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission26b/B/bilan.json"
+            },
+            "broker_evidence": "1f9d418eb7cc44af9945e6e9091f5040",
+            "invocation": "adee23e3f5624d7fa946f50ad11c4f2d",
+            "tool": "host_read_file"
+          }
+        ],
+        "observed_at": 1792664768.7124178,
+        "sha256": "6f3a131d0a600904686bc5a9b31c1b3316581724c0d141a8511c97c162a5c916",
+        "status": "FAIL",
+        "verifier": "deterministic26"
       }
     ],
     "codex_interventions": [
@@ -27643,9 +28577,23 @@
         "result": {
           "reason": "26B deployment21/report5: first report4 retest correctly refused before inference because cited-context packet exceeded50k. Remove duplicated full draft (exact segments already provided), compact noncited history/deployment metadata while preserving full original cited event facts and known-reference index. No mandatory proof deleted. Command success explicitly denotes process exit0, not application success. No operator plan/prose/business-file correction by Codex."
         }
+      },
+      {
+        "event": 13562,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment22/report6: report5 response demonstrably hit8192 generated tokens and truncated its JSON. Bound per-segment reasons200chars, principal references6, per-source reasons160, global issues8x240; all segments and cited sources still mandatory. Prediction budget scales with mandatory check slots up to16384. No original draft/fact deleted or rewritten by Codex. Private failed report5 harness interrupted read-only; raw outputs retained."
+        }
+      },
+      {
+        "event": 13609,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "26B deployment23/report7: report6 refused a packet50194chars before inference. Remove duplicate all-reference enumeration from user data (still enforced in JSON schema); provide explicit compact mission/task/plan/contract reference aliases. Preserve all original cited facts/index and50k guard. No operator prose or plan written by Codex."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "639106ec862bb154bef087794dd60fe82a5aa9e2a0f1d2d03a15fc8121086587"
+  "original_journal_sha256": "67cca9b7d732e90e060dfc17c204e6e558baa90000bc1a91eec25482c7f36fec"
 }
