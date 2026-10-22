@@ -708,3 +708,29 @@ class AssuranceTests(unittest.TestCase):
         original=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['actual fault']})
         self.s.event(self.m,'controller_findings_rectified',actor='JARVIS',result={'reason':'test','withdrawn':[{'event':original,'findings':['actual fault']}]})
         self.assertEqual(finding_rectifications(self.s,self.m),{})
+
+    def test_independent_findings_survive_later_different_editorial_failure(self):
+        from jarvis.mission_assurance import pending_report_feedback
+        self.s.event(self.m,'narrative_review','a',actor='Codex-independent',result={'status':'FAIL','issues':['Original cause was missing FAIL, not a descriptive heading']})
+        last=self.s.event(self.m,'narrative_review','a',actor='JARVIS-reviewer',result={'status':'FAIL','issues':['Historical FAIL must be retained']})
+        pending=pending_report_feedback(self.s,self.m,'a')
+        self.assertEqual(pending['review_reference'],'event:'+str(last))
+        self.assertIn('not a descriptive heading',pending['issues'][0]);self.assertEqual(pending['reviews_since_last_scoped_pass'],2)
+        self.s.event(self.m,'narrative_review','a',result={'status':'PASS'})
+        self.assertIsNone(pending_report_feedback(self.s,self.m,'a'))
+
+    def test_rejection_error_only_contains_actual_faults_not_allowed_heading_reasons(self):
+        reference=self.observation();self.s.event(self.m,'semantic_verification','a',result={'status':'FAIL'})
+        body='# Heading\n\nLecture : '+reference
+        self.responses=[{'claims':[{'segment':'S1','verdict':'not_factual','references':[],'reason':'PERMITTED_TITLE_REASON'},{'segment':'S2','verdict':'supported','references':[reference],'reason':'SUPPORTED_RECEIPT_REASON'}],'issues':[]}]
+        with self.assertRaises(ValueError) as raised:require_report(self.r,body,'a')
+        self.assertIn('Historical FAIL',str(raised.exception));self.assertNotIn('PERMITTED_TITLE_REASON',str(raised.exception));self.assertNotIn('SUPPORTED_RECEIPT_REASON',str(raised.exception))
+        original=next(e for e in self.s.events(self.m) if e['kind']=='narrative_review')
+        self.assertEqual(len(original['result']['claims']),2)
+
+    def test_old_mixed_editorial_error_view_preserves_original_and_exposes_actual_issues(self):
+        from jarvis.durable_cycle import model_observation
+        original={'ok':False,'error':'Narrative withheld before publication. '+json.dumps({'claims':[{'verdict':'not_factual','reason':'PERMITTED_HEADING'},{'verdict':'insufficient','reason':'ACTUAL_WRONG_DATE'}],'issues':['Historical FAIL missing']})}
+        view=model_observation(original)
+        self.assertIn('Historical FAIL missing',view['error']);self.assertIn('ACTUAL_WRONG_DATE',view['error'])
+        self.assertNotIn('PERMITTED_HEADING',view['error']);self.assertIn('PERMITTED_HEADING',original['error'])

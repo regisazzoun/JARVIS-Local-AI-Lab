@@ -10,12 +10,24 @@ from pathlib import Path
 from .mission_store import encoded, signature
 
 
+def editorial_error_view(text):
+    """Old receipts keep their original bytes; model views expose actual faults."""
+    if not isinstance(text,str) or not text.startswith('Narrative withheld before publication.'):return text
+    try:
+        start=text.index('{');data=json.loads(text[start:])
+        if not isinstance(data.get('issues'),list):return text
+        claims=[c for c in data.get('claims',[]) if c.get('verdict') in ('contradicted','insufficient')]
+        return 'Narrative withheld before publication. Correct the actual issues; not_factual headings are allowed. '+encoded({'issues':data['issues'],'rejected_claims':claims,'original_error_in_mission_evidence':True})
+    except (ValueError,TypeError,AttributeError):return text
+
+
 def model_observation(value, limit=8000):
     """Bound a model view, never the canonical tool receipt stored in SQLite."""
     if isinstance(value,list):return [model_observation(item,limit) for item in value]
     if not isinstance(value,dict):return value
     result={}
     for key,item in value.items():
+        if key=='error':item=editorial_error_view(item)
         if key in ('stdout','content') and isinstance(item,str) and len(item)>limit:
             result[key]=item[:limit*3//4]+'\n[MODEL VIEW EXCERPT; full receipt in mission_evidence]\n'+item[-limit//4:]
             result[key+'_full_chars']=len(item)
@@ -145,7 +157,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             if 'command' in args:args['command']=args['command'][:1200]
             result=observation['result'] or {}
             value=result.get('result',{})
-            return {'id':observation['id'],'created':observation['created'],'task':observation['task'],'tool':observation['tool'],'arguments':args,'state':observation['state'],'ok':result.get('ok'),'evidence_id':value.get('evidence_id'),'error':result.get('error','')[:500],'stdout':str(value.get('stdout',value.get('content','')))[-900:]}
+            return {'id':observation['id'],'created':observation['created'],'task':observation['task'],'tool':observation['tool'],'arguments':args,'state':observation['state'],'ok':result.get('ok'),'evidence_id':value.get('evidence_id'),'error':editorial_error_view(result.get('error',''))[:500],'stdout':str(value.get('stdout',value.get('content','')))[-900:]}
         policies=[o['result']['result'] for o in observations if o['tool']=='host_policy' and (o['result'] or {}).get('ok')]
         policy=policies[-1] if policies else None
         tasks=[{k:t.get(k) for k in ('id','title','deps','state','artifact','report_sha256')} for t in store.tasks(ident)]

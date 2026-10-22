@@ -13,7 +13,7 @@ from .mission_store import encoded
 
 VERSION = '26b.10'
 GOAL_VERSION = '26b.7'
-REPORT_VERSION = '26b.report.11'
+REPORT_VERSION = '26b.report.12'
 
 
 def enabled(store, ident):
@@ -306,16 +306,25 @@ def ensure_plan_review(registry):
 def pending_report_feedback(store, ident, task_id=None):
     """Keep editorial rejection visible until a newer editorial PASS, across compaction."""
     with store.db() as connection:
-        row=connection.execute("SELECT id,result FROM mission_events WHERE mission=? AND task IS ? AND kind='narrative_review' ORDER BY id DESC LIMIT 1",(ident,task_id)).fetchone()
-    if not row:return None
-    review=json.loads(row['result'])
-    if review.get('status')!='FAIL':return None
+        rows=connection.execute("SELECT id,actor,result FROM mission_events WHERE mission=? AND task IS ? AND kind='narrative_review' ORDER BY id DESC",(ident,task_id)).fetchall()
+    if not rows or json.loads(rows[0]['result']).get('status')!='FAIL':return None
+    unresolved=[]
+    for row in rows:
+        review=json.loads(row['result'])
+        if review.get('status')=='PASS':break
+        if review.get('status')=='FAIL':unresolved.append((row,review))
+    unresolved.sort(key=lambda pair:pair[0]['actor']!='Codex-independent')
+    rectifications=finding_rectifications(store,ident)
     issues=[];remaining=6000
-    for issue in review.get('issues',[]):
-        if remaining<=0:break
-        excerpt=str(issue)[:min(1500,remaining)];issues.append(excerpt);remaining-=len(excerpt)
-    return {'review_reference':'event:'+str(row['id']),'draft_sha256':review.get('draft_sha256'),'issues':issues,'full_findings_in_mission_evidence':True,
-            'required_action':'Revise your own report from these original findings and recheck it. A later technical PASS does not resolve an editorial FAIL. Do not rerun successful technical work just to correct prose.'}
+    for row,review in unresolved:
+        withdrawn=rectifications.get('event:'+str(row['id']),{}).get('withdrawn_findings',[])
+        for issue in review.get('issues',[]):
+            if remaining<=0:break
+            if issue in withdrawn or any(item==issue for item in issues):continue
+            excerpt=str(issue)[:min(1500,remaining)];issues.append(excerpt);remaining-=len(excerpt)
+    latest_review=json.loads(rows[0]['result'])
+    return {'review_reference':'event:'+str(rows[0]['id']),'draft_sha256':latest_review.get('draft_sha256'),'issues':issues,'full_findings_in_mission_evidence':True,
+            'reviews_since_last_scoped_pass':len(unresolved),'required_action':'Re-evaluate these historical findings against your CURRENT draft; some may already be fixed. A later different FAIL does not silently resolve earlier independent findings. Keep corrected facts, never reintroduce an old fault. Headings classified not_factual are allowed; only issues and contradicted/insufficient passages are errors. Do not rerun successful technical work just to correct prose.'}
 
 
 def finding_rectifications(store, ident):
@@ -641,7 +650,8 @@ def audit_report(registry, content, task_id=None):
 def require_report(registry, content, task_id=None):
     result=audit_report(registry,content,task_id)
     if result['status']!='PASS':
-        raise ValueError('Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. '+encoded({'draft_sha256':result['draft_sha256'],'issues':result['issues'],'claims':result['claims']}))
+        rejected=[claim for claim in result['claims'] if claim['verdict'] in ('contradicted','insufficient')]
+        raise ValueError('Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. Only listed issues and contradicted/insufficient passages are faults. not_factual headings are allowed. '+encoded({'draft_sha256':result['draft_sha256'],'issues':result['issues'],'claims':rejected}))
     return result
 
 

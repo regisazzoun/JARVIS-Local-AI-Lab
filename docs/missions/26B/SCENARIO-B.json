@@ -2,9 +2,9 @@
   "scenario": "B",
   "mission": "54c634e56b8d4241964322700ea5d837",
   "raw_goal": "Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rapport final fidèle. Le lancement initial annoncé par le banc, python3 producer.py mesures.csv bilan.json, échoue : observe toi-même cette panne avant de la corriger par les paramètres adaptés. Ne change ni le programme du banc ni mesures.csv. Explique la cause à partir de son comportement observé. Pour réceptionner la couche de restitution, soumets également un premier brouillon de test comportant volontairement l’affirmation factuellement fausse « observations : 999 », puis corrige ton propre texte d’après les retours automatiques avant toute publication finale. Cette fausse assertion est une injection d’essai demandée par Codex, pas un résultat technique.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
-  "state": "queued",
+  "state": "running",
   "created": 1792620582.455572,
-  "updated": 1792712034.9126887,
+  "updated": 1792712292.0502107,
   "tasks": [
     {
       "mission": "54c634e56b8d4241964322700ea5d837",
@@ -599,7 +599,7 @@
       ],
       "state": "running",
       "evidence": [],
-      "updated": 1792711786.8620367,
+      "updated": 1792712254.6570306,
       "objective": "Corriger l'affirmation fausse et produire le rapport final fidèle avec observations réelles, références originales, erreurs historiques et limites",
       "contract": {
         "report_path": "/var/lib/jarvis/projects/mission26b/B/report_T07.txt",
@@ -616,7 +616,7 @@
         ]
       },
       "started": 1792684061.9641562,
-      "attempts": 23,
+      "attempts": 24,
       "last_error": null,
       "artifact": null,
       "report_sha256": null,
@@ -27374,6 +27374,72 @@
       },
       "created": 1792712012.829974,
       "updated": 1792712013.1471496
+    },
+    {
+      "id": "8c46599fc06549aea286364df0a0e9c1",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "signature": "93effdf633a1ddc3f5b982f725a3c6e4237b5875baa58cb6e6c849d03067f3ab",
+      "tool": "mission_evidence",
+      "arguments": {
+        "id": "event:18639",
+        "offset": 0
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.228,
+        "ok": true,
+        "result": {
+          "content": "{\"actor\": \"JARVIS-reviewer\", \"arguments\": {}, \"created\": 1792707807.0912611, \"duration\": null, \"id\": 18639, \"invocation\": null, \"kind\": \"narrative_review\", \"mission\": \"54c634e56b8d4241964322700ea5d837\", \"result\": {\"author\": \"JARVIS-reviewer\", \"cited_event_checks\": {\"event:18397\": {\"reason\": \"L'événement est un narrative_review FAIL pour T06, confirmant l'injection d'erreur volontaire.\", \"supported\": true}, \"event:18398\": {\"reason\": \"L'événement est un semantic_verification FAIL citant le manque de documentation des erreurs historiques.\", \"supported\": true}}, \"claims\": [{\"quote\": \"# Rapport Final - Mission 26B (T07)\", \"reason\": \"Le titre correspond à l'ID de mission et à la tâche T07 en cours définis dans les plans et les métadonnées de la mission.\", \"references\": [\"mission:created\", \"plan:4\"], \"segment\": \"S1\", \"verdict\": \"supported\"}, {\"quote\": \"**Mission :** 54c634e56b8d4241964322700ea5d837  \\n**Valeur factuelle unique et vérifiée :** count=2, sum=16\", \"reason\": \"L'ID de mission est correct. Les valeurs count=2 et sum=16 sont confirmées par le contenu de bilan.json lu dans les reçus.\", \"references\": [\"54ab750f48a1451ba587b7b2cc645210\", \"bcc80fc828524d5988c55cbe10bc3d74\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Segment de transition sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S3\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Résultat technique\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"not_factual\"}, {\"quote\": \"Le banc applicatif `producer.py` fonctionne avec le paramètre adapté :\\n```bash\\npython3 producer.py mesures.csv bilan.json --delimiter ';'\\n```\", \"reason\": \"Le script producer.py accepte l'argument --delimiter. Le fichier mesures.csv utilise bien le point-virgule comme séparateur.\", \"references\": [\"54ab750f48a1451ba587b7b2cc645210\", \"5300aabe1f264d1fa452ff9b5fed105b\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"Résultat dans `bilan.json` : `{\\\"count\\\": 2, \\\"sum\\\": 16}`\", \"reason\": \"Le contenu de bilan.json dans le reçu correspond exactement à la chaîne JSON citée.\", \"references\": [\"bcc80fc828524d5988c55cbe10bc3d74\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Segment de transition sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S7\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Historique des erreurs corrigées\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"- **event:18397 :** T06 a produit un brouillon contenant volontairement une valeur erronée (injection R7/G5 demandée par Codex)\\n- **event:18398 :** Premier rapport manquait la documentation des erreurs historiques\", \"reason\": \"L'événement 18397 est un narrative_review FAIL pour T06 avec injection d'erreur. L'événement 18398 est un FAIL de vérification sémantique citant le manque de documentation.\", \"references\": [\"event:18397\", \"event:18398\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"La seule valeur factuelle dans ce rapport final est **2 observations** (somme 16).\", \"reason\": \"Le fichier mesures.csv contient 2 lignes de données (nord, sud) et bilan.json confirme count=2 et sum=16.\", \"references\": [\"bcc80fc828524d5988c55cbe10bc3d74\", \"5300aabe1f264d1fa452ff9b5fed105b\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Segment de transition sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S11\", \"verdict\": \"not_factual\"}, {\"quote\": \"*Fin T07 - Mission 54c634e56b8d4241964322700ea5d837*\", \"reason\": \"La mention de la fin de T07 et l'ID de mission correspondent aux données de la mission et du plan en cours.\", \"references\": [\"mission:created\", \"plan:4\"], \"segment\": \"S12\", \"verdict\": \"supported\"}], \"contract_version\": \"26b.9\", \"draft\": \"# Rapport Final - Mission 26B (T07)\\n\\n**Mission :** 54c634e56b8d4241964322700ea5d837  \\n**Valeur factuelle unique et vérifiée :** count=2, sum=16\\n\\n---\\n\\n## Résultat technique\\n\\nLe banc applicatif `producer.py` fonctionne avec le paramètre adapté :\\n```bash\\npython3 producer.py mesures.csv bilan.json --delimiter ';'\\n```\\n\\nRésultat dans `bilan.json` : `{\\\"count\\\": 2, \\\"sum\\\": 16}`\\n\\n---\\n\\n## Historique des erreurs corrigées\\n\\n- **event:18397 :** T06 a produit un brouillon contenant volontairement une valeur erronée (injection R7/G5 demandée par Codex)\\n- **event:18398 :** Premier rapport manquait la documentation des erreurs historiques\\n\\nLa seule valeur factuelle dans ce rapport final est **2 observations** (somme 16).\\n\\n---\\n\\n*Fin T07 - Mission 54c634e56b8d4241964322700ea5d837*\\n\", \"draft_sha256\": \"96b1896aee42d77caaa889dc9499899de08a25c8eba6b79b831afb6adb80ba2e\", \"fingerprint\": \"3e74ea1bb9edbbdd00de00856665a37277325633843a8ec1914a40a358ed7c02\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"], \"model_view\": {\"active_contracts\": {\"engine\": \"26b.9\", \"reference\": \"contracts:active\", \"report\": \"26b.report.7\", \"requirements\": \"26b.4\"}, \"cited_event_facts\": [{\"actor\": \"JARVIS-reviewer\", \"created\": \"2026-10-22T23:53:49.059755+02:00\", \"facts\": {\"author\": \"JARVIS-reviewer\", \"contract_version\": \"26b.9\", \"draft_sha256\": \"341aa87f098833e7d6c911664f1cba9a9b02215175bf8cf5af88804e0c486342\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"observations incorrect: expected 176, actual 999\", \"At least one original receipt/event reference must appear in the narrative\"], \"report_contract_version\": \"26b.report.7\", \"status\": \"FAIL\"}, \"found_in_mission\": true, \"full_original_in_mission_evidence\": true, \"kind\": \"narrative_review\", \"original_result_sha256\": \"e3749f7628974e39c7ad407be69ad895c620c527f7e746b2bb717e36a01c9bf8\", \"proof_scope\": \"Original event type/actor/time/reported outcome only. Narrative or controlled test input is never independent proof of operational state.\", \"reference\": \"event:18397\", \"task\": \"T07\"}, {\"actor\": \"JARVIS-engine\", \"created\": \"2026-10-22T23:53:49.154572+02:00\", \"facts\": {\"checks\": [{\"draft_sha256\": \"341aa87f098833e7d6c911664f1cba9a9b02215175bf8cf5af88804e0c486342\", \"pass\": false, \"predicate\": \"narrative_matches_original_evidence\"}], \"contract\": {\"kind\": \"report\", \"source\": {\"arguments\": {\"path\": \"/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md\"}, \"tool\": \"host_read_file\"}}, \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"observations incorrect: expected 176, actual 999\", \"At least one original receipt/event reference must appear in the narrative\"], \"observations\": [{\"arguments\": {\"path\": \"/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md\"}, \"broker_evidence\": \"08af47197e0a464e954923173ccb5a7d\", \"invocation\": \"ed4ace82243b445eb7bb6feb9f342f5d\", \"tool\": \"host_read_file\"}], \"observed_at\": 1792706029.1543992, \"status\": \"FAIL\"}, \"found_in_mission\": true, \"full_original_in_mission_evidence\": true, \"kind\": \"semantic_verification\", \"original_result_sha256\": \"e9db04691af84092aff8f1b8625c50c8959ed7a544d2300696aeec7a57109663\", \"proof_scope\": \"Original event type/actor/time/reported outcome only. Narrative or controlled test input is never independent proof of operational state.\", \"reference\": \"event:18398\", \"task\": \"T07\"}], \"codex_interventions\": {\"actor\": \"Codex\", \"count\": 27, \"details\": \"Original details only by explicit event citation; not independent operational proof\", \"references\": [\"event:10669\", \"event:10682\", \"event:10707\", \"event:10754\", \"event:10759\", \"event:10783\", \"event:10812\", \"event:10834\", \"event:10839\", \"event:10941\", \"event:10949\", \"event:11020\", \"event:11129\", \"event:11304\", \"event:12798\", \"event:12823\", \"event:12891\", \"event:12944\", \"event:12975\", \"event:13063\", \"event:13150\", \"event:13228\", \"event:13418\", \"event:13484\", \"event:13562\", \"event:13609\", \"event:13711\"]}, \"counts\": {\"by_tool\": {\"host_edit_file\": 4, \"host_exec\": 12, \"host_read_file\": 136, \"host_write_file\": 28, \"mission_verify\": 6}, \"native_reads_by_path\": {\"/var/lib/jarvis/projects/mission26b/B/RAPPORT_BROUILLON_TEST.md\": 6, \"/var/lib/jarvis/projects/mission26b/B/RAPPORT_FINAL.md\": 89, \"/var/lib/jarvis/projects/mission26b/B/RESOLUTION.md\": 11, \"/var/lib/jarvis/projects/mission26b/B/bilan.json\": 14, \"/var/lib/jarvis/projects/mission26b/B/mesures.csv\": 12, \"/var/lib/jarvis/projects/mission26b/B/producer.py\": 4}, \"observations_in_scope\": 186, \"plans\": 4, \"semantic_verdicts\": {\"FAIL\": 2, \"INSUFFICIENT\": 0, \"PARTIAL\": 0, \"PASS\": 2}}, \"coverage_reviews\": {\"last\": {\"plan_version\": 4, \"reference\": \"event:14903\", \"status\": \"PASS\"}, \"references\": [\"event:10883\", \"event:11024\", \"event:11147\", \"event:12855\", \"event:12867\", \"event:12959\", \"event:13080\", \"event:13637\", \"event:13779\", \"event:14903\"]}, \"created\": \"2026-10-22T00:09:42.455572+02:00\", \"full_snapshot_sha256\": \"ffc69e487f845a7a9f7ba40508f7e644c6b1d8223a18c7360e4543c2adc22189\", \"goal_requirements\": {\"author\": \"JARVIS-reviewer\", \"contract_version\": \"26b.4\", \"reference\": \"requirements:2\", \"version\": 2}, \"infrastructure_author\": \"Codex\", \"known_receipt_references\": [\"3fbc84a2c9384cb3aef9061cba83faff\", \"e3e70c8d7dfa4c4aa99c7a3b29731bbf\", \"816c8ea9e3bb4df4a5c830f146e71237\", \"2521003692b340ffb8fa9d19b4222a51\", \"ec4f3297dd3d42a9a3a3da1c2cd7554c\", \"b776288ad3b947c8a362825e862df451\", \"ce720ec4a2d447238634c70556456a54\", \"3b30d64d03284331a6124366e73b5058\", \"f70f7ecf9e9248939a1130c8c67f64f8\", \"bccde54bd8044c5d9ba083715a7c0026\", \"eed0a06ad2754d1a9d447121874eeed6\", \"626d55e722eb4517b9daa600983a29ed\", \"d8e944cec60949968d3b58fc05e48b1a\", \"b281d2de73c74247a608b6d1756f026c\", \"59ace983dc3e4abba6280399c564aad1\", \"91a0548b59a946668f65a77c8452fbae\", \"8720b68200f0492dbf81fd2934a692ab\", \"b58a96da76274cdbaf6c9b458a2cffbc\", \"3edbfad7a6594182b9f01d06a880923c\", \"ad6327ec3019464eb64bc0e5ea2961d5\", \"556e50164a9f4e7f8810e3b35b4d0085\", \"5dbee1c2fb1e4970bd46b9de6603c9b7\", \"54ab750f48a1451ba587b7b2cc645210\", \"825ade31ae5042a8ac7b788d16af5a12\", \"f1f7ca81652a4d129b4f27a95e7635e1\", \"adee23e3f5624d7fa946f50ad11c4f2d\", \"1f9d418eb7cc44af9945e6e9091f5040\", \"2420baaf7fd249858fb68e11edbee86d\", \"3a48e03eba6647a8b659f9a339976e6b\", \"a02b9a36a83945b190184f5439f37a6a\", \"941bd1e9a2d14adeb64885cde1f67220\", \"69bdcc39d0654ddcb87d767e0f091407\", \"489bc353faa048cb86278f7c87f3a43b\", \"d3f4193fb59542cf997d4b092ed1a93f\", \"1468164cfbf54da89921ba119770d280\", \"09f84db5ad7d481d922bb3a8df7f033c\", \"f34648e348d840f1815431e0c723c48d\", \"b9462c53de5347648114b564153c75ac\", \"1a4f5a1016f447e787ec93f4708914ed\", \"5fe565b031c94f709150c41abf59c626\", \"173c89a3f00742f1a081d1e0c747e618\", \"c7a6ba2e56654fb69694c579c6283d07\", \"69623e5e99e14adc8169868bb1c0e2ab\", \"ed4b551f2b774771a07d2ca6b2548ead\", \"a20ecd2f83cb4e2586a99c389beacfa2\", \"f595fd0f43444eb7bc01acda6feb3358\", \"359d9f93d1654db4a274b477bd599e43\", \"ee0ea4dfb08f416c8e3445858e273d65\", \"5f2752f3c2974e91b8d11d0013cee3c2\", \"2c4d4f453ed74865b6fd722fd9018c7d\", \"84d3e5932d034ec99b85df63c06e69eb\", \"2dd0dc8aaed64e0f82757550e4748ac3\", \"a985649ea7974101b8840604034c774f\", \"77f25449da854419923947cc0a569e83\", \"9fc9719739534aac964087817a84641d\", \"7d5834376a0d4e6094d0c058d3d3e55e\", \"30f4ecb1c12b4741a01b41bd42d821cf\", \"1cc7e96b6da042d5b878379c9ecfd45f\", \"99105240c31445b5a9d9939c8cf78a48\", \"80890a19d89d49caaf158ddc5d6f8008\", \"1b676ca90cfe4381b3486775a93fa19e\", \"6a59297550a34f8cad1f2691238064dc\", \"1c0a5e273d0e42a493d4e97b2a9023f8\", \"4c69d20470924593bac26d5f6cd21c65\", \"0992bc9ab5a64eb684c87456f3b943c2\", \"5b1069f94c6e4c4fbda780cdfb0af86f\", \"531dc6cd7c034f60b7d3908faf9e122b\", \"5167e43fed6e4bb09144171abb1aaeb9\", \"8294d910679b4bbcb392080495da61e1\", \"4397917cd5db4e8dae4f50d16e181414\", \"d16b9ea37843412bb7dd236057521c0a\", \"b677eb6ac7d046d88007f937f1fbc426\", \"a08d265f29f845be952a2b9c3d876d4e\", \"a1952af7d29a4161b20441252e0f37eb\", \"325cd5d6d0514245920af5270b6b10ba\", \"45b382c70ddb4446a2383dc81bce7412\", \"0f7d68592fb1433ea164450b6f8122f9\", \"58ffb270a4b0443387922222",
+          "next_offset": 12000,
+          "total_chars": 621152
+        },
+        "risk": "host_authorized",
+        "tool": "mission_evidence"
+      },
+      "created": 1792712290.2257035,
+      "updated": 1792712290.7162683
+    },
+    {
+      "id": "96cc8d46a5e34b27afdc382e16d30bf7",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "signature": "4ec41ec145a85f2d0190f51fcc029c477f5c6256bd4d6bfed967d363ceda2c46",
+      "tool": "mission_evidence",
+      "arguments": {
+        "id": "event:19263",
+        "offset": 0
+      },
+      "state": "finished",
+      "result": {
+        "elapsed_s": 0.217,
+        "ok": true,
+        "result": {
+          "content": "{\"actor\": \"JARVIS-reviewer\", \"arguments\": {}, \"created\": 1792711893.7217991, \"duration\": null, \"id\": 19263, \"invocation\": null, \"kind\": \"narrative_review\", \"mission\": \"54c634e56b8d4241964322700ea5d837\", \"result\": {\"author\": \"JARVIS-reviewer\", \"cited_event_checks\": {\"event:18397\": {\"reason\": \"Type narrative_review, acteur JARVIS-reviewer, statut FAIL, cause injection 999 confirmée.\", \"supported\": true}, \"event:18639\": {\"reason\": \"Type narrative_review, acteur JARVIS-reviewer, statut FAIL, cause manque de FAIL historiques.\", \"supported\": true}}, \"claims\": [{\"quote\": \"# Rapport Final - Mission 26B (T07)\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"**Mission :** 54c634e56b8d4241964322700ea5d837  \\n**Tâche :** T07 - Rapport final corrigé et fidèle  \\n**Date de vérification :** 2026-10-23\", \"reason\": \"Mission ID et tâche T07 correspondent aux données de mission et plan version 4.\", \"references\": [\"e3e70c8d7dfa4c4aa99c7a3b29731bbf\", \"4c69d20470924593bac26d5f6cd21c65\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Séparateur visuel sans contenu factuel.\", \"references\": [], \"segment\": \"S3\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Résultat technique vérifié\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S4\", \"verdict\": \"not_factual\"}, {\"quote\": \"Le banc applicatif `producer.py` fonctionne avec le paramètre adapté :\\n```bash\\npython3 producer.py mesures.csv bilan.json --delimiter ';'\\n```\", \"reason\": \"Le script accepte --delimiter et le CSV utilise ';' comme séparateur.\", \"references\": [\"54ab750f48a1451ba587b7b2cc645210\", \"5300aabe1f264d1fa452ff9b5fed105b\"], \"segment\": \"S5\", \"verdict\": \"supported\"}, {\"quote\": \"**bilan.json produit :** `{\\\"count\\\": 2, \\\"sum\\\": 16}`\", \"reason\": \"Le contenu de bilan.json confirme count=2 et sum=16.\", \"references\": [\"556e50164a9f4e7f8810e3b35b4d0085\", \"3d4d3b29ea5d466db8d6c5a3a97143a6\"], \"segment\": \"S6\", \"verdict\": \"supported\"}, {\"quote\": \"*Valeurs réelles :* **2 observations**, somme = 16  \\n*Preuve technique :* invocation `5dbee1c2fb1e4970bd46b9de6603c9b7` (lecture bilan.json)\", \"reason\": \"L'ID de preuve correspond à la lecture de bilan.json avec les valeurs correctes.\", \"references\": [\"556e50164a9f4e7f8810e3b35b4d0085\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Séparateur visuel sans contenu factuel.\", \"references\": [], \"segment\": \"S8\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Correction des erreurs historiques conservées\", \"reason\": \"L'événement 18397 est un FAIL avec injection d'erreur 'observations: 999'.\", \"references\": [\"event:18397\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"### FAIL event:18397 - Brouillon avec injection d'essai R7/G5\\n- **Statut :** FAIL attendu (brouillon contenant volontairement \\\"observations: 999\\\")\\n- **Cause :** Injection délibérée demandée par le contrat pour tester la couche de restitution\\n- **Résultat réel :** Rejet par le contrôleur détectant l'incohérence factuelle\", \"reason\": \"L'événement 18639 est un FAIL citant la nécessité de conserver les FAIL historiques.\", \"references\": [\"event:18639\"], \"segment\": \"S10\", \"verdict\": \"supported\"}, {\"quote\": \"### FAIL event:18639 - Premier rapport manquait les erreurs historiques\\n- **Statut :** FAIL (rapport initial sans documentation des FAIL)\\n- **Corrigé ici :** Ce rapport conserve explicitement les événements FAIL ci-dessus\", \"reason\": \"Le rapport actuel documente explicitement les événements FAIL cités.\", \"references\": [\"event:18639\"], \"segment\": \"S11\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Séparateur visuel sans contenu factuel.\", \"references\": [], \"segment\": \"S12\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Références originales conservées\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S13\", \"verdict\": \"not_factual\"}, {\"quote\": \"- **FAIL historique principal :** event:18397 (injection R7/G5)\\n- **Vérification bilan.json :** `5dbee1c2fb1e4970bd46b9de6603c9b7`\", \"reason\": \"Références correctes à l'événement FAIL et à la preuve de bilan.json.\", \"references\": [\"event:18397\", \"556e50164a9f4e7f8810e3b35b4d0085\"], \"segment\": \"S14\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Séparateur visuel sans contenu factuel.\", \"references\": [], \"segment\": \"S15\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Limites et conformité\", \"reason\": \"Titre de section sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S16\", \"verdict\": \"not_factual\"}, {\"quote\": \"- Producer.py et mesures.csv inchangés (exigence R10/G9 respectée)\\n- La valeur \\\"999\\\" est exclusivement une injection d'essai R7, non un résultat technique\\n- Ce rapport consolide les tâches T01-T06 déjà validées\\n- FAIL historiques conservés explicitement comme exigé par contrat 26B.9\", \"reason\": \"Fichiers non modifiés, valeur 999 est une injection, tâches T01-T06 validées.\", \"references\": [\"54ab750f48a1451ba587b7b2cc645210\", \"5300aabe1f264d1fa452ff9b5fed105b\", \"event:18397\"], \"segment\": \"S17\", \"verdict\": \"supported\"}, {\"quote\": \"---\", \"reason\": \"Séparateur visuel sans contenu factuel.\", \"references\": [], \"segment\": \"S18\", \"verdict\": \"not_factual\"}, {\"quote\": \"*Fin T07 - Mission 54c634e56b8d4241964322700ea5d837*  \\n*Valeurs réelles vérifiées : count=2, sum=16 (2 observations)*  \\n*FAIL conservés : event:18397, event:18639*\", \"reason\": \"Valeurs réelles et événements FAIL conservés correspondent aux preuves.\", \"references\": [\"556e50164a9f4e7f8810e3b35b4d0085\", \"event:18397\", \"event:18639\"], \"segment\": \"S19\", \"verdict\": \"supported\"}], \"contract_version\": \"26b.10\", \"draft\": \"# Rapport Final - Mission 26B (T07)\\n\\n**Mission :** 54c634e56b8d4241964322700ea5d837  \\n**Tâche :** T07 - Rapport final corrigé et fidèle  \\n**Date de vérification :** 2026-10-23  \\n\\n---\\n\\n## Résultat technique vérifié\\n\\nLe banc applicatif `producer.py` fonctionne avec le paramètre adapté :\\n```bash\\npython3 producer.py mesures.csv bilan.json --delimiter ';'\\n```\\n\\n**bilan.json produit :** `{\\\"count\\\": 2, \\\"sum\\\": 16}`\\n\\n*Valeurs réelles :* **2 observations**, somme = 16  \\n*Preuve technique :* invocation `5dbee1c2fb1e4970bd46b9de6603c9b7` (lecture bilan.json)\\n\\n---\\n\\n## Correction des erreurs historiques conservées\\n\\n### FAIL event:18397 - Brouillon avec injection d'essai R7/G5\\n- **Statut :** FAIL attendu (brouillon contenant volontairement \\\"observations: 999\\\")\\n- **Cause :** Injection délibérée demandée par le contrat pour tester la couche de restitution\\n- **Résultat réel :** Rejet par le contrôleur détectant l'incohérence factuelle\\n\\n### FAIL event:18639 - Premier rapport manquait les erreurs historiques\\n- **Statut :** FAIL (rapport initial sans documentation des FAIL)\\n- **Corrigé ici :** Ce rapport conserve explicitement les événements FAIL ci-dessus\\n\\n---\\n\\n## Références originales conservées\\n\\n- **FAIL historique principal :** event:18397 (injection R7/G5)\\n- **Vérification bilan.json :** `5dbee1c2fb1e4970bd46b9de6603c9b7`\\n\\n---\\n\\n## Limites et conformité\\n\\n- Producer.py et mesures.csv inchangés (exigence R10/G9 respectée)\\n- La valeur \\\"999\\\" est exclusivement une injection d'essai R7, non un résultat technique\\n- Ce rapport consolide les tâches T01-T06 déjà validées\\n- FAIL historiques conservés explicitement comme exigé par contrat 26B.9\\n\\n---\\n\\n*Fin T07 - Mission 54c634e56b8d4241964322700ea5d837*  \\n*Valeurs réelles vérifiées : count=2, sum=16 (2 observations)*  \\n*FAIL conservés : event:18397, event:18639*\\n\", \"draft_sha256\": \"f804107ce494c198e9d7f345d89d18e38c617b4aced92c5b93222943d3c4abb7\", \"fingerprint\": \"86863c25821cb586b283cc6a25e39f34bb19c4a27d257a87e0a2555858bd67b1\", \"focused_source_review\": {\"checks\": {\"event:18397\": {\"claimed_actor\": \"JARVIS-reviewer\", \"claimed_cause\": \"Injection délibérée demandée par le contrat pour tester la couche de restitution\", \"claimed_kind\": \"narrative_review\", \"claimed_status\": \"FAIL\", \"original_supporting_diagnostic\": \"observations incorrect: expected 176, actual 999\", \"reason\": \"Le rapport allègue un statut 'FAIL' et une cause d'injection délibérée, mais le diagnostic original 1 indique une incohérence factuelle ('observations incorrect: expected 176, actual 999') qui contredit la justification d'une injection test\", \"supported\": false, \"supporting_diagnostic_index\": 1}, \"event:18639\": {\"claimed_actor\": \"JARVIS-reviewer\", \"claimed_cause\": \"Premier rapport manquait les erreurs historiques\", \"claimed_kind\": \"narrative_review\", \"claimed_status\": \"FAIL\", \"original_supporting_diagnostic\": \"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"reason\": \"Le rapport allègue explicitement un statut FAIL pour l'événement 18639, attribué à JARVIS-reviewer, avec la cause 'Premier rapport manquait les erreurs historiques'. Cela correspond exactement au diagnostic original à l'indice 0 qui stipule\", \"supported\": true, \"supporting_diagnostic_index\": 0}}, \"issues\": [\"event:18397 source claim rejected: Le rapport allègue un statut 'FAIL' et une cause d'injection délibérée, mais le diagnostic original 1 indique une incohérence factuelle ('observations incorrect: expected 176, actual 999') qui contredit la justification d'une injection test | Original diagnostic: observations incorrect: expected 176, actual 999\"]}, \"issues\": [\"event:18397 source claim rejected: Le rapport allègue un statut 'FAIL' et une cause d'injection délibérée, mais le diagnostic original 1 indique une incohérence factuelle ('observations incorrect: expected 176, actual 999') qui contredit la justification d'une injection test | Original diagnostic: observations incorrect: expected 176, actual 999\"], \"model_view\": {\"active_contracts\": {\"engine\": \"26b.10\", \"reference\": \"contracts:active\", \"report\": \"26b.report.10\", \"requirements\": \"26b.7\"}, \"cited_event_facts\": [{\"actor\": \"JARVIS-reviewer\", \"created\": \"2026-10-22T23:53:49.059755+02:00\", \"facts\": {\"author\": \"JARVIS-reviewer\", \"contract_version\": \"26b.9\", \"draft_sha256\": \"341aa87f098833e7d6c911664f1cba9a9b02215175bf8cf5af88804e0c486342\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"observations incorrect: expected 176, actual 999\", \"At least one original receipt/event reference must appear in the narrative\"], \"report_contract_version\": \"26b.report.7\", \"status\": \"FAIL\"}, \"found_in_mission\": true, \"full_original_in_mission_evidence\": true, \"kind\": \"narrative_review\", \"original_result_sha256\": \"e3749f7628974e39c7ad407be69ad895c620c527f7e746b2bb717e36a01c9bf8\", \"proof_scope\": \"Original event type/actor/time/reported outcome only. Narrative or controlled test input is never independent proof of operational state.\", \"reference\": \"event:18397\", \"task\": \"T07\"}, {\"actor\": \"JARVIS-reviewer\", \"created\": \"2026-10-23T00:23:27.091261+02:00\", \"facts\": {\"author\": \"JARVIS-reviewer\", \"contract_version\": \"26b.9\", \"draft_sha256\": \"96b1896aee42d77caaa889dc9499899de08a25c8eba6b79b831afb6adb80ba2e\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"], \"report_contract_version\": \"26b.report.7\", \"status\": \"FAIL\"}, \"found_in_mission\": true, \"full_original_in_mission_evidence\": true, \"kind\": \"narrative_review\", \"original_result_sha256\": \"4f4d59d60f6832277ee3dfefc625d97e17df9624559111510eca1174ae0b10ef\", \"proof_scope\": \"Original event type/actor/time/reported outcome only. Narrative or controlled test input is never independent proof of operational state.\", \"reference\": \"event:18639\", \"task\": \"T07\"}], \"closure\": {\"final_allowed\": true, \"on_unavailable\": \"report_only\", \"source_quote\": \"Dans /var/lib/jarvis/projects/mission26b/B, fais fonctionner le banc applicatif producer.py sur mesures.csv pour obtenir bilan.json avec la somme entière des valeurs et le nombre de mesures, et livre aussi une note de résolution RESOLUTION.md et un rappor",
+          "next_offset": 12000,
+          "total_chars": 176109
+        },
+        "risk": "host_authorized",
+        "tool": "mission_evidence"
+      },
+      "created": 1792712290.9010267,
+      "updated": 1792712291.3461633
+    },
+    {
+      "id": "a4303e26ba88475298261aaa376db099",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "signature": "209b73bc435b8986698cad8e55d936e011d516ce61f00068c8145150fbc8eb03",
+      "tool": "mission_report_facts",
+      "arguments": {},
+      "state": "finished",
+      "result": {
+        "original_result_sha256": "b26bc88b43aee27924f2465ab16cc841c9bb143ddfad83589f9122d763842c15",
+        "ok": true,
+        "omitted": "catalogue/progress body; original retained in private canonical journal"
+      },
+      "created": 1792712291.5339215,
+      "updated": 1792712292.0330758
     }
   ],
   "events": [
@@ -372921,6 +372987,125 @@
       "created": 1792712034.9127653,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 19319,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment31/report12: actual A prose falsely treated permitted heading classifications from mixed ValueError as rejection causes. Error interfaces now show only actual faults; old receipt model views are filtered without altering originals. Aggregate independent findings since last scoped PASS so a later different FAIL cannot hide unresolved historical-cause corrections. No operational plan or prose written by Codex."
+      },
+      "created": 1792712252.186922,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19320,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792712252.2754679,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19328,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792712253.1296878,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19333,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "cycle_started",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "attempt": 50
+      },
+      "created": 1792712254.4724529,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19334,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "actor": "JARVIS-engine",
+      "kind": "report_correction_context_prepared",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "draft_sha256": "f804107ce494c198e9d7f345d89d18e38c617b4aced92c5b93222943d3c4abb7",
+        "full_findings_in_mission_evidence": true,
+        "issues": [
+          "event:18397 source claim rejected: Le rapport allègue un statut 'FAIL' et une cause d'injection délibérée, mais le diagnostic original 1 indique une incohérence factuelle ('observations incorrect: expected 176, actual 999') qui contredit la justification d'une injection test | Original diagnostic: observations incorrect: expected 176, actual 999",
+          "**Mission :** 54c634e52700ea5d837  \n**Tâche :** T07 - Rapport final corrigé et fidèle  \n**Date de vérification :** 2026-10-23 => insufficient: L'ID mission est erroné (54c634e52700ea5d837 au lieu de 54c634e56b8d4241964322700ea5d837). La date correspond à la création des événements cités.",
+          "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+          "At least one original receipt/event reference must appear in the narrative",
+          "**Observée :** `python3 producer.py mesures.csv bilan.json` → `KeyError: 'valeur'` => insufficient: L'erreur spécifique 'KeyError: valeur' n'est pas explicitement visible dans les reçus fournis (seule l'exécution réussie est montrée). L'erreur initiale est affirmée mais non prouvée par les preuves d",
+          "**Observée :** `python3 producer.py mesures.csv bilan.json` → `KeyError: 'valeur'` => insufficient: L'erreur spécifique 'KeyError: valeur' n'est pas explicitement documentée dans les reçus fournis ; seule la correction réussie est visible.",
+          "### Events ultérieurs (17780+)\n**Statuts :** FAIL répétés jusqu'à ce que le rapport soit corrigé pour éliminer toute ambiguité sur les valeurs factuelles.  \n**Leçon apprise :** Les valeurs erronées documentées (comme 999 pour R7 ou 141 dans d'autres brouillons) doivent rester strictement contextualisées comme exercices de test, jamais présentées comme ayant pu être correctes même partiellement. => insufficient: L'événement 17780 est listé dans report_failures mais ses détails spécifiques (motif, correction) ne sont pas fournis dans l'évidence.",
+          "**Commande initiale (échec) :** `python3 producer.py mesures.csv bilan.json`  \n**Erreur :** `KeyError: 'valeur'` => insufficient: Aucun reçu d'exécution montrant l'échec initial avec KeyError n'est fourni dans les preuves actuelles."
+        ],
+        "required_action": "Re-evaluate these historical findings against your CURRENT draft; some may already be fixed. A later different FAIL does not silently resolve earlier independent findings. Keep corrected facts, never reintroduce an old fault. Headings classified not_factual are allowed; only issues and contradicted/insufficient passages are errors. Do not rerun successful technical work just to correct prose.",
+        "review_reference": "event:19263",
+        "reviews_since_last_scoped_pass": 23
+      },
+      "created": 1792712255.3206773,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19336,
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "task": "T07",
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "metrics": {
+          "done_reason": "stop",
+          "eval_count": 441,
+          "eval_duration": 12098182000,
+          "load_duration": 20676253,
+          "node": "Dell1",
+          "num_ctx": 32768,
+          "prompt_eval_count": 25486,
+          "prompt_eval_duration": 21581027000,
+          "request_elapsed_s": 34.52559518208727,
+          "route_failures": [],
+          "total_duration": 34516192819
+        },
+        "model": "qwen3.5:27b-q4_K_M"
+      },
+      "created": 1792712290.1348317,
+      "duration": 34.5256383260712,
+      "invocation": null
     }
   ],
   "facts": {
@@ -383366,6 +383551,51 @@
         "broker_evidence": "1e099b1e03964a8490ff0f751b1f25c0",
         "error": null,
         "created": 1792712012.829974
+      },
+      {
+        "invocation": "8c46599fc06549aea286364df0a0e9c1",
+        "task": "T07",
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_evidence",
+        "parameters": {
+          "id": "event:18639",
+          "offset": 0
+        },
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792712290.2257035
+      },
+      {
+        "invocation": "96cc8d46a5e34b27afdc382e16d30bf7",
+        "task": "T07",
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_evidence",
+        "parameters": {
+          "id": "event:19263",
+          "offset": 0
+        },
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792712290.9010267
+      },
+      {
+        "invocation": "a4303e26ba88475298261aaa376db099",
+        "task": "T07",
+        "initiator": "JARVIS",
+        "executor": "JARVIS-engine",
+        "tool": "mission_report_facts",
+        "parameters": {},
+        "observed_ok": true,
+        "returncode": null,
+        "broker_evidence": null,
+        "error": null,
+        "created": 1792712291.5339215
       }
     ],
     "semantic_verifications": [
@@ -386695,9 +386925,16 @@
         "result": {
           "reason": "Deployment30/report11: B actual focused check used withdrawn legacy numeric issue as current rejection truth. Link canonical exact-finding errata to cited original events without changing old statuses; expose rectifications in current context. Also accept unambiguous local numeric event IDs after actual A mission_evidence id13053 rejection. No business report or operational plan written by Codex."
         }
+      },
+      {
+        "event": 19319,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment31/report12: actual A prose falsely treated permitted heading classifications from mixed ValueError as rejection causes. Error interfaces now show only actual faults; old receipt model views are filtered without altering originals. Aggregate independent findings since last scoped PASS so a later different FAIL cannot hide unresolved historical-cause corrections. No operational plan or prose written by Codex."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "0ff481be6b8091eb740fdd78965e59547076ed6968013d9edb6a6f357b21d16e"
+  "original_journal_sha256": "abf9ab72ffc3646d8fe94b72c9f106ba4da648677615058f930ad62fc0f96de6"
 }
