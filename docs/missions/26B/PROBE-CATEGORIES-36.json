@@ -1,0 +1,54 @@
+{
+  "created": 1792714425.0486848,
+  "actor_harness": "Codex",
+  "model": "JARVIS/Qwen",
+  "scope": "Blind extraction of asserted causes from actual report paragraphs; no operational mission and no expected category supplied to model",
+  "results": [
+    {
+      "case": "B",
+      "event": 18639,
+      "extractor_saw_original_diagnostics": false,
+      "result": {
+        "category": "missing_historical_failures",
+        "cause_quote": "rapport manquait la documentation des erreurs historiques",
+        "role": "past_rejection_cause"
+      },
+      "metrics": {
+        "load_duration": 4122583,
+        "prompt_eval_duration": 546622000,
+        "eval_duration": 1199750000,
+        "eval_count": 48,
+        "prompt_eval_count": 565,
+        "total_duration": 11346483195,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 32768,
+        "route_failures": [],
+        "request_elapsed_s": 11.36265609797556
+      }
+    },
+    {
+      "case": "C",
+      "event": 10978,
+      "extractor_saw_original_diagnostics": false,
+      "result": {
+        "category": "missing_output_artifact",
+        "cause_quote": "premier plan candidat omettait manifest.json requis par R3",
+        "role": "past_rejection_cause"
+      },
+      "metrics": {
+        "load_duration": 5649457,
+        "prompt_eval_duration": 487076000,
+        "eval_duration": 1272856000,
+        "eval_count": 51,
+        "prompt_eval_count": 444,
+        "total_duration": 42078807662,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 32768,
+        "route_failures": [],
+        "request_elapsed_s": 42.084620490903035
+      }
+    }
+  ]
+}

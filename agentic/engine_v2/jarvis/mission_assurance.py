@@ -13,7 +13,7 @@ from .mission_store import encoded
 
 VERSION = '26b.10'
 GOAL_VERSION = '26b.7'
-REPORT_VERSION = '26b.report.12'
+REPORT_VERSION = '26b.report.13'
 
 
 def enabled(store, ident):
@@ -526,6 +526,32 @@ def event_status_issues(content, cited):
     return list(dict.fromkeys(issues))
 
 
+def diagnostic_categories(source, diagnostics):
+    """Known native diagnostics have exact, reusable meanings; no model verdict."""
+    withdrawn=source['facts'].get('controller_rectification',{}).get('withdrawn_findings',[])
+    result={}
+    for index,text in enumerate(diagnostics):
+        if text in withdrawn:continue
+        category=None
+        if re.match(r'^Historical (?:FAIL|PARTIAL|INSUFFICIENT) must be explicitly retained;',text):category='missing_historical_failures'
+        elif text.startswith('At least one original receipt/event reference must appear in the narrative'):category='missing_original_reference'
+        elif text.startswith('Unknown cited original event in this mission:'):category='invalid_reference'
+        elif re.match(r'^(?:observations|plans|observations_in_scope|plan_versions_count) incorrect: expected ',text):category='counter_mismatch'
+        if category is not None:result.setdefault(category,[]).append(index)
+    return result
+
+
+def extract_cause_claim(registry, reference, passages):
+    """Classify the assertion without disclosing original diagnostics to the model."""
+    schema=object_schema({'category':{'type':'string','enum':['missing_historical_failures','missing_original_reference','invalid_reference','missing_output_artifact','counter_mismatch','test_injection_intent','other','none']},
+        'cause_quote':{'type':'string'},'role':{'type':'string','enum':['past_rejection_cause','test_purpose','current_correction','no_claim']}})
+    def grounded(value):
+        if value['cause_quote'] and not any(value['cause_quote'] in passage for passage in passages):raise ValueError('Extract an exact cause span from the report, never paraphrase it')
+    return review_model(registry,'cause_extraction',
+        'Extrais la cause PASSÉE que le texte attribue à event_reference. Tu ne reçois AUCUN diagnostic original ni vérité attendue : ne juge PAS si le texte est vrai. missing_historical_failures = omission de mention/conservation des FAIL ou erreurs historiques dans un rapport ; missing_output_artifact = un fichier/livrable/étape requis manque au plan/résultat ; missing_original_reference = preuve/référence originale absente ; invalid_reference = identifiant erroné/inventé ; counter_mismatch = nombre de mesures/observations/comptage incorrect. Une correction actuelle et une intention d’injection ne sont pas la cause technique passée du refus. Le paragraphe peut mentionner plusieurs événements : ne classe que la cause attribuée à event_reference. cause_quote copie le passage exact. role indique past_rejection_cause si une telle cause est affirmée.',
+        {'event_reference':reference,'report_passages':passages},schema,validator=grounded)
+
+
 def focused_event_review(registry, content, cited):
     """A second, narrow context checks source claims without the whole mission story."""
     paragraphs=[part.strip() for part in re.split(r'\n\s*\n',content) if part.strip()]
@@ -547,9 +573,15 @@ def focused_event_review(registry, content, cited):
         'Vérifie seulement les passages du rapport confrontés à CHAQUE événement original isolé. Le rapport peut être faux ; aucune présomption de vérité et aucun verdict précédent ne sont fournis. Extrais les statut/type/acteur explicitement attribués à cet événement dans le texte (claimed_*, null si non affirmé), PAS ceux que tu voudrais voir. Compare ensuite aux champs originaux. Pour une cause alléguée, claimed_cause est une citation exacte du rapport et supporting_diagnostic_index l’indice base zéro dans original_diagnostics de la véritable erreur qui l’étaye, ou null si aucune. Un refus pour référence inventée ne prouve PAS une omission de livrable ; un FAIL ne devient PAS INSUFFICIENT parce que ses issues parlent de preuve insuffisante. Un semantic_verification de texte ne prouve pas une autre vérification. supported=false pour toute contradiction ou preuve de cause absente. Les données source issues sont les diagnostics originaux, jamais la prose à croire. N’invente pas de cause commune. Si source.facts.controller_rectification existe, les seuls withdrawn_findings explicitement liés ont été retirés : ils prouvent une ancienne erreur du contrôleur, pas une mesure ni une faute technique du rédacteur. Le statut historique et les autres diagnostics restent conservés. reason doit préciser le défaut réel, sans réécrire le rapport.'
     )
     result={'checks':{}}
+    typed={}
     # Separate inference contexts prevent causes from leaking between events.
     for pair in pairs:
         reference=pair['source']['reference'];single_schema=object_schema({'checks':object_schema({reference:check})})
+        categories=diagnostic_categories(pair['source'],pair['original_diagnostics'])
+        if categories:
+            extracted=extract_cause_claim(registry,reference,pair['original_report_passages'])
+            if extracted['role']=='past_rejection_cause' and extracted['category'] not in ('other','none') and extracted['cause_quote']:
+                typed[reference]={'extracted_claim':extracted,'native_diagnostic_categories':categories,'matches':extracted['category'] in categories,'extractor_saw_original_diagnostics':False}
         if len(encoded(pair))+len(encoded(single_schema))>50000:raise ValueError('Source review INSUFFICIENT: single cited event exceeds focused input budget; narrow the report, originals remain durable')
         def single_grounded(value):
             # Reuse only this source's diagnostics and original report spans.
@@ -565,6 +597,15 @@ def focused_event_review(registry, content, cited):
         for claim,actual in [('claimed_status',source['facts'].get('status')),('claimed_kind',source['kind']),('claimed_actor',source['actor'])]:
             if check[claim] is not None and check[claim]!=actual:mismatches.append(source['reference']+' '+claim+' '+str(check[claim])+' contradicts original '+str(actual))
         issues.extend(mismatches)
+        if source['reference'] in typed:
+            validation=typed[source['reference']];claim=validation['extracted_claim']
+            check['typed_cause_validation']=validation
+            check['model_supported']=check['supported'];check['model_reason']=check['reason']
+            check['supported']=validation['matches'] and not mismatches
+            check['claimed_cause']=claim['cause_quote']
+            check['supporting_diagnostic_index']=validation['native_diagnostic_categories'][claim['category']][0] if validation['matches'] else None
+            check['reason']='JARVIS-engine: blind asserted-cause category '+claim['category']+(' matches original native diagnostic code' if validation['matches'] else ' does not match original native diagnostic codes '+', '.join(validation['native_diagnostic_categories']))
+            check['support_method']='Native diagnostic comparison after blind model extraction; original NLI opinion retained in model_supported/model_reason. Current corrections are checked by the full narrative review.'
         index=check['supporting_diagnostic_index']
         check['original_supporting_diagnostic']=pair['original_diagnostics'][index] if index is not None else None
         if check['claimed_cause'] and check['supporting_diagnostic_index'] is None:issues.append(source['reference']+' causal claim has no supporting original issue: '+check['claimed_cause'])

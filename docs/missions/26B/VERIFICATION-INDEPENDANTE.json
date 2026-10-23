@@ -1,6 +1,6 @@
 {
   "actor": "Codex-independent-read",
-  "created": 1792714010.4833975,
+  "created": 1792715405.0480468,
   "historical_tasks": 67,
   "historical_task_states_hashes_preserved": true,
   "memory": {
@@ -64,7 +64,7 @@
     },
     {
       "module": "mission_assurance.py",
-      "installed_sha256": "2920486270042e0c559015196ee69d6002b4c1c766672e5cb2063247406a61a0",
+      "installed_sha256": "2470aa4fd3197dffcceaf90ca7dce276dff9f0f4945dc65162d5752ef44473f1",
       "matches_source": true
     },
     {
@@ -1021,6 +1021,38 @@
             "**Preuves persistantes:** Toutes les invocations, evidence IDs et événements PASS sont archivés dans le journal technique via mission_progress et mission_report_facts. => insufficient: Affirmation sur l'archivage complet non vérifiable sans accès au journal complet."
           ],
           "draft_sha256": "925ec3896aebfc80d694bb60823b4f30b81c6acfc8cad1bfc8545842956359a5"
+        },
+        {
+          "event": 19649,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          ],
+          "draft_sha256": "54545c3366a31d2554bb686905cd6250fa79c8c5932c89865e97c20befec3e2e"
+        },
+        {
+          "event": 19674,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "**Version actuelle du rapport_final.md** : evidence_id `7269cb1b6738491caa91bc0de0592e68`, invocation `4ae43e92a52f49f194fe9989763bf5a2` - **VALIDÉE**. => insufficient: L'ID d'evidence 7269cb1b6738491caa91bc0de0592e68 et l'invocation 4ae43e92a52f49f194fe9989763bf5a2 ne figurent pas dans les known_receipt_references ou les tâches validées.",
+            "**Evidence finale du rapport** : `7269cb1b6738491caa91bc0de0592e68`  \n**Plan version** : 5 (sha256: `19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307`) => insufficient: L'ID d'evidence 7269cb1b6738491caa91bc0de0592e68 ne figure pas dans les known_receipt_references. Le SHA256 du plan v5 est correct."
+          ],
+          "draft_sha256": "33cd5cd25a7fc12c491a9f2844e3d57283430342cab6b60da9954f9305756f12"
+        },
+        {
+          "event": 19724,
+          "kind": "narrative_review",
+          "task": null,
+          "status": "FAIL",
+          "issues": [
+            "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+            "### T8 - Vérification permissions Debian\n- **Statut**: PASS (event: 14283)\n- **Artefact**: `/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md`\n- **Preuve technique**: Exécution de `ls -la /var/lib/jarvis/projects/mission26b/A/` via host_exec\n- **Résultat**: Permissions conservées (0600 pour les fichiers écrits, 0664 pour stocks.csv intact) => insufficient: L'événement 14283 confirme la création du rapport mais ne contient pas les valeurs de permissions (0600/0664) affirmées dans le texte. Aucune preuve technique des permissions dans les reçus fournis."
+          ],
+          "draft_sha256": "7154e270cd9ae512507f2154d83b3937e6825c0125373144f9a624b913323d74"
         }
       ],
       "negative_results": [
@@ -1489,6 +1521,30 @@
           "tool": "intervention_report",
           "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. {\"claims\": [{\"quote\": \"# Intervention Mission26B - Rapport Factuel Déterministe\", \"reason\": \"Titre introductif sans assertion technique vérifiable.\", \"references\": [], \"segment\": \"S1\", \"verdict\": \"not_factual\"}, {\"quote\": \"## Identité de la mission\\n**Mission ID:** e1e5d6e8f31a43e7af4f44c0f08d37b3  \\n**Statut:** MISSION TERMINÉE (7/7 tâches validées, contrat 26b.10, plan v5)\", \"reason\": \"Mission ID et statut validés par les tâches T1-T5 et T7-T8 dans plan v5.\", \"references\": [\"e33025769bc444ba9878817cae6302eb\", \"plan:5\", \"task:T1\", \"task:T2\", \"task:T3\", \"task:T4\"], \"segment\": \"S2\", \"verdict\": \"supported\"}, {\"quote\": \"## Résultats techniques vérifiés par contrat sémantique\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S3\", \"verdict\": \"not_factual\"}, {\"quote\": \"Toutes les exigences R1-R7 couvertes par contrats sémantiques PASS :\", \"reason\": \"Toutes les tâches T1-T5, T7, T8 ont un statut PASS dans les vérifications sémantiques.\", \"references\": [\"event:13274\", \"event:13593\", \"event:13888\", \"event:14065\", \"task:T7\", \"task:T8\"], \"segment\": \"S4\", \"verdict\": \"supported\"}, {\"quote\": \"| Tâche | Artefact | Evidence ID | Invocation | Status | Event |\\n|-------|----------|-------------|------------|--------|-------|\\n| T1 | stocks.csv lu | `fcc1cfa25a6c432f9bc0890656ffe0be` | `17e2b0fbb27d4dd3815ecab2c94cadbf` | PASS | 13186 |\\n| T2 | summary.json écrit | `a86d5fd496b4489e835fecd308509295` | `c8fceeb1f8a7412fa87f5b710492e393` | PASS | 13274 |\\n| T3 | manifest.json écrit | `47445c026bb84e148620466dff4a4f69` | (invocation directe) | PASS | 13593 |\\n| T4 | Vérification cohérence digest | Contrat kind:digest baseline vs manifest | - | PASS | 13888 |\\n| T5 | Intégrité stocks.csv préservée | Relu identique à T1 | - | PASS | 14065 |\\n| T7 | Rapport final explicatif | `940e9497846e4d7db438bdb81d24b791` | (invocation réelle) | PASS | 14677 |\\n| T8 | Permissions Debian prouvées | `c1fdc34e636f4dad9d83e37764285f18` | (invocation réelle) | PASS | 14283 |\", \"reason\": \"IDs Evidence pour T7 (940e949...) et T8 (c1fdc34...) absents des receipts fournis. Event 13186 non listé.\", \"references\": [\"17e2b0fbb27d4dd3815ecab2c94cadbf\", \"c8fceeb1f8a7412fa87f5b710492e393\", \"47445c026bb84e148620466dff4a4f69\", \"event:13888\", \"event:14065\"], \"segment\": \"S5\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Données techniques observées\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S6\", \"verdict\": \"not_factual\"}, {\"quote\": \"### stocks.csv (entrée préservée)\\nContenu exact vérifié à T1 et T5 :\\n```\\narticle,quantite\\nalpha,3\\nbeta,4\\ngamma,5\\n```\\n- **Nombre de lignes d'articles:** 3\\n- **Somme des quantités:** 3 + 4 + 5 = 12\", \"reason\": \"Contenu CSV et calculs (3 lignes, somme 12) confirmés par les receipts de lecture.\", \"references\": [\"17e2b0fbb27d4dd3815ecab2c94cadbf\", \"4e77f6c92adf4832ab29dee410f33ba4\"], \"segment\": \"S7\", \"verdict\": \"supported\"}, {\"quote\": \"### summary.json (artefact T2)\\nContenu JSON exact :\\n```json\\n{\\n\\\"lines_articles\\\": 3,\\n\\\"somme_quantites\\\": 12\\n}\\n```\\nEmpreinte SHA256 : `5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df`\", \"reason\": \"Contenu JSON et empreinte SHA256 correspondent aux receipts de lecture et écriture.\", \"references\": [\"df4ec76417304ea89fc4e8b5a824e9d9\", \"5718203f7b2e43b2a073f1f441c452c0\", \"c8fceeb1f8a7412fa87f5b710492e393\"], \"segment\": \"S8\", \"verdict\": \"supported\"}, {\"quote\": \"### manifest.json (artefact T3)\\nContenu JSON exact :\\n```json\\n{\\n\\\"file\\\": \\\"summary.json\\\",\\n\\\"sha256\\\": \\\"5f82760437cc19f056462ab75b163745c090aa4e2dd61da3ba314d3b853eb1df\\\"\\n}\\n```\", \"reason\": \"Contenu manifest.json et empreinte SHA256 confirmés par le receipt de lecture.\", \"references\": [\"6b7f0aa23335492f8a369da382409e57\", \"47445c026bb84e148620466dff4a4f69\"], \"segment\": \"S9\", \"verdict\": \"supported\"}, {\"quote\": \"## Vérification de cohérence T4\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S10\", \"verdict\": \"not_factual\"}, {\"quote\": \"La vérification par contrat kind:digest a confirmé que l'empreinte SHA256 déclarée dans manifest.json correspond exactement à l'empreinte réelle calculée de summary.json. Échec technique : aucun.\", \"reason\": \"Vérification de cohérence PASS confirmée par l'événement 13888.\", \"references\": [\"event:13888\"], \"segment\": \"S11\", \"verdict\": \"supported\"}, {\"quote\": \"## Périmètre et limites\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S12\", \"verdict\": \"not_factual\"}, {\"quote\": \"- **Répertoire de travail:** `/var/lib/jarvis/projects/mission26b/A` exclusivement\\n- **Entrées préservées:** stocks.csv intact (vérifié T5, contenu identique T1)\\n- **Services modifiés:** Aucun - opérations limitées à écritures de fichiers dans le périmètre autorisé\\n- **Validation externe:** Non requise dans le périmètre mission11B accordé\", \"reason\": \"Répertoire, intégrité stocks.csv et absence de modification de services confirmés.\", \"references\": [\"4e77f6c92adf4832ab29dee410f33ba4\", \"event:14065\", \"plan:5\"], \"segment\": \"S13\", \"verdict\": \"supported\"}, {\"quote\": \"## Historique des corrections éditoriales\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S14\", \"verdict\": \"not_factual\"}, {\"quote\": \"Les tentatives initiales d'intervention_report ont été rejetées pour les raisons suivantes :\", \"reason\": \"Affirmation historique sur des rejets non étayée par les receipts fournis (report_failures listés mais détails non correspondants).\", \"references\": [], \"segment\": \"S15\", \"verdict\": \"insufficient\"}, {\"quote\": \"- **Titres non factuels:** Sections comme \\\"Résultats techniques validés\\\" sont des titres introductifs sans assertion vérifiable\\n- **Évidence inexistantes citées:** L'ID `d83b8a7f22e44d838fdfb2eae0e710ea` n'apparaît dans aucun reçu technique documenté\\n- **Invocations erronées T7/T8:** Les IDs `bbb96c...` et `e5b8c0...` cités initialement ont été remplacés par les preuves réelles `940e9497846e4d7db438bdb81d24b791` (T7) et `c1fdc34e636f4dad9d83e37764285f18` (T8)\", \"reason\": \"IDs d'évidence et d'invocation cités (d83b8a..., bbb96c..., e5b8c0...) absents des receipts fournis.\", \"references\": [], \"segment\": \"S16\", \"verdict\": \"insufficient\"}, {\"quote\": \"Cette version ne contient que des affirmations vérifiables par les preuves documentées dans mission_progress.\", \"reason\": \"Affirmation globale non vérifiable sans accès complet au journal mission_progress.\", \"references\": [], \"segment\": \"S17\", \"verdict\": \"insufficient\"}, {\"quote\": \"## Conclusion technique\", \"reason\": \"Titre de section sans assertion technique.\", \"references\": [], \"segment\": \"S18\", \"verdict\": \"not_factual\"}, {\"quote\": \"**7 artefacts produits et validés:**\\n1. `/var/lib/jarvis/projects/mission26b/A/summary.json` - bilan JSON avec lignes_articles=3 et somme_quantites=12\\n2. `/var/lib/jarvis/projects/mission26b/A/manifest.json` - empreinte SHA256 réelle de summary.json\\n3. `/var/lib/jarvis/projects/mission26b/A/rapport_T1.md` à `/var/lib/jarvis/projects/mission26b/A/rapport_T5.md` - rapports techniques par tâche\\n4. `/var/lib/jarvis/projects/mission26b/A/rapport_final.md` - rapport explicatif synthétique\\n5. `/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md` - preuve technique des permissions Debian\", \"reason\": \"Liste des artefacts validés correspond aux tâches T1-T5, T7, T8 dans l'évidence.\", \"references\": [\"task:T1\", \"task:T2\", \"task:T3\", \"task:T4\", \"task:T5\", \"task:T7\"], \"segment\": \"S19\", \"verdict\": \"supported\"}, {\"quote\": \"**Preuves persistantes:** Toutes les invocations, evidence IDs et événements PASS sont archivés dans le journal technique via mission_progress et mission_report_facts.\", \"reason\": \"Affirmation sur l'archivage complet non vérifiable sans accès au journal complet.\", \"references\": [], \"segment\": \"S20\", \"verdict\": \"insufficient\"}, {\"quote\": \"**Mission terminée.** Aucune opération supplémentaire requise.\", \"reason\": \"Statut de mission terminée confirmé par la validation de toutes les tâches.\", \"references\": [\"task:T1\", \"task:T2\", \"task:T3\", \"task:T4\", \"task:T5\", \"task:T7\"], \"segment\": \"S21\", \"verdict\": \"supported\"}], \"draft_sha256\": \"925ec3896aebfc80d694bb60823b4f30b81c6acfc8cad1bfc8545842956359a5\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"| Tâche | Artefact | Evidence ID | Invocation | Status | Event |\\n|-------|----------|-------------|------------|--------|-------|\\n| T1 | stocks.csv lu | `fcc1cfa25a6c432f9bc0890656ffe0be` | `17e2b0fbb27d4dd3815ecab2c94cadbf` | PASS | 13186 |\\n| T2 | summary.json écrit | `a86d5fd496b4489e835fecd308509295` | `c8fceeb1f8a7412fa87f5b710492e393` | PASS | 13274 |\\n| T3 | manifest.json écrit | `47445c026bb84e148620466dff4a4f69` | (invocation directe) | PASS | 13593 |\\n| T4 | Vérification cohérence digest | Contrat kind:digest baseline vs manifest | - | PASS | 13888 |\\n| T5 | Intégrité stocks.csv préservée | Relu identique à T1 | - | PASS | 14065 |\\n| T7 | Rapport final explicatif | `940e9497846e4d7db438bdb81d24b791` | (invocation réelle) | PASS | 14677 |\\n| T8 | Permissions Debian prouvées | `c1fdc34e636f4dad9d83e37764285f18` | (invocation réelle) | PASS | 14283 | => insufficient: IDs Evidence pour T7 (940e949...) et T8 (c1fdc34...) absents des receipts fournis. Event 13186 non listé.\", \"Les tentatives initiales d'intervention_report ont été rejetées pour les raisons suivantes : => insufficient: Affirmation historique sur des rejets non étayée par les receipts fournis (report_failures listés mais détails non correspondants).\", \"- **Titres non factuels:** Sections comme \\\"Résultats techniques validés\\\" sont des titres introductifs sans assertion vérifiable\\n- **Évidence inexistantes citées:** L'ID `d83b8a7f22e44d838fdfb2eae0e710ea` n'apparaît dans aucun reçu technique documenté\\n- **Invocations erronées T7/T8:** Les IDs `bbb96c...` et `e5b8c0...` cités initialement ont été remplacés par les preuves réelles `940e9497846e4d7db438bdb81d24b791` (T7) et `c1fdc34e636f4dad9d83e37764285f18` (T8) => insufficient: IDs d'évidence et d'invocation cités (d83b8a..., bbb96c..., e5b8c0...) absents des receipts fournis.\", \"Cette version ne contient que des affirmations vérifiables par les preuves documentées dans mission_progress. => insufficient: Affirmation globale non vérifiable sans accès complet au journal mission_progress.\", \"**Preuves persistantes:** Toutes les invocations, evidence IDs et événements PASS sont archivés dans le journal technique via mission_progress et mission_report_facts. => insufficient: Affirmation sur l'archivage complet non vérifiable sans accès au journal complet.\"]}",
           "result": null
+        },
+        {
+          "invocation": "bd54603836dc44869fdd14a130524315",
+          "tool": "intervention_report",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. Only listed issues and contradicted/insufficient passages are faults. not_factual headings are allowed. {\"claims\": [], \"draft_sha256\": \"54545c3366a31d2554bb686905cd6250fa79c8c5932c89865e97c20befec3e2e\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\"]}",
+          "result": null
+        },
+        {
+          "invocation": "e2ae6b97f5fd41a380b39919e1d8b582",
+          "tool": "intervention_report",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. Only listed issues and contradicted/insufficient passages are faults. not_factual headings are allowed. {\"claims\": [{\"quote\": \"**Version actuelle du rapport_final.md** : evidence_id `7269cb1b6738491caa91bc0de0592e68`, invocation `4ae43e92a52f49f194fe9989763bf5a2` - **VALIDÉE**.\", \"reason\": \"L'ID d'evidence 7269cb1b6738491caa91bc0de0592e68 et l'invocation 4ae43e92a52f49f194fe9989763bf5a2 ne figurent pas dans les known_receipt_references ou les tâches validées.\", \"references\": [\"task:T7\"], \"segment\": \"S38\", \"verdict\": \"insufficient\"}, {\"quote\": \"**Evidence finale du rapport** : `7269cb1b6738491caa91bc0de0592e68`  \\n**Plan version** : 5 (sha256: `19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307`)\", \"reason\": \"L'ID d'evidence 7269cb1b6738491caa91bc0de0592e68 ne figure pas dans les known_receipt_references. Le SHA256 du plan v5 est correct.\", \"references\": [\"task:T7\"], \"segment\": \"S58\", \"verdict\": \"insufficient\"}], \"draft_sha256\": \"33cd5cd25a7fc12c491a9f2844e3d57283430342cab6b60da9954f9305756f12\", \"issues\": [\"**Version actuelle du rapport_final.md** : evidence_id `7269cb1b6738491caa91bc0de0592e68`, invocation `4ae43e92a52f49f194fe9989763bf5a2` - **VALIDÉE**. => insufficient: L'ID d'evidence 7269cb1b6738491caa91bc0de0592e68 et l'invocation 4ae43e92a52f49f194fe9989763bf5a2 ne figurent pas dans les known_receipt_references ou les tâches validées.\", \"**Evidence finale du rapport** : `7269cb1b6738491caa91bc0de0592e68`  \\n**Plan version** : 5 (sha256: `19543029f7e0e11b081a6e3c68de7f2c498ceff8721b2460f8653be83c4e6307`) => insufficient: L'ID d'evidence 7269cb1b6738491caa91bc0de0592e68 ne figure pas dans les known_receipt_references. Le SHA256 du plan v5 est correct.\"]}",
+          "result": null
+        },
+        {
+          "invocation": "d91636568b4e4a9b802b8b95946b0dd3",
+          "tool": "host_read_file",
+          "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+          "result": null
+        },
+        {
+          "invocation": "f413d9c196d0499f9c6ef9794d9699f2",
+          "tool": "intervention_report",
+          "error": "Narrative withheld before publication. Revise YOUR text using observed evidence, retain original failures, then retry. Only listed issues and contradicted/insufficient passages are faults. not_factual headings are allowed. {\"claims\": [{\"quote\": \"### T8 - Vérification permissions Debian\\n- **Statut**: PASS (event: 14283)\\n- **Artefact**: `/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md`\\n- **Preuve technique**: Exécution de `ls -la /var/lib/jarvis/projects/mission26b/A/` via host_exec\\n- **Résultat**: Permissions conservées (0600 pour les fichiers écrits, 0664 pour stocks.csv intact)\", \"reason\": \"L'événement 14283 confirme la création du rapport mais ne contient pas les valeurs de permissions (0600/0664) affirmées dans le texte. Aucune preuve technique des permissions dans les reçus fournis.\", \"references\": [\"event:14283\"], \"segment\": \"S12\", \"verdict\": \"insufficient\"}], \"draft_sha256\": \"7154e270cd9ae512507f2154d83b3937e6825c0125373144f9a624b913323d74\", \"issues\": [\"Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events\", \"### T8 - Vérification permissions Debian\\n- **Statut**: PASS (event: 14283)\\n- **Artefact**: `/var/lib/jarvis/projects/mission26b/A/rapport_permissions.md`\\n- **Preuve technique**: Exécution de `ls -la /var/lib/jarvis/projects/mission26b/A/` via host_exec\\n- **Résultat**: Permissions conservées (0600 pour les fichiers écrits, 0664 pour stocks.csv intact) => insufficient: L'événement 14283 confirme la création du rapport mais ne contient pas les valeurs de permissions (0600/0664) affirmées dans le texte. Aucune preuve technique des permissions dans les reçus fournis.\"]}",
+          "result": null
         }
       ],
       "no_codex_operational_reminder": true
@@ -1496,7 +1552,7 @@
     {
       "case": "B",
       "mission": "54c634e56b8d4241964322700ea5d837",
-      "state": "running",
+      "state": "queued",
       "coverage_accepted": true,
       "versions": 4,
       "tasks": [
@@ -2488,6 +2544,16 @@
             "event:18639 source claim rejected: Le rapport allègue que le statut FAIL de l'événement 18639 est dû à un rapport manquant de documentation des erreurs historiques. Le diagnostic original (indice 0) stipule que les FAIL historiques doivent être explicitement conservés. Le dé | Original diagnostic: Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
           ],
           "draft_sha256": "f62d2340061cd40a214f5c8c2ad876144aaa2145aa57c6c44497b1ec95ca8b6f"
+        },
+        {
+          "event": 19638,
+          "kind": "narrative_review",
+          "task": "T07",
+          "status": "FAIL",
+          "issues": [
+            "- **Observation panne initiale :** report_T02.txt (evidence_id: `ee37c8223cd44ac28639e33fe0bad337`)\n- **bilan.json vérifié :** evidence_id `cefc84fc3caa490f8d739fd8a16b5319`\n- **FAIL injection R7/G5 :** event:18397 (exercices de test conformément contrat 26B.9)\n- **FAIL rapport incomplet :** event:18639 (corrigé par ce rapport T07) => insufficient: L'evidence_id 'ee37c8223cd44ac28639e33fe0bad337' pour report_T02.txt n'apparaît pas dans la liste des known_receipt_references. Les autres références sont valides."
+          ],
+          "draft_sha256": "d017545b4825ba23f3a066f10792afd812352aa992548f36f93562332e497344"
         }
       ],
       "negative_results": [

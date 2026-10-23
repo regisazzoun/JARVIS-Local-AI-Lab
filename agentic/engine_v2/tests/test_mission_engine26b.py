@@ -788,3 +788,48 @@ class AssuranceTests(unittest.TestCase):
         result=compact_observations([{'id':'original-receipt'}],original,800)
         self.assertNotIn('RAW_SNAPSHOT_MUST_STAY_OUT',json.dumps(result))
         self.assertIn('CURRENT_FAULT',json.dumps(result));self.assertIn('snapshot',original)
+
+    def test_blind_cause_match_accepts_historical_paraphrase_despite_bad_nli_opinion(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        diagnostic='Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events'
+        event=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':[diagnostic]});ref='event:'+str(event)
+        body='FAIL '+ref+' : rapport manquait la documentation des erreurs historiques.'
+        self.responses=[{'category':'missing_historical_failures','cause_quote':'rapport manquait la documentation des erreurs historiques','role':'past_rejection_cause'},
+            {'checks':{ref:{'supported':False,'claimed_status':'FAIL','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'rapport manquait la documentation des erreurs historiques','supporting_diagnostic_index':0,'reason':'bad NLI temporal confusion'}}}]
+        transport=self.r.assurance_transport;seen=[]
+        def tracked(payload):seen.append(json.loads(payload['messages'][1]['content']));return transport(payload)
+        self.r.assurance_transport=tracked
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertEqual(result['issues'],[]);self.assertTrue(result['checks'][ref]['supported'])
+        self.assertFalse(result['checks'][ref]['model_supported']);self.assertNotIn(diagnostic,json.dumps(seen[0]))
+        self.assertEqual(set(seen[0]),{'event_reference','report_passages'})
+
+    def test_wrong_cause_cannot_pass_when_nli_calls_unrelated_history_diagnostic_a_match(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        event=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['Historical FAIL must be explicitly retained; original events']});ref='event:'+str(event)
+        body='FAIL '+ref+' : manifeste omis.'
+        self.responses=[{'category':'missing_output_artifact','cause_quote':'manifeste omis','role':'past_rejection_cause'},
+            {'checks':{ref:{'supported':True,'claimed_status':'FAIL','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'manifeste omis','supporting_diagnostic_index':0,'reason':'false alleged match'}}}]
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertFalse(result['checks'][ref]['supported']);self.assertTrue(result['checks'][ref]['model_supported'])
+        self.assertTrue(result['issues'])
+
+    def test_matching_cause_does_not_override_a_wrong_event_status(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        event=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['Historical FAIL must be explicitly retained; original events']});ref='event:'+str(event)
+        body='INSUFFICIENT '+ref+' : historique omis.'
+        self.responses=[{'category':'missing_historical_failures','cause_quote':'historique omis','role':'past_rejection_cause'},
+            {'checks':{ref:{'supported':True,'claimed_status':'INSUFFICIENT','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'historique omis','supporting_diagnostic_index':0,'reason':'same cause'}}}]
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertFalse(result['checks'][ref]['supported']);self.assertTrue(any('claimed_status' in issue for issue in result['issues']))
+
+    def test_withdrawn_numeric_finding_cannot_establish_claimed_counter_failure(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        number='observations incorrect: expected 176, actual 999'
+        event=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['Historical FAIL must be explicitly retained; original events',number]});ref='event:'+str(event)
+        self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={'reason':'old counter bug','withdrawn':[{'event':event,'findings':[number]}]})
+        body='FAIL '+ref+' : comptage incorrect.'
+        self.responses=[{'category':'counter_mismatch','cause_quote':'comptage incorrect','role':'past_rejection_cause'},
+            {'checks':{ref:{'supported':True,'claimed_status':'FAIL','claimed_kind':'narrative_review','claimed_actor':None,'claimed_cause':'comptage incorrect','supporting_diagnostic_index':1,'reason':'old numeric finding'}}}]
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertFalse(result['checks'][ref]['supported'])

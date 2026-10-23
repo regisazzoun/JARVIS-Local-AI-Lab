@@ -1,6 +1,6 @@
 # Tests des rapports26B — campagne en cours
 
-Statut : 🟡 incomplet. Les 181 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
+Statut : 🟡 incomplet. Les 185 tests logiciels passent ; cela ne démontre pas à lui seul une correction autonome de la prose par JARVIS.
 
 La réception attend trois rapports réels : réussite locale complète (A), échec du programme puis correction (B), résultat local vérifié avec dépendance externe impossible à observer (C). Aucun de ces trois rapports n’est encore reçu au déploiement24.
 
@@ -34,7 +34,7 @@ A/T1 et B/T01 sont reçues par le moteur. La lecture indépendante du rapport B/
 
 ## Reprise du23 octobre2026
 
-Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 181 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.8, 185 tests et27 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
 
 ## Réceptions ciblées et nouvelle réserve factuelle
 
@@ -44,7 +44,7 @@ C a réellement utilisé mission_block après réextraction correcte de la clôt
 
 Le contrat de rapport26b.report.9 ajoute une comparaison déterministe des statuts directement attachés aux références d’événements prises en charge, puis une revue isolée des affirmations de source lorsque la revue générale est positive. Cette seconde vue fournit uniquement les passages concernés et chaque événement original, sans le récit global de mission. Le modèle extrait le statut/type/acteur allégués ; le moteur les compare aux champs originaux. Une cause citée doit être un passage exact du rapport et pointer vers un diagnostic original existant ; le contrôleur juge encore le soutien sémantique. Ce dernier contrôle reste un modèle, pas une preuve formelle de toute paraphrase.
 
-Le retest réel du rapport C inchangé est maintenant FAIL : l’attribution PASS à event10978 contredit son FAIL original. Aucun texte n’est réécrit par Codex ; JARVIS reprend sa propre correction éditoriale, tout en conservant son blocage externe réel. 181 tests logiciels passent au déploiement28. Les tests supplémentaires vérifient le refus malgré une première revue modèle PASS, une fausse cause et un diagnostic original correct.
+Le retest réel du rapport C inchangé est maintenant FAIL : l’attribution PASS à event10978 contredit son FAIL original. Aucun texte n’est réécrit par Codex ; JARVIS reprend sa propre correction éditoriale, tout en conservant son blocage externe réel. 185 tests logiciels passent au déploiement28. Les tests supplémentaires vérifient le refus malgré une première revue modèle PASS, une fausse cause et un diagnostic original correct.
 
 ## Isolation des sources et rectifications liées — déploiements29–30
 
@@ -54,7 +54,7 @@ B a réellement corrigé son identifiant de mission via host_edit_file puis rapp
 
 Une autre friction réelle de A était mission_evidence(id="13053") : ce numéro existait mais le préfixe event: manquait. L’interface accepte maintenant cette représentation non ambiguë, conserve les arguments originaux et relit le même événement de la même mission. Cela ne fabrique aucune preuve, ne lit pas une autre mission et ne permet pas de recevoir une tâche avec un simple événement de revue.
 
-181 tests logiciels réussis, dont tests d’isolement des diagnostics entre inférences, alias numérique borné à la mission, rectification exacte sans effacement, refus d’une rectification étrangère ou d’une note modèle usurpant son autorité. Aucun nouveau moteur, worker, skill ou modèle installé. Les retests opérationnels des rapports continuent sur les mêmes trois missions ; les deux autres missions du worker sont conservées, sans opération métier de Codex.
+185 tests logiciels réussis, dont tests d’isolement des diagnostics entre inférences, alias numérique borné à la mission, rectification exacte sans effacement, refus d’une rectification étrangère ou d’une note modèle usurpant son autorité. Aucun nouveau moteur, worker, skill ou modèle installé. Les retests opérationnels des rapports continuent sur les mêmes trois missions ; les deux autres missions du worker sont conservées, sans opération métier de Codex.
 
 ## Séparer les défauts des classifications autorisées — déploiement31
 
@@ -62,7 +62,7 @@ Le rapport A attribuait toujours des refus à des titres descriptifs. L’interf
 
 La préparation de correction conserve également les constats indépendants depuis le dernier PASS de la même portée. Un nouveau FAIL différent ne masque plus le constat antérieur de Codex-independent sur les causes historiques ; les issues exactes explicitement retirées restent annotées. Les constats anciens sont présentés comme éléments à recontrôler sur le brouillon courant, sans réintroduire une erreur déjà corrigée.
 
-Le contexte de réception A est reconstruit depuis ces preuves et vues corrigées ; ses sept tâches et empreintes restent conservées. Cela est une aide d’infrastructure Codex, pas une autocorrection du moteur par JARVIS. 181 tests réussissent au déploiement31, avec trois cas supplémentaires sur la conservation des constats, le filtrage du message de rejet et la vue des anciennes erreurs non modifiées. Les trois rapports opérationnels restent à recevoir.
+Le contexte de réception A est reconstruit depuis ces preuves et vues corrigées ; ses sept tâches et empreintes restent conservées. Cela est une aide d’infrastructure Codex, pas une autocorrection du moteur par JARVIS. 185 tests réussissent au déploiement31, avec trois cas supplémentaires sur la conservation des constats, le filtrage du message de rejet et la vue des anciennes erreurs non modifiées. Les trois rapports opérationnels restent à recevoir.
 
 ## Accès direct aux diagnostics et maîtrise du contexte — déploiements32–33
 
@@ -70,7 +70,7 @@ B a effectivement utilisé l’alias numérique de mission_evidence pour18397,18
 
 B a aussi demandé include_evidence=true à mission_report_review. Ce retour complet a porté son contexte à267902 caractères avant réduction (événement19428). La vue26b.review-actionable.1 transmet désormais le verdict, les vrais défauts et les références, sans réinjecter tout le corpus de preuves ni les classifications positives. La réponse intégrale reste dans le reçu et la revue d’origine. Les données applicatives ordinaires portant des clés status/issues/claims ne subissent pas ce traitement sans les marqueurs de contrat de rapport.
 
-181 tests logiciels réussis au déploiement33. Les quatre nouveaux tests vérifient l’accès aux diagnostics avant pagination, les constats rectifiés sans changement du FAIL original, la maîtrise du retour complet d’une revue et la conservation des données applicatives. Les tâches, preuves et entrées sont préservées. Les retests réels de réception demeurent ouverts ; les nouveaux outils doivent aider JARVIS à écrire son propre texte, jamais le remplacer.
+185 tests logiciels réussis au déploiement33. Les quatre nouveaux tests vérifient l’accès aux diagnostics avant pagination, les constats rectifiés sans changement du FAIL original, la maîtrise du retour complet d’une revue et la conservation des données applicatives. Les tâches, preuves et entrées sont préservées. Les retests réels de réception demeurent ouverts ; les nouveaux outils doivent aider JARVIS à écrire son propre texte, jamais le remplacer.
 
 ## Journal factuel de grande taille — déploiements34–35
 
@@ -78,8 +78,20 @@ L’appel réel mission_report_facts de B renvoyait486770 caractères, dont d’
 
 CONTEXTE-MESURES.json mesure les reçus réellement produits :486770→18023 caractères pour le journal et192560→1425 pour une revue. Ces mesures sont Codex, pas de nouveaux progrès autonomes. Les reçus et leurs empreintes restent inchangés. Le dernier repli par extrait du checkpoint devait aussi conserver cette vue filtrée : il réintroduisait auparavant le corpus brut si le budget restant était encore trop petit. L’extrait prend désormais la vue filtrée et conserve taille/empreinte de l’original.
 
-181 tests logiciels réussis au déploiement35. Les nouveaux cas vérifient la sélection de faits sans réinjection de vieux plans, la conservation des données applicatives ordinaires et le maintien du filtre dans un petit checkpoint. Les retests des trois rapports réels demeurent ouverts.
+185 tests logiciels réussis au déploiement35. Les nouveaux cas vérifient la sélection de faits sans réinjection de vieux plans, la conservation des données applicatives ordinaires et le maintien du filtre dans un petit checkpoint. Les retests des trois rapports réels demeurent ouverts.
 
 B a utilisé facts pour relire18397 et19462, puis édité lui-même son rapport afin de distinguer la mesure réelle2 du diagnostic numérique retiré. Un appel groupé incluant mission_evidence hors liste des lectures groupables a échoué partiellement ; les deux lectures hôte ont réussi et JARVIS a relancé séparément l’accès aux événements, sans correction Codex de cet appel.
 
 Une réserve reste observée : la revue ciblée a refusé la description de18639 comme un manque de conservation des erreurs historiques, alors que le diagnostic original est Historical FAIL must be explicitly retained. Le modèle de contrôle peut donc encore émettre un faux refus ; un test réel isolé compare ce cas correct et la fausse cause10978 avant toute nouvelle évolution de la réception.
+
+## Corriger le faux refus sans admettre une fausse cause — déploiement36
+
+Le premier candidat (raisonnement privé activé uniquement dans un harnais) ne corrige pas le faux refus18639 ; il est écarté, avec sa sortie et ses métriques, sans publier de contenu de raisonnement privé. Le second candidat (périmètre historique plus explicite/ordre des champs) accepte B mais accepte aussi la fausse cause de C : il est NO-GO et n’a pas été déployé. Voir PROBE-RAISONNEMENT-36.json et PROBE-PERIMETRE-36.json.
+
+Le contrat26b.report.13 ajoute une extraction à l’aveugle de la cause attribuée à l’événement, sans fournir ses diagnostics réels au classificateur. Le moteur compare ensuite cette catégorie aux diagnostics natifs reconnus, tels que Historical FAIL must be explicitly retained et At least one original receipt/event reference must appear. Les constats numériques retirés sont exclus des codes de soutien. Les assertions de statut/type/acteur restent comparées aux données originales et ne sont pas effacées par une catégorie correcte.
+
+Pour les catégories ainsi reconnues, la comparaison native détermine le soutien causal ; l’ancienne opinion du modèle est conservée sous model_supported/model_reason, sans la transformer silencieusement en une réponse du modèle. La méthode est explicitement marquée support_method. Les causes non prises en charge restent soumises aux contrôles existants ; cette extension n’est pas une preuve de compréhension universelle de tout diagnostic libre. Une erreur de modèle ou un échec de format ne devient jamais une réussite applicative.
+
+PROBE-CATEGORIES-36.json montre les extractions réelles : historique manquant pour B18639, livrable manquant dans le faux récit C10978. PROBE-INTEGRATION-36.json exécute le contrôleur candidat complet sur les textes gelés : B accepté, C refusé, attentes toutes satisfaites. Cela reçoit ce correctif de contrôle dans son périmètre, pas les missions opérationnelles complètes.185 tests logiciels réussissent, dont garde contre un faux positif NLI, maintien d’un statut incompatible, exclusion d’un ancien constat retiré et vérification que l’extracteur ne reçoit pas le diagnostic attendu.
+
+Après installation36, les seuls contextes de réception A/B/C ont été archivés et reconstruits depuis les objectifs, plans, reçus et états durables. Les messages de travail hérités des anciens contrôleurs ne sont plus réutilisés comme contexte actif ; ils restent dans mission_context_archives avec leur empreinte. Les tâches/rapports déjà validés ne sont pas réinitialisés. Cette reprise est Codex, pas une autocorrection revendiquée de JARVIS. Les deux autres missions du worker restent actives dans leur propre périmètre ; aucune action métier de Codex ne leur est attribuée.

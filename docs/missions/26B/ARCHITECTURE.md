@@ -62,7 +62,7 @@ Le contrat de couverture26b.9 exige également un ordre explicite entre tous les
 
 ## Reprise du23 octobre2026
 
-Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.12, 181 tests et35 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.13, 185 tests et36 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
 
 ## Réceptions ciblées et nouvelle réserve factuelle
 
@@ -91,3 +91,15 @@ B a effectivement utilisé l’alias numérique de mission_evidence pour18397,18
 B a aussi demandé include_evidence=true à mission_report_review. Ce retour complet a porté son contexte à267902 caractères avant réduction (événement19428). La vue26b.review-actionable.1 transmet désormais le verdict, les vrais défauts et les références, sans réinjecter tout le corpus de preuves ni les classifications positives. La réponse intégrale reste dans le reçu et la revue d’origine. Les données applicatives ordinaires portant des clés status/issues/claims ne subissent pas ce traitement sans les marqueurs de contrat de rapport.
 
 178 tests logiciels réussis au déploiement33. Les quatre nouveaux tests vérifient l’accès aux diagnostics avant pagination, les constats rectifiés sans changement du FAIL original, la maîtrise du retour complet d’une revue et la conservation des données applicatives. Les tâches, preuves et entrées sont préservées. Les retests réels de réception demeurent ouverts ; les nouveaux outils doivent aider JARVIS à écrire son propre texte, jamais le remplacer.
+
+## Corriger le faux refus sans admettre une fausse cause — déploiement36
+
+Le premier candidat (raisonnement privé activé uniquement dans un harnais) ne corrige pas le faux refus18639 ; il est écarté, avec sa sortie et ses métriques, sans publier de contenu de raisonnement privé. Le second candidat (périmètre historique plus explicite/ordre des champs) accepte B mais accepte aussi la fausse cause de C : il est NO-GO et n’a pas été déployé. Voir PROBE-RAISONNEMENT-36.json et PROBE-PERIMETRE-36.json.
+
+Le contrat26b.report.13 ajoute une extraction à l’aveugle de la cause attribuée à l’événement, sans fournir ses diagnostics réels au classificateur. Le moteur compare ensuite cette catégorie aux diagnostics natifs reconnus, tels que Historical FAIL must be explicitly retained et At least one original receipt/event reference must appear. Les constats numériques retirés sont exclus des codes de soutien. Les assertions de statut/type/acteur restent comparées aux données originales et ne sont pas effacées par une catégorie correcte.
+
+Pour les catégories ainsi reconnues, la comparaison native détermine le soutien causal ; l’ancienne opinion du modèle est conservée sous model_supported/model_reason, sans la transformer silencieusement en une réponse du modèle. La méthode est explicitement marquée support_method. Les causes non prises en charge restent soumises aux contrôles existants ; cette extension n’est pas une preuve de compréhension universelle de tout diagnostic libre. Une erreur de modèle ou un échec de format ne devient jamais une réussite applicative.
+
+PROBE-CATEGORIES-36.json montre les extractions réelles : historique manquant pour B18639, livrable manquant dans le faux récit C10978. PROBE-INTEGRATION-36.json exécute le contrôleur candidat complet sur les textes gelés : B accepté, C refusé, attentes toutes satisfaites. Cela reçoit ce correctif de contrôle dans son périmètre, pas les missions opérationnelles complètes.185 tests logiciels réussissent, dont garde contre un faux positif NLI, maintien d’un statut incompatible, exclusion d’un ancien constat retiré et vérification que l’extracteur ne reçoit pas le diagnostic attendu.
+
+Après installation36, les seuls contextes de réception A/B/C ont été archivés et reconstruits depuis les objectifs, plans, reçus et états durables. Les messages de travail hérités des anciens contrôleurs ne sont plus réutilisés comme contexte actif ; ils restent dans mission_context_archives avec leur empreinte. Les tâches/rapports déjà validés ne sont pas réinitialisés. Cette reprise est Codex, pas une autocorrection revendiquée de JARVIS. Les deux autres missions du worker restent actives dans leur propre périmètre ; aucune action métier de Codex ne leur est attribuée.

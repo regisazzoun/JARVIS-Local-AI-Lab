@@ -1,0 +1,80 @@
+{
+  "actor_harness": "Codex",
+  "model": "JARVIS/Qwen",
+  "created": 1792714230.2714248,
+  "scope": "Actual unchanged report paragraphs and original events, no operational task or fourth autonomous mission. Private model reasoning is not recorded.",
+  "results": [
+    {
+      "case": "B",
+      "original_event": 18639,
+      "think": false,
+      "scope_strict": true,
+      "result": {
+        "checks": {
+          "event:18639": {
+            "claimed_status": "FAIL",
+            "claimed_kind": "narrative_review",
+            "claimed_actor": "JARVIS-reviewer",
+            "claimed_cause": "rapport manquait la documentation des erreurs historiques",
+            "supporting_diagnostic_index": 0,
+            "reason": "Le rapport T07 affirme explicitement que l'événement 18639 est un FAIL dû à un rapport initial incomplet, ce qui correspond exactement au diagnostic original exigeant la rétention explicite des FAIL historiques.",
+            "supported": true,
+            "original_supporting_diagnostic": "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          }
+        },
+        "issues": []
+      },
+      "metrics": {
+        "load_duration": 4309347,
+        "prompt_eval_duration": 1003132000,
+        "eval_duration": 3859264000,
+        "eval_count": 154,
+        "prompt_eval_count": 1159,
+        "total_duration": 59641968185,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 32768,
+        "route_failures": [],
+        "request_elapsed_s": 59.65887807193212
+      }
+    },
+    {
+      "case": "C",
+      "original_event": 10978,
+      "think": false,
+      "scope_strict": true,
+      "result": {
+        "checks": {
+          "event:10978": {
+            "claimed_status": "FAIL",
+            "claimed_kind": "narrative_review",
+            "claimed_actor": "JARVIS-reviewer",
+            "claimed_cause": "premier plan candidat omettait manifest.json requis par R3",
+            "supporting_diagnostic_index": 0,
+            "reason": "Le rapport allègue un statut FAIL pour l'événement 10978 dû à l'omission de manifest.json, ce qui correspond au diagnostic original index 0 exigeant la rétention explicite des échecs historiques.",
+            "supported": true,
+            "original_supporting_diagnostic": "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          }
+        },
+        "issues": []
+      },
+      "metrics": {
+        "load_duration": 4404150,
+        "prompt_eval_duration": 1925438000,
+        "eval_duration": 4012236000,
+        "eval_count": 160,
+        "prompt_eval_count": 2414,
+        "total_duration": 77177747845,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 32768,
+        "route_failures": [],
+        "request_elapsed_s": 77.18867667007726
+      }
+    }
+  ],
+  "independent_candidate_reception": {
+    "status": "NO-GO",
+    "reason": "Valid B accepted but false C cause also accepted; this scope/order-only candidate was not deployed."
+  }
+}
