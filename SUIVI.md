@@ -52,6 +52,24 @@
 
 > **Point du 17 octobre — mission 00 :** [README courant](README.md) et [registre](docs/missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) réconciliés : 68 missions/sous-missions, 28 anomalies. 13D-E = Dell n°1 reçu ; 14 = Dell n°2 futur exécuté par JARVIS ; 14A ouverte ; 11B partielle ; JL-02 livrée avec réserves. Les sections datées ci-dessous conservent leurs états historiques.
 
+
+**Consolidation du chantier 04 — 19 octobre 2026 :** la série 04 à 04W relève désormais d'un **objectif technique global atteint**, démontré par les essais GPU réels de [05C et 05D](SUIVI.md). Les étapes préparatoires non exécutées, les anciens essais négatifs et les rapports introuvables restent explicitement identifiés dans le registre historique de la mission 00 ; leur affichage GO signifie que le *blocage global* est levé, non que chaque essai intermédiaire aurait réussi.
+
+### Légende de présentation des statuts
+
+✅ **GO** : réalisé et validé · ✅🟡 **GO avec réserves / GO partiel** : acquis vérifié, limites non bloquantes consignées · 🟡 **En cours / incomplet** : objectif non encore validé · 📋 **Planifiée** · ❌ **NO-GO** : échec démontré. Ces pictogrammes n'effacent pas les verdicts historiques.
+
+**Prémission JL-03 (22 octobre 2026) — préparation validée par le propriétaire :** [cahier de prémission mission 27 — orbe cristalline, égaliseur audio, interface et supervision](docs/missions/27-JL-03/PREMISSION-JL-03.md). **Document de référence pour la conversation « 00 — Pilotage général »**. Décisions de conception documentées ; mission 27 non démarrée, JL-02 préservée.
+
+## Nouvelles missions du 19 octobre 2026
+
+**Correspondance ancien numéro → nouveau numéro :** 23→23 (LiveKit), 28→24 (mémoire), 26→25 (skills), 25→26 (moteur), 24→27 (JL-03), 27→28 (routage), 29→29, 30→30, 31→31. Les autres missions et les noms de produits JL-01/JL-02/JL-03 sont inchangés.
+
+
+Ordre révisé par le propriétaire : **23 LiveKit → 24 mémoire → 25 MCP/skills → 26 Mission Engine → 27 JL-03 → 28 routage → 29 satellites → 30 proactivité → 31 réception**. Les neuf missions sont **planifiées, non exécutées** ; voir [cahier détaillé](docs/missions/CYCLE-23-31.md) et [roadmap](ROADMAP.md). Le bilan 00 du 17 octobre conserve son comptage historique de 68 identifiants.
+
+**Point de consolidation (19 octobre 2026) — missions 01, 02, 02B :** affichage GO sur les fonctions reprises et démontrées plus tard par 03, 05D, 11-Agentic, 11B, 13D et 13F. Les résultats antérieurs PARTIEL et NON VÉRIFIÉ demeurent dans leurs rapports d'origine. Les contrôles périphériques non démontrés n'acquièrent aucune validation par cette présentation.
+
 ## Vue d'ensemble — toutes les missions
 
 **75 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--75-identifiants) reprend les mêmes missions et états.
