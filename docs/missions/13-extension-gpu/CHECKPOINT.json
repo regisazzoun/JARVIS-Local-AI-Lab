@@ -71,9 +71,14 @@
       "deps": [
         "A_inventaire"
       ],
-      "state": "pending",
-      "evidence": [],
-      "updated": 1792750699.7974074,
+      "state": "validated",
+      "evidence": {
+        "actor": "Codex",
+        "scope": "Documented software preparation, utilities compile/CLI, actual installed commands used; benchmark not executed",
+        "commit": "2448252a3789868395149ed29256fa770e5063a7",
+        "pull_request": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23"
+      },
+      "updated": 1792751624.4437196,
       "objective": "Préparation logicielle et réception documentaire indépendante",
       "contract": {},
       "started": null,
@@ -2386,6 +2391,25 @@
         "state": "waiting_external"
       },
       "created": 1792751544.363311,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 21041,
+      "mission": "3741a2687322498597c394f7a6be0326",
+      "task": null,
+      "actor": "Codex",
+      "kind": "publication_received",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "branch": "codex/mission-13-extension-dual-rtx3090",
+        "commit": "2448252a3789868395149ed29256fa770e5063a7",
+        "no_merge": true,
+        "pull_request": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23",
+        "scope": "partial receipt; physical electrical qualification and inference pending"
+      },
+      "created": 1792751624.5300894,
       "duration": null,
       "invocation": null
     }

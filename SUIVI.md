@@ -1,6 +1,6 @@
 ## Mission13 — extension double RTX3090,23 octobre2026
 
-🟡 **Réception partielle : deux GPU reconnus et petits calculs CUDA réussis sur chacun ; alimentation/faisceaux et inférence double non qualifiés.** Pilote existant conservé, Ollama limité à un UUID. Deux cartes identiques DellOEM indiquées par le propriétaire et sous-systèmes Dell observés. [Rapport](docs/missions/13-extension-gpu/RAPPORT-FINAL.md). Priorité actuelle : qualification du montage électrique réel, puis charge/inférence. TTS-01 reste suspendue ;26B clôturée incomplète,14A/24-Old/28/Dell2 non lancés.
+🟡 **Réception partielle : deux GPU reconnus et petits calculs CUDA réussis sur chacun ; alimentation/faisceaux et inférence double non qualifiés.** Pilote existant conservé, Ollama limité à un UUID. Deux cartes identiques DellOEM indiquées par le propriétaire et sous-systèmes Dell observés. [Rapport](docs/missions/13-extension-gpu/RAPPORT-FINAL.md) · [PR23](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23). Priorité actuelle : qualification du montage électrique réel, puis charge/inférence. TTS-01 reste suspendue ;26B clôturée incomplète,14A/24-Old/28/Dell2 non lancés.
 
 ## TTS-01 — reprise du23 octobre2026
 

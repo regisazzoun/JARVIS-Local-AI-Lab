@@ -1,6 +1,6 @@
 # Mission13 — réception partielle de l’extension GPU
 
-**23 octobre2026 — 🟡 Incomplet : détection et CUDA double reçus, alimentation et inférence double non reçues.** Le complément est livré en l’état documenté ; il reste à reprendre au checkpoint matériel, sans réinstallation.
+**23 octobre2026 — 🟡 Incomplet : détection et CUDA double reçus, alimentation et inférence double non reçues.** [PR23](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23), branche `codex/mission-13-extension-dual-rtx3090`, sans fusion. Le complément est livré en l’état documenté ; il reste à reprendre au checkpoint matériel, sans réinstallation.
 
 Le dernier historique reçu ne reconnaissait qu’une3090 alimentée. Cette reprise observe **deux RTX3090 de24576MiB chacune**, pilotes NVIDIA550.163.01 initialisés et sous-systèmes Dell identiques1028:3880. JARVIS a exécuté un petit calcul CUDA sur chaque appareil :120.0 attendu et obtenu sur0 et1. Les reçus sont corrélés aux événements root du broker ; le contrôle PCI/services indépendant concorde.
 
