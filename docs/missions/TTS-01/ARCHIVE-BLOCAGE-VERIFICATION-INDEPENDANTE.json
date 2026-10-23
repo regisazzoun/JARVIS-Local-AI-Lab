@@ -1,0 +1,65 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792721438.0515842,
+  "original_model_report": "JARVIS-ARCHIVE-BLOCAGE-INITIAL.md",
+  "status": "FAIL for policy diagnosis, genuine missing remote archive observation retained",
+  "actual_failed_observation": {
+    "id": "761516914c434353ae07777d2358dfc2",
+    "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+    "task": "t02_verification_archive",
+    "signature": "61d55bc4408fbd9cc45ab601d3bc1a93f10cb6293b2598343dc368406ddb75d0",
+    "tool": "host_remote",
+    "arguments": {
+      "action": "project_probe",
+      "host": "dell-observe",
+      "probe": "archive_inventory",
+      "project": "tts-01"
+    },
+    "state": "finished",
+    "result": {
+      "elapsed_s": 0.753,
+      "error": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n    p=pathlib.Path('references.zip');z=zipfile.ZipFile(p)\n                                       ~~~~~~~~~~~~~~~^^^\n  File \"/usr/lib/python3.13/zipfile/__init__.py\", line 1383, in __init__\n    self.fp = io.open(file, filemode)\n              ~~~~~~~^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'references.zip'\n",
+      "ok": false,
+      "result": {
+        "caller": "JARVIS-runtime",
+        "diagnostic": {
+          "alternative": null,
+          "broker_version": "23C.1",
+          "error_category": "application_error",
+          "omitted_parameters": [
+            "probe"
+          ],
+          "operation": "host_remote",
+          "parameters": {
+            "action": "project_probe",
+            "host": "dell-observe",
+            "project": "tts-01"
+          },
+          "policy_path": "/etc/jarvis/host-policy.json",
+          "policy_sha256": "bbed082b7882974295396a2d1aea2ce48d17e61682409b7d81def7b012b85fd3",
+          "reload": "each-request",
+          "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+          "selection": "single-persistent-owner-policy"
+        },
+        "duration_s": 0.366,
+        "evidence_id": "565d154c074a49a9a253d602bcbb2b22",
+        "returncode": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n    p=pathlib.Path('references.zip');z=zipfile.ZipFile(p)\n                                       ~~~~~~~~~~~~~~~^^^\n  File \"/usr/lib/python3.13/zipfile/__init__.py\", line 1383, in __init__\n    self.fp = io.open(file, filemode)\n              ~~~~~~~^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'references.zip'\n",
+        "stderr_truncated": false,
+        "stdout": "",
+        "stdout_truncated": false,
+        "timeout": false
+      },
+      "tool": "host_remote"
+    },
+    "created": 1792721209.7244344,
+    "updated": 1792721210.6554735
+  },
+  "findings": [
+    "La sonde constate FileNotFoundError pour references.zip sur le Dell, pas un refus de politique sur le Mac.",
+    "Le fichier source précis /tmp/JARVIS_VF_2008.zip est déjà accordé ; il n’est pas nécessaire d’accorder tout /tmp.",
+    "project_upload est installé et son transfert binaire déjà contrôlé ; aucun transfert manuel propriétaire n’est nécessaire.",
+    "Aucun nouvel inventaire local de la politique n’avait été exécuté avant cette conclusion."
+  ],
+  "action": "JARVIS exécutera lui-même les appels de politique/transfert/sonde dans la conversation existante, puis reprise de la même mission."
+}

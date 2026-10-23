@@ -1,0 +1,15 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792721323.6756096,
+  "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+  "scope": "T01 inventory technical probe versus free prose, not TTS engine receipt",
+  "technical_probe": "PASS",
+  "report": "PARTIAL",
+  "report_sha256": "e10e3538ce25880a73a61674e60422b4dcad1f2f894663b94c0cc3df006aca38",
+  "issues": [
+    "host_remote actuel prouve SSH, pas une nouvelle vérification Tailscale.",
+    "Le profil action services observe exactement ssh.service et jarvis-ollama.service ; nvidia-persistenced ne découle pas des deux sorties active.",
+    "Les chiffres free -h en GiB se lisent Gio, pas Go décimaux. CUDA Version12.4 de nvidia-smi désigne la compatibilité pilote ; une phrase a été corrigée par JARVIS, mais plusieurs autres formulations restent ambiguës."
+  ],
+  "action": "Conserver le rapport de tâche validée et publier un erratum distinct/final, sans réexécuter T01."
+}

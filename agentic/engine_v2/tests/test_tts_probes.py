@@ -1,11 +1,16 @@
 import json
 from pathlib import Path
 import sys
+import io
+import tempfile
+import wave
+import zipfile
+import subprocess
 import unittest
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).parents[1]/'broker'))
 from remote_project import project_program
-from remote_probes import probe_command
+from remote_probes import probe_command,PROBES
 from jarvis.verification import Verifier,validate_contract
 
 
@@ -31,3 +36,19 @@ class FixedIndependentProbes(unittest.TestCase):
             with self.assertRaises(SystemExit):exec(compile(script,'probe-runtime','exec'),{})
         argv=call.call_args.args[0];index=argv.index('/opt/jarvis-lab/tts-01')
         self.assertEqual(argv[index-1],'--ro-bind')
+
+    def test_archive_probe_measures_pcm_and_excludes_appledouble(self):
+        body=io.BytesIO()
+        with wave.open(body,'wb') as wav:
+            wav.setparams((1,2,8000,0,'NONE','not compressed'))
+            wav.writeframes(b'\xff\x7f\x00\x80\x00\x00\x01\x00')
+        with tempfile.TemporaryDirectory() as root:
+            with zipfile.ZipFile(Path(root)/'references.zip','w') as z:
+                z.writestr('a.wav',body.getvalue());z.writestr('__MACOSX/._a.wav',b'not an audio file')
+            result=subprocess.run([sys.executable,'-c',PROBES['archive_inventory'][1]],cwd=root,capture_output=True,text=True,check=True)
+        observed=json.loads(result.stdout)
+        self.assertEqual(observed['wav_files'],1)
+        self.assertEqual(observed['full_scale_samples_total'],2)
+        self.assertEqual(observed['files'][0]['pcm_bit_rate_bps'],128000)
+        self.assertAlmostEqual(observed['total_duration_s'],4/8000)
+        self.assertLess(observed['files'][0]['rms_dbfs'],0)
