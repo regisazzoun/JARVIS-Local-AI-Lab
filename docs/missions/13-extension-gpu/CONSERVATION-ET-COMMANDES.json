@@ -1,0 +1,27 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792751544.4232013,
+  "commands": [
+    {
+      "action": "gpu_extension_inventory",
+      "source_sha256": "73cd3f04a98502b4be1fef7f0bcbb21da4111321d235bc71e572d162d51ee58e",
+      "policy_command_matches_source": true
+    },
+    {
+      "action": "gpu_extension_cuda",
+      "source_sha256": "1b259a83b4803bc3d7e4bb2de9ec66bb45e3f9fa1e343b019904abce29058f7a",
+      "policy_command_matches_source": true
+    }
+  ],
+  "services_health": {
+    "application": "ok",
+    "database": "ok",
+    "ollama": "0.40.3",
+    "busy": false,
+    "mission_busy": true
+  },
+  "tts_state": "interrupted",
+  "mission13_state": "waiting_external",
+  "driver_or_service_configuration_changed": false,
+  "benchmarks_executed": false
+}

@@ -151,3 +151,8 @@ Le propriétaire demande « cloture la mission en l etat ».26B est clôturée *
 ## TTS-01 — reprise autorisée du23 octobre2026
 
 Codex orchestre et corrige l’infrastructure ; JARVIS exécute inventaire, choix/installation TTS, génération, mesures et restitution via JL-02. Reprendre la mission existante8bd3e5b316a94021b5183e0db26d6efc, sans nouvelle installation en double ni validation humaine intermédiaire. Les anciens appels généraux à validation ne prévalent plus dans ce périmètre. Préserver Dell1/services/Piper ; références de film privées réservées à l’écoute comparative, aucun clonage de Philippe Faure. La planification dirigée/les contrats corrigés par Codex ne sont pas attribués au modèle.26B reste clôturée incomplète,14A/24-Old/Dell2 non lancés. [Ordre et périmètre](missions/TTS-01/MISSION.md).
+
+
+## Mission13 — complément double GPU, ordre propriétaire23 octobre2026
+
+Codex coordonne et vérifie ; JARVIS exécute les observations/calculs via les outils11B persistants. Deux RTX3090 DellOEM identiques déclarées, deux sous-systèmes Dell désormais observés. Administration autonome accordée, aucune validation générale supplémentaire. Qualifier réellement les références/pinouts/courants avant les essais en charge : la seule détection ne reçoit pas l’alimentation. Préserver système/pilotes/services, aucun branchement improvisé ni réinstallation. TTS-01 reste suspendue après l’arrêt demandé ;26B clôturée incomplète,14A/24-Old/28/Dell2 non lancés. [Réception partielle13](missions/13-extension-gpu/RAPPORT-FINAL.md).

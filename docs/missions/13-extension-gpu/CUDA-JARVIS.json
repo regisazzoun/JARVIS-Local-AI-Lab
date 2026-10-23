@@ -1,0 +1,46 @@
+{
+  "id": "536d7ea7277e466f9c8fe6e0184abce8",
+  "mission": "3741a2687322498597c394f7a6be0326",
+  "task": null,
+  "signature": "cf71ccf7ee0fd7eac006c65d577788ece91659c21eeac26489692a9f93799945",
+  "tool": "host_remote",
+  "arguments": {
+    "action": "gpu_extension_cuda",
+    "host": "dell-observe"
+  },
+  "state": "finished",
+  "result": {
+    "elapsed_s": 3.32,
+    "ok": true,
+    "result": {
+      "diagnostic": {
+        "alternative": null,
+        "broker_version": "23C.1",
+        "error_category": null,
+        "omitted_parameters": [],
+        "operation": "host_remote",
+        "parameters": {
+          "action": "gpu_extension_cuda",
+          "host": "dell-observe"
+        },
+        "policy_path": "/etc/jarvis/host-policy.json",
+        "policy_sha256": "431e5b54485e00770244b8496ae9d0a8fdb5278c6597f83eb9c7fab12fdaaa6a",
+        "reload": "each-request",
+        "retry": null,
+        "selection": "single-persistent-owner-policy"
+      },
+      "duration_s": 2.871,
+      "evidence_id": "9d7d9f0fbc2a4639937c698ff3dfa832",
+      "returncode": 0,
+      "stderr": "",
+      "stderr_truncated": false,
+      "stdout": "{\"captured_at_unix\": 1792750973.1141984, \"torch_version\": \"2.6.0+cu124\", \"cuda_runtime\": \"12.4\", \"device_count\": 2, \"expected_device_count\": null, \"devices\": [{\"index\": 0, \"name\": \"NVIDIA GeForce RTX 3090\", \"compute_capability\": [8, 6], \"actual_sum\": 120.0, \"expected_sum\": 120.0, \"pass\": true, \"elapsed_s\": 0.17954168899996148, \"free_bytes\": 25070272512, \"total_bytes\": 25430786048}, {\"index\": 1, \"name\": \"NVIDIA GeForce RTX 3090\", \"compute_capability\": [8, 6], \"actual_sum\": 120.0, \"expected_sum\": 120.0, \"pass\": true, \"elapsed_s\": 0.017779354000026615, \"free_bytes\": 25024266240, \"total_bytes\": 25428426752}], \"peer_access\": [{\"source\": 0, \"target\": 1, \"available\": false}, {\"source\": 1, \"target\": 0, \"available\": false}], \"status\": \"PASS\"}\n",
+      "stdout_truncated": false,
+      "timeout": false
+    },
+    "risk": "host_authorized",
+    "tool": "host_remote"
+  },
+  "created": 1792750970.8467762,
+  "updated": 1792750974.5131836
+}

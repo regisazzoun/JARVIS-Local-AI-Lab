@@ -1,3 +1,7 @@
+## 23 octobre2026 — complément13 double GPU
+
+DeuxRTX3090 DellOEM reconnues et petit calcul CUDA correct sur chacune par JARVIS. Câblage/puissance non qualifiés, pas de nouvel essai d’inférence double ni changement de pilote/service. [Réception partielle](missions/13-extension-gpu/RAPPORT-FINAL.md). TTS-01 suspendue, aucune clôture14A ou reprise26B.
+
 # Chronologie technique — état provisoire
 
 Chronologie issue des rapports Codex transmis ; les répertoires de preuves ne doivent pas être interprétés comme des validations à eux seuls.

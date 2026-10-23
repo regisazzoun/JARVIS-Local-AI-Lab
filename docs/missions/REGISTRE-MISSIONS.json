@@ -2086,11 +2086,32 @@
         "url": ""
       }
     ],
-    "etat": "🟡 En cours",
-    "resultats_prouves": "Mission et plans retrouvés ; archive14 WAV vérifiée indépendamment ; infrastructure GPU/transferts et API audio contrôlées ;194 tests logiciels",
-    "reserves": "Installation TTS et génération non encore reçues ; plan/contrats dirigés par Codex après blocage du contrôleur expérimental26B",
+    "etat": "🟡 Suspendue",
+    "resultats_prouves": "Venv,PyTorchCUDA et qwen-tts installés par JARVIS ; calcul GPU vérifié ;200 tests logiciels infrastructure antérieurs",
+    "reserves": "Aucune voix TTS générée ; mission interrompue après arrêt propriétaire",
     "dependances": "11/11B,13D-E,JL-02,26 ;26B clôturée incomplète",
-    "prochaine_action": "JARVIS exécute les huit tâches existantes depuis les contrats corrigés, puis contrôles indépendants",
+    "prochaine_action": "Reprise distincte depuis checkpoint, sans relance automatique",
     "derniere_actualisation": "2026-10-23"
+  },
+  {
+    "identifiant": "13",
+    "nom": "Extension double RTX3090 du Dell n°1 — complément",
+    "fonction_principale": "Qualifier alimentation et utilisation des deux GPU",
+    "objectifs": "Câblage établi, CUDA deux cartes, inférence et modèles réévalués",
+    "materiel": "Dell Precision5820 X-Series, deux RTX3090 DellOEM",
+    "composants": "NVIDIA550.163.01,CUDA12.4,Ollama0.40.3,broker11B existant",
+    "executant_reel": "Codex infrastructure/recherche/réception ; JARVIS inventaires/calculs/rapports ; montage physique hors session",
+    "documents_sources": [
+      {
+        "path": "docs/missions/13-extension-gpu/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "🟡 Incomplet — réception partielle",
+    "resultats_prouves": "DeuxGPU détectés ; somme120 sur chacun ; sous-systèmes Dell identiques ; services disponibles",
+    "reserves": "Brochage/courants/PSU950W non qualifiés ; inférence double non testée ; erreurs et répétitions JARVIS conservées",
+    "dependances": "13D-E,11B ; suite28 distincte",
+    "prochaine_action": "Qualifier raccordement réel puis essais de charge/inférence",
+    "mission_id": "3741a2687322498597c394f7a6be0326"
   }
 ]

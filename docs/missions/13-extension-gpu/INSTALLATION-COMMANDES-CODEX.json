@@ -1,0 +1,15 @@
+{
+  "actor": "Codex",
+  "created": 1792750699.9788194,
+  "mission": "3741a2687322498597c394f7a6be0326",
+  "conversation": "[identifiant unique masqué]",
+  "policy_before_sha256": "723f1f408b0a2a464b3b52f3b5645e58407eb480b016ff7afa90ad0ffd21084d",
+  "policy_after_sha256": "61cdfe31719465ccd3b939737945c30383bae0e4129dfdb8747c16123467122d",
+  "backup": "/var/backups/jarvis/mission13-dual/1792750699611596034",
+  "added_actions": [
+    "gpu_extension_inventory",
+    "gpu_extension_cuda"
+  ],
+  "authority": "owner mission13 extension and persistent11B; fixed read-only inventory and small calculation, no driver/service change",
+  "software_installed": false
+}

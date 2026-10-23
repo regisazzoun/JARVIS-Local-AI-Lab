@@ -76,9 +76,9 @@ Le registre et le suivi comptent **74 identifiants**, dont **10 incréments nati
 <summary><strong>📋 Consulter les 74 missions et sous-missions</strong></summary>
 
 <!-- BEGIN MISSION CATALOGUE -->
-## Catalogue des missions — 76 identifiants
+## Catalogue des missions — 77 identifiants
 
-**76 missions et sous-missions recensées**, dont dix incréments 15A/15B prévus, non exécutés. Cette liste reprend exactement les identifiants, intitulés et états du tableau courant de [SUIVI.md](SUIVI.md). Les lignes « 09 à 11 » (regroupement historique) et « Documentation » (activité transversale) ne sont pas des missions supplémentaires et ne sont pas comptées.
+**77 missions et sous-missions recensées**, dont dix incréments 15A/15B prévus, non exécutés. Cette liste reprend exactement les identifiants, intitulés et états du tableau courant de [SUIVI.md](SUIVI.md). Les lignes « 09 à 11 » (regroupement historique) et « Documentation » (activité transversale) ne sont pas des missions supplémentaires et ne sont pas comptées.
 
 | Mission | Objet / étapes | État |
 | --- | --- | --- |
@@ -157,7 +157,8 @@ Le registre et le suivi comptent **74 identifiants**, dont **10 incréments nati
 | **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves |
 | **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues |
 | **26B** | Fiabilisation de la planification et des rapports | 🟡 Incomplet — clôturée |
-| **TTS-01** | Synthèse vocale française expérimentale sur Dell1 | 🟡 En cours |
+| **TTS-01** | Synthèse vocale française expérimentale sur Dell1 | 🟡 Suspendue |
+| **13** | Extension double RTX3090 du Dell n°1 — complément | 🟡 Incomplet — réception partielle |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->

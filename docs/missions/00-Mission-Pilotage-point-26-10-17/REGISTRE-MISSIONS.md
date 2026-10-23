@@ -1,3 +1,5 @@
+> Actualisation23 octobre2026 : le registre courant JSON et SUIVI ajoutent le complément13 extension doubleGPU, réception partielle, et conservent TTS-01 suspendue. Les décomptes historiques de ce rapport restent leurs instantanés. [Réception13](../13-extension-gpu/RAPPORT-FINAL.md).
+
 # Registre consolidé — point du 17 octobre 2026
 
 **68 missions ou sous-missions explicitement attestées**, dont dix incréments15A/15B prévus. Les états représentent le dernier résultat documentaire connu, pas un nouveau test système. Les champs complets (objectifs, matériel, composants, exécutant, sources, preuves, réserves, dépendances, prochaine action et date) sont conservés pour chaque ligne dans [JSON](REGISTRE-MISSIONS.json) et [CSV](REGISTRE-MISSIONS.csv).

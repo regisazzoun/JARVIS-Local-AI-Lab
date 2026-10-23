@@ -1,6 +1,10 @@
+## Mission13 — extension double RTX3090,23 octobre2026
+
+🟡 **Réception partielle : deux GPU reconnus et petits calculs CUDA réussis sur chacun ; alimentation/faisceaux et inférence double non qualifiés.** Pilote existant conservé, Ollama limité à un UUID. Deux cartes identiques DellOEM indiquées par le propriétaire et sous-systèmes Dell observés. [Rapport](docs/missions/13-extension-gpu/RAPPORT-FINAL.md). Priorité actuelle : qualification du montage électrique réel, puis charge/inférence. TTS-01 reste suspendue ;26B clôturée incomplète,14A/24-Old/28/Dell2 non lancés.
+
 ## TTS-01 — reprise du23 octobre2026
 
-🟡 En cours : Codex orchestrateur et JARVIS exécutant. Mission persistante existante conservée ; accès GPU, archive privée, transfert binaire et lecture WAV authentifiée raccordés.200 tests logiciels passent. JARVIS a installé le venv et PyTorch CUDA ; le calcul GPU est vérifié. Le chargement du modèle et les trois échantillons restent à recevoir. [État initial](docs/missions/TTS-01/DIAGNOSTIC-INITIAL.md).26B est clôturée incomplète ;14A reste ouverte.
+🟡 Suspendue depuis l’arrêt Dell demandé par le propriétaire. Codex orchestrateur et JARVIS exécutant ; checkpoints conservés. Mission persistante existante conservée ; accès GPU, archive privée, transfert binaire et lecture WAV authentifiée raccordés.200 tests logiciels passent. JARVIS a installé le venv et PyTorch CUDA ; le calcul GPU est vérifié. Le chargement du modèle et les trois échantillons restent à recevoir. [État initial](docs/missions/TTS-01/DIAGNOSTIC-INITIAL.md).26B est clôturée incomplète ;14A reste ouverte.
 
 ## Mission26B — clôture en l’état du23 octobre2026
 
@@ -72,12 +76,13 @@ Ordre révisé par le propriétaire : **23 LiveKit → 24 mémoire → 25 MCP/sk
 
 ## Vue d'ensemble — toutes les missions
 
-**75 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--75-identifiants) reprend les mêmes missions et états.
+**77 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--77-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
+| **13** | Extension double RTX3090 du Dell n°1 — complément | 🟡 Incomplet — réception partielle | DeuxGPU et petits calculs CUDA reçus ; câblage/puissance non qualifiés ; [rapport](docs/missions/13-extension-gpu/RAPPORT-FINAL.md) | Qualification électrique puis charge et inférence double ; aucun système réinstallé |
 | **26B** | Fiabilisation de la planification et des rapports | 🟡 Incomplet — clôturée | Contrôles installés,185 tests ; trois rapports complets non reçus ; [bilan](docs/missions/26B/RAPPORT-FINAL.md) | Essais arrêtés par le propriétaire ; acquis et réserves conservés |
-| **TTS-01** | Synthèse vocale française expérimentale sur Dell1 | 🟡 En cours | Reprise de la mission existante, infrastructures GPU/transfert/audio corrigées ; [mission](docs/missions/TTS-01/MISSION.md) | Installation/générations/mesures par JARVIS puis réception indépendante |
+| **TTS-01** | Synthèse vocale française expérimentale sur Dell1 | 🟡 Suspendue | Venv et PyTorch CUDA installés ; aucune voix générée ; [mission](docs/missions/TTS-01/MISSION.md) | Reprise distincte, sans relance automatique |
 | **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues | Trois plans versionnés, faux succès détecté, correction du programme par JARVIS, reprise et105 tests ; [réception](docs/missions/26/RAPPORT-FINAL.md) | Autonomie encore assistée et prose brute erronée ; épreuve finale14A différée |
 | **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues | Quatre skills actifs dont un créé/réutilisé par JARVIS, MCP réel,89 tests ; [réception](docs/missions/25/RAPPORT-FINAL.md) | Autonomie globale14A encore ouverte ; [bilan précis](docs/missions/25/BILAN-14A.md) |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |

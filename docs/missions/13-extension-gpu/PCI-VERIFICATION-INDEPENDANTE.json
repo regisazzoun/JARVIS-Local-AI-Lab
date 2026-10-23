@@ -1,0 +1,9 @@
+{
+  "actor": "Codex-independent",
+  "captured_at": 1792751297.931645,
+  "identity_guard_returncode": 0,
+  "returncode": 0,
+  "stdout": "0000:17:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA102 [GeForce RTX 3090] [10de:2204] (rev a1) (prog-if 00 [VGA controller])\n\tSubsystem: Dell Device [1028:3880]\n\t\tLnkCap:\tPort #0, Speed 8GT/s, Width x16, ASPM L0s L1, Exit Latency L0s <512ns, L1 <4us\n\t\tLnkSta:\tSpeed 2.5GT/s (downgraded), Width x16\n\tKernel driver in use: nvidia\n0000:b3:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA102 [GeForce RTX 3090] [10de:2204] (rev a1) (prog-if 00 [VGA controller])\n\tSubsystem: Dell Device [1028:3880]\n\t\tLnkCap:\tPort #0, Speed 8GT/s, Width x16, ASPM L0s L1, Exit Latency L0s <512ns, L1 <4us\n\t\tLnkSta:\tSpeed 2.5GT/s (downgraded), Width x8 (downgraded)\n\tKernel driver in use: nvidia\nNVRM: loading NVIDIA UNIX x86_64 Kernel Module  550.163.01  Tue Apr  8 12:41:17 UTC 2025\nactive\nactive\nactive\nactive\n",
+  "stderr": "",
+  "scope": "Read-only PCI capability and boot-log check; no load or wiring qualification"
+}
