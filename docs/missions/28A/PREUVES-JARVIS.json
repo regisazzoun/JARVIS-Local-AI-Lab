@@ -1,0 +1,906 @@
+{
+  "status": "in_progress_not_final_reception",
+  "exported_at": 1792768272.2909338,
+  "mission": "59830a3414a243c198c53e5624a286a3",
+  "branch": "codex/mission-28a-routage-modeles",
+  "pull_request": 25,
+  "attribution": {
+    "infrastructure_developer": "Codex",
+    "tool_executor": "JARVIS",
+    "coordinator_and_independent_observer": "Codex"
+  },
+  "software_tests": {
+    "passed": 217,
+    "scope": "Includes HTTP fixtures; not agentic autonomy evidence"
+  },
+  "plan_versions": [
+    {
+      "version": 1,
+      "author": "Codex",
+      "reason": "Mission coordination; actual JARVIS execution required, not autonomous planning proof",
+      "sha256": "e965717b4e0594f6ca8d53d0560697e42998c5d88e98f10a5efd4f97ecaf4295",
+      "created": 1792762598.5697956
+    },
+    {
+      "version": 2,
+      "author": "Codex",
+      "reason": "Actually apply corrected exact-model task contract, with explicit current version; no weaker acceptance",
+      "sha256": "4c74100aad25ae79f8b0b6728d462ae86690b1d8ded8f30190448bcadc342bc0",
+      "created": 1792764463.400754
+    },
+    {
+      "version": 3,
+      "author": "Codex",
+      "reason": "Repair model installation interface; exact structured pull replaces manual HTTP syntax",
+      "sha256": "be54d336fe9a1c81ffd99ad5eed2e6ecf02f298eb2f4502e73805585e222c3e7",
+      "created": 1792767982.9640877
+    }
+  ],
+  "actual_native_calls": [
+    {
+      "id": "e0437e0c70ac4b02a4c46f1f1c07ab7f",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_gpu_campaign",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 21.171,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_gpu_campaign",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "e5efaa6c2dbebf769335bb7277abc83f8da800c16fadafe228fdf2c936385680",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 20.722,
+          "evidence_id": "35f0fa9e10414d1cb4012153728775c9",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"path\": \"/var/lib/jarvis-gpu-profiles/campaign-1792763567122285882.json\", \"peak_combined_w\": 699.37, \"target_700w_measured\": false, \"automatic_rollback_profile\": \"balanced\", \"errors\": []}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792763546.024355,
+      "updated": 1792763567.4384654
+    },
+    {
+      "id": "6d51d11c266e482790fd45f59443bc74",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_gpu_status",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.812,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_gpu_status",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "e5efaa6c2dbebf769335bb7277abc83f8da800c16fadafe228fdf2c936385680",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "bbe8c2faa2054f29acda5682098e7190",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"current\": {\"profile\": \"balanced\", \"limit_per_gpu_w\": 250, \"changed_at\": 1792763567.2109516, \"observed\": {\"at_unix\": 1792763567.2106311, \"gpu\": [{\"index\": 0.0, \"power_w\": 133.65, \"limit_w\": 250.0, \"temperature_c\": 52.0, \"clock_mhz\": 345.0, \"gpu_percent\": 0.0, \"vram_mib\": 11.0, \"pcie_gen\": 3.0, \"pcie_width\": 16.0}, {\"index\": 1.0, \"power_w\": 75.13, \"limit_w\": 250.0, \"temperature_c\": 51.0, \"clock_mhz\": 315.0, \"gpu_percent\": 0.0, \"vram_mib\": 52.0, \"pcie_gen\": 3.0, \"pcie_width\": 8.0}]}, \"last_burst\": \"/var/lib/jarvis-gpu-profiles/burst-1792763566977008687.json\"}, \"observed\": {\"at_unix\": 1792763570.5502763, \"gpu\": [{\"index\": 0.0, \"power_w\": 68.49, \"limit_w\": 250.0, \"temperature_c\": 51.0, \"clock_mhz\": 0.0, \"gpu_percent\": 0.0, \"vram_mib\": 11.0, \"pcie_gen\": 2.0, \"pcie_width\": 16.0}, {\"index\": 1.0, \"power_w\": 46.85, \"limit_w\": 250.0, \"temperature_c\": 48.0, \"clock_mhz\": 210.0, \"gpu_percent\": 0.0, \"vram_mib\": 52.0, \"pcie_gen\": 2.0, \"pcie_width\": 8.0}]}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792763569.8309033,
+      "updated": 1792763570.8817546
+    },
+    {
+      "id": "294ecf770af9491aada3c9088a2bc9d1",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.821,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "da89348e1b554cd19f18b22776d4b850",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792764451.2563555,
+      "updated": 1792764452.236783
+    },
+    {
+      "id": "97df802008a340b9a7fd5160262d82ba",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.818,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "23f1c60e087d40a3858be3be0c16bdff",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792764514.7257419,
+      "updated": 1792764515.7077591
+    },
+    {
+      "id": "035cc5d2d30240d7a666f06f4e7e9202",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.815,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "1c7f0da50dfd4aa39ed17d8152702295",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792764798.7270374,
+      "updated": 1792764799.7032042
+    },
+    {
+      "id": "973c728c0a264816b826836b58e58565",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.816,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "0d7344c64bd448a59a6411d1fecb83c2",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792765172.2735465,
+      "updated": 1792765173.2547798
+    },
+    {
+      "id": "0e21438e58b84563b122b84f7bfa7623",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.819,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "111243b75f4b4a0b98bfac8288425519",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792765496.5322566,
+      "updated": 1792765497.5165684
+    },
+    {
+      "id": "3bf656894bc44a9a9f2b8c25559b8874",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.819,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "89dac7b1d233409da9eecae834a837dd",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792765863.2170258,
+      "updated": 1792765864.2023573
+    },
+    {
+      "id": "2cabd7baae0e40d8b50a50cd1847a4f4",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.816,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "77f310491a3943bdb8ced35f3d8f1a92",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792766201.6840289,
+      "updated": 1792766202.6660976
+    },
+    {
+      "id": "b6abe885bd754bdfadeee6eeb8e6608a",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.768,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "c0de01b6c7a843a0b6fc27e3acf2908c",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792766528.283382,
+      "updated": 1792766529.224179
+    },
+    {
+      "id": "c421d19589cb4ee5ac93fb67fab22844",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.77,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "965a3f03c62e461590ebc4ce2919234f",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792766894.7678204,
+      "updated": 1792766895.7111154
+    },
+    {
+      "id": "a0dc7a1d97334a449eedbe4a0a31f796",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "pull",
+        "host": "dell-observe",
+        "model": "qwen3:32b-q4_K_M"
+      },
+      "result": {
+        "elapsed_s": 0.0,
+        "error": "Arguments invalides pour host_remote : absents=[], inconnus=['model'], champs permis=['host', 'action', 'path', 'content', 'package', 'service', 'service_action', 'project', 'command', 'local_path', 'probe']",
+        "ok": false,
+        "tool": "host_remote"
+      },
+      "created": 1792767150.5268152,
+      "updated": 1792767150.712885
+    },
+    {
+      "id": "2b1e4eeb2998453794d1bca019356a0b",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.814,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.366,
+          "evidence_id": "e865e5eb87b247168e3c12d23f89329e",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792767234.3476453,
+      "updated": 1792767235.3221467
+    },
+    {
+      "id": "e822ab74d74c44708ad56ce654f0b151",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "pull",
+        "host": "dell-observe",
+        "model": "qwen3:32b-q4_K_M"
+      },
+      "result": {
+        "elapsed_s": 0.0,
+        "error": "Arguments invalides pour host_remote : absents=[], inconnus=['model'], champs permis=['host', 'action', 'path', 'content', 'package', 'service', 'service_action', 'project', 'command', 'local_path', 'probe']",
+        "ok": false,
+        "tool": "host_remote"
+      },
+      "created": 1792767392.6726496,
+      "updated": 1792767392.832392
+    },
+    {
+      "id": "6300e6348dce4839b7d10bf48e6f43c9",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "pull",
+        "host": "dell-observe",
+        "model": "qwen3:32b-q4_K_M"
+      },
+      "result": {
+        "elapsed_s": 0.0,
+        "error": "Arguments invalides pour host_remote : absents=[], inconnus=['model'], champs permis=['host', 'action', 'path', 'content', 'package', 'service', 'service_action', 'project', 'command', 'local_path', 'probe']",
+        "ok": false,
+        "tool": "host_remote"
+      },
+      "created": 1792767500.3969707,
+      "updated": 1792767500.5704138
+    },
+    {
+      "id": "9ff7ca23efe449d880ebec547279b0ec",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.871,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "d141a8a7ae8b96d0b7851cd215be68bc17ebbba58b52928b84c4f79763b609da",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.416,
+          "evidence_id": "fe597251b6f84dd1b4336c45cb99dc8b",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 4, \"installed\": {\"qwen3:32b-q4_K_M\": false, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792767726.5359778,
+      "updated": 1792767727.5813594
+    },
+    {
+      "id": "57b6cb02cb32461ea4001d997228fe0a",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "model_pull",
+        "host": "dell-observe",
+        "model": "qwen3:32b-q4_K_M"
+      },
+      "result": {
+        "elapsed_s": 204.667,
+        "error": "{\"model\": \"qwen3:32b-q4_K_M\", \"verified\": false, \"status\": \"incomplete\", \"last_progress\": {\"status\": \"verifying sha256 digest\"}, \"error\": \"TimeoutError: timed out\", \"elapsed_s\": 203.919, \"progress_file\": \"/opt/jarvis-lab/mission28a/model-management/pull-1792768010291886108.json\"}\n",
+        "ok": false,
+        "result": {
+          "caller": "JARVIS-runtime",
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": "application_error",
+            "omitted_parameters": [
+              "model"
+            ],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "model_pull",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "4e39435ea43c8d2ba481f4a675e6f8eb2b087adc09137fbd89e1c6f071b6fbb6",
+            "reload": "each-request",
+            "retry": "Inspect the receipt and current capability_status; reobserve before retrying a mutation.",
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 204.279,
+          "evidence_id": "75e4ab6b9042446791a8cb32918b2069",
+          "returncode": 2,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"model\": \"qwen3:32b-q4_K_M\", \"verified\": false, \"status\": \"incomplete\", \"last_progress\": {\"status\": \"verifying sha256 digest\"}, \"error\": \"TimeoutError: timed out\", \"elapsed_s\": 203.919, \"progress_file\": \"/opt/jarvis-lab/mission28a/model-management/pull-1792768010291886108.json\"}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "tool": "host_remote"
+      },
+      "created": 1792768009.5870185,
+      "updated": 1792768214.4435241
+    },
+    {
+      "id": "f34adfbd9a9840bca90d93703e07ad48",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "model_pull",
+        "host": "dell-observe",
+        "model": "qwen3:32b-q4_K_M"
+      },
+      "result": {
+        "elapsed_s": 0.943,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [
+              "model"
+            ],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "model_pull",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "4e39435ea43c8d2ba481f4a675e6f8eb2b087adc09137fbd89e1c6f071b6fbb6",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.466,
+          "evidence_id": "d9e7b8290b8c48b59cd5ce9b9b253d99",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"model\": \"qwen3:32b-q4_K_M\", \"verified\": true, \"status\": \"already_present\", \"observed\": {\"name\": \"qwen3:32b-q4_K_M\", \"model\": \"qwen3:32b-q4_K_M\", \"modified_at\": \"2026-10-23T17:10:35.695158323+02:00\", \"size\": 20201253829, \"digest\": \"030ee887880fc378860c2dd35101da424377520441ae4bfe7be6deff8ade7840\", \"details\": {\"parent_model\": \"\", \"format\": \"gguf\", \"family\": \"qwen3\", \"families\": [\"qwen3\"], \"parameter_size\": \"32.8B\", \"quantization_level\": \"Q4_K_M\", \"context_length\": 40960, \"embedding_length\": 5120, \"runner\": \"ggml\"}, \"capabilities\": [\"completion\", \"tools\", \"thinking\"]}, \"elapsed_s\": 0.128, \"progress_file\": \"/opt/jarvis-lab/mission28a/model-management/pull-1792768239772284789.json\"}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792768239.0674129,
+      "updated": 1792768240.1849043
+    }
+  ],
+  "gpu_independent": {
+    "actor": "Codex-independent",
+    "original_root_file_sha256": "c9de58efdec6133fda0b0f891f9680e37a22f9bd51e77eaca1b8ad9492adc141",
+    "broker_evidence_id": "35f0fa9e10414d1cb4012153728775c9",
+    "summary_matches": true,
+    "peak_combined_w": 699.37,
+    "peak_per_gpu_w": {
+      "0": 349.67,
+      "1": 349.81
+    },
+    "max_gpu_temperature_c": 66.0,
+    "burst_window_actual_s": 10.169569730758667,
+    "samples": 34,
+    "rollback_limits_w": [
+      250.0,
+      250.0
+    ],
+    "errors": [],
+    "wall_power_measurement_available": false
+  },
+  "latency": {
+    "latency-while-worker.json": {
+      "observer": "Codex-independent",
+      "scope": "Six simple OK requests, tools disabled; not a long conversation benchmark",
+      "count": 6,
+      "min_s": 1.0741295990301296,
+      "max_s": 1.863909863983281,
+      "samples": [
+        {
+          "elapsed_s": 1.863909863983281,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.0857409649761394,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.0751178889768198,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.0741295990301296,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.1427046280587092,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.079657914931886,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        }
+      ]
+    },
+    "latency-with-cpu-and-dell.json": {
+      "observer": "Codex-independent",
+      "scope": "Six simple OK requests, tools disabled; not a long conversation benchmark",
+      "count": 6,
+      "min_s": 1.0704189599491656,
+      "max_s": 1.182963483966887,
+      "samples": [
+        {
+          "elapsed_s": 1.182963483966887,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.1160392879974097,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.0704189599491656,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.0850233569508418,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.0982369360281155,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        },
+        {
+          "elapsed_s": 1.1669464108999819,
+          "model": "qwen3.5:27b-q4_K_M",
+          "node": "Mac-mini"
+        }
+      ]
+    }
+  },
+  "cpu_quota_test": {
+    "workload": "finite CPU test, not an agentic mission proof",
+    "cgroup": "/jarvis.slice/jarvis-background.slice/jarvis28a-cpu-idle-test.service",
+    "quota": "900000 100000",
+    "elapsed_s": 8.008651737938635,
+    "cpu_seconds": 72.333044,
+    "machine_cpu_fraction": 0.7526552363504526,
+    "throttled_usec_delta": 22404477,
+    "processes": 12
+  },
+  "model_interface_installation": {
+    "actor": "Codex",
+    "created": 1792767951.2134402,
+    "installed": [
+      {
+        "path": "/usr/local/lib/jarvis-host/host_bridge.py",
+        "sha256": "c2788a0af87c02d7b0682d21215342445a6be30e735daba8415d856550f15b19"
+      },
+      {
+        "path": "/opt/jarvis/conversation/jarvis/host_client.py",
+        "sha256": "7a20173ee6586244cfefd20aec43f3d37f968066938ff4f4fef5128d63adc2ee"
+      },
+      {
+        "target": "Dell1",
+        "path": "/opt/jarvis/compute/28a/model_manage.py",
+        "sha256": "f307ef543a2c3bf9fd381602cb5f7cbe0160a6dd45c531de5a0f3a6ae03b073b"
+      },
+      {
+        "target": "Dell1",
+        "path": "/opt/jarvis-lab/mission28a/quality_compare.py",
+        "sha256": "eade27865419c90a811528615b7e60ad8e14c98cb4985fbf1e32cec2af95494d"
+      }
+    ],
+    "backup": "/var/backups/jarvis/mission28a/model-interface-1792767950453897282",
+    "software_contract_tests": 7,
+    "model_download_triggered_by_codex": false
+  },
+  "remaining": [
+    "Comparative model quality",
+    "Strong Dell model selection",
+    "Operational failover and full mission reception",
+    "Final documentation"
+  ],
+  "model32_independent": {
+    "actor": "Codex-independent",
+    "observed_at": 1792768249.8015075,
+    "exact_model": {
+      "name": "qwen3:32b-q4_K_M",
+      "digest": "030ee887880fc378860c2dd35101da424377520441ae4bfe7be6deff8ade7840",
+      "size": 20201253829
+    },
+    "model_count": 5,
+    "installed": {
+      "qwen3:32b-q4_K_M": true,
+      "llama3.3:70b-instruct-q4_K_M": true,
+      "qwen3.5:27b-q4_K_M": true
+    },
+    "source": "Separate SSH invocation of fixed catalogue reader on Dell1; not model prose"
+  }
+}

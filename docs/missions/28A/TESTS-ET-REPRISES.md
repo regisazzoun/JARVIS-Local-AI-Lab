@@ -11,7 +11,7 @@
 | Adaptation pendant interaction |Quotas300% et900% observés |Réduction/restauration réelle, pas simple configuration |
 | Pointe GPU par JARVIS |699,37W cumulés ; maximum66°C |Fenêtre de profil~10,17s, pas charge prolongée |
 | Retour profil normal |250W/carte, relecture indépendante |Pas d’erreur détectée dans la fenêtre mesurée |
-| Installation32B |Interface corrigée, appel réel JARVIS démarré |Réception encore attendue dans cet instantané |
+| Installation32B |Tag exact installé, lecture indépendante et reprise JARVIS après attente |Inférence et comparatif encore à recevoir |
 
 Le benchmark froid initial local mesure directement Ollama et n’est pas un équivalent du benchmark API chaud après routage. Aucun gain avant/après comparable ne doit en être déduit.
 
