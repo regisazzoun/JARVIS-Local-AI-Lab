@@ -11,6 +11,6 @@ def collect():
     base=env['OLLAMA_HOST'];base=base if base.startswith('http') else 'http://'+base
     with urllib.request.urlopen(base+'/api/tags',timeout=5) as r:tags=json.load(r)
     models=[{k:m[k] for k in ('name','digest','size')} for m in tags['models']];names={m['name'] for m in models}
-    return {'models':models,'model_count':len(models),'installed':{name:name in names for name in ('qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M','qwen3.5:27b-q4_K_M')}}
+    return {'models':models,'model_count':len(models),'installed':{name:name in names for name in ('qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M','qwen3.5:27b-q4_K_M','qwen3-coder-next:q4_K_M')}}
 
 if __name__=='__main__':print(json.dumps(collect()))

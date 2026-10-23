@@ -69,7 +69,7 @@ def inference(url,model,prompt):
     thread=threading.Thread(target=monitor,daemon=True);thread.start();started=time.monotonic();first=None;text='';done=None;error=None
     try:
         body={'model':model,'messages':[{'role':'user','content':prompt}],'stream':True,'think':False,'keep_alive':'15m','options':{'num_ctx':4096,'num_predict':768,'seed':7,'temperature':0}}
-        if not model.startswith('qwen'):body.pop('think',None)
+        if not model.startswith('qwen') or model.startswith('qwen3-coder-next'):body.pop('think',None)
         request=urllib.request.Request(url+'/api/chat',data=json.dumps(body).encode(),headers={'Content-Type':'application/json'})
         with urllib.request.urlopen(request,timeout=180) as r:
             for line in r:
@@ -106,7 +106,7 @@ if __name__=='__main__':
     if args.recheck:
         print(json.dumps(recheck(args.recheck,args.output)));raise SystemExit(0)
     if not args.url:p.error('--url required for real inference')
-    result=json.loads(args.output.read_text()) if args.output.exists() else {'created':time.time(),'scope':'Six paired technical screening tasks, not general autonomy/quality certification','cases':[]}
+    result=json.loads(args.output.read_text()) if args.output.exists() else {'created':time.time(),'judge_version':'28a.screening.2','scope':'Six paired technical screening tasks, not general autonomy/quality certification','cases':[]}
     for model in args.models:
         for name,prompt in CASES:
             digest=hashlib.sha256(prompt.encode()).hexdigest()

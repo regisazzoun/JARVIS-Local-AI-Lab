@@ -2105,13 +2105,44 @@
       {
         "path": "docs/missions/13-extension-gpu/RAPPORT-FINAL.md",
         "url": ""
+      },
+      {
+        "path": "docs/missions/13-extension-gpu/DECISION-RECEPTION-ALIMENTATION.md",
+        "url": ""
       }
     ],
-    "etat": "🟡 Incomplet — réception partielle",
+    "etat": "✅🟡 GO fonctionnel avec réserves — décision propriétaire23octobre",
     "resultats_prouves": "DeuxGPU détectés ; somme120 sur chacun ; sous-systèmes Dell identiques ; services disponibles",
-    "reserves": "Brochage/courants/PSU950W non qualifiés ; inférence double non testée ; erreurs et répétitions JARVIS conservées",
+    "reserves": "Réception fonctionnelle du raccordement acquise ; limites de charge et inférence approfondies suivies en28A, pas de certification électrique formelle",
     "dependances": "13D-E,11B ; suite28 distincte",
-    "prochaine_action": "Qualifier raccordement réel puis essais de charge/inférence",
+    "prochaine_action": "Conserver les acquis13 et exploiter les mesures28A ; aucune requalification générale du brochage",
     "mission_id": "3741a2687322498597c394f7a6be0326"
+  },
+  {
+    "identifiant": "28A",
+    "nom": "Architecture hybride, modèles et ressources",
+    "fonction_principale": "Conversation27B sur Mac, modèle de mission renforcé sur Dell1",
+    "objectifs": "Routage, quotas75/25, modèles comparés, profils GPU, préparation Dell2",
+    "materiel": "Mac mini Debian et GPU externe ; Dell1 double RTX3090 et DDR4 ; Dell2 désactivé",
+    "composants": "Mission Engine canonique, broker existant, Ollama, ComputeQueue, cgroups/systemd",
+    "executant_reel": "Codex infrastructure/coordination/réception indépendante ; JARVIS téléchargements, outils et essais",
+    "documents_sources": [
+      {
+        "path": "docs/missions/28A/MISSION.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/28A/ORDONNANCEUR.md",
+        "url": ""
+      }
+    ],
+    "etat": "🟡 En cours",
+    "resultats_prouves": "27B local,32B testé3/6,70B et80B installés,priorité et repli réels,quotaCPU,699,37Wcourt et retour250W/carte ;226tests logiciels",
+    "reserves": "Choix qualitatif et réception JARVIS finale en cours ; dispatch durable unique ; aucune tenue700Wprolongée ni Dell2 réel",
+    "dependances": "Acquis13/13D-E/25/26/26B préservés ;14A distincte non lancée",
+    "prochaine_action": "Comparatif réel puis sélection de modèle et recette JARVIS",
+    "mission_id": "59830a3414a243c198c53e5624a286a3",
+    "derniere_actualisation": "2026-10-23",
+    "pull_request": 25
   }
 ]

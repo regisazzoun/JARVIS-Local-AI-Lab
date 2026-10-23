@@ -115,6 +115,12 @@ class HybridRouter:
 
     def select(self,role,requested_model=None):
         candidates=self.config['routes'].get(role,self.config['routes']['conversation'])
+        if role=='mission':
+            with self.queue.db() as c:
+                loads={row['node']:row['n'] for row in c.execute("SELECT node,count(*) n FROM compute_jobs WHERE state IN ('running','queued') GROUP BY node")}
+            # A newly enrolled idle server can accept work without changing the
+            # router. Disabled nodes are still skipped before any network call.
+            candidates=sorted(candidates,key=lambda name:loads.get(name,0))
         failures=[]
         for name in candidates:
             node=self.nodes.get(name,{})
@@ -174,7 +180,7 @@ class HybridRouter:
         thread=threading.Thread(target=heartbeat,daemon=True);thread.start();started=time.monotonic();first=None;metrics={}
         try:
             effective={**payload,'model':model,'stream':True,'keep_alive':-1 if name=='Mac-mini' else '15m'}
-            if model.startswith('llama'):effective.pop('think',None)
+            if model.startswith(('llama','qwen3-coder-next')):effective.pop('think',None)
             effective['options']={**payload.get('options',{})}
             if role=='mission':effective['options']['num_predict']=self.config.get('mission_segment_tokens',4096)
             request=urllib.request.Request(node['url'].rstrip('/')+'/api/chat',data=json.dumps(effective).encode(),headers={'Content-Type':'application/json'})
@@ -206,3 +212,31 @@ def register(registry):
         message,metrics=router.infer({'model':registry.config['hybrid_compute']['conversation_model'],'messages':[{'role':'user','content':args['question']}],'options':{'num_ctx':8192,'num_predict':2048}},role=role,mission=registry.context.get('mission_id'))
         return {'answer':message.get('content',''),'inference':metrics,'scope':'Model analysis, not proof of any external operation. Tools/claims still require observations.'}
     registry.specs['compute_escalate']=('Confier une question difficile au modèle de mission du Dell et récupérer sa vraie analyse sans changer de conversation. Repli au même Qwen27 local si Dell indisponible ; aucune action système par ce seul appel.',{'question':{'type':'string','minLength':1,'maxLength':12000}},['question'],'read_only',escalate)
+    def benchmark(args):
+        import shlex
+        allowed={'qwen3.5:27b-q4_K_M','qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M','qwen3-coder-next:q4_K_M'}
+        models=args['models']
+        if not models or any(m not in allowed for m in models):raise ValueError('Unsupported benchmark candidate')
+        name,node,model,_=router.select('mission')
+        if name!='Dell1':raise ResourceUnavailable('This experimental benchmark is deployed only on Dell1')
+        ident=router.queue.enter(name,'benchmark:'+','.join(models),'mission',registry.context.get('mission_id'))
+        stop=threading.Event()
+        def heartbeat():
+            while not stop.wait(5):router.queue.heartbeat(ident)
+        thread=threading.Thread(target=heartbeat,daemon=True);thread.start()
+        token=None;store=getattr(registry,'mission_store',None);started=time.monotonic()
+        try:
+            params={'host':node['host_profile'],'action':'project_exec','project':'mission28a',
+                'command':shlex.join(['python3','/opt/jarvis-lab/mission28a/quality_compare.py','--url',node['url'],
+                                    '--models',*models,'--output','/opt/jarvis-lab/mission28a/quality-comparative.json'])}
+            if store:token=store.begin_call(registry.context['mission_id'],registry.context.get('task_id'),'host_remote',params)
+            result=registry.execute('host_remote',params)
+            if token:store.finish_call(token,result,time.monotonic()-started)
+            router.queue.finish(ident,{'models':models,'tool':'compute_benchmark'},error=None if result.get('ok') else str(result.get('error','Benchmark failed')))
+            return {'returncode':0 if result.get('ok') else 1,'compute_job':ident,'node':name,
+                    'models':models,'native_invocation':token,'observed_receipt':result,
+                    'artifact':'/opt/jarvis-lab/mission28a/quality-comparative.json'}
+        except BaseException as exc:
+            router.queue.finish(ident,error=str(exc));raise
+        finally:stop.set();thread.join(timeout=1)
+    registry.specs['compute_benchmark']=('Exécuter le screening réel des candidats installés sur Dell1. Réserve sa file GPU canonique pendant le programme afin que les autres inférences ne perturbent pas les mesures ; les demandes critiques gardent le repli local. Appelle le project_exec existant avec programme/artefact fixes ; chaque cas est checkpointé et les reprises gardent les réponses déjà mesurées. models tableau de tags exacts. Ensuite project_download du fichier quality-comparative.json et vérification de son contenu. Les scores ne prouvent pas une autonomie générale.',{'models':{'type':'array','minItems':1,'maxItems':4,'items':{'type':'string','enum':['qwen3.5:27b-q4_K_M','qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M','qwen3-coder-next:q4_K_M']}}},['models'],'host_authorized',benchmark)

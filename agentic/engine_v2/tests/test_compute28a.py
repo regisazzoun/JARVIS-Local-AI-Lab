@@ -22,6 +22,14 @@ class HybridTests(unittest.TestCase):
     def test_offline_second_dell_is_not_discovered_or_assigned(self):
         r=HybridRouter(self.config,self.database,self.fetch);states=r.discover()
         self.assertEqual(states[-1]['state'],'offline_pending');self.assertFalse(any('must-not' in url for url in self.urls))
+    def test_future_enrolled_second_node_gets_work_while_first_is_busy(self):
+        self.config['nodes']['Dell2'].update(enabled=True,url='http://dell2-fixture')
+        r=HybridRouter(self.config,self.database,self.fetch)
+        busy=r.queue.enter('Dell1','large70','mission')
+        try:
+            self.assertEqual(r.select('mission')[0],'Dell2')
+            self.assertTrue(any('dell2-fixture' in url for url in self.urls))
+        finally:r.queue.finish(busy)
     def test_critical_fallback_keeps_local_qwen_and_mission_retains_unavailability(self):
         def fetch(url):
             if 'dell' in url:raise OSError('software fixture unavailable')

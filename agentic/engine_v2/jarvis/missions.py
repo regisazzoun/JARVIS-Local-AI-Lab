@@ -179,6 +179,7 @@ class Missions:
                     if not pending:self.record_final(row)
                     self.store.transition(row['id'],'publishing' if pending else 'completed',delay=10 if pending else 0)
                     continue
+                if self.defer_waiting_tasks(row):continue
                 result = self.cycle.run(row)
                 tasks = self.store.tasks(row['id'])
                 if result.get('progress'):self.publish_progress(row)
@@ -211,3 +212,16 @@ class Missions:
                 self.execution_core.tools.context = {}
                 self.execution_core.tools.__dict__.pop('mission_store', None)
                 self.execution_core.lock.release()
+
+    def defer_waiting_tasks(self,row):
+        """A dependency wait is not an invitation to invent a new executable task."""
+        tasks=self.store.tasks(row['id'])
+        if not any(t['state']=='waiting_external' for t in tasks) or self.store.ready(row['id']):return False
+        from .mission_assurance import enabled,coverage_state
+        if enabled(self.store,row['id']) and not coverage_state(self.store,row['id'])['accepted']:return False
+        pending=[{'id':t['id'],'state':t['state']} for t in tasks if t['state']!='validated']
+        result={'reason':'No executable task; retain dependency checkpoint instead of invoking the model',
+                'pending':pending,'human_approval_required':False}
+        self.store.event(row['id'],'execution_deferred_no_ready_task',result=result)
+        self.store.transition(row['id'],'waiting_external',result)
+        return True

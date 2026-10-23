@@ -1,0 +1,74 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792782663.8443823,
+  "current_status": {
+    "current": {
+      "profile": "balanced",
+      "limit_per_gpu_w": 250,
+      "changed_at": 1792763567.2109516,
+      "observed": {
+        "at_unix": 1792763567.2106311,
+        "gpu": [
+          {
+            "index": 0.0,
+            "power_w": 133.65,
+            "limit_w": 250.0,
+            "temperature_c": 52.0,
+            "clock_mhz": 345.0,
+            "gpu_percent": 0.0,
+            "vram_mib": 11.0,
+            "pcie_gen": 3.0,
+            "pcie_width": 16.0
+          },
+          {
+            "index": 1.0,
+            "power_w": 75.13,
+            "limit_w": 250.0,
+            "temperature_c": 51.0,
+            "clock_mhz": 315.0,
+            "gpu_percent": 0.0,
+            "vram_mib": 52.0,
+            "pcie_gen": 3.0,
+            "pcie_width": 8.0
+          }
+        ]
+      },
+      "last_burst": "/var/lib/jarvis-gpu-profiles/burst-1792763566977008687.json"
+    },
+    "observed": {
+      "at_unix": 1792782663.3651977,
+      "gpu": [
+        {
+          "index": 0.0,
+          "power_w": 248.76,
+          "limit_w": 250.0,
+          "temperature_c": 53.0,
+          "clock_mhz": 750.0,
+          "gpu_percent": 91.0,
+          "vram_mib": 17484.0,
+          "pcie_gen": 3.0,
+          "pcie_width": 16.0
+        },
+        {
+          "index": 1.0,
+          "power_w": 32.49,
+          "limit_w": 250.0,
+          "temperature_c": 53.0,
+          "clock_mhz": 210.0,
+          "gpu_percent": 0.0,
+          "vram_mib": 52.0,
+          "pcie_gen": 1.0,
+          "pcie_width": 8.0
+        }
+      ]
+    }
+  },
+  "rollback_unit_readback": "active\nTimeoutStartUSec=18s\nExecStopPost={ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /opt/jarvis/compute/28a/gpu_profiles.py restore ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\n",
+  "historical_campaign_sha256": "c9de58efdec6133fda0b0f891f9680e37a22f9bd51e77eaca1b8ad9492adc141",
+  "historical_campaign_matches_independent": true,
+  "peak_combined_w": 699.37,
+  "max_temperature_c": 66.0,
+  "burst_window_s": 10.169569730758667,
+  "historical_errors": [],
+  "scope": "Fresh status and fixed rollback configuration plus unchanged actual JARVIS campaign; no repeated 700W campaign, no long-duration certification"
+}

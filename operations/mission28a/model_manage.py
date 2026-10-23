@@ -24,7 +24,7 @@ def catalogue(base, opener=urllib.request.urlopen):
 
 
 def pull(base, model, observe=lambda value: None, opener=urllib.request.urlopen,
-         clock=time.monotonic, deadline_s=535):
+         clock=time.monotonic, deadline_s=450):
     started = clock()
     result = {'model': model, 'verified': False, 'status': 'incomplete'}
     try:
@@ -36,7 +36,7 @@ def pull(base, model, observe=lambda value: None, opener=urllib.request.urlopen,
                 data=json.dumps({'model': model, 'stream': True}).encode(),
                 headers={'Content-Type': 'application/json'})
             completed = False
-            with opener(request, timeout=20) as response:
+            with opener(request, timeout=90) as response:
                 for raw in response:
                     if clock() - started > deadline_s:
                         raise TimeoutError('Bounded pull expired; retry the same model to resume its cache')
@@ -63,7 +63,7 @@ def main():
     parser.add_argument('--model', required=True)
     args = parser.parse_args()
     # These are experiment candidates, not an arbitrary model/URL command surface.
-    allowed = {'qwen3:32b-q4_K_M', 'llama3.3:70b-instruct-q4_K_M'}
+    allowed = {'qwen3:32b-q4_K_M', 'llama3.3:70b-instruct-q4_K_M', 'qwen3-coder-next:q4_K_M'}
     if args.model not in allowed:
         parser.error('Model outside the installed experiment contract')
     root = Path('/opt/jarvis-lab/mission28a/model-management')

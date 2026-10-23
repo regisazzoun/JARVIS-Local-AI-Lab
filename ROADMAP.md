@@ -1,3 +1,7 @@
+## Mission28A — continuation effective du23 octobre2026
+
+🟡 Les contrôles indépendants C(routage/priorité/repli) et D(profils GPU) sont désormais reçus. Le moteur évite les cycles sans tâche prête. JARVIS a repris le téléchargement80Bdepuis le cache puis vérifié son installation ; la comparaison27/70/80au32B déjà mesuré reste en cours.226tests logiciels passent. Le27B conversationnel du Mac est conservé, le pilote Dell reste provisoire jusqu’aux mesures. [Ordonnancement](docs/missions/28A/ORDONNANCEUR.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25). Aucun nouvel accord humain attendu.
+
 ## Mission28A — reprise des essais32B après blocage,23 octobre2026
 
 🟡 Mission toujours en cours. Les six inférences32B ont été exécutées par JARVIS ; résultat3/6après correction d’un faux FAIL du vérificateur Codex, original conservé. Correction du contexte d’exécution et du propriétaire du dossier de collecte déployées ; JARVIS a réutilisé les fonctions corrigées.221tests logiciels réussis. Pilote70B mis en repli provisoire vers le27B déjà éprouvé sur Dell après appels de preuve fictifs ; conversation27B sur Mac inchangée. Le choix du nouveau moteur puissant et le comparatif complet restent ouverts. [Diagnostic et attribution](docs/missions/28A/INCIDENT-REPRISE-TESTS.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25).

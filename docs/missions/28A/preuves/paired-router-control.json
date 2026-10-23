@@ -1,0 +1,440 @@
+{
+  "actor": "Codex-independent",
+  "scope": "Alternating current direct Ollama versus router-library control, same local model, identical payload; NOT historical before-install API latency",
+  "created": 1792783344.3432217,
+  "rows": [
+    {
+      "index": 0,
+      "method": "direct",
+      "elapsed_s": 0.30839708005078137,
+      "answer": "OK",
+      "first_content_s": 0.27705849008634686,
+      "metrics": {
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "server_metrics": {
+          "model": "qwen3.5:27b-q4_K_M",
+          "created_at": "2026-10-23T19:22:19.576491942Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 298373479,
+          "load_duration": 1891283,
+          "prompt_eval_count": 18,
+          "prompt_eval_cached_count": 14,
+          "prompt_eval_duration": 263944000,
+          "eval_count": 2,
+          "eval_duration": 31274000
+        }
+      }
+    },
+    {
+      "index": 0,
+      "method": "router",
+      "elapsed_s": 0.5961969560012221,
+      "answer": "OK",
+      "first_content_s": 0.2565567819401622,
+      "metrics": {
+        "load_duration": 8264509,
+        "prompt_eval_duration": 242548000,
+        "eval_duration": 31044000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 286371840,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "d319012211d14cd9bc6ce4f8e08cb8cc",
+        "first_content_s": 0.2565567819401622,
+        "first_content_total_s": 0.4796454979805276,
+        "admission_s": 0.048207846004515886,
+        "queue_wait_s": 0.1748808700358495,
+        "request_elapsed_s": 0.28774620592594147,
+        "end_to_end_s": 0.510835126042366,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792783339.6014588,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28436279296,
+          "cpu_threads": 12,
+          "load1": 0.4384765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 89.0,
+              "temperature_c": 46.0,
+              "power_w": 35.37
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 1,
+      "method": "direct",
+      "elapsed_s": 0.28793710889294744,
+      "answer": "OK",
+      "first_content_s": 0.256274361978285,
+      "metrics": {
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "server_metrics": {
+          "model": "qwen3.5:27b-q4_K_M",
+          "created_at": "2026-10-23T19:22:20.460668646Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 286973309,
+          "load_duration": 7750516,
+          "prompt_eval_count": 18,
+          "prompt_eval_cached_count": 14,
+          "prompt_eval_duration": 243700000,
+          "eval_count": 2,
+          "eval_duration": 31552000
+        }
+      }
+    },
+    {
+      "index": 1,
+      "method": "router",
+      "elapsed_s": 0.5491818509763107,
+      "answer": "OK",
+      "first_content_s": 0.255226087057963,
+      "metrics": {
+        "load_duration": 7601872,
+        "prompt_eval_duration": 242101000,
+        "eval_duration": 31229000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 285249725,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "04cc8a2be3ba4c24adfdf2f3195cbeea",
+        "first_content_s": 0.255226087057963,
+        "first_content_total_s": 0.4310914420057088,
+        "admission_s": 0.0030130569357424974,
+        "queue_wait_s": 0.1728522980120033,
+        "request_elapsed_s": 0.2865398720605299,
+        "end_to_end_s": 0.4624054100131616,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792783339.6014588,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28436279296,
+          "cpu_threads": 12,
+          "load1": 0.4384765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 89.0,
+              "temperature_c": 46.0,
+              "power_w": 35.37
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 2,
+      "method": "direct",
+      "elapsed_s": 0.28608724498189986,
+      "answer": "OK",
+      "first_content_s": 0.2548776100156829,
+      "metrics": {
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "server_metrics": {
+          "model": "qwen3.5:27b-q4_K_M",
+          "created_at": "2026-10-23T19:22:21.295910049Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 285005244,
+          "load_duration": 6578486,
+          "prompt_eval_count": 18,
+          "prompt_eval_cached_count": 14,
+          "prompt_eval_duration": 242281000,
+          "eval_count": 2,
+          "eval_duration": 31128000
+        }
+      }
+    },
+    {
+      "index": 2,
+      "method": "router",
+      "elapsed_s": 0.5492977529065683,
+      "answer": "OK",
+      "first_content_s": 0.25612418493255973,
+      "metrics": {
+        "load_duration": 9407165,
+        "prompt_eval_duration": 241408000,
+        "eval_duration": 30967000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 285890507,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "7dd355c7dfbd4ec9804be498efdfbaa2",
+        "first_content_s": 0.25612418493255973,
+        "first_content_total_s": 0.431859889999032,
+        "admission_s": 0.0029116469668224454,
+        "queue_wait_s": 0.17282405809964985,
+        "request_elapsed_s": 0.28717549599241465,
+        "end_to_end_s": 0.4629113420378417,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792783339.6014588,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28436279296,
+          "cpu_threads": 12,
+          "load1": 0.4384765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 89.0,
+              "temperature_c": 46.0,
+              "power_w": 35.37
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 3,
+      "method": "direct",
+      "elapsed_s": 0.28383727301843464,
+      "answer": "OK",
+      "first_content_s": 0.2529151439666748,
+      "metrics": {
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "server_metrics": {
+          "model": "qwen3.5:27b-q4_K_M",
+          "created_at": "2026-10-23T19:22:22.129097871Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 282847004,
+          "load_duration": 6456572,
+          "prompt_eval_count": 18,
+          "prompt_eval_cached_count": 14,
+          "prompt_eval_duration": 241417000,
+          "eval_count": 2,
+          "eval_duration": 30768000
+        }
+      }
+    },
+    {
+      "index": 3,
+      "method": "router",
+      "elapsed_s": 0.5512701779371127,
+      "answer": "OK",
+      "first_content_s": 0.25576998689211905,
+      "metrics": {
+        "load_duration": 7834023,
+        "prompt_eval_duration": 242298000,
+        "eval_duration": 30876000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 285452343,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "67e9b1ab504d41ccaa2fd9fe4eec53b9",
+        "first_content_s": 0.25576998689211905,
+        "first_content_total_s": 0.43339650495909154,
+        "admission_s": 0.002653478062711656,
+        "queue_wait_s": 0.17497304000426084,
+        "request_elapsed_s": 0.28684139088727534,
+        "end_to_end_s": 0.46446808497421443,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792783339.6014588,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28436279296,
+          "cpu_threads": 12,
+          "load1": 0.4384765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 89.0,
+              "temperature_c": 46.0,
+              "power_w": 35.37
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 4,
+      "method": "direct",
+      "elapsed_s": 0.283195385010913,
+      "answer": "OK",
+      "first_content_s": 0.25283570506144315,
+      "metrics": {
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "server_metrics": {
+          "model": "qwen3.5:27b-q4_K_M",
+          "created_at": "2026-10-23T19:22:22.963552515Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 282162324,
+          "load_duration": 7958538,
+          "prompt_eval_count": 18,
+          "prompt_eval_cached_count": 14,
+          "prompt_eval_duration": 239762000,
+          "eval_count": 2,
+          "eval_duration": 30283000
+        }
+      }
+    },
+    {
+      "index": 4,
+      "method": "router",
+      "elapsed_s": 0.5584485200233757,
+      "answer": "OK",
+      "first_content_s": 0.2556594569468871,
+      "metrics": {
+        "load_duration": 7731722,
+        "prompt_eval_duration": 241463000,
+        "eval_duration": 31049000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 285552801,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "43b87f506a0946c6a7dd6d49de6caa38",
+        "first_content_s": 0.2556594569468871,
+        "first_content_total_s": 0.4406538950279355,
+        "admission_s": 0.0033097510458901525,
+        "queue_wait_s": 0.18168468703515828,
+        "request_elapsed_s": 0.28697185800410807,
+        "end_to_end_s": 0.47196645999792963,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792783339.6014588,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28436279296,
+          "cpu_threads": 12,
+          "load1": 0.4384765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 89.0,
+              "temperature_c": 46.0,
+              "power_w": 35.37
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 5,
+      "method": "direct",
+      "elapsed_s": 0.28299036296084523,
+      "answer": "OK",
+      "first_content_s": 0.2522341680014506,
+      "metrics": {
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "server_metrics": {
+          "model": "qwen3.5:27b-q4_K_M",
+          "created_at": "2026-10-23T19:22:23.804906217Z",
+          "done": true,
+          "done_reason": "stop",
+          "total_duration": 281882049,
+          "load_duration": 4942979,
+          "prompt_eval_count": 18,
+          "prompt_eval_cached_count": 14,
+          "prompt_eval_duration": 242507000,
+          "eval_count": 2,
+          "eval_duration": 30555000
+        }
+      }
+    },
+    {
+      "index": 5,
+      "method": "router",
+      "elapsed_s": 0.5379927819594741,
+      "answer": "OK",
+      "first_content_s": 0.24359208694659173,
+      "metrics": {
+        "load_duration": 3266807,
+        "prompt_eval_duration": 238255000,
+        "eval_duration": 30831000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 273937819,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "5b63dd92986d4b5a8ab46afa4db526a2",
+        "first_content_s": 0.24359208694659173,
+        "first_content_total_s": 0.4216633979231119,
+        "admission_s": 0.004063242929987609,
+        "queue_wait_s": 0.17400806804653257,
+        "request_elapsed_s": 0.27453123894520104,
+        "end_to_end_s": 0.45260276191402227,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792783339.6014588,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28436279296,
+          "cpu_threads": 12,
+          "load1": 0.4384765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 89.0,
+              "temperature_c": 46.0,
+              "power_w": 35.37
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "direct": {
+      "n": 6,
+      "median_s": 0.28496225900016725,
+      "p95_nearest_rank_s": 0.30839708005078137
+    },
+    "router": {
+      "n": 6,
+      "median_s": 0.5502839654218405,
+      "p95_nearest_rank_s": 0.5961969560012221
+    }
+  },
+  "all_observed_OK": true
+}

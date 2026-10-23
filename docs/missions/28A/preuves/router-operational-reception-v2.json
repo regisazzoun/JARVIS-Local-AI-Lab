@@ -1,0 +1,421 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792782719.1300023,
+  "scope": "Actual inference and shared queue; not autonomous JARVIS tool execution",
+  "test_segment_tokens": 128,
+  "production_segment_tokens": 4096,
+  "actual_rows": {
+    "first": {
+      "message": {
+        "role": "assistant",
+        "content": "Voici une liste exhaustive des communes françaises (villes et villages). Il est important de noter qu'il existe plus de 34 000 communes en France métropolitaine et d'outre-mer. Générer exactement 2 000 lignes uniques sans introduction, dans la limite des tokens de sortie d'une seule réponse, risque de couper la liste prématurément ou de générer des erreurs de formatage dues à la longueur.\n\nPour respecter votre demande de \"longue liste\" tout en garantissant l'exactitude des données (pas d'hallucinations de noms), je fournis ci-dess"
+      },
+      "metrics": {
+        "load_duration": 4776847,
+        "prompt_eval_duration": 133195000,
+        "eval_duration": 4144631999,
+        "eval_count": 128,
+        "prompt_eval_count": 49,
+        "total_duration": 4455963403,
+        "done_reason": "length",
+        "node": "Dell1",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "mission",
+        "compute_job": "755f9e338e6c4aceade6aaa092ad2ef2",
+        "first_content_s": 0.3305432200431824,
+        "first_content_total_s": 1.642545658047311,
+        "admission_s": 1.1378549400251359,
+        "queue_wait_s": 0.17414749797899276,
+        "request_elapsed_s": 4.474967556074262,
+        "end_to_end_s": 5.78697087103501,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792782708.626998,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264424206336,
+          "cpu_threads": 36,
+          "load1": 1.26953125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6769.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 46.0,
+              "power_w": 35.99
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 24199.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 52.0,
+              "power_w": 33.03
+            }
+          ]
+        }
+      }
+    },
+    "critical": {
+      "message": {
+        "role": "assistant",
+        "content": "OK"
+      },
+      "metrics": {
+        "load_duration": 2128964,
+        "prompt_eval_duration": 112254000,
+        "eval_duration": 37108000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 241824282,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "critical",
+        "compute_job": "c5c273e0b93148e4b46a594a1d54776c",
+        "first_content_s": 0.22501796099822968,
+        "first_content_total_s": 4.656802952988073,
+        "admission_s": 0.04726304695941508,
+        "queue_wait_s": 4.3845219450304285,
+        "request_elapsed_s": 0.2619385690195486,
+        "end_to_end_s": 4.69372428196948,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792782708.626998,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264424206336,
+          "cpu_threads": 36,
+          "load1": 1.26953125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6769.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 46.0,
+              "power_w": 35.99
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 24199.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 52.0,
+              "power_w": 33.03
+            }
+          ]
+        }
+      }
+    },
+    "second": {
+      "message": {
+        "role": "assistant",
+        "content": "1. Ail\n2. Armoise\n3. Asperge\n4. Aubépine\n5. Avocatier\n6. Baobab\n7. Bambou\n8. Bananier\n9. Basilic\n10. Bean\n11. Betterave\n12. Blé\n13. Bouleau\n14. Brome\n15. Bryone\n16. Cactus\n17. Carotte\n18. Cassis\n19. Câprier\n20. Céleri\n21. Cerfeuil\n22."
+      },
+      "metrics": {
+        "load_duration": 4323139,
+        "prompt_eval_duration": 118209000,
+        "eval_duration": 4183256999,
+        "eval_count": 128,
+        "prompt_eval_count": 37,
+        "total_duration": 4414110707,
+        "done_reason": "length",
+        "node": "Dell1",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "mission",
+        "compute_job": "945cfde0b1c0481aac6c834b0991782a",
+        "first_content_s": 0.25106910802423954,
+        "first_content_total_s": 5.202899802010506,
+        "admission_s": 0.04618027701508254,
+        "queue_wait_s": 4.905650416971184,
+        "request_elapsed_s": 4.434776050969958,
+        "end_to_end_s": 9.386607593973167,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792782708.626998,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264424206336,
+          "cpu_threads": 36,
+          "load1": 1.26953125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6769.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 46.0,
+              "power_w": 35.99
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 24199.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 52.0,
+              "power_w": 33.03
+            }
+          ]
+        }
+      }
+    }
+  },
+  "queue_jobs": {
+    "first": {
+      "id": "755f9e338e6c4aceade6aaa092ad2ef2",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "role": "mission",
+      "node": "Dell1",
+      "model": "qwen3.5:27b-q4_K_M",
+      "priority": 10,
+      "state": "finished",
+      "pid": 3431937,
+      "created": 1792782708.808154,
+      "started": 1792782708.8976414,
+      "finished": 1792782713.4575975,
+      "expires": 1792782738.8976429,
+      "metrics": "{\"load_duration\": 4776847, \"prompt_eval_duration\": 133195000, \"eval_duration\": 4144631999, \"eval_count\": 128, \"prompt_eval_count\": 49, \"total_duration\": 4455963403, \"done_reason\": \"length\", \"node\": \"Dell1\", \"effective_model\": \"qwen3.5:27b-q4_K_M\", \"requested_model\": \"qwen3.5:27b-q4_K_M\", \"role\": \"mission\", \"compute_job\": \"755f9e338e6c4aceade6aaa092ad2ef2\", \"first_content_s\": 0.3305432200431824, \"first_content_total_s\": 1.642545658047311, \"admission_s\": 1.1378549400251359, \"queue_wait_s\": 0.17414749797899276, \"request_elapsed_s\": 4.474967556074262, \"end_to_end_s\": 5.78697087103501, \"route_failures\": [], \"num_ctx\": 8192, \"admission_resources\": {\"captured_at\": 1792782708.626998, \"memory_total_bytes\": 269958471680, \"memory_available_bytes\": 264424206336, \"cpu_threads\": 36, \"load1\": 1.26953125, \"gpu\": [{\"index\": 0.0, \"total_mib\": 24576.0, \"free_mib\": 6769.0, \"utilization_percent\": 0.0, \"temperature_c\": 46.0, \"power_w\": 35.99}, {\"index\": 1.0, \"total_mib\": 24576.0, \"free_mib\": 24199.0, \"utilization_percent\": 0.0, \"temperature_c\": 52.0, \"power_w\": 33.03}]}}",
+      "error": null
+    },
+    "critical": {
+      "id": "c5c273e0b93148e4b46a594a1d54776c",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "role": "critical",
+      "node": "Dell1",
+      "model": "qwen3.5:27b-q4_K_M",
+      "priority": 0,
+      "state": "finished",
+      "pid": 3431937,
+      "created": 1792782709.142288,
+      "started": 1792782713.5046332,
+      "finished": 1792782713.7890704,
+      "expires": 1792782743.5046337,
+      "metrics": "{\"load_duration\": 2128964, \"prompt_eval_duration\": 112254000, \"eval_duration\": 37108000, \"eval_count\": 2, \"prompt_eval_count\": 18, \"total_duration\": 241824282, \"done_reason\": \"stop\", \"node\": \"Dell1\", \"effective_model\": \"qwen3.5:27b-q4_K_M\", \"requested_model\": \"qwen3.5:27b-q4_K_M\", \"role\": \"critical\", \"compute_job\": \"c5c273e0b93148e4b46a594a1d54776c\", \"first_content_s\": 0.22501796099822968, \"first_content_total_s\": 4.656802952988073, \"admission_s\": 0.04726304695941508, \"queue_wait_s\": 4.3845219450304285, \"request_elapsed_s\": 0.2619385690195486, \"end_to_end_s\": 4.69372428196948, \"route_failures\": [], \"num_ctx\": 8192, \"admission_resources\": {\"captured_at\": 1792782708.626998, \"memory_total_bytes\": 269958471680, \"memory_available_bytes\": 264424206336, \"cpu_threads\": 36, \"load1\": 1.26953125, \"gpu\": [{\"index\": 0.0, \"total_mib\": 24576.0, \"free_mib\": 6769.0, \"utilization_percent\": 0.0, \"temperature_c\": 46.0, \"power_w\": 35.99}, {\"index\": 1.0, \"total_mib\": 24576.0, \"free_mib\": 24199.0, \"utilization_percent\": 0.0, \"temperature_c\": 52.0, \"power_w\": 33.03}]}}",
+      "error": null
+    },
+    "second": {
+      "id": "945cfde0b1c0481aac6c834b0991782a",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "role": "mission",
+      "node": "Dell1",
+      "model": "qwen3.5:27b-q4_K_M",
+      "priority": 10,
+      "state": "finished",
+      "pid": 3431937,
+      "created": 1792782709.0392275,
+      "started": 1792782713.8807118,
+      "finished": 1792782718.3799708,
+      "expires": 1792782743.8807125,
+      "metrics": "{\"load_duration\": 4323139, \"prompt_eval_duration\": 118209000, \"eval_duration\": 4183256999, \"eval_count\": 128, \"prompt_eval_count\": 37, \"total_duration\": 4414110707, \"done_reason\": \"length\", \"node\": \"Dell1\", \"effective_model\": \"qwen3.5:27b-q4_K_M\", \"requested_model\": \"qwen3.5:27b-q4_K_M\", \"role\": \"mission\", \"compute_job\": \"945cfde0b1c0481aac6c834b0991782a\", \"first_content_s\": 0.25106910802423954, \"first_content_total_s\": 5.202899802010506, \"admission_s\": 0.04618027701508254, \"queue_wait_s\": 4.905650416971184, \"request_elapsed_s\": 4.434776050969958, \"end_to_end_s\": 9.386607593973167, \"route_failures\": [], \"num_ctx\": 8192, \"admission_resources\": {\"captured_at\": 1792782708.626998, \"memory_total_bytes\": 269958471680, \"memory_available_bytes\": 264424206336, \"cpu_threads\": 36, \"load1\": 1.26953125, \"gpu\": [{\"index\": 0.0, \"total_mib\": 24576.0, \"free_mib\": 6769.0, \"utilization_percent\": 0.0, \"temperature_c\": 46.0, \"power_w\": 35.99}, {\"index\": 1.0, \"total_mib\": 24576.0, \"free_mib\": 24199.0, \"utilization_percent\": 0.0, \"temperature_c\": 52.0, \"power_w\": 33.03}]}}",
+      "error": null
+    }
+  },
+  "local_during_remote": [
+    {
+      "elapsed_s": 0.6798540939344093,
+      "message": {
+        "role": "assistant",
+        "content": "OK"
+      },
+      "metrics": {
+        "load_duration": 9420295,
+        "prompt_eval_duration": 382589000,
+        "eval_duration": 31176000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 427663666,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "ff0816bcd002480aa79c90dcfce1b787",
+        "first_content_s": 0.3977532690623775,
+        "first_content_total_s": 0.6056466880254447,
+        "admission_s": 0.06681280001066625,
+        "queue_wait_s": 0.14108061895240098,
+        "request_elapsed_s": 0.42891224403865635,
+        "end_to_end_s": 0.6368059520609677,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792782709.1193426,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28603244544,
+          "cpu_threads": 12,
+          "load1": 1.4990234375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 45.0,
+              "power_w": 18.83
+            }
+          ]
+        }
+      }
+    },
+    {
+      "elapsed_s": 0.4829200420062989,
+      "message": {
+        "role": "assistant",
+        "content": "OK"
+      },
+      "metrics": {
+        "load_duration": 1847255,
+        "prompt_eval_duration": 237770000,
+        "eval_duration": 31201000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 272164257,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "8fe3ee3eefe542f0829d6cb47f23c87b",
+        "first_content_s": 0.241141460952349,
+        "first_content_total_s": 0.4058874120237306,
+        "admission_s": 0.0028640980599448085,
+        "queue_wait_s": 0.16188185301143676,
+        "request_elapsed_s": 0.27267038100399077,
+        "end_to_end_s": 0.4374165360350162,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792782709.1193426,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28603244544,
+          "cpu_threads": 12,
+          "load1": 1.4990234375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 45.0,
+              "power_w": 18.83
+            }
+          ]
+        }
+      }
+    },
+    {
+      "elapsed_s": 0.3777536799898371,
+      "message": {
+        "role": "assistant",
+        "content": "OK"
+      },
+      "metrics": {
+        "load_duration": 7211823,
+        "prompt_eval_duration": 241289000,
+        "eval_duration": 31098000,
+        "eval_count": 2,
+        "prompt_eval_count": 18,
+        "total_duration": 284137617,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "dd405135b8ec4df697fffc04dbc4d391",
+        "first_content_s": 0.25412849395070225,
+        "first_content_total_s": 0.3025366129586473,
+        "admission_s": 0.00366104394197464,
+        "queue_wait_s": 0.04474707506597042,
+        "request_elapsed_s": 0.2853720940183848,
+        "end_to_end_s": 0.33378038194496185,
+        "route_failures": [],
+        "num_ctx": 8192,
+        "admission_resources": {
+          "captured_at": 1792782709.1193426,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28603244544,
+          "cpu_threads": 12,
+          "load1": 1.4990234375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6653.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 45.0,
+              "power_w": 18.83
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "injected_network_fault": {
+    "mechanism": "Cloned router Dell URL points to actual closed local TCP port; no service stopped",
+    "response": {
+      "role": "assistant",
+      "content": "OK"
+    },
+    "metrics": {
+      "load_duration": 10293422,
+      "prompt_eval_duration": 241227000,
+      "eval_duration": 31117000,
+      "eval_count": 2,
+      "prompt_eval_count": 18,
+      "total_duration": 287163112,
+      "done_reason": "stop",
+      "node": "Mac-mini",
+      "effective_model": "qwen3.5:27b-q4_K_M",
+      "requested_model": "must-not-replace-local",
+      "role": "critical",
+      "compute_job": "524fb800760f4a06a625f630b3cc7873",
+      "first_content_s": 0.2571401509921998,
+      "first_content_total_s": 0.5300207489635795,
+      "admission_s": 0.09803320397622883,
+      "queue_wait_s": 0.17484739399515092,
+      "request_elapsed_s": 0.2885520240524784,
+      "end_to_end_s": 0.5614327769726515,
+      "route_failures": [
+        {
+          "node": "Dell1",
+          "reason": "URLError"
+        }
+      ],
+      "num_ctx": 8192,
+      "admission_resources": {
+        "captured_at": 1792782718.5480907,
+        "memory_total_bytes": 33500024832,
+        "memory_available_bytes": 28479008768,
+        "cpu_threads": 12,
+        "load1": 1.26806640625,
+        "gpu": [
+          {
+            "index": 0.0,
+            "total_mib": 24576.0,
+            "free_mib": 6653.0,
+            "utilization_percent": 0.0,
+            "temperature_c": 49.0,
+            "power_w": 110.01
+          }
+        ]
+      }
+    }
+  },
+  "errors": {},
+  "checks": {
+    "all_actual_requests_succeeded": true,
+    "conversation_stayed_on_local_qwen": true,
+    "local_replies_are_observed": true,
+    "critical_starts_before_queued_mission": true,
+    "fallback_answer_is_observed": true,
+    "unreachable_dell_falls_back_to_same_local_model": true,
+    "unavailable_mission_retains_checkpoint": true,
+    "validated32b_checkpoint_preserved": true
+  },
+  "pass": true
+}
