@@ -1,0 +1,25 @@
+{
+  "reviewer": "Codex-independent",
+  "source": "quality-comparative.json and quality-32-corrected.json",
+  "raw_coverage_verdicts_retained": true,
+  "coverage_interpretation": "INSUFFICIENT for general planning ability: final-report verification order ambiguous in prompt",
+  "five_other_cases": {
+    "qwen3.5:27b-q4_K_M": {
+      "passed": 4,
+      "total": 5
+    },
+    "qwen3:32b-q4_K_M": {
+      "passed": 3,
+      "total": 5
+    },
+    "llama3.3:70b-instruct-q4_K_M": {
+      "passed": 2,
+      "total": 5
+    },
+    "qwen3-coder-next:q4_K_M": {
+      "passed": 5,
+      "total": 5
+    }
+  },
+  "no_new_inference": true
+}

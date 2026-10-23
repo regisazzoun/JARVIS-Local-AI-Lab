@@ -58,6 +58,22 @@ def model_observation(value, limit=8000):
     """Bound a model view, never the canonical tool receipt stored in SQLite."""
     if isinstance(value,list):return [model_observation(item,limit) for item in value]
     if not isinstance(value,dict):return value
+    if {'conversation_model','jobs','nodes'} <= value.keys():
+        # Queue metrics contain serialized admission snapshots for every old job.
+        # They are evidence, not useful context for the next operational action.
+        compact={k:v for k,v in value.items() if k!='jobs'}
+        compact['jobs']=[]
+        for row in value['jobs'][:8]:
+            job={k:v for k,v in row.items() if k!='metrics'}
+            metrics=row.get('metrics') or {}
+            if isinstance(metrics,str):
+                try:metrics=json.loads(metrics)
+                except ValueError:metrics={}
+            job['metrics']={k:metrics[k] for k in ('node','effective_model','role','eval_count','num_ctx','end_to_end_s') if k in metrics}
+            compact['jobs'].append(job)
+        compact['recorded_jobs_count']=len(value['jobs'])
+        compact['model_view_contract']='Recent job metadata only; full compute_status receipt remains durable. A finished inference job is not a completed mission.'
+        value=compact
     if {'mission','actions','plans','tasks','semantic_verifications','codex_interventions','scope'}<=value.keys() and str(value['scope']).startswith('Predicates only;'):
         actions=value['actions'];selected={}
         important=[row for row in actions if row.get('tool') in ('host_exec','host_remote','host_ansible','host_service','host_github','skill_run','skill_test','mcp_tools')]
@@ -71,6 +87,7 @@ def model_observation(value, limit=8000):
         compact['plans']=[{key:row[key] for key in ('version','author','sha256') if key in row} for row in value['plans']]
         compact['actions']=sorted(selected.values(),key=lambda row:row.get('created',0))
         compact['semantic_verifications']=list(latest.values())
+        compact['inference_routes']=value.get('inference_routes',[])[-8:]
         compact['counts']={'recorded_tool_calls':len(actions),'plan_versions':len(value['plans']),'semantic_events':len(value['semantic_verifications']),'codex_interventions':len(value['codex_interventions'])}
         compact['codex_interventions']={'actor':'Codex','references':['event:'+str(row['event']) for row in value['codex_interventions']]}
         compact['model_view_contract']='26b.ledger-view.1: selected recent operation metadata, latest read per path and latest semantic event per task, NOT the whole history. Omitted facts are not absent. Process exit0 is not application success. Full ledger remains in this tool receipt; mission_evidence exposes original referenced records and their diagnostics.'
@@ -198,7 +215,7 @@ Pour les lectures indépendantes, mission_read_batch permet des appels réels en
 Écris un rapport par tâche dans un chemin autorisé avec host_write_file puis mission_task_complete avec id, report_path et evidence_id de la vérification réelle. Le rapport doit exposer les limites. Une lecture de politique seule ne valide pas une tâche.
 Le debugging_checkpoint conserve les derniers tests et empreintes des fichiers de la tâche. Réutilise les signatures Python réellement observées et la documentation de la version installée ; ne remplace pas un adaptateur par une autre API supposée. Après modification, relance le contrôle qui échouait. Un pip show réussi ou une lecture de code ne constitue pas un test fonctionnel. mission_read_batch attend une liste JSON structurée, pas une chaîne JSON ; n’y mets pas host_exec. Les résultats et références sont persistants. mission_evidence permet de relire les résultats complets. Ne refais pas les tâches validées. Une opération started sans résultat peut avoir eu lieu : réobserve avant toute répétition.
 En cas d'erreur, analyse et change de stratégie. Ne répète pas les mêmes arguments en échec. Quand toutes les tâches sont validées, écris intervention_report avec la synthèse finale factuelle et les références. N'annonce aucune publication sans vérification distante.
-Les exigences déjà satisfaites et leurs identifiants sont indiqués dans active_task_contract_status. Réutilise ces preuves ; si le rapport est écrit et relu, valide la tâche au lieu de recommencer les mêmes collectes. Une fin de cycle n'est pas une fin de mission : conserve mission_note pour transmettre objectifs, observations et prochaine action. Ne demande pas au propriétaire de relancer.
+Les exigences déjà satisfaites et leurs vrais invocation_id sont indiqués dans active_task_contract_status. Si completion_candidate est présent, appelle mission_task_complete avec ces paramètres réels ; ne réécris pas le rapport et ne répète pas les mêmes lectures. Les lectures ne sont pas des mutations : seules de nouvelles modifications d’artefacts nécessitent une nouvelle vérification. Cette proposition de clôture n’efface aucun contrôle backend. Une fin de cycle n'est pas une fin de mission : conserve mission_note pour transmettre objectifs, observations et prochaine action. Ne demande pas au propriétaire de relancer.
 Si observed_external_dependencies contient une dépendance non résolue (identité de compte ou clé d’enrôlement absente), ne répète pas ses contrôles ni installations sans changement externe. Termine les autres publications possibles, écris un rapport partiel précis puis appelle mission_block avec sa preuve réelle. Cela ne valide ni la tâche ni la mission ; ne cherche pas à obtenir un succès artificiel pour satisfaire le contrat.'''
         if json.loads(mission['spec']).get('autonomous'):
             instructions += '''
@@ -225,7 +242,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         tasks=[{k:t.get(k) for k in ('id','title','deps','state','artifact','report_sha256')} for t in store.tasks(ident)]
         documents=core.memory.document_search((task or {}).get('objective',mission['goal']),mission['project'])[:2]
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
-        base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS avec le modèle '+mission['model']+', pas par JARVIS-engine. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
+        base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS, pas par JARVIS-engine. Le modèle demandé à l’origine ('+mission['model']+') peut différer du moteur effectivement routé. Pour attribuer ton exécution, utilise last_observed_inference, compute_status et les événements compute_route_observed, jamais le seul modèle historique de mission. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
         if scoped:base[1]['content']=encoded(focused_state(json.loads(base[1]['content'])))
@@ -243,6 +260,11 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         repeats = {}
         before = len(observations)
         report = None
+        # Declared task tools are a context budget, not an extra permission wall.
+        # A registered tool requested during execution can expose its schema on
+        # the next turn; planning and final-report phase barriers stay intact.
+        with store.db() as c:
+            discovered={r[0] for r in c.execute("SELECT DISTINCT tool FROM mission_events WHERE mission=? AND task=? AND kind='execution_tool_discovered'",(ident,task_id))}
         # This is a scheduling quantum, not a mission deadline. Checkpoints survive it.
         for _ in range(core.config.get('durable_cycle_rounds', 12)):
             if core.missions.is_interrupted(ident):
@@ -253,6 +275,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 fresh_task=next((t for t in store.tasks(ident) if t['id']==task_id),task)
                 state_data['active_task']={k:v for k,v in fresh_task.items() if k!='evidence'}
                 state_data['active_task_contract_status']=store.contract_status(ident,task_id)
+                if core.metrics:
+                    state_data['last_observed_inference']={k:core.metrics[-1].get(k) for k in ('node','effective_model','role','compute_job')}
                 with store.db() as c:
                     recheck=c.execute("SELECT coalesce(max(created),0) FROM mission_events WHERE mission=? AND kind IN ('owner_external_resolution_confirmed','external_dependency_recheck_requested')",(ident,)).fetchone()[0]
                 state_data['observed_external_dependencies']=dependency_state(store.observations(ident,task_id),recheck)
@@ -276,6 +300,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     last_report_feedback=feedback['review_reference']
                     store.event(ident,'report_correction_context_prepared',task_id,'JARVIS-engine',result=feedback)
             schemas=task_schemas(core.tools.schemas(),definition) if task_id else core.tools.schemas()
+            offered={s['function']['name'] for s in schemas}
+            if task_id:
+                schemas += [s for s in core.tools.schemas() if s['function']['name'] in discovered-offered]
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(schemas)) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
@@ -347,7 +374,13 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 failed_previous=sum(not (o['result'] or {}).get('ok') for o in previous[-3:])
                 repaired=bool(previous) and any(o['created']>previous[-1]['created'] and (o['result'] or {}).get('ok') and (o['tool']=='host_package' or o['tool'] in ('host_remote','host_ansible') and o['arguments'].get('action') in ('package_install','write_file','deploy_file','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure')) for o in store.observations(ident,task_id))
                 if name not in {s['function']['name'] for s in schemas}:
-                    result = {'ok':False,'tool':name,'error':'Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.'}
+                    schema=next((s for s in core.tools.schemas() if s['function']['name']==name),None)
+                    if task_id and schema and name!='intervention_report':
+                        discovered.add(name)
+                        store.event(ident,'execution_tool_discovered',task_id,'JARVIS-engine',tool=name,result={'requested_by':'JARVIS','permissions_unchanged':True})
+                        result={'ok':False,'tool':name,'error':'Registered tool schema exposed for next turn. Retry with its actual parameters; no permission change required.','discovered_schema':schema}
+                    else:
+                        result = {'ok':False,'tool':name,'error':'Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.'}
                 elif repeats[sig] > 2 or (len(previous)>=3 and failed_previous==3 and time.time()-previous[-1]['created']<30 and not repaired):
                     result = {'ok': False, 'tool': name, 'error': 'Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.'}
                 else:

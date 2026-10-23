@@ -12,7 +12,7 @@ class MissionInterrupted(RuntimeError):
     pass
 
 class Missions:
-    def __init__(self, core, root, start_worker=True, recover_exclusive=False):
+    def __init__(self, core, root, start_worker=True, recover_exclusive=False, start_publisher=True):
         self.core = core
         self.store = MissionStore(root)
         if recover_exclusive:
@@ -38,7 +38,7 @@ class Missions:
         core.tools.mission_controller = self
         if start_worker:
             threading.Thread(target=self.worker, daemon=True, name='jarvis-missions-v2').start()
-            threading.Thread(target=self.publisher, daemon=True, name='jarvis-publisher-v2').start()
+            if start_publisher:threading.Thread(target=self.publisher, daemon=True, name='jarvis-publisher-v2').start()
 
     def connect(self):
         return self.store.db()

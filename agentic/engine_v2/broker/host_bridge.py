@@ -407,13 +407,16 @@ print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':
         return {'state':state,**result}
     raise ValueError('Opération inconnue')
 
+def runtime_caller(cgroup):
+    return bool(re.search(r'(?:^|/)jarvis-(?:conversation|mission-worker(?:@\d+)?)\.service(?:/|$)',cgroup,re.M))
+
 class Handler(socketserver.StreamRequestHandler):
     def handle(self):
         cfg=policy();pid,uid,gid=struct.unpack('3i',self.request.getsockopt(socket.SOL_SOCKET,socket.SO_PEERCRED,12))
         if uid not in (0,pwd.getpwnam(cfg['user']).pw_uid):return
         self.request.settimeout(150);raw=self.rfile.readline(100001)
         ident=uuid.uuid4().hex;op='invalid';a={};started=time.monotonic()
-        try:caller='JARVIS-runtime' if any(unit in P('/proc/'+str(pid)+'/cgroup').read_text() for unit in ('jarvis-conversation.service','jarvis-mission-worker.service')) else 'local-operator'
+        try:caller='JARVIS-runtime' if runtime_caller(P('/proc/'+str(pid)+'/cgroup').read_text()) else 'local-operator'
         except OSError:caller='unknown'
         try:
             if len(raw)>100000:raise ValueError('Requête trop grande')

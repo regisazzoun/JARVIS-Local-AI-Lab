@@ -1,0 +1,413 @@
+{
+  "actor": "Codex-independent",
+  "scope": "Actual authenticated user API during selected80B mission; stable context profiles and2second critical queue limit; no autonomy claim for these user test requests",
+  "rows": [
+    {
+      "label": "simple0",
+      "elapsed_s": 0.9784529349999502,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 3604768,
+        "prompt_eval_duration": 724250000,
+        "eval_duration": 31533000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 774357938,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "9d6f7e57cb33489fa2856f321ebce801",
+        "first_content_s": 0.7433186559937894,
+        "first_content_total_s": 0.9123809839366004,
+        "admission_s": 0.06601196993142366,
+        "queue_wait_s": 0.10305035801138729,
+        "request_elapsed_s": 0.7749775580596179,
+        "end_to_end_s": 0.9440401969477534,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784500.1085715,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28292448256,
+          "cpu_threads": 12,
+          "load1": 0.74658203125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 38.0,
+              "power_w": 17.6
+            }
+          ]
+        }
+      },
+      "tools": []
+    },
+    {
+      "label": "simple1",
+      "elapsed_s": 1.0673261280171573,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 9481079,
+        "prompt_eval_duration": 712333000,
+        "eval_duration": 30981000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 784222586,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "f50387aea60b43e5b0142f0e7ea4b5ad",
+        "first_content_s": 0.754444780992344,
+        "first_content_total_s": 0.9102871660143137,
+        "admission_s": 0.003862114972434938,
+        "queue_wait_s": 0.15198027004953474,
+        "request_elapsed_s": 0.7855869620107114,
+        "end_to_end_s": 0.9414296080358326,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784500.1085715,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28292448256,
+          "cpu_threads": 12,
+          "load1": 0.74658203125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 38.0,
+              "power_w": 17.6
+            }
+          ]
+        }
+      },
+      "tools": []
+    },
+    {
+      "label": "simple2",
+      "elapsed_s": 0.8936305559473112,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 9819320,
+        "prompt_eval_duration": 699316000,
+        "eval_duration": 31581000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 771078520,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "406aa9325fa7442faafeca82b88faad2",
+        "first_content_s": 0.740725488984026,
+        "first_content_total_s": 0.8245124369859695,
+        "admission_s": 0.012318033957853913,
+        "queue_wait_s": 0.07146891404408962,
+        "request_elapsed_s": 0.7724650900345296,
+        "end_to_end_s": 0.8562524430453777,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784500.1085715,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28292448256,
+          "cpu_threads": 12,
+          "load1": 0.74658203125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 38.0,
+              "power_w": 17.6
+            }
+          ]
+        }
+      },
+      "tools": []
+    },
+    {
+      "label": "simple3",
+      "elapsed_s": 0.8307377150049433,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 5240001,
+        "prompt_eval_duration": 697462000,
+        "eval_duration": 32330000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 755173376,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "0da1b33f037543ab82d633c6b1537230",
+        "first_content_s": 0.7234144799876958,
+        "first_content_total_s": 0.771561681991443,
+        "admission_s": 0.0037402689922600985,
+        "queue_wait_s": 0.044406933011487126,
+        "request_elapsed_s": 0.7559112830786034,
+        "end_to_end_s": 0.8040586510905996,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784500.1085715,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28292448256,
+          "cpu_threads": 12,
+          "load1": 0.74658203125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 38.0,
+              "power_w": 17.6
+            }
+          ]
+        }
+      },
+      "tools": []
+    },
+    {
+      "label": "simple4",
+      "elapsed_s": 0.8342046641046181,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 3921951,
+        "prompt_eval_duration": 699324000,
+        "eval_duration": 31246000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 758772746,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "fadc232680ae4c2bbff4dd19742a3a2c",
+        "first_content_s": 0.7281101590488106,
+        "first_content_total_s": 0.775053960038349,
+        "admission_s": 0.0025994370225816965,
+        "queue_wait_s": 0.044344363966956735,
+        "request_elapsed_s": 0.7595830890350044,
+        "end_to_end_s": 0.8065270490478724,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784500.1085715,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28292448256,
+          "cpu_threads": 12,
+          "load1": 0.74658203125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 38.0,
+              "power_w": 17.6
+            }
+          ]
+        }
+      },
+      "tools": []
+    },
+    {
+      "label": "simple5",
+      "elapsed_s": 0.8288201270624995,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 3540764,
+        "prompt_eval_duration": 699045000,
+        "eval_duration": 31625000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 754753170,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "d7759ce3f5664671a84a1dc6cc9bdb4d",
+        "first_content_s": 0.723723802017048,
+        "first_content_total_s": 0.7703324879985303,
+        "admission_s": 0.0033275679452344775,
+        "queue_wait_s": 0.04328111803624779,
+        "request_elapsed_s": 0.7555385919986293,
+        "end_to_end_s": 0.8021474638953805,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784500.1085715,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28292448256,
+          "cpu_threads": 12,
+          "load1": 0.74658203125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 38.0,
+              "power_w": 17.6
+            }
+          ]
+        }
+      },
+      "tools": []
+    },
+    {
+      "label": "critical",
+      "elapsed_s": 3.8947067479602993,
+      "reservation_before": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "reservation_after": [
+        [
+          "8b6bb1344c5d4bfa991eddccebdbd363",
+          "qwen3-coder-next:q4_K_M"
+        ]
+      ],
+      "answer": "OK",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 9441474,
+        "prompt_eval_duration": 716411000,
+        "eval_duration": 31142000,
+        "eval_count": 2,
+        "prompt_eval_count": 1272,
+        "total_duration": 792030514,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "critical",
+        "compute_job": "8f6decd776cf46da8da8dd303a8928e5",
+        "first_content_s": 0.7618129049660638,
+        "first_content_total_s": 0.9248785369563848,
+        "admission_s": 0.097438724944368,
+        "queue_wait_s": 0.06562690704595298,
+        "request_elapsed_s": 0.7933076899498701,
+        "end_to_end_s": 0.9563735009869561,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792784508.39639,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28289372160,
+          "cpu_threads": 12,
+          "load1": 0.70556640625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 45.0,
+              "power_w": 128.1
+            }
+          ]
+        },
+        "fallback_reason": "ResourceUnavailable: Inference queue timeout; retain checkpoint and retry: Dell1"
+      },
+      "tools": []
+    }
+  ]
+}

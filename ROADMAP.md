@@ -1,3 +1,7 @@
+## Mission28A — moteur80B sélectionné, réception agentique en cours
+
+🟡 Qwen3-Coder-Next80B est installé et pilote réellement les missions Dell :5/6sur le screening ciblé, contre27B4/6,32B3/6et70B2/6 ; le cas coverage reste ambigu. Conversation27B conservée sur Mac, contextes stabilisés, priorité/repli et quotas75/25 reçus. Deux workers du moteur canonique sont actifs ; six réponses locales pendant deux missions running :0,828–0,961s.237tests logiciels réussis. La réception indépendante a détecté un programme JARVIS erroné malgré son code retour0 ; sa correction et les rapports restent en cours. [Comparatif](docs/missions/28A/MODELES-DELL-COMPARATIF.md) · [Tests](docs/missions/28A/TESTS-ET-REPRISES.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25). Aucun lancement14A/24-Old/TTS/Dell2.
+
 ## Mission28A — continuation effective du23 octobre2026
 
 🟡 Les contrôles indépendants C(routage/priorité/repli) et D(profils GPU) sont désormais reçus. Le moteur évite les cycles sans tâche prête. JARVIS a repris le téléchargement80Bdepuis le cache puis vérifié son installation ; la comparaison27/70/80au32B déjà mesuré reste en cours.226tests logiciels passent. Le27B conversationnel du Mac est conservé, le pilote Dell reste provisoire jusqu’aux mesures. [Ordonnancement](docs/missions/28A/ORDONNANCEUR.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25). Aucun nouvel accord humain attendu.

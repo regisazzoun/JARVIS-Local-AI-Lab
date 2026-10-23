@@ -1,0 +1,2143 @@
+{
+  "created": 1792784024.1011684,
+  "judge_version": "28a.screening.2",
+  "scope": "Six paired technical screening tasks, not general autonomy/quality certification",
+  "cases": [
+    {
+      "model": "qwen3.5:27b-q4_K_M",
+      "text": "{\n  \"audio_count\": 14,\n  \"mean_seconds\": 6.336553571428571\n}",
+      "error": null,
+      "elapsed_s": 7.960904767001921,
+      "first_content_s": 6.683266813997761,
+      "server_metrics": {
+        "model": "qwen3.5:27b-q4_K_M",
+        "created_at": "2026-10-23T19:33:52.062313712Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 7950419162,
+        "load_duration": 6499122748,
+        "prompt_eval_count": 87,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 171101000,
+        "eval_count": 38,
+        "eval_duration": 1278084000
+      },
+      "tokens_per_second": 29.73200509512677,
+      "resources": [
+        {
+          "at": 1792784024.1479313,
+          "memory_available_bytes": 262631489536,
+          "gpu_csv": "0, 10086, 0, 61, 135.67\n1, 9566, 0, 75, 153.97\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784024.7079275,
+          "memory_available_bytes": 265345089536,
+          "gpu_csv": "0, 270, 93, 62, 133.73\n1, 78, 98, 76, 143.04\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784025.323567,
+          "memory_available_bytes": 265537003520,
+          "gpu_csv": "0, 11, 3, 62, 146.55\n1, 52, 5, 77, 153.01\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784025.8790996,
+          "memory_available_bytes": 265373560832,
+          "gpu_csv": "0, 267, 4, 62, 156.20\n1, 309, 3, 77, 167.06\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784026.4242961,
+          "memory_available_bytes": 265278889984,
+          "gpu_csv": "0, 270, 13, 62, 156.02\n1, 52, 0, 76, 166.71\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784026.968592,
+          "memory_available_bytes": 265221410816,
+          "gpu_csv": "0, 270, 2, 61, 140.90\n1, 52, 0, 74, 146.04\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784027.5130424,
+          "memory_available_bytes": 265185550336,
+          "gpu_csv": "0, 15360, 0, 61, 122.40\n1, 52, 0, 72, 110.31\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784028.057633,
+          "memory_available_bytes": 265203380224,
+          "gpu_csv": "0, 15360, 53, 62, 129.16\n1, 52, 0, 72, 87.08\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784028.6025283,
+          "memory_available_bytes": 265203806208,
+          "gpu_csv": "0, 15360, 54, 62, 148.48\n1, 52, 0, 70, 70.47\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784029.14711,
+          "memory_available_bytes": 265199648768,
+          "gpu_csv": "0, 15360, 54, 62, 157.32\n1, 52, 0, 69, 51.16\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784029.691841,
+          "memory_available_bytes": 265194917888,
+          "gpu_csv": "0, 15360, 54, 62, 157.26\n1, 52, 0, 69, 47.07\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784030.237607,
+          "memory_available_bytes": 265116340224,
+          "gpu_csv": "0, 16814, 8, 64, 159.57\n1, 52, 0, 69, 46.22\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784030.7785385,
+          "memory_available_bytes": 264902008832,
+          "gpu_csv": "0, 17094, 26, 63, 176.84\n1, 52, 0, 68, 44.09\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784031.306264,
+          "memory_available_bytes": 264888573952,
+          "gpu_csv": "0, 17094, 88, 63, 224.24\n1, 52, 0, 68, 42.75\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784031.8338323,
+          "memory_available_bytes": 264884011008,
+          "gpu_csv": "0, 17094, 92, 63, 247.98\n1, 52, 0, 68, 42.27\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 16638866881,
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:48:52.062418214+02:00",
+            "size_vram": 16638866881,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "reasoning",
+      "prompt_sha256": "2e9684cbb6a4b8bccdea68bfb646c2332ed3711ecf602bca6a60baecaf8d294c",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "audio_count": 14,
+          "mean_seconds": 6.336553571428571
+        }
+      }
+    },
+    {
+      "model": "qwen3.5:27b-q4_K_M",
+      "text": "{\n  \"developer\": \"Codex\",\n  \"executor\": \"JARVIS\",\n  \"first_result\": \"FAIL\",\n  \"final_result\": \"PASS\",\n  \"idempotence_proven\": false\n}",
+      "error": null,
+      "elapsed_s": 1.9424692340035108,
+      "first_content_s": 0.25734458600345533,
+      "server_metrics": {
+        "model": "qwen3.5:27b-q4_K_M",
+        "created_at": "2026-10-23T19:33:54.00629408Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 1941947467,
+        "load_duration": 3878427,
+        "prompt_eval_count": 85,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 163298000,
+        "eval_count": 50,
+        "eval_duration": 1684970000
+      },
+      "tokens_per_second": 29.674118827041433,
+      "resources": [
+        {
+          "at": 1792784032.1004255,
+          "memory_available_bytes": 264880107520,
+          "gpu_csv": "0, 17094, 91, 62, 246.80\n1, 52, 0, 68, 42.10\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784032.6282792,
+          "memory_available_bytes": 264554369024,
+          "gpu_csv": "0, 17094, 90, 63, 242.81\n1, 52, 0, 68, 42.01\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784033.1579528,
+          "memory_available_bytes": 264563822592,
+          "gpu_csv": "0, 17094, 90, 63, 242.47\n1, 52, 0, 68, 41.81\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784033.6876936,
+          "memory_available_bytes": 264559931392,
+          "gpu_csv": "0, 17094, 91, 63, 249.36\n1, 52, 0, 67, 41.57\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 16638866881,
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:48:54.006414101+02:00",
+            "size_vram": 16638866881,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "facts",
+      "prompt_sha256": "75a081660d05366b7f85277dc8bc71eb0efbc5c7e725a739da2b27efa2eb542e",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "developer": "Codex",
+          "executor": "JARVIS",
+          "first_result": "FAIL",
+          "final_result": "PASS",
+          "idempotence_proven": false
+        }
+      }
+    },
+    {
+      "model": "qwen3.5:27b-q4_K_M",
+      "text": "{\n  \"vram_gib\": 24,\n  \"vram_gb_decimal\": 25.6,\n  \"contiguous_pool\": false\n}",
+      "error": null,
+      "elapsed_s": 1.5412794320000103,
+      "first_content_s": 0.2664174870005809,
+      "server_metrics": {
+        "model": "qwen3.5:27b-q4_K_M",
+        "created_at": "2026-10-23T19:33:55.567973481Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 1540145385,
+        "load_duration": 4668728,
+        "prompt_eval_count": 79,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 154938000,
+        "eval_count": 38,
+        "eval_duration": 1274837000
+      },
+      "tokens_per_second": 29.807732282636916,
+      "resources": [
+        {
+          "at": 1792784034.0724802,
+          "memory_available_bytes": 264565747712,
+          "gpu_csv": "0, 17094, 91, 62, 248.60\n1, 52, 0, 67, 41.37\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784034.6002777,
+          "memory_available_bytes": 264236552192,
+          "gpu_csv": "0, 17094, 90, 63, 240.46\n1, 52, 0, 67, 41.24\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784035.1270823,
+          "memory_available_bytes": 264236240896,
+          "gpu_csv": "0, 17094, 90, 63, 238.88\n1, 52, 0, 67, 41.24\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 16638866881,
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:48:55.568079744+02:00",
+            "size_vram": 16638866881,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "units",
+      "prompt_sha256": "938a0c94c1f9c9728ef0c71fa6840d8c2f8d7f29649bb7438fbf9d141100013a",
+      "evaluation": {
+        "pass": false,
+        "parsed": {
+          "vram_gib": 24,
+          "vram_gb_decimal": 25.6,
+          "contiguous_pool": false
+        }
+      }
+    },
+    {
+      "model": "qwen3.5:27b-q4_K_M",
+      "text": "{\n  \"original_type\": \"int\",\n  \"original_value\": 0,\n  \"cause\": \"hors_plage\",\n  \"repair\": \"remplacer_par_8091\"\n}",
+      "error": null,
+      "elapsed_s": 1.8521280180066242,
+      "first_content_s": 0.2714210180056398,
+      "server_metrics": {
+        "model": "qwen3.5:27b-q4_K_M",
+        "created_at": "2026-10-23T19:33:57.440404977Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 1851413622,
+        "load_duration": 3940957,
+        "prompt_eval_count": 89,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 162375000,
+        "eval_count": 47,
+        "eval_duration": 1580827000
+      },
+      "tokens_per_second": 29.73127356756938,
+      "resources": [
+        {
+          "at": 1792784035.6269586,
+          "memory_available_bytes": 264237699072,
+          "gpu_csv": "0, 17094, 82, 62, 247.38\n1, 52, 0, 67, 41.05\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784036.1525419,
+          "memory_available_bytes": 263907606528,
+          "gpu_csv": "0, 17094, 84, 63, 238.64\n1, 52, 0, 67, 40.72\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784036.687495,
+          "memory_available_bytes": 263901450240,
+          "gpu_csv": "0, 17094, 92, 63, 240.68\n1, 52, 0, 66, 40.58\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784037.2165685,
+          "memory_available_bytes": 263937904640,
+          "gpu_csv": "0, 17094, 91, 64, 249.36\n1, 52, 0, 66, 40.36\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 16638866881,
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:48:57.440496597+02:00",
+            "size_vram": 16638866881,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "diagnosis",
+      "prompt_sha256": "b1d903cec8dd41704728845d6e2ae41150abb63921dfe54bef141f998afa2540",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "original_type": "int",
+          "original_value": 0,
+          "cause": "hors_plage",
+          "repair": "remplacer_par_8091"
+        }
+      }
+    },
+    {
+      "model": "qwen3.5:27b-q4_K_M",
+      "text": "{\n  \"steps\": [\n    {\n      \"id\": \"csv_preserved\",\n      \"depends\": [],\n      \"deliverables\": [\"csv_preserved\"]\n    },\n    {\n      \"id\": \"json_production\",\n      \"depends\": [\"csv_preserved\"],\n      \"deliverables\": [\"json\"]\n    },\n    {\n      \"id\": \"manifest_generation\",\n      \"depends\": [\"json_production\"],\n      \"deliverables\": [\"manifest\"]\n    },\n    {\n      \"id\": \"report_creation\",\n      \"depends\": [\"manifest_generation\"],\n      \"deliverables\": [\"report\"]\n    },\n    {\n      \"id\": \"verification\",\n      \"depends\": [\"json_production\", \"manifest_generation\", \"report_creation\"],\n      \"deliverables\": [\"verification\"]\n    }\n  ]\n}",
+      "error": null,
+      "elapsed_s": 6.692050809993816,
+      "first_content_s": 0.27614967599947704,
+      "server_metrics": {
+        "model": "qwen3.5:27b-q4_K_M",
+        "created_at": "2026-10-23T19:34:04.133660155Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 6691465219,
+        "load_duration": 2020538,
+        "prompt_eval_count": 112,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 184571000,
+        "eval_count": 186,
+        "eval_duration": 6415544000
+      },
+      "tokens_per_second": 28.99208547240889,
+      "resources": [
+        {
+          "at": 1792784037.4679768,
+          "memory_available_bytes": 263933243392,
+          "gpu_csv": "0, 17094, 91, 63, 249.19\n1, 52, 0, 66, 40.21\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784037.9961336,
+          "memory_available_bytes": 263600340992,
+          "gpu_csv": "0, 17094, 90, 64, 244.91\n1, 52, 0, 66, 40.24\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784038.5281966,
+          "memory_available_bytes": 263596736512,
+          "gpu_csv": "0, 17094, 90, 63, 242.45\n1, 52, 0, 66, 40.26\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784039.0527468,
+          "memory_available_bytes": 263594659840,
+          "gpu_csv": "0, 17094, 91, 64, 249.00\n1, 52, 0, 66, 40.17\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784039.5878136,
+          "memory_available_bytes": 263580016640,
+          "gpu_csv": "0, 17094, 93, 64, 249.37\n1, 52, 0, 66, 40.09\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784040.1167743,
+          "memory_available_bytes": 263583035392,
+          "gpu_csv": "0, 17094, 92, 64, 249.57\n1, 52, 0, 65, 40.03\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784040.642278,
+          "memory_available_bytes": 263582957568,
+          "gpu_csv": "0, 17094, 94, 64, 248.97\n1, 52, 0, 65, 39.95\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784041.1742375,
+          "memory_available_bytes": 263584739328,
+          "gpu_csv": "0, 17094, 92, 64, 249.39\n1, 52, 0, 65, 39.81\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784041.701078,
+          "memory_available_bytes": 263588163584,
+          "gpu_csv": "0, 17094, 92, 64, 249.33\n1, 52, 0, 65, 39.63\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784042.2283342,
+          "memory_available_bytes": 263582457856,
+          "gpu_csv": "0, 17094, 93, 64, 249.71\n1, 52, 0, 65, 39.51\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784042.7564209,
+          "memory_available_bytes": 263586643968,
+          "gpu_csv": "0, 17094, 92, 64, 249.15\n1, 52, 0, 65, 39.48\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784043.281552,
+          "memory_available_bytes": 263575601152,
+          "gpu_csv": "0, 17094, 93, 64, 249.02\n1, 52, 0, 65, 39.40\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784043.815083,
+          "memory_available_bytes": 263578927104,
+          "gpu_csv": "0, 17094, 94, 64, 248.94\n1, 52, 0, 64, 39.31\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 16638866881,
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:04.133742582+02:00",
+            "size_vram": 16638866881,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "coverage",
+      "prompt_sha256": "aae0c58c6dd798a35124b759c3b53876f35b5c3a9f6b7b6c829f0f2aa465de07",
+      "evaluation": {
+        "pass": false,
+        "parsed": {
+          "steps": [
+            {
+              "id": "csv_preserved",
+              "depends": [],
+              "deliverables": [
+                "csv_preserved"
+              ]
+            },
+            {
+              "id": "json_production",
+              "depends": [
+                "csv_preserved"
+              ],
+              "deliverables": [
+                "json"
+              ]
+            },
+            {
+              "id": "manifest_generation",
+              "depends": [
+                "json_production"
+              ],
+              "deliverables": [
+                "manifest"
+              ]
+            },
+            {
+              "id": "report_creation",
+              "depends": [
+                "manifest_generation"
+              ],
+              "deliverables": [
+                "report"
+              ]
+            },
+            {
+              "id": "verification",
+              "depends": [
+                "json_production",
+                "manifest_generation",
+                "report_creation"
+              ],
+              "deliverables": [
+                "verification"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "qwen3.5:27b-q4_K_M",
+      "text": "{\"code\":\"def normalize(value):\\n    if isinstance(value, bool) or isinstance(value, str) or isinstance(value, float):\\n        raise ValueError\\n    if not isinstance(value, int):\\n        return 8091\\n    if 1 <= value <= 65535:\\n        return value\\n    return 8091\"}",
+      "error": null,
+      "elapsed_s": 2.9172861309998552,
+      "first_content_s": 0.28078647700021975,
+      "server_metrics": {
+        "model": "qwen3.5:27b-q4_K_M",
+        "created_at": "2026-10-23T19:34:07.075562688Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 2916343773,
+        "load_duration": 5028983,
+        "prompt_eval_count": 97,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 165443000,
+        "eval_count": 77,
+        "eval_duration": 2636690000
+      },
+      "tokens_per_second": 29.20328138689038,
+      "resources": [
+        {
+          "at": 1792784044.202773,
+          "memory_available_bytes": 263574507520,
+          "gpu_csv": "0, 17094, 69, 63, 243.47\n1, 52, 0, 64, 39.24\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784044.729314,
+          "memory_available_bytes": 263273910272,
+          "gpu_csv": "0, 17094, 83, 64, 236.69\n1, 52, 0, 64, 39.25\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784045.2675767,
+          "memory_available_bytes": 263278870528,
+          "gpu_csv": "0, 17094, 90, 64, 235.90\n1, 52, 0, 64, 39.11\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784045.7983422,
+          "memory_available_bytes": 263292747776,
+          "gpu_csv": "0, 17094, 90, 64, 248.86\n1, 52, 0, 64, 38.91\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784046.3248181,
+          "memory_available_bytes": 263285776384,
+          "gpu_csv": "0, 17094, 91, 64, 249.26\n1, 52, 0, 64, 38.83\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784046.8543637,
+          "memory_available_bytes": 263281381376,
+          "gpu_csv": "0, 17094, 92, 64, 249.39\n1, 52, 0, 64, 38.80\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 16638866881,
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:07.075666211+02:00",
+            "size_vram": 16638866881,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "code",
+      "prompt_sha256": "5cf76455c1c8ac0a0a7ed9313d5991f971e004094e6bc91db0372d4c265dac7b",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "code": "def normalize(value):\n    if isinstance(value, bool) or isinstance(value, str) or isinstance(value, float):\n        raise ValueError\n    if not isinstance(value, int):\n        return 8091\n    if 1 <= value <= 65535:\n        return value\n    return 8091"
+        }
+      }
+    },
+    {
+      "model": "llama3.3:70b-instruct-q4_K_M",
+      "text": "```json\n{\n  \"audio_count\": 14,\n  \"mean_seconds\": 6.334\n}\n```",
+      "error": null,
+      "elapsed_s": 13.898562216003484,
+      "first_content_s": 12.572856875005527,
+      "server_metrics": {
+        "model": "llama3.3:70b-instruct-q4_K_M",
+        "created_at": "2026-10-23T19:34:20.997666307Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 13897955397,
+        "load_duration": 12324839355,
+        "prompt_eval_count": 85,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 243944000,
+        "eval_count": 25,
+        "eval_duration": 1325751000
+      },
+      "tokens_per_second": 18.857236389035346,
+      "resources": [
+        {
+          "at": 1792784047.1253335,
+          "memory_available_bytes": 263278252032,
+          "gpu_csv": "0, 17094, 92, 63, 248.24\n1, 52, 1, 64, 38.77\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784047.6717803,
+          "memory_available_bytes": 263353552896,
+          "gpu_csv": "0, 17094, 2, 62, 193.41\n1, 52, 5, 67, 67.95\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784048.2198067,
+          "memory_available_bytes": 265328570368,
+          "gpu_csv": "0, 270, 84, 63, 136.51\n1, 312, 0, 68, 109.11\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784048.8273137,
+          "memory_available_bytes": 265508016128,
+          "gpu_csv": "0, 11, 1, 63, 150.95\n1, 52, 3, 68, 121.94\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784049.4270945,
+          "memory_available_bytes": 265371373568,
+          "gpu_csv": "0, 267, 3, 62, 157.52\n1, 309, 2, 68, 122.20\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784049.9719822,
+          "memory_available_bytes": 265159114752,
+          "gpu_csv": "0, 270, 1, 62, 156.88\n1, 312, 0, 68, 121.69\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784050.5160708,
+          "memory_available_bytes": 265126916096,
+          "gpu_csv": "0, 270, 0, 61, 141.43\n1, 312, 0, 68, 120.92\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784051.0592184,
+          "memory_available_bytes": 265107546112,
+          "gpu_csv": "0, 270, 0, 61, 126.05\n1, 312, 0, 68, 120.34\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784051.6032276,
+          "memory_available_bytes": 265070231552,
+          "gpu_csv": "0, 270, 0, 61, 126.05\n1, 312, 0, 68, 120.35\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784052.148114,
+          "memory_available_bytes": 265065263104,
+          "gpu_csv": "0, 20310, 58, 62, 126.45\n1, 20254, 0, 68, 120.30\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784052.692093,
+          "memory_available_bytes": 265064845312,
+          "gpu_csv": "0, 20310, 59, 62, 138.01\n1, 20254, 0, 68, 120.26\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784053.2361474,
+          "memory_available_bytes": 265060003840,
+          "gpu_csv": "0, 20310, 58, 62, 159.27\n1, 20254, 0, 68, 120.33\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784053.7801604,
+          "memory_available_bytes": 265059942400,
+          "gpu_csv": "0, 20310, 59, 62, 159.29\n1, 20254, 0, 68, 120.42\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784054.3239079,
+          "memory_available_bytes": 265065836544,
+          "gpu_csv": "0, 20310, 58, 62, 159.01\n1, 20254, 0, 68, 120.50\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784054.8683348,
+          "memory_available_bytes": 265077317632,
+          "gpu_csv": "0, 20310, 55, 62, 158.99\n1, 20254, 0, 68, 120.72\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784055.4119153,
+          "memory_available_bytes": 265070764032,
+          "gpu_csv": "0, 20310, 0, 62, 156.30\n1, 20254, 98, 70, 134.58\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784055.9559677,
+          "memory_available_bytes": 265052221440,
+          "gpu_csv": "0, 20310, 0, 62, 153.89\n1, 20254, 99, 71, 155.11\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784056.500326,
+          "memory_available_bytes": 265046556672,
+          "gpu_csv": "0, 20310, 0, 62, 153.89\n1, 20254, 98, 71, 158.25\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784057.0422604,
+          "memory_available_bytes": 265043570688,
+          "gpu_csv": "0, 20310, 0, 61, 153.89\n1, 20254, 99, 71, 157.93\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784057.5860722,
+          "memory_available_bytes": 265042538496,
+          "gpu_csv": "0, 20310, 0, 60, 139.47\n1, 20254, 99, 71, 157.90\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784058.129997,
+          "memory_available_bytes": 265041879040,
+          "gpu_csv": "0, 20310, 0, 60, 130.19\n1, 20254, 98, 71, 157.86\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784058.6733465,
+          "memory_available_bytes": 265042690048,
+          "gpu_csv": "0, 20310, 0, 60, 130.19\n1, 20254, 0, 71, 156.50\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784059.2001305,
+          "memory_available_bytes": 264957542400,
+          "gpu_csv": "0, 21306, 33, 61, 135.90\n1, 21218, 17, 73, 165.27\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784059.7260442,
+          "memory_available_bytes": 264931119104,
+          "gpu_csv": "0, 21312, 55, 63, 143.48\n1, 21224, 0, 74, 178.27\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784060.2652116,
+          "memory_available_bytes": 264927989760,
+          "gpu_csv": "0, 21312, 45, 62, 196.98\n1, 21224, 47, 73, 202.86\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784060.804623,
+          "memory_available_bytes": 264923840512,
+          "gpu_csv": "0, 21312, 45, 62, 223.64\n1, 21224, 49, 73, 218.66\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 43884541377,
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:20.997777356+02:00",
+            "size_vram": 43884541377,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "reasoning",
+      "prompt_sha256": "2e9684cbb6a4b8bccdea68bfb646c2332ed3711ecf602bca6a60baecaf8d294c",
+      "evaluation": {
+        "pass": false,
+        "parsed": {
+          "audio_count": 14,
+          "mean_seconds": 6.334
+        }
+      }
+    },
+    {
+      "model": "llama3.3:70b-instruct-q4_K_M",
+      "text": "```\n{\n  \"developer\": \"Codex\",\n  \"executor\": \"JARVIS\",\n  \"first_result\": \"FAIL\",\n  \"final_result\": \"PASS\",\n  \"idempotence_proven\": false\n}\n```",
+      "error": null,
+      "elapsed_s": 2.888930271998106,
+      "first_content_s": 0.2494075159993372,
+      "server_metrics": {
+        "model": "llama3.3:70b-instruct-q4_K_M",
+        "created_at": "2026-10-23T19:34:23.910329147Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 2887903187,
+        "load_duration": 3137636,
+        "prompt_eval_count": 94,
+        "prompt_eval_cached_count": 12,
+        "prompt_eval_duration": 218949000,
+        "eval_count": 49,
+        "eval_duration": 2639420000
+      },
+      "tokens_per_second": 18.564684665570468,
+      "resources": [
+        {
+          "at": 1792784061.0594342,
+          "memory_available_bytes": 264922886144,
+          "gpu_csv": "0, 21312, 55, 61, 219.48\n1, 21224, 54, 72, 214.93\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784061.5904012,
+          "memory_available_bytes": 264880025600,
+          "gpu_csv": "0, 21312, 54, 62, 216.42\n1, 21224, 51, 73, 210.82\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784062.115403,
+          "memory_available_bytes": 264874004480,
+          "gpu_csv": "0, 21312, 51, 62, 216.76\n1, 21224, 54, 74, 210.81\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784062.6414256,
+          "memory_available_bytes": 264876535808,
+          "gpu_csv": "0, 21312, 53, 62, 219.71\n1, 21224, 54, 74, 217.80\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784063.178713,
+          "memory_available_bytes": 264886476800,
+          "gpu_csv": "0, 21312, 45, 62, 219.34\n1, 21224, 54, 73, 218.45\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784063.7127316,
+          "memory_available_bytes": 264891826176,
+          "gpu_csv": "0, 21312, 48, 62, 219.20\n1, 21224, 51, 74, 218.52\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 43884541377,
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:23.910507848+02:00",
+            "size_vram": 43884541377,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "facts",
+      "prompt_sha256": "75a081660d05366b7f85277dc8bc71eb0efbc5c7e725a739da2b27efa2eb542e",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "developer": "Codex",
+          "executor": "JARVIS",
+          "first_result": "FAIL",
+          "final_result": "PASS",
+          "idempotence_proven": false
+        }
+      }
+    },
+    {
+      "model": "llama3.3:70b-instruct-q4_K_M",
+      "text": "```json\n{\n  \"vram_gib\": 24,\n  \"vram_gb_decimal\": 24.576,\n  \"contiguous_pool\": false\n}\n```",
+      "error": null,
+      "elapsed_s": 2.208921908000775,
+      "first_content_s": 0.22867970900551882,
+      "server_metrics": {
+        "model": "llama3.3:70b-instruct-q4_K_M",
+        "created_at": "2026-10-23T19:34:26.130241571Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 2207887020,
+        "load_duration": 4646579,
+        "prompt_eval_count": 79,
+        "prompt_eval_cached_count": 13,
+        "prompt_eval_duration": 193720000,
+        "eval_count": 37,
+        "eval_duration": 1979964000
+      },
+      "tokens_per_second": 18.687208454295128,
+      "resources": [
+        {
+          "at": 1792784063.9643538,
+          "memory_available_bytes": 264877780992,
+          "gpu_csv": "0, 21312, 54, 61, 219.27\n1, 21224, 43, 73, 217.95\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784064.499135,
+          "memory_available_bytes": 264836198400,
+          "gpu_csv": "0, 21312, 44, 62, 214.77\n1, 21224, 46, 74, 212.95\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784065.0347595,
+          "memory_available_bytes": 264832819200,
+          "gpu_csv": "0, 21312, 45, 63, 214.11\n1, 21224, 49, 73, 212.29\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784065.5623767,
+          "memory_available_bytes": 264832966656,
+          "gpu_csv": "0, 21312, 48, 63, 219.94\n1, 21224, 52, 74, 218.44\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784066.0880263,
+          "memory_available_bytes": 264833777664,
+          "gpu_csv": "0, 21312, 46, 62, 219.37\n1, 21224, 44, 74, 218.46\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 43884541377,
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:26.130346086+02:00",
+            "size_vram": 43884541377,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "units",
+      "prompt_sha256": "938a0c94c1f9c9728ef0c71fa6840d8c2f8d7f29649bb7438fbf9d141100013a",
+      "evaluation": {
+        "pass": false,
+        "parsed": {
+          "vram_gib": 24,
+          "vram_gb_decimal": 24.576,
+          "contiguous_pool": false
+        }
+      }
+    },
+    {
+      "model": "llama3.3:70b-instruct-q4_K_M",
+      "text": "```json\n{\n  \"original_type\": \"entier\",\n  \"original_value\": 0,\n  \"cause\": \"hors_plage\",\n  \"repair\": \"remplacer_par_8091\"\n}\n```",
+      "error": null,
+      "elapsed_s": 2.736059941998974,
+      "first_content_s": 0.2529291210012161,
+      "server_metrics": {
+        "model": "llama3.3:70b-instruct-q4_K_M",
+        "created_at": "2026-10-23T19:34:28.891184452Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 2735183934,
+        "load_duration": 4579896,
+        "prompt_eval_count": 94,
+        "prompt_eval_cached_count": 13,
+        "prompt_eval_duration": 218503000,
+        "eval_count": 46,
+        "eval_duration": 2483476000
+      },
+      "tokens_per_second": 18.5224258257378,
+      "resources": [
+        {
+          "at": 1792784066.20014,
+          "memory_available_bytes": 264833261568,
+          "gpu_csv": "0, 21312, 36, 61, 214.39\n1, 21224, 53, 73, 218.53\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784066.7283158,
+          "memory_available_bytes": 264799858688,
+          "gpu_csv": "0, 21312, 40, 63, 216.30\n1, 21224, 62, 74, 211.15\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784067.253744,
+          "memory_available_bytes": 264801124352,
+          "gpu_csv": "0, 21312, 49, 62, 216.85\n1, 21224, 53, 74, 211.10\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784067.780617,
+          "memory_available_bytes": 264797667328,
+          "gpu_csv": "0, 21312, 52, 63, 219.89\n1, 21224, 55, 74, 217.85\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784068.314785,
+          "memory_available_bytes": 264791740416,
+          "gpu_csv": "0, 21312, 45, 63, 219.43\n1, 21224, 48, 74, 218.28\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784068.8490837,
+          "memory_available_bytes": 264793522176,
+          "gpu_csv": "0, 21312, 48, 63, 219.55\n1, 21224, 52, 75, 219.09\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 43884541377,
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:28.891311315+02:00",
+            "size_vram": 43884541377,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "diagnosis",
+      "prompt_sha256": "b1d903cec8dd41704728845d6e2ae41150abb63921dfe54bef141f998afa2540",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "original_type": "entier",
+          "original_value": 0,
+          "cause": "hors_plage",
+          "repair": "remplacer_par_8091"
+        }
+      }
+    },
+    {
+      "model": "llama3.3:70b-instruct-q4_K_M",
+      "text": "```json\n{\n  \"steps\": [\n    {\n      \"id\": 1,\n      \"depends\": [],\n      \"deliverables\": [\"csv_preserved\"]\n    },\n    {\n      \"id\": 2,\n      \"depends\": [1],\n      \"deliverables\": [\"json\"]\n    },\n    {\n      \"id\": 3,\n      \"depends\": [2],\n      \"deliverables\": [\"manifest\"]\n    },\n    {\n      \"id\": 4,\n      \"depends\": [2, 3],\n      \"deliverables\": [\"report\"]\n    },\n    {\n      \"id\": 5,\n      \"depends\": [4],\n      \"deliverables\": [\"verification\"]\n    }\n  ]\n}\n```",
+      "error": null,
+      "elapsed_s": 8.335446865996346,
+      "first_content_s": 0.27201113799674204,
+      "server_metrics": {
+        "model": "llama3.3:70b-instruct-q4_K_M",
+        "created_at": "2026-10-23T19:34:37.228198505Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 8334862845,
+        "load_duration": 2175871,
+        "prompt_eval_count": 116,
+        "prompt_eval_cached_count": 12,
+        "prompt_eval_duration": 249094000,
+        "eval_count": 147,
+        "eval_duration": 8063522000
+      },
+      "tokens_per_second": 18.230247279042583,
+      "resources": [
+        {
+          "at": 1792784068.9302886,
+          "memory_available_bytes": 264791683072,
+          "gpu_csv": "0, 21312, 48, 62, 219.75\n1, 21224, 52, 75, 219.09\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784069.455609,
+          "memory_available_bytes": 264744579072,
+          "gpu_csv": "0, 21312, 50, 62, 214.59\n1, 21224, 54, 76, 213.58\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784069.983261,
+          "memory_available_bytes": 264746164224,
+          "gpu_csv": "0, 21312, 55, 63, 214.54\n1, 21224, 54, 75, 214.09\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784070.515401,
+          "memory_available_bytes": 264747458560,
+          "gpu_csv": "0, 21312, 48, 62, 219.73\n1, 21224, 52, 75, 218.86\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784071.0479736,
+          "memory_available_bytes": 264743301120,
+          "gpu_csv": "0, 21312, 51, 62, 219.86\n1, 21224, 54, 75, 218.15\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784071.5790467,
+          "memory_available_bytes": 264742526976,
+          "gpu_csv": "0, 21312, 53, 63, 220.14\n1, 21224, 55, 75, 218.15\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784072.105057,
+          "memory_available_bytes": 264762138624,
+          "gpu_csv": "0, 21312, 47, 62, 220.19\n1, 21224, 51, 76, 218.29\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784072.6322372,
+          "memory_available_bytes": 264756330496,
+          "gpu_csv": "0, 21312, 50, 63, 219.50\n1, 21224, 54, 75, 218.83\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784073.1682384,
+          "memory_available_bytes": 264755781632,
+          "gpu_csv": "0, 21312, 44, 62, 219.75\n1, 21224, 55, 75, 218.98\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784073.7052991,
+          "memory_available_bytes": 264756592640,
+          "gpu_csv": "0, 21312, 47, 62, 220.32\n1, 21224, 51, 75, 219.05\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784074.2358594,
+          "memory_available_bytes": 264752697344,
+          "gpu_csv": "0, 21312, 51, 63, 219.56\n1, 21224, 54, 75, 217.79\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784074.7608094,
+          "memory_available_bytes": 264757129216,
+          "gpu_csv": "0, 21312, 44, 63, 219.74\n1, 21224, 55, 75, 218.84\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784075.2862751,
+          "memory_available_bytes": 264749158400,
+          "gpu_csv": "0, 21312, 48, 63, 220.12\n1, 21224, 52, 75, 219.09\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784075.8177044,
+          "memory_available_bytes": 264743473152,
+          "gpu_csv": "0, 21312, 51, 63, 219.66\n1, 21224, 55, 76, 219.12\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784076.3533092,
+          "memory_available_bytes": 264740085760,
+          "gpu_csv": "0, 21312, 44, 63, 219.68\n1, 21224, 54, 76, 218.86\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784076.8823216,
+          "memory_available_bytes": 264744611840,
+          "gpu_csv": "0, 21312, 48, 63, 220.51\n1, 21224, 53, 76, 219.32\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 43884541377,
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:37.228336263+02:00",
+            "size_vram": 43884541377,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "coverage",
+      "prompt_sha256": "aae0c58c6dd798a35124b759c3b53876f35b5c3a9f6b7b6c829f0f2aa465de07",
+      "evaluation": {
+        "pass": false,
+        "parsed": {
+          "steps": [
+            {
+              "id": 1,
+              "depends": [],
+              "deliverables": [
+                "csv_preserved"
+              ]
+            },
+            {
+              "id": 2,
+              "depends": [
+                1
+              ],
+              "deliverables": [
+                "json"
+              ]
+            },
+            {
+              "id": 3,
+              "depends": [
+                2
+              ],
+              "deliverables": [
+                "manifest"
+              ]
+            },
+            {
+              "id": 4,
+              "depends": [
+                2,
+                3
+              ],
+              "deliverables": [
+                "report"
+              ]
+            },
+            {
+              "id": 5,
+              "depends": [
+                4
+              ],
+              "deliverables": [
+                "verification"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "llama3.3:70b-instruct-q4_K_M",
+      "text": "{code:\"def normalize(value):\\n    if isinstance(value, bool) or isinstance(value, str) or isinstance(value, float):\\n        raise ValueError\\n    if isinstance(value, int) and 1 <= value <= 65535:\\n        return value\\n    else:\\n        return 8091\"}",
+      "error": null,
+      "elapsed_s": 3.8085888720015646,
+      "first_content_s": 0.26601788400148507,
+      "server_metrics": {
+        "model": "llama3.3:70b-instruct-q4_K_M",
+        "created_at": "2026-10-23T19:34:41.061663929Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 3807543241,
+        "load_duration": 4893580,
+        "prompt_eval_count": 100,
+        "prompt_eval_cached_count": 12,
+        "prompt_eval_duration": 223799000,
+        "eval_count": 65,
+        "eval_duration": 3542304000
+      },
+      "tokens_per_second": 18.349639104944128,
+      "resources": [
+        {
+          "at": 1792784077.296711,
+          "memory_available_bytes": 264745738240,
+          "gpu_csv": "0, 21312, 45, 62, 214.60\n1, 21224, 48, 75, 219.27\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784077.8223522,
+          "memory_available_bytes": 264659939328,
+          "gpu_csv": "0, 21312, 54, 63, 213.60\n1, 21224, 51, 76, 211.96\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784078.3485098,
+          "memory_available_bytes": 264659693568,
+          "gpu_csv": "0, 21312, 50, 63, 213.51\n1, 21224, 49, 76, 210.82\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784078.8781095,
+          "memory_available_bytes": 264654512128,
+          "gpu_csv": "0, 21312, 55, 63, 218.45\n1, 21224, 54, 76, 218.42\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784079.4125915,
+          "memory_available_bytes": 264651124736,
+          "gpu_csv": "0, 21312, 54, 63, 219.02\n1, 21224, 50, 77, 217.76\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784079.9412644,
+          "memory_available_bytes": 264654532608,
+          "gpu_csv": "0, 21312, 53, 63, 219.41\n1, 21224, 45, 76, 218.15\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784080.4675643,
+          "memory_available_bytes": 264663158784,
+          "gpu_csv": "0, 21312, 55, 63, 219.80\n1, 21224, 51, 77, 218.97\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784080.9946537,
+          "memory_available_bytes": 264665796608,
+          "gpu_csv": "0, 21312, 51, 63, 219.38\n1, 21224, 48, 77, 218.94\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 43884541377,
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:41.061829215+02:00",
+            "size_vram": 43884541377,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "code",
+      "prompt_sha256": "5cf76455c1c8ac0a0a7ed9313d5991f971e004094e6bc91db0372d4c265dac7b",
+      "evaluation": {
+        "pass": false,
+        "reason": "Output is not complete JSON"
+      }
+    },
+    {
+      "model": "qwen3-coder-next:q4_K_M",
+      "text": "{\n  \"audio_count\": 14,\n  \"mean_seconds\": 6.336553571428571\n}",
+      "error": null,
+      "elapsed_s": 18.215516039999784,
+      "first_content_s": 17.78827789299976,
+      "server_metrics": {
+        "model": "qwen3-coder-next:q4_K_M",
+        "created_at": "2026-10-23T19:34:59.301966181Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 18214368850,
+        "load_duration": 17290126615,
+        "prompt_eval_count": 90,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 492667000,
+        "eval_count": 36,
+        "eval_duration": 426910000
+      },
+      "tokens_per_second": 84.32690731067439,
+      "resources": [
+        {
+          "at": 1792784081.1286507,
+          "memory_available_bytes": 264685486080,
+          "gpu_csv": "0, 21312, 51, 62, 217.67\n1, 21224, 48, 76, 218.65\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784081.6821284,
+          "memory_available_bytes": 265340325888,
+          "gpu_csv": "0, 270, 100, 63, 181.21\n1, 67, 100, 76, 181.12\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784082.2280555,
+          "memory_available_bytes": 265521278976,
+          "gpu_csv": "0, 11, 1, 62, 154.84\n1, 52, 2, 76, 157.68\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784082.7673192,
+          "memory_available_bytes": 265344540672,
+          "gpu_csv": "0, 34, 1, 62, 159.78\n1, 55, 3, 76, 165.30\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784083.3117096,
+          "memory_available_bytes": 265199828992,
+          "gpu_csv": "0, 270, 1, 62, 156.45\n1, 312, 0, 76, 163.41\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784083.8562272,
+          "memory_available_bytes": 265143033856,
+          "gpu_csv": "0, 270, 0, 61, 149.81\n1, 312, 0, 74, 153.44\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784084.4015403,
+          "memory_available_bytes": 265053118464,
+          "gpu_csv": "0, 270, 0, 61, 131.43\n1, 312, 0, 74, 137.35\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784084.9464564,
+          "memory_available_bytes": 265048014848,
+          "gpu_csv": "0, 270, 0, 61, 122.43\n1, 312, 0, 73, 127.76\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784085.4918935,
+          "memory_available_bytes": 265047535616,
+          "gpu_csv": "0, 306, 0, 61, 122.24\n1, 352, 1, 73, 127.44\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784086.0367537,
+          "memory_available_bytes": 265048698880,
+          "gpu_csv": "0, 270, 0, 61, 122.03\n1, 312, 1, 73, 127.23\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784086.5817516,
+          "memory_available_bytes": 265050009600,
+          "gpu_csv": "0, 270, 0, 60, 121.64\n1, 312, 1, 73, 127.23\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784087.1262937,
+          "memory_available_bytes": 265033310208,
+          "gpu_csv": "0, 306, 0, 60, 121.51\n1, 352, 1, 73, 127.25\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784087.6722336,
+          "memory_available_bytes": 265028632576,
+          "gpu_csv": "0, 270, 0, 60, 121.45\n1, 312, 1, 73, 127.12\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784088.2163758,
+          "memory_available_bytes": 265023504384,
+          "gpu_csv": "0, 270, 0, 60, 121.44\n1, 312, 0, 73, 127.02\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784088.7604449,
+          "memory_available_bytes": 264994635776,
+          "gpu_csv": "0, 270, 0, 60, 121.46\n1, 312, 0, 73, 126.81\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784089.3044398,
+          "memory_available_bytes": 264963944448,
+          "gpu_csv": "0, 270, 0, 60, 121.48\n1, 312, 0, 73, 126.56\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784089.8479366,
+          "memory_available_bytes": 264938442752,
+          "gpu_csv": "0, 270, 0, 60, 121.14\n1, 312, 0, 73, 126.50\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784090.3925385,
+          "memory_available_bytes": 264956399616,
+          "gpu_csv": "0, 22278, 62, 61, 126.00\n1, 22780, 0, 73, 126.55\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784090.9364676,
+          "memory_available_bytes": 264955486208,
+          "gpu_csv": "0, 22278, 62, 61, 144.90\n1, 22780, 0, 73, 126.60\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784091.4797893,
+          "memory_available_bytes": 264958267392,
+          "gpu_csv": "0, 22278, 62, 61, 157.75\n1, 22780, 0, 73, 126.55\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784092.0246713,
+          "memory_available_bytes": 264953188352,
+          "gpu_csv": "0, 22278, 62, 61, 157.60\n1, 22780, 0, 73, 126.54\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784092.568395,
+          "memory_available_bytes": 264972427264,
+          "gpu_csv": "0, 22278, 61, 61, 157.37\n1, 22780, 0, 73, 126.55\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784093.112556,
+          "memory_available_bytes": 264955715584,
+          "gpu_csv": "0, 22278, 63, 61, 157.31\n1, 22780, 0, 73, 126.63\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784093.6562333,
+          "memory_available_bytes": 264961802240,
+          "gpu_csv": "0, 22278, 0, 61, 155.20\n1, 22780, 99, 75, 136.79\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784094.1993785,
+          "memory_available_bytes": 264947453952,
+          "gpu_csv": "0, 22278, 0, 61, 152.97\n1, 22780, 99, 75, 153.08\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784094.742581,
+          "memory_available_bytes": 264947453952,
+          "gpu_csv": "0, 22278, 0, 61, 152.97\n1, 22780, 99, 75, 162.60\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784095.2854736,
+          "memory_available_bytes": 264946425856,
+          "gpu_csv": "0, 22278, 0, 60, 143.98\n1, 22780, 99, 75, 162.64\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784095.828366,
+          "memory_available_bytes": 264948240384,
+          "gpu_csv": "0, 22278, 0, 60, 143.98\n1, 22780, 99, 75, 162.64\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784096.3723683,
+          "memory_available_bytes": 264954544128,
+          "gpu_csv": "0, 22278, 0, 60, 132.23\n1, 22780, 99, 75, 162.80\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784096.915374,
+          "memory_available_bytes": 264968892416,
+          "gpu_csv": "0, 22278, 0, 60, 132.23\n1, 22780, 99, 75, 162.93\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784097.4600985,
+          "memory_available_bytes": 264979120128,
+          "gpu_csv": "0, 22278, 0, 60, 120.92\n1, 22780, 0, 75, 161.22\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784098.0053716,
+          "memory_available_bytes": 264977321984,
+          "gpu_csv": "0, 23068, 0, 60, 120.52\n1, 23006, 0, 75, 159.60\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784098.5312104,
+          "memory_available_bytes": 264733302784,
+          "gpu_csv": "0, 23136, 0, 61, 121.78\n1, 23064, 6, 75, 161.82\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784099.0756052,
+          "memory_available_bytes": 264648454144,
+          "gpu_csv": "0, 23136, 22, 62, 151.05\n1, 23074, 12, 75, 167.65\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 52817449395,
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:49:59.302134536+02:00",
+            "size_vram": 47697048369,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "reasoning",
+      "prompt_sha256": "2e9684cbb6a4b8bccdea68bfb646c2332ed3711ecf602bca6a60baecaf8d294c",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "audio_count": 14,
+          "mean_seconds": 6.336553571428571
+        }
+      }
+    },
+    {
+      "model": "qwen3-coder-next:q4_K_M",
+      "text": "{\n  \"developer\": \"Codex\",\n  \"executor\": \"JARVIS\",\n  \"first_result\": \"FAIL\",\n  \"final_result\": \"PASS\",\n  \"idempotence_proven\": false\n}",
+      "error": null,
+      "elapsed_s": 0.9984405040013371,
+      "first_content_s": 0.4784895710035926,
+      "server_metrics": {
+        "model": "qwen3-coder-next:q4_K_M",
+        "created_at": "2026-10-23T19:35:00.319635911Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 997416784,
+        "load_duration": 2474615,
+        "prompt_eval_count": 90,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 421165000,
+        "eval_count": 46,
+        "eval_duration": 519711000
+      },
+      "tokens_per_second": 88.51073000186642,
+      "resources": [
+        {
+          "at": 1792784099.3592966,
+          "memory_available_bytes": 264642236416,
+          "gpu_csv": "0, 23136, 26, 61, 166.44\n1, 23074, 32, 75, 169.99\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784099.9052722,
+          "memory_available_bytes": 264446300160,
+          "gpu_csv": "0, 23148, 48, 62, 186.63\n1, 23088, 2, 75, 159.05\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 52817449395,
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:50:00.319853277+02:00",
+            "size_vram": 47697048369,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "facts",
+      "prompt_sha256": "75a081660d05366b7f85277dc8bc71eb0efbc5c7e725a739da2b27efa2eb542e",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "developer": "Codex",
+          "executor": "JARVIS",
+          "first_result": "FAIL",
+          "final_result": "PASS",
+          "idempotence_proven": false
+        }
+      }
+    },
+    {
+      "model": "qwen3-coder-next:q4_K_M",
+      "text": "{\n  \"vram_gib\": 24,\n  \"vram_gb_decimal\": 25.769803776,\n  \"contiguous_pool\": false\n}",
+      "error": null,
+      "elapsed_s": 0.896484775999852,
+      "first_content_s": 0.4100765299954219,
+      "server_metrics": {
+        "model": "qwen3-coder-next:q4_K_M",
+        "created_at": "2026-10-23T19:35:01.242438068Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 895516839,
+        "load_duration": 1992031,
+        "prompt_eval_count": 81,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 347253000,
+        "eval_count": 43,
+        "eval_duration": 486041000
+      },
+      "tokens_per_second": 88.46990274483016,
+      "resources": [
+        {
+          "at": 1792784100.3837218,
+          "memory_available_bytes": 264444125184,
+          "gpu_csv": "0, 23148, 19, 61, 189.98\n1, 23088, 35, 75, 165.55\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784100.9297729,
+          "memory_available_bytes": 264281784320,
+          "gpu_csv": "0, 23148, 42, 62, 197.42\n1, 23088, 5, 75, 164.13\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 52817449395,
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:50:01.242672482+02:00",
+            "size_vram": 47697048369,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "units",
+      "prompt_sha256": "938a0c94c1f9c9728ef0c71fa6840d8c2f8d7f29649bb7438fbf9d141100013a",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "vram_gib": 24,
+          "vram_gb_decimal": 25.769803776,
+          "contiguous_pool": false
+        }
+      }
+    },
+    {
+      "model": "qwen3-coder-next:q4_K_M",
+      "text": "{\n  \"original_type\": \"int\",\n  \"original_value\": 0,\n  \"cause\": \"hors_plage\",\n  \"repair\": \"remplacer_par_8091\"\n}",
+      "error": null,
+      "elapsed_s": 0.9667794369961484,
+      "first_content_s": 0.4742575569980545,
+      "server_metrics": {
+        "model": "qwen3-coder-next:q4_K_M",
+        "created_at": "2026-10-23T19:35:02.235654778Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 965645215,
+        "load_duration": 2268938,
+        "prompt_eval_count": 94,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 419401000,
+        "eval_count": 43,
+        "eval_duration": 492392000
+      },
+      "tokens_per_second": 87.32879494386586,
+      "resources": [
+        {
+          "at": 1792784101.3070638,
+          "memory_available_bytes": 264286642176,
+          "gpu_csv": "0, 23148, 25, 62, 197.65\n1, 23088, 36, 75, 167.38\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784101.8515534,
+          "memory_available_bytes": 264156741632,
+          "gpu_csv": "0, 23148, 38, 61, 189.25\n1, 23088, 5, 75, 164.00\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 52817449395,
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:50:02.235876217+02:00",
+            "size_vram": 47697048369,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "diagnosis",
+      "prompt_sha256": "b1d903cec8dd41704728845d6e2ae41150abb63921dfe54bef141f998afa2540",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "original_type": "int",
+          "original_value": 0,
+          "cause": "hors_plage",
+          "repair": "remplacer_par_8091"
+        }
+      }
+    },
+    {
+      "model": "qwen3-coder-next:q4_K_M",
+      "text": "{\n  \"steps\": [\n    {\n      \"id\": \"csv_preserved\",\n      \"depends\": [],\n      \"deliverables\": [\"csv_preserved\"]\n    },\n    {\n      \"id\": \"json\",\n      \"depends\": [\"csv_preserved\"],\n      \"deliverables\": [\"json\"]\n    },\n    {\n      \"id\": \"manifest\",\n      \"depends\": [\"json\"],\n      \"deliverables\": [\"manifest\"]\n    },\n    {\n      \"id\": \"report\",\n      \"depends\": [\"json\"],\n      \"deliverables\": [\"report\"]\n    },\n    {\n      \"id\": \"verification\",\n      \"depends\": [\"csv_preserved\", \"json\", \"manifest\", \"report\"],\n      \"deliverables\": [\"verification\"]\n    }\n  ]\n}",
+      "error": null,
+      "elapsed_s": 2.3094011249995674,
+      "first_content_s": 0.46692566899582744,
+      "server_metrics": {
+        "model": "qwen3-coder-next:q4_K_M",
+        "created_at": "2026-10-23T19:35:04.549750535Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 2308326374,
+        "load_duration": 4853997,
+        "prompt_eval_count": 116,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 406748000,
+        "eval_count": 155,
+        "eval_duration": 1842031000
+      },
+      "tokens_per_second": 84.1462494387988,
+      "resources": [
+        {
+          "at": 1792784102.270362,
+          "memory_available_bytes": 264169029632,
+          "gpu_csv": "0, 23148, 27, 61, 176.63\n1, 23088, 35, 75, 164.69\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784102.8149037,
+          "memory_available_bytes": 264007565312,
+          "gpu_csv": "0, 23152, 34, 61, 170.13\n1, 23090, 11, 75, 162.00\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784103.3549812,
+          "memory_available_bytes": 264001093632,
+          "gpu_csv": "0, 23152, 27, 61, 172.40\n1, 23090, 37, 76, 167.26\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784103.9006567,
+          "memory_available_bytes": 263984123904,
+          "gpu_csv": "0, 23152, 24, 61, 170.11\n1, 23090, 31, 76, 178.49\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784104.4442422,
+          "memory_available_bytes": 263985983488,
+          "gpu_csv": "0, 23152, 27, 61, 161.21\n1, 23090, 35, 76, 177.14\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 52817449395,
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:50:04.550092068+02:00",
+            "size_vram": 47697048369,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "coverage",
+      "prompt_sha256": "aae0c58c6dd798a35124b759c3b53876f35b5c3a9f6b7b6c829f0f2aa465de07",
+      "evaluation": {
+        "pass": false,
+        "parsed": {
+          "steps": [
+            {
+              "id": "csv_preserved",
+              "depends": [],
+              "deliverables": [
+                "csv_preserved"
+              ]
+            },
+            {
+              "id": "json",
+              "depends": [
+                "csv_preserved"
+              ],
+              "deliverables": [
+                "json"
+              ]
+            },
+            {
+              "id": "manifest",
+              "depends": [
+                "json"
+              ],
+              "deliverables": [
+                "manifest"
+              ]
+            },
+            {
+              "id": "report",
+              "depends": [
+                "json"
+              ],
+              "deliverables": [
+                "report"
+              ]
+            },
+            {
+              "id": "verification",
+              "depends": [
+                "csv_preserved",
+                "json",
+                "manifest",
+                "report"
+              ],
+              "deliverables": [
+                "verification"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "qwen3-coder-next:q4_K_M",
+      "text": "{\"code\": \"def normalize(value):\\n    if isinstance(value, bool):\\n        raise ValueError(\\\"booléen non autorisé\\\")\\n    if isinstance(value, str):\\n        raise ValueError(\\\"chaîne non autorisée\\\")\\n    if isinstance(value, float):\\n        raise ValueError(\\\"flottant non autorisé\\\")\\n    if not isinstance(value, int):\\n        raise ValueError(\\\"type non supporté\\\")\\n    if 1 <= value <= 65535:\\n        return value\\n    return 8091\"}",
+      "error": null,
+      "elapsed_s": 1.8233732110020355,
+      "first_content_s": 0.4554359280009521,
+      "server_metrics": {
+        "model": "qwen3-coder-next:q4_K_M",
+        "created_at": "2026-10-23T19:35:06.39967576Z",
+        "done": true,
+        "done_reason": "stop",
+        "total_duration": 1822618933,
+        "load_duration": 2002413,
+        "prompt_eval_count": 102,
+        "prompt_eval_cached_count": 0,
+        "prompt_eval_duration": 399884000,
+        "eval_count": 120,
+        "eval_duration": 1367550000
+      },
+      "tokens_per_second": 87.74816277284194,
+      "resources": [
+        {
+          "at": 1792784104.6147819,
+          "memory_available_bytes": 263978741760,
+          "gpu_csv": "0, 23152, 22, 60, 158.20\n1, 23090, 32, 75, 177.44\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784105.161701,
+          "memory_available_bytes": 263818141696,
+          "gpu_csv": "0, 23152, 51, 62, 158.19\n1, 23090, 22, 75, 164.44\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784105.7048059,
+          "memory_available_bytes": 263800401920,
+          "gpu_csv": "0, 23152, 26, 62, 187.89\n1, 23090, 35, 76, 167.22\n",
+          "probe_returncode": 0
+        },
+        {
+          "at": 1792784106.2484918,
+          "memory_available_bytes": 263808344064,
+          "gpu_csv": "0, 23152, 26, 62, 213.13\n1, 23090, 35, 76, 181.32\n",
+          "probe_returncode": 0
+        }
+      ],
+      "resident": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 52817449395,
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-23T21:50:06.399900722+02:00",
+            "size_vram": 47697048369,
+            "context_length": 4096,
+            "runner": "llamacpp"
+          }
+        ]
+      },
+      "case": "code",
+      "prompt_sha256": "5cf76455c1c8ac0a0a7ed9313d5991f971e004094e6bc91db0372d4c265dac7b",
+      "evaluation": {
+        "pass": true,
+        "parsed": {
+          "code": "def normalize(value):\n    if isinstance(value, bool):\n        raise ValueError(\"booléen non autorisé\")\n    if isinstance(value, str):\n        raise ValueError(\"chaîne non autorisée\")\n    if isinstance(value, float):\n        raise ValueError(\"flottant non autorisé\")\n    if not isinstance(value, int):\n        raise ValueError(\"type non supporté\")\n    if 1 <= value <= 65535:\n        return value\n    return 8091"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "qwen3.5:27b-q4_K_M": {
+      "passed": 4,
+      "total": 6
+    },
+    "llama3.3:70b-instruct-q4_K_M": {
+      "passed": 2,
+      "total": 6
+    },
+    "qwen3-coder-next:q4_K_M": {
+      "passed": 5,
+      "total": 6
+    }
+  }
+}

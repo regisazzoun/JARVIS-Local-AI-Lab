@@ -104,6 +104,7 @@ class HybridRouter:
         states=[]
         for name,node in self.nodes.items():
             row={'node':name,'enabled':bool(node.get('enabled')),'roles':node.get('roles',[])}
+            row['assigned_model']=node.get('conversation_model') if name=='Mac-mini' else node.get('mission_model')
             if not node.get('enabled'):
                 row.update(state='offline_pending',reason='Not installed/enrolled; no network request attempted');states.append(row);continue
             try:
@@ -182,6 +183,13 @@ class HybridRouter:
             effective={**payload,'model':model,'stream':True,'keep_alive':-1 if name=='Mac-mini' else '15m'}
             if model.startswith(('llama','qwen3-coder-next')):effective.pop('think',None)
             effective['options']={**payload.get('options',{})}
+            context=node.get('inference_num_ctx')
+            if context:
+                if effective['options'].get('num_ctx',context)>context:
+                    raise ResourceUnavailable('Requested context exceeds measured node profile: '+name)
+                # A single model runner per node must not reload its KV allocation
+                # between conversation, summaries and fallback/escalation calls.
+                effective['options']['num_ctx']=context
             if role=='mission':effective['options']['num_predict']=self.config.get('mission_segment_tokens',4096)
             request=urllib.request.Request(node['url'].rstrip('/')+'/api/chat',data=json.dumps(effective).encode(),headers={'Content-Type':'application/json'})
             message={'role':'assistant','content':''};done=None

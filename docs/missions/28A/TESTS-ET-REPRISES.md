@@ -1,4 +1,4 @@
-# Tests28A — état intermédiaire
+# Tests28A — historique et réception ciblée
 
 🟡 En cours au23 octobre2026. Les résultats ci-dessous ne valent pas réception globale.
 
@@ -22,3 +22,21 @@ Restent notamment le comparatif qualitatif des modèles, le choix du moteur Dell
 ## Complément — reprise du test après la boucle
 
 221tests logiciels passent après corrections du contexte et du vérificateur. JARVIS a réellement lancé les six inférences32B :3/6après correction d’un faux FAIL dû au vérificateur Codex, verdict2/6initial conservé. Les résultats ne valent pas gain qualitatif. Le transfert a rencontré un dossier créé root par Codex ; ce seul propriétaire a été corrigé, la réutilisation par JARVIS est suivie dans la mission. Le70B a été remplacé provisoirement par le pilote27B connu après des erreurs d’appel répétées ; ce repli n’est pas le choix final du modèle Dell. Voir INCIDENT-REPRISE-TESTS.md.
+
+## Suite actuelle et résultats acquis
+
+237tests logiciels passent dans le venv installé après correction des références parent de vérification, garde de clôture sémantique des missions dirigées, contextes stables, découverte d’outils, verrouillage multi-slots et vue bornée compute_status. Les jeux logiciels sont des fixtures ; ils ne prouvent pas l’autonomie de JARVIS.
+
+Le comparatif effectif est terminé :18réponses27/70/80B, scores4/6,2/6,5/6 ;32B3/6sur ses six réponses précédentes. Le cas coverage est ambigu et la revue indépendante n’en déduit pas une incapacité générale. Le80B est installé comme pilote Dell, le27B reste conversationnel sur Mac.
+
+C et D sont reçus indépendamment sur leurs preuves : priorité critique entre inférences, repli après erreur TCP réelle sur copie de configuration, conversations locales pendant charge, quotas et retour GPU250W/carte après la campagne JARVIS699,37W. Aucun essai matériel déjà reçu n’est répété.
+
+Deux missions canoniques sont observées running en parallèle ; leurs opérations sont distinctes et leur file GPU commune. La première observation sans chevauchement (mission secondaire draft) est conservée ; Codex a corrigé son dispatch. Six réponses API locales pendant chevauchement prennent0,828–0,961s.
+
+## Programme de consolidation : fausse réussite détectée
+
+Une première sortie JSON écrite directement avec les valeurs attendues ne prouve pas le programme demandé : elle a été rejetée par Codex. JARVIS a ensuite écrit consolider.py ; sa première version additionne11succès sur18cas pour chacun des trois modèles. Le vérificateur protégé observe FAIL sur quatre variantes malgré les codes retour0 et les manifestes valides. Les entrées changent des évaluations, retirent et ajoutent un cas, sans mettre à jour summary : le programme doit réellement lire les cas par modèle. Les originaux restent inchangés. La correction et sa réception sont encore suivies ; aucun PASS fictif attribué.
+
+## Incident de contexte pendant la réception
+
+Les métriques sérialisées de tous les jobs compute_status gonflaient le contexte et provoquaient des réponses répétitives sur des états anciens. Codex a borné la vue aux huit jobs récents et à leurs métriques utiles, en conservant tous les reçus SQLite. Une interruption technique bornée des workers permet le déploiement au checkpoint et la reconstruction du contexte ; elle n’est pas un abandon ni une nouvelle demande d’autorisation. Le modèle doit ensuite réutiliser réellement la fonction corrigée.

@@ -76,6 +76,13 @@ class Tests(unittest.TestCase):
         self.assertNotIn('999 tests passed',body)
         self.assertIn('Codex',body)
         self.assertTrue(any(e['kind']=='report_facts_checked' for e in self.store.events(self.m)))
+    def test_effective_routed_model_is_kept_in_report_evidence(self):
+        from jarvis.mission_reporting import facts
+        from jarvis.durable_cycle import model_observation
+        self.store.event(self.m,'compute_route_observed',result={'node':'Dell1','effective_model':'actual80','requested_model':'historical27','role':'mission','compute_job':'fixture'})
+        data=facts(self.store,self.m)
+        self.assertEqual(data['inference_routes'][0]['effective_model'],'actual80')
+        self.assertEqual(model_observation(data)['inference_routes'][0]['requested_model'],'historical27')
 
     def test_operation_replay_restart_conflict_and_unknown(self):
         r=self.registry();register(r)

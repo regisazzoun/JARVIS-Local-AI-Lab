@@ -65,6 +65,23 @@ class HybridTests(unittest.TestCase):
     def test_complexity_classifier_preserves_daily_conversation(self):
         self.assertEqual(classify_request('Bonjour, quelle heure est-il ?'),'conversation')
         self.assertEqual(classify_request('Fais une analyse approfondie de ce problème.'),'critical')
+    def test_conversation_and_fallback_share_a_stable_context_profile(self):
+        self.config['nodes']['Mac-mini']['inference_num_ctx']=16384
+        def fetch(url):
+            if 'dell' in url:raise OSError('fixture unreachable')
+            return self.fetch(url)
+        r=HybridRouter(self.config,self.database,fetch)
+        class Reply:
+            def __enter__(self):return self
+            def __exit__(self,*args):pass
+            def __iter__(self):return iter([json.dumps({'message':{'content':'OK'},'done':True}).encode()])
+        with patch('jarvis.compute.urllib.request.urlopen',side_effect=lambda *a,**kw:Reply()) as opened:
+            for role in ['conversation','critical']:
+                message,metrics=r.infer({'messages':[],'options':{'num_ctx':8192}},role)
+                sent=json.loads(opened.call_args.args[0].data)
+                self.assertEqual(sent['options']['num_ctx'],16384)
+                self.assertEqual(metrics['effective_model'],'qwen27')
+                self.assertEqual(message['content'],'OK')
     def test_streamed_inference_preserves_tools_records_actual_selected_model(self):
         r=HybridRouter(self.config,self.database,self.fetch)
         class Reply:

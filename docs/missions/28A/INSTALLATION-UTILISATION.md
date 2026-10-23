@@ -15,3 +15,13 @@ L’installation d’un candidat autorisé passe par `host_remote` avec `host=de
 Les profils GPU sont disponibles par les actions fixes de la politique : statut, balanced, interactive, mission et campagne bornée. Le profil normal est restauré automatiquement. Le nouveau TTS ne remplace pas Piper ; LiveKit, JL-01/JL-02 et les missions distinctes restent préservés.
 
 Si aucun travail n’est prêt parce que les autres dépendent d’une attente, le moteur conserve le checkpoint en waiting_external sans cycles d’inférence vides. Ce statut décrit une dépendance technique/de coordination et ne signifie pas automatiquement une demande de permission humaine.
+
+## Configuration de réception actuelle
+
+Le modèle de conversation est `qwen3.5:27b-q4_K_M` sur Mac, contexte fixe16384. Le pilote mission Dell est `qwen3-coder-next:q4_K_M`, contexte24576,4096tokens maximum par segment. `think` n’est pas envoyé au modèle Coder-Next qui ne supporte pas ce paramètre. L’attente critique est bornée à2s avant repli local. Les fichiers de configuration installés restent sous `/opt/jarvis/conversation/config/13e.json` ; les adresses et identités privées ne sont pas des livrables Git.
+
+Les deux unités de worker sont actives et activées au démarrage : `jarvis-mission-worker.service --slot1` et `jarvis-mission-worker@2.service`. Les modèles lourds restent sérialisés par la file Dell. Le template publié ne démarre aucun Dell2. Un ancien worker sans slot ne peut pas coexister avec ces workers grâce au verrou global.
+
+Pour exécuter un programme dans le projet Dell, `host_remote` exige `host="dell-observe", action="project_exec", project="mission28a", command="..."`. Le chemin distant durable est `/opt/jarvis-lab/mission28a` ; `host_read_file` lit le Mac, sous `/var/lib/jarvis/projects/mission28a`, après `project_download`. Une erreur de chemin entre machines ou un paramètre project oublié ne nécessite pas une extension de droits.
+
+La réception du programme JARVIS utilise l’action fixe `hybrid_program_reception`. Le programme protégé Codex capture les sources, lance le code de JARVIS sans privilèges et compare ses sorties sur quatre jeux d’entrées. Le code retour0 signifie que la collecte a eu lieu ; seul le JSON observé `pass:true` avec4cas contrôlés et sources inchangées reçoit le programme. Les reçus protégés restent sous `/var/lib/jarvis-program-checks/`.

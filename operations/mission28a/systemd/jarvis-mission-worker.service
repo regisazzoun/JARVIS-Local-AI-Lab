@@ -9,7 +9,7 @@ Group=adminjarvis
 WorkingDirectory=/opt/jarvis/conversation
 Environment=JARVIS_WORKLOAD_CLASS=mission
 Slice=jarvis-background.slice
-ExecStart=/opt/jarvis/conversation/.venv/bin/python -m jarvis.worker --config /opt/jarvis/conversation/config/13e.json
+ExecStart=/opt/jarvis/conversation/.venv/bin/python -m jarvis.worker --config /opt/jarvis/conversation/config/13e.json --slot 1
 Restart=on-failure
 RestartSec=5
 TimeoutStopSec=700

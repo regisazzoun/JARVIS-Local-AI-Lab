@@ -89,7 +89,7 @@ def register(registry):
         chosen = matches[-1]
         if chosen['tool'] in ('host_policy', 'mission_progress', 'mission_plan', 'mission_note', 'active_memories'):
             raise ValueError('Cette observation ne prouve pas un résultat fonctionnel')
-        if json.loads(db.get(ident)['spec']).get('autonomous'):
+        if contract.get('semantic') or json.loads(db.get(ident)['spec']).get('autonomous'):
             from .mission_reporting import task_gate
             task_gate(registry, task, chosen)
         # Independent fresh read through the broker and the existing path policy.

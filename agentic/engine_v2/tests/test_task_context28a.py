@@ -10,6 +10,34 @@ from jarvis.durable_cycle import task_schemas
 
 
 class TaskContextTests(unittest.TestCase):
+    def test_compute_status_view_keeps_actual_routes_without_old_resource_corpus(self):
+        from jarvis.durable_cycle import model_observation
+        value={'conversation_model':'local27','nodes':[{'id':'Dell1','status':'ready'}],
+               'jobs':[{'id':str(i),'state':'finished','metrics':json.dumps({'effective_model':'actual80','end_to_end_s':2,'admission_resources':{'raw':'x'*20000}})} for i in range(20)]}
+        original=json.dumps(value)
+        view=model_observation(value)
+        self.assertEqual(view['jobs'][0]['metrics']['effective_model'],'actual80')
+        self.assertEqual([j['id'] for j in view['jobs']],[str(i) for i in range(8)])
+        self.assertEqual(view['recorded_jobs_count'],20)
+        self.assertLess(len(json.dumps(view)),5000)
+        self.assertEqual(json.dumps(value),original)
+
+    def test_known_tool_can_be_discovered_without_bypassing_execution_phase(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);memory=Memory(root/'runtime/memory.sqlite');cfg=json.loads((ROOT/'config/example.json').read_text())
+            cfg.update(durable_num_ctx=16384,durable_cycle_rounds=2);core=Core(cfg,memory);engine=Missions(core,root,start_worker=False)
+            m=engine.store.create('software fixture','local','conv')
+            engine.store.plan(m,[{'id':'active','title':'task','depends':[],'tools':['host_read_file']}])
+            seen=[]
+            def transport(payload):
+                seen.append({s['function']['name'] for s in payload['tools']})
+                return {'role':'assistant','tool_calls':[{'function':{'name':'runtime_versions','arguments':{}}}]}
+            registry=engine.execution_core.tools;registry.specs['runtime_versions']=('fixture read',{},[],'read_only',lambda a:{'observed':True})
+            engine.execution_core.transport=transport;engine.cycle.run(engine.store.get(m))
+            self.assertNotIn('runtime_versions',seen[0]);self.assertIn('runtime_versions',seen[1])
+            calls=[o for o in engine.store.observations(m) if o['tool']=='runtime_versions']
+            self.assertFalse(calls[0]['result']['ok']);self.assertTrue(calls[1]['result']['ok'])
+            self.assertNotIn('intervention_report',seen[1])
     def test_legacy_schemas_stay_available_without_a_tool_selection(self):
         schemas=[{'function':{'name':'host_remote'}},{'function':{'name':'other'}}]
         self.assertEqual(task_schemas(schemas,{}),schemas)

@@ -1,0 +1,10 @@
+{
+  "actor": "Codex",
+  "created": 1792784917.2105253,
+  "protected_checker_sha256": "24d6fae5a6785415708c0df0c4e7aa0baac462cbf8a57a0a7a3a7a8aa0d8f927",
+  "runtime_verifier_sha256": "ac2a81c140e98b02058a678daf526b1b2833dc55d306e22c54317e1d1eb314f5",
+  "source_program_required": "consolider.py",
+  "input_variants": 4,
+  "tests_passed": 233,
+  "reason": "Reject echoed static contract constants; require agent-authored input-derived program, exact manifest and unchanged source data"
+}
