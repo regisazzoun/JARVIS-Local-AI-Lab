@@ -1,0 +1,17 @@
+[Unit]
+Description=JARVIS existing durable engine — background worker
+After=network-online.target jarvis-host-bridge.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=adminjarvis
+Group=adminjarvis
+WorkingDirectory=/opt/jarvis/conversation
+Environment=JARVIS_WORKLOAD_CLASS=mission
+Slice=jarvis-background.slice
+ExecStart=/opt/jarvis/conversation/.venv/bin/python -m jarvis.worker --config /opt/jarvis/conversation/config/13e.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=700
+[Install]
+WantedBy=multi-user.target

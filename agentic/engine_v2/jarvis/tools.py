@@ -97,6 +97,8 @@ class Registry:
         register_skills(self)
         from .mcp_gateway import register as register_mcp
         register_mcp(self)
+        from .compute import register as register_compute
+        register_compute(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):

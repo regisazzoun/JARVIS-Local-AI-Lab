@@ -125,7 +125,8 @@ def main():
     lock=open(runtime/'application.lock','w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     config=json.loads(open(args.config).read());m=Memory(args.db);m.prune(config['retention_days']);core=Core(config,m);auth=Auth(config['auth_file'],config.get('secure_cookie',False),session_db=args.db)
     from .missions import Missions
-    core.missions=Missions(core,ROOT,recover_exclusive=True);core.tools.checkpoint=core.missions.checkpoint
+    worker_enabled=config.get('mission_worker_enabled',True)
+    core.missions=Missions(core,ROOT,start_worker=worker_enabled,recover_exclusive=worker_enabled);core.tools.checkpoint=core.missions.checkpoint
     # Bind is the definitive free-port check. Failure exits without affecting any existing listener.
     server=ThreadingHTTPServer(('127.0.0.1',config['port']),make_handler(core,auth));server.daemon_threads=False
     server.launcher=Launcher(ROOT)

@@ -28,6 +28,7 @@ class Missions:
         # A long durable task must not monopolize conversation/STT/TTS locks.
         from .core import Core
         self.execution_core=Core(dict(core.config),core.memory)
+        self.execution_core.config['compute_role']='mission'
         self.execution_core.config['ollama_route']=core.config.get('mission_ollama_route',core.config.get('ollama_route',[]))
         self.execution_core.tools.root=core.tools.root
         self.execution_core.missions=self

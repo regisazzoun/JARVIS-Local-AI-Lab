@@ -1,6 +1,8 @@
 """Owner-policy Unix broker. No policy changes are accepted over the model socket."""
 import concurrent.futures, datetime, hashlib, json, os, pathlib, pwd, re, signal, socket, socketserver, sqlite3, struct, subprocess, tempfile, time, uuid
 from capability_view import policy_identity, public_scope, diagnostic
+from contextvars import ContextVar
+WORKLOAD_CLASS=ContextVar('workload_class',default='interactive')
 P = pathlib.Path
 POLICY = P('/etc/jarvis/host-policy.json')
 STATE = P('/var/lib/jarvis-agent')
@@ -19,11 +21,12 @@ def db():
     CREATE TABLE IF NOT EXISTS capabilities(capability TEXT,resource TEXT,machine TEXT,scope TEXT,mode TEXT,state TEXT,granted TEXT,last_test TEXT,mission TEXT,revocation TEXT,PRIMARY KEY(capability,resource));
     CREATE TABLE IF NOT EXISTS requests(id TEXT PRIMARY KEY,created TEXT,payload TEXT,state TEXT,resolution TEXT);''')
     return c
-def run(argv, timeout=60, user=None, output_limit=16000):
+def run(argv, timeout=60, user=None, output_limit=16000, workload_slice=None):
     env={'PATH':'/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin','LANG':'C.UTF-8','HOME':'/root','DEBIAN_FRONTEND':'noninteractive','GH_PROMPT_DISABLED':'1','GIT_TERMINAL_PROMPT':'0'}
     if user:
         account=pwd.getpwnam(user); env['HOME']=account.pw_dir
         argv=['/usr/sbin/runuser','-u',user,'--']+argv
+    if workload_slice:argv=['/usr/bin/systemd-run','--quiet','--scope','--slice='+workload_slice,'--']+argv
     started=time.monotonic()
     with tempfile.TemporaryFile() as out, tempfile.TemporaryFile() as err:
         p=subprocess.Popen(argv,stdin=subprocess.DEVNULL,stdout=out,stderr=err,env=env,start_new_session=True)
@@ -60,6 +63,8 @@ def sandbox_args(command, cfg):
     return args
 
 def sandbox(command, cfg, timeout=60, output_limit=16000):
+    if WORKLOAD_CLASS.get()=='mission' and cfg.get('mission_resource_slice'):
+        return run(sandbox_args(command,cfg),min(timeout,300),cfg['user'],output_limit,workload_slice=cfg['mission_resource_slice'])
     return run(sandbox_args(command,cfg),min(timeout,300),cfg['user'],output_limit)
 
 def grant(cap,resource,state,result,cfg,mode='owner-policy'):
@@ -279,6 +284,13 @@ print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':
         if profile.get('identity_check'):
             checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
             if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
+        if action in ('model_pull','pull'):
+            management=profile.get('model_management',{})
+            model=a.get('model')
+            if op!='host_remote' or not profile.get('allow_admin') or model not in management.get('allowed_models',[]):
+                raise PermissionError('Model pull outside owner-policy model_management.allowed_models')
+            command=shlex.join(['python3',management['program'],'--model',model])
+            return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],command],580)
         if action in ('project_upload','project_download'):
             if op!='host_remote' or not profile.get('allow_admin'):raise PermissionError('Remote transfer not granted')
             from remote_project import transfer_file
@@ -401,11 +413,14 @@ class Handler(socketserver.StreamRequestHandler):
         if uid not in (0,pwd.getpwnam(cfg['user']).pw_uid):return
         self.request.settimeout(150);raw=self.rfile.readline(100001)
         ident=uuid.uuid4().hex;op='invalid';a={};started=time.monotonic()
-        try:caller='JARVIS-runtime' if 'jarvis-conversation.service' in P('/proc/'+str(pid)+'/cgroup').read_text() else 'local-operator'
+        try:caller='JARVIS-runtime' if any(unit in P('/proc/'+str(pid)+'/cgroup').read_text() for unit in ('jarvis-conversation.service','jarvis-mission-worker.service')) else 'local-operator'
         except OSError:caller='unknown'
         try:
             if len(raw)>100000:raise ValueError('Requête trop grande')
             req=json.loads(raw);op=req['operation'];a=req['arguments']
+            workload=req.get('workload_class','interactive')
+            if workload not in ('interactive','mission'):raise ValueError('Unknown workload class')
+            WORKLOAD_CLASS.set(workload)
             if not isinstance(op,str) or not isinstance(a,dict):
                 op='invalid';a={};raise ValueError('operation texte et arguments objet requis')
             result=execute(op,a,cfg);result={'ok':result.get('returncode',0)==0,'result':result}

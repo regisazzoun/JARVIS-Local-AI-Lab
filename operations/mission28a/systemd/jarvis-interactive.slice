@@ -1,0 +1,7 @@
+[Unit]
+Description=JARVIS interactive services — priority and memory protection
+[Slice]
+CPUAccounting=yes
+CPUWeight=1000
+MemoryAccounting=yes
+MemoryLow=20G
