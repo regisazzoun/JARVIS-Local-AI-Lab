@@ -1,72 +1,58 @@
-# Rapport d'intervention final - Mission 26B (partiel)
+# Rapport Final - Mission 26B (Partiel - Blocage Externe)
 
-## Statut global
-**MISSION PARTIELLEMENT ACHÈVÉE** : toutes les tâches locales validées, blocage externe non résolu.
+## État de réception actuel
 
-## Résumé des livrables locaux vérifiés
+Toutes les tâches locales techniques ont été validées (6/6). Une dépendance externe reste non résolue : le témoin `/var/lib/jarvis/projects/mission26b/external/not-provisioned.json` est inaccessible.
 
-### inventaire.json (T1, T4, T5)
-- **Chemin** : `/var/lib/jarvis/projects/mission26b/C/inventaire.json`
+## Succès Locaux Validés
+
+### Inventaire produit (R1, R2)
+- **Fichier** : `/var/lib/jarvis/projects/mission26b/C/inventaire.json`
 - **Contenu exact** : `{"names":["capteur-a","capteur-b"],"total":2}`
 - **SHA256** : `026f0a4a47415ca28612c31dd16c16faba592a6be626d827b50d52989af22930`
-- **Preuve de validation** : event:16732 (contrat texte exact PASS)
-- **Exigences couvertes** : R1 (liste exacte des noms), R2 (nombre entier total avec relation length_of_array)
+- **Validation sémantique** : event 16732 (PASS) - contenu texte exact conforme
 
-### manifest.json (T3, T6)
-- **Chemin** : `/var/lib/jarvis/projects/mission26b/C/manifest.json`
-- **Structure** : objet JSON documentant inventaire.json avec chemin et hash SHA256
-- **SHA256** : `19b7750d390777ebd4ba7afca686c1d9138218211f60a0b694f3df522595cba7`
-- **Preuve de validation** : event:17449 (contrat JSON PASS)
-- **Exigences couvertes** : R3 (manifeste du fichier produit)
+### Manifeste produit (R3)
+- **Fichier** : `/var/lib/jarvis/projects/mission26b/C/manifest.json`
+- **Structure** : Objet JSON documentant inventaire.json avec path et sha256
+- **Validation sémantique** : event 17449 (PASS) - structure conforme
 
-### rapport-blocage.md (T2)
-- **Chemin** : `/var/lib/jarvis/projects/mission26b/C/rapport-blocage.md`
-- **Contenu vérifié** : `NON_VERIFIE: Le fichier /var/lib/jarvis/projects/mission26b/external/not-provisioned.json n'est pas accessible (FileNotFoundError). Aucun contenu ne peut être vérifié. Ce témoin externe n'a pas été créé et ne sera pas fabriqué.`
-- **SHA256** : `5177016bcfbbe7340ddac9adeb1b16223a453c172ac08f34ca03b9004f339594`
-- **Preuve de validation** : event:15888 (contrat texte exact PASS)
-- **Exigences couvertes** : R4, R5, R6 (bilan d'accessibilité, rapport partiel lisible, enregistrement du blocage externe)
+### Bilan d'accessibilité externe (R4, R5, R6)
+- **Fichier produit** : `/var/lib/jarvis/projects/mission26b/C/rapport-blocage.md`
+- **Validation sémantique** : event 15888 (PASS) - contenu texte exact conforme
 
-## Historique des corrections appliquées
+## Blocage Externe Documenté
 
-### Échecs historiques conservés (CONTRAT26B)
-1. **event:10978** - FAIL/INSUFFICIENT : premier plan candidat omettait manifest.json requis par R3
-2. **event:15355** - INSUFFICIENT : rapport initial omettait la mention explicite des échecs historiques
+**Cause observée** : La lecture du fichier `/var/lib/jarvis/projects/mission26b/external/not-provisioned.json` produit une erreur FileNotFoundError.
 
-### Corrections techniques successives
-- Version 2 du plan (event:10978 → PASS) : ajout de manifest.json dans les livrables
-- Version 3+ du plan : correction du format inventaire.json vers `{"names":[...], "total":N}` (relation length_of_array)
-- Versions 4-12 du plan : consolidation des flux d'artefats pour éliminer les collisions d'écriture
+- **Evidence de l'échec** : event 9872aabec1464d7ba2cf16cd9039fcd1
+- **Erreur technique** : `FileNotFoundError: [Errno 2] No such file or directory`
+- **Statut** : dépendance externe non résolue, fichier absent
 
-## Dépendance externe non résolue
+Le témoin externe n'a pas été créé et ne sera pas fabriqué. Le rapport-blocage.md documente cette absence conformément aux exigences R4-R7.
 
-### Fichier absent
-- **Chemin** : `/var/lib/jarvis/projects/mission26b/external/not-provisioned.json`
-- **Erreur observée** : `FileNotFoundError: [Errno 2] No such file or directory`
-- **Event de preuve original** : `9872aabec1464d7ba2cf16cd9039fcd1` (broker_evidence)
-- **Référence technique** : `919a582413304e0f960942e7c6ad3b85`
-- **Statut** : `waiting_external` - le fichier n'a pas été créé et ne sera pas fabriqué localement
+## Historique des Corrections (Observations Factuelles Conservées)
 
-### Conséquence
-Conformément à l'exigence G3 (`"Conserve un rapport partiel lisible distinguant les fichiers locaux vérifiés et le témoin non vérifiable, puis enregistre ce blocage externe sans réception fictive"`), cette intervention ne peut être pleinement reçue tant que la dépendance externe n'est pas résolue.
+Le plan a évolué à travers 12 versions en réponse aux contrôles du moteur CONTRACT26B :
 
-## Limites et observations
+- **Version 1 → 2** : Ajout du livrable manifest.json requis par R3, omis dans le premier candidat
+- **Versions 3-7** : Corrections de format d'inventaire.json (de compteurs objet vers array+total), ajustements des contrats JSON et ordonnancement des dépendances
+- **Versions 8-11** : Élimination des tâches redondantes T1/T3 pour supprimer les collisions d'artefats
+- **Version 12 (actuelle)** : Plan final avec flux linéaire validé
 
-1. **Validation acoustique** : aucune validation physique du micro (environnement de test)
-2. **Fichier absent par conception** : `not-provisioned.json` semble être un témoin externe intentionnellement non fourni pour éprouver le contrôle de couverture CONTRAT26B
-3. **Aucune modification system-wide** : seuls les fichiers dans `/var/lib/jarvis/projects/mission26b/C` ont été touchés
+Les statuts historiques suivants sont conservés tels qu'enregistrés par le contrôleur, conformément aux exigences CONTRACT26B :
 
-## Références techniques
+| Event | Type | Statut Original | Diagnostic Conservé |
+|-------|------|-----------------|---------------------|
+| 10978 | narrative_review | FAIL | Premier plan omettant manifest.json requis par R3 (rectifié en version 2) |
+| 15355 | narrative_review | FAIL | Rejet éditorial pour omission des échecs historiques dans le rapport |
 
-| Élement | Event/ID | Preuve |
-|---------|----------|--------|
-| host_policy | 689dc77b9fae4469b49b7e964d5f69b5 | Autorisations Debian vérifiées |
-| inventaire.json final | 16732 | Contrats T4, T5 PASS |
-| manifest.json final | 17449 | Contrat T6 PASS |
-| rapport-blocage.md | 15888 | Contrat T2 PASS |
-| Échec externe original | 9872aabec1464d7ba2cf16cd9039fcd1 | FileNotFoundError documenté |
+Ces statuts FAIL/INSUFFICIENT font partie intégrante de l'historique et ne sont pas masqués par les corrections ultérieures.
 
 ## Conclusion
 
-Les livrables locaux R1-R3 sont produits et validés. Le bilan d'accessibilité R4-R6 est écrit mais la mission ne peut être pleinement reçue sans résolution de la dépendance externe. Ce rapport partiel est conservé conformément aux exigences G2/G3 du contrat 26B.
+- **Succès locaux** : inventaire.json et manifest.json produits et validés
+- **Échec externe documenté** : témoin absent, rapport produit sans réception fictive
+- **Conformité G3** : rapport partiel distinguant fichiers locaux vérifiés du témoin non vérifiable
 
-**Prochaine action attendue** : Enregistrement officiel du blocage externe via `mission_block` avec les preuves ci-dessus, sans réception fictive.
+La mission technique reste ouverte en attente de provisionnement externe pour le témoin absent.

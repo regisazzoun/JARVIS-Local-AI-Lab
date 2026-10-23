@@ -21,3 +21,8 @@ Le plan C/v7 a corrigé les collisions mais a été accepté à tort sous le con
 ## Reprise du23 octobre2026
 
 Voir [les corrections et retests](REPRISE-23-OCTOBRE.md) : moteur26b.10, exigences26b.7, rapports26b.report.13, 185 tests et36 déploiements. Les contrôles de compteurs et de clôture ont encore nécessité une intervention Codex ; la réception des retests JARVIS reste ouverte. Les anciennes preuves, validations et erreurs sont conservées.
+
+
+## Clôture propriétaire du23 octobre2026 — état final prioritaire
+
+**🟡 incomplet — clôturée en l’état**, sur instruction explicite du propriétaire. Les mentions précédentes de campagne en cours décrivent les instantanés historiques. Les essais A/B/C sont désormais interrompus, sans reset des tâches ni reprise automatique. A7, B6 et C6 tâches restent validées ; T07 de B reste non achevée. Aucun des trois rapports opérationnels complets n’est reçu indépendamment. Les résultats locaux corrects, les tests de composant reçus et les185 tests logiciels sont conservés ; les deux réserves26 ne sont pas déclarées définitivement levées. Voir [le rapport final](RAPPORT-FINAL.md) et [la preuve de clôture](CLOTURE-PROPRIETAIRE.json).14A reste ouverte et son épreuve finale non lancée.

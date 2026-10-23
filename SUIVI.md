@@ -1,6 +1,6 @@
-## Mission26B — lancement du22 octobre2026
+## Mission26B — clôture en l’état du23 octobre2026
 
-🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md). Code et preuves intermédiaires : [PR21 en brouillon](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), 185 tests logiciels réussis ; réception opérationnelle encore ouverte.
+🟡 **Incomplet — clôturée à la demande du propriétaire.** Contrôles installés,185 tests logiciels réussis ; résultats locaux A/B/C vérifiés, mais aucun des trois rapports opérationnels complets reçu indépendamment. Essais26B arrêtés avec preuves et checkpoints conservés. [Rapport final](docs/missions/26B/RAPPORT-FINAL.md) · [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion.14A reste ouverte ;24-Old non lancée. TTS-01 est reprise séparément à la demande du propriétaire.
 
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 
@@ -54,7 +54,7 @@
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
-| **26B** | Fiabilisation de la planification et des rapports | 🟡 En cours | Contrôles installés, réception ciblée JARVIS en cours ; [mission](docs/missions/26B/MISSION.md) | Recevoir trois plans et trois restitutions sur preuves |
+| **26B** | Fiabilisation de la planification et des rapports | 🟡 Incomplet — clôturée | Contrôles installés,185 tests ; trois rapports complets non reçus ; [bilan](docs/missions/26B/RAPPORT-FINAL.md) | Essais arrêtés par le propriétaire ; acquis et réserves conservés |
 | **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues | Trois plans versionnés, faux succès détecté, correction du programme par JARVIS, reprise et105 tests ; [réception](docs/missions/26/RAPPORT-FINAL.md) | Autonomie encore assistée et prose brute erronée ; épreuve finale14A différée |
 | **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues | Quatre skills actifs dont un créé/réutilisé par JARVIS, MCP réel,89 tests ; [réception](docs/missions/25/RAPPORT-FINAL.md) | Autonomie globale14A encore ouverte ; [bilan précis](docs/missions/25/BILAN-14A.md) |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |
@@ -191,6 +191,7 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-23 | 26B | Clôture en l’état à la demande du propriétaire : 🟡 incomplet ; essais arrêtés, aucune levée définitive des réserves26 | [Bilan](docs/missions/26B/RAPPORT-FINAL.md) |
 | 2026-10-23 | 26B | Reprise des blocages : métriques de prose et clôture externe, retests en cours | [Reprise](docs/missions/26B/REPRISE-23-OCTOBRE.md) |
 | 2026-10-22 | 26B | Lancement de la continuation26, contrôles de couverture et de prose ; essais réels en cours | [Mission26B](docs/missions/26B/MISSION.md) |
 | 2026-10-21 | 26 /14A | Réception26 avec réserves : moteur installé,3/3 tâches,3 plans,105 tests et correction JARVIS ;14A reste ouverte et différée | [Réception26](docs/missions/26/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/26/BILAN-14A.md) |

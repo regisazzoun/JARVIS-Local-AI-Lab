@@ -1,6 +1,6 @@
-## Mission26B — lancement du22 octobre2026
+## Mission26B — clôture en l’état du23 octobre2026
 
-🟡 En cours : fiabilisation de la couverture des objectifs et validation des affirmations des rapports libres. Continuation de26 ; même moteur, mêmes preuves historiques. Ordre propriétaire : **26B → épreuve finale14A distincte →24-Old Mémoire enrichie/AutoDream →27 JL-03**. Aucune clôture14A anticipée, aucun lancement24-Old. [Mission26B](docs/missions/26B/MISSION.md).
+🟡 **Incomplet — clôturée à la demande du propriétaire.** Contrôles installés,185 tests logiciels réussis ; résultats locaux A/B/C vérifiés, mais aucun des trois rapports opérationnels complets reçu indépendamment. Essais26B arrêtés avec preuves et checkpoints conservés. [Rapport final](docs/missions/26B/RAPPORT-FINAL.md) · [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion.14A reste ouverte ;24-Old non lancée. TTS-01 est reprise séparément à la demande du propriétaire.
 
 ## Mission26 reçue —21 octobre2026
 

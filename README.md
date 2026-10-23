@@ -156,7 +156,7 @@ Le registre et le suivi comptent **74 identifiants**, dont **10 incréments nati
 | **23C** | Correction du broker et autonomie des outils | ✅ GO — déploiement et essais reçus par24 |
 | **23D** | Banc réel d’interruption LiveKit, page temporaire et réception | ✅🟡 GO numérique avec réserves |
 | **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues |
-| **26B** | Fiabilisation de la planification et des rapports | 🟡 En cours |
+| **26B** | Fiabilisation de la planification et des rapports | 🟡 Incomplet — clôturée |
 
 Catalogue synchronisé avec `python3 agentic/mission00/sync-mission-index.py --write`. Sans option, la commande vérifie la concordance ligne par ligne.
 <!-- END MISSION CATALOGUE -->

@@ -1,27 +1,39 @@
-# Réception26B — état provisoire
+# Clôture de mission26B — 23 octobre2026
 
-**🟡 incomplet — campagne opérationnelle en cours, aucune clôture prononcée.** État actualisé le23 octobre2026 après les déploiements25–27 ; réception toujours ouverte. Les validations locales de A et C sont acquises au moteur, mais leur réception éditoriale est rouverte après contrôle indépendant. B conserve six tâches validées et sa dernière tâche en cours.
+**🟡 incomplet — clôturée en l’état à la demande explicite du propriétaire.** Cette clôture arrête la campagne ; elle ne constitue pas une réception technique complète et ne lève pas définitivement les deux réserves de26.
 
-Le code des contrôles est installé dans le moteur canonique. Les 185 tests logiciels passent. Les missions réelles A, B et C restent à recevoir ; leurs états et preuves intermédiaires sont publiés pour permettre la revue. Les anciens rapports26 ne sont pas modifiés.
+Le code reste installé dans le moteur canonique : moteur26b.10, exigences26b.7, rapports26b.report.13. Les **185 tests logiciels passent**. Les **36 installations/calibrations réalisées par Codex** sont conservées et ne sont pas attribuées à une autocorrection de JARVIS. Aucun nouveau moteur ni base concurrente n’a été créé.
 
-| Question de réception | Réponse actuellement prouvée |
+## Résultats et limites
+
+| Scénario | Résultat technique observé indépendamment | Réception à la clôture |
+| --- | --- | --- |
+| A | Trois articles, somme12 ; manifeste conforme à l’empreinte réelle ; entrée conservée ; sept tâches validées | Rapport complet non réceptionné ; derniers contrôles éditoriaux FAIL |
+| B | Échec réel KeyError masqué par un shell retournant0, puis correction du délimiteur par JARVIS ; bilan exact2/16 ; programme et CSV conservés | Six tâches validées, T07 non achevée ; rapport complet non réceptionné |
+| C | Liste exacte des deux capteurs, total2 et manifeste conforme ; témoin externe toujours absent ; mission_block réellement utilisé auparavant | Six tâches validées ; rapport partiel non réceptionné après réouverture éditoriale |
+
+Les trois exécutions sont arrêtées dans l’état moteur `interrupted`, avec événement explicite de clôture propriétaire. Les tâches, versions de plans, rapports, refus et preuves restent conservés. Aucune reprise automatique de26B n’est prévue. Les autres missions ne sont pas arrêtées par cette clôture. Voir [CLOTURE-PROPRIETAIRE.json](CLOTURE-PROPRIETAIRE.json).
+
+## Réponses aux sept questions de réception
+
+| Question | Réponse finale à cette clôture |
 | --- | --- |
-| Plan complet sans rappel de Codex ? | Des révisions autonomes sont observées, dont le rapport ajouté en A après audit. La réception complète des trois scénarios reste ouverte. |
-| Omission détectée et corrigée ? | Oui pour des versions de plan : omission spontanée de A et omission contrôlée du manifeste de C. L’exécution finale reste à contrôler. |
-| Rapports libres confrontés automatiquement aux preuves ? | Oui, appels réels et barrières de réception dans le moteur ; les tentatives originales sont conservées. |
-| Affirmations fausses détectées puis rectifiées ? | Des revues négatives réelles existent, mais plusieurs résultent de défauts du relecteur ou des contrats. La campagne ciblée de correction n’est pas encore reçue. |
-| Fonctions utilisées par JARVIS ? | Oui pour la planification, ses révisions et les prélectures ; aucun des trois scénarios complets n’est encore réceptionné. |
-| Réserves26 levées ? | Aucune levée définitive à ce stade. |
-| Reste à mesurer en14A ? | Autonomie sur objectif inédit prolongé sans intervention de planification ni nouvelle correction du moteur, et fidélité du rapport final. Épreuve finale distincte non lancée. |
+| JARVIS produit-il un plan complet sans rappel de Codex ? | Des plans et révisions autonomes sont prouvés, dont l’ajout spontané du rapport A après audit automatique. La campagne complète des trois scénarios n’est pas reçue ; généralisation non établie. |
+| Le moteur détecte-t-il et fait-il corriger une omission ? | Oui pour les omissions observées : rapport A et manifeste C. L’omission C était volontairement injectée dans l’objectif de test. Plans persistants et versionnés. |
+| Les rapports libres sont-ils confrontés automatiquement aux preuves ? | Oui, appels réels et barrières de réception effectivement utilisés. Des faux positifs et faux négatifs du relecteur restent documentés. |
+| Les affirmations incorrectes sont-elles détectées et rectifiées ? | Oui dans le test borné PROBE-27 reçu indépendamment : acteur, date et comptage corrigés par JARVIS. Le test intégré36 accepte une vraie cause et refuse une fausse cause. Aucun de ces tests ne reçoit les trois rapports opérationnels complets. |
+| Les mécanismes sont-ils utilisés par JARVIS en situation opérationnelle ? | Oui : plans, outils hôte, contrôles, correction du producteur, révisions de prose et blocage externe. La restitution finale fidèle des trois scénarios demeure non reçue. |
+| Quelles réserves26 sont levées ? | Aucune levée définitive des deux réserves ciblées. Acquis partiels exploitables et limites conservés. |
+| Que reste-t-il à mesurer en14A ? | Planification complète et restitution fidèle sur objectif inédit prolongé, sans rappels de livrables ni correction du moteur pendant l’épreuve. L’épreuve finale14A reste distincte et non lancée. |
 
-Les défauts réels ont nécessité plusieurs corrections de Codex : schémas et formats, ancrage des citations, portée des preuves, représentation typée, liens vers les rapports et confusion entre planification prospective et réception. Leur historique fait partie des réserves ; les tests logiciels ne sont jamais présentés comme des démonstrations d’autonomie.
+## Incidents conservés
 
-Le contrôle indépendant confirme à l’instant de son export : 67 tâches historiques et empreintes de rapports préservées, fixtures intactes, politique hôte inchangée, modules installés identiques aux sources, quatre services contrôlés actifs, 51 outils natifs. Voir VERIFICATION-INDEPENDANTE.json et INSTALLATIONS.json.
+Les essais ont révélé des défauts de contrats, de portée des preuves, d’extraction des références, de classement des causes et de réduction du contexte. Plusieurs anciens PASS du modèle ont été refusés par le contrôle indépendant. Certains FAIL éditoriaux sont également des défauts du contrôleur : ils ne sont pas tous imputables au rédacteur.
 
-Ordre conservé :26B → épreuve finale14A →24-Old →27. Aucune fusion automatique dans main.
+À la clôture, les derniers contrôles signalent notamment la conservation des FAIL historiques en A, des références ou preuves manquantes dans la vue de contrôle en B et une confusion entre référence de reçu et numéro d’événement en C. Ces blocages ne sont pas réparés après l’ordre d’arrêt. Les originaux et les errata restent publiés ; la prose brute ne vaut pas rapport reçu. Voir [TESTS-RAPPORTS.md](TESTS-RAPPORTS.md) et [REPRISE-23-OCTOBRE.md](REPRISE-23-OCTOBRE.md).
 
-## Reprise du23 octobre2026
+## Conservation et publication
 
-Le propriétaire demande explicitement d’aider JARVIS à résoudre ses blocages. Codex corrige deux défauts réels : le faux rejet des citations historiques et la confusion entre mesures et reçus ; la clôture fictive de C malgré une attente externe explicitement demandée. Les déploiements25–27 et leurs tests sont documentés dans [REPRISE-23-OCTOBRE.md](REPRISE-23-OCTOBRE.md). Le retest opérationnel reste nécessaire ; aucun GO n’est déduit des seuls tests.
+Le contrôle indépendant de clôture confirme : 67 états et empreintes de tâches historiques préservés, fixtures conservées, politique hôte inchangée, sept modules installés identiques aux sources, quatre services contrôlés actifs et51 outils natifs. Les quatre skills historiques sont conservés. Les reçus du broker sont corrélés aux appels réels de JARVIS : A98, B289, C106, tous concordants. Les tests logiciels ne sont pas des preuves fictives d’autonomie.
 
-Le test de composant des trois fautes est reçu indépendamment (PROBE-27-VERIFICATION-INDEPENDANTE.json), mais les trois rapports opérationnels restent à recevoir. C a atteint waiting_external via mission_block avec ses six tâches intactes, puis sa réception éditoriale a été rouverte après détection d’un faux PASS du relecteur. Le rapport9 refuse désormais ce même texte inchangé. Voir [la reprise](REPRISE-23-OCTOBRE.md).
+Branche `codex/mission-26b-planification-rapports`, [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion automatique. Les rapports historiques26 ne sont pas modifiés.14A reste ouverte ;24-Old et Dell2 ne sont pas lancés. TTS-01 constitue une mission distincte reprise à la demande du propriétaire.

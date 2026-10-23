@@ -1,0 +1,137 @@
+{
+  "actor": "Codex",
+  "decision": "cloture la mission en l etat",
+  "created": 1792719542.0978715,
+  "status": "🟡 incomplet — clôturée à la demande du propriétaire",
+  "technical_acceptance": false,
+  "other_missions_modified": false,
+  "cases": [
+    {
+      "case": "A",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "previous_state": "queued",
+      "state": "interrupted",
+      "tasks": [
+        {
+          "id": "T1",
+          "state": "validated",
+          "report_sha256": "762e92e67768fd6c32755d28bcf829b87dfd9ed129e2f82651e166af8de09a8e"
+        },
+        {
+          "id": "T2",
+          "state": "validated",
+          "report_sha256": "08c3a78a5efd0ec233e996e98b10fe134fa2cb1dadcab784d64b9fef04e4591c"
+        },
+        {
+          "id": "T3",
+          "state": "validated",
+          "report_sha256": "cd7fbccb4a3421f0d2212192732b2982ba40428309b2828b1b6747fddb5ed5f3"
+        },
+        {
+          "id": "T4",
+          "state": "validated",
+          "report_sha256": "094ef6347495b0da1ea6a4f4c43e56cfa6c3f0738ed93625797bdd8ac6eeeaf2"
+        },
+        {
+          "id": "T5",
+          "state": "validated",
+          "report_sha256": "cce0410f80c691750223cc681566557192d1125d3e38e5dce3d10a7e39f98e53"
+        },
+        {
+          "id": "T7",
+          "state": "validated",
+          "report_sha256": "f0200b2868c4a7fa0ca959cacd23ad6bd2c623c67f5acfff42d1e9be59e2e139"
+        },
+        {
+          "id": "T8",
+          "state": "validated",
+          "report_sha256": "e58b0aadc78ec66166f28bc5c4712143292f8659b57fb5dc57d46093bbbf41fc"
+        }
+      ],
+      "closure_event": 20282
+    },
+    {
+      "case": "B",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "previous_state": "queued",
+      "state": "interrupted",
+      "tasks": [
+        {
+          "id": "T01",
+          "state": "validated",
+          "report_sha256": "2ca32ba38c2f57bcf7da40b10652bc5709f4ed678bb327572c2f1528acf3b812"
+        },
+        {
+          "id": "T02",
+          "state": "validated",
+          "report_sha256": "5a02f5e805463d92c2a3a1004dc69ea834d1bdcaa84babfcb0555f8060b320c2"
+        },
+        {
+          "id": "T03",
+          "state": "validated",
+          "report_sha256": "2da13c4258c0c1fdf90b4de824d3dbfa38385b89b11d7772b3f897d96ef520d9"
+        },
+        {
+          "id": "T04",
+          "state": "validated",
+          "report_sha256": "8f557d1fda25f4c9e293601884c2b771214f8fc8d134d589e3dea86bbdad0c70"
+        },
+        {
+          "id": "T05",
+          "state": "validated",
+          "report_sha256": "6d70ee06377de2de2cb59bc56ca42fdc4b3471b67f162620e8148dd21b3a67a1"
+        },
+        {
+          "id": "T06",
+          "state": "validated",
+          "report_sha256": "f531b35ade1e76c7fa0787d2aea2a8e7364ff7f87497bc38ac13f1dd4ce1d1dc"
+        },
+        {
+          "id": "T07",
+          "state": "running",
+          "report_sha256": null
+        }
+      ],
+      "closure_event": 20283
+    },
+    {
+      "case": "C",
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "previous_state": "queued",
+      "state": "interrupted",
+      "tasks": [
+        {
+          "id": "T1",
+          "state": "validated",
+          "report_sha256": "25b0031ba73ad28054cecba2568a9ca025f6d24a21573676e5eaa320d37c092a"
+        },
+        {
+          "id": "T2",
+          "state": "validated",
+          "report_sha256": "f6837c28f79fda00d19d69275c13dc5bda4fab8525d431c7ec601b5d334ffdf9"
+        },
+        {
+          "id": "T3",
+          "state": "validated",
+          "report_sha256": "dd528e0fa671179cb5f22ebe37028ef5c02ffb040c7049033e6bb70e03eb0b99"
+        },
+        {
+          "id": "T4",
+          "state": "validated",
+          "report_sha256": "f43f10ae9f2021bd14797b68979c1941fe5209682ed42585d357ab9047f8c5e1"
+        },
+        {
+          "id": "T5",
+          "state": "validated",
+          "report_sha256": "059efab1b0a8c2e17d710c85643fc9bf3c46333093ca5154d5688643adf2ea91"
+        },
+        {
+          "id": "T6",
+          "state": "validated",
+          "report_sha256": "861cc7ad56056fcb0681fc7d94eaa3ff5057be12e0eb4ca3b3ae1f38423d6ee4"
+        }
+      ],
+      "closure_event": 20284
+    }
+  ]
+}
