@@ -25,6 +25,23 @@ def model_observation(value, limit=8000):
     """Bound a model view, never the canonical tool receipt stored in SQLite."""
     if isinstance(value,list):return [model_observation(item,limit) for item in value]
     if not isinstance(value,dict):return value
+    if {'mission','actions','plans','tasks','semantic_verifications','codex_interventions','scope'}<=value.keys() and str(value['scope']).startswith('Predicates only;'):
+        actions=value['actions'];selected={}
+        important=[row for row in actions if row.get('tool') in ('host_exec','host_remote','host_ansible','host_service','host_github','skill_run','skill_test','mcp_tools')]
+        reads={}
+        for row in actions:
+            if row.get('tool')=='host_read_file' and row.get('parameters',{}).get('path'):reads[row['parameters']['path']]=row
+        for row in important[-12:]+list(reads.values())[-8:]:selected[row['invocation']]=row
+        latest={}
+        for row in value['semantic_verifications']:latest[row.get('task')]=row
+        compact={key:value[key] for key in ('mission','goal','tasks','scope') if key in value}
+        compact['plans']=[{key:row[key] for key in ('version','author','sha256') if key in row} for row in value['plans']]
+        compact['actions']=sorted(selected.values(),key=lambda row:row.get('created',0))
+        compact['semantic_verifications']=list(latest.values())
+        compact['counts']={'recorded_tool_calls':len(actions),'plan_versions':len(value['plans']),'semantic_events':len(value['semantic_verifications']),'codex_interventions':len(value['codex_interventions'])}
+        compact['codex_interventions']={'actor':'Codex','references':['event:'+str(row['event']) for row in value['codex_interventions']]}
+        compact['model_view_contract']='26b.ledger-view.1: selected recent operation metadata, latest read per path and latest semantic event per task, NOT the whole history. Omitted facts are not absent. Process exit0 is not application success. Full ledger remains in this tool receipt; mission_evidence exposes original referenced records and their diagnostics.'
+        value=compact
     if {'status','issues','claims','draft_sha256','report_contract_version'}<=value.keys():
         # include_evidence=True remains complete in the durable tool receipt.
         # Reinjecting that entire corpus defeats compaction and hides its issues.
@@ -61,8 +78,8 @@ def compact_observations(briefs, latest_result, available):
         if limit<=128:break
         limit=max(128,limit//2)
     if len(encoded(rows))>available:
-        text=encoded(latest_result);room=max(128,available-len(encoded(briefs[-1]))-500)
-        rows[-1]['latest_tool_result']={'explicit_excerpt':text[:room//2]+' [full result in mission_evidence] '+text[-room//2:],'full_chars':len(text)}
+        original=encoded(latest_result);text=encoded(model_observation(latest_result,128));room=max(128,available-len(encoded(briefs[-1]))-500)
+        rows[-1]['latest_tool_result']={'explicit_excerpt':text[:room//2]+' [full result in mission_evidence] '+text[-room//2:],'full_chars':len(original),'model_view_full_chars':len(text),'full_sha256':hashlib.sha256(original.encode()).hexdigest()}
     return rows
 
 

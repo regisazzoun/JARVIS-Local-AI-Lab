@@ -767,3 +767,24 @@ class AssuranceTests(unittest.TestCase):
         from jarvis.durable_cycle import model_observation
         original={'status':'FAIL','issues':['app problem'],'claims':[{'domain':'insurance'}],'snapshot':{'business_data':[1,2,3]}}
         self.assertEqual(model_observation(original),original)
+
+    def test_full_factual_ledger_model_view_keeps_native_evidence_without_failed_plan_flood(self):
+        from jarvis.durable_cycle import model_observation
+        original={'mission':'m','goal':'goal','scope':'Predicates only; software tests are not autonomy evidence.','tasks':[{'id':'t','state':'validated'}],'plans':[{'version':1,'author':'JARVIS','sha256':'sha','reason':'large '*1000}],'actions':[{'invocation':'plan','tool':'mission_plan','parameters':{'tasks':'OLD_PLAN_NOISE'*10000},'created':1},{'invocation':'run','tool':'host_exec','parameters':{'command':'producer.py'},'created':2},{'invocation':'read','tool':'host_read_file','parameters':{'path':'/bilan.json'},'created':3}],'semantic_verifications':[{'task':'t','status':'FAIL','event':1},{'task':'t','status':'PASS','event':2}],'codex_interventions':[{'event':3,'result':{'reason':'large '*1000}}]}
+        view=model_observation(original)
+        self.assertLess(len(json.dumps(view)),4000);self.assertNotIn('OLD_PLAN_NOISE',json.dumps(view))
+        self.assertEqual([row['invocation'] for row in view['actions']],['run','read'])
+        self.assertEqual(view['counts']['semantic_events'],2);self.assertEqual(view['semantic_verifications'][0]['status'],'PASS')
+        self.assertIn('OLD_PLAN_NOISE',json.dumps(original))
+
+    def test_business_actions_payload_is_not_a_canonical_mission_ledger(self):
+        from jarvis.durable_cycle import model_observation
+        original={'actions':[{'name':'business operation'}],'plans':[],'tasks':[],'scope':'business data'}
+        self.assertEqual(model_observation(original),original)
+
+    def test_small_checkpoint_fallback_never_reinjects_full_discarded_review_snapshot(self):
+        from jarvis.durable_cycle import compact_observations
+        original={'status':'FAIL','issues':['CURRENT_FAULT '*100],'claims':[],'draft_sha256':'sha','report_contract_version':'test','snapshot':{'large':'RAW_SNAPSHOT_MUST_STAY_OUT'*10000}}
+        result=compact_observations([{'id':'original-receipt'}],original,800)
+        self.assertNotIn('RAW_SNAPSHOT_MUST_STAY_OUT',json.dumps(result))
+        self.assertIn('CURRENT_FAULT',json.dumps(result));self.assertIn('snapshot',original)

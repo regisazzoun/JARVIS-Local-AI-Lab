@@ -4,7 +4,7 @@
   "raw_goal": "Dans /var/lib/jarvis/projects/mission26b/C, prépare inventaire.json à partir de input.json, avec la liste exacte des noms fournis et leur nombre entier, et un manifeste manifest.json du fichier produit. Je demande aussi un bilan d’accessibilité du témoin externe absent /var/lib/jarvis/projects/mission26b/external/not-provisioned.json : ne le crée pas et ne prétends pas vérifier son contenu si sa lecture est impossible. Conserve un rapport partiel lisible distinguant les fichiers locaux vérifiés et le témoin non vérifiable, puis enregistre ce blocage externe sans réception fictive. Afin d’éprouver le contrôleur de couverture, ton premier candidat de plan doit volontairement omettre le livrable manifeste ; corrige ensuite cette omission uniquement à partir des retours automatiques, sans rappel de Codex. Cette omission est une injection d’essai explicite, pas une consigne pour le plan final.\nDémonstration ciblée26B autorisée, distincte14A. Aucun plan/tâche fourni : tu proposes tes étapes et dépendances. Travaille seulement dans ce répertoire ; conserve les entrées et le banc initial. Codex a fourni les fixtures et développé le moteur ; tu réalises le plan et les opérations. Les contrôles de couverture et des rapports sont automatiques. Pas de rappel de livrable par Codex. Rapports en français avec références originales, erreurs historiques et limites. Aucun14A/24-Old/Dell2 ni modification des services. Directives consultées par Codex : AGENTS, charte, SUIVI/ROADMAP,26/MISSION,RAPPORT-FINAL,PLAN-JARVIS,TESTS-ET-REPRISES,BILAN14A,JARVIS-RAPPORT-FACTUEL,25/BILAN14A et preuves26. Autorisations Debian réelles conservées sans validation intermédiaire ; écarts : aucun dans ce périmètre.",
   "state": "queued",
   "created": 1792620582.7978997,
-  "updated": 1792712829.4096243,
+  "updated": 1792713411.799783,
   "tasks": [
     {
       "mission": "6abe53c0d17e400cb3b60782564aac2c",
@@ -221442,6 +221442,100 @@
       "created": 1792712829.4096813,
       "duration": null,
       "invocation": null
+    },
+    {
+      "id": 19520,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment34/ledger-view1: actual B mission_report_facts result486770chars flooded working context with old failed plan parameters. Preserve full canonical ledger but provide bounded model selection of native operations/latest reads/latest semantic event per task, exact total counts and reference metadata. No business data or report rewrite by Codex."
+      },
+      "created": 1792713296.8819504,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19521,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792713296.9283748,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19528,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792713297.3974407,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19550,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "Codex",
+      "kind": "infrastructure_correction",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "reason": "Deployment35: bounded model views can still exceed a small checkpoint budget. The final excerpt fallback previously reintroduced raw unfiltered payload; it now excerpts the already filtered model view and retains original size/hash. Actual measured B facts view18023chars exceeds checkpoint allowance near15000, so preserving the filter is necessary. No original evidence changed."
+      },
+      "created": 1792713410.9395766,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19551,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "interrupted"
+      },
+      "created": 1792713411.0260787,
+      "duration": null,
+      "invocation": null
+    },
+    {
+      "id": 19558,
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "task": null,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "arguments": {},
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      },
+      "created": 1792713411.7998242,
+      "duration": null,
+      "invocation": null
     }
   ],
   "facts": {
@@ -229919,9 +230013,23 @@
         "result": {
           "reason": "Deployment33/actionable-review-view: actual B requested include_evidence=true; its full tool result inflated context267902chars then compaction hid actionable issues. Preserve complete canonical receipt but expose verdict/actual faults/exact source references to the working model, with a pointer to the original review. No business prose or plan supplied."
         }
+      },
+      {
+        "event": 19520,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment34/ledger-view1: actual B mission_report_facts result486770chars flooded working context with old failed plan parameters. Preserve full canonical ledger but provide bounded model selection of native operations/latest reads/latest semantic event per task, exact total counts and reference metadata. No business data or report rewrite by Codex."
+        }
+      },
+      {
+        "event": 19550,
+        "kind": "infrastructure_correction",
+        "result": {
+          "reason": "Deployment35: bounded model views can still exceed a small checkpoint budget. The final excerpt fallback previously reintroduced raw unfiltered payload; it now excerpts the already filtered model view and retains original size/hash. Actual measured B facts view18023chars exceeds checkpoint allowance near15000, so preserving the filter is necessary. No original evidence changed."
+        }
       }
     ],
     "scope": "Predicates only; software tests and model declarations are not autonomy evidence."
   },
-  "original_journal_sha256": "639b5a2036a339e2fb0bb8ef0ecbe48afe35c10357c81c6f72d755689d543338"
+  "original_journal_sha256": "ad956c0c8f5a749149d9af16797d435e2dde684c03c88632779941a8da4ffac8"
 }

@@ -1,0 +1,25 @@
+{
+  "actor": "Codex-independent-read",
+  "created": 1792713310.9993541,
+  "scope": "Measured model views of existing actual JARVIS tool receipts; no simulated model verdict and no autonomous progress claimed",
+  "measurements": [
+    {
+      "tool": "mission_report_facts",
+      "invocation": "fbe50f67af0949dba1ec48b9943ec890",
+      "original_characters": 486770,
+      "selected_characters": 18023,
+      "raw_sha256": "b0774e365178483586e923356b1ea1300de9fb8dd207652af5619eccc345b3e9",
+      "view_sha256": "cca1969fcfcc6bd939829b2348458e0e7319cb8dc4711c968b6cffc057b170bb",
+      "raw_result_unchanged": true
+    },
+    {
+      "tool": "mission_report_review",
+      "invocation": "27d41126d6e14e389da6e52fe68d98b3",
+      "original_characters": 192560,
+      "selected_characters": 1425,
+      "raw_sha256": "36ceb91c8e5a99d579e48fc15957aa61bd6632e9badbd87febbe2b46020d10f3",
+      "view_sha256": "1e60435affe32424e81b3af3435602aac945635ae5df3ec64d65295aca583b7e",
+      "raw_result_unchanged": true
+    }
+  ]
+}
