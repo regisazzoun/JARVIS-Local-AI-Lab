@@ -1,3 +1,7 @@
+## TTS-01 — reprise du23 octobre2026
+
+🟡 En cours : Codex orchestrateur et JARVIS exécutant. Mission persistante existante conservée ; accès GPU, archive privée, transfert binaire et lecture WAV authentifiée raccordés.190 tests logiciels passent ; aucun moteur ni échantillon TTS reçu à ce stade. [État initial](docs/missions/TTS-01/DIAGNOSTIC-INITIAL.md).26B est clôturée incomplète ;14A reste ouverte.
+
 ## Mission26B — clôture en l’état du23 octobre2026
 
 🟡 **Incomplet — clôturée à la demande du propriétaire.** Contrôles installés,185 tests logiciels réussis ; résultats locaux A/B/C vérifiés, mais aucun des trois rapports opérationnels complets reçu indépendamment. Essais26B arrêtés avec preuves et checkpoints conservés. [Rapport final](docs/missions/26B/RAPPORT-FINAL.md) · [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion.14A reste ouverte ;24-Old non lancée. TTS-01 est reprise séparément à la demande du propriétaire.
@@ -55,6 +59,7 @@
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
 | **26B** | Fiabilisation de la planification et des rapports | 🟡 Incomplet — clôturée | Contrôles installés,185 tests ; trois rapports complets non reçus ; [bilan](docs/missions/26B/RAPPORT-FINAL.md) | Essais arrêtés par le propriétaire ; acquis et réserves conservés |
+| **TTS-01** | Synthèse vocale française expérimentale sur Dell1 | 🟡 En cours | Reprise de la mission existante, infrastructures GPU/transfert/audio corrigées ; [mission](docs/missions/TTS-01/MISSION.md) | Installation/générations/mesures par JARVIS puis réception indépendante |
 | **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues | Trois plans versionnés, faux succès détecté, correction du programme par JARVIS, reprise et105 tests ; [réception](docs/missions/26/RAPPORT-FINAL.md) | Autonomie encore assistée et prose brute erronée ; épreuve finale14A différée |
 | **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues | Quatre skills actifs dont un créé/réutilisé par JARVIS, MCP réel,89 tests ; [réception](docs/missions/25/RAPPORT-FINAL.md) | Autonomie globale14A encore ouverte ; [bilan précis](docs/missions/25/BILAN-14A.md) |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |

@@ -1,0 +1,142 @@
+{
+  "actor": "Codex-infrastructure-test",
+  "created": 1792720310.7031665,
+  "not_a_tts_voice_sample": true,
+  "binary_bytes_identical": true,
+  "sha256": "4afc69be59c1e5da4ecb345b729e7f8a0d81539738b1042f4bb1b58c2fe5b4ae",
+  "checks": [
+    {
+      "operation": "host_remote",
+      "arguments": {
+        "host": "dell-observe",
+        "action": "project_exec",
+        "project": "tts-01",
+        "command": "nvidia-smi --query-gpu=name,memory.total,memory.used --format=csv; python3 --version; pwd"
+      },
+      "receipt": {
+        "ok": true,
+        "result": {
+          "returncode": 0,
+          "stdout": "Python 3.13.5\n/opt/jarvis-lab/tts-01\n",
+          "stderr": "/bin/bash: line 1: nvidia-smi: command not found\n",
+          "timeout": false,
+          "duration_s": 0.264,
+          "stdout_truncated": false,
+          "stderr_truncated": false
+        },
+        "diagnostic": {
+          "policy_sha256": "01b13de92f55eef5eef71c182d53db37d6942c43e488a1589adee44eae67cd6b",
+          "policy_path": "/etc/jarvis/host-policy.json",
+          "selection": "single-persistent-owner-policy",
+          "reload": "each-request",
+          "broker_version": "23C.1",
+          "operation": "host_remote",
+          "parameters": {
+            "host": "dell-observe",
+            "action": "project_exec",
+            "project": "tts-01"
+          },
+          "omitted_parameters": [
+            "command"
+          ],
+          "error_category": null,
+          "retry": null,
+          "alternative": null
+        },
+        "caller": "local-operator",
+        "evidence_id": "45f762246bee421e92422c2e2b059b23",
+        "elapsed_s": 0.482
+      }
+    },
+    {
+      "operation": "host_remote",
+      "arguments": {
+        "host": "dell-observe",
+        "action": "project_upload",
+        "project": "tts-01",
+        "path": "/opt/jarvis-lab/tts-01/transport-check.wav",
+        "local_path": "/var/lib/jarvis/projects/tts-01/transport-check.wav"
+      },
+      "receipt": {
+        "ok": true,
+        "result": {
+          "returncode": 0,
+          "stdout": "{\"direction\": \"upload\", \"remote_path\": \"/opt/jarvis-lab/tts-01/transport-check.wav\", \"local_path\": \"/var/lib/jarvis/projects/tts-01/transport-check.wav\", \"sha256\": \"4afc69be59c1e5da4ecb345b729e7f8a0d81539738b1042f4bb1b58c2fe5b4ae\", \"bytes\": 524}",
+          "stderr": "",
+          "path": "/var/lib/jarvis/projects/tts-01/transport-check.wav",
+          "sha256": "4afc69be59c1e5da4ecb345b729e7f8a0d81539738b1042f4bb1b58c2fe5b4ae",
+          "bytes": 524
+        },
+        "diagnostic": {
+          "policy_sha256": "01b13de92f55eef5eef71c182d53db37d6942c43e488a1589adee44eae67cd6b",
+          "policy_path": "/etc/jarvis/host-policy.json",
+          "selection": "single-persistent-owner-policy",
+          "reload": "each-request",
+          "broker_version": "23C.1",
+          "operation": "host_remote",
+          "parameters": {
+            "host": "dell-observe",
+            "action": "project_upload",
+            "project": "tts-01"
+          },
+          "omitted_parameters": [
+            "local_path",
+            "path"
+          ],
+          "error_category": null,
+          "retry": null,
+          "alternative": null
+        },
+        "caller": "local-operator",
+        "evidence_id": "181f3af0c295453b881c133764047e35",
+        "elapsed_s": 0.992
+      }
+    },
+    {
+      "operation": "host_remote",
+      "arguments": {
+        "host": "dell-observe",
+        "action": "project_download",
+        "project": "tts-01",
+        "path": "/opt/jarvis-lab/tts-01/transport-check.wav",
+        "local_path": "/var/lib/jarvis/projects/tts-01/transport-check-return.wav"
+      },
+      "receipt": {
+        "ok": true,
+        "result": {
+          "returncode": 0,
+          "stdout": "{\"direction\": \"download\", \"remote_path\": \"/opt/jarvis-lab/tts-01/transport-check.wav\", \"local_path\": \"/var/lib/jarvis/projects/tts-01/transport-check-return.wav\", \"sha256\": \"4afc69be59c1e5da4ecb345b729e7f8a0d81539738b1042f4bb1b58c2fe5b4ae\", \"bytes\": 524}",
+          "stderr": "",
+          "path": "/var/lib/jarvis/projects/tts-01/transport-check-return.wav",
+          "sha256": "4afc69be59c1e5da4ecb345b729e7f8a0d81539738b1042f4bb1b58c2fe5b4ae",
+          "bytes": 524
+        },
+        "diagnostic": {
+          "policy_sha256": "01b13de92f55eef5eef71c182d53db37d6942c43e488a1589adee44eae67cd6b",
+          "policy_path": "/etc/jarvis/host-policy.json",
+          "selection": "single-persistent-owner-policy",
+          "reload": "each-request",
+          "broker_version": "23C.1",
+          "operation": "host_remote",
+          "parameters": {
+            "host": "dell-observe",
+            "action": "project_download",
+            "project": "tts-01"
+          },
+          "omitted_parameters": [
+            "local_path",
+            "path"
+          ],
+          "error_category": null,
+          "retry": null,
+          "alternative": null
+        },
+        "caller": "local-operator",
+        "evidence_id": "959b9daa071d46d9a5a74c51277b2b21",
+        "elapsed_s": 0.773
+      }
+    }
+  ],
+  "gpu_probe_pass": false,
+  "diagnostic": "nvidia-smi symlink uses /etc/alternatives, absent from remote confinement; final shell return0 from pwd does not prove GPU success."
+}

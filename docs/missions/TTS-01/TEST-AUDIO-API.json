@@ -1,0 +1,22 @@
+{
+  "actor": "Codex",
+  "created": 1792720479.2007618,
+  "fixture": "silent transport fixture, not generated TTS",
+  "checks": [
+    {
+      "unauthenticated_status": 401
+    },
+    {
+      "authenticated_status": 200,
+      "content_type": "audio/wav",
+      "bytes_identical": true,
+      "sha256": "4afc69be59c1e5da4ecb345b729e7f8a0d81539738b1042f4bb1b58c2fe5b4ae"
+    },
+    {
+      "forbidden_path_status": 403
+    },
+    {
+      "forbidden_path_status": 403
+    }
+  ]
+}

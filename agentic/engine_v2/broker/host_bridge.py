@@ -279,19 +279,18 @@ print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':
         if profile.get('identity_check'):
             checked=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],profile['identity_check']],30)
             if checked['returncode']!=0:raise PermissionError('Identité cible distante non validée ; opération arrêtée')
+        if action in ('project_upload','project_download'):
+            if op!='host_remote' or not profile.get('allow_admin'):raise PermissionError('Remote transfer not granted')
+            from remote_project import transfer_file
+            return transfer_file(profile,common,cfg,a,run,root_for)
         if action=='project_exec':
             if op!='host_remote' or not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Remote project execution not granted')
             project=a.get('project','')
             if project not in profile.get('project_exec_projects',[]):raise PermissionError('Remote project not granted')
-            root='/home/'+profile['user']+'/jarvis-projects/'+project
-            script="""import pathlib,subprocess,os
-root=pathlib.Path(ROOT);root.mkdir(parents=True,exist_ok=True)
-argv=['/usr/bin/bwrap','--die-with-parent','--new-session','--unshare-pid','--unshare-ipc','--unshare-uts','--cap-drop','ALL','--ro-bind','/usr','/usr','--symlink','usr/bin','/bin','--symlink','usr/sbin','/sbin','--symlink','usr/lib','/lib','--symlink','usr/lib64','/lib64','--proc','/proc','--dev','/dev','--tmpfs','/tmp','--dir','/etc']
-for path in ['/etc/ssl','/etc/resolv.conf','/etc/hosts','/etc/passwd','/etc/group','/etc/nsswitch.conf']:
- if pathlib.Path(path).exists():argv+=['--ro-bind',path,path]
-argv+=['--bind',str(root),str(root),'--chdir',str(root),'--clearenv','--setenv','HOME',str(root),'--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8','--','/bin/bash','-c',COMMAND]
-raise SystemExit(subprocess.call(argv))
-""".replace('ROOT',repr(root)).replace('COMMAND',repr(a['command']))
+            from remote_project import project_program
+            options=profile.get('project_exec_options',{}).get(project,{})
+            root=options.get('root','/home/'+profile['user']+'/jarvis-projects/'+project)
+            script=project_program(root,a['command'],options.get('gpu',False))
             return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',script])],600)
         if action=='desktop_gateway_configure':
             if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Passerelle bureau hors profil')

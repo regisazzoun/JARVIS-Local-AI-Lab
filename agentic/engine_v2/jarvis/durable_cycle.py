@@ -190,7 +190,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         documents=core.memory.document_search((task or {}).get('objective',mission['goal']),mission['project'])[:2]
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS avec le modèle '+mission['model']+', pas par JARVIS-engine. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
-              {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident) if assured else store.plans(ident),
+              {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
         ledger=[brief(o) for o in observations[-16:]]
         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]

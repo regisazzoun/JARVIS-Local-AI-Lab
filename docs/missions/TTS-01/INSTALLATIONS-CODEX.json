@@ -1,0 +1,150 @@
+{
+  "actor": "Codex",
+  "note": "Deux instantanés peuvent correspondre à la même installation quand le fichier de travail a été copié après installation ; les chemins de sauvegardes datés identifient les opérations réelles. Sauvegardes root conservées, aucun moteur TTS installé par ces scripts.",
+  "records": [
+    {
+      "actor": "Codex",
+      "created": 1792720224.8994203,
+      "backup": "/var/backups/jarvis/tts-01/1792720224450624878",
+      "tasks_preserved": 104,
+      "files": [
+        {
+          "target": "/opt/jarvis/conversation/jarvis/host_client.py",
+          "sha256": "9ace774c80c65c6e98fff8849469f2d0563a9a244c20889077462a00c375b3c0",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/launcher_api.py",
+          "sha256": "ca9b8aa3db957f6f764b49a68c3c1de21d03a72211582a8966304da340e4f73d",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/mission_assurance.py",
+          "sha256": "d2ddddea53ff041d5f20f76c09158976ae07b026e8372ed566e2405d4d4db3dc",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+          "sha256": "1a0c09c8c4aa7e62fa26bdcb5cca67e11acd1f0402460037b069fe99f3b61cc9",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/host_bridge.py",
+          "sha256": "b234b02da5ade5534ba2e9fa72c8c97d0ea33f2df16296df784740f74f126c7d",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/remote_project.py",
+          "sha256": "f95b16294863e0b1f0de61f1949bb433636572d478358344deb842d58e816ac9",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/launcher2/app.js",
+          "sha256": "46aa851ccc362dc7786619bd655841cb8d9132a4ce45355ceb1d4b4111f55a23",
+          "installed_matches": true
+        }
+      ],
+      "services_restarted": [
+        "jarvis-host-bridge",
+        "jarvis-conversation"
+      ],
+      "policy_sha256": "44a60f8335bc79a882f310e97993eca1c268bb6a6c0c2f5453b5a49c0aca0c8b"
+    },
+    {
+      "actor": "Codex",
+      "created": 1792720162.352548,
+      "backup": "/var/backups/jarvis/tts-01/1792720162124147507",
+      "tasks_preserved": 104,
+      "files": [
+        {
+          "target": "/opt/jarvis/conversation/jarvis/host_client.py",
+          "sha256": "9ace774c80c65c6e98fff8849469f2d0563a9a244c20889077462a00c375b3c0",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/launcher_api.py",
+          "sha256": "ca9b8aa3db957f6f764b49a68c3c1de21d03a72211582a8966304da340e4f73d",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/mission_assurance.py",
+          "sha256": "9e3ec928b836b7ea8b8edf40fa4fde21e0551ced8b62d1cb423ed2862668ea86",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+          "sha256": "1a0c09c8c4aa7e62fa26bdcb5cca67e11acd1f0402460037b069fe99f3b61cc9",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/host_bridge.py",
+          "sha256": "b234b02da5ade5534ba2e9fa72c8c97d0ea33f2df16296df784740f74f126c7d",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/remote_project.py",
+          "sha256": "f95b16294863e0b1f0de61f1949bb433636572d478358344deb842d58e816ac9",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/launcher2/app.js",
+          "sha256": "46aa851ccc362dc7786619bd655841cb8d9132a4ce45355ceb1d4b4111f55a23",
+          "installed_matches": true
+        }
+      ],
+      "services_restarted": [
+        "jarvis-host-bridge",
+        "jarvis-conversation"
+      ],
+      "policy_sha256": "44a60f8335bc79a882f310e97993eca1c268bb6a6c0c2f5453b5a49c0aca0c8b"
+    },
+    {
+      "actor": "Codex",
+      "created": 1792720224.8994203,
+      "backup": "/var/backups/jarvis/tts-01/1792720224450624878",
+      "tasks_preserved": 104,
+      "files": [
+        {
+          "target": "/opt/jarvis/conversation/jarvis/host_client.py",
+          "sha256": "9ace774c80c65c6e98fff8849469f2d0563a9a244c20889077462a00c375b3c0",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/launcher_api.py",
+          "sha256": "ca9b8aa3db957f6f764b49a68c3c1de21d03a72211582a8966304da340e4f73d",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/mission_assurance.py",
+          "sha256": "d2ddddea53ff041d5f20f76c09158976ae07b026e8372ed566e2405d4d4db3dc",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+          "sha256": "1a0c09c8c4aa7e62fa26bdcb5cca67e11acd1f0402460037b069fe99f3b61cc9",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/host_bridge.py",
+          "sha256": "b234b02da5ade5534ba2e9fa72c8c97d0ea33f2df16296df784740f74f126c7d",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/remote_project.py",
+          "sha256": "f95b16294863e0b1f0de61f1949bb433636572d478358344deb842d58e816ac9",
+          "installed_matches": true
+        },
+        {
+          "target": "/opt/jarvis/conversation/launcher2/app.js",
+          "sha256": "46aa851ccc362dc7786619bd655841cb8d9132a4ce45355ceb1d4b4111f55a23",
+          "installed_matches": true
+        }
+      ],
+      "services_restarted": [
+        "jarvis-host-bridge",
+        "jarvis-conversation"
+      ],
+      "policy_sha256": "44a60f8335bc79a882f310e97993eca1c268bb6a6c0c2f5453b5a49c0aca0c8b"
+    }
+  ]
+}

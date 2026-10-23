@@ -146,3 +146,8 @@ Continuation ciblée26 autorisée sans validation intermédiaire : contrôle aut
 ## Clôture26B — décision propriétaire du23 octobre2026
 
 Le propriétaire demande « cloture la mission en l etat ».26B est clôturée **🟡 incomplet**, sans réception fictive des trois rapports, sans levée définitive des réserves26 ni clôture14A. Les trois essais sont interrompus, états et preuves conservés ; aucune reprise automatique26B. Les capacités installées restent disponibles. TTS-01 est une demande distincte à reprendre depuis ses preuves existantes. [Bilan26B](missions/26B/RAPPORT-FINAL.md).
+
+
+## TTS-01 — reprise autorisée du23 octobre2026
+
+Codex orchestre et corrige l’infrastructure ; JARVIS exécute inventaire, choix/installation TTS, génération, mesures et restitution via JL-02. Reprendre la mission existante8bd3e5b316a94021b5183e0db26d6efc, sans nouvelle installation en double ni validation humaine intermédiaire. Les anciens appels généraux à validation ne prévalent plus dans ce périmètre. Préserver Dell1/services/Piper ; références de film privées réservées à l’écoute comparative, aucun clonage de Philippe Faure. La planification dirigée/les contrats corrigés par Codex ne sont pas attribués au modèle.26B reste clôturée incomplète,14A/24-Old/Dell2 non lancés. [Ordre et périmètre](missions/TTS-01/MISSION.md).

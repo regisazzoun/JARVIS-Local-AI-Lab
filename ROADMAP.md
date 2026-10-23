@@ -1,3 +1,7 @@
+## TTS-01 — expérimentation reprise le23 octobre2026
+
+Reprise autorisée depuis la mission et les checkpoints existants. Codex coordonne, JARVIS exécute, sans nouvelle validation intermédiaire. Préserver Piper et services ; voix de test autorisée, extraits de film privés pour comparaison seule. [Mission](docs/missions/TTS-01/MISSION.md).14A et24-Old restent non lancées ;26B est clôturée incomplète.
+
 ## Mission26B — clôture en l’état du23 octobre2026
 
 🟡 **Incomplet — clôturée à la demande du propriétaire.** Contrôles installés,185 tests logiciels réussis ; résultats locaux A/B/C vérifiés, mais aucun des trois rapports opérationnels complets reçu indépendamment. Essais26B arrêtés avec preuves et checkpoints conservés. [Rapport final](docs/missions/26B/RAPPORT-FINAL.md) · [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion.14A reste ouverte ;24-Old non lancée. TTS-01 est reprise séparément à la demande du propriétaire.

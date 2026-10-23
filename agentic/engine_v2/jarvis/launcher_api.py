@@ -4,6 +4,7 @@ from contextlib import contextmanager
 from .launcher_telemetry import collect
 from .host_client import request
 ASSETS=pathlib.Path('/opt/jarvis/conversation/launcher2')
+PROJECTS_ROOT=pathlib.Path('/var/lib/jarvis/projects')
 MIMES={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.svg':'image/svg+xml','.md':'text/plain; charset=utf-8','.zip':'application/zip'}
 ALLOWED={'index.html','app.js','style.css','task-model.js','format.js','core.js','config.json','icon.svg','guide.html','companion-macos.zip'}
 class Launcher:
@@ -47,10 +48,13 @@ class Launcher:
             return rows
     def artifact(self,path):
         target=pathlib.Path(path).resolve()
-        if not target.is_relative_to(pathlib.Path('/var/lib/jarvis/projects')) or any(x in ('.git','private','.ssh') for x in target.parts):raise PermissionError('Fichier hors périmètre')
-        if not target.is_file() or target.stat().st_size>2*1024*1024:raise ValueError('Fichier absent ou trop volumineux')
-        if target.suffix.lower() not in ('.md','.txt','.json','.js','.py','.css','.html','.cjs','.log'):raise ValueError('Type non proposé')
-        return target.read_bytes()
+        if not target.is_relative_to(PROJECTS_ROOT) or any(x in ('.git','private','.ssh') for x in target.parts):raise PermissionError('Fichier hors périmètre')
+        limit=16*1024*1024 if target.suffix.lower()=='.wav' else 2*1024*1024
+        if not target.is_file() or target.stat().st_size>limit:raise ValueError('Fichier absent ou trop volumineux')
+        if target.suffix.lower() not in ('.md','.txt','.json','.js','.py','.css','.html','.cjs','.log','.wav'):raise ValueError('Type non proposé')
+        body=target.read_bytes()
+        if target.suffix.lower()=='.wav' and not (body[:4]==b'RIFF' and body[8:12]==b'WAVE'):raise ValueError('WAV RIFF attendu')
+        return body
     def events(self,ident,after=0):
         if ident=='JL-02-coordination':
             with self.db() as c:
@@ -101,7 +105,9 @@ def handle_get(handler,p,q):
         if not f.is_file():handler.send({'error':'Introuvable'},404);return True
         handler.send(f.read_bytes(),mime=MIMES.get(f.suffix,'application/octet-stream'));return True
     api=handler.server.launcher
-    if p=='/api/launcher/artifact':handler.send(api.artifact(q.get('path',[''])[0]),mime='text/plain; charset=utf-8');return True
+    if p=='/api/launcher/artifact':
+        path=q.get('path',[''])[0]
+        handler.send(api.artifact(path),mime='audio/wav' if pathlib.Path(path).suffix.lower()=='.wav' else 'text/plain; charset=utf-8');return True
     if p=='/api/launcher/resources':handler.send(api.resources());return True
     if p=='/api/launcher/missions':handler.send(api.missions());return True
     if p=='/api/launcher/events':handler.send(api.events(q.get('mission',[''])[0],int(q.get('after',['0'])[0])));return True

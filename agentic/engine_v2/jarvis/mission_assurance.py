@@ -33,9 +33,22 @@ def latest(store, ident, kind):
 def plan_view(store, ident):
     """All versions remain addressable; only latest definitions occupy model context."""
     plans=store.plans(ident)
-    return [{**{k:v for k,v in plan.items() if k!='plan'},
-             **({'plan':plan['plan']} if index==len(plans)-1 else {'definitions':'historical; mission_progress plan_version retrieves the original'})}
+    return [({**{k:v for k,v in plan.items() if k not in ('plan','reason')},
+              'plan':plan['plan'],'reason':str(plan.get('reason',''))[:200],
+              'full_reason_in_mission_progress':len(str(plan.get('reason','')))>200,
+              'historical_versions_location':'Every version and author remains indexed here; mission_progress plan_version retrieves original definitions, reasons, timestamps and hashes.'}
+             if index==len(plans)-1 else {'version':plan['version'],'author':plan['author']})
             for index,plan in enumerate(plans)]
+
+
+def plan_evolution_view(store, ident):
+    """Keep first candidate and recent evolution; repeated old task lists stay durable."""
+    plans=store.plans(ident)
+    selected={0,len(plans)-2,len(plans)-1}
+    return [{'version':p['version'],'author':p['author'],'sha256':p['sha256'],
+             **({'tasks':[{'id':t['id'],'title':t['title'],'artifacts':t.get('artifacts',[])} for t in p['plan']['tasks']]}
+                if index in selected else {'definitions':'Historical snapshot available via mission_progress plan_version; omission here is not absence.'})}
+            for index,p in enumerate(plans)]
 
 
 def coverage_state(store, ident):
@@ -264,7 +277,7 @@ def audit_plan(registry):
         'issues':{'type':'array','items':{'type':'string'},'description':'ONLY actual blocking defects. Return [] when complete. Positive conclusions belong in coverage.reason, never here.'}})
     review=review_model(registry,'coverage',
         'Compare le plan à CHAQUE exigence ET à l’objectif brut pour détecter une extraction incomplète ou une paraphrase inexacte. Les types et relations demandés doivent être respectés : une liste demandée ne peut être remplacée par une autre représentation et un nombre global ne se confond pas avec des compteurs par élément. Utilise exactement les identifiants fournis, sans y ajouter de description. Justifications factuelles courtes (500 caractères maximum), sans délibération. Les exigences sur l’historique se vérifient sur plan_evolution : n’exige jamais de réintroduire dans le plan final une omission ou une erreur déjà corrigée. Vérifie les dépendances, les critères de réception et les observations concrètes. Quand plusieurs tâches modifient le même artefact, un manifeste ou contrôle final doit porter sur sa dernière version prévue, pas sur une version ensuite remplacée. Examine les producteurs déclarés et leur ordre, sans imposer de commandes. Compare les contrats aux lectures déjà disponibles sans exiger que les sorties futures existent déjà. Une lecture seule ne peut prouver un contenu différent de celui observé sans mutation prévue ; un manifeste ne se hache pas lui-même. Une mention dans metadata seule ne couvre pas un livrable : il faut une tâche et un contrat qui observent ce résultat, ou le rapport final moteur pour le compte rendu global. Pour un rapport explicitement demandé, un livrable final du moteur peut suffire si le plan le prévoit. Un objectif fonctionnel ne se prouve pas seulement en hachant un fichier arbitraire. N’écris pas le plan ni les commandes à la place du planificateur : expose seulement les résultats manquants/incohérences. Indique tasks=[] et covered=false pour toute omission. issues contient uniquement des défauts bloquants, JAMAIS un bilan positif ; issues=[] si le plan est complet. Une étape de blocage global doit être prévue après les autres livrables locaux possibles, sans transformer une non-vérification externe en réussite.',
-        {'raw_goal':store.get(ident)['goal'],'requirements':req,'plan':saved['plan'],'declared_artifact_producers':{path:[t['id'] for t in saved['plan']['tasks'] if path in t.get('artifacts',[]) and set(t.get('tools',[])) & {'host_write_file','host_edit_file','host_exec','skill_run','mission_action'}] for path in {a for t in saved['plan']['tasks'] for a in t.get('artifacts',[]) if isinstance(a,str) and a.startswith('/')}},'plan_evolution':[{'version':p['version'],'author':p['author'],'sha256':p['sha256'],'tasks':[{'id':t['id'],'title':t['title'],'artifacts':t.get('artifacts',[])} for t in p['plan']['tasks']]} for p in store.plans(ident)],'execution_evidence_required_for_coverage':False,'historical_review_opinions_are_not_requirements':True},schema)
+        {'raw_goal':store.get(ident)['goal'],'requirements':req,'plan':saved['plan'],'declared_artifact_producers':{path:[t['id'] for t in saved['plan']['tasks'] if path in t.get('artifacts',[]) and set(t.get('tools',[])) & {'host_write_file','host_edit_file','host_exec','skill_run','mission_action'}] for path in {a for t in saved['plan']['tasks'] for a in t.get('artifacts',[]) if isinstance(a,str) and a.startswith('/')}},'plan_evolution':plan_evolution_view(store,ident),'execution_evidence_required_for_coverage':False,'historical_review_opinions_are_not_requirements':True},schema)
     review['coverage']=[{'requirement':ident,**row} for ident,row in review['coverage'].items()]
     expected={x['id'] for x in req['requirements']}; rows=review['coverage']; seen=[x['requirement'] for x in rows]
     task_ids={t['id'] for t in saved['plan']['tasks']}

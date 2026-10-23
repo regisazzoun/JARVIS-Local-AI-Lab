@@ -1,0 +1,16 @@
+{
+  "actor": "Codex",
+  "kind": "infrastructure_only",
+  "created": 1792719801.5229352,
+  "policy_before_sha256": "5c1081080b52e43c2004429a5e8704cc8028610a29daaf22ddbd35893c15a3fa",
+  "policy_after_sha256": "7c1ec1dc4d81df492646e934d47bed2d5a674f8935a024c25eeef2aeead44dc4",
+  "backup": "/var/backups/jarvis/tts-01/1792719801423923839",
+  "remote_project": "tts-01",
+  "root": "/opt/jarvis-lab/tts-01",
+  "gpu_exposed": true,
+  "archive_read_only": "/tmp/JARVIS_VF_2008.zip",
+  "tts_engine_installed_by_codex": false,
+  "services_restarted": [
+    "jarvis-host-bridge"
+  ]
+}
