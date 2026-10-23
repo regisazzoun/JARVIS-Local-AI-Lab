@@ -1,0 +1,20 @@
+{
+  "actor": "Codex-independent-editor",
+  "created": "2026-10-23T02:37:17.898625+00:00",
+  "source": "Lecture intégrale du brouillon et des reçus primaires originaux",
+  "report_path": "/var/lib/jarvis/projects/tts-01/COMPARATIF_MOTEURS_TTS.md",
+  "previous_sha256": "10fda959aec33af91ac7258750e1f2e82843277c4d1748b627a0c62d4b992b80",
+  "rectified_sha256": "9ae3fd36efc9d1ad585790a5e0287785dfacacdc5873781c4769bd693b3d0986",
+  "bytes": 1887,
+  "raw_original": "JARVIS-COMPARATIF-AVANT-RECTIFICATION-CODEX.md",
+  "findings_corrected": [
+    "Français Qwen documenté malgré fausse affirmation inverse",
+    "Variantes0.6B/1.7B, pas1.5B",
+    "VRAM totale différente de libre, besoins TTS non mesurés",
+    "Pas de toolkit CUDA prouvé par nvidia-smi",
+    "Horodatages futurs du brouillon retirés",
+    "Ne pas annoncer une longueur1500–2500chars non respectée",
+    "Choix et corrections attribués à Codex, opérations à JARVIS"
+  ],
+  "not_jarvis_self_correction": true
+}

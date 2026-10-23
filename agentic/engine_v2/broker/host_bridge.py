@@ -291,7 +291,7 @@ print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':
             if 'command' in a or 'content' in a:raise ValueError('Fixed probe does not accept model source or shell commands')
             from remote_project import project_program
             from remote_probes import probe_command
-            root=options['root'];script=project_program(root,probe_command(root,probe),options.get('gpu',False),readonly=True)
+            root=options['root'];script=project_program(root,probe_command(root,probe),options.get('gpu',False),readonly=True,root_readonly=options.get('root_readonly',False))
             return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',script])],90)
         if action=='project_exec':
             if op!='host_remote' or not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Remote project execution not granted')
@@ -300,8 +300,9 @@ print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':
             from remote_project import project_program
             options=profile.get('project_exec_options',{}).get(project,{})
             root=options.get('root','/home/'+profile['user']+'/jarvis-projects/'+project)
-            script=project_program(root,a['command'],options.get('gpu',False))
-            return run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',script])],600)
+            script=project_program(root,a['command'],options.get('gpu',False),root_readonly=options.get('root_readonly',False))
+            result=run(['/usr/bin/ssh']+common+[profile['user']+'@'+profile['address'],shlex.join(['python3','-c',script])],600)
+            return {**result,'project_root':root,'persistent_write_roots':[root],'temporary_paths_notice':'Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage.'}
         if action=='desktop_gateway_configure':
             if not profile.get('allow_admin') or action not in profile.get('administration_operations',[]):raise PermissionError('Passerelle bureau hors profil')
             from remote_operations import configure_gateway

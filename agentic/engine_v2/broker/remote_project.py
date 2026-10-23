@@ -9,10 +9,10 @@ import subprocess
 import tempfile
 
 
-def project_program(root, command, gpu=False, readonly=False):
+def project_program(root, command, gpu=False, readonly=False, root_readonly=False):
     if not root.startswith(('/opt/jarvis-lab/', '/home/')) or '..' in root.split('/'):
         raise ValueError('Invalid configured project root')
-    prefix='root_path='+repr(root)+'\ncommand='+repr(command)+'\ngpu='+repr(bool(gpu))+'\nreadonly='+repr(bool(readonly))+'\n'
+    prefix='root_path='+repr(root)+'\ncommand='+repr(command)+'\ngpu='+repr(bool(gpu))+'\nreadonly='+repr(bool(readonly))+'\nroot_readonly='+repr(bool(root_readonly))+'\n'
     return prefix+'''import pathlib,subprocess,os
 root=pathlib.Path(root_path)
 root.mkdir(parents=True,exist_ok=True)
@@ -24,7 +24,9 @@ if gpu:
  argv+=['--ro-bind','/sys','/sys']
  for path in pathlib.Path('/dev').glob('nvidia*'):
   argv+=['--dev-bind',str(path),str(path)]
-argv+=['--ro-bind' if readonly else '--bind',str(root),str(root),'--chdir',str(root),'--clearenv','--setenv','HOME',str(root),'--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8','--setenv','PYTHONDONTWRITEBYTECODE','1','--setenv','CUDA_CACHE_PATH','/tmp/cuda-cache','--setenv','HF_HOME',str(root/'cache'),'--','/bin/bash','-c',command]
+argv+=['--ro-bind' if readonly else '--bind',str(root),str(root)]
+if root_readonly:argv+=['--remount-ro','/']
+argv+=['--chdir',str(root),'--clearenv','--setenv','HOME',str(root),'--setenv','PATH','/usr/bin:/bin','--setenv','LANG','C.UTF-8','--setenv','PYTHONDONTWRITEBYTECODE','1','--setenv','CUDA_CACHE_PATH','/tmp/cuda-cache','--setenv','HF_HOME',str(root/'cache'),'--','/bin/bash','-c',command]
 raise SystemExit(subprocess.call(argv))
 '''
 

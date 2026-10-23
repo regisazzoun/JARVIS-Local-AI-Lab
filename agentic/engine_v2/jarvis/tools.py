@@ -152,12 +152,14 @@ class Registry:
         path=self.root/('runtime/reports/interventions.md' if self.context.get('host_target') else 'runtime/lab/intervention.md');path.parent.mkdir(mode=0o700,exist_ok=True)
         if path.is_symlink():raise ValueError('Rapport symlink refusé')
         if self.context.get('mission_id'):
-            path=self.root/'runtime/reports'/self.context['mission_id']/'RAPPORT-FINAL.md'
+            step=self.context.get('report_scope')=='directed_step'
+            filename='ETAPE-CONVERSATION-'+str(time.time_ns())+'.md' if step else 'RAPPORT-FINAL.md'
+            path=self.root/'runtime/reports'/self.context['mission_id']/filename
             path.parent.mkdir(parents=True,exist_ok=True)
             path.write_text(args['content'])
             import hashlib
             controller=getattr(self,'mission_controller',None)
-            if controller:
+            if controller and not step:
                 spec=json.loads(controller.store.get(self.context['mission_id'])['spec'])
                 publication=spec.get('publication')
                 if publication and spec.get('final_file'):
@@ -165,7 +167,7 @@ class Registry:
                     destination=str(Path(publication['workspace'])/spec['final_file'])
                     invoke('host_write_file',{'path':destination,'content':args['content']})
                     enqueue(controller.store,self.context['mission_id'],None,{**publication,'file':spec['final_file']},verified_body=args['content'])
-            return {'saved':True,'path':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+            return {'saved':True,'path':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),**({'scope':'directed_step','not_completed':True} if step else {})}
         with path.open('a') as f:f.write('\n\n'+now()+'\n'+args['content'])
         return {'saved':True,'path':str(path) if self.context.get('host_target') else '/work/intervention.md'}
     def services(self,args):

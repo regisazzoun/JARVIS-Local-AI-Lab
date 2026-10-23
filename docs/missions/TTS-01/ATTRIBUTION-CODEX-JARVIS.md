@@ -10,7 +10,10 @@
 | Première déclaration de blocage politique T02 | JARVIS, diagnostic incorrect ; observation d’absence sur le Dell réelle, rapport initial conservé |
 | Relecture de politique, transfert privé et sonde d’archive via chat existant | JARVIS exécutant, Codex déclencheur ; trois reçus originaux JARVIS-runtime reliés au checkpoint |
 | Analyse indépendante de signal des références | Codex ; données de contrôle distinctes des opérations JARVIS |
-| Étude, installation du moteur, générations, mesures et scripts | JARVIS attendu ; publication/réception selon les preuves effectivement acquises, sans anticipation |
+| Choix de Qwen0.6B et rectification du comparatif non validé | Codex ; original erroné conservé |
+| Installation du venv, PyTorch2.6.0+cu124, torchaudio et qwen-tts0.1.1 | JARVIS via continuation liée ; erreurs et corrections réelles conservées, calcul GPU6.0 vérifié |
+| Interface de continuation liée, journaux persistants et séparation des rapports d’étape | Codex ; 200 tests logiciels, retest opérationnel de la liaison par JARVIS |
+| Générations, mesures et scripts | JARVIS en cours ; aucune anticipation de réception des trois voix |
 
 Les niveaux calculés par archive_inventory utilisent un programme développé par Codex. Lorsque JARVIS appelle cette sonde, il exécute une capacité fournie ; cela ne devient pas un développement de ce programme par JARVIS. Les tests logiciels et fixtures silencieuses d’outillage ne sont pas les trois échantillons TTS demandés.
 

@@ -88,11 +88,13 @@ def make_handler(core,auth=None):
                         result.update(mission_id=ident,conversation=row['conversation'],answer='Mission 23 : '+result['state']+' ; exécution originale et checkpoints conservés.',tools=[])
                         self.send(result);return
                     if intent=='question':d['agent_mode']=False
+                    if d.get('mission_id') is not None and d.get('allowed_tools') is None:
+                        raise ValueError('A chat continuation of an existing mission requires explicit allowed_tools')
                     if d.get('agent_mode',False):
                         result=core.missions.submit(d['text'],d['model'],d.get('conversation'),d.get('project',''))
                         result.update(answer='Mission enregistrée ; exécution et preuves dans le Sandbox.',tools=[])
                         self.send(result,202)
-                    else:self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False))
+                    else:self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False,mission_id=d.get('mission_id'),allowed_tools=d.get('allowed_tools')))
                 elif p=='/api/missions':self.send(core.missions.submit(d['goal'],d['model'],d.get('conversation'),d.get('project',''),d.get('spec')))
                 elif p=='/api/missions/resume':self.send(core.missions.resume(d['id']))
                 elif p=='/api/missions/interrupt':self.send(core.missions.interrupt(d['id']))

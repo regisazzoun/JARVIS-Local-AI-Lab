@@ -1,0 +1,24 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792724265.6492894,
+  "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+  "same_existing_conversation": "76704bac-a3fc-4f4c-bf3b-993cb01978a6",
+  "mission_rows_before": 29,
+  "mission_rows_after": 29,
+  "no_new_mission_in_linked_attempt": true,
+  "runtime_probe": {
+    "cuda_available": true,
+    "cuda_tensor_sum": 6.0,
+    "torch_version": "2.6.0+cu124",
+    "cuda_runtime": "12.4",
+    "tts_engine_importable": true
+  },
+  "broker_evidence": "62384bd0be4c47d6befeb4f496ac0e60",
+  "actual_operations": "JARVIS executed via linked authenticated chat, canonical calls recorded before/after actual execution",
+  "scope": "Python environment and real CUDA tensor test, not yet a TTS voice-generation receipt",
+  "earlier_duplicate_promotions": [
+    "679878119c8a495daa2edcbecbafad13",
+    "8feb6a40dd78404c90941eea305bffe7"
+  ],
+  "earlier_duplicates_stopped_and_preserved": true
+}

@@ -1,0 +1,10 @@
+{
+  "actor": "Codex",
+  "created": 1792722674.38389,
+  "reason": "Temporary source file read grant removed after successful JARVIS transfer and persistent private preservation, avoiding mandatory bwrap bind to a /tmp file that can disappear. No full /tmp grant ever added.",
+  "policy_before_sha256": "c01372d1da72a74e9f45630a01efb2526bae4b998470868ac5beb29270963f2b",
+  "policy_after_sha256": "7f6b1d3aa0fb7631fa28300620c8b4f76da1dd251233ec622bc12c9af5b6a4ea",
+  "backup": "/var/backups/jarvis/tts-01/archive-grant-cleanup-1792722674383454743",
+  "service_restart": false,
+  "other_permissions_unchanged": true
+}

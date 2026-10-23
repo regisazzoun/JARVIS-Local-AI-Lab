@@ -32,3 +32,13 @@ Le plan initial JARVIS a accumulé41 versions avant les opérations. La vue de t
 Les plans42–44 sont des interventions Codex : contrats corrigés, sondes indépendantes puis ajout du seul contrôle de niveau/saturation manquant. Ce sont des opérations d’orchestration dirigée. Pour TTS-01, le contrôle expérimental automatique de couverture26B est désactivé ; le mode sémantique26 et la réception indépendante restent utilisés.26B demeure clôturée incomplète, sans levée rétroactive de ses réserves.
 
 Le transfert de l’archive a été réalisé par JARVIS via le chat JL-02 existant, sur ordre ponctuel de Codex. Ses trois reçus réels sont corrélés au broker et liés à la mission par un événement de coordination ; ils ne sont pas inventés comme appels internes du worker. JARVIS a ensuite recontrôlé l’archive depuis sa tâche durable. Les premiers rapports erronés restent conservés et appellent des errata distincts.
+
+## Continuation liée à la mission existante
+
+Le chat authentifié accepte désormais mission_id et une liste explicite allowed_tools, uniquement pour une mission existante en attente externe et sa conversation. Cette liste réduit les outils proposés et exécutables ; elle ne confère aucun droit. Les vrais appels et reçus sont enregistrés dans la mission canonique. Le worker reste en attente pendant cette étape, pour éviter deux installations simultanées. Les clients historiques gardent leur comportement par défaut.
+
+La première limitation des outils ne suffisait pas : le registre promouvait automatiquement toute mutation sans mission liée en nouvelle mission. Deux tentatives techniques sans exécution ont été interrompues et conservées. La continuation explicitement liée a ensuite installé réellement l’environnement, sans créer de mission supplémentaire. Les tests logiciels du premier correctif ne constituaient donc pas une réception opérationnelle de cette liaison.
+
+Les rapports de ces étapes portent un nom ETAPE-CONVERSATION distinct ; ils ne publient ni n’écrasent le rapport final de mission. L’horloge du serveur est fournie au modèle, sans la considérer comme une garantie de justesse de sa prose.
+
+Le projet TTS possède maintenant une racine de système de fichiers en lecture seule, hormis sa racine persistante et ses temporaires explicites. Cela fait échouer les sorties écrites par erreur dans un chemin du Mac depuis le terminal Dell. Les anciens journaux d’installation écrits dans cette mauvaise racine n’ont pas persisté ; les reçus conservent leurs sorties limitées, pas nécessairement tout le journal pip. Les autres projets conservent leur configuration.

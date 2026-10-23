@@ -1,0 +1,38 @@
+{
+  "actor": "Codex",
+  "created": 1792724611.984142,
+  "backup": "/var/backups/jarvis/tts-01/durable-output-1792724611842853543",
+  "software_tests": 200,
+  "files": [
+    {
+      "target": "/opt/jarvis/conversation/jarvis/core.py",
+      "sha256": "3b3e160af873842f0e76b7fa1f891980f02c9c981281d98b94c7b8868cb144ad",
+      "installed_matches": true
+    },
+    {
+      "target": "/opt/jarvis/conversation/jarvis/tools.py",
+      "sha256": "282b4d71e965b9ac8c7a9348107426f10998573e98125451ac9fe2c8c271a1f2",
+      "installed_matches": true
+    },
+    {
+      "target": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "sha256": "fe67b3bf36c2c8b3ae65b55c45cd7811fe6fcf48308888ef4f29e26bb93bf2cb",
+      "installed_matches": true
+    },
+    {
+      "target": "/usr/local/lib/jarvis-host/remote_project.py",
+      "sha256": "4df0c3a930da38dda8c907a92f0b0e90dfbb8b010df15b0b49619c3a98bf8c79",
+      "installed_matches": true
+    }
+  ],
+  "changes": [
+    "TTS root filesystem readonly outside explicit project bind and temporary directory; legacy project behavior unchanged",
+    "Project exec replies state persistent root",
+    "Linked step reports cannot overwrite/publish global final report",
+    "Real server clock provided to chat"
+  ],
+  "services_restarted": [
+    "jarvis-host-bridge",
+    "jarvis-conversation"
+  ]
+}
