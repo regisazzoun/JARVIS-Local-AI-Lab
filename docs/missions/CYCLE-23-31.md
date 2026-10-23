@@ -1,3 +1,7 @@
+## Mission28A — lot autonome de la mission28 (décision23 octobre2026)
+
+📋 **28A préparée non exécutée** : modèles plus puissants éventuellement avec offload DDR4, Mac mini75% missions /25% JARVIS et conversation, Dell1 100% missions avec priorité faible latence des demandes utilisateur, Dell2 préconfiguré offline/100% missions plus tard, profil de pointe courte700W GPU à caractériser. Ce lot peut être mené sur les deux machines réellement présentes sans lancer la mission28 entière ni Dell2. [Cahier](28A/MISSION.md). Ordre historique 14A →24-Old →27 →28 conservé pour le cycle global ; 28A est une préparation spécifique demandée par le propriétaire, pas une renumérotation.
+
 ## Réception26 —21 octobre2026
 
 ✅🟡 Mission26 reçue avec réserves : moteur installé, trois tâches JARVIS reçues et trois plans versionnés,105 tests. [Rapport26](26/RAPPORT-FINAL.md). Épreuve finale14A toujours distincte, différée et non lancée ;24-Old non lancée. Les priorités historiques conservées ci-dessous ne valent pas un nouveau lancement.
