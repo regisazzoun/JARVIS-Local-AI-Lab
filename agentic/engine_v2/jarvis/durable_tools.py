@@ -23,7 +23,7 @@ def register(registry):
         if current:
             from .mission_assurance import enabled, coverage_state, evidence_snapshot, plan_view, audit_plan, report_model_view, VERSION
             if enabled(current,key()) and args.get('recheck_coverage') and current.plans(key()):audit_plan(registry)
-            result={'mission':key(),'tasks':summary(current.tasks(key())),'plans':current.plans(key()),'current_plan_version':len(current.plans(key()))}
+            result={'mission':key(),'goal':current.get(key())['goal'],'tasks':summary(current.tasks(key())),'plans':current.plans(key()),'current_plan_version':len(current.plans(key()))}
             if enabled(current,key()):
                 result['plans']=[p for p in current.plans(key()) if p['version']==args['plan_version']] if 'plan_version' in args else [{k:v for k,v in plan.items() if k!='plan'} for plan in current.plans(key())]
             if enabled(current,key()): result.update({'coverage':coverage_state(current,key()),'report_evidence':report_model_view(evidence_snapshot(current,key()),current.get(key())['goal']),'interface':{'contract_version':VERSION,'expected_version':'current saved version','append':'new task definitions only','patch':'changed existing pending definitions only','report':'free prose with original evidence references, reviewed automatically before reception/publication','semantic_example':{'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/authorized/output.json'}},'expected':{'/total':3},'types':{'/total':'integer'}}}})
@@ -73,7 +73,9 @@ def register(registry):
     def complete(args):
         db = store(); ident = key()
         task = next((t for t in db.tasks(ident) if t['id'] == args['id']), None)
-        if not task: raise ValueError('Tâche absente')
+        if not task:
+            active=registry.context.get('task_id')
+            raise ValueError('Tâche absente : '+str(args.get('id'))+'. Identifiant actif réel : '+str(active)+'. Consulte mission_progress ; les identifiants d’exemple ne sont pas des tâches.')
         contract=task.get('contract',{})
         if contract.get('report_path') and args['report_path']!=contract['report_path']:raise ValueError('Chemin de rapport attendu : '+contract['report_path'])
         if task['id'] != registry.context.get('task_id'):

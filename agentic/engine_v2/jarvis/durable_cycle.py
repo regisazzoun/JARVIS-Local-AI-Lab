@@ -10,6 +10,39 @@ from pathlib import Path
 from .mission_store import encoded, signature
 
 
+def task_schemas(schemas, definition):
+    """Focus a declared tool selection; policy/registry still enforce all calls."""
+    selected=(definition or {}).get('tools')
+    if not isinstance(selected,list) or not selected or not all(isinstance(x,str) for x in selected):
+        return schemas
+    control={'mission_progress','mission_note','mission_evidence','mission_plan',
+             'mission_block','mission_verify','mission_task_complete','mission_report_facts',
+             'mission_report_review','capability_request','capability_status','host_policy'}
+    return [s for s in schemas if s['function']['name'] in set(selected)|control]
+
+
+def focused_state(state):
+    """Bound duplicated context for an explicitly scoped execution task only.
+
+    Full objective/versions/receipts stay durable and accessible via mission_progress.
+    Initial autonomous planning and legacy tasks retain their full objective.
+    """
+    result=dict(state)
+    goal=state['objective']
+    if len(goal)>4000:
+        result['objective']={'opening':goal[:1500],'latest_complement':goal[-1000:],
+            'sha256':hashlib.sha256(goal.encode()).hexdigest(),
+            'full_objective':'mission_progress; execution focus is active_task, not a new goal'}
+    result['plan_history']=[{k:v for k,v in p.items() if k!='plan'} for p in state['plan_history']]
+    result['notes']=state.get('notes',[])[-2:]
+    task=state['active_task'];contract=task.get('contract') or {}
+    if isinstance(contract,str):contract=json.loads(contract)
+    result['active_task_interface']={'id':task['id'],'report_path':contract.get('report_path'),
+        'verification_calls':[{'contract':encoded(c)} for c in contract.get('semantic',[])],
+        'completion':'Use this exact task id and the invocation_id returned by an actual successful mission_verify. Invalid historical examples are not task identifiers.'}
+    return result
+
+
 def editorial_error_view(text):
     """Old receipts keep their original bytes; model views expose actual faults."""
     if not isinstance(text,str) or not text.startswith('Narrative withheld before publication.'):return text
@@ -146,6 +179,9 @@ class DurableCycle:
         ready = store.ready(ident)
         task = ready[0] if ready else None
         task_id = task['id'] if task else None
+        plans=store.plans(ident)
+        definition=next((t for t in plans[-1]['plan']['tasks'] if t['id']==task_id),{}) if plans else {}
+        scoped=bool(definition.get('tools'))
         if task:
             with store.db() as c:
                 c.execute("UPDATE tasks SET state='running',started=coalesce(started,?),attempts=attempts+1,updated=? WHERE mission=? AND id=?",(time.time(),time.time(),ident,task_id))
@@ -192,6 +228,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS avec le modèle '+mission['model']+', pas par JARVIS-engine. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
+        if scoped:base[1]['content']=encoded(focused_state(json.loads(base[1]['content'])))
         ledger=[brief(o) for o in observations[-16:]]
         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]
         with store.db() as c:
@@ -238,7 +275,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if feedback and feedback['review_reference']!=last_report_feedback:
                     last_report_feedback=feedback['review_reference']
                     store.event(ident,'report_correction_context_prepared',task_id,'JARVIS-engine',result=feedback)
-            context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(core.tools.schemas())) - 4096
+            schemas=task_schemas(core.tools.schemas(),definition) if task_id else core.tools.schemas()
+            context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(schemas)) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
                 current_observations=store.observations(ident)[-16:]
@@ -256,7 +294,6 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             if guidance and max(r['id'] for r in guidance)>last_coordinator_event:
                 last_coordinator_event=max(r['id'] for r in guidance)
                 messages.append({'role':'user','content':'Coordination autorisée récente, à appliquer avant les anciennes conclusions du modèle : '+encoded([json.loads(r['result']) for r in reversed(guidance)])})
-            schemas=core.tools.schemas()
             current_tasks=store.tasks(ident)
             if not current_tasks or assured and not coverage_state(store,ident)['accepted']:
                 schemas=[s for s in schemas if s['function']['name'] in ('mission_plan','mission_note','host_policy','skill_list','capability_status','host_read_file','mission_progress')]
@@ -278,6 +315,11 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                                    'num_predict': core.config.get('durable_num_predict',-1)}}
             if mission['model'].startswith('qwen'):
                 payload['think'] = core.config.get('durable_think',False)
+            if scoped:
+                store.event(ident,'inference_context_prepared',task_id,'JARVIS-engine',result={
+                    'selected_tools':len(schemas),'base_chars':len(encoded(base)),
+                    'messages_chars':len(encoded(messages)),'budget_chars':context_chars,
+                    'full_goal_preserved':True,'task_id':task_id})
             inference_start=time.monotonic()
             message = core.transport(payload)
             store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)

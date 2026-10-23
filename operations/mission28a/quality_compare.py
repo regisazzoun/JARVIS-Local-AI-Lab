@@ -44,7 +44,7 @@ def evaluate(name,text):
             if any(isinstance(n,bad) for n in ast.walk(tree)):raise ValueError('Unsafe or unnecessary syntax outside pure screening scope')
             allowed={'isinstance','type','int','bool','ValueError'}
             if any(isinstance(n,ast.Call) and (not isinstance(n.func,ast.Name) or n.func.id not in allowed) for n in ast.walk(tree)):raise ValueError('Unexpected call in generated pure function')
-            scope={'__builtins__':{'isinstance':isinstance,'type':type,'int':int,'bool':bool,'ValueError':ValueError}}
+            scope={'__builtins__':{'isinstance':isinstance,'type':type,'int':int,'bool':bool,'str':str,'float':float,'ValueError':ValueError}}
             exec(compile(tree,'<candidate pure function>','exec'),scope);f=scope['normalize'];passed=True
             for item,expected in [(0,8091),(-1,8091),(1,1),(65535,65535),(65536,8091),(8091,8091)]:passed=passed and f(item)==expected
             for item in (True,False,'8091',1.0):
@@ -88,8 +88,24 @@ def inference(url,model,prompt):
     except Exception as exc:resident={'unavailable':type(exc).__name__}
     return {'model':model,'text':text,'error':error,'elapsed_s':elapsed,'first_content_s':first,'server_metrics':done,'tokens_per_second':done['eval_count']*1e9/done['eval_duration'] if done.get('eval_duration') else None,'resources':values,'resident':resident}
 
+def recheck(source,output):
+    """Retest actual saved responses, retaining prior verdicts and source bytes."""
+    if source.resolve()==output.resolve():raise ValueError('Recheck must preserve original artifact')
+    raw=source.read_bytes();result=json.loads(raw)
+    for row in result['cases']:
+        row.setdefault('previous_evaluations',[]).append(row['evaluation'])
+        row['evaluation']=evaluate(row['case'],row['text']) if not row['error'] else {'pass':False,'reason':'Actual inference error'}
+    result['recheck']={'judge_version':'28a.screening.2','source_sha256':hashlib.sha256(raw).hexdigest(),'created':time.time(),'new_inference':False}
+    result['summary']={model:{'passed':sum(r['evaluation']['pass'] for r in result['cases'] if r['model']==model),'total':sum(r['model']==model for r in result['cases'])} for model in {r['model'] for r in result['cases']}}
+    with output.open('x') as target:target.write(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+    return result['summary']
+
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--url',required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--models',nargs='+',default=['qwen3.5:27b-q4_K_M','qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M']);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--url');p.add_argument('--recheck',type=Path);p.add_argument('--output',type=Path,required=True);p.add_argument('--models',nargs='+',default=['qwen3.5:27b-q4_K_M','qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M']);args=p.parse_args()
+    if args.recheck:
+        print(json.dumps(recheck(args.recheck,args.output)));raise SystemExit(0)
+    if not args.url:p.error('--url required for real inference')
     result=json.loads(args.output.read_text()) if args.output.exists() else {'created':time.time(),'scope':'Six paired technical screening tasks, not general autonomy/quality certification','cases':[]}
     for model in args.models:
         for name,prompt in CASES:

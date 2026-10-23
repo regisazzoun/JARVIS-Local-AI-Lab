@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "path": "docs/missions/28A/preuves/quality-32.json",
+      "source_sha256": "c45dafd283d5d20af719ddbf38270e8221c95d2bdd665c1606bb0192d16cc60f",
+      "published_sha256": "c45dafd283d5d20af719ddbf38270e8221c95d2bdd665c1606bb0192d16cc60f",
+      "redacted": false,
+      "source": "Actual JARVIS project_download; original receipt remains in canonical mission"
+    },
+    {
+      "path": "docs/missions/28A/preuves/quality-32-corrected.json",
+      "source_sha256": "8037a079d2642a2ed8b427a71e9e009a81e3bc66e7a8a882567a62bb341a7752",
+      "published_sha256": "8037a079d2642a2ed8b427a71e9e009a81e3bc66e7a8a882567a62bb341a7752",
+      "redacted": false,
+      "source": "Actual JARVIS project_download; original receipt remains in canonical mission"
+    }
+  ],
+  "independent_checks": {
+    "corrected_references_original_sha256": true,
+    "original_responses_preserved": true,
+    "case_count": 6,
+    "new_inference_on_recheck": false
+  }
+}

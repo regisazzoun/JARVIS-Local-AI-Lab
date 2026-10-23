@@ -18,3 +18,7 @@ Le benchmark froid initial local mesure directement Ollama et n’est pas un éq
 L’incident32B et l’erreur de révision de plan Codex sont documentés dans [INCIDENT-INSTALLATION-32B.md](INCIDENT-INSTALLATION-32B.md). Les contextes sont archivés avant reprise ; les plans1–3, appels invalides, faux identifiants de preuve et erreurs de premier rapport restent conservés. Un premier lancement logiciel avec le Python système a échoué faute de jsonschema ; la suite dans le venv installé passe217tests.
 
 Restent notamment le comparatif qualitatif des modèles, le choix du moteur Dell, la vérification opérationnelle du repli et une mission JARVIS complète avec preuves/résultat/rapport. Aucune réserve26/26B ni14A n’est levée par ces tests seuls.
+
+## Complément — reprise du test après la boucle
+
+221tests logiciels passent après corrections du contexte et du vérificateur. JARVIS a réellement lancé les six inférences32B :3/6après correction d’un faux FAIL dû au vérificateur Codex, verdict2/6initial conservé. Les résultats ne valent pas gain qualitatif. Le transfert a rencontré un dossier créé root par Codex ; ce seul propriétaire a été corrigé, la réutilisation par JARVIS est suivie dans la mission. Le70B a été remplacé provisoirement par le pilote27B connu après des erreurs d’appel répétées ; ce repli n’est pas le choix final du modèle Dell. Voir INCIDENT-REPRISE-TESTS.md.
