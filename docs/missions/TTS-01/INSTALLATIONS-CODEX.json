@@ -1,6 +1,6 @@
 {
   "actor": "Codex",
-  "note": "Deux instantanés peuvent correspondre à la même installation quand le fichier de travail a été copié après installation ; les chemins de sauvegardes datés identifient les opérations réelles. Sauvegardes root conservées, aucun moteur TTS installé par ces scripts.",
+  "note": "Instantanés dédupliqués par chemin de sauvegarde. Les fichiers de travail des premières installations ont été réutilisés ; les sauvegardes root et le journal conservent leurs originaux. Ces scripts ne réalisent aucune installation TTS.",
   "records": [
     {
       "actor": "Codex",
@@ -100,13 +100,13 @@
     },
     {
       "actor": "Codex",
-      "created": 1792720224.8994203,
-      "backup": "/var/backups/jarvis/tts-01/1792720224450624878",
+      "created": 1792721065.7715943,
+      "backup": "/var/backups/jarvis/tts-01/1792721065507298187",
       "tasks_preserved": 104,
       "files": [
         {
           "target": "/opt/jarvis/conversation/jarvis/host_client.py",
-          "sha256": "9ace774c80c65c6e98fff8849469f2d0563a9a244c20889077462a00c375b3c0",
+          "sha256": "b26020a6860d37eaae31231eb6f60d230ea60ebf9748717cb894f86acb154292",
           "installed_matches": true
         },
         {
@@ -125,13 +125,23 @@
           "installed_matches": true
         },
         {
+          "target": "/opt/jarvis/conversation/jarvis/verification.py",
+          "sha256": "96f2ede069d5827691c1adf5b02e337e2b891afb3dce76aa9dd8da47d3a7d60c",
+          "installed_matches": true
+        },
+        {
           "target": "/usr/local/lib/jarvis-host/host_bridge.py",
-          "sha256": "b234b02da5ade5534ba2e9fa72c8c97d0ea33f2df16296df784740f74f126c7d",
+          "sha256": "e379e96d80b8bde7a0b7f2c3a2787e36507b6ebc0701c0f1f7c22c05c62a5573",
           "installed_matches": true
         },
         {
           "target": "/usr/local/lib/jarvis-host/remote_project.py",
-          "sha256": "f95b16294863e0b1f0de61f1949bb433636572d478358344deb842d58e816ac9",
+          "sha256": "0e7639d6e333949c2c8e22be97b185a0ab3c8fa769c8c4c58717bd2d8d034bf8",
+          "installed_matches": true
+        },
+        {
+          "target": "/usr/local/lib/jarvis-host/remote_probes.py",
+          "sha256": "94af55dfef18f983b42ea6e0fd6745f0f5ff8d874529a4c510d07a5df713968a",
           "installed_matches": true
         },
         {
@@ -144,7 +154,7 @@
         "jarvis-host-bridge",
         "jarvis-conversation"
       ],
-      "policy_sha256": "44a60f8335bc79a882f310e97993eca1c268bb6a6c0c2f5453b5a49c0aca0c8b"
+      "policy_sha256": "c01372d1da72a74e9f45630a01efb2526bae4b998470868ac5beb29270963f2b"
     }
   ]
 }

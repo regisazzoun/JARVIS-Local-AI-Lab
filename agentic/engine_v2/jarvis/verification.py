@@ -35,6 +35,8 @@ def validate_contract(contract):
     source=contract.get('source',{})
     if not isinstance(source,dict) or not isinstance(source.get('tool'),str) or not isinstance(source.get('arguments'),dict):
         raise ValueError('source requires tool and arguments object')
+    if source['tool']=='host_remote' and source['arguments'].get('action')=='project_exec':
+        raise ValueError('Independent remote observation requires read_file or fixed project_probe, never arbitrary project_exec. Inspect the active probe schema.')
     kind=contract.get('kind')
     if kind=='text':
         if not isinstance(contract.get('equals'),str) and not (isinstance(contract.get('sha256'),str) and len(contract['sha256'])==64):
@@ -155,9 +157,9 @@ class Verifier:
 
     def read(self, source):
         name, args = source['tool'], source['arguments']
-        allowed = name == 'host_read_file' or name == 'host_github' and args.get('action') == 'file' or name == 'host_remote' and args.get('action') == 'read_file' or name == 'host_service' and args.get('action') == 'is-active'
+        allowed = name == 'host_read_file' or name == 'host_github' and args.get('action') == 'file' or name == 'host_remote' and args.get('action') in ('read_file','project_probe') or name == 'host_service' and args.get('action') == 'is-active'
         if not allowed:
-            raise ValueError('Independent read required: host_read_file, host_remote read_file, host_github file, host_service is-active')
+            raise ValueError('Independent read required: host_read_file, host_remote read_file/project_probe (fixed read-only probes), host_github file, host_service is-active')
         store = getattr(self.registry, 'mission_store', None)
         token = store.begin_call(self.registry.context['mission_id'], self.registry.context.get('task_id'), name, args) if store else None
         start = time.monotonic()

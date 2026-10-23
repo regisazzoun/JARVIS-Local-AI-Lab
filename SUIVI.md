@@ -1,6 +1,6 @@
 ## TTS-01 — reprise du23 octobre2026
 
-🟡 En cours : Codex orchestrateur et JARVIS exécutant. Mission persistante existante conservée ; accès GPU, archive privée, transfert binaire et lecture WAV authentifiée raccordés.190 tests logiciels passent ; aucun moteur ni échantillon TTS reçu à ce stade. [État initial](docs/missions/TTS-01/DIAGNOSTIC-INITIAL.md).26B est clôturée incomplète ;14A reste ouverte.
+🟡 En cours : Codex orchestrateur et JARVIS exécutant. Mission persistante existante conservée ; accès GPU, archive privée, transfert binaire et lecture WAV authentifiée raccordés.193 tests logiciels passent ; aucun moteur ni échantillon TTS reçu à ce stade. [État initial](docs/missions/TTS-01/DIAGNOSTIC-INITIAL.md).26B est clôturée incomplète ;14A reste ouverte.
 
 ## Mission26B — clôture en l’état du23 octobre2026
 

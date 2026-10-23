@@ -1,0 +1,39 @@
+{
+  "actor": "Codex-infrastructure-test",
+  "created": 1792721089.5826428,
+  "not_jarvis_retest": true,
+  "result": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "{\"gpu\": \"NVIDIA GeForce RTX 3090\", \"driver_version\": \"550.163.01\", \"vram_total_mib\": 24576, \"vram_used_mib\": 18960, \"python\": \"3.13.5\", \"kernel\": \"6.12.113+deb13-amd64\"}\n",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.416,
+      "stdout_truncated": false,
+      "stderr_truncated": false
+    },
+    "diagnostic": {
+      "policy_sha256": "bbed082b7882974295396a2d1aea2ce48d17e61682409b7d81def7b012b85fd3",
+      "policy_path": "/etc/jarvis/host-policy.json",
+      "selection": "single-persistent-owner-policy",
+      "reload": "each-request",
+      "broker_version": "23C.1",
+      "operation": "host_remote",
+      "parameters": {
+        "host": "dell-observe",
+        "action": "project_probe",
+        "project": "tts-01"
+      },
+      "omitted_parameters": [
+        "probe"
+      ],
+      "error_category": null,
+      "retry": null,
+      "alternative": null
+    },
+    "caller": "local-operator",
+    "evidence_id": "3115f879be294f2ebb22195ea7c6b114",
+    "elapsed_s": 0.693
+  }
+}
