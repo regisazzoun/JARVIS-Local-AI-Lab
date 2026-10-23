@@ -1,3 +1,7 @@
+## Décision propriétaire du 23 octobre 2026 — réception fonctionnelle du raccordement de deux RTX3090
+
+✅ **Raccordement et alimentation reçus fonctionnels pour le montage testé** : deux GPU détectés et CUDA réussi sur chacun, sur décision expresse du propriétaire. Réserves de certification formelle du brochage levées comme obstacle général ; brochage détaillé et puissance maximale demeurent non mesurés. **Mission13 : ✅🟡 GO avec réserves techniques restantes** pour essais d'inférence multi-GPU et comportement sous charge. [Addendum](docs/missions/13-extension-gpu/DECISION-RECEPTION-ALIMENTATION.md) · [PR23](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23). Ne pas réinstaller ni répéter les calculs CUDA reçus.
+
 ## Mission13 — extension double RTX3090,23 octobre2026
 
 🟡 **Réception partielle : deux GPU reconnus et petits calculs CUDA réussis sur chacun ; alimentation/faisceaux et inférence double non qualifiés.** Pilote existant conservé, Ollama limité à un UUID. Deux cartes identiques DellOEM indiquées par le propriétaire et sous-systèmes Dell observés. [Rapport](docs/missions/13-extension-gpu/RAPPORT-FINAL.md). Priorité actuelle : qualification du montage électrique réel, puis charge/inférence. TTS-01 reste suspendue ;26B clôturée incomplète,14A/24-Old/28/Dell2 non lancés.

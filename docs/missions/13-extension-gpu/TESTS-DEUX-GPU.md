@@ -1,3 +1,5 @@
+> **Réception propriétaire complémentaire du 23 octobre 2026 :** ✅ alimentation et câbles acceptés comme *fonctionnels pour le montage effectivement testé* ; les deux calculs CUDA restent reçus. Les cases historiques « brochage inconnu » et « charge double non exécutée » décrivent les limites des mesures, sans retrait de cette décision. [Décision](DECISION-RECEPTION-ALIMENTATION.md).
+
 # Réception ciblée —23 octobre2026
 
 **🟡 Mission incomplète. Détection double et petits calculs reçus ; alimentation et inférence double non reçues.**

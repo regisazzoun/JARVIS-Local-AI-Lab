@@ -1,3 +1,7 @@
+## Addendum prioritaire — décision propriétaire du 23 octobre 2026
+
+✅ **Raccordement GPU reçu comme fonctionnel dans le montage testé.** Le propriétaire a explicitement levé la réserve générale de brochage/alimentation pour l'exploitation du laboratoire : les deux cartes sont reconnues et exécutent chacune un calcul CUDA réel. Cette décision ne prétend ni mesurer la puissance maximale ni établir une table de brochage broche à broche. **Mission13 : ✅🟡 GO avec réserves restantes sur charge prolongée, inférence multi-GPU et modèle final.** Les anciennes mentions « alimentation non qualifiée » ci-dessous sont conservées comme état de preuve historique et n'annulent pas cette réception fonctionnelle. [Décision et portée](DECISION-RECEPTION-ALIMENTATION.md).
+
 # Mission13 — réception partielle de l’extension GPU
 
 **23 octobre2026 — 🟡 Incomplet : détection et CUDA double reçus, alimentation et inférence double non reçues.** [PR23](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23), branche `codex/mission-13-extension-dual-rtx3090`, sans fusion. Le complément est livré en l’état documenté ; il reste à reprendre au checkpoint matériel, sans réinstallation.

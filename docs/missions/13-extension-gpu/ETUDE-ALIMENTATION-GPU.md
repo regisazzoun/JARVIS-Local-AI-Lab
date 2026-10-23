@@ -1,3 +1,5 @@
+> **Addendum propriétaire du 23 octobre 2026 :** le raccordement est **✅ reçu fonctionnel pour la configuration testée** sur deux GPU avec calcul CUDA distinct. Les données de pinout, d'intensité nominale et de marge sous pleine charge décrites ci-dessous restent **non mesurées**, mais ne constituent plus une réserve bloquante à la poursuite des essais dans le laboratoire. Voir [décision de réception](DECISION-RECEPTION-ALIMENTATION.md).
+
 # Étude d’alimentation — conclusion partielle
 
 **🟡 Non qualifiée électriquement.** Les deux RTX3090 sont maintenant reconnues, mais le chemin d’alimentation de la seconde, les références des faisceaux et les limites par sortie de distribution ne sont pas établis. La détection ne démontre ni le brochage ni la tenue sous charge. Aucune proposition de branchement sur une prise Dell inconnue n’est reçue.
