@@ -1,6 +1,6 @@
 {
   "status": "in_progress_not_final_reception",
-  "exported_at": 1792769775.3300254,
+  "exported_at": 1792769918.0830545,
   "mission": "59830a3414a243c198c53e5624a286a3",
   "branch": "codex/mission-28a-routage-modeles",
   "pull_request": 25,
@@ -1286,6 +1286,24 @@
       "updated": 1792769586.6611428
     },
     {
+      "id": "47d3f8450f874c4eac3af96af978e87b",
+      "tool": "mission_task_complete",
+      "state": "finished",
+      "arguments": {
+        "evidence_id": "invocation_id de la derniere verification reussie",
+        "id": "B_models",
+        "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md"
+      },
+      "result": {
+        "elapsed_s": 0.014,
+        "error": "Preuve réelle réussie de cette tâche absente",
+        "ok": false,
+        "tool": "mission_task_complete"
+      },
+      "created": 1792769620.1532521,
+      "updated": 1792769620.360933
+    },
+    {
       "id": "c6272a407599462586000002187c653a",
       "tool": "host_remote",
       "state": "finished",
@@ -1478,6 +1496,220 @@
       },
       "created": 1792769757.6095874,
       "updated": 1792769758.663354
+    },
+    {
+      "id": "26697f483d9240a0a436119fbba2e89e",
+      "tool": "mission_verify",
+      "state": "finished",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/installed/llama3.3:70b-instruct-q4_K_M": true,
+            "/installed/qwen3:32b-q4_K_M": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/model_count": "integer"
+          }
+        }
+      },
+      "result": {
+        "elapsed_s": 1.172,
+        "ok": true,
+        "result": {
+          "checks": [
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/installed/llama3.3:70b-instruct-q4_K_M"
+            },
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/installed/qwen3:32b-q4_K_M"
+            },
+            {
+              "pass": true,
+              "path": "/model_count",
+              "type": "integer"
+            }
+          ],
+          "contract": {
+            "expected": {
+              "/installed/llama3.3:70b-instruct-q4_K_M": true,
+              "/installed/qwen3:32b-q4_K_M": true
+            },
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "action": "hybrid_catalogue",
+                "host": "dell-observe"
+              },
+              "tool": "host_remote"
+            },
+            "types": {
+              "/model_count": "integer"
+            }
+          },
+          "observations": [
+            {
+              "arguments": {
+                "action": "hybrid_catalogue",
+                "host": "dell-observe"
+              },
+              "broker_evidence": "32210a47fff347a3b684a6baacf80bde",
+              "invocation": "fcc9b6da762944ca949ed283988589eb",
+              "tool": "host_remote"
+            }
+          ],
+          "observed_at": 1792769784.0639787,
+          "returncode": 0,
+          "sha256": "9fe21c64c7690da763484375cf73d6199546d528ff406563d689f3273372f34e",
+          "status": "PASS",
+          "verification_event": 22104,
+          "verifier": "deterministic26"
+        },
+        "risk": "host_authorized",
+        "tool": "mission_verify"
+      },
+      "created": 1792769782.877212,
+      "updated": 1792769784.2385576
+    },
+    {
+      "id": "fcc9b6da762944ca949ed283988589eb",
+      "tool": "host_remote",
+      "state": "finished",
+      "arguments": {
+        "action": "hybrid_catalogue",
+        "host": "dell-observe"
+      },
+      "result": {
+        "elapsed_s": 0.817,
+        "ok": true,
+        "result": {
+          "diagnostic": {
+            "alternative": null,
+            "broker_version": "23C.1",
+            "error_category": null,
+            "omitted_parameters": [],
+            "operation": "host_remote",
+            "parameters": {
+              "action": "hybrid_catalogue",
+              "host": "dell-observe"
+            },
+            "policy_path": "/etc/jarvis/host-policy.json",
+            "policy_sha256": "4e39435ea43c8d2ba481f4a675e6f8eb2b087adc09137fbd89e1c6f071b6fbb6",
+            "reload": "each-request",
+            "retry": null,
+            "selection": "single-persistent-owner-policy"
+          },
+          "duration_s": 0.365,
+          "evidence_id": "32210a47fff347a3b684a6baacf80bde",
+          "returncode": 0,
+          "stderr": "",
+          "stderr_truncated": false,
+          "stdout": "{\"models\": [{\"name\": \"qwen3:32b-q4_K_M\", \"digest\": \"030ee887880fc378860c2dd35101da424377520441ae4bfe7be6deff8ade7840\", \"size\": 20201253829}, {\"name\": \"llama3.3:70b-instruct-q4_K_M\", \"digest\": \"a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa\", \"size\": 42520413916}, {\"name\": \"qwen3.5:27b-q4_K_M\", \"digest\": \"64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59\", \"size\": 17478556591}, {\"name\": \"ministral-3:14b-instruct-2512-q4_K_M\", \"digest\": \"4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7\", \"size\": 9082537546}, {\"name\": \"llama3.1:8b\", \"digest\": \"46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e\", \"size\": 4920753328}], \"model_count\": 5, \"installed\": {\"qwen3:32b-q4_K_M\": true, \"llama3.3:70b-instruct-q4_K_M\": true, \"qwen3.5:27b-q4_K_M\": true}}\n",
+          "stdout_truncated": false,
+          "timeout": false
+        },
+        "risk": "host_authorized",
+        "tool": "host_remote"
+      },
+      "created": 1792769782.9810894,
+      "updated": 1792769783.9552195
+    },
+    {
+      "id": "5d2bb501736646ee965a3f3693c3cb46",
+      "tool": "mission_verify",
+      "state": "finished",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/cases/0/model": "qwen3:32b-q4_K_M",
+            "/summary/qwen3:32b-q4_K_M/total": 6
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+            },
+            "tool": "host_read_file"
+          },
+          "types": {
+            "/summary/qwen3:32b-q4_K_M/total": "integer"
+          }
+        }
+      },
+      "result": {
+        "elapsed_s": 0.52,
+        "ok": true,
+        "result": {
+          "checks": [
+            {
+              "actual": "qwen3:32b-q4_K_M",
+              "expected": "qwen3:32b-q4_K_M",
+              "pass": true,
+              "path": "/cases/0/model"
+            },
+            {
+              "actual": 6,
+              "expected": 6,
+              "pass": true,
+              "path": "/summary/qwen3:32b-q4_K_M/total"
+            },
+            {
+              "pass": true,
+              "path": "/summary/qwen3:32b-q4_K_M/total",
+              "type": "integer"
+            }
+          ],
+          "contract": {
+            "expected": {
+              "/cases/0/model": "qwen3:32b-q4_K_M",
+              "/summary/qwen3:32b-q4_K_M/total": 6
+            },
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+              },
+              "tool": "host_read_file"
+            },
+            "types": {
+              "/summary/qwen3:32b-q4_K_M/total": "integer"
+            }
+          },
+          "observations": [
+            {
+              "arguments": {
+                "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+              },
+              "broker_evidence": "4aff6e90da244edb89b7915171ea9227",
+              "invocation": "5e29afca9394414cb864413aa5ef0e43",
+              "tool": "host_read_file"
+            }
+          ],
+          "observed_at": 1792769798.0109208,
+          "returncode": 0,
+          "sha256": "c45dafd283d5d20af719ddbf38270e8221c95d2bdd665c1606bb0192d16cc60f",
+          "status": "PASS",
+          "verification_event": 22113,
+          "verifier": "deterministic26"
+        },
+        "risk": "host_authorized",
+        "tool": "mission_verify"
+      },
+      "created": 1792769797.47709,
+      "updated": 1792769798.168897
     }
   ],
   "gpu_independent": {
