@@ -22,6 +22,43 @@ def parameter_schema(name, spec):
     if name=='host_exec':schema['oneOf']=[{'required':['command']},{'required':['argv']}]
     return schema
 
+def decode_plan_containers(value, schema):
+    """Decode only JSON containers declared by the active schema; never coerce scalars."""
+    kind=schema.get('type')
+    if kind in ('array','object') and isinstance(value,str):
+        try:
+            parsed=json.loads(value)
+            if kind=='array' and isinstance(parsed,list) or kind=='object' and isinstance(parsed,dict):value=parsed
+        except ValueError:
+            # A backslash before an apostrophe is invalid JSON, but emitted by some
+            # native tool decoders. Only repair it after strict parsing failed.
+            try:
+                parsed=json.loads(value.replace("\\'", "'"))
+                if kind=='array' and isinstance(parsed,list) or kind=='object' and isinstance(parsed,dict):value=parsed
+            except ValueError:pass
+    if kind=='array' and isinstance(value,list):return [decode_plan_containers(v,schema.get('items',{})) for v in value]
+    if kind=='object' and isinstance(value,dict):return {k:decode_plan_containers(v,schema.get('properties',{}).get(k,{})) for k,v in value.items()}
+    return value
+
+def decode_plan_arguments(args, schema):
+    original=args
+    value=args.get('tasks')
+    if isinstance(value,str):
+        try:
+            spilled=json.loads('{"tasks":'+value)
+            if isinstance(spilled,dict) and isinstance(spilled.get('tasks'),list):
+                if any(k in args and k!='tasks' and args[k]!=v for k,v in spilled.items()):
+                    raise ValueError('Conflicting plan fields in encoded tasks; resend a single JSON object')
+                args={**args,**spilled}
+        except json.JSONDecodeError:
+            try:
+                spilled=json.loads(('{"tasks":'+value).replace("\\'", "'"))
+                if isinstance(spilled,dict) and isinstance(spilled.get('tasks'),list):
+                    if any(k in args and k!='tasks' and args[k]!=v for k,v in spilled.items()):raise ValueError('Conflicting encoded plan fields')
+                    args={**args,**spilled}
+            except json.JSONDecodeError:pass
+    return decode_plan_containers(args,schema)
+
 class Registry:
     def __init__(self,memory,root,config=None):
         self.memory=memory;self.root=Path(root);self.context={};self.config=config or {}
@@ -54,6 +91,8 @@ class Registry:
         register_reporting(self)
         from .mission_actions import register as register_actions
         register_actions(self)
+        from .mission_assurance import register as register_assurance
+        register_assurance(self)
         from .skill_lab import register as register_skills
         register_skills(self)
         from .mcp_gateway import register as register_mcp
@@ -94,7 +133,14 @@ class Registry:
                         raise ValueError('Final owner acceptance failed: '+json.dumps(verdict,ensure_ascii=False))
                 original=args['content']
                 self.mission_store.event(self.context['mission_id'],'model_report_original',actor='JARVIS',result={'content':original,'status':'model narrative, not verified facts'})
-                args={**args,'content':render_final(self.mission_store,self.context['mission_id'],original)}
+                from .mission_assurance import enabled, require_report, require_final_outcome
+                if enabled(self.mission_store,self.context['mission_id']):
+                    require_final_outcome(self)
+                    review=require_report(self,original)
+                    args={**args,'content':original+'\n\n---\n\n'+render_final(self.mission_store,self.context['mission_id'],original)}
+                    self.mission_store.event(self.context['mission_id'],'narrative_publication_approved',result={'draft_sha256':review['draft_sha256'],'snapshot_sha256':review['snapshot_sha256'],'reviewer':'JARVIS-reviewer'})
+                else:
+                    args={**args,'content':render_final(self.mission_store,self.context['mission_id'],original)}
         sources=self.context.get('verified_sources',[])
         canonical=set()
         for url in sources:
@@ -140,8 +186,33 @@ class Registry:
         return result
     def propose(self,args):
         return {'id':self.memory.propose(args['content'],project=self.context.get('project',''),conversation=self.context.get('conversation')),'status':'pending','approval_required':True}
+    def active_schema(self,name):
+        import copy
+        schema=copy.deepcopy(parameter_schema(name,self.specs[name]))
+        store=getattr(self,'mission_store',None)
+        if name=='mission_plan' and store and json.loads(store.get(self.context['mission_id'])['spec']).get('autonomous'):
+            props=schema['properties'];task=props['tasks']['items']
+            task['required']=['id','title','depends','objective','tools','observations','verification','recovery','artifacts','contract']
+            task['properties']['contract']['required']=['report_path','semantic']
+            semantic=task['properties']['contract']['properties']['semantic']
+            semantic['minItems']=1
+            semantic['items']['required']=['kind','source']
+            semantic['items']['allOf']=[
+                {'if':{'properties':{'kind':{'const':'text'}}},'then':{'anyOf':[{'required':['equals']},{'required':['sha256']}]}},
+                {'if':{'properties':{'kind':{'const':'digest'}}},'then':{'required':['baseline_source']}},
+                {'if':{'properties':{'kind':{'const':'service'}}},'then':{'required':['expected_state']}}]
+            for field in ('expected','types'):
+                semantic['items']['properties'][field]['propertyNames']={'pattern':'^(|/.*)$'}
+            props['metadata']['required']=['objective','success_criteria','artifacts','stop_conditions']
+            for declaration in list(task['properties'].values())+list(props['metadata']['properties'].values()):
+                if declaration.get('type')=='array' and declaration is not task['properties']['depends']:declaration['minItems']=1
+                if declaration.get('type')=='string':declaration['minLength']=1
+            if not store.plans(self.context['mission_id']):schema['required']=['tasks','metadata']
+            else:schema['required']=['tasks','expected_version','reason']
+        return schema
+
     def schemas(self,all_tools=False):
-        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':parameter_schema(name,s)}} for name,s in self.specs.items() if not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
+        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
         start=time.monotonic();start_wall=time.time();result=None
         try:
@@ -152,7 +223,17 @@ class Registry:
             unknown=set(args)-set(props);missing=[k for k in required if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
             from jsonschema import Draft202012Validator
-            Draft202012Validator(parameter_schema(name,self.specs[name])).validate(args)
+            schema=self.active_schema(name)
+            if name=='mission_plan':
+                normalized=decode_plan_arguments(args,schema)
+                if normalized!=args and getattr(self,'mission_store',None):
+                    from .mission_assurance import VERSION
+                    self.mission_store.event(self.context['mission_id'],'plan_format_decoded',actor='JARVIS-engine',result={'original_arguments_preserved_in_tool_receipt':True,'normalization':'JSON containers only; no scalar coercion','contract_version':VERSION})
+                args=normalized
+            error=next(Draft202012Validator(schema).iter_errors(args),None)
+            if error:
+                path='/'+('/'.join(str(x) for x in error.absolute_path))
+                raise ValueError('Schema '+name+' at '+path+': '+error.message[:600]+'. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.')
             for k,v in args.items():
                 if props[k]['type']=='string' and (not isinstance(v,str) or (not v.strip() and props[k].get('minLength',1)>0) or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')
             controller=getattr(self,'mission_controller',None)

@@ -52,7 +52,9 @@ class Missions:
         # New user goals use semantic/autonomous contracts by default.
         # Explicit historical task specs and persisted missions keep their mode.
         spec=dict(spec or {})
-        if not spec.get('tasks'):spec.setdefault('autonomous',True)
+        if not spec.get('tasks'):
+            spec.setdefault('autonomous',True)
+            if spec.get('autonomous'): spec.setdefault('assurance',True)
         conversation = conversation or self.core.memory.conversation(project)
         ident = self.store.create(goal, model, conversation, project, spec)
         if (spec or {}).get('tasks'):
@@ -133,6 +135,8 @@ class Missions:
         """Recover the crash window after the durable final-tool receipt."""
         import hashlib
         from .tools import validate_final_report
+        from .mission_assurance import enabled, closure_state
+        if enabled(self.store,row['id']) and not closure_state(self.store,row['id'])['final_allowed']:return
         tasks=self.store.tasks(row['id'])
         if row.get('report_path') or not tasks or any(t['state']!='validated' for t in tasks):return
         with self.store.db() as c:

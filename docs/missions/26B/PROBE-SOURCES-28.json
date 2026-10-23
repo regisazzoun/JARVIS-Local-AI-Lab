@@ -1,0 +1,61 @@
+{
+  "created": 1792711606.7551017,
+  "harness_actor": "Codex",
+  "model_actor": "JARVIS-reviewer",
+  "scope": "Real inference on unchanged C partial report and original events; not an autonomous operational mission",
+  "source_report": "JARVIS-RAPPORT-C-PARTIEL-V1.md",
+  "result": {
+    "checks": {
+      "event:10978": {
+        "supported": false,
+        "claimed_status": "FAIL",
+        "claimed_kind": "narrative_review",
+        "claimed_actor": "JARVIS-reviewer",
+        "claimed_cause": "premier plan candidat omettait manifest.json requis par R3",
+        "supporting_diagnostic_index": 0,
+        "reason": "Le rapport allègue une omission de manifest.json comme cause du FAIL, mais les diagnostics originaux (index 0) indiquent que la cause réelle est l'absence de rétention explicite des échecs historiques ('Historical FAIL must be explicitly')."
+      },
+      "event:15355": {
+        "supported": false,
+        "claimed_status": "INSUFFICIENT",
+        "claimed_kind": "narrative_review",
+        "claimed_actor": "JARVIS-reviewer",
+        "claimed_cause": "rapport initial omettait la mention explicite des échecs historiques",
+        "supporting_diagnostic_index": 1,
+        "reason": "Le rapport allègue une omission de mention des échecs historiques, ce qui correspond au diagnostic original (index 1), mais le rapport contient également des erreurs factuelles graves sur les evidence_ids (diagnostics 1 et 2) qui invalident"
+      },
+      "event:15888": {
+        "supported": true,
+        "claimed_status": "PASS",
+        "claimed_kind": "semantic_verification",
+        "claimed_actor": "JARVIS-engine",
+        "claimed_cause": null,
+        "supporting_diagnostic_index": null,
+        "reason": "Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de contenu exact qui correspond à l'absence de contradictions dans les données source."
+      },
+      "event:16732": {
+        "supported": true,
+        "claimed_status": "PASS",
+        "claimed_kind": "semantic_verification",
+        "claimed_actor": "JARVIS-engine",
+        "claimed_cause": null,
+        "supporting_diagnostic_index": null,
+        "reason": "Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de contenu exact qui correspond à l'absence de contradictions dans les données source."
+      },
+      "event:17449": {
+        "supported": true,
+        "claimed_status": "PASS",
+        "claimed_kind": "semantic_verification",
+        "claimed_actor": "JARVIS-engine",
+        "claimed_cause": null,
+        "supporting_diagnostic_index": null,
+        "reason": "Aucun diagnostic original n'est fourni pour cet événement ; le rapport décrit une validation de structure JSON qui correspond à l'absence de contradictions dans les données source."
+      }
+    },
+    "issues": [
+      "event:10978 source claim rejected: Le rapport allègue une omission de manifest.json comme cause du FAIL, mais les diagnostics originaux (index 0) indiquent que la cause réelle est l'absence de rétention explicite des échecs historiques ('Historical FAIL must be explicitly').",
+      "event:15355 claimed_status INSUFFICIENT contradicts original FAIL",
+      "event:15355 source claim rejected: Le rapport allègue une omission de mention des échecs historiques, ce qui correspond au diagnostic original (index 1), mais le rapport contient également des erreurs factuelles graves sur les evidence_ids (diagnostics 1 et 2) qui invalident"
+    ]
+  }
+}

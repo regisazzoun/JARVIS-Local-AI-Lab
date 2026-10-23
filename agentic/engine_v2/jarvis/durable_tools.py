@@ -13,11 +13,21 @@ def register(registry):
         return value
     def key(): return registry.context['mission_id']
     def plan(args):
-        return {'tasks': store().plan(key(), args['tasks'], author='JARVIS', metadata=args.get('metadata'), reason=args.get('reason','initial plan'), expected_version=args.get('expected_version'), append=args.get('append',False), patch=args.get('patch',False)), 'plans':store().plans(key())}
+        from .mission_assurance import enabled, audit_plan, plan_view
+        tasks=store().plan(key(), args['tasks'], author='JARVIS', metadata=args.get('metadata'), reason=args.get('reason','initial plan'), expected_version=args.get('expected_version'), append=args.get('append',False), patch=args.get('patch',False))
+        review=audit_plan(registry) if enabled(store(),key()) else None
+        return {'tasks':tasks,'plans':plan_view(store(),key()) if enabled(store(),key()) else store().plans(key()),'coverage':review,'execution_allowed':not review or review['status']=='PASS','current_plan_version':len(store().plans(key())), 'next_action':'Revise missing outcomes yourself with append/patch, expected_version=current_plan_version' if review and review['status']!='PASS' else 'Execute ready task'}
     def progress(args):
         current=getattr(registry,'mission_store',None)
         def summary(tasks):return [{k:t.get(k) for k in ('id','title','state','artifact','report_sha256')} for t in tasks]
-        if current:return {'mission':key(),'tasks':summary(current.tasks(key())),'plans':current.plans(key()),'current_plan_version':len(current.plans(key()))}
+        if current:
+            from .mission_assurance import enabled, coverage_state, evidence_snapshot, plan_view, audit_plan, report_model_view, VERSION
+            if enabled(current,key()) and args.get('recheck_coverage') and current.plans(key()):audit_plan(registry)
+            result={'mission':key(),'tasks':summary(current.tasks(key())),'plans':current.plans(key()),'current_plan_version':len(current.plans(key()))}
+            if enabled(current,key()):
+                result['plans']=[p for p in current.plans(key()) if p['version']==args['plan_version']] if 'plan_version' in args else [{k:v for k,v in plan.items() if k!='plan'} for plan in current.plans(key())]
+            if enabled(current,key()): result.update({'coverage':coverage_state(current,key()),'report_evidence':report_model_view(evidence_snapshot(current,key()),current.get(key())['goal']),'interface':{'contract_version':VERSION,'expected_version':'current saved version','append':'new task definitions only','patch':'changed existing pending definitions only','report':'free prose with original evidence references, reviewed automatically before reception/publication','semantic_example':{'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/authorized/output.json'}},'expected':{'/total':3},'types':{'/total':'integer'}}}})
+            return result
         controller=getattr(registry,'mission_controller',None)
         if not controller:raise ValueError('Moteur durable indisponible')
         ident=args.get('id')
@@ -37,11 +47,27 @@ def register(registry):
     def evidence(args):
         rows = store().observations(key())
         row = next((r for r in rows if r['id'] == args['id'] or (r.get('result') or {}).get('result',{}).get('evidence_id')==args['id']), None)
-        if not row: raise ValueError('Preuve absente de cette mission')
+        reference=args['id']
+        if reference.isascii() and reference.isdigit() and len(reference)<=19:reference='event:'+str(int(reference))
+        if not row and reference.startswith('event:'):
+            row=next((e for e in store().events(key(),limit=1000000) if 'event:'+str(e['id'])==reference),None)
+        if not row: raise ValueError('Preuve absente de cette mission. Utilise un id d’invocation, un reçu broker ou event:N du journal de cette mission. La réception de tâche exige une invocation technique réussie de la tâche, pas un événement de revue.')
         text = encoded(row)
         offset = args.get('offset', 0)
         if not isinstance(offset, int) or offset < 0: raise ValueError('offset entier positif requis')
-        return {'content': text[offset:offset+12000], 'total_chars': len(text), 'next_offset': offset+12000 if offset+12000 < len(text) else None}
+        result={'content': text[offset:offset+12000], 'total_chars': len(text), 'next_offset': offset+12000 if offset+12000 < len(text) else None}
+        if row.get('kind'):
+            from .mission_assurance import finding_rectifications
+            original=row['result'];reference='event:'+str(row['id'])
+            rectification=finding_rectifications(store(),key()).get(reference)
+            withdrawn=(rectification or {}).get('withdrawn_findings',[])
+            issues=original.get('issues',[])
+            result['facts']={'interface':'26b.evidence.1','reference':reference,'kind':row['kind'],'actor':row['actor'],'task':row['task'],'created':row['created'],
+                'recorded_status':original.get('status'),'historical_findings_not_withdrawn':[str(issue)[:1000] for issue in issues if issue not in withdrawn][:8],
+                'withdrawn_findings':withdrawn,'rectification':rectification,'original_error_excerpt':str(original.get('error',''))[:2000],
+                'original_result_sha256':hashlib.sha256(encoded(original).encode()).hexdigest(),
+                'role':'Historical recorded verdict/diagnostics, not current business proof. Re-evaluate against the current draft. not_factual headings are allowed classifications, never rejection causes by themselves. Full original remains paginated in content.'}
+        return result
     def note(args):
         return {'event': store().event(key(), 'working_note', registry.context.get('task_id'), 'JARVIS', result={'content': args['content']})}
     def complete(args):
@@ -70,6 +96,8 @@ def register(registry):
         body = read.get('stdout', read.get('content', ''))
         if not isinstance(body, str) or len(body.strip()) < 80:
             raise ValueError('Rapport absent ou insuffisant (80 caractères minimum)')
+        from .mission_assurance import enabled, require_report
+        if enabled(db,ident): require_report(registry,body,task['id'])
         contract = task.get('contract', {})
         for required in contract.get('required_tools', []):
             if not any(r['tool'] == required and (r['result'] or {}).get('ok') for r in observations):
@@ -109,11 +137,30 @@ def register(registry):
         db=store();ident=key();task_id=registry.context.get('task_id')
         proof=next((o for o in db.observations(ident,task_id) if (o['id']==args['evidence_id'] or (o.get('result') or {}).get('result',{}).get('evidence_id')==args['evidence_id']) and o.get('result')),None)
         if not proof or proof['tool'].startswith('mission_'):raise ValueError('Une observation réelle de la tâche est requise')
+        from .mission_assurance import enabled
+        if enabled(db,ident):
+            result=proof.get('result') or {};raw=result.get('result') or {}
+            if result.get('ok') and raw.get('returncode',0)==0:
+                raise ValueError('External wait requires an actually failed observation, not a successful command or written report')
+            from .mission_assurance import closure_state
+            closure=closure_state(db,ident)
+            if closure['on_unavailable']=='waiting_external' and proof['id'] not in {row['reference'] for row in closure['unresolved']}:
+                raise ValueError('Use the latest unresolved external read from closure state; a superseded failure or unrelated refusal cannot establish this blocker')
+            tasks={t['id']:t for t in db.tasks(ident)}
+            def requires_current(candidate,seen=None):
+                seen=set() if seen is None else seen
+                if candidate in seen:return False
+                seen.add(candidate)
+                return any(dep==task_id or dep in tasks and requires_current(dep,seen) for dep in tasks[candidate].get('deps',[]))
+            local=[t['id'] for t in tasks.values() if t['id']!=task_id and t['state'] in ('pending','running') and not requires_current(t['id'])]
+            if local:raise ValueError('Global external wait would strand independently executable local tasks: '+', '.join(local)+'. Revise your own ordering/dependencies before mission_block; preserve the observed external failure without declaring success.')
         with db.db() as c:revisions=[r['file'] for r in c.execute("SELECT file FROM publication_outbox WHERE mission=? AND state='needs_revision'",(ident,))]
         if revisions:raise ValueError('Correct recoverable document publications before waiting on external authentication: '+', '.join(revisions)+'. Preserve summaries separately, download originals, append via host_exec/Python and mission_publish again.')
         read=registry.specs['host_read_file'][4]({'path':args['report_path']})
         body=read.get('stdout','')
         if read.get('returncode',0) or len(body.strip())<80:raise ValueError('Rapport de blocage vérifiable requis')
+        from .mission_assurance import enabled, require_report
+        if enabled(db,ident): require_report(registry,body,task_id)
         spec=json.loads(db.get(ident)['spec']);publication=spec.get('publication')
         if publication:
             from pathlib import Path
@@ -130,6 +177,12 @@ def register(registry):
         db.transition(ident,'waiting_external',{'reason':args['reason'],'report_path':args['report_path']})
         return {'state':'waiting_external','task':task_id,'report_path':args['report_path'],'not_completed':True}
     def publish(args):
+        from .mission_assurance import enabled, require_report
+        if enabled(store(),key()):
+            from pathlib import Path
+            read=registry.specs['host_read_file'][4]({'path':str(Path(args['workspace'])/args['file'])})
+            if read.get('returncode',0): raise ValueError('Publication source unreadable')
+            require_report(registry,read.get('stdout',''))
         from .publication import enqueue
         return enqueue(store(),key(),registry.context.get('task_id'),args)
     def batch(args):
@@ -165,10 +218,10 @@ def register(registry):
         ('mission_list','Lister les missions durables réelles pour répondre sur leur état en conversation.',{},[],listing),
         ('mission_read_batch','Exécuter en parallèle des lectures indépendantes réelles. Ne grouper aucune mutation ni commande host_exec.',{'calls':{'type':'array','items':{'type':'object','properties':{'tool':{'type':'string'},'arguments':{'type':'object'}},'required':['tool','arguments']}}},['calls'],batch),
         ('mission_publish', 'Enregistrer un rapport local pour publication asynchrone avec vérification distante. Échec GitHub ne perd pas le fichier local.', {k:{'type':'string'} for k in ('repository','branch','workspace','file')}, ['repository','branch','workspace','file'], publish),
-        ('mission_plan', 'Enregistrer/réviser ton plan durable. tasks: id,title,depends,objective,tools,observations,verification,recovery,artifacts,contract. metadata: objective,success_criteria,artifacts,stop_conditions. Révision: expected_version et reason. Pour modifier une tâche non reçue : patch:true, tasks=[définitions complètes des seules tâches modifiées], expected_version courante. Pour ajouter des étapes sans recopier les tâches reçues : append:true, tasks=[nouvelles tâches uniquement], expected_version=version courante ; metadata conservée si omise. La synthèse finale est gérée par intervention_report après les tâches techniques. Les tâches reçues restent immuables. Pour mission autonome, contract.semantic contient les contrats mission_verify attendus (lectures indépendantes).',
-         {'patch':{'type':'boolean','description':'true: tasks contains ONLY the changed existing pending tasks; saved/validated tasks and metadata are preserved automatically. expected_version is current.'},'append':{'type':'boolean','description':'true: tasks contains ONLY new tasks; prior tasks and metadata are retained automatically. expected_version is current saved version.'},'metadata':{'type':'object','properties':{'objective':{'type':'string'},'success_criteria':{'type':'array','items':{'type':'string'}},'artifacts':{'type':'array','items':{'type':'string'}},'stop_conditions':{'type':'array','items':{'type':'string'}}}}, 'reason':{'type':'string'}, 'expected_version':{'type':'integer','description':'CURRENT saved version from mission_progress, not desired next version. Failed proposals do not increment it.'}, 'tasks': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'string'}, 'title': {'type': 'string'}, 'objective':{'type':'string'},'tools':{'type':'array','items':{'type':'string'}},'observations':{'type':'array','items':{'type':'string'}},'verification':{'type':'string'},'recovery':{'type':'string'},'artifacts':{'type':'array','items':{'type':'string'}}, 'depends': {'type': 'array', 'items': {'type': 'string'}}, 'contract': {'type':'object','properties':{'report_path':{'type':'string'},'semantic':{'type':'array','items':{'type':'object','properties':{'kind':{'type':'string','enum':['json','text','service']},'source':{'type':'object'},'expected':{'type':'object'},'types':{'type':'object'},'baseline_source':{'type':'object'},'preserve':{'type':'array','items':{'type':'string'}},'equals':{'type':'string'},'sha256':{'type':'string'},'expected_state':{'type':'string'}}}},'checks':{'type':'array','items':{'type':'object'}}}}}, 'required': ['id', 'title', 'depends']}}}, ['tasks'], plan),
-        ('mission_progress', 'Relire les tâches persistantes ; id facultatif en conversation pour une autre mission.', {'id':{'type':'string'}}, [], progress),
-        ('mission_evidence', 'Relire une preuve complète persistante par invocation id, avec pagination.', {'id': {'type': 'string'}, 'offset': {'type': 'integer'}}, ['id'], evidence),
+        ('mission_plan', 'Enregistrer/réviser ton plan durable. tasks: id,title,depends,objective,tools,observations,verification,recovery,artifacts,contract. metadata: objective,success_criteria,artifacts,stop_conditions. Révision: expected_version et reason. Pour modifier une tâche non reçue : patch:true, tasks=[définitions complètes des seules tâches modifiées], expected_version courante. Pour ajouter des étapes sans recopier les tâches reçues : append:true, tasks=[nouvelles tâches uniquement], expected_version=version courante ; metadata conservée si omise. La synthèse finale est gérée par intervention_report après les tâches techniques. Les tâches reçues restent immuables. Pour mission autonome, contract.semantic contient les contrats mission_verify attendus. Contrat exemple JSON : {kind:json,source:{tool:host_read_file,arguments:{path:/absolute/result.json}},expected:{/count:3},types:{/count:integer}}. CSV/texte utilise kind:text, equals:texte_entier_exact. Manifeste SHA256 utilise kind:digest, source:lecture_manifeste, baseline_source:lecture_fichier_hache, field:/sha256. service signifie uniquement état systemd active/inactive/failed. Ne crée aucun contrat imaginaire pour une étape préparatoire : regroupe-la avec un résultat observable ou vérifie le texte exact lu. Un rapport libre se vérifie avec kind:report, source:lecture_du_rapport (ton contract.report_path ou un artefact prose .md déclaré, jamais le programme/CSV à analyser) : le moteur confronte alors sa prose aux reçus, sans empreinte devinée. Chaque tâche a son rapport propre ; la synthèse finale est intervention_report.',
+         {'patch':{'type':'boolean','description':'true: tasks contains ONLY the changed existing pending tasks; saved/validated tasks and metadata are preserved automatically. expected_version is current.'},'append':{'type':'boolean','description':'true: tasks contains ONLY new tasks; prior tasks and metadata are retained automatically. expected_version is current saved version.'},'metadata':{'type':'object','properties':{'objective':{'type':'string'},'success_criteria':{'type':'array','items':{'type':'string'}},'artifacts':{'type':'array','items':{'type':'string'}},'stop_conditions':{'type':'array','items':{'type':'string'}}}}, 'reason':{'type':'string'}, 'expected_version':{'type':'integer','description':'CURRENT saved PLAN version from mission_progress.current_plan_version, not engine/contract release and not desired next version. Failed proposals do not increment it.'}, 'tasks': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'string'}, 'title': {'type': 'string'}, 'objective':{'type':'string'},'tools':{'type':'array','items':{'type':'string'}},'observations':{'type':'array','items':{'type':'string'}},'verification':{'type':'string'},'recovery':{'type':'string'},'artifacts':{'type':'array','items':{'type':'string'}}, 'depends': {'type': 'array', 'items': {'type': 'string'}}, 'contract': {'type':'object','properties':{'report_path':{'type':'string'},'semantic':{'type':'array','items':{'type':'object','properties':{'kind':{'type':'string','enum':['json','text','digest','report','service']},'source':{'type':'object','description':'Independent read: {tool:host_read_file,arguments:{path:/absolute/file}}. Never {path:...} alone.','properties':{'tool':{'type':'string','enum':['host_read_file','host_remote','host_github','host_service']},'arguments':{'type':'object'}},'required':['tool','arguments']},'expected':{'type':'object','description':'JSON Pointer keys with leading slash, e.g. /count:3. JSON kind only; never applies to CSV bytes.'},'types':{'type':'object','description':'JSON Pointer keys e.g. /count:integer. JSON kind only.'},'baseline_source':{'type':'object','description':'Independent read: {tool:host_read_file,arguments:{path:/absolute/file}}. Never {path:...} alone.','properties':{'tool':{'type':'string','enum':['host_read_file','host_remote','host_github','host_service']},'arguments':{'type':'object'}},'required':['tool','arguments']},'preserve':{'type':'array','items':{'type':'string'}},'relations':{'type':'array','description':'JSON relationships, e.g. global total equals length of output list','items':{'type':'object','properties':{'kind':{'type':'string','enum':['length']},'array':{'type':'string'},'count':{'type':'string'}},'required':['kind','array','count']}},'field':{'type':'string','description':'digest kind: manifest JSON Pointer, default /sha256'},'equals':{'type':'string','description':'Entire exact text content for text kind, including trailing newline; not a keyword'},'sha256':{'type':'string'},'expected_state':{'type':'string'}}}},'checks':{'type':'array','items':{'type':'object'}}}}}, 'required': ['id', 'title', 'depends']}}}, ['tasks'], plan),
+        ('mission_progress', 'Relire les tâches persistantes ; id facultatif en conversation pour une autre mission.', {'id':{'type':'string'},'plan_version':{'type':'integer','description':'Fetch original full definitions of this version, including current; default returns compact version metadata'},'recheck_coverage':{'type':'boolean','description':'Retry current saved plan review without rewriting/versioning the plan; useful after reviewer-format INSUFFICIENT. Genuine omissions still require your own plan revision.'}}, [], progress),
+        ('mission_evidence', 'Relire une preuve par invocation id, reçu broker ou event:N (N seul accepté). Pour un événement, facts fournit immédiatement statut/diagnostics historiques et rectifications liées ; content conserve le texte original paginé. Même mission seulement. Une revue ne remplace pas une preuve technique de réception.', {'id': {'type': 'string'}, 'offset': {'type': 'integer'}}, ['id'], evidence),
         ('mission_note', 'Conserver observations, erreurs et prochaine action avant reprise.', {'content': {'type': 'string', 'maxLength': 16000}}, ['content'], note),
         ('mission_task_complete', 'Vérifier le rapport local et la preuve réelle de la tâche active ; ne valide pas une simple affirmation.',
          {'id': {'type': 'string'}, 'evidence_id': {'type': 'string'}, 'report_path': {'type': 'string'}}, ['id', 'evidence_id', 'report_path'], complete)]

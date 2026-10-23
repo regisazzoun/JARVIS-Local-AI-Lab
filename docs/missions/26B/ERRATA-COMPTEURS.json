@@ -1,0 +1,976 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792710769.454075,
+  "contract_fix": "26b.report.8",
+  "errata": [
+    {
+      "event": 14696,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 32, actual 999",
+        "observations incorrect: expected 32, actual 999",
+        "observations incorrect: expected 32, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 14697,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 32, actual 999",
+        "observations incorrect: expected 32, actual 999",
+        "observations incorrect: expected 32, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 14699,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 32, actual 999",
+        "observations incorrect: expected 32, actual 999",
+        "observations incorrect: expected 32, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 14718,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 34, actual 999",
+        "observations incorrect: expected 34, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 14720,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 34, actual 999",
+        "observations incorrect: expected 34, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 14896,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 34, actual 999",
+        "observations incorrect: expected 34, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15041,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 34, actual 999",
+        "observations incorrect: expected 34, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15053,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15054,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15056,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999",
+        "observations incorrect: expected 39, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15299,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15300,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15437,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999",
+        "observations incorrect: expected 40, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15639,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 48, actual 999",
+        "observations incorrect: expected 48, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15640,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 48, actual 999",
+        "observations incorrect: expected 48, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15642,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 48, actual 999",
+        "observations incorrect: expected 48, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15790,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 48, actual 999",
+        "observations incorrect: expected 48, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15852,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 64, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 15977,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 64, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16015,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 66, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16017,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 66, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16102,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 66, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16112,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 66, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16114,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 66, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16147,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 69, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16149,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 69, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16273,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 69, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16277,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 69, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16279,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 69, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16305,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 71, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16307,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 71, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16325,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 73, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16327,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 73, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16489,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 73, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16505,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 76, actual 999",
+        "observations incorrect: expected 76, actual 999",
+        "observations incorrect: expected 76, actual 2",
+        "observations incorrect: expected 76, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16506,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 76, actual 999",
+        "observations incorrect: expected 76, actual 999",
+        "observations incorrect: expected 76, actual 2",
+        "observations incorrect: expected 76, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16508,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 76, actual 999",
+        "observations incorrect: expected 76, actual 999",
+        "observations incorrect: expected 76, actual 2",
+        "observations incorrect: expected 76, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16548,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 85, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16549,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 85, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16551,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 85, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16654,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 85, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16666,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 88, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16667,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 88, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16669,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 88, actual 2"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16698,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 94, actual 2",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16699,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 94, actual 2",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16701,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 94, actual 2",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16805,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 94, actual 2",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999",
+        "observations incorrect: expected 94, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16816,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 100, actual 2",
+        "observations incorrect: expected 100, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16817,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 100, actual 2",
+        "observations incorrect: expected 100, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16819,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 100, actual 2",
+        "observations incorrect: expected 100, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16849,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 105, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16850,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 105, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 16852,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 105, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17221,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 114, actual 2",
+        "observations incorrect: expected 114, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17222,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 114, actual 2",
+        "observations incorrect: expected 114, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17224,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 114, actual 2",
+        "observations incorrect: expected 114, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17363,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 114, actual 2",
+        "observations incorrect: expected 114, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17370,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 123, actual 2",
+        "observations incorrect: expected 123, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17371,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 123, actual 2",
+        "observations incorrect: expected 123, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17373,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 123, actual 2",
+        "observations incorrect: expected 123, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17400,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 127, actual 2",
+        "observations incorrect: expected 127, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17401,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 127, actual 2",
+        "observations incorrect: expected 127, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17403,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 127, actual 2",
+        "observations incorrect: expected 127, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17569,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 127, actual 2",
+        "observations incorrect: expected 127, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17576,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 133, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17577,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 133, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17579,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 133, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17731,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 133, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17740,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 141, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17741,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 141, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17743,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 141, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17780,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 145, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17781,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 145, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17783,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 145, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17878,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 145, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17921,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 151, actual 999",
+        "observations incorrect: expected 151, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17922,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 151, actual 999",
+        "observations incorrect: expected 151, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 17924,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 151, actual 999",
+        "observations incorrect: expected 151, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18042,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 151, actual 999",
+        "observations incorrect: expected 151, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18093,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 159, actual 999",
+        "observations incorrect: expected 159, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18094,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 159, actual 999",
+        "observations incorrect: expected 159, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18096,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 159, actual 999",
+        "observations incorrect: expected 159, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18195,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 159, actual 999",
+        "observations incorrect: expected 159, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18211,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 163, actual 999",
+        "observations incorrect: expected 163, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18212,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 163, actual 999",
+        "observations incorrect: expected 163, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18214,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 163, actual 999",
+        "observations incorrect: expected 163, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18343,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 163, actual 999",
+        "observations incorrect: expected 163, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18397,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 176, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18398,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 176, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18400,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 176, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18471,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 176, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18526,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 183, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18527,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 183, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18625,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 183, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18975,
+      "kind": "narrative_review",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 196, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18976,
+      "kind": "semantic_verification",
+      "original_status": "FAIL",
+      "rectified_findings": [
+        "observations incorrect: expected 196, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    },
+    {
+      "event": 18978,
+      "kind": "report_correction_context_prepared",
+      "original_status": null,
+      "rectified_findings": [
+        "observations incorrect: expected 196, actual 999"
+      ],
+      "rectification": "Legacy regex conflated quoted historical bad counts / data measurements with scoped technical receipt count. Only this numeric finding is withdrawn; original event and any other faults are preserved."
+    }
+  ],
+  "originals_unchanged": true
+}

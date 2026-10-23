@@ -1,0 +1,11 @@
+{
+  "actor": "Codex-independent-read",
+  "verdict": "FAIL",
+  "model_verdict": "PASS",
+  "findings": [
+    "Actual mission identifier is incorrectly described as unknown",
+    "Original receipt322f2d2292a440c58e7806f35c3a0c72 and broker33f46b23e6c74a5a8c695bf3572de86b are incorrectly described as invented/absent although present in the full snapshot",
+    "Grouped historical causes remain inaccurate"
+  ],
+  "next_test": "report4 bounded evidence and complete known reference index, not yet received"
+}

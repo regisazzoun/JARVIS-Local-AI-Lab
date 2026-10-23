@@ -1,0 +1,70 @@
+# Rapport T05 - Rédaction de RESOLUTION.md
+
+## Objectif
+Écrire RESOLUTION.md expliquant la panne observée, sa cause (séparateur) et la correction appliquée.
+
+## Historique des tentatives éditoriales
+- **Premier brouillon** : rejeté car "Historical FAIL must be explicitly retained" (mission_verify event 13923)
+- **Correction appliquée** : inclusion explicite des échecs historiques de T01 dans ce rapport
+
+## Contexte technique
+La tâche T05 suit la séquence:
+- T01: Lecture des fichiers source (validée après 2 tentatives - FAIL events 11167, 11197)
+- T02: Observation de la panne initiale (validée)
+- T03: Diagnostic de la cause (validée)
+- T04: Exécution corrigée produisant bilan.json (validée)
+
+## Erreurs historiques conservées
+Conformément aux exigences du contrat 26b.9 et de l'événement 13923:
+
+### Échec T01 - Première tentative (event 11167)
+**Raison du rejet**: rapport sans références suffisantes aux preuves originales → FAIL
+
+### Échec T01 - Deuxième tentative (event 11197)
+**Raison du rejet**: ajout des références mais vérification échoue car "Historical FAIL must be explicitly retained" → FAIL
+
+Ces échecs montrent l'importance de la traçabilité complète dans ce contrat.
+
+## Résultat produit
+Le fichier RESOLUTION.md contient:
+
+1. **Problème observé**: La commande `python3 producer.py mesures.csv bilan.json` échoue avec `KeyError: 'valeur'` (preuve: event d8e944cec60949968d3b58fc05e48b1a)
+
+2. **Cause racine**: Incompatibilité de délimiteur
+   - Script producer.py utilise par défaut `,` (virgule) - preuve: event ec4f3297dd3d42a9a3a3da1c2cd7554c
+   - Fichier mesures.csv utilise `;` (point-virgule) - preuve: event ce720ec4a2d447238634c70556456a54
+
+3. **Correction appliquée**: Passage du paramètre `--delimiter ';'`
+   - Commande: `python3 producer.py mesures.csv bilan.json --delimiter ';'`
+   - Résultat: `{"count": 2, "sum": 16}` - preuves: events ad6327ec3019464eb64bc0e5ea2961d5 et 5dbee1c2fb1e4970bd46b9de6603c9b7
+
+4. **Limites respectées**:
+   - producer.py non modifié (banc immuable)
+   - mesures.csv non modifié (données préservées)
+   - Correction uniquement par paramètres de ligne de commande
+   - Tous les fichiers produits dans `/var/lib/jarvis/projects/mission26b/B`
+
+## Vérification technique
+Le contrat de la tâche T05 exige:
+- kind: report
+- source: RESOLUTION.md
+- Contenus attendus : problème observé, cause racine, correction appliquée, limites respectées
+
+## Preuves consultées
+| Étape | Preuve | Invocation ID |
+|-------|--------|---------------|
+| Lecture producer.py | Code analysé | `ec4f3297dd3d42a9a3a3da1c2cd7554c` |
+| Lecture mesures.csv | Données réelles | `ce720ec4a2d447238634c70556456a54` |
+| Exécution échouée | error_capture.txt | `d8e944cec60949968d3b58fc05e48b1a` |
+| Exécution corrigée | bilan.json produit | `ad6327ec3019464eb64bc0e5ea2961d5` |
+| Vérification bilan.json | Contenu JSON valide | `5dbee1c2fb1e4970bd46b9de6603c9b7` |
+| Exigence de rétention des FAIL historiques | event 13923 | consulté via mission_evidence |
+
+## Limites de ce rapport
+- Ce document relate la rédaction de RESOLUTION.md, pas le contenu technique lui-même (vérifié par mission_verify)
+- Les invocation_ids cités proviennent des preuves consultées via mission_evidence
+- La traçabilité des échecs historiques T01 (events 11167, 11197) est explicitement conservée comme exigé
+
+---
+*Document généré dans le cadre de la mission 54c634e56b8d4241964322700ea5d837, tâche T05.*
+*Version révisée incluant les erreurs historiques comme exigé par event 13923.*

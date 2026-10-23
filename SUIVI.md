@@ -1,3 +1,7 @@
+## Mission26B — clôture en l’état du23 octobre2026
+
+🟡 **Incomplet — clôturée à la demande du propriétaire.** Contrôles installés,185 tests logiciels réussis ; résultats locaux A/B/C vérifiés, mais aucun des trois rapports opérationnels complets reçu indépendamment. Essais26B arrêtés avec preuves et checkpoints conservés. [Rapport final](docs/missions/26B/RAPPORT-FINAL.md) · [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion.14A reste ouverte ;24-Old non lancée. TTS-01 est reprise séparément à la demande du propriétaire.
+
 ## Décision propriétaire du 21 octobre 2026 — ordre de traitement actualisé
 
 **Ordre validé :** ✅🟡 25 MCP/Skills déjà livrée → **✅🟡 26 Mission Engine résilient (reçue avec réserves)** → **📋 épreuve finale 14A (distincte, ultérieure)** → **📋 24-Old Mémoire enrichie/AutoDream** → **📋 27 JL-03**, puis 28–31. Objectif26 : plan autonome, autocorrection, vérification sémantique et rapport factuel, en conservant les acquis25. [Cahier de26](docs/missions/26/MISSION.md) ; [épreuve14A différée](docs/missions/25/BILAN-14A.md). L'ancienne priorité 24-Old immédiatement après25 devient historique ; le n°24 sans suffixe demeure le broker reçu.
@@ -46,10 +50,11 @@
 
 ## Vue d'ensemble — toutes les missions
 
-**74 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--74-identifiants) reprend les mêmes missions et états.
+**75 identifiants comptés**, dont les dix incréments prévus de 15A/15B. Le tableau contient aussi deux lignes hors comptage : « 09 à 11 », regroupement historique, et « Documentation », activité transversale. Le [catalogue du README](README.md#catalogue-des-missions--75-identifiants) reprend les mêmes missions et états.
 
 | Mission | Objet / étapes | État | Résultat vérifié / réserves | Prochaine action |
 | --- | --- | --- | --- | --- |
+| **26B** | Fiabilisation de la planification et des rapports | 🟡 Incomplet — clôturée | Contrôles installés,185 tests ; trois rapports complets non reçus ; [bilan](docs/missions/26B/RAPPORT-FINAL.md) | Essais arrêtés par le propriétaire ; acquis et réserves conservés |
 | **26** | Mission Engine résilient et planification autonome | ✅🟡 GO avec réserves — 3/3 tâches JARVIS reçues | Trois plans versionnés, faux succès détecté, correction du programme par JARVIS, reprise et105 tests ; [réception](docs/missions/26/RAPPORT-FINAL.md) | Autonomie encore assistée et prose brute erronée ; épreuve finale14A différée |
 | **25** | MCP et Skill Lab exécutables | ✅🟡 GO AVEC RÉSERVES — quatre tâches reçues | Quatre skills actifs dont un créé/réutilisé par JARVIS, MCP réel,89 tests ; [réception](docs/missions/25/RAPPORT-FINAL.md) | Autonomie globale14A encore ouverte ; [bilan précis](docs/missions/25/BILAN-14A.md) |
 | **21** | Autonomie opérationnelle — sept tâches réelles Mac mini / Dell n°1 | ✅ 7/7 validées — réception avec réserves d’autonomie | Même mission reprise ; Tailscale Running et VNC LAN/tailnet direct authentifié avec image reçue ; rapports JARVIS publiés | Conserver les réserves de contexte, rédaction et interventions Codex ; [réception](docs/missions/22/RECEPTION-MISSION21.md) |
@@ -186,6 +191,9 @@ La **réception historique** d'une mission est conservée (ex. « GO PARTIEL »)
 
 | Date | Mission | Modification | Source / preuve |
 | --- | --- | --- | --- |
+| 2026-10-23 | 26B | Clôture en l’état à la demande du propriétaire : 🟡 incomplet ; essais arrêtés, aucune levée définitive des réserves26 | [Bilan](docs/missions/26B/RAPPORT-FINAL.md) |
+| 2026-10-23 | 26B | Reprise des blocages : métriques de prose et clôture externe, retests en cours | [Reprise](docs/missions/26B/REPRISE-23-OCTOBRE.md) |
+| 2026-10-22 | 26B | Lancement de la continuation26, contrôles de couverture et de prose ; essais réels en cours | [Mission26B](docs/missions/26B/MISSION.md) |
 | 2026-10-21 | 26 /14A | Réception26 avec réserves : moteur installé,3/3 tâches,3 plans,105 tests et correction JARVIS ;14A reste ouverte et différée | [Réception26](docs/missions/26/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/26/BILAN-14A.md) |
 | 2026-10-21 | 23C / registre | Réserves de déploiement23C levées par24 sans nouveau test ;23C/23D réintégrées au registre,73 identifiants cohérents | [Réception24](docs/missions/24/RAPPORT-FINAL.md) · [Référentiel25](docs/missions/25/REFERENTIEL-LU.md) |
 | 2026-10-21 | 25 / 14A | Réception25 avec réserves, quatre tâches JARVIS, quatre skills actifs,89 tests ;14A maintenue ouverte sur écarts actuels | [Réception25](docs/missions/25/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/25/BILAN-14A.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18) |

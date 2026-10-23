@@ -1,0 +1,29 @@
+{
+  "actor": "Codex-independent-readback",
+  "created": 1792711046.6402278,
+  "commit": "08fbf78",
+  "pr": {
+    "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head_sha": "08fbf787deee786bf0a77049d324f2c3744c56e0",
+    "base": "codex/mission-26-mission-engine"
+  },
+  "files": [
+    {
+      "path": "docs/missions/26B/REPRISE-23-OCTOBRE.md",
+      "bytes_identical": true,
+      "sha256": "8062b4678d235a3152ac37be5f97e443c5600d23cc306306b0dc997f839b5b8e",
+      "git_blob_sha": "67a05ce89694c71069a8aaaba7e7b9574c05d086",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/08fbf78/docs/missions/26B/REPRISE-23-OCTOBRE.md"
+    },
+    {
+      "path": "agentic/engine_v2/jarvis/mission_assurance.py",
+      "bytes_identical": true,
+      "sha256": "c2e44cf4684cb10c0e7e36362b63a6eb746b07d5372cc8389244c8329fe59ce0",
+      "git_blob_sha": "a4ea6c65ff3bb84358fa193dd02758186577e41a",
+      "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/08fbf78/agentic/engine_v2/jarvis/mission_assurance.py"
+    }
+  ]
+}

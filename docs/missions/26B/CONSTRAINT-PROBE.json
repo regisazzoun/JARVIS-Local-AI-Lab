@@ -1,0 +1,47 @@
+{
+  "scope": "Codex transport component probe, not autonomous operation",
+  "rows": [
+    {
+      "think": false,
+      "conforms_despite_conflicting_prompt": true,
+      "message": {
+        "role": "assistant",
+        "content": "{\"value\":\"ONLY_ALLOWED\"}"
+      },
+      "metrics": {
+        "load_duration": 51753860137,
+        "prompt_eval_duration": 149030000,
+        "eval_duration": 240154000,
+        "eval_count": 7,
+        "prompt_eval_count": 26,
+        "total_duration": 52146005035,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 4096,
+        "route_failures": [],
+        "request_elapsed_s": 52.15880970808212
+      }
+    },
+    {
+      "think": true,
+      "conforms_despite_conflicting_prompt": true,
+      "message": {
+        "role": "assistant",
+        "content": "{\"value\":\"ONLY_ALLOWED\"}"
+      },
+      "metrics": {
+        "load_duration": 40887708343,
+        "prompt_eval_duration": 136895000,
+        "eval_duration": 6689442000,
+        "eval_count": 278,
+        "prompt_eval_count": 24,
+        "total_duration": 47719310033,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 4096,
+        "route_failures": [],
+        "request_elapsed_s": 47.72537501400802
+      }
+    }
+  ]
+}

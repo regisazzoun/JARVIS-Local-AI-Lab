@@ -1,0 +1,92 @@
+{
+  "actor_harness": "Codex",
+  "model": "JARVIS/Qwen",
+  "created": 1792714875.4094734,
+  "candidate_report_contract": "26b.report.13",
+  "source_sha256": "2470aa4fd3197dffcceaf90ca7dce276dff9f0f4945dc65162d5752ef44473f1",
+  "scope": "Full candidate source-verifier on frozen real reports and original events, no production deployment yet and no autonomous operational mission",
+  "all_expected_matched": true,
+  "results": [
+    {
+      "case": "B",
+      "original_event": 18639,
+      "expected_supported": true,
+      "actual_supported": true,
+      "report_sha256": "f62d2340061cd40a214f5c8c2ad876144aaa2145aa57c6c44497b1ec95ca8b6f",
+      "result": {
+        "checks": {
+          "event:18639": {
+            "supported": true,
+            "claimed_status": "FAIL",
+            "claimed_kind": "narrative_review",
+            "claimed_actor": "JARVIS-reviewer",
+            "claimed_cause": "rapport manquait la documentation des erreurs historiques",
+            "supporting_diagnostic_index": 0,
+            "reason": "JARVIS-engine: blind asserted-cause category missing_historical_failures matches original native diagnostic code",
+            "typed_cause_validation": {
+              "extracted_claim": {
+                "category": "missing_historical_failures",
+                "cause_quote": "rapport manquait la documentation des erreurs historiques",
+                "role": "past_rejection_cause"
+              },
+              "native_diagnostic_categories": {
+                "missing_historical_failures": [
+                  0
+                ]
+              },
+              "matches": true,
+              "extractor_saw_original_diagnostics": false
+            },
+            "model_supported": false,
+            "model_reason": "Le rapport allègue que le statut FAIL de l'événement 18639 est dû à un rapport manquant de documentation des erreurs historiques. Le diagnostic original (indice 0) stipule que les FAIL historiques doivent être explicitement conservés. Le dé",
+            "support_method": "Native diagnostic comparison after blind model extraction; original NLI opinion retained in model_supported/model_reason. Current corrections are checked by the full narrative review.",
+            "original_supporting_diagnostic": "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          }
+        },
+        "issues": []
+      }
+    },
+    {
+      "case": "C",
+      "original_event": 10978,
+      "expected_supported": false,
+      "actual_supported": false,
+      "report_sha256": "8eb83f7a76a83b82ac7138491b0c77a46585cb8d4a0f2bcef51c58faaca4d549",
+      "result": {
+        "checks": {
+          "event:10978": {
+            "supported": false,
+            "claimed_status": "FAIL",
+            "claimed_kind": "narrative_review",
+            "claimed_actor": "JARVIS-reviewer",
+            "claimed_cause": "premier plan candidat omettait manifest.json requis par R3",
+            "supporting_diagnostic_index": null,
+            "reason": "JARVIS-engine: blind asserted-cause category missing_output_artifact does not match original native diagnostic codes missing_historical_failures",
+            "typed_cause_validation": {
+              "extracted_claim": {
+                "category": "missing_output_artifact",
+                "cause_quote": "premier plan candidat omettait manifest.json requis par R3",
+                "role": "past_rejection_cause"
+              },
+              "native_diagnostic_categories": {
+                "missing_historical_failures": [
+                  0
+                ]
+              },
+              "matches": false,
+              "extractor_saw_original_diagnostics": false
+            },
+            "model_supported": false,
+            "model_reason": "Le rapport allègue un statut FAIL pour l'événement 10978 basé sur l'omission de manifest.json, mais les diagnostics originaux (index 0) indiquent que ce statut historique doit être conservé sans fournir de preuve de l'omission dans le texte",
+            "support_method": "Native diagnostic comparison after blind model extraction; original NLI opinion retained in model_supported/model_reason. Current corrections are checked by the full narrative review.",
+            "original_supporting_diagnostic": null
+          }
+        },
+        "issues": [
+          "event:10978 causal claim has no supporting original issue: premier plan candidat omettait manifest.json requis par R3",
+          "event:10978 source claim rejected: JARVIS-engine: blind asserted-cause category missing_output_artifact does not match original native diagnostic codes missing_historical_failures | Original diagnostic: None"
+        ]
+      }
+    }
+  ]
+}

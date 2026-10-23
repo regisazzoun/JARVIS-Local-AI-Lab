@@ -1,0 +1,38 @@
+{
+  "actor": "Codex-component-probe",
+  "scope": "real deployed model JSON schema transport; no operational autonomy claim",
+  "created": 1792658614.6984606,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "reference": {
+        "type": "string",
+        "enum": [
+          "requirements:3"
+        ]
+      }
+    },
+    "required": [
+      "reference"
+    ],
+    "additionalProperties": false
+  },
+  "message": {
+    "role": "assistant",
+    "content": "{\n  \"reference\": \"requirements:3\"\n}"
+  },
+  "metrics": {
+    "load_duration": 8040511332,
+    "prompt_eval_duration": 131193000,
+    "eval_duration": 449611000,
+    "eval_count": 14,
+    "prompt_eval_count": 27,
+    "total_duration": 8623389318,
+    "done_reason": "stop",
+    "node": "Dell1",
+    "num_ctx": 2048,
+    "route_failures": [],
+    "request_elapsed_s": 8.643487564055249
+  },
+  "exact_match": true
+}

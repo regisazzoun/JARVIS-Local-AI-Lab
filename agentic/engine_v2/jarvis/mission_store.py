@@ -167,10 +167,15 @@ class MissionStore:
             for t in normalized:
                 if not t.get('contract',{}).get('semantic') or not t.get('contract',{}).get('report_path'):
                     raise ValueError('Autonomous task '+t['id']+' requires contract.report_path and nonempty contract.semantic')
-                from .verification import validate_contract
-                for criterion in t['contract']['semantic']:
-                    try:validate_contract(criterion)
-                    except ValueError as exc:raise ValueError('Task '+t['id']+': '+str(exc)+'. To change only an existing pending task use patch:true and omit unchanged tasks.') from exc
+                from .verification import validate_contract, validate_report_source
+                contract_errors=[]
+                for candidate in normalized:
+                    for criterion in candidate.get('contract',{}).get('semantic',[]):
+                        try:
+                            validate_contract(criterion)
+                            validate_report_source(candidate,criterion)
+                        except ValueError as exc:contract_errors.append('Task '+candidate['id']+': '+str(exc))
+                if contract_errors:raise ValueError(' | '.join(contract_errors)+'. Active examples in mission_plan schema and mission_progress; source={tool:host_read_file,arguments:{path:...}}, JSON expected/types keys start with /; CSV uses text equals; hash manifest uses digest with baseline_source, free prose uses kind report with broker read source (no predetermined hash). No plan saved; current version unchanged.')
                 for field in ('objective', 'tools', 'observations', 'verification', 'recovery', 'artifacts'):
                     if not t.get(field):
                         raise ValueError('Task '+t['id']+' requires '+field)
@@ -203,13 +208,22 @@ class MissionStore:
                 if not any(exact(requirement, x) for x in semantic):
                     raise ValueError('Plan must cover owner acceptance predicate: '+encoded(requirement))
             for key, t in old.items():
-                if key in mapping:
+                # A not-yet-attempted 26B candidate may contain a validly shaped
+                # but incorrect criterion. Its new coverage audit must run before
+                # any effect. Owner predicates and received tasks remain immutable.
+                unattempted_candidate=(json.loads(self.get(ident)['spec']).get('assurance') and t['state']=='pending' and not self.observations(ident,key))
+                if key in mapping and not unattempted_candidate:
                     for check in t.get('contract',{}).get('semantic',[]):
-                        from .verification import validate_contract
-                        try:validate_contract(check)
+                        from .verification import validate_contract, validate_report_source
+                        try:
+                            validate_contract(check)
+                            validate_report_source(previous.get(key,{}),check)
                         except ValueError:continue  # Repair an unexecutable historical declaration; never drop valid acceptance.
                         if not any(exact(check,x) for x in mapping[key].get('contract',{}).get('semantic',[])):
-                            raise ValueError('Cannot weaken existing semantic contract: '+key)
+                            results=[e['result'].get('status') for e in self.events(ident,limit=1000000) if e['task']==key and e['kind']=='semantic_verification' and exact(e['result'].get('contract'),check)]
+                            failed_candidate=(json.loads(self.get(ident)['spec']).get('assurance') and results and results[-1]=='FAIL' and 'PASS' not in results and t['state']!='validated')
+                            if not failed_candidate:raise ValueError('Cannot weaken existing semantic contract: '+key)
+                            self.event(ident,'failed_criterion_revision_proposed',key,author,result={'previous_contract':check,'reason':reason,'never_passed':True,'new_coverage_review_required':True,'owner_predicates_preserved':True},connection=c)
                 if t['state'] == 'validated' and (key not in mapping or (key in previous and mapping[key] != previous[key])):
                     raise ValueError('Validated task immutable: '+key+'. Copy it exactly from mission_progress or use append:true with NEW tasks only; existing tasks and metadata are retained automatically.')
                 if key not in mapping and self.observations(ident, key):
@@ -233,6 +247,8 @@ class MissionStore:
             return [{**dict(r), 'plan': json.loads(r['plan'])} for r in c.execute('SELECT * FROM mission_plans WHERE mission=? ORDER BY version', (ident,))]
 
     def ready(self, ident):
+        from .mission_assurance import enabled, coverage_state
+        if enabled(self, ident) and not coverage_state(self, ident)['accepted']: return []
         tasks = self.tasks(ident)
         done = {t['id'] for t in tasks if t['state'] == 'validated'}
         return [t for t in tasks if t['state'] in ('pending', 'running', 'retrying', 'blocked') and set(t['deps']) <= done]

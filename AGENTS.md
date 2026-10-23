@@ -121,3 +121,13 @@ Acquis24 broker préservés ; ne pas refaire leur réception. Le prototype vocal
 ## Mission26 — réception et fonctionnement durable —21 octobre2026
 
 Mission26 lancée et reçue ✅🟡 avec réserves : [rapport](docs/missions/26/RAPPORT-FINAL.md),3/3 tâches JARVIS, trois plans versionnés et105 tests logiciels. Les nouveaux objectifs sans tâches prédéfinies soumis à l’API/promus du chat utilisent le mode autonome à vérification sémantique par défaut ; les missions et contrats historiques gardent leur état. Codex développe l’infrastructure et vérifie ; JARVIS propose ses plans et exécute/corrige réellement ses opérations. Ne pas attribuer les interfaces Codex au modèle, ni le programme créé/corrigé par JARVIS à Codex. Conserver rapports bruts et errata, événements, versions, droits et services. L’épreuve finale14A reste distincte et différée ;14A demeure ouverte,24-Old et Dell2 non lancés. Aucune validation humaine intermédiaire ajoutée ni fusion main.
+
+
+## Mission26B — ordre propriétaire du22 octobre2026
+
+Continuation ciblée26 autorisée sans validation intermédiaire : contrôle automatique de couverture et validation de la prose à partir des preuves, puis scénarios réels JARVIS et vérification indépendante Codex. Préserver les résultats26 ; ne pas attribuer les correctifs moteur au modèle. Conserver tous les essais et rectifications. Ordre actuel26B → épreuve finale14A distincte →24-Old →27 JL-03. Aucun lancement14A/24-Old/Dell2 ni fusion main. [Cahier26B](docs/missions/26B/MISSION.md).
+
+
+## Clôture26B — décision propriétaire du23 octobre2026
+
+Le propriétaire demande « cloture la mission en l etat ».26B est clôturée **🟡 incomplet**, sans réception fictive des trois rapports, sans levée définitive des réserves26 ni clôture14A. Les trois essais sont interrompus, états et preuves conservés ; aucune reprise automatique26B. Les capacités installées restent disponibles. TTS-01 est une demande distincte à reprendre depuis ses preuves existantes. [Bilan26B](docs/missions/26B/RAPPORT-FINAL.md).

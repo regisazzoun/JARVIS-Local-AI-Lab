@@ -1,0 +1,1 @@
+NON_VERIFIE: Le fichier /var/lib/jarvis/projects/mission26b/external/not-provisioned.json n'est pas accessible (FileNotFoundError). Aucun contenu ne peut être vérifié. Ce témoin externe n'a pas été créé et ne sera pas fabriqué.

@@ -1,0 +1,34 @@
+{
+  "actor": "Codex export of canonical JARVIS journal; not a substitute execution",
+  "exported": 1792719563.7427275,
+  "cases": [
+    {
+      "scenario": "A",
+      "mission": "e1e5d6e8f31a43e7af4f44c0f08d37b3",
+      "state": "interrupted",
+      "created": 1792620526.6577399,
+      "updated": 1792719542.098759
+    },
+    {
+      "scenario": "B",
+      "mission": "54c634e56b8d4241964322700ea5d837",
+      "state": "interrupted",
+      "created": 1792620582.455572,
+      "updated": 1792719542.1430273
+    },
+    {
+      "scenario": "C",
+      "mission": "6abe53c0d17e400cb3b60782564aac2c",
+      "state": "interrupted",
+      "created": 1792620582.7978997,
+      "updated": 1792719542.1649573
+    }
+  ],
+  "details": [
+    "SCENARIO-A.json",
+    "SCENARIO-B.json",
+    "SCENARIO-C.json"
+  ],
+  "artifacts": "ARTEFACTS.json",
+  "source_base": "2fda23a"
+}

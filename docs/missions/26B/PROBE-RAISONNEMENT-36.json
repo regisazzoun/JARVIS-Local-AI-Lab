@@ -1,0 +1,44 @@
+{
+  "actor_harness": "Codex",
+  "created": 1792714092.8275309,
+  "status": "candidate_not_received",
+  "scope": "Private read-only verifier candidate, no operational task. Enabling private reasoning did not fix the valid B18639 false rejection.",
+  "results": [
+    {
+      "case": "B",
+      "original_event": 18639,
+      "think": true,
+      "result": {
+        "checks": {
+          "event:18639": {
+            "supported": false,
+            "claimed_status": "FAIL",
+            "claimed_kind": "narrative_review",
+            "claimed_actor": null,
+            "claimed_cause": "rapport manquait la documentation des erreurs historiques",
+            "supporting_diagnostic_index": 0,
+            "reason": "Source status is FAIL despite report claiming explicit retention of historical FAILs; correction not verified.",
+            "original_supporting_diagnostic": "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+          }
+        },
+        "issues": [
+          "event:18639 source claim rejected: Source status is FAIL despite report claiming explicit retention of historical FAILs; correction not verified. | Original diagnostic: Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+        ]
+      },
+      "metrics": {
+        "load_duration": 4630509,
+        "prompt_eval_duration": 522525999,
+        "eval_duration": 133503293000,
+        "eval_count": 5534,
+        "prompt_eval_count": 1004,
+        "total_duration": 134762157947,
+        "done_reason": "stop",
+        "node": "Dell1",
+        "num_ctx": 32768,
+        "route_failures": [],
+        "request_elapsed_s": 134.79251193790697
+      }
+    }
+  ],
+  "unfinished_other_verdict": "unknown if not in results; never fabricated"
+}

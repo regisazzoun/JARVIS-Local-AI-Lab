@@ -1,0 +1,131 @@
+{
+  "actor": "Codex-independent-read",
+  "targeted_three_faults_detected": true,
+  "model_final_verdict": "PASS",
+  "independent_overall_verdict": "PARTIAL",
+  "findings": [
+    {
+      "claim": "events13026/13082 described together as infrastructure events",
+      "problem": "13026 is narrative_review by JARVIS-reviewer, not an infrastructure operation by Codex"
+    },
+    {
+      "claim": "earlier failures grouped as caused by the same actor/date/count errors",
+      "problem": "original issues in10920/10930/10945 include reviewer protocol defects and unrelated unsupported failure-history claims; the grouped causal explanation is inaccurate"
+    }
+  ],
+  "original_event_facts": [
+    {
+      "event": 10920,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "created": "2026-10-22T00:38:16.585491",
+      "issues": [
+        "Historical FAIL must be explicitly retained; observed count=0",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Unknown evidence reference: [\"receipts[0]\", \"semantic_verifications[0]\"]",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"semantic_verifications[0]\", \"receipts[1]\"]",
+        "Unknown evidence reference: [\"semantic_verifications[0]\"]",
+        "Unknown evidence reference: [\"mission\"]",
+        "Unknown evidence reference: [\"tasks[0]\", \"scope_task\"]",
+        "Unknown evidence reference: [\"created\", \"receipts[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts\"]"
+      ],
+      "scope": null
+    },
+    {
+      "event": 10930,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "created": "2026-10-22T00:40:28.441563",
+      "issues": [
+        "Historical FAIL must be explicitly retained; observed count=0",
+        "Le brouillon affirme l'existence d'échecs spécifiques (mission_task_complete, mission_verify, host_write_file) avec des IDs d'événement précis qui ne sont présents dans aucune des données de preuve fournies (receipts, semantic_verifications, coverage_reviews).",
+        "La section 'Erreurs historiques rencontrées' contient des affirmations factuelles non étayées par les reçus observés, qui montrent uniquement des succès et des corrections d'infrastructure.",
+        "Unknown evidence reference: [\"mission:e1e5d6e8f31a43e7af4f44c0f08d37b3\"]",
+        "Unknown evidence reference: [\"receipts[0].created\"]",
+        "Unknown evidence reference: [\"receipts[0].arguments.path\"]",
+        "Unknown evidence reference: [\"receipts[0].observed.evidence_id\"]",
+        "Unknown evidence reference: [\"receipts[0].reference\"]",
+        "Unknown evidence reference: [\"receipts[0].observed.stdout\"]",
+        "Unknown evidence reference: [\"receipts[0].observed.stdout\"]",
+        "Unknown evidence reference: [\"semantic_verifications[0].result.observations[0].broker_evidence\"]",
+        "Unknown evidence reference: [\"receipts[1].reference\"]",
+        "Unknown evidence reference: [\"semantic_verifications[0].result.status\", \"semantic_verifications[0].result.checks[0].pass\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Échec initial de mission_task_complete... **Event :** `3cf902e4321d47d9bffa8a01ed3b4652` => insufficient: Aucune preuve d'un événement d'échec avec cet ID spécifique n'est présente dans les reçus, les vérifications sémantiques ou les infrastructures fournies. Les données ne contiennent que des succès (PASS) et des corrections d'infrastructure.",
+        "Reviewer quote absent from draft: review insufficient",
+        "Échec de mission_verify initial... **Event :** `34fbd163d124e6c9a8bd5eab9aaf3af` => insufficient: Aucune trace d'échec avec cet ID n'est visible dans les preuves fournies. Seul un succès est documenté pour la vérification.",
+        "Reviewer quote absent from draft: review insufficient",
+        "Échec de host_write_file prématuré... **Event :** `a6c71d7339504cd89f4dfc956eaa4c0f` => insufficient: Aucune preuve d'une tentative d'écriture échouée avec cet ID n'est présente dans les reçus ou autres données.",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[2].reference\"]"
+      ],
+      "scope": null
+    },
+    {
+      "event": 10945,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "created": "2026-10-22T00:41:48.595798",
+      "issues": [
+        "Historical FAIL must be explicitly retained; observed count=0",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"mission:e1e5d6e8f31a43e7af4f44c0f08d37b3\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"created\"]",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Unknown evidence reference: [\"receipts[0].observed.stdout\", \"semantic_verifications[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[0].observed.stdout\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[0].observed.stdout\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"receipts[2]\", \"receipts[1]\", \"semantic_verifications[0]\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"semantic_verifications[0]\"]",
+        "Unknown evidence reference: [\"receipts\"]",
+        "Unknown evidence reference: [\"raw_goal\", \"receipts\"]",
+        "Unknown evidence reference: [\"tasks\", \"receipts\"]",
+        "Reviewer quote absent from draft: review insufficient",
+        "Unknown evidence reference: [\"tasks\"]"
+      ],
+      "scope": null
+    },
+    {
+      "event": 13026,
+      "kind": "narrative_review",
+      "actor": "JARVIS-reviewer",
+      "created": "2026-10-22T11:04:26.295731",
+      "issues": [
+        "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+        "observations incorrect: expected 15, actual 999",
+        "Acteur incorrect : S1 attribue l'exécution à Codex alors que JARVIS est l'acteur déclaré dans le reçu.",
+        "Horodatage erroné : S2 indique le 1er janvier 2001, tandis que le reçu date d'octobre 2026.",
+        "Nombre d'observations fictif : S3 déclare 999 observations sans preuve dans les reçus."
+      ],
+      "scope": null
+    },
+    {
+      "event": 13082,
+      "kind": "controlled_narrative_fault",
+      "actor": "Codex",
+      "created": "2026-10-22T11:11:57.735588",
+      "issues": [],
+      "scope": "additional component test during operational campaign; no runtime report overwritten"
+    }
+  ],
+  "v1_reading_erratum": "v1 issues did flag actor/time/count, but claims contradicted this by labelling all three not_factual; all_three_faults_detected=false measured inconsistent per-claim verdicts, not total absence of detection"
+}

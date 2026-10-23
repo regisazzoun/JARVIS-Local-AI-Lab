@@ -1,3 +1,7 @@
+## Mission26B — clôture en l’état du23 octobre2026
+
+🟡 **Incomplet — clôturée à la demande du propriétaire.** Contrôles installés,185 tests logiciels réussis ; résultats locaux A/B/C vérifiés, mais aucun des trois rapports opérationnels complets reçu indépendamment. Essais26B arrêtés avec preuves et checkpoints conservés. [Rapport final](docs/missions/26B/RAPPORT-FINAL.md) · [PR21](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/21), sans fusion.14A reste ouverte ;24-Old non lancée. TTS-01 est reprise séparément à la demande du propriétaire.
+
 ## Mission26 reçue —21 octobre2026
 
 ✅🟡 GO avec réserves : moteur installé,105 tests logiciels réussis,3/3 tâches reçues et trois versions de plan JARVIS depuis un objectif brut. Fausse réussite du skill détectée, programme corrigé par JARVIS, relectures et reprise vérifiées. Autonomie encore assistée, erreurs de prose brute conservées et synthèse factuelle liée aux reçus. [Réception26](docs/missions/26/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/26/BILAN-14A.md).14A reste ouverte, épreuve finale distincte différée ;24-Old non lancée.

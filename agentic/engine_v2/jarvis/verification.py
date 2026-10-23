@@ -40,18 +40,40 @@ def validate_contract(contract):
         if not isinstance(contract.get('equals'),str) and not (isinstance(contract.get('sha256'),str) and len(contract['sha256'])==64):
             raise ValueError('Text contract requires equals (entire exact content) or sha256; expected/contains is not a text proof. Revise invalid contract; final synthesis is also provided by intervention_report.')
     elif kind=='json':
-        if not contract.get('expected') and not contract.get('types') and not contract.get('preserve'):
+        if not contract.get('expected') and not contract.get('types') and not contract.get('preserve') and not contract.get('relations'):
             raise ValueError('At least one JSON predicate required')
         for field in ('expected','types'):
             if not isinstance(contract.get(field,{}),dict):raise ValueError(field+' must map JSON Pointers to values/types')
+        if any(name not in ('integer','number','string','boolean','object','array','null') for name in contract.get('types',{}).values()):raise ValueError('JSON types must be named integer, number, string, boolean, object, array or null')
         for path in list(contract.get('expected',{}))+list(contract.get('types',{}))+contract.get('preserve',[]):
             if not isinstance(path,str) or path and not path.startswith('/'):
                 raise ValueError('Use JSON Pointer starting with /, e.g. /port')
+        for relation in contract.get('relations',[]):
+            if not isinstance(relation,dict) or relation.get('kind')!='length' or any(not isinstance(relation.get(k),str) or not relation[k].startswith('/') for k in ('array','count')):raise ValueError('JSON relation requires {kind:length,array:/array_field,count:/integer_count_field}')
         if contract.get('preserve') and not contract.get('baseline_source'):
             raise ValueError('preserve requires baseline_source')
+    elif kind=='report':
+        if source.get('tool')!='host_read_file':raise ValueError('report verification requires a fresh local broker read')
+    elif kind=='digest':
+        baseline=contract.get('baseline_source',{})
+        if not isinstance(baseline,dict) or not isinstance(baseline.get('tool'),str) or not isinstance(baseline.get('arguments'),dict):raise ValueError('digest requires baseline_source pointing to the actual file whose bytes are hashed')
+        if exact(source,baseline):raise ValueError('digest manifest source and hashed content baseline_source must be different; a file cannot prove its own embedded SHA256')
+        field=contract.get('field','/sha256')
+        if not isinstance(field,str) or not field.startswith('/'):raise ValueError('digest field must be JSON Pointer, default /sha256')
     elif kind=='service':
         if contract.get('expected_state') not in ('active','inactive','failed'):raise ValueError('Explicit expected_state required')
-    else:raise ValueError('kind must be json, text or service')
+        if source.get('tool')!='host_service' or source['arguments'].get('action')!='is-active':raise ValueError('service requires host_service action is-active; arbitrary text is not a service observation')
+    else:raise ValueError('kind must be json, text, digest, report or service')
+
+
+def validate_report_source(task, criterion):
+    if criterion.get('kind')!='report':return
+    from pathlib import Path
+    path=criterion.get('source',{}).get('arguments',{}).get('path')
+    allowed={task.get('contract',{}).get('report_path')}
+    allowed.update(p for p in task.get('artifacts',[]) if isinstance(p,str) and Path(p).suffix.lower() in ('.md','.markdown','.rst'))
+    if not isinstance(path,str) or path not in allowed:
+        raise ValueError('kind report must read the task report_path or a declared prose document artifact, not the source program, CSV or raw error log. Your report_path is '+str(task.get('contract',{}).get('report_path'))+'. For input bytes use text equals; for a narrative use your own report with original proof references.')
 
 
 def evaluate(body, contract, baseline=None):
@@ -66,7 +88,7 @@ def evaluate(body, contract, baseline=None):
         expected = contract.get('expected', {})
         types = contract.get('types', {})
         preserve = contract.get('preserve', [])
-        if not expected and not types and not preserve:
+        if not expected and not types and not preserve and not contract.get('relations'):
             raise ValueError('At least one JSON predicate required')
         for path, wanted in expected.items():
             try:
@@ -84,6 +106,12 @@ def evaluate(body, contract, baseline=None):
             except (KeyError, IndexError, TypeError, ValueError):
                 passed = False
             checks.append({'path': path, 'type': name, 'pass': passed})
+        for relation in contract.get('relations',[]):
+            try:
+                array=pointer(value,relation['array']);count=pointer(value,relation['count'])
+                passed=type(array) is list and type(count) is int and count==len(array)
+            except (KeyError,IndexError,TypeError,ValueError):passed=False
+            checks.append({'predicate':'array_length','array':relation['array'],'count':relation['count'],'pass':passed})
         for path in preserve:
             if baseline is None:
                 checks.append({'path': path, 'unavailable': True, 'pass': False})
@@ -100,12 +128,20 @@ def evaluate(body, contract, baseline=None):
             checks.append({'predicate': 'exact_content', 'pass': body == contract['equals']})
         if 'sha256' in contract:
             checks.append({'predicate': 'sha256', 'pass': hashlib.sha256(body.encode()).hexdigest() == contract['sha256']})
+    elif kind == 'digest':
+        if baseline is None:
+            checks.append({'predicate':'manifest_digest','unavailable':True,'pass':False})
+        else:
+            expected=hashlib.sha256(baseline.encode()).hexdigest()
+            try:actual=pointer(json.loads(body),contract.get('field','/sha256'))
+            except (ValueError,KeyError,TypeError,IndexError):actual=None
+            checks.append({'predicate':'manifest_digest','actual':actual,'expected':expected,'pass':type(actual) is str and actual==expected})
     elif kind == 'service':
         if contract.get('expected_state') not in ('active', 'inactive', 'failed'):
             raise ValueError('Explicit expected_state required')
         checks.append({'predicate': 'effective_service_state', 'actual': body.strip(), 'expected': contract['expected_state'], 'pass': body.strip() == contract['expected_state']})
     else:
-        raise ValueError('kind must be json, text or service')
+        raise ValueError('kind must be json, text, digest, report or service')
     if any(c.get('unavailable') for c in checks):
         status = 'PARTIAL' if any(c['pass'] for c in checks) else 'INSUFFICIENT'
     else:
@@ -148,6 +184,10 @@ class Verifier:
         refs = []
         try:
             validate_contract(contract)
+            if contract.get('kind')=='report' and getattr(self.registry,'mission_store',None) and self.registry.context.get('task_id'):
+                plans=self.registry.mission_store.plans(self.registry.context['mission_id'])
+                task=next((t for t in plans[-1]['plan']['tasks'] if t['id']==self.registry.context['task_id']),None) if plans else None
+                if task:validate_report_source(task,contract)
             body, ref = self.read(contract['source']); refs.append(ref)
             baseline = None
             baseline_error = None
@@ -156,14 +196,19 @@ class Verifier:
                     baseline, ref = self.read(contract['baseline_source']); refs.append(ref)
                 except (ValueError,KeyError,TypeError,OSError) as exc:
                     baseline_error = str(exc)
-            verdict = evaluate(body, contract, baseline)
+            if contract.get('kind')=='report':
+                from .mission_assurance import audit_report
+                review=audit_report(self.registry,body,self.registry.context.get('task_id'))
+                verdict={'status':review['status'],'checks':[{'predicate':'narrative_matches_original_evidence','pass':review['status']=='PASS','draft_sha256':review['draft_sha256']}], 'sha256':hashlib.sha256(body.encode()).hexdigest(),'issues':review['issues']}
+            else:
+                verdict = evaluate(body, contract, baseline)
             if baseline_error:
                 verdict['baseline_error'] = baseline_error
                 if verdict['status']!='FAIL':
                     verdict['status']='PARTIAL' if any(c['pass'] for c in verdict['checks']) else 'INSUFFICIENT'
         except (ValueError, KeyError, TypeError, OSError) as exc:
             verdict = {'status': 'INSUFFICIENT', 'error': str(exc), 'checks': []}
-        verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier='deterministic26')
+        verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier='broker-read+JARVIS-reviewer26B' if contract.get('kind')=='report' else 'deterministic26')
         store = getattr(self.registry, 'mission_store', None)
         if store:
             verdict['verification_event'] = store.event(self.registry.context['mission_id'], 'semantic_verification', self.registry.context.get('task_id'), 'JARVIS-engine', result=verdict)
@@ -171,4 +216,4 @@ class Verifier:
 
 
 def register(registry):
-    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. kind text requires equals or sha256; service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))
+    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length, never per-element counters. kind text requires equals (entire content, useful for CSV) or sha256; kind digest reads a JSON manifest source and the actual content baseline_source independently, checks field JSON Pointer (default /sha256) equals SHA256 of baseline bytes. No precomputed hash placeholder is needed. kind report reads the active task report_path or a declared prose .md artifact (not source program/CSV/raw log) and audits its claims against canonical receipts; no predetermined prose/hash needed. service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))

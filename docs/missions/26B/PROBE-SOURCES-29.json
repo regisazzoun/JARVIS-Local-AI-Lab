@@ -1,0 +1,66 @@
+{
+  "created": 1792711898.4191918,
+  "harness_actor": "Codex",
+  "model_actor": "JARVIS-reviewer",
+  "scope": "Real inference on unchanged C partial report and original events; not an autonomous operational mission",
+  "source_report": "JARVIS-RAPPORT-C-PARTIEL-V1.md",
+  "result": {
+    "checks": {
+      "event:10978": {
+        "supported": false,
+        "claimed_status": "FAIL",
+        "claimed_kind": "narrative_review",
+        "claimed_actor": "JARVIS-reviewer",
+        "claimed_cause": "premier plan candidat omettait manifest.json requis par R3",
+        "supporting_diagnostic_index": null,
+        "reason": "Le rapport allègue un échec historique (event:10978) dû à l'omission de manifest.json, mais aucun diagnostic original ne confirme cet événement spécifique ni cette cause. Les diagnostics originaux se concentrent exclusivement sur des IDs de",
+        "original_supporting_diagnostic": null
+      },
+      "event:15355": {
+        "supported": false,
+        "claimed_status": "INSUFFICIENT",
+        "claimed_kind": "narrative_review",
+        "claimed_actor": "JARVIS-reviewer",
+        "claimed_cause": "rapport initial omettait la mention explicite des échecs historiques",
+        "supporting_diagnostic_index": 1,
+        "reason": "Le rapport allègue que l'événement 15355 est un INSUFFICIENT dû à l'omission de la mention des échecs historiques. Le diagnostic original à l'indice 1 confirme explicitement que 'Historical INSUFFICIENT must be explicitly retained', validé.",
+        "original_supporting_diagnostic": "Historical INSUFFICIENT must be explicitly retained; see original semantic, coverage and editorial review events"
+      },
+      "event:15888": {
+        "supported": true,
+        "claimed_status": "PASS",
+        "claimed_kind": "semantic_verification",
+        "claimed_actor": "JARVIS-engine",
+        "claimed_cause": null,
+        "supporting_diagnostic_index": null,
+        "reason": "Le rapport allègue un statut PASS pour une vérification sémantique (kind: semantic_verification) effectuée par JARVIS-engine. Les données source confirment explicitement un statut PASS, un kind de semantic_verification et un acteur JARVIS-é",
+        "original_supporting_diagnostic": null
+      },
+      "event:16732": {
+        "supported": true,
+        "claimed_status": "PASS",
+        "claimed_kind": "semantic_verification",
+        "claimed_actor": "JARVIS-engine",
+        "claimed_cause": null,
+        "supporting_diagnostic_index": null,
+        "reason": "Le rapport allègue un statut PASS pour une vérification sémantique (T5) sur inventaire.json. Les données source confirment un statut PASS, un kind 'semantic_verification', un acteur 'JARVIS-engine' et un contenu exact correspondant à l'exig",
+        "original_supporting_diagnostic": null
+      },
+      "event:17449": {
+        "supported": true,
+        "claimed_status": "PASS",
+        "claimed_kind": "semantic_verification",
+        "claimed_actor": "JARVIS-engine",
+        "claimed_cause": null,
+        "supporting_diagnostic_index": null,
+        "reason": "Le rapport affirme un statut PASS pour l'événement 17449 (T6) avec un acteur JARVIS-engine et un type semantic_verification. Les données source confirment explicitement status: PASS, kind: semantic_verification et actor: JARVIS-engine pour ",
+        "original_supporting_diagnostic": null
+      }
+    },
+    "issues": [
+      "event:10978 causal claim has no supporting original issue: premier plan candidat omettait manifest.json requis par R3",
+      "event:10978 source claim rejected: Le rapport allègue un échec historique (event:10978) dû à l'omission de manifest.json, mais aucun diagnostic original ne confirme cet événement spécifique ni cette cause. Les diagnostics originaux se concentrent exclusivement sur des IDs de | Original diagnostic: None",
+      "event:15355 claimed_status INSUFFICIENT contradicts original FAIL"
+    ]
+  }
+}

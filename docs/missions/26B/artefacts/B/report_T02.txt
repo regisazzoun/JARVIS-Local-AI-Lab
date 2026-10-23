@@ -1,0 +1,50 @@
+# Rapport T02 - Exécution initiale : observation de la panne
+
+## Objectif
+Exécuter `python3 producer.py mesures.csv bilan.json` pour observer la panne initiale et capturer l'erreur.
+
+## Commande exécutée
+```bash
+cd /var/lib/jarvis/projects/mission26b/B && python3 producer.py mesures.csv bilan.json
+```
+
+## Résultat observé
+L'exécution échoue avec une exception Python :
+
+```
+Traceback (most recent call last):
+  File "/var/lib/jarvis/projects/mission26b/B/producer.py", line 5, in <module>
+    result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}
+                                    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/lib/jarvis/projects/mission26b/B/producer.py", line 5, in <genexpr>
+    result={'count':len(rows),'sum':sum(int(r['valeur']) for r in rows)}
+                                            ~^^^^^^^^^^
+KeyError: 'valeur'
+```
+
+## Analyse préliminaire
+L'erreur `KeyError: 'valeur'` indique que le script essaie d'accéder à une clé `'valeur'` dans un dictionnaire qui ne contient pas cette clé. 
+
+La cause racine est liée au délimiteur :
+- Le script `producer.py` utilise par défaut le délimiteur `,` (virgule) pour parser le CSV
+- Le fichier `mesures.csv` utilise en réalité le délimiteur `;` (point-virgule)
+
+Avec le mauvais délimiteur, la première ligne est lue comme une seule colonne au lieu de deux colonnes séparées. Le dictionnaire créé par `csv.DictReader` contient donc des clés incorrectes et ne trouve pas `'valeur'`.
+
+## Preuve
+- Invocation host_exec: `d8e944cec60949968d3b58fc05e48b1a`
+- Evidence_id de l'exécution: `b281d2de73c74247a608b6d1756f026c`
+- Error capture écrite dans: `/var/lib/jarvis/projects/mission26b/B/error_capture.txt`
+
+## Conclusion
+La panne initiale est confirmée : l'incompatibilité entre le délimiteur par défaut du script (` ,`) et le délimiteur réel du CSV (`;`) provoque une erreur de parsing qui empêche la génération de `bilan.json`.
+
+La correction nécessite d'ajouter le paramètre `--delimiter ';'` à la ligne de commande.
+
+## Erreurs historiques conservées
+- mission_verify event 13370: FAIL avec issue "Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events"
+
+Cette tâche documente l'observation initiale de la panne. Les erreurs antérieures sont conservées conformément aux exigences de restitution du contrôle contractuel26B.
+
+## Limites
+Ce rapport documente uniquement l'observation de la panne. La correction et la vérification seront réalisées dans les tâches suivantes (T03-T04).
