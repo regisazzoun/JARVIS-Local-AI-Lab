@@ -1,3 +1,11 @@
+## Décision complémentaire propriétaire — 23 octobre 2026 : modèle conservé sur Mac mini
+
+📋 **Mission28A — architecture cible hybride : conserver `qwen3.5:27b-q4_K_M` comme modèle conversationnel sur Mac mini Debian ; modèle plus puissant sur Dell1 pour missions complexes ; Dell2 préparé pour renfort futur.** Le modèle actuel est inventorié sur Dell1 en mission13 : son installation et ses performances **sur Mac mini restent à démontrer**, sans substitution silencieuse. Mac mini 75% missions /25% JARVIS/conversation. [Cahier28A](docs/missions/28A/MISSION.md).
+
+## Mission 28A — Décision propriétaire du 23 octobre 2026
+
+📋 **Préparée, non lancée.** Déploiement Mac mini + Dell1 : Mac mini cible75% calcul de missions / réserve25% JARVIS dont conversation et gestion, rééquilibrage pour faible latence ; Dell1 jusqu'à100% pour missions, priorité interactive à garantir ; Dell2 futur100% missions mais déclaré `pending/offline` jusqu'à mission14. **Upgrade de modèle prioritaire**, offload vers RAM DDR4 autorisé ; DDR5 matériellement incompatible avec Dell5820/i9-10980XE. Profil expérimental de pointes courtes GPU cumulées **jusqu'à700W** demandé, résultats de charge à mesurer, sans prétendre déjà qualifiés. Mission13 reconnaît les deux GPU et CUDA individuellement, réceptions conservées. [Cahier28A](docs/missions/28A/MISSION.md).
+
 ## Décision propriétaire du 23 octobre 2026 — réception fonctionnelle du raccordement de deux RTX3090
 
 ✅ **Raccordement et alimentation reçus fonctionnels pour le montage testé** : deux GPU détectés et CUDA réussi sur chacun, sur décision expresse du propriétaire. Réserves de certification formelle du brochage levées comme obstacle général ; brochage détaillé et puissance maximale demeurent non mesurés. **Mission13 : ✅🟡 GO avec réserves techniques restantes** pour essais d'inférence multi-GPU et comportement sous charge. [Addendum](docs/missions/13-extension-gpu/DECISION-RECEPTION-ALIMENTATION.md) · [PR23](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/23). Ne pas réinstaller ni répéter les calculs CUDA reçus.

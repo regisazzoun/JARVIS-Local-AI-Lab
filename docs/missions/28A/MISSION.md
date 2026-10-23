@@ -1,0 +1,60 @@
+# MISSION 28A — Modèle IA renforcé, mémoire CPU et répartition intelligente des charges
+
+**Décision propriétaire : 23 octobre 2026 — 📋 Préparée, non lancée.**
+
+**Périmètre initial réel :** Mac mini Debian JARVIS + Dell Precision 5820 n°1 (deux RTX 3090 24 Gio, 256 Go RAM annoncés et ~251,42 Gio accessibles selon inventaire). **Dell n°2 : cible logique à 100 % pour missions, connecteur préparé mais non déployé, aucun accès ni service simulé.**
+
+**Responsabilité :** Codex coordinateur technique et intégrateur ; JARVIS doit utiliser réellement le routage et les nouveaux modèles dans des missions. Sans approbations humaines intermédiaires après lancement dans le périmètre autorisé.
+
+## Sources et décisions prioritaires
+
+Lire effectivement `AGENTS.md`, `docs/CHARTE_DIRECTIVES_JARVIS.md`, `SUIVI.md`, `ROADMAP.md`, `docs/missions/CYCLE-23-31.md`, `docs/missions/13-extension-gpu/RAPPORT-FINAL.md`, `DECISION-RECEPTION-ALIMENTATION.md`, `EVALUATION-MODELES-IA.md`, rapports25/26/26B, 14A et 13D-E, puis les derniers états runtime et les preuves du Dell. Conserver les réceptions acquises. La mission 28 globale reste indépendante ; 28A constitue son premier périmètre à deux machines réellement présentes.
+
+### Commandes explicites du propriétaire
+
+1. **Priorité absolue : upgrade qualitatif du modèle IA de JARVIS**, même si le modèle nécessite une part de RAM système (offload) plutôt que rester entièrement en VRAM. Tester qualité, autonomie et latence réelle, pas choisir mécaniquement par nombre de paramètres.
+2. **Mac mini : jusqu'à 75 % de la capacité de calcul pour les missions de fond ; réserver 25 % pour la gestion JARVIS, dont conversation utilisateur, outils de coordination, services.** Prévoir load balancing adaptatif, priorité à l'interaction et limitation de la latence pendant les missions. Les budgets sont des quotas d'ordonnancement/réservation et de capacité CPU mesurée (cgroups systemd/CPUQuota et priorité pertinentes), non une affirmation que chaque processus utilise exactement ce pourcentage à tout instant. Quantifier la réserve utile et adapter les mécanismes sur preuves.
+3. **Dell n°1 : jusqu'à 100 % de sa capacité disponible pour les missions**, avec les deux RTX3090. Les requêtes conversationnelles doivent garder une priorité d'accès/latence lorsqu'elles utilisent son inférence, même si les missions y saturent les ressources ; préemption, files/priorités, placement de modèles, réservations de fenêtres GPU et limitation de concurrence selon mesures.
+4. **Dell n°2 : 100 % destiné aux missions lorsqu'il sera installé.** Préparer configuration, identifiants logiques, capacité découverte dynamiquement, intégration SSH/Ansible, ordonnancement et reprise, mais statut `offline/pending` jusqu'à existence et mesures réelles. Ne pas lancer la mission14 d'installation Dell2 ici.
+5. **Profil « pointe GPU cumulée 700 W » :** les deux cartes annoncent chacune350W, et le propriétaire souhaite pouvoir utiliser **700 W cumulés sur de courtes périodes**. Autoriser la construction et l'évaluation d'un profil expérimental de pointe, sans prétendre que la puissance totale est qualifiée ou déjà mesurée. Une alimentation de950W est déclarée ; le CPU10980XE a un TDP165W hors pointes, les autres charges existent ; le Dell5820 affiche une enveloppe GPU constructeur inférieure aux700W. Caractériser durée, puissance mesurée GPU et machine si capteur accessible, températures, éventuels throttling et erreurs lors d'essais ciblés graduels. Les limites nominales carte/PSU ne sont pas des autorisations de les dépasser. Choisir dynamiquement la marge observée et ramener la charge en cas de signe technique concret (température, Xid, erreurs PCIe, chute/tension si observable, arrêt ou instabilité) ; ces mesures ne doivent pas recréer une validation humaine générale ou remettre en question la réception fonctionnelle des câbles.
+6. **DDR5** : le souhait de mémoire « DDRAM v5 » est interprété comme permission d'utiliser la RAM système pour les grands modèles, **pas comme instruction de monter de la DDR5**. Le Dell5820/i9-10980XE supporte DDR4-2933 et non DDR5 (références Intel et Dell). Consigner cette limite et exploiter DDR4 existante et éventuellement offload CPU/GPU et stockage de modèles sans changement de RAM physique.
+
+## Décision propriétaire complémentaire — architecture hybride et conservation du modèle
+
+**Le modèle actuel de référence `qwen3.5:27b-q4_K_M` est maintenu comme modèle de conversation principal sur le Mac mini Debian** ; ne pas le remplacer silencieusement par un modèle plus léger. Le Dell n°1 (deux RTX3090) doit héberger un **nouveau modèle plus puissant** pour les missions exigeantes ; Dell n°2 reprendra ce rôle avec100% de capacité mission quand il sera installé. Les appels sont routés par besoin et priorité, avec conversation directe Mac mini en premier et escalade au Dell pour tâches complexes.
+
+**Important :** le catalogue d'inventaire de la mission13 situait ce `qwen3.5:27b-q4_K_M` sur le Dell1, pas sur le Mac mini. Cette décision décrit donc une **affectation cible**. Codex doit vérifier la faisabilité effective sur les ressources GPU/RAM/CPU du Mac mini, installer/raccorder le modèle sur le Mac mini si nécessaire, mesurer la latence et signaler précisément toute limite matérielle réelle. Ne pas déclarer le modèle déjà opérationnel localement sans preuve ni le substituer automatiquement par un autre. Si les ressources ne permettent pas de tenir la priorité conversationnelle, documenter le problème et proposer un mode de secours sans renverser silencieusement le choix du propriétaire.
+
+Le budget Mac mini75% calcul missions/25% gestion+conversation, le Dell1 100% missions avec gestion de priorités, Dell2 préparé offline et la cible de courtes pointes700W GPU ne changent pas. Distinguer conversation interactive, tâches de fond, modèles résidents et offload système. Les deux Dell assurent la robustesse des tâches lourdes, non un remplacement par défaut du modèle conversationnel choisi.
+
+## État réellement documenté, à contrôler une seule fois au départ
+
+Deux3090 visibles sous Debian, NVIDIA550.163.01, CUDA calcul léger sur les deux GPU reçu ; raccordement fonctionnel accepté par le propriétaire. Ollama0.40.3 principal épinglé à un seul UUID GPU, contexte4096, parallélisme1, un modèle résident. Modèles locaux : qwen3.5:27b-q4_K_M, ministral-3:14b-instruct-2512-q4_K_M, llama3.1:8b. Topologie CUDA peer access faux / SYS. Aucune preuve encore d'inférence partagée entre GPUs, de tenue à 700W, ni de meilleur modèle choisi.
+
+## Travaux obligatoires
+
+### A — Inventaire de capacité sans refaire les missions reçues
+Lire les identités CPU/GPU/NUMA, RAM libre/pression mémoire/swap, VRAM par GPU, PCIe, restrictions Ollama `CUDA_VISIBLE_DEVICES` / unités systemd, latence interactive en présence/absence de charge, sessions/API canoniques, services critiques Mac mini et Dell. Mesurer le comportement existant avant modification. Préserver Mac mini comme centre conversationnel et mémoire canonique.
+
+### B — Upgrade du modèle et tests qualité
+Lever de manière contrôlée l'épinglage à un unique GPU sur une **instance expérimentale** distincte, ou modifier proprement la politique de placement sans perdre le service utilisateur. Tester des candidats réellement disponibles/compatibles (32B, 70B quantifié, meilleurs modèles récents raisonnables) et différentes quantifications ; considérer 70B réparti entre deux24Gio et une partie DDR4, selon empreinte réelle des poids, buffers et KV cache. Comparer au qwen3.5:27b actuel et au modèle interactif léger ; même suite de tâches agentiques, planification, appels d'outils, correction, rapport factuel, français, temps au premier token, tokens/s, taille de contexte utile, RAM/VRAM, chargement à froid/chaud et échecs. Un 70B plus lent peut être retenu pour les missions longues et un petit modèle pour la conversation ; retenir la meilleure architecture **mesurée**, non nécessairement un modèle unique.
+
+### C — Scheduler Mac mini / Dell1
+Construire un routage et ordonnancement intégrés au moteur existant (missions/broker/MCP/Skill Lab), non un second agent indépendant. Mac mini : jusqu'à75% calcul de fond, garantir 25% capacité réservée JARVIS/conversation par cgroups/quotas, CPU weight, priorité et éventuellement admission control ; mesurer p95 réponse utilisateur et réduire/mettre en attente/déporter immédiatement les tâches de fond si la fluidité se dégrade. Ne pas limiter artificiellement l'ensemble du CPU si inactif : surplus utilisable si réserve réellement préservée, selon politique explicite et mesures. Dell1 : 100% disponible pour travail agentique de fond mais avec **préemption/priorité** pour requêtes de conversation dépendantes de l'inférence GPU ; limiter concurrence/contextes, éviter thrashing de modèles, placement GPU0/GPU1/split selon ressources et demande. Vérifier absence d'overcommit CPU/GPU/RAM, stabilité mémoire et queues.
+
+### D — Profils GPU et 700W court
+Créer des profils de charge `interactive-priority`, `balanced`, `mission-intensive`, `dual-gpu-burst`. Profil dernier : objectif **jusqu'à 2×350W GPU annoncés pendant des pointes courtes**, durée de fenêtre définie et testée techniquement selon conditions du matériel, retour automatique à un profil plus bas ensuite. Mesurer énergie/puissance/température et signes d'instabilité si accessibles, relever la puissance à la prise seulement si matériel de mesure disponible sans inventer son existence. Ne pas forcer une limite NVIDIA non supportée. Documenter si 700W réellement atteints, sinon conserver comme cible demandée non démontrée. La réception fonctionnelle câbles mission13 demeure acquise ; ne pas relancer de validation pinout ni réclamer accord intermédiaire générique.
+
+### E — Dell2 prêt mais en attente
+Définir un profil agent `dell-2` / inventory / health-check / ssh/ansible/ollama/capacités et politique missions100%. N'activer qu'après découverte réelle, identité vérifiée et services installés dans le cadre de sa future mission14. Vérifier logiciellement la transition offline→ready et le comportement sans Dell2 : aucune tentative SSH ni aucune ressource fictive attribuée au Dell2 tant qu'il n'est pas présent. Préparer une procédure d'enrôlement automatique réutilisant les outils existants et versions.
+
+### F — Validation réelle
+Scénarios Mac seul75/25, Mac+Dell1 GPU mission intensive, arrivée d'une demande conversationnelle pendant charge longue, repli si Dell1 saturé/indisponible, modèle multi-GPU et offload RAM si effectivement possible, profil burst 700W limité et mesuré si techniquement soutenable, Dell2 offline et non utilisé. Exécuter au moins une mission agentique réelle avec JARVIS et preuves des placements, durées, latences, ressources, relectures, erreurs et corrections. Fournir comparatif avant/après, en évitant de recopier benchmarks antérieurs sans les refaire.
+
+## Livrables et statut
+
+Branche d'exécution dédiée à créer au lancement : `codex/mission-28a-routage-modeles`. Dossier `docs/missions/28A/` : `MISSION.md`, `INVENTAIRE.md`, `MODELES-COMPARATIF.md`, `MESURES-LATENCE.md`, `ORDONNANCEUR.md`, `PROFILS-GPU-700W.md`, `DELL2-PREPARATION.md`, `PREUVES-JARVIS.json`, `TESTS-ET-REPRISES.md`, `RAPPORT-FINAL.md`, versions exactes de configurations/scripts, preuves et errata. Mettre à jour SUIVI, ROADMAP, registre ; PR non fusionnée automatiquement à main.
+
+Verdicts indépendants sur modèles, quotas75/25, GPU Dell100%, 700W burst, qualité conversationnelle et préparation Dell2. Utiliser ✅, ✅🟡, 🟡, 📋 et ❌ selon charte. La mission peut être reçue partiellement avec preuve explicite des sous-critères absents : ne déclarer ni 700W mesurés, ni DDR5, ni Dell2 exécutant quand ils ne le sont pas. Ne pas lancer 14A,24-Old, Dell2, TTS-01 ou l'ensemble de28 automatiquement.
+
+**Instruction finale au lancement : exécuter intégralement 28A dans le périmètre autorisé, avec JARVIS opérateur réel, Codex intégrateur, sans validations intermédiaires artificielles, publier résultats exacts et préserver les services et historiques.**
