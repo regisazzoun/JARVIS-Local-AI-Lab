@@ -27,3 +27,7 @@ Le rapport 08 a été retrouvé : Ministral installé et testé, qualité avec r
 La phrase historique ci-dessus sur l’absence de compte rendu 08 est remplacée par le rapport retrouvé. La mission 00 consolide **68 missions/sous-missions et 28 anomalies**, dont la référence 04S sans rapport autonome. **129 documents/preuves** sont récupérés sur JARVIS, avec provenance et expurgation. Les cinq tâches documentaires JARVIS ont des traces réelles ; leur guidage et les corrections Codex restent explicites. Aucun déploiement, benchmark ou changement RAID n’est déclenché.
 
 [Registre courant](missions/00-Mission-Pilotage-point-26-10-17/REGISTRE-MISSIONS.md) · [Rapport final](missions/00-Mission-Pilotage-point-26-10-17/RAPPORT-FINAL.md) · [Index des rapports récupérés](missions/README.md).
+
+## 24octobre2026 — mission27, JL-03indépendant
+
+Ordre propriétaire27 exécuté sur une nouvelle application8766 et un dépôt distinct. Développements réelsJARVIS, nombreuses correctionsCodex, recette numérique texte/voix/LiveKitet flux complet, missionworkerterminée avec contrôles. Réception techniqueGOavec réserves ; autonomie complète non reçue. Anciennes pages/servicesJL-02conservés. Aucun14A/24-Old/Dell2déclenché. [Rapport27](missions/27-JL-03/RAPPORT-FINAL.md).

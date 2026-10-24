@@ -171,3 +171,8 @@ Le propriétaire relance intégralement TTS-01 après la clôture28A. Réutilise
 ## TTS-01 — réception du24 octobre2026
 
 ✅🟡 GO avec réserves : trois WAV français Qwen1.7B/Uncle_Fu générés et transférés par JARVIS, contrôles indépendants Codex (signal,transcription,API,lecture).246tests logiciels. Réception finale opérateur Codex explicite, autonomie sans assistance non validée, prose rectifiée et originaux conservés. Piper/27BMac/80BDell/services maintenus ; aucune fusion main ni clôture14A/26B, aucun14A/24-Old/Dell2 déclenché. Les anciens états «suspendue/aucune voix» TTS sont historiques. [Rapport](missions/TTS-01/RAPPORT_TTS_01.md).
+
+
+## Mission27 JL-03 — lancement propriétaire24octobre2026
+
+JL03 est lancée : Codex coordonne et vérifie, JARVIS développe/exécute effectivement. NouvelleV3 indépendante, dépôtLauncher3 et service/port séparés, JL01/JL02 préservés. Pas de validation humaine intermédiaire ; règle3échecs par même blocage puis arrêt/analyse et changement réel, sans remise à zéro artificielle. L’ordre explicite27 courant remplace son report historique après14A/24Old ; ces missions ne sont pas lancées. Sources/prototype/tests/provenance réels requis ; pas de réception autonome sur prose seule. Aucun main fusionné automatiquement.

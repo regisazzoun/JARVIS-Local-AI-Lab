@@ -2157,5 +2157,34 @@
     "mission_id": "59830a3414a243c198c53e5624a286a3",
     "derniere_actualisation": "2026-10-24",
     "pull_request": 25
+  },
+  {
+    "identifiant": "27",
+    "nom": "JL-03 — JARVIS Launcher3 indépendant",
+    "fonction_principale": "Conversation texte/voix, cristal3D et supervision intégrale des missions",
+    "objectifs": "Livrer une V3 testable avec contributions techniques JARVIS et orchestration Codex",
+    "materiel": "Mac mini Debian, Dell1 ; navigateur propriétaire macOS à recevoir, Dell2inactif",
+    "composants": "Adaptateur séparé8766 ; mémoire/missions/broker canoniques, Three.js, WebAudio, LiveKit23D existant",
+    "executant_reel": "JARVIS écrit composants, exécute tests et démonstration ; Codex infrastructure, corrections étendues, recette indépendante et publication",
+    "documents_sources": [
+      {
+        "path": "docs/missions/27-JL-03/RAPPORT-FINAL.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/27-JL-03/PREUVES-JARVIS.json",
+        "url": ""
+      }
+    ],
+    "etat": "✅🟡 GO technique avec réserves — essais propriétaire distincts",
+    "resultats_prouves": "V3 installée, neuf fichiersJL-02 préservés, texte/voix/LiveKit nominaux numériques, interruption482,5ms, flux complet et reconnexion, deuxGPU Dell1, workercompleted et conversationMac4,04s, troisFAILJARVIS stoppés/reprise409, neuf testsPython/huit modules",
+    "reserves": "Développement autonome sans assistance non reçu ; correctionsCodex importantes et proseJARVIS erronée ; garde coopératif non atomique ; macOS/Safari/iPhone/acoustique/esthétique à recevoir, latenceLiveKit encore élevée et mémoire de salle non canonique",
+    "dependances": "Acquis23/24/25/26/26B/JL-02 ; ordre propriétaire27 prioritaire,14A/24-Old distinctes non lancées",
+    "prochaine_action": "Essais propriétaire deV3 et traitement explicite des réserves ; aucune reprise automatique des autres missions",
+    "derniere_actualisation": "2026-10-24",
+    "mission_id": "64610b36b7eb43f8b4b571b93fa89039",
+    "branche": "codex/mission-27-jl03",
+    "application_repo": "regisazzoun/JARVIS-Launcher3",
+    "application_pr": "https://github.com/regisazzoun/JARVIS-Launcher3/pull/1"
   }
 ]
