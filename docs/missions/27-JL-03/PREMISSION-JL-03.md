@@ -19,10 +19,29 @@ La V3 est prioritairement **un outil de travail quotidien avec JARVIS**, davanta
 - **Fil de discussion :** historique consultable, conversations renommables, recherche, projets et fils indépendants, comme l'organisation appréciée de ChatGPT. Missions et conversations associables sans arrêter une mission lorsqu'une nouvelle discussion commence.
 - **Barre latérale à gauche** masquable totalement ; nouvelle conversation, recherche, projets, conversations récentes, bibliothèque de liens vers fichiers/artefacts, paramètres. Remplace la colonne technique droite toujours visible de JL-02.
 - **Paramètres/outils** par sections repliables : SSH, Codex, sessions tmux, tunnel JARVIS, Open WebUI, services, diagnostic, GitHub, terminaux, profils de connexion. Outils accessibles mais non omniprésents.
-- **Sandbox JL-02 préservée dans son principe :** panneau journal/missions, hauteur ajustable, défilement autonome, ouverture en grand ou fermeture en micro-barre ; preuves, tâches, erreurs et reprise.
+- **Remplacement explicite du Sandbox de JL-02 :** dans JL-03, un **panneau de comptes rendus de tâches et de missions**, au format narratif clair et détaillé comparable aux comptes rendus de Codex, **remplace** l'ancien Sandbox. Conserver la faculté de replier le panneau en micro-barre, de le redimensionner, de le déployer et de faire défiler son historique ; ne pas reprendre la présentation brute du Sandbox comme interface principale. Journaux, commandes, pièces jointes et traces techniques restent disponibles en détails secondaires lorsque utiles.
 - **Accès simplifié :** depuis le Launcher vers le prompt sans ouverture manuelle successivement du tunnel, d'une session SSH, puis d'une authentification. **Une identification au maximum**, réutilisation de session et connexions sous-jacentes automatiques si possible avec compagnon local et mécanismes existants. Pas d'exigence de saisir des identifiants à chaque lancement.
 - **Voix :** un clic active l'écoute, un second la désactive. La capture du microphone, le raisonnement JARVIS, la restitution TTS et les missions sont des états distincts. Couper le micro ne doit pas annuler une réponse ni une mission. Conversation naturelle avec interruption vocale de la parole JARVIS (« barge-in ») via LiveKit lorsque cette mission sera disponible ; interrompre la réponse orale n'annule pas automatiquement une mission agentique.
 - **Distinction essentielle :** les couleurs/états de l'orbe représentent **l'activité réelle de JARVIS**, **pas** le simple fait que le microphone soit ouvert.
+
+## 2 bis. Comptes rendus de tâches — décision du 24 octobre 2026 (remplace le Sandbox)
+
+**Décision explicite du propriétaire :** le panneau « Sandbox » de JL-02 n'est **pas** reconduit comme tel en JL-03. Il est **remplacé** par une visualisation des **comptes rendus de tâches tels que Codex les restitue**, compréhensibles immédiatement, en français et mis à jour au fil de l'exécution. L'interface doit rester au service du travail avec JARVIS, pas de la surveillance de logs.
+
+**Exemple fourni par le propriétaire (modèle de contenu, non résultat de JL-03) :**
+
+> La mission est reçue techniquement avec réserves : les trois WAV sont générés, livrés et vérifiés. J’ai effectué la réception finale comme coordinateur, sans la présenter comme une clôture autonome de JARVIS. Les workers habituels sont réactivés ; je termine le contrôle des services et la publication GitHub.
+
+**Attendus d'affichage :**
+- **Compte rendu lisible**, avec paragraphes en langage naturel, étapes accomplies, en cours et restantes, réserves, résultats et éventuelles suites ; afficher les mises à jour réellement disponibles, non des récits inventés.
+- **Distinguer l'auteur de chaque action et du constat** : JARVIS, Codex/coordinateur, outil ou vérification ; ne pas attribuer à JARVIS une clôture effectuée par Codex.
+- **Statut fondé sur les preuves** : ✅ GO, ✅🟡 GO avec réserves, 🟡 en cours, 📋 planifié, ❌ NO-GO selon la charte ; rendre visibles les réserves et les opérations non terminées. Un texte généré par un modèle n'est pas une preuve d'exécution.
+- **Suivi d'une mission en cours** : progression narrative, événements datés si connus, résultats livrés, liens vers artefacts (par exemple fichiers WAV), rapport final, GitHub et opérations encore en cours.
+- **Accès à la technique sur demande** : détail des tâches, fichiers, tests, commandes, journaux et erreurs dans une zone secondaire ou accordéon, sans encombrer l'affichage principal.
+- **Ergonomie :** panneau escamotable entièrement ou repliable en micro-barre, redimensionnable et doté d'un défilement indépendant comme le panneau inférieur de JL-02 ; un résumé très court reste accessible lorsque replié.
+- **Source des données :** récupérer les vrais événements et comptes rendus du moteur de missions et des tâches Codex/JARVIS ; ne pas simuler une activité, une réussite ou une réception.
+
+**Priorité fonctionnelle :** donner au propriétaire la même qualité d'explication et de restitution que lorsqu'il lit le compte rendu d'une tâche Codex, **sans devoir consulter le Sandbox**.
 
 ## 3. Orbe cristalline — direction graphique validée
 
@@ -77,7 +96,7 @@ Aucun essai audio, rendu shader temps réel ou prototype 3D navigateur n'est ré
 
 ## 7. Statut, priorités, reprise
 
-**Validé comme décisions de conception :** architecture de navigation, sidebar gauche masquable, Sandbox rétractable, conversation unifiée, couleurs des états, esthétique cristalline, principe de l'égaliseur spectral, barre trois machines + deux slots GPU/Dell, indépendance de JL-03.
+**Validé comme décisions de conception :** architecture de navigation, sidebar gauche masquable, panneau de comptes rendus narratifs remplaçant le Sandbox (rétractable), conversation unifiée, couleurs des états, esthétique cristalline, principe de l'égaliseur spectral, barre trois machines + deux slots GPU/Dell, indépendance de JL-03.
 
 **Étude/proposition technique, à implémenter et tester :** Three.js/WebGL, AnalyserNode, mapping bandes→sommets, LiveKit, paramètres FFT/fps, mécanisme exact d'authentification unique et de reconnexion.
 
