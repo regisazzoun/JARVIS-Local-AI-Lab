@@ -41,7 +41,7 @@
 Le test initial de développement agentique de la mission 23 est suivi des enrichissements mémoire (24), compétences (25) et moteur (26), avant de mesurer à nouveau l'autonomie sur JL-03 (27).
 1. Établir le cahier des charges et la charte visuelle à partir de JL-02, **sans écraser JL-02** ; nouveau dépôt/déploiement distinct à créer seulement lors du lancement.
 2. Unifier conversation texte/voix et sessions ; IA à gauche, utilisateur à droite ; fenêtre de conversation avec ascenseur local.
-3. Ajouter panneau « sandbox / avancement » en pied de page, environ un quart de la hauteur visible, scroll interne ; états des outils, actions, journaux et artefacts.
+3. **Remplacer le Sandbox JL-02** par un **panneau de comptes rendus narratifs de tâches et missions au format Codex**, en français : résultats et preuves, étapes restantes, réserves, auteur réel des actions (Codex/JARVIS), état de publication et fichiers livrés. Panneau repliable en micro-barre, déployable/redimensionnable et à défilement indépendant ; commandes/logs/artefacts disponibles en détail secondaire, non comme vue principale. **Décision utilisateur du 24 octobre 2026** ; voir [prémission JL-03](27-JL-03/PREMISSION-JL-03.md).
 4. Intégrer LiveKit, statut connexion, micro, interruptions, transcription ; gérer erreurs et permissions microphone.
 5. Panneau télémétrie CPU/GPU, état Ollama, services et missions depuis données réelles ; responsive et accès sécurisés distants.
 6. Réception sur MacBook puis iPhone, sans régression des accès favoris, tunnels et raccourcis de JL-02.
