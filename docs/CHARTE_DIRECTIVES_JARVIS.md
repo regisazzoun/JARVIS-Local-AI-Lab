@@ -176,3 +176,8 @@ Le propriétaire relance intégralement TTS-01 après la clôture28A. Réutilise
 ## Mission27 JL-03 — lancement propriétaire24octobre2026
 
 JL03 est lancée : Codex coordonne et vérifie, JARVIS développe/exécute effectivement. NouvelleV3 indépendante, dépôtLauncher3 et service/port séparés, JL01/JL02 préservés. Pas de validation humaine intermédiaire ; règle3échecs par même blocage puis arrêt/analyse et changement réel, sans remise à zéro artificielle. L’ordre explicite27 courant remplace son report historique après14A/24Old ; ces missions ne sont pas lancées. Sources/prototype/tests/provenance réels requis ; pas de réception autonome sur prose seule. Aucun main fusionné automatiquement.
+
+
+## Mission14B — ordre propriétaire courant
+
+Le propriétaire lance l'installation et l'intégration duDell2avec Debian13, deuxRTX3090si alimentation correctement raccordée, procédures validées réutilisées. JARVIS exécute, documente causes/tentatives/corrections/résultats ; trois échecs comparables maximum puis arrêt/diagnostic/sous-mission corrective si utile. Codex intervient seulement pour capacité manquante réellement démontrée et rend aussitôt la main ; demande prête si assistance indisponible, autres tâches indépendantes continuées. Aucun changementOllama, modèles/services d'inférence, routage, quotas ou répartition des charges ; aucune autre modification d'architecture. Les anciennes exclusionsDell2sont remplacées seulement dans14B.14Aet24-Oldnon lancées ; identités de cible séparées duDell1. [Ordre14B](docs/missions/14B/MISSION.md).

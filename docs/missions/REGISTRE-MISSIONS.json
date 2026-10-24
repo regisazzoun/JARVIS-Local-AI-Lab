@@ -2189,5 +2189,29 @@
     "pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/26",
     "manual_technical_lots": 8,
     "autonomous_development_lots": 0
+  },
+  {
+    "identifiant": "14B",
+    "nom": "Dell n°2 — installation et intégration Debian13",
+    "etat": "🟡 Initialisée et transmise à JARVIS",
+    "mission_id": "a1becab1a8244e2295463bd5be833784",
+    "executant_reel": "JARVIS ; Codex initialisation puis assistance ponctuelle seulement sur capacité manquante prouvée",
+    "resultats_prouves": "Objectif enregistré dans le moteur existant et premier cycle worker pris en charge ; installation Dell2 non encore réceptionnée",
+    "reserves": "Cible/accès/disques et alimentationGPU à observer réellement, ne pas extrapoler Dell1",
+    "objectifs": "Debian13, accèsSSH/Ansible, socleNVIDIA/CUDA et intégration matérielle Dell2",
+    "exclusions": "Aucun changementOllama, routage, répartition de charge ou autre architecture",
+    "retry_policy": "Trois échecs comparables : arrêt de stratégie, diagnostic, sous-mission corrective si utile, reprise vérifiée",
+    "documents_sources": [
+      {
+        "path": "docs/missions/14B/MISSION.md",
+        "url": ""
+      },
+      {
+        "path": "docs/missions/14B/INITIALISATION.json",
+        "url": ""
+      }
+    ],
+    "prochaine_action": "JARVIS planifie, observe et exécute ; assistanceCodex uniquement en cas de capacité manquante réelle",
+    "derniere_actualisation": "2026-10-24"
   }
 ]

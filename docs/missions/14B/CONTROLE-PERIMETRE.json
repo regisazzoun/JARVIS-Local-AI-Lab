@@ -1,0 +1,11 @@
+{
+  "checked": 1792860397.2125115,
+  "actor": "Codex initialization",
+  "unchanged": {
+    "/opt/jarvis/conversation/config/13e.json": true,
+    "/opt/jarvis/conversation/jarvis/compute.py": true,
+    "/etc/systemd/system/jarvis-ollama.service": true
+  },
+  "engine_or_services_restarted": false,
+  "scope": "Only before/after initialization, not a prediction of future mission results"
+}
