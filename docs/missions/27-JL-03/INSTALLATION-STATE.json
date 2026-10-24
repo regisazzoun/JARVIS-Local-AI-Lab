@@ -1,0 +1,125 @@
+{
+  "created": 1792858872.973477,
+  "runtime_source_commit": "f6ae0a16c7c049e68cdb95259c675d42db308fe4",
+  "service": "jarvis-launcher3.service",
+  "listen": "127.0.0.1:8766",
+  "files": [
+    {
+      "path": "site/api.js",
+      "sha256": "43b2a730d1b2fa28238a9aca0e04eb944ab439ae476a615c78bf500e201f42b9"
+    },
+    {
+      "path": "site/app.js",
+      "sha256": "660d2540c3d34de02350b643f8a91c7076a822695b76798242da32a6a2c70fc8"
+    },
+    {
+      "path": "site/console.js",
+      "sha256": "ffc013cca3a2d458e7f6b78fc1edfb8900d565de68c17a052fc83f4f53460b01"
+    },
+    {
+      "path": "site/index.html",
+      "sha256": "241f819f6a1ffd82198da631c87c20102480e6e70906d4545ab8346234e7efc4"
+    },
+    {
+      "path": "site/livekit.js",
+      "sha256": "2763290d4805b4b6198d3111be77734d672de4326ecf1d888780a33e7c536116"
+    },
+    {
+      "path": "site/orb.js",
+      "sha256": "07c17c5efce998aeb4e3906aa93756253c3274056df2177fdedb20530924b78b"
+    },
+    {
+      "path": "site/prototype.css",
+      "sha256": "4cf07d82513b00e8ec30c23c4859eb0a7fb424aa41166e357f5519bb286b9c20"
+    },
+    {
+      "path": "site/prototype.html",
+      "sha256": "d458f79a79f5b41ea1c60499134f82bbc70fcc2d7397570e94fd671acc884b33"
+    },
+    {
+      "path": "site/prototype.js",
+      "sha256": "1b1bb5ad549720c64549071889f2a5a2b80475ec43202e19cbd9e669a7a6f64b"
+    },
+    {
+      "path": "site/style.css",
+      "sha256": "7ded52d93500aa99b11ce099a6b2839cb2ec6209958c06e682e4d8987e5f4a76"
+    },
+    {
+      "path": "site/telemetry.js",
+      "sha256": "5704e0cb14349ba5ce86d7031b12afe2e699a84d4aa9497cd67962256d12d0d9"
+    },
+    {
+      "path": "site/vendor/LIVEKIT-LICENSE.txt",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b"
+    },
+    {
+      "path": "site/vendor/THREE-LICENSE.txt",
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    {
+      "path": "site/vendor/livekit-client.umd.js",
+      "sha256": "fb646f2260d84f91238d0a2dc10726c456631d6a26c7cafc43cfee5959b4d31d"
+    },
+    {
+      "path": "site/vendor/three.core.js",
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "path": "site/vendor/three.module.js",
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "path": "site/voice.js",
+      "sha256": "24af8b9531538db82218940c524823227af459270a5a537ae52bcceb1b7b7d7e"
+    },
+    {
+      "path": "backend/install.sh",
+      "sha256": "ea0850abbfab92385fd88b33bb5a91d3c4f83db2ffa984926cb6fa30e06b356e"
+    },
+    {
+      "path": "backend/install_policy.py",
+      "sha256": "7a535fce32c744cfe7385174ec3b25028129764794ac67a6a33d4a4a9c2c0e0c"
+    },
+    {
+      "path": "backend/jarvis-launcher3.service",
+      "sha256": "8f0f0d32e71f15b2d15c53a7ab624bd9c37d8d48069c224f4d1a58a3d913ddb8"
+    },
+    {
+      "path": "backend/loop_guard.py",
+      "sha256": "1d671d47eb4be442faa249e552bbc184e7f1f5fc320e7e5170c13488679ecef7"
+    },
+    {
+      "path": "backend/record_operator.py",
+      "sha256": "ff30c693ba4bfcec01678ee4c68edccb51a168c2292d3e4d12b7e89dfd042f33"
+    },
+    {
+      "path": "backend/server.py",
+      "sha256": "c84cbbb106cd8ba149ced38d0ed4580bb403e1a748b9b8c9f0287ce2bd4784d2"
+    },
+    {
+      "path": "backend/telemetry_probe.py",
+      "sha256": "0dc446c439bdf35bab00009d46d8e9780dbf47dc2ac3ce6d20baaa230db86e96"
+    },
+    {
+      "path": "macos/Ouvrir-JL03.command",
+      "sha256": "a8a49ea7e860bf27fe29a61294df1815bca7f238f4c432bcee1025508e663258"
+    },
+    {
+      "path": "tests/browser_smoke.py",
+      "sha256": "275fd8eea62889602e47e0e523baf8e0d9d18f9c7781ee7f88b990392f35f354"
+    },
+    {
+      "path": "tests/check-modules.cjs",
+      "sha256": "be3509a5776c4337556790180f201098c45d5d31801d4c8b5f0aa08a6b26cc46"
+    },
+    {
+      "path": "tests/test_adapter.py",
+      "sha256": "22b8b9743caa6befd02d505d9410812d49ae58f54111bd73dcd28a818b700d70"
+    },
+    {
+      "path": "tests/test_companion.py",
+      "sha256": "1fb4e305e080d25db954da3963747c32884a61109b51a36e9ad296e4272c4871"
+    }
+  ],
+  "scope": "Fingerprints of installed source, libraries and checks; no cookies, model files or audio."
+}

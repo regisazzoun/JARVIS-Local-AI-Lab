@@ -2,7 +2,7 @@
   "mission27": "64610b36b7eb43f8b4b571b93fa89039",
   "demo": "3f4c4ac27e384402a62017aa2b9599ed",
   "guard_fixture": "2d13b9ec8bd547f9b8b481cefb4aa4d5",
-  "exported_at": 1792858548.8848403,
+  "exported_at": 1792858872.952429,
   "scope": "Native canonical tool calls and their real receipts. Unoffered/failed calls remain, model claims are not proof. Secret fields redacted; no audio or credentials copied. Plan author/operator attribution is preserved; owner-provided lots and Codex demo task are not autonomous global planning.",
   "counts": {
     "native_calls": 118,
@@ -5120,5 +5120,93 @@
         "created": 1792857903.0896914
       }
     ]
+  },
+  "mission_states": {
+    "64610b36b7eb43f8b4b571b93fa89039": "completed",
+    "3f4c4ac27e384402a62017aa2b9599ed": "completed",
+    "2d13b9ec8bd547f9b8b481cefb4aa4d5": "interrupted"
+  },
+  "operator_reception": {
+    "created": 1792858779.7226565,
+    "mission": "64610b36b7eb43f8b4b571b93fa89039",
+    "result": {
+      "actor": "Codex",
+      "technical_verdict": "GO avec réserves",
+      "autonomous_development_verdict": "not_received",
+      "manual_technical_lots": 8,
+      "automatic_JARVIS_development_lots": 0,
+      "owner_acceptance": "pending",
+      "application_pr": "https://github.com/regisazzoun/JARVIS-Launcher3/pull/1",
+      "lab_pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/26",
+      "no_merge": true
+    },
+    "receipts": [
+      {
+        "task": "architecture",
+        "event": 33368,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/ARCHITECTURE.md",
+        "sha256": "9d53ac01f987c6a219ae73d61eb2905370fbfcb6f579be46e3bc61198606be70"
+      },
+      {
+        "task": "cristal",
+        "event": 33369,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/CRISTAL-3D.md",
+        "sha256": "66082a8aec769a28ef8f9fc571f89c10169edcf174760c587077633b83c6bd1a"
+      },
+      {
+        "task": "interface",
+        "event": 33370,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/TESTS-ET-RECEPTION.md",
+        "sha256": "d9cadc25cb9f5214455638f76752c1a6451b248d278320dadde0583219001d65"
+      },
+      {
+        "task": "voix",
+        "event": 33371,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/CONVERSATION-VOIX.md",
+        "sha256": "6789c95312068917f996e750fed480d0da6d89ce4598cc75d61b73b328719bf5"
+      },
+      {
+        "task": "connexion",
+        "event": 33372,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/INSTALLATION-UTILISATION.md",
+        "sha256": "d5e334b68acc0d17ee4cc8b16b6725d77031154e9b51df5243e82afbba66c2c9"
+      },
+      {
+        "task": "missions",
+        "event": 33373,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/FLUX-MISSIONS.md",
+        "sha256": "7568da238fd4e594f4d545e87dc8af6359472f94aaf303a6ced84038515de33d"
+      },
+      {
+        "task": "telemetrie",
+        "event": 33374,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/ARCHITECTURE.md",
+        "sha256": "9d53ac01f987c6a219ae73d61eb2905370fbfcb6f579be46e3bc61198606be70"
+      },
+      {
+        "task": "reception",
+        "event": 33375,
+        "actor": "Codex",
+        "mode": "manual technical reception",
+        "report_path": "/var/lib/jarvis/projects/jl03/docs/RAPPORT-FINAL.md",
+        "sha256": "a2e20d70b8a3d2109b92f9611278f29f740d7fce52a7d600886468b6c23b49e5"
+      }
+    ],
+    "after_state": "completed",
+    "scope": "Technical delivery recorded by Codex after independent checks. This is not eight autonomous JARVIS validations. Owner reception and named reservations remain open. Prior histories unchanged."
   }
 }
