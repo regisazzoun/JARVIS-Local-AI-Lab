@@ -1,3 +1,7 @@
+## Mission27 — JL-03, livraison24octobre2026
+
+[Rapport de réception](27-JL-03/RAPPORT-FINAL.md) · [Attribution](27-JL-03/ATTRIBUTION-CODEX-JARVIS.md) · [Preuves](27-JL-03/PREUVES-INDEX.json) · [Sources indépendantes](https://github.com/regisazzoun/JARVIS-Launcher3/tree/codex/mission-27-jl03). Référence pour **00 — Pilotage général**. Réception techniqueGOavec réserves ; développement autonome sans assistance non reçu.
+
 # Index courant des missions JARVIS
 
 ## Cycle 23–31 — planifié le 19 octobre 2026

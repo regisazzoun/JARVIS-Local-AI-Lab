@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-24",
+  "actor": "Codex",
+  "application": {
+    "repository": "regisazzoun/JARVIS-Launcher3",
+    "pr": "https://github.com/regisazzoun/JARVIS-Launcher3/pull/1",
+    "state": "open",
+    "merged": false,
+    "head": "f6ae0a16c7c049e68cdb95259c675d42db308fe4",
+    "base": "2592fc87f2e6a7c1381e5e3b4d22017327f9ddc9",
+    "remote_report_blob": "ed066284b30df28c876723c56c75e79d86823ee1",
+    "local_report_blob": "ed066284b30df28c876723c56c75e79d86823ee1",
+    "same": true
+  },
+  "lab": {
+    "repository": "regisazzoun/JARVIS-Local-AI-Lab",
+    "pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/26",
+    "state": "open",
+    "merged": false,
+    "head": "9d3164bdd5b60cfa18babce9bc092ddb4ed42dcd",
+    "base": "f3bfb882b80596cf021bbe227cfe0fcc73132b68",
+    "remote_report_blob": "aa5192d3219ff68872a30c365ac31807f5b7fcd1",
+    "local_report_blob": "aa5192d3219ff68872a30c365ac31807f5b7fcd1",
+    "same": true
+  },
+  "scope": "Actual connector reads at the exact pushed commits, blob ids independently compared with local git hash-object. Later metadata/receipt commits may advance heads; runtime source remains identified by the application commit. No merges."
+}

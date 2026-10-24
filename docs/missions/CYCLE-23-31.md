@@ -1,3 +1,7 @@
+## Décision propriétaire du24octobre2026 — lancement et livraisonJL-03
+
+Mission27 expressément lancée malgré les séquences historiques conservées ci-dessous. V3 séparée livrée pour essais avec réserves : [rapport27](27-JL-03/RAPPORT-FINAL.md). Le Sandbox est remplacé par le flux chronologique intégral des événements/actions/sorties disponibles, sans prétendu raisonnement interne. DépôtJARVIS-Launcher3/port8766 ; JL-01/JL-02préservés. Autonomie sans assistance non reçue ;14Aet24-Oldrestent distinctes non lancées, Dell2inactif.28AetTTS-01conservent leurs clôtures précédentes.
+
 ## Mission 28A — clôture propriétaire du 24 octobre 2026
 
 🟡 **Clôturée incomplète en l’état.** Le propriétaire retient **Qwen3-Coder-Next80B pour les missions Dell1**, avec **Qwen3.5 27B conversationnel sur Mac**. Le cœur hybride reste installé ; six étapes principales sont validées. La réception du programme échoue encore sur quatre variantes et les rapports conservent des erreurs : ces réserves restent ouvertes. Les deux exécutions sont interrompues et la publication erronée est neutralisée ; nouveaux tests différés sans reprise automatique.238tests logiciels réussis, distincts de l’autonomie. [Clôture](28A/RAPPORT-FINAL.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25).14A/24-Old/TTS/Dell2 non lancés.

@@ -19,10 +19,37 @@ La V3 est prioritairement **un outil de travail quotidien avec JARVIS**, davanta
 - **Fil de discussion :** historique consultable, conversations renommables, recherche, projets et fils indépendants, comme l'organisation appréciée de ChatGPT. Missions et conversations associables sans arrêter une mission lorsqu'une nouvelle discussion commence.
 - **Barre latérale à gauche** masquable totalement ; nouvelle conversation, recherche, projets, conversations récentes, bibliothèque de liens vers fichiers/artefacts, paramètres. Remplace la colonne technique droite toujours visible de JL-02.
 - **Paramètres/outils** par sections repliables : SSH, Codex, sessions tmux, tunnel JARVIS, Open WebUI, services, diagnostic, GitHub, terminaux, profils de connexion. Outils accessibles mais non omniprésents.
-- **Sandbox JL-02 préservée dans son principe :** panneau journal/missions, hauteur ajustable, défilement autonome, ouverture en grand ou fermeture en micro-barre ; preuves, tâches, erreurs et reprise.
+- **Remplacement explicite du Sandbox JL-02 :** JL-03 affiche **en direct et intégralement le déroulement des missions**, comme la sortie progressive d'une session Codex : actions, intentions/étapes déclarées, commandes, résultats, erreurs, correctifs, essais, intervenants, fichiers livrés et comptes rendus intermédiaires/final. **Rien ne doit être caché derrière un résumé obligatoire ni relégué à un détail secondaire.** Conserver panneau rétractable en micro-barre, redimensionnable, agrandissable, et défilement autonome ; quand il est ouvert, le flux complet est visible.
 - **Accès simplifié :** depuis le Launcher vers le prompt sans ouverture manuelle successivement du tunnel, d'une session SSH, puis d'une authentification. **Une identification au maximum**, réutilisation de session et connexions sous-jacentes automatiques si possible avec compagnon local et mécanismes existants. Pas d'exigence de saisir des identifiants à chaque lancement.
 - **Voix :** un clic active l'écoute, un second la désactive. La capture du microphone, le raisonnement JARVIS, la restitution TTS et les missions sont des états distincts. Couper le micro ne doit pas annuler une réponse ni une mission. Conversation naturelle avec interruption vocale de la parole JARVIS (« barge-in ») via LiveKit lorsque cette mission sera disponible ; interrompre la réponse orale n'annule pas automatiquement une mission agentique.
 - **Distinction essentielle :** les couleurs/états de l'orbe représentent **l'activité réelle de JARVIS**, **pas** le simple fait que le microphone soit ouvert.
+
+## 2 bis. Suivi intégral des missions en direct — décision corrigée du 24 octobre 2026 (remplace le Sandbox)
+
+**Dernière instruction du propriétaire, prioritaire sur la version « synthèse narrative » : « non je veux tout voir pendant l'exécution de la mission ».** Le Sandbox JL-02 est remplacé par une **vue complète et chronologique des opérations en direct**, comparable à la sortie d'exécution et aux comptes rendus progressifs de Codex. Ce n'est **ni un simple compte rendu final ni une sélection d'événements**. Afficher les comptes rendus en français, sans filtrer les étapes techniques effectivement disponibles.
+
+**Pendant toute l'exécution, panneau ouvert = visibilité intégrale :**
+- Ouverture et plan de mission, tâches attribuées à JARVIS/Codex/workers, début/fin de chaque étape.
+- Actions et outils réellement appelés, commandes et leurs sorties utiles **intégrales lorsqu'accessibles**, tests, fichiers créés ou modifiés, résultats et messages de vérification.
+- Progression, tentatives, corrections, échecs, retours arrière, reprise après interruption et états des services/connexion.
+- Messages intermédiaires et **comptes rendus textuels successifs** des exécutants, dont le style de rapport Codex (avec réserves et tâches encore ouvertes).
+- Auteurs explicitement distingués : JARVIS, Codex coordinateur, workers, outil ; ne pas attribuer à JARVIS une validation faite par Codex.
+- Liens directs vers fichiers/artefacts (ex. trois WAV), preuves et commits GitHub, plus résultat et bilan final **ajouté au même flux**.
+
+**Exemple de restitution visée, communiqué par le propriétaire (illustratif, pas preuve JL-03) :**
+
+> La mission est reçue techniquement avec réserves : les trois WAV sont générés, livrés et vérifiés. J’ai effectué la réception finale comme coordinateur, sans la présenter comme une clôture autonome de JARVIS. Les workers habituels sont réactivés ; je termine le contrôle des services et la publication GitHub.
+
+**Comportement obligatoire :**
+- Flux actualisé **au fil de l'exécution**, horodatages si disponibles, conservation de l'historique et des détails lors du retour dans la mission, reprise après reconnexion ; éviter d'afficher seulement le dernier état.
+- Défilement automatique vers les derniers événements tant que l'utilisateur n'a pas remonté l'historique ; le défilement manuel ne doit pas être interrompu par les mises à jour.
+- Panneau toujours **escamotable/repliable en micro-barre**, redimensionnable et agrandissable comme JL-02 ; **replier réduit l'affichage, pas la collecte des événements**. Dès réouverture, retrouver tout le déroulement.
+- **Aucune dissimulation par défaut** des commandes, sorties, erreurs et événements : les sections visuelles peuvent structurer le flux, mais pas masquer des opérations. De très gros flux peuvent être chargés progressivement sans en perdre le contenu.
+- Afficher les données et traces réellement émises par les outils/services, avec le statut de provenance et disponibilité. Lorsque l'interface n'a pas accès à une information, indiquer « non disponible » plutôt que simuler une action ou prétendre afficher des raisonnements internes non exposés.
+- Conserver les conventions ✅ / ✅🟡 / 🟡 / 📋 / ❌ de la charte selon **preuves**, sans transformer un texte de modèle en preuve et sans imposer de confirmation humaine intermédiaire.
+- Les secrets/tokens/identifiants sensibles ne doivent pas être exposés dans l'interface ou les journaux ; cela n'autorise pas à masquer le reste de la mission.
+
+**Priorité fonctionnelle :** pouvoir **suivre réellement tout ce que font Codex et JARVIS pendant une mission**, sans devoir ouvrir SSH/tmux ou un Sandbox externe. Le compte rendu final est une conclusion du flux continu, pas son remplacement.
 
 ## 3. Orbe cristalline — direction graphique validée
 
@@ -77,7 +104,7 @@ Aucun essai audio, rendu shader temps réel ou prototype 3D navigateur n'est ré
 
 ## 7. Statut, priorités, reprise
 
-**Validé comme décisions de conception :** architecture de navigation, sidebar gauche masquable, Sandbox rétractable, conversation unifiée, couleurs des états, esthétique cristalline, principe de l'égaliseur spectral, barre trois machines + deux slots GPU/Dell, indépendance de JL-03.
+**Validé comme décisions de conception :** architecture de navigation, sidebar gauche masquable, flux intégral d'exécution et comptes rendus progressifs remplaçant le Sandbox (rétractable), conversation unifiée, couleurs des états, esthétique cristalline, principe de l'égaliseur spectral, barre trois machines + deux slots GPU/Dell, indépendance de JL-03.
 
 **Étude/proposition technique, à implémenter et tester :** Three.js/WebGL, AnalyserNode, mapping bandes→sommets, LiveKit, paramètres FFT/fps, mécanisme exact d'authentification unique et de reconnexion.
 

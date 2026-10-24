@@ -12,6 +12,8 @@ Quatre compétences exécutables actives, création/réutilisation par JARVIS et
 
 ![JARVIS : IA locale, voix, mémoire et outils](docs/assets/jarvis-banner.svg)
 
+**24octobre2026 — JL-03 testable, GO avec réserves.** [Rapport27](docs/missions/27-JL-03/RAPPORT-FINAL.md) · [Dépôt indépendant Launcher3](https://github.com/regisazzoun/JARVIS-Launcher3/tree/codex/mission-27-jl03). Texte/voix, cristal3D, flux complet et télémétrie ; correctionsCodexet autonomie non reçue documentées. [Registre courant](docs/missions/REGISTRE-MISSIONS.json) ; les bilans chiffrés plus anciens sont des instantanés datés.
+
 ### Construire une IA locale capable de converser, mémoriser et agir
 
 Bienvenue dans **JARVIS**, un laboratoire privé qui explore une question concrète : comment faire coopérer des modèles d’IA, une mémoire persistante et des outils d’administration sur nos propres machines ?

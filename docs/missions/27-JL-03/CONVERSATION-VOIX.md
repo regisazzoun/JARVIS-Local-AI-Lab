@@ -1,0 +1,11 @@
+# Conversation et voix
+
+Le texte utilise la passerelle canonique. Un catalogue d'outils trop volumineux produisait « Requested context exceeds measured node profile: Mac-mini » avant toute réponse ; l'adaptateurV3 sélectionne maintenant les outils conversationnels utiles et envoie les commandes explicites au moteur de missions. Aucun changement silencieux du Qwen27B ni nouvelle mémoire.
+
+Mode quotidien : MediaRecorderaudio → Whisper existant → conversation27B → Piper existant. Le VAD surveille réellement un analyseur raccordé au microphone, isole les segments, limite leur durée et sérialise les transcriptions. Trois segments successifs sont reçus. Les réponses en cours ne sont pas annulées par stopMic. Un numéro de génération invalide unTTSpendante en cas d'interruption, sans bloquer une future réponse.
+
+Essais réels : question2+3, réponsecinq, rouge pendant traitement et vert pendant lecture ; arrêt audio et relecture de l'historique après rechargement. Une vraie paroleWAV injectée pendant Piper a arrêté la lecture en482,5ms ; microphone maintenu, nouvelle transcription française et aucun appel d'annulation de mission. Cela reste une réception numérique, pas un test d'écho ou de microphone physique.
+
+LiveKit : serveur et agent23D conservés. Le moduleV3 utilise le SDKofficiel, attend la piste de l'agent avant d'activer le micro, affiche les transcriptions de salle et analyse l'audio distant. Le dernier nominal reçoit la phrase complète et une réponse sonore, avec les trois états.34,86s entre début duWAV et condition réponse transcrite+audio ; ce n'est ni unTTFT ni une latence conversationnelle naturelle reçue. L'essai précédent73,44s conservait une transcription partielle ; l'attente de préparation a été corrigée. Aucun gain de performance général n'est déduit de ces deux passages.
+
+Le prototype23D utilise encore son propre contexte de salle ; ses transcriptions sont explicitement marquées non canoniques. Le mode quotidien demeure celui à mémoire persistante. Le barge-in23D historiquement reçu n'a pas été recertifié physiquement pourV3. La lecture locale peut être coupée sans annuler une mission. MacBook/Safari/iPhone, périphériques et acoustique restent à essayer par le propriétaire.

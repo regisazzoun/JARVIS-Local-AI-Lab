@@ -1,0 +1,183 @@
+{
+  "generated_at": 1792858872.9586713,
+  "source_repo": "regisazzoun/JARVIS-Launcher3",
+  "branch": "codex/mission-27-jl03",
+  "path": "docs/proofs",
+  "files": [
+    {
+      "path": "docs/proofs/DEMO-ERRATUM-CODEX.md",
+      "bytes": 1652,
+      "sha256": "4d7ff169969e8bba31a886392fd91c542651674f0f1395379e7649135cbeaaab"
+    },
+    {
+      "path": "docs/proofs/DEMO-FACTS-ERRATUM-CODEX.md",
+      "bytes": 581,
+      "sha256": "9ad295c38841ed2bc73f3a80c9e3ae390280b19fa560ee4e899a68423affc17b"
+    },
+    {
+      "path": "docs/proofs/DEMO-FACTS.md",
+      "bytes": 2576,
+      "sha256": "2ea7bcc5e1e564b91351cc68d860596fe52a4cf6b5e49929535cc89b49cdb3c4"
+    },
+    {
+      "path": "docs/proofs/DEMO-JARVIS-ORIGINAL.md",
+      "bytes": 3112,
+      "sha256": "ab185ea0c3bdcc6b35b3d467abb7e59745a65211b69fe7a1b399634a0bd6b4c9"
+    },
+    {
+      "path": "docs/proofs/EVENTS.json",
+      "bytes": 1300096,
+      "sha256": "6b0099212194209d44a7934153147d96d008533859e72be0e68b1778195fd060"
+    },
+    {
+      "path": "docs/proofs/PREUVES-JARVIS.json",
+      "bytes": 618653,
+      "sha256": "28c825cec8b6631c6257091cd0dfb823ab8adbc0c6d630a57256de8d1bd1a34a"
+    },
+    {
+      "path": "docs/proofs/barge-reception.json",
+      "bytes": 1094,
+      "sha256": "8f4763dced769ef64c8743a7792978713e61474723ca6aa84119f95aa0e49084"
+    },
+    {
+      "path": "docs/proofs/chat-failure-probe.json",
+      "bytes": 166,
+      "sha256": "435c6750a352a7564a71aa704bee73acf54b043bc9dcdaf324f5d6a275096dfc"
+    },
+    {
+      "path": "docs/proofs/crystal-audio-browser.json",
+      "bytes": 1378,
+      "sha256": "2fb034a8bcbc2b89df104594025b879915772cd9dc37edef160e382f8b5dd596"
+    },
+    {
+      "path": "docs/proofs/crystal-spectrum-observed.json",
+      "bytes": 1928,
+      "sha256": "30130588b841f7eca2e9f59aed37fe3da5c81c42f6a019d06ad62f6088a85f1a"
+    },
+    {
+      "path": "docs/proofs/final-installed-smoke.json",
+      "bytes": 503,
+      "sha256": "615e42dc5994c3929fa8e9c424a58cf5f09d4cb4517ab5b9bdb652b5cfa66750"
+    },
+    {
+      "path": "docs/proofs/final-reception.json",
+      "bytes": 3901,
+      "sha256": "1da8976ab364f83d9c51a7ebc1250dfe77f155f09fe24a36bff5358acdf7defb"
+    },
+    {
+      "path": "docs/proofs/guard-reception.json",
+      "bytes": 2138,
+      "sha256": "fc5cd688093cfe88b1c4396900f67fd1e1369868a19dabeb92926fb6c661617c"
+    },
+    {
+      "path": "docs/proofs/jl03-final-desktop.png",
+      "bytes": 302312,
+      "sha256": "6fd876df61b6d937188c5c6f31177caf05cc0ad6233210c92e7f07b292b9a8ad"
+    },
+    {
+      "path": "docs/proofs/jl03-final-mobile.png",
+      "bytes": 103706,
+      "sha256": "456ab991f9e1946aafe46344956f08e3242613311c11511fecb22e8055cfd667"
+    },
+    {
+      "path": "docs/proofs/jl03-speaking-real-v2.png",
+      "bytes": 314363,
+      "sha256": "110e847ad211c0b0b3fc8dc28894109a8d0716ac368acb03a55178bcaf85e96a"
+    },
+    {
+      "path": "docs/proofs/jl03-thinking-real-v2.png",
+      "bytes": 311343,
+      "sha256": "c801633dc83316530c5686cf998999d30d9f6d32c63207725f54ad1a8c5ad38e"
+    },
+    {
+      "path": "docs/proofs/live-demo-reception-compact.json",
+      "bytes": 8095,
+      "sha256": "f1fe34a8b16e0d76179cbea4358d629a6740403157ce606cbce32876d8a25686"
+    },
+    {
+      "path": "docs/proofs/live-demo-reception.json",
+      "bytes": 34272,
+      "sha256": "539bd8d4497a0695dedb3fb320e03db312c0a7b6b0a2d7b4de9017380b7c058a"
+    },
+    {
+      "path": "docs/proofs/livekit-reception-v2.json",
+      "bytes": 1576,
+      "sha256": "2365bdbf229826cbc8b678c1cd93d698b4b2f72756105dab6b0aaabefcdc8505"
+    },
+    {
+      "path": "docs/proofs/livekit-reception-v3.json",
+      "bytes": 1605,
+      "sha256": "4b838841ad078565ff8934a0532416c99ea1fa3622a9f878599ae136e22e34ce"
+    },
+    {
+      "path": "docs/proofs/livekit-reception.json",
+      "bytes": 817,
+      "sha256": "e5e2109b3cadf9fae094b473f53bd52872c4641cdd053fb15a0cb2a7dbf96043"
+    },
+    {
+      "path": "docs/proofs/originals/companion-JARVIS-v3.command",
+      "bytes": 3686,
+      "sha256": "45f395362561aa1130afb9139983258b6971c2b96a2dc6dc7605702a1f190c34"
+    },
+    {
+      "path": "docs/proofs/originals/console-JARVIS-v2.js",
+      "bytes": 10902,
+      "sha256": "f8e2666a51490966ea1aa1768b049b596b6a0b7f5aae30c3f7696dd9cae55192"
+    },
+    {
+      "path": "docs/proofs/originals/console-JARVIS-v3.js",
+      "bytes": 12206,
+      "sha256": "ad7998c6e4450da527585bc3c9f4761d0f38c5faf3281343c108e02615d2e017"
+    },
+    {
+      "path": "docs/proofs/originals/interface-v1-JARVIS-original.html",
+      "bytes": 10629,
+      "sha256": "d33450a151f3cde89238c5bb467545bf1a1c2eb80616891c669b0d7bcee52fc7"
+    },
+    {
+      "path": "docs/proofs/originals/orb-v1-original.js",
+      "bytes": 8830,
+      "sha256": "3a05d6b39fb43354bf04c004cfd59c3550018042c337c5563a3ccd098f1ec1a1"
+    },
+    {
+      "path": "docs/proofs/originals/orb-v2-original.js",
+      "bytes": 10018,
+      "sha256": "4acb9138a5df107a88158e7935f57da2f6ea50c7da6c44d930d607d3009d0d42"
+    },
+    {
+      "path": "docs/proofs/originals/orb-v3-original.js",
+      "bytes": 8877,
+      "sha256": "49e7b23c3d3b02eea17d34b8f31e45b2ba29c4196f9faf0f1e470ddd8522baeb"
+    },
+    {
+      "path": "docs/proofs/originals/telemetry-JARVIS-original.js",
+      "bytes": 5825,
+      "sha256": "46512ab3b9551ddba6973f2198f7feaba79775baf672f8c86d6854e18812dd6a"
+    },
+    {
+      "path": "docs/proofs/originals/voice-JARVIS-v1.js",
+      "bytes": 9018,
+      "sha256": "470ca44c4446621578cd308afccbde14c21291ed97a9d7274aaf49c7d8c08afa"
+    },
+    {
+      "path": "docs/proofs/ui-conversation-reception-v2.json",
+      "bytes": 1222,
+      "sha256": "0f9e9410129f7406e873c07363bb92d1fce059c6ba330023bfee79e5f88c3bee"
+    },
+    {
+      "path": "docs/proofs/ui-conversation-reception.json",
+      "bytes": 1114,
+      "sha256": "d3c9ce026ad0abfed54bb8c4fdbdb187426e105aff03beb8ba95504e8504fcc4"
+    },
+    {
+      "path": "docs/proofs/ui-reception.json",
+      "bytes": 1964,
+      "sha256": "92431b808d4c6b65e63f4229c0d9824299b32b45e24d2f99d9a9e55706ab4110"
+    },
+    {
+      "path": "docs/proofs/voice-reception.json",
+      "bytes": 1530,
+      "sha256": "4895a14c7d0d0b4afe7c5a9ce86ea95b5e34221ded8d000c10d4eff14fa83659"
+    }
+  ]
+}
