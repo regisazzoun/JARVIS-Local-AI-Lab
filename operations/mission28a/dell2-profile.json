@@ -1,0 +1,20 @@
+{
+  "node": "Dell2",
+  "enabled": false,
+  "state": "offline_pending_enrollment",
+  "url": null,
+  "roles": ["mission", "critical"],
+  "mission_allocation_fraction": 1.0,
+  "mission_model": null,
+  "host_profile": null,
+  "resource_action": "hybrid_resources",
+  "observed_capacity": {"cpu_threads": null, "ram_bytes": null, "gpus": []},
+  "activation_requires": [
+    "Actual installation in the separate Dell2 mission",
+    "Owner-policy identity guard and pinned SSH/Ansible profile",
+    "Actual resource probe and installed-model catalogue",
+    "Configured private endpoint and selected measured model",
+    "Canonical routes updated to include the enabled node"
+  ],
+  "not_installed_by_mission28a": true
+}

@@ -1,0 +1,38 @@
+{
+  "actor": "Codex",
+  "created": 1792785600.3575685,
+  "files": [
+    {
+      "path": "/opt/jarvis/conversation/jarvis/worker.py",
+      "sha256": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5"
+    },
+    {
+      "path": "/opt/jarvis/conversation/jarvis/missions.py",
+      "sha256": "04de52ec229d7679eedbe23fa8e766420954da268a41ebecfb8833ad8cc9ebee"
+    },
+    {
+      "path": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+      "sha256": "3c414fab3e73ce71f39659cea80dcd457c1e375bce5a9316d6e55f89103d5cd4"
+    },
+    {
+      "path": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "sha256": "f231891327170b47669be85268a089a7deed0b3e09002bec4a3db870e7c9c1f1"
+    },
+    {
+      "path": "/etc/systemd/system/jarvis-mission-worker.service",
+      "sha256": "8c52a835ef425a912ea253a2bc14cb9c5c54f119ae56e03401080652dd0c0d87"
+    },
+    {
+      "path": "/etc/systemd/system/jarvis-mission-worker@.service",
+      "sha256": "8f327aaf941a151cbb80a2ec4a9e715c8d09245517eadd4eaf5b8dbefe24d74e"
+    }
+  ],
+  "tests_passed": 236,
+  "slots": [
+    1,
+    2
+  ],
+  "single_publisher_slot": 1,
+  "shared_database": true,
+  "backup": "/var/backups/jarvis/mission28a/parallel-1792785600355887988"
+}

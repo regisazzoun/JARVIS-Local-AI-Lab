@@ -1,0 +1,54 @@
+{
+  "actor": "Codex-independent",
+  "closure_no_new_test": true,
+  "files": [
+    {
+      "file": "jarvis/compute.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/compute.py",
+      "sha256": "7412555c4770c228f03cf58e583440a2ed0254238eb77ac2e33d1556316adf0f",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/durable_cycle.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+      "sha256": "8c948265b6236f9d5086b34f7ec5ef2392954c94a61c984441c13096636c86c5",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/durable_tools.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/durable_tools.py",
+      "sha256": "172e73fa0962111d7eccde5320fee398877bd9381f7201be49ee91e9c71675a1",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/mission_reporting.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/mission_reporting.py",
+      "sha256": "9f11e184dad7e7579ee28c31d6efae886d1c09013b8dabb9ad246281cf910878",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/mission_store.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/mission_store.py",
+      "sha256": "4c1e36d1d218500975d03a4dd0f4afbfe72f31abba5c3e6b765db5c7f7128edc",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/missions.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/missions.py",
+      "sha256": "04de52ec229d7679eedbe23fa8e766420954da268a41ebecfb8833ad8cc9ebee",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/verification.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/verification.py",
+      "sha256": "ac2a81c140e98b02058a678daf526b1b2833dc55d306e22c54317e1d1eb314f5",
+      "matches_repository": true
+    },
+    {
+      "file": "jarvis/worker.py",
+      "installed_path": "/opt/jarvis/conversation/jarvis/worker.py",
+      "sha256": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5",
+      "matches_repository": true
+    }
+  ]
+}

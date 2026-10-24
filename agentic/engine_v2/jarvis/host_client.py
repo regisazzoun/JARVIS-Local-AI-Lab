@@ -1,5 +1,7 @@
 """Tools shared by text, voice and durable mission worker."""
-import json,socket
+import json,socket,os
+from contextvars import ContextVar
+WORKLOAD_CLASS=ContextVar('host_workload_class',default=None)
 
 SOCKET = '/run/jarvis-host/bridge.sock'
 
@@ -19,16 +21,16 @@ class BrokerError(RuntimeError):
         self.response=response
         super().__init__(json.dumps(response,ensure_ascii=False))
 
-def request(operation,arguments):
+def request(operation,arguments,workload_class=None):
     try:
-        return _request(operation,arguments)
+        return _request(operation,arguments,workload_class)
     except OSError as exc:
         raise BrokerError(transport_failure(operation,exc)) from exc
 
-def _request(operation,arguments):
+def _request(operation,arguments,workload_class=None):
     with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as s:
         s.settimeout(660);s.connect(SOCKET)
-        s.sendall(json.dumps({'operation':operation,'arguments':arguments}).encode()+b'\n')
+        s.sendall(json.dumps({'operation':operation,'arguments':arguments,'workload_class':workload_class or WORKLOAD_CLASS.get() or os.environ.get('JARVIS_WORKLOAD_CLASS','interactive')}).encode()+b'\n')
         data=b''
         while not data.endswith(b'\n'):
             block=s.recv(65536)
@@ -54,7 +56,9 @@ def register(registry):
                     args['command']=shlex.join(argv)
                     if len(args['command'])>16000:raise ValueError('Encoded command exceeds16000 characters')
                 elif 'command' not in args:raise ValueError('host_exec requires command string OR argv array')
-            response=request(name,args)
+            token=WORKLOAD_CLASS.set('mission' if getattr(registry,'context',{}).get('mission_id') else None)
+            try:response=request(name,args)
+            finally:WORKLOAD_CLASS.reset(token)
             result={**response['result'],'evidence_id':response['evidence_id']}
             if name=='capability_status':
                 # One tool registry: derive schemas from the registry actually exposed to this model.
@@ -97,9 +101,10 @@ def register(registry):
     spec('host_github','GitHub authentifié sans exposer le jeton. Actions inspect, file, download, branches, pages, clone, push (un fichier <1Mo), pull_request brouillon, create (Launcher2 seul), enable_pages (Launcher2 branche gh-pages). file lit path (ou file) exact ; download lit path et enregistre le fichier complet dans destination absolue autorisée, sans recopier son contenu. file et clone acceptent branch pour lire une branche précise. push nécessite path DOSSIER racine local, branch jarvis/..., file relatif (pas le fichier dans path). push_tree publie un lot explicite : path dossier, files chaîne JSON de chemins relatifs ; exclure .env/secrets/binaires. Produit commit_sha et verified, reprise idempotente sans force. verify_tree reprend path dossier et files JSON et compare chaque blob distant avec les sources locales ; absent ou différent échoue. Autres actions : repositories, branch_create, commits, verify_commit, diff, prs, pr_status. Pour commits, verify_commit, diff, prs et pr_status, branch est obligatoire et doit être la branche réelle jarvis/... ou codex/... (les PR sont listées par branche head). verify_commit exige en plus le commit SHA attendu. pull_request crée ou met à jour la PR existante. Les commits locaux via host_exec restent possibles ; push_tree crée un commit distant de sources contrôlées sans exporter les secrets/historique local. Jamais main ; gh-pages accepté pour Launcher2 seul.',['repository','action','path','branch','file','body','destination','files','commit','title','message'],['repository','action'])
     spec('host_remote','SSH sur profil activé : identity/resources/services/proof, write_file/read_file (path/content), package_install (package), service (service/service_action). Opérations structurées supplémentaires si accordées : supervision_install, supervision_test, desktop_configure, desktop_test, desktop_network_test, tailscale_configure (installe le client sur Dell, réutilise uniquement une clé privée préprovisionnée), tailscale_status (état réel sans secret), desktop_gateway_configure (passerelle privée du Mac lorsque Dell n’a pas de client Tailscale). Elles exécutent une infrastructure fixe sans renvoyer de secret. Voir host_policy. project_exec(project,command) exécute dans un confinement distant du seul projet accordé, réseau hôte et /usr lecture seule, sans clés ni sudo ; pour client WebRTC de réception sur Dell1. Administration Dell activée selon la politique propriétaire 11B.',['host','action','path','content','package','service','service_action','project','command'],['host','action'])
     registry.specs['host_remote'][1]['local_path']={'type':'string','description':'project_upload/download only: local source/destination. project, path (remote absolute), local_path required; transfers bytes with SHA256 comparison. Download into /var/lib/jarvis/projects/tts-01; upload only readable allowed roots. Never returns binary contents.'}
+    registry.specs['host_remote'][1]['model']={'type':'string','maxLength':128,'description':'action=model_pull (alias pull) only: exact allowed Ollama tag, e.g. qwen3:32b-q4_K_M. Bounded resumable download on the target mission service. Success requires final success AND exact catalogue readback. Other models are rejected by owner policy.'}
     registry.specs['host_remote'][1]['probe']={'type':'string','enum':['gpu_inventory','tts_runtime','archive_inventory','script_syntax'],'description':'action project_probe only, with project:tts-01. Fixed independent read in a read-only project mount. No command or content accepted; usable as mission_verify source.'}
     old=registry.specs['host_remote']
-    registry.specs['host_remote']=(old[0]+' TTS-01: project_exec project=tts-01 at /opt/jarvis-lab/tts-01 with GPU; project_probe(project,probe) performs a fixed independent read usable in mission_verify; project_upload/project_download transfer a file with project,path,local_path and SHA256 verification. Archive references stay private.',old[1],old[2],old[3],old[4])
+    registry.specs['host_remote']=(old[0]+' Model installation: action=model_pull, host=dell-observe, model=qwen3:32b-q4_K_M. The tool executes POST pull, preserves progress and verifies the exact installed tag. Repeat the same call after an incomplete timeout to resume cached blobs; do not substitute another model. hybrid_catalogue independently reads installed models. TTS-01: project_exec project=tts-01 at /opt/jarvis-lab/tts-01 with GPU; project_probe(project,probe) performs a fixed independent read usable in mission_verify; project_upload/project_download transfer a file with project,path,local_path and SHA256 verification. Archive references stay private.',old[1],old[2],old[3],old[4])
     spec('host_ansible','Ansible réel sur profil activé : ping, resources, deploy_file (path/content), package_install (package), service (service/service_action). Aucune cible implicite ; profil Dell selon politique 11B.',['host','action','path','content','package','service','service_action'],['host','action'])
     spec('capability_request','Consigner une demande durable à Codex. Ne confère aucun droit. persistent : oui/non ; fournir diagnostic réel et test concret.',['capability','mission','resource','required_access','diagnosis','solution','validation','persistent'])
     spec('capability_status','Registre persistant et demandes/résultats Codex. resource optionnel retourne le détail complet de la ressource.',['resource'],[])

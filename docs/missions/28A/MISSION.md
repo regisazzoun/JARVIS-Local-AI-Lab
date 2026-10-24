@@ -58,3 +58,8 @@ Branche d'exécution dédiée à créer au lancement : `codex/mission-28a-routag
 Verdicts indépendants sur modèles, quotas75/25, GPU Dell100%, 700W burst, qualité conversationnelle et préparation Dell2. Utiliser ✅, ✅🟡, 🟡, 📋 et ❌ selon charte. La mission peut être reçue partiellement avec preuve explicite des sous-critères absents : ne déclarer ni 700W mesurés, ni DDR5, ni Dell2 exécutant quand ils ne le sont pas. Ne pas lancer 14A,24-Old, Dell2, TTS-01 ou l'ensemble de28 automatiquement.
 
 **Instruction finale au lancement : exécuter intégralement 28A dans le périmètre autorisé, avec JARVIS opérateur réel, Codex intégrateur, sans validations intermédiaires artificielles, publier résultats exacts et préserver les services et historiques.**
+
+
+## Lancement effectif —23 octobre2026
+
+Le propriétaire a lancé l’exécution complète28A après la préparation ci-dessus. Mission canonique `59830a3414a243c198c53e5624a286a3`, branche `codex/mission-28a-routage-modeles`. Statut actuel 🟡 en cours ; les résultats partiels et limites sont documentés dans ARCHITECTURE-HYBRIDE.md et TESTS-ET-REPRISES.md. Ce complément remplace le statut préparatoire «non lancée», sans effacer le cahier initial.

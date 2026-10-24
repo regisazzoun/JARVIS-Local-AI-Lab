@@ -1,0 +1,248 @@
+{
+  "actor": "Codex-independent",
+  "broker_evidence": "fc8bf3b0bb444f378e6abf8ef10edcaa",
+  "result": {
+    "created": 1792785999.5312865,
+    "verifier": "Codex protected varied-input checker28A",
+    "pass": false,
+    "cases_checked": 4,
+    "checks": [
+      {
+        "case": "original",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": true,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 11,
+              "total": 18
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 11,
+              "total": 18
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 11,
+              "total": 18
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "a73038894cceb64751b0ea509f1306a92c5c14c817caff8349f37e9252cc385a",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-nxg2ju__/0/out/result.json written with 4 models\nSHA256: a73038894cceb64751b0ea509f1306a92c5c14c817caff8349f37e9252cc385a\n",
+        "stderr": ""
+      },
+      {
+        "case": "changed_evaluations_stale_summaries",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": true,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 10,
+              "total": 18
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 10,
+              "total": 18
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 10,
+              "total": 18
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "b7d6d2b7e67958908788e5f201fcedc365ffd2b858f81e06db70ac79b3d2f1ef",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-nxg2ju__/1/out/result.json written with 4 models\nSHA256: b7d6d2b7e67958908788e5f201fcedc365ffd2b858f81e06db70ac79b3d2f1ef\n",
+        "stderr": ""
+      },
+      {
+        "case": "removed_case_stale_summary",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": true,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 4,
+              "total": 5
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 10,
+              "total": 17
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 10,
+              "total": 17
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 10,
+              "total": 17
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "1f8f58028db8812798f6761cb507bc09e297726df93286653e78939499040c70",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-nxg2ju__/2/out/result.json written with 4 models\nSHA256: 1f8f58028db8812798f6761cb507bc09e297726df93286653e78939499040c70\n",
+        "stderr": ""
+      },
+      {
+        "case": "added_case_stale_summary",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": true,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 5,
+              "total": 7
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 12,
+              "total": 19
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 12,
+              "total": 19
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 12,
+              "total": 19
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "0d2bd38d9d746bce71618bce6f5e6d15b7cb643cb4778588c1830ea0a90f87a5",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-nxg2ju__/3/out/result.json written with 4 models\nSHA256: 0d2bd38d9d746bce71618bce6f5e6d15b7cb643cb4778588c1830ea0a90f87a5\n",
+        "stderr": ""
+      }
+    ],
+    "source_sha256": {
+      "quality-comparative.json": "e0f25ca65ca5ccddc218061f85aba6d0a4d2d4c02942048954cad318be8eee3c",
+      "quality-32-corrected.json": "8037a079d2642a2ed8b427a71e9e009a81e3bc66e7a8a882567a62bb341a7752"
+    },
+    "program_sha256": "b249bfc96ecb97f3c4717028d86481e12bb6f5e183ff90418112ece5aab79adf",
+    "original_sources_unchanged": true,
+    "status": "FAIL",
+    "protected_receipt": "/var/lib/jarvis-program-checks/28a-1792785999986609742.json"
+  }
+}

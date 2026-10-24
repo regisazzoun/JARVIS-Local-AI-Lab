@@ -347,10 +347,18 @@ class MissionStore:
         for criterion in contract.get('semantic',[]):
             matches=[e for e in events if exact(e['result'].get('contract'),criterion)]
             latest=matches[-1] if matches else None
-            semantic.append({'contract':criterion,'status':latest['result'].get('status') if latest else 'INSUFFICIENT','event':latest['id'] if latest else None,'freshness':'Rechecked at task completion; actions after observation require another read'})
-        return {'requirements':status,'semantic':semantic,'all_satisfied':all(s['satisfied'] for s in status) and all(s['status']=='PASS' for s in semantic),
-                'report_path':path,'report_written':any(o['tool']=='host_write_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations),
-                'report_read':any(o['tool']=='host_read_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)}
+            parent=next((o for o in reversed(observations) if latest and o['tool']=='mission_verify' and (o['result'] or {}).get('ok') and (o['result'] or {}).get('result',{}).get('verification_event')==latest['id']),None)
+            semantic.append({'contract':criterion,'status':latest['result'].get('status') if latest else 'INSUFFICIENT','event':latest['id'] if latest else None,'invocation_id':parent['id'] if parent else None,'freshness':'Rechecked at task completion; mutations after observation require another read'})
+        satisfied=all(s['satisfied'] for s in status) and all(s['status']=='PASS' for s in semantic)
+        written=any(o['tool']=='host_write_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)
+        read=any(o['tool']=='host_read_file' and o['arguments'].get('path')==path and (o['result'] or {}).get('ok') for o in observations)
+        result={'requirements':status,'semantic':semantic,'all_satisfied':satisfied,'report_path':path,'report_written':written,'report_read':read}
+        ids={item['invocation_id'] for item in semantic if item.get('invocation_id')}
+        parent=next((o for o in reversed(observations) if o['id'] in ids),None)
+        if satisfied and written and read and parent:
+            result['completion_candidate']={'id':task_id,'report_path':path,'evidence_id':parent['id']}
+            result['next_action']='Call mission_task_complete with completion_candidate. It still checks current evidence and rereads the report; this is not automatic validation.'
+        return result
 
     def rebase_context(self, ident, reason, actor='JARVIS-engine'):
         with self.db() as c:

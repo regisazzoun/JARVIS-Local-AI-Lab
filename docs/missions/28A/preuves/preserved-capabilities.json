@@ -1,0 +1,47 @@
+{
+  "observer": "Codex-independent",
+  "created": 1792786785.7816393,
+  "native_tools": 54,
+  "active_skills": [
+    {
+      "name": "config-repair",
+      "version": 6
+    },
+    {
+      "name": "debian-diagnostic",
+      "version": 1
+    },
+    {
+      "name": "dell-roundtrip",
+      "version": 1
+    },
+    {
+      "name": "github-publish",
+      "version": 1
+    }
+  ],
+  "historical_mission_snapshots": [
+    {
+      "id": "4612213a05624836abec58385813439c",
+      "state": "completed",
+      "report_path": "/opt/jarvis/conversation/runtime/reports/4612213a05624836abec58385813439c/RAPPORT-FINAL.md"
+    },
+    {
+      "id": "7971ec0311124fb4be9e3125dcb291fd",
+      "state": "waiting_external",
+      "report_path": null
+    },
+    {
+      "id": "8bd3e5b316a94021b5183e0db26d6efc",
+      "state": "interrupted",
+      "report_path": null
+    },
+    {
+      "id": "e370b0bef74f4deaa390b5c46bfdc299",
+      "state": "completed",
+      "report_path": "/opt/jarvis/conversation/runtime/reports/e370b0bef74f4deaa390b5c46bfdc299/RAPPORT-FINAL.md"
+    }
+  ],
+  "checkpoint_count": 7127,
+  "scope": "Current accessibility snapshot; counts alone do not prove every historical feature retested"
+}

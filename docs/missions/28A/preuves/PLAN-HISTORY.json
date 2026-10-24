@@ -1,0 +1,1800 @@
+[
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 1,
+    "author": "Codex",
+    "reason": "Mission coordination; actual JARVIS execution required, not autonomous planning proof",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "title": "Install and compare mission models on Dell"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst"
+          ],
+          "id": "E_reception",
+          "title": "JARVIS operations, latency, resumption and faithful report"
+        }
+      ]
+    },
+    "sha256": "e965717b4e0594f6ca8d53d0560697e42998c5d88e98f10a5efd4f97ecaf4295",
+    "created": 1792762598.5697956
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 2,
+    "author": "Codex",
+    "reason": "Actually apply corrected exact-model task contract, with explicit current version; no weaker acceptance",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Installer réellement qwen3:32b-q4_K_M sur Dell1. Le70B llama3.3:70b-instruct-q4_K_M est déjà installé. Ne substitue pas le27B existant. Le32B existe au registry officiel, sa non-présence dans le catalogue local ne dit pas le contraire. Utilise POST /api/pull sur http://[adresse privée masquée]:11435 via host_remote project_exec projetmission28a, logs persistants /opt/jarvis-lab/mission28a/logs, curl --max-time550 puis statut success et catalogue relu. Utilise la sonde fixe hybrid_catalogue pour observer. Contrôle mission_verify selon le contrat exact, écris et relis /var/lib/jarvis/projects/mission28a/B-MODELES.md puis mission_task_complete avec invocation_id de vérification réussie. Aucun fichier sous runtime/reports nécessaire, ne lis pas DEBUG.md ni les anciens ETAPE. Pas de nouvel inventaire/GPU/Piper/TTS/14A/Dell2 ni de réinstallation du27B ou70B.",
+          "title": "Installer les deux candidats exacts et confirmer le catalogue"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst"
+          ],
+          "id": "E_reception",
+          "title": "JARVIS operations, latency, resumption and faithful report"
+        }
+      ]
+    },
+    "sha256": "4c74100aad25ae79f8b0b6728d462ae86690b1d8ded8f30190448bcadc342bc0",
+    "created": 1792764463.400754
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 3,
+    "author": "Codex",
+    "reason": "Repair model installation interface; exact structured pull replaces manual HTTP syntax",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Installer le candidat exact qwen3:32b-q4_K_M sur Dell1. Le70B est déjà présent : ne pas le refaire. Interface corrigée par Codex : host_remote avec host=dell-observe, action=model_pull, model=qwen3:32b-q4_K_M. Pas de curl nécessaire. Si incomplete, répéter le même appel pour reprendre le cache ; si erreur, examiner la sortie. Ensuite hybrid_catalogue, mission_verify selon contrat, rapport local B-MODELES.md écrit/relu et mission_task_complete pour id=B_models. Conserver les erreurs historiques et attribuer à Codex la correction de l’interface ; tu réalises le téléchargement et ses vérifications.",
+          "title": "Installer les deux candidats exacts et confirmer le catalogue"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst"
+          ],
+          "id": "E_reception",
+          "title": "JARVIS operations, latency, resumption and faithful report"
+        }
+      ]
+    },
+    "sha256": "be54d336fe9a1c81ffd99ad5eed2e6ecf02f298eb2f4502e73805585e222c3e7",
+    "created": 1792767982.9640877
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 4,
+    "author": "Codex",
+    "reason": "Unblock post-install test with scoped tools and explicit real task interface; strengthen proof with actual six-case run",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst"
+          ],
+          "id": "E_reception",
+          "title": "JARVIS operations, latency, resumption and faithful report"
+        }
+      ]
+    },
+    "sha256": "453eba88927a5e2a2aea850fd0fd8f14578a0ff04489421d6e6da3ccba14948a",
+    "created": 1792769488.1083353
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 5,
+    "author": "Codex",
+    "reason": "Owner resumes continuation: preserve A/B receipts, add actual comparative candidate work and reception prerequisites",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst",
+            "B3_comparative"
+          ],
+          "id": "E_reception",
+          "title": "JARVIS operations, latency, resumption and faithful report"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/qwen3-coder-next:q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models"
+          ],
+          "id": "B2_candidate",
+          "objective": "Directives AGENTS/charte/MISSION28A et derniers états consultés ; autorisations11B/28A conservées, pas de validation intermédiaire. Installe qwen3-coder-next:q4_K_M avec host_remote host=dell-observe action=model_pull model=qwen3-coder-next:q4_K_M. Ne refais pas les modèles acquis. Reprends le même appel si incomplete après lecture de la progression. Vérifie ensuite le contrat via mission_verify, écris et relis B2-CANDIDAT.md et complète B2_candidate avec le vrai invocation_id du PASS. Le80B est candidat, pas déjà sélectionné ni déclaré supérieur. Sources officielles https://ollama.com/library/qwen3-coder-next:q4_K_M et https://huggingface.co/Qwen/Qwen3-Coder-Next.",
+          "title": "Installer le candidat agentique80B pour mesure",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/summary/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/summary/qwen3-coder-next:q4_K_M/total": 6,
+                  "/summary/qwen3.5:27b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-comparative.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B2_candidate"
+          ],
+          "id": "B3_comparative",
+          "objective": "Exécute le screening réel avec le juge corrigé : host_remote action=project_exec host=dell-observe project=mission28a command=python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3.5:27b-q4_K_M llama3.3:70b-instruct-q4_K_M qwen3-coder-next:q4_K_M --output /opt/jarvis-lab/mission28a/quality-comparative.json. Ce programme persiste chaque réponse ; un éventuel nouvel appel reprend les cas non exécutés. Télécharge quality-comparative.json via project_download, remote path=/opt/jarvis-lab/mission28a/quality-comparative.json, local_path=/var/lib/jarvis/projects/mission28a/quality-comparative.json. Compare les résultats27/70/80 au32B corrigé3/6 sans refaire le32B. Conserve FAIL, erreurs, temps, TPS et mémoire mesurés ; pas de gain inventé. Vérifie le contrat par mission_verify, écris/relis B3-COMPARATIF.md et complète B3_comparative avec preuve réelle. Le script est Codex, les exécutions sont toi. Aucun changement de modèle conversationnel Mac.",
+          "title": "Comparer les trois candidats au32B déjà testé",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        }
+      ]
+    },
+    "sha256": "a15d6cc4a4ffb7b06def91e7affccf2bcf626e4f96cfa0058460354fa2e100cb",
+    "created": 1792782573.7680247
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 6,
+    "author": "Codex",
+    "reason": "GPU benchmark reservation and representative JARVIS reception; preserve validated tasks",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/E-RECEPTION.md",
+            "required_tools": [
+              "compute_status",
+              "host_remote",
+              "skill_run",
+              "mcp_tools"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/model_count": 4,
+                  "/scores/qwen3:32b-q4_K_M/passed": 3,
+                  "/scores/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "field": "/sha256",
+                "kind": "digest",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-manifest.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/purpose": "hybrid-reception"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "read_file",
+                    "host": "dell-observe",
+                    "path": "/opt/jarvis-lab/mission28a/reception-proof.json"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst",
+            "B3_comparative"
+          ],
+          "id": "E_reception",
+          "objective": "Construis et utilise sur Dell un petit programme Python de consolidation des preuves28A. Les réponses réelles sont dans /opt/jarvis-lab/mission28a/quality-comparative.json (27/70/80) et quality-32-corrected.json (32). Produis synthese-reception.json avec mission=\"28A\", model_count=4, scores indexés par tags exacts avec passed/total, et un manifeste JSON synthese-manifest.json contenant sha256 du fichier exact. Le programme est ton développement, pas un script Codex fourni. Exécute-le réellement et rapporte les erreurs éventuelles. Récupère les deux artefacts dans le projet local pour leurs vérifications indépendantes. Consulte puis réutilise une compétence existante adaptée à un échange réel Mac/Dell pour livrer /opt/jarvis-lab/mission28a/reception-proof.json contenant mission=\"28A\" et purpose=\"hybrid-reception\" ; un simple contains n’est pas réception : contrôle ensuite le JSON exact. Utilise aussi réellement MCP (découverte puis lecture d’état d’un service autorisé) et observe compute_status. Rédige ton rapport E-RECEPTION.md à partir des preuves, distingue tes opérations, les programmes Codex et ton propre programme. Tous les six cas exécutés ne signifient pas six réussites. Ne modifie pas le modèle du Mac et ne publie aucun secret. Cette recette n’est pas l’épreuve14A.",
+          "title": "JARVIS operations, latency, resumption and faithful report",
+          "tools": [
+            "compute_status",
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "skill_list",
+            "skill_run",
+            "mcp_tools",
+            "mission_action"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/qwen3-coder-next:q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models"
+          ],
+          "id": "B2_candidate",
+          "objective": "Directives AGENTS/charte/MISSION28A et derniers états consultés ; autorisations11B/28A conservées, pas de validation intermédiaire. Installe qwen3-coder-next:q4_K_M avec host_remote host=dell-observe action=model_pull model=qwen3-coder-next:q4_K_M. Ne refais pas les modèles acquis. Reprends le même appel si incomplete après lecture de la progression. Vérifie ensuite le contrat via mission_verify, écris et relis B2-CANDIDAT.md et complète B2_candidate avec le vrai invocation_id du PASS. Le80B est candidat, pas déjà sélectionné ni déclaré supérieur. Sources officielles https://ollama.com/library/qwen3-coder-next:q4_K_M et https://huggingface.co/Qwen/Qwen3-Coder-Next.",
+          "title": "Installer le candidat agentique80B pour mesure",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/summary/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/summary/qwen3-coder-next:q4_K_M/total": 6,
+                  "/summary/qwen3.5:27b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-comparative.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B2_candidate"
+          ],
+          "id": "B3_comparative",
+          "objective": "Le candidat80B est installé ; utilise maintenant compute_benchmark avec models=[\"qwen3.5:27b-q4_K_M\",\"llama3.3:70b-instruct-q4_K_M\",\"qwen3-coder-next:q4_K_M\"]. Cet outil réserve la file GPU et exécute les18inférences avec le juge corrigé, programme Codex que tu déclenches réellement. Ne lance pas directement quality_compare via project_exec pour ce comparatif : cela contournerait sa réservation. Les cas sont checkpointés ; réexécution identique reprend les cas non mesurés. Ensuite télécharge /opt/jarvis-lab/mission28a/quality-comparative.json vers /var/lib/jarvis/projects/mission28a/quality-comparative.json via project_download. Vérifie le contrat, écris/relis B3-COMPARATIF.md et complète B3_comparative avec une vraie preuve. Rapporte scores, FAIL, performances et limites réelles ; compare au32B corrigé3/6 sans le refaire. Aucun choix définitif ni gain par simple taille de modèle.",
+          "title": "Comparer les trois candidats au32B déjà testé",
+          "tools": [
+            "compute_benchmark",
+            "host_remote",
+            "host_read_file",
+            "host_write_file"
+          ]
+        }
+      ]
+    },
+    "sha256": "64aaf8628ddf71e6776e11263fa7da7b713b76a43f4d071f45141967526a4bdc",
+    "created": 1792783568.7355282
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 7,
+    "author": "Codex",
+    "reason": "Measured model selected; append additional exact predicates without replacing original contracts",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/E-RECEPTION.md",
+            "required_tools": [
+              "compute_status",
+              "host_remote",
+              "skill_run",
+              "mcp_tools"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/model_count": 4,
+                  "/scores/qwen3:32b-q4_K_M/passed": 3,
+                  "/scores/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "field": "/sha256",
+                "kind": "digest",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-manifest.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/purpose": "hybrid-reception"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "read_file",
+                    "host": "dell-observe",
+                    "path": "/opt/jarvis-lab/mission28a/reception-proof.json"
+                  },
+                  "tool": "host_remote"
+                }
+              },
+              {
+                "expected": {
+                  "/scores/llama3.3:70b-instruct-q4_K_M/passed": 2,
+                  "/scores/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/scores/qwen3-coder-next:q4_K_M/passed": 5,
+                  "/scores/qwen3-coder-next:q4_K_M/total": 6,
+                  "/scores/qwen3.5:27b-q4_K_M/passed": 4,
+                  "/scores/qwen3.5:27b-q4_K_M/total": 6,
+                  "/selected_model": "qwen3-coder-next:q4_K_M"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst",
+            "B3_comparative"
+          ],
+          "id": "E_reception",
+          "objective": "Construis et utilise sur Dell un petit programme Python de consolidation des preuves28A. Les réponses réelles sont dans /opt/jarvis-lab/mission28a/quality-comparative.json (27/70/80) et quality-32-corrected.json (32). Produis synthese-reception.json avec mission=\"28A\", model_count=4, scores indexés par tags exacts avec passed/total, et un manifeste JSON synthese-manifest.json contenant sha256 du fichier exact. Le programme est ton développement, pas un script Codex fourni. Exécute-le réellement et rapporte les erreurs éventuelles. Récupère les deux artefacts dans le projet local pour leurs vérifications indépendantes. Consulte puis réutilise une compétence existante adaptée à un échange réel Mac/Dell pour livrer /opt/jarvis-lab/mission28a/reception-proof.json contenant mission=\"28A\" et purpose=\"hybrid-reception\" ; un simple contains n’est pas réception : contrôle ensuite le JSON exact. Utilise aussi réellement MCP (découverte puis lecture d’état d’un service autorisé) et observe compute_status. Rédige ton rapport E-RECEPTION.md à partir des preuves, distingue tes opérations, les programmes Codex et ton propre programme. Tous les six cas exécutés ne signifient pas six réussites. Ne modifie pas le modèle du Mac et ne publie aucun secret. Cette recette n’est pas l’épreuve14A. Le modèle choisi pour cette recette sur Dell est qwen3-coder-next:q4_K_M ; le27B du Mac ne change pas. Ajoute selected_model avec ce tag exact dans synthese-reception.json. Relis également les rapports locaux B2-CANDIDAT.md et B3-COMPARATIF.md, confronte-les aux JSON réels et écris reception-errata.md pour leurs éventuelles erreurs factuelles sans effacer les originaux. Le contrat indique les scores observés, pas des objectifs à inventer ; ton programme doit les calculer depuis les réponses et évaluations. Le critère coverage du screening est discutable car le prompt peut conduire à vérifier le rapport après rédaction ; conserve son verdict brut sans généralisation de planification. Découvre et réutilise une compétence existante ; ses simples checks contains ne remplacent pas la vérification JSON exacte de la preuve Dell.",
+          "title": "JARVIS operations, latency, resumption and faithful report",
+          "tools": [
+            "compute_status",
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "skill_list",
+            "skill_run",
+            "mcp_tools",
+            "mission_action"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/qwen3-coder-next:q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models"
+          ],
+          "id": "B2_candidate",
+          "objective": "Directives AGENTS/charte/MISSION28A et derniers états consultés ; autorisations11B/28A conservées, pas de validation intermédiaire. Installe qwen3-coder-next:q4_K_M avec host_remote host=dell-observe action=model_pull model=qwen3-coder-next:q4_K_M. Ne refais pas les modèles acquis. Reprends le même appel si incomplete après lecture de la progression. Vérifie ensuite le contrat via mission_verify, écris et relis B2-CANDIDAT.md et complète B2_candidate avec le vrai invocation_id du PASS. Le80B est candidat, pas déjà sélectionné ni déclaré supérieur. Sources officielles https://ollama.com/library/qwen3-coder-next:q4_K_M et https://huggingface.co/Qwen/Qwen3-Coder-Next.",
+          "title": "Installer le candidat agentique80B pour mesure",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/summary/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/summary/qwen3-coder-next:q4_K_M/total": 6,
+                  "/summary/qwen3.5:27b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-comparative.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B2_candidate"
+          ],
+          "id": "B3_comparative",
+          "objective": "Le candidat80B est installé ; utilise maintenant compute_benchmark avec models=[\"qwen3.5:27b-q4_K_M\",\"llama3.3:70b-instruct-q4_K_M\",\"qwen3-coder-next:q4_K_M\"]. Cet outil réserve la file GPU et exécute les18inférences avec le juge corrigé, programme Codex que tu déclenches réellement. Ne lance pas directement quality_compare via project_exec pour ce comparatif : cela contournerait sa réservation. Les cas sont checkpointés ; réexécution identique reprend les cas non mesurés. Ensuite télécharge /opt/jarvis-lab/mission28a/quality-comparative.json vers /var/lib/jarvis/projects/mission28a/quality-comparative.json via project_download. Vérifie le contrat, écris/relis B3-COMPARATIF.md et complète B3_comparative avec une vraie preuve. Rapporte scores, FAIL, performances et limites réelles ; compare au32B corrigé3/6 sans le refaire. Aucun choix définitif ni gain par simple taille de modèle.",
+          "title": "Comparer les trois candidats au32B déjà testé",
+          "tools": [
+            "compute_benchmark",
+            "host_remote",
+            "host_read_file",
+            "host_write_file"
+          ]
+        }
+      ]
+    },
+    "sha256": "f17f59221bb2c1011648a4964482ac511b3eaf50867922d6d4ba70ed61f967cf",
+    "created": 1792784453.714326
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 8,
+    "author": "Codex",
+    "reason": "Reject hardcoded contract echo; append protected independent varied-input program reception",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/E-RECEPTION.md",
+            "required_tools": [
+              "compute_status",
+              "host_remote",
+              "skill_run",
+              "mcp_tools"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/model_count": 4,
+                  "/scores/qwen3:32b-q4_K_M/passed": 3,
+                  "/scores/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "field": "/sha256",
+                "kind": "digest",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-manifest.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/purpose": "hybrid-reception"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "read_file",
+                    "host": "dell-observe",
+                    "path": "/opt/jarvis-lab/mission28a/reception-proof.json"
+                  },
+                  "tool": "host_remote"
+                }
+              },
+              {
+                "expected": {
+                  "/scores/llama3.3:70b-instruct-q4_K_M/passed": 2,
+                  "/scores/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/scores/qwen3-coder-next:q4_K_M/passed": 5,
+                  "/scores/qwen3-coder-next:q4_K_M/total": 6,
+                  "/scores/qwen3.5:27b-q4_K_M/passed": 4,
+                  "/scores/qwen3.5:27b-q4_K_M/total": 6,
+                  "/selected_model": "qwen3-coder-next:q4_K_M"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/cases_checked": 4,
+                  "/original_sources_unchanged": true,
+                  "/pass": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_program_reception",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst",
+            "B3_comparative"
+          ],
+          "id": "E_reception",
+          "objective": "Construis et utilise sur Dell un petit programme Python de consolidation des preuves28A. Les réponses réelles sont dans /opt/jarvis-lab/mission28a/quality-comparative.json (27/70/80) et quality-32-corrected.json (32). Produis synthese-reception.json avec mission=\"28A\", model_count=4, scores indexés par tags exacts avec passed/total, et un manifeste JSON synthese-manifest.json contenant sha256 du fichier exact. Le programme est ton développement, pas un script Codex fourni. Exécute-le réellement et rapporte les erreurs éventuelles. Récupère les deux artefacts dans le projet local pour leurs vérifications indépendantes. Consulte puis réutilise une compétence existante adaptée à un échange réel Mac/Dell pour livrer /opt/jarvis-lab/mission28a/reception-proof.json contenant mission=\"28A\" et purpose=\"hybrid-reception\" ; un simple contains n’est pas réception : contrôle ensuite le JSON exact. Utilise aussi réellement MCP (découverte puis lecture d’état d’un service autorisé) et observe compute_status. Rédige ton rapport E-RECEPTION.md à partir des preuves, distingue tes opérations, les programmes Codex et ton propre programme. Tous les six cas exécutés ne signifient pas six réussites. Ne modifie pas le modèle du Mac et ne publie aucun secret. Cette recette n’est pas l’épreuve14A. Le modèle choisi pour cette recette sur Dell est qwen3-coder-next:q4_K_M ; le27B du Mac ne change pas. Ajoute selected_model avec ce tag exact dans synthese-reception.json. Relis également les rapports locaux B2-CANDIDAT.md et B3-COMPARATIF.md, confronte-les aux JSON réels et écris reception-errata.md pour leurs éventuelles erreurs factuelles sans effacer les originaux. Le contrat indique les scores observés, pas des objectifs à inventer ; ton programme doit les calculer depuis les réponses et évaluations. Le critère coverage du screening est discutable car le prompt peut conduire à vérifier le rapport après rédaction ; conserve son verdict brut sans généralisation de planification. Découvre et réutilise une compétence existante ; ses simples checks contains ne remplacent pas la vérification JSON exacte de la preuve Dell. Le JSON echo initial ne constitue pas le programme demandé. Il faut écrire /opt/jarvis-lab/mission28a/consolider.py avec CLI --comparative CHEMIN --corrected32 CHEMIN --output CHEMIN --manifest CHEMIN. Calcule passed et total en lisant les listes cases et evaluation.pass booléen, et non les summaries préexistants ni les nombres du contrat. Le vérificateur protégé hybrid_program_reception effectue quatre essais sur des copies : entrées réelles, évaluations changées, cas retiré et cas ajouté avec summaries périmés. Tu conserves les originaux ; le programme doit écrire les fichiers de sortie/manifeste demandés et calculer le SHA256 des octets exacts. Commence par observer cette sonde pour constater le manque/échec, puis développe et reteste ton propre programme. Le vérificateur est Codex, ton programme et ses corrections doivent être toi.",
+          "title": "JARVIS operations, latency, resumption and faithful report",
+          "tools": [
+            "compute_status",
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "skill_list",
+            "skill_run",
+            "mcp_tools",
+            "mission_action"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/qwen3-coder-next:q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models"
+          ],
+          "id": "B2_candidate",
+          "objective": "Directives AGENTS/charte/MISSION28A et derniers états consultés ; autorisations11B/28A conservées, pas de validation intermédiaire. Installe qwen3-coder-next:q4_K_M avec host_remote host=dell-observe action=model_pull model=qwen3-coder-next:q4_K_M. Ne refais pas les modèles acquis. Reprends le même appel si incomplete après lecture de la progression. Vérifie ensuite le contrat via mission_verify, écris et relis B2-CANDIDAT.md et complète B2_candidate avec le vrai invocation_id du PASS. Le80B est candidat, pas déjà sélectionné ni déclaré supérieur. Sources officielles https://ollama.com/library/qwen3-coder-next:q4_K_M et https://huggingface.co/Qwen/Qwen3-Coder-Next.",
+          "title": "Installer le candidat agentique80B pour mesure",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/summary/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/summary/qwen3-coder-next:q4_K_M/total": 6,
+                  "/summary/qwen3.5:27b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-comparative.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B2_candidate"
+          ],
+          "id": "B3_comparative",
+          "objective": "Le candidat80B est installé ; utilise maintenant compute_benchmark avec models=[\"qwen3.5:27b-q4_K_M\",\"llama3.3:70b-instruct-q4_K_M\",\"qwen3-coder-next:q4_K_M\"]. Cet outil réserve la file GPU et exécute les18inférences avec le juge corrigé, programme Codex que tu déclenches réellement. Ne lance pas directement quality_compare via project_exec pour ce comparatif : cela contournerait sa réservation. Les cas sont checkpointés ; réexécution identique reprend les cas non mesurés. Ensuite télécharge /opt/jarvis-lab/mission28a/quality-comparative.json vers /var/lib/jarvis/projects/mission28a/quality-comparative.json via project_download. Vérifie le contrat, écris/relis B3-COMPARATIF.md et complète B3_comparative avec une vraie preuve. Rapporte scores, FAIL, performances et limites réelles ; compare au32B corrigé3/6 sans le refaire. Aucun choix définitif ni gain par simple taille de modèle.",
+          "title": "Comparer les trois candidats au32B déjà testé",
+          "tools": [
+            "compute_benchmark",
+            "host_remote",
+            "host_read_file",
+            "host_write_file"
+          ]
+        }
+      ]
+    },
+    "sha256": "a8db3d764188501ab2dc1db83bbb27f158dd218a3f718578f6eacc08a080bfd8",
+    "created": 1792784917.2613282
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 9,
+    "author": "Codex",
+    "reason": "Actual multi-mission reception after representative selected-model work, not just concurrent inference requests",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/E-RECEPTION.md",
+            "required_tools": [
+              "compute_status",
+              "host_remote",
+              "skill_run",
+              "mcp_tools"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/model_count": 4,
+                  "/scores/qwen3:32b-q4_K_M/passed": 3,
+                  "/scores/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "field": "/sha256",
+                "kind": "digest",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-manifest.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/purpose": "hybrid-reception"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "read_file",
+                    "host": "dell-observe",
+                    "path": "/opt/jarvis-lab/mission28a/reception-proof.json"
+                  },
+                  "tool": "host_remote"
+                }
+              },
+              {
+                "expected": {
+                  "/scores/llama3.3:70b-instruct-q4_K_M/passed": 2,
+                  "/scores/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/scores/qwen3-coder-next:q4_K_M/passed": 5,
+                  "/scores/qwen3-coder-next:q4_K_M/total": 6,
+                  "/scores/qwen3.5:27b-q4_K_M/passed": 4,
+                  "/scores/qwen3.5:27b-q4_K_M/total": 6,
+                  "/selected_model": "qwen3-coder-next:q4_K_M"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/cases_checked": 4,
+                  "/original_sources_unchanged": true,
+                  "/pass": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_program_reception",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst",
+            "B3_comparative"
+          ],
+          "id": "E_reception",
+          "objective": "Construis et utilise sur Dell un petit programme Python de consolidation des preuves28A. Les réponses réelles sont dans /opt/jarvis-lab/mission28a/quality-comparative.json (27/70/80) et quality-32-corrected.json (32). Produis synthese-reception.json avec mission=\"28A\", model_count=4, scores indexés par tags exacts avec passed/total, et un manifeste JSON synthese-manifest.json contenant sha256 du fichier exact. Le programme est ton développement, pas un script Codex fourni. Exécute-le réellement et rapporte les erreurs éventuelles. Récupère les deux artefacts dans le projet local pour leurs vérifications indépendantes. Consulte puis réutilise une compétence existante adaptée à un échange réel Mac/Dell pour livrer /opt/jarvis-lab/mission28a/reception-proof.json contenant mission=\"28A\" et purpose=\"hybrid-reception\" ; un simple contains n’est pas réception : contrôle ensuite le JSON exact. Utilise aussi réellement MCP (découverte puis lecture d’état d’un service autorisé) et observe compute_status. Rédige ton rapport E-RECEPTION.md à partir des preuves, distingue tes opérations, les programmes Codex et ton propre programme. Tous les six cas exécutés ne signifient pas six réussites. Ne modifie pas le modèle du Mac et ne publie aucun secret. Cette recette n’est pas l’épreuve14A. Le modèle choisi pour cette recette sur Dell est qwen3-coder-next:q4_K_M ; le27B du Mac ne change pas. Ajoute selected_model avec ce tag exact dans synthese-reception.json. Relis également les rapports locaux B2-CANDIDAT.md et B3-COMPARATIF.md, confronte-les aux JSON réels et écris reception-errata.md pour leurs éventuelles erreurs factuelles sans effacer les originaux. Le contrat indique les scores observés, pas des objectifs à inventer ; ton programme doit les calculer depuis les réponses et évaluations. Le critère coverage du screening est discutable car le prompt peut conduire à vérifier le rapport après rédaction ; conserve son verdict brut sans généralisation de planification. Découvre et réutilise une compétence existante ; ses simples checks contains ne remplacent pas la vérification JSON exacte de la preuve Dell. Le JSON echo initial ne constitue pas le programme demandé. Il faut écrire /opt/jarvis-lab/mission28a/consolider.py avec CLI --comparative CHEMIN --corrected32 CHEMIN --output CHEMIN --manifest CHEMIN. Calcule passed et total en lisant les listes cases et evaluation.pass booléen, et non les summaries préexistants ni les nombres du contrat. Le vérificateur protégé hybrid_program_reception effectue quatre essais sur des copies : entrées réelles, évaluations changées, cas retiré et cas ajouté avec summaries périmés. Tu conserves les originaux ; le programme doit écrire les fichiers de sortie/manifeste demandés et calculer le SHA256 des octets exacts. Commence par observer cette sonde pour constater le manque/échec, puis développe et reteste ton propre programme. Le vérificateur est Codex, ton programme et ses corrections doivent être toi.",
+          "title": "JARVIS operations, latency, resumption and faithful report",
+          "tools": [
+            "compute_status",
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "skill_list",
+            "skill_run",
+            "mcp_tools",
+            "mission_action"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/qwen3-coder-next:q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models"
+          ],
+          "id": "B2_candidate",
+          "objective": "Directives AGENTS/charte/MISSION28A et derniers états consultés ; autorisations11B/28A conservées, pas de validation intermédiaire. Installe qwen3-coder-next:q4_K_M avec host_remote host=dell-observe action=model_pull model=qwen3-coder-next:q4_K_M. Ne refais pas les modèles acquis. Reprends le même appel si incomplete après lecture de la progression. Vérifie ensuite le contrat via mission_verify, écris et relis B2-CANDIDAT.md et complète B2_candidate avec le vrai invocation_id du PASS. Le80B est candidat, pas déjà sélectionné ni déclaré supérieur. Sources officielles https://ollama.com/library/qwen3-coder-next:q4_K_M et https://huggingface.co/Qwen/Qwen3-Coder-Next.",
+          "title": "Installer le candidat agentique80B pour mesure",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/summary/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/summary/qwen3-coder-next:q4_K_M/total": 6,
+                  "/summary/qwen3.5:27b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-comparative.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B2_candidate"
+          ],
+          "id": "B3_comparative",
+          "objective": "Le candidat80B est installé ; utilise maintenant compute_benchmark avec models=[\"qwen3.5:27b-q4_K_M\",\"llama3.3:70b-instruct-q4_K_M\",\"qwen3-coder-next:q4_K_M\"]. Cet outil réserve la file GPU et exécute les18inférences avec le juge corrigé, programme Codex que tu déclenches réellement. Ne lance pas directement quality_compare via project_exec pour ce comparatif : cela contournerait sa réservation. Les cas sont checkpointés ; réexécution identique reprend les cas non mesurés. Ensuite télécharge /opt/jarvis-lab/mission28a/quality-comparative.json vers /var/lib/jarvis/projects/mission28a/quality-comparative.json via project_download. Vérifie le contrat, écris/relis B3-COMPARATIF.md et complète B3_comparative avec une vraie preuve. Rapporte scores, FAIL, performances et limites réelles ; compare au32B corrigé3/6 sans le refaire. Aucun choix définitif ni gain par simple taille de modèle.",
+          "title": "Comparer les trois candidats au32B déjà testé",
+          "tools": [
+            "compute_benchmark",
+            "host_remote",
+            "host_read_file",
+            "host_write_file"
+          ]
+        },
+        {
+          "contract": {},
+          "depends": [
+            "E_reception"
+          ],
+          "id": "F_concurrency",
+          "objective": "Codex reçoit le scénario réel de deux missions dans la base canonique, leurs preuves distinctes et les réponses utilisateur ; pas une validation humaine.",
+          "title": "Réception indépendante des deux missions durables et de la latence"
+        }
+      ]
+    },
+    "sha256": "8d0b92e86c0fcd0d104a214f71f0173928ee8b54fed8fc61ecfd1ead78123125",
+    "created": 1792785600.4014306
+  },
+  {
+    "mission": "59830a3414a243c198c53e5624a286a3",
+    "version": 10,
+    "author": "Codex",
+    "reason": "Focused program prerequisite; original E contracts and received tasks unchanged",
+    "plan": {
+      "tasks": [
+        {
+          "depends": [],
+          "id": "A_inventory",
+          "title": "Actual resources and local Qwen baseline"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B-MODELES.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/llama3.3:70b-instruct-q4_K_M": true,
+                  "/installed/qwen3:32b-q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/model_count": "integer"
+                }
+              },
+              {
+                "expected": {
+                  "/cases/0/model": "qwen3:32b-q4_K_M",
+                  "/summary/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-32.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "types": {
+                  "/summary/qwen3:32b-q4_K_M/total": "integer"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "B_models",
+          "objective": "Le32B et le70B sont INSTALLÉS et relus. Ne refais AUCUN pull. Travail restant : exécuter le test réel32B, ramener sa preuve JSON, vérifier le contrat et écrire/relire le rapport local. Prochaine action host_remote {host:dell-observe,action:project_exec,project:mission28a,command:python3 /opt/jarvis-lab/mission28a/quality_compare.py --url http://[adresse privée masquée]:11435 --models qwen3:32b-q4_K_M --output /opt/jarvis-lab/mission28a/quality-32.json}. Puis host_remote {host:dell-observe,action:project_download,project:mission28a,path:/opt/jarvis-lab/mission28a/quality-32.json,local_path:/var/lib/jarvis/projects/mission28a/quality-32.json}. Ensuite mission_verify pour chaque contrat exact ; les résultats de screening peuvent comporter des échecs et doivent rester fidèles aux preuves. Le test est fourni par Codex, exécuté par toi. Rapport /var/lib/jarvis/projects/mission28a/B-MODELES.md écrit et relu ; mission_task_complete id=B_models, evidence_id=invocation_id de la dernière vraie vérification réussie. Ne réutilise aucun placeholder id, aucune tâche inventée et aucune preuve inventée.",
+          "title": "Exercer le candidat32B installé et conserver ses résultats",
+          "tools": [
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "procedure_save"
+          ]
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "C_router",
+          "title": "Deploy hybrid routing and resource scheduler"
+        },
+        {
+          "depends": [
+            "A_inventory"
+          ],
+          "id": "D_burst",
+          "title": "Measure bounded profiles and automatic fallback"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/E-RECEPTION.md",
+            "required_tools": [
+              "compute_status",
+              "host_remote",
+              "skill_run",
+              "mcp_tools"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/model_count": 4,
+                  "/scores/qwen3:32b-q4_K_M/passed": 3,
+                  "/scores/qwen3:32b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "baseline_source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                },
+                "field": "/sha256",
+                "kind": "digest",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-manifest.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/mission": "28A",
+                  "/purpose": "hybrid-reception"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "read_file",
+                    "host": "dell-observe",
+                    "path": "/opt/jarvis-lab/mission28a/reception-proof.json"
+                  },
+                  "tool": "host_remote"
+                }
+              },
+              {
+                "expected": {
+                  "/scores/llama3.3:70b-instruct-q4_K_M/passed": 2,
+                  "/scores/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/scores/qwen3-coder-next:q4_K_M/passed": 5,
+                  "/scores/qwen3-coder-next:q4_K_M/total": 6,
+                  "/scores/qwen3.5:27b-q4_K_M/passed": 4,
+                  "/scores/qwen3.5:27b-q4_K_M/total": 6,
+                  "/selected_model": "qwen3-coder-next:q4_K_M"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/synthese-reception.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              },
+              {
+                "expected": {
+                  "/cases_checked": 4,
+                  "/original_sources_unchanged": true,
+                  "/pass": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_program_reception",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models",
+            "C_router",
+            "D_burst",
+            "B3_comparative",
+            "E_program"
+          ],
+          "id": "E_reception",
+          "objective": "Construis et utilise sur Dell un petit programme Python de consolidation des preuves28A. Les réponses réelles sont dans /opt/jarvis-lab/mission28a/quality-comparative.json (27/70/80) et quality-32-corrected.json (32). Produis synthese-reception.json avec mission=\"28A\", model_count=4, scores indexés par tags exacts avec passed/total, et un manifeste JSON synthese-manifest.json contenant sha256 du fichier exact. Le programme est ton développement, pas un script Codex fourni. Exécute-le réellement et rapporte les erreurs éventuelles. Récupère les deux artefacts dans le projet local pour leurs vérifications indépendantes. Consulte puis réutilise une compétence existante adaptée à un échange réel Mac/Dell pour livrer /opt/jarvis-lab/mission28a/reception-proof.json contenant mission=\"28A\" et purpose=\"hybrid-reception\" ; un simple contains n’est pas réception : contrôle ensuite le JSON exact. Utilise aussi réellement MCP (découverte puis lecture d’état d’un service autorisé) et observe compute_status. Rédige ton rapport E-RECEPTION.md à partir des preuves, distingue tes opérations, les programmes Codex et ton propre programme. Tous les six cas exécutés ne signifient pas six réussites. Ne modifie pas le modèle du Mac et ne publie aucun secret. Cette recette n’est pas l’épreuve14A. Le modèle choisi pour cette recette sur Dell est qwen3-coder-next:q4_K_M ; le27B du Mac ne change pas. Ajoute selected_model avec ce tag exact dans synthese-reception.json. Relis également les rapports locaux B2-CANDIDAT.md et B3-COMPARATIF.md, confronte-les aux JSON réels et écris reception-errata.md pour leurs éventuelles erreurs factuelles sans effacer les originaux. Le contrat indique les scores observés, pas des objectifs à inventer ; ton programme doit les calculer depuis les réponses et évaluations. Le critère coverage du screening est discutable car le prompt peut conduire à vérifier le rapport après rédaction ; conserve son verdict brut sans généralisation de planification. Découvre et réutilise une compétence existante ; ses simples checks contains ne remplacent pas la vérification JSON exacte de la preuve Dell. Le JSON echo initial ne constitue pas le programme demandé. Il faut écrire /opt/jarvis-lab/mission28a/consolider.py avec CLI --comparative CHEMIN --corrected32 CHEMIN --output CHEMIN --manifest CHEMIN. Calcule passed et total en lisant les listes cases et evaluation.pass booléen, et non les summaries préexistants ni les nombres du contrat. Le vérificateur protégé hybrid_program_reception effectue quatre essais sur des copies : entrées réelles, évaluations changées, cas retiré et cas ajouté avec summaries périmés. Tu conserves les originaux ; le programme doit écrire les fichiers de sortie/manifeste demandés et calculer le SHA256 des octets exacts. Commence par observer cette sonde pour constater le manque/échec, puis développe et reteste ton propre programme. Le vérificateur est Codex, ton programme et ses corrections doivent être toi.",
+          "title": "JARVIS operations, latency, resumption and faithful report",
+          "tools": [
+            "compute_status",
+            "host_remote",
+            "host_read_file",
+            "host_write_file",
+            "skill_list",
+            "skill_run",
+            "mcp_tools",
+            "mission_action"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/installed/qwen3-coder-next:q4_K_M": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_catalogue",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B_models"
+          ],
+          "id": "B2_candidate",
+          "objective": "Directives AGENTS/charte/MISSION28A et derniers états consultés ; autorisations11B/28A conservées, pas de validation intermédiaire. Installe qwen3-coder-next:q4_K_M avec host_remote host=dell-observe action=model_pull model=qwen3-coder-next:q4_K_M. Ne refais pas les modèles acquis. Reprends le même appel si incomplete après lecture de la progression. Vérifie ensuite le contrat via mission_verify, écris et relis B2-CANDIDAT.md et complète B2_candidate avec le vrai invocation_id du PASS. Le80B est candidat, pas déjà sélectionné ni déclaré supérieur. Sources officielles https://ollama.com/library/qwen3-coder-next:q4_K_M et https://huggingface.co/Qwen/Qwen3-Coder-Next.",
+          "title": "Installer le candidat agentique80B pour mesure",
+          "tools": [
+            "host_remote",
+            "host_write_file",
+            "host_read_file"
+          ]
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/summary/llama3.3:70b-instruct-q4_K_M/total": 6,
+                  "/summary/qwen3-coder-next:q4_K_M/total": 6,
+                  "/summary/qwen3.5:27b-q4_K_M/total": 6
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "path": "/var/lib/jarvis/projects/mission28a/quality-comparative.json"
+                  },
+                  "tool": "host_read_file"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B2_candidate"
+          ],
+          "id": "B3_comparative",
+          "objective": "Le candidat80B est installé ; utilise maintenant compute_benchmark avec models=[\"qwen3.5:27b-q4_K_M\",\"llama3.3:70b-instruct-q4_K_M\",\"qwen3-coder-next:q4_K_M\"]. Cet outil réserve la file GPU et exécute les18inférences avec le juge corrigé, programme Codex que tu déclenches réellement. Ne lance pas directement quality_compare via project_exec pour ce comparatif : cela contournerait sa réservation. Les cas sont checkpointés ; réexécution identique reprend les cas non mesurés. Ensuite télécharge /opt/jarvis-lab/mission28a/quality-comparative.json vers /var/lib/jarvis/projects/mission28a/quality-comparative.json via project_download. Vérifie le contrat, écris/relis B3-COMPARATIF.md et complète B3_comparative avec une vraie preuve. Rapporte scores, FAIL, performances et limites réelles ; compare au32B corrigé3/6 sans le refaire. Aucun choix définitif ni gain par simple taille de modèle.",
+          "title": "Comparer les trois candidats au32B déjà testé",
+          "tools": [
+            "compute_benchmark",
+            "host_remote",
+            "host_read_file",
+            "host_write_file"
+          ]
+        },
+        {
+          "contract": {},
+          "depends": [
+            "E_reception"
+          ],
+          "id": "F_concurrency",
+          "objective": "Codex reçoit le scénario réel de deux missions dans la base canonique, leurs preuves distinctes et les réponses utilisateur ; pas une validation humaine.",
+          "title": "Réception indépendante des deux missions durables et de la latence"
+        },
+        {
+          "contract": {
+            "report_path": "/var/lib/jarvis/projects/mission28a/E-PROGRAMME.md",
+            "required_tools": [
+              "host_remote"
+            ],
+            "semantic": [
+              {
+                "expected": {
+                  "/cases_checked": 4,
+                  "/original_sources_unchanged": true,
+                  "/pass": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "hybrid_program_reception",
+                    "host": "dell-observe"
+                  },
+                  "tool": "host_remote"
+                }
+              }
+            ]
+          },
+          "depends": [
+            "B3_comparative",
+            "C_router",
+            "D_burst"
+          ],
+          "id": "E_program",
+          "objective": "Directives AGENTS/charte/MISSION28A relues; droits11B conservés, aucune validation humaine. Réception courte du programme que TU as écrit: corrige /var/lib/jarvis/projects/mission28a/consolider.py sur MAC, transfère TON code au Dell par host_remote project_upload (project mission28a, local_path Mac, path /opt/jarvis-lab/mission28a/consolider.py), puis appelle host_remote host=dell-observe action=hybrid_program_reception. Ce contrôle protégé exécute quatre jeux réels/variés et expose attendu/réel. Diagnostique les FAIL, corrige toi-même et reteste jusqu’à conformité. Le code actuel sépare les cases par model mais n’a pas encore été reçu; ne déduis aucun succès de sa seule écriture. Chaque entrée contient cases[].model et cases[].evaluation.pass; summary peut être périmé. Le programme accepte --comparative --corrected32 --output --manifest. N’exécute ni benchmark, installation, MCP ou skill dans cette seule tâche; ils appartiennent aux étapes séparées conservées. Le vérificateur choisit les chemins de test. Écris un bref E-PROGRAMME.md fidèle aux diagnostics puis mission_verify du contrat, relis ce rapport et utilise completion_candidate. Codex coordonne et a développé le vérificateur, mais pas ton programme.",
+          "title": "Réception ciblée du programme écrit par JARVIS",
+          "tools": [
+            "host_read_file",
+            "host_write_file",
+            "host_edit_file",
+            "host_remote"
+          ]
+        }
+      ]
+    },
+    "sha256": "d86cb8900ec92d94e9ebc400ff8c0058710666a94eabb3f2aa4d4c8ea5f754c6",
+    "created": 1792787191.9439206
+  }
+]

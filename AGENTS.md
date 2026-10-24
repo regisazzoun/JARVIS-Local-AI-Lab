@@ -141,3 +141,13 @@ Codex orchestre et corrige l’infrastructure ; JARVIS exécute inventaire, choi
 ## Mission13 — complément double GPU,23 octobre2026
 
 Codex coordonne et vérifie ; JARVIS exécute via les droits11B persistants, sans validation humaine intermédiaire. DeuxRTX3090 DellOEM détectées et petits calculs reçus ; alimentation non qualifiée, essais de charge différés. Aucune réinstallation, aucun branchement improvisé ni nouveau pilote. TTS-01 suspendue ;26B clôturée incomplète,14A/24-Old/28/Dell2 non lancés. [Réception13](docs/missions/13-extension-gpu/RAPPORT-FINAL.md).
+
+
+## Mission28A — exécution propriétaire du23 octobre2026
+
+28A est lancée, sans validation humaine intermédiaire. Conserver Qwen27B local conversation sur Mac mini, routage vers modèle Dell pour missions et réserve de capacité interactive. Les câbles doubleGPU sont reçus fonctionnels par décision propriétaire ; ne pas rouvrir le pinout comme condition générale. Profil700W limité à des pointes expérimentales :699,37W mesurés en essai court, pas certification de tenue. Codex développe et vérifie, JARVIS exécute/réutilise ; corriger les interfaces sans lui attribuer le code Codex. Branche `codex/mission-28a-routage-modeles`, même moteur/mémoire/checkpoints, aucun lancement14A/24-Old/TTS/Dell2 ni fusion main. [Architecture en cours](docs/missions/28A/ARCHITECTURE-HYBRIDE.md).
+
+
+## Mission28A — clôture propriétaire du24 octobre2026
+
+Le propriétaire demande la clôture en l’état et retient `qwen3-coder-next:q4_K_M` (80B) pour les missions Dell1, choix déjà effectif. Conserver `qwen3.5:27b-q4_K_M` pour la conversation sur Mac.28A est **🟡 clôturée incomplète** : infrastructure acquise, réception agentique/programme/rapports non entièrement reçue. Interrompre les deux essais persistants et leurs publications erronées, conserver toutes les preuves et validations ; aucun nouveau test ni reprise automatique. Les tests seront relancés ultérieurement sur instruction distincte. Ne pas clôturer14A ni lancer24-Old/TTS-01/Dell2. Codex publie la clôture sur la branche de mission et la PR25, sans fusion main. [Rapport28A](docs/missions/28A/RAPPORT-FINAL.md).

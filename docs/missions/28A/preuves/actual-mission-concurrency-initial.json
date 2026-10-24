@@ -1,0 +1,598 @@
+{
+  "observer": "Codex-independent",
+  "created": 1792785680.1149285,
+  "parent": "59830a3414a243c198c53e5624a286a3",
+  "child": "ad844a3f4281421ba6bc9975e0bb9f99",
+  "rows": [
+    {
+      "index": 0,
+      "before": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "after": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "elapsed_s": 0.9387858799891546,
+      "answer": "OK",
+      "execution": {
+        "load_duration": 1790601,
+        "prompt_eval_duration": 721287000,
+        "eval_duration": 30990000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 763624877,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "b6157d3f7ee8458d974c05039a9268dc",
+        "first_content_s": 0.7329320119461045,
+        "first_content_total_s": 0.868898045970127,
+        "admission_s": 0.07006986497435719,
+        "queue_wait_s": 0.06589616904966533,
+        "request_elapsed_s": 0.7642341259634122,
+        "end_to_end_s": 0.9002006379887462,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792785668.8727858,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28335525888,
+          "cpu_threads": 12,
+          "load1": 0.70458984375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 42.0,
+              "power_w": 17.7
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 1,
+      "before": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "after": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "elapsed_s": 0.851925611961633,
+      "answer": "OK",
+      "execution": {
+        "load_duration": 4514878,
+        "prompt_eval_duration": 706984000,
+        "eval_duration": 30601000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 753312667,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "098ef8a3b0ce48a2a5c3ec119131c111",
+        "first_content_s": 0.7234261030098423,
+        "first_content_total_s": 0.7923995249439031,
+        "admission_s": 0.0034263699781149626,
+        "queue_wait_s": 0.06554705195594579,
+        "request_elapsed_s": 0.7543703150004148,
+        "end_to_end_s": 0.823343955911696,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792785668.8727858,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28335525888,
+          "cpu_threads": 12,
+          "load1": 0.70458984375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 42.0,
+              "power_w": 17.7
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 2,
+      "before": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "after": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "300000 100000"
+      },
+      "elapsed_s": 0.8496775639941916,
+      "answer": "OK",
+      "execution": {
+        "load_duration": 8921700,
+        "prompt_eval_duration": 699808000,
+        "eval_duration": 31092000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 771201196,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "51ffdefa473148cb8d497dfb4032f84d",
+        "first_content_s": 0.7406711439834908,
+        "first_content_total_s": 0.788535019964911,
+        "admission_s": 0.00333828991279006,
+        "queue_wait_s": 0.04452558606863022,
+        "request_elapsed_s": 0.772270767018199,
+        "end_to_end_s": 0.8201348049333319,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792785668.8727858,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28335525888,
+          "cpu_threads": 12,
+          "load1": 0.70458984375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 42.0,
+              "power_w": 17.7
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 3,
+      "before": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "after": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "300000 100000"
+      },
+      "elapsed_s": 0.930033294018358,
+      "answer": "OK",
+      "execution": {
+        "load_duration": 3471496,
+        "prompt_eval_duration": 695574000,
+        "eval_duration": 31056000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 745818214,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "e53cc8bc815e4f6298b17f798a562681",
+        "first_content_s": 0.7153099450515583,
+        "first_content_total_s": 0.8299132010433823,
+        "admission_s": 0.07144813099876046,
+        "queue_wait_s": 0.04315512499306351,
+        "request_elapsed_s": 0.7465118860127404,
+        "end_to_end_s": 0.861115301027894,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792785674.560319,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28332384256,
+          "cpu_threads": 12,
+          "load1": 0.669921875,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 49.0,
+              "power_w": 145.34
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 4,
+      "before": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "after": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "300000 100000"
+      },
+      "elapsed_s": 0.8335825509857386,
+      "answer": "OK",
+      "execution": {
+        "load_duration": 5098163,
+        "prompt_eval_duration": 696293000,
+        "eval_duration": 30849000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 756780925,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "6ea596b6cb0542db9f3f335e59fcdb5a",
+        "first_content_s": 0.7266391940647736,
+        "first_content_total_s": 0.7738260750193149,
+        "admission_s": 0.002789063029922545,
+        "queue_wait_s": 0.04439781792461872,
+        "request_elapsed_s": 0.7577866360079497,
+        "end_to_end_s": 0.8049737310502678,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792785674.560319,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28332384256,
+          "cpu_threads": 12,
+          "load1": 0.669921875,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 49.0,
+              "power_w": 145.34
+            }
+          ]
+        }
+      }
+    },
+    {
+      "index": 5,
+      "before": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "900000 100000"
+      },
+      "after": {
+        "missions": [
+          {
+            "id": "59830a3414a243c198c53e5624a286a3",
+            "state": "running",
+            "active_task": "E_reception",
+            "lease_owner": "ed3fced177da42d9be3283c3156a6aa1"
+          },
+          {
+            "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+            "state": "draft",
+            "active_task": null,
+            "lease_owner": null
+          }
+        ],
+        "jobs": [
+          {
+            "id": "a97e04b1137c4776bc8571c8bb39043a",
+            "mission": "59830a3414a243c198c53e5624a286a3",
+            "model": "qwen3-coder-next:q4_K_M",
+            "node": "Dell1",
+            "role": "mission",
+            "state": "running"
+          }
+        ],
+        "cpu_max": "300000 100000"
+      },
+      "elapsed_s": 0.8352599700447172,
+      "answer": "OK",
+      "execution": {
+        "load_duration": 3510538,
+        "prompt_eval_duration": 698029000,
+        "eval_duration": 31105000,
+        "eval_count": 2,
+        "prompt_eval_count": 1222,
+        "total_duration": 754460261,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "c859ea687bc948b8b30567a752d0e3c6",
+        "first_content_s": 0.7239600929897279,
+        "first_content_total_s": 0.7707896439824253,
+        "admission_s": 0.0027796559734269977,
+        "queue_wait_s": 0.04404989501927048,
+        "request_elapsed_s": 0.7552760730031878,
+        "end_to_end_s": 0.8021057599689811,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1792785674.560319,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 28332384256,
+          "cpu_threads": 12,
+          "load1": 0.669921875,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6239.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 49.0,
+              "power_w": 145.34
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "both_missions_observed_running": false,
+  "all_local_model": true
+}

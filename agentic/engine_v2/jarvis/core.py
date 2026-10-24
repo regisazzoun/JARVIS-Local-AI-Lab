@@ -13,14 +13,32 @@ class Core:
         self.config=config;self.memory=memory;self.lock=threading.Lock();self.ephemeral={};self.transport=transport or self.ollama;self.tools=Registry(memory,ROOT,config);self.metrics=[]
     def health(self):
         status={'application':'ok','database':'ok','ollama':'indisponible','busy':self.lock.locked(),'mission_busy':bool(getattr(self,'missions',None) and self.missions.execution_core.lock.locked())}
+        if self.config.get('hybrid_compute') and getattr(self,'missions',None):
+            with self.missions.store.db() as c:
+                status['mission_busy']=bool(c.execute("SELECT 1 FROM missions WHERE state='running' LIMIT 1").fetchone())
+            status['conversation_node']='Mac-mini'
         try:
             with self.memory.connect() as c:c.execute('SELECT 1').fetchone()
         except Exception:status['database']='erreur'
         try:
-            with urllib.request.urlopen(self.config['ollama_url']+'/api/version',timeout=2) as r:status['ollama']=json.load(r)['version']
+            url=self.config.get('hybrid_compute',{}).get('nodes',{}).get('Mac-mini',{}).get('url',self.config['ollama_url'])
+            with urllib.request.urlopen(url+'/api/version',timeout=2) as r:status['ollama']=json.load(r)['version']
         except Exception:pass
         return status
     def ollama(self,payload):
+        if self.config.get('hybrid_compute'):
+            from .compute import HybridRouter
+            router=getattr(self,'compute_router',None)
+            if router is None:
+                router=HybridRouter(self.config['hybrid_compute'],self.tools.root/'runtime/missions.sqlite')
+                self.compute_router=router
+            context=getattr(self.tools,'context',{})
+            role=self.config.get('compute_role',context.get('compute_role','conversation'))
+            message,metrics=router.infer(payload,role,context.get('mission_id'))
+            self.metrics.append(metrics)
+            if context.get('mission_id') and getattr(self,'missions',None):
+                self.missions.store.event(context['mission_id'],'compute_route_observed',task=context.get('task_id'),actor='JARVIS-engine',result=metrics)
+            return message
         nodes=self.config.get('ollama_nodes',{})
         route=self.config.get('ollama_route',[])
         candidates=[(name,nodes[name]) for name in route if name in nodes] or [('configured-node',self.config['ollama_url'])]
@@ -103,6 +121,9 @@ class Core:
                     messages[0]['content']+='\nQuestion conversationnelle : répondre directement sans créer de mission. État technique actuel : '+json.dumps(facts,ensure_ascii=False)+'\nLe diagnostic df542051560b44b3851124b09d8319c2, lié23, a été prolongé par24 pour le rétablissement du broker, reçu. Le chantier mémoire est nommé 24-Old Mémoire enrichie et reste reporté après25 MCP/Skill Lab. Le prototype vocal23D est reçu par le propriétaire ; son raccordement complet mémoire/outils reste distinct. Les états des missions ci-dessus sont les observations actuelles, pas une autorisation de les relancer.'
             self.tools.context={'host_target':bool(re.search(r'hôte|host_|debian\s+r[ée]el',text,re.I)) and not bool(re.search(r'Bubblewrap|/work',text,re.I)),'mission_id':mission_id,'owner_text':text,'model':model,'project':project,'conversation':conversation,'lab_authorized':agent_mode,'research_required':agent_mode and bool(re.search(r'\b(?:sources?|documentation|recherche)\b',text,flags=re.I)),'verified_sources':[]}
             if linked_chat:self.tools.context['report_scope']='directed_step'
+            if self.config.get('hybrid_compute'):
+                from .compute import classify_request
+                self.tools.context['compute_role']=classify_request(text)
             if linked_chat:
                 controller.store.event(mission_id,'directed_chat_started',actor='JARVIS-engine',result={'channel':'existing_authenticated_conversation','conversation':conversation,'allowed_tools':sorted(allowed_tools),'new_mission_created':False})
             self.metrics=[];tool_results=[];read_repeats={};generation_start=time.monotonic();answer=''
@@ -207,8 +228,9 @@ class Core:
             if agent_mode and not any(t['tool']=='intervention_report' and t['ok'] for t in tool_results):
                 answer='Intervention incomplète : limite de la boucle atteinte sans rapport enregistré. Aucune déclaration finale du modèle ne vaut preuve. Derniers outils : '+json.dumps([{'tool':t['tool'],'ok':t['ok']} for t in tool_results[-8:]],ensure_ascii=False)
             generation_s=time.monotonic()-generation_start
+            execution=self.metrics[-1].copy() if self.config.get('hybrid_compute') and self.metrics else None
             logging.info('chat completed model=%s seconds=%.3f tools=%d',model,generation_s,len(tool_results))
-            if retain:self.memory.exchange(conversation,text,answer,model)
+            if retain:self.memory.exchange(conversation,text,answer,execution.get('effective_model',model) if execution else model)
             else:
                 if len(self.ephemeral)>=32 and conversation not in self.ephemeral:self.ephemeral.pop(next(iter(self.ephemeral)))
                 self.ephemeral[conversation]=(history+[{'role':'user','content':text},{'role':'assistant','content':answer}])[-self.config['history_messages']:]
@@ -218,12 +240,15 @@ class Core:
             summary_start=time.monotonic()
             spoken=clean_speech(answer,voice_limit,preferences.get('language','fr'))
             if len(answer)>voice_limit and self.config.get('voice_summary',True):
+                previous_role=self.tools.context.get('compute_role')
+                if self.config.get('hybrid_compute'):self.tools.context['compute_role']='conversation'
                 try:
                     summary=self.transport({'model':model,'messages':[{'role':'system','content':'Résume uniquement le résultat ci-dessous pour une lecture vocale naturelle en '+('anglais' if preferences.get('language')=='en' else 'français')+', en '+('4 à 6 phrases précises' if voice_limit>500 else '2 phrases brèves')+'. Pas de liste, tableau, commande, chemin, URL ni nouvelle affirmation. Maximum '+str(voice_limit)+' caractères.'},{'role':'user','content':answer[:12000]}],'stream':False,'think':False,'options':{'num_predict':384 if voice_limit>500 else 160,'num_ctx':self.config.get('num_ctx',8192)},'keep_alive':'5m'})
                     candidate=summary if isinstance(summary,str) else summary.get('content','')
                     if candidate.strip():spoken=clean_speech(candidate,voice_limit,preferences.get('language','fr'))
                 except Exception:logging.warning('voice summary fallback')
-            return {'spoken_answer':spoken,'preferences':preferences,'preference_events':preference_events,'conversation':conversation,'answer':answer,'model':model,'memories_used':[r['id'] for r in relevant],'tools':tool_results,'timings':{'voice_summary_s':time.monotonic()-summary_start,'generation_s':generation_s,'ollama':self.metrics}}
+                finally:self.tools.context['compute_role']=previous_role
+            return {'spoken_answer':spoken,'preferences':preferences,'preference_events':preference_events,'conversation':conversation,'answer':answer,'model':execution.get('effective_model',model) if execution else model,**({'execution':execution,'requested_model':model} if execution else {}),'memories_used':[r['id'] for r in relevant],'tools':tool_results,'timings':{'voice_summary_s':time.monotonic()-summary_start,'generation_s':generation_s,'ollama':self.metrics}}
         finally:self.lock.release()
     def voice(self,mode,data):
         if not self.lock.acquire(blocking=False):raise Busy('Une opération JARVIS est déjà en cours')

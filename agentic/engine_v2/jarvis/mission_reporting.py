@@ -17,7 +17,8 @@ def facts(store, ident):
         actions.append({'invocation':o['id'],'task':o['task'],'initiator':'JARVIS','executor':'broker' if o['tool'].startswith('host_') else 'JARVIS-engine', 'tool':o['tool'],'parameters':args,'observed_ok':receipt.get('ok'), 'returncode':receipt.get('result',{}).get('returncode'), 'broker_evidence':receipt.get('result',{}).get('evidence_id'), 'error':receipt.get('error'), 'created':o['created']})
     return {'mission':ident,'goal':store.get(ident)['goal'],'plans':[{k:r[k] for k in ('version','author','reason','sha256')} for r in store.plans(ident)],
             'tasks':[{k:t[k] for k in ('id','state','report_sha256','artifact')} for t in store.tasks(ident)],
-            'actions':actions,'semantic_verifications':[{'event':e['id'],'task':e['task'],**e['result']} for e in events if e['kind']=='semantic_verification'],
+            'actions':actions,'inference_routes':[{'event':e['id'],'created':e['created'],**{k:e['result'].get(k) for k in ('node','effective_model','requested_model','role','compute_job')}} for e in events if e['kind']=='compute_route_observed'],
+            'semantic_verifications':[{'event':e['id'],'task':e['task'],**e['result']} for e in events if e['kind']=='semantic_verification'],
             'codex_interventions':[{'event':e['id'],'kind':e['kind'],'result':e['result']} for e in events if e['actor']=='Codex'],
             'scope':'Predicates only; software tests and model declarations are not autonomy evidence.'}
 

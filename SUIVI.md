@@ -1,3 +1,25 @@
+## Mission 28A — clôture propriétaire du 24 octobre 2026
+
+🟡 **Clôturée incomplète en l’état.** Le propriétaire retient **Qwen3-Coder-Next80B pour les missions Dell1**, avec **Qwen3.5 27B conversationnel sur Mac**. Le cœur hybride reste installé ; six étapes principales sont validées. La réception du programme échoue encore sur quatre variantes et les rapports conservent des erreurs : ces réserves restent ouvertes. Les deux exécutions sont interrompues et la publication erronée est neutralisée ; nouveaux tests différés sans reprise automatique.238tests logiciels réussis, distincts de l’autonomie. [Clôture](docs/missions/28A/RAPPORT-FINAL.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25).14A/24-Old/TTS/Dell2 non lancés.
+
+## Mission28A — moteur80B sélectionné, réception agentique en cours
+
+🟡 Qwen3-Coder-Next80B est installé et pilote réellement les missions Dell :5/6sur le screening ciblé, contre27B4/6,32B3/6et70B2/6 ; le cas coverage reste ambigu. Conversation27B conservée sur Mac, contextes stabilisés, priorité/repli et quotas75/25 reçus. Deux workers du moteur canonique sont actifs ; six réponses locales pendant deux missions running :0,828–0,961s.238tests logiciels réussis. La réception indépendante a détecté un programme JARVIS erroné malgré son code retour0 ; sa correction et les rapports restent en cours. [Comparatif](docs/missions/28A/MODELES-DELL-COMPARATIF.md) · [Tests](docs/missions/28A/TESTS-ET-REPRISES.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25). Aucun lancement14A/24-Old/TTS/Dell2.
+
+## Mission28A — continuation effective du23 octobre2026
+
+🟡 Les contrôles indépendants C(routage/priorité/repli) et D(profils GPU) sont désormais reçus. Le moteur évite les cycles sans tâche prête. JARVIS a repris le téléchargement80Bdepuis le cache puis vérifié son installation ; la comparaison27/70/80au32B déjà mesuré reste en cours.226tests logiciels passent. Le27B conversationnel du Mac est conservé, le pilote Dell reste provisoire jusqu’aux mesures. [Ordonnancement](docs/missions/28A/ORDONNANCEUR.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25). Aucun nouvel accord humain attendu.
+
+## Mission28A — reprise des essais32B après blocage,23 octobre2026
+
+🟡 Mission toujours en cours. Les six inférences32B ont été exécutées par JARVIS ; résultat3/6après correction d’un faux FAIL du vérificateur Codex, original conservé. Correction du contexte d’exécution et du propriétaire du dossier de collecte déployées ; JARVIS a réutilisé les fonctions corrigées.221tests logiciels réussis. Pilote70B mis en repli provisoire vers le27B déjà éprouvé sur Dell après appels de preuve fictifs ; conversation27B sur Mac inchangée. Le choix du nouveau moteur puissant et le comparatif complet restent ouverts. [Diagnostic et attribution](docs/missions/28A/INCIDENT-REPRISE-TESTS.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25).
+
+## Mission28A — lancement et déploiement effectifs,23 octobre2026
+
+🟡 **En cours, non réceptionnée.** Qwen3.5:27b-q4_K_M est réellement utilisé sur le Mac mini ; routeur hybride et worker du moteur existant déployés, mêmes bases canoniques. Llama3.3:70B est installé et utilisé provisoirement sur Dell1 ; son gain qualitatif reste à démontrer. JARVIS a mesuré une pointe GPU cumulée699,37W, avec retour250W/carte vérifié ; aucune tenue prolongée700W ni consommation à la prise n’est affirmée. Quota de fond75% et réduction pendant interaction observés ; six réponses simples pendant worker Dell autour1,1–1,9s. Suite logicielle217tests réussis. Après correction d’interface Codex, JARVIS a installé le candidat32B exact et repris après une attente SHA256 ; présence et empreinte relues indépendamment. Les essais d’inférence/comparaison restent en cours. [Architecture](docs/missions/28A/ARCHITECTURE-HYBRIDE.md) · [Incident32B](docs/missions/28A/INCIDENT-INSTALLATION-32B.md). Aucun lancement14A/24-Old/TTS/Dell2 ; aucune fusion main.
+
+Les décisions préparatoires ci-dessous sont conservées comme historique et ne décrivent plus l’état d’exécution actuel.
+
 ## Décision complémentaire propriétaire — 23 octobre 2026 : modèle conservé sur Mac mini
 
 📋 **Mission28A — architecture cible hybride : conserver `qwen3.5:27b-q4_K_M` comme modèle conversationnel sur Mac mini Debian ; modèle plus puissant sur Dell1 pour missions complexes ; Dell2 préparé pour renfort futur.** Le modèle actuel est inventorié sur Dell1 en mission13 : son installation et ses performances **sur Mac mini restent à démontrer**, sans substitution silencieuse. Mac mini 75% missions /25% JARVIS/conversation. [Cahier28A](docs/missions/28A/MISSION.md).

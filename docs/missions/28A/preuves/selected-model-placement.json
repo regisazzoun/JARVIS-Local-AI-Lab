@@ -1,0 +1,43 @@
+{
+  "captured": 1792784530.9759216,
+  "resident": {
+    "models": [
+      {
+        "name": "qwen3-coder-next:q4_K_M",
+        "model": "qwen3-coder-next:q4_K_M",
+        "size": 53364764124,
+        "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3next",
+          "families": [
+            "qwen3next"
+          ],
+          "parameter_size": "79.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-23T21:56:49.601293886+02:00",
+        "size_vram": 47485802247,
+        "context_length": 24576,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "gpu_csv": "0, 23044, 24576, 176.00, 59, 19\n1, 22968, 24576, 185.13, 72, 69\n",
+  "placement_lines": [
+    "load_tensors: loading model tensors, this can take a while... (load_mode = mmap)",
+    "load_tensors: offloading output layer to GPU",
+    "load_tensors: offloading 47 repeating layers to GPU",
+    "load_tensors: offloaded 49/49 layers to GPU",
+    "load_tensors:   CPU_Mapped model buffer size =  6511.19 MiB",
+    "load_tensors:        CUDA0 model buffer size = 21713.60 MiB",
+    "load_tensors:        CUDA1 model buffer size = 22057.01 MiB",
+    "llama_kv_cache:      CUDA0 KV buffer size =   240.00 MiB",
+    "llama_kv_cache:      CUDA1 KV buffer size =   336.00 MiB",
+    "llama_memory_recurrent:      CUDA0 RS buffer size =    35.59 MiB",
+    "llama_memory_recurrent:      CUDA1 RS buffer size =    39.78 MiB",
+    "sched_reserve:      CUDA0 compute buffer size =   713.00 MiB",
+    "sched_reserve:      CUDA1 compute buffer size =   151.01 MiB"
+  ]
+}

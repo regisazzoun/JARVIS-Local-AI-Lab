@@ -1,0 +1,27 @@
+{
+  "actor": "Codex",
+  "created": 1792784427.0316591,
+  "selected_model": "qwen3-coder-next:q4_K_M",
+  "selection_scope": "Actual screening5/6 vs4/6; coding/maths/attribution, not global autonomy proof; operational JARVIS reception required",
+  "files": [
+    {
+      "path": "/opt/jarvis/conversation/jarvis/compute.py",
+      "sha256": "7412555c4770c228f03cf58e583440a2ed0254238eb77ac2e33d1556316adf0f"
+    },
+    {
+      "path": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+      "sha256": "0ede8f9d611fb9d31bd3ca3e7b318f6a7a0ba3d8300690e1b9f5c7975d5c067a"
+    },
+    {
+      "path": "/opt/jarvis/conversation/jarvis/mission_reporting.py",
+      "sha256": "9f11e184dad7e7579ee28c31d6efae886d1c09013b8dabb9ad246281cf910878"
+    }
+  ],
+  "tests_passed": 230,
+  "conversation_model_unchanged": "qwen3.5:27b-q4_K_M",
+  "Mac_context": 16384,
+  "Dell_context": 24576,
+  "critical_queue_timeout_s": 2,
+  "reason_context": "Keep context allocation stable across conversation/fallback/summary to avoid measured runner reloads",
+  "backup": "/var/backups/jarvis/mission28a/selected-model-1792784427029290649"
+}

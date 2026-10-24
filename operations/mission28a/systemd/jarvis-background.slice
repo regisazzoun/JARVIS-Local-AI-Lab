@@ -1,0 +1,9 @@
+[Unit]
+Description=JARVIS background missions —75 percent of12 logical CPUs
+[Slice]
+CPUAccounting=yes
+CPUQuota=900%
+CPUWeight=25
+MemoryAccounting=yes
+MemoryHigh=4G
+MemoryMax=8G

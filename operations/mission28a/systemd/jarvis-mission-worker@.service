@@ -1,0 +1,17 @@
+[Unit]
+Description=JARVIS canonical durable mission worker slot %i
+After=jarvis-conversation.service jarvis-host-bridge.service
+Wants=jarvis-conversation.service
+[Service]
+User=adminjarvis
+Group=adminjarvis
+Slice=jarvis-background.slice
+WorkingDirectory=/opt/jarvis/conversation
+Environment=PYTHONPATH=/opt/jarvis/conversation
+Environment=JARVIS_WORKLOAD_CLASS=mission
+ExecStart=/opt/jarvis/conversation/.venv/bin/python -m jarvis.worker --config /opt/jarvis/conversation/config/13e.json --slot %i
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=700
+[Install]
+WantedBy=multi-user.target

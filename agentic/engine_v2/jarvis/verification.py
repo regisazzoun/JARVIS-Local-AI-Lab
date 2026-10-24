@@ -157,7 +157,7 @@ class Verifier:
 
     def read(self, source):
         name, args = source['tool'], source['arguments']
-        allowed = name == 'host_read_file' or name == 'host_github' and args.get('action') == 'file' or name == 'host_remote' and args.get('action') in ('read_file','project_probe') or name == 'host_service' and args.get('action') == 'is-active'
+        allowed = name == 'host_read_file' or name == 'host_github' and args.get('action') == 'file' or name == 'host_remote' and args.get('action') in ('read_file','project_probe','hybrid_catalogue','hybrid_program_reception') or name == 'host_service' and args.get('action') == 'is-active'
         if not allowed:
             raise ValueError('Independent read required: host_read_file, host_remote read_file/project_probe (fixed read-only probes), host_github file, host_service is-active')
         store = getattr(self.registry, 'mission_store', None)
