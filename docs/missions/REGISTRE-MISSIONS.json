@@ -2197,7 +2197,7 @@
     "mission_id": "a1becab1a8244e2295463bd5be833784",
     "executant_reel": "JARVIS ; Codex initialisation puis assistance ponctuelle seulement sur capacité manquante prouvée",
     "resultats_prouves": "Objectif enregistré dans le moteur existant et premier cycle worker pris en charge ; installation Dell2 non encore réceptionnée",
-    "reserves": "Cible/accès/disques et alimentationGPU à observer réellement, ne pas extrapoler Dell1",
+    "reserves": "Premier transfert interrompu après trois lectures de politique ; une clarification des chemins parCodex est documentée, compteurs conservés. Cible/accès/disques et alimentationGPU restent à observer ; aucune installation reçue.",
     "objectifs": "Debian13, accèsSSH/Ansible, socleNVIDIA/CUDA et intégration matérielle Dell2",
     "exclusions": "Aucun changementOllama, routage, répartition de charge ou autre architecture",
     "retry_policy": "Trois échecs comparables : arrêt de stratégie, diagnostic, sous-mission corrective si utile, reprise vérifiée",
