@@ -16,6 +16,15 @@ from jarvis.mission_store import MissionStore
 
 
 class FixedIndependentProbes(unittest.TestCase):
+    def test_client_exposes_every_installed_fixed_probe(self):
+        from jarvis.host_client import register as register_host
+        from jsonschema import validate, ValidationError
+        class Registry: pass
+        r=Registry();r.specs={};register_host(r)
+        schema=r.specs['host_remote'][1]['probe']
+        for name in PROBES: validate(name,schema)
+        with self.assertRaises(ValidationError): validate('arbitrary_shell_probe',schema)
+
     def test_active_reference_preserves_float_and_still_reads_and_checks_real_result(self):
         with tempfile.TemporaryDirectory() as temp:
             class Registry:pass
