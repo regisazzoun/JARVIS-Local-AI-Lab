@@ -11,10 +11,40 @@ from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).parents[1]/'broker'))
 from remote_project import project_program
 from remote_probes import probe_command,PROBES
-from jarvis.verification import Verifier,validate_contract
+from jarvis.verification import Verifier,validate_contract,resolve_contract,register,evaluate
+from jarvis.mission_store import MissionStore
 
 
 class FixedIndependentProbes(unittest.TestCase):
+    def test_active_reference_preserves_float_and_still_reads_and_checks_real_result(self):
+        with tempfile.TemporaryDirectory() as temp:
+            class Registry:pass
+            r=Registry();r.specs={};r.mission_store=MissionStore(Path(temp));m=r.mission_store.create('software fixture','fixture','conv');r.context={'mission_id':m,'task_id':'runtime'}
+            source={'tool':'host_remote','arguments':{'host':'fixture','action':'project_probe','project':'tts-01','probe':'tts_runtime'}}
+            criterion={'kind':'json','source':source,'expected':{'/cuda_tensor_sum':6.0}}
+            r.mission_store.plan(m,[{'id':'runtime','title':'fixture','depends':[],'contract':{'semantic':[criterion,{**criterion,'expected':{'/cuda_tensor_sum':7.0}}]}}])
+            reads=[]
+            def execute(name,args):
+                reads.append((name,args));return {'ok':True,'result':{'returncode':0,'stdout':'{"cuda_tensor_sum":6.0}'}}
+            r.execute=execute;register(r)
+            self.assertEqual(evaluate('{"cuda_tensor_sum":6.0}',{**criterion,'expected':{'/cuda_tensor_sum':6}})['status'],'FAIL')
+            result=r.specs['mission_verify'][4]({'contract':'active:0'})
+            self.assertEqual(result['status'],'PASS');self.assertIs(type(result['contract']['expected']['/cuda_tensor_sum']),float)
+            self.assertEqual(r.specs['mission_verify'][4]({'contract':'active:1'})['status'],'FAIL');self.assertEqual(len(reads),2)
+            copy=resolve_contract(r,'active:0');copy['expected']['/cuda_tensor_sum']=99
+            self.assertEqual(resolve_contract(r,'active:0')['expected']['/cuda_tensor_sum'],6.0)
+
+    def test_active_reference_requires_current_task_and_existing_index(self):
+        with tempfile.TemporaryDirectory() as temp:
+            class Registry:pass
+            r=Registry();r.mission_store=MissionStore(Path(temp));m=r.mission_store.create('software fixture','fixture','conv');r.context={'mission_id':m,'task_id':'current'}
+            r.mission_store.plan(m,[{'id':'current','title':'fixture','depends':[],'contract':{}}])
+            for value in ('active:0','active:-1','active:1.0','active:bogus'):
+                with self.assertRaises(ValueError):resolve_contract(r,value)
+            r.context={}
+            with self.assertRaises(ValueError):resolve_contract(r,'active:0')
+            self.assertEqual(resolve_contract(r,'{"kind":"json"}'),{'kind':'json'})
+
     def test_sample_probe_rejects_silence_wrong_text_and_false_duration(self):
         # Synthetic PCM is a verifier fixture, never a TTS reception sample.
         import array,os,contextlib

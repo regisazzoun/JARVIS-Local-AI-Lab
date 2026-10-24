@@ -217,5 +217,19 @@ class Verifier:
         return {'returncode': 0 if verdict['status'] == 'PASS' else 1, **verdict}
 
 
+def resolve_contract(registry,value):
+    if isinstance(value,str) and value.startswith('active:'):
+        index=value[7:]
+        if not index.isascii() or not index.isdigit() or len(index)>6:raise ValueError('Expected active:0, active:1, ... for an existing active-task criterion')
+        store=getattr(registry,'mission_store',None);context=getattr(registry,'context',{})
+        if not store or not context.get('mission_id') or not context.get('task_id'):raise ValueError('Active contract reference requires a durable active task')
+        task=next((t for t in store.tasks(context['mission_id']) if t['id']==context['task_id']),None)
+        criteria=(task or {}).get('contract',{}).get('semantic',[])
+        if int(index)>=len(criteria):raise ValueError('Active contract index absent; inspect active_task.contract.semantic')
+        # Keep persisted values/types; do not round-trip through model tool JSON.
+        return json.loads(json.dumps(criteria[int(index)]))
+    return json.loads(value) if isinstance(value,str) else value
+
+
 def register(registry):
-    registry.specs['mission_verify'] = ('Read actual state independently and evaluate exact predicates. contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length, never per-element counters. kind text requires equals (entire content, useful for CSV) or sha256; kind digest reads a JSON manifest source and the actual content baseline_source independently, checks field JSON Pointer (default /sha256) equals SHA256 of baseline bytes. No precomputed hash placeholder is needed. kind report reads the active task report_path or a declared prose .md artifact (not source program/CSV/raw log) and audits its claims against canonical receipts; no predetermined prose/hash needed. service requires source host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Usable from skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(json.loads(a['contract']) if isinstance(a['contract'],str) else a['contract']))
+    registry.specs['mission_verify'] = ('For a persisted active-task criterion use contract="active:0" (then active:1, etc). Resolves the exact stored contract without copying numbers, types or fields; always performs the same real independent read and full predicate validation. Full predicates remain in active_task.contract.semantic. Also accepts an explicit contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length. kind text requires equals or sha256; kind digest reads a manifest and actual content baseline_source, comparing its field to SHA256 of baseline bytes. kind report reads the task report_path or declared prose artifact and audits claims against original receipts. service requires host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Legacy explicit contracts remain supported for skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(resolve_contract(registry,a['contract'])))
