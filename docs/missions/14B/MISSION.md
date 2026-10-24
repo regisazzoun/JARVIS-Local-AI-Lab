@@ -25,3 +25,12 @@ Dans references/ : référenceDell1pourmission14, préparation logiqueDell2en28A
 Livrables persistants dans /var/lib/jarvis/projects/mission14b : plan/checkpoints du moteur, journal des blocages, inventaire expurgé, dossier de capacités si nécessaire et rapport d'installation distinguant préparé/exécuté/vérifié. Aucun GO d'installation sur une simple réponse du modèle.
 
 Directives consultées parCodex : AGENTS, charte, SUIVI/ROADMAP courants, REFERENCE-DELL1-POUR-MISSION14, PROMPT-INSTALLATION-AUTONOME13D-E, DELL2-PREPARATION28A et raccordement11B. Autorisations préservées : installation duDell2, autonomie dans ce périmètre, accès/procédures déjà validés. Contradictions corrigées : anciennes exclusions généralesDell2 remplacées uniquement pour14B ; anciennes étapesOllama/routage non reprises. Aucun changement de moteur ni d'architecture.
+
+
+## Précision propriétaire — sortie de boucle et appel àCodex
+
+Après trois échecs comparables, arrêter immédiatement la stratégie en cours. Examiner les erreurs et reçus, formuler la cause probable et chercher une solution techniquement différente. Documenter ce qui change avant de reprendre. Cette nouvelle approche reste limitée à trois échecs comparables ; aucune quatrième répétition ni simple renommage ne remet les compteurs à zéro.
+
+Si la recherche et les corrections bornées ne permettent pas de résoudre le blocage, demander explicitement l'intervention deCodex avec un dossier succinct : objectif bloqué, cause observée, approches et tentatives, erreurs exactes/références, correction envisagée et aide attendue. L'appel est désormais permis aussi pour un blocage persistant, pas seulement pour une capacité manquante. Ne pas poursuivre seul une boucle sans progrès. Si l'outil de demande n'est pas disponible dans la phase courante, conserver la demande prête dans mission_note et le journal pour transmission ; ne pas inventer une demande enregistrée.
+
+Si l'assistance est indisponible, conserver ce dossier et continuer les tâches indépendantes réalisables. Codex intervient ponctuellement puis rend la main. Les interdictionsOllama/routage/répartition/autres changements d'architecture restent strictement inchangées.

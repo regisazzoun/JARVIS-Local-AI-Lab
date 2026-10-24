@@ -1,3 +1,7 @@
+## Mission14B — précision propriétaire de la règle anti-boucle
+
+Après arrêt sur trois plans refusés, la règle est reprécisée et transmise dans le même moteur : diagnostic, solution réellement différente avec limite de trois échecs comparables ; si non résolu, dossier succinct d'interventionCodex, pas de boucle indéfinie. Une demande prête et les tâches indépendantes doivent être conservées si assistance indisponible. Reprise par lecture du contrat actif, sans plan fourni parCodex, sans effacer compteurs/erreurs. Aucun changementOllama/routage/charges/architecture. [Directive et reçu](docs/missions/14B/PRECISION-REPRISE.json).
+
 ## Mission14B — initialisée et confiée àJARVIS
 
 🟡 Missioncanonique `a1becab1a8244e2295463bd5be833784`, conversation `61495bec-f92e-42aa-b450-7bac4a6815a5` ; état observé `running`, cycle1. JARVIS prend l'installation/intégration duDell2 Debian13 et lesGPU sous condition d'alimentation. Codex a seulement préparé l'ordre, les références et la transmission. Aucun résultat d'installationDell2 n'est encore reçu. Ollama/routage/répartition/architecture exclus ; trois échecs comparables puis arrêt/diagnostic/correctif et reprise selon outils disponibles. AppelCodex uniquement pour capacité manquante démontrée, demande prête si assistance indisponible et autres tâches poursuivies. [Ordre14B](docs/missions/14B/MISSION.md) · [Reçu d'initialisation](docs/missions/14B/INITIALISATION.json). Les anciennes exclusionsDell2 sont remplacées dans ce seul périmètre ;14Adistincte.

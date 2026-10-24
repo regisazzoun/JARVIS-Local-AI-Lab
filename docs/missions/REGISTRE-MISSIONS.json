@@ -2195,12 +2195,12 @@
     "nom": "Dell n°2 — installation et intégration Debian13",
     "etat": "🟡 Initialisée et transmise à JARVIS",
     "mission_id": "a1becab1a8244e2295463bd5be833784",
-    "executant_reel": "JARVIS ; Codex initialisation puis assistance ponctuelle seulement sur capacité manquante prouvée",
+    "executant_reel": "JARVIS ; Codex initialisation puis assistance ponctuelle sur capacité manquante ou blocage persistant après recherche bornée",
     "resultats_prouves": "Objectif enregistré dans le moteur existant et premier cycle worker pris en charge ; installation Dell2 non encore réceptionnée",
     "reserves": "Premier transfert interrompu après trois lectures de politique ; une clarification des chemins parCodex est documentée, compteurs conservés. Cible/accès/disques et alimentationGPU restent à observer ; aucune installation reçue.",
     "objectifs": "Debian13, accèsSSH/Ansible, socleNVIDIA/CUDA et intégration matérielle Dell2",
     "exclusions": "Aucun changementOllama, routage, répartition de charge ou autre architecture",
-    "retry_policy": "Trois échecs comparables : arrêt de stratégie, diagnostic, sous-mission corrective si utile, reprise vérifiée",
+    "retry_policy": "Trois échecs comparables par stratégie ; diagnostic puis approche réellement différente limitée à trois, sans remise à zéro cosmétique ; demandeCodex si non résolu",
     "documents_sources": [
       {
         "path": "docs/missions/14B/MISSION.md",
@@ -2211,7 +2211,7 @@
         "url": ""
       }
     ],
-    "prochaine_action": "JARVIS planifie, observe et exécute ; assistanceCodex uniquement en cas de capacité manquante réelle",
+    "prochaine_action": "JARVIS reprend par diagnostic et lecture du schéma actif ; demander Codex avec dossier si les solutions bornées échouent, poursuivre les tâches indépendantes",
     "derniere_actualisation": "2026-10-24"
   }
 ]
