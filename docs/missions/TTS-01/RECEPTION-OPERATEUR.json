@@ -1,0 +1,416 @@
+{
+  "actor": "Codex",
+  "created": 1792836268.796225,
+  "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+  "state": "completed",
+  "manual_receptions": [
+    {
+      "task": "t05_generation_echantillons",
+      "event": 32786,
+      "actor": "Codex"
+    },
+    {
+      "task": "t06_scripts_operationnels",
+      "event": 32787,
+      "actor": "Codex"
+    },
+    {
+      "task": "t07_rapport_final",
+      "event": 32788,
+      "actor": "Codex"
+    },
+    {
+      "task": "t08_livraison_jl02",
+      "event": 32789,
+      "actor": "Codex"
+    },
+    {
+      "task": "t09_controle_signal_references",
+      "event": 32790,
+      "actor": "Codex"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01_inventaire_initial",
+      "state": "validated",
+      "evidence": [
+        {
+          "arguments": {
+            "contract": {
+              "expected": {
+                "/gpu": "NVIDIA GeForce RTX 3090"
+              },
+              "kind": "json",
+              "source": {
+                "arguments": {
+                  "action": "project_probe",
+                  "host": "dell-observe",
+                  "probe": "gpu_inventory",
+                  "project": "tts-01"
+                },
+                "tool": "host_remote"
+              },
+              "types": {
+                "/kernel": "string",
+                "/python": "string"
+              }
+            }
+          },
+          "created": 1792721148.426422,
+          "id": "dacf88a95753464fb0cd7cd523920f6e",
+          "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+          "result": {
+            "elapsed_s": 1.271,
+            "ok": true,
+            "result": {
+              "checks": [
+                {
+                  "actual": "NVIDIA GeForce RTX 3090",
+                  "expected": "NVIDIA GeForce RTX 3090",
+                  "pass": true,
+                  "path": "/gpu"
+                },
+                {
+                  "pass": true,
+                  "path": "/kernel",
+                  "type": "string"
+                },
+                {
+                  "pass": true,
+                  "path": "/python",
+                  "type": "string"
+                }
+              ],
+              "contract": {
+                "expected": {
+                  "/gpu": "NVIDIA GeForce RTX 3090"
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "project_probe",
+                    "host": "dell-observe",
+                    "probe": "gpu_inventory",
+                    "project": "tts-01"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/kernel": "string",
+                  "/python": "string"
+                }
+              },
+              "observations": [
+                {
+                  "arguments": {
+                    "action": "project_probe",
+                    "host": "dell-observe",
+                    "probe": "gpu_inventory",
+                    "project": "tts-01"
+                  },
+                  "broker_evidence": "8020188d511e4f48b5b89e874320388b",
+                  "invocation": "3c9e6d4855c2414880500f7474ec07d7",
+                  "tool": "host_remote"
+                }
+              ],
+              "observed_at": 1792721149.7059708,
+              "returncode": 0,
+              "sha256": "f5c77878bf93ce0933b64a27f4c10ecc2b9a9d8899b2a582546a5c316c2df3fa",
+              "status": "PASS",
+              "verification_event": 20530,
+              "verifier": "deterministic26"
+            },
+            "risk": "host_authorized",
+            "tool": "mission_verify"
+          },
+          "signature": "22525c0dc9ecb30a108ed93e9391b4070e2ccf9c72c0cb187ca9b63e0eccc468",
+          "state": "finished",
+          "task": "t01_inventaire_initial",
+          "tool": "mission_verify",
+          "updated": 1792721149.8618648
+        }
+      ]
+    },
+    {
+      "id": "t02_verification_archive",
+      "state": "validated",
+      "evidence": [
+        {
+          "arguments": {
+            "contract": {
+              "expected": {
+                "/valid_zip": true,
+                "/wav_files": 14
+              },
+              "kind": "json",
+              "source": {
+                "arguments": {
+                  "action": "project_probe",
+                  "host": "dell-observe",
+                  "probe": "archive_inventory",
+                  "project": "tts-01"
+                },
+                "tool": "host_remote"
+              }
+            }
+          },
+          "created": 1792721754.5664346,
+          "id": "df4da34d68a940e799f8f918fae386b8",
+          "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+          "result": {
+            "elapsed_s": 1.175,
+            "ok": true,
+            "result": {
+              "checks": [
+                {
+                  "actual": true,
+                  "expected": true,
+                  "pass": true,
+                  "path": "/valid_zip"
+                },
+                {
+                  "actual": 14,
+                  "expected": 14,
+                  "pass": true,
+                  "path": "/wav_files"
+                }
+              ],
+              "contract": {
+                "expected": {
+                  "/valid_zip": true,
+                  "/wav_files": 14
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "project_probe",
+                    "host": "dell-observe",
+                    "probe": "archive_inventory",
+                    "project": "tts-01"
+                  },
+                  "tool": "host_remote"
+                }
+              },
+              "observations": [
+                {
+                  "arguments": {
+                    "action": "project_probe",
+                    "host": "dell-observe",
+                    "probe": "archive_inventory",
+                    "project": "tts-01"
+                  },
+                  "broker_evidence": "a555064df9d646ceb5028435f12a0303",
+                  "invocation": "d87f7dd5f35449a78bfee8a3a02f0e56",
+                  "tool": "host_remote"
+                }
+              ],
+              "observed_at": 1792721755.7218974,
+              "returncode": 0,
+              "sha256": "c6e52a91e13ac54e9450804654e739453186b1a6ffc96cf2ada0ec7753ce3f0f",
+              "status": "PASS",
+              "verification_event": 20575,
+              "verifier": "deterministic26"
+            },
+            "risk": "host_authorized",
+            "tool": "mission_verify"
+          },
+          "signature": "472a5b0a6ef28315798edb9017b7f97e201f8e64d118eb36f3969c2b090dbd7b",
+          "state": "finished",
+          "task": "t02_verification_archive",
+          "tool": "mission_verify",
+          "updated": 1792721755.8993752
+        }
+      ]
+    },
+    {
+      "id": "t03_etude_moteurs",
+      "state": "validated",
+      "evidence": {
+        "actor": "Codex-independent",
+        "verdict": "documentary_choice_accepted_with_reservations",
+        "automatic_reviewer_status": "INSUFFICIENT historical; not changed to PASS",
+        "JARVIS_report": "/var/lib/jarvis/projects/tts-01/COMPARATIF_MOTEURS_TTS.md",
+        "sha256": "802770ccc062f1a2b1dc1ebf35e15e12f376dc422d0de68dc7c94421c868ab79",
+        "corrections": "/var/lib/jarvis/projects/tts-01/RECEPTION-CODEX-T03-REPRISE24.md",
+        "technical_TTS_success": false,
+        "directed_chat_interruption_HTTP503": true,
+        "selected_model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "selected_speaker": "Uncle_Fu",
+        "late_draft_and_Codex_receipt_rectified": true
+      }
+    },
+    {
+      "id": "t04_installation_moteur",
+      "state": "validated",
+      "evidence": [
+        {
+          "arguments": {
+            "contract": "active:0"
+          },
+          "created": 1792802622.4328926,
+          "id": "e42c649820de4b04b5c9d150e4ff00b6",
+          "mission": "8bd3e5b316a94021b5183e0db26d6efc",
+          "result": {
+            "elapsed_s": 2.655,
+            "ok": true,
+            "result": {
+              "checks": [
+                {
+                  "actual": true,
+                  "expected": true,
+                  "pass": true,
+                  "path": "/cuda_available"
+                },
+                {
+                  "actual": 6.0,
+                  "expected": 6.0,
+                  "pass": true,
+                  "path": "/cuda_tensor_sum"
+                },
+                {
+                  "actual": true,
+                  "expected": true,
+                  "pass": true,
+                  "path": "/tts_engine_importable"
+                },
+                {
+                  "pass": true,
+                  "path": "/torch_version",
+                  "type": "string"
+                }
+              ],
+              "contract": {
+                "expected": {
+                  "/cuda_available": true,
+                  "/cuda_tensor_sum": 6.0,
+                  "/tts_engine_importable": true
+                },
+                "kind": "json",
+                "source": {
+                  "arguments": {
+                    "action": "project_probe",
+                    "host": "dell-observe",
+                    "probe": "tts_runtime",
+                    "project": "tts-01"
+                  },
+                  "tool": "host_remote"
+                },
+                "types": {
+                  "/torch_version": "string"
+                }
+              },
+              "observations": [
+                {
+                  "arguments": {
+                    "action": "project_probe",
+                    "host": "dell-observe",
+                    "probe": "tts_runtime",
+                    "project": "tts-01"
+                  },
+                  "broker_evidence": "9a951eec220c4e3ba2d91d70a04bf032",
+                  "invocation": "c7c97f9ad86640299d9642f3539c7281",
+                  "tool": "host_remote"
+                }
+              ],
+              "observed_at": 1792802625.0918946,
+              "returncode": 0,
+              "sha256": "e621eb0e870b7ce3a98c73d7081c8066390092f920977a3a550af335f125ed46",
+              "status": "PASS",
+              "verification_event": 32399,
+              "verifier": "deterministic26"
+            },
+            "risk": "host_authorized",
+            "tool": "mission_verify"
+          },
+          "signature": "59e8532c6dc81f6743f1a57e06e30df19acdb8b6193a1aab5645114f3b37d7f5",
+          "state": "finished",
+          "task": "t04_installation_moteur",
+          "tool": "mission_verify",
+          "updated": 1792802625.2491353
+        }
+      ]
+    },
+    {
+      "id": "t05_generation_echantillons",
+      "state": "validated",
+      "evidence": [
+        {
+          "actor": "Codex",
+          "type": "manual_operator_reception",
+          "event": 32786,
+          "result": {
+            "ok": true,
+            "evidence_id": "event:32786"
+          },
+          "source": "Real JARVIS operations and independent Codex reception, not a model-completed task"
+        }
+      ]
+    },
+    {
+      "id": "t06_scripts_operationnels",
+      "state": "validated",
+      "evidence": [
+        {
+          "actor": "Codex",
+          "type": "manual_operator_reception",
+          "event": 32787,
+          "result": {
+            "ok": true,
+            "evidence_id": "event:32787"
+          },
+          "source": "Real JARVIS operations and independent Codex reception, not a model-completed task"
+        }
+      ]
+    },
+    {
+      "id": "t07_rapport_final",
+      "state": "validated",
+      "evidence": [
+        {
+          "actor": "Codex",
+          "type": "manual_operator_reception",
+          "event": 32788,
+          "result": {
+            "ok": true,
+            "evidence_id": "event:32788"
+          },
+          "source": "Real JARVIS operations and independent Codex reception, not a model-completed task"
+        }
+      ]
+    },
+    {
+      "id": "t08_livraison_jl02",
+      "state": "validated",
+      "evidence": [
+        {
+          "actor": "Codex",
+          "type": "manual_operator_reception",
+          "event": 32789,
+          "result": {
+            "ok": true,
+            "evidence_id": "event:32789"
+          },
+          "source": "Real JARVIS operations and independent Codex reception, not a model-completed task"
+        }
+      ]
+    },
+    {
+      "id": "t09_controle_signal_references",
+      "state": "validated",
+      "evidence": [
+        {
+          "actor": "Codex",
+          "type": "manual_operator_reception",
+          "event": 32790,
+          "result": {
+            "ok": true,
+            "evidence_id": "event:32790"
+          },
+          "source": "Real JARVIS operations and independent Codex reception, not a model-completed task"
+        }
+      ]
+    }
+  ],
+  "scope": "Manual coordinator reception explicitly distinguished from automatic engine task completion"
+}

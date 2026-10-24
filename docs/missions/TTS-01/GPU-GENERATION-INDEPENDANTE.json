@@ -1,0 +1,240 @@
+{
+  "observer": "Codex-independent read-only SSH",
+  "job": {
+    "id": "19c1789eb45c4b2ca6a8fa7314a1f3d9",
+    "started": 1792804466.1854641,
+    "state": "running"
+  },
+  "rows": [
+    {
+      "sampled_at": 1792804468.461663,
+      "gpu_csv": "0, 11, 0, 154.39, 59\n1, 52, 0, 158.18, 73\n",
+      "process_csv": "",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804469.76673,
+      "gpu_csv": "0, 11, 0, 124.73, 56\n1, 52, 0, 122.55, 70\n",
+      "process_csv": "",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804471.0941157,
+      "gpu_csv": "0, 11, 0, 76.77, 55\n1, 52, 0, 44.43, 67\n",
+      "process_csv": "",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804472.4057431,
+      "gpu_csv": "0, 3928, 38, 130.35, 58\n1, 55, 0, 40.98, 66\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 3912\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804473.743366,
+      "gpu_csv": "0, 4424, 0, 152.29, 59\n1, 55, 0, 39.86, 66\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4408\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804475.0621378,
+      "gpu_csv": "0, 4424, 0, 125.01, 58\n1, 55, 0, 39.71, 65\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4408\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804476.3780117,
+      "gpu_csv": "0, 4458, 22, 123.76, 58\n1, 55, 0, 39.65, 65\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4442\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804477.7058756,
+      "gpu_csv": "0, 4462, 21, 134.81, 58\n1, 55, 0, 39.48, 65\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4446\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804479.0155811,
+      "gpu_csv": "0, 4464, 21, 134.93, 58\n1, 55, 0, 39.33, 64\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4448\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804480.309991,
+      "gpu_csv": "0, 4468, 22, 135.04, 58\n1, 55, 0, 39.33, 64\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4452\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804481.6281211,
+      "gpu_csv": "0, 4470, 21, 135.15, 57\n1, 55, 0, 39.03, 64\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4454\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804482.9326603,
+      "gpu_csv": "0, 4472, 21, 134.65, 57\n1, 55, 0, 38.74, 64\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4456\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804484.2549443,
+      "gpu_csv": "0, 4474, 21, 134.78, 58\n1, 55, 0, 38.60, 63\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4458\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804485.5397623,
+      "gpu_csv": "0, 4476, 23, 134.21, 57\n1, 55, 0, 38.52, 63\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4460\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804486.8405175,
+      "gpu_csv": "0, 4576, 14, 135.46, 58\n1, 55, 0, 38.35, 63\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804488.1317143,
+      "gpu_csv": "0, 4576, 22, 134.34, 57\n1, 55, 0, 38.21, 63\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804489.4497342,
+      "gpu_csv": "0, 4576, 21, 134.31, 57\n1, 55, 0, 38.10, 62\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804490.7323062,
+      "gpu_csv": "0, 4576, 22, 134.28, 57\n1, 55, 0, 37.91, 62\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804492.0597637,
+      "gpu_csv": "0, 4576, 21, 134.39, 57\n1, 55, 0, 37.84, 62\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804493.3559668,
+      "gpu_csv": "0, 4576, 21, 134.30, 57\n1, 55, 0, 37.73, 62\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804494.6526306,
+      "gpu_csv": "0, 4576, 22, 134.65, 57\n1, 55, 0, 37.55, 61\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804495.970238,
+      "gpu_csv": "0, 4576, 23, 134.73, 57\n1, 55, 0, 37.58, 61\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4560\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804497.3165205,
+      "gpu_csv": "0, 4578, 23, 134.69, 57\n1, 55, 0, 37.51, 61\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4562\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804498.6216018,
+      "gpu_csv": "0, 4580, 23, 134.52, 57\n1, 55, 0, 37.38, 61\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4564\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804499.9402933,
+      "gpu_csv": "0, 4582, 22, 134.53, 57\n1, 55, 0, 37.10, 61\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4566\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804501.2615368,
+      "gpu_csv": "0, 4658, 26, 137.35, 57\n1, 55, 0, 36.88, 61\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804502.5710583,
+      "gpu_csv": "0, 4658, 21, 134.24, 57\n1, 55, 0, 36.65, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804503.8898468,
+      "gpu_csv": "0, 4658, 21, 134.47, 57\n1, 55, 0, 36.47, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804505.1996157,
+      "gpu_csv": "0, 4658, 21, 134.30, 57\n1, 55, 0, 36.20, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804506.4972029,
+      "gpu_csv": "0, 4658, 22, 134.43, 57\n1, 55, 0, 36.26, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804507.7917097,
+      "gpu_csv": "0, 4658, 23, 134.06, 57\n1, 55, 0, 36.37, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804509.0819058,
+      "gpu_csv": "0, 4658, 23, 134.04, 57\n1, 55, 0, 35.85, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804510.3724437,
+      "gpu_csv": "0, 4658, 23, 134.38, 57\n1, 55, 0, 36.24, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804511.6699116,
+      "gpu_csv": "0, 4658, 21, 133.48, 57\n1, 55, 0, 36.24, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804512.9544084,
+      "gpu_csv": "0, 4658, 19, 133.60, 57\n1, 55, 0, 36.07, 60\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804514.2447083,
+      "gpu_csv": "0, 4658, 23, 134.59, 57\n1, 55, 0, 36.06, 59\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804515.5384653,
+      "gpu_csv": "0, 4658, 0, 123.55, 56\n1, 55, 0, 36.25, 59\n",
+      "process_csv": "236610, /opt/jarvis-lab/tts-01/venv/bin/python3, 4642\n",
+      "returncode": 0
+    },
+    {
+      "sampled_at": 1792804516.8905895,
+      "gpu_csv": "0, 11, 0, 140.68, 57\n1, 52, 0, 35.94, 59\n",
+      "process_csv": "",
+      "returncode": 0
+    }
+  ],
+  "finished": true,
+  "observed_until": 1792804516.91278
+}

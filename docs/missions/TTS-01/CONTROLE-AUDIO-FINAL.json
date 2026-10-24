@@ -1,0 +1,65 @@
+{
+  "observer": "Codex independent actual generated files, not fixtures",
+  "observed_at": 1792835774.1293497,
+  "files": [
+    {
+      "file": "accueil.wav",
+      "path": "/var/lib/jarvis/projects/tts-01/audio/accueil.wav",
+      "bytes": 295724,
+      "sha256": "322cce3ae6ae5d6f737814218a3e997a3a05f70706cf93f7aca7397a885ee5d1",
+      "rate_hz": 24000,
+      "channels": 1,
+      "duration_s": 6.16,
+      "rms_pcm16": 2703.3993615112186,
+      "fullscale_fraction": 0.0,
+      "http_status": 200,
+      "mime": "audio/wav",
+      "served_bytes_identical": true,
+      "authenticated_chromium_playback": {
+        "duration_s": 6.16,
+        "ended": true,
+        "readyState": 4
+      }
+    },
+    {
+      "file": "diagnostic.wav",
+      "path": "/var/lib/jarvis/projects/tts-01/audio/diagnostic.wav",
+      "bytes": 395564,
+      "sha256": "e85f3e5a3ccc91a089d3dce52bd5c5e586ddaca0843a66fd653d494784ca34da",
+      "rate_hz": 24000,
+      "channels": 1,
+      "duration_s": 8.24,
+      "rms_pcm16": 2976.881322508161,
+      "fullscale_fraction": 0.0,
+      "http_status": 200,
+      "mime": "audio/wav",
+      "served_bytes_identical": true,
+      "authenticated_chromium_playback": {
+        "duration_s": 8.24,
+        "ended": true,
+        "readyState": 4
+      }
+    },
+    {
+      "file": "conversation.wav",
+      "path": "/var/lib/jarvis/projects/tts-01/audio/conversation.wav",
+      "bytes": 364844,
+      "sha256": "544f0dc972b1b631ba525482b75dbed7cb56da5af793f3339500437c6034f895",
+      "rate_hz": 24000,
+      "channels": 1,
+      "duration_s": 7.6,
+      "rms_pcm16": 2617.085811458897,
+      "fullscale_fraction": 0.0,
+      "http_status": 200,
+      "mime": "audio/wav",
+      "served_bytes_identical": true,
+      "authenticated_chromium_playback": {
+        "duration_s": 7.6,
+        "ended": true,
+        "readyState": 4
+      }
+    }
+  ],
+  "unauthenticated_status": 401,
+  "scope": "Actual generated WAV decoding and authenticated playback; muted browser, no physical loudspeaker or aesthetic evaluation claimed."
+}

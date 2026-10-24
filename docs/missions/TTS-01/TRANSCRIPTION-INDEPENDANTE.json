@@ -1,0 +1,64 @@
+{
+  "observer": "Codex-independent local speech recognition",
+  "model": "whisper-small existing offline CPU int8, 2 threads",
+  "observed_at": 1792835783.2993498,
+  "load_s": 0.7678958149626851,
+  "scope": "Checks spoken content; no physical listening or aesthetic rating",
+  "records": [
+    {
+      "file": "accueil.wav",
+      "sha256": "322cce3ae6ae5d6f737814218a3e997a3a05f70706cf93f7aca7397a885ee5d1",
+      "transcript": "Bonsoir, monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions.",
+      "language": "fr",
+      "duration_s": 6.16,
+      "transcription_s": 2.6777385820169,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 6.16,
+          "text": " Bonsoir, monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions."
+        }
+      ]
+    },
+    {
+      "file": "diagnostic.wav",
+      "sha256": "e85f3e5a3ccc91a089d3dce52bd5c5e586ddaca0843a66fd653d494784ca34da",
+      "transcript": "L'analyse du serveur est terminée, le processeur graphique fonctionne normalement et les services de communication sont disponibles.",
+      "language": "fr",
+      "duration_s": 8.24,
+      "transcription_s": 2.8961655129678547,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 5.32,
+          "text": " L'analyse du serveur est terminée, le processeur graphique fonctionne normalement"
+        },
+        {
+          "start": 5.32,
+          "end": 8.2,
+          "text": " et les services de communication sont disponibles."
+        }
+      ]
+    },
+    {
+      "file": "conversation.wav",
+      "sha256": "544f0dc972b1b631ba525482b75dbed7cb56da5af793f3339500437c6034f895",
+      "transcript": "J'ai examiné votre demande. Plusieurs solutions sont envisageables. Souhaitez-vous que je vous présente celle qui me paraît la plus efficace ?",
+      "language": "fr",
+      "duration_s": 7.6,
+      "transcription_s": 2.823334492975846,
+      "segments": [
+        {
+          "start": 0.0,
+          "end": 4.26,
+          "text": " J'ai examiné votre demande. Plusieurs solutions sont envisageables."
+        },
+        {
+          "start": 4.26,
+          "end": 7.640000000000001,
+          "text": " Souhaitez-vous que je vous présente celle qui me paraît la plus efficace ?"
+        }
+      ]
+    }
+  ]
+}

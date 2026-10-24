@@ -1,0 +1,97 @@
+{
+  "samples": [
+    {
+      "text": "Bonsoir monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions.",
+      "file": "accueil.wav",
+      "speaker": "Uncle_Fu",
+      "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "engine_version": "0.1.1",
+      "t_gen_s": 11.26615309715271,
+      "load_time_s": 4.7888219356536865,
+      "duree_audio_s": 6.16,
+      "rtf": 1.8289209573299854,
+      "gpu_before": {
+        "used_MB": 4747.125,
+        "total_MB": 24576.0,
+        "util_pct": 0
+      },
+      "gpu_after": {
+        "used_MB": 4899.125,
+        "total_MB": 24576.0,
+        "util_pct": 23
+      },
+      "ram_before": {
+        "used_MB": 5001.546875,
+        "total_MB": 257452.4609375,
+        "util_pct": 1.9427069590972728
+      },
+      "ram_after": {
+        "used_MB": 5815.5390625,
+        "total_MB": 257452.4609375,
+        "util_pct": 2.258878800895129
+      }
+    },
+    {
+      "text": "L'analyse du serveur est terminée. Le processeur graphique fonctionne normalement et les services de communication sont disponibles.",
+      "file": "diagnostic.wav",
+      "speaker": "Uncle_Fu",
+      "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "engine_version": "0.1.1",
+      "t_gen_s": 14.390710592269897,
+      "load_time_s": 4.7888219356536865,
+      "duree_audio_s": 8.24,
+      "rtf": 1.7464454602269293,
+      "gpu_before": {
+        "used_MB": 4899.125,
+        "total_MB": 24576.0,
+        "util_pct": 23
+      },
+      "gpu_after": {
+        "used_MB": 4981.125,
+        "total_MB": 24576.0,
+        "util_pct": 19
+      },
+      "ram_before": {
+        "used_MB": 5815.5390625,
+        "total_MB": 257452.4609375,
+        "util_pct": 2.258878800895129
+      },
+      "ram_after": {
+        "used_MB": 5818.08984375,
+        "total_MB": 257452.4609375,
+        "util_pct": 2.2598695784704184
+      }
+    },
+    {
+      "text": "J'ai examiné votre demande. Plusieurs solutions sont envisageables. Souhaitez-vous que je vous présente celle qui me paraît la plus efficace ?",
+      "file": "conversation.wav",
+      "speaker": "Uncle_Fu",
+      "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "engine_version": "0.1.1",
+      "t_gen_s": 13.388318300247192,
+      "load_time_s": 4.7888219356536865,
+      "duree_audio_s": 7.6,
+      "rtf": 1.7616208289798938,
+      "gpu_before": {
+        "used_MB": 4981.125,
+        "total_MB": 24576.0,
+        "util_pct": 19
+      },
+      "gpu_after": {
+        "used_MB": 4981.125,
+        "total_MB": 24576.0,
+        "util_pct": 21
+      },
+      "ram_before": {
+        "used_MB": 5818.3359375,
+        "total_MB": 257452.4609375,
+        "util_pct": 2.259965166506013
+      },
+      "ram_after": {
+        "used_MB": 5793.546875,
+        "total_MB": 257452.4609375,
+        "util_pct": 2.250336568507869
+      }
+    }
+  ]
+}

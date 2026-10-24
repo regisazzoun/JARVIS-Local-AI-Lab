@@ -182,7 +182,7 @@ class Core:
                 calls=message.get('tool_calls',[]) if round<rounds and not reported else []
                 if not isinstance(calls,list):raise ValueError('Format des appels d’outils invalide')
                 if not calls:
-                    if agent_mode and round<rounds and not any(t['tool']=='intervention_report' and t['ok'] for t in tool_results):
+                    if (agent_mode or linked_chat and not tool_results) and round<rounds and not any(t['tool']=='intervention_report' and t['ok'] for t in tool_results):
                         messages.append({'role':'assistant','content':message.get('content','')})
                         messages.append({'role':'user','content':'Poursuis maintenant les opérations autorisées pour atteindre l’objectif. Un diagnostic ou un plan seul ne termine pas la mission. Réalise les actions nécessaires dans le périmètre accordé, vérifie réellement le résultat, conserve le rapport avec intervention_report. Si bloqué, consigne le blocage constaté dans ce rapport.'})
                         continue
@@ -227,6 +227,8 @@ class Core:
                     messages.append({'role':'tool','tool_name':name,'content':json.dumps(result,ensure_ascii=False)})
             if agent_mode and not any(t['tool']=='intervention_report' and t['ok'] for t in tool_results):
                 answer='Intervention incomplète : limite de la boucle atteinte sans rapport enregistré. Aucune déclaration finale du modèle ne vaut preuve. Derniers outils : '+json.dumps([{'tool':t['tool'],'ok':t['ok']} for t in tool_results[-8:]],ensure_ascii=False)
+            if linked_chat and not any(t.get('ok') and t.get('tool')!='intervention_report' for t in tool_results):
+                answer='Étape non exécutée ou non vérifiée : aucun outil opérationnel réussi dans cette continuation. Les affirmations du modèle ne valent pas preuve.'
             generation_s=time.monotonic()-generation_start
             execution=self.metrics[-1].copy() if self.config.get('hybrid_compute') and self.metrics else None
             logging.info('chat completed model=%s seconds=%.3f tools=%d',model,generation_s,len(tool_results))

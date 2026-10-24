@@ -1,0 +1,796 @@
+{
+  "actor": "Codex-independent, original stored contracts unchanged",
+  "created": 1792836267.5997145,
+  "checks": {
+    "t05_generation_echantillons": [
+      {
+        "returncode": 0,
+        "status": "PASS",
+        "checks": [
+          {
+            "path": "/samples",
+            "type": "array",
+            "pass": true
+          },
+          {
+            "path": "/samples/0/duree_audio_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/0/engine_version",
+            "type": "string",
+            "pass": true
+          },
+          {
+            "path": "/samples/0/load_time_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/0/rtf",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/0/t_gen_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/1/duree_audio_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/1/engine_version",
+            "type": "string",
+            "pass": true
+          },
+          {
+            "path": "/samples/1/load_time_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/1/rtf",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/1/t_gen_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/2/duree_audio_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/2/engine_version",
+            "type": "string",
+            "pass": true
+          },
+          {
+            "path": "/samples/2/load_time_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/2/rtf",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/samples/2/t_gen_s",
+            "type": "number",
+            "pass": true
+          }
+        ],
+        "sha256": "7207cb3d52b4ab4a48a7f40eca2a9d9e55b56e948e11d3096cf4ea36b610655f",
+        "contract": {
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/tts-01/MESURES_PERFORMANCES.json"
+            },
+            "tool": "host_read_file"
+          },
+          "types": {
+            "/samples": "array",
+            "/samples/0/duree_audio_s": "number",
+            "/samples/0/engine_version": "string",
+            "/samples/0/load_time_s": "number",
+            "/samples/0/rtf": "number",
+            "/samples/0/t_gen_s": "number",
+            "/samples/1/duree_audio_s": "number",
+            "/samples/1/engine_version": "string",
+            "/samples/1/load_time_s": "number",
+            "/samples/1/rtf": "number",
+            "/samples/1/t_gen_s": "number",
+            "/samples/2/duree_audio_s": "number",
+            "/samples/2/engine_version": "string",
+            "/samples/2/load_time_s": "number",
+            "/samples/2/rtf": "number",
+            "/samples/2/t_gen_s": "number"
+          }
+        },
+        "observations": [
+          {
+            "invocation": null,
+            "broker_evidence": "62d2717691724e3faa81008850ef0616",
+            "tool": "host_read_file",
+            "arguments": {
+              "path": "/var/lib/jarvis/projects/tts-01/MESURES_PERFORMANCES.json"
+            }
+          }
+        ],
+        "observed_at": 1792836264.4045198,
+        "verifier": "deterministic26"
+      },
+      {
+        "returncode": 0,
+        "status": "PASS",
+        "checks": [
+          {
+            "path": "/pass",
+            "expected": true,
+            "actual": true,
+            "pass": true
+          },
+          {
+            "path": "/same_voice",
+            "expected": true,
+            "actual": true,
+            "pass": true
+          },
+          {
+            "path": "/wav_files",
+            "expected": 3,
+            "actual": 3,
+            "pass": true
+          }
+        ],
+        "sha256": "54d1927fa8792fac13103f3e12ae9338f92060a2a16ad435b27497ae544da65c",
+        "contract": {
+          "expected": {
+            "/pass": true,
+            "/same_voice": true,
+            "/wav_files": 3
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_samples",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          }
+        },
+        "observations": [
+          {
+            "invocation": null,
+            "broker_evidence": "25fdabe0b62e4f90a7b84cfb9016584f",
+            "tool": "host_remote",
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_samples",
+              "project": "tts-01"
+            }
+          }
+        ],
+        "observed_at": 1792836265.206252,
+        "verifier": "deterministic26"
+      }
+    ],
+    "t06_scripts_operationnels": [
+      {
+        "returncode": 0,
+        "status": "PASS",
+        "checks": [
+          {
+            "path": "/launch_syntax_ok",
+            "expected": true,
+            "actual": true,
+            "pass": true
+          },
+          {
+            "path": "/uninstall_syntax_ok",
+            "expected": true,
+            "actual": true,
+            "pass": true
+          }
+        ],
+        "sha256": "b46abdb86a4b74e824536079a8ddd26d311445271b95a4af658f2bbb6623eaf7",
+        "contract": {
+          "expected": {
+            "/launch_syntax_ok": true,
+            "/uninstall_syntax_ok": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "script_syntax",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          }
+        },
+        "observations": [
+          {
+            "invocation": null,
+            "broker_evidence": "48e2305ed2534aa4a9f914415a8ffe63",
+            "tool": "host_remote",
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "script_syntax",
+              "project": "tts-01"
+            }
+          }
+        ],
+        "observed_at": 1792836265.9572046,
+        "verifier": "deterministic26"
+      }
+    ],
+    "t09_controle_signal_references": [
+      {
+        "returncode": 0,
+        "status": "PASS",
+        "checks": [
+          {
+            "path": "/archive_sha256",
+            "expected": "624ad5a028b074057e461d56723f5435096a94694d8db3142924e58010049c1d",
+            "actual": "624ad5a028b074057e461d56723f5435096a94694d8db3142924e58010049c1d",
+            "pass": true
+          },
+          {
+            "path": "/valid_zip",
+            "expected": true,
+            "actual": true,
+            "pass": true
+          },
+          {
+            "path": "/wav_files",
+            "expected": 14,
+            "actual": 14,
+            "pass": true
+          },
+          {
+            "path": "/files/0/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/0/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/0/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/0/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/1/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/1/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/1/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/1/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/10/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/10/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/10/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/10/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/11/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/11/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/11/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/11/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/12/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/12/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/12/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/12/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/13/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/13/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/13/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/13/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/2/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/2/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/2/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/2/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/3/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/3/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/3/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/3/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/4/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/4/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/4/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/4/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/5/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/5/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/5/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/5/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/6/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/6/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/6/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/6/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/7/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/7/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/7/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/7/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/8/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/8/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/8/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/8/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/9/full_scale_samples",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/9/pcm_bit_rate_bps",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/files/9/peak_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/files/9/rms_dbfs",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/full_scale_samples_total",
+            "type": "integer",
+            "pass": true
+          },
+          {
+            "path": "/mean_duration_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/total_duration_s",
+            "type": "number",
+            "pass": true
+          },
+          {
+            "path": "/wav_bytes_total",
+            "type": "integer",
+            "pass": true
+          }
+        ],
+        "sha256": "afa2403934ea6b9f9dcb3768028453809156d25638e2dd50382a9e08f5747e0e",
+        "contract": {
+          "expected": {
+            "/archive_sha256": "624ad5a028b074057e461d56723f5435096a94694d8db3142924e58010049c1d",
+            "/valid_zip": true,
+            "/wav_files": 14
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "archive_inventory",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/files/0/full_scale_samples": "integer",
+            "/files/0/pcm_bit_rate_bps": "integer",
+            "/files/0/peak_dbfs": "number",
+            "/files/0/rms_dbfs": "number",
+            "/files/1/full_scale_samples": "integer",
+            "/files/1/pcm_bit_rate_bps": "integer",
+            "/files/1/peak_dbfs": "number",
+            "/files/1/rms_dbfs": "number",
+            "/files/10/full_scale_samples": "integer",
+            "/files/10/pcm_bit_rate_bps": "integer",
+            "/files/10/peak_dbfs": "number",
+            "/files/10/rms_dbfs": "number",
+            "/files/11/full_scale_samples": "integer",
+            "/files/11/pcm_bit_rate_bps": "integer",
+            "/files/11/peak_dbfs": "number",
+            "/files/11/rms_dbfs": "number",
+            "/files/12/full_scale_samples": "integer",
+            "/files/12/pcm_bit_rate_bps": "integer",
+            "/files/12/peak_dbfs": "number",
+            "/files/12/rms_dbfs": "number",
+            "/files/13/full_scale_samples": "integer",
+            "/files/13/pcm_bit_rate_bps": "integer",
+            "/files/13/peak_dbfs": "number",
+            "/files/13/rms_dbfs": "number",
+            "/files/2/full_scale_samples": "integer",
+            "/files/2/pcm_bit_rate_bps": "integer",
+            "/files/2/peak_dbfs": "number",
+            "/files/2/rms_dbfs": "number",
+            "/files/3/full_scale_samples": "integer",
+            "/files/3/pcm_bit_rate_bps": "integer",
+            "/files/3/peak_dbfs": "number",
+            "/files/3/rms_dbfs": "number",
+            "/files/4/full_scale_samples": "integer",
+            "/files/4/pcm_bit_rate_bps": "integer",
+            "/files/4/peak_dbfs": "number",
+            "/files/4/rms_dbfs": "number",
+            "/files/5/full_scale_samples": "integer",
+            "/files/5/pcm_bit_rate_bps": "integer",
+            "/files/5/peak_dbfs": "number",
+            "/files/5/rms_dbfs": "number",
+            "/files/6/full_scale_samples": "integer",
+            "/files/6/pcm_bit_rate_bps": "integer",
+            "/files/6/peak_dbfs": "number",
+            "/files/6/rms_dbfs": "number",
+            "/files/7/full_scale_samples": "integer",
+            "/files/7/pcm_bit_rate_bps": "integer",
+            "/files/7/peak_dbfs": "number",
+            "/files/7/rms_dbfs": "number",
+            "/files/8/full_scale_samples": "integer",
+            "/files/8/pcm_bit_rate_bps": "integer",
+            "/files/8/peak_dbfs": "number",
+            "/files/8/rms_dbfs": "number",
+            "/files/9/full_scale_samples": "integer",
+            "/files/9/pcm_bit_rate_bps": "integer",
+            "/files/9/peak_dbfs": "number",
+            "/files/9/rms_dbfs": "number",
+            "/full_scale_samples_total": "integer",
+            "/mean_duration_s": "number",
+            "/total_duration_s": "number",
+            "/wav_bytes_total": "integer"
+          }
+        },
+        "observations": [
+          {
+            "invocation": null,
+            "broker_evidence": "b932d32d535d47efa17b0e6b1852eb5a",
+            "tool": "host_remote",
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "archive_inventory",
+              "project": "tts-01"
+            }
+          }
+        ],
+        "observed_at": 1792836267.4854393,
+        "verifier": "deterministic26"
+      }
+    ],
+    "audio_api_browser": {
+      "observer": "Codex independent actual generated files, not fixtures",
+      "observed_at": 1792835774.1293497,
+      "files": [
+        {
+          "file": "accueil.wav",
+          "path": "/var/lib/jarvis/projects/tts-01/audio/accueil.wav",
+          "bytes": 295724,
+          "sha256": "322cce3ae6ae5d6f737814218a3e997a3a05f70706cf93f7aca7397a885ee5d1",
+          "rate_hz": 24000,
+          "channels": 1,
+          "duration_s": 6.16,
+          "rms_pcm16": 2703.3993615112186,
+          "fullscale_fraction": 0.0,
+          "http_status": 200,
+          "mime": "audio/wav",
+          "served_bytes_identical": true,
+          "authenticated_chromium_playback": {
+            "duration_s": 6.16,
+            "ended": true,
+            "readyState": 4
+          }
+        },
+        {
+          "file": "diagnostic.wav",
+          "path": "/var/lib/jarvis/projects/tts-01/audio/diagnostic.wav",
+          "bytes": 395564,
+          "sha256": "e85f3e5a3ccc91a089d3dce52bd5c5e586ddaca0843a66fd653d494784ca34da",
+          "rate_hz": 24000,
+          "channels": 1,
+          "duration_s": 8.24,
+          "rms_pcm16": 2976.881322508161,
+          "fullscale_fraction": 0.0,
+          "http_status": 200,
+          "mime": "audio/wav",
+          "served_bytes_identical": true,
+          "authenticated_chromium_playback": {
+            "duration_s": 8.24,
+            "ended": true,
+            "readyState": 4
+          }
+        },
+        {
+          "file": "conversation.wav",
+          "path": "/var/lib/jarvis/projects/tts-01/audio/conversation.wav",
+          "bytes": 364844,
+          "sha256": "544f0dc972b1b631ba525482b75dbed7cb56da5af793f3339500437c6034f895",
+          "rate_hz": 24000,
+          "channels": 1,
+          "duration_s": 7.6,
+          "rms_pcm16": 2617.085811458897,
+          "fullscale_fraction": 0.0,
+          "http_status": 200,
+          "mime": "audio/wav",
+          "served_bytes_identical": true,
+          "authenticated_chromium_playback": {
+            "duration_s": 7.6,
+            "ended": true,
+            "readyState": 4
+          }
+        }
+      ],
+      "unauthenticated_status": 401,
+      "scope": "Actual generated WAV decoding and authenticated playback; muted browser, no physical loudspeaker or aesthetic evaluation claimed."
+    },
+    "speech": {
+      "observer": "Codex-independent local speech recognition",
+      "model": "whisper-small existing offline CPU int8, 2 threads",
+      "observed_at": 1792835783.2993498,
+      "load_s": 0.7678958149626851,
+      "scope": "Checks spoken content; no physical listening or aesthetic rating",
+      "records": [
+        {
+          "file": "accueil.wav",
+          "sha256": "322cce3ae6ae5d6f737814218a3e997a3a05f70706cf93f7aca7397a885ee5d1",
+          "transcript": "Bonsoir, monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions.",
+          "language": "fr",
+          "duration_s": 6.16,
+          "transcription_s": 2.6777385820169,
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 6.16,
+              "text": " Bonsoir, monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions."
+            }
+          ]
+        },
+        {
+          "file": "diagnostic.wav",
+          "sha256": "e85f3e5a3ccc91a089d3dce52bd5c5e586ddaca0843a66fd653d494784ca34da",
+          "transcript": "L'analyse du serveur est terminée, le processeur graphique fonctionne normalement et les services de communication sont disponibles.",
+          "language": "fr",
+          "duration_s": 8.24,
+          "transcription_s": 2.8961655129678547,
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 5.32,
+              "text": " L'analyse du serveur est terminée, le processeur graphique fonctionne normalement"
+            },
+            {
+              "start": 5.32,
+              "end": 8.2,
+              "text": " et les services de communication sont disponibles."
+            }
+          ]
+        },
+        {
+          "file": "conversation.wav",
+          "sha256": "544f0dc972b1b631ba525482b75dbed7cb56da5af793f3339500437c6034f895",
+          "transcript": "J'ai examiné votre demande. Plusieurs solutions sont envisageables. Souhaitez-vous que je vous présente celle qui me paraît la plus efficace ?",
+          "language": "fr",
+          "duration_s": 7.6,
+          "transcription_s": 2.823334492975846,
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 4.26,
+              "text": " J'ai examiné votre demande. Plusieurs solutions sont envisageables."
+            },
+            {
+              "start": 4.26,
+              "end": 7.640000000000001,
+              "text": " Souhaitez-vous que je vous présente celle qui me paraît la plus efficace ?"
+            }
+          ]
+        }
+      ]
+    },
+    "generation_invocation": "28bab9ea96de407c81990c80e872d80c",
+    "generation_actor": "JARVIS directed continuation, coordinated by Codex"
+  },
+  "reports": "Human-equivalent operator documentary review by Codex; not automatic narrative verifier PASS"
+}

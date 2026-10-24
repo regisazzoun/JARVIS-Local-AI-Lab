@@ -1,0 +1,30 @@
+{
+  "actor": "Codex independent script read/download, source authored by JARVIS",
+  "created": 1792836124.169214,
+  "files": [
+    {
+      "receipt": "e3642023d29345b8b5cda5b0a11699e6",
+      "returncode": 0,
+      "path": "/var/lib/jarvis/projects/tts-01/lancer_tts.sh",
+      "sha256": "f891b5e2c8c45417e219e82d4a55fadf2a2c21ac3b2a09a5b95a4ddc3ac072a1",
+      "bytes": 203
+    },
+    {
+      "receipt": "c62a3878d51d4ea195bb6928b044e892",
+      "returncode": 0,
+      "path": "/var/lib/jarvis/projects/tts-01/desinstaller_tts.sh",
+      "sha256": "6c9f90ad288c5e25b135aa15f311b81beb31a8666dbe1d29ff039956d08aa994",
+      "bytes": 304
+    }
+  ],
+  "independent_syntax": {
+    "receipt": "704ea37d56dc4c80ab5a7897e8fd724a",
+    "returncode": 0,
+    "stdout": "{\"launch_syntax_ok\": true, \"uninstall_syntax_ok\": true}\n",
+    "stderr": "",
+    "timeout": false,
+    "duration_s": 0.366,
+    "stdout_truncated": false,
+    "stderr_truncated": false
+  }
+}
