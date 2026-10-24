@@ -161,3 +161,8 @@ Codex coordonne et vérifie ; JARVIS exécute les observations/calculs via les o
 ## Mission28A — clôture propriétaire du24 octobre2026
 
 Le propriétaire demande la clôture en l’état et retient `qwen3-coder-next:q4_K_M` (80B) pour les missions Dell1, choix déjà effectif. Conserver `qwen3.5:27b-q4_K_M` pour la conversation sur Mac.28A est **🟡 clôturée incomplète** : infrastructure acquise, réception agentique/programme/rapports non entièrement reçue. Interrompre les deux essais persistants et leurs publications erronées, conserver toutes les preuves et validations ; aucun nouveau test ni reprise automatique. Les tests seront relancés ultérieurement sur instruction distincte. Ne pas clôturer14A ni lancer24-Old/TTS-01/Dell2. Codex publie la clôture sur la branche de mission et la PR25, sans fusion main. [Rapport28A](missions/28A/RAPPORT-FINAL.md).
+
+
+## TTS-01 — nouvelle reprise propriétaire du24 octobre2026
+
+Le propriétaire relance intégralement TTS-01 après la clôture28A. Réutiliser la mission8bd3e5b316a94021b5183e0db26d6efc, les deux tâches reçues, le venv TTS et les archives privées. JARVIS exécute avec le80B Dell désormais retenu ; Codex coordonne, corrige l’infrastructure et vérifie. Autorisation autonome complète sans validation intermédiaire, sans réinstallation du système. La libération temporaire de résidence Ollama pour une fenêtre GPU TTS ne remplace pas le modèle par défaut et n’arrête pas le service. Conserver27B conversation Mac/Piper/LiveKit/JL-01/JL-02 ; aucun clonage de Philippe Faure ni publication des films.28A et26B restent clôturées incomplètes ;14A/24-Old/Dell2 non lancés. [Reprise TTS](missions/TTS-01/REPRISE-2026-10-24.md).

@@ -15,6 +15,27 @@ from jarvis.verification import Verifier,validate_contract
 
 
 class FixedIndependentProbes(unittest.TestCase):
+    def test_sample_probe_rejects_silence_wrong_text_and_false_duration(self):
+        # Synthetic PCM is a verifier fixture, never a TTS reception sample.
+        import array,os,contextlib
+        texts=["Bonsoir monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions.","L'analyse du serveur est terminée. Le processeur graphique fonctionne normalement et les services de communication sont disponibles.","J'ai examiné votre demande. Plusieurs solutions sont envisageables. Souhaitez-vous que je vous présente celle qui me paraît la plus efficace ?"]
+        for mutation in ('none','silence','text','duration'):
+            with self.subTest(mutation=mutation),tempfile.TemporaryDirectory() as temp:
+                root=Path(temp);(root/'generated').mkdir();rows=[]
+                for name,text in zip(['accueil.wav','diagnostic.wav','conversation.wav'],texts):
+                    with wave.open(str(root/'generated'/name),'wb') as w:
+                        w.setparams((1,2,8000,0,'NONE','not compressed'));w.writeframes(array.array('h',[0 if mutation=='silence' else 1000]*8000).tobytes())
+                    rows.append({'file':name,'text':text,'t_gen_s':.2,'load_time_s':1,'duree_audio_s':1,'rtf':.2,'engine_version':'fixture','model_id':'Qwen/fixture','speaker':'Ryan'})
+                if mutation=='text':rows[0]['text']='Wrong words'
+                if mutation=='duration':rows[0]['duree_audio_s']=2
+                (root/'generated/MESURES_PERFORMANCES.json').write_text(json.dumps({'samples':rows}))
+                old=os.getcwd();output=io.StringIO()
+                try:
+                    os.chdir(root)
+                    with patch('importlib.metadata.version',return_value='fixture'),contextlib.redirect_stdout(output):exec(compile(PROBES['tts_samples'][1],'fixed-test-probe','exec'),{})
+                finally:os.chdir(old)
+                self.assertEqual(json.loads(output.getvalue())['pass'],mutation=='none')
+
     def test_project_probe_is_accepted_but_arbitrary_execution_is_not(self):
         class Registry:
             def execute(self,name,args):

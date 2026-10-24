@@ -211,6 +211,21 @@ class HybridRouter:
         finally:stop.set();thread.join(timeout=1)
 
 
+def release_resident_models(router,node):
+    """Release mission-instance VRAM inside its held queue reservation."""
+    url=node['url'].rstrip('/')
+    names=[m['name'] for m in router.fetch(url+'/api/ps').get('models',[])]
+    for name in names:
+        request=urllib.request.Request(url+'/api/generate',data=json.dumps(
+            {'model':name,'keep_alive':0,'stream':False}).encode(),headers={'Content-Type':'application/json'})
+        with urllib.request.urlopen(request,timeout=30) as response:
+            result=json.load(response)
+            if result.get('error'):raise ResourceUnavailable(result['error'])
+    after=router.fetch(url+'/api/ps')
+    if after.get('models'):raise ResourceUnavailable('Mission runner still resident; TTS command not started')
+    return names
+
+
 def register(registry):
     if not registry.config.get('hybrid_compute'):return
     router=HybridRouter(registry.config['hybrid_compute'],registry.root/'runtime/missions.sqlite')
@@ -248,3 +263,26 @@ def register(registry):
             router.queue.finish(ident,error=str(exc));raise
         finally:stop.set();thread.join(timeout=1)
     registry.specs['compute_benchmark']=('Exécuter le screening réel des candidats installés sur Dell1. Réserve sa file GPU canonique pendant le programme afin que les autres inférences ne perturbent pas les mesures ; les demandes critiques gardent le repli local. Appelle le project_exec existant avec programme/artefact fixes ; chaque cas est checkpointé et les reprises gardent les réponses déjà mesurées. models tableau de tags exacts. Ensuite project_download du fichier quality-comparative.json et vérification de son contenu. Les scores ne prouvent pas une autonomie générale.',{'models':{'type':'array','minItems':1,'maxItems':4,'items':{'type':'string','enum':['qwen3.5:27b-q4_K_M','qwen3:32b-q4_K_M','llama3.3:70b-instruct-q4_K_M','qwen3-coder-next:q4_K_M']}}},['models'],'host_authorized',benchmark)
+    def project_gpu(args):
+        mission=registry.context.get('mission_id')
+        if not mission or args['project']!='tts-01':raise ValueError('GPU project reservation requires the authorized durable TTS-01 mission')
+        name,node,model,_=router.select('mission')
+        if name!='Dell1':raise ResourceUnavailable('TTS project is deployed only on Dell1')
+        ident=router.queue.enter(name,'project:'+args['project'],'mission',mission)
+        stop=threading.Event()
+        def heartbeat():
+            while not stop.wait(5):router.queue.heartbeat(ident)
+        thread=threading.Thread(target=heartbeat,daemon=True);thread.start()
+        started=time.monotonic();store=getattr(registry,'mission_store',None);token=None
+        try:
+            released=release_resident_models(router,node)
+            params={'host':node['host_profile'],'action':'project_exec','project':args['project'],'command':args['command']}
+            if store:token=store.begin_call(mission,registry.context.get('task_id'),'host_remote',params)
+            result=registry.execute('host_remote',params)
+            if token:store.finish_call(token,result,time.monotonic()-started)
+            router.queue.finish(ident,{'tool':'compute_project_gpu','released_models':released},error=None if result.get('ok') else str(result.get('error','Project command failed')))
+            return {'returncode':0 if result.get('ok') else 1,'node':name,'compute_job':ident,'native_invocation':token,'released_models':released,'observed_receipt':result,'scope':'Queue reservation and mission-runner unload only; native broker policy still controls execution. Services and model files retained.'}
+        except BaseException as exc:
+            router.queue.finish(ident,error=str(exc));raise
+        finally:stop.set();thread.join(timeout=1)
+    registry.specs['compute_project_gpu']=('Exécuter une commande GPU réelle dans le projet Dell tts-01 en réservant la file existante. Libère la VRAM du modèle résident de l’instance Ollama missions, sans arrêter le service ni supprimer le modèle. Le80B reste le choix mission et sera rechargé au prochain appel. Empêche une inférence concurrente de recharger les poids pendant la synthèse; conversation Mac préservée. Appelle host_remote/project_exec existant avec reçu natif. Écritures persistantes uniquement sous /opt/jarvis-lab/tts-01; commande synchrone, pas de tâche détachée. Utiliser pour la génération GPU après préparation du script.',{'project':{'type':'string','enum':['tts-01']},'command':{'type':'string','minLength':1,'maxLength':16000}},['project','command'],'host_authorized',project_gpu)
