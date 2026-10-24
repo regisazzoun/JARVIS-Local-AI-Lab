@@ -1,0 +1,78 @@
+{
+  "observer": "Codex-independent",
+  "created": 1792786600.892632,
+  "rows": [
+    {
+      "invocation": "73d70eeec03f48b081d3ee111037a038",
+      "broker_evidence": "151737668c3e43d7a4b78b58be79a3dd",
+      "tool": "host_remote",
+      "operation": "host_remote",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "9077b6d1d5824f38868e9004d18d0563",
+      "broker_evidence": "c0376286d69541ab801bdaa859f2cbd5",
+      "tool": "host_remote",
+      "operation": "host_remote",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "101015380edd46d8aa474e295eb1b350",
+      "broker_evidence": "0ff6d88f62bc45eba2ac633302d53d7c",
+      "tool": "host_read_file",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "fe32d2d16f134cacb589e6809f3697a3",
+      "broker_evidence": "7e0bfcd412dc4eaba3348194e87f5e0f",
+      "tool": "host_read_file",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "90034cb08ed4451fb19c7d0f0517372f",
+      "broker_evidence": "d78490ca02ea496ab4a3c253936c78f5",
+      "tool": "host_read_file",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "5c193c9257914926b62e9e5dcbc86658",
+      "broker_evidence": "69277cfaf5ed4223b237f036ad05243a",
+      "tool": "host_read_file",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": false
+    },
+    {
+      "invocation": "4fb27ebcdf3843b8946e4bc5e02664dc",
+      "broker_evidence": "be342940e386454f9512d53476b8a3db",
+      "tool": "host_read_file",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "962e9419b3c24ef7b7201948c5ccd184",
+      "broker_evidence": "40cbc845d7ea4afa86abfbb03cd0c621",
+      "tool": "host_read_file",
+      "operation": "host_read_file",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    },
+    {
+      "invocation": "c8166891a09b4486baa5f1f9a36704d6",
+      "broker_evidence": "eb7ca12bf22940fea4519999b841c3f9",
+      "tool": "host_remote",
+      "operation": "host_remote",
+      "caller": "JARVIS-runtime",
+      "ok": true
+    }
+  ]
+}

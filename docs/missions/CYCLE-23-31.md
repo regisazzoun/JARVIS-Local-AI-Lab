@@ -1,3 +1,11 @@
+## Mission 28A — clôture propriétaire du 24 octobre 2026
+
+🟡 **Clôturée incomplète en l’état.** Le propriétaire retient **Qwen3-Coder-Next80B pour les missions Dell1**, avec **Qwen3.5 27B conversationnel sur Mac**. Le cœur hybride reste installé ; six étapes principales sont validées. La réception du programme échoue encore sur quatre variantes et les rapports conservent des erreurs : ces réserves restent ouvertes. Les deux exécutions sont interrompues et la publication erronée est neutralisée ; nouveaux tests différés sans reprise automatique.238tests logiciels réussis, distincts de l’autonomie. [Clôture](28A/RAPPORT-FINAL.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25).14A/24-Old/TTS/Dell2 non lancés.
+
+## Actualisation28A — réception agentique en cours,23 octobre2026
+
+🟡 Modèle Dell retenu Qwen3-Coder-Next80B sur comparaison réelle JARVIS ;27B conversationnel conservé sur Mac. Routage, priorité/repli, quotas et profil court699,37W reçus dans leur portée. Deux workers partagent le moteur canonique ; APIlocale0,828–0,961s pendant deux missions running.237tests logiciels. Le programme JARVIS et sa restitution sont encore en réception avec FAIL et errata conservés. [Réception suivie](28A/RAPPORT-FINAL.md).14A distincte non lancée ;26B clôturée incomplète,24-Old/TTS/Dell2 non repris.
+
 ## Actualisation28A — exécution reprise le23 octobre2026
 
 🟡28A est lancée et reprise depuis ses checkpoints :27B conversationnel conservé sur Mac,32B éprouvé,70B et nouveau candidat80B installés. Contrôles indépendants du routage/priorité/repli et des profils GPU reçus ; comparatif et recette finale en cours.226tests logiciels passent. [État technique](28A/ARCHITECTURE-HYBRIDE.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25). Les mentions préparatoires ci-dessous restent historiques ;14A,24-Old,TTS et Dell2 ne sont pas lancés par cette reprise.

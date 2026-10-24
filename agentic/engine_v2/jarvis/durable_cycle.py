@@ -228,7 +228,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
 '''
         if assured: instructions=instructions.replace("26b.1",VERSION)
         observations = store.observations(ident)
-        notes = [{'actor':e['actor'],'created':e['created'],'working_note_not_verified_fact':e['result']} for e in store.events(ident, max(0, self._last_event(ident)-100)) if e['kind'] in ('working_note','model_checkpoint')][-5:]
+        task_observations=[o for o in observations if task_id is None or o['task']==task_id]
+        notes = [{'actor':e['actor'],'created':e['created'],'working_note_not_verified_fact':e['result']} for e in store.events(ident, max(0, self._last_event(ident)-100)) if e['kind'] in ('working_note','model_checkpoint') and (task_id is None or e['task'] in (None,task_id))][-5:]
         def brief(observation):
             args=dict(observation['arguments'])
             if 'content' in args:
@@ -246,7 +247,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
         if scoped:base[1]['content']=encoded(focused_state(json.loads(base[1]['content'])))
-        ledger=[brief(o) for o in observations[-16:]]
+        ledger=[brief(o) for o in task_observations[-16:]]
         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]
         with store.db() as c:
             saved=c.execute('SELECT task,messages FROM mission_context WHERE mission=?',(ident,)).fetchone()
@@ -306,7 +307,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(schemas)) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
-                current_observations=store.observations(ident)[-16:]
+                current_observations=store.observations(ident,task_id)[-16:]
                 available=max(2000,context_chars-len(encoded(base))-1000)
                 latest=compact_observations([brief(o) for o in current_observations],(current_observations[-1].get('result') or {}) if current_observations else {},available)
                 store.event(ident,'context_compacted',task_id,'JARVIS-engine',result={'previous_chars':len(encoded(messages)),'budget_chars':context_chars,'base_chars':len(encoded(base)),'checkpoint_chars':len(encoded(latest)),'latest_invocation':current_observations[-1]['id'] if current_observations else None,'latest_structured_result_retained':True})
@@ -404,7 +405,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if report and current and all(t['state'] == 'validated' for t in current):
                     return {'progress': True, 'report': report}
         recent=store.observations(ident)[before:]
-        old_signatures={signature(o['tool'],o['arguments']) for o in observations if (o['result'] or {}).get('ok')}
+        old_signatures={signature(o['tool'],o['arguments']) for o in task_observations if (o['result'] or {}).get('ok')}
         meaningful=any((o['result'] or {}).get('ok') and o['tool'] not in ('host_policy','mission_progress','mission_note','mission_evidence') and signature(o['tool'],o['arguments']) not in old_signatures for o in recent)
         return {'progress': meaningful, 'report': report}
 

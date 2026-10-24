@@ -1,5 +1,7 @@
 # Ordonnancement installé
 
+> Décision propriétaire du24 octobre2026 : mission clôturée incomplète,80B conservé pour les missions Dell,27B conversationnel sur Mac. Les états «en cours» ci-dessous documentent les essais antérieurs ; leurs critères non reçus sont différés, sans relance automatique. Le RAPPORT-FINAL.md de clôture prévaut.
+
 Les appels du modèle passent par `jarvis/compute.py`. La file `compute_jobs` est dans le SQLite canonique des missions : un appel actif par nœud, priorité0 pour conversation/demande critique et10 pour mission, ordre d’arrivée à priorité égale. Les baux sont renouvelés pendant l’inférence ; la reprise d’un bail d’inférence perdu ne relance jamais une mutation d’outil.
 
 Une conversation utilise le27B du Mac. Une mission utilise un nœud Dell éligible, selon disponibilité, catalogue, enveloppe mémoire et charge de sa file. Le Dell2 désactivé ne provoque aucune requête réseau. Une demande critique vise le Dell puis se replie sur le même27B local après impossibilité d’admission ou attente bornée ; une mission indisponible conserve son checkpoint.

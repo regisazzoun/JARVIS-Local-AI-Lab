@@ -1,5 +1,7 @@
 # Comparatif mesuré des modèles Dell
 
+> Décision propriétaire du24 octobre2026 : mission clôturée incomplète,80B conservé pour les missions Dell,27B conversationnel sur Mac. Les états «en cours» ci-dessous documentent les essais antérieurs ; leurs critères non reçus sont différés, sans relance automatique. Le RAPPORT-FINAL.md de clôture prévaut.
+
 État : modèle80B retenu pour la recette opérationnelle, encore en cours. Les mesures sont des inférences réelles déclenchées par JARVIS via compute_benchmark, avec réservation de la file canonique. Le programme et son juge sont Codex. Trois modèles ont chacun reçu les mêmes six prompts, contexte4096, température0, seed7,768tokens maximum. Le32B conserve ses six réponses précédentes avec juge rectifié, sans nouvelle inférence.
 
 | Modèle | Score brut | Débit médian tokens/s | Chargement du premier appel(s) | MémoireVRAM totale déclarée par Ollama(Gio) |
@@ -21,3 +23,11 @@ Le juge brut refuse coverage pour les quatre modèles, car il exige la vérifica
 Les deux cartes sont effectivement utilisées par le80B. Au contexte opérationnel24576, une lecture indépendante montre environ23044MiB et22968MiB utilisés. Le journal annonce49/49couches sur GPU, des buffersCUDA0/1et un buffer CPU_Mapped6511,19MiB. L’API indique une empreinte totale supérieure à size_vram. Il existe donc un mappageCPU/RAM ; il ne faut pas présenter cela comme des couchesCPU partiellement déchargées puisque le journal indique toutes les couches sur GPU. La taille du mappage n’est pas une mesure de RAM physique résidente exclusive au modèle. Le Dell conserve sa DDR4 existante ; aucune DDR5 n’est installée.
 
 Les mesures applicatives à24576tokens diffèrent du screening4096 et sont documentées avec la recette. La conversation27B reste sur Mac ; les changements de contexte internes sont stabilisés pour éviter le rechargement répété du runner.
+
+## Pilote réel de mission
+
+Une extraction indépendante intermédiaire de56inférences durables du80B au profil24576donne83,53tokens/s médians et36,99s de durée de requête médiane, hors attente éventuelle de file. Ce protocole utilise le contexte et les outils du moteur ; il est distinct du screening4096. Un débit élevé n’efface pas les erreurs de paramètres ni les rappels nécessaires constatés pendant E. Les identifiants de jobs, tailles de prompt, attentes et durées restent dans actual-agent-inference-metrics.json.
+
+## Sources de sélection
+
+Sources primaires consultées par Codex : [fiche Qwen3-Coder-Next](https://huggingface.co/Qwen/Qwen3-Coder-Next) et [tag Ollama Q4_K_M](https://ollama.com/library/qwen3-coder-next:q4_K_M). Elles décrivent l’architecture80B/3Bactifs et les capacités annoncées ; seuls les JSON d’essais et les journaux du laboratoire fondent les performances et la réception locales. Le moteur est non thinking ; le routeur retire le paramètre think pour ce candidat.

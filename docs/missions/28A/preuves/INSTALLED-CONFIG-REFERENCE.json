@@ -1,0 +1,28 @@
+{
+  "private_runtime_config": "/opt/jarvis/conversation/config/13e.json",
+  "public_parameters": {
+    "conversation_model": "qwen3.5:27b-q4_K_M",
+    "mission_model": "qwen3-coder-next:q4_K_M",
+    "fixed_context_tokens": {
+      "Mac-mini": 16384,
+      "Dell1": 24576
+    },
+    "critical_queue_timeout_s": 2,
+    "background_cpu_quota_percent": 900,
+    "interactive_background_cpu_quota_percent": 300,
+    "logical_threads": 12,
+    "background_memory_high": "4G",
+    "background_memory_max": "8G",
+    "interactive_parent_memory_low": "20G",
+    "worker_slots": [
+      1,
+      2
+    ],
+    "publisher_slot": 1,
+    "Dell1_ollama_mission_port": 11435,
+    "Dell1_ollama_historical_port": 11434,
+    "Dell2_enabled": false
+  },
+  "secrets_and_host_addresses": "Excluded; persistent owner policy retained",
+  "source_files": "operations/mission28a and agentic/engine_v2; installed-source-manifest.json checks deployment"
+}

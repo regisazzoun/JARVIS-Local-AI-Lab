@@ -1,5 +1,7 @@
 # Architecture28A — déploiement en cours
 
+> Décision propriétaire du24 octobre2026 : mission clôturée incomplète,80B conservé pour les missions Dell,27B conversationnel sur Mac. Les états «en cours» ci-dessous documentent les essais antérieurs ; leurs critères non reçus sont différés, sans relance automatique. Le RAPPORT-FINAL.md de clôture prévaut.
+
 🟡 Mission en cours, pas de réception finale. Branche `codex/mission-28a-routage-modeles`, base préparatoire `ac2b0cb`. Les réceptions précédentes et la décision propriétaire sur le raccordement électrique restent acquises dans leur périmètre.
 
 Le modèle conversationnel reste `qwen3.5:27b-q4_K_M`, réellement exécuté sur le Mac mini et son GPU externe. Le routeur `jarvis/compute.py` choisit le Mac pour la conversation et le Dell1 pour les missions ; les demandes critiques peuvent utiliser le Dell avec repli vers le même27B local. Le Dell utilise une instance Ollama expérimentale distincte, port11435, partageant son catalogue existant et exposant les deux GPU. L’instance historique11434 reste conservée. Après essais réels déclenchés par JARVIS, le moteur mission retenu est `qwen3-coder-next:q4_K_M` (80B MoE, environ3B actifs). Les scores bruts sur six cas sont27B4/6,32B3/6,70B2/6,80B5/6 ; le cas coverage est ambigu et reste non concluant pour une aptitude globale. Voir [comparatif](MODELES-DELL-COMPARATIF.md). Le80B utilise les deux cartes et49/49couches GPU ; les buffers CPU mappés ne prouvent pas un offload de couches sur CPU.

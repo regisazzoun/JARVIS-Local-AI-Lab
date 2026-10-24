@@ -2134,15 +2134,19 @@
       {
         "path": "docs/missions/28A/ORDONNANCEUR.md",
         "url": ""
+      },
+      {
+        "path": "docs/missions/28A/RAPPORT-FINAL.md",
+        "url": ""
       }
     ],
-    "etat": "🟡 En cours",
-    "resultats_prouves": "27B local ; scores27/32/70/80B=4/3/2/5sur6 ; pilote80B effectif ; priorité/repli/quotas ;699,37Wcourt et retour250W/carte ; deux missions running et APIlocale0,828–0,961s ;237tests logiciels",
-    "reserves": "Réception du programme et rapports JARVIS encore en cours ; cas coverage ambigu ; pas de tenue700W prolongée ni Dell2 réel",
+    "etat": "🟡 Clôturée incomplète sur décision propriétaire",
+    "resultats_prouves": "27B conversation Mac ;80B retenu pour missions Dell ; scores27/32/70/80=4/3/2/5sur6, couverture ambiguë ; routage/quotas/priorité/repli reçus ;699,37Wcourt et retour250W ;238tests logiciels",
+    "reserves": "Programme FAIL4/4: model_count3au lieu4 et chemins d’entrée ignorés ; restitution audit incorrecte malgré JSON validé ; réception E/F non acquise ; pas de tenue700W prolongée ni Dell2 réel",
     "dependances": "Acquis13/13D-E/25/26/26B préservés ;14A distincte non lancée",
-    "prochaine_action": "JARVIS corrige son programme puis contrôle varié, skill et rapport final, réception indépendante et publication",
+    "prochaine_action": "Tests différés à une instruction ultérieure ; aucune reprise automatique",
     "mission_id": "59830a3414a243c198c53e5624a286a3",
-    "derniere_actualisation": "2026-10-23",
+    "derniere_actualisation": "2026-10-24",
     "pull_request": 25
   }
 ]

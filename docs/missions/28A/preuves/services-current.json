@@ -1,0 +1,157 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792786560.15108,
+  "services": {
+    "jarvis-conversation.service": "active",
+    "jarvis-mission-worker.service": "active",
+    "jarvis-mission-worker@2.service": "active",
+    "jarvis-resource-watchdog.service": "active",
+    "jarvis-ollama.service": "active"
+  },
+  "observations": {
+    "hybrid_resources": {
+      "ok": true,
+      "broker_evidence": "6253e5f7ede04576a9dd8a5e3ab6a543",
+      "observed": {
+        "captured_at": 1792786558.4893308,
+        "memory_total_bytes": 269958471680,
+        "memory_available_bytes": 256818614272,
+        "cpu_threads": 36,
+        "load1": 5.75634765625,
+        "gpu": [
+          {
+            "index": 0.0,
+            "total_mib": 24576.0,
+            "free_mib": 1207.0,
+            "utilization_percent": 59.0,
+            "temperature_c": 63.0,
+            "power_w": 184.85
+          },
+          {
+            "index": 1.0,
+            "total_mib": 24576.0,
+            "free_mib": 1281.0,
+            "utilization_percent": 12.0,
+            "temperature_c": 77.0,
+            "power_w": 178.85
+          }
+        ]
+      },
+      "caller": null
+    },
+    "hybrid_catalogue": {
+      "ok": true,
+      "broker_evidence": "2243edf6df4e4344861b9e1177d72e19",
+      "observed": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+            "size": 51741611823
+          },
+          {
+            "name": "qwen3:32b-q4_K_M",
+            "digest": "030ee887880fc378860c2dd35101da424377520441ae4bfe7be6deff8ade7840",
+            "size": 20201253829
+          },
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+            "size": 42520413916
+          },
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+            "size": 17478556591
+          },
+          {
+            "name": "ministral-3:14b-instruct-2512-q4_K_M",
+            "digest": "4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7",
+            "size": 9082537546
+          },
+          {
+            "name": "llama3.1:8b",
+            "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+            "size": 4920753328
+          }
+        ],
+        "model_count": 6,
+        "installed": {
+          "qwen3:32b-q4_K_M": true,
+          "llama3.3:70b-instruct-q4_K_M": true,
+          "qwen3.5:27b-q4_K_M": true,
+          "qwen3-coder-next:q4_K_M": true
+        }
+      },
+      "caller": null
+    },
+    "hybrid_gpu_status": {
+      "ok": true,
+      "broker_evidence": "59f2aa00da7f43618f63c3c1e08b6ab0",
+      "observed": {
+        "current": {
+          "profile": "balanced",
+          "limit_per_gpu_w": 250,
+          "changed_at": 1792763567.2109516,
+          "observed": {
+            "at_unix": 1792763567.2106311,
+            "gpu": [
+              {
+                "index": 0.0,
+                "power_w": 133.65,
+                "limit_w": 250.0,
+                "temperature_c": 52.0,
+                "clock_mhz": 345.0,
+                "gpu_percent": 0.0,
+                "vram_mib": 11.0,
+                "pcie_gen": 3.0,
+                "pcie_width": 16.0
+              },
+              {
+                "index": 1.0,
+                "power_w": 75.13,
+                "limit_w": 250.0,
+                "temperature_c": 51.0,
+                "clock_mhz": 315.0,
+                "gpu_percent": 0.0,
+                "vram_mib": 52.0,
+                "pcie_gen": 3.0,
+                "pcie_width": 8.0
+              }
+            ]
+          },
+          "last_burst": "/var/lib/jarvis-gpu-profiles/burst-1792763566977008687.json"
+        },
+        "observed": {
+          "at_unix": 1792786560.032988,
+          "gpu": [
+            {
+              "index": 0.0,
+              "power_w": 179.93,
+              "limit_w": 250.0,
+              "temperature_c": 63.0,
+              "clock_mhz": 1950.0,
+              "gpu_percent": 54.0,
+              "vram_mib": 23046.0,
+              "pcie_gen": 3.0,
+              "pcie_width": 16.0
+            },
+            {
+              "index": 1.0,
+              "power_w": 196.48,
+              "limit_w": 250.0,
+              "temperature_c": 77.0,
+              "clock_mhz": 1905.0,
+              "gpu_percent": 30.0,
+              "vram_mib": 22970.0,
+              "pcie_gen": 3.0,
+              "pcie_width": 8.0
+            }
+          ]
+        }
+      },
+      "caller": null
+    }
+  },
+  "background_cpu_max": "900000 100000"
+}

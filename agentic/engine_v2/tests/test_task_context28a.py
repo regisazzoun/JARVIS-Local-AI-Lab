@@ -10,6 +10,24 @@ from jarvis.durable_cycle import task_schemas
 
 
 class TaskContextTests(unittest.TestCase):
+    def test_new_task_does_not_replay_other_task_receipts_or_completion_claims(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);memory=Memory(root/'runtime/memory.sqlite');cfg=json.loads((ROOT/'config/example.json').read_text())
+            cfg.update(durable_num_ctx=16384,durable_cycle_rounds=1)
+            core=Core(cfg,memory);engine=Missions(core,root,start_worker=False);s=engine.store
+            m=s.create('software fixture','local','conv')
+            s.plan(m,[{'id':'received','title':'old','depends':[]},{'id':'current','title':'new','depends':['received'],'tools':['host_read_file']}])
+            with s.db() as c:c.execute("UPDATE tasks SET state='validated' WHERE mission=? AND id='received'",(m,))
+            token=s.begin_call(m,'received','host_read_file',{'path':'/old-report'})
+            s.finish_call(token,{'ok':True,'result':{'stdout':'OLD_SUCCESS_NOT_CURRENT_TASK'}},.1)
+            s.event(m,'model_checkpoint',task='received',actor='JARVIS',result={'text':'OLD_COMPLETION_CLAIM'})
+            seen=[]
+            def transport(payload):
+                seen.append(json.dumps(payload));return {'role':'assistant','content':'Fixture only'}
+            engine.execution_core.transport=transport;engine.cycle.run(s.get(m))
+            self.assertNotIn(token,seen[0]);self.assertNotIn('OLD_SUCCESS_NOT_CURRENT_TASK',seen[0]);self.assertNotIn('OLD_COMPLETION_CLAIM',seen[0])
+            self.assertEqual(s.observations(m,'received')[0]['id'],token)
+
     def test_compute_status_view_keeps_actual_routes_without_old_resource_corpus(self):
         from jarvis.durable_cycle import model_observation
         value={'conversation_model':'local27','nodes':[{'id':'Dell1','status':'ready'}],

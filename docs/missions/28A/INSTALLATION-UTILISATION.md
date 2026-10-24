@@ -1,5 +1,7 @@
 # Installation et utilisation28A
 
+> Décision propriétaire du24 octobre2026 : mission clôturée incomplète,80B conservé pour les missions Dell,27B conversationnel sur Mac. Les états «en cours» ci-dessous documentent les essais antérieurs ; leurs critères non reçus sont différés, sans relance automatique. Le RAPPORT-FINAL.md de clôture prévaut.
+
 Le code de la branche complète le runtime existant `/opt/jarvis/conversation`. Les sauvegardes de remplacement restent privées sous `/var/backups/jarvis/mission28a/`. Les empreintes installées et les reçus figurent dans les preuves ; aucune politique privée, clé ou adresse SSH n’est publiée.
 
 Les services concernés sont `jarvis-conversation`, `jarvis-mission-worker`, `jarvis-resource-watchdog`, les slices `jarvis.slice`, `jarvis-interactive.slice`, `jarvis-background.slice` et l’Ollama local existant. Le Dell reçoit `jarvis-ollama-missions` sur11435, distinct de son instance historique11434, et les programmes protégés de profils GPU. Les unités et programmes publiés constituent les références de configuration ; les chemins/identités cibles sont renseignés par la politique protégée existante.

@@ -1,5 +1,7 @@
 # Attribution28A — état de réception
 
+> Décision propriétaire du24 octobre2026 : mission clôturée incomplète,80B conservé pour les missions Dell,27B conversationnel sur Mac. Les états «en cours» ci-dessous documentent les essais antérieurs ; leurs critères non reçus sont différés, sans relance automatique. Le RAPPORT-FINAL.md de clôture prévaut.
+
 ## Codex
 
 Lecture du référentiel et coordination ; plans opérationnels versionnés ; installation initiale du70B et préparation du catalogue ; développement et déploiement du routeur, de l’ordonnanceur, des slices/watchdog, de la file d’inférence, des profils GPU et de leurs garde-fous, de l’interface de téléchargement et du programme de screening/jugement. Correction de son propre faux FAIL du juge32B (builtins absents), de son dossier de transfert root, des références parent/enfant de vérification et de l’attribution du modèle réellement exécuté. Installation du pilote80B après comparaison. Implémentation des deux slots du moteur existant et du vérificateur protégé de programme. Contrôles indépendants de ressources, empreintes, priorité, repli, quotas, latences, profil GPU et résultats de JARVIS. Documentation et publication GitHub.

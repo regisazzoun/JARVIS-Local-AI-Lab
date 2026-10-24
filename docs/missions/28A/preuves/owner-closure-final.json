@@ -1,0 +1,87 @@
+{
+  "owner_decision_date": "2026-10-24",
+  "status": "closed_incomplete_by_owner",
+  "default_mission_model": "qwen3-coder-next:q4_K_M",
+  "conversation_model": "qwen3.5:27b-q4_K_M",
+  "conversation_node": "Mac-mini",
+  "mission_node": "Dell1",
+  "config_sha256": "52b11e4e8ba58dbbecd07c9ed5bd12cb234d6c8059c52f23666aea0e6aaf3771",
+  "assignment_already_effective": true,
+  "no_new_inference_or_benchmark": true,
+  "Dell2_enabled": false,
+  "missions": [
+    {
+      "id": "59830a3414a243c198c53e5624a286a3",
+      "state": "interrupted",
+      "tasks": [
+        {
+          "id": "A_inventory",
+          "state": "validated",
+          "artifact": null
+        },
+        {
+          "id": "B_models",
+          "state": "validated",
+          "artifact": "/var/lib/jarvis/projects/mission28a/B-MODELES.md"
+        },
+        {
+          "id": "C_router",
+          "state": "validated",
+          "artifact": "/var/lib/jarvis/projects/mission28a/C-ROUTAGE-INDEPENDANT.md"
+        },
+        {
+          "id": "D_burst",
+          "state": "validated",
+          "artifact": "/var/lib/jarvis/projects/mission28a/D-PROFILS-INDEPENDANT.md"
+        },
+        {
+          "id": "E_reception",
+          "state": "interrupted",
+          "artifact": null
+        },
+        {
+          "id": "B2_candidate",
+          "state": "validated",
+          "artifact": "/var/lib/jarvis/projects/mission28a/B2-CANDIDAT.md"
+        },
+        {
+          "id": "B3_comparative",
+          "state": "validated",
+          "artifact": "/var/lib/jarvis/projects/mission28a/B3-COMPARATIF.md"
+        },
+        {
+          "id": "F_concurrency",
+          "state": "interrupted",
+          "artifact": null
+        },
+        {
+          "id": "E_program",
+          "state": "interrupted",
+          "artifact": null
+        }
+      ]
+    },
+    {
+      "id": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "state": "interrupted",
+      "tasks": [
+        {
+          "id": "audit",
+          "state": "validated",
+          "artifact": "/var/lib/jarvis/projects/mission28a/CONCURRENCE-RAPPORT.md"
+        }
+      ]
+    }
+  ],
+  "outbox": [
+    {
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "state": "superseded",
+      "repository": "jarvis-labs/mission28a",
+      "branch": "main"
+    }
+  ],
+  "remaining_active_inference_jobs": [],
+  "confirmed_at": 1792800973.3489885,
+  "runtime_closure_reports_saved_by": "Codex"
+}

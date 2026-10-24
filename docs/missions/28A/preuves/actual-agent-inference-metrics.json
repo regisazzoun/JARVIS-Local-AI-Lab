@@ -1,0 +1,570 @@
+{
+  "actor": "Codex-independent",
+  "created": 1792786755.7498097,
+  "scope": "Actual durable inference calls at24576 profile, distinct from short screening4096",
+  "count": 56,
+  "median_tokens_per_s": 83.53473591397258,
+  "median_request_elapsed_s": 36.991813491040375,
+  "rows": [
+    {
+      "job": "8b6bb1344c5d4bfa991eddccebdbd363",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 171,
+      "tokens_per_s": 84.85754353787475,
+      "prompt_tokens": 20811,
+      "queue_wait_s": 0.1962067949352786,
+      "request_elapsed_s": 53.50678351498209,
+      "end_to_end_s": 54.455885104020126
+    },
+    {
+      "job": "fed613980d5649a497e9c4482634014b",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 1413,
+      "tokens_per_s": 83.42006442059865,
+      "prompt_tokens": 20610,
+      "queue_wait_s": 0.1762369320495054,
+      "request_elapsed_s": 51.98848296701908,
+      "end_to_end_s": 52.9502322699409
+    },
+    {
+      "job": "2300b44d3caa45b38d66a183efdf8a7b",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 59,
+      "tokens_per_s": 86.53830640134119,
+      "prompt_tokens": 19110,
+      "queue_wait_s": 0.17633734899573028,
+      "request_elapsed_s": 34.3292036060011,
+      "end_to_end_s": 35.292422422906384
+    },
+    {
+      "job": "2e9e9107fdba48f2a0519e9c933e0174",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 283,
+      "tokens_per_s": 86.4954871056012,
+      "prompt_tokens": 19624,
+      "queue_wait_s": 0.17682994902133942,
+      "request_elapsed_s": 34.8930799519876,
+      "end_to_end_s": 35.9071779770311
+    },
+    {
+      "job": "af215308c8124ee1bf459f998ebf356e",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 69,
+      "tokens_per_s": 86.65576562252748,
+      "prompt_tokens": 20337,
+      "queue_wait_s": 0.17610928195063025,
+      "request_elapsed_s": 37.09395229304209,
+      "end_to_end_s": 38.07981976901647
+    },
+    {
+      "job": "933a63f574684b798fe5a641c64b5529",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 39,
+      "tokens_per_s": 86.05073463056655,
+      "prompt_tokens": 20536,
+      "queue_wait_s": 0.17625599494203925,
+      "request_elapsed_s": 36.806404263013974,
+      "end_to_end_s": 37.82240703608841
+    },
+    {
+      "job": "350eedd36e28430188f04152e42e6677",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 488,
+      "tokens_per_s": 85.1579619117055,
+      "prompt_tokens": 20178,
+      "queue_wait_s": 0.17680260096676648,
+      "request_elapsed_s": 38.114905899972655,
+      "end_to_end_s": 39.13906304189004
+    },
+    {
+      "job": "80487c7448714312a614e0a57bb9c740",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 120,
+      "tokens_per_s": 87.18231129025462,
+      "prompt_tokens": 20118,
+      "queue_wait_s": 0.17624867998529226,
+      "request_elapsed_s": 34.14531804493163,
+      "end_to_end_s": 35.11022806807887
+    },
+    {
+      "job": "693b737d00e9434e9bf2096315984eb2",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 61,
+      "tokens_per_s": 88.44040421614255,
+      "prompt_tokens": 20619,
+      "queue_wait_s": 0.17646459501702338,
+      "request_elapsed_s": 36.10518579604104,
+      "end_to_end_s": 37.07339679298457
+    },
+    {
+      "job": "4f390b782d074c0f8f3e4a5b9548a09e",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 53,
+      "tokens_per_s": 82.52700813124598,
+      "prompt_tokens": 19973,
+      "queue_wait_s": 0.17734430299606174,
+      "request_elapsed_s": 35.40414410002995,
+      "end_to_end_s": 36.419468185980804
+    },
+    {
+      "job": "e82ec3c0f4554773bfc163096bdd3c6b",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 576,
+      "tokens_per_s": 82.1878051275773,
+      "prompt_tokens": 19981,
+      "queue_wait_s": 0.17466587398666888,
+      "request_elapsed_s": 41.429171554977074,
+      "end_to_end_s": 42.40008816192858
+    },
+    {
+      "job": "1d41abc02e294bf1b93e61ba9cabf7aa",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 72,
+      "tokens_per_s": 84.13033190584414,
+      "prompt_tokens": 20015,
+      "queue_wait_s": 0.1760976710356772,
+      "request_elapsed_s": 36.50656318094116,
+      "end_to_end_s": 37.42273822997231
+    },
+    {
+      "job": "7526fd9cf3c343a0b54364366d5a8b22",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 96,
+      "tokens_per_s": 84.23860585107316,
+      "prompt_tokens": 20172,
+      "queue_wait_s": 0.17819637805223465,
+      "request_elapsed_s": 38.117406968958676,
+      "end_to_end_s": 39.17267078603618
+    },
+    {
+      "job": "d8575b0884dd401a89097a54276ce7aa",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 83,
+      "tokens_per_s": 86.40756888661245,
+      "prompt_tokens": 20294,
+      "queue_wait_s": 0.17775686702225357,
+      "request_elapsed_s": 36.88967468903866,
+      "end_to_end_s": 37.86515838908963
+    },
+    {
+      "job": "486d4f2381d042e8b2a77ecb4b870d8d",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 123,
+      "tokens_per_s": 85.57474223217888,
+      "prompt_tokens": 20170,
+      "queue_wait_s": 0.17712644196581095,
+      "request_elapsed_s": 35.573326115030795,
+      "end_to_end_s": 36.53718115598895
+    },
+    {
+      "job": "15b98af8b9d247e1a5ef888c138b3635",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 787,
+      "tokens_per_s": 81.95970977306534,
+      "prompt_tokens": 20377,
+      "queue_wait_s": 0.1748557350365445,
+      "request_elapsed_s": 44.207957301987335,
+      "end_to_end_s": 45.16631142701954
+    },
+    {
+      "job": "760acbf86928490cb639e58351fc3148",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 791,
+      "tokens_per_s": 79.18311851950993,
+      "prompt_tokens": 19700,
+      "queue_wait_s": 0.17709543800447136,
+      "request_elapsed_s": 46.15260222007055,
+      "end_to_end_s": 47.11834458098747
+    },
+    {
+      "job": "7f4b4345242743b7ba3dcee23300c0cb",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 24,
+      "tokens_per_s": 81.37082720226753,
+      "prompt_tokens": 19401,
+      "queue_wait_s": 0.17614691297058016,
+      "request_elapsed_s": 35.21997543005273,
+      "end_to_end_s": 36.22693587606773
+    },
+    {
+      "job": "ce1a83dba30540c194cfa1e1418227f2",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 175,
+      "tokens_per_s": 84.65119117995111,
+      "prompt_tokens": 19537,
+      "queue_wait_s": 0.1753832109970972,
+      "request_elapsed_s": 35.02828173607122,
+      "end_to_end_s": 36.09379995800555
+    },
+    {
+      "job": "f48c403a9b4146e9863848f517ae74f9",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 134,
+      "tokens_per_s": 83.2218016277936,
+      "prompt_tokens": 20817,
+      "queue_wait_s": 0.17672666197177023,
+      "request_elapsed_s": 39.26678480801638,
+      "end_to_end_s": 40.23100822698325
+    },
+    {
+      "job": "cb97abc8c40a4afc9a4878236c7c3665",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 1652,
+      "tokens_per_s": 77.75962288277421,
+      "prompt_tokens": 20758,
+      "queue_wait_s": 0.17511418904177845,
+      "request_elapsed_s": 59.448763355962,
+      "end_to_end_s": 60.41374893905595
+    },
+    {
+      "job": "298a9f75dc1b49eb8e3c3841d7a287c8",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 583,
+      "tokens_per_s": 84.6301488300281,
+      "prompt_tokens": 19192,
+      "queue_wait_s": 0.17429897491820157,
+      "request_elapsed_s": 37.647339404094964,
+      "end_to_end_s": 38.89408869796898
+    },
+    {
+      "job": "194bc4085c524666a9976c4304a9eca4",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 115,
+      "tokens_per_s": 82.13646223258331,
+      "prompt_tokens": 19576,
+      "queue_wait_s": 0.1770809548906982,
+      "request_elapsed_s": 35.25354820408393,
+      "end_to_end_s": 36.22668052406516
+    },
+    {
+      "job": "b162f1674ec648688f1e0536f9bc4cde",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 50,
+      "tokens_per_s": 84.78068085669183,
+      "prompt_tokens": 20069,
+      "queue_wait_s": 0.1764340599766001,
+      "request_elapsed_s": 36.665909552015364,
+      "end_to_end_s": 37.64231926004868
+    },
+    {
+      "job": "a97e04b1137c4776bc8571c8bb39043a",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 166,
+      "tokens_per_s": 85.72152999504777,
+      "prompt_tokens": 19295,
+      "queue_wait_s": 0.1926970729837194,
+      "request_elapsed_s": 34.54277338995598,
+      "end_to_end_s": 35.521604752051644
+    },
+    {
+      "job": "5e2f5a399fcb42408e96b2ae3a89ce30",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 125,
+      "tokens_per_s": 83.54001132134233,
+      "prompt_tokens": 19827,
+      "queue_wait_s": 0.17678566300310194,
+      "request_elapsed_s": 37.82544127001893,
+      "end_to_end_s": 38.8793862540042
+    },
+    {
+      "job": "1a2416c725b642ba8d00ec96dbbe873f",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 219,
+      "tokens_per_s": 84.13010432517092,
+      "prompt_tokens": 8941,
+      "queue_wait_s": 34.01095828902908,
+      "request_elapsed_s": 18.98173284693621,
+      "end_to_end_s": 53.76163582294248
+    },
+    {
+      "job": "7accc207ce6742e3b06b9138aa1406c2",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 125,
+      "tokens_per_s": 83.52946050660285,
+      "prompt_tokens": 19113,
+      "queue_wait_s": 16.486154304933734,
+      "request_elapsed_s": 36.81030950706918,
+      "end_to_end_s": 54.09875174600165
+    },
+    {
+      "job": "ad6fe6890d144706878c55f16637baf9",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 820,
+      "tokens_per_s": 80.78726201624318,
+      "prompt_tokens": 17602,
+      "queue_wait_s": 32.21560147800483,
+      "request_elapsed_s": 42.48468174296431,
+      "end_to_end_s": 75.43813699996099
+    },
+    {
+      "job": "24217db06a214bc88c84436e3db30392",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 322,
+      "tokens_per_s": 83.10138498006985,
+      "prompt_tokens": 19867,
+      "queue_wait_s": 39.89842300291639,
+      "request_elapsed_s": 37.51646120008081,
+      "end_to_end_s": 78.15095130505506
+    },
+    {
+      "job": "9f21dae17d0546a2b4bcc0ee028236c1",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 51,
+      "tokens_per_s": 86.07493244805546,
+      "prompt_tokens": 21369,
+      "queue_wait_s": 35.031245533027686,
+      "request_elapsed_s": 37.20183509797789,
+      "end_to_end_s": 72.97015972598456
+    },
+    {
+      "job": "f255c7412f35451eb841dfb82455b667",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 60,
+      "tokens_per_s": 86.23378265924865,
+      "prompt_tokens": 19897,
+      "queue_wait_s": 32.61355128802825,
+      "request_elapsed_s": 34.94580252002925,
+      "end_to_end_s": 68.30008396797348
+    },
+    {
+      "job": "0a1dceb678d84cab9013ca396d1d4a85",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 779,
+      "tokens_per_s": 78.98858113085487,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 32.90177946398035,
+      "request_elapsed_s": 46.83289669605438,
+      "end_to_end_s": 80.57425147597678
+    },
+    {
+      "job": "b125ea00be7244bbb6668701c658d911",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 74,
+      "tokens_per_s": 86.14086592523438,
+      "prompt_tokens": 20870,
+      "queue_wait_s": 43.71713791193906,
+      "request_elapsed_s": 36.70683991606347,
+      "end_to_end_s": 81.15859396499582
+    },
+    {
+      "job": "5a65eb801caa45c78f854b0e012e97e6",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 643,
+      "tokens_per_s": 78.80785651822478,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 36.094766433001496,
+      "request_elapsed_s": 8.85893699596636,
+      "end_to_end_s": 45.636803830973804
+    },
+    {
+      "job": "d1dbc9dd7882422dbea2a04400f12955",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 202,
+      "tokens_per_s": 82.59654084051385,
+      "prompt_tokens": 23439,
+      "queue_wait_s": 6.050711994990706,
+      "request_elapsed_s": 45.27713782701176,
+      "end_to_end_s": 52.10980924998876
+    },
+    {
+      "job": "50f90c9ab0484370b0fa90a2a6576f29",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 140,
+      "tokens_per_s": 78.84410043386782,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 44.77105815906543,
+      "request_elapsed_s": 2.4486035018926486,
+      "end_to_end_s": 47.905870929942466
+    },
+    {
+      "job": "6bd2cd2be1804deca2fec2bab0e187e6",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 1926,
+      "tokens_per_s": 79.22463190060014,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 0.1764776959316805,
+      "request_elapsed_s": 24.693250286974944,
+      "end_to_end_s": 25.596274112001993
+    },
+    {
+      "job": "68ee8a59973c4c19b6beeec794861e5e",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 152,
+      "tokens_per_s": 80.32790697182816,
+      "prompt_tokens": 20083,
+      "queue_wait_s": 23.74479872302618,
+      "request_elapsed_s": 36.7938081859611,
+      "end_to_end_s": 62.329133851104416
+    },
+    {
+      "job": "8b68bcb9e19042a9a293ee729492eadf",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 1069,
+      "tokens_per_s": 81.28314531251735,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 36.31352860399056,
+      "request_elapsed_s": 13.851565631921403,
+      "end_to_end_s": 50.90004554006737
+    },
+    {
+      "job": "d39a25a35c7c468da70dcf6ec11c20a6",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 282,
+      "tokens_per_s": 83.34986044809713,
+      "prompt_tokens": 20434,
+      "queue_wait_s": 10.319179285899736,
+      "request_elapsed_s": 38.2349893579958,
+      "end_to_end_s": 49.34421518200543
+    },
+    {
+      "job": "3699ccf33cc2487ebae53fbc55898c58",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 1378,
+      "tokens_per_s": 78.65682455549619,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 37.67456601001322,
+      "request_elapsed_s": 18.1683747820789,
+      "end_to_end_s": 56.63020896993112
+    },
+    {
+      "job": "71f9959d1a18457da24d0181b4e3764e",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 165,
+      "tokens_per_s": 83.8205508686603,
+      "prompt_tokens": 19888,
+      "queue_wait_s": 14.643121713073924,
+      "request_elapsed_s": 34.80569462792482,
+      "end_to_end_s": 50.23673172201961
+    },
+    {
+      "job": "328dd651d4d34c69b4112d35a4604a5c",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 1281,
+      "tokens_per_s": 79.10104655439298,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 34.151528349961154,
+      "request_elapsed_s": 16.810715161962435,
+      "end_to_end_s": 51.70263970294036
+    },
+    {
+      "job": "0615686d50014b0fabecb32bf2387de2",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 97,
+      "tokens_per_s": 85.29729625157954,
+      "prompt_tokens": 23184,
+      "queue_wait_s": 13.61081830097828,
+      "request_elapsed_s": 42.51380811398849,
+      "end_to_end_s": 56.911590186995454
+    },
+    {
+      "job": "ef8118566d3e4552a4b443aa2ef817f8",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 1012,
+      "tokens_per_s": 80.19958602114876,
+      "prompt_tokens": 21413,
+      "queue_wait_s": 41.5449832129525,
+      "request_elapsed_s": 13.314650731044821,
+      "end_to_end_s": 55.605974668986164
+    },
+    {
+      "job": "d7079f64f4c6475a82ea80c91b348db1",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 127,
+      "tokens_per_s": 81.90620900658732,
+      "prompt_tokens": 22814,
+      "queue_wait_s": 8.256758832023479,
+      "request_elapsed_s": 42.77108411595691,
+      "end_to_end_s": 51.900741138961166
+    },
+    {
+      "job": "c685603ae3384e26bc8a24a9cb8388ef",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 53,
+      "tokens_per_s": 84.62060431884404,
+      "prompt_tokens": 22938,
+      "queue_wait_s": 41.7563687619986,
+      "request_elapsed_s": 40.75083320401609,
+      "end_to_end_s": 83.28879426803906
+    },
+    {
+      "job": "876acba29cff493e83a0c3aab2486c5a",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 38,
+      "tokens_per_s": 84.86291289715285,
+      "prompt_tokens": 19984,
+      "queue_wait_s": 38.891241598990746,
+      "request_elapsed_s": 37.16973402700387,
+      "end_to_end_s": 76.77015575696714
+    },
+    {
+      "job": "67efe2c630dc408eb894e0541ff7c003",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 2263,
+      "tokens_per_s": 81.8863221726341,
+      "prompt_tokens": 16563,
+      "queue_wait_s": 7.842522617080249,
+      "request_elapsed_s": 56.52433337899856,
+      "end_to_end_s": 65.14071667497046
+    },
+    {
+      "job": "071c83cc23cf4d728eb97342e314d13e",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 261,
+      "tokens_per_s": 84.4563438363372,
+      "prompt_tokens": 21168,
+      "queue_wait_s": 38.931300526019186,
+      "request_elapsed_s": 39.98602577496786,
+      "end_to_end_s": 79.64388712309301
+    },
+    {
+      "job": "43e896c9aaed400fadd57652e7fa236d",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 103,
+      "tokens_per_s": 85.60868188395618,
+      "prompt_tokens": 19083,
+      "queue_wait_s": 38.679826461011544,
+      "request_elapsed_s": 31.916752015938982,
+      "end_to_end_s": 71.3337689320324
+    },
+    {
+      "job": "cee5817c15bc436faa8e3ffe6d6f6955",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 337,
+      "tokens_per_s": 83.30999252682174,
+      "prompt_tokens": 20527,
+      "queue_wait_s": 28.23682802193798,
+      "request_elapsed_s": 41.81056243006606,
+      "end_to_end_s": 70.80115367099643
+    },
+    {
+      "job": "2b0d5c271e4b4e23a55ce075f8b3f73d",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 129,
+      "tokens_per_s": 82.00895232609811,
+      "prompt_tokens": 19913,
+      "queue_wait_s": 40.98110714403447,
+      "request_elapsed_s": 38.642330865957774,
+      "end_to_end_s": 80.41699362290092
+    },
+    {
+      "job": "e319c1e3c4c848b99d659bd09f726612",
+      "mission": "59830a3414a243c198c53e5624a286a3",
+      "tokens": 738,
+      "tokens_per_s": 81.69285302658737,
+      "prompt_tokens": 19891,
+      "queue_wait_s": 36.42427503899671,
+      "request_elapsed_s": 45.85041160194669,
+      "end_to_end_s": 83.06387630291283
+    },
+    {
+      "job": "6da571ef03b84b4089966b33064e2477",
+      "mission": "ad844a3f4281421ba6bc9975e0bb9f99",
+      "tokens": 120,
+      "tokens_per_s": 86.98564301961962,
+      "prompt_tokens": 20768,
+      "queue_wait_s": 44.62605165503919,
+      "request_elapsed_s": 37.621018626959994,
+      "end_to_end_s": 82.980068829027
+    }
+  ]
+}

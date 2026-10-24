@@ -1,0 +1,250 @@
+{
+  "observer": "Codex read-only",
+  "invocation": "e54a1684ab0041e5a590a505d975d61b",
+  "observed_at": 1792800887.4055045,
+  "broker_evidence": "e33cf13d76cd4f61b34a600f2f7591d2",
+  "result": {
+    "created": 1792800886.6121192,
+    "verifier": "Codex protected varied-input checker28A",
+    "pass": false,
+    "cases_checked": 4,
+    "checks": [
+      {
+        "case": "original",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": false,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 3,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "f552b1f4180e86e5e4f8afad04644ea48752b43c351a5c62e785287ed402af35",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/0/out/result.json written with 4 cases\nSHA256: 1b2f0ff012fe89bf9f30f9b653a13ce7a68ee0565038ed3d02944c0dfe2f5ae5\n/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/0/out/result.json written with 3 models\n",
+        "stderr": ""
+      },
+      {
+        "case": "changed_evaluations_stale_summaries",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": false,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 3,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "f552b1f4180e86e5e4f8afad04644ea48752b43c351a5c62e785287ed402af35",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/1/out/result.json written with 4 cases\nSHA256: 1b2f0ff012fe89bf9f30f9b653a13ce7a68ee0565038ed3d02944c0dfe2f5ae5\n/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/1/out/result.json written with 3 models\n",
+        "stderr": ""
+      },
+      {
+        "case": "removed_case_stale_summary",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": false,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 4,
+              "total": 5
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 3,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "f552b1f4180e86e5e4f8afad04644ea48752b43c351a5c62e785287ed402af35",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/2/out/result.json written with 4 cases\nSHA256: 1b2f0ff012fe89bf9f30f9b653a13ce7a68ee0565038ed3d02944c0dfe2f5ae5\n/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/2/out/result.json written with 3 models\n",
+        "stderr": ""
+      },
+      {
+        "case": "added_case_stale_summary",
+        "pass": false,
+        "scores_match": false,
+        "integer_counts": true,
+        "manifest_matches": false,
+        "expected": {
+          "mission": "28A",
+          "selected_model": "qwen3-coder-next:q4_K_M",
+          "model_count": 4,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 5,
+              "total": 7
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          }
+        },
+        "actual": {
+          "mission": "28A",
+          "model_count": 3,
+          "scores": {
+            "qwen3.5:27b-q4_K_M": {
+              "passed": 4,
+              "total": 6
+            },
+            "llama3.3:70b-instruct-q4_K_M": {
+              "passed": 2,
+              "total": 6
+            },
+            "qwen3-coder-next:q4_K_M": {
+              "passed": 5,
+              "total": 6
+            },
+            "qwen3:32b-q4_K_M": {
+              "passed": 3,
+              "total": 6
+            }
+          },
+          "selected_model": "qwen3-coder-next:q4_K_M"
+        },
+        "output_sha256": "f552b1f4180e86e5e4f8afad04644ea48752b43c351a5c62e785287ed402af35",
+        "returncode": 0,
+        "stdout": "/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/3/out/result.json written with 4 cases\nSHA256: 1b2f0ff012fe89bf9f30f9b653a13ce7a68ee0565038ed3d02944c0dfe2f5ae5\n/opt/jarvis-lab/mission28a/.independent-reception/run-u7p87qsf/3/out/result.json written with 3 models\n",
+        "stderr": ""
+      }
+    ],
+    "source_sha256": {
+      "quality-comparative.json": "e0f25ca65ca5ccddc218061f85aba6d0a4d2d4c02942048954cad318be8eee3c",
+      "quality-32-corrected.json": "8037a079d2642a2ed8b427a71e9e009a81e3bc66e7a8a882567a62bb341a7752"
+    },
+    "program_sha256": "852114d54b1fb88ef4fb55252687a8a6e8489e049ad676c9d2877d09e1a8f76f",
+    "original_sources_unchanged": true,
+    "status": "FAIL",
+    "protected_receipt": "/var/lib/jarvis-program-checks/28a-1792800887146567914.json"
+  }
+}

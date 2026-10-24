@@ -1,5 +1,7 @@
 # Tests28A — historique et réception ciblée
 
+> Décision propriétaire du24 octobre2026 : mission clôturée incomplète,80B conservé pour les missions Dell,27B conversationnel sur Mac. Les états «en cours» ci-dessous documentent les essais antérieurs ; leurs critères non reçus sont différés, sans relance automatique. Le RAPPORT-FINAL.md de clôture prévaut.
+
 🟡 En cours au23 octobre2026. Les résultats ci-dessous ne valent pas réception globale.
 
 | Contrôle | Observation | Portée |
@@ -25,7 +27,7 @@ Restent notamment le comparatif qualitatif des modèles, le choix du moteur Dell
 
 ## Suite actuelle et résultats acquis
 
-237tests logiciels passent dans le venv installé après correction des références parent de vérification, garde de clôture sémantique des missions dirigées, contextes stables, découverte d’outils, verrouillage multi-slots et vue bornée compute_status. Les jeux logiciels sont des fixtures ; ils ne prouvent pas l’autonomie de JARVIS.
+238tests logiciels passent dans le venv installé après correction des références parent de vérification, garde de clôture sémantique des missions dirigées, contextes stables, découverte d’outils, verrouillage multi-slots et vue bornée compute_status. Les jeux logiciels sont des fixtures ; ils ne prouvent pas l’autonomie de JARVIS.
 
 Le comparatif effectif est terminé :18réponses27/70/80B, scores4/6,2/6,5/6 ;32B3/6sur ses six réponses précédentes. Le cas coverage est ambigu et la revue indépendante n’en déduit pas une incapacité générale. Le80B est installé comme pilote Dell, le27B reste conversationnel sur Mac.
 
@@ -40,3 +42,5 @@ Une première sortie JSON écrite directement avec les valeurs attendues ne prou
 ## Incident de contexte pendant la réception
 
 Les métriques sérialisées de tous les jobs compute_status gonflaient le contexte et provoquaient des réponses répétitives sur des états anciens. Codex a borné la vue aux huit jobs récents et à leurs métriques utiles, en conservant tous les reçus SQLite. Une interruption technique bornée des workers permet le déploiement au checkpoint et la reconstruction du contexte ; elle n’est pas un abandon ni une nouvelle demande d’autorisation. Le modèle doit ensuite réutiliser réellement la fonction corrigée.
+
+Le dernier correctif isole les observations, notes et signatures de progression à la tâche active. Les tâches déjà reçues gardent leurs résumés et toute preuve peut être relue explicitement. Les238tests incluent la conservation en base et l’absence de contamination par une conclusion de tâche précédente. Voir INCIDENT-RECEPTION-80B.md pour la coordination et les limites agentiques.
