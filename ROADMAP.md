@@ -1,3 +1,7 @@
+## Mission14B — installation réelle et tableau physique,24octobre2026
+
+🟡 **En cours.** Dell2 identifié ; deuxNVMe qualifiés. JARVIS a réellement déclenché l'installation Debian13/RAID1, la reprise après correctionCodex et la préparationNVIDIA/CUDA. Debian/EFI finalisés sous`/target`, RAID[UU]encore en synchronisation ; aucun GO avant reboot et contrôles. Tableau physique réel actualisé5s. Après trois appels d'actions inventées refusés, garde actif, diagnostic puis intervention ponctuelleCodex pour lancer la continuation bornée après synchronisation. Les erreurs, rapports incorrects et attributions sont conservés. Ollama/routage/charges et anciens profils inchangés. [Reprise, incidents et suite](docs/missions/14B/REPRISE-INSTALLATION.md) · [Reçus natifs](docs/missions/14B/PREUVES-REPRISE.json). Les états ci-dessous restent leurs instantanés historiques.
+
 ## Mission14B — précision propriétaire de la règle anti-boucle
 
 Après arrêt sur trois plans refusés, la règle est reprécisée et transmise dans le même moteur : diagnostic, solution réellement différente avec limite de trois échecs comparables ; si non résolu, dossier succinct d'interventionCodex, pas de boucle indéfinie. Une demande prête et les tâches indépendantes doivent être conservées si assistance indisponible. Reprise par lecture du contrat actif, sans plan fourni parCodex, sans effacer compteurs/erreurs. Aucun changementOllama/routage/charges/architecture. [Directive et reçu](docs/missions/14B/PRECISION-REPRISE.json).

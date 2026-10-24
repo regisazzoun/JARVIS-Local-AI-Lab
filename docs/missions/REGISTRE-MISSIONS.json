@@ -2193,11 +2193,11 @@
   {
     "identifiant": "14B",
     "nom": "Dell n°2 — installation et intégration Debian13",
-    "etat": "🟡 Initialisée et transmise à JARVIS",
+    "etat": "En cours — Debian13/EFI installés, RAID synchronisant, NVIDIA/CUDA en préparation ; réception aprèsboot attendue",
     "mission_id": "a1becab1a8244e2295463bd5be833784",
-    "executant_reel": "JARVIS ; Codex initialisation puis assistance ponctuelle sur capacité manquante ou blocage persistant après recherche bornée",
-    "resultats_prouves": "Objectif enregistré dans le moteur existant et premier cycle worker pris en charge ; installation Dell2 non encore réceptionnée",
-    "reserves": "Premier transfert interrompu après trois lectures de politique ; une clarification des chemins parCodex est documentée, compteurs conservés. Cible/accès/disques et alimentationGPU restent à observer ; aucune installation reçue.",
+    "executant_reel": "JARVIS déclenche installation/reprise/GPU ; Codex fournit/corrige infrastructure, contrôle et lance ponctuellement continuation après blocage",
+    "resultats_prouves": "Dell2 distinct identifié, deuxNVMe, SSH épinglé, GPT/ESP/RAID1[UU], Debian13 et EFI finalisés ; opérations broker réellesJARVIS et tableau physique5s",
+    "reserves": "Synchronisation RAID en cours ; boot installé, pilote/calculGPU/Ansible à vérifier ; deuxGPU différentsPCI à confirmer ; plan et prose largement assistés ; erreurs conservées",
     "objectifs": "Debian13, accèsSSH/Ansible, socleNVIDIA/CUDA et intégration matérielle Dell2",
     "exclusions": "Aucun changementOllama, routage, répartition de charge ou autre architecture",
     "retry_policy": "Trois échecs comparables par stratégie ; diagnostic puis approche réellement différente limitée à trois, sans remise à zéro cosmétique ; demandeCodex si non résolu",
@@ -2209,9 +2209,13 @@
       {
         "path": "docs/missions/14B/INITIALISATION.json",
         "url": ""
+      },
+      {
+        "path": "docs/missions/14B/REPRISE-INSTALLATION.md",
+        "url": ""
       }
     ],
-    "prochaine_action": "JARVIS reprend par diagnostic et lecture du schéma actif ; demander Codex avec dossier si les solutions bornées échouent, poursuivre les tâches indépendantes",
+    "prochaine_action": "Continuation bornée autonome, reboot propre après paquets/synchronisation, réception réelle et documentation",
     "derniere_actualisation": "2026-10-24"
   }
 ]

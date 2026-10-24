@@ -1,0 +1,25 @@
+{
+  "observed_at": 1792873535.257846,
+  "actor": "Codex independent observation",
+  "pxe_discovery02_received": true,
+  "target_mac_matches_owner": true,
+  "target_distinct_from_dell1": true,
+  "uefi": true,
+  "usable_disks": 2,
+  "disk_models": [
+    "KXG70PNV2T04 NVMe KIOXIA 2048GB",
+    "PM9A1 NVMe Samsung 2048GB"
+  ],
+  "disk_sizes_bytes": [
+    2048408248320,
+    2048408248320
+  ],
+  "discovery_report_sha256": "49e820ea99df29aa96e240432b430005463ab28ae67ddd1bbdc741e2d4c4626a",
+  "status_message": "aucun partitionnement autorisé is expected discovery termination, not another driver failure",
+  "storage_driver_correction": "VMD/SATA overlay; real retest now sees two NVMe",
+  "partitioning_performed": false,
+  "next_boot": "separate pinned SSH installation supervision image now served; no automatic disk writes",
+  "ssh_verified": false,
+  "ollama_routing_load_changed": false,
+  "jarvis_hardware_execution_claimed": false
+}

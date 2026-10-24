@@ -1,0 +1,21 @@
+{
+  "created": 1792870020.5069976,
+  "mission": "a1becab1a8244e2295463bd5be833784",
+  "plan_version": 1,
+  "plan_sha256": "b109efb53b551e56ce0d860d864949a0668ac1662fc857432e22fa598d2ac237",
+  "plan_author": "JARVIS candidate; contracts/dependencies corrected and registered by Codex",
+  "offline_ready": [
+    "preparation-debian",
+    "preparation-ssh"
+  ],
+  "hardware_waiting": [
+    "decouverte",
+    "preuve-alimentation",
+    "installation-debian",
+    "integration-nvidia",
+    "integration-policy"
+  ],
+  "owner_fact": "Dell2off",
+  "future_remote_probe": "requested interface, not currently installed/available",
+  "state": "queued"
+}
