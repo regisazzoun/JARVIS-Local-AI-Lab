@@ -1,0 +1,49 @@
+{
+  "observer": "Codex-independent read only",
+  "created": 1792835730.8023465,
+  "receipt": "506f0b5e9ec249288f885aadcc13eff2",
+  "observed": {
+    "model_cache": [
+      {
+        "cache": "models--Qwen--Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "snapshots": [
+          "0c0e3051f131929182e2c023b9537f8b1c68adfe"
+        ],
+        "refs": {
+          "main": "0c0e3051f131929182e2c023b9537f8b1c68adfe"
+        }
+      }
+    ],
+    "project_disk": {
+      "total_bytes": 2013961142272,
+      "free_bytes": 1730180878336
+    },
+    "packages": {
+      "qwen-tts": "0.1.1",
+      "torch": "2.6.0+cu124",
+      "torchaudio": "2.6.0+cu124",
+      "transformers": "4.57.3",
+      "accelerate": "1.12.0",
+      "soundfile": "0.14.0",
+      "nvidia-ml-py": "13.615.71"
+    },
+    "files": [
+      {
+        "path": "generated/accueil.wav",
+        "bytes": 295724
+      },
+      {
+        "path": "generated/MESURES_PERFORMANCES.json",
+        "bytes": 2857
+      },
+      {
+        "path": "generated/conversation.wav",
+        "bytes": 364844
+      },
+      {
+        "path": "generated/diagnostic.wav",
+        "bytes": 395564
+      }
+    ]
+  }
+}

@@ -151,3 +151,13 @@ Codex coordonne et vérifie ; JARVIS exécute via les droits11B persistants, san
 ## Mission28A — clôture propriétaire du24 octobre2026
 
 Le propriétaire demande la clôture en l’état et retient `qwen3-coder-next:q4_K_M` (80B) pour les missions Dell1, choix déjà effectif. Conserver `qwen3.5:27b-q4_K_M` pour la conversation sur Mac.28A est **🟡 clôturée incomplète** : infrastructure acquise, réception agentique/programme/rapports non entièrement reçue. Interrompre les deux essais persistants et leurs publications erronées, conserver toutes les preuves et validations ; aucun nouveau test ni reprise automatique. Les tests seront relancés ultérieurement sur instruction distincte. Ne pas clôturer14A ni lancer24-Old/TTS-01/Dell2. Codex publie la clôture sur la branche de mission et la PR25, sans fusion main. [Rapport28A](docs/missions/28A/RAPPORT-FINAL.md).
+
+
+## TTS-01 — nouvelle reprise propriétaire du24 octobre2026
+
+Le propriétaire relance intégralement TTS-01 après la clôture28A. Réutiliser la mission8bd3e5b316a94021b5183e0db26d6efc, les deux tâches reçues, le venv TTS et les archives privées. JARVIS exécute avec le80B Dell désormais retenu ; Codex coordonne, corrige l’infrastructure et vérifie. Autorisation autonome complète sans validation intermédiaire, sans réinstallation du système. La libération temporaire de résidence Ollama pour une fenêtre GPU TTS ne remplace pas le modèle par défaut et n’arrête pas le service. Conserver27B conversation Mac/Piper/LiveKit/JL-01/JL-02 ; aucun clonage de Philippe Faure ni publication des films.28A et26B restent clôturées incomplètes ;14A/24-Old/Dell2 non lancés. [Reprise TTS](docs/missions/TTS-01/REPRISE-2026-10-24.md).
+
+
+## TTS-01 — réception du24 octobre2026
+
+✅🟡 GO avec réserves : trois WAV français Qwen1.7B/Uncle_Fu générés et transférés par JARVIS, contrôles indépendants Codex (signal,transcription,API,lecture).246tests logiciels. Réception finale opérateur Codex explicite, autonomie sans assistance non validée, prose rectifiée et originaux conservés. Piper/27BMac/80BDell/services maintenus ; aucune fusion main ni clôture14A/26B, aucun14A/24-Old/Dell2 déclenché. Les anciens états «suspendue/aucune voix» TTS sont historiques. [Rapport](docs/missions/TTS-01/RAPPORT_TTS_01.md).

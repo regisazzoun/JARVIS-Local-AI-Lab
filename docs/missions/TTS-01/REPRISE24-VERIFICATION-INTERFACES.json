@@ -1,0 +1,383 @@
+{
+  "observer": "Codex export; execution selected by JARVIS",
+  "created": 1792802680.0462246,
+  "scope": "Actual CUDA runtime verification, not TTS generation proof",
+  "software_tests_passed": 244,
+  "criteria_and_exact_types_unchanged": true,
+  "calls": [
+    {
+      "id": "2ba4008efea74a888856780e68144b9c",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/cuda_available": true,
+            "/cuda_tensor_sum": 6,
+            "/tts_engine_importable": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_runtime",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/torch_version": "string"
+          }
+        }
+      },
+      "result": {
+        "elapsed_s": 2.818,
+        "ok": false,
+        "result": {
+          "checks": [
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/cuda_available"
+            },
+            {
+              "actual": 6.0,
+              "expected": 6,
+              "pass": false,
+              "path": "/cuda_tensor_sum"
+            },
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/tts_engine_importable"
+            },
+            {
+              "pass": true,
+              "path": "/torch_version",
+              "type": "string"
+            }
+          ],
+          "contract": {
+            "expected": {
+              "/cuda_available": true,
+              "/cuda_tensor_sum": 6,
+              "/tts_engine_importable": true
+            },
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "action": "project_probe",
+                "host": "dell-observe",
+                "probe": "tts_runtime",
+                "project": "tts-01"
+              },
+              "tool": "host_remote"
+            },
+            "types": {
+              "/torch_version": "string"
+            }
+          },
+          "observations": [
+            {
+              "arguments": {
+                "action": "project_probe",
+                "host": "dell-observe",
+                "probe": "tts_runtime",
+                "project": "tts-01"
+              },
+              "broker_evidence": "0539505ce2de48f7b07fc47f5b87ab28",
+              "invocation": "7ca9b481c1154a75b21a8ef4199c7e76",
+              "tool": "host_remote"
+            }
+          ],
+          "observed_at": 1792802276.4586911,
+          "returncode": 1,
+          "sha256": "e621eb0e870b7ce3a98c73d7081c8066390092f920977a3a550af335f125ed46",
+          "status": "FAIL",
+          "verification_event": 32332,
+          "verifier": "deterministic26"
+        },
+        "risk": "host_authorized",
+        "tool": "mission_verify"
+      },
+      "created": 1792802273.7194765,
+      "updated": 1792802276.7308347
+    },
+    {
+      "id": "6cffb5af0f0446a282d28f51c8cfc826",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/cuda_available": true,
+            "/cuda_tensor_sum": 6,
+            "/tts_engine_importable": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_runtime",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/torch_version": "string"
+          }
+        }
+      },
+      "result": {
+        "elapsed_s": 2.602,
+        "ok": false,
+        "result": {
+          "checks": [
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/cuda_available"
+            },
+            {
+              "actual": 6.0,
+              "expected": 6,
+              "pass": false,
+              "path": "/cuda_tensor_sum"
+            },
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/tts_engine_importable"
+            },
+            {
+              "pass": true,
+              "path": "/torch_version",
+              "type": "string"
+            }
+          ],
+          "contract": {
+            "expected": {
+              "/cuda_available": true,
+              "/cuda_tensor_sum": 6,
+              "/tts_engine_importable": true
+            },
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "action": "project_probe",
+                "host": "dell-observe",
+                "probe": "tts_runtime",
+                "project": "tts-01"
+              },
+              "tool": "host_remote"
+            },
+            "types": {
+              "/torch_version": "string"
+            }
+          },
+          "observations": [
+            {
+              "arguments": {
+                "action": "project_probe",
+                "host": "dell-observe",
+                "probe": "tts_runtime",
+                "project": "tts-01"
+              },
+              "broker_evidence": "2759edbe79ca4ef49dc4d11b5eaaeae3",
+              "invocation": "71cbfb3dc4ba4675920241d460900b83",
+              "tool": "host_remote"
+            }
+          ],
+          "observed_at": 1792802338.145711,
+          "returncode": 1,
+          "sha256": "e621eb0e870b7ce3a98c73d7081c8066390092f920977a3a550af335f125ed46",
+          "status": "FAIL",
+          "verification_event": 32348,
+          "verifier": "deterministic26"
+        },
+        "risk": "host_authorized",
+        "tool": "mission_verify"
+      },
+      "created": 1792802335.5379138,
+      "updated": 1792802338.3234315
+    },
+    {
+      "id": "5b89617addc74c5e8e0ff3b8c3c3c00c",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/cuda_available": true,
+            "/cuda_tensor_sum": 6,
+            "/tts_engine_importable": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_runtime",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/torch_version": "string"
+          }
+        }
+      },
+      "result": {
+        "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+        "ok": false,
+        "tool": "mission_verify"
+      },
+      "created": 1792802370.4145424,
+      "updated": 1792802370.4659607
+    },
+    {
+      "id": "792845484b6a4d20aa728ccf39bbe0f8",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/cuda_available": true,
+            "/cuda_tensor_sum": 6,
+            "/tts_engine_importable": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_runtime",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/torch_version": "string"
+          }
+        }
+      },
+      "result": {
+        "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+        "ok": false,
+        "tool": "mission_verify"
+      },
+      "created": 1792802442.0010667,
+      "updated": 1792802442.094065
+    },
+    {
+      "id": "e36e29111806418094870606e0db9ef6",
+      "arguments": {
+        "contract": {
+          "expected": {
+            "/cuda_available": true,
+            "/cuda_tensor_sum": 6,
+            "/tts_engine_importable": true
+          },
+          "kind": "json",
+          "source": {
+            "arguments": {
+              "action": "project_probe",
+              "host": "dell-observe",
+              "probe": "tts_runtime",
+              "project": "tts-01"
+            },
+            "tool": "host_remote"
+          },
+          "types": {
+            "/torch_version": "string"
+          }
+        }
+      },
+      "result": {
+        "error": "Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.",
+        "ok": false,
+        "tool": "mission_verify"
+      },
+      "created": 1792802476.0753539,
+      "updated": 1792802476.1924675
+    },
+    {
+      "id": "e42c649820de4b04b5c9d150e4ff00b6",
+      "arguments": {
+        "contract": "active:0"
+      },
+      "result": {
+        "elapsed_s": 2.655,
+        "ok": true,
+        "result": {
+          "checks": [
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/cuda_available"
+            },
+            {
+              "actual": 6.0,
+              "expected": 6.0,
+              "pass": true,
+              "path": "/cuda_tensor_sum"
+            },
+            {
+              "actual": true,
+              "expected": true,
+              "pass": true,
+              "path": "/tts_engine_importable"
+            },
+            {
+              "pass": true,
+              "path": "/torch_version",
+              "type": "string"
+            }
+          ],
+          "contract": {
+            "expected": {
+              "/cuda_available": true,
+              "/cuda_tensor_sum": 6.0,
+              "/tts_engine_importable": true
+            },
+            "kind": "json",
+            "source": {
+              "arguments": {
+                "action": "project_probe",
+                "host": "dell-observe",
+                "probe": "tts_runtime",
+                "project": "tts-01"
+              },
+              "tool": "host_remote"
+            },
+            "types": {
+              "/torch_version": "string"
+            }
+          },
+          "observations": [
+            {
+              "arguments": {
+                "action": "project_probe",
+                "host": "dell-observe",
+                "probe": "tts_runtime",
+                "project": "tts-01"
+              },
+              "broker_evidence": "9a951eec220c4e3ba2d91d70a04bf032",
+              "invocation": "c7c97f9ad86640299d9642f3539c7281",
+              "tool": "host_remote"
+            }
+          ],
+          "observed_at": 1792802625.0918946,
+          "returncode": 0,
+          "sha256": "e621eb0e870b7ce3a98c73d7081c8066390092f920977a3a550af335f125ed46",
+          "status": "PASS",
+          "verification_event": 32399,
+          "verifier": "deterministic26"
+        },
+        "risk": "host_authorized",
+        "tool": "mission_verify"
+      },
+      "created": 1792802622.4328926,
+      "updated": 1792802625.2491353
+    }
+  ]
+}

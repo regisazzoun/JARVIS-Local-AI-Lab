@@ -84,7 +84,7 @@ class TaskContextTests(unittest.TestCase):
             self.assertEqual(state['active_task']['id'],'real_task_42')
             self.assertEqual(state['active_task']['contract'],contract)
             self.assertEqual(state['active_task_interface']['id'],'real_task_42')
-            self.assertEqual(json.loads(state['active_task_interface']['verification_calls'][0]['contract']),contract['semantic'][0])
+            self.assertEqual(state['active_task_interface']['verification_calls'][0]['contract'],'active:0')
             names={s['function']['name'] for s in payload['tools']}
             self.assertIn('host_remote',names);self.assertIn('mission_plan',names)
             self.assertNotIn('host_github',names)

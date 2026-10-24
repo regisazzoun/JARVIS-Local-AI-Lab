@@ -63,6 +63,23 @@ class ScopedChatDelegation(unittest.TestCase):
         self.assertEqual(tools.context['report_scope'],'directed_step')
         with store.db() as c:self.assertEqual(c.execute('select count(*) from missions').fetchone()[0],1)
 
+    def test_linked_prose_without_tool_is_retried_and_never_received_as_execution(self):
+        for executes in (False,True):
+            responses=[{'content':'I claim the file was corrected.'}]
+            responses += ([{'tool_calls':[{'function':{'name':'host_remote','arguments':{'action':'project_exec'}}}]},{'content':'Actual tool returned.'}] if executes else [{'content':'Still claiming success.'},{'content':'Done without any tool.'}])
+            core,tools,payloads=self.make(responses)
+            tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup);store=MissionStore(tmp.name)
+            conversation=core.memory.conversation('test');mission=store.create('Existing objective','test-model',conversation);store.transition(mission,'waiting_external')
+            class Controller:
+                def __init__(self):self.store=store
+                def is_interrupted(self,ident):return False
+            core.missions=Controller()
+            result=core.chat('Perform the existing operation.','test-model',mission_id=mission,allowed_tools=['host_remote'])
+            self.assertEqual(len(store.observations(mission)),1 if executes else 0)
+            if executes:self.assertEqual(tools.executed,['host_remote'])
+            else:self.assertIn('aucun outil opérationnel réussi',result['answer'])
+            with store.db() as c:self.assertEqual(c.execute('select count(*) from missions').fetchone()[0],1)
+
     def test_internal_legacy_chat_with_mission_id_keeps_default_behavior(self):
         core,tools,payloads=self.make([{'content':'Réponse héritée.'}])
         class Controller:

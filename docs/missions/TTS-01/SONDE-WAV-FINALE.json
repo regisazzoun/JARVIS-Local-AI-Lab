@@ -1,0 +1,38 @@
+{
+  "observer": "Codex-independent",
+  "created": 1792835752.4962187,
+  "receipt": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "{\"pass\": true, \"wav_files\": 3, \"same_voice\": true, \"records\": [{\"file\": \"accueil.wav\", \"sha256\": \"322cce3ae6ae5d6f737814218a3e997a3a05f70706cf93f7aca7397a885ee5d1\", \"bytes\": 295724, \"duration_s\": 6.16, \"sample_rate\": 24000, \"channels\": 1, \"sample_width_bytes\": 2, \"rms_dbfs\": -21.670794561474622, \"peak_dbfs\": -3.762637545435889, \"full_scale_samples\": 0, \"checks\": {\"text_exact\": true, \"file_matches\": true, \"signal_valid\": true, \"timings_consistent\": true, \"engine_version_matches\": true}, \"pass\": true}, {\"file\": \"diagnostic.wav\", \"sha256\": \"e85f3e5a3ccc91a089d3dce52bd5c5e586ddaca0843a66fd653d494784ca34da\", \"bytes\": 395564, \"duration_s\": 8.24, \"sample_rate\": 24000, \"channels\": 1, \"sample_width_bytes\": 2, \"rms_dbfs\": -20.833768274363287, \"peak_dbfs\": -4.191657567148538, \"full_scale_samples\": 0, \"checks\": {\"text_exact\": true, \"file_matches\": true, \"signal_valid\": true, \"timings_consistent\": true, \"engine_version_matches\": true}, \"pass\": true}, {\"file\": \"conversation.wav\", \"sha256\": \"544f0dc972b1b631ba525482b75dbed7cb56da5af793f3339500437c6034f895\", \"bytes\": 364844, \"duration_s\": 7.6, \"sample_rate\": 24000, \"channels\": 1, \"sample_width_bytes\": 2, \"rms_dbfs\": -21.952639440648962, \"peak_dbfs\": -4.246806258052317, \"full_scale_samples\": 0, \"checks\": {\"text_exact\": true, \"file_matches\": true, \"signal_valid\": true, \"timings_consistent\": true, \"engine_version_matches\": true}, \"pass\": true}], \"metrics_sha256\": \"7207cb3d52b4ab4a48a7f40eca2a9d9e55b56e948e11d3096cf4ea36b610655f\", \"scope\": \"WAV bytes, signal, declared text and metric consistency; listening/STT and independent GPU sampling are separate checks\"}\n",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.466,
+      "stdout_truncated": false,
+      "stderr_truncated": false
+    },
+    "diagnostic": {
+      "policy_sha256": "42e6e5962d2573b27b653b6ef32dc0bfca6e07328d100672b7dcf24dc0008ab5",
+      "policy_path": "/etc/jarvis/host-policy.json",
+      "selection": "single-persistent-owner-policy",
+      "reload": "each-request",
+      "broker_version": "23C.1",
+      "operation": "host_remote",
+      "parameters": {
+        "host": "dell-observe",
+        "action": "project_probe",
+        "project": "tts-01"
+      },
+      "omitted_parameters": [
+        "probe"
+      ],
+      "error_category": null,
+      "retry": null,
+      "alternative": null
+    },
+    "caller": "local-operator",
+    "evidence_id": "5daca4ebcf5c4e1c86bcb0ec29d35370",
+    "elapsed_s": 0.731
+  }
+}

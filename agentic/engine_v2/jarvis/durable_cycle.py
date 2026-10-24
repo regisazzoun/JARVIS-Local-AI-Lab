@@ -38,7 +38,8 @@ def focused_state(state):
     task=state['active_task'];contract=task.get('contract') or {}
     if isinstance(contract,str):contract=json.loads(contract)
     result['active_task_interface']={'id':task['id'],'report_path':contract.get('report_path'),
-        'verification_calls':[{'contract':encoded(c)} for c in contract.get('semantic',[])],
+        'verification_calls':[{'contract':'active:'+str(i)} for i,c in enumerate(contract.get('semantic',[]))],
+        'verification_predicates':'Full exact values and types remain in active_task.contract.semantic; references select these criteria without model recopying.',
         'completion':'Use this exact task id and the invocation_id returned by an actual successful mission_verify. Invalid historical examples are not task identifiers.'}
     return result
 

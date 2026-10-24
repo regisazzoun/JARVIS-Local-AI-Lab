@@ -1,0 +1,29 @@
+{
+  "author": "Codex-derived context, original measurements unchanged",
+  "raw_metrics": "MESURES_PERFORMANCES.json",
+  "synthesis_s_includes": "Qwen generate_custom_voice + CUDA synchronization + WAV write; excludes shared model load and Python import overhead",
+  "load_time_s": 4.7888219356536865,
+  "load_scope": "One shared model load, warm on-disk HuggingFace cache; repeated field in 3 rows must not be summed",
+  "time_to_first_segment_s": null,
+  "time_to_first_segment_reason": "Batch waveform API; first segment was not separately measured",
+  "sum_synthesis_s": 39.0451819896698,
+  "sum_audio_s": 22.0,
+  "aggregate_rtf": 1.7747809995304455,
+  "native_command_duration_s": 48.745,
+  "native_command_receipt": "2d7ca821218b4bf1b62cc5a66f11488b",
+  "gpu_metrics_scope": "NVML global device0 snapshots before/after each sample; used_MB/total_MB are MiB (1024^2 bytes), not decimal MB",
+  "ram_metrics_scope": "System-wide MemTotal-MemAvailable from /proc/meminfo, MiB; not Python process RSS or model-only memory",
+  "independent_gpu_observer": {
+    "file": "GPU-GENERATION-INDEPENDANTE.json",
+    "all_samples": 38,
+    "samples_with_tts_python": 34,
+    "max_observed_gpu0_used_mib": 4658,
+    "max_observed_tts_process_mib": 4642,
+    "max_observed_gpu0_util_percent": 38,
+    "max_observed_gpu0_power_w": 152.29,
+    "max_observed_gpu0_temperature_c": 59,
+    "scope": "Peaks of sampled read-only nvidia-smi records while TTS Python process is present, not guaranteed instantaneous physical maxima; NVML script snapshots are a separate series and are retained as measured"
+  },
+  "performance_limit": "Batch RTF>1 with eager attention; low-latency streaming conversation is not received by these samples",
+  "reproducibility_limit": "Same script and parameters reusable; random seed not pinned, byte-identical repeated audio or idempotence not demonstrated"
+}

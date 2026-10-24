@@ -2075,7 +2075,7 @@
     "objectifs": "Voix de test autorisée, trois WAV français, mesures réelles, scripts et rapports",
     "materiel": "Dell1 Debian13 RTX3090 ; Mac mini et JL-02",
     "composants": "Moteur TTS retenu après comparaison officielle, broker existant, Mission Engine canonique",
-    "executant_reel": "Codex orchestration/infrastructure/réception ; JARVIS opérations et corrections",
+    "executant_reel": "JARVIS installations/code/corrections/générations/transferts ; Codex infrastructure/coordination/contrôles/publication",
     "documents_sources": [
       {
         "path": "docs/missions/TTS-01/MISSION.md",
@@ -2084,14 +2084,23 @@
       {
         "path": "docs/missions/TTS-01/DIAGNOSTIC-INITIAL.md",
         "url": ""
+      },
+      {
+        "path": "docs/missions/TTS-01/RAPPORT_TTS_01.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/mission-tts-01/docs/missions/TTS-01/RAPPORT_TTS_01.md"
       }
     ],
-    "etat": "🟡 Suspendue",
-    "resultats_prouves": "Venv,PyTorchCUDA et qwen-tts installés par JARVIS ; calcul GPU vérifié ;200 tests logiciels infrastructure antérieurs",
-    "reserves": "Aucune voix TTS générée ; mission interrompue après arrêt propriétaire",
+    "etat": "Réception technique du24 octobre2026 ; trois WAV, mesures et lecture JL-02 reçues. Autonomie supervisée, latence/esthétique réservées.",
+    "resultats_prouves": "Trois WAV français Qwen1.7B/Uncle_Fu générés/transférés par JARVIS ; mesures brutes, transcription indépendante et lecture privée JL-02 reçues3/3 ;246tests logiciels.",
+    "reserves": "Autonomie supervisée ; rapports libres corrigés par Codex ; RTF batch1,775 et esthétique à juger, premier segment non mesuré.",
     "dependances": "11/11B,13D-E,JL-02,26 ;26B clôturée incomplète",
-    "prochaine_action": "Reprise distincte depuis checkpoint, sans relance automatique",
-    "derniere_actualisation": "2026-10-23"
+    "prochaine_action": "Écoute propriétaire et optimisation distincte ultérieure ; aucune substitution automatique de Piper.",
+    "derniere_actualisation": "2026-10-24",
+    "statut": "✅🟡 GO avec réserves",
+    "rapport": "docs/missions/TTS-01/RAPPORT_TTS_01.md",
+    "branche": "codex/mission-tts-01",
+    "pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/22",
+    "limites": "RTF batch1,775, premier segment non mesuré ; autonomie sans assistance non validée ; aucun remplacementPiper ni clôture14A"
   },
   {
     "identifiant": "13",

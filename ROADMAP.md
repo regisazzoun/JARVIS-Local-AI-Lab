@@ -1,3 +1,11 @@
+## TTS-01 — réception technique du24 octobre2026
+
+✅🟡 **GO avec réserves.** JARVIS a produit et livré trois WAV français avec Qwen3-TTS1.7B/Uncle_Fu sur Dell1. Durées6,16/8,24/7,60s, synthèses11,27/14,39/13,39s ; transcription indépendante, HTTP authentifié et lecture Chromium reçues3/3.246tests logiciels, sans confusion avec autonomie. Codex a fourni outillage, diagnostics, guidage et réception ; autonomie sans assistance et faible latence conversationnelle non validées. Piper conservé, aucun14A/24-Old/Dell2. [Rapport et liens privés](docs/missions/TTS-01/RAPPORT_TTS_01.md) · [PR22](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/22), sans fusion. Les sections datées plus anciennes restent historiques.
+
+## TTS-01 — reprise propriétaire du24 octobre2026
+
+🟡 Reprise de la mission existante, deux tâches reçues conservées. JARVIS lit les sources officielles avec le80B Dell ; venv torch2.6.0+cu124/qwen-tts0.1.1 déjà installé, aucune réinstallation. Fenêtre GPU sur file canonique et sonde indépendante des WAV développées/déployées par Codex,242tests logiciels. Aucune nouvelle voix encore reçue à cet instant. [Reprise](docs/missions/TTS-01/REPRISE-2026-10-24.md).28A reste clôturée ; aucun14A/24-Old/Dell2.
+
 ## Mission 28A — clôture propriétaire du 24 octobre 2026
 
 🟡 **Clôturée incomplète en l’état.** Le propriétaire retient **Qwen3-Coder-Next80B pour les missions Dell1**, avec **Qwen3.5 27B conversationnel sur Mac**. Le cœur hybride reste installé ; six étapes principales sont validées. La réception du programme échoue encore sur quatre variantes et les rapports conservent des erreurs : ces réserves restent ouvertes. Les deux exécutions sont interrompues et la publication erronée est neutralisée ; nouveaux tests différés sans reprise automatique.238tests logiciels réussis, distincts de l’autonomie. [Clôture](docs/missions/28A/RAPPORT-FINAL.md) · [PR25](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/25).14A/24-Old/TTS/Dell2 non lancés.

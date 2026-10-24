@@ -1,0 +1,68 @@
+{
+  "observer": "Codex-independent",
+  "created": 1792836372.399735,
+  "local_services": {
+    "jarvis-conversation.service": "active",
+    "jarvis-host-bridge.service": "active",
+    "jarvis-mission-worker.service": "active",
+    "jarvis-mission-worker@2.service": "active",
+    "jarvis-resource-watchdog.service": "active",
+    "jarvis-ollama.service": "active",
+    "jarvis-mission23-livekit-agent.service": "active",
+    "jarvis-mission23-livekit-server.service": "active"
+  },
+  "remote_services_receipt": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "stdout": "active\nactive\n",
+      "stderr": "",
+      "timeout": false,
+      "duration_s": 0.266,
+      "stdout_truncated": false,
+      "stderr_truncated": false
+    },
+    "diagnostic": {
+      "policy_sha256": "42e6e5962d2573b27b653b6ef32dc0bfca6e07328d100672b7dcf24dc0008ab5",
+      "policy_path": "/etc/jarvis/host-policy.json",
+      "selection": "single-persistent-owner-policy",
+      "reload": "each-request",
+      "broker_version": "23C.1",
+      "operation": "host_remote",
+      "parameters": {
+        "host": "dell-observe",
+        "action": "services"
+      },
+      "omitted_parameters": [],
+      "error_category": null,
+      "retry": null,
+      "alternative": null
+    },
+    "caller": "local-operator",
+    "evidence_id": "b155343f71fd47ff9a90502606b397a5",
+    "elapsed_s": 0.582
+  },
+  "remote_ollama_versions_on_actual_configured_endpoints": {
+    "Dell1-missions": {
+      "http_status": 200,
+      "version": {
+        "version": "0.40.3"
+      }
+    },
+    "Dell1-historical": {
+      "http_status": 200,
+      "version": {
+        "version": "0.40.3"
+      }
+    }
+  },
+  "initial_probe_correction": "Codex initially queried Dell loopback ports; connection refused because configured services use their actual node endpoints. Read corrected without service changes. Initial broker receipt fb916af09a18409ca77aeb037de0a2bb retained.",
+  "deployed_source_sha256": {
+    "/opt/jarvis/conversation/jarvis/core.py": "c7ba1de023fc2641bb625eee24b9f4fea0b9d8c355a704409d4f0aca0c40c704",
+    "/opt/jarvis/conversation/jarvis/host_client.py": "41aa534a6a94412fd3f3a0a0e8e446761411bee07c4b66d6765a70022d68a3f8",
+    "/opt/jarvis/conversation/jarvis/compute.py": "e3c9ac072964293547240d4ec36c3993e17b35869b4ee0f93ef2886d1784eed1",
+    "/opt/jarvis/conversation/jarvis/verification.py": "203673c98140a01e4c0fcd31b499286c3326d3099c8c04a21adc3120d20d68bd",
+    "/opt/jarvis/conversation/jarvis/durable_cycle.py": "e378a6b9538c20363b677d7f03d17c94178f55c0eb19e5d26d60efab9ca28e06"
+  },
+  "scope": "Current services and HTTP availability; no new inferencing benchmark, physical or electrical qualification"
+}
