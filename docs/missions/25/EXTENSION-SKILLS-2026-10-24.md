@@ -1,0 +1,27 @@
+# Mission 25 — Extensions MCP & Skills décidées le 24 octobre 2026
+
+**Statut : 📋 extensions demandées et documentées ; non développées, non testées, non lancées.** Ne pas rouvrir la réception historique mission 25 (GO avec réserves, PR18) ni modifier les quatre skills existants (`debian-diagnostic`, `dell-roundtrip`, `github-publish`, `config-repair`). Les extensions peuvent être réalisées dans une reprise ciblée de la filière MCP/Skills, distincte de la mission 14B.
+
+## Décisions du propriétaire
+
+1. **Skill de journalisation et analyse des blocages récurrents** (`incident-recurrence`) : collecter erreurs originales, machine, mission, commande, étapes, checkpoints, tentatives, correctifs, résultats et provenance (JARVIS/Codex). Grouper par signatures et causes racines, rapprocher les incidents intermissions, distinguer faux succès et progrès prouvé. Permettre à la mission 26 de réutiliser procédures d'autocorrection démontrées sans prétendre à un apprentissage autonome déjà validé.
+2. **Skill d'escalade vers Codex** (`codex-assistance`) : préparer une demande ciblée et persistante avec état, preuves, correction attendue et relance depuis checkpoint ; évaluer disponibilité/quota depuis informations réellement accessibles, conserver les demandes pendant limitation et reprendre lorsque le mécanisme de transport est réellement opérationnel. La file `capability_request` existe ; une transmission automatique vers une session Codex n'est **pas encore démontrée**. Ne pas faire croire à l'existence d'un appel automatique ou d'un compteur de quota si absent. Minimiser la consommation Codex.
+3. **Google Workspace** : famille de skills ou adaptateurs MCP réutilisant les API Google avec authentification de comptes/scopes réels ; couvrir **Gmail** (lire, rechercher, classer, préparer, envoyer selon mandat), **Google Calendar** (consulter, créer, modifier les événements), **Google Classroom** (cours, devoirs, annonces, productions selon capacités et rôles), **Google Drive, Docs, Sheets, Slides** (fichiers, éditions, feuilles, présentations) et **Google Sites** (sites simples, contenu, publication selon API et droits disponibles). Vérifier fonctionnalité réellement accessible par produit : disponibilité des outils pour Docs ne prouve pas Sites/Classroom. Prendre en compte comptes scolaires et rôles, sans exposer de jetons dans GitHub ni supposer des droits administrateur Workspace.
+4. **Skill Cisco réseau** (`cisco-network-admin`) : découverte et inventaire Cisco via SSH/CLI, `show running-config`, `show startup-config`, comparaison, modification ciblée de configuration en cours, `copy running-config startup-config` pour persister, vérification effective du résultat et journal de changement/retour arrière adapté. Compatible avec les équipements et IOS effectivement recensés ; ne pas traiter une startup-config comme un simple fichier texte local. Les équipements à piloter sont ceux explicitement visés par une mission ; absence de privilèges ou équipement inconnu = blocage réel à journaliser.
+5. **Skill prise en main des postes macOS** (`mac-remote-control`) : piloter selon l'accès effectivement installé le **Mac mini de travail** et le **MacBook Pro** utilisés par le propriétaire ; SSH pour shell, fichiers et services, automatisation macOS / contrôle graphique si le système et les autorisations correspondantes sont disponibles. Rechercher et réutiliser les accès Tailscale/SSH existants. Différencier pilotage terminal, interface graphique et interaction avec session utilisateur ; journaliser les actions réelles, et ne pas annoncer une prise en main graphique sans preuve.
+
+## Méthode de développement et réception
+
+- Utiliser registre des skills, contracts MCP, broker et missions/checkpoints déjà livrés par 25/26, plutôt que réinventer une plateforme.
+- Décrire, implémenter, tester, activer et **faire utiliser réellement par JARVIS** chaque compétence, puis la réutiliser sur un second cas représentatif. Différencier tests de schéma, test simulé et action sur la cible.
+- Concevoir des adaptateurs par capacités réelles observées et par compte autorisé ; privilégier API officielles et mécanismes existants. Toute installation/connexion non disponible est un écart technique identifié, pas un résultat acquis.
+- Préserver les choix propriétaires : exécution agentique sans validation humaine répétitive après lancement de mission autorisée ; ne pas modifier les autorisations de machines ou comptes hors périmètre.
+- Publier instructions d'utilisation, prérequis, journal, preuves d'appel, errata et état de chaque skill. Une fiche seule ne vaut pas compétence exécutable.
+- **Priorité actuelle : JARVIS fonctionnel, déploiement Dell2 (14B) inchangé et distinct.** Ne pas transformer ces extensions en prérequis d'installation Dell2 ni lancer de nouveaux développements par simple documentation.
+
+## Liens entre missions
+
+- **25 :** catalogue, MCP, implémentation/test/activation des nouveaux skills (cette extension).
+- **26 :** exploitation des incidents récurrents, autocorrection par procédures/skills, reprise depuis checkpoints.
+- **14B :** déploiement physique/logique Dell n°2, **sans refonte** MCP, Google, Cisco ou contrôle macOS.
+- Référentiel relu pour cette décision : `AGENTS.md`, `docs/CHARTE_DIRECTIVES_JARVIS.md`, `docs/missions/25/MISSION.md`, `docs/missions/25/RAPPORT-FINAL.md`, `docs/missions/26/MISSION.md` depuis leurs branches disponibles. Les rapports historiques restent inchangés.
