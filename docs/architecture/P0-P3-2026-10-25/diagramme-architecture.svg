@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="970" viewBox="0 0 1540 970" role="img" aria-label="Architecture JARVIS Mac mini Dell1 Dell2 avec couches et statuts">
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8Z" fill="#64748b"/></marker><style>text{font-family:Arial,Helvetica,sans-serif;fill:#16253b}.heading{font-size:27px;font-weight:700}.sub{font-size:15px;fill:#49627d}.card{fill:#f7fafc;stroke:#7e93ad;stroke-width:2}.head{fill:#e3ebf8}.line{fill:none;stroke:#64748b;stroke-width:3;marker-start:url(#arrow);marker-end:url(#arrow)}.future{stroke-dasharray:8 7}.label{font-size:18px;font-weight:bold}.detail{font-size:16px}.small{font-size:14px;fill:#475569}.slot{fill:#fff;stroke:#d3dce8;stroke-width:1}.green{fill:#13803e}.yellow{fill:#a66a00}.blue{fill:#194c9b}</style></defs>
+<rect width="1540" height="970" fill="white"/>
+<text x="56" y="55" class="heading">JARVIS — Architecture physique, applicative et fonctionnelle</text><text x="56" y="87" class="sub">Version documentaire 25/10/2026 | ✅ réalisé · ✅🟡 réserves · 🟡 à confirmer · 📋 projeté</text>
+<g transform="translate(44 145)"><rect class="card" width="455" height="555" rx="16"/><path class="head" d="M16 0 H439 Q455 0 455 16 V78 H0 V16 Q0 0 16 0"/><text x="20" y="34" class="label">✅🟡 Mac mini — Coordinateur</text><text x="20" y="59" class="small">MAT-01 · mémoire et pilotage canoniques</text>
+<rect class="slot" x="18" y="99" width="419" height="77" rx="10"/><text x="30" y="127" class="detail">✅ Debian / systemd / NVIDIA</text><text x="30" y="152" class="small">RTX 3090 eGPU ; fonctions hôte</text>
+<rect class="slot" x="18" y="186" width="419" height="77" rx="10"/><text x="30" y="214" class="detail">✅ Conversation / Ollama</text><text x="30" y="239" class="small">Qwen3.5 27B Q4 · contexte 16384</text>
+<rect class="slot" x="18" y="273" width="419" height="77" rx="10"/><text x="30" y="301" class="detail">✅🟡 Mission Engine / broker</text><text x="30" y="326" class="small">SQLite FTS5 / workers / checkpoints</text>
+<rect class="slot" x="18" y="360" width="419" height="77" rx="10"/><text x="30" y="388" class="detail">✅🟡 Voix et interfaces</text><text x="30" y="413" class="small">Whisper / Piper / LiveKit / JL-03</text>
+<rect class="slot" x="18" y="447" width="419" height="85" rx="10"/><text x="30" y="476" class="detail">✅🟡 Routeur 28A et watchdog</text><text x="30" y="501" class="small">Admission, quotas, preuves, supervision</text></g>
+<g transform="translate(571 145)"><rect class="card" width="455" height="555" rx="16"/><path class="head" d="M16 0 H439 Q455 0 455 16 V78 H0 V16 Q0 0 16 0"/><text x="20" y="34" class="label">✅ Dell 1 — Inférence + exécution</text><text x="20" y="59" class="small">MAT-02 · mission 28A</text>
+<rect class="slot" x="18" y="99" width="419" height="77" rx="10"/><text x="30" y="127" class="detail">✅ Debian 13 / RAID1 / 2 ESP</text><text x="30" y="152" class="small">2 × RTX 3090 · 24 Gio chacune</text>
+<rect class="slot" x="18" y="186" width="419" height="77" rx="10"/><text x="30" y="214" class="detail">✅ NVIDIA / CUDA / Ollama</text><text x="30" y="239" class="small">Instance expérimentale port 11435</text>
+<rect class="slot" x="18" y="273" width="419" height="77" rx="10"/><text x="30" y="301" class="detail">✅🟡 Qwen3-Coder-Next 80B</text><text x="30" y="326" class="small">MoE Q4 · contexte 24576</text>
+<rect class="slot" x="18" y="360" width="419" height="77" rx="10"/><text x="30" y="388" class="detail">✅🟡 Calcul missions / GPU</text><text x="30" y="413" class="small">Admission et série des inférences</text>
+<rect class="slot" x="18" y="447" width="419" height="85" rx="10"/><text x="30" y="476" class="detail">✅🟡 Exécution host_remote</text><text x="30" y="501" class="small">Node.js / Bubblewrap / workspaces</text></g>
+<g transform="translate(1098 145)"><rect class="card" width="398" height="555" rx="16"/><path class="head" d="M16 0 H382 Q398 0 398 16 V78 H0 V16 Q0 0 16 0"/><text x="20" y="34" class="label">✅🟡 Dell 2 — Exécution</text><text x="20" y="59" class="small">MAT-03 · JL03-COR-P1</text>
+<rect class="slot" x="18" y="99" width="362" height="77" rx="10"/><text x="30" y="127" class="detail">🟡 OS / CPU / RAM / GPU</text><text x="30" y="152" class="small">Inventaire à réconcilier</text>
+<rect class="slot" x="18" y="186" width="362" height="77" rx="10"/><text x="30" y="214" class="detail">✅🟡 Exécution distante</text><text x="30" y="239" class="small">Node.js / Bubblewrap / SSH</text>
+<rect class="slot" x="18" y="273" width="362" height="77" rx="10"/><text x="30" y="301" class="detail">✅🟡 Workspaces isolés</text><text x="30" y="326" class="small">host_remote/project_exec</text>
+<rect class="slot" x="18" y="360" width="362" height="77" rx="10"/><text x="30" y="388" class="detail">📋 Inférence Ollama</text><text x="30" y="413" class="small">Non démontrée dans 28A</text>
+<rect class="slot" x="18" y="447" width="362" height="85" rx="10"/><text x="30" y="476" class="detail">🟡 CPU / 2 GPU vers JL-03</text><text x="30" y="501" class="small">D17 non réceptionnée</text></g>
+<path class="line" d="M499 472 C537 472 534 472 571 472"/><text x="510" y="450" class="small">API IA</text>
+<path class="line" d="M499 600 C650 730 945 730 1098 600"/><text x="655" y="745" class="small">LIA-03 · Exécution distante ↔ reçus</text>
+<path class="line future" d="M1026 325 L1098 325"/><text x="1028" y="302" class="small">Non prouvé</text>
+<rect x="45" y="795" width="1450" height="116" rx="15" fill="#f1f5fa" stroke="#cbd5e1"/>
+<text x="67" y="827" class="label">P0 : contexte et boucle · P1 : concordance Dell et liaisons · P2 : répartition et supervision · P3 : cartographie</text>
+<text x="67" y="860" class="small">Flèche continue : canal utilisé dans les missions citées. Pointillé : lien direct / inférence non réceptionné.</text>
+<text x="67" y="886" class="small">Source : 28A (24/10) et JL03-COR-P1 (25/10). Le Dell 2 exécute des tâches ; cela ne prouve pas son inférence IA.</text>
+</svg>
