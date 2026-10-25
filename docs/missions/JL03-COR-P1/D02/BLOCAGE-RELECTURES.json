@@ -1,0 +1,25 @@
+{
+  "task": "D02",
+  "observed_at": 1792928619.9235966,
+  "actor": "Codex supervision diagnosis",
+  "failures": [
+    {
+      "id": 34432,
+      "created": 1792926632.0504427,
+      "result": {
+        "attempts": [
+          "ddd63c0387cc40a3aa69924055001316",
+          "2a0b3340d6504ec9bd7c37d6a6bb9d05",
+          "911bf1d2ad2e488aba9da612b8dd8abf"
+        ],
+        "blocker": "stagnation:host_read_file",
+        "kind": "repeated_unchanged_reads",
+        "next": "Les observations sont acquises ; changer de tâche ou agir sur le diagnostic, sans relire une quatrième fois.",
+        "scope": "Cooperative journal observer: interrupts via existing mission state, command already engaged may finish. Does not kill a service or create an executor.",
+        "status": "BLOQUÉE — ANALYSE DOCUMENTÉE"
+      }
+    }
+  ],
+  "production_correction_received": false,
+  "next": "Retain D02 stopped; prepare targeted reproducible STT check rather than replaying whole-project reading"
+}

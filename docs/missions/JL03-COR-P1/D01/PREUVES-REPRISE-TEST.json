@@ -1,0 +1,75 @@
+{
+  "observed_at": 1792928790.5598054,
+  "scope": "Actual JARVIS targeted import edit and test execution, no completed voice fix",
+  "native_calls": [
+    {
+      "invocation": "dd5dff66423f4f919197c7b7d95a7750",
+      "tool": "host_exec",
+      "arguments": {
+        "argv": [
+          "node",
+          "--test",
+          "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/tests/d01-reception.test.mjs"
+        ],
+        "timeout": 60
+      },
+      "ok": false,
+      "broker_evidence_id": "7c55a16aced040c192a86b1b3db61cf4",
+      "error_summary": "5tests fail in browser mock; no voice fix accepted"
+    },
+    {
+      "invocation": "717d07e603b14675903476804e2476e8",
+      "tool": "host_edit_file",
+      "arguments": {
+        "new": "  window: {\n    AudioContext: globalThis.AudioContext,\n    webkitAudioContext: globalThis.AudioContext\n  },",
+        "old": "  window: {\n    AudioContext: globalThis.AudioContext,\n   .webkitAudioContext: globalThis.AudioContext,\n  },",
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/tests/d01-reception.test.mjs"
+      },
+      "ok": true,
+      "broker_evidence_id": "26add84e23fb40249312e2c63d5e0ccf",
+      "error_summary": null
+    },
+    {
+      "invocation": "f7c30c912b8a408ba82e6bc9a13a5136",
+      "tool": "host_exec",
+      "arguments": {
+        "argv": [
+          "node",
+          "--test",
+          "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/tests/d01-reception.test.mjs"
+        ],
+        "timeout": 60
+      },
+      "ok": false,
+      "broker_evidence_id": "2a239eb15ac043d19d9dc55ec01afc1e",
+      "error_summary": "5tests fail in browser mock; no voice fix accepted"
+    },
+    {
+      "invocation": "3e03cd34f32f423088634bc607c5d2f9",
+      "tool": "host_edit_file",
+      "arguments": {
+        "new": "import { VoiceController } from '../site/voice.js';",
+        "old": "import { VoiceController } from '../voice.js';",
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/tests/d01-reception.test.mjs"
+      },
+      "ok": true,
+      "broker_evidence_id": "c254937368254e1da86fccfefb92335b",
+      "error_summary": null
+    },
+    {
+      "invocation": "c97fe93d676040d382f1358e9e564dce",
+      "tool": "host_exec",
+      "arguments": {
+        "argv": [
+          "node",
+          "--test",
+          "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/tests/d01-reception.test.mjs"
+        ],
+        "timeout": 20
+      },
+      "ok": false,
+      "broker_evidence_id": "de5644aecdac47e39ecf3dbc59319a04",
+      "error_summary": "5tests fail in browser mock; no voice fix accepted"
+    }
+  ]
+}

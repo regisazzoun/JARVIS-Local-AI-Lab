@@ -2,19 +2,44 @@
   "mission": "JL-03-COR-P1",
   "coordinator": "Codex",
   "executor": "JARVIS",
-  "updated_at": 1792924947.8523428,
+  "updated_at": 1792928744.8238204,
   "dispatch_policy": "D01 thenD02 in separate contexts, owner latest clarification; no batch prompt",
   "context_issue": "KNOWN_NOT_RESOLVED",
   "tasks": [
     {
       "id": "D01",
       "defect": "Répétition des commandes vocales",
-      "status": "RUNNING",
+      "status": "QUEUED_TARGETED_HARNESS_CORRECTION",
       "mission_id": "a668e5a0fd0648328e2de339bf69b299",
-      "conversation_id": "f8dae6dc-f1fb-4369-9950-59dfcb8a269b",
+      "conversation_id": "8aa72b7d-83c4-43ca-9ae1-1087238c7ce5",
       "validated": false,
       "worker_assignments": "JARVIS to decide",
-      "blockers": [],
+      "blockers": [
+        {
+          "attempts": [
+            "9f07b958473c4e438e70ba807bfbea17",
+            "c94ef22f16144b15bef98ee5d72fa901",
+            "f023d71af77a4cc2b26de8a7d3d51162"
+          ],
+          "blocker": "unverified_rewrites:/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
+          "kind": "unverified_rewrites",
+          "next": "Trois modifications successives sans commande de contrôle ; arrêter la réécriture et vérifier le résultat réel avant toute nouvelle stratégie.",
+          "scope": "Cooperative journal observer: interrupts via existing mission state, command already engaged may finish. Does not kill a service or create an executor.",
+          "status": "BLOQUÉE — ANALYSE DOCUMENTÉE"
+        },
+        {
+          "attempts": [
+            "7b47116fe85f487194861e72a23d2619",
+            "e8299c8279df48c1a61bfaa6ffb64138",
+            "ee6708f5ec004c8d9a059152515af82a"
+          ],
+          "blocker": "stagnation:host_read_file",
+          "kind": "repeated_unchanged_reads",
+          "next": "Les observations sont acquises ; changer de tâche ou agir sur le diagnostic, sans relire une quatrième fois.",
+          "scope": "Cooperative journal observer: interrupts via existing mission state, command already engaged may finish. Does not kill a service or create an executor.",
+          "status": "BLOQUÉE — ANALYSE DOCUMENTÉE"
+        }
+      ],
       "context_directory": "/var/lib/jarvis/projects/jl03-cor-p1/D01",
       "handoff_evidence": "/home/adminjarvis/JARVIS/jl03-cor-p1-private/D01-HANDOFF-02.json",
       "checkpoint_exists": true,
@@ -25,17 +50,32 @@
       "active_task": "D01",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
       "native_call_count": 9,
-      "last_observed": 1792924947.8504908
+      "last_observed": 1792928744.823812,
+      "canonical_state": "waiting_external",
+      "latest_result": "JARVIS fixed import; actual5test failures preserved; no production fix accepted"
     },
     {
       "id": "D02",
       "defect": "Transcription Whisper incohérente",
-      "status": "RUNNING",
+      "status": "BLOCKED",
       "mission_id": "759a4b0145104c99844045f5a22f832c",
       "conversation_id": "e77cbd1c-7f6b-47ab-89db-db821065165e",
       "validated": false,
       "worker_assignments": "JARVIS to decide",
-      "blockers": [],
+      "blockers": [
+        {
+          "attempts": [
+            "ddd63c0387cc40a3aa69924055001316",
+            "2a0b3340d6504ec9bd7c37d6a6bb9d05",
+            "911bf1d2ad2e488aba9da612b8dd8abf"
+          ],
+          "blocker": "stagnation:host_read_file",
+          "kind": "repeated_unchanged_reads",
+          "next": "Les observations sont acquises ; changer de tâche ou agir sur le diagnostic, sans relire une quatrième fois.",
+          "scope": "Cooperative journal observer: interrupts via existing mission state, command already engaged may finish. Does not kill a service or create an executor.",
+          "status": "BLOQUÉE — ANALYSE DOCUMENTÉE"
+        }
+      ],
       "context_directory": "/var/lib/jarvis/projects/jl03-cor-p1/D02",
       "handoff_evidence": "/home/adminjarvis/JARVIS/jl03-cor-p1-private/D02-HANDOFF-02.json",
       "checkpoint_exists": true,
@@ -50,7 +90,8 @@
       "active_task": "D02",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
       "native_call_count": 6,
-      "last_observed": 1792924947.8519711
+      "last_observed": 1792928619.9212291,
+      "canonical_state": "interrupted"
     },
     {
       "id": "D03",
