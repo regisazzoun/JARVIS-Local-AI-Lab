@@ -2,7 +2,7 @@
   "mission": "JL-03-COR-P1",
   "coordinator": "Codex",
   "executor": "JARVIS",
-  "updated_at": 1792943212.8481607,
+  "updated_at": 1792956730.6395185,
   "dispatch_policy": "Maximum two active contexts; prepared tasks and explicitly reviewed single corrective resumes enter the canonical queue when a slot frees. Never automatically retry an unchanged blocker.",
   "context_issue": "KNOWN_NOT_RESOLVED",
   "tasks": [
@@ -50,7 +50,7 @@
       "active_task": "D01",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
       "native_call_count": 9,
-      "last_observed": 1792943212.8448975,
+      "last_observed": 1792956730.4178138,
       "canonical_state": "waiting_external",
       "latest_result": "Capture timing/session fixes applied;8targeted regressionsPASS +realbrowserSTT1segment/1completephrase. FullD01/D02qualification pending.",
       "implementation_actor": "Codex targeted intervention",
@@ -97,7 +97,7 @@
       "active_task": "D02",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
       "native_call_count": 6,
-      "last_observed": 1792943212.8456218,
+      "last_observed": 1792956730.4191074,
       "canonical_state": "waiting_external",
       "latest_result": "Owner reports transcription still imperfect; missing context is a hypothesis, not a proved cause. Memory work deferred.",
       "implementation_actor": "Codex targeted intervention",
@@ -109,7 +109,7 @@
     {
       "id": "D03",
       "defect": "Commandes sans réponse visible",
-      "status": "RUNNING",
+      "status": "QUEUED",
       "mission_id": "16087a18f86d42b7b79296bc93b3a754",
       "conversation_id": "8ab4423b-189d-41f0-8306-9c29285c9858",
       "validated": false,
@@ -119,22 +119,34 @@
       "worker_project": "jl03-cor-p1-d03",
       "blocks_following_tasks": false,
       "qualification_deferred": true,
-      "last_observed": 1792943212.8463633,
-      "canonical_state": "running",
+      "last_observed": 1792956730.4203653,
+      "canonical_state": "waiting_external",
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D03/COORDINATION.json",
       "corrective_resume": {
         "armed": false,
-        "plan_version": 3,
-        "strategy_event": 35764,
-        "reason": "Verified remote staging, focused remote-only tools and different executable approach",
-        "dispatched_at": 1792942954.9426854
+        "plan_version": 10,
+        "strategy_event": 37000,
+        "reason": "Owner targeted recheck with fresh evidence / validated exact syntax solution",
+        "dispatched_at": 1792956730.5033002
       },
-      "latest_result": "Codex isolated repair6/6; no live deployment. One reviewed resume armed, maximum two active contexts."
+      "latest_result": "Codex : pointeur erreur actif périmé archivé/retiré ; reçus frais injectés dans interface native. Tests présents mais 3 FAIL par Dell ; retest et développement JARVIS requis.",
+      "last_codex_review": {
+        "at": "2026-10-25T16:56:00.379178+00:00",
+        "actor": "Codex",
+        "strategy_event": 36524,
+        "proof_events": [
+          36513,
+          36514,
+          36515,
+          36516
+        ],
+        "decision": "Dépendance corrigée ; reprise de développement JARVIS armée, pas de réception"
+      }
     },
     {
       "id": "D04",
       "defect": "Réponses vocales trop administratives",
-      "status": "RUNNING",
+      "status": "QUEUED",
       "mission_id": "4b96e63671e1458ba93300a0e7980e2f",
       "conversation_id": "308370e1-ec1d-43de-a30c-c7bed7c5ec48",
       "validated": false,
@@ -144,15 +156,22 @@
       "worker_project": "jl03-cor-p1-d04",
       "blocks_following_tasks": false,
       "qualification_deferred": true,
-      "last_observed": 1792943212.8470967,
-      "canonical_state": "running",
+      "last_observed": 1792956730.4216213,
+      "canonical_state": "interrupted",
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D04/COORDINATION.json",
       "corrective_resume": {
         "armed": false,
-        "plan_version": 2,
-        "strategy_event": 35768,
-        "reason": "Verified remote staging, focused remote-only tools and different executable approach",
-        "dispatched_at": 1792942955.1473763
+        "plan_version": 9,
+        "strategy_event": 37003,
+        "reason": "Owner targeted recheck with fresh evidence / validated exact syntax solution",
+        "dispatched_at": 1792956730.6395168
+      },
+      "latest_result": "Codex : interface active:0 corrigée/contrôlée ; 12 PASS Dell2 formatage uniquement. Restitution quotidienne à développer/retester JARVIS.",
+      "last_codex_review": {
+        "at": "2026-10-25T17:11:25.396215+00:00",
+        "actor": "Codex",
+        "strategy_event": 36674,
+        "decision": "Nettoyage Markdown intégré ; restitution quotidienne à développer/retester par le même JARVIS"
       }
     },
     {
@@ -168,13 +187,25 @@
       "worker_project": "jl03-cor-p1-d17",
       "blocks_following_tasks": false,
       "canonical_state": "interrupted",
-      "last_observed": 1792943212.8478084,
+      "last_observed": 1792956730.4229205,
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D17/COORDINATION.json",
       "corrective_resume": {
-        "armed": true,
-        "plan_version": 2,
-        "strategy_event": 35772,
-        "reason": "Verified remote staging, focused remote-only tools and different executable approach"
+        "armed": false,
+        "plan_version": 7,
+        "strategy_event": 36479,
+        "reason": "D17 : contrat legacy sans critère semantic alors que interface moteur exige mission_verify ; ajouter critère report lisible via active:0, conserver checks TAP deux Dell, développer/tester via host_remote direct. Aucun changement moteur ou supervision.",
+        "dispatched_at": 1792947173.0435295
+      },
+      "latest_result": "Codex : cause contrôleur identifiée (32768 demandé /24576 mesuré), non corrigée ; route existante mais probe Dell2 absent, test fixtures insuffisant. Pas de reprise inchangée.",
+      "last_codex_review": {
+        "at": "2026-10-25T17:32:04.120307+00:00",
+        "actor": "Codex",
+        "report_event": 36888,
+        "control_events": [
+          36879,
+          36880
+        ],
+        "decision": "Remain interrupted; reviewer request32768 exceeds measured24576; correction not applied; no unchanged retry"
       }
     }
   ],
