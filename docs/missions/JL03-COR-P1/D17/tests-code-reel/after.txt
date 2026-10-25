@@ -1,0 +1,45 @@
+TAP version 13
+# Subtest: actual renderer displays CPU zero and both measured GPU names
+ok 1 - actual renderer displays CPU zero and both measured GPU names
+  ---
+  duration_ms: 18.411892
+  ...
+# Subtest: unknown CPU is never fabricated as zero
+ok 2 - unknown CPU is never fabricated as zero
+  ---
+  duration_ms: 0.250793
+  ...
+# Subtest: absent GPUs occupy two slots labelled not detected
+ok 3 - absent GPUs occupy two slots labelled not detected
+  ---
+  duration_ms: 0.193698
+  ...
+# Subtest: offline node states unavailability and its reason
+ok 4 - offline node states unavailability and its reason
+  ---
+  duration_ms: 0.190209
+  ...
+# Subtest: stale actual-renderer sample is labelled old
+ok 5 - stale actual-renderer sample is labelled old
+  ---
+  duration_ms: 0.30226
+  ...
+# Subtest: unmeasured GPU utilization is labelled N/A
+ok 6 - unmeasured GPU utilization is labelled N/A
+  ---
+  duration_ms: 0.182707
+  ...
+# Subtest: actual backend Handler consumes Dell2 probe and propagates zero/two GPUs
+ok 7 - actual backend Handler consumes Dell2 probe and propagates zero/two GPUs
+  ---
+  duration_ms: 58.817189
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 219.858956

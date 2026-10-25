@@ -1,0 +1,62 @@
+{
+  "actor": "Codex",
+  "scope": "Live review transport readiness after worker reload, NOT report audit/mission acceptance",
+  "result": {
+    "transport_ready": true
+  },
+  "payload_options": [
+    {
+      "num_predict": 8192,
+      "temperature": 0,
+      "presence_penalty": 0
+    }
+  ],
+  "metrics": {
+    "load_duration": 4627198,
+    "prompt_eval_duration": 520335000,
+    "eval_duration": 88615000,
+    "eval_count": 7,
+    "prompt_eval_count": 125,
+    "total_duration": 946712597,
+    "done_reason": "stop",
+    "node": "Dell1",
+    "effective_model": "qwen3-coder-next:q4_K_M",
+    "requested_model": "qwen3-coder-next:q4_K_M",
+    "role": "mission",
+    "compute_job": "c9acb96e91a946478cda76235df62e33",
+    "first_content_s": 0.8616302369628102,
+    "first_content_total_s": 1.744240382919088,
+    "admission_s": 0.726769310887903,
+    "queue_wait_s": 0.15584083506837487,
+    "request_elapsed_s": 0.9500350910238922,
+    "end_to_end_s": 1.832645468879491,
+    "route_failures": [],
+    "num_ctx": 24576,
+    "admission_resources": {
+      "captured_at": 1792963183.5015376,
+      "memory_total_bytes": 269958471680,
+      "memory_available_bytes": 255802609664,
+      "cpu_threads": 36,
+      "load1": 0.49853515625,
+      "gpu": [
+        {
+          "index": 0.0,
+          "total_mib": 24576.0,
+          "free_mib": 1069.0,
+          "utilization_percent": 0.0,
+          "temperature_c": 37.0,
+          "power_w": 23.71
+        },
+        {
+          "index": 1.0,
+          "total_mib": 24576.0,
+          "free_mib": 1281.0,
+          "utilization_percent": 0.0,
+          "temperature_c": 51.0,
+          "power_w": 33.05
+        }
+      ]
+    }
+  },
+  "at": 1792963184.8094544
+}

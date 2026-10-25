@@ -1,3 +1,7 @@
+## JL03-COR-P1 — aide concrète aux trois défauts
+
+Workers rechargés pour utiliser le correctif du vérificateur déjà installé ; vrai transport Qwen80BDell1 reçu en24576tokens, sans réception fictive de prose. D03/D04 reçoivent des corrections factuelles ciblées et la reprise de vérification. PourD17, bancbranché surrenderer/Handler réels et patch fourni : copieisolée6PASS/1FAILavant,7PASSaprès ; application/retest parJARVIS encore requis. Aucun nouveaucorrectifapplicatif live reçu. [Aide et preuves](docs/missions/JL03-COR-P1/AIDE-TROIS-DEFAUTS.md).
+
 ## JL-03-COR-P1 — reprise sur les Dell et supervision persistante
 
 Les trois blocages sont diagnostiqués ; sources réellement déposées sur les deuxDell, D03préflightCodex6/6sur chaquehôte, sondeDell2réelle3090+3080, garde7aa6288installé et12testsPythonPASS. ReprisesJARVIS armées en contextesséparés, deuxau maximum ; coordinationpériodique configurée pour intervenir sur les prochains blocages sans attenteGO. Aucun nouveauGOglobalD03/D04/D17. [Supervision, limites et attribution](docs/missions/JL03-COR-P1/SUPERVISION-PERSISTANTE.md).
