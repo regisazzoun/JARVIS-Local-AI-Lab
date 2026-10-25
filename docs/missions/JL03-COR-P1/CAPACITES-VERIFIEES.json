@@ -1,0 +1,34 @@
+[
+  {
+    "task": "D01",
+    "host": "dell-observe",
+    "actor": "Codex preflight, not JARVIS defect execution",
+    "ok": true,
+    "evidence_id": "7adee66c025741a1a66c03197891ca40",
+    "observed_stdout": "v20.19.2\nPython 3.13.5\n{\"project\": \"D01\", \"sibling_not_mounted\": true, \"actor\": \"Codex capability preflight\"}\n"
+  },
+  {
+    "task": "D01",
+    "host": "dell2",
+    "actor": "Codex preflight, not JARVIS defect execution",
+    "ok": true,
+    "evidence_id": "2be3a613c18f4de383804427bfd3f9eb",
+    "observed_stdout": "v20.19.2\nPython 3.13.5\n{\"project\": \"D01\", \"sibling_not_mounted\": true, \"actor\": \"Codex capability preflight\"}\n"
+  },
+  {
+    "task": "D02",
+    "host": "dell-observe",
+    "actor": "Codex preflight, not JARVIS defect execution",
+    "ok": true,
+    "evidence_id": "d1d6b5c52c5e4f42b2c5c2cd07cba0d6",
+    "observed_stdout": "v20.19.2\nPython 3.13.5\n{\"project\": \"D02\", \"sibling_not_mounted\": true, \"actor\": \"Codex capability preflight\"}\n"
+  },
+  {
+    "task": "D02",
+    "host": "dell2",
+    "actor": "Codex preflight, not JARVIS defect execution",
+    "ok": true,
+    "evidence_id": "987f29d5f2194f3286af2b961fabd4b0",
+    "observed_stdout": "v20.19.2\nPython 3.13.5\n{\"project\": \"D02\", \"sibling_not_mounted\": true, \"actor\": \"Codex capability preflight\"}\n"
+  }
+]

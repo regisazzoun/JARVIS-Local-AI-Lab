@@ -1,0 +1,86 @@
+{
+  "mission": "JL-03-COR-P1",
+  "coordinator": "Codex",
+  "executor": "JARVIS",
+  "updated_at": 1792924947.8523428,
+  "dispatch_policy": "D01 thenD02 in separate contexts, owner latest clarification; no batch prompt",
+  "context_issue": "KNOWN_NOT_RESOLVED",
+  "tasks": [
+    {
+      "id": "D01",
+      "defect": "Répétition des commandes vocales",
+      "status": "RUNNING",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "conversation_id": "f8dae6dc-f1fb-4369-9950-59dfcb8a269b",
+      "validated": false,
+      "worker_assignments": "JARVIS to decide",
+      "blockers": [],
+      "context_directory": "/var/lib/jarvis/projects/jl03-cor-p1/D01",
+      "handoff_evidence": "/home/adminjarvis/JARVIS/jl03-cor-p1-private/D01-HANDOFF-02.json",
+      "checkpoint_exists": true,
+      "native_tools": [],
+      "capability_supplied": true,
+      "worker_project": "jl03-cor-p1-d01",
+      "initial_transmission": "Native ACK/checkpoint and capability_request observed; D01 guard interrupted repeated writes; HTTP final response is not sole receipt",
+      "active_task": "D01",
+      "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
+      "native_call_count": 9,
+      "last_observed": 1792924947.8504908
+    },
+    {
+      "id": "D02",
+      "defect": "Transcription Whisper incohérente",
+      "status": "RUNNING",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "conversation_id": "e77cbd1c-7f6b-47ab-89db-db821065165e",
+      "validated": false,
+      "worker_assignments": "JARVIS to decide",
+      "blockers": [],
+      "context_directory": "/var/lib/jarvis/projects/jl03-cor-p1/D02",
+      "handoff_evidence": "/home/adminjarvis/JARVIS/jl03-cor-p1-private/D02-HANDOFF-02.json",
+      "checkpoint_exists": true,
+      "native_tools": [
+        "host_write_file",
+        "capability_request",
+        "intervention_report"
+      ],
+      "capability_supplied": true,
+      "worker_project": "jl03-cor-p1-d02",
+      "initial_transmission": "Native ACK/checkpoint and capability_request observed; D01 guard interrupted repeated writes; HTTP final response is not sole receipt",
+      "active_task": "D02",
+      "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
+      "native_call_count": 6,
+      "last_observed": 1792924947.8519711
+    },
+    {
+      "id": "D03",
+      "defect": "Commandes sans réponse visible",
+      "status": "NOT_DISPATCHED",
+      "mission_id": null,
+      "conversation_id": null,
+      "validated": false,
+      "worker_assignments": "JARVIS to decide",
+      "blockers": []
+    },
+    {
+      "id": "D04",
+      "defect": "Réponses vocales trop administratives",
+      "status": "NOT_DISPATCHED",
+      "mission_id": null,
+      "conversation_id": null,
+      "validated": false,
+      "worker_assignments": "JARVIS to decide",
+      "blockers": []
+    },
+    {
+      "id": "D17",
+      "defect": "CPU et deuxGPU Dell2",
+      "status": "NOT_DISPATCHED",
+      "mission_id": null,
+      "conversation_id": null,
+      "validated": false,
+      "worker_assignments": "JARVIS to decide",
+      "blockers": []
+    }
+  ]
+}

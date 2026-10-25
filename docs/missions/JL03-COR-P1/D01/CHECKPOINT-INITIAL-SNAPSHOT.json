@@ -1,0 +1,27 @@
+{
+  "ack": true,
+  "task": "D01",
+  "status": "bloqué — attente capacité project_exec",
+  "hypothèses": [
+    "Bug répétition vocale implique émission multiple d’événements (ex. `emit`) dans app.js",
+    "Fichier voice.js contient le cœur de traitement vocal",
+    "Accès project_exec manquant sur Dell1/Dell2 (précisé dans pré-requis projet)"
+  ],
+  "sous-tâches": [
+    "diagnostic_local: vérifier voice.js et app.js sur Dell1/Dell2",
+    "corrélation: lier émissions emit à répétitions observées",
+    "triage: distinguer bug client vs serveur vs réseau"
+  ],
+  "affectation": {
+    "Dell1": "diagnostic_local (app.js)",
+    "Dell2": "diagnostic_local (voice.js)"
+  },
+  "blocages": [
+    "capability project_exec non délivrée — demande envoyée (id=7fb68aefe1dc43449e803d84d04a090e)"
+  ],
+  "prochaines_actions": [
+    "attendre capability_status confirmant attribution",
+    "exécuter ls /home/jl03-cor-p1/projD01/src/voice.js",
+    "exécuter grep -r \"emit\" /home/jl03-cor-p1/projD01/src/app.js"
+  ]
+}

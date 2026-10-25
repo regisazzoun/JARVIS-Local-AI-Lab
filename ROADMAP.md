@@ -1,3 +1,7 @@
+## JL-03-COR-P1 — démarrage séquentiel en contextes distincts,25octobre2026
+
+🟡 D01etD02transmis successivement àJARVIS, missions/conversations/worktrees distincts selon dernière précision propriétaire. Checkpoints et demandes de capacité natifs reçus ; gardeD01arrêté après trois réécritures, historique conservé. Node/Bubblewrap et projets isolés fournis/testés sur les deuxDell, reprise par workers canoniques. Aucun défaut vocal déclaré corrigé ; D03/D04/D17nontransmis. Contextevolumineux non déclaré résolu, aucune modification de modèle/routage. [Suivi](docs/missions/JL03-COR-P1/ETAT-DEMARRAGE.md) · [RegistreCodex](docs/missions/JL03-COR-P1/REGISTRE.json).
+
 ## Mission14B — réception technique du25octobre2026
 
 ✅🟡 **GO technique avec réserves.** Dell2 booté sur Debian13, RAID1propre[UU], SSHclé/motdepasse/sudo et Ansible vérifiés ; piloteNVIDIA et calculCUDA numérique réussis sur chaqueGPU. Matériel réel :3090de24Go +3080de10Go, pasdeux3090. Suivi physique actif, horloge synchronisée, moniteurRAIDcorrigé, aucunserviceenéchec. JARVIS a exécuté les outils de réception ; assistanceCodex importante et erreurs conservées. AucunOllama/routage/charge modifié. Les états historiques du plan ne sont pas cochés artificiellement. [Réception et erratum](docs/missions/14B/POINT-RECEPTION-25-OCTOBRE.md) · [Preuve indépendante](docs/missions/14B/RECEPTION-INDEPENDANTE-25-OCTOBRE.json).
