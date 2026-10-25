@@ -1,0 +1,12 @@
+ID;Element;Details;Statut;Source
+FON-01;Dialogue local;Qwen 27B Mac;✅;28A
+FON-02;Inférence lourde Dell1;Qwen 80B MoE;✅🟡;28A
+FON-03;Deux missions concurrentes;Deux workers GPU sérialisé;✅🟡;28A
+FON-04;Exécution Dell1/Dell2;Tâches isolées réception JL03 ouverte;✅🟡;JL03 COR P1
+FON-05;Equilibrage inférence Dell1/Dell2;Non démontré;📋;28A/14B
+FON-06;Repli Dell1 vers Mac;Panne TCP injectée sur copie de configuration;✅🟡;28A
+FON-07;Quotas CPU et profils puissance GPU;CPU 900/300% Dell1 200/250/280/350 W;✅;28A
+FON-08;Mémoire/reprise;Plans durables et sémantique;✅🟡;26
+FON-09;Flux intégral JL03;En cours;🟡;JL03 COR P1
+FON-10;Surveillance CPU/deux GPU Dell2;Défaut D17 non transmis;🟡;JL03 COR P1
+FON-11;Règle trois boucles;Garde prouvé cause racine encore à corriger;✅🟡;JL03 COR P1
