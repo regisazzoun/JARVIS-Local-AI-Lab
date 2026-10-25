@@ -1,0 +1,8 @@
+ID;Element;Details;Statut;Source
+MAT-01;Mac mini 2018;"Coordinateur Debian; CPU Intel; eGPU RTX 3090 mentionnée 28A";✅🟡;28A rapport final
+MAT-02;Dell Precision 5820 n°1;"Serveur inférence 2 RTX 3090 en 28A; VRAM non monolithique";✅;28A rapport final
+MAT-03;Dell Precision n°2;"Nœud exécuteur distant JL03; état OS/GPU détaillé à confirmer";✅🟡;JL03 COR P1 état démarrage
+MAT-04;MacBook / macOS;Client SSH navigateur Launcher;✅🟡;13D JL02
+MAT-05;iPhone;Client Web/voix envisagé réception physique limitée;🟡;13E/13F
+MAT-06;LAN + liaison inter-Dell;"Réseau local; objectif interserveurs 10 Gb/s; vitesse négociée non corroborée";🟡;Décisions propriétaire
+MAT-07;NVMe Dell1 RAID1;RAID1 mdadm deux ESP après 13D-E;✅;13D-E
