@@ -17,3 +17,7 @@ Les capacités projets isolées sont fournies sur les deux Dell pour D03/D04/D17
 ## Reprise corrective D03
 
 Après diagnostic et réparation source/harnais contrôlée par Codex, une reprise ciblée unique peut être armée sur un plan versionné et un événement de stratégie vérifié. Cela ne réessaie pas automatiquement un blocage inchangé. D04/D17 conservent leurs places jusqu’à libération. Voir [déblocage D03](D03/DEBLOCAGE-CODEX.md).
+
+## Reprise distante et coordination automatique
+
+Voir [supervision persistante](SUPERVISION-PERSISTANTE.md) : les sources sont déposées sur les deuxDell, trois reprises documentées sont préparées, gardecorrigé et suiviCodexpériodique pour traiter les nouveaux blocages sans relance utilisateur. Les anciens états restent des instantanés historiques.

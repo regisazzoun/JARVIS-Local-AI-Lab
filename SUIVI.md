@@ -1,3 +1,7 @@
+## JL-03-COR-P1 — reprise sur les Dell et supervision persistante
+
+Les trois blocages sont diagnostiqués ; sources réellement déposées sur les deuxDell, D03préflightCodex6/6sur chaquehôte, sondeDell2réelle3090+3080, garde7aa6288installé et12testsPythonPASS. ReprisesJARVIS armées en contextesséparés, deuxau maximum ; coordinationpériodique configurée pour intervenir sur les prochains blocages sans attenteGO. Aucun nouveauGOglobalD03/D04/D17. [Supervision, limites et attribution](docs/missions/JL03-COR-P1/SUPERVISION-PERSISTANTE.md).
+
 ## JL-03-COR-P1 — D03 diagnostiquée, candidat corrigé et reprise ciblée préparée
 
 Codex a reproduit puis corrigé le double message d’erreur sur réponse vide et la perte de saisie dans le candidat isolé D03. Harnais branché sur la fonction réelle :4PASS/2FAILavant,6PASSaprès ; capture8PASSconservée. Aucun déploiement ni réception globaleD03. Plan2 et repriseJARVIS préparés sans remiseàzéro des compteurs ; premier test natif puis vrais testsDell requis. D04/D17 continuent, maximum deux contextes. [Diagnostic et preuves](docs/missions/JL03-COR-P1/D03/DEBLOCAGE-CODEX.md).

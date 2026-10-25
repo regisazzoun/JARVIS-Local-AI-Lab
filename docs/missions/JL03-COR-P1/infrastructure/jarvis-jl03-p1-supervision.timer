@@ -1,0 +1,9 @@
+[Unit]
+Description=Inspect JL03 P1 every two minutes and invoke Codex only when needed
+[Timer]
+OnBootSec=90
+OnUnitInactiveSec=120
+AccuracySec=5
+Unit=jarvis-jl03-p1-supervision.service
+[Install]
+WantedBy=timers.target

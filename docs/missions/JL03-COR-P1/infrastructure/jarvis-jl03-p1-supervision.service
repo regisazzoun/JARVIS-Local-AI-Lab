@@ -1,0 +1,13 @@
+[Unit]
+Description=Periodic Codex assistance to JARVIS JL03 P1, bounded and evidence based
+After=network-online.target jarvis-mission-worker.service
+[Service]
+Type=oneshot
+User=adminjarvis
+Group=adminjarvis
+WorkingDirectory=/home/adminjarvis/JARVIS/jl03-cor-p1
+Environment=PATH=/home/adminjarvis/.local/bin:/usr/local/bin:/usr/bin:/bin
+UMask=0077
+ExecStart=/usr/bin/python3 /usr/local/lib/jarvis-coordination/periodic_codex.py
+TimeoutStartSec=450
+KillMode=control-group

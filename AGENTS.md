@@ -184,3 +184,7 @@ Si l'assistance est indisponible, conserver ce dossier et continuer les tâches 
 ## JL03-COR-P1 — capture acceptée et continuité propriétaire
 
 Le25octobre, le propriétaire accepte la capture mais conserve une réserve de transcription ; le contexte manquant reste une hypothèse, mémoire à traiter plus tard. D03/D04 continuent réellement en contextes distincts, D17 est préparée pour prendre la place libre automatiquement via le moteur existant. Maximum deux contextes, aucune attente de validation humaine entre corrections. Un blocage après trois échecs est documenté/escaladé, ses compteurs préservés ; continuer les autres travaux indépendants sans réessai aveugle. Codex revoit les preuves et intègre lesdiffs successivement, sans réception fictive ni fusionmain.
+
+## JL03-COR-P1 — supervision persistante demandée
+
+Le propriétaire demande explicitement de débloquer et surveiller sans devoir relancerCodex. CoordinationCodex périodique autorisée dans le seul périmètreD03/D04/D17 ; JARVIS continue les opérations réelles surDell. Aucune validationintermédiaire ajoutée. Maximumdeux contextesJARVIS, gardestroiséchecs et compteurspréservés. Un passageCodexdiagnostique/corrige/contrôle et rendlamain ; aucunloopaveugle, aucune missionhorspérimètre, aucune fusionmain. Les sortiesCLI et secretsrestentprivés, publieruniquement faits/preuves/attributions.
