@@ -1,0 +1,55 @@
+{
+  "observed_at_controller": 1792918282.3388975,
+  "mission": "a1becab1a8244e2295463bd5be833784",
+  "technical_verdict": "GO_WITH_RESERVATIONS",
+  "installed_boot_verified": true,
+  "pinned_ssh_key_and_sudo": true,
+  "independent_password_and_sudo": true,
+  "raid_clean": true,
+  "gpu_actual": [
+    {
+      "model": "RTX3090",
+      "memory_mib": 24576
+    },
+    {
+      "model": "RTX3080",
+      "memory_mib": 10240
+    }
+  ],
+  "cuda_numeric_values_checked_per_gpu": 1024,
+  "cuda_both_pass": true,
+  "ansible_codex_and_jarvis": true,
+  "clock_synchronized": true,
+  "mdmonitor_active_after_codex_correction": true,
+  "failed_services_after_correction": 0,
+  "jarvis_native_tools": [
+    {
+      "tool": "host_remote",
+      "ok": true,
+      "returncode": 0,
+      "broker_evidence_id": "73d8f70ca5fd45d08352b30fcab0afec",
+      "report_sha256": null
+    },
+    {
+      "tool": "host_ansible",
+      "ok": true,
+      "returncode": 0,
+      "broker_evidence_id": "7a9c274a457d4ddbbd60d3187f01df23",
+      "report_sha256": null
+    },
+    {
+      "tool": "intervention_report",
+      "ok": true,
+      "returncode": null,
+      "broker_evidence_id": null,
+      "report_sha256": "08270d7a84a98e4afc4fd582d27c46a4808ac431e4922ba97b509bc1d5edca69"
+    }
+  ],
+  "reservations": [
+    "SecondGPUisRTX3080notRTX3090",
+    "JARVIS assisted substantially byCodex",
+    "SeparatephysicalbootoneachESPnotexecuted",
+    "Originalengineplanstatesnotartificiallyvalidated"
+  ],
+  "no_ollama_routing_load_change": true
+}

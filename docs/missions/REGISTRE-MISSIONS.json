@@ -2193,11 +2193,11 @@
   {
     "identifiant": "14B",
     "nom": "Dell n°2 — installation et intégration Debian13",
-    "etat": "En cours — RAID synchronisé, Debian/EFI/NVIDIA/CUDA préparés ; correction du redémarrage installateur, réception aprèsboot attendue",
+    "etat": "GO technique avec réserves — installation réelle reçue, autonomie assistée,3090+3080 au lieu de2×3090",
     "mission_id": "a1becab1a8244e2295463bd5be833784",
     "executant_reel": "JARVIS déclenche installation/reprise/GPU ; Codex fournit/corrige infrastructure, contrôle et lance ponctuellement continuation après blocage",
-    "resultats_prouves": "Dell2 distinct identifié, deuxNVMe, SSH épinglé, GPT/ESP/RAID1[UU], Debian13 et EFI finalisés ; opérations broker réellesJARVIS et tableau physique5s",
-    "reserves": "Sortie nocturne bloquée sur signaux init ; observer6h atteint ; correctionCodex au25/10 ; GPU/CUDA/Ansible sur système installé non encore reçus",
+    "resultats_prouves": "Boot Debian13, RAID1propre, deuxESP, SSHclé/motdepasse/sudo, AnsibleCodex/JARVIS, NVIDIA550.163.01, CUDA1024valeursPASSsur2GPU, suivi physique actif, NTPsync, zéroservicefailed",
+    "reserves": "Carte3080au lieu de deuxième3090 ; assistanceCodex importante ; bootphysiqueséparédesESPnontesté ; états duplaninitialnonartificiellementvalidés",
     "objectifs": "Debian13, accèsSSH/Ansible, socleNVIDIA/CUDA et intégration matérielle Dell2",
     "exclusions": "Aucun changementOllama, routage, répartition de charge ou autre architecture",
     "retry_policy": "Trois échecs comparables par stratégie ; diagnostic puis approche réellement différente limitée à trois, sans remise à zéro cosmétique ; demandeCodex si non résolu",
@@ -2217,9 +2217,13 @@
       {
         "path": "docs/missions/14B/REPRISE-25-OCTOBRE.md",
         "url": ""
+      },
+      {
+        "path": "docs/missions/14B/POINT-RECEPTION-25-OCTOBRE.md",
+        "url": ""
       }
     ],
-    "prochaine_action": "Continuation bornée autonome, reboot propre après paquets/synchronisation, réception réelle et documentation",
+    "prochaine_action": "Consolider le rapprochement du plan et des preuves ; éventuelle correction matérielle distincte pour atteindre2×3090, sans changement de routage",
     "derniere_actualisation": "2026-10-25"
   }
 ]

@@ -25,6 +25,14 @@ printf 'UUID=%s / ext4 defaults 0 1\n' "$rootuuid" > /target/etc/fstab
 printf 'UUID=%s /boot/efi vfat defaults,nofail,umask=0077 0 2\n' "$(blkid -s UUID -o value "${a}p1")" >> /target/etc/fstab
 printf 'UUID=%s /boot/efi-secondary vfat defaults,nofail,umask=0077 0 2\n' "$(blkid -s UUID -o value "${b}p1")" >> /target/etc/fstab
 mdadm --detail --scan > /target/etc/mdadm/mdadm.conf
+# mdmonitor requires an alert target; preserve ARRAY entries and log locally.
+mkdir -p /target/usr/local/sbin
+cat > /target/usr/local/sbin/jarvis-md-event <<'MD_EVENT'
+#!/bin/sh
+exec /usr/bin/logger -p daemon.warning -t jarvis-mdmonitor -- "$@"
+MD_EVENT
+chmod 755 /target/usr/local/sbin/jarvis-md-event
+printf 'PROGRAM /usr/local/sbin/jarvis-md-event\nMONITORDELAY 60\n' >> /target/etc/mdadm/mdadm.conf
 printf 'GRUB_CMDLINE_LINUX_DEFAULT="nomodeset"\nGRUB_TERMINAL_OUTPUT=console\n' > /target/etc/default/grub.d/90-jarvis.cfg
 printf 'vmd\nnvme\nraid1\next4\n' >> /target/etc/initramfs-tools/modules
 chroot /target update-initramfs -u -k all

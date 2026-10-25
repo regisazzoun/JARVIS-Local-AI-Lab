@@ -1,3 +1,7 @@
+## Mission14B — réception technique du25octobre2026
+
+✅🟡 **GO technique avec réserves.** Dell2 booté sur Debian13, RAID1propre[UU], SSHclé/motdepasse/sudo et Ansible vérifiés ; piloteNVIDIA et calculCUDA numérique réussis sur chaqueGPU. Matériel réel :3090de24Go +3080de10Go, pasdeux3090. Suivi physique actif, horloge synchronisée, moniteurRAIDcorrigé, aucunserviceenéchec. JARVIS a exécuté les outils de réception ; assistanceCodex importante et erreurs conservées. AucunOllama/routage/charge modifié. Les états historiques du plan ne sont pas cochés artificiellement. [Réception et erratum](docs/missions/14B/POINT-RECEPTION-25-OCTOBRE.md) · [Preuve indépendante](docs/missions/14B/RECEPTION-INDEPENDANTE-25-OCTOBRE.json).
+
 ## Mission14B — reprise du25octobre2026
 
 🟡 Debian13/EFI et paquetsNVIDIA/CUDA préparés ; RAID synchronisé puis arrêté proprement. La continuation nocturne est restée dans l'installateur au reboot et l'observateur a atteint6h : autonomie de cette sortie non reçue. Codex diagnostique les signaux bloqués duPID1 et corrige le reboot après garde d'arrêt propre ; démarrage installé et calculGPU restent à recevoir. [Diagnostic et reprise](docs/missions/14B/REPRISE-25-OCTOBRE.md). AucunOllama/routage/charges modifié.
