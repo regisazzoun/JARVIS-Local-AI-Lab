@@ -20,7 +20,7 @@ def select_pending(entries, states, inflight):
     return [t for t in entries if
             (t.get('status') == 'PREPARED_WAITING_SLOT' and states[t['id']] == 'draft')
             or (t.get('corrective_resume', {}).get('armed') is True
-                and states[t['id']] == 'interrupted')][:max(0, 2 - used)]
+                and states[t['id']] in ('interrupted', 'waiting_external'))][:max(0, 2 - used)]
 
 
 def main():

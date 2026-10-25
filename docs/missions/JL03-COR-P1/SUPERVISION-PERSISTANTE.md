@@ -23,3 +23,7 @@ Une seule intervention Codex périodique peut tourner à lafois, au maximum7minu
 Les sorties détaillées Codex restent privées sous jl03-cor-p1-private/supervision ; seuls les rapportsfactuels et événements decoordination sont proposés dans les dossiers de mission. Le timer ne publie pas les raisonnements internes. Aucun email ou message tiers envoyé. Les corrections et réceptions restent attribuées selon les reçus, sans confondre une interventionCodex avec une autonomieJARVIS.
 
 Services : jarvis-jl03-p1-supervision.timer et .service. Script : /usr/local/lib/jarvis-coordination/periodic_codex.py. Arrêt explicite du suivi : systemctl stop jarvis-jl03-p1-supervision.timer ; le dispatcher est séparé. Le superviseur est limité à D03/D04/D17 et ne lance aucune autre mission. Maximum deux contextes de travailJARVIS ; le processusCodex est de coordination, pas un troisième workerDell.
+
+## Correction du dispatcher après contrôle d’avancement
+
+Une reprise D03 révisée et armée restait en waiting_external ; le sélecteur ne traitait que interrupted. Codex étend la sélection aux attentes externes uniquement si une reprise contrôlée est armée et si son plan/événement correspondent toujours. Trois contrôles ciblés passent ; installation et exécution réelles : D03 queued. Les limites de concurrence, compteurs et barrières de preuve restent conservés. D04 demeure non réceptionnée ; D17 travaille.
