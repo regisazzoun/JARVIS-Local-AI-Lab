@@ -1,0 +1,11 @@
+{
+  "observed_at": 1792933687.8319886,
+  "actor": "Codex infrastructure correction",
+  "existing_harness_tests": 5,
+  "passed": 5,
+  "failed": 0,
+  "assertions_preserved": true,
+  "production_voice_source_changed": false,
+  "D01_accepted": false,
+  "remaining": "Tests must exercise emitted audio and actual capture path, not only mocks/no-transcript assertions; JARVIS own tests pending"
+}

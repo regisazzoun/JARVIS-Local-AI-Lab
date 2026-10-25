@@ -1,0 +1,36 @@
+TAP version 13
+# Subtest: VoiceController: un transcript par segment vocal
+ok 1 - VoiceController: un transcript par segment vocal
+  ---
+  duration_ms: 613.680246
+  ...
+# Subtest: VoiceController: interruption TTS sans duplication
+ok 2 - VoiceController: interruption TTS sans duplication
+  ---
+  duration_ms: 5.333066
+  ...
+# Subtest: VoiceController: arrêt microphone respecte les segments en cours
+ok 3 - VoiceController: arrêt microphone respecte les segments en cours
+  ---
+  duration_ms: 3.301478
+  ...
+# Subtest: VoiceController: démarrage multiple ignore les appels redondants
+ok 4 - VoiceController: démarrage multiple ignore les appels redondants
+  ---
+  duration_ms: 3.006713
+  ...
+# Subtest: VoiceController: micro réactif après interruption TTS
+ok 5 - VoiceController: micro réactif après interruption TTS
+  ---
+  duration_ms: 3.509758
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 778.89324
+

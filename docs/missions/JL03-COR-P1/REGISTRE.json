@@ -2,14 +2,14 @@
   "mission": "JL-03-COR-P1",
   "coordinator": "Codex",
   "executor": "JARVIS",
-  "updated_at": 1792929293.78345,
+  "updated_at": 1792933687.831582,
   "dispatch_policy": "D01 thenD02 in separate contexts, owner latest clarification; no batch prompt",
   "context_issue": "KNOWN_NOT_RESOLVED",
   "tasks": [
     {
       "id": "D01",
       "defect": "Répétition des commandes vocales",
-      "status": "QUEUED_TARGETED_HARNESS_CORRECTION",
+      "status": "RUNNING",
       "mission_id": "a668e5a0fd0648328e2de339bf69b299",
       "conversation_id": "8aa72b7d-83c4-43ca-9ae1-1087238c7ce5",
       "validated": false,
@@ -50,14 +50,14 @@
       "active_task": "D01",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
       "native_call_count": 9,
-      "last_observed": 1792928744.823812,
-      "canonical_state": "waiting_external",
-      "latest_result": "JARVIS fixed import; actual5test failures preserved; no production fix accepted"
+      "last_observed": 1792933687.831255,
+      "canonical_state": "running",
+      "latest_result": "Codex repaired test infrastructure; JARVIS retest and real defect diagnosis resumed; no production voice fix accepted"
     },
     {
       "id": "D02",
       "defect": "Transcription Whisper incohérente",
-      "status": "QUEUED_TARGETED_CORPUS_DIAGNOSTIC",
+      "status": "RUNNING",
       "mission_id": "759a4b0145104c99844045f5a22f832c",
       "conversation_id": "e77cbd1c-7f6b-47ab-89db-db821065165e",
       "validated": false,
@@ -90,9 +90,9 @@
       "active_task": "D02",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
       "native_call_count": 6,
-      "last_observed": 1792929293.7834427,
-      "canonical_state": "interrupted",
-      "latest_result": "Codex staged authorized audio fixtures and compactSTT contract; real JARVIS corpus audit pending"
+      "last_observed": 1792933687.8315802,
+      "canonical_state": "running",
+      "latest_result": "Codex repaired test infrastructure; JARVIS retest and real defect diagnosis resumed; no production voice fix accepted"
     },
     {
       "id": "D03",

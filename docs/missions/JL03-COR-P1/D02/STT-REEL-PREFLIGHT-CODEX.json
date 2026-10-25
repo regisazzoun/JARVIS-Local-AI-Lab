@@ -1,0 +1,44 @@
+{
+  "observed_at": 1792933337.412894,
+  "endpoint": "Existing authenticated canonical /api/stt",
+  "implementation_actor": "Codex fixed test infrastructure",
+  "execution_actor": "See broker caller and canonical native invocation; operator preflight is not JARVIS execution",
+  "cases": [
+    {
+      "case": "accueil.wav",
+      "http_status": 200,
+      "elapsed_s": 3.4544007778167725,
+      "observed": {
+        "text": "Bonsoir, monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions.",
+        "elapsed_s": 3.4522233209572732
+      },
+      "sha256": "322cce3ae6ae5d6f737814218a3e997a3a05f70706cf93f7aca7397a885ee5d1",
+      "expected_text": "Bonsoir monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions.",
+      "word_error_rate": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "case": "silence.wav",
+      "http_status": 400,
+      "elapsed_s": 0.1641674041748047,
+      "observed": {
+        "error": "Traitement vocal échoué : vérifier le format, la durée et les ressources locales"
+      },
+      "sha256": "643f8a8dc8bd9c19225afffad2becfec5426180b3749cb208abdf1a6c8354efc",
+      "verdict": "PASS"
+    },
+    {
+      "case": "invalide.bin",
+      "http_status": 400,
+      "elapsed_s": 0.16194605827331543,
+      "observed": {
+        "error": "Traitement vocal échoué : vérifier le format, la durée et les ressources locales"
+      },
+      "sha256": "6f545e23da07915cc8d5c4ba9dae91427423f11976b693a5d49e2890d9921989",
+      "verdict": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "scope": "Baseline on controlled existing TTS01 WAV/silence/invalid input; not acceptance of browser capture or owner microphone",
+  "actual_caller": "Codex independent operator preflight, not JARVIS execution"
+}
