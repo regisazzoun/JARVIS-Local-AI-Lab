@@ -1,0 +1,49 @@
+{
+  "observed_at": 1792934394.4629698,
+  "implementation_actor": "Codex targeted intervention after JARVIS blockages",
+  "status": "APPLIED_AWAITING_OWNER_QUALIFICATION",
+  "voice_sha256": "40acc461ae0bda8fd5a3ed736fbe36597c71c713e9ae5ac3d5fc554490e98013",
+  "before_sha256": "24af8b9531538db82218940c524823227af459270a5a537ae52bcceb1b7b7d7e",
+  "regressions_before": {
+    "pass": 3,
+    "fail": 5
+  },
+  "regressions_after": {
+    "pass": 8,
+    "fail": 0
+  },
+  "existing_python_tests_passed": 9,
+  "javascript_modules_syntax_passed": 8,
+  "browser": {
+    "created": 1792934298.4227457,
+    "actor": "Codex technical verification",
+    "checks": {
+      "one_stt_request_after_long_silence": true,
+      "one_complete_transcript": true,
+      "one_segment": true,
+      "capture_stopped_cleanly": true,
+      "no_errors": true
+    },
+    "pass": true,
+    "observed": {
+      "transcripts": [
+        "Bonsoir, monsieur. Tous les systèmes sont opérationnels. Je suis prêt à recevoir vos instructions."
+      ],
+      "faults": [],
+      "states": [
+        "listening"
+      ],
+      "sttRequests": 1,
+      "segments": 1,
+      "elapsed_s": 28.866899999856948,
+      "microphoneStopped": true
+    },
+    "browser_errors": [],
+    "scope": "Real browser WebAudio/MediaRecorder and canonicalWhisper with authorized existing WAV after17.3s initial silence; synthetic microphone source, not owner microphone or full app conversation qualification"
+  },
+  "whisper_model_or_parameters_changed": false,
+  "jl01_jl02_changed": false,
+  "qualification_D01_D02_complete": false,
+  "rollback_backup_private": "/home/adminjarvis/JARVIS/jl03-cor-p1-private/deploiement-voix/voice-before.js",
+  "app_commit": "c1b49c8"
+}

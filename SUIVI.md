@@ -1,3 +1,7 @@
+## JL-03-COR-P1 — capture corrigée et installée, qualification propriétaire à faire
+
+🟡 Sur demande du propriétaire, Codex a installé une correction ciblée de la fenêtre de parole et des sessionsmicro : parole après silence noncoupée, événementsanciens isolés, un traitement par segment sans éliminer les répétitionsvolontaires. Cinq régressions reproduites avant correction, huit cas ciblésPASSaprès ; navigateur réelWebAudio/MediaRecorder→Whisper : uneséquence après17,3sdesilence, unsegment/unetranscriptioncomplète. Sourcecommit`c1b49c8`dansLauncher3. Correctif développé parCodex après blocagesJARVIS ; D01/D02restent àqualifier avec le propriétaire, aucun GOglobal ou autonomie fictive. Whisper/modèle/routage/JL01/JL02inchangés. [Corrections et essais](docs/missions/JL03-COR-P1/CORRECTIONS-APPLIQUEES.md) · [Déploiement](docs/missions/JL03-COR-P1/DEPLOIEMENT-CAPTURE.json).
+
 ## JL-03-COR-P1 — démarrage séquentiel en contextes distincts,25octobre2026
 
 🟡 D01etD02transmis successivement àJARVIS, missions/conversations/worktrees distincts selon dernière précision propriétaire. Checkpoints et demandes de capacité natifs reçus ; gardeD01arrêté après trois réécritures, historique conservé. Node/Bubblewrap et projets isolés fournis/testés sur les deuxDell, reprise par workers canoniques. Aucun défaut vocal déclaré corrigé ; D03/D04/D17nontransmis. Contextevolumineux non déclaré résolu, aucune modification de modèle/routage. [Suivi](docs/missions/JL03-COR-P1/ETAT-DEMARRAGE.md) · [RegistreCodex](docs/missions/JL03-COR-P1/REGISTRE.json).
