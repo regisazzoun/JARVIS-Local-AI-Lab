@@ -14,6 +14,18 @@
 | 23 LiveKit | interruption vocale non reçue | chaîne voix/interruptions incomplète | NO-GO fonctionnel (à conserver) | reprendre uniquement selon mission vocale autorisée |
 | 11B | Compute Expansion durable incomplet après cinq tentatives | progression/reprise et preuve insuffisantes | réceptions partielles documentées | checkpoint existant, pas de nouvelle installation |
 
+## Correction par le propriétaire — cause réelle des clôtures 26B et 28A
+
+**Déclaration du propriétaire du 25/10 :** les deux missions ont été arrêtées **après des heures de boucles sans solution**, malgré des productions techniques que Codex décrivait comme bonnes, mais **non validées par JARVIS**. Il ne faut donc ni considérer ces clôtures comme des abandons normaux et satisfaisants, ni présumer que tous les livrables étaient faux.
+
+La preuve doit être ventilée en quatre colonnes : **production technique constatée**, **contrat de réception à satisfaire**, **verdict JARVIS**, **contrôle indépendant Codex**. Lorsqu'un livrable fonctionne et qu'un validateur rejette, analyser d'abord le contrat, la portée des preuves, le reçu parent, les faux négatifs du juge, les références et le contexte ; ne pas faire réécrire une production déjà conforme pour satisfaire un contrôle défectueux.
+
+Les rapports 26B démontrent explicitement des productions A/B/C partiellement correctes et des défauts du contrôleur éditorial ; 28A montre de réels FAIL sémantiques sur certains programmes malgré d'autres acquis majeurs. **Il faut distinguer chaque artefact** et ne ni tout valider ni tout invalider. Codex a un rôle d'arbitrage fondé sur preuves : comparer sorties réelles et contrat, corriger un validateur erroné, confirmer indépendamment les acquis, puis remettre la mission en mouvement sur les critères encore ouverts. Le texte de JARVIS ou Codex seul ne vaut pas preuve.
+
+**Règle d'escalade renforcée :** après trois cycles infructueux, bloquer cette stratégie, faire lire par Codex le dernier artefact technique **et le contrôle de réception**, classer `PRODUCT_FAIL`, `VERIFIER_FAIL`, `EVIDENCE_LINK_FAIL`, `CONTEXT_LOOP` ou `EXTERNAL_BLOCK` et fournir un correctif minimal. Les tâches indépendantes continuent. La mission ne peut rester bloquée dans une boucle de validation déjà diagnostiquée ; Codex peut réaliser la **réception indépendante** d'un résultat démontré, avec attribution claire, sans prétendre que JARVIS a validé de lui-même. Cela ne déclare pas pour autant l'autonomie de JARVIS reçue.
+
+La clôture historique demandée par le propriétaire reste souveraine et n'est pas automatiquement rouverte. Une **nouvelle mission autorisée** réutilisera les artefacts corrects et les FAIL prouvés au lieu de repartir à zéro.
+
 **Synthèse :** la boucle qui manque n'est pas « relancer le modèle sans limite », mais « maintenir la responsabilité de résolution par un superviseur durable hors modèle ». Le modèle peut se tromper, terminer sa réponse HTTP ou perdre son contexte ; le contrôleur doit rester maître de l'état.
 
 ## Machine à états proposée (extension du Mission Engine 26)
