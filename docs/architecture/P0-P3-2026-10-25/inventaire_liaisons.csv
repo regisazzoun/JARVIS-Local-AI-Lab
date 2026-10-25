@@ -1,0 +1,8 @@
+ID;Element;Details;Statut;Source
+LIA-01;Clients ↔ Mac mini;HTTP API SSH/Tailscale WebUI/Launcher;✅🟡;13D/13F/JL02
+LIA-02;Mac mini ↔ Dell1;Ollama inférence distante et SSH/Ansible;✅;28A/11B
+LIA-03;Mac mini ↔ Dell2;Tâches host_remote/project_exec et reçus;✅🟡;JL03 COR P1
+LIA-04;Dell1 ↔ Dell2;Pas de transfert direct interworkers démontré;🟡;À vérifier
+LIA-05;Mac mini → GitHub;Publication documentaire sur branches;✅🟡;00/11
+LIA-06;Mac mini ↔ Dell2 Ollama;Profil préparé activation inférence non démontrée;📋;28A/14B
+LIA-07;Dell1 et Dell2 ↔ supervision JL03;CPU/GPU Dell2 D17 en attente;🟡;JL03 COR P1
