@@ -1,0 +1,13 @@
+ID;Element;Details;Statut;Source
+APP-01;Mac mini Debian/systemd;Socle central;✅;03/13F
+APP-02;JARVIS Conversation API/Core;Dialogue et orchestration;✅🟡;13F/26
+APP-03;Mac mini Ollama Qwen3.5 27B Q4;Conversation contexte 16384;✅;28A
+APP-04;Mémoire SQLite/FTS5;Mémoire canonique checkpoints et moteur;✅🟡;13C/26
+APP-05;Whisper Piper LiveKit;STT/TTS et voix avec réserves;✅🟡;13F/23D
+APP-06;Broker host_exec Ansible;Outils et commandes réels;✅🟡;11/11B/26
+APP-07;Dell1 Debian CUDA Ollama;Deux RTX 3090 inférence reçue;✅;28A
+APP-08;Dell1 Qwen3-Coder-Next 80B Q4;Inférences des missions contexte 24576;✅🟡;28A
+APP-09;Dell2 host_remote/project_exec;Node.js Bubblewrap workspaces isolés;✅🟡;JL03 COR P1
+APP-10;Dell2 Ollama/modèle;Inférence non démontrée et profil désactivé en 28A;📋;14B/28A
+APP-11;JL-03 Cockpit;Flux missions orbe et monitoring corrections en cours;🟡;JL03 COR P1
+APP-12;GitHub docs/missions;Documentation et publication;✅🟡;00
