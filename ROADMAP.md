@@ -1,3 +1,7 @@
+## JL-03-COR-P1 — capture acceptée, suite active sans validation intermédiaire
+
+Capture acceptée par le propriétaire ; transcription encore imparfaite, cause non établie, mémoire différée. D03 et D04 sont réellement en cours dans des contextes distincts. D17 est préparée dans le moteur et sera envoyée dès qu’une place se libère, y compris après blocage documenté ; coordinateur ciblé actif toutes les30s, maximum deux contextes. Aucun correctif D03/D04 encore reçu. Les dossiers d’escalade et compteurs restent persistants, aucune nouvelle attenteGO. [Continuité et attribution](docs/missions/JL03-COR-P1/CONTINUITE.md) · [Registre publié](docs/missions/JL03-COR-P1/REGISTRE.json).
+
 ## JL-03-COR-P1 — capture corrigée et installée, qualification propriétaire à faire
 
 🟡 Sur demande du propriétaire, Codex a installé une correction ciblée de la fenêtre de parole et des sessionsmicro : parole après silence noncoupée, événementsanciens isolés, un traitement par segment sans éliminer les répétitionsvolontaires. Cinq régressions reproduites avant correction, huit cas ciblésPASSaprès ; navigateur réelWebAudio/MediaRecorder→Whisper : uneséquence après17,3sdesilence, unsegment/unetranscriptioncomplète. Sourcecommit`c1b49c8`dansLauncher3. Correctif développé parCodex après blocagesJARVIS ; D01/D02restent àqualifier avec le propriétaire, aucun GOglobal ou autonomie fictive. Whisper/modèle/routage/JL01/JL02inchangés. [Corrections et essais](docs/missions/JL03-COR-P1/CORRECTIONS-APPLIQUEES.md) · [Déploiement](docs/missions/JL03-COR-P1/DEPLOIEMENT-CAPTURE.json).

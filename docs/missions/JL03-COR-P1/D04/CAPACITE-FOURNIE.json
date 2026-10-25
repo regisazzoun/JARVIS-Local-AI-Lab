@@ -1,0 +1,34 @@
+{
+  "task": "D04",
+  "hosts": {
+    "Dell1": "dell-observe",
+    "Dell2": "dell2"
+  },
+  "project": "jl03-cor-p1-d04",
+  "remote_root": "/opt/jarvis-lab/jl03-cor-p1/D04",
+  "local_source": "/var/lib/jarvis/projects/jl03-cor-p1/D04/source",
+  "source_bundle": "/var/lib/jarvis/projects/jl03-cor-p1/D04/SOURCE-INITIALE.zip",
+  "runtime": "Node20.19.2/Python3.13/Bubblewrap already installed, own writable project only",
+  "example_upload": {
+    "tool": "host_remote",
+    "arguments": {
+      "host": "dell2",
+      "action": "project_upload",
+      "project": "jl03-cor-p1-d04",
+      "local_path": "/var/lib/jarvis/projects/jl03-cor-p1/D04/SOURCE-INITIALE.zip",
+      "path": "/opt/jarvis-lab/jl03-cor-p1/D04/source.zip"
+    }
+  },
+  "example_run": {
+    "tool": "host_remote",
+    "arguments": {
+      "host": "dell2",
+      "action": "project_exec",
+      "project": "jl03-cor-p1-d04",
+      "command": "python3 -m zipfile -e source.zip . && node --version"
+    }
+  },
+  "test_requirement": "Update bundle with your own tests/changes before remote test; operator runtime preflight is not defect correction",
+  "no_secret_in_context": true,
+  "production_changes": "Reviewed/integrated byCodex; never overwrite newer deployed capture"
+}
