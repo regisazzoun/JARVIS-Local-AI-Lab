@@ -1,3 +1,7 @@
+## Mission14B — reprise du25octobre2026
+
+🟡 Debian13/EFI et paquetsNVIDIA/CUDA préparés ; RAID synchronisé puis arrêté proprement. La continuation nocturne est restée dans l'installateur au reboot et l'observateur a atteint6h : autonomie de cette sortie non reçue. Codex diagnostique les signaux bloqués duPID1 et corrige le reboot après garde d'arrêt propre ; démarrage installé et calculGPU restent à recevoir. [Diagnostic et reprise](docs/missions/14B/REPRISE-25-OCTOBRE.md). AucunOllama/routage/charges modifié.
+
 ## Mission14B — installation réelle et tableau physique,24octobre2026
 
 🟡 **En cours.** Dell2 identifié ; deuxNVMe qualifiés. JARVIS a réellement déclenché l'installation Debian13/RAID1, la reprise après correctionCodex et la préparationNVIDIA/CUDA. Debian/EFI finalisés sous`/target`, RAID[UU]encore en synchronisation ; aucun GO avant reboot et contrôles. Tableau physique réel actualisé5s. Après trois appels d'actions inventées refusés, garde actif, diagnostic puis intervention ponctuelleCodex pour lancer la continuation bornée après synchronisation. Les erreurs, rapports incorrects et attributions sont conservés. Ollama/routage/charges et anciens profils inchangés. [Reprise, incidents et suite](docs/missions/14B/REPRISE-INSTALLATION.md) · [Reçus natifs](docs/missions/14B/PREUVES-REPRISE.json). Les états ci-dessous restent leurs instantanés historiques.

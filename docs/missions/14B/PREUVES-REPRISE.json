@@ -135,11 +135,12 @@
     "postboot-probe.py": "7aa3b1f9044dba2d82c1638eacdc229747790fa10ee36fcb4baa4fb0ed453e53",
     "cuda-smoke.cu": "3c3884fec3bd9dc99d9779de4d5d04e6a447149029e48a24117acdf5be575e21",
     "finalize-resume.sh": "aca474364fc294e001f6d58acf76d0c14b107a29ca97b64263af297ece535e71",
-    "auto-finish14b.sh": "0f9244e562a2846f72e3ebbafbe31f18aefef738737095650dbc5b7b0104dfb3",
+    "auto-finish14b.sh": "1be30eeab35904f257e094f383d0933cb1e6821437067474854c5a8c2b76d203",
     "gpu-stage.sh": "c413de32a96c05350f037d73b57e1fbb2e7c5a5a19df54906ba72c32c31d66d3",
     "install-fresh.sh": "d6d4dc51bfe8f159a38e56bf67323c1525c756fedf1fcaf2bc429d3423f8d43c",
     "display-progress14b.sh": "c044352e20200d96fc3b6643e5bad6244b6ce1452f69596e0e931218c269bc52"
   },
   "overall_reception": "IN_PROGRESS",
-  "warning": "A tool launch success is not completion or postboot proof; Codex-launched continuation is separately attributed."
+  "warning": "A tool launch success is not completion or postboot proof; Codex-launched continuation is separately attributed.",
+  "artifact_revision_note": "2026-10-25: native direct reboot only after fully unmounted target/stopped RAID; previous normal applet kept installer init blocked. Original deployed normal-reboot receipt retained in canonical journal."
 }

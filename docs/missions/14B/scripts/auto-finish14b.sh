@@ -39,4 +39,10 @@ sync
 awk '$2 ~ /^\/target(\/|$)/ {print $2}' /proc/mounts | sort -r | while read mountpoint;do umount "$mountpoint" || exit 1;done
 mdadm --stop /dev/md0
 sync
-/jarvis/busybox-full reboot
+# Debian installer PID1 may retain a blocked reboot signal while early_command waits.
+# Only after all persistent filesystems are unmounted and md stopped, use the native
+# direct kernel path. Never do this while an installed filesystem/mirror is active.
+[ -z "$(awk '$2 ~ /^\/target(\/|$)/ {print $2}' /proc/mounts)" ]
+[ ! -e /sys/block/md0 ]
+[ "$(wc -l </proc/swaps)" -eq 1 ]
+/bin/busybox reboot -f

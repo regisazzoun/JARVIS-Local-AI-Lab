@@ -2193,11 +2193,11 @@
   {
     "identifiant": "14B",
     "nom": "Dell n°2 — installation et intégration Debian13",
-    "etat": "En cours — Debian13/EFI installés, RAID synchronisant, NVIDIA/CUDA en préparation ; réception aprèsboot attendue",
+    "etat": "En cours — RAID synchronisé, Debian/EFI/NVIDIA/CUDA préparés ; correction du redémarrage installateur, réception aprèsboot attendue",
     "mission_id": "a1becab1a8244e2295463bd5be833784",
     "executant_reel": "JARVIS déclenche installation/reprise/GPU ; Codex fournit/corrige infrastructure, contrôle et lance ponctuellement continuation après blocage",
     "resultats_prouves": "Dell2 distinct identifié, deuxNVMe, SSH épinglé, GPT/ESP/RAID1[UU], Debian13 et EFI finalisés ; opérations broker réellesJARVIS et tableau physique5s",
-    "reserves": "Synchronisation RAID en cours ; boot installé, pilote/calculGPU/Ansible à vérifier ; deuxGPU différentsPCI à confirmer ; plan et prose largement assistés ; erreurs conservées",
+    "reserves": "Sortie nocturne bloquée sur signaux init ; observer6h atteint ; correctionCodex au25/10 ; GPU/CUDA/Ansible sur système installé non encore reçus",
     "objectifs": "Debian13, accèsSSH/Ansible, socleNVIDIA/CUDA et intégration matérielle Dell2",
     "exclusions": "Aucun changementOllama, routage, répartition de charge ou autre architecture",
     "retry_policy": "Trois échecs comparables par stratégie ; diagnostic puis approche réellement différente limitée à trois, sans remise à zéro cosmétique ; demandeCodex si non résolu",
@@ -2213,9 +2213,13 @@
       {
         "path": "docs/missions/14B/REPRISE-INSTALLATION.md",
         "url": ""
+      },
+      {
+        "path": "docs/missions/14B/REPRISE-25-OCTOBRE.md",
+        "url": ""
       }
     ],
     "prochaine_action": "Continuation bornée autonome, reboot propre après paquets/synchronisation, réception réelle et documentation",
-    "derniere_actualisation": "2026-10-24"
+    "derniere_actualisation": "2026-10-25"
   }
 ]
