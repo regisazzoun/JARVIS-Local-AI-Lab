@@ -1,3 +1,7 @@
+## JL-03-COR-P1 — D03 diagnostiquée, candidat corrigé et reprise ciblée préparée
+
+Codex a reproduit puis corrigé le double message d’erreur sur réponse vide et la perte de saisie dans le candidat isolé D03. Harnais branché sur la fonction réelle :4PASS/2FAILavant,6PASSaprès ; capture8PASSconservée. Aucun déploiement ni réception globaleD03. Plan2 et repriseJARVIS préparés sans remiseàzéro des compteurs ; premier test natif puis vrais testsDell requis. D04/D17 continuent, maximum deux contextes. [Diagnostic et preuves](docs/missions/JL03-COR-P1/D03/DEBLOCAGE-CODEX.md).
+
 ## JL-03-COR-P1 — capture acceptée, suite active sans validation intermédiaire
 
 Capture acceptée par le propriétaire ; transcription encore imparfaite, cause non établie, mémoire différée. D03 et D04 sont réellement en cours dans des contextes distincts. D17 est préparée dans le moteur et sera envoyée dès qu’une place se libère, y compris après blocage documenté ; coordinateur ciblé actif toutes les30s, maximum deux contextes. Aucun correctif D03/D04 encore reçu. Les dossiers d’escalade et compteurs restent persistants, aucune nouvelle attenteGO. [Continuité et attribution](docs/missions/JL03-COR-P1/CONTINUITE.md) · [Registre publié](docs/missions/JL03-COR-P1/REGISTRE.json).

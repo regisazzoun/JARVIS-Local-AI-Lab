@@ -1,0 +1,73 @@
+TAP version 13
+# Subtest: normal request: user then exactly one answer
+ok 1 - normal request: user then exactly one answer
+  ---
+  duration_ms: 2.981212
+  ...
+# Subtest: empty response: one visible error, retry text retained
+not ok 2 - empty response: one visible error, retry text retained
+  ---
+  duration_ms: 2.120237
+  location: '/var/lib/jarvis/projects/jl03-cor-p1/D03/source/tests/d03-reception.test.mjs:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    one user and one error, never two errors
+    
+    3 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 3
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///var/lib/jarvis/projects/jl03-cor-p1/D03/source/tests/d03-reception.test.mjs:32:10)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: network/auth error: visible once and input restored
+not ok 3 - network/auth error: visible once and input restored
+  ---
+  duration_ms: 1.337326
+  location: '/var/lib/jarvis/projects/jl03-cor-p1/D03/source/tests/d03-reception.test.mjs:36:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + ''
+    - 'question réseau'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'question réseau'
+  actual: ''
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///var/lib/jarvis/projects/jl03-cor-p1/D03/source/tests/d03-reception.test.mjs:39:10)
+    async Test.run (node:internal/test_runner/test:797:9)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: two rapid requests: serialized, both resolved once
+ok 4 - two rapid requests: serialized, both resolved once
+  ---
+  duration_ms: 0.974145
+  ...
+# Subtest: queue limit: extra request rejected without an API call
+ok 5 - queue limit: extra request rejected without an API call
+  ---
+  duration_ms: 1.046091
+  ...
+# Subtest: spoken field preserved and mission selection still forwarded
+ok 6 - spoken field preserved and mission selection still forwarded
+  ---
+  duration_ms: 0.816175
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 4
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 145.067619

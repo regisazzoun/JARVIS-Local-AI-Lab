@@ -17,8 +17,10 @@ STOPPED = {'interrupted', 'failed', 'waiting_external', 'completed'}
 def select_pending(entries, states, inflight):
     """A blocked context frees a slot only after its native operation has ended."""
     used = sum(states[t['id']] in ACTIVE or t['id'] in inflight for t in entries)
-    return [t for t in entries if t.get('status') == 'PREPARED_WAITING_SLOT'
-            and states[t['id']] == 'draft'][:max(0, 2 - used)]
+    return [t for t in entries if
+            (t.get('status') == 'PREPARED_WAITING_SLOT' and states[t['id']] == 'draft')
+            or (t.get('corrective_resume', {}).get('armed') is True
+                and states[t['id']] == 'interrupted')][:max(0, 2 - used)]
 
 
 def main():
@@ -71,11 +73,29 @@ def main():
         chosen = select_pending(entries, states, inflight)
         for t in chosen:
             if not args.dry_run:
+                resume = t.get('corrective_resume', {})
+                if resume.get('armed'):
+                    # Only an explicitly reviewed, versioned intervention can arm
+                    # one resume. An unchanged blocker cannot trigger auto-retries.
+                    plans = store.plans(t['mission_id'])
+                    events = store.events(t['mission_id'], limit=1000000)
+                    approved = any(e['id'] == resume.get('strategy_event')
+                                   and e['actor'] == 'Codex'
+                                   and e['kind'] == 'loop_strategy_changed' for e in events)
+                    if not approved or not plans or plans[-1]['version'] != resume.get('plan_version'):
+                        resume['armed'] = False
+                        t['status'] = 'RESUME_REQUIRES_NEW_REVIEW'
+                        store.event(t['mission_id'], 'coordinator_resume_withheld', task=t['id'], actor='Codex-coordination',
+                                    result={'reason': 'Reviewed plan/strategy mismatch; no blind resume'})
+                        continue
                 store.event(t['mission_id'], 'coordinator_handoff', task=t['id'], actor='Codex-coordination',
                             result={'reason': 'An independent context slot is available; owner authorized uninterrupted sequence',
                                     'packet': str(Path(t['context_directory']) / 'PAQUET.md'),
                                     'context_isolated': True, 'no_owner_permission_gate': True})
                 store.transition(t['mission_id'], 'queued', {'reason': 'Authorized P1 sequence; separate context, maximum two'})
+                if resume.get('armed'):
+                    resume['armed'] = False
+                    resume['dispatched_at'] = time.time()
                 t['status'] = 'QUEUED'
         if not args.dry_run:
             data['updated_at'] = time.time()

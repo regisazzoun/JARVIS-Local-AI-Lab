@@ -13,3 +13,7 @@ Registre opérationnel : `/var/lib/jarvis/projects/jl03-cor-p1/REGISTRE-CODEX.js
 Contrôles Codex : cinq cas du sélecteur reçus (deux places occupées ; place libérée par blocage ; opération en vol ; réception différée ; absence de deuxième envoi). Première exécution réelle : D03 et D04 running, D17 draft, aucun troisième envoi. Ce sont des contrôles d’ordonnancement, pas des preuves de réussite des corrections.
 
 Les capacités projets isolées sont fournies sur les deux Dell pour D03/D04/D17 avec les runtimes déjà installés. Aucun modèle, routage, mémoire, quota, JL01 ou JL02 modifié. Dell2 comporte réellement une RTX3090 et une RTX3080 ; D17 doit vérifier l’existant avant toute modification et ne doit pas interpréter une charge à zéro comme une panne.
+
+## Reprise corrective D03
+
+Après diagnostic et réparation source/harnais contrôlée par Codex, une reprise ciblée unique peut être armée sur un plan versionné et un événement de stratégie vérifié. Cela ne réessaie pas automatiquement un blocage inchangé. D04/D17 conservent leurs places jusqu’à libération. Voir [déblocage D03](D03/DEBLOCAGE-CODEX.md).
