@@ -2,7 +2,7 @@
   "mission": "JL-03-COR-P1",
   "coordinator": "Codex",
   "executor": "JARVIS",
-  "updated_at": 1792928744.8238204,
+  "updated_at": 1792929293.78345,
   "dispatch_policy": "D01 thenD02 in separate contexts, owner latest clarification; no batch prompt",
   "context_issue": "KNOWN_NOT_RESOLVED",
   "tasks": [
@@ -57,7 +57,7 @@
     {
       "id": "D02",
       "defect": "Transcription Whisper incohérente",
-      "status": "BLOCKED",
+      "status": "QUEUED_TARGETED_CORPUS_DIAGNOSTIC",
       "mission_id": "759a4b0145104c99844045f5a22f832c",
       "conversation_id": "e77cbd1c-7f6b-47ab-89db-db821065165e",
       "validated": false,
@@ -90,8 +90,9 @@
       "active_task": "D02",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
       "native_call_count": 6,
-      "last_observed": 1792928619.9212291,
-      "canonical_state": "interrupted"
+      "last_observed": 1792929293.7834427,
+      "canonical_state": "interrupted",
+      "latest_result": "Codex staged authorized audio fixtures and compactSTT contract; real JARVIS corpus audit pending"
     },
     {
       "id": "D03",

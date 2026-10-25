@@ -19,3 +19,11 @@ La reprise du worker existant est dirigée vers ce seul test exécutable, avec u
 Diagnostic uniquement, sans correctif reçu ni rapport de réception. Elle reste interrompue dans son contexte propre pendant le traitement de l'escaladeD01. Aucune relance identique des lectures n'est effectuée.
 
 Les registres globaux sont rectifiés en conséquence. Aucun passage àD03/D04/D17, aucune fusion ni modification de la production vocale à ce stade.
+
+## Reprise indépendante deD02 après précision du propriétaire
+
+La pause maintenue après l'arrêt automatique était un choix de coordinationCodex pour traiterD01, pas une dépendance technique démontrée. Le propriétaire a déjà autorisé deux tâches avec contextes distincts ; D02n'a donc pas à attendre la réceptionD01.
+
+D02est remise en file dans sa même mission, avec vue active réduite et compteurs conservés. Codex prépare uniquement les entrées d'un diagnostic reproductible : unWAVde testQwenTTS déjà produit enTTS01(voix autoriséeUncle_Fu, texte de référence et empreinte), un silencePCM et un fichier invalide. Aucun extrait de film, nouveauTTS, modèle ou routage n'est lancé.
+
+Le prochain travailJARVIS est l'audit effectif de ces entrées sur leDell2, suivant sa propre affectation déjà enregistrée, puis la caractérisation de la transcription réelle. L'interfaceSTT observée lui est donnée par un court contrat au lieu de recharger tout le serveur et les journaux. Si l'accès de testSTT authentifié manque, il doit demander cette seule capacité après l'audit ; aucune sortieWhisper simulée ne vaut preuve. Aucune réussiteD02n'est annoncée sur la seule préparation du corpus.
