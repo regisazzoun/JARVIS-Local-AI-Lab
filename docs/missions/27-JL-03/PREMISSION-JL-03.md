@@ -91,6 +91,25 @@ Références API : https://developer.mozilla.org/fr/docs/Web/API/AnalyserNode ; 
 
 Configuration centralisée par variables d'environnement/contrats de télémétrie, en **réutilisant les noms/API existants si possible** ; les noms suggérés `JARVIS_MAC_ENDPOINT`, `JARVIS_DELL1_ENDPOINT`, `JARVIS_DELL2_ENDPOINT` sont des **exemples**, non des valeurs existantes certifiées.
 
+## 5 bis. Correctifs prioritaires JL-03 — contexte, capacités et droits (26 octobre 2026)
+
+**Décision du propriétaire :** intégrer aux correctifs JL-03 les anomalies observées dans les réponses de JARVIS concernant ses propres droits et compétences. Une déclaration « je ne peux pas agir » n'est pas une preuve suffisante de retrait d'autorisation.
+
+**Hypothèses à distinguer par diagnostic réel :** (1) contexte tronqué/absent et perte des descriptions de capacités ; (2) outils `host_*` non injectés dans la session ; (3) broker ou registre non raccordé ; (4) refus effectif de `host_policy` pour la cible et l'action ; (5) outil disponible mais non choisi ou mal utilisé par le modèle. Ne pas attribuer arbitrairement la cause aux droits ni au contexte avant d'avoir des preuves.
+
+**Correctifs à réaliser et contrôler :**
+1. Faire consulter à JARVIS un **registre de capacités effectives et persistantes**, séparé de la mémoire du dialogue : noms réels des outils, disponibilité dans la session, cible, périmètre autorisé et éventuel refus ; réutiliser les composants de mission 11 plutôt qu'inventer de nouveaux droits.
+2. **Réinjecter de façon ciblée** les capacités pertinentes au démarrage/reprise de tâche et après compression/troncature de contexte, sans recopier une longue conversation. Préserver le plan, les derniers résultats, les checkpoints et les capacités essentielles.
+3. **Vérifier la cohérence** entre politique `/etc/jarvis/host-policy.json`, broker `jarvis-host-bridge`, registre d'outils exposés au modèle et appels réellement tracés. Le modèle distingue : « outil non exposé », « broker indisponible », « accès refusé », « action échouée » et « outil présent mais non appelé ».
+4. Avant d'annoncer une incapacité ou demander une nouvelle permission, effectuer la vérification des capacités réellement accessibles (via `capability_status` / outils effectifs si disponibles). Si le contrôle est lui-même impossible, dire **« disponibilité non vérifiable dans cette session »**, sans généraliser au système entier.
+5. Corriger les séquences improductives de consultations répétées de politique/outils et la mauvaise sélection d'outils ; appliquer la **règle des trois tentatives infructueuses** sur un même blocage, puis sortir de la boucle, analyser, consigner les trois résultats et changer réellement de stratégie ou classer la tâche bloquée. Un test exécuté mais en échec compte comme un test, pas comme une absence de contrôle.
+6. Dans le **panneau intégral d'exécution JL-03**, montrer l'origine des indisponibilités, les actions de diagnostic et leurs résultats, les corrections, le nombre de tentatives et l'intervenant. Garder les opérations réelles visibles, sans fabriquer de traces ni exposer des secrets.
+7. Valider par **tests ciblés** : session courte et longue avec compression du contexte, reprise après reconnexion/redémarrage, comparaison capacité déclarée/capacité réellement invoquée, opération hôte autorisée, refus réel de politique distingué d'un outil manquant, absence de boucle au-delà de trois échecs identiques.
+
+**Acquis historiques :** les preuves mission 11B montrent l'exécution réelle de `host_exec`, `host_remote` et `host_ansible` après redémarrage. Elles ne prouvent pas leur disponibilité dans la session actuelle. Préserver les droits acquis et l'architecture mission 11 ; ne pas rouvrir une procédure d'approbation déjà satisfaite.
+
+**Articulation mission 26 :** correction du moteur de contexte, de son registre et du pilotage agentique dans la mission 26 ; **JL-03 doit intégrer et rendre observables ces capacités**. Si un composant nécessaire demeure absent, enregistrer la dépendance précisément et poursuivre les autres lots réalisables. Cette section est un ajout aux correctifs existants, pas une réécriture de la prémission ni une nouvelle mission exécutée.
+
 ## 6. Prototypage attendu et réception
 
 Avant intégration, produire un **prototype autonome de cristal** (sur une page de démonstration distincte) permettant au propriétaire de tester :
