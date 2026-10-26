@@ -55,6 +55,9 @@ class Authority:
  def __init__(self,reg):
   self.reg=reg;self.store=reg.mission_store;self.m=reg.context['mission_id'];self.t=reg.context.get('task_id')
   self.spec=json.loads(self.store.get(self.m)['spec'])
+  workspace=self.spec.get('authority_workspace',{})
+  self.project=workspace.get('project',PROJECT);self.remote_root=workspace.get('remote_root',ROOT);self.local=Path(workspace.get('local_root',str(LOCAL)))
+  if not re.fullmatch(r'[a-zA-Z0-9_-]+',self.project) or not self.remote_root.startswith('/opt/jarvis-lab/') or '..' in Path(self.remote_root).parts or '..' in self.local.parts or not self.local.is_relative_to('/var/lib/jarvis/projects'):raise ValueError('Invalid declared authorized workspace')
   if not self.spec.get('distributed_authority'):raise ValueError('Distributed authority is opt-in for this mission only')
  def state(self):
   rows=[e for e in self.store.events(self.m,limit=100000) if e['kind']=='authority_state']
@@ -69,7 +72,7 @@ class Authority:
    raise ValueError('Decision requires actual Qwen80B inference receipt on dell-1; observed '+str({k:metrics.get(k) for k in ('node','effective_model')}))
   return self.event('authority_model_decision',{'model':metrics['effective_model'],'inference_machine':metrics['node'],'inference_event':events[-1]['id'],'instruction':args},actor='JARVIS/Qwen80B')
  def remote(self,host,command):
-  args={'host':HOSTS[host],'action':'project_exec','project':PROJECT,'command':command}
+  args={'host':HOSTS[host],'action':'project_exec','project':self.project,'command':command}
   token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic()
   result=self.reg.execute('host_remote',args)
   self.store.finish_call(token,result,time.monotonic()-start)
@@ -155,7 +158,7 @@ class Authority:
    for issue in step['issues']:
     if issue not in self.spec['authority_requirements']:raise ValueError('Unknown owner requirement id; allowed EXACT ids: '+str(self.spec['authority_requirements']))
    tasks.append({'id':step['id'],'title':step['title'],'objective':step['title'],'depends':step['depends'],'tools':TOOLS,'strict_tools':True,
-    'contract':{'report_path':str(LOCAL/'reports'/self.m/(step['id']+'.md')),'checks':[{'tool':'authority_work','arguments':{'kind':'accept','issue':i},'ok':True} for i in step['issues']]}})
+    'contract':{'report_path':str(self.local/'reports'/self.m/(step['id']+'.md')),'checks':[{'tool':'authority_work','arguments':{'kind':'accept','issue':i},'ok':True} for i in step['issues']]}})
   covered={i for step in a['steps'] for i in step['issues']}
   if covered!=set(self.spec['authority_requirements']):raise ValueError('Coverage gap; model must cover '+str(self.spec['authority_requirements']))
   self.store.plan(self.m,tasks,author='JARVIS/Qwen80B@Dell1',metadata={'decision_event':decision},reason=a.get('reason','Model initial plan'),expected_version=a.get('expected_version'))
@@ -175,9 +178,9 @@ class Authority:
   # Archive content is selected by Qwen. Existing SHA-checked broker transports bytes.
   cmd="python3 -c "+shlex.quote("import zipfile;z=zipfile.ZipFile('_authority.zip','w');[z.write(f,f) for f in "+repr(files)+"];z.close()")
   self.remote(src,cmd)
-  local=LOCAL/('transfer-'+self.m+'.zip')
+  local=self.local/('transfer-'+self.m+'.zip')
   for host,action in [(src,'project_download'),(dst,'project_upload')]:
-   args={'host':HOSTS[host],'action':action,'project':PROJECT,'path':ROOT+'/_authority.zip','local_path':str(local)}
+   args={'host':HOSTS[host],'action':action,'project':self.project,'path':self.remote_root+'/_authority.zip','local_path':str(local)}
    token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic();r=self.reg.execute('host_remote',args);self.store.finish_call(token,r,time.monotonic()-start)
    if not r.get('ok'):raise RuntimeError(str(r)[:1000])
   check,_=self.remote(dst,"python3 -c "+shlex.quote("import zipfile;z=zipfile.ZipFile('_authority.zip');assert all(not p.startswith('/') and '..' not in p.split('/') for p in z.namelist());z.extractall('.')"))
@@ -206,10 +209,10 @@ def register(reg):
  reference={'type':'integer','minimum':1,'description':'Actual numeric execution event ID returned as reference, never a file hash or version SHA.'}
  issue={'type':'string','enum':['Q1','Q2'],'description':'EXACT stable owner criterion id; never rename or invent ids.'}
  add('authority_resources','Observe current resources of BOTH Dell executors through existing broker. You choose placement; this tool never assigns work.',{},[],'resources')
- add('authority_plan','Save YOUR plan: 1 to 5 reception work packages, not separate inspect/test/report actions. Each package covers one or more owner issues through correction AND independent validation. issues must contain Q1 and/or Q2. You MAY inspect before planning. Commands, files and host selection remain YOUR decisions.',{'steps':{'type':'array','minItems':1,'maxItems':5,'items':{'type':'object','required':['id','title','depends','issues'],'properties':{'id':text,'title':text,'depends':{'type':'array','items':text},'issues':{'type':'array','minItems':1,'items':issue}},'additionalProperties':False}},'expected_version':{'type':'integer'},'reason':text},['steps'],'plan')
+ add('authority_plan','Save YOUR plan: 1 to 5 reception work packages, not separate inspect/test/report actions. Each package covers one or more owner issues through correction AND independent validation. issues must use exact owner_requirement_ids. You MAY inspect before planning. Commands, files and host selection remain YOUR decisions.',{'steps':{'type':'array','minItems':1,'maxItems':5,'items':{'type':'object','required':['id','title','depends','issues'],'properties':{'id':text,'title':text,'depends':{'type':'array','items':text},'issues':{'type':'array','minItems':1,'items':issue}},'additionalProperties':False}},'expected_version':{'type':'integer'},'reason':text},['steps'],'plan')
  initial=reg.specs['authority_plan']
  reg.specs['authority_revise_plan']=('GLOBAL plan revision ONLY when dependencies or owner coverage genuinely change. Not for recording analysis or a new command: use authority_work/analyze. Supply ALL work packages covering ALL owner criteria and expected_version=current plan_version. Received tasks immutable.',initial[1],['steps','expected_version','reason'],initial[3],initial[4])
- add('authority_work','YOUR decision then actual Dell execution. inspect/correct/test: choose executor, command, summary. analyze: reference actual failed test + summary/hypothesis. accept: reference passed test and source_reference correction on OTHER host at EXACT manifest. Commands cwd '+ROOT+'. Counts persist per issue. Outputs include execution returncode distinct from tool transport success.',{'issue':issue,'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'summary':text,'operation_id':text,'executor':{'type':'string','enum':list(HOSTS)},'command':text,'reference':reference,'source_reference':reference},['issue','kind','summary','operation_id'],'work')
+ add('authority_work','YOUR decision then actual Dell execution. inspect/correct/test: choose executor, command, summary. analyze: reference actual failed test + summary/hypothesis. accept: reference passed test and source_reference correction on OTHER host at EXACT manifest. Commands run in the mission-declared authorized project root. Counts persist per issue. Outputs include execution returncode distinct from tool transport success.',{'issue':issue,'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'summary':text,'operation_id':text,'executor':{'type':'string','enum':list(HOSTS)},'command':text,'reference':reference,'source_reference':reference},['issue','kind','summary','operation_id'],'work')
  add('authority_sync','YOUR explicit one-way synchronization strategy. Choose files, source, destination and source_reference latest observed source execution. SHA checked; no implicit merge. Include tests so peer validates exact version.',{'issue':issue,'source':{'type':'string','enum':list(HOSTS)},'destination':{'type':'string','enum':list(HOSTS)},'files':{'type':'array','items':text},'source_reference':reference,'summary':text},['issue','source','destination','files','source_reference','summary'],'sync')
  add('authority_finish','Write your concise factual task report to its canonical path and request existing task completion gates. Cite actual event references, failures, attribution. No application modification on Mac.',{'report':text},['report'],'finish')
 

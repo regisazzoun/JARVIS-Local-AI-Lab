@@ -1,3 +1,7 @@
+## Mission26 Phase2 — lancement du26octobre2026
+
+Mission M26-P2 lancée par le propriétaire : P2 boucles, puis P3 contexte, puis P4 code réel. Ne transmettre à JARVIS qu’une priorité à la fois, attendre réception avant suivante. Qwen80B décide et répartit les opérations réelles sur les deux Dell ; Codex audite, reçoit et traite les escalades. Conserver preuves et compteurs, ne pas reprendre automatiquement les correctifs Phase1 reçus. Pas de nouveau modèle ou chantier matériel, pas de fusion main. Nouvelle branche codex/mission-26-phase2-boucles-contexte-code-reel basée sur ba659f7/PR28. Les anciennes mentions Phase2 non lancée sont désormais historiques.
+
 ## Mission26 Phase1 — réception du26octobre2026
 
 ✅🟡 GO AVEC RÉSERVES pour la chaîne isolée Qwen80B/Dell1 → exécutants Dell1/Dell2. Mission native e26946bff84d4e06ad395b969ffcd72f completed, deux lots reçus, oracle Codex12/12 sur chaque Dell,35 tests logiciels. Ne pas relancer les correctifs reçus. Activation ciblée, mode assurance complet et bascule globale JL03 non qualifiés ; rapports libres encore fragiles, trois textes conservés avec errata. Conserver compteurs et origines Codex/JARVIS. [Réception](docs/missions/26-P1/RAPPORT-FINAL.md), [limites d’utilisation](docs/missions/26-P1/INSTALLATION-UTILISATION.md), PR28, aucune fusion main.14A et Phase2 restent distinctes, aucune autre mission lancée.

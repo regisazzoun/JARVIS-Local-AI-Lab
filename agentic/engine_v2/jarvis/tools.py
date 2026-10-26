@@ -217,6 +217,13 @@ class Registry:
                 if declaration.get('type')=='string':declaration['minLength']=1
             if not store.plans(self.context['mission_id']):schema['required']=['tasks','metadata']
             else:schema['required']=['tasks','expected_version','reason']
+        if name.startswith('authority_') and getattr(self,'mission_store',None) and self.context.get('mission_id'):
+            import copy
+            schema=copy.deepcopy(schema)
+            ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
+            if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
+            if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
+
         return schema
 
     def schemas(self,all_tools=False):
