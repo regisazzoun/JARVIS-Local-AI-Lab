@@ -47,6 +47,27 @@ Le test initial de développement agentique de la mission 23 est suivi des enric
 6. Réception sur MacBook puis iPhone, sans régression des accès favoris, tunnels et raccourcis de JL-02.
 7. **Correctifs contexte/capacités (26 octobre 2026) :** distinguer contexte tronqué, outils non injectés, broker/politique inaccessibles, refus réel et sélection erronée par Qwen ; registre de capacités persistantes, réinjection ciblée après réduction/reprise, vérification avant toute affirmation d'absence de droits, règle des trois tentatives, traces complètes visibles dans JL-03 et tests courts/longs. S'appuyer sur les acquis de mission 11B et articuler la correction du moteur avec la mission 26, sans réattribuer inutilement les droits. Voir [prémission JL-03](27-JL-03/PREMISSION-JL-03.md).
 
+## Correctifs complémentaires affectés aux missions non encore lancées — 26 octobre 2026
+
+**Décision de planification, sans ordre d'exécution ni réouverture automatique de la mission 26 :** conserver les opérations, preuves et statuts des phases 26 déjà lancées ; reporter les correctifs nouveaux dans les chantiers futurs adaptés.
+
+### 27 — JL-03 : gestion des erreurs et continuité des demandes
+
+- Le message HTTP 503 actuel est générique pour toute exception non traitée dans `server.py`. Prévoir journalisation technique utile, corrélation requête/mission/compute_job et restitution d'une erreur explicite ; distinguer erreur de contexte, routage, permission réelle, service et timeout réel. Ne pas attribuer le 503 particulier à une cause non corrélée.
+- Garantir l'enregistrement durable et l'acquittement des nouvelles **missions** depuis JL-03 même lorsqu'une autre mission travaille ; exploiter les tables et la file `queued` existantes ; éviter la perte d'une soumission HTTP et les doublons à la reconnexion, avec idempotence. Les questions simples restent un parcours conversationnel distinct.
+- Afficher dans le suivi chronologique intégral l'état réel de la file, les erreurs, traces, checkpoints, reprises et désaccords entre état mission et tâche ; vérifier `mission_busy` contre le travail effectif plutôt que l'assimiler à une activité démontrée.
+- Tests de réception précis : échec traçable, question sur les capacités, soumission pendant une mission active, reconnexion, non-duplication et reprise. Détails : [prémission 27](27-JL-03/PREMISSION-JL-03.md), section 5 ter.
+
+### 28 — Routage multi-modèles : capacité de contexte et repli
+
+- **Erreur réellement observée** dans `compute_jobs` : `Requested context exceeds measured node profile: Mac-mini`. Son identité avec la requête HTTP 503 analysée n'est pas encore établie.
+- Avant chaque appel d'inférence, comparer le contexte réellement requis, y compris schémas des outils, historique et réserve de sortie, au **profil mesuré du nœud** ; acheminer vers un nœud compatible (Dell lorsque disponible et approprié), suivant la politique et les ressources réelles, sans supposer une capacité matérielle non mesurée.
+- Si aucun nœud compatible n'est disponible, compacter **sélectivement** l'historique tout en préservant les capacités pertinentes, l'objectif, les décisions, dernières preuves/checkpoints et le protocole des appels d'outils ; recalculer le budget puis reprendre de manière traçable. Ne pas tronquer silencieusement les capacités du modèle ou modifier les permissions hôte.
+- Distinguer les erreurs de profil de contexte, mémoire/VRAM, moteur indisponible, timeout et refus d'autorisation ; restituer un code diagnostic structuré au moteur et à JL-03 pour routage alternatif ou mise en attente, sans boucle de repli répétitive.
+- Réception : scénario réel de contexte court/long et outillage, routage Mac mini/Dell avec mesures, repli/compaction et échec explicite si aucun nœud viable, sans tests disproportionnés ni modification des résultats déjà réceptionnés.
+
+**Périmètre :** ces ajouts documentaires ne déclarent ni JL-03 ni mission 28 lancés ou validés. Les missions historiques et leurs preuves ne sont pas réécrites.
+
 ## Références examinées (inspiration, pas dépendance)
 - LiveKit Agents : https://github.com/livekit/agents
 - sosoj92 JARVIS vocal : https://github.com/sosoj92/jarvis-assistant-vocal
