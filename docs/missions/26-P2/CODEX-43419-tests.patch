@@ -1,0 +1,17 @@
+--- engine/tests/test_mission_store_attempts.py
++++ engine/tests/test_mission_store_attempts.py
+@@ -107,5 +107,14 @@
+             with self.assertRaises(ValueError):
+                 store.attempt_state(mission, 'SUCCESS', reference=reference)
+ 
++    def test_success_rejects_broker_zero_child_failure_or_unknown(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            store = MissionStore(Path(tmp))
++            mission = store.create('test', 'test', 'test')
++            for execution in ({'returncode': 7}, {}, {'returncode': False}):
++                reference = store.event(mission, 'tool_finished', tool='host_remote', result={'ok': True, 'result': {'returncode': 0, 'execution': execution}})
++                with self.subTest(execution=execution), self.assertRaises(ValueError):
++                    store.attempt_state(mission, 'SUCCESS', reference=reference)
++
+ if __name__ == '__main__':
+     unittest.main()
