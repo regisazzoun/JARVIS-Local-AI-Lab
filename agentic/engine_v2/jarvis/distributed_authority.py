@@ -129,7 +129,8 @@ class Authority:
   if kind in ('inspect','correct','test') and not key:raise ValueError('operation_id required, unique per intended execution, reuse it for transport retry')
   previous=state.get('operations',{}).get(key) if key else None
   if previous:
-   if previous['arguments']!=a:raise ValueError('operation_id reused for different arguments')
+   if previous['arguments']!=a:
+    raise ValueError('operation_id reused for different arguments: '+json.dumps({'operation_id':key,'registered_arguments':previous['arguments'],'requested_arguments':a,'original_outcome_known':bool(previous.get('result')),'remedy':'For a DIFFERENT intended command choose a new unique operation_id. For retry of the SAME command preserve ALL original arguments. No command was executed by this refusal; never rerun an uncertain operation blindly.'},ensure_ascii=False))
    if previous.get('result'):return previous['result']
    raise ValueError('Execution outcome uncertain; inspect receipts before a new operation, never blindly repeat')
   decision=self.decision(a)
