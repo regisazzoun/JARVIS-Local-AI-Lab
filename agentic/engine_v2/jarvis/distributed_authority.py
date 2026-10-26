@@ -6,6 +6,7 @@ import json
 import re
 import shlex
 import time
+import uuid
 from pathlib import Path
 
 PROJECT = 'mission26-phase1'
@@ -21,7 +22,7 @@ import subprocess,os,json,hashlib,pathlib,resource
 def manifest():
  out={}
  for p in sorted(pathlib.Path('.').rglob('*')):
-  if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and p.suffix in ('.py','.md','.json','.txt','.mjs','.js'):
+  if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and '.receipts' not in p.parts and p.suffix in ('.py','.md','.json','.txt','.mjs','.js'):
    out[str(p)]=hashlib.sha256(p.read_bytes()).hexdigest()
  return out
 
@@ -42,13 +43,27 @@ after=manifest()
 print(json.dumps({'before':before,'after':after,'execution':observed,'limits':{'nice':10,'cpu_cores':2,'memory_gib':4,'wall_seconds':45,'gpu':False}}))
 '''
 
+def receipt_program(command,remote_path):
+ body=RUNNER.replace('COMMAND',repr(command))
+ body=body.replace("'__pycache__' not in p.parts", "'__pycache__' not in p.parts and '.receipts' not in p.parts")
+ body=body.replace("p.stdout[:20000]", "p.stdout").replace("p.stderr[:8000]", "p.stderr")
+ body=body.replace("len(p.stdout)>20000 or len(p.stderr)>8000", "False")
+ marker="print(json.dumps({'before':before,'after':after,'execution':observed,'limits':{'nice':10,'cpu_cores':2,'memory_gib':4,'wall_seconds':45,'gpu':False}}))"
+ replacement="""receipt={'before':before,'after':after,'execution':observed,'limits':{'nice':10,'cpu_cores':2,'memory_gib':4,'wall_seconds':45,'gpu':False}}
+raw=json.dumps(receipt).encode()
+target=pathlib.Path(RECEIPT_PATH);target.parent.mkdir(exist_ok=True);target.write_bytes(raw)
+print(json.dumps({'receipt_path':str(target),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'process_returncode':observed['returncode']}))""".replace('RECEIPT_PATH',repr(remote_path))
+ assert marker in body
+ body=body.replace(marker,replacement)
+ return body
+
 def version(manifest):
  return hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
 
 def budget(state, issue, enforce=True):
  value=state.setdefault('issues',{}).setdefault(issue,{'failed_cycles':0,'delegation_failures':0})
  if enforce and value['failed_cycles']>=3:raise ValueError('BLOQUÉ: trois cycles échoués pour cette anomalie; dossier Codex requis, compteur conservé')
- if enforce and value['delegation_failures']>=3:raise ValueError('BLOQUÉ: trois délégations échouées; dossier Codex requis')
+ if enforce and value['delegation_failures']-value.get('delegation_resolved_through',0)>=3:raise ValueError('BLOQUÉ: trois délégations échouées; dossier Codex requis')
  return value
 
 class Authority:
@@ -86,6 +101,26 @@ class Authority:
    result[label]={'invocation':token,'ok':r.get('ok'),'stdout':r.get('result',{}).get('stdout','')[:5000]}
   state=self.state();state['resources']=result;self.save(state)
   return result
+ def durable_run(self,host,command,operation,state):
+  """Repair for demonstrated broker truncation: full immutable receipt as bytes."""
+  receipt_id=uuid.uuid4().hex
+  remote_path=self.remote_root+'/.receipts/'+receipt_id+'.json'
+  operation['receipt_path']=remote_path;self.save(state)
+  body=receipt_program(command,remote_path)
+  raw,call=self.remote(host,'python3 -c '+shlex.quote(body));header=json.loads(raw['stdout'])
+  local=self.local/'receipts'/self.m/(receipt_id+'.json');local.parent.mkdir(parents=True,exist_ok=True)
+  args={'host':HOSTS[host],'action':'project_download','project':self.project,'path':remote_path,'local_path':str(local)}
+  token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic();r=self.reg.execute('host_remote',args);self.store.finish_call(token,r,time.monotonic()-start)
+  if not r.get('ok'):raise RuntimeError('Receipt persisted remotely; download failed. Do not rerun command. '+str(r)[:500])
+  data=local.read_bytes()
+  if hashlib.sha256(data).hexdigest()!=header['sha256']:raise ValueError('Complete receipt digest mismatch')
+  observed=json.loads(data);observed['full_receipt']={'remote':remote_path,'local':str(local),'sha256':header['sha256'],'bytes':len(data),'download_invocation':token}
+  for field in ('stdout','stderr'):
+   text=observed['execution'].get(field,'')
+   if len(text)>2000:
+    observed['execution'][field]=text[:1500]+'\n[EXCERPT; complete immutable receipt at full_receipt]\n'+text[-500:]
+    observed['execution'][field+'_model_excerpt']=True
+  return observed,call
  def work(self,a):
   issue=a['issue']
   if issue not in self.spec['authority_requirements']:raise ValueError('Unknown stable owner requirement; allowed EXACT ids: '+str(self.spec['authority_requirements']))
@@ -125,11 +160,14 @@ class Authority:
   state.setdefault('operations',{})[key]={'arguments':a,'decision':decision};self.save(state)
   self.event('authority_dispatch',{'decision':decision,'executor':host,'command':command})
   try:
-   raw,call=self.remote(host,'python3 -c '+shlex.quote(RUNNER.replace('COMMAND',repr(command))))
-   observed=json.loads(raw['stdout'])
+   if self.spec.get('authority_durable_receipts'):
+    observed,call=self.durable_run(host,command,state['operations'][key],state)
+   else:
+    raw,call=self.remote(host,'python3 -c '+shlex.quote(RUNNER.replace('COMMAND',repr(command))))
+    observed=json.loads(raw['stdout'])
   except Exception as error:
    v['delegation_failures']+=1;self.save(state)
-   if v['delegation_failures']>=3:self.event('authority_escalation',{'issue':issue,'reason':'Three delegation failures','state':v},actor='JARVIS-engine')
+   if v['delegation_failures']-v.get('delegation_resolved_through',0)>=3:self.event('authority_escalation',{'issue':issue,'reason':'Three delegation failures','state':v},actor='JARVIS-engine')
    self.event('authority_delegation_failure',{'decision':decision,'executor':host,'error':str(error),'count':v['delegation_failures']})
    raise
   observed.update(issue=issue,host=host,kind=kind,decision=decision,broker_invocation=call)

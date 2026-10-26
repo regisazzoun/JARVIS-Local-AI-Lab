@@ -74,6 +74,11 @@ class GuardTests(unittest.TestCase):
   state=self.x.state();state['executions']['11']={'issue':'Q1','kind':'correct','execution':{'returncode':1}};self.x.save(state)
   result=self.x.work({'issue':'Q1','kind':'analyze','summary':'Actual failure observed','reference':11})
   self.assertTrue(result['execution_analyzed']);self.assertEqual(result['declared_kind'],'correct');self.assertEqual(result['observed_returncode'],1)
+ def test_resolved_infrastructure_history_is_not_erased(self):
+  state={'issues':{'P2':{'failed_cycles':0,'delegation_failures':3,'delegation_resolved_through':3}}}
+  self.assertEqual(a.budget(state,'P2')['delegation_failures'],3)
+  state['issues']['P2']['delegation_failures']=6
+  with self.assertRaises(ValueError):a.budget(state,'P2')
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):
