@@ -172,7 +172,7 @@ class Authority:
    if hashlib.sha256(data).hexdigest()!=receipt['sha256']:raise ValueError('Receipt digest changed')
    execution=json.loads(data)['execution'];complete=not execution.get('output_truncated')
   stream=a.get('stream','stderr');lines=execution.get(stream,'').splitlines();start=a.get('start_line',1)-1
-  content='\n'.join(lines[start:start+a.get('max_lines',40)])
+  content='\n'.join(lines[start:start+min(a.get('max_lines',40),80)])
   return {'reference':int(reference),'executor':entry['host'],'kind':entry['kind'],'observed_process_returncode':execution['returncode'],'stream':stream,'start_line':start+1,'content':content[:8000],'total_lines':len(lines),'source_complete':complete,'excerpt_truncated':len(content)>8000,'source_version':version(entry['after']),'full_receipt':receipt}
  def analyze_latest(self,a):
   issue=self.state().get('issues',{}).get(a['issue'],{})

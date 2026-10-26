@@ -120,6 +120,23 @@ class GuardTests(unittest.TestCase):
    state=self.x.state();state['executions']['31']={'host':'Dell2','kind':'test','after':{'a.py':'a'*64},'execution':{'returncode':1,'stderr':'Actual failure'}};self.x.save(state)
    result=reg.execute('authority_read_execution',{'reference':31})
    self.assertTrue(result['ok'],result);self.assertEqual(result['result']['observed_process_returncode'],1);self.assertEqual(result['result']['content'],'Actual failure')
+ def test_p2_oversized_read_is_capped_and_paginated_without_hiding_failure(self):
+  from jarvis.tools import Registry
+  from jarvis.memory import Memory
+  with tempfile.TemporaryDirectory() as root:
+   mission='3aa717f3887e49daa7daf7e883ee52e4'
+   reg=Registry.__new__(Registry);reg.root=Path(root);reg.memory=Memory(Path(root)/'memory.sqlite');reg.context={'mission_id':mission};reg.config={};reg.specs={};reg.mission_store=self.s
+   a.register(reg)
+   state=self.x.state();state['executions']['31']={'host':'Dell2','kind':'test','after':{'a.py':'a'*64},'execution':{'returncode':1,'stderr':'\n'.join(str(n) for n in range(1,151))}};self.x.save(state)
+   result=reg.execute('authority_read_execution',{'reference':31,'max_lines':120})
+   self.assertTrue(result['ok'],result);self.assertEqual(result['result']['content'].splitlines(),[str(n) for n in range(1,81)])
+   self.assertEqual(result['result']['observed_process_returncode'],1)
+   page=reg.execute('authority_read_execution',{'reference':31,'start_line':81,'max_lines':120})
+   self.assertTrue(page['ok'],page);self.assertEqual(page['result']['content'].splitlines(),[str(n) for n in range(81,151)])
+   for bad in (0,-1,'120'):
+    self.assertFalse(reg.execute('authority_read_execution',{'reference':31,'max_lines':bad})['ok'])
+   reg.context['mission_id']='other'
+   self.assertEqual(reg.active_schema('authority_read_execution')['properties']['max_lines']['maximum'],80)
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):

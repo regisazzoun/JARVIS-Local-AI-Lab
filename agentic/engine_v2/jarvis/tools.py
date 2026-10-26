@@ -228,7 +228,8 @@ class Registry:
                 if references:schema['properties']['reference']['enum']=references
                 if self.context['mission_id']=='3aa717f3887e49daa7daf7e883ee52e4':
                     schema['properties']['start_line'].update(default=1, description='ONE-BASED line number: first line is 1, never 0. Omit start_line to read from the beginning.')
-                    schema['properties']['max_lines'].update(default=40, description='Read 1 to 80 lines; omit for 40.')
+                    schema['properties']['max_lines'].pop('maximum',None)
+                    schema['properties']['max_lines'].update(default=40, description='Positive requested line count; output is capped at 80 lines per read. Omit for 40; paginate using start_line.')
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
 
         return schema
