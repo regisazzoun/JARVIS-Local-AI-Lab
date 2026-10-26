@@ -1,0 +1,18 @@
+{
+  "mission": "3aa717f3887e49daa7daf7e883ee52e4",
+  "scope": "Dell2 reference baseline only; not P2 implementation acceptance",
+  "actor_decision": "JARVIS/Qwen80B on Dell1",
+  "executor": "Dell2",
+  "event": 41172,
+  "evidence_id": "b0defd8a7e5f42899cda23d8d2371b46",
+  "test_command": "cd /opt/jarvis-lab/mission26-phase2 && PYTHONPATH=/opt/jarvis-lab/mission26-phase2/engine /usr/bin/python3 -m unittest engine.tests.test_durable -v 2>&1",
+  "returncode": 0,
+  "tests": 10,
+  "passed": 10,
+  "test_duration_s": 0.099,
+  "codex_support": [
+    "Relay script syntax fix",
+    "Scoped PYTHONPATH import environment"
+  ],
+  "test_output": "test_contract_proof_survives_a_long_sequence (engine.tests.test_durable.DurableJournalTest.test_contract_proof_survives_a_long_sequence) ... ok\ntest_dependency_order_and_restart (engine.tests.test_durable.DurableJournalTest.test_dependency_order_and_restart) ... ok\ntest_exact_github_path_required_for_source_proof (engine.tests.test_durable.DurableJournalTest.test_exact_github_path_required_for_source_proof) ... ok\ntest_explicit_interruption_wins_over_worker_finish (engine.tests.test_durable.DurableJournalTest.test_explicit_interruption_wins_over_worker_finish) ... ok\ntest_external_rebase_archives_context_without_erasing_proofs_or_tasks (engine.tests.test_durable.DurableJournalTest.test_external_rebase_archives_context_without_erasing_proofs_or_tasks) ... ok\ntest_intent_survives_crash_without_claiming_success (engine.tests.test_durable.DurableJournalTest.test_intent_survives_crash_without_claiming_success) ... ok\ntest_invalid_plan_is_atomic (engine.tests.test_durable.DurableJournalTest.test_invalid_plan_is_atomic) ... ok\ntest_lost_lease_recovers_after_more_than_five_cycles (engine.tests.test_durable.DurableJournalTest.test_lost_lease_recovers_after_more_than_five_cycles) ... ok\ntest_nullable_historical_event_is_readable (engine.tests.test_durable.DurableJournalTest.test_nullable_historical_event_is_readable) ... ok\ntest_plan_cannot_overwrite_completed_work (engine.tests.test_durable.DurableJournalTest.test_plan_cannot_overwrite_completed_work) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.099s\n\nOK\n"
+}
