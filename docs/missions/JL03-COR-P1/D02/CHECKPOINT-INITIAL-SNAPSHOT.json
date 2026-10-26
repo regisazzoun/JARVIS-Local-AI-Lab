@@ -1,0 +1,43 @@
+{
+  "ack": true,
+  "task": "D02",
+  "status": "diag",
+  "problem": "Transcription Whisper incohérente dans JL03 ; défaut non attribué à un composant a priori.",
+  "hypotheses": [
+    "Erreur dans la segmentation d'audio (ex. détection de silence incorrecte)",
+    "Format/canaux d'entrée non conforme au modèle (ex. mono/stéréo, échantillonnage)",
+    "Contrat STT réel non respecté (params, endpoint, payload)",
+    "Délégation à un modèle non adapté ou ancien"
+  ],
+  "subtasks": [
+    {
+      "id": "D02.1",
+      "label": "Identifier le chemin réellement exécuté et ses entrées (capture → STT)",
+      "exec": "Dell1",
+      "output": "chemin_actif.json"
+    },
+    {
+      "id": "D02.2",
+      "label": "Valider les formats (échantillonnage, canaux, encodage) et les paramètres du contrat STT",
+      "exec": "Dell2",
+      "output": "contrat_stt_audit.json"
+    },
+    {
+      "id": "D02.3",
+      "label": "Tester transcription avec corpus français contrôlé (texte connu + silences + invalides)",
+      "exec": "Dell2",
+      "output": "test_stt_comparatif.json"
+    }
+  ],
+  "affectations": {
+    "Dell1": ["D02.1"],
+    "Dell2": ["D02.2", "D02.3"]
+  },
+  "blockers": [
+    "Capacité projet JL03 absente sur Dell1 et Dell2 (attente codex_authorisation)"
+  ],
+  "next_actions": [
+    "Attente capability_request_validée",
+    "Exécution des sous-tâches dès capacité accordée"
+  ]
+}

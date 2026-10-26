@@ -1,0 +1,74 @@
+--- jarvis/durable_cycle.py
++++ jarvis/durable_cycle.py
+@@ -15,6 +15,8 @@
+     selected=(definition or {}).get('tools')
+     if not isinstance(selected,list) or not selected or not all(isinstance(x,str) for x in selected):
+         return schemas
++    if (definition or {}).get('strict_tools'):
++        return [s for s in schemas if s['function']['name'] in set(selected)|{'mission_note','mission_block'}]
+     control={'mission_progress','mission_note','mission_evidence','mission_plan',
+              'mission_block','mission_verify','mission_task_complete','mission_report_facts',
+              'mission_report_review','capability_request','capability_status','host_policy'}
+@@ -186,6 +188,22 @@
+             files[args.get('path','')]={'path':args.get('path'),'created':o['created'],'sha256':receipt.get('after_sha256') if o['tool']=='host_edit_file' else hashlib.sha256(args.get('content','').encode()).hexdigest(),'invocation':o['id']}
+     checks=sorted(commands.values(),key=lambda x:x['created'])
+     return {'latest_file_writes':list(files.values()),'unresolved_command_failures':[x for x in checks if x['ok'] is False][-2:],'latest_successful_commands':[x for x in checks if x['ok'] is True][-2:],'meaning':'Each command retains its latest real result; a later write is not a successful retest. Older failed results are historical until the same check succeeds. Command success means process exit zero only; inspect diagnostics and semantic verification for actual application success.'}
++
++
++def finalization_view(state):
++    tasks=state.get('tasks',[])
++    if state.get('active_task') or not tasks or any(t.get('state')!='validated' for t in tasks):
++        raise ValueError('Compact finalization requires all actual tasks validated')
++    ids=', '.join(t['id'] for t in tasks)
++    content=('Clôture d’exécution assistée. Tâches validées dans le journal : '+ids+'. '
++             'Les rapports de tâche vérifiés et leurs empreintes restent conservés. '
++             'Les opérations JARVIS ont bénéficié des interfaces et interventions Codex documentées. '
++             'Cette clôture ne reçoit ni une autonomie sans assistance ni les essais vocaux physiques du propriétaire. '
++             'Les FAIL et INSUFFICIENT historiques restent dans les preuves ; aucune mission14A ou mémoire n’est clôturée ici.')
++    return {'mission':state['mission'],'tasks':tasks,
++            'original_objective_sha256':hashlib.sha256(encoded(state['objective']).encode()).hexdigest(),
++            'objective':'Toutes les tâches sont réellement validées. Ne plus appeler les outils de tâche. Appeler uniquement intervention_report avec le contenu fourni.',
++            'final_call':{'tool':'intervention_report','arguments':{'content':content}}}
+ 
+ 
+ class DurableCycle:
+@@ -257,12 +275,16 @@
+         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS, pas par JARVIS-engine. Le modèle demandé à l’origine ('+mission['model']+') peut différer du moteur effectivement routé. Pour attribuer ton exécution, utilise last_observed_inference, compute_status et les événements compute_route_observed, jamais le seul modèle historique de mission. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
+               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
+                'debugging_checkpoint':debugging_state(store.observations(ident,task_id)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
+-        if scoped:base[1]['content']=encoded(focused_state(json.loads(base[1]['content'])))
+-        ledger=[brief(o) for o in task_observations[-16:]]
++        compact_finalization=bool(json.loads(mission['spec']).get('compact_finalization') and not task and tasks and all(t['state']=='validated' for t in tasks))
++        if compact_finalization:
++            base[0]['content']+='\nPHASE FINALE : les contrôles de tâche sont reçus. Appelle intervention_report avec final_call, jamais mission_task_complete ni le protocole de tâche.'
++            base[1]['content']=encoded(finalization_view(json.loads(base[1]['content'])))
++        elif scoped:base[1]['content']=encoded(focused_state(json.loads(base[1]['content'])))
++        ledger=[] if compact_finalization else [brief(o) for o in task_observations[-16:]]
+         messages=base+[{'role':'user','content':'Observations durables : '+encoded(ledger)}]
+         with store.db() as c:
+             saved=c.execute('SELECT task,messages FROM mission_context WHERE mission=?',(ident,)).fetchone()
+-        if saved and saved['task']==task_id:
++        if saved and saved['task']==task_id and not compact_finalization:
+             prior=json.loads(saved['messages'])
+             if prior:
+                 messages=base+prior[2:]
+@@ -312,8 +334,9 @@
+                     last_report_feedback=feedback['review_reference']
+                     store.event(ident,'report_correction_context_prepared',task_id,'JARVIS-engine',result=feedback)
+             schemas=task_schemas(core.tools.schemas(),definition) if task_id else core.tools.schemas()
++            if compact_finalization:schemas=[s for s in schemas if s['function']['name']=='intervention_report']
+             offered={s['function']['name'] for s in schemas}
+-            if task_id:
++            if task_id and not definition.get('strict_tools'):
+                 schemas += [s for s in discovery_schemas(core.tools.schemas(), definition) if s['function']['name'] in discovered-offered]
+             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(schemas)) - 4096
+             if len(encoded(messages)) > context_chars:
+@@ -387,7 +410,7 @@
+                 repaired=bool(previous) and any(o['created']>previous[-1]['created'] and (o['result'] or {}).get('ok') and (o['tool']=='host_package' or o['tool'] in ('host_remote','host_ansible') and o['arguments'].get('action') in ('package_install','write_file','deploy_file','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure')) for o in store.observations(ident,task_id))
+                 if name not in {s['function']['name'] for s in schemas}:
+                     schema=next((s for s in discovery_schemas(core.tools.schemas(), definition) if s['function']['name']==name),None)
+-                    if task_id and schema and name!='intervention_report':
++                    if task_id and schema and name!='intervention_report' and not definition.get('strict_tools'):
+                         discovered.add(name)
+                         store.event(ident,'execution_tool_discovered',task_id,'JARVIS-engine',tool=name,result={'requested_by':'JARVIS','permissions_unchanged':True})
+                         result={'ok':False,'tool':name,'error':'Registered tool schema exposed for next turn. Retry with its actual parameters; no permission change required.','discovered_schema':schema}

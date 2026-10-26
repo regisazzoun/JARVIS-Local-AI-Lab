@@ -1,0 +1,8 @@
+# Supervision ciblée Codex — 2026-10-25T20:20:14.977450+00:00
+État réel : D04 interrompue après échec application Dell1 ; D03 non relancée, D17 conserve son contexte indépendant.
+Diagnostic : reçu37465, ancien appel prepareSpokenAnswer(res) sur Dell1 ; module détaillé/test absent sur cet hôte, déjà présents sur Dell2. La précédente reprise ne synchronisait pas effectivement Dell1 avant contrôle.
+Action Codex : transfert ZIP autorisé, sauvegarde originale distante codex-backup-sync-*, synchronisation module et trois tests ; seule ligne speak modifiée dans app.js, reste vérifié inchangé. Application live non modifiée, aucun service supervision modifié.
+Preuves : événements37522/37523 (transfert/correction),37524/37525 (contrôles indépendants réels) ; 15 PASS/0 FAIL par Dell. Tests importent le vrai module et vérifient FAIL/réserves/incertitude/attribution/détails. Frontière speak simulée, pas inférence ni acoustique réelle ; autonomie non reçue. Originaux, anciens FAIL et compteurs préservés.
+Reprise : stratégie37529 actorCodex, plan13 patch expected_version12, contexte rebasé. corrective_resume armée sous verrou dispatcher ; même mission, deux contextes maximum.
+Prochain contrôle : retests réels JARVIS des checks sur les deuxDell puis export du candidat et rapport fidèle ; pas de nouvelle synchronisation aveugle. Aucun GO global, aucune intégration/publication candidate ni fusionmain avant revue.
+Directives relues : AGENTS.md, CHARTE_DIRECTIVES_JARVIS.md, CONTINUITE.md et dernier dossier D04. Autorisations conservées ; divergence de versions corrigée techniquement, aucun nouveau GO nécessaire. Attribution corrections/contrôles Codex, retest attendu JARVIS.

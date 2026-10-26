@@ -1,0 +1,26 @@
+--- jarvis/mission_assurance.py
++++ jarvis/mission_assurance.py
+@@ -491,11 +491,12 @@
+     view={key:snapshot[key] for key in ('mission','created','scope_task','raw_goal','counts','tasks','plans','infrastructure_author','plan_and_operations_author','active_contracts')}
+     view['closure']=snapshot.get('closure',{})
+     view['count_semantics']='counts.observations_in_scope counts technical receipts, NOT CSV records/measurements. Natural-language observations must name their referent and be checked against the relevant file/receipt. A quoted rejected assertion is historical text, not a new assertion of that value; verify its actual rejection and correction.'
+-    view['view_contract']='Selected original facts, not the whole journal. Omitted content is NOT absent evidence. The index lists ALL receipt IDs in scope. Never call a known ID invented. Full originals remain in mission_evidence.'
++    view['view_contract']='Selected original facts and receipt IDs, not the whole journal. Omitted content or IDs are NOT absent evidence. Explicitly cited known IDs are always retained; full originals and the full reference index remain in mission_evidence and server-side validation.'
+     view['reference_aliases']={'mission':'mission:id','created':'mission:created','infrastructure_author':'actor:Codex','contracts':'contracts:active'}
+     view['tasks']=[{**task,'reference':'task:'+task['id']} for task in snapshot['tasks']]
+     view['full_snapshot_sha256']=digest(snapshot)
+-    view['known_receipt_references']=list(dict.fromkeys([value for row in receipts for value in (row['reference'],row.get('broker_evidence')) if value]))
++    view['known_receipt_reference_count']=len(set(value for row in receipts for value in (row['reference'],row.get('broker_evidence')) if value))
++    view['known_receipt_references']=list(dict.fromkeys(value for row in receipts if row['reference'] in chosen for value in (row['reference'],row.get('broker_evidence')) if value))
+     view['receipts']=cards
+     view['semantic_verifications']=snapshot['semantic_verifications'][-recent:] if recent else []
+     view['cited_event_facts']=snapshot.get('cited_event_facts',[])
+@@ -507,7 +508,7 @@
+     view['goal_requirements']={k:v for k,v in (snapshot.get('goal_requirements') or {}).items() if k in ('reference','version','author','contract_version')}
+     definitions=[]
+     for original in snapshot.get('plan_definitions',[]):
+-        selected=[task for task in original['plan']['tasks'] if task['id']==snapshot.get('scope_task') or re.search(r'(?<![\w-])'+re.escape(task['id'])+r'(?![\w-])',content,re.I)]
++        selected=[task for task in original['plan']['tasks'] if task['id']==snapshot.get('scope_task') or (not snapshot.get('scope_task') and re.search(r'(?<![\w-])'+re.escape(task['id'])+r'(?![\w-])',content,re.I))]
+         definitions.append({**{k:v for k,v in original.items() if k!='plan'},'plan':{**{k:v for k,v in original['plan'].items() if k!='tasks'},'tasks':selected},'explicit_excerpt':True,'all_task_ids':[task['id'] for task in original['plan']['tasks']]})
+     view['plan_definitions']=definitions
+     return view

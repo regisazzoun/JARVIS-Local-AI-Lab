@@ -1,0 +1,12 @@
+
+> jarvis-launcher3@0.1.0 check
+> node tests/check-modules.cjs
+
+PASS api.js
+PASS app.js
+PASS console.js
+PASS livekit.js
+PASS orb.js
+PASS prototype.js
+PASS telemetry.js
+PASS voice.js

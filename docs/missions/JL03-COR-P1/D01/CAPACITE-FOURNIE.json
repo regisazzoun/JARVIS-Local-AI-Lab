@@ -1,0 +1,50 @@
+{
+  "task": "D01",
+  "provided_by": "Codex after JARVIS native capability_request",
+  "hosts": {
+    "Dell1": "dell-observe",
+    "Dell2": "dell2"
+  },
+  "project": "jl03-cor-p1-d01",
+  "remote_root": "/opt/jarvis-lab/jl03-cor-p1/D01",
+  "local_root": "/var/lib/jarvis/projects/jl03-cor-p1/D01",
+  "source_zip": "/var/lib/jarvis/projects/jl03-cor-p1/D01/SOURCE-INITIALE.zip",
+  "tools": {
+    "run": {
+      "tool": "host_remote",
+      "arguments": {
+        "host": "dell2",
+        "action": "project_exec",
+        "project": "jl03-cor-p1-d01",
+        "command": "node --version && python3 --version"
+      }
+    },
+    "upload": {
+      "tool": "host_remote",
+      "arguments": {
+        "host": "dell2",
+        "action": "project_upload",
+        "project": "jl03-cor-p1-d01",
+        "local_path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/SOURCE-INITIALE.zip",
+        "path": "/opt/jarvis-lab/jl03-cor-p1/D01/source.zip"
+      }
+    },
+    "download": {
+      "tool": "host_remote",
+      "arguments": {
+        "host": "dell2",
+        "action": "project_download",
+        "project": "jl03-cor-p1-d01",
+        "path": "/opt/jarvis-lab/jl03-cor-p1/D01/results.json",
+        "local_path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/results-dell2.json"
+      }
+    }
+  },
+  "notes": [
+    "Use actual host names above, no SSH credentials/model installation/routing change",
+    "Projects persist only in their own root; other context root not mounted",
+    "Archive extraction example: python3 -m zipfile -e source.zip . ; no new packages/npm needed",
+    "Select and implement your own diagnostic/correction/test subtasks; operator runtime preflight is not your task result",
+    "Private microphone not available on headless Dell; label real WAV browser injection versus physical microphone tests correctly"
+  ]
+}

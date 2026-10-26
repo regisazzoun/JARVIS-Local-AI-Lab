@@ -72,7 +72,7 @@ def review_model(registry, purpose, instruction, data, schema, validator=None):
     for attempt in range(2):
         prediction_budget=max(8192,min(16384,2048+len(data.get('segments',[]))*256+len(data.get('evidence',{}).get('cited_event_facts',[]))*96)) if purpose=='narrative' else 8192
         payload = {'model': mission['model'], 'messages': messages, 'stream': False, 'think': False,
-                   'keep_alive': '30m', 'options': {'num_ctx': 32768, 'num_predict': prediction_budget,'temperature':0,'presence_penalty':0},
+                   'keep_alive': '30m', 'options': {'num_predict': prediction_budget,'temperature':0,'presence_penalty':0},
                    'format':schema}
         message = callback(payload)
         observed_metrics=getattr(getattr(callback,'__self__',None),'metrics',[])

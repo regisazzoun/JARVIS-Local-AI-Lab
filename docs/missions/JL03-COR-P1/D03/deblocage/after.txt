@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: normal request: user then exactly one answer
+ok 1 - normal request: user then exactly one answer
+  ---
+  duration_ms: 3.52305
+  ...
+# Subtest: empty response: one visible error, retry text retained
+ok 2 - empty response: one visible error, retry text retained
+  ---
+  duration_ms: 1.009394
+  ...
+# Subtest: network/auth error: visible once and input restored
+ok 3 - network/auth error: visible once and input restored
+  ---
+  duration_ms: 1.141437
+  ...
+# Subtest: two rapid requests: serialized, both resolved once
+ok 4 - two rapid requests: serialized, both resolved once
+  ---
+  duration_ms: 1.241384
+  ...
+# Subtest: queue limit: extra request rejected without an API call
+ok 5 - queue limit: extra request rejected without an API call
+  ---
+  duration_ms: 1.259719
+  ...
+# Subtest: spoken field preserved and mission selection still forwarded
+ok 6 - spoken field preserved and mission selection still forwarded
+  ---
+  duration_ms: 0.983991
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 182.850862

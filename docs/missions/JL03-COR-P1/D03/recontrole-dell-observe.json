@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "result": {
+    "returncode": 0,
+    "stdout": "{\"path\": \"/opt/jarvis-lab/jl03-cor-p1/D03/tests/d03-remaining.test.mjs\", \"exists\": true, \"sha256\": \"bbc07922da3ac4ee4b3b4c99823c3844ef98a77d1becef813713d9afce9ff431\"}\n",
+    "stderr": "",
+    "timeout": false,
+    "duration_s": 0.366,
+    "stdout_truncated": false,
+    "stderr_truncated": false,
+    "project_root": "/opt/jarvis-lab/jl03-cor-p1/D03",
+    "persistent_write_roots": [
+      "/opt/jarvis-lab/jl03-cor-p1/D03"
+    ],
+    "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+  },
+  "diagnostic": {
+    "policy_sha256": "4767e57c86ddc9147584141dca3b6ab61d5bbbbc6ab7f9f578be9ed5814282ea",
+    "policy_path": "/etc/jarvis/host-policy.json",
+    "selection": "single-persistent-owner-policy",
+    "reload": "each-request",
+    "broker_version": "23C.1",
+    "operation": "host_remote",
+    "parameters": {
+      "host": "dell-observe",
+      "action": "project_exec",
+      "project": "jl03-cor-p1-d03"
+    },
+    "omitted_parameters": [
+      "command"
+    ],
+    "error_category": null,
+    "retry": null,
+    "alternative": null
+  },
+  "caller": "local-operator",
+  "evidence_id": "2d93864e61414dc887a465bd5c1cc1d2",
+  "elapsed_s": 0.681
+}

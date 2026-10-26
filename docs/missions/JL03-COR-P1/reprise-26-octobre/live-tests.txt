@@ -1,0 +1,252 @@
+
+> jarvis-launcher3@0.1.0 test
+> python3 -m unittest discover -s tests -v && npm run test:voice && npm run test:corrections
+
+test_aliases_of_same_failed_operation_do_not_reset_three_attempts (test_adapter.GuardChecks.test_aliases_of_same_failed_operation_do_not_reset_three_attempts) ... ok
+test_distinct_missing_files_are_distinct_blockers (test_adapter.GuardChecks.test_distinct_missing_files_are_distinct_blockers) ... ok
+test_failed_completed_test_is_control_without_erasing_failures (test_adapter.GuardChecks.test_failed_completed_test_is_control_without_erasing_failures) ... ok
+test_mjs_files_are_distinct_but_aliases_still_match (test_adapter.GuardChecks.test_mjs_files_are_distinct_but_aliases_still_match) ... ok
+test_no_secret_in_nested_events (test_adapter.GuardChecks.test_no_secret_in_nested_events) ... ok
+test_pipeline_success_does_not_hide_tap_failure (test_adapter.GuardChecks.test_pipeline_success_does_not_hide_tap_failure) ... ok
+test_protocol_failures_group_by_real_stage_without_reset (test_adapter.GuardChecks.test_protocol_failures_group_by_real_stage_without_reset) ... ok
+test_repeated_reads_are_stagnation_but_distinct_changed_content_is_progress (test_adapter.GuardChecks.test_repeated_reads_are_stagnation_but_distinct_changed_content_is_progress) ... ok
+test_required_read_failure_still_counts (test_adapter.GuardChecks.test_required_read_failure_still_counts) ... ok
+test_required_verification_reads_are_not_model_stagnation (test_adapter.GuardChecks.test_required_verification_reads_are_not_model_stagnation) ... ok
+test_success_does_not_erase_prior_failures_without_analysis (test_adapter.GuardChecks.test_success_does_not_erase_prior_failures_without_analysis) ... ok
+test_unverified_rewrites_stop_at_three_and_fourth_is_not_reset (test_adapter.GuardChecks.test_unverified_rewrites_stop_at_three_and_fourth_is_not_reset) ... ok
+test_existing_healthy_access_opens_once_without_ssh (test_companion.CompanionChecks.test_existing_healthy_access_opens_once_without_ssh) ... ok
+test_keeps_healthy_child_alive_and_cleans_only_its_child (test_companion.CompanionChecks.test_keeps_healthy_child_alive_and_cleans_only_its_child) ... ok
+test_stops_after_three_failed_tunnel_launches (test_companion.CompanionChecks.test_stops_after_three_failed_tunnel_launches) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.273s
+
+OK
+
+> jarvis-launcher3@0.1.0 test:voice
+> node --test tests/voice-lifecycle.test.mjs
+
+TAP version 13
+# Subtest: a command beginning after long silence is not cut after its first syllables
+ok 1 - a command beginning after long silence is not cut after its first syllables
+  ---
+  duration_ms: 4.857172
+  ...
+# Subtest: stopping during microphone permission prevents a late reactivation
+ok 2 - stopping during microphone permission prevents a late reactivation
+  ---
+  duration_ms: 0.591848
+  ...
+# Subtest: a late stop event from an old microphone cannot replace the new recorder
+ok 3 - a late stop event from an old microphone cannot replace the new recorder
+  ---
+  duration_ms: 0.791274
+  ...
+# Subtest: closing the old AudioContext cannot erase the restarted capture
+ok 4 - closing the old AudioContext cannot erase the restarted capture
+  ---
+  duration_ms: 1.741881
+  ...
+# Subtest: one stopped segment is submitted once; two intentional equal commands remain distinct
+ok 5 - one stopped segment is submitted once; two intentional equal commands remain distinct
+  ---
+  duration_ms: 1.912309
+  ...
+# Subtest: continuous speech still has a bounded segment duration
+ok 6 - continuous speech still has a bounded segment duration
+  ---
+  duration_ms: 0.693377
+  ...
+# Subtest: idle silence still rotates without submitting it to STT
+ok 7 - idle silence still rotates without submitting it to STT
+  ---
+  duration_ms: 0.975258
+  ...
+# Subtest: stopping the microphone preserves a previously captured utterance
+ok 8 - stopping the microphone preserves a previously captured utterance
+  ---
+  duration_ms: 0.856187
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 158.216782
+
+> jarvis-launcher3@0.1.0 test:corrections
+> node --test tests/d03-*.test.mjs tests/d04-*.test.mjs tests/d17-*.test.mjs tests/corrections-integration.test.mjs
+
+TAP version 13
+# Subtest: UI click event is not an instruction to propagate creation failure; explicit send path still propagates
+ok 1 - UI click event is not an instruction to propagate creation failure; explicit send path still propagates
+  ---
+  duration_ms: 8.18573
+  ...
+# Subtest: normal request: user then exactly one answer
+ok 2 - normal request: user then exactly one answer
+  ---
+  duration_ms: 4.033503
+  ...
+# Subtest: empty response: one visible error, retry text retained
+ok 3 - empty response: one visible error, retry text retained
+  ---
+  duration_ms: 0.868037
+  ...
+# Subtest: network/auth error: visible once and input restored
+ok 4 - network/auth error: visible once and input restored
+  ---
+  duration_ms: 0.977815
+  ...
+# Subtest: two rapid requests: serialized, both resolved once
+ok 5 - two rapid requests: serialized, both resolved once
+  ---
+  duration_ms: 1.060834
+  ...
+# Subtest: queue limit: extra request rejected without an API call
+ok 6 - queue limit: extra request rejected without an API call
+  ---
+  duration_ms: 1.064777
+  ...
+# Subtest: D04 formatter preserves complete answer and mission selection still forwarded
+ok 7 - D04 formatter preserves complete answer and mission selection still forwarded
+  ---
+  duration_ms: 1.43927
+  ...
+# Subtest: deux premieres demandes: creation unique et aucune perte
+ok 8 - deux premieres demandes: creation unique et aucune perte
+  ---
+  duration_ms: 5.479707
+  ...
+# Subtest: creation echouee: erreur visible et demande recuperable
+ok 9 - creation echouee: erreur visible et demande recuperable
+  ---
+  duration_ms: 1.397
+  ...
+# Subtest: demande en attente: visible avant liberation de la reponse
+ok 10 - demande en attente: visible avant liberation de la reponse
+  ---
+  duration_ms: 1.784189
+  ...
+# Subtest: daily mode preserves errors and reservations
+ok 11 - daily mode preserves errors and reservations
+  ---
+  duration_ms: 3.032091
+  ...
+# Subtest: daily mode omits paths and IDs unless explicitly requested
+ok 12 - daily mode omits paths and IDs unless explicitly requested
+  ---
+  duration_ms: 0.417472
+  ...
+# Subtest: explicit details mode preserves paths and IDs
+ok 13 - explicit details mode preserves paths and IDs
+  ---
+  duration_ms: 0.226292
+  ...
+# Subtest: actual speech boundary: Bonjour
+ok 14 - actual speech boundary: Bonjour
+  ---
+  duration_ms: 4.166117
+  ...
+# Subtest: actual speech boundary: Donne les détails techniques
+ok 15 - actual speech boundary: Donne les détails techniques
+  ---
+  duration_ms: 1.104367
+  ...
+# Subtest: success
+ok 16 - success
+  ---
+  duration_ms: 2.276762
+  ...
+# Subtest: failure heading
+ok 17 - failure heading
+  ---
+  duration_ms: 0.357386
+  ...
+# Subtest: partial and attribution
+ok 18 - partial and attribution
+  ---
+  duration_ms: 0.135533
+  ...
+# Subtest: uncertainty
+ok 19 - uncertainty
+  ---
+  duration_ms: 0.148453
+  ...
+# Subtest: details
+ok 20 - details
+  ---
+  duration_ms: 0.217221
+  ...
+# Subtest: markdown
+ok 21 - markdown
+  ---
+  duration_ms: 0.137987
+  ...
+# Subtest: table
+ok 22 - table
+  ---
+  duration_ms: 0.20404
+  ...
+# Subtest: complete answer preserves facts missing from spoken summary
+ok 23 - complete answer preserves facts missing from spoken summary
+  ---
+  duration_ms: 0.249524
+  ...
+# Subtest: fallback and empty
+ok 24 - fallback and empty
+  ---
+  duration_ms: 0.383629
+  ...
+# Subtest: real app speech boundary uses imported module, written answer unchanged
+ok 25 - real app speech boundary uses imported module, written answer unchanged
+  ---
+  duration_ms: 2.77895
+  ...
+# Subtest: actual renderer displays CPU zero and both measured GPU names
+ok 26 - actual renderer displays CPU zero and both measured GPU names
+  ---
+  duration_ms: 17.134051
+  ...
+# Subtest: unknown CPU is never fabricated as zero
+ok 27 - unknown CPU is never fabricated as zero
+  ---
+  duration_ms: 0.241232
+  ...
+# Subtest: absent GPUs occupy two slots labelled not detected
+ok 28 - absent GPUs occupy two slots labelled not detected
+  ---
+  duration_ms: 0.191803
+  ...
+# Subtest: offline node states unavailability and its reason
+ok 29 - offline node states unavailability and its reason
+  ---
+  duration_ms: 0.190618
+  ...
+# Subtest: stale actual-renderer sample is labelled old
+ok 30 - stale actual-renderer sample is labelled old
+  ---
+  duration_ms: 0.306808
+  ...
+# Subtest: unmeasured GPU utilization is labelled N/A
+ok 31 - unmeasured GPU utilization is labelled N/A
+  ---
+  duration_ms: 0.195368
+  ...
+# Subtest: actual backend Handler consumes Dell2 probe and propagates zero/two GPUs
+ok 32 - actual backend Handler consumes Dell2 probe and propagates zero/two GPUs
+  ---
+  duration_ms: 57.566409
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 287.419733

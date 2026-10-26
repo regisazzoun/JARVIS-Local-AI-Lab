@@ -1,0 +1,9 @@
+[Unit]
+Description=Continue authorized JL03 P1 tasks when a context slot becomes available
+[Timer]
+OnBootSec=30
+OnUnitActiveSec=30
+AccuracySec=3
+Unit=jarvis-jl03-p1-dispatch.service
+[Install]
+WantedBy=timers.target

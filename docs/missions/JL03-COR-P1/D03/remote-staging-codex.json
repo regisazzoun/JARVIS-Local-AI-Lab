@@ -1,0 +1,45 @@
+{
+  "actor": "Codex infrastructure assistance, not JARVIS execution",
+  "at": 1792942846.6588867,
+  "bundle_sha256": "88539d6937ea387b670c07b9fe9348bcfb736f83a8e6932c3f98d0d65b6a47f7",
+  "evidence": [
+    {
+      "host": "dell-observe",
+      "action": "project_upload",
+      "evidence_id": "d8830db892e5410db9ecc5f650d22731",
+      "rc": 0
+    },
+    {
+      "host": "dell-observe",
+      "action": "project_exec",
+      "evidence_id": "7265f81c0d464065b5f02aaaba100f7b",
+      "rc": 0
+    },
+    {
+      "host": "dell-observe",
+      "action": "test_preflight",
+      "evidence_id": "c17af4996a5542e9b24a566a700bc680",
+      "rc": 0,
+      "stdout": "TAP version 13\n# Subtest: normal request: user then exactly one answer\nok 1 - normal request: user then exactly one answer\n  ---\n  duration_ms: 2.46419\n  ...\n# Subtest: empty response: one visible error, retry text retained\nok 2 - empty response: one visible error, retry text retained\n  ---\n  duration_ms: 0.931435\n  ...\n# Subtest: network/auth error: visible once and input restored\nok 3 - network/auth error: visible once and input restored\n  ---\n  duration_ms: 0.902525\n  ...\n# Subtest: two rapid requests: serialized, both resolved once\nok 4 - two rapid requests: serialized, both resolved once\n  ---\n  duration_ms: 0.967169\n  ...\n# Subtest: queue limit: extra request rejected without an API call\nok 5 - queue limit: extra request rejected without an API call\n  ---\n  duration_ms: 0.963542\n  ...\n# Subtest: spoken field preserved and mission selection still forwarded\nok 6 - spoken field preserved and mission selection still forwarded\n  ---\n  duration_ms: 0.748491\n  ...\n1..6\n# tests 6\n# suites 0\n# pass 6\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 169.160697\n"
+    },
+    {
+      "host": "dell2",
+      "action": "project_upload",
+      "evidence_id": "64de944d55a8464589239e20fffcbb58",
+      "rc": 0
+    },
+    {
+      "host": "dell2",
+      "action": "project_exec",
+      "evidence_id": "ef429a5fda8b4123a07ac4a201553342",
+      "rc": 0
+    },
+    {
+      "host": "dell2",
+      "action": "test_preflight",
+      "evidence_id": "c03fa9815ea744a9a1631e30b9eb7872",
+      "rc": 0,
+      "stdout": "TAP version 13\n# Subtest: normal request: user then exactly one answer\nok 1 - normal request: user then exactly one answer\n  ---\n  duration_ms: 2.583336\n  ...\n# Subtest: empty response: one visible error, retry text retained\nok 2 - empty response: one visible error, retry text retained\n  ---\n  duration_ms: 0.80334\n  ...\n# Subtest: network/auth error: visible once and input restored\nok 3 - network/auth error: visible once and input restored\n  ---\n  duration_ms: 0.91176\n  ...\n# Subtest: two rapid requests: serialized, both resolved once\nok 4 - two rapid requests: serialized, both resolved once\n  ---\n  duration_ms: 1.048587\n  ...\n# Subtest: queue limit: extra request rejected without an API call\nok 5 - queue limit: extra request rejected without an API call\n  ---\n  duration_ms: 0.979723\n  ...\n# Subtest: spoken field preserved and mission selection still forwarded\nok 6 - spoken field preserved and mission selection still forwarded\n  ---\n  duration_ms: 0.766594\n  ...\n1..6\n# tests 6\n# suites 0\n# pass 6\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 146.697866\n"
+    }
+  ]
+}

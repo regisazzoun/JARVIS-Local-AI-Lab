@@ -21,6 +21,16 @@ def task_schemas(schemas, definition):
     return [s for s in schemas if s['function']['name'] in set(selected)|control]
 
 
+def discovery_schemas(schemas, definition):
+    """Optional per-task discovery boundary; historical receipts stay intact."""
+    selected = (definition or {}).get('discovery_tools')
+    if selected is None:
+        return schemas
+    if not isinstance(selected, list) or any(not isinstance(x, str) for x in selected):
+        return []
+    return [schema for schema in schemas if schema['function']['name'] in selected]
+
+
 def focused_state(state):
     """Bound duplicated context for an explicitly scoped execution task only.
 
@@ -304,7 +314,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             schemas=task_schemas(core.tools.schemas(),definition) if task_id else core.tools.schemas()
             offered={s['function']['name'] for s in schemas}
             if task_id:
-                schemas += [s for s in core.tools.schemas() if s['function']['name'] in discovered-offered]
+                schemas += [s for s in discovery_schemas(core.tools.schemas(), definition) if s['function']['name'] in discovered-offered]
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(schemas)) - 4096
             if len(encoded(messages)) > context_chars:
                 # Full evidence remains in SQLite and is addressable by invocation id.
@@ -376,7 +386,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 failed_previous=sum(not (o['result'] or {}).get('ok') for o in previous[-3:])
                 repaired=bool(previous) and any(o['created']>previous[-1]['created'] and (o['result'] or {}).get('ok') and (o['tool']=='host_package' or o['tool'] in ('host_remote','host_ansible') and o['arguments'].get('action') in ('package_install','write_file','deploy_file','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure')) for o in store.observations(ident,task_id))
                 if name not in {s['function']['name'] for s in schemas}:
-                    schema=next((s for s in core.tools.schemas() if s['function']['name']==name),None)
+                    schema=next((s for s in discovery_schemas(core.tools.schemas(), definition) if s['function']['name']==name),None)
                     if task_id and schema and name!='intervention_report':
                         discovered.add(name)
                         store.event(ident,'execution_tool_discovered',task_id,'JARVIS-engine',tool=name,result={'requested_by':'JARVIS','permissions_unchanged':True})

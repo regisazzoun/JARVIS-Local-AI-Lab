@@ -1,0 +1,74 @@
+commit 7aa6288cfa3fe5c9810367fe4267cc3741f483b3
+Author:     adminjarvis <adminjarvis@JARVIS-MacMIini.lan>
+AuthorDate: Sun Oct 25 16:40:14 2026 +0100
+Commit:     adminjarvis <adminjarvis@JARVIS-MacMIini.lan>
+CommitDate: Sun Oct 25 16:40:14 2026 +0100
+
+    Distinguer tests échoués et absence de contrôle dans le garde
+
+diff --git a/backend/loop_guard.py b/backend/loop_guard.py
+index 419393c..c642097 100644
+--- a/backend/loop_guard.py
++++ b/backend/loop_guard.py
+@@ -22,8 +22,8 @@ def blocker(call):
+  resource=args.get('path') or args.get('project') or args.get('host') or args.get('service')
+  if not resource:
+   command=' '.join(args.get('argv',[])) if isinstance(args.get('argv'),list) else args.get('command','')
+-  targets=re.findall(r'(?:/[^\s\"\']+|[A-Za-z0-9_.-]+\.(?:py|js|json|command|sh))',command)
+-  target=next((v for v in targets if v.endswith(('.py','.js','.json','.command','.sh'))),None)
++  targets=re.findall(r'(?:/[^\s\"\']+|[A-Za-z0-9_.-]+\.(?:py|mjs|cjs|js|json|command|sh))',command)
++  target=next((v for v in targets if v.endswith(('.py','.mjs','.cjs','.js','.json','.command','.sh'))),None)
+   resource='file:'+Path(target).name if target else 'tool:'+call.get('tool','unknown')
+ 
+  # Do not let changed command spelling, random evidence ids or timestamps reset a blocker.
+@@ -33,16 +33,20 @@ class Attempts:
+  def __init__(self):self.failures=defaultdict(list);self.reads=defaultdict(list);self.writes=defaultdict(list)
+  def observe(self,call):
+   result=call.get('result') or {};nested=result.get('result') or {}
+-  failed=result.get('ok') is False or nested.get('status') in ('FAIL','INSUFFICIENT')
++  output=nested.get('stdout','')
++  tap=bool(isinstance(output,str) and re.search(r'^# tests \d+\s*$',output,re.M) and re.search(r'^# fail \d+\s*$',output,re.M))
++  tap_failed=tap and bool(re.search(r'^# fail [1-9]\d*\s*$',output,re.M))
++  execution=call.get('tool')=='host_exec' or (call.get('tool')=='host_remote' and call.get('arguments',{}).get('action')=='project_exec')
++  # A completed failing test IS a control; failures remain in their own counter.
++  # Transport/schema/syntax faults with no test result are not such a control.
++  if execution and (result.get('ok') or (tap and nested.get('returncode') in (0,1) and not nested.get('timeout'))):self.writes.clear()
++  failed=result.get('ok') is False or nested.get('status') in ('FAIL','INSUFFICIENT') or tap_failed
+   if failed:
+    key=blocker(call);self.failures[key].append(call['id'])
+    if len(self.failures[key])>=3:return {'kind':'three_failures','blocker':key,'attempts':self.failures[key], 'status':'BLOQUÉE — ANALYSE DOCUMENTÉE','next':'Arrêter cette stratégie ; diagnostiquer et planifier une approche réellement différente. Les tâches indépendantes peuvent continuer.'}
+   if call.get('tool') in ('host_read_file','host_policy','capability_status','mission_progress','mission_evidence') and result.get('ok'):
+    sig=hashlib.sha256(json.dumps([call['tool'],call.get('arguments'),nested.get('stdout',nested.get('content',''))],sort_keys=True).encode()).hexdigest();self.reads[sig].append(call['id'])
+    if len(self.reads[sig])>=3:return {'kind':'repeated_unchanged_reads','blocker':'stagnation:'+call['tool'],'attempts':self.reads[sig],'status':'BLOQUÉE — ANALYSE DOCUMENTÉE','next':'Les observations sont acquises ; changer de tâche ou agir sur le diagnostic, sans relire une quatrième fois.'}
+-  if call.get('tool')=='host_exec' and result.get('ok'):
+-   # A command between writes is a candidate verification, not a proof of success.
+-   self.writes.clear()
+   if call.get('tool') in ('host_write_file','host_edit_file') and result.get('ok'):
+    path=call.get('arguments',{}).get('path','unknown');self.writes[path].append(call['id'])
+    if len(self.writes[path])>=3:return {'kind':'unverified_rewrites','blocker':'unverified_rewrites:'+path,'attempts':self.writes[path],'status':'BLOQUÉE — ANALYSE DOCUMENTÉE','next':'Trois modifications successives sans commande de contrôle ; arrêter la réécriture et vérifier le résultat réel avant toute nouvelle stratégie.'}
+diff --git a/tests/test_adapter.py b/tests/test_adapter.py
+index bf6c9d4..d159604 100644
+--- a/tests/test_adapter.py
++++ b/tests/test_adapter.py
+@@ -30,4 +30,21 @@ class GuardChecks(unittest.TestCase):
+  def test_no_secret_in_nested_events(self):
+   x=redact({'token':'secret','result':{'api_secret':'secret','stdout':'Authorization Bearer abc.def.ghi'}})
+   self.assertNotIn('abc.def.ghi',json.dumps(x));self.assertNotIn('"secret"',json.dumps(x))
++ def test_failed_completed_test_is_control_without_erasing_failures(self):
++  a=Attempts()
++  write=lambda i:{'id':str(i),'tool':'host_write_file','arguments':{'path':'x.js'},'result':{'ok':True}}
++  a.observe(write(1));a.observe(write(2))
++  test={'id':'test','tool':'host_exec','arguments':{'command':'node --test x.test.mjs'},'result':{'ok':False,'result':{'returncode':1,'stdout':'# tests 6\n# fail 1\n'}}}
++  self.assertIsNone(a.observe(test));self.assertIsNone(a.observe(write(3)))
++  self.assertEqual(sum(map(len,a.failures.values())),1)
++ def test_pipeline_success_does_not_hide_tap_failure(self):
++  a=Attempts()
++  for i in range(3):
++   r=a.observe({'id':str(i),'tool':'host_exec','arguments':{'command':'node --test x.test.mjs | cat'},'result':{'ok':True,'result':{'returncode':0,'stdout':'# tests 6\n# fail 1\n'}}})
++  self.assertEqual(r['kind'],'three_failures')
++ def test_mjs_files_are_distinct_but_aliases_still_match(self):
++  from loop_guard import blocker
++  def key(command):return blocker({'tool':'host_exec','arguments':{'command':command},'result':{'ok':False}})
++  self.assertNotEqual(key('node a.test.mjs'),key('node b.test.mjs'))
++  self.assertEqual(key('node a.test.mjs'),key('node ./a.test.mjs'))
+ if __name__=='__main__':unittest.main()

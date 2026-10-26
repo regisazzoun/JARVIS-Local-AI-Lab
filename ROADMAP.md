@@ -1,3 +1,35 @@
+## JL03-COR-P1 — D03/D04/D17 livrées techniquement,26octobre2026
+
+✅🟡 GO technique avec réserves. Trois missions completed dans le moteur, vrais PASS sémantiques des corrections actuelles et rapports finaux natifs JARVIS. Correctifs40422f9installés dansJL03 ;55tests ciblésPASS et contrôle navigateur authentifié reçus. Codex a fourni interfaces/aides et intégré/vérifié ; autonomie sans assistance et qualification vocale physique restent réservées. D01captureacceptée ; D02transcriptionréservée/mémoiredifférée ; aucune autre mission lancée, aucune fusionmain. [Réception et preuves](docs/missions/JL03-COR-P1/RAPPORT-RECEPTION-26-OCTOBRE.md).
+
+## JL03-COR-P1 — correctifs installés, contrôle navigateur reçu le26octobre
+
+D03/D04/D17 intégrés dans JL03 commit40422f9 :55tests ciblésPASS, APIauthentifiée et rendu réel CPU/3090/3080 Dell2 reçus, réponseAPIvide affichéeunefois, saisieconservée, conversationréelle6,035s pendantcontrôlesDell. D03/D17 tâches réellement validated aprèsPASSsémantique et clôture conditionnelle déclenchéeparJARVIS ; finalisationglobale en cours, D04reste à recevoir. Codex a fourni une assistance importante et l'intégration ; aucune autonomie sansassistance ni qualification acoustique reçue. [Résultats, preuves et limites](docs/missions/JL03-COR-P1/REPRISE-26-OCTOBRE.md).
+
+## JL03-COR-P1 — aide concrète aux trois défauts
+
+Workers rechargés pour utiliser le correctif du vérificateur déjà installé ; vrai transport Qwen80BDell1 reçu en24576tokens, sans réception fictive de prose. D03/D04 reçoivent des corrections factuelles ciblées et la reprise de vérification. PourD17, bancbranché surrenderer/Handler réels et patch fourni : copieisolée6PASS/1FAILavant,7PASSaprès ; application/retest parJARVIS encore requis. Aucun nouveaucorrectifapplicatif live reçu. [Aide et preuves](docs/missions/JL03-COR-P1/AIDE-TROIS-DEFAUTS.md).
+
+## JL-03-COR-P1 — reprise sur les Dell et supervision persistante
+
+Les trois blocages sont diagnostiqués ; sources réellement déposées sur les deuxDell, D03préflightCodex6/6sur chaquehôte, sondeDell2réelle3090+3080, garde7aa6288installé et12testsPythonPASS. ReprisesJARVIS armées en contextesséparés, deuxau maximum ; coordinationpériodique configurée pour intervenir sur les prochains blocages sans attenteGO. Aucun nouveauGOglobalD03/D04/D17. [Supervision, limites et attribution](docs/missions/JL03-COR-P1/SUPERVISION-PERSISTANTE.md).
+
+## JL-03-COR-P1 — D03 diagnostiquée, candidat corrigé et reprise ciblée préparée
+
+Codex a reproduit puis corrigé le double message d’erreur sur réponse vide et la perte de saisie dans le candidat isolé D03. Harnais branché sur la fonction réelle :4PASS/2FAILavant,6PASSaprès ; capture8PASSconservée. Aucun déploiement ni réception globaleD03. Plan2 et repriseJARVIS préparés sans remiseàzéro des compteurs ; premier test natif puis vrais testsDell requis. D04/D17 continuent, maximum deux contextes. [Diagnostic et preuves](docs/missions/JL03-COR-P1/D03/DEBLOCAGE-CODEX.md).
+
+## JL-03-COR-P1 — capture acceptée, suite active sans validation intermédiaire
+
+Capture acceptée par le propriétaire ; transcription encore imparfaite, cause non établie, mémoire différée. D03 et D04 sont réellement en cours dans des contextes distincts. D17 est préparée dans le moteur et sera envoyée dès qu’une place se libère, y compris après blocage documenté ; coordinateur ciblé actif toutes les30s, maximum deux contextes. Aucun correctif D03/D04 encore reçu. Les dossiers d’escalade et compteurs restent persistants, aucune nouvelle attenteGO. [Continuité et attribution](docs/missions/JL03-COR-P1/CONTINUITE.md) · [Registre publié](docs/missions/JL03-COR-P1/REGISTRE.json).
+
+## JL-03-COR-P1 — capture corrigée et installée, qualification propriétaire à faire
+
+🟡 Sur demande du propriétaire, Codex a installé une correction ciblée de la fenêtre de parole et des sessionsmicro : parole après silence noncoupée, événementsanciens isolés, un traitement par segment sans éliminer les répétitionsvolontaires. Cinq régressions reproduites avant correction, huit cas ciblésPASSaprès ; navigateur réelWebAudio/MediaRecorder→Whisper : uneséquence après17,3sdesilence, unsegment/unetranscriptioncomplète. Sourcecommit`c1b49c8`dansLauncher3. Correctif développé parCodex après blocagesJARVIS ; D01/D02restent àqualifier avec le propriétaire, aucun GOglobal ou autonomie fictive. Whisper/modèle/routage/JL01/JL02inchangés. [Corrections et essais](docs/missions/JL03-COR-P1/CORRECTIONS-APPLIQUEES.md) · [Déploiement](docs/missions/JL03-COR-P1/DEPLOIEMENT-CAPTURE.json).
+
+## JL-03-COR-P1 — démarrage séquentiel en contextes distincts,25octobre2026
+
+🟡 D01etD02transmis successivement àJARVIS, missions/conversations/worktrees distincts selon dernière précision propriétaire. Checkpoints et demandes de capacité natifs reçus ; gardeD01arrêté après trois réécritures, historique conservé. Node/Bubblewrap et projets isolés fournis/testés sur les deuxDell, reprise par workers canoniques. Aucun défaut vocal déclaré corrigé ; D03/D04/D17nontransmis. Contextevolumineux non déclaré résolu, aucune modification de modèle/routage. [Suivi](docs/missions/JL03-COR-P1/ETAT-DEMARRAGE.md) · [RegistreCodex](docs/missions/JL03-COR-P1/REGISTRE.json).
+
 ## Mission14B — réception technique du25octobre2026
 
 ✅🟡 **GO technique avec réserves.** Dell2 booté sur Debian13, RAID1propre[UU], SSHclé/motdepasse/sudo et Ansible vérifiés ; piloteNVIDIA et calculCUDA numérique réussis sur chaqueGPU. Matériel réel :3090de24Go +3080de10Go, pasdeux3090. Suivi physique actif, horloge synchronisée, moniteurRAIDcorrigé, aucunserviceenéchec. JARVIS a exécuté les outils de réception ; assistanceCodex importante et erreurs conservées. AucunOllama/routage/charge modifié. Les états historiques du plan ne sont pas cochés artificiellement. [Réception et erratum](docs/missions/14B/POINT-RECEPTION-25-OCTOBRE.md) · [Preuve indépendante](docs/missions/14B/RECEPTION-INDEPENDANTE-25-OCTOBRE.json).

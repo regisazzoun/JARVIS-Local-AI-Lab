@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "result": {
+    "returncode": 0,
+    "stdout": "{\"path\": \"site/spoken-answer.mjs\", \"text\": \"// Codex bounded D04 assistance: formatting only, no semantic summary.\\n// Prefer the complete answer: a spoken summary may omit errors or reservations.\\n// JARVIS D04: daily mode omits paths/IDs unless detailed=true, preserves errors/reservations.\\n\\nfunction removeMarkdown(text) {\\n  return text.split('\\\\n').map(line => {\\n    if (/^\\\\s*\\\\|?\\\\s*:?-{3,}:?\\\\s*(\\\\|\\\\s*:?-{3,}:?\\\\s*)+\\\\|?\\\\s*$/.test(line)) return '';\\n    return line.replace(/^\\\\s{0,3}#{1,6}\\\\s+/, '')\\n      .replace(/^\\\\s*```[^\\\\s`]*\\\\s*$/, '')\\n      .replace(/\\\\*\\\\*([^\\\\n*]+)\\\\*\\\\*/g, '$1')\\n      .replace(/`([^\\\\n`]+)`/g, '$1')\\n      .replace(/\\\\[([^\\\\]\\\\n]+)\\\\]\\\\(([^\\\\s)]+)\\\\)/g, '$1 : $2')\\n      .replace(/^\\\\s*[-*+)\\\\s+/, '')\\n      .replace(/^\\\\s*\\\\|(.+)\\\\|\\\\s*$/, (_, cells) => cells.split('|').map(c => c.trim()).join(' ; '));\\n  }).join('\\\\n').replace(/\\\\n{3,}/g, '\\\\n\\\\n').trim();\\n}\\n\\nfunction removePathsAndIds(text) {\\n  return text.replace(/\\\\/(?:opt|home|var|usr|tmp)\\\\/[^\\\\s)']+/g, '<chemin>')\\n    .replace(/jl03-cor-p1|D0[0-9]+|D1[0-7]+/g, '<identifiant>');\\n}\\n\\nexport function prepareSpokenAnswer(res = {}) {\\n  const text = typeof res.answer === 'string' && res.answer.trim()\\n    ? res.answer : (typeof res.spoken_answer === 'string' ? res.spoken_answer : '');\\n  let spoken = removeMarkdown(text);\\n  if (!res.detailed) spoken = removePathsAndIds(spoken);\\n  return spoken;\\n}\\n\"}\n{\"path\": \"tests/d04-daily.test.mjs\", \"text\": \"import { prepareSpokenAnswer } from '../site/spoken-answer.mjs';\\nimport { readFileSync } from 'node:fs';\\nimport { test } from 'node:test';\\nimport assert from 'node:assert/strict';\\n\\ntest('daily mode preserves errors and reservations', () => {\\n  const res = {\\n    answer: '# \\u00c9CHEC\\\\nR\\u00e9serve : donn\\u00e9es incompl\\u00e8tes.',\\n    spoken_answer: 'Succ\\u00e8s.'\\n  };\\n  const spoken = prepareSpokenAnswer(res);\\n  assert.ok(spoken.includes('\\u00c9CHEC') && spoken.includes('R\\u00e9serve'), 'errors and reservations must be audible');\\n});\\n\\ntest('daily mode omits paths and IDs unless explicitly requested', () => {\\n  const res = {\\n    answer: 'Fichier `/opt/jarvis-lab/jl03-cor-p1/D04/test.md` valide.',\\n    spoken_answer: 'Le fichier test.md est valide.'\\n  };\\n  const spoken = prepareSpokenAnswer(res);\\n  assert.ok(spoken.includes('test.md') && !spoken.includes('/opt/jarvis-lab/'), 'paths omitted by default');\\n});\\n\\ntest('explicit details mode preserves paths and IDs', () => {\\n  const res = {\\n    answer: 'Fichier `/opt/jarvis-lab/jl03-cor-p1/D04/test.md` valide.',\\n    spoken_answer: 'Le fichier test.md est valide.'\\n  };\\n  const spoken = prepareSpokenAnswer({ ...res, detailed: true });\\n  assert.ok(spoken.includes('/opt/jarvis-lab/'), 'paths preserved when detailed requested');\\n});\\n\"}\n",
+    "stderr": "",
+    "timeout": false,
+    "duration_s": 0.366,
+    "stdout_truncated": false,
+    "stderr_truncated": false,
+    "project_root": "/opt/jarvis-lab/jl03-cor-p1/D04",
+    "persistent_write_roots": [
+      "/opt/jarvis-lab/jl03-cor-p1/D04"
+    ],
+    "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+  },
+  "diagnostic": {
+    "policy_sha256": "4767e57c86ddc9147584141dca3b6ab61d5bbbbc6ab7f9f578be9ed5814282ea",
+    "policy_path": "/etc/jarvis/host-policy.json",
+    "selection": "single-persistent-owner-policy",
+    "reload": "each-request",
+    "broker_version": "23C.1",
+    "operation": "host_remote",
+    "parameters": {
+      "host": "dell2",
+      "action": "project_exec",
+      "project": "jl03-cor-p1-d04"
+    },
+    "omitted_parameters": [
+      "command"
+    ],
+    "error_category": null,
+    "retry": null,
+    "alternative": null
+  },
+  "caller": "local-operator",
+  "evidence_id": "56b4528eebd1490184643e9ffcdc40f0",
+  "elapsed_s": 0.634
+}

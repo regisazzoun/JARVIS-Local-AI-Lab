@@ -1,0 +1,40 @@
+{
+  "actor": "Codex",
+  "observed": {
+    "available": true,
+    "sampled_at": 1792942874.1558526,
+    "cpu_percent": 0.0,
+    "cpu_temperature_c": 36.0,
+    "ram_total_mb": 128525,
+    "ram_used_mb": 1540,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "utilization": 0.0,
+        "temperature": 48.0,
+        "vram_used_mb": 1.0,
+        "vram_total_mb": 24576.0
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA GeForce RTX 3080",
+        "utilization": 0.0,
+        "temperature": 52.0,
+        "vram_used_mb": 1.0,
+        "vram_total_mb": 10240.0
+      }
+    ],
+    "gpu": {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "utilization": 0.0,
+      "temperature": 48.0,
+      "vram_used_mb": 1.0,
+      "vram_total_mb": 24576.0
+    },
+    "source": "canonical broker / read-only extension for all detected GPUs"
+  },
+  "evidence_id": "dbdeeb9a7035419a99770a14a9df8134",
+  "at": 1792942874.26413
+}

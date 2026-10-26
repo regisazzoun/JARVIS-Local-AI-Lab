@@ -1,0 +1,216 @@
+{
+  "observed_at": 1792924947.852476,
+  "scope": "Native JARVIS calls including initial failures; no task acceptance inferred",
+  "calls": [
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "9f07b958473c4e438e70ba807bfbea17",
+      "tool": "host_write_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "35b11ccdd4b545d0b8aae90e75c58eff",
+      "created": 1792924534.3755958
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "4a3c7705a25c48e6bd68236d5a722327",
+      "tool": "capability_request",
+      "actor": "JARVIS",
+      "arguments": {},
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "73727af0ee62493f99e31808f31d52ed",
+      "created": 1792924544.8544033
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "c94ef22f16144b15bef98ee5d72fa901",
+      "tool": "host_write_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "c6a0cb279e53434883d3435f1de4f233",
+      "created": 1792924557.7639194
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "7cea7414865044aebec324f157cb28c3",
+      "tool": "capability_request",
+      "actor": "JARVIS",
+      "arguments": {},
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "dfb7b3b81a6d475a92546215391d2d8c",
+      "created": 1792924566.9265196
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "f023d71af77a4cc2b26de8a7d3d51162",
+      "tool": "host_write_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "2e12e89fd20a455fba3516149cd9e714",
+      "created": 1792924577.5779562
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "cc8a3a99e07d4880b30bcba1e01f41e5",
+      "tool": "host_exec",
+      "actor": "JARVIS",
+      "arguments": {
+        "argv": [
+          "node",
+          "--check",
+          "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/site/voice.js"
+        ]
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "106a37c9090042a7980c06cb7a26b62f",
+      "created": 1792924884.3128276
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "7b47116fe85f487194861e72a23d2619",
+      "tool": "host_read_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/site/voice.js"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "c8f6eee62be2444087e6d7de23ee4bc8",
+      "created": 1792924922.9610913
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "7f6e839da42e492e9df5c9f035e36fb4",
+      "tool": "host_read_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/site/app.js"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "8434aeac7641498196d25daf33eed569",
+      "created": 1792924923.4559038
+    },
+    {
+      "task": "D01",
+      "mission_id": "a668e5a0fd0648328e2de339bf69b299",
+      "invocation": "02adebda376444af98cc45fef6e188cb",
+      "tool": "host_read_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D01/source/site/api.js"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "4a9ebe0f35714facad0771acc7f38ab6",
+      "created": 1792924923.9412985
+    },
+    {
+      "task": "D02",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "invocation": "cd989ac9b0b44aec8778a11714677614",
+      "tool": "host_write_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "8070b18fa3d44a56bcc3ad7c6e5da43b",
+      "created": 1792924604.5462928
+    },
+    {
+      "task": "D02",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "invocation": "75f0b5cc9f7d437bbd011a07766e1d89",
+      "tool": "capability_request",
+      "actor": "JARVIS",
+      "arguments": {},
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "8fd55dec43d6490da0cb455a145d1ccd",
+      "created": 1792924605.008297
+    },
+    {
+      "task": "D02",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "invocation": "fdb2d99ce6ea492caf8a545b3a27aa4a",
+      "tool": "intervention_report",
+      "actor": "JARVIS",
+      "arguments": {},
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": null,
+      "created": 1792924605.5926428
+    },
+    {
+      "task": "D02",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "invocation": "0ca927b622c041a2a73e0210a03bf266",
+      "tool": "host_exec",
+      "actor": "JARVIS",
+      "arguments": {
+        "argv": [
+          "node",
+          "--check",
+          "/var/lib/jarvis/projects/jl03-cor-p1/D02/source/site/voice.js"
+        ]
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "dbcd495582f54786960d2e7319e81d0f",
+      "created": 1792924902.293429
+    },
+    {
+      "task": "D02",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "invocation": "ddd63c0387cc40a3aa69924055001316",
+      "tool": "host_read_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D02/source/site/voice.js"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "42ba15fcebdf451887a8a9ad1992518b",
+      "created": 1792924941.9122882
+    },
+    {
+      "task": "D02",
+      "mission_id": "759a4b0145104c99844045f5a22f832c",
+      "invocation": "b84c63ed98a241a5ad774f154fdb197e",
+      "tool": "host_read_file",
+      "actor": "JARVIS",
+      "arguments": {
+        "path": "/var/lib/jarvis/projects/jl03-cor-p1/D02/source/site/api.js"
+      },
+      "ok": true,
+      "error": null,
+      "broker_evidence_id": "38c385ed8d0f4a68a719661cb33dc02f",
+      "created": 1792924942.4546592
+    }
+  ]
+}

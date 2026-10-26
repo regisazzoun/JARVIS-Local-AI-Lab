@@ -1,0 +1,9 @@
+[Unit]
+Description=JL03 P1 Codex coordination of prepared tasks through canonical engine
+After=jarvis-mission-worker.service
+[Service]
+Type=oneshot
+User=adminjarvis
+Group=adminjarvis
+ExecStart=/usr/bin/python3 /usr/local/lib/jarvis-coordination/phase1_dispatch.py --register /var/lib/jarvis/projects/jl03-cor-p1/REGISTRE-CODEX.json
+TimeoutStartSec=45

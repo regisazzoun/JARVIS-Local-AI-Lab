@@ -1,0 +1,41 @@
+{
+  "task": "D01",
+  "observed_at": 1792928619.9206333,
+  "actor": "Codex supervision diagnosis",
+  "failures": [
+    {
+      "id": 34074,
+      "created": 1792924578.2671416,
+      "result": {
+        "attempts": [
+          "9f07b958473c4e438e70ba807bfbea17",
+          "c94ef22f16144b15bef98ee5d72fa901",
+          "f023d71af77a4cc2b26de8a7d3d51162"
+        ],
+        "blocker": "unverified_rewrites:/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
+        "kind": "unverified_rewrites",
+        "next": "Trois modifications successives sans commande de contrôle ; arrêter la réécriture et vérifier le résultat réel avant toute nouvelle stratégie.",
+        "scope": "Cooperative journal observer: interrupts via existing mission state, command already engaged may finish. Does not kill a service or create an executor.",
+        "status": "BLOQUÉE — ANALYSE DOCUMENTÉE"
+      }
+    },
+    {
+      "id": 34705,
+      "created": 1792928099.6381903,
+      "result": {
+        "attempts": [
+          "7b47116fe85f487194861e72a23d2619",
+          "e8299c8279df48c1a61bfaa6ffb64138",
+          "ee6708f5ec004c8d9a059152515af82a"
+        ],
+        "blocker": "stagnation:host_read_file",
+        "kind": "repeated_unchanged_reads",
+        "next": "Les observations sont acquises ; changer de tâche ou agir sur le diagnostic, sans relire une quatrième fois.",
+        "scope": "Cooperative journal observer: interrupts via existing mission state, command already engaged may finish. Does not kill a service or create an executor.",
+        "status": "BLOQUÉE — ANALYSE DOCUMENTÉE"
+      }
+    }
+  ],
+  "production_correction_received": false,
+  "next": "D01: actual failing test import repair in a minimal context, no fourth unchanged read"
+}

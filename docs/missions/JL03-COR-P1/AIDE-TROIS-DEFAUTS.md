@@ -1,0 +1,15 @@
+# Aide concrète D03, D04, D17
+
+D03/D04 : les tests techniques ont réellement avancé, mais la vérification des rapports restait refusée. Le fichier mission_assurance.py était corrigé depuis18h35, tandis que les deux workers dataient du24octobre. Aucun job compute des trois missions n'était actif. Codex a redémarré les seuls workers le25octobreà22h18:51CET, afin de charger la correction existante ; aucun changement de modèle, mémoire, routage ou quota.
+
+Contrôle réel supplémentaire Codex : appel à review_model via transport canonique et Qwen3-Coder-Next80B Dell1, contexte observé24576. Réponse structurée transport_ready=true, preuve enregistrée. Il s'agit de disponibilité réelle, pas d'une réception des rapports : aucun PASS sémantique de mission n'est fabriqué.
+
+D03 : JARVIS doit rectifier les affirmations « aucune correction applicative nécessaire », causes d'anciens FAIL non prouvées, attribution test versus source, temps approximatifs ; conserver les originaux et réutiliser les4reçus techniques. D04 : retester les3suites présentes pour obtenir les vrais compteurs du candidat courant, corriger l'attribution et ne pas annoncer contrat satisfait avant une revue PASS. La tâche D04 initiale déjà validée reste inchangée ; l'aide concerne D04-RESTITUTION.
+
+Les ordres exigent d'écrire le rapport fidèle puis mission_verify avec le prédicat persisté active:0, jamais un objetcontrat complet checks/report_path. Une clôture n'est permise qu'après PASS et satisfaction des autres critères. Les erreurs historiques et compteurs ne sont pas remisàzéro.
+
+D17 : le test importait un export load inexistant et gardait assert.ok(true). Codex fournit un banc branché sur renderTelemetry réel et Handler.do_GET réel avec dépendances de test explicites. Sixcas vérifient les sorties de l'affichage (CPU0,2GPU, inconnu, absence, horsligne, ancien, valeurGPUinconnue) ; uncas vérifie que la route interroge Dell2 et propage ses champs. Originaux distants sauvegardés avant installation des tests.
+
+Le nouveau banc démontre le raccordement manquant dans une copie isolée du code :6PASS/1FAILavant. Le patch fourni étend l'enrichissement Dell1 aux deux Dell via telemetry_v3, avec traitement indépendant des erreurs. Copie corrigée :7PASS/0FAIL. Le script refuse une source divergente et sauvegarde l'original. Codex a installé le banc et le script de correction sur les deuxDell, sans appliquer le patch applicatif aux candidatsdistants ; JARVIS doit l'appliquer, exécuter et rapporter ses propres reçus. Ni cesfixtures ni la sonde réelle reçue séparément ne prouvent une réception HTTPauthentifiée ou acoustique.
+
+Les3plans sont révisés avec expected_version, contextes repris et événements Codex de changement concret. D03/D04 sont reprises en premier, D17 préparée, deuxcontextes maximum. Le timer de supervision, suspendu pendant l'intervention pour éviter les mutations concurrentes, est réactivé. Aucun serviceJL01/JL02 ni frontendcaptureacceptée modifié. Aucune nouvelle validation humaine requise, aucune fusion main.

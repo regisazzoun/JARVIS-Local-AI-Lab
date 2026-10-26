@@ -180,3 +180,11 @@ Après trois échecs comparables, arrêter immédiatement la stratégie en cours
 Si la recherche et les corrections bornées ne permettent pas de résoudre le blocage, demander explicitement l'intervention deCodex avec un dossier succinct : objectif bloqué, cause observée, approches et tentatives, erreurs exactes/références, correction envisagée et aide attendue. L'appel est désormais permis aussi pour un blocage persistant, pas seulement pour une capacité manquante. Ne pas poursuivre seul une boucle sans progrès. Si l'outil de demande n'est pas disponible dans la phase courante, conserver la demande prête dans mission_note et le journal pour transmission ; ne pas inventer une demande enregistrée.
 
 Si l'assistance est indisponible, conserver ce dossier et continuer les tâches indépendantes réalisables. Codex intervient ponctuellement puis rend la main. Les interdictionsOllama/routage/répartition/autres changements d'architecture restent strictement inchangées.
+
+## JL03-COR-P1 — capture acceptée et continuité propriétaire
+
+Le25octobre, le propriétaire accepte la capture mais conserve une réserve de transcription ; le contexte manquant reste une hypothèse, mémoire à traiter plus tard. D03/D04 continuent réellement en contextes distincts, D17 est préparée pour prendre la place libre automatiquement via le moteur existant. Maximum deux contextes, aucune attente de validation humaine entre corrections. Un blocage après trois échecs est documenté/escaladé, ses compteurs préservés ; continuer les autres travaux indépendants sans réessai aveugle. Codex revoit les preuves et intègre lesdiffs successivement, sans réception fictive ni fusionmain.
+
+## JL03-COR-P1 — supervision persistante demandée
+
+Le propriétaire demande explicitement de débloquer et surveiller sans devoir relancerCodex. CoordinationCodex périodique autorisée dans le seul périmètreD03/D04/D17 ; JARVIS continue les opérations réelles surDell. Aucune validationintermédiaire ajoutée. Maximumdeux contextesJARVIS, gardestroiséchecs et compteurspréservés. Un passageCodexdiagnostique/corrige/contrôle et rendlamain ; aucunloopaveugle, aucune missionhorspérimètre, aucune fusionmain. Les sortiesCLI et secretsrestentprivés, publieruniquement faits/preuves/attributions.
