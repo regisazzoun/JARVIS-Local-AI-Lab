@@ -1,0 +1,54 @@
+{
+  "observed_at": 1793013668.9323657,
+  "source_branch_base": "ac2ea8f",
+  "sources": {
+    "host_client.py": "41aa534a6a94412fd3f3a0a0e8e446761411bee07c4b66d6765a70022d68a3f8",
+    "durable_cycle.py": "8003c609d0a0058882e562e63596e52a9643d766a2594897500561ee8154dbb5",
+    "durable_tools.py": "172e73fa0962111d7eccde5320fee398877bd9381f7201be49ee91e9c71675a1",
+    "mission_store.py": "4c1e36d1d218500975d03a4dd0f4afbfe72f31abba5c3e6b765db5c7f7128edc",
+    "compute.py": "e3c9ac072964293547240d4ec36c3993e17b35869b4ee0f93ef2886d1784eed1",
+    "jl03_assist.py": "0cb4cf163ca8248e45af515750388e18bc2bf45f1d8d787d732c5986bb0b04cc",
+    "worker.py": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5"
+  },
+  "old_missions": [
+    {
+      "id": "16087a18f86d42b7b79296bc93b3a754",
+      "state": "completed",
+      "historical_local_native_calls": 33,
+      "historical_remote_calls": 34,
+      "route_event": 39186,
+      "actual_inference": {
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M",
+        "num_ctx": 24576,
+        "compute_job": "a6afff0c8f404b7aada98c8647b1fbcd"
+      }
+    },
+    {
+      "id": "4b96e63671e1458ba93300a0e7980e2f",
+      "state": "completed",
+      "historical_local_native_calls": 56,
+      "historical_remote_calls": 113,
+      "route_event": 39250,
+      "actual_inference": {
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M",
+        "num_ctx": 24576,
+        "compute_job": "85032640b1a7471685cf4210449289a1"
+      }
+    },
+    {
+      "id": "c5b81d7fa78f4fa7a5c495f30eee741e",
+      "state": "completed",
+      "historical_local_native_calls": 13,
+      "historical_remote_calls": 61,
+      "route_event": 39181,
+      "actual_inference": {
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M",
+        "num_ctx": 24576,
+        "compute_job": "27d51460e6de49a49e7b926615a5a161"
+      }
+    }
+  ]
+}

@@ -2225,5 +2225,26 @@
     ],
     "prochaine_action": "Consolider le rapprochement du plan et des preuves ; éventuelle correction matérielle distincte pour atteindre2×3090, sans changement de routage",
     "derniere_actualisation": "2026-10-25"
+  },
+  {
+    "identifiant": "26-P1",
+    "nom": "Autorité technique Qwen80B et exécution distribuée",
+    "fonction_principale": "Décision du modèle et exécution sur les deux Dell",
+    "objectifs": "Audit, délégation réelle, tests et validation indépendante à version exacte",
+    "materiel": "Mac mini orchestration, Dell1 inférence Qwen80B/exécuteur, Dell2 exécuteur",
+    "composants": "MissionStore existant, broker SSH, outils authority_* opt-in",
+    "executant_reel": "Codex infrastructure/contrôle indépendant ; Qwen décisions et commandes distantes",
+    "documents_sources": [
+      {
+        "path": "docs/missions/26-P1/MISSION.md",
+        "url": ""
+      }
+    ],
+    "etat": "En cours — réception non prononcée",
+    "resultats_prouves": "Audit ; première correction Qwen sur Dell1 et test réel Dell2, synchronisation SHA",
+    "reserves": "Réception finale en cours ; erreurs initiales de schéma et de continuité documentées",
+    "dependances": "Acquis26/26B,28A et JL03 préservés",
+    "prochaine_action": "Achever validation indépendante et réception de Phase1",
+    "derniere_actualisation": "2026-10-26"
   }
 ]

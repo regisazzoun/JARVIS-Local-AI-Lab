@@ -1,3 +1,7 @@
+## Mission 26 — Phase 1 : autorité Qwen80B et exécution distribuée — 26 octobre 2026
+
+🟡 En cours. Audit du chemin de décision réalisé ; extension opt-in du moteur existant installée sur une branche dédiée. Qwen a choisi et appliqué une correction réelle sur Dell1, puis lancé un test réel sur Dell2 et demandé une synchronisation vérifiée par SHA. Réception croisée et contrôle indépendant final encore en cours. Les erreurs d’interface et interventions Codex sont conservées ; aucun résultat historique n’est effacé. [Dossier](docs/missions/26-P1/MISSION.md) · [Audit](docs/missions/26-P1/AUDIT-INITIAL.md) · [Architecture](docs/missions/26-P1/ARCHITECTURE.md). Les corrections JL03 restent intactes ; 14A et la Phase2 ne sont pas réceptionnées ici.
+
 ## JL03-COR-P1 — D03/D04/D17 livrées techniquement,26octobre2026
 
 ✅🟡 GO technique avec réserves. Trois missions completed dans le moteur, vrais PASS sémantiques des corrections actuelles et rapports finaux natifs JARVIS. Correctifs40422f9installés dansJL03 ;55tests ciblésPASS et contrôle navigateur authentifié reçus. Codex a fourni interfaces/aides et intégré/vérifié ; autonomie sans assistance et qualification vocale physique restent réservées. D01captureacceptée ; D02transcriptionréservée/mémoiredifférée ; aucune autre mission lancée, aucune fusionmain. [Réception et preuves](docs/missions/JL03-COR-P1/RAPPORT-RECEPTION-26-OCTOBRE.md).

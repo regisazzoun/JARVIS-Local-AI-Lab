@@ -1,3 +1,7 @@
+## 26 octobre 2026 — Mission26 Phase1 lancée
+
+Audit du chemin de décision et adaptation opt-in du moteur pour l’autorité technique de Qwen80B sur Dell1 et l’exécution réelle sur les deux Dell. Première correction et premiers tests distants observés ; réception encore en cours. Les incidents d’interface Codex sont journalisés, les rapports historiques restent inchangés. [Dossier](missions/26-P1/MISSION.md).
+
 ## 23 octobre2026 — complément13 double GPU
 
 DeuxRTX3090 DellOEM reconnues et petit calcul CUDA correct sur chacune par JARVIS. Câblage/puissance non qualifiés, pas de nouvel essai d’inférence double ni changement de pilote/service. [Réception partielle](missions/13-extension-gpu/RAPPORT-FINAL.md). TTS-01 suspendue, aucune clôture14A ou reprise26B.

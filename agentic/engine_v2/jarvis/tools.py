@@ -99,6 +99,10 @@ class Registry:
         register_mcp(self)
         from .compute import register as register_compute
         register_compute(self)
+        from .jl03_assist import register as register_jl03_assist
+        register_jl03_assist(self)
+        from .distributed_authority import register as register_authority
+        register_authority(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):
@@ -216,7 +220,7 @@ class Registry:
         return schema
 
     def schemas(self,all_tools=False):
-        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
+        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
         start=time.monotonic();start_wall=time.time();result=None
         try:
@@ -237,6 +241,7 @@ class Registry:
             error=next(Draft202012Validator(schema).iter_errors(args),None)
             if error:
                 path='/'+('/'.join(str(x) for x in error.absolute_path))
+                if name.startswith('authority_'):raise ValueError('Schema '+name+' at '+path+': constraint='+str(error.validator)+'; expected='+str(error.validator_value)+'. Reception work packages cover issue ids; inspect is allowed before plan. See active schema.')
                 raise ValueError('Schema '+name+' at '+path+': '+error.message[:600]+'. Inspect active schema and mission_progress interface; arrays/objects must match their declared types.')
             for k,v in args.items():
                 if props[k]['type']=='string' and (not isinstance(v,str) or (not v.strip() and props[k].get('minLength',1)>0) or len(v)>props[k].get('maxLength',4000)):raise ValueError('Texte invalide pour le champ '+k+' (non vide, longueur maximale '+str(props[k].get('maxLength',4000))+')')

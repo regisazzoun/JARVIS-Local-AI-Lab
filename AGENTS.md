@@ -1,3 +1,7 @@
+## Mission26 Phase1 — décision du26octobre2026
+
+Mission active : autorité technique Qwen80B et exécution sur Dell1/Dell2. Codex audite et adapte les capacités, Qwen décide fichiers/corrections/tests/exécutants et interprète les résultats. Mac transporte, conserve les preuves et héberge les services. Démonstration isolée, aucun changement JL03, modèles, matériel ou missions historiques. Trois cycles par anomalie, compteurs persistants ; trois refus comparables d’interface, puis suspension documentée. Branche `codex/mission-26-phase1-autorite-distribuee`, aucune fusion main. Ne pas confondre avec la réception historique26 ni anticiper14A/Phase2. [Ordre](docs/missions/26-P1/MISSION.md).
+
 ## Mission23D — réception numérique du20 octobre2026
 
 ✅🟡 **GO numérique avec réserves acoustiques, STT et d’autonomie.** Banc LiveKit et page temporaire réellement exécutés par JARVIS avec outils/corrections Codex. Six exécutions initiales conservées ; après correction du warmup AEC, trois interruptions mesurées à0,727 /0,559 /0,717s (seuil≤1s). Stop actif navigateur0,6ms, exports JSON/audio et contrôle d’annulation reçus. Le microphone/écho physique reste non testé ; une erreur de transcription du jour initial est documentée. [Réception finale23D](docs/missions/23D/RAPPORT-FINAL.md) · [Utilisation](docs/missions/23D/UTILISATION.md).
