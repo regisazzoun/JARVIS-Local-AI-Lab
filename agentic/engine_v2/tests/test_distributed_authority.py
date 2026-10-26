@@ -15,6 +15,12 @@ class GuardTests(unittest.TestCase):
   self.s=Store();self.r=SimpleNamespace(mission_store=self.s,context={'mission_id':'real','task_id':'task'})
   self.s.rows.append({'id':1,'kind':'inference_finished','result':{'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'}}})
   self.x=a.Authority(self.r)
+ def test_latest_analysis_links_observed_failure_without_guessing_id(self):
+  state=self.x.state();state['issues']['Q1']={'failed_cycles':1,'delegation_failures':0,'last_failed_test':'31'}
+  state['executions']['31']={'issue':'Q1','kind':'test','execution':{'returncode':1}}
+  self.x.save(state)
+  r=self.x.analyze_latest({'issue':'Q1','summary':'My diagnosis based on the observed failure'})
+  self.assertEqual(r['analyzed'],'31');self.assertEqual(self.x.state()['issues']['Q1']['analyzed'],'31')
  def test_counters_survive_new_adapter(self):
   state=self.x.state();a.budget(state,'Q1')['failed_cycles']=3;self.x.save(state)
   with self.assertRaisesRegex(ValueError,'trois cycles'):a.budget(a.Authority(self.r).state(),'Q1')

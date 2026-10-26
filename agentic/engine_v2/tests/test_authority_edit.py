@@ -33,3 +33,8 @@ class LiteralEditTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as root, tempfile.TemporaryDirectory() as other:
    (pathlib.Path(root)/'escape').symlink_to(other,target_is_directory=True)
    self.assertNotEqual(self.run_edit(root,[{'path':'escape/code.py','old':None,'new':'bad'}]).returncode,0);self.assertFalse((pathlib.Path(other)/'code.py').exists())
+
+ def test_invalid_python_is_not_written(self):
+  with tempfile.TemporaryDirectory() as root:
+   r=self.run_edit(root,[{'path':'bad.py','old':None,'new':'class Bad:\n def method(self) broken syntax'}])
+   self.assertNotEqual(r.returncode,0);self.assertFalse((pathlib.Path(root)/'bad.py').exists())

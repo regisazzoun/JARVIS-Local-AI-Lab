@@ -13,7 +13,7 @@ PROJECT = 'mission26-phase1'
 ROOT = '/opt/jarvis-lab/mission26-phase1'
 LOCAL = Path('/var/lib/jarvis/projects/mission26-phase1')
 HOSTS = {'Dell1': 'dell-observe', 'Dell2': 'dell2'}
-TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit']
+TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_analyze']
 
 # This observer is infrastructure, not an application test. Commands are model supplied.
 RUNNER = r'''
@@ -59,7 +59,7 @@ print(json.dumps({'receipt_path':str(target),'sha256':hashlib.sha256(raw).hexdig
 
 def edit_program(edits):
  """Literal model-authored edits; file content is data, never evaluated as code."""
- return """import json, pathlib, os, tempfile
+ return """import json, pathlib, os, tempfile, ast
 edits=json.loads(PAYLOAD)
 root=pathlib.Path.cwd().resolve()
 pending=[]
@@ -82,6 +82,7 @@ for edit in edits:
    raise ValueError('Edit anchor must match exactly once: '+str(relative))
   content=previous.replace(edit['old'],edit['new'],1)
  if len(content.encode())>2*1024*1024:raise ValueError('Candidate file too large')
+ if target.suffix=='.py':ast.parse(content,filename=str(relative))
  pending.append((target,content))
 for target,content in pending:
  target.parent.mkdir(parents=True,exist_ok=True)
@@ -159,6 +160,11 @@ class Authority:
     observed['execution'][field]=text[:1500]+'\n[EXCERPT; complete immutable receipt at full_receipt]\n'+text[-500:]
     observed['execution'][field+'_model_excerpt']=True
   return observed,call
+ def analyze_latest(self,a):
+  issue=self.state().get('issues',{}).get(a['issue'],{})
+  reference=issue.get('last_failed_test')
+  if not reference:raise ValueError('No observed failed test exists for this issue')
+  return self.work({'issue':a['issue'],'kind':'analyze','reference':reference,'summary':a['summary']})
  def edit(self,a):
   command='python3 -c '+shlex.quote(edit_program(a['edits']))
   return self.work({'issue':a['issue'],'kind':'correct','summary':a['summary'],'operation_id':a['operation_id'],'executor':a['executor'],'command':command})
@@ -293,6 +299,7 @@ def register(reg):
  initial=reg.specs['authority_plan']
  reg.specs['authority_revise_plan']=('GLOBAL plan revision ONLY when dependencies or owner coverage genuinely change. Not for recording analysis or a new command: use authority_work/analyze. Supply ALL work packages covering ALL owner criteria and expected_version=current plan_version. Received tasks immutable.',initial[1],['steps','expected_version','reason'],initial[3],initial[4])
  add('authority_work','YOUR decision then actual Dell execution. inspect/correct/test: choose executor, command, summary. analyze: reference actual failed test + summary/hypothesis. accept: reference passed test and source_reference correction on OTHER host at EXACT manifest. Commands run in the mission-declared authorized project root. Counts persist per issue. Outputs include execution returncode distinct from tool transport success.',{'issue':issue,'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'summary':text,'operation_id':text,'executor':{'type':'string','enum':list(HOSTS)},'command':text,'reference':reference,'source_reference':reference},['issue','kind','summary','operation_id'],'work')
+ add('authority_analyze','Record YOUR technical diagnosis of the latest observed failed test for this issue. The engine attaches its exact existing execution reference automatically. No command is run. Use before the next correction; do not send a shell command or guess an event number.',{'issue':issue,'summary':text},['issue','summary'],'analyze_latest')
  add('authority_edit','Apply YOUR literal source edits on a chosen Dell, with real before/after receipts. File contents are data, not a shell script. Existing file: old must match exactly once; new replaces it. New file: old=null, new is complete file content, target must not exist. No tests are implicitly run. Same correction counters and idempotency as authority_work. Never recopy a whole existing class to replace the application.',{'issue':issue,'executor':{'type':'string','enum':list(HOSTS)},'summary':text,'operation_id':text,'edits':{'type':'array','minItems':1,'maxItems':8,'items':{'type':'object','required':['path','old','new'],'properties':{'path':{'type':'string','minLength':1},'old':{'type':['string','null']},'new':{'type':'string'}},'additionalProperties':False}}},['issue','executor','summary','operation_id','edits'],'edit')
  add('authority_sync','YOUR explicit one-way synchronization strategy. Choose files, source, destination and source_reference latest observed source execution. SHA checked; no implicit merge. Include tests so peer validates exact version.',{'issue':issue,'source':{'type':'string','enum':list(HOSTS)},'destination':{'type':'string','enum':list(HOSTS)},'files':{'type':'array','items':text},'source_reference':reference,'summary':text},['issue','source','destination','files','source_reference','summary'],'sync')
  add('authority_finish','Write your concise factual task report to its canonical path and request existing task completion gates. Cite actual event references, failures, attribution. No application modification on Mac.',{'report':text},['report'],'finish')
