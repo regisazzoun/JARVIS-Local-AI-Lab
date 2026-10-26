@@ -96,6 +96,14 @@ class GuardTests(unittest.TestCase):
   self.assertEqual(view['files']['manifest_sha256'],a.version(original['files']))
   self.assertEqual(view['files']['file_paths'],['a.py','test.py'])
   self.assertEqual(original['files']['a.py'],'a'*64)
+ def test_resolved_failure_is_archived_not_current_without_erasing_history(self):
+  state={'issues':{'Q1':{'failed_cycles':3,'delegation_failures':0,'correction_resolved_through':3,'correction_resolution_event':20,'last_failed_test':'10','analyzed':'10','analysis':'Old syntax error','pending_correction':'9'}},'executions':{'10':{'issue':'Q1','execution':{'returncode':1}},'21':{'issue':'Q1','execution':{'returncode':0}}}}
+  view=a.working_state(state)
+  self.assertNotIn('last_failed_test',view['issues']['Q1']);self.assertNotIn('analysis',view['issues']['Q1']);self.assertEqual(list(view['executions']),['21'])
+  self.assertEqual(state['issues']['Q1']['last_failed_test'],'10');self.assertIn('10',state['executions']);self.assertEqual(view['issues']['Q1']['failed_cycles'],3)
+ def test_new_failure_after_resolution_remains_current(self):
+  state={'issues':{'Q1':{'failed_cycles':4,'correction_resolved_through':3,'correction_resolution_event':20,'last_failed_test':'22','analyzed':'22','analysis':'New genuine failure'}},'executions':{'22':{'issue':'Q1','execution':{'returncode':1}}}}
+  view=a.working_state(state);self.assertEqual(view['issues']['Q1']['last_failed_test'],'22');self.assertEqual(view['issues']['Q1']['analysis'],'New genuine failure')
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):

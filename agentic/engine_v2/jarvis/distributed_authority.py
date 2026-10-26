@@ -203,7 +203,7 @@ class Authority:
    return {'accepted':True,**v['accepted'],'meaning':'Passed process and exact cross-host source provenance; application adequacy remains independently reviewed by Codex'}
   host=a.get('executor');command=a.get('command')
   if host not in HOSTS or not command:raise ValueError('inspect/correct/test require executor Dell1 or Dell2 and command')
-  if kind=='correct' and v.get('last_failed_test') and v.get('analyzed')!=v['last_failed_test']:
+  if kind=='correct' and v.get('last_failed_test') and int(v['last_failed_test'])>v.get('correction_resolution_event',0) and v.get('analyzed')!=v['last_failed_test']:
    raise ValueError('Analyze the last actual failed test before another correction')
   state.setdefault('operations',{})[key]={'arguments':a,'decision':decision};self.save(state)
   self.event('authority_dispatch',{'decision':decision,'executor':host,'command':command})
@@ -317,6 +317,23 @@ def interface_failure(store, mission, task, name, error):
   return True
  return False
 
+
+def working_state(state):
+ """Resolved incidents stay in the immutable journal, not as current work."""
+ view={**state,'issues':{},'executions':{}}
+ for issue,value in state.get('issues',{}).items():
+  current=dict(value);resolved=value.get('correction_resolution_event',0)
+  old_analysis=value.get('analyzed')
+  for field in ('last_failed_test','last_test','analyzed','pending_correction'):
+   reference=value.get(field)
+   if resolved and str(reference).isdigit() and int(reference)<resolved:current.pop(field,None)
+  if resolved and str(old_analysis).isdigit() and int(old_analysis)<resolved:current.pop('analysis',None)
+  if resolved:current['resolved_history']={'resolution_event':resolved,'failed_cycles_retained':value['failed_cycles'],'new_segment_failed_cycles':value['failed_cycles']-value.get('correction_resolved_through',0),'archived_incidents':'mission_evidence; no replay of resolved failures'}
+  view['issues'][issue]=current
+ for reference,execution in state.get('executions',{}).items():
+  resolved=state.get('issues',{}).get(execution.get('issue'),{}).get('correction_resolution_event',0)
+  if not resolved or int(reference)>resolved:view['executions'][reference]=execution
+ return view
 
 def model_view(value):
  """Keep actionable execution references; audit-only ids remain in SQLite."""

@@ -373,7 +373,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             else:
                 schemas=[s for s in schemas if s['function']['name']!='intervention_report']
             if json.loads(mission['spec']).get('distributed_authority'):
-                from .distributed_authority import TOOLS, Authority, model_view as authority_view
+                from .distributed_authority import TOOLS, Authority, model_view as authority_view, working_state as authority_working_state
                 names=set(TOOLS) if not current_tasks or not all(t['state']=='validated' for t in current_tasks) else {'intervention_report'}
                 authority=Authority(core.tools)
                 if not authority.state()['executions']:
@@ -383,7 +383,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 else:
                     names.discard('authority_plan')
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
-                durable=authority.state()
+                durable=authority_working_state(authority.state())
                 # Evidence is durable, not a growing prompt. Last observations and
                 # stable counters suffice for this scoped Phase1 demonstration.
                 slim={'objective':mission['goal'],'mission':ident,'active_task':task_id,'active_task_objective':(task or {}).get('objective'),'active_task_contract':(task or {}).get('contract'),
