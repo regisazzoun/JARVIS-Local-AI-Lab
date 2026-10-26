@@ -13,7 +13,7 @@ PROJECT = 'mission26-phase1'
 ROOT = '/opt/jarvis-lab/mission26-phase1'
 LOCAL = Path('/var/lib/jarvis/projects/mission26-phase1')
 HOSTS = {'Dell1': 'dell-observe', 'Dell2': 'dell2'}
-TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources']
+TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit']
 
 # This observer is infrastructure, not an application test. Commands are model supplied.
 RUNNER = r'''
@@ -56,6 +56,44 @@ print(json.dumps({'receipt_path':str(target),'sha256':hashlib.sha256(raw).hexdig
  assert marker in body
  body=body.replace(marker,replacement)
  return body
+
+def edit_program(edits):
+ """Literal model-authored edits; file content is data, never evaluated as code."""
+ return """import json, pathlib, os, tempfile
+edits=json.loads(PAYLOAD)
+root=pathlib.Path.cwd().resolve()
+pending=[]
+seen=set()
+for edit in edits:
+ relative=pathlib.Path(edit['path'])
+ if relative.is_absolute() or '..' in relative.parts or not relative.parts or relative.parts[0] in ('.receipts','runtime'):
+  raise ValueError('Edit path outside authorized source workspace')
+ target=root/relative
+ if not target.resolve().is_relative_to(root) or target.is_symlink():
+  raise ValueError('Symlink or path escape refused')
+ if str(relative) in seen:raise ValueError('Duplicate edit path; combine changes for one file')
+ seen.add(str(relative))
+ if edit['old'] is None:
+  if target.exists():raise ValueError('New-file edit target already exists: '+str(relative))
+  content=edit['new']
+ else:
+  previous=target.read_text()
+  if not edit['old'] or previous.count(edit['old'])!=1:
+   raise ValueError('Edit anchor must match exactly once: '+str(relative))
+  content=previous.replace(edit['old'],edit['new'],1)
+ if len(content.encode())>2*1024*1024:raise ValueError('Candidate file too large')
+ pending.append((target,content))
+for target,content in pending:
+ target.parent.mkdir(parents=True,exist_ok=True)
+ fd,name=tempfile.mkstemp(prefix='.jarvis-edit-',dir=target.parent)
+ try:
+  with os.fdopen(fd,'w') as stream:stream.write(content);stream.flush();os.fsync(stream.fileno())
+  if target.exists():os.chmod(name,target.stat().st_mode & 0o777)
+  os.replace(name,target)
+ finally:
+  if os.path.exists(name):os.unlink(name)
+print(json.dumps({'written_files':[str(target.relative_to(root)) for target,_ in pending]}))
+""".replace('PAYLOAD',repr(json.dumps(edits,ensure_ascii=False)))
 
 def version(manifest):
  return hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
@@ -121,6 +159,9 @@ class Authority:
     observed['execution'][field]=text[:1500]+'\n[EXCERPT; complete immutable receipt at full_receipt]\n'+text[-500:]
     observed['execution'][field+'_model_excerpt']=True
   return observed,call
+ def edit(self,a):
+  command='python3 -c '+shlex.quote(edit_program(a['edits']))
+  return self.work({'issue':a['issue'],'kind':'correct','summary':a['summary'],'operation_id':a['operation_id'],'executor':a['executor'],'command':command})
  def work(self,a):
   issue=a['issue']
   if issue not in self.spec['authority_requirements']:raise ValueError('Unknown stable owner requirement; allowed EXACT ids: '+str(self.spec['authority_requirements']))
@@ -252,6 +293,7 @@ def register(reg):
  initial=reg.specs['authority_plan']
  reg.specs['authority_revise_plan']=('GLOBAL plan revision ONLY when dependencies or owner coverage genuinely change. Not for recording analysis or a new command: use authority_work/analyze. Supply ALL work packages covering ALL owner criteria and expected_version=current plan_version. Received tasks immutable.',initial[1],['steps','expected_version','reason'],initial[3],initial[4])
  add('authority_work','YOUR decision then actual Dell execution. inspect/correct/test: choose executor, command, summary. analyze: reference actual failed test + summary/hypothesis. accept: reference passed test and source_reference correction on OTHER host at EXACT manifest. Commands run in the mission-declared authorized project root. Counts persist per issue. Outputs include execution returncode distinct from tool transport success.',{'issue':issue,'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'summary':text,'operation_id':text,'executor':{'type':'string','enum':list(HOSTS)},'command':text,'reference':reference,'source_reference':reference},['issue','kind','summary','operation_id'],'work')
+ add('authority_edit','Apply YOUR literal source edits on a chosen Dell, with real before/after receipts. File contents are data, not a shell script. Existing file: old must match exactly once; new replaces it. New file: old=null, new is complete file content, target must not exist. No tests are implicitly run. Same correction counters and idempotency as authority_work. Never recopy a whole existing class to replace the application.',{'issue':issue,'executor':{'type':'string','enum':list(HOSTS)},'summary':text,'operation_id':text,'edits':{'type':'array','minItems':1,'maxItems':8,'items':{'type':'object','required':['path','old','new'],'properties':{'path':{'type':'string','minLength':1},'old':{'type':['string','null']},'new':{'type':'string'}},'additionalProperties':False}}},['issue','executor','summary','operation_id','edits'],'edit')
  add('authority_sync','YOUR explicit one-way synchronization strategy. Choose files, source, destination and source_reference latest observed source execution. SHA checked; no implicit merge. Include tests so peer validates exact version.',{'issue':issue,'source':{'type':'string','enum':list(HOSTS)},'destination':{'type':'string','enum':list(HOSTS)},'files':{'type':'array','items':text},'source_reference':reference,'summary':text},['issue','source','destination','files','source_reference','summary'],'sync')
  add('authority_finish','Write your concise factual task report to its canonical path and request existing task completion gates. Cite actual event references, failures, attribution. No application modification on Mac.',{'report':text},['report'],'finish')
 
