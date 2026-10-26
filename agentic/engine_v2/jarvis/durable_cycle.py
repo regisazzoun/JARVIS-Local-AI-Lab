@@ -10,6 +10,17 @@ from pathlib import Path
 from .mission_store import encoded, signature
 
 
+def coordinator_guidance(store, ident, task_id):
+    """Include the authorized periodic relay only in its M26-P2 scope."""
+    actors=('Codex','Codex-periodic') if ident=='3aa717f3887e49daa7daf7e883ee52e4' else ('Codex',)
+    with store.db() as c:
+        return [dict(r) for r in c.execute(
+            "SELECT id,result FROM mission_events WHERE mission=? AND actor IN ("+
+            ','.join('?' for _ in actors)+") AND kind='coordinator_instruction' "
+            "AND (task=? OR task IS NULL) ORDER BY id DESC LIMIT 3",
+            (ident,*actors,task_id))]
+
+
 def task_schemas(schemas, definition):
     """Focus a declared tool selection; policy/registry still enforce all calls."""
     selected=(definition or {}).get('tools')
@@ -320,8 +331,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 base[1]['content']=encoded(state_data)
             # Owner-authorized coordinator instructions must reach the next inference,
             # even when prior model messages still contain stale completion claims.
-            with store.db() as c:
-                guidance=[dict(r) for r in c.execute("SELECT id,result FROM mission_events WHERE mission=? AND actor='Codex' AND kind='coordinator_instruction' AND (task=? OR task IS NULL) ORDER BY id DESC LIMIT 3",(ident,task_id))]
+            guidance=coordinator_guidance(store,ident,task_id)
             if guidance:
                 state_data=json.loads(base[1]['content'])
                 state_data['latest_authorized_coordinator_instructions']=[json.loads(r['result']) for r in reversed(guidance)]
