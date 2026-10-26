@@ -1,0 +1,10 @@
+--- verification-before.py
++++ /opt/jarvis/conversation/jarvis/verification.py
+@@ -164,6 +164,7 @@
+         token = store.begin_call(self.registry.context['mission_id'], self.registry.context.get('task_id'), name, args) if store else None
+         start = time.monotonic()
+         receipt = self.registry.execute(name, args)
++        receipt = {**receipt,'required_protocol_control':True,'protocol':'canonical.verification.1'}
+         if token:
+             store.finish_call(token, receipt, time.monotonic()-start)
+         result = receipt.get('result', {})

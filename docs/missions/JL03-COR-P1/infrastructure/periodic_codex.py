@@ -32,7 +32,7 @@ def main():
             state = mission['state']
             stopped = state in ('interrupted','failed','waiting_external')
             review = state == 'completed' and not task.get('validated') and not task.get('technical_review_recorded')
-            stalled = state in ('queued','running') and time.time() - mission['last_progress'] > 900
+            stalled = state in ('queued','running') and time.time() - max(mission['last_progress'], mission.get('next_run') or 0) > 900
             # Let the explicit one-shot dispatcher consume an already reviewed repair.
             if task.get('corrective_resume',{}).get('armed'): continue
             if not (stopped or review or stalled): continue

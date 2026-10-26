@@ -1,3 +1,7 @@
+## JL03-COR-P1 — correctifs installés, contrôle navigateur reçu le26octobre
+
+D03/D04/D17 intégrés dans JL03 commit40422f9 :55tests ciblésPASS, APIauthentifiée et rendu réel CPU/3090/3080 Dell2 reçus, réponseAPIvide affichéeunefois, saisieconservée, conversationréelle6,035s pendantcontrôlesDell. D03/D17 tâches réellement validated aprèsPASSsémantique et clôture conditionnelle déclenchéeparJARVIS ; finalisationglobale en cours, D04reste à recevoir. Codex a fourni une assistance importante et l'intégration ; aucune autonomie sansassistance ni qualification acoustique reçue. [Résultats, preuves et limites](docs/missions/JL03-COR-P1/REPRISE-26-OCTOBRE.md).
+
 ## JL03-COR-P1 — aide concrète aux trois défauts
 
 Workers rechargés pour utiliser le correctif du vérificateur déjà installé ; vrai transport Qwen80BDell1 reçu en24576tokens, sans réception fictive de prose. D03/D04 reçoivent des corrections factuelles ciblées et la reprise de vérification. PourD17, bancbranché surrenderer/Handler réels et patch fourni : copieisolée6PASS/1FAILavant,7PASSaprès ; application/retest parJARVIS encore requis. Aucun nouveaucorrectifapplicatif live reçu. [Aide et preuves](docs/missions/JL03-COR-P1/AIDE-TROIS-DEFAUTS.md).

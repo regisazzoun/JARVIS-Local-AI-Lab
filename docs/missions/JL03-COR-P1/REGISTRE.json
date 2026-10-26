@@ -2,7 +2,7 @@
   "mission": "JL-03-COR-P1",
   "coordinator": "Codex",
   "executor": "JARVIS",
-  "updated_at": 1792963308.397671,
+  "updated_at": 1792982676.8044264,
   "dispatch_policy": "Maximum two active contexts; prepared tasks and explicitly reviewed single corrective resumes enter the canonical queue when a slot frees. Never automatically retry an unchanged blocker.",
   "context_issue": "KNOWN_NOT_RESOLVED",
   "tasks": [
@@ -50,7 +50,7 @@
       "active_task": "D01",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
       "native_call_count": 9,
-      "last_observed": 1792963308.3942394,
+      "last_observed": 1792982656.8549833,
       "canonical_state": "waiting_external",
       "latest_result": "Capture timing/session fixes applied;8targeted regressionsPASS +realbrowserSTT1segment/1completephrase. FullD01/D02qualification pending.",
       "implementation_actor": "Codex targeted intervention",
@@ -97,7 +97,7 @@
       "active_task": "D02",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
       "native_call_count": 6,
-      "last_observed": 1792963308.3950334,
+      "last_observed": 1792982656.8567255,
       "canonical_state": "waiting_external",
       "latest_result": "Owner reports transcription still imperfect; missing context is a hypothesis, not a proved cause. Memory work deferred.",
       "implementation_actor": "Codex targeted intervention",
@@ -109,7 +109,7 @@
     {
       "id": "D03",
       "defect": "Commandes sans réponse visible",
-      "status": "RUNNING",
+      "status": "TECHNICAL_GO_WITH_RESERVES",
       "mission_id": "16087a18f86d42b7b79296bc93b3a754",
       "conversation_id": "8ab4423b-189d-41f0-8306-9c29285c9858",
       "validated": false,
@@ -119,17 +119,17 @@
       "worker_project": "jl03-cor-p1-d03",
       "blocks_following_tasks": false,
       "qualification_deferred": true,
-      "last_observed": 1792963308.395799,
-      "canonical_state": "running",
+      "last_observed": 1792982656.8574364,
+      "canonical_state": "completed",
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D03/COORDINATION.json",
       "corrective_resume": {
         "armed": false,
-        "plan_version": 15,
-        "strategy_event": 38093,
-        "reason": "Real worker reload, factual report correction, or supplied validated real-route patch",
-        "dispatched_at": 1792963278.3152404
+        "plan_version": 17,
+        "strategy_event": 39161,
+        "reason": "All actual task gates passed; corrected finalization phase now requests existing intervention_report, never duplicate task completion.",
+        "dispatched_at": 1792982414.4335167
       },
-      "latest_result": "Dépendance de restitution réellement corrigée par Codex : RAPPORT.md absent aux échecs37679/37785, diagnostic intermédiaire attribué Codex maintenant écrit puis lu indépendamment via broker (événements37809/37810). Aucun PASS sémantique ni autonomie validé ; JARVIS doit écrire sa restitution et les commandes contractuelles exactes restent requises. Tous compteurs/FAIL conservés.",
+      "latest_result": "Codex corrected unsupported report claims, preserved original/FAIL, independently validated direct predicate parameter; JARVIS retest required, no acceptance.",
       "last_codex_review": {
         "at": "2026-10-25T20:11:21.726042+00:00",
         "actor": "Codex",
@@ -142,11 +142,20 @@
         "decision": "Paramètre lecture borné contrôlé ; développement/retest JARVIS requis"
       },
       "last_periodic_codex_review": {
-        "at": "2026-10-25T20:43:46.494203+00:00",
+        "at": "2026-10-25T21:22:11.344023+00:00",
         "actor": "Codex",
-        "report_event": 37814,
-        "decision": "D03 dépendance rapport corrigée ; restitution et contrôles JARVIS requis, aucun GO"
-      }
+        "report_event": 38122,
+        "control_events": [
+          38114,
+          38115
+        ],
+        "decision": "9 PASS/0 FAIL par Dell ; JARVIS déjà actif, rapport/sémantique encore requis ; aucun réarmement",
+        "observed_state": "running"
+      },
+      "dispatch_priority": 1,
+      "task_engine_validated": true,
+      "technical_review_recorded": "/home/adminjarvis/JARVIS/jl03-cor-p1/docs/missions/JL03-COR-P1/REPRISE-26-OCTOBRE.md",
+      "owner_qualification_pending": true
     },
     {
       "id": "D04",
@@ -161,15 +170,15 @@
       "worker_project": "jl03-cor-p1-d04",
       "blocks_following_tasks": false,
       "qualification_deferred": true,
-      "last_observed": 1792963308.3965602,
+      "last_observed": 1792982656.8581643,
       "canonical_state": "running",
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D04/COORDINATION.json",
       "corrective_resume": {
         "armed": false,
-        "plan_version": 17,
-        "strategy_event": 38097,
-        "reason": "Real worker reload, factual report correction, or supplied validated real-route patch",
-        "dispatched_at": 1792963278.6299117
+        "plan_version": 18,
+        "strategy_event": 39191,
+        "reason": "Concrete bounded report model view correction, raw corpus and acceptance gates preserved",
+        "dispatched_at": 1792982591.7206817
       },
       "latest_result": "Contrôles techniques acquis, vérification sémantique absente ; trois clôtures refusées. Dossier event:38082. Aucun réarmement inchangé.",
       "last_codex_review": {
@@ -192,12 +201,13 @@
         ],
         "blocker_dossier_event": 38082,
         "decision": "Blocage sémantique confirmé ; aucune reprise sans correction technique distincte"
-      }
+      },
+      "dispatch_priority": 2
     },
     {
       "id": "D17",
       "defect": "CPU et deuxGPU Dell2",
-      "status": "BLOCKED_ESCALATION_READY",
+      "status": "TECHNICAL_GO_WITH_RESERVES",
       "mission_id": "c5b81d7fa78f4fa7a5c495f30eee741e",
       "conversation_id": "128e25bd-654b-4818-a46d-8ed1ef7f946e",
       "validated": false,
@@ -206,14 +216,15 @@
       "context_directory": "/var/lib/jarvis/projects/jl03-cor-p1/D17",
       "worker_project": "jl03-cor-p1-d17",
       "blocks_following_tasks": false,
-      "canonical_state": "interrupted",
-      "last_observed": 1792963308.3973005,
+      "canonical_state": "completed",
+      "last_observed": 1792982656.85893,
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D17/COORDINATION.json",
       "corrective_resume": {
-        "armed": true,
-        "plan_version": 14,
-        "strategy_event": 38101,
-        "reason": "Real worker reload, factual report correction, or supplied validated real-route patch"
+        "armed": false,
+        "plan_version": 15,
+        "strategy_event": 39163,
+        "reason": "All actual task gates passed; corrected finalization phase now requests existing intervention_report, never duplicate task completion.",
+        "dispatched_at": 1792982414.2216294
       },
       "latest_result": "Correction réelle du moteur Codex : découverte bornée par tâche aux deux points offre et redécouverte ; D17 exclut batch refusé/host_exec, préserve lecture de restitution. Source contrôlée37978 et activation HTTP37979. Aucun reset ni réception.",
       "last_codex_review": {
@@ -236,7 +247,11 @@
         ],
         "decision": "Opt-in discovery fix activated; same JARVIS dispatched; no acceptance",
         "commit": "dbeccdd"
-      }
+      },
+      "dispatch_priority": 0,
+      "task_engine_validated": true,
+      "technical_review_recorded": "/home/adminjarvis/JARVIS/jl03-cor-p1/docs/missions/JL03-COR-P1/REPRISE-26-OCTOBRE.md",
+      "owner_qualification_pending": true
     }
   ],
   "qualification_policy": "Capture accepted by owner; transcription reserve retained; no owner permission gate; memory deferred."

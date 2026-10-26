@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: actual renderer displays CPU zero and both measured GPU names
+ok 1 - actual renderer displays CPU zero and both measured GPU names
+  ---
+  duration_ms: 17.008986
+  ...
+# Subtest: unknown CPU is never fabricated as zero
+ok 2 - unknown CPU is never fabricated as zero
+  ---
+  duration_ms: 0.245313
+  ...
+# Subtest: absent GPUs occupy two slots labelled not detected
+ok 3 - absent GPUs occupy two slots labelled not detected
+  ---
+  duration_ms: 0.194242
+  ...
+# Subtest: offline node states unavailability and its reason
+ok 4 - offline node states unavailability and its reason
+  ---
+  duration_ms: 0.195002
+  ...
+# Subtest: stale actual-renderer sample is labelled old
+ok 5 - stale actual-renderer sample is labelled old
+  ---
+  duration_ms: 0.302543
+  ...
+# Subtest: unmeasured GPU utilization is labelled N/A
+ok 6 - unmeasured GPU utilization is labelled N/A
+  ---
+  duration_ms: 0.189234
+  ...
+# Subtest: actual backend Handler consumes Dell2 probe and propagates zero/two GPUs
+not ok 7 - actual backend Handler consumes Dell2 probe and propagates zero/two GPUs
+  ---
+  duration_ms: 65.30609
+  location: '/home/adminjarvis/JARVIS/jl03-cor-p1-private/reprise26/integration/tests/d17-reception.test.mjs:23:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Traceback (most recent call last):
+      File "/home/adminjarvis/JARVIS/jl03-cor-p1-private/reprise26/integration/tests/d17-route.py", line 24, in <module>
+        assert 'dell2' in probes,'Actual resources route never called the Dell2 probe'
+               ^^^^^^^^^^^^^^^^^
+    AssertionError: Actual resources route never called the Dell2 probe
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///home/adminjarvis/JARVIS/jl03-cor-p1-private/reprise26/integration/tests/d17-reception.test.mjs:25:9)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 224.641236

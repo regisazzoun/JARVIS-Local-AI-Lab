@@ -1,0 +1,42 @@
+{
+  "actor": "Codex independent browser reception",
+  "at": 1792982000.7186434,
+  "checks": {
+    "actual_authenticated_telemetry_Dell2": true,
+    "actual_renderer_two_GPU": true,
+    "empty_response_fixture_error_once": true,
+    "retry_input_retained": true,
+    "real_conversation_response": true,
+    "no_page_errors": true
+  },
+  "telemetry": {
+    "available": true,
+    "cpu_percent": 0,
+    "gpus": [
+      "NVIDIA GeForce RTX 3090",
+      "NVIDIA GeForce RTX 3080"
+    ],
+    "rendered": "Mac miniDisponibilité : ✓CPU : 15.0%RAM : 11.6/31.2 GioTemp. CPU : 49.0 °CMesuré à 03:33:11 GPU1 : RTX 3090 · 0% · 17.5/24.0Gio · 43 °CDell1Disponibilité : ✓CPU : 2.9%RAM : 12.6/251.4 GioTemp. CPU : 61.0 °CMesuré à 03:33:11 GPU1 : RTX 3090 · 30% · 22.5/24.0Gio · 62 °CGPU2 : RTX 3090 · 43% · 22.4/24.0Gio · 75 °CDell2Disponibilité : ✓CPU : 0.0%RAM : 1.5/125.5 GioTemp. CPU : 34.0 °CMesuré à 03:33:14 GPU1 : RTX 3090 · 0% · 0.0/24.0Gio · 45 °CGPU2 : RTX 3080 · 0% · 0.0/10.0Gio · 51 °C",
+    "actualTopbar": "Mac miniDisponibilité : ✓CPU : 30.2%RAM : 11.4/31.2 GioTemp. CPU : 89.0 °CMesuré à 03:33:07 GPU1 : RTX 3090 · 0% · 17.5/24.0Gio · 43 °CDell1Disponibilité : ✓CPU : 2.8%RAM : 12.7/251.4 GioTemp. CPU : 62.0 °CMesuré à 03:33:07 GPU1 : RTX 3090 · 12% · 22.5/24.0Gio · 62 °CGPU2 : RTX 3090 · 77% · 22.4/24.0Gio · 75 °CDell2Disponibilité : ✓CPU : 0.0%RAM : 1.5/125.5 GioTemp. CPU : 33.0 °CMesuré à 03:33:10 GPU1 : RTX 3090 · 0% · 0.0/24.0Gio · 44 °CGPU2 : RTX 3080 · 0% · 0.0/10.0Gio · 51 °C"
+  },
+  "error_fixture": {
+    "messages": [
+      {
+        "role": "msg user",
+        "text": "fixture réponse vide"
+      },
+      {
+        "role": "msg system",
+        "text": "[ERREUR] Aucune réponse reçue du serveur."
+      }
+    ],
+    "input": "fixture réponse vide"
+  },
+  "conversation": {
+    "id": "eac8ff67-f1d2-4047-a738-dccd9dc60c28",
+    "answer_chars": 398,
+    "elapsed_s": 6.034722566604614
+  },
+  "page_errors": [],
+  "scope": "Real authenticated API/DOM/one conversation; empty API response deliberately injected and labelled fixture; no physical voice or autonomy reception"
+}

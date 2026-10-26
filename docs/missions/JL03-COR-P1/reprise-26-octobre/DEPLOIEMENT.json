@@ -1,0 +1,20 @@
+{
+  "actor": "Codex integration of candidates and assistance",
+  "at": 1792981805.2696807,
+  "files": {
+    "site/app.js": "bc1dc9dc2ecc01a815caced84440053bcfd2af2903ebae8339f4e249ea46442d",
+    "site/spoken-answer.mjs": "5ced6c8837ddc8f288ff5b004e8073047841c360d8287eb14f5fdd74528e2b6d",
+    "backend/server.py": "dba64f85ca0c0b98f99133821c0a0afd5ce63b249b2015fbaaa33fad7147b859",
+    "package.json": "2d8c7d9a2400274beeb8d2cbe98102f9b7f61a3873185df2c357ce9f2adb26fb",
+    "tests/d03-reception.test.mjs": "2f105ae105f48e47e2e3fbbdc41ef6f2786b7f9d4ceb128e48b27729a70ac5cc",
+    "tests/d03-remaining.test.mjs": "bbc07922da3ac4ee4b3b4c99823c3844ef98a77d1becef813713d9afce9ff431",
+    "tests/d04-reception.test.mjs": "6a238fb3049129e9f91cb642ac21b7dbb805285e3ec72c396210b5ad61722b65",
+    "tests/d04-daily.test.mjs": "b1455670675ccec25a161ca96708b109d6ed16d636997772b1030e31b530cb52",
+    "tests/d04-explicit-details.test.mjs": "7c64b305a53341227b948fe23b8c685176396c88f1e342a7b52004f45728e123",
+    "tests/d17-reception.test.mjs": "1f84bebb765b5b8479179bc9487e0130d7b8dfb0b5a5f8615dc88c97b530b8ec",
+    "tests/d17-route.py": "b4254fb05161112d43c4e781cb105053324efae1137bcfd75f00f92947b68bbf",
+    "tests/corrections-integration.test.mjs": "0b3b03c5becb0154daaa4e3032efee44a395b651921bd40a696ec1cb17f71d9d"
+  },
+  "checks": "Integration Python14, voice8, correction32 PASS; JS modules8 syntaxPASS; negative control removes Dell2 route and fails corresponding actual-handler test",
+  "not_owner_qualification": true
+}

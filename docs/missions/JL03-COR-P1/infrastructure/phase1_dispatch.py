@@ -17,10 +17,11 @@ STOPPED = {'interrupted', 'failed', 'waiting_external', 'completed'}
 def select_pending(entries, states, inflight):
     """A blocked context frees a slot only after its native operation has ended."""
     used = sum(states[t['id']] in ACTIVE or t['id'] in inflight for t in entries)
-    return [t for t in entries if
+    return sorted([t for t in entries if
             (t.get('status') == 'PREPARED_WAITING_SLOT' and states[t['id']] == 'draft')
             or (t.get('corrective_resume', {}).get('armed') is True
-                and states[t['id']] in ('interrupted', 'waiting_external'))][:max(0, 2 - used)]
+                and states[t['id']] in ('interrupted', 'waiting_external'))],
+                  key=lambda t:t.get('dispatch_priority',100))[:max(0, 2 - used)]
 
 
 def main():

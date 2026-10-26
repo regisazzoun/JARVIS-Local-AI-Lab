@@ -21,3 +21,7 @@ Après diagnostic et réparation source/harnais contrôlée par Codex, une repri
 ## Reprise distante et coordination automatique
 
 Voir [supervision persistante](SUPERVISION-PERSISTANTE.md) : les sources sont déposées sur les deuxDell, trois reprises documentées sont préparées, gardecorrigé et suiviCodexpériodique pour traiter les nouveaux blocages sans relance utilisateur. Les anciens états restent des instantanés historiques.
+
+## 26octobre — reprise concrète et code installé
+
+Voir [reprise du26octobre](REPRISE-26-OCTOBRE.md) : code40422f9installé et contrôlé dans le navigateur, vraiPASSsémantique/tâchesvalidéesD03/D17, aide native bornée sansparamètres, contrôles/clôturecanoniquesconservés, phasefinalecorrigée sans réception fictive.
