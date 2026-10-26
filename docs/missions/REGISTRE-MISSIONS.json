@@ -2236,15 +2236,19 @@
     "executant_reel": "Codex infrastructure/contrôle indépendant ; Qwen décisions et commandes distantes",
     "documents_sources": [
       {
-        "path": "docs/missions/26-P1/MISSION.md",
+        "path": "docs/missions/26-P1/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/28"
+      },
+      {
+        "path": "docs/missions/26-P1/RECEPTION.json",
         "url": ""
       }
     ],
-    "etat": "En cours — réception non prononcée",
-    "resultats_prouves": "Audit ; première correction Qwen sur Dell1 et test réel Dell2, synchronisation SHA",
-    "reserves": "Réception finale en cours ; erreurs initiales de schéma et de continuité documentées",
+    "etat": "GO avec réserves — chaîne distribuée reçue dans un projet isolé",
+    "resultats_prouves": "Qwen80B choisit sources, correctifs, tests et hôtes ; deux modifications réelles Dell1 et validations exactes Dell2 ; deux lots validated ; oracle Codex12/12 par Dell ;35 tests logiciels",
+    "reserves": "Activation ciblée ; intégration complète autonomous/assurance et défaut global JL03 non reçus ; assistance infrastructure importante,106 inférences ; rapports libres encore imparfaits, dépassement initial de format conservé",
     "dependances": "Acquis26/26B,28A et JL03 préservés",
-    "prochaine_action": "Achever validation indépendante et réception de Phase1",
+    "prochaine_action": "Traiter les réserves d’intégration, contexte et restitution ;14A distincte et non déclenchée",
     "derniere_actualisation": "2026-10-26"
   }
 ]

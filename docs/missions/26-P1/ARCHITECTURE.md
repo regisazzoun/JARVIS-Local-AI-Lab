@@ -14,7 +14,7 @@ Extension opt-in du moteur installé, sans nouvelle base : `distributed_authorit
 
 ## Interface
 
-`authority_resources` observe les ressources des deux Dell, sans choisir le placement. `authority_plan` conserve les lots et dépendances décidés par Qwen ; l’adaptateur ajoute uniquement les chemins de rapports, le catalogue d’outils et les prérequis de réception. Les lots doivent couvrir les critères stables Q1/Q2, sans découpage opérationnel fourni par Codex.
+`authority_resources` observe les ressources des deux Dell, sans choisir le placement. `authority_plan` (plan initial) et `authority_revise_plan` (révision globale explicite) conservent les lots et dépendances décidés par Qwen ; l’adaptateur ajoute uniquement les chemins de rapports, le catalogue d’outils et les prérequis de réception. Les lots doivent couvrir les critères stables Q1/Q2, sans découpage opérationnel fourni par Codex.
 
 `authority_work` conserve une décision liée au dernier événement d’inférence réel : modèle effectif et nœud observés, jamais une identité déclarative. Pour inspect/correct/test, Qwen choisit commande et machine. Le Mac transmet au broker existant. Une observation indépendante de l’application capture les empreintes avant/après, sortie, code retour et ressources du processus. Un test exécuté avec code non nul reste un test effectué et échoué ; le succès de transport ne devient pas un PASS fonctionnel.
 
@@ -35,3 +35,7 @@ Les compteurs se rattachent aux exigences stables du propriétaire, pas aux noms
 ## Contexte
 
 Vue de travail courte et spécifique à cette démonstration : objectif, plan, états, derniers résultats et compteurs. Les originaux restent en SQLite. Les quantités réelles de tokens sont conservées dans les événements d’inférence. La refonte générale de contexte reste hors Phase1.
+
+## Périmètre du contrat
+
+L’activation est explicite pour le projet de démonstration ; ce n’est pas un basculement global de JL03. La réception utilise le contrat de provenance de cet adaptateur, sans activer les gates complets autonomous/assurance26B. Les contrôles historiques restent inchangés pour les autres missions. La suffisance sémantique des tests du modèle est vérifiée séparément par l’oracle Codex. Voir INSTALLATION-UTILISATION.md et les réserves du rapport de réception.

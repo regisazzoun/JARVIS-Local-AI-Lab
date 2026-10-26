@@ -1,0 +1,16 @@
+{
+  "executed_at_utc": "2026-10-26T12:16:21.662528+00:00",
+  "patterns": [
+    "test_distributed_authority.py",
+    "test_authority_dialogue.py",
+    "test_durable.py",
+    "test_execution_isolation.py",
+    "test_task_context28a.py",
+    "test_task_discovery_scope.py"
+  ],
+  "tests_run": 35,
+  "failures": 0,
+  "errors": 0,
+  "elapsed_s": 0.30337639106437564,
+  "scope": "Software tests only; mocked inference/execution fixtures are NOT operational autonomy evidence."
+}

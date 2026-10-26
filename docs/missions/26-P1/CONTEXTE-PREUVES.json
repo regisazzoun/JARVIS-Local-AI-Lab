@@ -1,0 +1,37 @@
+{
+  "actor": "Codex",
+  "node": "Dell1",
+  "since_epoch": 1793014414,
+  "until_epoch": 1793017613,
+  "method": "Pinned SSH and existing identity_check; read-only actual systemd journal, metadata exported only",
+  "units": [
+    {
+      "unit": "jarvis-ollama-missions.service",
+      "journal_entries": 8402,
+      "generation_http_requests": 106,
+      "explicit_nontruncated_records": 106,
+      "explicit_truncated_records": 0,
+      "memory_or_context_errors": 0,
+      "prompt_cache_evictions": 47,
+      "configured_context_capacity_notes": [
+        "llama_context: n_ctx_seq (24576) < n_ctx_train (262144) -- the full capacity of the model will not be utilized"
+      ],
+      "max_logged_tokens": 18550,
+      "actual_error_excerpts": [],
+      "journal_sha256": "6e4513b44b24f71365bcbaefeb77e90113038edcfd365680fc4e3bfb6501edaa"
+    },
+    {
+      "unit": "jarvis-ollama.service",
+      "journal_entries": 355,
+      "generation_http_requests": 0,
+      "explicit_nontruncated_records": 0,
+      "explicit_truncated_records": 0,
+      "memory_or_context_errors": 0,
+      "prompt_cache_evictions": 0,
+      "configured_context_capacity_notes": [],
+      "max_logged_tokens": 0,
+      "actual_error_excerpts": [],
+      "journal_sha256": "f88d4381dd7405c0f9b4f3ebc94f95574f48aa71edb184ccb74299138838fcb0"
+    }
+  ]
+}

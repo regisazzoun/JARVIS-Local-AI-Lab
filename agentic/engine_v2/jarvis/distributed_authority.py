@@ -97,16 +97,17 @@ class Authority:
   decision=self.decision(a)
   if kind=='analyze':
    ref=str(a.get('reference',''));obs=state['executions'].get(ref)
-   if not obs or obs['issue']!=issue or obs['kind']!='test':raise ValueError('Analyze references an actual test receipt for the same requirement')
+   if not obs or obs.get('issue')!=issue or 'execution' not in obs:raise ValueError('Analyze references an actual executed operation for the same requirement, regardless of its declared phase')
    v['analyzed']=ref;v['analysis']=a['summary'];self.save(state)
-   return {'decision':decision,'analyzed':ref,'test_executed':True,'test_returncode':obs['execution']['returncode'],'failed_cycles':v['failed_cycles']}
+   return {'decision':decision,'analyzed':ref,'execution_analyzed':True,'declared_kind':obs['kind'],'observed_returncode':obs['execution']['returncode'],'failed_cycles':v['failed_cycles']}
   if kind=='accept':
    ref=str(a.get('reference',''));obs=state['executions'].get(ref);source=state['executions'].get(str(a.get('source_reference','')))
    if not obs or obs['issue']!=issue or obs['kind']!='test' or obs['execution']['returncode']!=0 or obs['execution'].get('output_truncated'):
-    raise ValueError('Accept requires an actual passed, untruncated test execution')
+    raise ValueError('Accept requires the EXECUTION reference of an actual passed, untruncated test, not a decision id. Observed tests: '+str([{'reference':k,'executor':r.get('host'),'process_returncode':r['execution']['returncode']} for k,r in state['executions'].items() if r['kind']=='test' and r['issue']==issue][-3:]))
    if obs['before']!=obs['after']:raise ValueError('Test modified tracked files: rerun on a stable version')
    if not source or source['kind']!='correct' or source['host']==obs['host'] or source['after']!=obs['after']:
-    raise ValueError('Independent validation requires source correction on the other Dell and the EXACT full manifest, including tests')
+    raise ValueError('Independent validation requires source_reference of an actual CORRECTION EXECUTION on the other Dell, at EXACT full manifest. Candidates: '+str([{'reference':k,'host':r['host'],'same_manifest':r['after']==obs['after']} for k,r in state['executions'].items() if r.get('kind')=='correct' and r.get('issue')==issue][-3:]))
+   if source['before']==source['after']:raise ValueError('Source correction has no observed file change; a declared correction is not an actual modification')
    current,_=self.remote(obs['host'],"python3 -c "+shlex.quote(RUNNER.replace('COMMAND',repr('true'))))
    fresh=json.loads(current['stdout'])
    if fresh['after']!=obs['after']:raise ValueError('Validator workspace changed since the passed test')
@@ -142,7 +143,7 @@ class Authority:
      v['failed_cycles']+=1;v.pop('pending_correction',None)
      if v['failed_cycles']>=3:self.event('authority_escalation',{'issue':issue,'reason':'Three failed correction/test cycles','state':v},actor='JARVIS-engine')
    # A zero process exit alone never closes a correction cycle; accept does.
-  result={'reference':int(ref),'decision':decision,'executor':host,'test_executed':kind=='test','execution':observed['execution'],'version':version(observed['after']),'files':observed['after'],'reference_usage':'reference is the event ID for analyze, sync.source_reference and accept; version and file hashes are NOT event IDs','failed_cycles':v['failed_cycles'],'next':'analyze actual failure before correcting' if kind=='test' and observed['execution']['returncode'] else 'Qwen decides next action'}
+  result={'reference':int(ref),'decision':decision,'executor':host,'test_executed':kind=='test','execution':observed['execution'],'version':version(observed['after']),'files':observed['after'],'actual_changed_files':[f for f in set(observed['before'])|set(observed['after']) if observed['before'].get(f)!=observed['after'].get(f)],'reference_usage':'reference is the event ID for analyze, sync.source_reference and accept; version and file hashes are NOT event IDs','failed_cycles':v['failed_cycles'],'next':'analyze actual failure before correcting' if kind=='test' and observed['execution']['returncode'] else 'Qwen decides next action'}
   state['operations'][key]['result']=result;self.save(state)
   return result
  def plan(self,a):
@@ -224,3 +225,10 @@ def interface_failure(store, mission, task, name, error):
   store.event(mission,'authority_escalation',task,'JARVIS-engine',result={'reason':'Three comparable interface/delegation refusals','category':category,'count':count,'epoch':epoch})
   return True
  return False
+
+
+def model_view(value):
+ """Keep actionable execution references; audit-only ids remain in SQLite."""
+ if isinstance(value,list):return [model_view(v) for v in value]
+ if not isinstance(value,dict):return value
+ return {k:(int(v) if k in ('reference','source_reference') and isinstance(v,str) and v.isdigit() else model_view(v)) for k,v in value.items() if k not in ('decision','broker_invocation','inference_event')}

@@ -1,6 +1,6 @@
-## Mission26 Phase1 — décision du26octobre2026
+## Mission26 Phase1 — réception du26octobre2026
 
-Mission active : autorité technique Qwen80B et exécution sur Dell1/Dell2. Codex audite et adapte les capacités, Qwen décide fichiers/corrections/tests/exécutants et interprète les résultats. Mac transporte, conserve les preuves et héberge les services. Démonstration isolée, aucun changement JL03, modèles, matériel ou missions historiques. Trois cycles par anomalie, compteurs persistants ; trois refus comparables d’interface, puis suspension documentée. Branche `codex/mission-26-phase1-autorite-distribuee`, aucune fusion main. Ne pas confondre avec la réception historique26 ni anticiper14A/Phase2. [Ordre](docs/missions/26-P1/MISSION.md).
+✅🟡 GO AVEC RÉSERVES pour la chaîne isolée Qwen80B/Dell1 → exécutants Dell1/Dell2. Mission native e26946bff84d4e06ad395b969ffcd72f completed, deux lots reçus, oracle Codex12/12 sur chaque Dell,35 tests logiciels. Ne pas relancer les correctifs reçus. Activation ciblée, mode assurance complet et bascule globale JL03 non qualifiés ; rapports libres encore fragiles, trois textes conservés avec errata. Conserver compteurs et origines Codex/JARVIS. [Réception](docs/missions/26-P1/RAPPORT-FINAL.md), [limites d’utilisation](docs/missions/26-P1/INSTALLATION-UTILISATION.md), PR28, aucune fusion main.14A et Phase2 restent distinctes, aucune autre mission lancée.
 
 ## Mission23D — réception numérique du20 octobre2026
 

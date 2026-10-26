@@ -58,6 +58,22 @@ class GuardTests(unittest.TestCase):
   self.assertEqual(failed['failed_cycles'],1)
   with self.assertRaisesRegex(ValueError,'Analyze'):
    self.x.work({'issue':'Q1','kind':'correct','summary':'unanalysed retry','executor':'Dell2','command':'false','operation_id':'correct-2'})
+ def test_actionable_view_preserves_reference_and_original_audit(self):
+  original={'decision':7,'result':{'reference':'12','source_reference':'9','execution':{'returncode':1,'stderr':'Expected ValueError observed'},'broker_invocation':'private-audit-id'}}
+  view=a.model_view(original)
+  self.assertNotIn('decision',view);self.assertEqual(view['result']['reference'],12)
+  self.assertEqual(view['result']['source_reference'],9)
+  self.assertEqual(view['result']['execution']['returncode'],1)
+  self.assertEqual(original['decision'],7);self.assertIn('broker_invocation',original['result'])
+ def test_declared_correction_without_changed_file_cannot_be_accepted(self):
+  state=self.x.state();state['executions']={'11':{'issue':'Q1','host':'Dell2','kind':'test','execution':{'returncode':0},'before':{'a.py':'A'},'after':{'a.py':'A'}},'10':{'issue':'Q1','kind':'correct','host':'Dell1','before':{'a.py':'A'},'after':{'a.py':'A'}}};self.x.save(state);self.x.remote=Mock()
+  with self.assertRaisesRegex(ValueError,'no observed file change'):
+   self.x.work({'issue':'Q1','kind':'accept','summary':'claimed fix','reference':11,'source_reference':10})
+  self.x.remote.assert_not_called()
+ def test_failed_execution_can_be_analyzed_despite_wrong_declared_phase(self):
+  state=self.x.state();state['executions']['11']={'issue':'Q1','kind':'correct','execution':{'returncode':1}};self.x.save(state)
+  result=self.x.work({'issue':'Q1','kind':'analyze','summary':'Actual failure observed','reference':11})
+  self.assertTrue(result['execution_analyzed']);self.assertEqual(result['declared_kind'],'correct');self.assertEqual(result['observed_returncode'],1)
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):

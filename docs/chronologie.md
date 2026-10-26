@@ -1,6 +1,6 @@
-## 26 octobre 2026 — Mission26 Phase1 lancée
+## 26 octobre 2026 — Mission26 Phase1 reçue avec réserves
 
-Audit du chemin de décision et adaptation opt-in du moteur pour l’autorité technique de Qwen80B sur Dell1 et l’exécution réelle sur les deux Dell. Première correction et premiers tests distants observés ; réception encore en cours. Les incidents d’interface Codex sont journalisés, les rapports historiques restent inchangés. [Dossier](missions/26-P1/MISSION.md).
+Décisions techniques Qwen80B attestées sur Dell1, deux réparations réelles Dell1 et contrôles exacts Dell2. Oracle indépendant Codex12/12 sur chaque Dell ;35 tests logiciels. Nombreuses corrections d’infrastructure et106 inférences ; rapports originaux et rectifications conservés. Activation limitée au contrat de démonstration, généralisation et assurance complète non reçues. [Réception](missions/26-P1/RAPPORT-FINAL.md), PR28 sans fusion. Aucun déclenchement14A ou Phase2.
 
 ## 23 octobre2026 — complément13 double GPU
 
