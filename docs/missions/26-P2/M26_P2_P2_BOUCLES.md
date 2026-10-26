@@ -1,3 +1,13 @@
+## Réception ciblée du26octobre2026 — VALIDÉ AVEC RÉSERVES
+
+Les dix scénarios sont désormais contrôlés indépendamment. [Rapport actuel](M26_P2_RAPPORT_FINAL.md) et [preuves](reception/RECEPTION.json) font référence ; les mentions NON VALIDÉ ci-dessous sont l’historique conservé.
+
+`AttemptLedger` stocke des problèmes au contrat immuable dans les mêmes SQLite et MissionStore ; clé stable par mission/composant, indépendante d’un alias ou du Dell. `AttemptExecutor` observe démarrage, reçu, retour réel et vérification indépendante. Trois corrections non conformes ont consommé trois cycles, y compris quand les commandes renvoyaient0. Les incidents de transport sont séparés. Un résultat inconnu bloque une nouvelle opération, même renommée. Après redémarrage, compteur3 et escalade subsistent ; quatrième dispatch refusé.
+
+Les vérificateurs ont leur propre plafond3. S09 a atteint ce plafond et exigé une assistance Codex explicite, sans effacement des trois essais ni réexécution originale. La réception de la reprise est assortie de cette réserve. Les anciens compteurs de la mission ne sont pas remis à zéro. Le chemin générique d’autorité historique reste hors qualification globale.
+
+---
+
 # P2 — règle des trois boucles
 
 NON VALIDÉ — exécution JARVIS démarrée `3aa717f3887e49daa7daf7e883ee52e4` dans le moteur existant. Le modèle effectif observé est Qwen80B sur Dell1. Copies de source installée sur les deux Dell ; premier plan proposé et conservé par JARVIS.

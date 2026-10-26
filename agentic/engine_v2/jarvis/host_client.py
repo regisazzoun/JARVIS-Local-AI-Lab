@@ -21,15 +21,16 @@ class BrokerError(RuntimeError):
         self.response=response
         super().__init__(json.dumps(response,ensure_ascii=False))
 
-def request(operation,arguments,workload_class=None):
+def request(operation,arguments,workload_class=None,*,_endpoint=None):
     try:
-        return _request(operation,arguments,workload_class)
+        if _endpoint is None:return _request(operation,arguments,workload_class)
+        return _request(operation,arguments,workload_class,_endpoint=_endpoint)
     except OSError as exc:
         raise BrokerError(transport_failure(operation,exc)) from exc
 
-def _request(operation,arguments,workload_class=None):
+def _request(operation,arguments,workload_class=None,*,_endpoint=None):
     with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as s:
-        s.settimeout(660);s.connect(SOCKET)
+        s.settimeout(660);s.connect(_endpoint or SOCKET)
         s.sendall(json.dumps({'operation':operation,'arguments':arguments,'workload_class':workload_class or WORKLOAD_CLASS.get() or os.environ.get('JARVIS_WORKLOAD_CLASS','interactive')}).encode()+b'\n')
         data=b''
         while not data.endswith(b'\n'):

@@ -1,3 +1,7 @@
+## M26-P2 — réception ciblée des dix scénarios
+
+Dix scénarios reçus le26octobre2026 : VALIDÉ AVEC RÉSERVES dans le parcours natif opt-in. S09 a nécessité un contrôle Codex après trois vérifications infructueuses ; ne pas l’attribuer à une autocorrection JARVIS. Sources finales comparées Mac/deuxDell et11 nouveaux testsPASS sur chaque Dell. Ne pas rejouer les cas reçus, effacer compteurs ou conclure à une migration globale. La mission native reste en revue d’intégration ; ancienne liste de tâches non artificiellement clôturée. Registre superviseur `tasks` vide, réception classée dans `received_tasks`, donc aucune relance de ces tests négatifs. P3/P4 non transmises et14A distincte. [Rapport](docs/missions/26-P2/M26_P2_RAPPORT_FINAL.md).
+
 ## M26-P2 — relais de supervision installé
 
 La supervision des escalades P2 réutilise le coordinateur périodique existant, avec unités dédiées `jarvis-m26-p2-supervision.*` et périmètre limité à la mission3aa717f3887e49daa7daf7e883ee52e4. Lire [son fonctionnement](docs/missions/26-P2/SUPERVISION-CODEX.md) avant intervention interactive. Vérifier un passage en cours et utiliser MANUAL-HOLD pour éviter une double intervention ; les passages périodiques détiennent déjà leur verrou et ne créent pas ce marqueur. Aucune réception P2/P3/P4 implicite ; compteurs préservés, trois passages comparables maximum. Les anciennes missions JL03 restent reçues et ne sont pas relancées.

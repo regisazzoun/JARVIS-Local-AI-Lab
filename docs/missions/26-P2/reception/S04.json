@@ -1,0 +1,20 @@
+{
+  "case": "S04",
+  "verifier": "Codex",
+  "status": "VALIDÉ",
+  "no_model_report_used_as_proof": true,
+  "attempt": "cf9b6bad44e24c08b0f5de28376664d4",
+  "executor": "Dell1",
+  "state": "NOT_EXECUTED",
+  "failed_cycles": 0,
+  "infra_incidents": 1,
+  "observed_states": [
+    "PENDING",
+    "DISPATCHED",
+    "NOT_EXECUTED"
+  ],
+  "independent_receipt": "f7eda47f420742bdaa8fd5bc44cb045e",
+  "real_channel_stop_event": 44435,
+  "scope_note": "Real stopped delegated reception channel; production Dell/SSH/broker stayed available",
+  "reception_event": 44446
+}

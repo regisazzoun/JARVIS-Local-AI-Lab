@@ -1,0 +1,20 @@
+{
+  "case": "S10",
+  "verifier": "Codex",
+  "status": "VALIDÉ",
+  "no_model_report_used_as_proof": true,
+  "problem": "5eb7225980903542718c53c067048ffa82c6e547644feb823c80f04a50147a9b",
+  "failed_cycles": 3,
+  "attempts": [
+    "bb25f1c66cca47ac8a1de7ab14fe122f",
+    "1ee854b6fff24d17bae07fda2afbcea3",
+    "39b84a5b2e764af08cd0d30b2b4da412"
+  ],
+  "escalation_event": 44652,
+  "independent_receipts": [
+    "859aaac13e7d4d74adcc8ef034ed7e24",
+    "312af10cf8fa43dca46641113a9d3b26"
+  ],
+  "executions_after_renamed_fourth_request": 3,
+  "reception_event": 44882
+}

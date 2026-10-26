@@ -1,3 +1,15 @@
+## Implémentation reçue dans le parcours ciblé P2
+
+Même `DurableCycle`, même MissionStore, même base `runtime/missions.sqlite`, mêmes workers et broker : deux tables additives `mission_problems_v2` et `mission_attempts_v2`. Aucun second moteur de missions. Le champ propriétaire `spec.p2_reception.active` active les outils ciblés ; ils sont masqués pour les autres missions.
+
+`attempt_ledger.py` : transactions, transitions attestées, contrat immuable, compteur durable, exclusion des doublons en cours/inconnus et plafond3. `attempt_execution.py` : délégation réelle via host_remote, fichiers de démarrage/résultat sur Dell, SHA du reçu, lecture indépendante et vérification sémantique existante. Le code retour du broker n’est jamais assimilé à celui du processus enfant. `p2_reception.py` : décisions du vrai modèle, paquet court par cas, états persistants, restitution des preuves et attente de revue Codex. Les choix de commandes/machines restent dans les appels de Qwen.
+
+Les erreurs de format d’un vérificateur n’autorisent pas une relance de l’action. La reprise conserve la première preuve de comparaison exacte après redémarrage ; les consultations ultérieures référencent cet événement initial, sans prétendre que l’état n’a plus évolué après sa réobservation.
+
+Les fichiers sont installés sur Mac et copiés sur les deux Dell, dont les SHA sont relus. La machine d’inférence reste Dell1 ; le ledger/transport restent sur Mac, les actions applicatives de démonstration sur Dell. L’ancien adaptateur d’autorité n’est pas intégralement migré : réserve essentielle, aucun déploiement général annoncé.
+
+---
+
 # Architecture — état initial
 
 NON VALIDÉ — conception P2 confiée à Qwen80B. Le moteur, MissionStore, broker et SSH existants sont réutilisés ; aucune seconde base de missions ni nouveau moteur d’inférence.

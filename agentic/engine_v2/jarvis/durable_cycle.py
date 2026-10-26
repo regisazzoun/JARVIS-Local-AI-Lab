@@ -225,6 +225,9 @@ class DurableCycle:
         core, store = self.core, self.store
         core.metrics=[]
         ident = mission['id']
+        if json.loads(mission['spec']).get('p2_reception',{}).get('active'):
+            from .p2_reception import run_cycle
+            return run_cycle(core,store,mission)
         from .mission_assurance import enabled, requirements, coverage_state, ensure_plan_review, plan_view, VERSION
         core.tools.mission_store=store
         core.tools.context={'mission_id':ident,'task_id':None}

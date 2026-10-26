@@ -1,3 +1,7 @@
+## Réception ciblée terminée —26octobre2026
+
+Les dix cas P2 sont reçus avec réserves, événement44885. Leur entrée quitte la liste active `tasks` du registre runtime pour `received_tasks`, avec les références de réception et sans effacement des compteurs. Le timer reste actif mais ne relance pas ces cas. La mission native reste en revue d’intégration ; P3/P4 ne sont pas envoyées. Les passages antérieurs ci-dessous restent l’historique. Le marqueur interactif MANUAL-HOLD est retiré après publication et contrôle de la liste vide.
+
 # Supervision persistante des escalades P2
 
 Le moteur arrêtait correctement certaines répétitions, mais aucun relais périodique ne traitait les escalades M26-P2 après le tour interactif Codex. Les workers restaient disponibles alors que la mission était interrupted. Le superviseur déjà installé pour JL03 accepte maintenant une configuration de périmètre ; son comportement et ses unités JL03 restent conservés.

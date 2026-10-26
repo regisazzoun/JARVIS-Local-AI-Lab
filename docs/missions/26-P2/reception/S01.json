@@ -1,0 +1,23 @@
+{
+  "case": "S01",
+  "verifier": "Codex",
+  "status": "VALIDÉ",
+  "no_model_report_used_as_proof": true,
+  "attempt": "634b72097e424405929bb17034edeacb",
+  "executor": "Dell2",
+  "state": "SUCCESS",
+  "failed_cycles": 0,
+  "infra_incidents": 0,
+  "observed_states": [
+    "PENDING",
+    "DISPATCHED",
+    "RUNNING",
+    "SUCCESS"
+  ],
+  "artifact": {
+    "status": "ready",
+    "value": 17
+  },
+  "independent_receipt": "fe1b43048c984265b112d8eb69a1fd03",
+  "reception_event": 44379
+}

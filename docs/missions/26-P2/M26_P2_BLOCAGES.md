@@ -1,3 +1,15 @@
+## Incidents de réception conservés
+
+- S06 : vérificateur contenant des échappements incorrects ; résultat INCONCLUSIVE conservé. Ajout Codex de la réparation du seul vérificateur ; JARVIS produit ensuite une vraie PermissionError, classée INSUFFICIENT.
+- S07 : simple `cat` initial sans critère, donc inconclusif ; Codex raccorde l’évaluateur sémantique existant au contrat attendu, JARVIS réobserve sans réexécution puis produit trois contenus non conformes distincts. Tous FAIL, troisième escaladé.
+- S09 : première comparaison de reprise exacte44682, puis état naturellement modifié par réobservation. Une nouvelle comparaison brute ne peut plus être dite identique ; l’API référence désormais la preuve initiale. Deux vérifications `cat` et une commande mal formée sont conservées. Escalade44826 ; contrôle structuré Codex44846, sans quatrième tentative autonome ni compteur remis à zéro.
+- La limite de vérification pouvait laisser un état RUNNING après lecture d’un résultat déjà terminé. Codex corrige la réattestation de démarrage : résultat connu inconclusif reste inconclusif. Un test de régression le contrôle.
+- Une première installation interactive a rencontré PermissionError sur le fichier protégé ; correction par `sudo install`, sans changement de permissions du service. Rechargements workers ponctuels effectués ; conversation et JL03 préservées.
+
+La réception reste avec réserves, notamment pour la migration globale et l’autonomie de réparation des vérificateurs. Aucun échec ancien n’est supprimé.
+
+---
+
 # Blocages et interventions
 
 - Bootstrap Codex : première sonde Python exécutée mais échouée, NameError dû aux guillemets de la commande. Corrigée par shlex.quote ; sondes suivantes réussies sur les deux Dell. Ce n’est pas un test P2 échoué ni une action JARVIS.

@@ -1,0 +1,25 @@
+{
+  "case": "S05",
+  "verifier": "Codex",
+  "status": "VALIDÉ",
+  "no_model_report_used_as_proof": true,
+  "attempt": "fde56ce0382e480d8b67e3219366a65a",
+  "executor": "Dell1",
+  "state": "VALIDATION_INCONCLUSIVE",
+  "failed_cycles": 0,
+  "infra_incidents": 1,
+  "observed_states": [
+    "PENDING",
+    "DISPATCHED",
+    "RUNNING",
+    "VALIDATION_INCONCLUSIVE"
+  ],
+  "real_response_drop_event": 44457,
+  "independent_duplicate_guard": {
+    "requires_observation": true,
+    "attempt": "fde56ce0382e480d8b67e3219366a65a",
+    "state": "VALIDATION_INCONCLUSIVE",
+    "problem": "b332b20686a980ee954f54c8298fec6f0547c653494302ffa2eb299d4ac15bb4"
+  },
+  "reception_event": 44471
+}

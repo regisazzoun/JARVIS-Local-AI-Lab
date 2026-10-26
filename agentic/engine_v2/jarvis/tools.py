@@ -103,6 +103,8 @@ class Registry:
         register_jl03_assist(self)
         from .distributed_authority import register as register_authority
         register_authority(self)
+        from .p2_reception import register as register_p2_reception
+        register_p2_reception(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):
@@ -217,6 +219,9 @@ class Registry:
                 if declaration.get('type')=='string':declaration['minLength']=1
             if not store.plans(self.context['mission_id']):schema['required']=['tasks','metadata']
             else:schema['required']=['tasks','expected_version','reason']
+        if name=='p2_execute' and getattr(self,'mission_store',None) and self.context.get('mission_id'):
+            cfg=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('p2_reception',{})
+            if cfg.get('case'):schema['properties']['scenario']['enum']=[cfg['case']]
         if name.startswith('authority_') and getattr(self,'mission_store',None) and self.context.get('mission_id'):
             import copy
             schema=copy.deepcopy(schema)
@@ -240,7 +245,7 @@ class Registry:
         return schema
 
     def schemas(self,all_tools=False):
-        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
+        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name.startswith('p2_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('p2_reception',{}).get('active'))) and not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
         start=time.monotonic();start_wall=time.time();result=None
         try:

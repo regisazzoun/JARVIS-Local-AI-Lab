@@ -1,0 +1,40 @@
+{
+  "event": 44884,
+  "checks": [
+    {
+      "executor": "Dell1",
+      "actor": "Codex",
+      "broker_evidence": "b3eb1f4d61c74909a1075ad9aa7c55d3",
+      "source_sha256": {
+        "attempt_ledger.py": "1da15fe818c16f075674a8a29aa2300ef109713989bceb56f224d9c4b6d7fc5d",
+        "attempt_execution.py": "4c3907629956ce37039fc67ffbce6471287f749fac08ae45829651705d92f6d1",
+        "p2_reception.py": "648ec1543c9b3101aab92a45b901f07ba0c161e840fdc6a115269d79b04d61e6",
+        "mission_store.py": "3f8a165d4aa525da2e95516307d010b78e5047ee317e57ccda796b809b3fc52d",
+        "host_client.py": "3d4fcf3f0bf5f319e64caba3e18c9233cff235248cc9c2e9149d1e6427bd933e",
+        "tools.py": "62fdf1d4b81371cc7d156d134c20c59b88fea231d9ded8d48a73db74c27f1dea",
+        "durable_cycle.py": "30be20988f2a5a435c193745a4832133a2673c2200f8d52aa7372cae03b2ce87"
+      },
+      "returncode": 0,
+      "test_output": "test_arbitrary_evidence_does_not_create_success (test_attempt_ledger.LedgerTests.test_arbitrary_evidence_does_not_create_success) ... ok\ntest_code_zero_with_wrong_semantic_value_fails (test_attempt_ledger.LedgerTests.test_code_zero_with_wrong_semantic_value_fails) ... ok\ntest_completed_request_is_idempotent_across_alias (test_attempt_ledger.LedgerTests.test_completed_request_is_idempotent_across_alias) ... ok\ntest_counter_persists_and_renamed_fourth_operation_is_blocked (test_attempt_ledger.LedgerTests.test_counter_persists_and_renamed_fourth_operation_is_blocked) ... ok\ntest_failed_verifier_does_not_mark_completed_action_running_again (test_attempt_ledger.LedgerTests.test_failed_verifier_does_not_mark_completed_action_running_again) ... ok\ntest_infrastructure_failure_does_not_consume_correction_cycle (test_attempt_ledger.LedgerTests.test_infrastructure_failure_does_not_consume_correction_cycle) ... ok\ntest_problem_descriptor_cannot_be_replaced (test_attempt_ledger.LedgerTests.test_problem_descriptor_cannot_be_replaced) ... ok\ntest_running_attempt_prevents_concurrent_second_dispatch (test_attempt_ledger.LedgerTests.test_running_attempt_prevents_concurrent_second_dispatch) ... ok\ntest_success_requires_observed_verification (test_attempt_ledger.LedgerTests.test_success_requires_observed_verification) ... ok\ntest_unknown_result_blocks_new_key_and_different_request (test_attempt_ledger.LedgerTests.test_unknown_result_blocks_new_key_and_different_request) ... ok\ntest_verifier_fourth_call_is_blocked_without_dispatch (test_attempt_ledger.LedgerTests.test_verifier_fourth_call_is_blocked_without_dispatch) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.110s\n\nOK\n",
+      "classification": "software tests on real remote hosts, not autonomous model decisions"
+    },
+    {
+      "executor": "Dell2",
+      "actor": "Codex",
+      "broker_evidence": "e59278fc3e8f4128a6f17d2dd0b7cf80",
+      "source_sha256": {
+        "attempt_ledger.py": "1da15fe818c16f075674a8a29aa2300ef109713989bceb56f224d9c4b6d7fc5d",
+        "attempt_execution.py": "4c3907629956ce37039fc67ffbce6471287f749fac08ae45829651705d92f6d1",
+        "p2_reception.py": "648ec1543c9b3101aab92a45b901f07ba0c161e840fdc6a115269d79b04d61e6",
+        "mission_store.py": "3f8a165d4aa525da2e95516307d010b78e5047ee317e57ccda796b809b3fc52d",
+        "host_client.py": "3d4fcf3f0bf5f319e64caba3e18c9233cff235248cc9c2e9149d1e6427bd933e",
+        "tools.py": "62fdf1d4b81371cc7d156d134c20c59b88fea231d9ded8d48a73db74c27f1dea",
+        "durable_cycle.py": "30be20988f2a5a435c193745a4832133a2673c2200f8d52aa7372cae03b2ce87"
+      },
+      "returncode": 0,
+      "test_output": "test_arbitrary_evidence_does_not_create_success (test_attempt_ledger.LedgerTests.test_arbitrary_evidence_does_not_create_success) ... ok\ntest_code_zero_with_wrong_semantic_value_fails (test_attempt_ledger.LedgerTests.test_code_zero_with_wrong_semantic_value_fails) ... ok\ntest_completed_request_is_idempotent_across_alias (test_attempt_ledger.LedgerTests.test_completed_request_is_idempotent_across_alias) ... ok\ntest_counter_persists_and_renamed_fourth_operation_is_blocked (test_attempt_ledger.LedgerTests.test_counter_persists_and_renamed_fourth_operation_is_blocked) ... ok\ntest_failed_verifier_does_not_mark_completed_action_running_again (test_attempt_ledger.LedgerTests.test_failed_verifier_does_not_mark_completed_action_running_again) ... ok\ntest_infrastructure_failure_does_not_consume_correction_cycle (test_attempt_ledger.LedgerTests.test_infrastructure_failure_does_not_consume_correction_cycle) ... ok\ntest_problem_descriptor_cannot_be_replaced (test_attempt_ledger.LedgerTests.test_problem_descriptor_cannot_be_replaced) ... ok\ntest_running_attempt_prevents_concurrent_second_dispatch (test_attempt_ledger.LedgerTests.test_running_attempt_prevents_concurrent_second_dispatch) ... ok\ntest_success_requires_observed_verification (test_attempt_ledger.LedgerTests.test_success_requires_observed_verification) ... ok\ntest_unknown_result_blocks_new_key_and_different_request (test_attempt_ledger.LedgerTests.test_unknown_result_blocks_new_key_and_different_request) ... ok\ntest_verifier_fourth_call_is_blocked_without_dispatch (test_attempt_ledger.LedgerTests.test_verifier_fourth_call_is_blocked_without_dispatch) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.121s\n\nOK\n",
+      "classification": "software tests on real remote hosts, not autonomous model decisions"
+    }
+  ],
+  "Mac_installed_sources_identical": true
+}

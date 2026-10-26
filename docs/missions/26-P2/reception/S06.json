@@ -1,0 +1,21 @@
+{
+  "case": "S06",
+  "verifier": "Codex",
+  "status": "VALIDÉ",
+  "no_model_report_used_as_proof": true,
+  "attempt": "450b46371afd4b98b2b28af1d2eb82b6",
+  "executor": "Dell2",
+  "state": "VALIDATION_INCONCLUSIVE",
+  "failed_cycles": 0,
+  "infra_incidents": 0,
+  "observed_states": [
+    "PENDING",
+    "DISPATCHED",
+    "RUNNING",
+    "VALIDATION_INCONCLUSIVE",
+    "RUNNING",
+    "VALIDATION_INCONCLUSIVE"
+  ],
+  "independent_receipt": "0d45c284ceef46c2ac7bcbcec7762493",
+  "reception_event": 44523
+}

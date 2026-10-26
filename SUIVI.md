@@ -1,3 +1,7 @@
+## M26-P2 — dix scénarios P2 reçus le26octobre2026
+
+✅🟡 **VALIDÉ AVEC RÉSERVES sur le parcours natif instrumenté.** Neuf scénarios VALIDÉ et repriseS09 VALIDÉ AVEC RÉSERVES : contrôle sémantique réparé par Codex après trois vérifications infructueuses. Trois corrections réelles FAIL déclenchent escalade ; compteurs conservés après redémarrage ; quatrième opération renommée refusée, résultat perdu relu sans doublon.55 tests logiciels locaux ciblés PASS et11 nouveaux tests sur chaque Dell, distincts des opérations JARVIS. [Réception](docs/missions/26-P2/M26_P2_RAPPORT_FINAL.md) · [Dix preuves](docs/missions/26-P2/reception/RECEPTION.json) · [PR29](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/29). Migration globale des chemins historiques non reçue ; mission native en revue d’intégration, Phase2 non clôturée. P3/P4 non transmises ; aucune réception14A.
+
 ## M26-P2 — reprise avec relais périodique des escalades
 
 **NON VALIDÉ — P2 en cours.** Arrêt42889 sur identifiants de preuve corrigé par lecteur typé, sorties complètes SHA et statut de lecture distinct du résultat historique. Superviseur Codex dédié raccordé au moteur existant, contrôle120s et passages bornés, périmètre P2 seul. [Fonctionnement et limites](docs/missions/26-P2/SUPERVISION-CODEX.md). Les4/14PASS sont des preuves du candidat antérieur, pas du candidat actuel. P3/P4 non confiées.
