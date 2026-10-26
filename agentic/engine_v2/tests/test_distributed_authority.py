@@ -104,6 +104,22 @@ class GuardTests(unittest.TestCase):
  def test_new_failure_after_resolution_remains_current(self):
   state={'issues':{'Q1':{'failed_cycles':4,'correction_resolved_through':3,'correction_resolution_event':20,'last_failed_test':'22','analyzed':'22','analysis':'New genuine failure'}},'executions':{'22':{'issue':'Q1','execution':{'returncode':1}}}}
   view=a.working_state(state);self.assertEqual(view['issues']['Q1']['last_failed_test'],'22');self.assertEqual(view['issues']['Q1']['analysis'],'New genuine failure')
+ def test_typed_execution_reader_rejects_uuid_and_foreign_reference(self):
+  for ref in ('c692ca95c62b4d88ac2d0d60ab802faf',999):
+   with self.assertRaisesRegex(ValueError,'not recorded'):self.x.read_execution({'reference':ref})
+ def test_typed_execution_reader_returns_selected_real_lines(self):
+  state=self.x.state();state['executions']['31']={'host':'Dell2','kind':'test','after':{'a.py':'a'*64},'execution':{'returncode':1,'stderr':'first\nsecond\nthird'}};self.x.save(state)
+  r=self.x.read_execution({'reference':31,'start_line':2,'max_lines':1})
+  self.assertEqual(r['content'],'second');self.assertEqual(r['observed_process_returncode'],1);self.assertEqual(r['executor'],'Dell2');self.assertEqual(r['total_lines'],3)
+ def test_reading_failed_process_is_successful_registry_read(self):
+  from jarvis.tools import Registry
+  from jarvis.memory import Memory
+  with tempfile.TemporaryDirectory() as root:
+   reg=Registry.__new__(Registry);reg.root=Path(root);reg.memory=Memory(Path(root)/'memory.sqlite');reg.context={'mission_id':'real'};reg.config={};reg.specs={};reg.mission_store=self.s
+   a.register(reg)
+   state=self.x.state();state['executions']['31']={'host':'Dell2','kind':'test','after':{'a.py':'a'*64},'execution':{'returncode':1,'stderr':'Actual failure'}};self.x.save(state)
+   result=reg.execute('authority_read_execution',{'reference':31})
+   self.assertTrue(result['ok'],result);self.assertEqual(result['result']['observed_process_returncode'],1);self.assertEqual(result['result']['content'],'Actual failure')
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):

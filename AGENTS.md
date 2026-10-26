@@ -1,3 +1,7 @@
+## M26-P2 — relais de supervision installé
+
+La supervision des escalades P2 réutilise le coordinateur périodique existant, avec unités dédiées `jarvis-m26-p2-supervision.*` et périmètre limité à la mission3aa717f3887e49daa7daf7e883ee52e4. Lire [son fonctionnement](docs/missions/26-P2/SUPERVISION-CODEX.md) avant intervention interactive. Vérifier un passage en cours et utiliser MANUAL-HOLD pour éviter une double intervention ; les passages périodiques détiennent déjà leur verrou et ne créent pas ce marqueur. Aucune réception P2/P3/P4 implicite ; compteurs préservés, trois passages comparables maximum. Les anciennes missions JL03 restent reçues et ne sont pas relancées.
+
 ## Mission26 Phase2 — lancement du26octobre2026
 
 Mission M26-P2 lancée par le propriétaire : P2 boucles, puis P3 contexte, puis P4 code réel. Ne transmettre à JARVIS qu’une priorité à la fois, attendre réception avant suivante. Qwen80B décide et répartit les opérations réelles sur les deux Dell ; Codex audite, reçoit et traite les escalades. Conserver preuves et compteurs, ne pas reprendre automatiquement les correctifs Phase1 reçus. Pas de nouveau modèle ou chantier matériel, pas de fusion main. Nouvelle branche codex/mission-26-phase2-boucles-contexte-code-reel basée sur ba659f7/PR28. Les anciennes mentions Phase2 non lancée sont désormais historiques.

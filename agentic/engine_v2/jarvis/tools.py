@@ -222,6 +222,10 @@ class Registry:
             schema=copy.deepcopy(schema)
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
+            if name=='authority_read_execution':
+                from .distributed_authority import Authority
+                references=[int(ref) for ref in Authority(self).state().get('executions',{})]
+                if references:schema['properties']['reference']['enum']=references
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
 
         return schema

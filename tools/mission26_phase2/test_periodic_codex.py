@@ -1,0 +1,30 @@
+import importlib.util, pathlib, tempfile, unittest, json, io
+from contextlib import redirect_stdout
+from unittest.mock import patch, Mock
+from jarvis.mission_store import MissionStore
+spec=importlib.util.spec_from_file_location('periodic_codex',pathlib.Path(__file__).with_name('periodic_codex.py'))
+p=importlib.util.module_from_spec(spec);spec.loader.exec_module(p)
+class CoordinationTests(unittest.TestCase):
+ def test_condition_key_ignores_result_and_new_session(self):
+  with patch.object(p,'CONFIG',{'scope':'M26-P2'}):
+   one=[{'task':'P2','mission':'same','condition':'proof-id','state':'interrupted','result':{'id':'first'}}]
+   two=[{'task':'P2','mission':'same','condition':'proof-id','state':'waiting_external','result':{'id':'renamed'}}]
+   self.assertEqual(p.condition_key(one),p.condition_key(two))
+   two[0]['condition']='different-technical-cause';self.assertNotEqual(p.condition_key(one),p.condition_key(two))
+ def test_three_passages_then_stop_survives_private_state_loss(self):
+  with tempfile.TemporaryDirectory() as root:
+   root=pathlib.Path(root);store=MissionStore(root);mission=store.create('fixture','model','conv');store.transition(mission,'interrupted')
+   private=root/'private';private.mkdir();(private/'PROMPT.md').write_text('Unit fixture; process is mocked, not actual autonomy')
+   registry=root/'registry.json';registry.write_text(json.dumps({'tasks':[{'id':'P2','mission_id':mission}]}))
+   process=Mock(returncode=0);process.communicate.return_value=None
+   with patch.multiple(p,ROOT=str(root),PRIVATE=private,REGISTER=registry,REPO=str(root),ALLOWED_TASKS={'P2'},CONFIG={'allowed_mission_ids':[mission]}),patch.object(p.subprocess,'Popen',return_value=process) as spawn,redirect_stdout(io.StringIO()):
+    for _ in range(4):p.main()
+    self.assertEqual(spawn.call_count,3);self.assertEqual(json.loads((private/'STATE.json').read_text())['status'],'COORDINATOR_BOUNDED_STOP')
+    (private/'STATE.json').unlink();p.main();self.assertEqual(spawn.call_count,3)
+   events=[e for e in store.events(mission) if e['kind']=='coordinator_periodic_started'];self.assertEqual([e['result']['attempt'] for e in events],[1,2,3]);self.assertEqual(len([e for e in store.events(mission) if e['kind']=='coordinator_bounded_stop']),1)
+ def test_out_of_scope_mission_is_never_dispatched(self):
+  with tempfile.TemporaryDirectory() as root:
+   root=pathlib.Path(root);store=MissionStore(root);mission=store.create('fixture','model','conv');store.transition(mission,'interrupted')
+   private=root/'private';private.mkdir();registry=root/'registry.json';registry.write_text(json.dumps({'tasks':[{'id':'P2','mission_id':mission}]}))
+   with patch.multiple(p,ROOT=str(root),PRIVATE=private,REGISTER=registry,REPO=str(root),ALLOWED_TASKS={'P2'},CONFIG={'allowed_mission_ids':['some-other-mission']}),patch.object(p.subprocess,'Popen') as spawn,redirect_stdout(io.StringIO()):
+    p.main();spawn.assert_not_called()

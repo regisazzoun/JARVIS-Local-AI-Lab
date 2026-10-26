@@ -13,7 +13,7 @@ PROJECT = 'mission26-phase1'
 ROOT = '/opt/jarvis-lab/mission26-phase1'
 LOCAL = Path('/var/lib/jarvis/projects/mission26-phase1')
 HOSTS = {'Dell1': 'dell-observe', 'Dell2': 'dell2'}
-TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_analyze']
+TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_analyze', 'authority_read_execution']
 
 # This observer is infrastructure, not an application test. Commands are model supplied.
 RUNNER = r'''
@@ -160,6 +160,20 @@ class Authority:
     observed['execution'][field]=text[:1500]+'\n[EXCERPT; complete immutable receipt at full_receipt]\n'+text[-500:]
     observed['execution'][field+'_model_excerpt']=True
   return observed,call
+ def read_execution(self,a):
+  reference=str(a['reference']);entry=self.state().get('executions',{}).get(reference)
+  if not entry:raise ValueError('Execution reference is not recorded in this mission')
+  execution=entry['execution'];complete=not execution.get('output_truncated') and not execution.get('stdout_model_excerpt')
+  receipt=entry.get('full_receipt')
+  if receipt:
+   path=Path(receipt['local']).resolve()
+   if not path.is_relative_to((self.local/'receipts'/self.m).resolve()):raise ValueError('Receipt path outside this mission')
+   data=path.read_bytes()
+   if hashlib.sha256(data).hexdigest()!=receipt['sha256']:raise ValueError('Receipt digest changed')
+   execution=json.loads(data)['execution'];complete=not execution.get('output_truncated')
+  stream=a.get('stream','stderr');lines=execution.get(stream,'').splitlines();start=a.get('start_line',1)-1
+  content='\n'.join(lines[start:start+a.get('max_lines',40)])
+  return {'reference':int(reference),'executor':entry['host'],'kind':entry['kind'],'observed_process_returncode':execution['returncode'],'stream':stream,'start_line':start+1,'content':content[:8000],'total_lines':len(lines),'source_complete':complete,'excerpt_truncated':len(content)>8000,'source_version':version(entry['after']),'full_receipt':receipt}
  def analyze_latest(self,a):
   issue=self.state().get('issues',{}).get(a['issue'],{})
   reference=issue.get('last_failed_test')
@@ -299,6 +313,7 @@ def register(reg):
  initial=reg.specs['authority_plan']
  reg.specs['authority_revise_plan']=('GLOBAL plan revision ONLY when dependencies or owner coverage genuinely change. Not for recording analysis or a new command: use authority_work/analyze. Supply ALL work packages covering ALL owner criteria and expected_version=current plan_version. Received tasks immutable.',initial[1],['steps','expected_version','reason'],initial[3],initial[4])
  add('authority_work','YOUR decision then actual Dell execution. inspect/correct/test: choose executor, command, summary. analyze: reference actual failed test + summary/hypothesis. accept: reference passed test and source_reference correction on OTHER host at EXACT manifest. Commands run in the mission-declared authorized project root. Counts persist per issue. Outputs include execution returncode distinct from tool transport success.',{'issue':issue,'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'summary':text,'operation_id':text,'executor':{'type':'string','enum':list(HOSTS)},'command':text,'reference':reference,'source_reference':reference},['issue','kind','summary','operation_id'],'work')
+ add('authority_read_execution','Read actual stdout/stderr of an execution in THIS mission, using its numeric execution reference. Not a UUID, receipt filename, model decision or broker id. Reads complete SHA-checked receipt when available; select line window to avoid repeated full-file excerpts.',{'reference':reference,'stream':{'type':'string','enum':['stdout','stderr']},'start_line':{'type':'integer','minimum':1},'max_lines':{'type':'integer','minimum':1,'maximum':80}},['reference'],'read_execution')
  add('authority_analyze','Record YOUR technical diagnosis of the latest observed failed test for this issue. The engine attaches its exact existing execution reference automatically. No command is run. Use before the next correction; do not send a shell command or guess an event number.',{'issue':issue,'summary':text},['issue','summary'],'analyze_latest')
  add('authority_edit','Apply YOUR literal source edits on a chosen Dell, with real before/after receipts. File contents are data, not a shell script. Existing file: old must match exactly once; new replaces it. New file: old=null, new is complete file content, target must not exist. No tests are implicitly run. Same correction counters and idempotency as authority_work. Never recopy a whole existing class to replace the application.',{'issue':issue,'executor':{'type':'string','enum':list(HOSTS)},'summary':text,'operation_id':text,'edits':{'type':'array','minItems':1,'maxItems':8,'items':{'type':'object','required':['path','old','new'],'properties':{'path':{'type':'string','minLength':1},'old':{'type':['string','null']},'new':{'type':'string'}},'additionalProperties':False}}},['issue','executor','summary','operation_id','edits'],'edit')
  add('authority_sync','YOUR explicit one-way synchronization strategy. Choose files, source, destination and source_reference latest observed source execution. SHA checked; no implicit merge. Include tests so peer validates exact version.',{'issue':issue,'source':{'type':'string','enum':list(HOSTS)},'destination':{'type':'string','enum':list(HOSTS)},'files':{'type':'array','items':text},'source_reference':reference,'summary':text},['issue','source','destination','files','source_reference','summary'],'sync')

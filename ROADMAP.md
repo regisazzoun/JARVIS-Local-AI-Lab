@@ -1,3 +1,7 @@
+## M26-P2 — reprise avec relais périodique des escalades
+
+**NON VALIDÉ — P2 en cours.** Arrêt42889 sur identifiants de preuve corrigé par lecteur typé, sorties complètes SHA et statut de lecture distinct du résultat historique. Superviseur Codex dédié raccordé au moteur existant, contrôle120s et passages bornés, périmètre P2 seul. [Fonctionnement et limites](docs/missions/26-P2/SUPERVISION-CODEX.md). Les4/14PASS sont des preuves du candidat antérieur, pas du candidat actuel. P3/P4 non confiées.
+
 ## M26-P2 — déblocage de l’édition et reprise P2
 
 **NON VALIDÉ — reprise après intervention Codex.** Qwen a modifié le vrai code candidat surDell1 ; réparation ponctuelle du saut de ligne parCodex après3échecs, conservés. Vérification JARVIS4PASS Dell1 et14PASS Dell2. Oracle indépendantFAIL : SUCCESS sans preuve encore accepté ; correction suivante transmise, réceptionP2 non prononcée. [Preuves](docs/missions/26-P2/PREUVES-DEBLOCAGE.json). P3/P4 non confiées.
