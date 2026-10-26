@@ -1,0 +1,42 @@
+{
+  "observed_at": 1793016981.274634,
+  "policy_delta": "Only isolated project profiles on Dell1/Dell2 and local report write root added. No change to existing SSH identities, services, models, resources, repositories, other projects or grants.",
+  "installed_source_sha256": {
+    "tools.py": "02f9f9acefd71db2a4db99351e374634640164ecef69154020717b3ee3f637fa",
+    "durable_cycle.py": "3b3d39d382b41485411f591e54b01078ab8a9f522e039f4088ca45bf751a8df4",
+    "distributed_authority.py": "2cfa53ab01570f84f5564f4e3ee7e0e6bdc951c2630d8f06e5cd2861db2239ad",
+    "jl03_assist.py": "0cb4cf163ca8248e45af515750388e18bc2bf45f1d8d787d732c5986bb0b04cc"
+  },
+  "services": {
+    "jarvis-conversation.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Sun 2026-10-25 22:02:38 CET"
+    },
+    "jarvis-launcher3.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Mon 2026-10-26 03:31:39 CET"
+    },
+    "jarvis-host-bridge.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Sat 2026-10-24 02:27:46 CEST"
+    },
+    "jarvis-mission-worker.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Mon 2026-10-26 13:10:19 CET"
+    },
+    "jarvis-mission-worker@2.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "ActiveEnterTimestamp": "Mon 2026-10-26 13:10:18 CET"
+    }
+  },
+  "old_jl03_missions": {
+    "16087a18f86d42b7b79296bc93b3a754": "completed",
+    "4b96e63671e1458ba93300a0e7980e2f": "completed",
+    "c5b81d7fa78f4fa7a5c495f30eee741e": "completed"
+  }
+}

@@ -1,3 +1,7 @@
+## 26 octobre 2026 — Mission26 Phase1 reçue avec réserves
+
+Décisions techniques Qwen80B attestées sur Dell1, deux réparations réelles Dell1 et contrôles exacts Dell2. Oracle indépendant Codex12/12 sur chaque Dell ;35 tests logiciels. Nombreuses corrections d’infrastructure et106 inférences ; rapports originaux et rectifications conservés. Activation limitée au contrat de démonstration, généralisation et assurance complète non reçues. [Réception](missions/26-P1/RAPPORT-FINAL.md), PR28 sans fusion. Aucun déclenchement14A ou Phase2.
+
 ## 23 octobre2026 — complément13 double GPU
 
 DeuxRTX3090 DellOEM reconnues et petit calcul CUDA correct sur chacune par JARVIS. Câblage/puissance non qualifiés, pas de nouvel essai d’inférence double ni changement de pilote/service. [Réception partielle](missions/13-extension-gpu/RAPPORT-FINAL.md). TTS-01 suspendue, aucune clôture14A ou reprise26B.

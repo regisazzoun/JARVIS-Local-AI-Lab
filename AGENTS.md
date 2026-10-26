@@ -1,3 +1,7 @@
+## Mission26 Phase1 — réception du26octobre2026
+
+✅🟡 GO AVEC RÉSERVES pour la chaîne isolée Qwen80B/Dell1 → exécutants Dell1/Dell2. Mission native e26946bff84d4e06ad395b969ffcd72f completed, deux lots reçus, oracle Codex12/12 sur chaque Dell,35 tests logiciels. Ne pas relancer les correctifs reçus. Activation ciblée, mode assurance complet et bascule globale JL03 non qualifiés ; rapports libres encore fragiles, trois textes conservés avec errata. Conserver compteurs et origines Codex/JARVIS. [Réception](docs/missions/26-P1/RAPPORT-FINAL.md), [limites d’utilisation](docs/missions/26-P1/INSTALLATION-UTILISATION.md), PR28, aucune fusion main.14A et Phase2 restent distinctes, aucune autre mission lancée.
+
 ## Mission23D — réception numérique du20 octobre2026
 
 ✅🟡 **GO numérique avec réserves acoustiques, STT et d’autonomie.** Banc LiveKit et page temporaire réellement exécutés par JARVIS avec outils/corrections Codex. Six exécutions initiales conservées ; après correction du warmup AEC, trois interruptions mesurées à0,727 /0,559 /0,717s (seuil≤1s). Stop actif navigateur0,6ms, exports JSON/audio et contrôle d’annulation reçus. Le microphone/écho physique reste non testé ; une erreur de transcription du jour initial est documentée. [Réception finale23D](docs/missions/23D/RAPPORT-FINAL.md) · [Utilisation](docs/missions/23D/UTILISATION.md).

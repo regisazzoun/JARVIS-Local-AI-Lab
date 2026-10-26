@@ -1,0 +1,164 @@
+{
+  "received_at": 1793018206.6215186,
+  "actor": "Codex independent reception",
+  "mission": "e26946bff84d4e06ad395b969ffcd72f",
+  "verdict": "GO_AVEC_RESERVES",
+  "display_status": "✅🟡 GO AVEC RÉSERVES",
+  "scope": "Model authority and actual distributed execution demonstrated on the isolated mission26-phase1 project. Not a global JL03 rollout or general-autonomy reception.",
+  "native_state": "completed",
+  "criteria": [
+    {
+      "id": "decision_path",
+      "status": "GO",
+      "proofs": [
+        "AUDIT-INITIAL.md",
+        "AUDIT-PREUVES.json"
+      ]
+    },
+    {
+      "id": "qwen_decisions",
+      "status": "GO",
+      "proofs": [
+        "event:39839",
+        "event:40287",
+        "inference_finished"
+      ]
+    },
+    {
+      "id": "mac_orchestration_scoped",
+      "status": "GO",
+      "proofs": [
+        "MATRICE-REPARTITION.md",
+        "No host_exec or host_edit_file in this mission"
+      ]
+    },
+    {
+      "id": "dell1_modify_test",
+      "status": "GO",
+      "proofs": [
+        "event:39844",
+        "event:40292",
+        "event:40305"
+      ]
+    },
+    {
+      "id": "dell2_real_execution",
+      "status": "GO",
+      "proofs": [
+        "event:40117",
+        "event:40357"
+      ]
+    },
+    {
+      "id": "model_chooses_executors",
+      "status": "GO",
+      "proofs": [
+        "authority_model_decision instruction.executor",
+        "event:40321"
+      ]
+    },
+    {
+      "id": "observations_returned",
+      "status": "GO",
+      "proofs": [
+        "event:40088",
+        "event:40112",
+        "tool_receipts"
+      ]
+    },
+    {
+      "id": "model_interprets_failure",
+      "status": "GO",
+      "proofs": [
+        "event:39866",
+        "event:40112",
+        "event:40271",
+        "event:40287"
+      ]
+    },
+    {
+      "id": "independent_exact_version",
+      "status": "GO",
+      "proofs": [
+        "event:40167",
+        "event:40383",
+        "VERIFICATION-INDEPENDANTE.json"
+      ]
+    },
+    {
+      "id": "executor_identity",
+      "status": "GO",
+      "proofs": [
+        "existing pinned SSH and identity_check",
+        "event:40315"
+      ]
+    },
+    {
+      "id": "three_cycle_guard",
+      "status": "GO_AVEC_RESERVES",
+      "proofs": [
+        "TESTS-LOGICIELS.json",
+        "authority_escalation",
+        "initial five format failures retained"
+      ]
+    },
+    {
+      "id": "services_preserved",
+      "status": "GO",
+      "proofs": [
+        "INSTALLATION-PREUVES.json"
+      ]
+    },
+    {
+      "id": "proofs_retained",
+      "status": "GO",
+      "proofs": [
+        "PREUVES-JARVIS.json",
+        "RAPPORTS-JARVIS",
+        "ERRATA-RAPPORTS.md"
+      ]
+    }
+  ],
+  "independent_behavior": {
+    "Dell1": {
+      "pass": 12,
+      "fail": 0
+    },
+    "Dell2": {
+      "pass": 12,
+      "fail": 0
+    }
+  },
+  "software_tests": {
+    "run": 35,
+    "failures": 0,
+    "errors": 0
+  },
+  "inference_node": "Dell1",
+  "effective_model": "qwen3-coder-next:q4_K_M",
+  "integration": {
+    "opt_in": true,
+    "legacy_autonomous_assurance_mode_qualified": false,
+    "global_JL03_default_rollout": false
+  },
+  "major_reservations": [
+    "Substantial Codex infrastructure assistance;106 inferences for two small defects",
+    "Free reports remain imperfect after three drafts; originals and Codex errata retained",
+    "Initial five planning format refusals exceeded limit before guard fix",
+    "Test adequacy requires independent semantic oracle, beyond command success and version gate",
+    "Generic workspace rollout and native assurance integration not received"
+  ],
+  "unchanged_existing_sources_sha256": {
+    "host_client.py": "41aa534a6a94412fd3f3a0a0e8e446761411bee07c4b66d6765a70022d68a3f8",
+    "durable_tools.py": "172e73fa0962111d7eccde5320fee398877bd9381f7201be49ee91e9c71675a1",
+    "mission_store.py": "4c1e36d1d218500975d03a4dd0f4afbfe72f31abba5c3e6b765db5c7f7128edc",
+    "compute.py": "e3c9ac072964293547240d4ec36c3993e17b35869b4ee0f93ef2886d1784eed1",
+    "jl03_assist.py": "0cb4cf163ca8248e45af515750388e18bc2bf45f1d8d787d732c5986bb0b04cc",
+    "worker.py": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5"
+  },
+  "mission14A_closed": false,
+  "phase2_started": false,
+  "other_missions_started": false,
+  "github_pr": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/28",
+  "canonical_reception_event": 40439
+}

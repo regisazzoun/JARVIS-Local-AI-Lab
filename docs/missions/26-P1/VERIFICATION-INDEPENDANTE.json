@@ -1,0 +1,221 @@
+{
+  "actor": "Codex independent reception",
+  "mission": "e26946bff84d4e06ad395b969ffcd72f",
+  "oracle": [
+    {
+      "actor": "Codex",
+      "host": "dell-observe",
+      "broker_evidence": "356cb4e39f52477bae14c4c9827880eb",
+      "observation": {
+        "before": {
+          "README.md": "66ab5154a3e137431ab44b8037e508c6c37aba75b55b5467d46a47884f3bcadc",
+          "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+          "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+          "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+        },
+        "after": {
+          "README.md": "66ab5154a3e137431ab44b8037e508c6c37aba75b55b5467d46a47884f3bcadc",
+          "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+          "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+          "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+        },
+        "execution": {
+          "returncode": 0,
+          "stdout": "{\"actor\": \"Codex independent acceptance\", \"checks\": [{\"name\": \"Q1-valid-0\", \"status\": \"PASS\"}, {\"name\": \"Q1-valid-1\", \"status\": \"PASS\"}, {\"name\": \"Q1-valid-1000000000000\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-missing\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-bool-true\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-bool-false\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-string\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-negative\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-float\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-null\", \"status\": \"PASS\"}, {\"name\": \"Q2-properties-order-labels-no-mutation\", \"status\": \"PASS\"}, {\"name\": \"Q2-empty\", \"status\": \"PASS\"}], \"pass\": 12, \"fail\": 0, \"source_files\": {\"labtool/__init__.py\": \"584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79\", \"labtool/buckets.py\": \"b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730\", \"labtool/codec.py\": \"7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6\"}}\n",
+          "stderr": "",
+          "output_truncated": false
+        },
+        "limits": {
+          "nice": 10,
+          "cpu_cores": 2,
+          "memory_gib": 4,
+          "wall_seconds": 45,
+          "gpu": false
+        }
+      },
+      "behavior": {
+        "actor": "Codex independent acceptance",
+        "checks": [
+          {
+            "name": "Q1-valid-0",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-valid-1",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-valid-1000000000000",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-missing",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-bool-true",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-bool-false",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-string",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-negative",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-float",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-null",
+            "status": "PASS"
+          },
+          {
+            "name": "Q2-properties-order-labels-no-mutation",
+            "status": "PASS"
+          },
+          {
+            "name": "Q2-empty",
+            "status": "PASS"
+          }
+        ],
+        "pass": 12,
+        "fail": 0,
+        "source_files": {
+          "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+          "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+          "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+        }
+      }
+    },
+    {
+      "actor": "Codex",
+      "host": "dell2",
+      "broker_evidence": "3ef47086c05a46e3a86ac4a0c7f37e04",
+      "observation": {
+        "before": {
+          "README.md": "66ab5154a3e137431ab44b8037e508c6c37aba75b55b5467d46a47884f3bcadc",
+          "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+          "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+          "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+        },
+        "after": {
+          "README.md": "66ab5154a3e137431ab44b8037e508c6c37aba75b55b5467d46a47884f3bcadc",
+          "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+          "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+          "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+        },
+        "execution": {
+          "returncode": 0,
+          "stdout": "{\"actor\": \"Codex independent acceptance\", \"checks\": [{\"name\": \"Q1-valid-0\", \"status\": \"PASS\"}, {\"name\": \"Q1-valid-1\", \"status\": \"PASS\"}, {\"name\": \"Q1-valid-1000000000000\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-missing\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-bool-true\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-bool-false\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-string\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-negative\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-float\", \"status\": \"PASS\"}, {\"name\": \"Q1-invalid-null\", \"status\": \"PASS\"}, {\"name\": \"Q2-properties-order-labels-no-mutation\", \"status\": \"PASS\"}, {\"name\": \"Q2-empty\", \"status\": \"PASS\"}], \"pass\": 12, \"fail\": 0, \"source_files\": {\"labtool/__init__.py\": \"584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79\", \"labtool/buckets.py\": \"b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730\", \"labtool/codec.py\": \"7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6\"}}\n",
+          "stderr": "",
+          "output_truncated": false
+        },
+        "limits": {
+          "nice": 10,
+          "cpu_cores": 2,
+          "memory_gib": 4,
+          "wall_seconds": 45,
+          "gpu": false
+        }
+      },
+      "behavior": {
+        "actor": "Codex independent acceptance",
+        "checks": [
+          {
+            "name": "Q1-valid-0",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-valid-1",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-valid-1000000000000",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-missing",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-bool-true",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-bool-false",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-string",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-negative",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-float",
+            "status": "PASS"
+          },
+          {
+            "name": "Q1-invalid-null",
+            "status": "PASS"
+          },
+          {
+            "name": "Q2-properties-order-labels-no-mutation",
+            "status": "PASS"
+          },
+          {
+            "name": "Q2-empty",
+            "status": "PASS"
+          }
+        ],
+        "pass": 12,
+        "fail": 0,
+        "source_files": {
+          "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+          "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+          "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+        }
+      }
+    }
+  ],
+  "source_capture": [
+    {
+      "host": "dell-observe",
+      "broker_evidence": "435de57c7b3944c19fe9bc6b48e88e26",
+      "files": {
+        "labtool/__init__.py": "from .codec import normalize\nfrom .buckets import group_entries\n",
+        "labtool/buckets.py": "def group_entries(rows):\n    result = {}\n    for row in rows:\n        label = row.copy().pop('label')\n        result.setdefault(label, []).append(row)\n    return result\n",
+        "labtool/codec.py": "def normalize(payload):\n    if 'count' not in payload:\n        raise ValueError(\"count is required\")\n    value = payload['count']\n    if isinstance(value, bool) or not isinstance(value, int):\n        raise ValueError(\"count must be a strict integer\")\n    if value < 0:\n        raise ValueError(\"count must be >= 0\")\n    result = payload.copy()\n    result['count'] = value\n    return result\n"
+      },
+      "hashes": {
+        "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+        "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+        "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+      }
+    },
+    {
+      "host": "dell2",
+      "broker_evidence": "5741864ed60c441183e4881f9cf7b778",
+      "files": {
+        "labtool/__init__.py": "from .codec import normalize\nfrom .buckets import group_entries\n",
+        "labtool/buckets.py": "def group_entries(rows):\n    result = {}\n    for row in rows:\n        label = row.copy().pop('label')\n        result.setdefault(label, []).append(row)\n    return result\n",
+        "labtool/codec.py": "def normalize(payload):\n    if 'count' not in payload:\n        raise ValueError(\"count is required\")\n    value = payload['count']\n    if isinstance(value, bool) or not isinstance(value, int):\n        raise ValueError(\"count must be a strict integer\")\n    if value < 0:\n        raise ValueError(\"count must be >= 0\")\n    result = payload.copy()\n    result['count'] = value\n    return result\n"
+      },
+      "hashes": {
+        "labtool/__init__.py": "584eb269b945427fae9bc347e2190255a41d0789c650066109a627d119beac79",
+        "labtool/buckets.py": "b23c8d2a7114f082ffc6724c0f6b394a0431f9dbaf10a4a6fa455247ae728730",
+        "labtool/codec.py": "7c20488f5185762faf4567c6d65bfba0955af9cf1ef23f9d536fc634f9e336e6"
+      }
+    }
+  ],
+  "identities": "Each broker project_exec verifies existing pinned SSH host key and configured identity_check before execution (host_bridge.py). No host identity or credential changed."
+}

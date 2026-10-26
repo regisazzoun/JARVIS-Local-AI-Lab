@@ -2225,5 +2225,30 @@
     ],
     "prochaine_action": "Consolider le rapprochement du plan et des preuves ; éventuelle correction matérielle distincte pour atteindre2×3090, sans changement de routage",
     "derniere_actualisation": "2026-10-25"
+  },
+  {
+    "identifiant": "26-P1",
+    "nom": "Autorité technique Qwen80B et exécution distribuée",
+    "fonction_principale": "Décision du modèle et exécution sur les deux Dell",
+    "objectifs": "Audit, délégation réelle, tests et validation indépendante à version exacte",
+    "materiel": "Mac mini orchestration, Dell1 inférence Qwen80B/exécuteur, Dell2 exécuteur",
+    "composants": "MissionStore existant, broker SSH, outils authority_* opt-in",
+    "executant_reel": "Codex infrastructure/contrôle indépendant ; Qwen décisions et commandes distantes",
+    "documents_sources": [
+      {
+        "path": "docs/missions/26-P1/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/28"
+      },
+      {
+        "path": "docs/missions/26-P1/RECEPTION.json",
+        "url": ""
+      }
+    ],
+    "etat": "GO avec réserves — chaîne distribuée reçue dans un projet isolé",
+    "resultats_prouves": "Qwen80B choisit sources, correctifs, tests et hôtes ; deux modifications réelles Dell1 et validations exactes Dell2 ; deux lots validated ; oracle Codex12/12 par Dell ;35 tests logiciels",
+    "reserves": "Activation ciblée ; intégration complète autonomous/assurance et défaut global JL03 non reçus ; assistance infrastructure importante,106 inférences ; rapports libres encore imparfaits, dépassement initial de format conservé",
+    "dependances": "Acquis26/26B,28A et JL03 préservés",
+    "prochaine_action": "Traiter les réserves d’intégration, contexte et restitution ;14A distincte et non déclenchée",
+    "derniere_actualisation": "2026-10-26"
   }
 ]
