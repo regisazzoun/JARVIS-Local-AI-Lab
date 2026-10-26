@@ -1,3 +1,7 @@
+## M26-P2 — blocage constaté après reprises bornées
+
+**BLOQUÉ, mission non clôturée.** Escalade42375, trois collisions d’identifiant ; diagnostic Codex amélioré, mais aucun incrément source P2 reçu après les reprises. Workers disponibles, mission interrupted ; ne pas confondre disponibilité et activité. [Dossier](docs/missions/26-P2/ESCALADE-INACTIVITE.json). P3/P4 non transmises.
+
 ## M26-P2 — Phase2 lancée le26octobre2026
 
 🟡 **NON VALIDÉ — en cours.** P2 seule transmise à Qwen80B ; mission native `3aa717f3887e49daa7daf7e883ee52e4`. Les copies de code installé sont sur les deux Dell. Trois incidents de reçu tronqué ont entraîné un arrêt et une escalade ; Codex a réparé le transport, vérifié deux sorties réelles40001caractères, conservé le compteur3 et rendu la main. P3 et P4 ne sont pas transmises. [Audit](docs/missions/26-P2/M26_P2_AUDIT_INITIAL.md) · [Suivi](docs/missions/26-P2/M26_P2_RAPPORT_FINAL.md). Aucune réception anticipée, aucun autre chantier lancé.
