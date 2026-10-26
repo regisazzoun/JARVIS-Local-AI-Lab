@@ -43,7 +43,7 @@ def main():
         statefile = PRIVATE/'STATE.json'
         saved = json.loads(statefile.read_text()) if statefile.exists() else {'attempts':{}}
         if not attention:
-            saved.update(checked_at=time.time(),status='WATCHING_NO_INTERVENTION_NEEDED')
+            saved.update(checked_at=time.time(),status='WATCHING_NO_INTERVENTION_NEEDED',attention=[],unresolved=[],scope_note='No current intervention needed; attempts and last passage result are historical and retained')
             statefile.write_text(json.dumps(saved,ensure_ascii=False,indent=2)+'\n')
             print('Watching: native work progressing or reviewed resume already queued.')
             return
