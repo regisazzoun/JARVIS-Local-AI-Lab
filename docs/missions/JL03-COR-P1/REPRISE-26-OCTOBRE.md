@@ -61,3 +61,7 @@ La vue minimale récente=0 mesurait37922caractères :11844pour l’index intégr
 Codex conserve dans la vue les références explicitement citées et les cartes sélectionnées, avec le nombre total des références connues. La vue de la définition du plan se limite à la tâche actuellement auditée lorsqu’un scope_task existe. L’intégralité du snapshot, des originaux et des références autorisées du validateur reste côté serveur ; aucun prédicat, schéma de verdict ou condition PASS n’est retiré. Vue D04 réduite à20877caractères,171reçus originaux conservés, références citées maintenues. Deux tests supplémentaires vérifient cette propriété avec1000reçus et une ancienne définition volumineuse.
 
 D03 et D17 sont ensuite completed dans le moteur avec intervention_report natif réussi et rapports finaux enregistrés. Leur finalisation a suivi le mécanisme existant, sans écriture forcée de completed ou validated par Codex. D04 doit encore obtenir son propre audit reçu avant clôture.
+
+## État final reçu
+
+D04 a ensuite obtenu son propre PASS sémantique, mission_task_complete natif et intervention_report final. Les trois missions sont completed ; source40422f9installée,55cas logiciels et navigateur reçus. Verdict opérateur : GO technique avec réserves d’usage vocal et d’autonomie sans assistance. Voir RAPPORT-RECEPTION-26-OCTOBRE.md et RECEPTION-26-OCTOBRE.json ; les états d’avancement ci-dessus restent des instantanés chronologiques.

@@ -1,0 +1,79 @@
+{
+  "actor": "Codex independent reception",
+  "observed_at": 1792982749.3081262,
+  "application_commit": "40422f9",
+  "software_tests": {
+    "python": 15,
+    "capture_node": 8,
+    "corrections_node": 32
+  },
+  "missions": [
+    {
+      "task": "D03",
+      "mission_id": "16087a18f86d42b7b79296bc93b3a754",
+      "state": "completed",
+      "task_states": [
+        {
+          "id": "D03",
+          "state": "validated",
+          "report_sha256": "d728e2738a0c8ef60506ff6e05a2a1cc6430fda369e6ae8918624907090b66cd"
+        }
+      ],
+      "semantic_PASS_events": {
+        "D03": 39055
+      },
+      "semantic_note": "Null only for historical task without semantic predicate; current correction task requires actualPASS",
+      "final_report": "/opt/jarvis/conversation/runtime/reports/16087a18f86d42b7b79296bc93b3a754/RAPPORT-FINAL.md",
+      "completed_by": "Canonical worker after JARVIS native intervention_report, not operator status edit"
+    },
+    {
+      "task": "D04",
+      "mission_id": "4b96e63671e1458ba93300a0e7980e2f",
+      "state": "completed",
+      "task_states": [
+        {
+          "id": "D04",
+          "state": "validated",
+          "report_sha256": "64b857d9f12f045f96e7855f42aff6b7b1f6bed2970e8ce0a7765430b336cada"
+        },
+        {
+          "id": "D04-RESTITUTION",
+          "state": "validated",
+          "report_sha256": "58e3d3902a5bf6055cf56358a858e16da7431fb8b97f0f7a2bd0bd5bc6797b32"
+        }
+      ],
+      "semantic_PASS_events": {
+        "D04": null,
+        "D04-RESTITUTION": 39239
+      },
+      "semantic_note": "Null only for historical task without semantic predicate; current correction task requires actualPASS",
+      "final_report": "/opt/jarvis/conversation/runtime/reports/4b96e63671e1458ba93300a0e7980e2f/RAPPORT-FINAL.md",
+      "completed_by": "Canonical worker after JARVIS native intervention_report, not operator status edit"
+    },
+    {
+      "task": "D17",
+      "mission_id": "c5b81d7fa78f4fa7a5c495f30eee741e",
+      "state": "completed",
+      "task_states": [
+        {
+          "id": "D17",
+          "state": "validated",
+          "report_sha256": "07a90a53f0ceacef60c1e59f5e66c882926e15e96c93d41aab9036a3759d7ba4"
+        }
+      ],
+      "semantic_PASS_events": {
+        "D17": 39041
+      },
+      "semantic_note": "Null only for historical task without semantic predicate; current correction task requires actualPASS",
+      "final_report": "/opt/jarvis/conversation/runtime/reports/c5b81d7fa78f4fa7a5c495f30eee741e/RAPPORT-FINAL.md",
+      "completed_by": "Canonical worker after JARVIS native intervention_report, not operator status edit"
+    }
+  ],
+  "technical_verdict": "GO avec réserves",
+  "reservations": [
+    "Owner physical/acoustic voice quality and natural tone qualification",
+    "No autonomy without Codex assistance demonstrated",
+    "D02 transcription reserve remains, memory work deferred"
+  ],
+  "no_main_merge": true
+}

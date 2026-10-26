@@ -1,3 +1,7 @@
+## JL03-COR-P1 — D03/D04/D17 livrées techniquement,26octobre2026
+
+✅🟡 GO technique avec réserves. Trois missions completed dans le moteur, vrais PASS sémantiques des corrections actuelles et rapports finaux natifs JARVIS. Correctifs40422f9installés dansJL03 ;55tests ciblésPASS et contrôle navigateur authentifié reçus. Codex a fourni interfaces/aides et intégré/vérifié ; autonomie sans assistance et qualification vocale physique restent réservées. D01captureacceptée ; D02transcriptionréservée/mémoiredifférée ; aucune autre mission lancée, aucune fusionmain. [Réception et preuves](docs/missions/JL03-COR-P1/RAPPORT-RECEPTION-26-OCTOBRE.md).
+
 ## JL03-COR-P1 — correctifs installés, contrôle navigateur reçu le26octobre
 
 D03/D04/D17 intégrés dans JL03 commit40422f9 :55tests ciblésPASS, APIauthentifiée et rendu réel CPU/3090/3080 Dell2 reçus, réponseAPIvide affichéeunefois, saisieconservée, conversationréelle6,035s pendantcontrôlesDell. D03/D17 tâches réellement validated aprèsPASSsémantique et clôture conditionnelle déclenchéeparJARVIS ; finalisationglobale en cours, D04reste à recevoir. Codex a fourni une assistance importante et l'intégration ; aucune autonomie sansassistance ni qualification acoustique reçue. [Résultats, preuves et limites](docs/missions/JL03-COR-P1/REPRISE-26-OCTOBRE.md).

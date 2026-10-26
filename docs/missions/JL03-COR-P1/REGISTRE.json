@@ -2,8 +2,8 @@
   "mission": "JL-03-COR-P1",
   "coordinator": "Codex",
   "executor": "JARVIS",
-  "updated_at": 1792982676.8044264,
-  "dispatch_policy": "Maximum two active contexts; prepared tasks and explicitly reviewed single corrective resumes enter the canonical queue when a slot frees. Never automatically retry an unchanged blocker.",
+  "updated_at": 1792982749.3077717,
+  "dispatch_policy": "D03 D04 D17 execution completed and technically reviewed with reserves. No requeue of completed work; owner voice/transcription qualification remains separate.",
   "context_issue": "KNOWN_NOT_RESOLVED",
   "tasks": [
     {
@@ -50,7 +50,7 @@
       "active_task": "D01",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D01/CHECKPOINT.json",
       "native_call_count": 9,
-      "last_observed": 1792982656.8549833,
+      "last_observed": 1792982721.6236339,
       "canonical_state": "waiting_external",
       "latest_result": "Capture timing/session fixes applied;8targeted regressionsPASS +realbrowserSTT1segment/1completephrase. FullD01/D02qualification pending.",
       "implementation_actor": "Codex targeted intervention",
@@ -97,7 +97,7 @@
       "active_task": "D02",
       "checkpoint_file": "/var/lib/jarvis/projects/jl03-cor-p1/D02/CHECKPOINT.json",
       "native_call_count": 6,
-      "last_observed": 1792982656.8567255,
+      "last_observed": 1792982721.6243799,
       "canonical_state": "waiting_external",
       "latest_result": "Owner reports transcription still imperfect; missing context is a hypothesis, not a proved cause. Memory work deferred.",
       "implementation_actor": "Codex targeted intervention",
@@ -119,7 +119,7 @@
       "worker_project": "jl03-cor-p1-d03",
       "blocks_following_tasks": false,
       "qualification_deferred": true,
-      "last_observed": 1792982656.8574364,
+      "last_observed": 1792982721.6249363,
       "canonical_state": "completed",
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D03/COORDINATION.json",
       "corrective_resume": {
@@ -160,7 +160,7 @@
     {
       "id": "D04",
       "defect": "Réponses vocales trop administratives",
-      "status": "RUNNING",
+      "status": "TECHNICAL_GO_WITH_RESERVES",
       "mission_id": "4b96e63671e1458ba93300a0e7980e2f",
       "conversation_id": "308370e1-ec1d-43de-a30c-c7bed7c5ec48",
       "validated": false,
@@ -170,8 +170,8 @@
       "worker_project": "jl03-cor-p1-d04",
       "blocks_following_tasks": false,
       "qualification_deferred": true,
-      "last_observed": 1792982656.8581643,
-      "canonical_state": "running",
+      "last_observed": 1792982721.6255083,
+      "canonical_state": "completed",
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D04/COORDINATION.json",
       "corrective_resume": {
         "armed": false,
@@ -202,7 +202,10 @@
         "blocker_dossier_event": 38082,
         "decision": "Blocage sémantique confirmé ; aucune reprise sans correction technique distincte"
       },
-      "dispatch_priority": 2
+      "dispatch_priority": 2,
+      "task_engine_validated": true,
+      "technical_review_recorded": "/home/adminjarvis/JARVIS/jl03-cor-p1/docs/missions/JL03-COR-P1/REPRISE-26-OCTOBRE.md",
+      "owner_qualification_pending": true
     },
     {
       "id": "D17",
@@ -217,7 +220,7 @@
       "worker_project": "jl03-cor-p1-d17",
       "blocks_following_tasks": false,
       "canonical_state": "completed",
-      "last_observed": 1792982656.85893,
+      "last_observed": 1792982721.626079,
       "coordination_notice_recorded": "/var/lib/jarvis/projects/jl03-cor-p1/D17/COORDINATION.json",
       "corrective_resume": {
         "armed": false,

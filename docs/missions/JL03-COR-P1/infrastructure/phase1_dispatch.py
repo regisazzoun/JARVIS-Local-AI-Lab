@@ -57,7 +57,7 @@ def main():
             if mission['state'] in STOPPED:
                 # Observation is not reception. Never mark a blocked/complete engine
                 # result as technically accepted without Codex reviewing evidence.
-                t['status'] = ('ENGINE_COMPLETED_REVIEW_PENDING' if mission['state'] == 'completed'
+                t['status'] = ('TECHNICAL_GO_WITH_RESERVES' if mission['state']=='completed' and t.get('technical_review_recorded') else 'ENGINE_COMPLETED_REVIEW_PENDING' if mission['state'] == 'completed'
                                else 'BLOCKED_ESCALATION_READY')
                 if not t.get('coordination_notice_recorded') and not args.dry_run:
                     notice = {'task': t['id'], 'mission_id': mission['id'], 'state': mission['state'],
