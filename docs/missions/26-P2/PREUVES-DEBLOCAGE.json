@@ -1,0 +1,78 @@
+{
+  "mission": "3aa717f3887e49daa7daf7e883ee52e4",
+  "recovery": "Real source editing and cross-Dell testing restored; P2 not received",
+  "code_author": "JARVIS/Qwen80B",
+  "codex_contributions": [
+    "Literal edit tool",
+    "Observed failure analysis binding",
+    "Syntax preflight",
+    "Only missing-newline candidate repair event42627",
+    "Exact peer transfer event42641",
+    "Bounded repair-resolution event42656, historical failed_cycles=3 retained"
+  ],
+  "model_edits": [
+    42498,
+    42516
+  ],
+  "jarvis_test_events": [
+    42633,
+    42648
+  ],
+  "jarvis_report_events": [
+    42638,
+    42653
+  ],
+  "model_report_erratum_event": 42658,
+  "observed_test_results": {
+    "Dell1": {
+      "tests": 4,
+      "passed": 4
+    },
+    "Dell2": {
+      "tests": 14,
+      "passed": 14
+    }
+  },
+  "candidate_files": [
+    {
+      "file": "engine/jarvis/mission_store.py",
+      "sha256": "da38bb51d5a08fd111d5380fcbb4e4e270d90b0aa60d2bdd8cab38952ac0e60f",
+      "source_download_receipt": "dd1af582897a402e8d27ff9b0c892fd8",
+      "peer_upload_receipt": "3b01297c63dc4f4e91ab6e5cb8c31f81",
+      "author": "Qwen80B, plus Codex syntax-only repair on mission_store.py"
+    },
+    {
+      "file": "engine/tests/test_mission_store_attempts.py",
+      "sha256": "3398f4c01afc0617352aea12a0138753410ce8a4f1e7128bf3a08ed49a110e75",
+      "source_download_receipt": "458007ef4c4b49d3a645119e55339e95",
+      "peer_upload_receipt": "a8bfe439c0604e83a7ef16711a160851",
+      "author": "Qwen80B, plus Codex syntax-only repair on mission_store.py"
+    }
+  ],
+  "remaining_semantic_defect": {
+    "independent_event": 42688,
+    "checks": [
+      {
+        "executor": "dell-observe",
+        "actor": "Codex independent review",
+        "receipt": "f083ee151ac645c9a8eed24efb872d44",
+        "expected": "reject SUCCESS without proof",
+        "actual": "accepted",
+        "event": 2,
+        "verdict": "FAIL"
+      },
+      {
+        "executor": "dell2",
+        "actor": "Codex independent review",
+        "receipt": "d66d83e5690947cd9c331aa400fcaf93",
+        "expected": "reject SUCCESS without proof",
+        "actual": "accepted",
+        "event": 2,
+        "verdict": "FAIL"
+      }
+    ]
+  },
+  "deployment": false,
+  "P2_received": false,
+  "P3_P4_assigned": false
+}

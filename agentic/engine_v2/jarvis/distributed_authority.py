@@ -101,7 +101,7 @@ def version(manifest):
 
 def budget(state, issue, enforce=True):
  value=state.setdefault('issues',{}).setdefault(issue,{'failed_cycles':0,'delegation_failures':0})
- if enforce and value['failed_cycles']>=3:raise ValueError('BLOQUÉ: trois cycles échoués pour cette anomalie; dossier Codex requis, compteur conservé')
+ if enforce and value['failed_cycles']-value.get('correction_resolved_through',0)>=3:raise ValueError('BLOQUÉ: trois cycles échoués pour cette anomalie; dossier Codex requis, compteur conservé')
  if enforce and value['delegation_failures']-value.get('delegation_resolved_through',0)>=3:raise ValueError('BLOQUÉ: trois délégations échouées; dossier Codex requis')
  return value
 
@@ -322,4 +322,4 @@ def model_view(value):
  """Keep actionable execution references; audit-only ids remain in SQLite."""
  if isinstance(value,list):return [model_view(v) for v in value]
  if not isinstance(value,dict):return value
- return {k:(int(v) if k in ('reference','source_reference') and isinstance(v,str) and v.isdigit() else model_view(v)) for k,v in value.items() if k not in ('decision','broker_invocation','inference_event')}
+ return {k:({'manifest_sha256':version(v),'file_paths':list(v),'full_manifest':'Original durable execution receipt'} if k in ('files','before','after') and isinstance(v,dict) and all(isinstance(x,str) and re.fullmatch(r'[0-9a-f]{64}',x) for x in v.values()) else int(v) if k in ('reference','source_reference') and isinstance(v,str) and v.isdigit() else model_view(v)) for k,v in value.items() if k not in ('decision','broker_invocation','inference_event')}

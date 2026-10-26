@@ -85,6 +85,17 @@ class GuardTests(unittest.TestCase):
   self.assertEqual(a.budget(state,'P2')['delegation_failures'],3)
   state['issues']['P2']['delegation_failures']=6
   with self.assertRaises(ValueError):a.budget(state,'P2')
+ def test_codex_repair_retains_failed_cycles_and_bounds_next_segment(self):
+  state={'issues':{'Q1':{'failed_cycles':3,'delegation_failures':0,'correction_resolved_through':3,'correction_resolution_event':42627}}}
+  self.assertEqual(a.budget(state,'Q1')['failed_cycles'],3)
+  state['issues']['Q1']['failed_cycles']=6
+  with self.assertRaisesRegex(ValueError,'trois cycles'):a.budget(state,'Q1')
+ def test_prompt_view_compacts_manifests_without_mutating_audit(self):
+  original={'reference':'7','files':{'a.py':'a'*64,'test.py':'b'*64},'execution':{'returncode':1}}
+  view=a.model_view(original)
+  self.assertEqual(view['files']['manifest_sha256'],a.version(original['files']))
+  self.assertEqual(view['files']['file_paths'],['a.py','test.py'])
+  self.assertEqual(original['files']['a.py'],'a'*64)
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):

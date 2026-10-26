@@ -1,3 +1,7 @@
+## M26-P2 — déblocage de l’édition et reprise P2
+
+**NON VALIDÉ — reprise après intervention Codex.** Qwen a modifié le vrai code candidat surDell1 ; réparation ponctuelle du saut de ligne parCodex après3échecs, conservés. Vérification JARVIS4PASS Dell1 et14PASS Dell2. Oracle indépendantFAIL : SUCCESS sans preuve encore accepté ; correction suivante transmise, réceptionP2 non prononcée. [Preuves](docs/missions/26-P2/PREUVES-DEBLOCAGE.json). P3/P4 non confiées.
+
 ## M26-P2 — blocage constaté après reprises bornées
 
 **BLOQUÉ, mission non clôturée.** Escalade42375, trois collisions d’identifiant ; diagnostic Codex amélioré, mais aucun incrément source P2 reçu après les reprises. Workers disponibles, mission interrupted ; ne pas confondre disponibilité et activité. [Dossier](docs/missions/26-P2/ESCALADE-INACTIVITE.json). P3/P4 non transmises.
