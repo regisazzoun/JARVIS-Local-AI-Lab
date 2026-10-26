@@ -222,6 +222,11 @@ class Registry:
             schema=copy.deepcopy(schema)
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
+            if name=='authority_work' and self.context['mission_id']=='3aa717f3887e49daa7daf7e883ee52e4':
+                schema['allOf']=[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},
+                                  'then':{'required':['reference','source_reference']}}]
+                schema['properties']['reference']['description']='For accept: REQUIRED passed TEST execution event id. This is separate from source_reference; never omit it or put it only in summary.'
+                schema['properties']['source_reference']['description']='For accept: REQUIRED actual changed CORRECTION execution on the OTHER Dell with exact same full manifest as the test. A passed test is not a correction. If no matching correction exists, do not retry accept or manufacture a no-op correction; continue the missing application work and report provenance.'
             if name=='authority_read_execution':
                 from .distributed_authority import Authority
                 references=[int(ref) for ref in Authority(self).state().get('executions',{})]
