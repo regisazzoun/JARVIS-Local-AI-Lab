@@ -1,3 +1,7 @@
+## M26-P2 — Phase2 lancée le26octobre2026
+
+🟡 **NON VALIDÉ — en cours.** P2 seule transmise à Qwen80B ; mission native `3aa717f3887e49daa7daf7e883ee52e4`. Les copies de code installé sont sur les deux Dell. Trois incidents de reçu tronqué ont entraîné un arrêt et une escalade ; Codex a réparé le transport, vérifié deux sorties réelles40001caractères, conservé le compteur3 et rendu la main. P3 et P4 ne sont pas transmises. [Audit](docs/missions/26-P2/M26_P2_AUDIT_INITIAL.md) · [Suivi](docs/missions/26-P2/M26_P2_RAPPORT_FINAL.md). Aucune réception anticipée, aucun autre chantier lancé.
+
 ## Mission 26 — Phase 1 : autorité Qwen80B et exécution distribuée — réception du26octobre2026
 
 ✅🟡 **GO AVEC RÉSERVES dans le projet isolé.** Qwen80B décide sur Dell1, répare réellement deux fichiers sur Dell1, choisit les contrôles et fait vérifier la version exacte sur Dell2. Deux lots natifs reçus ; oracle Codex final12/12 sur chaque Dell ;35 tests logiciels ciblés réussis. Services et anciennes missions JL03 conservés. Réserves importantes : assistance infrastructure Codex,106 inférences pour deux défauts, restitution encore fragile, activation ciblée et intégration complète autonomous/assurance non reçue. [Réception](docs/missions/26-P1/RAPPORT-FINAL.md) · [Preuves](docs/missions/26-P1/RECEPTION.json) · [Errata](docs/missions/26-P1/ERRATA-RAPPORTS.md) · [PR28](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/28), sans fusion. Aucune réception générale14A ni lancement de Phase2, mémoire24-Old ou autre mission.
