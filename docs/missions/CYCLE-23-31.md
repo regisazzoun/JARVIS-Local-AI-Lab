@@ -45,6 +45,7 @@ Le test initial de développement agentique de la mission 23 est suivi des enric
 4. Intégrer LiveKit, statut connexion, micro, interruptions, transcription ; gérer erreurs et permissions microphone.
 5. Panneau télémétrie CPU/GPU, état Ollama, services et missions depuis données réelles ; responsive et accès sécurisés distants.
 6. Réception sur MacBook puis iPhone, sans régression des accès favoris, tunnels et raccourcis de JL-02.
+7. **Correctifs contexte/capacités (26 octobre 2026) :** distinguer contexte tronqué, outils non injectés, broker/politique inaccessibles, refus réel et sélection erronée par Qwen ; registre de capacités persistantes, réinjection ciblée après réduction/reprise, vérification avant toute affirmation d'absence de droits, règle des trois tentatives, traces complètes visibles dans JL-03 et tests courts/longs. S'appuyer sur les acquis de mission 11B et articuler la correction du moteur avec la mission 26, sans réattribuer inutilement les droits. Voir [prémission JL-03](27-JL-03/PREMISSION-JL-03.md).
 
 ## Références examinées (inspiration, pas dépendance)
 - LiveKit Agents : https://github.com/livekit/agents
