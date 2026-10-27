@@ -242,3 +242,35 @@ class InterfaceGuardTests(unittest.TestCase):
   self.assertEqual(len([e for e in store.rows if e['kind']=='authority_interface_failure']),3)
   self.assertTrue(any(e['kind']=='authority_escalation' for e in store.rows))
 if __name__=='__main__':unittest.main()
+
+class PersistentReadDeliveryTests(unittest.TestCase):
+ def setUp(self):
+  from jarvis.mission_store import MissionStore
+  self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
+  self.s=MissionStore(self.tmp.name)
+  self.m=self.s.create('reader fixture','model','conv',spec={'distributed_authority':True,'authority_engine_operation_ids':True})
+  self.reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'task'})
+  self.x=a.Authority(self.reg)
+  state=self.x.state();state['executions']['31']={'host':'Dell1','kind':'inspect','after':{'source.py':'current'},'execution':{'returncode':0,'stdout':'first\nsecond'}};self.x.save(state)
+ def delivered(self,args):
+  token=self.s.begin_call(self.m,'task','authority_read_execution',args)
+  result=self.x.read_execution(args)
+  self.s.finish_call(token,{'ok':True,'result':result},0)
+  return result
+ def test_same_effective_window_counts_across_parameter_changes_and_adapter_restart(self):
+  for i,size in enumerate([40,20,10],1):
+   result=self.delivered({'reference':31,'stream':'stdout','max_lines':size})
+   self.assertEqual(result['content'],'first\nsecond');self.assertEqual(result['delivery_count'],i)
+   self.assertEqual(result['already_delivered'],i>1)
+  self.x=a.Authority(self.reg)
+  with self.assertRaisesRegex(ValueError,'already delivered three times'):
+   self.x.read_execution({'reference':31,'stream':'stdout','max_lines':80,'start_line':1})
+  # A genuinely different page is still available, not a blanket reader lock.
+  self.assertEqual(self.delivered({'reference':31,'stream':'stdout','max_lines':1})['content'],'first')
+ def test_failures_and_other_tasks_do_not_consume_delivery_count(self):
+  args={'reference':31,'stream':'stdout'}
+  token=self.s.begin_call(self.m,'task','authority_read_execution',args)
+  self.s.finish_call(token,{'ok':False,'error':'transport failed before delivery'},0)
+  self.assertEqual(self.delivered(args)['delivery_count'],1)
+  self.reg.context['task_id']='independent';other=a.Authority(self.reg)
+  self.assertEqual(other.read_execution(args)['delivery_count'],1)

@@ -256,3 +256,14 @@ class ContextTests(unittest.TestCase):
   self.assertNotIn('reserved_operation_ids',state);self.assertIn('Do not supply operation_id',state['operation_identity_rule'])
   saved=self.b.latest('operational_checkpoint')[0]['result']['checkpoint']
   self.assertEqual(saved['reserved_operation_ids'],['legacy-model-alias'])
+
+ def test_read_delivery_arguments_and_counts_survive_oversized_history(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  args={'reference':31,'stream':'stdout','start_line':1,'max_lines':10}
+  token=self.s.begin_call(self.m,'task','authority_read_execution',args)
+  self.s.finish_call(token,{'ok':True,'result':{'reference':31,'content':'path only','stream':'stdout','start_line':1,'delivery_count':3,'already_delivered':True}},0)
+  p=self.payload();p['messages']+=[{'role':'assistant','tool_calls':[{'function':{'name':'authority_read_execution','arguments':{'reference':31,'padding':'x'*30000}}}]},{'role':'tool','content':'path only'}]
+  self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  read=state['read_delivery_history'][0]
+  self.assertEqual(read['parameters'],args);self.assertEqual(read['delivery_count'],3);self.assertTrue(read['already_delivered'])

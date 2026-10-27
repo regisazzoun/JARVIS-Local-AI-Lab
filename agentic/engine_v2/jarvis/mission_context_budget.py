@@ -43,7 +43,7 @@ def capacity(config,model):
 
 def observation_view(o):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
- return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','action','issue','kind','operation_id')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
+ return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
 
 class ContextBudget:
  def __init__(self,store,mission,task=None):self.store=store;self.m=mission;self.task=task
@@ -148,6 +148,7 @@ class ContextBudget:
   active['last_observations']=checkpoint['last_observations']
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
+   active['read_delivery_history']=[{'invocation_id':o['invocation_id'],'parameters':o['parameters'],'ok':o['ok'],'delivery_count':o['result'].get('delivery_count'),'already_delivered':o['result'].get('already_delivered')} for o in checkpoint['last_observations'] if o['tool']=='authority_read_execution']
    active['operation_identity_rule']='Engine-issued identities from canonical tool invocations. Do not supply operation_id. Semantic dedupe and unknown-effect guards remain authoritative; historical aliases stay in the full checkpoint.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
    active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','state','escalation_event')} for c in active['counters']]

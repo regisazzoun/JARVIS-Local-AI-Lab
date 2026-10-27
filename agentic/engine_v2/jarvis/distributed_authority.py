@@ -207,7 +207,15 @@ class Authority:
    execution=json.loads(data)['execution'];complete=not execution.get('output_truncated')
   stream=a.get('stream','stderr');lines=execution.get(stream,'').splitlines();start=a.get('start_line',1)-1
   content='\n'.join(lines[start:start+min(a.get('max_lines',40),80)])
-  return {'reference':int(reference),'executor':entry['host'],'kind':entry['kind'],'observed_process_returncode':execution['returncode'],'stream':stream,'start_line':start+1,'content':content[:8000],'total_lines':len(lines),'source_complete':complete,'excerpt_truncated':len(content)>8000,'source_version':version(entry['after']),'full_receipt':receipt}
+  result={'reference':int(reference),'executor':entry['host'],'kind':entry['kind'],'observed_process_returncode':execution['returncode'],'stream':stream,'start_line':start+1,'content':content[:8000],'total_lines':len(lines),'source_complete':complete,'excerpt_truncated':len(content)>8000,'source_version':version(entry['after']),'full_receipt':receipt}
+  if self.spec.get('authority_engine_operation_ids'):
+   # Count observed delivered windows, not request spelling. Changing max_lines
+   # above EOF must not bypass the persistent three-repeat guard after restart.
+   with self.store.db() as c:
+    count=c.execute("SELECT count(*) FROM tool_calls WHERE mission=? AND task IS ? AND tool='authority_read_execution' AND json_extract(result,'$.ok')=1 AND json_extract(result,'$.result.reference')=? AND json_extract(result,'$.result.stream')=? AND json_extract(result,'$.result.start_line')=? AND json_extract(result,'$.result.source_version')=? AND json_extract(result,'$.result.content')=?",(self.m,self.t,int(reference),stream,start+1,result['source_version'],result['content'])).fetchone()[0]
+   if count>=3:raise ValueError('Read window already delivered three times: use the recorded content or choose a genuinely different observation; changing max_lines or restarting does not create new evidence')
+   result.update(delivery_count=count+1,already_delivered=bool(count),read_guidance='This is an immutable historical output, not a new source observation. Reuse its content; another identical page is not progress.' if count else 'Original receipt window; choose the next action from its actual content.')
+  return result
  def analyze_latest(self,a):
   issue=self.state().get('issues',{}).get(a['issue'],{})
   reference=issue.get('last_failed_test')
