@@ -62,9 +62,12 @@ print(json.dumps({'path':str(rel),'source':raw.decode('utf-8'),'sha256':hashlib.
     config=getattr(authority.reg,'config',{})
     objective=result_objective(config)
     if not objective:raise ValueError('Measured context profile required for focused drafting')
+    facts['context_result_objective']=objective
+    payload['messages'][1]['content']=encoded(facts)
     payload['options']['num_ctx']=objective['total_context_tokens_max']
     payload['options']['num_predict']=objective['response_tokens_reserved']
     if serialized_bytes(payload)>objective['input_tokens_max']:raise ValueError('Focused draft exceeds owner input budget; split before transmission')
+    authority.event('authority_code_draft_contract_prepared',{'started':started,'context_result_objective':objective,'input_bytes':serialized_bytes(payload),'proposal_only':True,'test_not_executed':True})
     owner=getattr(callback,'__self__',None);before=len(getattr(owner,'metrics',[]))
     message=callback(payload)
     metrics=getattr(owner,'metrics',[])

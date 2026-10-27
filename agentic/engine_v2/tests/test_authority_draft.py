@@ -42,6 +42,7 @@ class FocusedDraftTests(unittest.TestCase):
   record=next(e for e in self.s.events(self.m) if e['id']==result['proposal_reference'])
   self.assertEqual(record['result']['proposal']['edits'][0]['old'],self.original)
   payload=json.dumps(self.payloads[0]);self.assertNotIn('FULL_PARENT_MISSION_CONTRACT',payload);self.assertNotIn('SECRET_PARENT_HISTORY',payload);self.assertNotIn('tools',self.payloads[0])
+  self.assertEqual(json.loads(self.payloads[0]['messages'][1]['content'])['context_result_objective']['total_context_tokens_max'],32768)
   self.assertEqual(self.remote_calls[0][0],'Dell2');self.assertEqual(result['executor'],'Dell2')
   events=self.s.events(self.m);proposal=next(e for e in events if e['kind']=='authority_code_proposal')
   self.assertEqual(proposal['actor'],'JARVIS/Qwen80B');self.assertFalse(proposal['result']['applied'])
