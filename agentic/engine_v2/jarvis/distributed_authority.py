@@ -43,8 +43,15 @@ after=manifest()
 print(json.dumps({'before':before,'after':after,'execution':observed,'limits':{'nice':10,'cpu_cores':2,'memory_gib':4,'wall_seconds':45,'gpu':False}}))
 '''
 
-def receipt_program(command,remote_path):
+def runner_program(command,roots=None):
  body=RUNNER.replace('COMMAND',repr(command))
+ if roots:
+  if not isinstance(roots,list) or any(not isinstance(r,str) or Path(r).is_absolute() or '..' in Path(r).parts for r in roots):raise ValueError('Safe owner manifest roots required')
+  body=body.replace("pathlib.Path('.').rglob('*')", "{p for root in "+repr(roots)+" for p in pathlib.Path(root).rglob('*')}")
+ return body
+
+def receipt_program(command,remote_path,roots=None):
+ body=runner_program(command,roots)
  body=body.replace("'__pycache__' not in p.parts", "'__pycache__' not in p.parts and '.receipts' not in p.parts")
  body=body.replace("p.stdout[:20000]", "p.stdout").replace("p.stderr[:8000]", "p.stderr")
  body=body.replace("len(p.stdout)>20000 or len(p.stderr)>8000", "False")
@@ -145,7 +152,7 @@ class Authority:
   receipt_id=uuid.uuid4().hex
   remote_path=self.remote_root+'/.receipts/'+receipt_id+'.json'
   operation['receipt_path']=remote_path;self.save(state)
-  body=receipt_program(command,remote_path)
+  body=receipt_program(command,remote_path,self.spec.get('authority_manifest_roots'))
   raw,call=self.remote(host,'python3 -c '+shlex.quote(body));header=json.loads(raw['stdout'])
   local=self.local/'receipts'/self.m/(receipt_id+'.json');local.parent.mkdir(parents=True,exist_ok=True)
   args={'host':HOSTS[host],'action':'project_download','project':self.project,'path':remote_path,'local_path':str(local)}
@@ -185,7 +192,9 @@ class Authority:
  def work(self,a):
   issue=a['issue']
   if issue not in self.spec['authority_requirements']:raise ValueError('Unknown stable owner requirement; allowed EXACT ids: '+str(self.spec['authority_requirements']))
-  state=self.state();kind=a['kind'];v=budget(state,issue,enforce=kind not in ('analyze','accept'))
+  state=self.state();kind=a['kind']
+  if self.spec.get('authority_readonly_validation') and kind not in ('test','analyze','accept'):raise ValueError('Owner assigned test-only validation; source modifications/inspection are not this task')
+  v=budget(state,issue,enforce=kind not in ('analyze','accept'))
   key=a.get('operation_id')
   if kind in ('inspect','correct','test') and not key:raise ValueError('operation_id required, unique per intended execution, reuse it for transport retry')
   previous=state.get('operations',{}).get(key) if key else None
@@ -205,29 +214,37 @@ class Authority:
    if not obs or obs['issue']!=issue or obs['kind']!='test' or obs['execution']['returncode']!=0 or obs['execution'].get('output_truncated'):
     raise ValueError('Accept requires the EXECUTION reference of an actual passed, untruncated test, not a decision id. Observed tests: '+str([{'reference':k,'executor':r.get('host'),'process_returncode':r['execution']['returncode']} for k,r in state['executions'].items() if r['kind']=='test' and r['issue']==issue][-3:]))
    if obs['before']!=obs['after']:raise ValueError('Test modified tracked files: rerun on a stable version')
-   if not source or source['kind']!='correct' or source['host']==obs['host'] or source['after']!=obs['after']:
+   readonly=self.spec.get('authority_readonly_validation') is True
+   if not source or source['kind']!=('test' if readonly else 'correct') or source['host']==obs['host'] or source['after']!=obs['after']:
     raise ValueError('Independent validation requires source_reference of an actual CORRECTION EXECUTION on the other Dell, at EXACT full manifest. Candidates: '+str([{'reference':k,'host':r['host'],'same_manifest':r['after']==obs['after']} for k,r in state['executions'].items() if r.get('kind')=='correct' and r.get('issue')==issue][-3:]))
-   if source['before']==source['after']:raise ValueError('Source correction has no observed file change; a declared correction is not an actual modification')
-   current,_=self.remote(obs['host'],"python3 -c "+shlex.quote(RUNNER.replace('COMMAND',repr('true'))))
+   if not readonly and source['before']==source['after']:raise ValueError('Source correction has no observed file change; a declared correction is not an actual modification')
+   if readonly and (source['execution']['returncode']!=0 or source['before']!=source['after']):raise ValueError('Test-only peer must have actually passed on stable source')
+   current,_=self.remote(obs['host'],"python3 -c "+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
    fresh=json.loads(current['stdout'])
    if fresh['after']!=obs['after']:raise ValueError('Validator workspace changed since the passed test')
    v.pop('pending_correction',None)
-   v['accepted']={'decision':decision,'test':ref,'source':str(a['source_reference']),'version':version(obs['after']),'host':obs['host'],'independent':True}
+   v['accepted']={'decision':decision,'test':ref,'source':str(a['source_reference']),'version':version(obs['after']),'host':obs['host'],'independent':True,'validation_scope':'test-only, no correction claimed' if readonly else 'source correction and independent test'}
+   from jarvis.authority_attempts import AuthorityAttempts
+   AuthorityAttempts(self).accepted(issue,a['source_reference'],v['accepted'])
    self.save(state);self.event('authority_validation',v['accepted'],actor='JARVIS/Qwen80B')
    return {'accepted':True,**v['accepted'],'meaning':'Passed process and exact cross-host source provenance; application adequacy remains independently reviewed by Codex'}
   host=a.get('executor');command=a.get('command')
   if host not in HOSTS or not command:raise ValueError('inspect/correct/test require executor Dell1 or Dell2 and command')
   if kind=='correct' and v.get('last_failed_test') and int(v['last_failed_test'])>v.get('correction_resolution_event',0) and v.get('analyzed')!=v['last_failed_test']:
    raise ValueError('Analyze the last actual failed test before another correction')
-  state.setdefault('operations',{})[key]={'arguments':a,'decision':decision};self.save(state)
+  from jarvis.authority_attempts import AuthorityAttempts
+  persistent=AuthorityAttempts(self);attempt=persistent.begin(a,state)
+  if attempt.get('cached'):return attempt['value']
+  state.setdefault('operations',{})[key]={'arguments':a,'decision':decision,'attempt':attempt['attempt']};self.save(state)
   self.event('authority_dispatch',{'decision':decision,'executor':host,'command':command})
   try:
    if self.spec.get('authority_durable_receipts'):
     observed,call=self.durable_run(host,command,state['operations'][key],state)
    else:
-    raw,call=self.remote(host,'python3 -c '+shlex.quote(RUNNER.replace('COMMAND',repr(command))))
+    raw,call=self.remote(host,'python3 -c '+shlex.quote(runner_program(command,self.spec.get('authority_manifest_roots'))))
     observed=json.loads(raw['stdout'])
   except Exception as error:
+   persistent.uncertain(attempt['attempt'],error)
    v['delegation_failures']+=1;self.save(state)
    if v['delegation_failures']-v.get('delegation_resolved_through',0)>=3:self.event('authority_escalation',{'issue':issue,'reason':'Three delegation failures','state':v},actor='JARVIS-engine')
    self.event('authority_delegation_failure',{'decision':decision,'executor':host,'error':str(error),'count':v['delegation_failures']})
@@ -235,18 +252,25 @@ class Authority:
   observed.update(issue=issue,host=host,kind=kind,decision=decision,broker_invocation=call)
   ref=str(self.event('authority_execution',observed));state['executions'][ref]=observed
   if kind=='inspect' and observed['before']!=observed['after']:
+   persistent.finish(attempt['attempt'],observed,{'reference':int(ref),'executor':host,'execution':observed['execution']})
    self.save(state);raise ValueError('Inspection changed tracked files; classification violated, changes retained in evidence')
   if kind=='correct':v['pending_correction']=ref;v.pop('accepted',None)
   if kind=='test':
    v['last_test']=ref
-   if observed['execution']['returncode']!=0:
+   from jarvis.authority_attempts import test_infrastructure_error
+   infrastructure=test_infrastructure_error(observed['execution'])
+   if infrastructure:
+    v['delegation_failures']+=1
+    self.event('authority_test_not_reached',{'issue':issue,'execution':ref,'reason':'Observed missing dependency, missing file or command before test','delegation_failures':v['delegation_failures']})
+   if observed['execution']['returncode']!=0 and not infrastructure:
     v['last_failed_test']=ref
     pending=state['executions'].get(v.get('pending_correction'),{})
-    if pending and pending['after']==observed['after']:
+    if pending and pending['before']!=pending['after'] and pending['after']==observed['after']:
      v['failed_cycles']+=1;v.pop('pending_correction',None)
      if v['failed_cycles']>=3:self.event('authority_escalation',{'issue':issue,'reason':'Three failed correction/test cycles','state':v},actor='JARVIS-engine')
    # A zero process exit alone never closes a correction cycle; accept does.
-  result={'reference':int(ref),'decision':decision,'executor':host,'test_executed':kind=='test','execution':observed['execution'],'version':version(observed['after']),'files':observed['after'],'actual_changed_files':[f for f in set(observed['before'])|set(observed['after']) if observed['before'].get(f)!=observed['after'].get(f)],'reference_usage':'reference is the event ID for analyze, sync.source_reference and accept; version and file hashes are NOT event IDs','failed_cycles':v['failed_cycles'],'next':'analyze actual failure before correcting' if kind=='test' and observed['execution']['returncode'] else 'Qwen decides next action'}
+  result={'reference':int(ref),'decision':decision,'executor':host,'test_executed':kind=='test' and not test_infrastructure_error(observed['execution']),'execution':observed['execution'],'version':version(observed['after']),'files':observed['after'],'actual_changed_files':[f for f in set(observed['before'])|set(observed['after']) if observed['before'].get(f)!=observed['after'].get(f)],'reference_usage':'reference is the event ID for analyze, sync.source_reference and accept; version and file hashes are NOT event IDs','failed_cycles':v['failed_cycles'],'next':'analyze actual failure before correcting' if kind=='test' and observed['execution']['returncode'] else 'Qwen decides next action'}
+  persistent.finish(attempt['attempt'],observed,result)
   state['operations'][key]['result']=result;self.save(state)
   return result
  def plan(self,a):
@@ -272,7 +296,7 @@ class Authority:
   # Version precondition chosen by model; no implicit merge or silent overwrite.
   ref=state['executions'].get(str(a['source_reference']))
   if not ref or ref['host']!=src:raise ValueError('source_reference requires the numeric execution reference returned by authority_work, NOT a file/version SHA. Observed source candidates: '+str([{'reference':key,'kind':row['kind'],'host':row['host']} for key,row in state['executions'].items() if row['host']==src][-3:]))
-  before,_=self.remote(src,'python3 -c '+shlex.quote(RUNNER.replace('COMMAND',repr('true'))))
+  before,_=self.remote(src,'python3 -c '+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
   if json.loads(before['stdout'])['after']!=ref['after']:raise ValueError('Source changed; inspect and choose the current source reference')
   import zipfile
   # Archive content is selected by Qwen. Existing SHA-checked broker transports bytes.
@@ -284,7 +308,7 @@ class Authority:
    token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic();r=self.reg.execute('host_remote',args);self.store.finish_call(token,r,time.monotonic()-start)
    if not r.get('ok'):raise RuntimeError(str(r)[:1000])
   check,_=self.remote(dst,"python3 -c "+shlex.quote("import zipfile;z=zipfile.ZipFile('_authority.zip');assert all(not p.startswith('/') and '..' not in p.split('/') for p in z.namelist());z.extractall('.')"))
-  after,_=self.remote(dst,'python3 -c '+shlex.quote(RUNNER.replace('COMMAND',repr('true'))))
+  after,_=self.remote(dst,'python3 -c '+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
   manifest=json.loads(after['stdout'])['after']
   if any(manifest.get(f)!=ref['after'].get(f) for f in files):raise ValueError('Transferred file hash mismatch')
   receipt={'decision':decision,'source':src,'destination':dst,'files':files,'source_reference':a['source_reference'],'version':version(manifest),'exact_workspace':manifest==ref['after']}

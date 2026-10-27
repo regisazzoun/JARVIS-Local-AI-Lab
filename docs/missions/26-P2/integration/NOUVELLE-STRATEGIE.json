@@ -1,0 +1,86 @@
+{
+  "event": 45745,
+  "operations": [
+    {
+      "host": "dell-observe",
+      "action": "archive_invalid_unreceived_model_test",
+      "result": {
+        "present": false
+      },
+      "evidence": "6563db4680f94a8d85329856603a5b45"
+    },
+    {
+      "host": "dell-observe",
+      "action": "project_upload",
+      "evidence": "281db520e5ce4e22a01ab0d8a5e1c086",
+      "result": {
+        "returncode": 0,
+        "stdout": "{\"direction\": \"upload\", \"remote_path\": \"/opt/jarvis-lab/mission26-phase2/p2-integrated-frozen.zip\", \"local_path\": \"/var/lib/jarvis/projects/mission26-phase2/p2-integrated-frozen.zip\", \"sha256\": \"f7480e5b63a0fe1e61756953b80f9c2cbdb9ddbfe8cfc8afe1023e6939fe1070\", \"bytes\": 175181}",
+        "stderr": "",
+        "path": "/var/lib/jarvis/projects/mission26-phase2/p2-integrated-frozen.zip",
+        "sha256": "f7480e5b63a0fe1e61756953b80f9c2cbdb9ddbfe8cfc8afe1023e6939fe1070",
+        "bytes": 175181
+      }
+    },
+    {
+      "host": "dell-observe",
+      "action": "project_exec",
+      "evidence": "13828b7084dd4b1893204447bef75d92",
+      "result": {
+        "returncode": 0,
+        "stdout": "{\"tests\": 40, \"failures\": 0, \"errors\": 0, \"success\": true, \"source_sha256\": \"45c8a17158bec44ef2cd647fe1a04e320e5de333546a3939aecea40c6e67229d\", \"attribution\": \"Codex authored infrastructure and software oracles; caller executes\"}\n",
+        "stderr": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 0.323s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.868,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    },
+    {
+      "host": "dell2",
+      "action": "archive_invalid_unreceived_model_test",
+      "result": {
+        "present": false
+      },
+      "evidence": "463a2f99ff154c16b111b7724e3af60e"
+    },
+    {
+      "host": "dell2",
+      "action": "project_upload",
+      "evidence": "4a792712292a4de09a2954fa148a3386",
+      "result": {
+        "returncode": 0,
+        "stdout": "{\"direction\": \"upload\", \"remote_path\": \"/opt/jarvis-lab/mission26-phase2/p2-integrated-frozen.zip\", \"local_path\": \"/var/lib/jarvis/projects/mission26-phase2/p2-integrated-frozen.zip\", \"sha256\": \"f7480e5b63a0fe1e61756953b80f9c2cbdb9ddbfe8cfc8afe1023e6939fe1070\", \"bytes\": 175181}",
+        "stderr": "",
+        "path": "/var/lib/jarvis/projects/mission26-phase2/p2-integrated-frozen.zip",
+        "sha256": "f7480e5b63a0fe1e61756953b80f9c2cbdb9ddbfe8cfc8afe1023e6939fe1070",
+        "bytes": 175181
+      }
+    },
+    {
+      "host": "dell2",
+      "action": "project_exec",
+      "evidence": "846b6668e7d14ae7ba1c9a4b51ce44b1",
+      "result": {
+        "returncode": 0,
+        "stdout": "{\"tests\": 40, \"failures\": 0, \"errors\": 0, \"success\": true, \"source_sha256\": \"45c8a17158bec44ef2cd647fe1a04e320e5de333546a3939aecea40c6e67229d\", \"attribution\": \"Codex authored infrastructure and software oracles; caller executes\"}\n",
+        "stderr": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 0.308s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.817,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    }
+  ],
+  "original_model_test_not_received": true
+}

@@ -227,7 +227,7 @@ class Registry:
             schema=copy.deepcopy(schema)
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
-            if name=='authority_work' and self.context['mission_id']=='3aa717f3887e49daa7daf7e883ee52e4':
+            if name=='authority_work':
                 schema['allOf']=[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},
                                   'then':{'required':['reference','source_reference']}}]
                 schema['properties']['reference']['description']='For accept: REQUIRED passed TEST execution event id. This is separate from source_reference; never omit it or put it only in summary.'
@@ -236,10 +236,12 @@ class Registry:
                 from .distributed_authority import Authority
                 references=[int(ref) for ref in Authority(self).state().get('executions',{})]
                 if references:schema['properties']['reference']['enum']=references
-                if self.context['mission_id']=='3aa717f3887e49daa7daf7e883ee52e4':
-                    schema['properties']['start_line'].update(default=1, description='ONE-BASED line number: first line is 1, never 0. Omit start_line to read from the beginning.')
-                    schema['properties']['max_lines'].pop('maximum',None)
-                    schema['properties']['max_lines'].update(default=40, description='Positive requested line count; output is capped at 80 lines per read. Omit for 40; paginate using start_line.')
+                schema['properties']['start_line'].update(default=1, description='ONE-BASED line number: first line is 1, never 0. Omit start_line to read from the beginning.')
+                schema['properties']['max_lines'].pop('maximum',None)
+                schema['properties']['max_lines'].update(default=40, description='Positive requested line count; output is capped at 80 lines per read. Omit for 40; paginate using start_line.')
+            if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_readonly_validation'):
+                schema['properties']['kind']['enum']=['test','analyze','accept']
+                schema['properties']['source_reference']['description']='Owner test-only mode: actual passed TEST execution on the OTHER Dell, identical complete source manifest. No source correction is claimed.'
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
 
         return schema
@@ -283,7 +285,8 @@ class Registry:
                 controller.store.event(mission['id'],'chat_promoted',actor='JARVIS-engine',tool=name,arguments=args,result={'executed':False})
                 self.context['mission_id']=mission['id']
                 return {'ok':False,'tool':name,'deferred':True,'mission_id':mission['id'],'conversation':mission['conversation'],'result':{'executed':False,'state':'queued'}}
-            value=fn(args)
+            from .legacy_attempts import guarded
+            value=guarded(self,name,args,fn,mutating)
             if name=='procedure_save':self.memory.document(args['content'],source='technical-procedure/'+str(__import__('hashlib').sha256(args['content'].encode()).hexdigest()),project='')
             if name=='web_fetch':self.context.setdefault('verified_sources',[]).append(value['url'])
             result={'ok':value.get('returncode',0)==0,'result':value,'risk':risk}

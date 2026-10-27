@@ -1,0 +1,113 @@
+"""P2 guard for canonical host/skill actions, using the existing durable ledger.
+
+A broker process success remains inconclusive until the persisted task predicates
+are independently observed. This never promotes a transport rc0 to acceptance.
+"""
+import json
+from .attempt_ledger import digest
+
+
+def task_contract(reg):
+    store=getattr(reg,'mission_store',None);ctx=getattr(reg,'context',{})
+    if not store or not ctx.get('mission_id') or not ctx.get('task_id'):return None
+    spec=json.loads(store.get(ctx['mission_id'])['spec'])
+    if spec.get('distributed_authority'):return None  # Authority has its own complete receipt adapter.
+    task=next((t for t in store.tasks(ctx['mission_id']) if t['id']==ctx['task_id']),None)
+    criteria=(task or {}).get('contract',{}).get('semantic')
+    if not criteria:return None
+    return {'criteria':criteria,'task':task,'mission':ctx['mission_id'],'store':store}
+
+
+def observed_targets(reg,criteria):
+    from .verification import Verifier
+    result={}
+    for criterion in criteria:
+        source=criterion.get('source')
+        if not source:continue
+        try:
+            body,proof=Verifier(reg).read(source)
+            result[digest(source)]={'sha256':digest(body),'proof':proof}
+        except (ValueError,KeyError,TypeError,OSError):
+            result[digest(source)]={'unavailable':True}
+    return result
+
+
+def guarded(reg,name,args,fn,mutating):
+    contract=task_contract(reg)
+    # Wrapper/orchestrator tools recurse through the same Registry; guard the
+    # actual host/skill/MCP operation, never count both wrapper and effect.
+    selected=name.startswith('host_') or name in ('skill_run','skill_test','mcp_tools')
+    if not mutating or not selected or not contract or getattr(reg,'_p2_inside_effect',False):return fn(args)
+    if name=='host_write_file' and args.get('path')==contract['task'].get('contract',{}).get('report_path') and not any(c.get('source',{}).get('arguments',{}).get('path')==args.get('path') for c in contract['criteria']):return fn(args)
+    store=contract['store'];mission=contract['mission'];ledger=store.attempt_ledger(mission)
+    binding={'criteria':contract['criteria']}
+    problem=ledger.problem('canonical-action:'+digest(binding),binding)
+    key=str(reg.context.get('durable_operation_key') or digest({'tool':name,'arguments':args}))
+    request={'tool':name,'arguments':args,'contract':contract['criteria'],'task':reg.context['task_id']}
+    begin=ledger.begin(problem,key,args.get('host','canonical-broker'),'execute',request)
+    if begin.get('blocked'):raise ValueError('P2: problem escalated; no fourth operation. '+json.dumps(begin))
+    if begin.get('requires_observation'):raise ValueError('P2: observe existing effect with mission_verify before another mutation; no action dispatched. '+json.dumps(begin))
+    if begin.get('cached'):return ledger.get(begin['attempt'])['result']['value']
+    attempt=begin['attempt'];ledger.transition(attempt,'DISPATCHED')
+    store.event(mission,'canonical_attempt_bound',reg.context['task_id'],'JARVIS-engine',result={'attempt':attempt,'tool':name,'arguments':args,'contract':contract['criteria']})
+    before=observed_targets(reg,contract['criteria']) if hasattr(reg,'execute') else {}
+    try:
+        reg._p2_inside_effect=True
+        value=fn(args)
+    except Exception as exc:
+        proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'error':str(exc),'requires_independent_observation':True})
+        ledger.transition(attempt,'VALIDATION_INCONCLUSIVE',evidence=proof,result={'error':str(exc)},unknown=True)
+        ledger.failure(attempt,infrastructure=True)
+        raise
+    finally:reg._p2_inside_effect=False
+    code=value.get('returncode') if isinstance(value,dict) else None
+    execution=value.get('execution',{}) if isinstance(value,dict) else {}
+    if not execution and isinstance(value,dict):
+        try:
+            body=json.loads(value.get('stdout','{}'))
+            if isinstance(body,dict) and isinstance(body.get('execution'),dict):execution=body['execution']
+        except (TypeError,ValueError):pass
+    if type(execution.get('returncode')) is int:code=execution['returncode']
+    after=observed_targets(reg,contract['criteria']) if hasattr(reg,'execute') else {}
+    changed=any(b.get('sha256') and before.get(k,{}).get('sha256') and b['sha256']!=before[k]['sha256'] for k,b in after.items())
+    result={'change_observed':bool(changed),'before':before,'after':after,'value':value,'returncode':code,'verified':False,'validation_scope':'persisted task contract','execution':execution}
+    if type(code) is not int:
+        proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'observed_value':value})
+        ledger.transition(attempt,'VALIDATION_INCONCLUSIVE',evidence=proof,result=result,unknown=True)
+    else:
+        marker={'child_started':True,'basis':'completed broker process receipt, not a live PID observation','broker_evidence':value.get('evidence_id')}
+        proof=store.event(mission,'p2_started_observed',actor='JARVIS-engine',result={'attempt':attempt,'marker':marker})
+        ledger.transition(attempt,'RUNNING',evidence=proof);result['started']=marker
+        state='EXECUTION_FAILED' if code else 'VALIDATION_INCONCLUSIVE'
+        proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':attempt,'observation':result,'state':state})
+        ledger.transition(attempt,state,evidence=proof,result=result,unknown=False)
+        if code:ledger.failure(attempt,correction_changed=False)
+    return value
+
+
+def settle(reg,verdict):
+    contract=task_contract(reg)
+    if not contract or verdict.get('contract') not in contract['criteria']:return
+    store=contract['store'];mission=contract['mission'];ledger=store.attempt_ledger(mission)
+    binding={'criteria':contract['criteria']};problem=ledger.problem('canonical-action:'+digest(binding),binding)
+    snapshot=ledger.snapshot()
+    pending=[r for r in snapshot['attempts'] if r['problem']==problem and r['state']=='VALIDATION_INCONCLUSIVE']
+    for raw in pending:
+        attempt=ledger.get(raw['id'])
+        with store.db() as c:
+            bound=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='canonical_attempt_bound' AND json_extract(result,'$.attempt')=? ORDER BY id DESC LIMIT 1",(mission,raw['id'])).fetchone()
+            observations=[{**json.loads(r['result']),'verification_event':r['id']} for r in c.execute("SELECT id,result FROM mission_events WHERE mission=? AND task=? AND kind='semantic_verification' AND id>? ORDER BY id",(mission,contract['task']['id'],bound['id']))]
+        latest={digest(v['contract']):v for v in observations if v.get('contract') in contract['criteria']}
+        if verdict['status']=='FAIL':
+            result={**attempt['result'],'verification':verdict,'verified':False}
+            proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':raw['id'],'observation':result,'state':'EXECUTED_TEST_FAILED'})
+            if result.get('started'):
+                ledger.transition(raw['id'],'EXECUTED_TEST_FAILED',evidence=proof,result=result,unknown=False)
+                ledger.failure(raw['id'],correction_changed=bool(result.get('change_observed')))
+        elif len(latest)==len(contract['criteria']) and all(v['status']=='PASS' for v in latest.values()):
+            if not attempt['result'].get('started') or attempt['unknown_outcome']:
+                store.event(mission,'canonical_effect_verified_execution_unknown',actor='JARVIS-engine',result={'attempt':raw['id'],'verification':verdict,'no_execution_success_claimed':True})
+                continue  # Unknown execution stays protected: never invent its child rc.
+            result={**attempt['result'],'verification_events':[v['verification_event'] for v in latest.values()],'verified':True}
+            proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':raw['id'],'observation':result,'state':'SUCCESS'})
+            ledger.transition(raw['id'],'SUCCESS',evidence=proof,result=result,unknown=False)

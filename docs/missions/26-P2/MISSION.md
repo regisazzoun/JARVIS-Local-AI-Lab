@@ -1,3 +1,7 @@
+## Suite autorisée du27octobre2026
+
+Ordre actuel : terminer le raccordement historique P2 sans refaire les dix cas reçus ; démarrer ensuite P3 (couches bleue etverte, définition à expliciter sans inventer d’acquis), puis exécuter P4. Aucune nouvelle confirmation humaine ; même moteur, mêmes stockages, Qwen décisionnaire et Dell exécutants, Codex apporte les capacités manquantes et reçoit. Les mentions NON TRANSMISE ci-dessous sont des états antérieurs, pas une révocation de cette suite autorisée. Aucun autre chantier lancé.
+
 # M26-P2 — Contrat de coordination
 
 Ordre propriétaire du26octobre2026. Codex conserve le contrat global et ne transmet que P2, puis P3, puis P4 après réception de la priorité précédente. Qwen80B reste décisionnaire, Dell1/Dell2 exécutent, Mac coordonne et conserve le journal existant. Aucune validation humaine intermédiaire ajoutée.

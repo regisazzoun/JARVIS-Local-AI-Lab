@@ -54,16 +54,36 @@ class GuardTests(unittest.TestCase):
   state=self.x.state();state['operations']={'once':{'arguments':args}};self.x.save(state)
   with self.assertRaisesRegex(ValueError,'uncertain'):self.x.work(args)
  def test_failed_test_is_executed_and_counted_only_after_correction(self):
+  from jarvis.mission_store import MissionStore
+  temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup);real=MissionStore(temp.name)
+  mission=real.create('fixture','model','conv',spec={'distributed_authority':True,'authority_requirements':['Q1']})
+  real.event(mission,'inference_finished',result={'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'}})
+  self.x.store=real;self.x.m=mission
   observed={'before':{'a.py':'A'},'after':{'a.py':'A'},'execution':{'returncode':1,'stdout':'FAIL real process fixture','stderr':'','output_truncated':False}}
   self.x.remote=Mock(return_value=({'stdout':json.dumps(observed)},'broker-test'))
   baseline=self.x.work({'issue':'Q1','kind':'test','summary':'baseline','executor':'Dell1','command':'false','operation_id':'baseline'})
   self.assertTrue(baseline['test_executed']);self.assertEqual(baseline['execution']['returncode'],1);self.assertEqual(baseline['failed_cycles'],0)
   self.x.work({'issue':'Q1','kind':'analyze','summary':'Interpret actual failure','reference':baseline['reference']})
+  changed={'before':{'a.py':'A'},'after':{'a.py':'B'},'execution':{'returncode':0,'stdout':'changed','stderr':'','output_truncated':False}}
+  self.x.remote=Mock(return_value=({'stdout':json.dumps(changed)},'broker-edit'))
   self.x.work({'issue':'Q1','kind':'correct','summary':'attempt','executor':'Dell1','command':'false','operation_id':'correct-1'})
+  observed['before']={'a.py':'B'};observed['after']={'a.py':'B'};self.x.remote=Mock(return_value=({'stdout':json.dumps(observed)},'broker-test'))
   failed=self.x.work({'issue':'Q1','kind':'test','summary':'verification','executor':'Dell1','command':'false','operation_id':'test-1'})
   self.assertEqual(failed['failed_cycles'],1)
   with self.assertRaisesRegex(ValueError,'Analyze'):
    self.x.work({'issue':'Q1','kind':'correct','summary':'unanalysed retry','executor':'Dell2','command':'false','operation_id':'correct-2'})
+ def test_missing_import_is_failed_execution_not_executed_test(self):
+  from jarvis.mission_store import MissionStore
+  temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup);real=MissionStore(temp.name)
+  mission=real.create('fixture','model','conv',spec={'distributed_authority':True,'authority_requirements':['Q1']})
+  real.event(mission,'inference_finished',result={'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'}})
+  self.x.store=real;self.x.m=mission
+  observed={'before':{'a.py':'A'},'after':{'a.py':'A'},'execution':{'returncode':1,'stdout':'','stderr':"ModuleNotFoundError: No module named jarvis",'output_truncated':False}}
+  self.x.remote=Mock(return_value=({'stdout':json.dumps(observed)},'broker-fixture'))
+  result=self.x.work({'issue':'Q1','kind':'test','summary':'missing dependency','executor':'Dell1','command':'import-missing','operation_id':'import'})
+  self.assertFalse(result['test_executed']);self.assertEqual(result['failed_cycles'],0)
+  self.assertEqual(real.attempt_ledger(mission).snapshot()['attempts'][0]['state'],'EXECUTION_FAILED')
+  self.assertEqual(self.x.state()['issues']['Q1']['delegation_failures'],1)
  def test_actionable_view_preserves_reference_and_original_audit(self):
   original={'decision':7,'result':{'reference':'12','source_reference':'9','execution':{'returncode':1,'stderr':'Expected ValueError observed'},'broker_invocation':'private-audit-id'}}
   view=a.model_view(original)
@@ -136,7 +156,19 @@ class GuardTests(unittest.TestCase):
    for bad in (0,-1,'120'):
     self.assertFalse(reg.execute('authority_read_execution',{'reference':31,'max_lines':bad})['ok'])
    reg.context['mission_id']='other'
-   self.assertEqual(reg.active_schema('authority_read_execution')['properties']['max_lines']['maximum'],80)
+   other=reg.execute('authority_read_execution',{'reference':31,'max_lines':120})
+   self.assertTrue(other['ok'],other);self.assertEqual(len(other['result']['content'].splitlines()),80)
+ def test_owner_test_only_accepts_two_real_receipt_versions_without_claiming_correction(self):
+  from jarvis.mission_store import MissionStore
+  temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup);real=MissionStore(temp.name)
+  mission=real.create('fixture','model','conv',spec={'distributed_authority':True,'authority_requirements':['Q1'],'authority_readonly_validation':True})
+  real.event(mission,'inference_finished',result={'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'}})
+  self.x.store=real;self.x.m=mission;self.x.spec['authority_readonly_validation']=True
+  state=self.x.state();manifest={'source.py':'a'*64}
+  state['executions']={str(i):{'issue':'Q1','kind':'test','host':host,'before':manifest,'after':manifest,'execution':{'returncode':0,'output_truncated':False}} for i,host in ((1,'Dell1'),(2,'Dell2'))};self.x.save(state)
+  self.x.remote=Mock(return_value=({'stdout':json.dumps({'after':manifest})},'fixture'))
+  result=self.x.work({'issue':'Q1','kind':'accept','reference':2,'source_reference':1,'summary':'Independent test-only proof'})
+  self.assertTrue(result['accepted']);self.assertEqual(result['validation_scope'],'test-only, no correction claimed')
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 class InterfaceGuardTests(unittest.TestCase):

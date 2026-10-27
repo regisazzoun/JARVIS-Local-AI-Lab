@@ -1,0 +1,18 @@
+{
+  "actor": "Codex",
+  "classification": "software tests, not operational autonomy",
+  "suites": [
+    "test_legacy_attempts.py",
+    "test_distributed_authority.py",
+    "test_mission_engine26.py",
+    "test_mission_engine26b.py",
+    "test_verification.py",
+    "test_authority_dialogue.py",
+    "test_worker_recovery.py",
+    "test_durable.py"
+  ],
+  "run": 156,
+  "failures": 0,
+  "errors": 0,
+  "success": true
+}
