@@ -424,6 +424,11 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                           {'role':'user','content':'Derniers résultats réels : '+encoded([brief(o) for o in store.observations(ident,task_id,limit=4) if o['created']>=json.loads(mission['spec']).get('authority_context_since',0)][-2:])}]
                 if json.loads(mission['spec']).get('authority_readonly_validation'):
                     authority_prompt[0]['content']=('Toutes les tâches sont déjà validées, leurs preuves restent acquises. Produis seulement intervention_report, sans refaire test, vérification ni plan. Attribue code/oracles àCodex, exécutions àJARVIS.' if current_tasks and all(t['state']=='validated' for t in current_tasks) else 'Mission autorisée en tests seuls sur sources déjà qualifiées. JARVIS décide de la suite et de l’exécutant dans le paquet courant. Exécute les tests demandés sur les deux Dell, analyse leurs vrais résultats, puis accept avec reference du test PASS et source_reference du test PASS indépendant sur l’autre Dell, même manifeste complet. Pas de correction de source revendiquée ni inspection à refaire. Les commandes sont exécutées depuis workspace.remote_root. Ne refais jamais les anciens échecs résolus; leurs preuves et compteurs sont conservés. Après accept, authority_finish puis intervention_report. Aucune validation humaine intermédiaire.')
+                if json.loads(mission['spec']).get('authority_engine_operation_ids'):
+                    authority_prompt[0]['content']=authority_prompt[0]['content'].replace(
+                        'operation_id unique par exécution, réutilisé pour reprise idempotente.',
+                        'Les identifiants d’opération sont attribués par le moteur depuis les appels persistants. Ne fournis AUCUN operation_id. Le registre déduplique les intentions identiques et bloque les effets inconnus avant toute répétition.')
+                    authority_prompt[0]['content']+='\nPour authority_work et authority_edit : aucun operation_id dans les arguments ; les commandes, le code et les machines restent TES décisions.'
                 if not authority_history_started:
                     messages=authority_prompt
                     authority_history_started=True
@@ -490,7 +495,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 elif repeats[sig] > 2 or (len(previous)>=3 and failed_previous==3 and time.time()-previous[-1]['created']<30 and not repaired):
                     result = {'ok': False, 'tool': name, 'error': 'Répétition improductive : résultat déjà observé. Ne relance pas cette lecture/commande. Exploite observed_evidence et choisis une action différente parmi les outils actuellement proposés ; aucune remise à zéro des compteurs.'}
                 else:
-                    result = core.tools.execute(name, args)
+                    from .authority_identity import invocation_scope
+                    with invocation_scope(token):
+                        result = core.tools.execute(name, args)
                 store.finish_call(token, result, time.monotonic()-started)
                 if json.loads(mission['spec']).get('distributed_authority') and not result.get('ok'):
                     from .distributed_authority import interface_failure

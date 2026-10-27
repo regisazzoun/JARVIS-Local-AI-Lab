@@ -259,6 +259,10 @@ class Registry:
                 schema['required']=list(dict.fromkeys(schema['required']+['executor','command']))
                 schema['properties']['command']['minLength']=1
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
+            if name in ('authority_work','authority_edit') and json.loads(store.get(self.context['mission_id'])['spec']).get('authority_engine_operation_ids'):
+                schema['properties'].pop('operation_id',None)
+                schema['required']=[k for k in schema['required'] if k!='operation_id']
+                schema['description']='The engine assigns operation identity from the canonical tool invocation. Do NOT supply operation_id. Commands, edits and executors remain your choices. Identical intents are deduplicated by the persistent ledger; unknown effects require observation.'
             if name in ('authority_plan','authority_revise_plan'):
                 history=store.plans(self.context['mission_id'])
                 current=history[-1]['version'] if history else 0
@@ -278,10 +282,10 @@ class Registry:
             description,props,required,risk,fn=self.specs[name]
             if risk not in ('read_only','pending_write','lab_reversible','host_authorized'):raise ValueError('Risque non autorisé')
             if not isinstance(args,dict):raise ValueError('Arguments : objet JSON requis pour '+name)
-            unknown=set(args)-set(props);missing=[k for k in required if k not in args]
+            schema=self.active_schema(name)
+            unknown=set(args)-set(schema['properties']);missing=[k for k in schema['required'] if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
             from jsonschema import Draft202012Validator
-            schema=self.active_schema(name)
             if name=='mission_plan':
                 normalized=decode_plan_arguments(args,schema)
                 if normalized!=args and getattr(self,'mission_store',None):

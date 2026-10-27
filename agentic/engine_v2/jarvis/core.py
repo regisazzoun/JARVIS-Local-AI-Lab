@@ -218,7 +218,10 @@ class Core:
                     tool_start=time.monotonic()
                     if allowed_tools is not None and name not in allowed_tools:
                         result={'ok':False,'tool':name,'error':'Tool outside this explicit delegation subset; use offered tools. No operation or new mission was performed.','risk':'no_action'}
-                    else:result=self.tools.execute(name,arguments)
+                    else:
+                        from .authority_identity import invocation_scope
+                        with invocation_scope(token):
+                            result=self.tools.execute(name,arguments)
                     if token:controller.store.finish_call(token,result,time.monotonic()-tool_start)
                     if result.get('deferred'):
                         answer='Mission durable enregistrée : '+result['mission_id']+'. Exécution et preuves dans le Sandbox.'

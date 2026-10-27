@@ -23,9 +23,15 @@ class AuthorityAttempts:
   raw,_=self.a.remote(args['executor'],'python3 -c '+__import__('shlex').quote(runner_program('true',self.a.spec.get('authority_manifest_roots'))))
   current=json.loads(raw['stdout'])['after']
   request={'command':args['command'],'kind':kind,'source_manifest':current}
+  if self.a.spec.get('authority_engine_operation_ids'):
+   # A completed-task receipt must never masquerade as this task's execution.
+   # Same-task repeats still deduplicate; issue failure counters stay shared.
+   request['task']=self.a.t
   result=self.ledger.begin(problem,args['operation_id'],args['executor'],'correction_test' if kind=='correct' else 'test' if kind=='test' else 'execute',request)
   if result.get('blocked') or result.get('requires_observation'):raise ValueError('P2 persistent authority guard; original action not dispatched: '+json.dumps(result))
-  if result.get('cached'):return {'cached':True,'value':self.ledger.get(result['attempt'])['result']['value']}
+  if result.get('cached'):
+   value=self.ledger.get(result['attempt'])['result']['value']
+   return {'cached':True,'value':{**value,'cached':True,'original_reference':value['reference']} if self.a.spec.get('authority_engine_operation_ids') else value}
   self.ledger.transition(result['attempt'],'DISPATCHED');return result
  def uncertain(self,attempt,error):
   evidence=self.s.event(self.m,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'error':str(error),'legacy_path':'Authority.work'})

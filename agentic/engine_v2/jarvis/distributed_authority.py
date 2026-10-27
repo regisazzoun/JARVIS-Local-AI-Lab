@@ -213,14 +213,19 @@ class Authority:
   if not reference:raise ValueError('No observed failed execution exists for this issue')
   return self.work({'issue':a['issue'],'kind':'analyze','reference':reference,'summary':a['summary']})
  def edit(self,a):
-  command='python3 -c '+shlex.quote(edit_program(a['edits']))
-  return self.work({'issue':a['issue'],'kind':'correct','summary':a['summary'],'operation_id':a['operation_id'],'executor':a['executor'],'command':command})
+  edits=json.loads(json.dumps(a['edits'],sort_keys=True)) if self.spec.get('authority_engine_operation_ids') else a['edits']
+  command='python3 -c '+shlex.quote(edit_program(edits))
+  return self.work({'issue':a['issue'],'kind':'correct','summary':a['summary'],'operation_id':a.get('operation_id'),'executor':a['executor'],'command':command})
  def work(self,a):
   issue=a['issue']
   if issue not in self.spec['authority_requirements']:raise ValueError('Unknown stable owner requirement; allowed EXACT ids: '+str(self.spec['authority_requirements']))
   state=self.state();kind=a['kind']
   if self.spec.get('authority_readonly_validation') and kind not in ('inspect','test','analyze','accept'):raise ValueError('Owner assigned test-only validation; source modifications are not this task; inspect real evidence or run tests')
   v=budget(state,issue,enforce=kind not in ('analyze','accept'))
+  invocation=None
+  if self.spec.get('authority_engine_operation_ids') and kind in ('inspect','correct','test'):
+   from .authority_identity import bind_execution
+   a,invocation=bind_execution(self,a)
   key=a.get('operation_id')
   if kind in ('inspect','correct','test') and not key:raise ValueError('operation_id required, unique per intended execution, reuse it for transport retry')
   previous=state.get('operations',{}).get(key) if key else None
@@ -229,7 +234,8 @@ class Authority:
     raise ValueError('operation_id reused for different arguments: '+json.dumps({'operation_id':key,'registered_arguments':previous['arguments'],'requested_arguments':a,'original_outcome_known':bool(previous.get('result')),'remedy':'For a DIFFERENT intended command choose a new unique operation_id. For retry of the SAME command preserve ALL original arguments. No command was executed by this refusal; never rerun an uncertain operation blindly.'},ensure_ascii=False))
    if previous.get('result'):return previous['result']
    raise ValueError('Execution outcome uncertain; inspect receipts before a new operation, never blindly repeat')
-  decision=self.decision(a)
+  decision=self.decision({k:v for k,v in a.items() if k!='operation_id'} if invocation else a)
+  if invocation:self.event('authority_operation_identity',{'operation_id':key,'invocation':invocation,'decision':decision,'assigned_by':'JARVIS-engine','not_model_generated':True},actor='JARVIS-engine')
   if kind=='analyze':
    ref=str(a.get('reference',''));obs=state['executions'].get(ref)
    if not obs or obs.get('issue')!=issue or 'execution' not in obs:raise ValueError('Analyze references an actual executed operation for the same requirement, regardless of its declared phase')
