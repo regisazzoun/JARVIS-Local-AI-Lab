@@ -1,3 +1,11 @@
+## Phase2 — P3 reçue, audit P4 réellement lancé
+
+P3 **VALIDÉ AVEC RÉSERVES** (55310) : grandstdout219000octets, checkpoint/redémarrage/reprise réels, compteurs conservés, effetDell2 non régénéré dans le scénario.67tests logiciels ciblés ; développement et déblocagesCodex distingués des programmes/exécutionsJARVIS. Prose originale erronée conservée, version corrigée et errata. P4 **EN COURS, NON VALIDÉ**, premier audit natif `d1b0d69639724c60b5bd1b2143b1a5fa` surlesdeuxDell ; la preuve du code réellement chargé reste à construire. [P3](docs/missions/26-P2/p3/RECEPTION-P3.json) · [P4](docs/missions/26-P2/M26_P2_P4_CODE_REEL.md). MissionPhase2 non clôturée,14A non clôturée, aucunmainfusionné.
+
+## M26-P2 — déblocage P3 du27octobre
+
+P3-01 reçue avec réserves ; P3-02-run réellement exécutée par JARVIS surlesdeuxDell. Isolation des preuves par tâche/version, conservation des résultats utiles et pipefail corrigés parCodex,67tests logiciels PASS. Checkpoint54911 → redémarrage54915 → repriseJARVIS54930, compteurs conservés. P3 globale **NON VALIDÉ** : grandstdout et non-duplication encore à vérifier, errata de prose conservés. Supervision périodique existante désormais ciblée surP3, sans rejeuP2 ni lancementP4. [Dossier](docs/missions/26-P2/p3/DEBLOCAGE-54073.md).
+
 ## M26-P2 — actualisation du27octobre : P2 reçu, P3 active
 
 ✅🟡 P2 historique **VALIDÉ AVEC RÉSERVES**, reçu52932 ; deux continuations natives completed,40testsPASS réels sur chaque Dell au même manifeste complet. Aucun rejeu S01–S10. P3 **EN COURS, NON VALIDÉ** : garde du contexte déployé dans Core.ollama, premiers budgets réels enregistrés,14tests logiciels du garde PASS ; correctif Codex de conservation du dernier résultat outil après relectures stériles. Démonstration de reprise encore attendue. P4 attend réceptionP3. [État actuel](docs/missions/26-P2/REPRISE-27-OCTOBRE.md) · [P3](docs/missions/26-P2/M26_P2_P3_CONTEXTE.md). Pas de réception14A ni fusionmain.

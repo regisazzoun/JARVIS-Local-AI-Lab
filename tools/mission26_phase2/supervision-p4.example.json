@@ -1,0 +1,12 @@
+{
+  "private": "/home/adminjarvis/JARVIS/mission26-phase2-private/supervision",
+  "register": "/var/lib/jarvis/projects/mission26-phase2/REGISTRE-CODEX.json",
+  "repo": "/home/adminjarvis/JARVIS/mission26-phase2",
+  "allowed_tasks": [
+    "P4-AUDIT"
+  ],
+  "no_productive_seconds": 600,
+  "allowed_mission_ids": [
+    "d1b0d69639724c60b5bd1b2143b1a5fa"
+  ]
+}

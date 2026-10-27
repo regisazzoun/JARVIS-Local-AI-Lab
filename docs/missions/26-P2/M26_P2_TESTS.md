@@ -1,3 +1,7 @@
+## Actualisation du27octobre2026
+
+P2 historique et P3 reçus avec réserves ; la Phase2 globale reste ouverte. Corrections de contexte/isolation par tâche et version/pipefail au commit105c4ff,67tests ciblésPASS. Reprise réelle54911→54915→54930 et grandstdout219000octets vérifiés, compteurs conservés ; erreurs de prose conservées et corrigées. Voir [réceptionP3](p3/RECEPTION-P3.json), [déblocage](p3/DEBLOCAGE-54073.md), [errata](p3/ERRATA-RAPPORTS.md). P4 a démarré par [un audit court](M26_P2_P4_CODE_REEL.md), aucune réception du code actif encore prononcée. Les états et tests antérieurs ci-dessous restent leurs instantanés, pas des preuves rétroactives.
+
 ## Campagne réelle P2 reçue avec réserves
 
 | Cas | Contrôle réel | Machine | Résultat | Preuve |

@@ -29,3 +29,7 @@ Le chemin classique est réellement utilisé surDell2 : JSONvalue42entier, label
 P2 historique **VALIDÉ AVEC RÉSERVES**, reçu52932 et [preuve structurée](integration/RECEPTION.json). Deux continuations natives completed : intégration `b6d6cc3b05b94650acc5b26bfa2660d4`, chemin classique `ad0b6c41dcde48dcb45829566336e494`. Acceptation45980 après nouveau contrôleDell2, source complète identique. Rapports JARVIS conservés dans integration/. Tentative de publication vers dépôt non autorisé refusée et entrée obsolète explicitement remplacée ; aucune publication fictive. Le garde de récupération de publication empêche désormais la boucle historique observée.
 
 P3 réellement lancée et SDK déployé, voir [état détaillé](M26_P2_P3_CONTEXTE.md). P3 NON VALIDÉ, P4 non transmise. Les sections précédentes sont des instantanés historiques et ne remplacent pas cet état actualisé.
+
+## État après déblocage et réceptionP3
+
+P3 reçue VALIDÉ AVEC RÉSERVES55310, native completed et deux tâches validated. Grandstdout219000octets, vraie reprise et non-duplication contrôlée ; sourceCodex105c4ff, programmes/exécutionsJARVIS. Rapport original et version corrigée conservés avec errata. P4 premier audit réellement lancé55313, natived1b0d69639724c60b5bd1b2143b1a5fa, même moteur. [RéceptionP3](p3/RECEPTION-P3.json) · [P4](M26_P2_P4_CODE_REEL.md). Superviseur existant ciblé surP4-AUDIT, pas d'attente humaine ; Phase2 encore ouverte, aucun14A/24Old/mainmerge.

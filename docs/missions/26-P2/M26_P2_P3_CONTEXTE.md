@@ -1,3 +1,9 @@
+# P3 — réception du27octobre2026
+
+**VALIDÉ AVEC RÉSERVES**, événement55310. Mission native completed, deux tâches validated. Grandstdout réel219000octets, archivage completSHA, reprise après redémarrage réel et conservation des compteurs, contrôle d'absence de régénération d'un effetDell2 démontrés. Infrastructure et reprises après escalade guidées parCodex ; autonomie générale sans assistance non reçue. Rapport JARVIS corrigé et errata explicites. [Réception](p3/RECEPTION-P3.json) · [Déblocage](p3/DEBLOCAGE-54073.md) · [Errata/attribution](p3/ERRATA-RAPPORTS.md).
+
+Les sections ci-dessous conservent les états intermédiaires ; elles ne remplacent pas cette réception.
+
 # P3 — contexte, état du 27 octobre 2026
 
 **EN COURS — NON VALIDÉ.** P2 historique reçu avec réserves, événement52932 ; P3 réellement transmise à JARVIS dans la continuation native `9e4a61d6faea4b73ad31251e72dcf7c1`. P4 attend la réception P3.
@@ -29,3 +35,7 @@ Quatorze tests logiciels du garde passent ; ils ne constituent pas une démonstr
 La réduction priorise désormais le dernier résultat réel et la dernière instruction de coordination (ordre corrigé), et identifie les archives automatiques comme preuves de stockage à ne pas recharger récursivement. JARVIS persistait dans les relectures ; Codex a utilisé la barrière existante `authority_disabled_tools` pour demander sa révision de plan, sans écrire les étapes. Deux refus de format sont conservés. JARVIS a produit le plan version2 ; barrière levée automatiquement. Le plan conserve encore un lot préparatoire intitulé achevé, mais son état moteur reste running : ce titre ne constitue pas une réception.
 
 Une mesure backend réelle est enregistrée53836 :4535tokens de prompt, capacité24576 et réponse réservée4096. Un premier contrôle distant JARVIS a réellement exécuté une lecture surDell1, mais affiché troisNone en utilisant des clés inexistantes du JSON. Code retour0 observé, aucune validation sémantique attribuée. Codex a signalé l'erreur de mesure et les noms exacts des champs ; correction du contrôle confiée à JARVIS. Une demande inspect sous le profil test-only a été refusée par schéma, trace conservée. P3 reste NON VALIDÉ, pas de P4 transmis.
+
+## Déblocage effectif et reprise mesurée
+
+L'escalade54073 a conduit aux corrections de contexte/preuves/pipefail du commit105c4ff (67testsPASS). P3-01 est maintenant validated dans le moteur, reçue avec réserves comme observationJSON uniquement. P3-02-run a produit de vrais fichiers surlesdeuxDell ; checkpoint54911, redémarrage54915 et reprise54930 réellement observés, compteurs conservés. Grandstdout et non-duplication restent à contrôler ; les premières générations avaient un grandfichier mais un stdoutcourt. La prose erronée est conservée avec erratum55023. [Déblocage détaillé et supervision](p3/DEBLOCAGE-54073.md). P3 globale NON VALIDÉ, P4 non transmise.

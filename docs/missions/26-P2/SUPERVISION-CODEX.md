@@ -1,3 +1,11 @@
+## Actualisation après réceptionP3 —27octobre2026
+
+P3 reçue avec réserves55310 et enregistrée dans received_tasks. Même timer réutilisé pour P4-AUDIT seule, missiond1b0d69639724c60b5bd1b2143b1a5fa, même registre/même moteur. Voir supervision-p4.example.json et M26_P2_P4_CODE_REEL.md. Le one-shot de checkpoint a réellement fini après54915 ; il n'assure pas la surveillance des escalades. Aucun ancien essaiP2/P3 relancé. Les états ci-dessous restent historiques.
+
+## Actualisation P3 —27octobre2026
+
+P2 et son intégration sont reçus avec réserves. Le même timer est désormais configuré pour la seule continuationP3 `9e4a61d6faea4b73ad31251e72dcf7c1`, entrée activeP3 du registre existant ; les cas P2 restent reçus et ne sont pas rejoués. Le CLI de coordination a répondu M26_P3_SUPERVISION_READY. Voir [le déblocage, les limites et le mécanisme de checkpoint distinct](p3/DEBLOCAGE-54073.md). P3 n'est pas reçue, P4 non transmise. Les périmètres P2 ci-dessous décrivent les passages historiques.
+
 ## Réception ciblée terminée —26octobre2026
 
 Les dix cas P2 sont reçus avec réserves, événement44885. Leur entrée quitte la liste active `tasks` du registre runtime pour `received_tasks`, avec les références de réception et sans effacement des compteurs. Le timer reste actif mais ne relance pas ces cas. La mission native reste en revue d’intégration ; P3/P4 ne sont pas envoyées. Les passages antérieurs ci-dessous restent l’historique. Le marqueur interactif MANUAL-HOLD est retiré après publication et contrôle de la liste vide.
