@@ -152,3 +152,14 @@ class IdentityTests(unittest.TestCase):
   view=a.active_state();self.assertNotIn('analysis',view['issues']['Q1']);self.assertNotIn('analyzed',view['issues']['Q1'])
   self.assertEqual(view['issues']['Q1']['failed_cycles'],2)
   self.assertEqual(a.state()['issues']['Q1']['analysis'],'Obsolete hypothesis')
+
+ def test_reader_active_schema_tracks_current_manifest_without_erasing_history(self):
+  _,first=self.call(self.args());old=first['result']['reference']
+  self.source='new version';_,second=self.call(self.args('printf B'));new=second['result']['reference']
+  props=self.reg.active_schema('authority_read_execution')['properties']
+  self.assertEqual(props['reference']['enum'],[new])
+  self.assertIn(str(old),Authority(self.reg).state()['executions'])
+  from jarvis.mission_context_budget import ContextBudget
+  archived=ContextBudget(self.s,self.m,'task').recall(old,limit=4000)
+  self.assertEqual(archived['reference'],old)
+  self.assertEqual(archived['kind'],'authority_execution')

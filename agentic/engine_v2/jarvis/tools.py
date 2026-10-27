@@ -237,8 +237,20 @@ class Registry:
                 schema['properties']['reference']['description']='For accept: REQUIRED passed TEST execution event id. This is separate from source_reference; never omit it or put it only in summary.'
                 schema['properties']['source_reference']['description']='For accept: REQUIRED actual changed CORRECTION execution on the OTHER Dell with exact same full manifest as the test. A passed test is not a correction. If no matching correction exists, do not retry accept or manufacture a no-op correction; continue the missing application work and report provenance.'
             if name=='authority_read_execution':
-                from .distributed_authority import Authority
-                references=[int(ref) for ref in Authority(self).state().get('executions',{})]
+                from .distributed_authority import Authority, version
+                authority=Authority(self)
+                executions=authority.state().get('executions',{})
+                if authority.spec.get('authority_engine_operation_ids'):
+                    # Active schemas should not advertise obsolete source
+                    # snapshots as current. Archives remain in canonical SQLite
+                    # and readable with context_recall, without broad history.
+                    executions=authority.active_state().get('executions',{})
+                    newest=max(executions,key=int) if executions else None
+                    current=version(executions[newest].get('after',{})) if newest else None
+                    executions={ref:e for ref,e in executions.items() if version(e.get('after',{}))==current}
+                    references=sorted((int(ref) for ref in executions),reverse=True)[:16]
+                    schema['properties']['reference']['description']='Active execution references at the current source manifest, newest first. Historical versions remain archived: use context_recall, not a stale read as current source. This tool reads recorded command output, NEVER the source file named by that output.'
+                else:references=[int(ref) for ref in executions]
                 if references:schema['properties']['reference']['enum']=references
                 schema['properties']['start_line'].update(default=1, description='ONE-BASED line number: first line is 1, never 0. Omit start_line to read from the beginning.')
                 schema['properties']['max_lines'].pop('maximum',None)
