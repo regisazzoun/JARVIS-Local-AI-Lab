@@ -126,5 +126,20 @@ class RuntimeAttestationTests(unittest.TestCase):
         self.assertEqual(r['verification_status'],'FAIL')
 
 
+    def test_report_helper_can_select_real_worker_symbols_without_certifying_decorator(self):
+        import jarvis.worker
+        name=jarvis.worker.__name__;root=Path(jarvis.worker.__file__).parent
+        report=attestation_report([name],root,symbols={name:['run','main']})
+        self.assertEqual(report['verification_status'],'PASS',report)
+        self.assertEqual(set(report['results'][name]['actual_objects']),{'run','main'})
+        self.assertEqual(report['results'][name]['selected_symbols'],['run','main'])
+        self.assertEqual(attestation_report([name],root)['verification_status'],'INSUFFICIENT')
+
+    def test_selected_report_still_detects_changed_code_and_missing_symbols(self):
+        self.load('def f(): return 1\n')
+        self.path.write_text('def f(): return 2\n')
+        self.assertEqual(attestation_report([self.name],self.root,symbols={self.name:['f']})['verification_status'],'FAIL')
+        self.assertEqual(attestation_report([self.name],self.root,symbols={self.name:['absent']})['verification_status'],'INSUFFICIENT')
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

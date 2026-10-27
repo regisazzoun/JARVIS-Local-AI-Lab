@@ -210,7 +210,7 @@ class ContextTests(unittest.TestCase):
   with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
   source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text()
   invocation=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':10,'stream':'stdout'})
-  self.s.finish_call(invocation,{'ok':True,'result':{'reference':10,'content':source,'stream':'stdout','start_line':1,'total_lines':len(source.splitlines()),'source_version':None}},0)
+  self.s.finish_call(invocation,{'ok':True,'result':{'reference':10,'content':source,'stream':'stdout','start_line':1,'total_lines':len(source.splitlines()),'source_version':None,'observed_process_returncode':0}},0)
   for i in range(3):
    bad=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':10})
    self.s.finish_call(bad,{'ok':False,'error':'Already read, do not repeat'},0)
@@ -267,3 +267,53 @@ class ContextTests(unittest.TestCase):
   state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
   read=state['read_delivery_history'][0]
   self.assertEqual(read['parameters'],args);self.assertEqual(read['delivery_count'],3);self.assertTrue(read['already_delivered'])
+
+ def test_tool_success_with_process_failure_cannot_displace_successful_source(self):
+  from jarvis.distributed_authority import version
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text();manifest={'worker.py':'current'}
+  entry={'host':'Dell1','kind':'inspect','after':manifest,'execution':{'returncode':0,'stdout':source}}
+  ref=self.s.event(self.m,'authority_execution','task',result=entry)
+  self.s.event(self.m,'authority_state',result={'issues':{},'executions':{str(ref):entry}})
+  good=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':ref,'stream':'stdout'})
+  self.s.finish_call(good,{'ok':True,'result':{'reference':ref,'content':source,'source_version':version(manifest),'stream':'stdout','observed_process_returncode':0,'total_lines':len(source.splitlines()),'start_line':1,'excerpt_truncated':False}},0)
+  failed=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':ref,'stream':'stderr'})
+  self.s.finish_call(failed,{'ok':True,'result':{'reference':ref,'content':'cat: bad/path: No such file','source_version':version(manifest),'stream':'stderr','observed_process_returncode':1}},0)
+  p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['latest_successful_read']['content'],source)
+  self.assertNotEqual(state['latest_successful_read']['invocation_id'],failed)
+
+ def test_two_distinct_successful_pages_survive_duplicate_reads_and_metadata(self):
+  from jarvis.distributed_authority import version
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  worker=(Path(__file__).parents[1]/'jarvis/worker.py').read_text();api='class Helper:\n def measure_module(self, name):\n  return name\n'
+  manifest={'worker.py':'worker','helper.py':'api'};entries={}
+  for content in (api,worker,worker,'/path/to/worker.py'):
+   entry={'host':'Dell1','kind':'inspect','after':manifest,'execution':{'returncode':0,'stdout':content}}
+   ref=self.s.event(self.m,'authority_execution','task',result=entry);entries[str(ref)]=entry
+   call=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':ref,'stream':'stdout'})
+   self.s.finish_call(call,{'ok':True,'result':{'reference':ref,'content':content,'source_version':version(manifest),'stream':'stdout','observed_process_returncode':0,'total_lines':len(content.splitlines()),'start_line':1,'excerpt_truncated':False}},0)
+  self.s.event(self.m,'authority_state',result={'issues':{},'executions':entries})
+  before=self.s.attempt_ledger(self.m).snapshot()['problems']
+  p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['latest_successful_read']['content'],worker)
+  self.assertEqual(state['additional_inspection_pages'][0]['content'],api)
+  self.assertEqual(self.s.attempt_ledger(self.m).snapshot()['problems'],before)
+  self.assertLessEqual(serialized_bytes(p),14336)
+
+ def test_excerpt_recovery_uses_immutable_full_receipt_without_rerunning_command(self):
+  spec={'authority_engine_operation_ids':True,'authority_workspace':{'local_root':self.tmp.name}}
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  import hashlib
+  source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text()
+  raw=json.dumps({'execution':{'returncode':0,'stdout':source,'stderr':''}}).encode()
+  path=Path(self.tmp.name)/'receipts'/self.m/'fixture.json';path.parent.mkdir(parents=True);path.write_bytes(raw)
+  entry={'host':'Dell1','kind':'inspect','after':{'worker.py':'current'},'execution':{'returncode':0,'stdout':source[:700]+'[EXCERPT]'+source[-100:],'stdout_model_excerpt':True},'full_receipt':{'local':str(path),'sha256':hashlib.sha256(raw).hexdigest()}}
+  ref=self.s.event(self.m,'authority_execution','task',result=entry);self.s.event(self.m,'authority_state',result={'issues':{},'executions':{str(ref):entry}})
+  _,checkpoint=self.b.checkpoint('recover without execution')
+  self.assertIn('def run(config_path,slot)',checkpoint['latest_successful_read']['content'])
+  self.assertNotIn('[EXCERPT]',checkpoint['latest_successful_read']['content'])
+  self.assertFalse(checkpoint['latest_successful_read']['excerpt_truncated'])
+  path.write_bytes(raw+b'tampered')
+  _,checkpoint=self.b.checkpoint('reject changed receipt')
+  self.assertNotIn('latest_successful_read',checkpoint)

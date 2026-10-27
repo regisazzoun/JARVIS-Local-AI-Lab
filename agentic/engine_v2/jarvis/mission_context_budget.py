@@ -78,31 +78,56 @@ class ContextBudget:
   route=self.latest('compute_route_observed');last_inference={k:route[0]['result'].get(k) for k in ('node','effective_model','num_ctx','prompt_eval_count')} if route else None
   checkpoint={'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':self.latest('coordinator_instruction',1),'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
   if spec.get('authority_engine_operation_ids'):
-   # A source page must survive later failed/redundant reader calls. Keeping
-   # only three result prefixes repeatedly hid worker.run in the real mission.
+   # A delivered error page is useful diagnostic data, never a successful
+   # source observation. Preserve distinct successful stdout windows separately.
+   from .distributed_authority import version
+   current_version=version(executions[-1][1].get('after',{})) if executions else None
+   pages=[]
    with self.store.db() as c:
-    readers=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='authority_read_execution' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 16",(self.m,self.task)).fetchall()
+    readers=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='authority_read_execution' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 32",(self.m,self.task)).fetchall()
    for row in readers:
     value=json.loads(row['result']).get('result',{})
-    if not value.get('content') or value.get('reference',0)<=spec.get('authority_evidence_after_event',0):continue
-    if executions and value.get('source_version'):
-     from .distributed_authority import version
-     if value['source_version']!=version(executions[-1][1].get('after',{})):continue
-    checkpoint['latest_successful_read']={k:value.get(k) for k in ('reference','executor','stream','start_line','total_lines','content','source_version','excerpt_truncated')}
-    checkpoint['latest_successful_read']['invocation_id']=row['id']
-    checkpoint['latest_successful_read']['meaning']='Original successful page, not a claim that all source or current service state is verified'
-    break
-   if not checkpoint.get('latest_successful_read'):
-    # A successful inspection can itself be the source read. Preserve a usable
-    # line window rather than the old 600-character prefix that hid worker.run.
-    from .distributed_authority import version
-    current_version=version(executions[-1][1].get('after',{})) if executions else None
-    for ref,entry in reversed(executions):
-     text=entry.get('execution',{}).get('stdout','')
-     if entry.get('kind')!='inspect' or entry.get('execution',{}).get('returncode')!=0 or not text or version(entry.get('after',{}))!=current_version:continue
-     lines=text.splitlines();page='\n'.join(lines[:60]);content=page[:6000]
-     checkpoint['latest_successful_read']={'reference':int(ref),'executor':entry['host'],'stream':'stdout','start_line':1,'total_lines':len(lines),'content':content,'source_version':current_version,'excerpt_truncated':len(content)<len(text),'next_line':61 if len(lines)>60 and len(page)<=6000 else None,'meaning':'Bounded original inspection page; remaining lines/full receipt stay canonical. Not a current-service attestation.'}
-     break
+    reference=value.get('reference',0)
+    entry=next((e for ref,e in executions if str(ref)==str(reference)),None)
+    observed_rc=value.get('observed_process_returncode',entry.get('execution',{}).get('returncode') if entry else None)
+    if not value.get('content') or reference<=spec.get('authority_evidence_after_event',0):continue
+    if observed_rc!=0 or value.get('stream','stdout')!='stdout':continue
+    if current_version and value.get('source_version')!=current_version:continue
+    pages.append({**{k:value.get(k) for k in ('reference','executor','stream','start_line','total_lines','content','source_version','excerpt_truncated')},'invocation_id':row['id']})
+   for ref,entry in reversed(executions):
+    text=entry.get('execution',{}).get('stdout','')
+    if entry.get('kind')!='inspect' or entry.get('execution',{}).get('returncode')!=0 or not text or version(entry.get('after',{}))!=current_version:continue
+    # The recorded stdout can be an excerpt with a discontinuous tail. Recover
+    # its immutable full receipt locally when present, never rerun the command.
+    receipt=entry.get('full_receipt')
+    if receipt:
+     from pathlib import Path
+     try:
+      path=Path(receipt['local']).resolve();workspace=spec.get('authority_workspace',{}).get('local_root')
+      if not workspace or not path.is_relative_to((Path(workspace)/'receipts'/self.m).resolve()):continue
+      raw=path.read_bytes()
+      if hashlib.sha256(raw).hexdigest()!=receipt['sha256']:continue
+      execution=json.loads(raw)['execution']
+      if execution.get('returncode')!=0 or execution.get('output_truncated'):continue
+      text=execution.get('stdout','')
+     except (OSError,ValueError,KeyError,TypeError):continue
+    elif entry.get('execution',{}).get('stdout_model_excerpt') or entry.get('execution',{}).get('output_truncated'):continue
+    lines=text.splitlines();page='\n'.join(lines[:60]);content=page[:6000]
+    pages.append({'reference':int(ref),'executor':entry['host'],'stream':'stdout','start_line':1,'total_lines':len(lines),'content':content,'source_version':current_version,'excerpt_truncated':len(lines)>60 or len(page)>6000})
+   # Prefer a substantive page over newer path-only metadata. Do not claim it
+   # is Python source: these are recorded stdout windows of model-chosen tools.
+   def complete_window(page):
+    return page.get('start_line',1)==1 and not page.get('excerpt_truncated') and type(page.get('total_lines')) is int and len(page['content'].splitlines())>=page['total_lines']
+   pages=sorted(pages,key=lambda p:(len(p['content'].splitlines())>=3,complete_window(p),int(p['reference'])),reverse=True)
+   retained=[]
+   for page in pages:
+    text=page['content'].strip()
+    if any(text==p['content'].strip() or (len(text.splitlines())>=10 and (text in p['content'] or p['content'].strip() in text)) for p in retained):continue
+    retained.append({**page,'meaning':'Original successful stdout page, not an attestation of current services'})
+    if len(retained)==2:break
+   if retained:
+    checkpoint['latest_successful_read']=retained[0]
+    checkpoint['retained_inspection_pages']=retained
   e=self.store.event(self.m,'operational_checkpoint',self.task,'JARVIS-engine',result={'sha256':sha(checkpoint),'checkpoint':checkpoint})
   return e,checkpoint
  def recall(self,reference,offset=0,limit=1800):
@@ -156,6 +181,13 @@ class ContextBudget:
    if checkpoint.get('latest_successful_read'):
     active['latest_successful_read']=checkpoint['latest_successful_read']
     text=active['latest_successful_read']['content']
+    pages=checkpoint.get('retained_inspection_pages',[])
+    if len(pages)>1:
+     active['additional_inspection_pages']=[]
+     for page in pages[1:]:
+      clipped=dict(page);clipped['content']=page['content'][:1000]
+      if len(page['content'])>1000:clipped.update(excerpt_truncated=True,next_character_offset=1000,full_window_reference=page['reference'])
+      active['additional_inspection_pages'].append(clipped)
     for observation in active['last_observations']:
      if observation['tool']!='authority_read_execution':continue
      result=observation['result'];content=result.get('content')
@@ -195,7 +227,18 @@ class ContextBudget:
   if serialized_bytes(candidate)>budget:
    # Preserve the last actual reply over redundant historical previews. A
    # reference without its latest result can otherwise cause recall loops.
-   for key in ('decisions','model_notes','last_observations','verified_api_observations'):
+   if active.get('additional_inspection_pages'):
+    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   if serialized_bytes(candidate)>budget and active.get('additional_inspection_pages'):
+    page=active['latest_successful_read']
+    if len(page['content'])>2400:
+     active['latest_successful_read']={**page,'content':page['content'][:2400],'excerpt_truncated':True,'next_character_offset':2400,'full_window_reference':page['reference']}
+     candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   if serialized_bytes(candidate)<=budget:
+    original[:]=candidate['messages'];payload['messages']=original
+    self.store.event(self.m,'context_budget_checked',self.task,'JARVIS-engine',result={**measurement,'compacted':True,'archive':archive,'checkpoint':checkpoint_id,'sent_bytes':serialized_bytes(payload),'within_budget':True})
+    return payload
+   for key in ('decisions','model_notes','last_observations'):
     active.pop(key,None)
    active['coordinator_instructions']=active['coordinator_instructions'][:1]
    candidate['messages']=[system,{'role':'user','content':encoded(active)}]+tail

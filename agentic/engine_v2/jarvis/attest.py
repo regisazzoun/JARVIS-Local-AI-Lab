@@ -182,9 +182,14 @@ class AttestRuntime:
                 'scope':'Current process only; remote worker/service integration not implied'}
 
 
-def attestation_report(module_names,candidate_path,max_age_seconds=30):
+def attestation_report(module_names,candidate_path,max_age_seconds=30,symbols=None):
+    """Attest this process, optionally selecting named symbols per module.
+
+    Selection is explicit in each result; it never certifies unselected code.
+    Omitting symbols retains the original whole-module behavior.
+    """
     runtime=AttestRuntime(candidate_path,max_age_seconds)
-    absent=[name for name in module_names if not runtime.measure_module(name)]
+    absent=[name for name in module_names if not runtime.measure_module(name,symbols=(symbols or {}).get(name))]
     results=runtime.verify_against_candidate(candidate_path)
     statuses=[r['status'] for r in results.values()]
     verdict=('FAIL' if 'mismatch' in statuses else 'PASS' if statuses and all(v=='match' for v in statuses) and not absent else 'PARTIAL' if 'match' in statuses else 'INSUFFICIENT')
