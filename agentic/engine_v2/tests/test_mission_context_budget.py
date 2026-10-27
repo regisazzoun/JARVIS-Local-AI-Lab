@@ -9,6 +9,16 @@ class ContextTests(unittest.TestCase):
   self.contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/result.json'}},'expected':{'/value':42}}
   self.s.plan(self.m,[{'id':'task','title':'task','objective':'current objective','contract':{'semantic':[self.contract]}}]);self.b=ContextBudget(self.s,self.m,'task');self.cap={'limit':16384,'source':'test fixture, not real backend'}
  def payload(self):return {'model':'model','messages':[{'role':'system','content':'KEEP ALL OWNER POLICY'},{'role':'user','content':'historic output '+('x'*80000)}],'tools':[],'options':{'num_predict':1024}}
+ def test_reserved_operation_ids_survive_compaction_without_mutating_ledger(self):
+  operations={'inspect-20250621-002':{'arguments':{'executor':'Dell2','command':'original'},'result':{'returncode':0}},'uncertain-op':{'arguments':{'executor':'Dell1','command':'maybe-write'}}}
+  self.s.event(self.m,'authority_state',result={'operations':operations})
+  p=self.payload();p['messages']+=[{'role':'assistant','tool_calls':[{'function':{'name':'authority_work','arguments':{'command':'x'*40000}}}]},{'role':'tool','content':'refused'}]
+  self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['reserved_operation_ids'],sorted(operations))
+  self.assertIn('ALL original arguments unchanged',state['operation_identity_rule'])
+  self.assertEqual(self.b.latest('authority_state')[0]['result']['operations'],operations)
+  self.assertLessEqual(serialized_bytes(p),self.cap['limit']-2048)
  def test_large_history_archived_and_input_bounded_in_place(self):
   p=self.payload();messages=p['messages'];before=copy.deepcopy(p);self.b.prepare(p,self.cap)
   self.assertIs(messages,p['messages']);self.assertLessEqual(serialized_bytes(p),16384-1024-1024)
