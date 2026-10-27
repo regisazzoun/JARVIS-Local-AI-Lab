@@ -15,7 +15,7 @@ class IdentityTests(unittest.TestCase):
   self.root=Path(self.tmp.name);self.s=MissionStore(self.root)
   self.m=self.s.create('software fixture','model','conv',spec={'distributed_authority':True,'authority_requirements':['Q1'],'authority_engine_operation_ids':True})
   self.s.plan(self.m,[{'id':'task','title':'fixture'},{'id':'peer','title':'other task'}])
-  self.config=json.loads((ROOT/'config/example.json').read_text());self.reg=self.registry()
+  self.config=json.loads((ROOT/'config/example.json').read_text());self.config['identity_file']=str(ROOT/'identity/JARVIS-v2.md');self.reg=self.registry()
   self.s.event(self.m,'inference_finished','task',result={'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'},'software_fixture':True})
   self.executed=[];self.source='one';self.fail_transport=False
   def remote(instance,host,command):
