@@ -1,0 +1,73 @@
+{
+  "mission": "d8fe752876db480cbe5f22cd5525e2dd",
+  "event": 62707,
+  "source_commit": "62376a3a92f88e7cabc104a4cad495ef5a1a2647",
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        "60a3b4be068f408492d55693d71d90ab",
+        "88babef54b674274bebab44f96a0ed56",
+        "ee4fd4f1456b4224823d0c0a1c1d1adc",
+        "8aba585f93cd4efe8bfa674f8a536956",
+        "33139c47b93a4e2da6fecf0223341a04",
+        "502d3a05c53640aea5e432d45b875125",
+        "32ba72b804a54d96ba763b9151875957",
+        "0af2d4dffe494200ac014f102ca162ef"
+      ],
+      "test_receipt": "a80cb11d072b40cca9aa87ffa311e9ac",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "test_changed_source_gets_fresh_test (test_authority_identity.IdentityTests.test_changed_source_gets_fresh_test) ... ok\ntest_command_cannot_be_swapped_under_same_canonical_invocation (test_authority_identity.IdentityTests.test_command_cannot_be_swapped_under_same_canonical_invocation) ... ok\ntest_different_commands_need_no_model_ids_and_keep_decision_attribution (test_authority_identity.IdentityTests.test_different_commands_need_no_model_ids_and_keep_decision_attribution) ... ok\ntest_edit_adapter_binds_generated_command_to_original_edit_invocation (test_authority_identity.IdentityTests.test_edit_adapter_binds_generated_command_to_original_edit_invocation) ... ok\ntest_forged_or_finished_invocation_cannot_execute (test_authority_identity.IdentityTests.test_forged_or_finished_invocation_cannot_execute) ... ok\ntest_legacy_mode_keeps_collision_rejection (test_authority_identity.IdentityTests.test_legacy_mode_keeps_collision_rejection) ... ok\ntest_new_api_submissions_enable_engine_ids_but_keep_explicit_legacy_choice (test_authority_identity.IdentityTests.test_new_api_submissions_enable_engine_ids_but_keep_explicit_legacy_choice) ... ok\ntest_new_task_gets_own_execution_not_previous_task_receipt (test_authority_identity.IdentityTests.test_new_task_gets_own_execution_not_previous_task_receipt) ... ok\ntest_no_context_fallback_or_model_supplied_key (test_authority_identity.IdentityTests.test_no_context_fallback_or_model_supplied_key) ... ok\ntest_obsolete_diagnosis_drops_from_working_view_but_history_and_counts_survive (test_authority_identity.IdentityTests.test_obsolete_diagnosis_drops_from_working_view_but_history_and_counts_survive) ... ok\ntest_real_durable_dispatch_supplies_started_invocation_scope (test_authority_identity.IdentityTests.test_real_durable_dispatch_supplies_started_invocation_scope) ... ok\ntest_same_intent_changed_summary_and_registry_restart_deduplicates (test_authority_identity.IdentityTests.test_same_intent_changed_summary_and_registry_restart_deduplicates) ... ok\ntest_three_failures_still_stop_dispatch_despite_new_generated_keys (test_authority_identity.IdentityTests.test_three_failures_still_stop_dispatch_despite_new_generated_keys) ... ok\ntest_unknown_correction_blocks_different_command_and_new_identity (test_authority_identity.IdentityTests.test_unknown_correction_blocks_different_command_and_new_identity) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.366s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.816,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        "ada4fcd04c004db9af0faa1dce88a8ca",
+        "5054a684a9dc48a3b4cf0a00732d12fb",
+        "ca5c400517264a88ae84abfae0ddfe2d",
+        "0d824b2024d24d44a2d9cc263b841f53",
+        "3e779ad14c5b425e8d2e3b686d50cdcc",
+        "09308bf04a214e69a42d37a25afce640",
+        "b45a7e674e3440bbad3508e2f597441c",
+        "3a34cde8573649d7bda869227390a692"
+      ],
+      "test_receipt": "2b2d55201c924deeb0e001932ed74f0b",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "test_changed_source_gets_fresh_test (test_authority_identity.IdentityTests.test_changed_source_gets_fresh_test) ... ok\ntest_command_cannot_be_swapped_under_same_canonical_invocation (test_authority_identity.IdentityTests.test_command_cannot_be_swapped_under_same_canonical_invocation) ... ok\ntest_different_commands_need_no_model_ids_and_keep_decision_attribution (test_authority_identity.IdentityTests.test_different_commands_need_no_model_ids_and_keep_decision_attribution) ... ok\ntest_edit_adapter_binds_generated_command_to_original_edit_invocation (test_authority_identity.IdentityTests.test_edit_adapter_binds_generated_command_to_original_edit_invocation) ... ok\ntest_forged_or_finished_invocation_cannot_execute (test_authority_identity.IdentityTests.test_forged_or_finished_invocation_cannot_execute) ... ok\ntest_legacy_mode_keeps_collision_rejection (test_authority_identity.IdentityTests.test_legacy_mode_keeps_collision_rejection) ... ok\ntest_new_api_submissions_enable_engine_ids_but_keep_explicit_legacy_choice (test_authority_identity.IdentityTests.test_new_api_submissions_enable_engine_ids_but_keep_explicit_legacy_choice) ... ok\ntest_new_task_gets_own_execution_not_previous_task_receipt (test_authority_identity.IdentityTests.test_new_task_gets_own_execution_not_previous_task_receipt) ... ok\ntest_no_context_fallback_or_model_supplied_key (test_authority_identity.IdentityTests.test_no_context_fallback_or_model_supplied_key) ... ok\ntest_obsolete_diagnosis_drops_from_working_view_but_history_and_counts_survive (test_authority_identity.IdentityTests.test_obsolete_diagnosis_drops_from_working_view_but_history_and_counts_survive) ... ok\ntest_real_durable_dispatch_supplies_started_invocation_scope (test_authority_identity.IdentityTests.test_real_durable_dispatch_supplies_started_invocation_scope) ... ok\ntest_same_intent_changed_summary_and_registry_restart_deduplicates (test_authority_identity.IdentityTests.test_same_intent_changed_summary_and_registry_restart_deduplicates) ... ok\ntest_three_failures_still_stop_dispatch_despite_new_generated_keys (test_authority_identity.IdentityTests.test_three_failures_still_stop_dispatch_despite_new_generated_keys) ... ok\ntest_unknown_correction_blocks_different_command_and_new_identity (test_authority_identity.IdentityTests.test_unknown_correction_blocks_different_command_and_new_identity) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.364s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.816,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    }
+  ],
+  "counts_unchanged": true,
+  "old_operations_unchanged": true,
+  "quarantined_known_candidate": [
+    {
+      "attempt": "784193e8d7cf4da28095f77ef58cd79e",
+      "event": 62708
+    }
+  ],
+  "rollback": "Restore private SDK backup and previous spec while mission interrupted; preserve journal/receipts and do not blindly resume old unknown attempts",
+  "JARVIS_actual_use_received": false
+}

@@ -1,3 +1,7 @@
+## P4 — correction pérenne des identifiants utilisée parJARVIS
+
+Même missionP4, plan3 préservé. Les identifiants sont attribués parlemoteur depuis les appelsSQLite ; Qwen ne lesgénèreplus.130tests ciblésPASS,14nouveaux cas surchaqueDell. Usage réel reçu62931 : commande62737 exécutéeunefois, répétitionavecdescriptiondifférente renvoyantle reçuexistant62774. Compteurs/anciensalias préservés, garde deseffetsinconnus maintenu. Aucun nouveaumoteur ni déploiementduworker candidat ; P4globale reste nonreçue. [Architecture, migrationetpreuves](docs/missions/26-P2/p4/IDENTIFIANTS-DURABLES.md).
+
 ## P4 — faux match corrigé parCodex, retests JARVIS relancés
 
 Après l’ordrepropriétaire de correction, le candidat compare désormais les objets__code__ aux candidats compilés sans exécution.15tests ciblésPASS surchaqueDell sousCodex, originaux conservés ; lanceurautonome corrigé après l’importéchoué61520. RetestsJARVIS relancés dans la même mission/SQLite, compteurs préservés. Pas d’attestationdesprocessusactifs ni de réceptionglobaleP4. [Correction et limites](docs/missions/26-P2/p4/CORRECTION-FAUX-MATCH.md).
