@@ -21,6 +21,14 @@ class GuardTests(unittest.TestCase):
   self.x.save(state)
   r=self.x.analyze_latest({'issue':'Q1','summary':'My diagnosis based on the observed failure'})
   self.assertEqual(r['analyzed'],'31');self.assertEqual(self.x.state()['issues']['Q1']['analyzed'],'31')
+ def test_latest_analysis_can_diagnose_failed_initial_inspection(self):
+  state=self.x.state()
+  state['executions']['31']={'issue':'Q1','kind':'inspect','execution':{'returncode':2}}
+  state['executions']['32']={'issue':'Q2','kind':'inspect','execution':{'returncode':2}}
+  self.x.save(state)
+  r=self.x.analyze_latest({'issue':'Q1','summary':'Remote path is wrong'})
+  self.assertEqual(r['analyzed'],'31');self.assertEqual(r['observed_returncode'],2)
+  self.assertEqual(r['declared_kind'],'inspect');self.assertEqual(r['failed_cycles'],0)
  def test_counters_survive_new_adapter(self):
   state=self.x.state();a.budget(state,'Q1')['failed_cycles']=3;self.x.save(state)
   with self.assertRaisesRegex(ValueError,'trois cycles'):a.budget(a.Authority(self.r).state(),'Q1')

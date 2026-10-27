@@ -404,7 +404,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if not authority.state()['executions'] and not json.loads(mission['spec']).get('authority_readonly_validation'):
                     names={'authority_work'} if authority.state().get('resources') else {'authority_work','authority_resources'}
                 elif not current_tasks:
-                    names={'authority_plan'}
+                    names={'authority_plan','authority_work','authority_analyze','authority_read_execution'}
                 else:
                     names.discard('authority_plan')
                 if names!={'intervention_report'}:names|={'context_checkpoint','context_resume','context_recall'}
