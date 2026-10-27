@@ -232,6 +232,8 @@ class Registry:
             if name=='authority_work':
                 schema['allOf']=[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},
                                   'then':{'required':['reference','source_reference']}}]
+                schema['allOf'].append({'if':{'properties':{'kind':{'enum':['inspect','correct','test']}},'required':['kind']},
+                                        'then':{'required':['executor','command'],'properties':{'command':{'minLength':1}}}})
                 schema['properties']['reference']['description']='For accept: REQUIRED passed TEST execution event id. This is separate from source_reference; never omit it or put it only in summary.'
                 schema['properties']['source_reference']['description']='For accept: REQUIRED actual changed CORRECTION execution on the OTHER Dell with exact same full manifest as the test. A passed test is not a correction. If no matching correction exists, do not retry accept or manufacture a no-op correction; continue the missing application work and report provenance.'
             if name=='authority_read_execution':
@@ -252,6 +254,10 @@ class Registry:
                     schema['properties']['kind']['enum']=[k for k in schema['properties']['kind']['enum'] if k!='accept']
                 schema['properties']['reference']['description']='Execution event of THIS active task; completed-task receipts remain archived, not acceptance candidates.'
                 schema['properties']['source_reference']['description']='Independent peer execution of THIS active task on the OTHER Dell, at identical source manifest.'
+            if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_execution_only'):
+                schema['properties']['kind']['enum']=[k for k in schema['properties']['kind']['enum'] if k in ('inspect','correct','test')]
+                schema['required']=list(dict.fromkeys(schema['required']+['executor','command']))
+                schema['properties']['command']['minLength']=1
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
 
         return schema
