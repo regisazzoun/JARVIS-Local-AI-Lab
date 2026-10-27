@@ -1,3 +1,7 @@
+## P4 reprise depuis l’état persistant —27octobre2026
+
+Audit natif terminé (cinq tâchesvalidées), réception indépendante limitée aux deux sources/artefacts avec réserve de prose :58952, dossier d’erreurs58945. P4 globale NON VALIDÉE. Nouveau paquet court réellement transmis àQwen80B : attestation du codePython chargé, candidat surlesdeuxDell, missiond8fe752876db480cbe5f22cd5525e2dd. Plan/fichiers/tests/répartition à choisir parQwen ; déploiement ultérieur après contrôle, sans nouvelle validationhumaine. Objectif de contexte32768 déjàpersisté avant transmission ; aucune repriseP2/P3. [Paquet](docs/missions/26-P2/p4/LANCEMENT-ATTESTATION.json) · [Reprise et réserves](docs/missions/26-P2/p4/REPRISE-MEMOIRE.md).
+
 ## Décision propriétaire du27octobre2026 — fenêtre avant transmission
 
 Qwen80B Dell1 :32768tokens de contexte total après deux essais réels Codex (18876/26614tokens de prompt, VRAMlibremin1129/1163Mio). Réserver4096réponse+1024gabarit, entrée27648 avec contrôle conservateur explicitement distinct des tokens mesurés. Chaque sous-tâche doit porter cette fenêtre comme objectif de résultat dans son contrat avant transmission ; découper si trop gros, ne pas tronquer les exigences. Garde final du routeur et truncate=false ; pas de contournement par fallback. Compteurs préservés. Voir docs/missions/26-P2/p4/CONTEXTE-32768.md ; aucun succèsP4 ni autonomie déduit de ces testsCodex.

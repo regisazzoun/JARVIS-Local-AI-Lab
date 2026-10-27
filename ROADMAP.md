@@ -1,3 +1,7 @@
+## P4 reprise depuis l’état persistant —27octobre2026
+
+Audit natif terminé (cinq tâchesvalidées), réception indépendante limitée aux deux sources/artefacts avec réserve de prose :58952, dossier d’erreurs58945. P4 globale NON VALIDÉE. Nouveau paquet court réellement transmis àQwen80B : attestation du codePython chargé, candidat surlesdeuxDell, missiond8fe752876db480cbe5f22cd5525e2dd. Plan/fichiers/tests/répartition à choisir parQwen ; déploiement ultérieur après contrôle, sans nouvelle validationhumaine. Objectif de contexte32768 déjàpersisté avant transmission ; aucune repriseP2/P3. [Paquet](docs/missions/26-P2/p4/LANCEMENT-ATTESTATION.json) · [Reprise et réserves](docs/missions/26-P2/p4/REPRISE-MEMOIRE.md).
+
 ## Budget Qwen80B — décision et essai du27octobre2026
 
 Fenêtre32768tokens testée réellement et installée surDell1 : prompts18876 puis26614tokens, minimaVRAMlibre1129/1163Mio, sans erreur mémoire retournée. Réponse4096+marge1024, entrée27648 avec garde conservateur ; critère de résultat persisté avant transmission des sous-tâches. Inférence JARVIS reprise, P4 toujours non reçue. [Mesures, règle et limites](docs/missions/26-P2/p4/CONTEXTE-32768.md).

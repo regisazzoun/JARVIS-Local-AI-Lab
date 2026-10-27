@@ -1,3 +1,11 @@
+## Actualisation — reprise P4 du27octobre2026
+
+Audit initial completed, cinq tâchesvalidées techniquement. Réception indépendante58952 limitée aux lectures de deux sources et artefacts : prose NON REÇUE, erreurs/versionsoriginales conservées. Le codePython réellement chargé reste non prouvé. [Réception limitée](p4/RECEPTION-AUDIT-LIMITEE.json).
+
+Le paquet suivant a été transmis dans la continuation native d8fe752876db480cbe5f22cd5525e2dd : développer un candidat d’attestation mémoire dans le vrai code duMissionEngine, tester surlesdeuxDell, puis transmettre l’intégration àCodex. Qwen choisit son plan, sa conception, ses commandes et exécutants. Aucun déploiement actif ni réception globaleP4 acquis ; pas de nouvel accordhumain demandé. Contrainte32768tokens écrite avanttransmission. [Paquet réel](p4/LANCEMENT-ATTESTATION.json) · [Reprise de contexte et attribution](p4/REPRISE-MEMOIRE.md).
+
+Les paragraphes ci-dessous gardent l’historique de l’audit.
+
 # P4 — code réel, audit lancé le27octobre2026
 
 **EN COURS — NON VALIDÉ.** Après réceptionP3 avec réserves55310, paquet court transmis à Qwen80B dans la continuation native `d1b0d69639724c60b5bd1b2143b1a5fa`, liée au parent et à la même SQLite. [Paquet effectivement transmis](p4/LANCEMENT.json).
