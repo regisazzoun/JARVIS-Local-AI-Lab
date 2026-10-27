@@ -68,6 +68,19 @@ Le test initial de développement agentique de la mission 23 est suivi des enric
 
 **Périmètre :** ces ajouts documentaires ne déclarent ni JL-03 ni mission 28 lancés ou validés. Les missions historiques et leurs preuves ne sont pas réécrites.
 
+
+## Priorité transverse — arbitrage conversation / traitement agentique (27 octobre 2026)
+
+**Décision du propriétaire — à intégrer aux prochaines phases encore ouvertes, sans rouvrir les lots déjà réceptionnés :** la question « as-tu accès à GitHub ? » illustre un défaut de **répartition entre moteur conversationnel et moteur de traitement**, distinct du choix du nœud de calcul. JL-03 peut exposer `host_github` à Qwen 27B sans que celui-ci l'appelle : trace `OLLAMA_TOOL_DIAG` du 27 octobre à 18:07:41 avec `host_github`, puis `chat completed ... tools=0` à 18:08:03. La déclaration du modèle « fonction non implémentée » est donc contredite par le registre source et l'exposition effective, mais les **droits GitHub effectifs** restent à prouver par une opération réelle. Ne pas confondre `skill_list` vide, outils du registre Python, outils transmis, appel réussi et autorisation broker.
+
+**Ordre des priorités fonctionnelles :**
+
+- **P0 — Mission 26 / moteur de traitement, lot correctif à programmer dans les phases non clôturées :** distinguer réponse de connaissance, question exigeant une observation réelle, action technique courte et mission longue. Réutiliser le moteur agentique déjà présent, la file persistante, les compétences et les preuves ; Qwen 80B conserve la responsabilité des décisions techniques lorsqu'il est disponible selon les profils validés. Ne pas créer un deuxième moteur ni faire dépendre toutes les observations d'une mission longue. Pour une question du type « peux-tu lire ce dépôt ? », faire exécuter une lecture réelle via le contrat `host_github` ou fournir un état explicite d'indisponibilité ; ne pas admettre une affirmation non prouvée comme résultat. Conserver les résultats et décisions des phases 26 déjà exécutées ; aucune reprise ni clôture implicite.
+- **P0 — Mission 27 / JL-03 :** transmettre l'intention technique vers le traitement approprié, représenter séparément réponse conversationnelle et vérification effective, puis restituer actions, sorties, provenance et identifiants de preuve dans le flux chronologique ; une simple question peut nécessiter un outil sans devenir automatiquement une mission persistante. Corriger les diagnostics inventés « outil absent » et distinguer absence d'exposition, outil non appelé, échec d'appel et permission refusée. Maintenir le correctif local A de compaction comme acquis expérimental (9 appels, 3 compactions, contexte envoyé 16 384 tokens lors du test du 27 octobre), sans le généraliser comme réception complète.
+- **P1 — Mission 28 / routage de calcul et de contexte :** prendre en charge le **où** de l'exécution (Mac mini/Dell, modèle et budget de contexte), une fois le **qui fait quoi** arbitré ; respecter la cible 32 768 tokens configurée pour le Mac mini sans présumer une compatibilité matérielle non mesurée. Préserver les outils pertinents et les preuves pendant la compaction. Ne pas lancer B avant la mission 28, conformément à la décision du propriétaire.
+
+**Réception ciblée à prévoir :** (1) question purement explicative sans fausse action ; (2) question sur GitHub avec appel de lecture réel et résultat brut traçable ; (3) demande longue routée vers la mission durable ; (4) erreur outil/permission rapportée sans hallucination ; (5) absence de perte de demande, de boucles d'appels ou de régression du correctif A. Les habilitations 11/11B sont conservées ; aucun nouveau droit n'est déduit de la présence de l'outil.
+
 ## Références examinées (inspiration, pas dépendance)
 - LiveKit Agents : https://github.com/livekit/agents
 - sosoj92 JARVIS vocal : https://github.com/sosoj92/jarvis-assistant-vocal
