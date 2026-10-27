@@ -1,0 +1,56 @@
+{
+  "event": 61369,
+  "actor": "Codex",
+  "proofs": [
+    {
+      "host": "dell-observe",
+      "backup": ".correction-codex/attest-before-codex-1793121356.py",
+      "upload_receipts": [
+        "7ad3822dfffa404684b500904b58c156",
+        "44c50a34daa74c52bc02488c2f476d8a",
+        "3651ff0b52184fff99a839053e071959"
+      ],
+      "test_receipt": "a501985073bc44bd818c91d603f11b40",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "test_actual_engine_methods_match_their_explicit_source_candidate (test_runtime_attest.RuntimeAttestationTests.test_actual_engine_methods_match_their_explicit_source_candidate) ... ok\ntest_candidate_is_compiled_without_execution_and_path_is_ignored (test_runtime_attest.RuntimeAttestationTests.test_candidate_is_compiled_without_execution_and_path_is_ignored) ... ok\ntest_changed_disk_after_measurement_is_detected (test_runtime_attest.RuntimeAttestationTests.test_changed_disk_after_measurement_is_detected) ... ok\ntest_changed_disk_before_measurement_does_not_hide_old_loaded_code (test_runtime_attest.RuntimeAttestationTests.test_changed_disk_before_measurement_does_not_hide_old_loaded_code) ... ok\ntest_class_instance_static_and_class_methods (test_runtime_attest.RuntimeAttestationTests.test_class_instance_static_and_class_methods) ... ok\ntest_decorated_whole_worker_is_insufficient_not_false_mismatch (test_runtime_attest.RuntimeAttestationTests.test_decorated_whole_worker_is_insufficient_not_false_mismatch) ... ok\ntest_expired_and_future_measurements_are_insufficient (test_runtime_attest.RuntimeAttestationTests.test_expired_and_future_measurements_are_insufficient) ... ok\ntest_hash_does_not_read_source_or_file (test_runtime_attest.RuntimeAttestationTests.test_hash_does_not_read_source_or_file) ... ok\ntest_live_monkey_patch_after_measurement_is_detected (test_runtime_attest.RuntimeAttestationTests.test_live_monkey_patch_after_measurement_is_detected) ... ok\ntest_missing_candidate_and_syntax_error_are_not_match (test_runtime_attest.RuntimeAttestationTests.test_missing_candidate_and_syntax_error_are_not_match) ... ok\ntest_nested_code_constant_changes_are_detected (test_runtime_attest.RuntimeAttestationTests.test_nested_code_constant_changes_are_detected) ... ok\ntest_selection_is_explicit_and_unknown_symbol_cannot_pass (test_runtime_attest.RuntimeAttestationTests.test_selection_is_explicit_and_unknown_symbol_cannot_pass) ... ok\ntest_unavailable_module_prevents_overall_pass (test_runtime_attest.RuntimeAttestationTests.test_unavailable_module_prevents_overall_pass) ... ok\ntest_unavailable_or_empty_observation_never_matches (test_runtime_attest.RuntimeAttestationTests.test_unavailable_or_empty_observation_never_matches) ... ok\ntest_unchanged_real_function_matches (test_runtime_attest.RuntimeAttestationTests.test_unchanged_real_function_matches) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.054s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.466,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    },
+    {
+      "host": "dell2",
+      "backup": ".correction-codex/attest-before-codex-1793121356.py",
+      "upload_receipts": [
+        "d36ee79fb0d7494cb41070bce26c8cfd",
+        "a382ad3f3d41442981d67123f339774d",
+        "d9ef3931117f41bb9f68edeb5d6318f9"
+      ],
+      "test_receipt": "e4ddea05f563459a8690a8b17c32b839",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "test_actual_engine_methods_match_their_explicit_source_candidate (test_runtime_attest.RuntimeAttestationTests.test_actual_engine_methods_match_their_explicit_source_candidate) ... ok\ntest_candidate_is_compiled_without_execution_and_path_is_ignored (test_runtime_attest.RuntimeAttestationTests.test_candidate_is_compiled_without_execution_and_path_is_ignored) ... ok\ntest_changed_disk_after_measurement_is_detected (test_runtime_attest.RuntimeAttestationTests.test_changed_disk_after_measurement_is_detected) ... ok\ntest_changed_disk_before_measurement_does_not_hide_old_loaded_code (test_runtime_attest.RuntimeAttestationTests.test_changed_disk_before_measurement_does_not_hide_old_loaded_code) ... ok\ntest_class_instance_static_and_class_methods (test_runtime_attest.RuntimeAttestationTests.test_class_instance_static_and_class_methods) ... ok\ntest_decorated_whole_worker_is_insufficient_not_false_mismatch (test_runtime_attest.RuntimeAttestationTests.test_decorated_whole_worker_is_insufficient_not_false_mismatch) ... ok\ntest_expired_and_future_measurements_are_insufficient (test_runtime_attest.RuntimeAttestationTests.test_expired_and_future_measurements_are_insufficient) ... ok\ntest_hash_does_not_read_source_or_file (test_runtime_attest.RuntimeAttestationTests.test_hash_does_not_read_source_or_file) ... ok\ntest_live_monkey_patch_after_measurement_is_detected (test_runtime_attest.RuntimeAttestationTests.test_live_monkey_patch_after_measurement_is_detected) ... ok\ntest_missing_candidate_and_syntax_error_are_not_match (test_runtime_attest.RuntimeAttestationTests.test_missing_candidate_and_syntax_error_are_not_match) ... ok\ntest_nested_code_constant_changes_are_detected (test_runtime_attest.RuntimeAttestationTests.test_nested_code_constant_changes_are_detected) ... ok\ntest_selection_is_explicit_and_unknown_symbol_cannot_pass (test_runtime_attest.RuntimeAttestationTests.test_selection_is_explicit_and_unknown_symbol_cannot_pass) ... ok\ntest_unavailable_module_prevents_overall_pass (test_runtime_attest.RuntimeAttestationTests.test_unavailable_module_prevents_overall_pass) ... ok\ntest_unavailable_or_empty_observation_never_matches (test_runtime_attest.RuntimeAttestationTests.test_unavailable_or_empty_observation_never_matches) ... ok\ntest_unchanged_real_function_matches (test_runtime_attest.RuntimeAttestationTests.test_unchanged_real_function_matches) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.055s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.466,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    }
+  ],
+  "sha256": "94f89d4fdca8009688743da6a1dc9269d20c47b5d12165f24c04e2ce045fbc15",
+  "not_active_service_attestation": true
+}

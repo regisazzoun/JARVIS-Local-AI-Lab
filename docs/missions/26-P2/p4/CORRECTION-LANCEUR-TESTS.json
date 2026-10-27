@@ -1,0 +1,48 @@
+{
+  "event": 61775,
+  "actor": "Codex",
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload": "7a3385a7abe9437f84709d9079dca152",
+      "test": "4381620400a64080bc099968f2cf8107",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "test_actual_engine_methods_match_their_explicit_source_candidate (__main__.RuntimeAttestationTests.test_actual_engine_methods_match_their_explicit_source_candidate) ... ok\ntest_candidate_is_compiled_without_execution_and_path_is_ignored (__main__.RuntimeAttestationTests.test_candidate_is_compiled_without_execution_and_path_is_ignored) ... ok\ntest_changed_disk_after_measurement_is_detected (__main__.RuntimeAttestationTests.test_changed_disk_after_measurement_is_detected) ... ok\ntest_changed_disk_before_measurement_does_not_hide_old_loaded_code (__main__.RuntimeAttestationTests.test_changed_disk_before_measurement_does_not_hide_old_loaded_code) ... ok\ntest_class_instance_static_and_class_methods (__main__.RuntimeAttestationTests.test_class_instance_static_and_class_methods) ... ok\ntest_decorated_whole_worker_is_insufficient_not_false_mismatch (__main__.RuntimeAttestationTests.test_decorated_whole_worker_is_insufficient_not_false_mismatch) ... ok\ntest_expired_and_future_measurements_are_insufficient (__main__.RuntimeAttestationTests.test_expired_and_future_measurements_are_insufficient) ... ok\ntest_hash_does_not_read_source_or_file (__main__.RuntimeAttestationTests.test_hash_does_not_read_source_or_file) ... ok\ntest_live_monkey_patch_after_measurement_is_detected (__main__.RuntimeAttestationTests.test_live_monkey_patch_after_measurement_is_detected) ... ok\ntest_missing_candidate_and_syntax_error_are_not_match (__main__.RuntimeAttestationTests.test_missing_candidate_and_syntax_error_are_not_match) ... ok\ntest_nested_code_constant_changes_are_detected (__main__.RuntimeAttestationTests.test_nested_code_constant_changes_are_detected) ... ok\ntest_selection_is_explicit_and_unknown_symbol_cannot_pass (__main__.RuntimeAttestationTests.test_selection_is_explicit_and_unknown_symbol_cannot_pass) ... ok\ntest_unavailable_module_prevents_overall_pass (__main__.RuntimeAttestationTests.test_unavailable_module_prevents_overall_pass) ... ok\ntest_unavailable_or_empty_observation_never_matches (__main__.RuntimeAttestationTests.test_unavailable_or_empty_observation_never_matches) ... ok\ntest_unchanged_real_function_matches (__main__.RuntimeAttestationTests.test_unchanged_real_function_matches) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.055s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.466,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    },
+    {
+      "host": "dell2",
+      "upload": "82789410b1394d09a25f456cde5ee9e8",
+      "test": "26bfc99584174d60bf4c468eb599460f",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "test_actual_engine_methods_match_their_explicit_source_candidate (__main__.RuntimeAttestationTests.test_actual_engine_methods_match_their_explicit_source_candidate) ... ok\ntest_candidate_is_compiled_without_execution_and_path_is_ignored (__main__.RuntimeAttestationTests.test_candidate_is_compiled_without_execution_and_path_is_ignored) ... ok\ntest_changed_disk_after_measurement_is_detected (__main__.RuntimeAttestationTests.test_changed_disk_after_measurement_is_detected) ... ok\ntest_changed_disk_before_measurement_does_not_hide_old_loaded_code (__main__.RuntimeAttestationTests.test_changed_disk_before_measurement_does_not_hide_old_loaded_code) ... ok\ntest_class_instance_static_and_class_methods (__main__.RuntimeAttestationTests.test_class_instance_static_and_class_methods) ... ok\ntest_decorated_whole_worker_is_insufficient_not_false_mismatch (__main__.RuntimeAttestationTests.test_decorated_whole_worker_is_insufficient_not_false_mismatch) ... ok\ntest_expired_and_future_measurements_are_insufficient (__main__.RuntimeAttestationTests.test_expired_and_future_measurements_are_insufficient) ... ok\ntest_hash_does_not_read_source_or_file (__main__.RuntimeAttestationTests.test_hash_does_not_read_source_or_file) ... ok\ntest_live_monkey_patch_after_measurement_is_detected (__main__.RuntimeAttestationTests.test_live_monkey_patch_after_measurement_is_detected) ... ok\ntest_missing_candidate_and_syntax_error_are_not_match (__main__.RuntimeAttestationTests.test_missing_candidate_and_syntax_error_are_not_match) ... ok\ntest_nested_code_constant_changes_are_detected (__main__.RuntimeAttestationTests.test_nested_code_constant_changes_are_detected) ... ok\ntest_selection_is_explicit_and_unknown_symbol_cannot_pass (__main__.RuntimeAttestationTests.test_selection_is_explicit_and_unknown_symbol_cannot_pass) ... ok\ntest_unavailable_module_prevents_overall_pass (__main__.RuntimeAttestationTests.test_unavailable_module_prevents_overall_pass) ... ok\ntest_unavailable_or_empty_observation_never_matches (__main__.RuntimeAttestationTests.test_unavailable_or_empty_observation_never_matches) ... ok\ntest_unchanged_real_function_matches (__main__.RuntimeAttestationTests.test_unchanged_real_function_matches) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.056s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.466,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    }
+  ],
+  "keys_offered": {
+    "Dell1": "p4-attest-retest-6ad39f91dde04d1c89b919758b211a15",
+    "Dell2": "p4-attest-retest-d77c2d6e0ab64db5b856c2893c7d7cd6"
+  }
+}

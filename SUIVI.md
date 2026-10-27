@@ -1,3 +1,7 @@
+## P4 — faux match corrigé parCodex, retests JARVIS relancés
+
+Après l’ordrepropriétaire de correction, le candidat compare désormais les objets__code__ aux candidats compilés sans exécution.15tests ciblésPASS surchaqueDell sousCodex, originaux conservés ; lanceurautonome corrigé après l’importéchoué61520. RetestsJARVIS relancés dans la même mission/SQLite, compteurs préservés. Pas d’attestationdesprocessusactifs ni de réceptionglobaleP4. [Correction et limites](docs/missions/26-P2/p4/CORRECTION-FAUX-MATCH.md).
+
 ## P4 reprise depuis l’état persistant —27octobre2026
 
 Audit natif terminé (cinq tâchesvalidées), réception indépendante limitée aux deux sources/artefacts avec réserve de prose :58952, dossier d’erreurs58945. P4 globale NON VALIDÉE. Nouveau paquet court réellement transmis àQwen80B : attestation du codePython chargé, candidat surlesdeuxDell, missiond8fe752876db480cbe5f22cd5525e2dd. Plan/fichiers/tests/répartition à choisir parQwen ; déploiement ultérieur après contrôle, sans nouvelle validationhumaine. Objectif de contexte32768 déjàpersisté avant transmission ; aucune repriseP2/P3. [Paquet](docs/missions/26-P2/p4/LANCEMENT-ATTESTATION.json) · [Reprise et réserves](docs/missions/26-P2/p4/REPRISE-MEMOIRE.md).
