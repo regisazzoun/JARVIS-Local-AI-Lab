@@ -1,3 +1,7 @@
+## P4 — conservation des vraies lectures et API corrigées
+
+Audit : un tool-ok contenant un processus rc1 pouvait remplacer le code utile par une erreur ; sélection corrigée, deux pages distinctes conservées, reçus complets vérifiés. Le helper attestation_report accepte la sélection explicite des symboles. Source f90790e, installation64398, API observée64399, préflight64402 à27016octets/27648 avec worker complet et API présents.145 tests locaux,17attest+33contexte surchaqueDell réussis sousCodex. JARVIS reprend le mêmeplan3 ; instrumentation candidate encoreàprouver, P4 NON VALIDÉE. Aucun attester installé danslesservicesactifsMac, compteurs conservés. [Détails](docs/missions/26-P2/p4/SOURCES-UTILES-ET-API.md).
+
 ## P4 — interfaces corrigées, reprise native
 
 Les identités serveur, la conservation des pages de source utiles et l’édition par chemin absolu interne sont corrigées dans le moteur existant. Déploiement63326 : 136 tests ciblés locaux et24 tests sur chaque Dell réussis. La reprise a révélé une boucle contournant la signature par max_lines ; garde persistant du contenu effectif installé63429, 139 tests locaux et67 sur chaque Dell réussis. Références courantes séparées des archives63738, 140 tests locaux et15 de projection/identités parDell. Reprise de JARVIS sur le plan3 existant ; instrumentation du worker candidat et réceptionP4 restent à prouver. Compteurs conservés, pas de déploiement applicatif par cette intervention. [Détails et preuves](docs/missions/26-P2/p4/INTERFACES-PERENNES.md).

@@ -1,0 +1,127 @@
+{
+  "source_commit": "f90790e46e0a1833f72377b08f0f2051af045f2d",
+  "reason": "Tool-ok/process-rc1 stderr had displaced valid source page; report helper lacked explicit symbol selection for decorated worker",
+  "software_tests_local": 145,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        {
+          "backup_file": "mission_context_budget.py",
+          "receipt": "53378e1773e2460bbf1eb31e318fb9ed",
+          "sha256": "67ee7baf20bfedead5d1a34bca73b955e9e368e2979a01af5141068363b4083a"
+        },
+        {
+          "backup_file": "attest.py",
+          "receipt": "c5476f928f7c4832be4b401c75e7bf5b",
+          "sha256": "94f89d4fdca8009688743da6a1dc9269d20c47b5d12165f24c04e2ce045fbc15"
+        },
+        "24e8607f52e04622bb2c8cb8d044aed3",
+        "4cec514b1f694df891ea62475440e0ed",
+        "3dc0add0bcb64cab9b2bd37307d4c8be",
+        "6e12011f0d34491c9f678b8b6224c709"
+      ],
+      "tests": [
+        {
+          "receipt": "11c57a83f1ae42d8998cef8b8e08d895",
+          "test": "test_runtime_attest.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.057s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.466,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "3bc339668cd544c390b04b2c5b2fc651",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.559s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.967,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        {
+          "backup_file": "mission_context_budget.py",
+          "receipt": "bda429192d634171ac381e1011cc0e2f",
+          "sha256": "67ee7baf20bfedead5d1a34bca73b955e9e368e2979a01af5141068363b4083a"
+        },
+        {
+          "backup_file": "attest.py",
+          "receipt": "c0f659407c2b46d98ab0062a7d1641ea",
+          "sha256": "94f89d4fdca8009688743da6a1dc9269d20c47b5d12165f24c04e2ce045fbc15"
+        },
+        "cddc1d00f11143d3ada6297ccacc67c8",
+        "3b5ea18236304c258312d3ac871475b0",
+        "84907010473a4d76bbb09773139e55b3",
+        "a7b6bbdd7f084bedb24e989f9b657ffe"
+      ],
+      "tests": [
+        {
+          "receipt": "e26de633f39c4a75a863faa19b0d3c5d",
+          "test": "test_runtime_attest.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.059s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.466,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "bfe011f20da34e4691e3e0d1d152ea2c",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 0.521s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.967,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/source-evidence-1793144276",
+  "guard_scope": "Source retention only from successful stdout at current observed manifest; distinct bounded pages, full receipt SHA checked; symbol selection explicit in attestation report. Attest helper candidate only on Dell, not installed in active Mac service",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 64398
+}
