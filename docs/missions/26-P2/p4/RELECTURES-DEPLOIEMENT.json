@@ -1,0 +1,107 @@
+{
+  "source_commit": "ee988e7d52c6316d42202472300534a2bea5a43f",
+  "reason": "Native repeated same 1-2 line receipts with max_lines40/20/10; request signature guard saw distinct arguments, effective content identical",
+  "software_tests_local": 139,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        "b50e70b4b54942f2ba467d9640e4ea9f",
+        "5930ef574a9447c9ad3a4173587f0452",
+        "aff963a9a4af49788197add45a49a9d0",
+        "813376b6aef944dcb24c31893e69ca6c"
+      ],
+      "tests": [
+        {
+          "receipt": "5d003d9834424e40b634b67503de1800",
+          "test": "test_distributed_authority.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": ".....................................\n----------------------------------------------------------------------\nRan 37 tests in 0.305s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.767,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "2fd8a163ba0c44a78e8bbb769827ce37",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..............................\n----------------------------------------------------------------------\nRan 30 tests in 0.486s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.018,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        "120c9bdccbb646bea69602ee4010e340",
+        "256ce0f90a5345c184cbb6d28c2bb1ab",
+        "b165a641309d4682989eaa56a3e0ee0b",
+        "810ac48cd84f442592aee86220bb039e"
+      ],
+      "tests": [
+        {
+          "receipt": "3426c8ebb1a44a26882d8f0d69cfd6c5",
+          "test": "test_distributed_authority.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": ".....................................\n----------------------------------------------------------------------\nRan 37 tests in 0.239s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.667,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "4fcf840459fd4c14be30ec88082f5f81",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..............................\n----------------------------------------------------------------------\nRan 30 tests in 0.470s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.968,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/read-windows-1793142321",
+  "guard_scope": "New server-operation-ID mode: up to three successful deliveries of same effective receipt window, persistent across sessions; different pages and separate tasks preserved; no mutation of correction counters",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 63429
+}

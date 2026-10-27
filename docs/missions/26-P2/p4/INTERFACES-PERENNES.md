@@ -1,6 +1,6 @@
 # Interfaces corrigées pendant la reprise P4
 
-Codex a corrigé trois obstacles d’interface dans le moteur existant. La mission
+Codex a corrigé quatre obstacles d’interface dans le moteur existant. La mission
 `d8fe752876db480cbe5f22cd5525e2dd` et le plan JARVIS version 3 sont conservés.
 Ces corrections ne constituent pas la réception globale de P4.
 
@@ -48,6 +48,30 @@ l’instrumentation du worker, la tester et faire contrôler la même version su
 l’autre Dell. L’installation du candidat dans les services actifs appartient au
 paquet suivant, après réception du candidat. Aucun compteur historique n’est remis
 à zéro. Aucune réception P4, 14A ou autonomie complète n’est déduite de ces correctifs.
+
+## Répétition sémantique des fenêtres de lecture
+
+Après la première reprise, JARVIS alternait encore entre les reçus 63188 et
+63265 en changeant `max_lines` de 40 à 20 puis 10. Comme les sorties n’avaient
+qu’une ou deux lignes, leur contenu restait identique. Le garde par signature
+voyait des paramètres différents : il ne suffisait pas à borner cette boucle.
+
+Le commit ee988e7 compte les livraisons réussies de la même fenêtre effective
+(référence, tâche, flux, première ligne, contenu et version). Ce décompte vient
+sur chaque appel de SQLite : une nouvelle session ne le réinitialise pas.
+Après trois livraisons, la quatrième est refusée avec un diagnostic explicite.
+Les pages différentes restent lisibles ; une opération non livrée ne compte pas
+comme lecture réussie. Les compteurs de correction ne sont pas modifiés.
+
+La projection réduite conserve aussi les paramètres des dernières lectures et
+leur nombre de livraisons, même lorsque le dernier échange complet ne tient pas.
+Ces informations sont des observations d’outils, pas un raisonnement du modèle.
+
+Installation 63429 : 139 tests ciblés locaux réussis, 37 tests d’autorité et
+30 de contexte sur chaque Dell. Instruction 63430 puis reprise de la même
+mission. JARVIS a reconnu le diagnostic dans sa note 63444 ; cela ne suffit pas
+à recevoir l’instrumentation. Le relais périodique est rendu actif sans marqueur
+MANUAL-HOLD ; son contrôle indique que le travail natif progresse.
 
 ## Retour arrière
 
