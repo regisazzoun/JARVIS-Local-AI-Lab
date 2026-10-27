@@ -64,9 +64,9 @@ print(json.dumps({'receipt_path':str(target),'sha256':hashlib.sha256(raw).hexdig
  body=body.replace(marker,replacement)
  return body
 
-def edit_program(edits):
+def edit_program(edits,allow_workspace_absolute=False):
  """Literal model-authored edits; file content is data, never evaluated as code."""
- return """import json, pathlib, os, tempfile, ast
+ body="""import json, pathlib, os, tempfile, ast
 edits=json.loads(PAYLOAD)
 root=pathlib.Path.cwd().resolve()
 pending=[]
@@ -101,7 +101,10 @@ for target,content in pending:
  finally:
   if os.path.exists(name):os.unlink(name)
 print(json.dumps({'written_files':[str(target.relative_to(root)) for target,_ in pending]}))
-""".replace('PAYLOAD',repr(json.dumps(edits,ensure_ascii=False)))
+"""
+ if allow_workspace_absolute:
+  body=body.replace(" relative=pathlib.Path(edit['path'])\n", " relative=pathlib.Path(edit['path'])\n if relative.is_absolute():\n  try:relative=relative.relative_to(root)\n  except ValueError:raise ValueError('Absolute edit path outside authorized source workspace')\n")
+ return body.replace('PAYLOAD',repr(json.dumps(edits,ensure_ascii=False)))
 
 def version(manifest):
  return hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
@@ -215,7 +218,7 @@ class Authority:
   return self.work({'issue':a['issue'],'kind':'analyze','reference':reference,'summary':a['summary']})
  def edit(self,a):
   edits=json.loads(json.dumps(a['edits'],sort_keys=True)) if self.spec.get('authority_engine_operation_ids') else a['edits']
-  command='python3 -c '+shlex.quote(edit_program(edits))
+  command='python3 -c '+shlex.quote(edit_program(edits,allow_workspace_absolute=bool(self.spec.get('authority_engine_operation_ids'))))
   return self.work({'issue':a['issue'],'kind':'correct','summary':a['summary'],'operation_id':a.get('operation_id'),'executor':a['executor'],'command':command})
  def work(self,a):
   issue=a['issue']

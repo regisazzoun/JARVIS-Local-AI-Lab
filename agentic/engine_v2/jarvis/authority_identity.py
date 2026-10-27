@@ -32,7 +32,7 @@ def bind_execution(authority,arguments):
     if row['tool']=='authority_edit':
         import shlex
         from .distributed_authority import edit_program
-        expected={**expected,'kind':'correct','command':'python3 -c '+shlex.quote(edit_program(expected['edits']))}
+        expected={**expected,'kind':'correct','command':'python3 -c '+shlex.quote(edit_program(expected['edits'],allow_workspace_absolute=True))}
     elif row['tool']!='authority_work':
         raise ValueError('This tool invocation cannot dispatch an Authority execution')
     fields=('issue','kind','executor','command')

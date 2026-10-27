@@ -38,3 +38,19 @@ class LiteralEditTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as root:
    r=self.run_edit(root,[{'path':'bad.py','old':None,'new':'class Bad:\n def method(self) broken syntax'}])
    self.assertNotEqual(r.returncode,0);self.assertFalse((pathlib.Path(root)/'bad.py').exists())
+
+ def test_engine_mode_accepts_absolute_path_only_inside_same_workspace(self):
+  with tempfile.TemporaryDirectory() as root:
+   path=pathlib.Path(root)/'engine/new.py'
+   edits=[{'path':str(path),'old':None,'new':'value = "PAYLOAD remains literal"\n'}]
+   r=subprocess.run(['python3','-c',a.edit_program(edits,allow_workspace_absolute=True)],cwd=root,text=True,capture_output=True)
+   self.assertEqual(r.returncode,0,r.stderr);self.assertEqual(path.read_text(),edits[0]['new'])
+
+ def test_engine_absolute_support_keeps_escape_and_internal_state_guards(self):
+  with tempfile.TemporaryDirectory() as root, tempfile.TemporaryDirectory() as other:
+   (pathlib.Path(root)/'escape').symlink_to(other,target_is_directory=True)
+   for target in [pathlib.Path(other)/'outside.py',pathlib.Path(root)/'../traversal.py',pathlib.Path(root)/'.receipts/fake.py',pathlib.Path(root)/'runtime/state.py',pathlib.Path(root)/'escape/outside.py']:
+    program=a.edit_program([{'path':str(target),'old':None,'new':'bad'}],allow_workspace_absolute=True)
+    r=subprocess.run(['python3','-c',program],cwd=root,text=True,capture_output=True)
+    self.assertNotEqual(r.returncode,0,str(target))
+   self.assertFalse((pathlib.Path(other)/'outside.py').exists())

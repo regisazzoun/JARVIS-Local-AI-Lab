@@ -263,6 +263,8 @@ class Registry:
                 schema['properties'].pop('operation_id',None)
                 schema['required']=[k for k in schema['required'] if k!='operation_id']
                 schema['description']='The engine assigns operation identity from the canonical tool invocation. Do NOT supply operation_id. Commands, edits and executors remain your choices. Identical intents are deduplicated by the persistent ledger; unknown effects require observation.'
+                if name=='authority_edit':
+                    schema['properties']['edits']['items']['properties']['path']['description']='Source path relative to the declared workspace, or absolute INSIDE that same workspace. Outside paths, traversal, runtime/receipts and escaping symlinks remain refused.'
             if name in ('authority_plan','authority_revise_plan'):
                 history=store.plans(self.context['mission_id'])
                 current=history[-1]['version'] if history else 0
