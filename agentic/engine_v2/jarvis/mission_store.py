@@ -180,13 +180,18 @@ class MissionStore:
                 tasks=[replacements.get(t['id'],t) for t in saved['tasks']]
             metadata=metadata or {k:v for k,v in saved.items() if k!='tasks'}
         normalized = []
+        resource_objective=json.loads(self.get(ident)['spec']).get('context_result_objective')
+        received={t['id'] for t in self.tasks(ident) if t['state']=='validated'}
         for t in tasks:
             if not isinstance(t, dict) or not isinstance(t.get('id'), str) or not isinstance(t.get('title'), str):
                 raise ValueError('Chaque tâche exige id et title textuels')
             deps = t.get('depends', t.get('deps', []))
             if not isinstance(deps, list) or any(not isinstance(x, str) for x in deps):
                 raise ValueError('depends doit être une liste d’identifiants')
-            normalized.append({**t, 'depends': deps})
+            item={**t, 'depends': deps}
+            if resource_objective and t['id'] not in received:
+                item['contract']={**t.get('contract',{}),'context_result_objective':resource_objective}
+            normalized.append(item)
         mapping = {t['id']: t for t in normalized}
         if len(mapping) != len(normalized):
             raise ValueError('Identifiants dupliqués')

@@ -2,12 +2,22 @@
 All actions still pass through the installed Registry and privileged broker.
 """
 import hashlib
+import copy
 import json
 import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from pathlib import Path
 from .mission_store import encoded, signature
+
+def semantic_reference_schemas(schemas, task):
+    schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_')])
+    for schema in schemas:
+        if schema['function']['name']=='mission_verify':
+            schema['function']['parameters']['properties']['contract']={
+                'type':'string','enum':['active:'+str(i) for i in range(len((task or {}).get('contract',{}).get('semantic',[])))],
+                'description':'Exact persisted criterion reference. Pass this string literally, NOT an object copied from the compact view. Server reads the remote file and checks all original predicates.'}
+    return schemas
 
 
 def coordinator_guidance(store, ident, task_id):
@@ -422,6 +432,14 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     # bounded quantum, instead of resetting Qwen after every call.
                     messages[0:2]=authority_prompt[:2]
                 store.event(ident,'authority_context_prepared',task_id,'JARVIS-engine',result={'messages_chars':len(encoded(messages)),'tools':len(schemas),'complete_receipts_preserved':True})
+            if json.loads(mission['spec']).get('compact_semantic_references'):
+                schemas=semantic_reference_schemas(schemas,task)
+            from .mission_context_budget import result_objective
+            context_objective=result_objective(core.config)
+            if context_objective:
+                marker='\nCritère de résultat avant transmission de chaque sous-tâche : '
+                messages[0]['content']=messages[0]['content'].split(marker)[0]+marker+encoded(context_objective)
+                store.event(ident,'task_context_result_objective',task_id,'JARVIS-engine',result=context_objective)
             payload = {'model': mission['model'], 'messages': messages, 'stream': False,
                        'tools': schemas, 'keep_alive': '30m',
                        'options': {'num_ctx': core.config.get('durable_num_ctx',core.config.get('num_ctx',8192)),

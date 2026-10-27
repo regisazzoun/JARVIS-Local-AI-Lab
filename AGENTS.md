@@ -1,3 +1,7 @@
+## Décision propriétaire du27octobre2026 — fenêtre avant transmission
+
+Qwen80B Dell1 :32768tokens de contexte total après deux essais réels Codex (18876/26614tokens de prompt, VRAMlibremin1129/1163Mio). Réserver4096réponse+1024gabarit, entrée27648 avec contrôle conservateur explicitement distinct des tokens mesurés. Chaque sous-tâche doit porter cette fenêtre comme objectif de résultat dans son contrat avant transmission ; découper si trop gros, ne pas tronquer les exigences. Garde final du routeur et truncate=false ; pas de contournement par fallback. Compteurs préservés. Voir docs/missions/26-P2/p4/CONTEXTE-32768.md ; aucun succèsP4 ni autonomie déduit de ces testsCodex.
+
 ## Phase2 — réception P3 et lancement P4 du27octobre2026
 
 P3 reçue **VALIDÉ AVEC RÉSERVES**, événement55310, continuation9e4a61d6faea4b73ad31251e72dcf7c1 completed ; lectures stériles/erreurs de rapports et correctionsCodex conservées. Lire docs/missions/26-P2/p3/RECEPTION-P3.json et ERRATA-RAPPORTS.md. P4 maintenant réellement lancée, premier audit natifd1b0d69639724c60b5bd1b2143b1a5fa ; lire M26_P2_P4_CODE_REEL.md. Le même timer de supervision cible P4-AUDIT, P2/P3 dans received_tasks, aucun rejeu. Copiesengine surDell ne sont pas l'application activeMac ; code disque/commit≠code chargé. Aucun déploiement dans ce premier audit ; suite P4 autorisée séquentiellement sans validation humaine. Autonomie complète sans guidage non reçue, ni14A/24Old/mainmerge. MANUAL-HOLD à retirer au retour au moteur.

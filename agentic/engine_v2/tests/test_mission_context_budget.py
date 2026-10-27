@@ -130,3 +130,50 @@ class ContextTests(unittest.TestCase):
   self.assertEqual(len(checkpoint['model_notes']),1);self.assertEqual(checkpoint['model_notes'][0]['result']['content'],'Current diagnosis')
   self.assertEqual(checkpoint['interface_counters'][0]['count'],3)
   with self.s.db() as c:self.assertEqual(c.execute('SELECT count(*) FROM mission_events WHERE id=?',(old,)).fetchone()[0],1)
+
+ def test_compact_semantic_references_keep_exact_contracts_outside_active_context(self):
+  from jarvis.verification import resolve_contract
+  from types import SimpleNamespace
+  original=self.s.tasks(self.m)[0]['contract']
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'compact_semantic_references':True}),self.m))
+  p=self.payload();self.b.prepare(p,self.cap)
+  self.assertIn('active:0',json.dumps(p))
+  self.assertEqual(self.s.tasks(self.m)[0]['contract'],original)
+  saved=self.b.latest('operational_checkpoint')[0]['result']['checkpoint']
+  self.assertEqual(saved['task_contract'],original)
+  reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'task'})
+  self.assertEqual(resolve_contract(reg,'active:0'),self.contract)
+
+ def test_compact_reference_view_preserves_all_failure_counts(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'compact_semantic_references':True}),self.m))
+  for category,count in [('old read',3),('old schema',2)]:self.s.event(self.m,'authority_interface_failure',result={'epoch':'audit','category':category,'count':count})
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(sorted(c['count'] for c in state['interface_counters']),[2,3])
+  self.assertTrue(all('category_sha256' in c for c in state['interface_counters']))
+
+ def test_context_result_objective_persisted_in_new_plan_before_dispatch(self):
+  from jarvis.mission_context_budget import result_objective
+  config={'hybrid_compute':{'routes':{'mission':['Dell1']},'nodes':{'Dell1':{'enabled':True,'hard_context_limit':32768}},'mission_segment_tokens':4096}}
+  objective=result_objective(config)
+  self.assertEqual(objective['input_tokens_max'],27648)
+  m=self.s.create('new scoped objective','model','conv',spec={'context_result_objective':objective})
+  self.s.plan(m,[{'id':'new','title':'model chosen task','contract':{'semantic':[self.contract]}}],author='JARVIS')
+  self.assertEqual(self.s.tasks(m)[0]['contract']['context_result_objective'],objective)
+  self.assertEqual(self.s.plans(m)[-1]['plan']['tasks'][0]['contract']['context_result_objective'],objective)
+  self.assertEqual(self.s.tasks(m)[0]['contract']['semantic'],[self.contract])
+
+ def test_hard_context_ceiling_wins_over_loaded_and_configured_larger_values(self):
+  cfg={'durable_num_ctx':65536,'hybrid_compute':{'routes':{'mission':['Dell1']},'nodes':{'Dell1':{'enabled':True,'hard_context_limit':32768,'inference_num_ctx':65536}}}}
+  self.assertEqual(capacity(cfg,'model')['limit'],32768)
+
+ def test_compact_reference_interface_rejects_invented_contract_reconstruction(self):
+  from jarvis.durable_cycle import semantic_reference_schemas
+  from jsonschema import validate,ValidationError
+  schema={'type':'function','function':{'name':'mission_verify','parameters':{'type':'object','properties':{'contract':{'type':['object','string']}},'required':['contract']}}}
+  original=copy.deepcopy(schema)
+  narrowed=semantic_reference_schemas([schema],{'contract':{'semantic':[self.contract,self.contract]}})[0]['function']['parameters']
+  validate({'contract':'active:1'},narrowed)
+  for value in [{'kind':'text','sha256':'invented'},'active:2']:
+   with self.assertRaises(ValidationError):validate({'contract':value},narrowed)
+  self.assertEqual(schema,original)

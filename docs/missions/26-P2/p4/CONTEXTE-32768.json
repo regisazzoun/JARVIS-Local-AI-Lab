@@ -1,0 +1,428 @@
+{
+  "mission": "d1b0d69639724c60b5bd1b2143b1a5fa",
+  "capacity_test_event": 58626,
+  "preflight_event": 58631,
+  "installation_event": 58632,
+  "objective": {
+    "total_context_tokens_max": 32768,
+    "response_tokens_reserved": 4096,
+    "template_tokens_reserved": 1024,
+    "input_tokens_max": 27648,
+    "result_required": "Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.",
+    "admission_measure": "UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count"
+  },
+  "tests": [
+    {
+      "test": "context32768-test.json",
+      "actor": "Codex",
+      "raw_sha256": "ecac3be81466bea204231ade57054afeab45ee27a4a257747a0defd40e158cec",
+      "prompt_tokens": 18876,
+      "generated_tokens": 64,
+      "total_duration_s": 49.350014639,
+      "load_duration_s": 16.442721136,
+      "min_free_vram_mib": [
+        1129.0,
+        1163.0
+      ],
+      "max_temperature_c": [
+        56.0,
+        59.0
+      ],
+      "samples": [
+        {
+          "captured_at": 1793115101.5006235,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 265243480064,
+          "cpu_threads": 36,
+          "load1": 0.11767578125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 23983.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 45.0,
+              "power_w": 29.7
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 23939.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 42.0,
+              "power_w": 33.72
+            }
+          ],
+          "broker_evidence": "76e84659e04641f580654e6b1ebdea27"
+        },
+        {
+          "captured_at": 1793115107.199371,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 265066287104,
+          "cpu_threads": 36,
+          "load1": 0.1884765625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 23983.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 48.0,
+              "power_w": 115.21
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 23939.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 46.0,
+              "power_w": 107.74
+            }
+          ],
+          "broker_evidence": "d1626bf1843b49d796178ab8691ae8f2"
+        },
+        {
+          "captured_at": 1793115112.9155605,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264936448000,
+          "cpu_threads": 36,
+          "load1": 0.5478515625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 2269.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 50.0,
+              "power_w": 148.16
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1881.0,
+              "utilization_percent": 99.0,
+              "temperature_c": 48.0,
+              "power_w": 121.48
+            }
+          ],
+          "broker_evidence": "926e8f176cc441d88a2fccab97357d92"
+        },
+        {
+          "captured_at": 1793115118.6041195,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264762351616,
+          "cpu_threads": 36,
+          "load1": 0.66455078125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1131.0,
+              "utilization_percent": 31.0,
+              "temperature_c": 51.0,
+              "power_w": 175.18
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 60.0,
+              "temperature_c": 51.0,
+              "power_w": 151.55
+            }
+          ],
+          "broker_evidence": "0d8e9ee1f325446f8a6ce09d56d8b7c2"
+        },
+        {
+          "captured_at": 1793115124.2186127,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264725319680,
+          "cpu_threads": 36,
+          "load1": 0.77197265625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 20.0,
+              "temperature_c": 52.0,
+              "power_w": 175.29
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 63.0,
+              "temperature_c": 53.0,
+              "power_w": 172.57
+            }
+          ],
+          "broker_evidence": "92885a9b15a3454f9ba4044bfbc98029"
+        },
+        {
+          "captured_at": 1793115129.9432542,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264723386368,
+          "cpu_threads": 36,
+          "load1": 0.79052734375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 49.0,
+              "temperature_c": 53.0,
+              "power_w": 174.57
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 4.0,
+              "temperature_c": 53.0,
+              "power_w": 151.15
+            }
+          ],
+          "broker_evidence": "8dc8000361ab4250953a1bfb97fc51ac"
+        },
+        {
+          "captured_at": 1793115135.6540508,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264714137600,
+          "cpu_threads": 36,
+          "load1": 0.8076171875,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 52.0,
+              "temperature_c": 54.0,
+              "power_w": 176.2
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 5.0,
+              "temperature_c": 55.0,
+              "power_w": 142.62
+            }
+          ],
+          "broker_evidence": "00be3cadcb914085b0772bb292add454"
+        },
+        {
+          "captured_at": 1793115141.350875,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264729026560,
+          "cpu_threads": 36,
+          "load1": 0.8232421875,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 52.0,
+              "temperature_c": 55.0,
+              "power_w": 169.96
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 2.0,
+              "temperature_c": 57.0,
+              "power_w": 161.01
+            }
+          ],
+          "broker_evidence": "47d249fccd384ef7bf16bbf8c6f3f74a"
+        },
+        {
+          "captured_at": 1793115147.025598,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264749731840,
+          "cpu_threads": 36,
+          "load1": 0.83740234375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 75.0,
+              "temperature_c": 56.0,
+              "power_w": 191.05
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 59.0,
+              "power_w": 160.41
+            }
+          ],
+          "broker_evidence": "a0c7280cebaf4cbf8928a98677febcd6"
+        }
+      ],
+      "observed_context_length": 32768,
+      "error": null,
+      "no_model_actions_dispatched": true
+    },
+    {
+      "test": "context32768-near-limit-test.json",
+      "actor": "Codex",
+      "raw_sha256": "d2b019e9ad2bff22d98a02a6bc6a3ec8881270309258d5c8a4f4c223654bca37",
+      "prompt_tokens": 26614,
+      "generated_tokens": 5,
+      "total_duration_s": 6.978783946,
+      "load_duration_s": 0.01450654,
+      "min_free_vram_mib": [
+        1129.0,
+        1163.0
+      ],
+      "max_temperature_c": [
+        54.0,
+        62.0
+      ],
+      "samples": [
+        {
+          "captured_at": 1793115192.312602,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264572026880,
+          "cpu_threads": 36,
+          "load1": 0.43505859375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 40.0,
+              "temperature_c": 52.0,
+              "power_w": 73.94
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 58.0,
+              "temperature_c": 58.0,
+              "power_w": 83.77
+            }
+          ],
+          "broker_evidence": "061107de38ae4a009917b9ff51c7f2aa"
+        },
+        {
+          "captured_at": 1793115197.9519546,
+          "memory_total_bytes": 269958471680,
+          "memory_available_bytes": 264576106496,
+          "cpu_threads": 36,
+          "load1": 1.8837890625,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 1129.0,
+              "utilization_percent": 33.0,
+              "temperature_c": 54.0,
+              "power_w": 196.4
+            },
+            {
+              "index": 1.0,
+              "total_mib": 24576.0,
+              "free_mib": 1163.0,
+              "utilization_percent": 62.0,
+              "temperature_c": 62.0,
+              "power_w": 191.17
+            }
+          ],
+          "broker_evidence": "3740427323ad4907bb7eded60a15e70f"
+        }
+      ],
+      "observed_context_length": 32768,
+      "error": null,
+      "no_model_actions_dispatched": true
+    }
+  ],
+  "preflight": {
+    "sent_bytes": 24873,
+    "conservative_input_budget": 27648,
+    "exact_six_predicates_preserved": true,
+    "counters_not_reset": true,
+    "no_inference_dispatched": true
+  },
+  "software_tests_passed": 89,
+  "uploads": [
+    {
+      "host": "dell-observe",
+      "file": "engine/jarvis/mission_context_budget.py",
+      "evidence": "e1dce6dc0e014f33bffec025753ce9ec"
+    },
+    {
+      "host": "dell-observe",
+      "file": "engine/jarvis/durable_cycle.py",
+      "evidence": "af073424b99a47f89a9d8a3fae131849"
+    },
+    {
+      "host": "dell-observe",
+      "file": "engine/jarvis/compute.py",
+      "evidence": "86bc33af0d2741a085663b7b3984f769"
+    },
+    {
+      "host": "dell-observe",
+      "file": "engine/jarvis/missions.py",
+      "evidence": "2beb2827225c40ebbc54f5868bc7af82"
+    },
+    {
+      "host": "dell-observe",
+      "file": "engine/jarvis/mission_store.py",
+      "evidence": "a817d2723a4b452ca976a705a490f89e"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/jarvis/mission_context_budget.py",
+      "evidence": "be87128cd3564338810d43be11171ee5"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/jarvis/durable_cycle.py",
+      "evidence": "0be412d6a63d48058b3340cbe31400f8"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/jarvis/compute.py",
+      "evidence": "d5c7d8cfb4df4aaa8f9d815c178a0671"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/jarvis/missions.py",
+      "evidence": "6eb1f70e45e4475c9cc7b3946ca31738"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/jarvis/mission_store.py",
+      "evidence": "b411df6de481470cabc143bb171212d4"
+    },
+    {
+      "host": "dell-observe",
+      "file": "engine/tests/test_mission_context_budget.py",
+      "evidence": "ebff27410bbc43ec8ced11470bf14bd1"
+    },
+    {
+      "host": "dell-observe",
+      "file": "engine/tests/test_compute28a.py",
+      "evidence": "de95c544fc334f17a9ca9017088016b5"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/tests/test_mission_context_budget.py",
+      "evidence": "2688f355361f4170b227b52e3aa46e3f"
+    },
+    {
+      "host": "dell2",
+      "file": "engine/tests/test_compute28a.py",
+      "evidence": "84ac698440ba4038bbba8ba995e4ec72"
+    }
+  ],
+  "rollback": "Private timestamped backups of config and five modules; restore then reload services",
+  "JARVIS_execution_proof": false
+}

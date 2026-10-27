@@ -53,6 +53,9 @@ class Missions:
         # New user goals use semantic/autonomous contracts by default.
         # Explicit historical task specs and persisted missions keep their mode.
         spec=dict(spec or {})
+        from .mission_context_budget import result_objective
+        objective=result_objective(self.core.config)
+        if objective:spec['context_result_objective']=objective
         if not spec.get('tasks'):
             spec.setdefault('autonomous',True)
             if spec.get('autonomous'): spec.setdefault('assurance',True)

@@ -1,0 +1,493 @@
+{
+  "mission": "d1b0d69639724c60b5bd1b2143b1a5fa",
+  "actor": "JARVIS/Qwen80B@Dell1",
+  "native_verifications": [
+    {
+      "id": 58724,
+      "actor": "JARVIS-engine",
+      "created": 1793115683.1773055,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell-observe",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell-observe/core.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "02da9fe1790f4be88919174534a37a01"
+      ]
+    },
+    {
+      "id": 58731,
+      "actor": "JARVIS-engine",
+      "created": 1793115685.6268249,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell-observe",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell-observe/tools.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/tools.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "5566d03cf72046039619fa3d2245d1ec"
+      ]
+    },
+    {
+      "id": 58738,
+      "actor": "JARVIS-engine",
+      "created": 1793115687.8747861,
+      "status": "PASS",
+      "kind": "json",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell-observe",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell-observe/source_hashes.json",
+          "path": "/opt/jarvis-lab/mission26-phase2/artefacts/source_hashes.json",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "actual": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "expected": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "pass": true,
+          "path": "/verified_files/core.py"
+        },
+        {
+          "actual": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "expected": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "pass": true,
+          "path": "/verified_files/tools.py"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/core.py",
+          "type": "string"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/tools.py",
+          "type": "string"
+        }
+      ],
+      "broker_receipts": [
+        "583d3edc2fef4e99aa23552ee90a7797"
+      ]
+    },
+    {
+      "id": 58745,
+      "actor": "JARVIS-engine",
+      "created": 1793115690.0975058,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell2",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell2/core.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "ddc3e55701eb4b92bd912b926ee4f791"
+      ]
+    },
+    {
+      "id": 58752,
+      "actor": "JARVIS-engine",
+      "created": 1793115692.350108,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell2",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell2/tools.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/tools.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "96cb9fb9414d4ffda6b27307cf1600f6"
+      ]
+    },
+    {
+      "id": 58759,
+      "actor": "JARVIS-engine",
+      "created": 1793115694.1218848,
+      "status": "PASS",
+      "kind": "json",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell2",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell2/source_hashes.json",
+          "path": "/opt/jarvis-lab/mission26-phase2/artefacts/source_hashes.json",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "actual": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "expected": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "pass": true,
+          "path": "/verified_files/core.py"
+        },
+        {
+          "actual": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "expected": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "pass": true,
+          "path": "/verified_files/tools.py"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/core.py",
+          "type": "string"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/tools.py",
+          "type": "string"
+        }
+      ],
+      "broker_receipts": [
+        "d2423af4fbec49aa8ebc1c3642ab7e76"
+      ]
+    },
+    {
+      "id": 58774,
+      "actor": "JARVIS-engine",
+      "created": 1793115711.3436034,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell-observe",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell-observe/core.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "ab9110bf6f694443b526560328ecacb2"
+      ]
+    },
+    {
+      "id": 58781,
+      "actor": "JARVIS-engine",
+      "created": 1793115713.644182,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell-observe",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell-observe/tools.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/tools.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "d40cffd34bbf498a873da9989478e404"
+      ]
+    },
+    {
+      "id": 58788,
+      "actor": "JARVIS-engine",
+      "created": 1793115715.649773,
+      "status": "PASS",
+      "kind": "json",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell-observe",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell-observe/source_hashes.json",
+          "path": "/opt/jarvis-lab/mission26-phase2/artefacts/source_hashes.json",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "actual": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "expected": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "pass": true,
+          "path": "/verified_files/core.py"
+        },
+        {
+          "actual": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "expected": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "pass": true,
+          "path": "/verified_files/tools.py"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/core.py",
+          "type": "string"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/tools.py",
+          "type": "string"
+        }
+      ],
+      "broker_receipts": [
+        "9b09281dda674598afe5879984f18e51"
+      ]
+    },
+    {
+      "id": 58795,
+      "actor": "JARVIS-engine",
+      "created": 1793115717.7139168,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell2",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell2/core.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "dfa7d14e329f4dd08258e12f71e84d88"
+      ]
+    },
+    {
+      "id": 58802,
+      "actor": "JARVIS-engine",
+      "created": 1793115719.744259,
+      "status": "PASS",
+      "kind": "text",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell2",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell2/tools.py",
+          "path": "/opt/jarvis-lab/mission26-phase2/engine/jarvis/tools.py",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "pass": true,
+          "predicate": "sha256"
+        }
+      ],
+      "broker_receipts": [
+        "331f47c69d6d4d9bb61d3854ddacaac8"
+      ]
+    },
+    {
+      "id": 58809,
+      "actor": "JARVIS-engine",
+      "created": 1793115722.0194473,
+      "status": "PASS",
+      "kind": "json",
+      "source": {
+        "arguments": {
+          "action": "project_download",
+          "host": "dell2",
+          "local_path": "/var/lib/jarvis/projects/mission26-phase2/wp5-native-verification/dell2/source_hashes.json",
+          "path": "/opt/jarvis-lab/mission26-phase2/artefacts/source_hashes.json",
+          "project": "mission26-phase2"
+        },
+        "tool": "host_remote"
+      },
+      "checks": [
+        {
+          "actual": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "expected": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55",
+          "pass": true,
+          "path": "/verified_files/core.py"
+        },
+        {
+          "actual": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "expected": "d4220840beea1ab378b5a92eb928eef86afd440f8fb1e0cda008dcbad05d4337",
+          "pass": true,
+          "path": "/verified_files/tools.py"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/core.py",
+          "type": "string"
+        },
+        {
+          "pass": true,
+          "path": "/verified_files/tools.py",
+          "type": "string"
+        }
+      ],
+      "broker_receipts": [
+        "6c7daea2f8434958af79533ad17c5a81"
+      ]
+    }
+  ],
+  "native_calls": [
+    {
+      "id": "d6cfc85a183c4739b9408ce80b00701e",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:0\"}",
+      "state": "finished"
+    },
+    {
+      "id": "6db6597fa8ad4767b1310b6a9fa395aa",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:1\"}",
+      "state": "finished"
+    },
+    {
+      "id": "3d53818955854d6083f96befa3a7a9d4",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:2\"}",
+      "state": "finished"
+    },
+    {
+      "id": "e9a60f5fd7054cc7a226a2eda7db6f74",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:3\"}",
+      "state": "finished"
+    },
+    {
+      "id": "97ad643687ea45a094e6efef44e922dd",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:4\"}",
+      "state": "finished"
+    },
+    {
+      "id": "62cebd1d059147fdac79450de6cb6dea",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:5\"}",
+      "state": "finished"
+    },
+    {
+      "id": "af52474fd9d94f5c956b132756ebab90",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:0\"}",
+      "state": "finished"
+    },
+    {
+      "id": "221e20013dc04bcbb5741e8dbecc472e",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:1\"}",
+      "state": "finished"
+    },
+    {
+      "id": "6bafe9d7640b459c8a4dc38b200c98d2",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:2\"}",
+      "state": "finished"
+    },
+    {
+      "id": "9482347485de42ab8e31c5a2f1287caa",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:3\"}",
+      "state": "finished"
+    },
+    {
+      "id": "a4d7ebdc16924456b7b1937c80e9c332",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:4\"}",
+      "state": "finished"
+    },
+    {
+      "id": "3a85ef557de64b9bb89df92e5579ee83",
+      "tool": "mission_verify",
+      "arguments": "{\"contract\": \"active:5\"}",
+      "state": "finished"
+    }
+  ],
+  "backend_usage": [
+    {
+      "id": 58716,
+      "result": {
+        "actual_prompt_tokens": 7781,
+        "budget_event": 58715,
+        "effective_context": 32768,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "response_reserved": 4096,
+        "within_effective_context": true
+      }
+    },
+    {
+      "id": 58766,
+      "result": {
+        "actual_prompt_tokens": 7239,
+        "budget_event": 58765,
+        "effective_context": 32768,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "response_reserved": 4096,
+        "within_effective_context": true
+      }
+    }
+  ],
+  "source_and_contract_criteria_developed_by": "Codex",
+  "code_loaded_in_services_proven": false,
+  "whole_P4_received": false
+}

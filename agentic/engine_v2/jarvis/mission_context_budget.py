@@ -10,6 +10,17 @@ class ContextCapacityError(ValueError):pass
 
 def sha(value):return hashlib.sha256(encoded(value).encode()).hexdigest()
 def serialized_bytes(value):return len(encoded(value).encode())
+def result_objective(config):
+ """Owner resource criterion written before planning/delegation; no network IO."""
+ hybrid=config.get('hybrid_compute',{});nodes=hybrid.get('nodes',{})
+ node=next((nodes[n] for n in hybrid.get('routes',{}).get('mission',[]) if nodes.get(n,{}).get('enabled')), {})
+ ceiling=node.get('hard_context_limit')
+ if not ceiling:return None
+ reply=hybrid.get('mission_segment_tokens',4096);margin=node.get('context_template_margin',1024)
+ return {'total_context_tokens_max':ceiling,'response_tokens_reserved':reply,'template_tokens_reserved':margin,
+         'input_tokens_max':ceiling-reply-margin,
+         'result_required':'Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.',
+         'admission_measure':'UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count'}
 def preview(value,limit=700):
  text=value if isinstance(value,str) else encoded(value)
  return value if len(text)<=limit else {'excerpt':text[:limit],'original_chars':len(text),'sha256':sha(value),'full_source':'canonical event/tool receipt; use context_recall'}
@@ -27,7 +38,8 @@ def capacity(config,model):
    match=next((m for m in data.get('models',[]) if m.get('name')==node.get('mission_model',model)),None)
    if match and type(match.get('context_length')) is int:observed=match['context_length']
   except (OSError,ValueError,KeyError) as exc:error=type(exc).__name__
- return {'limit':min(configured,observed) if observed else configured,'configured_limit':configured,'observed_loaded_limit':observed,'source':'configured limit and actual api/ps' if observed else 'configured fallback pending loaded observation','observation_error':error,'node':name,'model':node.get('mission_model',model),'observed_at':time.time()}
+ hard=node.get('hard_context_limit',configured)
+ return {'limit':min(configured,observed or configured,hard),'configured_limit':configured,'hard_context_limit':hard,'observed_loaded_limit':observed,'source':'configured limit and actual api/ps' if observed else 'configured fallback pending loaded observation','observation_error':error,'node':name,'model':node.get('mission_model',model),'observed_at':time.time()}
 
 def observation_view(o):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
@@ -106,6 +118,16 @@ class ContextBudget:
   active['coordinator_instructions']=[{'reference':e['id'],'instruction':preview(e['result'].get('instruction',e['result']),900)} for e in checkpoint['coordinator_instructions']]
   active['verified_api_observations']=[{'reference':e['id'],'actor':e['actor'],'observed_at':e['created'],'observation':preview(e['result'],700)} for e in checkpoint['verified_api_observations']]
   active['last_observations']=checkpoint['last_observations']
+  if json.loads(self.store.get(self.m)['spec']).get('compact_semantic_references'):
+   # Exact predicates stay immutable in canonical task/plan/checkpoint. The
+   # server resolves active:N; the active model need not repeat transfer paths.
+   contract=checkpoint['task_contract']
+   active['task_contract']={k:v for k,v in contract.items() if k!='semantic'}
+   active['task_contract']['semantic']=[{'contract':'active:'+str(i),'sha256':sha(c),'kind':c['kind']} for i,c in enumerate(contract.get('semantic',[]))]
+   active['task_contract']['binding']='Exact stored predicates resolved by mission_verify active:N; completion enforces every original criterion.'
+   active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','state','escalation_event')} for c in active['counters']]
+   active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
   blue=[system,{'role':'user','content':encoded({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
   # Keep one complete native assistant/tool exchange when it fits. Do not alter
   # executed arguments to manufacture a different historical command.

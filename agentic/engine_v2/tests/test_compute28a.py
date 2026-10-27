@@ -109,3 +109,43 @@ class HybridTests(unittest.TestCase):
         self.assertIn('queue timeout',metrics['fallback_reason'])
         self.assertTrue(transport.call_args.args[0].full_url.startswith('http://mac/'))
         router.queue.finish(active)
+
+    def test_hard_owner_limit_rejects_oversized_input_before_http(self):
+        self.config['nodes']['Dell1'].update(inference_num_ctx=32768,hard_context_limit=32768)
+        router=HybridRouter(self.config,self.database,self.fetch)
+        with patch('jarvis.compute.urllib.request.urlopen') as send:
+            with self.assertRaisesRegex(ResourceUnavailable,'split task before transmission'):
+                router.infer({'messages':[{'role':'user','content':'x'*28000}],'options':{'num_ctx':32768}},'mission')
+            send.assert_not_called()
+        self.assertEqual(router.queue.recent()[0]['state'],'failed')
+
+    def test_accepted_owner_profile_disables_silent_backend_truncation(self):
+        self.config['nodes']['Dell1'].update(inference_num_ctx=32768,hard_context_limit=32768)
+        router=HybridRouter(self.config,self.database,self.fetch)
+        class Reply:
+            def __enter__(self):return self
+            def __exit__(self,*args):pass
+            def __iter__(self):return iter([json.dumps({'message':{'content':'OK'},'done':True}).encode()])
+        with patch('jarvis.compute.urllib.request.urlopen',return_value=Reply()) as send:
+            router.infer({'messages':[{'role':'user','content':'short task'}],'options':{'num_ctx':32768}},'mission')
+            actual=json.loads(send.call_args.args[0].data)
+        self.assertEqual(actual['options']['num_ctx'],32768)
+        self.assertEqual(actual['options']['num_predict'],4096)
+        self.assertIs(actual['truncate'],False)
+
+    def test_context_higher_than_owner_limit_never_reaches_http(self):
+        self.config['nodes']['Dell1'].update(inference_num_ctx=32768,hard_context_limit=32768)
+        router=HybridRouter(self.config,self.database,self.fetch)
+        with patch('jarvis.compute.urllib.request.urlopen') as send:
+            with self.assertRaises(ResourceUnavailable):
+                router.infer({'messages':[],'options':{'num_ctx':65536}},'mission')
+            send.assert_not_called()
+
+    def test_owner_context_rejection_cannot_fall_back_to_mac(self):
+        self.config['nodes']['Dell1'].update(inference_num_ctx=32768,hard_context_limit=32768)
+        router=HybridRouter(self.config,self.database,self.fetch)
+        with patch('jarvis.compute.urllib.request.urlopen') as send:
+            with self.assertRaisesRegex(ResourceUnavailable,'split task before transmission'):
+                router.infer({'messages':[{'role':'user','content':'x'*33000}],'options':{'num_ctx':32768}},'critical')
+            send.assert_not_called()
+        self.assertEqual({r['node'] for r in router.queue.recent()},{'Dell1'})

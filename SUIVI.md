@@ -1,3 +1,7 @@
+## Budget Qwen80B — décision et essai du27octobre2026
+
+Fenêtre32768tokens testée réellement et installée surDell1 : prompts18876 puis26614tokens, minimaVRAMlibre1129/1163Mio, sans erreur mémoire retournée. Réponse4096+marge1024, entrée27648 avec garde conservateur ; critère de résultat persisté avant transmission des sous-tâches. Inférence JARVIS reprise, P4 toujours non reçue. [Mesures, règle et limites](docs/missions/26-P2/p4/CONTEXTE-32768.md).
+
 ## P4 — intervention sur les vrais blocages
 
 Stagnation Git/chemin corrigée par préflight surlesdeuxDell ; contrat d'exécution réparé au commit926ab42 (executor/command requis,70tests logicielsPASS). JARVIS a repris des programmesPython et produit deux artefacts, dont les empreintes de core.py/tools.py ont été relues indépendamment. Audit toujours NON VALIDÉ, code chargé non prouvé. [Dossier](docs/missions/26-P2/p4/INTERVENTION-GIT-CHEMINS-CONTRAT.md). Compteurs historiques conservés ; aucune installationGit, aucun rejeuP2/P3 ni fusionmain.
