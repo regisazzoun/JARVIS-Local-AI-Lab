@@ -1,6 +1,6 @@
 # Interfaces corrigées pendant la reprise P4
 
-Codex a corrigé quatre obstacles d’interface dans le moteur existant. La mission
+Codex a corrigé cinq obstacles d’interface dans le moteur existant. La mission
 `d8fe752876db480cbe5f22cd5525e2dd` et le plan JARVIS version 3 sont conservés.
 Ces corrections ne constituent pas la réception globale de P4.
 
@@ -72,6 +72,32 @@ Installation 63429 : 139 tests ciblés locaux réussis, 37 tests d’autorité e
 mission. JARVIS a reconnu le diagnostic dans sa note 63444 ; cela ne suffit pas
 à recevoir l’instrumentation. Le relais périodique est rendu actif sans marqueur
 MANUAL-HOLD ; son contrôle indique que le travail natif progresse.
+
+## Références actives et archives séparées
+
+Après avoir effectivement inspecté worker.py à 63528, JARVIS est retourné à
+l’ancienne référence épuisée et a atteint l’escalade 63559. Le garde fonctionne ;
+la correction applicative reste absente. Le support périodique a contrôlé le
+reçu, documenté cette limite et rendu la main : voir `SUPPORT-63559.md`.
+
+Le schéma proposait toutes les anciennes références sans distinguer leur
+version. Le commit 81323fd propose, en mode identités serveur, au maximum
+16 références récentes du manifeste courant, dans le périmètre de la tâche
+lorsque celui-ci est activé. Les anciens événements ne sont pas supprimés :
+`context_recall` permet leur consultation ciblée. Le mode legacy est préservé.
+Un test vérifie à la fois l’exclusion d’une ancienne version du schéma actif et
+sa lecture effective dans l’archive.
+
+Installation 63738 et recharge des workers : 140 tests ciblés locaux réussis,
+15 tests d’identité/projection sur chacun des Dell. Les réceptions antérieures
+restent leurs résultats datés, pas des chiffres à additionner. La mission est
+remise en file sans effacement de son dialogue courant ni de ses compteurs.
+
+Un autre incident natif est conservé : 63592 a essayé un chemin du Mac sur
+Dell1 et a retourné rc1. Le chemin du candidat Dell a été rappelé à 63609.
+Ces interventions ne prouvent toujours pas une instrumentation fonctionnelle
+ou un déploiement applicatif. La prochaine réception exige une modification
+réelle de JARVIS, ses tests et une vérification sur la même version.
 
 ## Retour arrière
 

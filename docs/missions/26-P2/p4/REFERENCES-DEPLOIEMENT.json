@@ -1,0 +1,67 @@
+{
+  "source_commit": "81323fd92fd0d1d681dc6bd6838876858e93f830",
+  "reason": "Native returned to obsolete source receipts despite fresh current worker inspection63528; active schema advertised all historical references without version distinction",
+  "software_tests_local": 140,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        "e2b576a69fc44199ab5f5cc11ed2ea38",
+        "e90f3c671425434eaa62b77f85f8227b"
+      ],
+      "tests": [
+        {
+          "receipt": "46026d8d7c024700b2163562039b0591",
+          "test": "test_authority_identity.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.397s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.867,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        "b7b831db94814341b95131c50877ea79",
+        "781d92de07a54433822abcadbbc492ae"
+      ],
+      "tests": [
+        {
+          "receipt": "2e79a771c5754dafa44598117a3b254e",
+          "test": "test_authority_identity.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.376s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.818,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/active-references-1793142770",
+  "guard_scope": "Active schema offers at most16 newest references at current source manifest, scoped to active task when configured; canonical historical receipts remain accessible through context_recall, legacy behavior retained",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 63738
+}
