@@ -1,0 +1,42 @@
+{
+  "event": 58948,
+  "results": [
+    {
+      "host": "dell-observe",
+      "receipt": "c14e2cc07a9944e280e186c3512431cf",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "----------------------------------------------------------------------\nRan 24 tests in 0.394s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.817,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    },
+    {
+      "host": "dell2",
+      "receipt": "45882de40d694024a3efca3b8abe1647",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "----------------------------------------------------------------------\nRan 24 tests in 0.374s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.817,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    }
+  ],
+  "actor": "Codex"
+}

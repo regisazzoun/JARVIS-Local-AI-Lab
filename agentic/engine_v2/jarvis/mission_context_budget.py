@@ -118,6 +118,19 @@ class ContextBudget:
   active['coordinator_instructions']=[{'reference':e['id'],'instruction':preview(e['result'].get('instruction',e['result']),900)} for e in checkpoint['coordinator_instructions']]
   active['verified_api_observations']=[{'reference':e['id'],'actor':e['actor'],'observed_at':e['created'],'observation':preview(e['result'],700)} for e in checkpoint['verified_api_observations']]
   active['last_observations']=checkpoint['last_observations']
+  if self.task:
+   # Compaction must not hide already verified criteria or a written report.
+   # These are canonical backend facts, not a model-authored progress summary.
+   status=self.store.contract_status(self.m,self.task)
+   active['active_task_contract_status']={k:v for k,v in status.items() if k!='semantic'}
+   active['active_task_contract_status']['semantic']=[
+    {**{k:v for k,v in item.items() if k!='contract'},'contract':'active:'+str(i)}
+    for i,item in enumerate(status.get('semantic',[]))]
+   passed=[item for item in status.get('semantic',[]) if item.get('status')=='PASS' and item.get('invocation_id')]
+   if status.get('all_satisfied') and status.get('report_written') and passed:
+    active['active_task_contract_status']['completion_request']={
+     'id':self.task,'report_path':status['report_path'],'evidence_id':passed[-1]['invocation_id']}
+    active['active_task_contract_status']['next_action']='Call mission_task_complete with completion_request. Server rechecks freshness and reads the report; do not rewrite it or replay PASS criteria.'
   if json.loads(self.store.get(self.m)['spec']).get('compact_semantic_references'):
    # Exact predicates stay immutable in canonical task/plan/checkpoint. The
    # server resolves active:N; the active model need not repeat transfer paths.

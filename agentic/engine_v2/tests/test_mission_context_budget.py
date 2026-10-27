@@ -177,3 +177,21 @@ class ContextTests(unittest.TestCase):
   for value in [{'kind':'text','sha256':'invented'},'active:2']:
    with self.assertRaises(ValidationError):validate({'contract':value},narrowed)
   self.assertEqual(schema,original)
+
+ def test_compaction_keeps_real_pass_and_written_report_to_avoid_replay(self):
+  path='/reports/task.md'
+  with self.s.db() as c:
+   c.execute('UPDATE tasks SET contract=? WHERE mission=? AND id=?',(json.dumps({'report_path':path,'semantic':[self.contract]}),self.m,'task'))
+  event=self.s.event(self.m,'semantic_verification','task',result={'contract':self.contract,'status':'PASS'})
+  token=self.s.begin_call(self.m,'task','mission_verify',{'contract':'active:0'})
+  self.s.finish_call(token,{'ok':True,'result':{'status':'PASS','verification_event':event}},0)
+  write=self.s.begin_call(self.m,'task','host_write_file',{'path':path,'content':'Evidence-linked report'})
+  self.s.finish_call(write,{'ok':True,'result':{'returncode':0}},0)
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  progress=state['active_task_contract_status']
+  self.assertTrue(progress['report_written']);self.assertEqual(progress['semantic'][0]['status'],'PASS')
+  self.assertEqual(progress['semantic'][0]['invocation_id'],token)
+  self.assertEqual(progress['completion_request'],{'id':'task','report_path':path,'evidence_id':token})
+  # This is a request for validation, never an automatic promotion.
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
