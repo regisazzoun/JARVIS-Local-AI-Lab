@@ -27,3 +27,8 @@ Codex a rendu le fichier de tests autonome : python3 engine/tests/test_runtime_a
 Correction et premiers oracles : Codex. Retests natifs et éventuelle intégrationcandidate : JARVIS/Qwen, à constater dans sesreçus. Aucun déploiementdans les servicescentraux, aucune preuve desobjetschargés dans leursprocessus, aucune réceptionglobaleP4 par cette seulebibliothèque. La suite conserve les scénariosdéploiement/versionancienne/divergence/partiel/rollback et la règle32768/4096/1024/27648.
 
 [Déploiementcandidat et testsCodex](CORRECTION-ATTESTATION-CODEX.json) · [Réparationdulanceur et retests àfaireparQwen](CORRECTION-LANCEUR-TESTS.json) · [Original JARVIS nonreçu](attest-original-jarvis.py.txt).
+
+
+## Retests natifs réellement reçus
+
+JARVIS/Qwen80B a choisi et exécuté les nouveaux appels : testDell1 à61801, testDell2 à61857, chacun15tests/rc0. Les manifestes completsafter sont identiques ; observationindépendanteCodex61894. Les deux clésneuves proposées parCodex sont des métadonnéesde transport guidées, pas une preuve d’autonomie générale. La correctionapplicative et les oracles restentCodex. JARVIS reçoit maintenant la suite d’instrumentationcandidate du vraiworker ; aucun servicecentral déployé ni attesté. [Reçus et manifestes](RETESTS-JARVIS-ATTESTATION.json).
