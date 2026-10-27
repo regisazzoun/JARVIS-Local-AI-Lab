@@ -351,15 +351,20 @@ class MissionStore:
                     self.attempt_state(row['mission'], 'EXECUTION_FAILED', reference=observation, connection=c)
             c.execute('UPDATE missions SET updated=?,last_progress=? WHERE id=?', (time.time(), time.time(), row['mission']))
 
-    def observations(self, ident, task=None):
+    def observations(self, ident, task=None, limit=None):
         with self.db() as c:
             query = 'SELECT * FROM tool_calls WHERE mission=?'
             params = [ident]
             if task is not None:
                 query += ' AND task=?'
                 params.append(task)
-            return [{**dict(r), 'arguments': json.loads(r['arguments'] or '{}'), 'result': json.loads(r['result'] or '{}') if r['result'] else None}
-                    for r in c.execute(query + ' ORDER BY created', params)]
+            if limit is not None:
+                if type(limit) is not int or limit<1:raise ValueError('Positive observation limit required')
+                query+=' ORDER BY created DESC,rowid DESC LIMIT ?';params.append(limit)
+            else:query+=' ORDER BY created,rowid'
+            rows=list(c.execute(query,params))
+            if limit is not None:rows.reverse()
+            return [{**dict(r), 'arguments': json.loads(r['arguments'] or '{}'), 'result': json.loads(r['result'] or '{}') if r['result'] else None} for r in rows]
 
     def events(self, ident, after=0, limit=150):
         with self.db() as c:

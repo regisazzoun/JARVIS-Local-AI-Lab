@@ -1,0 +1,1 @@
+Clôture P2-CANONICAL. La tâche canonical-check est validée : JARVIS a corrigé le JSONdistant sur Dell2 (value=42 entier, label conservé), le contrôle indépendant (SHA + lecture) a donné PASS. Le garde a été développé et installé par Codex ; JARVIS l’a utilisé. Les rapports antérieurs restent conservés. Aucune nouvelle mutation ni test n’est requis. Aucune date/quantité inventée.

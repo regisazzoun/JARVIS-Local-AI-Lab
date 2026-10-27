@@ -1,0 +1,29 @@
+{
+  "status": "VALIDÉ AVEC RÉSERVES",
+  "scope": "P2 integration: historical Authority, canonical Registry/actions/verification, bounded worker and publication recovery",
+  "parent": "3aa717f3887e49daa7daf7e883ee52e4",
+  "authority_child": "b6d6cc3b05b94650acc5b26bfa2660d4",
+  "canonical_child": "ad0b6c41dcde48dcb45829566336e494",
+  "cross_host_acceptance_event": 45980,
+  "cross_host_acceptance": {
+    "decision": 45976,
+    "host": "Dell2",
+    "independent": true,
+    "source": "45785",
+    "test": "45960",
+    "validation_scope": "test-only, no correction claimed",
+    "version": "5408731b0ac5b60ebf77fc921f407bee9d6bcd11e498e131e0872a523b121f9e"
+  },
+  "canonical_semantic_event": 45362,
+  "software_tests": {
+    "main_integration": 156,
+    "publication_recovery": 3
+  },
+  "software_is_not_autonomy_evidence": true,
+  "reservations": [
+    "Code and oracles mostly Codex; initial model-authored test incorrect, archived and not received",
+    "Publication negative/recovery branches additionally covered by software tests; wrong target was rejected and retired by Codex, not claimed published",
+    "No global14A reception; P3/P4 still sequential"
+  ],
+  "event": 52932
+}

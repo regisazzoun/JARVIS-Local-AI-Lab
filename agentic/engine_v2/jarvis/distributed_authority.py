@@ -13,7 +13,7 @@ PROJECT = 'mission26-phase1'
 ROOT = '/opt/jarvis-lab/mission26-phase1'
 LOCAL = Path('/var/lib/jarvis/projects/mission26-phase1')
 HOSTS = {'Dell1': 'dell-observe', 'Dell2': 'dell2'}
-TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_analyze', 'authority_read_execution']
+TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_analyze', 'authority_read_execution','context_checkpoint','context_resume','context_recall']
 
 # This observer is infrastructure, not an application test. Commands are model supplied.
 RUNNER = r'''
@@ -121,13 +121,19 @@ class Authority:
   if not re.fullmatch(r'[a-zA-Z0-9_-]+',self.project) or not self.remote_root.startswith('/opt/jarvis-lab/') or '..' in Path(self.remote_root).parts or '..' in self.local.parts or not self.local.is_relative_to('/var/lib/jarvis/projects'):raise ValueError('Invalid declared authorized workspace')
   if not self.spec.get('distributed_authority'):raise ValueError('Distributed authority is opt-in for this mission only')
  def state(self):
+  if hasattr(self.store,'db'):
+   with self.store.db() as c:row=c.execute("SELECT result FROM mission_events WHERE mission=? AND kind='authority_state' ORDER BY id DESC LIMIT 1",(self.m,)).fetchone()
+   return json.loads(row['result']) if row else {'issues':{},'executions':{},'syncs':[]}
   rows=[e for e in self.store.events(self.m,limit=100000) if e['kind']=='authority_state']
   return rows[-1]['result'] if rows else {'issues':{},'executions':{},'syncs':[]}
  def event(self,kind,result,arguments=None,actor='JARVIS-engine'):
   return self.store.event(self.m,kind,self.t,actor,arguments=arguments,result=result)
  def save(self,state):self.event('authority_state',state)
  def decision(self,args):
-  events=[e for e in self.store.events(self.m,limit=100000) if e['kind']=='inference_finished']
+  if hasattr(self.store,'db'):
+   with self.store.db() as c:row=c.execute("SELECT id,result FROM mission_events WHERE mission=? AND kind='inference_finished' ORDER BY id DESC LIMIT 1",(self.m,)).fetchone()
+   events=[{'id':row['id'],'result':json.loads(row['result'])}] if row else []
+  else:events=[e for e in self.store.events(self.m,limit=100000) if e['kind']=='inference_finished']
   metrics=events[-1]['result'].get('metrics',{}) if events else {}
   if metrics.get('effective_model')!='qwen3-coder-next:q4_K_M' or metrics.get('node')!='Dell1':
    raise ValueError('Decision requires actual Qwen80B inference receipt on dell-1; observed '+str({k:metrics.get(k) for k in ('node','effective_model')}))
@@ -348,7 +354,9 @@ def interface_failure(store, mission, task, name, error):
  """Also bound format/delegation refusals which occur before a tool body runs."""
  spec=json.loads(store.get(mission)['spec']);epoch=spec.get('authority_interface_epoch','initial')
  category=name+':'+ ('schema' if str(error).startswith('Schema ') else str(error).split(':')[0][:100])
- prior=[e for e in store.events(mission,limit=100000) if e['kind']=='authority_interface_failure' and e['result'].get('epoch')==epoch and e['result'].get('category')==category]
+ if hasattr(store,'db'):
+  with store.db() as c:prior=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='authority_interface_failure' AND json_extract(result,'$.epoch')=? AND json_extract(result,'$.category')=?",(mission,epoch,category)).fetchall()
+ else:prior=[e for e in store.events(mission,limit=100000) if e['kind']=='authority_interface_failure' and e['result'].get('epoch')==epoch and e['result'].get('category')==category]
  count=len(prior)+1
  store.event(mission,'authority_interface_failure',task,'JARVIS-engine',result={'epoch':epoch,'category':category,'count':count,'error':str(error)[:1500]})
  if count>=3:

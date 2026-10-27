@@ -1,0 +1,230 @@
+[
+  {
+    "id": 53553,
+    "kind": "codex_context_capability_installed",
+    "actor": "Codex",
+    "created": 1793095096.4536715,
+    "result": {
+      "instruction": "P3 SDK infrastructure maintenant apportée par Codex et installée dans le vrai Core.ollama et surlesdeuxDell : mission_context_budget.py. Nouveaux outils context_checkpoint(reason,pause_for_restart), context_resume(reference optionnel), context_recall(reference numérique,offset,limit). Pas une contribution de codeJARVIS. TA responsabilité : démonstration réelleP3 surlesdeuxDell, commandes et analyse choisies par toi. Révise ton plan v1 : ses lots purement inspectifs ne sont pas réceptionnables seuls. Regroupe en un lot de démonstrationP3 couvrant l'exigence exacte P3 ; critères, scénarios et commandes restent tes décisions. Profil tests de source seulement : aucun besoin de modifier artificiellement engine ; les commandes test peuvent créer des données expérimentales dans p3-output hors engine. L'acceptation exige deux exécutions testPASS surDell distincts au même manifeste engine. Ne confonds pas tests logiciels et démonstration. Démontrer : grande sortie réelle (au moins100000 caractères, reçucomplet préservé horsprompt), plusieurs sous-tâches, effet initial non dupliqué, checkpoint structuré puis pause_for_restart:true. Codex redémarre les workers autonomement ; à la reprise appelle context_resume puis vérifie l'effet non répété et les compteurs. Utilise context_recall pour consulter un ancien incident ciblé de cette mission. Capacité effective observée24576 ; octets=UTF8 estimationprudente, pas tokensmesurés. Les erreurs d'interface initiales restent dans SQLite, aucune remiseàzéro. Termine avec preuves et réserves. P4 attend. Autorisations propriétaire, AGENTS et charte conservées; aucun autre service/modèle/routage modifié.",
+      "modules": [
+        {
+          "host": "dell-observe",
+          "module": "core.py",
+          "receipt": "a21f5627c6eb4938b18db271bff3f925",
+          "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+        },
+        {
+          "host": "dell2",
+          "module": "core.py",
+          "receipt": "acda6e1c05784869b6ba6fb96fee1bef",
+          "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+        },
+        {
+          "host": "dell-observe",
+          "module": "durable_cycle.py",
+          "receipt": "a2e63b0fad0d40e292c1ecca93f83ba7",
+          "sha256": "c75311657fe3517281d450f81fb4123621074ed8fbcb0e2577904256d4c07d18"
+        },
+        {
+          "host": "dell2",
+          "module": "durable_cycle.py",
+          "receipt": "db6fde5f66cb497487abc85ca9cd75ce",
+          "sha256": "c75311657fe3517281d450f81fb4123621074ed8fbcb0e2577904256d4c07d18"
+        },
+        {
+          "host": "dell-observe",
+          "module": "mission_store.py",
+          "receipt": "4ec1714466ea43818d4e45404f2c9538",
+          "sha256": "9a550695984881f9f401dbdf8eca533d7783ab46b5313954b99a08a0be259632"
+        },
+        {
+          "host": "dell2",
+          "module": "mission_store.py",
+          "receipt": "6951dcc2c39d4ed99c89f285778a6ab5",
+          "sha256": "9a550695984881f9f401dbdf8eca533d7783ab46b5313954b99a08a0be259632"
+        },
+        {
+          "host": "dell-observe",
+          "module": "distributed_authority.py",
+          "receipt": "3ab5cb864f84489a8842c7bf418d1c43",
+          "sha256": "54749522bb7c4fd3e95ad3d1acf8e3e7bb2c35453435f6cb26c581735cbc64cd"
+        },
+        {
+          "host": "dell2",
+          "module": "distributed_authority.py",
+          "receipt": "34d897ded98c4f3cb34629392bc90d00",
+          "sha256": "54749522bb7c4fd3e95ad3d1acf8e3e7bb2c35453435f6cb26c581735cbc64cd"
+        },
+        {
+          "host": "dell-observe",
+          "module": "tools.py",
+          "receipt": "a50485beb8134b6cbd1b123bedc4b63d",
+          "sha256": "043849ba95a5647dc6d2530d9d4b7568267f1aa6b08a872d97843f689edf19de"
+        },
+        {
+          "host": "dell2",
+          "module": "tools.py",
+          "receipt": "82bd9f8376664dae871c219c12cc1d14",
+          "sha256": "043849ba95a5647dc6d2530d9d4b7568267f1aa6b08a872d97843f689edf19de"
+        },
+        {
+          "host": "dell-observe",
+          "module": "mission_context_budget.py",
+          "receipt": "b4c62a36a5294254a0fb9051b0c35530",
+          "sha256": "f0e5a6e936dd638e8c6490b737cf74cc339cfffd325a5dde0674204eed07722e"
+        },
+        {
+          "host": "dell2",
+          "module": "mission_context_budget.py",
+          "receipt": "c30bfb3909834b7ab4d8e4563b8ddbd6",
+          "sha256": "f0e5a6e936dd638e8c6490b737cf74cc339cfffd325a5dde0674204eed07722e"
+        }
+      ],
+      "rollback": "/home/adminjarvis/JARVIS/mission26-phase2-private/p3-runtime-backup",
+      "tests": {
+        "local_targeted": 55,
+        "not_operational_autonomy": true,
+        "result": "PASS"
+      }
+    }
+  },
+  {
+    "id": 53557,
+    "kind": "codex_deployment_incident",
+    "actor": "Codex",
+    "created": 1793095103.2824192,
+    "result": {
+      "not_jarvis_fault": true,
+      "reason": "Restart requested before final module copy complete; one worker briefly failed import, automatic restart recovered after copy. Deployment now complete before reload. Mission stayed interrupted; no model command replayed"
+    }
+  },
+  {
+    "id": 53564,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095105.2175887,
+    "result": {
+      "archive": 53562,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095105.0003192,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53563,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 31176,
+      "response_reserved": 4096,
+      "sent_bytes": 18423,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53565,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095118.5428445,
+    "result": {
+      "actual_prompt_tokens": 5205,
+      "budget_event": 53564,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53584,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095121.4446046,
+    "result": {
+      "archive": 53582,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095121.1511822,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53583,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 46731,
+      "response_reserved": 4096,
+      "sent_bytes": 18392,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53585,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095132.4559867,
+    "result": {
+      "actual_prompt_tokens": 5209,
+      "budget_event": 53584,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53603,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095138.1291716,
+    "result": {
+      "archive": 53601,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095137.9635732,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53602,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 43129,
+      "response_reserved": 4096,
+      "sent_bytes": 18464,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53605,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095152.1671922,
+    "result": {
+      "actual_prompt_tokens": 5225,
+      "budget_event": 53603,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  }
+]

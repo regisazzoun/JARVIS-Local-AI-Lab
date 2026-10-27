@@ -60,10 +60,37 @@ def deliver_one(store):
         row=c.execute("SELECT * FROM publication_outbox WHERE state IN ('pending','retrying') AND next_run<=? ORDER BY updated LIMIT 1",(time.time(),)).fetchone()
         if not row:return
         row=dict(row)
+    # A new row, renamed file or report body cannot reset a failed target.
+    ledger=store.attempt_ledger(row['mission'])
+    problem=ledger.problem('publication:'+row['repository']+':'+row['branch'],{'component':'publication','repository':row['repository'],'branch':row['branch']})
+    with store.db() as c:
+        p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(row['mission'],problem)).fetchone()
+        count=max(p['infra_incidents'],row['attempts'])
+        if count!=p['infra_incidents']:
+            c.execute('UPDATE mission_problems_v2 SET infra_incidents=? WHERE mission=? AND fingerprint=?',(count,row['mission'],problem))
+            store.event(row['mission'],'publication_counter_migrated',actor='JARVIS-engine',result={'problem':problem,'legacy_attempts':row['attempts'],'counter':count},connection=c)
+        if count>=3 or p['state']=='ESCALATED':
+            c.execute("UPDATE publication_outbox SET state='needs_revision',updated=? WHERE id=?",(time.time(),row['id']))
+            e=store.event(row['mission'],'p2_escalation',actor='JARVIS-engine',result={'problem':problem,'reason':'Three publication incidents; target blocked before another push','request_to':'Codex','infra_incidents':count},connection=c)
+            c.execute("UPDATE mission_problems_v2 SET state='ESCALATED',escalation_event=? WHERE mission=? AND fingerprint=?",(e,row['mission'],problem))
+            return
     try:
         local=invoke('host_read_file',{'path':str(Path(row['workspace'])/row['file'])})['stdout']
         if hashlib.sha256(local.encode()).hexdigest()!=row['sha256']:
             raise ValueError('Le fichier local a changé : conserver cette livraison et enregistrer une nouvelle version explicitement')
+        if row['attempts']:
+            # After a lost reply, observe the actual branch before any mutation.
+            # An unavailable read is insufficient and never authorizes replay.
+            try:
+                prior=invoke('host_github',{'repository':row['repository'],'action':'file','path':row['file'],'branch':row['branch']})
+                existing=json.loads(prior['stdout'])
+            except Exception as error:
+                raise ValueError('Remote outcome cannot be observed before retry; no push dispatched: '+str(error)) from error
+            if isinstance(existing,dict) and hashlib.sha256(existing.get('content','').encode()).hexdigest()==row['sha256']:
+                with store.db() as c:
+                    c.execute("UPDATE publication_outbox SET state='verified',last_error=NULL,updated=? WHERE id=? AND state!='superseded'",(time.time(),row['id']))
+                    store.event(row['mission'],'publication_verified',row['task'],actor='JARVIS-engine',result={'file':row['file'],'sha256':row['sha256'],'mode':'independent read after uncertain attempt, no repeated push','commit_observed':False},connection=c)
+                return
         pushed=invoke('host_github',{'repository':row['repository'],'action':'push','path':row['workspace'],'file':row['file'],'branch':row['branch']})
         commit=pushed['stdout'].strip()
         if not re.fullmatch(r'[0-9a-f]{40,64}',commit):raise ValueError('Commit GitHub invalide')
@@ -77,7 +104,14 @@ def deliver_one(store):
     except Exception as exc:
         attempts=row['attempts']+1
         with store.db() as c:
-            needs_revision=isinstance(exc,BrokerError) and exc.response.get('error_code')=='PublicationRevisionRequired'
+            needs_revision=isinstance(exc,(ValueError,BrokerError))
+            if isinstance(exc,BrokerError):needs_revision=exc.response.get('error_code') in ('PublicationRevisionRequired','PermissionError')
+            c.execute('UPDATE mission_problems_v2 SET infra_incidents=infra_incidents+1 WHERE mission=? AND fingerprint=?',(row['mission'],problem))
+            incidents=c.execute('SELECT infra_incidents FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(row['mission'],problem)).fetchone()[0]
+            if incidents>=3:
+                needs_revision=True
+                e=store.event(row['mission'],'p2_escalation',actor='JARVIS-engine',result={'problem':problem,'reason':'Three comparable publication incidents','request_to':'Codex','infra_incidents':incidents},connection=c)
+                c.execute("UPDATE mission_problems_v2 SET state='ESCALATED',escalation_event=? WHERE mission=? AND fingerprint=?",(e,row['mission'],problem))
             state='needs_revision' if needs_revision else 'retrying'
             c.execute("UPDATE publication_outbox SET state=?,attempts=?,last_error=?,next_run=?,updated=? WHERE id=? AND state!='superseded'",(state,attempts,str(exc),0 if needs_revision else time.time()+min(300,2**min(attempts,8)),time.time(),row['id']))
             store.event(row['mission'],'publication_needs_revision' if needs_revision else 'publication_retry',row['task'],result={'file':row['file'],'error':str(exc)},connection=c)

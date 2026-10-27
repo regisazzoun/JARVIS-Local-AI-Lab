@@ -23,3 +23,9 @@ Un préflight distant a réellement échoué faute de jsonschema. Ajout de la se
 JARVIS a réellement exécuté40testsPASS sur chaque Dell. Le garde de provenance a toutefois refusé correctement l’acceptation : un ancien test Codex supplémentaire n’existait que surDell1. Ce fichier a été aligné exactement par SHA surDell2 ; seul le test de ce Dell doit être repris sur la version complète nouvelle. Le premier testDell1 demeure valide. Cette réception ciblée est encore en cours ; aucun des dix scénarios S01–S10 n’a été rejoué et leurs fichiers ainsi que le ledger parent sont identiques à la réception.
 
 Le chemin classique est réellement utilisé surDell2 : JSONvalue42entier, labelconservé, téléchargement frais etlectureSHA, PASS sémantique et tâche native validated. Le rapport libre a demandé une assistance de finalisation ; ses brouillons et erreurs sont conservés.
+
+## État actualisé après réception P2
+
+P2 historique **VALIDÉ AVEC RÉSERVES**, reçu52932 et [preuve structurée](integration/RECEPTION.json). Deux continuations natives completed : intégration `b6d6cc3b05b94650acc5b26bfa2660d4`, chemin classique `ad0b6c41dcde48dcb45829566336e494`. Acceptation45980 après nouveau contrôleDell2, source complète identique. Rapports JARVIS conservés dans integration/. Tentative de publication vers dépôt non autorisé refusée et entrée obsolète explicitement remplacée ; aucune publication fictive. Le garde de récupération de publication empêche désormais la boucle historique observée.
+
+P3 réellement lancée et SDK déployé, voir [état détaillé](M26_P2_P3_CONTEXTE.md). P3 NON VALIDÉ, P4 non transmise. Les sections précédentes sont des instantanés historiques et ne remplacent pas cet état actualisé.

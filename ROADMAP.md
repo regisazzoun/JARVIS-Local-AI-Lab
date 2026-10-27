@@ -1,3 +1,7 @@
+## M26-P2 — actualisation du27octobre : P2 reçu, P3 active
+
+✅🟡 P2 historique **VALIDÉ AVEC RÉSERVES**, reçu52932 ; deux continuations natives completed,40testsPASS réels sur chaque Dell au même manifeste complet. Aucun rejeu S01–S10. P3 **EN COURS, NON VALIDÉ** : garde du contexte déployé dans Core.ollama, premiers budgets réels enregistrés,14tests logiciels du garde PASS ; correctif Codex de conservation du dernier résultat outil après relectures stériles. Démonstration de reprise encore attendue. P4 attend réceptionP3. [État actuel](docs/missions/26-P2/REPRISE-27-OCTOBRE.md) · [P3](docs/missions/26-P2/M26_P2_P3_CONTEXTE.md). Pas de réception14A ni fusionmain.
+
 ## M26-P2 — reprise du27octobre : raccordements historiques en réception
 
 🟡 P2 : adaptateurs Authority/Registry/actions/vérification et garde des retries workers installés. JARVIS a reçu ses paquets courts, utilisé le garde classique réellement surDell2 (JSON42, PASS et tâche validated) et exécuté40testsPASS sur chaque Dell. Refus d’acceptation correct sur une différence de manifeste complet ; fichier historique aligné par SHA, contrôle ciblé Dell2 en cours.156tests logiciels locaux PASS, séparés des preuves agentiques. Test initial JARVIS incorrect conservé/non reçu, adaptations et oracles Codex attribués. [Suivi actuel](docs/missions/26-P2/REPRISE-27-OCTOBRE.md). Dix scénarios antérieurs et ledger parent inchangés. P3 et P4 autorisées par le propriétaire, à transmettre successivement après réception précédente ; aucune clôture14A.
