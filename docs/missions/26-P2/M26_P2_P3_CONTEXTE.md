@@ -23,3 +23,9 @@ Quatorze tests logiciels du garde passent ; ils ne constituent pas une démonstr
 ## Preuves
 
 [Lancement réel](p3/LANCEMENT.json), [premiers reçus de déploiement et budgets](p3/DEPLOIEMENT-CONTEXTE.json). Le journal complet reste dans le moteur, même mission et même SQLite. Code et tests sont publiés sur la branche Phase2, pas dans main.
+
+## Relance supervisée et contrôle indépendant
+
+La réduction priorise désormais le dernier résultat réel et la dernière instruction de coordination (ordre corrigé), et identifie les archives automatiques comme preuves de stockage à ne pas recharger récursivement. JARVIS persistait dans les relectures ; Codex a utilisé la barrière existante `authority_disabled_tools` pour demander sa révision de plan, sans écrire les étapes. Deux refus de format sont conservés. JARVIS a produit le plan version2 ; barrière levée automatiquement. Le plan conserve encore un lot préparatoire intitulé achevé, mais son état moteur reste running : ce titre ne constitue pas une réception.
+
+Une mesure backend réelle est enregistrée53836 :4535tokens de prompt, capacité24576 et réponse réservée4096. Un premier contrôle distant JARVIS a réellement exécuté une lecture surDell1, mais affiché troisNone en utilisant des clés inexistantes du JSON. Code retour0 observé, aucune validation sémantique attribuée. Codex a signalé l'erreur de mesure et les noms exacts des champs ; correction du contrôle confiée à JARVIS. Une demande inspect sous le profil test-only a été refusée par schéma, trace conservée. P3 reste NON VALIDÉ, pas de P4 transmis.
