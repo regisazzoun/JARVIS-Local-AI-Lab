@@ -1,0 +1,58 @@
+{
+  "mission": "d8fe752876db480cbe5f22cd5525e2dd",
+  "version": 3,
+  "author": "JARVIS/Qwen80B@Dell1",
+  "plan": {
+    "decision_event": 61979,
+    "tasks": [
+      {
+        "contract": {
+          "checks": [
+            {
+              "arguments": {
+                "issue": "P4-ATTEST",
+                "kind": "accept"
+              },
+              "ok": true,
+              "tool": "authority_work"
+            }
+          ],
+          "context_result_objective": {
+            "admission_measure": "UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count",
+            "input_tokens_max": 27648,
+            "response_tokens_reserved": 4096,
+            "result_required": "Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.",
+            "template_tokens_reserved": 1024,
+            "total_context_tokens_max": 32768
+          },
+          "report_path": "/var/lib/jarvis/projects/mission26-phase2/reports/d8fe752876db480cbe5f22cd5525e2dd/P4-ATTEST-01.md"
+        },
+        "depends": [],
+        "id": "P4-ATTEST-01",
+        "objective": "Lot 1 — Instrumenter le worker avec get_object_code_hash et attestation_report : ajouter les appels réels dans engine/jarvis/worker.py ou core.py (ex. mesure_module), test discriminant réel sur Dell1 et Dell2, rapport réel fidèle aux reçus",
+        "strict_tools": true,
+        "title": "Lot 1 — Instrumenter le worker avec get_object_code_hash et attestation_report : ajouter les appels réels dans engine/jarvis/worker.py ou core.py (ex. mesure_module), test discriminant réel sur Dell1 et Dell2, rapport réel fidèle aux reçus",
+        "tools": [
+          "authority_plan",
+          "authority_revise_plan",
+          "authority_work",
+          "authority_sync",
+          "authority_finish",
+          "mission_note",
+          "mission_evidence",
+          "authority_resources",
+          "authority_edit",
+          "authority_analyze",
+          "authority_read_execution",
+          "context_checkpoint",
+          "context_resume",
+          "context_recall"
+        ]
+      }
+    ]
+  },
+  "gate_release_event": 61990,
+  "source_correction_actor": "Codex",
+  "plan_author": "JARVIS/Qwen80B",
+  "active_deployment": false
+}

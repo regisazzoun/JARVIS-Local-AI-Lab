@@ -27,3 +27,19 @@ class ExecutionContractTests(unittest.TestCase):
    c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
   args={'issue':'AUDIT','kind':'test','summary':'bounded test','operation_id':'run','executor':'Dell2','command':'python3 -V'}
   self.assertFalse(self.errors(args));args['kind']='accept';self.assertTrue(self.errors(args))
+
+ def test_plan_revision_advertises_exact_current_version_not_next_version(self):
+  self.store.plan(self.m,[{'id':'audit','title':'initial'}],author='fixture')
+  schema=self.reg.active_schema('authority_revise_plan')
+  args={'steps':[{'id':'audit','title':'reception lot','depends':[],'issues':['AUDIT']}],'expected_version':1,'reason':'changed source requires integration'}
+  self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+  args['expected_version']=2
+  self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
+  self.assertIn('expected_version',schema['required'])
+
+ def test_plan_schema_refreshes_after_persisted_revision(self):
+  self.store.plan(self.m,[{'id':'audit','title':'initial'}],author='fixture')
+  self.store.plan(self.m,[{'id':'audit','title':'revised'}],author='fixture',expected_version=1,reason='new evidence')
+  schema=self.reg.active_schema('authority_revise_plan')
+  self.assertEqual(schema['properties']['expected_version']['const'],2)
+  self.assertEqual(len(self.store.plans(self.m)),2)

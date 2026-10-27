@@ -259,6 +259,13 @@ class Registry:
                 schema['required']=list(dict.fromkeys(schema['required']+['executor','command']))
                 schema['properties']['command']['minLength']=1
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
+            if name in ('authority_plan','authority_revise_plan'):
+                history=store.plans(self.context['mission_id'])
+                current=history[-1]['version'] if history else 0
+                schema['properties']['expected_version']={'type':'integer','const':current,
+                    'description':'CURRENT saved version, exactly '+str(current)+'. The server assigns the next version; do not send the next number.'}
+                if history:
+                    schema['required']=list(dict.fromkeys(schema['required']+['expected_version','reason']))
 
         return schema
 
