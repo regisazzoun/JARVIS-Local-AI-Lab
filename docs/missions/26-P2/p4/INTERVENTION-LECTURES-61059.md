@@ -1,0 +1,13 @@
+# P4 candidat — passage borné 2/3 après relectures répétées
+
+27 octobre 2026. Mission d8fe752876db480cbe5f22cd5525e2dd, parent 3aa717f3887e49daa7daf7e883ee52e4, plan v2. Directives relues : AGENTS, charte, LANCEMENT-ATTESTATION, reprise, supervision, SUIVI et ROADMAP. Toute P4 reste autorisée sans nouvelle approbation humaine.
+
+Arrêt 61054 après refus 61051 : authority_read_execution répète une observation déjà reçue. 61040 avait bien relu 60682. L’édition 60887 avait été refusée avant effet car path manquait dans edits. Aucune correction applicative réussie depuis ce refus. Aucun défaut nouveau du lecteur démontré : outil et spec conservés, sans nouvelle alternance désactivation/réactivation.
+
+Contrôle indépendant ACTUEL par broker sur chaque Dell : rc réel 0 dans result. Dell1 : attest.py SHA256 ee613cf18b89e26a35a007c02fcbd7469bb66ed932dce769af99350da2b4065d ; contre-exemple reproduit : fonction importée retournant 1, disque changé pour retourner 2, mais status=match et objects_match=true. Reçu 0a30fb5744d14254b4c39c37d95424c4. Dell2 : attest.py toujours absent, reçu 3ba3558f1ea3493b80148845703e74f0. Les modules temporaires de sonde sont supprimés après mesure ; aucune source applicative modifiée.
+
+Reçu complet 60858 relu indépendamment avec contrôle SHA256 06e2c91abc6967ed260c53c0550bb128a66655ecbac3b27a4bc7e4a77c131e38 : _hash_object_code utilise encore inspect.getsource. Preuve actuelle et dossier borné enregistrés à 61056. Instruction courte 61057, sous le seuil de prévisualisation de 900 caractères, puis archivage natif du contexte. Qwen choisit diagnostic, correction, fichiers et tests ; Codex n’a pas écrit son application. Main rendue après nouvelles preuves, action Codex-periodic 61059 puis queued.
+
+Tous états authority, opérations, problèmes et compteurs d’interface comparés avant/après : identiques. Fenêtre 32768/4096/1024/27648 conservée. Aucun changement du superviseur, de ses compteurs, des services, du modèle ou du routage ; aucun reload. Première tentative de sonde locale arrêtée avant broker pour import jarvis.host inexistant ; import corrigé en jarvis.host_client avant les deux contrôles réussis. Scripts et enveloppes complets privés.
+
+Candidat NON TERMINÉ et insuffisant : technical_review_recorded=false. Registre et allowed_tasks/allowed_mission_ids inchangés ; aucune continuation recréée. Checkpoint et preuves conservés pour le passage suivant. Après fin réelle et revue satisfaisante, transmettre seulement le paquet P4 intégration/déploiement/validation réelle avec retour arrière vérifiable autorisé. Les huit situations et la réception globale restent dues. Aucun déploiement du candidat ni réception fictive, aucun rejeu P2/P3, autre mission ou fusion main.
