@@ -1,0 +1,11 @@
+# P4 candidat — reprise bornée après relectures stériles
+
+27 octobre 2026, mission existante `d8fe752876db480cbe5f22cd5525e2dd`, passage 1/3 de la cause observée. Action Codex-periodic 59405 ; vérification 59401, instruction 59402, reprise queued 59406. Directives relues : AGENTS, charte, LANCEMENT-ATTESTATION, reprise, supervision, SUIVI/ROADMAP. Autorisations P4 autonomes maintenues.
+
+L’escalade 59396 suit trois refus de relecture des mêmes listes de fichiers. Les exécutions 59280 et 59309 avaient déjà été lues plusieurs fois avec succès ; aucun candidat applicatif ni test de ses objets Python n’est produit. Le plan v1 conserve cinq tâches élémentaires, dont l’inspection initiale ne peut satisfaire seule le contrat accept. Qwen doit décider sa révision globale ; Codex ne fournit pas son application ni ses tests.
+
+Contrôle indépendant des deux reçus complets : SHA256 conformes, processus rc=0, worker.py et core.py présents dans les listes et manifestes sous engine/jarvis. Le chemin /opt/jarvis/conversation/engine est absent sur les Dell. Cela ne prouve ni le contenu des sources ni le code chargé. Une première lecture Codex a visé returncode à la racine du reçu et rencontré KeyError ; lecture corrigée sous execution avant toute mutation du spec.
+
+Changement concret limité au spec de cette mission : retrait temporaire de authority_read_execution des outils proposés, context_recall demeurant désactivé ; authority_work reste disponible pour une nouvelle inspection de contenu choisie par Qwen. Instruction courte fondée sur les reçus et archivage natif du contexte avant reprise. Tous les compteurs problèmes, authority et interface ont été comparés avant/après : égaux, y compris les trois refus. Objectif 32768/4096/1024/27648 inchangé. Sauvegardes et commandes privées conservées hors Git. Aucun changement du superviseur, registre, configuration de périmètre, modèle, routage ou service ; aucun reload.
+
+Candidat NON TERMINÉ, technical_review_recorded reste false ; aucune continuation créée ni réception fictive. Après fin réelle, revue indépendante puis seul prochain paquet P4 d’intégration/déploiement/validation avec retour arrière vérifiable autorisé sans nouveau GO humain, même parent/moteur. Les huit situations et la réception globale P4 restent dues ; ni déploiement ni tests candidats ne les remplacent.
