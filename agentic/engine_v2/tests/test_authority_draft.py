@@ -99,3 +99,15 @@ class FocusedDraftTests(unittest.TestCase):
   proposal=self.call();self.reg.context['task_id']='other';other=Authority(self.reg)
   args={'proposal_reference':proposal['proposal_reference']};token=self.s.begin_call(self.m,'other','authority_apply_draft',args)
   with invocation_scope(token),self.assertRaisesRegex(ValueError,'exact mission/task'):apply_draft(other,args)
+
+ def test_coding_focus_ends_only_after_actual_successful_correction(self):
+  from jarvis.durable_cycle import coding_focus_required
+  spec={'authority_code_focus':True,'authority_code_focus_since':10}
+  def state(kind,rc,before,after,ref='11'):
+   return {'executions':{ref:{'kind':kind,'execution':{'returncode':rc},'before':before,'after':after}}}
+  self.assertTrue(coding_focus_required(spec,state('test',0,{'f':'a'},{'f':'a'})))
+  self.assertTrue(coding_focus_required(spec,state('correct',1,{'f':'a'},{'f':'b'})))
+  self.assertTrue(coding_focus_required(spec,state('correct',0,{'f':'a'},{'f':'a'})))
+  self.assertTrue(coding_focus_required(spec,state('correct',0,{'f':'a'},{'f':'b'},'9')))
+  self.assertFalse(coding_focus_required(spec,state('correct',0,{'f':'a'},{'f':'b'})))
+  self.assertFalse(coding_focus_required({},{}))

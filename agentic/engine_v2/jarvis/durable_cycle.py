@@ -10,6 +10,13 @@ from zoneinfo import ZoneInfo
 from pathlib import Path
 from .mission_store import encoded, signature
 
+def coding_focus_required(spec, active):
+    """Explicit short coding packet; leave it after an observed real correction."""
+    return bool(spec.get('authority_code_focus')) and not any(
+        int(ref)>spec.get('authority_code_focus_since',0) and e.get('kind')=='correct'
+        and e.get('execution',{}).get('returncode')==0 and e.get('before')!=e.get('after')
+        for ref,e in active.get('executions',{}).items())
+
 def semantic_reference_schemas(schemas, task):
     schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_')])
     for schema in schemas:
@@ -410,6 +417,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if names!={'intervention_report'}:names|={'context_checkpoint','context_resume','context_recall'}
                 if not json.loads(mission['spec']).get('authority_engine_operation_ids'):names-={'authority_draft_edit','authority_apply_draft'}
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
+                if names!={'intervention_report'} and coding_focus_required(json.loads(mission['spec']),authority.active_state()):
+                    names &= {'authority_draft_edit','authority_apply_draft','authority_edit','authority_analyze','mission_note','context_checkpoint','context_recall'}
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
                 durable=authority.active_state()
                 # Evidence is durable, not a growing prompt. Last observations and
