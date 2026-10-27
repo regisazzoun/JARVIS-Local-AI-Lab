@@ -138,6 +138,7 @@ class Authority:
   view['syncs']=[]
   for issue,v in view['issues'].items():
    v=dict(v);view['issues'][issue]=v
+   if 'analyzed' in v and str(v['analyzed']) not in refs:v.pop('analysis',None)
    for key in ('last_test','last_failed_test','pending_correction','analyzed'):
     if str(v.get(key,'')) not in refs:v.pop(key,None)
    if str(v.get('accepted',{}).get('test','')) not in refs:v.pop('accepted',None)

@@ -143,3 +143,12 @@ class IdentityTests(unittest.TestCase):
    result=engine.submit('new fixture',self.config['models'][0],spec=spec)
    saved=json.loads(engine.store.get(result['id'])['spec'])
    self.assertIs(saved['authority_engine_operation_ids'],True if setting is None else False)
+
+ def test_obsolete_diagnosis_drops_from_working_view_but_history_and_counts_survive(self):
+  with self.s.db() as c:
+   spec=json.loads(self.s.get(self.m)['spec']);spec['authority_task_scoped_evidence']=True;spec['authority_evidence_after_event']=999999
+   c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  a=Authority(self.reg);state=a.state();state['issues']['Q1']={'failed_cycles':2,'delegation_failures':1,'analyzed':'old','analysis':'Obsolete hypothesis'};a.save(state)
+  view=a.active_state();self.assertNotIn('analysis',view['issues']['Q1']);self.assertNotIn('analyzed',view['issues']['Q1'])
+  self.assertEqual(view['issues']['Q1']['failed_cycles'],2)
+  self.assertEqual(a.state()['issues']['Q1']['analysis'],'Obsolete hypothesis')
