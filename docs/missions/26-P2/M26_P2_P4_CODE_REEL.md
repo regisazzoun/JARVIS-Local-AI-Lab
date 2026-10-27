@@ -7,3 +7,7 @@ Premier objectif : inventorier les vrais environnements et distinguer source/cop
 La suite autoriséeP4 devra traiter provenance source/candidat/version active, divergence, déploiement partiel, vrai contrôle d'application et rollback. Aucun de ces critères n'est reçu par ce lancement. Le profil du paquet est test-only ; l'artefact d'audit reste horsengine. Les corrections et tests de l'application surDell, puis les déploiements utiles, seront tracés dans les paquets suivants, sans accord humain supplémentaire.
 
 Le superviseur périodique existant cible désormais ce seul paquet P4 ; P3 est dans received_tasks. Maximum3passages par cause stable, reçus/compteurs conservés. Ni14A ni24-Old, aucune fusionmain ni modification des modèles/routage.
+
+## Intervention ciblée après stagnation
+
+Git absent sur copies exportées et mauvais chemin engine/core.py ont provoqué trois incidents. Préflight57077 confirme engine/jarvis/core.py et cinq empreintes surlesdeuxDell. Un défaut du schéma d'exécution a aussi été corrigé au commit926ab42 : executor/command obligatoires selon mode,70testsPASS. JARVIS a réellement produit des artefacts surDell2(57177) etDell1(57205), relus parCodex57490 : deux fichiers correspondants, pas une réception complète. Mode d'exécution contraint ensuite relâché pour la suite. [Dossier et limites](p4/INTERVENTION-GIT-CHEMINS-CONTRAT.md). Code chargé toujours non prouvé, P4 toujours NON VALIDÉ.

@@ -1,3 +1,7 @@
+## P4 — intervention sur les vrais blocages
+
+Stagnation Git/chemin corrigée par préflight surlesdeuxDell ; contrat d'exécution réparé au commit926ab42 (executor/command requis,70tests logicielsPASS). JARVIS a repris des programmesPython et produit deux artefacts, dont les empreintes de core.py/tools.py ont été relues indépendamment. Audit toujours NON VALIDÉ, code chargé non prouvé. [Dossier](docs/missions/26-P2/p4/INTERVENTION-GIT-CHEMINS-CONTRAT.md). Compteurs historiques conservés ; aucune installationGit, aucun rejeuP2/P3 ni fusionmain.
+
 ## Phase2 — P3 reçue, audit P4 réellement lancé
 
 P3 **VALIDÉ AVEC RÉSERVES** (55310) : grandstdout219000octets, checkpoint/redémarrage/reprise réels, compteurs conservés, effetDell2 non régénéré dans le scénario.67tests logiciels ciblés ; développement et déblocagesCodex distingués des programmes/exécutionsJARVIS. Prose originale erronée conservée, version corrigée et errata. P4 **EN COURS, NON VALIDÉ**, premier audit natif `d1b0d69639724c60b5bd1b2143b1a5fa` surlesdeuxDell ; la preuve du code réellement chargé reste à construire. [P3](docs/missions/26-P2/p3/RECEPTION-P3.json) · [P4](docs/missions/26-P2/M26_P2_P4_CODE_REEL.md). MissionPhase2 non clôturée,14A non clôturée, aucunmainfusionné.

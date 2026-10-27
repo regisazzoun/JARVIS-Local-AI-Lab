@@ -1,0 +1,40 @@
+{
+  "event": 57096,
+  "mission": "d1b0d69639724c60b5bd1b2143b1a5fa",
+  "source_commit": "926ab42",
+  "software_checks": 70,
+  "uploads": [
+    {
+      "host": "dell-observe",
+      "path": "engine/jarvis/tools.py",
+      "receipt": "bbfe8d7782ed4a25bed96f5f47b5ef59"
+    },
+    {
+      "host": "dell-observe",
+      "path": "engine/tests/test_authority_execution_schema.py",
+      "receipt": "d1836b7498bb481a8ae306e74a1abac3"
+    },
+    {
+      "host": "dell-observe",
+      "path": "P4-COORDINATOR-OBSERVATION.json",
+      "receipt": "1c17accc4131466fa9b2fae012e2af2c"
+    },
+    {
+      "host": "dell2",
+      "path": "engine/jarvis/tools.py",
+      "receipt": "a93e561958504796a202f6123a9f84bf"
+    },
+    {
+      "host": "dell2",
+      "path": "engine/tests/test_authority_execution_schema.py",
+      "receipt": "efb3c176153b43ca80fd49aecb7676e2"
+    },
+    {
+      "host": "dell2",
+      "path": "P4-COORDINATOR-OBSERVATION.json",
+      "receipt": "f9e2131b0b414fd88f742cdab069730c"
+    }
+  ],
+  "previous_snapshot_sha256": "3e37cdd79e1d96dd08a2ef0563235e415efd945fa4d94615e72e37ffa16caffa",
+  "audit_received": false
+}

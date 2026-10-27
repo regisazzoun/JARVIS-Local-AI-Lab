@@ -1,0 +1,44 @@
+{
+  "event": 57490,
+  "mission": "d1b0d69639724c60b5bd1b2143b1a5fa",
+  "artifacts": [
+    {
+      "host": "dell-observe",
+      "receipt": "30c35cdab35c4a038cfa890d0f18695d",
+      "result": {
+        "artifact": "artefacts/source_hashes.json",
+        "artifact_sha256": "c583f8e885dbbeff45c22c082031613ab865d6c6b5560df81c50c4c3bdc1b313",
+        "verified_file_names": [
+          "core.py",
+          "tools.py"
+        ],
+        "hash_comparisons": {
+          "core.py": true,
+          "tools.py": true
+        },
+        "scope": "These observed files only, not complete repository nor loaded code"
+      }
+    },
+    {
+      "host": "dell2",
+      "receipt": "f49e47a997104adc89da720bbe285671",
+      "result": {
+        "artifact": "artefacts/source_hashes.json",
+        "artifact_sha256": "c583f8e885dbbeff45c22c082031613ab865d6c6b5560df81c50c4c3bdc1b313",
+        "verified_file_names": [
+          "core.py",
+          "tools.py"
+        ],
+        "hash_comparisons": {
+          "core.py": true,
+          "tools.py": true
+        },
+        "scope": "These observed files only, not complete repository nor loaded code"
+      }
+    }
+  ],
+  "source_commit": "926ab42",
+  "scope": "Partial audit only",
+  "service_snapshot": "P4-OBSERVATION-CODEX-1793102194.json",
+  "audit_received": false
+}
