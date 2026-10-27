@@ -429,6 +429,12 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         'operation_id unique par exécution, réutilisé pour reprise idempotente.',
                         'Les identifiants d’opération sont attribués par le moteur depuis les appels persistants. Ne fournis AUCUN operation_id. Le registre déduplique les intentions identiques et bloque les effets inconnus avant toute répétition.')
                     authority_prompt[0]['content']+='\nPour authority_work et authority_edit : aucun operation_id dans les arguments ; les commandes, le code et les machines restent TES décisions.'
+                    inspected=[int(ref) for ref,e in durable['executions'].items() if e.get('kind')=='inspect' and e.get('execution',{}).get('returncode')==0]
+                    if current_tasks and inspected:
+                        authority_prompt[0]['content']=authority_prompt[0]['content'].replace(
+                            'Première obligation : observe les sources avec authority_work kind=inspect avant de planifier; choisis toi-même la machine et la commande.',
+                            'L’observation initiale et le plan sont déjà enregistrés pour cette tâche. Ne recommence pas la préparation à chaque tour. Exploite les observations persistantes pour décider la suite de la tâche active ; une lecture supplémentaire doit viser une information précise réellement manquante, pas une nouvelle localisation des mêmes fichiers.')
+
                 if not authority_history_started:
                     messages=authority_prompt
                     authority_history_started=True
@@ -436,7 +442,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     # Preserve the actual assistant/tool dialogue within this
                     # bounded quantum, instead of resetting Qwen after every call.
                     messages[0:2]=authority_prompt[:2]
-                store.event(ident,'authority_context_prepared',task_id,'JARVIS-engine',result={'messages_chars':len(encoded(messages)),'tools':len(schemas),'complete_receipts_preserved':True})
+                store.event(ident,'authority_context_prepared',task_id,'JARVIS-engine',result={'messages_chars':len(encoded(messages)),'tools':len(schemas),'complete_receipts_preserved':True,'initial_observation_instruction':not (json.loads(mission['spec']).get('authority_engine_operation_ids') and current_tasks and any(e.get('kind')=='inspect' and e.get('execution',{}).get('returncode')==0 for e in durable['executions'].values()))})
             if json.loads(mission['spec']).get('compact_semantic_references'):
                 schemas=semantic_reference_schemas(schemas,task)
             from .mission_context_budget import result_objective
