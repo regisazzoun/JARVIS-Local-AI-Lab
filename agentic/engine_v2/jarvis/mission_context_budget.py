@@ -48,7 +48,7 @@ def observation_view(o):
 class ContextBudget:
  def __init__(self,store,mission,task=None):self.store=store;self.m=mission;self.task=task
  def latest(self,kind,limit=1):
-  scoped=bool(self.task and kind in ('working_note','authority_model_decision'))
+  scoped=bool(self.task and kind in ('working_note','authority_model_decision','authority_code_proposal'))
   boundary=json.loads(self.store.get(self.m)['spec']).get('authority_evidence_after_event',0) if scoped else 0
   with self.store.db() as c:rows=c.execute('SELECT id,actor,created,result FROM mission_events WHERE mission=? AND kind=?'+(' AND task=? AND id>?' if scoped else '')+' ORDER BY id DESC LIMIT ?',((self.m,kind,self.task,boundary,limit) if scoped else (self.m,kind,limit))).fetchall()
   return [{**dict(r),'result':json.loads(r['result'] or '{}')} for r in rows]
@@ -173,6 +173,12 @@ class ContextBudget:
   active['last_observations']=checkpoint['last_observations']
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
+   proposals=self.latest('authority_code_proposal')
+   if proposals:
+    proposal=proposals[0];data=proposal['result']['proposal']
+    with self.store.db() as c:applied=c.execute("SELECT 1 FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal_applied' AND json_extract(result,'$.proposal_reference')=?",(self.m,self.task,proposal['id'])).fetchone()
+    if not applied:active['pending_code_proposal']={'proposal_reference':proposal['id'],'path':data['edits'][0]['path'],'executor':data['executor'],'rationale':data['summary'][:500],'applied':False,'tested':False,'next_action':'Review your stored code proposal; authority_apply_draft accepts its reference without recopying the source. Canonical event holds full edits; context_recall permits further review.'}
+
    active['read_delivery_history']=[{'invocation_id':o['invocation_id'],'parameters':o['parameters'],'ok':o['ok'],'delivery_count':o['result'].get('delivery_count'),'already_delivered':o['result'].get('already_delivered')} for o in checkpoint['last_observations'] if o['tool']=='authority_read_execution']
    active['operation_identity_rule']='Engine-issued identities from canonical tool invocations. Do not supply operation_id. Semantic dedupe and unknown-effect guards remain authoritative; historical aliases stay in the full checkpoint.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]

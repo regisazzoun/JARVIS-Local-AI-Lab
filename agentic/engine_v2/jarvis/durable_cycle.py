@@ -408,6 +408,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 else:
                     names.discard('authority_plan')
                 if names!={'intervention_report'}:names|={'context_checkpoint','context_resume','context_recall'}
+                if not json.loads(mission['spec']).get('authority_engine_operation_ids'):names-={'authority_draft_edit','authority_apply_draft'}
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
                 durable=authority.active_state()

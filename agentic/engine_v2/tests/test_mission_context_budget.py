@@ -317,3 +317,15 @@ class ContextTests(unittest.TestCase):
   path.write_bytes(raw+b'tampered')
   _,checkpoint=self.b.checkpoint('reject changed receipt')
   self.assertNotIn('latest_successful_read',checkpoint)
+
+ def test_pending_model_proposal_survives_compaction_as_an_action_reference(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  proposal={'issue':'Q1','executor':'Dell2','summary':'Model-authored candidate, not applied','edits':[{'path':'engine/worker.py','old':'original','new':'proposed'}]}
+  ref=self.s.event(self.m,'authority_code_proposal','task','JARVIS/Qwen80B',result={'proposal':proposal,'applied':False,'tested':False})
+  p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['pending_code_proposal']['proposal_reference'],ref)
+  self.assertFalse(state['pending_code_proposal']['applied']);self.assertFalse(state['pending_code_proposal']['tested'])
+  self.s.event(self.m,'authority_code_proposal_applied','task','JARVIS/Qwen80B',result={'proposal_reference':ref,'applied':True,'tested':False})
+  p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertNotIn('pending_code_proposal',state)
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
