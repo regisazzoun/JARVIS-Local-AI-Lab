@@ -123,6 +123,15 @@ Configuration centralisée par variables d'environnement/contrats de télémétr
 
 **Frontière de responsabilité :** l'adaptation du contexte et le choix du nœud relèvent de la **mission 28 (routage multi-modèles)** ; la mission 27 doit afficher les décisions et erreurs fournies par le backend et ne pas inventer un ordonnanceur parallèle. La mission 26 déjà entamée conserve son historique et ses résultats, y compris les anomalies observées, sans reprise implicite.
 
+
+## 5 quater. Arbitrage conversation / traitement — décision du 27 octobre 2026
+
+Le propriétaire demande de corriger la **mauvaise répartition des tâches** : le moteur conversationnel répond parfois à une question nécessitant une mesure réelle comme si elle n'exigeait aucun outil. Preuve locale : `host_github` enregistré puis exposé dans `OLLAMA_TOOL_DIAG` le 27 octobre à 18:07:41, mais conversation terminée à 18:08:03 avec `tools=0` et affirmation non étayée d'absence du module. Cela ne démontre ni autorisation ni refus GitHub effectif.
+
+**Priorité P0**, à coordonner avec les lots non clôturés de la mission 26 : arbitrage explicite entre simple réponse, vérification technique courte avec outil, intervention et mission persistante. Le moteur de traitement agentique existant reste responsable de l'exécution et de la preuve ; le moteur conversationnel présente la réponse et suit les demandes. Réutiliser le registre d'outils, le broker, les politiques 11/11B et le moteur de mission plutôt que construire un autre moteur ou imposer des approbations supplémentaires. Qwen 80B reste la cible de responsabilité technique décidée par le propriétaire, sous réserve des modèles effectivement accessibles. Une vérification rapide n'exige pas automatiquement l'ouverture d'une mission longue.
+
+JL-03 doit afficher la nature du parcours choisi et les résultats réellement reçus, y compris l'absence d'appel, l'erreur d'outil et le refus de politique, avec identifiants réels. **Priorité P1 mission 28** : le choix du Mac mini ou Dell et le budget de contexte sont une problématique distincte de la distribution fonctionnelle. Garder le correctif local A déjà validé sur un scénario, sans présumer B livré et sans modifier les statuts des phases 26 historiques.
+
 ## 6. Prototypage attendu et réception
 
 Avant intégration, produire un **prototype autonome de cristal** (sur une page de démonstration distincte) permettant au propriétaire de tester :
