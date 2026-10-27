@@ -1,3 +1,7 @@
+## P4 — interfaces corrigées, reprise native
+
+Les identités serveur, la conservation des pages de source utiles et l’édition par chemin absolu interne sont corrigées dans le moteur existant. Déploiement63326 : 136 tests ciblés locaux et24 tests sur chaque Dell réussis. Instruction63327 puis reprise de JARVIS sur le plan3 existant ; instrumentation du worker candidat et réceptionP4 restent à prouver. Compteurs conservés, pas de déploiement applicatif par cette intervention. [Détails et preuves](docs/missions/26-P2/p4/INTERFACES-PERENNES.md).
+
 ## P4 — correction pérenne des identifiants utilisée parJARVIS
 
 Même missionP4, plan3 préservé. Les identifiants sont attribués parlemoteur depuis les appelsSQLite ; Qwen ne lesgénèreplus.130tests ciblésPASS,14nouveaux cas surchaqueDell. Usage réel reçu62931 : commande62737 exécutéeunefois, répétitionavecdescriptiondifférente renvoyantle reçuexistant62774. Compteurs/anciensalias préservés, garde deseffetsinconnus maintenu. Aucun nouveaumoteur ni déploiementduworker candidat ; P4globale reste nonreçue. [Architecture, migrationetpreuves](docs/missions/26-P2/p4/IDENTIFIANTS-DURABLES.md).
