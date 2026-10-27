@@ -205,3 +205,54 @@ class ContextTests(unittest.TestCase):
   self.assertEqual(progress['completion_request'],{'id':'task','report_path':path,'evidence_id':token})
   # This is a request for validation, never an automatic promotion.
   self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
+ def test_complete_source_page_survives_failures_and_verbose_old_counter_metadata(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text()
+  invocation=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':10,'stream':'stdout'})
+  self.s.finish_call(invocation,{'ok':True,'result':{'reference':10,'content':source,'stream':'stdout','start_line':1,'total_lines':len(source.splitlines()),'source_version':None}},0)
+  for i in range(3):
+   bad=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':10})
+   self.s.finish_call(bad,{'ok':False,'error':'Already read, do not repeat'},0)
+  for i in range(14):self.s.event(self.m,'authority_interface_failure',result={'epoch':'original','category':str(i)+':'+('long interface failure '*40),'count':3})
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['latest_successful_read']['content'],source)
+  self.assertIn('def run(config_path,slot)',state['latest_successful_read']['content'])
+  self.assertIn('while not missions.stop.wait(1)',state['latest_successful_read']['content'])
+  self.assertEqual(state['latest_successful_read']['invocation_id'],invocation)
+  self.assertEqual([v['count'] for v in state['interface_counters']],[3]*14)
+
+ def test_read_from_an_obsolete_manifest_is_not_reintroduced_as_current_source(self):
+  from jarvis.distributed_authority import version
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  token=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':10})
+  self.s.finish_call(token,{'ok':True,'result':{'reference':10,'content':'OLD SOURCE','source_version':version({'file':'old'})}},0)
+  self.s.event(self.m,'authority_state',result={'issues':{},'executions':{'11':{'host':'Dell1','kind':'correct','before':{'file':'old'},'after':{'file':'new'},'execution':{'returncode':0}}}})
+  _,checkpoint=self.b.checkpoint('source changed')
+  self.assertNotIn('latest_successful_read',checkpoint)
+
+ def test_native_inspection_body_survives_reader_failures_without_another_read(self):
+  from jarvis.distributed_authority import version
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True,'authority_task_scoped_evidence':True}),self.m))
+  source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text()
+  entry={'host':'Dell1','kind':'inspect','before':{'worker.py':'current'},'after':{'worker.py':'current'},'execution':{'returncode':0,'stdout':source,'stderr':''}}
+  ref=self.s.event(self.m,'authority_execution','task',result=entry)
+  self.s.event(self.m,'authority_state',result={'issues':{},'executions':{str(ref):entry}})
+  for _ in range(3):
+   token=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':ref})
+   self.s.finish_call(token,{'ok':False,'error':'Already read'},0)
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  body=state['latest_successful_read']
+  self.assertIn('def run(config_path,slot)',body['content']);self.assertIn('while not missions.stop.wait(1)',body['content'])
+  self.assertEqual(body['reference'],ref);self.assertEqual(body['source_version'],version(entry['after']))
+
+ def test_engine_identity_projection_does_not_reteach_legacy_alias_selection(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  self.s.event(self.m,'authority_state',result={'issues':{},'executions':{},'operations':{'legacy-model-alias':{'arguments':{}}}})
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertNotIn('reserved_operation_ids',state);self.assertIn('Do not supply operation_id',state['operation_identity_rule'])
+  saved=self.b.latest('operational_checkpoint')[0]['result']['checkpoint']
+  self.assertEqual(saved['reserved_operation_ids'],['legacy-model-alias'])

@@ -77,6 +77,32 @@ class ContextBudget:
    interfaces=[dict(r) for r in c.execute("SELECT json_extract(result,'$.epoch') epoch,json_extract(result,'$.category') category,max(json_extract(result,'$.count')) count FROM mission_events WHERE mission=? AND kind='authority_interface_failure' GROUP BY epoch,category ORDER BY epoch,category",(self.m,))]
   route=self.latest('compute_route_observed');last_inference={k:route[0]['result'].get(k) for k in ('node','effective_model','num_ctx','prompt_eval_count')} if route else None
   checkpoint={'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':self.latest('coordinator_instruction',1),'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
+  if spec.get('authority_engine_operation_ids'):
+   # A source page must survive later failed/redundant reader calls. Keeping
+   # only three result prefixes repeatedly hid worker.run in the real mission.
+   with self.store.db() as c:
+    readers=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='authority_read_execution' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 16",(self.m,self.task)).fetchall()
+   for row in readers:
+    value=json.loads(row['result']).get('result',{})
+    if not value.get('content') or value.get('reference',0)<=spec.get('authority_evidence_after_event',0):continue
+    if executions and value.get('source_version'):
+     from .distributed_authority import version
+     if value['source_version']!=version(executions[-1][1].get('after',{})):continue
+    checkpoint['latest_successful_read']={k:value.get(k) for k in ('reference','executor','stream','start_line','total_lines','content','source_version','excerpt_truncated')}
+    checkpoint['latest_successful_read']['invocation_id']=row['id']
+    checkpoint['latest_successful_read']['meaning']='Original successful page, not a claim that all source or current service state is verified'
+    break
+   if not checkpoint.get('latest_successful_read'):
+    # A successful inspection can itself be the source read. Preserve a usable
+    # line window rather than the old 600-character prefix that hid worker.run.
+    from .distributed_authority import version
+    current_version=version(executions[-1][1].get('after',{})) if executions else None
+    for ref,entry in reversed(executions):
+     text=entry.get('execution',{}).get('stdout','')
+     if entry.get('kind')!='inspect' or entry.get('execution',{}).get('returncode')!=0 or not text or version(entry.get('after',{}))!=current_version:continue
+     lines=text.splitlines();page='\n'.join(lines[:60]);content=page[:6000]
+     checkpoint['latest_successful_read']={'reference':int(ref),'executor':entry['host'],'stream':'stdout','start_line':1,'total_lines':len(lines),'content':content,'source_version':current_version,'excerpt_truncated':len(content)<len(text),'next_line':61 if len(lines)>60 and len(page)<=6000 else None,'meaning':'Bounded original inspection page; remaining lines/full receipt stay canonical. Not a current-service attestation.'}
+     break
   e=self.store.event(self.m,'operational_checkpoint',self.task,'JARVIS-engine',result={'sha256':sha(checkpoint),'checkpoint':checkpoint})
   return e,checkpoint
  def recall(self,reference,offset=0,limit=1800):
@@ -120,6 +146,22 @@ class ContextBudget:
   active['coordinator_instructions']=[{'reference':e['id'],'instruction':preview(e['result'].get('instruction',e['result']),900)} for e in checkpoint['coordinator_instructions']]
   active['verified_api_observations']=[{'reference':e['id'],'actor':e['actor'],'observed_at':e['created'],'observation':preview(e['result'],700)} for e in checkpoint['verified_api_observations']]
   active['last_observations']=checkpoint['last_observations']
+  if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
+   active.pop('reserved_operation_ids',None)
+   active['operation_identity_rule']='Engine-issued identities from canonical tool invocations. Do not supply operation_id. Semantic dedupe and unknown-effect guards remain authoritative; historical aliases stay in the full checkpoint.'
+   active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','state','escalation_event')} for c in active['counters']]
+   active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
+   if checkpoint.get('latest_successful_read'):
+    active['latest_successful_read']=checkpoint['latest_successful_read']
+    text=active['latest_successful_read']['content']
+    for observation in active['last_observations']:
+     if observation['tool']!='authority_read_execution':continue
+     result=observation['result'];content=result.get('content')
+     excerpt=content.get('excerpt') if isinstance(content,dict) else content
+     if excerpt and text.startswith(excerpt):
+      result.pop('content',None)
+      result['content_reference']='latest_successful_read.content; duplicate prefix omitted, full receipt retained'
   if self.task:
    # Compaction must not hide already verified criteria or a written report.
    # These are canonical backend facts, not a model-authored progress summary.
