@@ -30,3 +30,9 @@ Codex-periodic 63900, puis remise en file. États d’autorité et événements 
 refus comparés avant/après : identiques. Aucune lease avant intervention.
 Qwen conserve le choix du code, des tests et des exécutants ; priorité à
 l’édition réelle et à ses tests. Aucune réception technique inscrite au registre.
+
+Observation après reprise : inférence native 63911, inspection rc0 à 63926,
+puis nouvelle inspection de structure 63942. Événement Codex-periodic 63980 :
+la reprise est réelle, mais aucune édition ni aucun test du candidat n’est
+encore observé à ce contrôle. Le retour aux lectures reste une limite explicite,
+pas un progrès applicatif ni une réception de l’instrumentation.
