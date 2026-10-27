@@ -84,3 +84,49 @@ class ContextTests(unittest.TestCase):
   observation=checkpoint['last_observations'][0]
   self.assertEqual(observation['reference'],event);self.assertEqual(observation['invocation_id'],invocation)
   self.assertIn('Observed failure',observation['result']['content'])
+
+ def test_failed_reader_calls_cannot_erase_substantive_execution_evidence(self):
+  # Regression from actual P3 escalation: two real outputs followed by three
+  # refused reads. A fresh bounded request must still expose those outputs.
+  refs=[]
+  for host,stdout in [('Dell1','configuration: None'),('Dell2','{"configured_inference_num_ctx":24576,"loaded_context_length":null}')]:
+   refs.append(self.s.event(self.m,'authority_execution','task',result={'host':host}))
+  self.s.event(self.m,'authority_state','task',result={'issues':{},'executions':{str(ref):{'host':host,'kind':'test','before':{},'after':{},'execution':{'returncode':0,'stdout':stdout,'stderr':''}} for ref,(host,stdout) in zip(refs,[('Dell1','configuration: None'),('Dell2','{"configured_inference_num_ctx":24576,"loaded_context_length":null}')])}})
+  for i in range(3):
+   token=self.s.begin_call(self.m,'task','authority_read_execution',{'reference':refs[i%2]})
+   self.s.finish_call(token,{'ok':False,'error':'Repeated read blocked'},0)
+  self.s.event(self.m,'authority_interface_failure',result={'epoch':'original','category':'repeated_read','count':3})
+  self.s.transition(self.m,'interrupted')
+  p=self.payload();self.b.prepare(p,self.cap);sent=json.dumps(p,ensure_ascii=False)
+  self.assertIn('configuration: None',sent);self.assertIn('configured_inference_num_ctx',sent)
+  self.assertIn('not inferred from process return code',sent)
+  _,checkpoint=self.b.checkpoint('reopen')
+  self.assertEqual(checkpoint['interface_counters'][0]['count'],3)
+  self.assertEqual(self.s.get(self.m)['state'],'interrupted')
+
+ def test_compaction_preserves_newest_guidance_and_actual_offered_tools(self):
+  self.s.event(self.m,'coordinator_instruction',actor='Codex',result={'instruction':'OLD obsolete strategy'})
+  self.s.event(self.m,'coordinator_instruction',actor='Codex',result={'instruction':'NEW current correction'})
+  p=self.payload();p['tools']=[{'type':'function','function':{'name':'authority_work','parameters':{'type':'object'}}}]
+  self.b.prepare(p,self.cap);sent=json.dumps(p)
+  self.assertIn('NEW current correction',sent);self.assertIn('offered_tools',sent)
+
+ def test_active_context_never_reoffers_completed_task_tests_as_current(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'owner_priority':'P3','authority_task_scoped_evidence':True}),self.m))
+  entries={}
+  for task,host,stdout in [('previous-task','Dell1','OLD completed capacity observation'),('task','Dell2','CURRENT long-output test')]:
+   e={'issue':'P3','host':host,'kind':'test','before':{},'after':{},'execution':{'returncode':0,'stdout':stdout,'stderr':''}}
+   ref=self.s.event(self.m,'authority_execution',task,result=e);entries[str(ref)]=e
+  self.s.event(self.m,'authority_state','task',result={'issues':{},'executions':entries})
+  p=self.payload();self.b.prepare(p,self.cap);sent=json.dumps(p)
+  self.assertIn('CURRENT long-output test',sent);self.assertNotIn('OLD completed capacity observation',sent)
+
+ def test_deployment_boundary_excludes_invalidated_model_notes_not_counters(self):
+  old=self.s.event(self.m,'working_note','task','JARVIS',result={'content':'Obsolete proposal to run a nonexistent binary'})
+  self.s.event(self.m,'authority_interface_failure',result={'epoch':'original','category':'blocked_reader','count':3})
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_evidence_after_event':old}),self.m))
+  self.s.event(self.m,'working_note','task','JARVIS',result={'content':'Current diagnosis'})
+  _,checkpoint=self.b.checkpoint('after infrastructure fix')
+  self.assertEqual(len(checkpoint['model_notes']),1);self.assertEqual(checkpoint['model_notes'][0]['result']['content'],'Current diagnosis')
+  self.assertEqual(checkpoint['interface_counters'][0]['count'],3)
+  with self.s.db() as c:self.assertEqual(c.execute('SELECT count(*) FROM mission_events WHERE id=?',(old,)).fetchone()[0],1)

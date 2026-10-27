@@ -400,7 +400,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if names!={'intervention_report'}:names|={'context_checkpoint','context_resume','context_recall'}
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
-                durable=authority_working_state(authority.state())
+                durable=authority.active_state()
                 # Evidence is durable, not a growing prompt. Last observations and
                 # stable counters suffice for this scoped Phase1 demonstration.
                 slim={'objective':mission['goal'],'mission':ident,'active_task':task_id,'active_task_objective':(task or {}).get('objective'),'active_task_contract':(task or {}).get('contract'),
@@ -470,7 +470,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     else:
                         result = {'ok':False,'tool':name,'error':'Tool unavailable in current phase; inspect offered schemas. Save plan before actions; finish verified tasks before final report.'}
                 elif repeats[sig] > 2 or (len(previous)>=3 and failed_previous==3 and time.time()-previous[-1]['created']<30 and not repaired):
-                    result = {'ok': False, 'tool': name, 'error': 'Répétition improductive dans ce cycle. Utilise mission_evidence ou change de stratégie.'}
+                    result = {'ok': False, 'tool': name, 'error': 'Répétition improductive : résultat déjà observé. Ne relance pas cette lecture/commande. Exploite observed_evidence et choisis une action différente parmi les outils actuellement proposés ; aucune remise à zéro des compteurs.'}
                 else:
                     result = core.tools.execute(name, args)
                 store.finish_call(token, result, time.monotonic()-started)

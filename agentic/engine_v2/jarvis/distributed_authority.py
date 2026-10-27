@@ -36,7 +36,7 @@ def limited():
 
 before=manifest()
 try:
- p=subprocess.run(['timeout','--kill-after=2','45','bash','-c',COMMAND],capture_output=True,text=True,preexec_fn=limited)
+ p=subprocess.run(['timeout','--kill-after=2','45','bash','-o','pipefail','-c',COMMAND],capture_output=True,text=True,preexec_fn=limited)
  observed={'returncode':p.returncode,'stdout':p.stdout[:20000],'stderr':p.stderr[:8000], 'output_truncated':len(p.stdout)>20000 or len(p.stderr)>8000}
 except Exception as e:observed={'returncode':125,'stderr':str(e),'stdout':''}
 after=manifest()
@@ -126,6 +126,23 @@ class Authority:
    return json.loads(row['result']) if row else {'issues':{},'executions':{},'syncs':[]}
   rows=[e for e in self.store.events(self.m,limit=100000) if e['kind']=='authority_state']
   return rows[-1]['result'] if rows else {'issues':{},'executions':{},'syncs':[]}
+ def task_references(self):
+  if hasattr(self.store,'db'):
+   with self.store.db() as c:return {str(r[0]) for r in c.execute("SELECT id FROM mission_events WHERE mission=? AND task=? AND kind='authority_execution' AND id>?",(self.m,self.t,self.spec.get('authority_evidence_after_event',0)))}
+  return {ref for ref,e in self.state()['executions'].items() if e.get('task')==self.t and int(ref)>self.spec.get('authority_evidence_after_event',0)}
+ def active_state(self):
+  view=working_state(self.state())
+  if not self.spec.get('authority_task_scoped_evidence'):return view
+  refs=self.task_references()
+  view['executions']={ref:e for ref,e in view['executions'].items() if ref in refs}
+  view['syncs']=[]
+  for issue,v in view['issues'].items():
+   v=dict(v);view['issues'][issue]=v
+   for key in ('last_test','last_failed_test','pending_correction','analyzed'):
+    if str(v.get(key,'')) not in refs:v.pop(key,None)
+   if str(v.get('accepted',{}).get('test','')) not in refs:v.pop('accepted',None)
+   v['historical_counters_preserved']=True
+  return view
  def event(self,kind,result,arguments=None,actor='JARVIS-engine'):
   return self.store.event(self.m,kind,self.t,actor,arguments=arguments,result=result)
  def save(self,state):self.event('authority_state',state)
@@ -199,7 +216,7 @@ class Authority:
   issue=a['issue']
   if issue not in self.spec['authority_requirements']:raise ValueError('Unknown stable owner requirement; allowed EXACT ids: '+str(self.spec['authority_requirements']))
   state=self.state();kind=a['kind']
-  if self.spec.get('authority_readonly_validation') and kind not in ('test','analyze','accept'):raise ValueError('Owner assigned test-only validation; source modifications/inspection are not this task')
+  if self.spec.get('authority_readonly_validation') and kind not in ('inspect','test','analyze','accept'):raise ValueError('Owner assigned test-only validation; source modifications are not this task; inspect real evidence or run tests')
   v=budget(state,issue,enforce=kind not in ('analyze','accept'))
   key=a.get('operation_id')
   if kind in ('inspect','correct','test') and not key:raise ValueError('operation_id required, unique per intended execution, reuse it for transport retry')
@@ -216,13 +233,17 @@ class Authority:
    v['analyzed']=ref;v['analysis']=a['summary'];self.save(state)
    return {'decision':decision,'analyzed':ref,'execution_analyzed':True,'declared_kind':obs['kind'],'observed_returncode':obs['execution']['returncode'],'failed_cycles':v['failed_cycles']}
   if kind=='accept':
+   if self.spec.get('authority_task_scoped_evidence'):
+    eligible=self.task_references()
+    if str(a.get('reference')) not in eligible or str(a.get('source_reference')) not in eligible:
+     raise ValueError('Current task '+str(self.t)+' requires its OWN observed tests; references from a completed task cannot qualify. Run tests for this task on both Dell. Eligible references: '+str(sorted(eligible)))
    ref=str(a.get('reference',''));obs=state['executions'].get(ref);source=state['executions'].get(str(a.get('source_reference','')))
    if not obs or obs['issue']!=issue or obs['kind']!='test' or obs['execution']['returncode']!=0 or obs['execution'].get('output_truncated'):
     raise ValueError('Accept requires the EXECUTION reference of an actual passed, untruncated test, not a decision id. Observed tests: '+str([{'reference':k,'executor':r.get('host'),'process_returncode':r['execution']['returncode']} for k,r in state['executions'].items() if r['kind']=='test' and r['issue']==issue][-3:]))
    if obs['before']!=obs['after']:raise ValueError('Test modified tracked files: rerun on a stable version')
    readonly=self.spec.get('authority_readonly_validation') is True
-   if not source or source['kind']!=('test' if readonly else 'correct') or source['host']==obs['host'] or source['after']!=obs['after']:
-    raise ValueError('Independent validation requires source_reference of an actual CORRECTION EXECUTION on the other Dell, at EXACT full manifest. Candidates: '+str([{'reference':k,'host':r['host'],'same_manifest':r['after']==obs['after']} for k,r in state['executions'].items() if r.get('kind')=='correct' and r.get('issue')==issue][-3:]))
+   if not source or source.get('issue')!=issue or source['kind']!=('test' if readonly else 'correct') or source['host']==obs['host'] or source['after']!=obs['after']:
+    raise ValueError('Independent validation requires source_reference of an actual '+('passed TEST' if readonly else 'CORRECTION')+' EXECUTION for this issue on the OTHER Dell; validator is '+obs['host']+'. Both references on one Dell cannot qualify. EXACT full manifest required. Run a fresh test on the other Dell if no compatible reference exists. Candidates: '+str([{'reference':int(k),'host':r['host'],'same_manifest':r['after']==obs['after'],'returncode':r.get('execution',{}).get('returncode')} for k,r in state['executions'].items() if r.get('kind')==('test' if readonly else 'correct') and r.get('issue')==issue and r.get('host')!=obs['host']][-3:]))
    if not readonly and source['before']==source['after']:raise ValueError('Source correction has no observed file change; a declared correction is not an actual modification')
    if readonly and (source['execution']['returncode']!=0 or source['before']!=source['after']):raise ValueError('Test-only peer must have actually passed on stable source')
    current,_=self.remote(obs['host'],"python3 -c "+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
@@ -255,7 +276,7 @@ class Authority:
    if v['delegation_failures']-v.get('delegation_resolved_through',0)>=3:self.event('authority_escalation',{'issue':issue,'reason':'Three delegation failures','state':v},actor='JARVIS-engine')
    self.event('authority_delegation_failure',{'decision':decision,'executor':host,'error':str(error),'count':v['delegation_failures']})
    raise
-  observed.update(issue=issue,host=host,kind=kind,decision=decision,broker_invocation=call)
+  observed.update(issue=issue,task=self.t,host=host,kind=kind,decision=decision,broker_invocation=call)
   ref=str(self.event('authority_execution',observed));state['executions'][ref]=observed
   if kind=='inspect' and observed['before']!=observed['after']:
    persistent.finish(attempt['attempt'],observed,{'reference':int(ref),'executor':host,'execution':observed['execution']})

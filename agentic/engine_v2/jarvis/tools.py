@@ -242,8 +242,16 @@ class Registry:
                 schema['properties']['max_lines'].pop('maximum',None)
                 schema['properties']['max_lines'].update(default=40, description='Positive requested line count; output is capped at 80 lines per read. Omit for 40; paginate using start_line.')
             if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_readonly_validation'):
-                schema['properties']['kind']['enum']=['test','analyze','accept']
+                schema['properties']['kind']['enum']=['inspect','test','analyze','accept']
                 schema['properties']['source_reference']['description']='Owner test-only mode: actual passed TEST execution on the OTHER Dell, identical complete source manifest. No source correction is claimed.'
+            if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_task_scoped_evidence'):
+                from .distributed_authority import Authority
+                active=Authority(self).active_state()
+                tests=[(ref,e) for ref,e in active['executions'].items() if e.get('kind')=='test' and e.get('execution',{}).get('returncode')==0 and e.get('before')==e.get('after')]
+                if len({e['host'] for _,e in tests})<2:
+                    schema['properties']['kind']['enum']=[k for k in schema['properties']['kind']['enum'] if k!='accept']
+                schema['properties']['reference']['description']='Execution event of THIS active task; completed-task receipts remain archived, not acceptance candidates.'
+                schema['properties']['source_reference']['description']='Independent peer execution of THIS active task on the OTHER Dell, at identical source manifest.'
             if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
 
         return schema

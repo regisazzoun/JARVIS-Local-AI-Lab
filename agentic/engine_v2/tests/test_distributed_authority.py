@@ -171,6 +171,61 @@ class GuardTests(unittest.TestCase):
   self.assertTrue(result['accepted']);self.assertEqual(result['validation_scope'],'test-only, no correction claimed')
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
+
+ def test_test_only_same_host_error_names_test_and_actual_peer(self):
+  self.x.spec['authority_readonly_validation']=True
+  state=self.x.state();state['executions']={str(ref):{'issue':'Q1','host':'Dell2','kind':'test','execution':{'returncode':0},'before':{'x.py':'A'},'after':{'x.py':'A'}} for ref in (1,2)};self.x.save(state);self.x.remote=Mock()
+  with self.assertRaisesRegex(ValueError,'passed TEST.*OTHER Dell') as caught:self.x.work({'issue':'Q1','kind':'accept','reference':2,'source_reference':1,'summary':'same host is insufficient'})
+  self.assertIn('validator is Dell2',str(caught.exception));self.assertNotIn('CORRECTION',str(caught.exception));self.x.remote.assert_not_called()
+
+ def test_test_only_rejects_peer_from_other_issue_even_with_identical_code(self):
+  self.x.spec['authority_readonly_validation']=True
+  state=self.x.state();state['executions']={'2':{'issue':'Q1','host':'Dell2','kind':'test','execution':{'returncode':0},'before':{'x.py':'A'},'after':{'x.py':'A'}},'1':{'issue':'Q2','host':'Dell1','kind':'test','execution':{'returncode':0},'before':{'x.py':'A'},'after':{'x.py':'A'}}};self.x.save(state);self.x.remote=Mock()
+  with self.assertRaisesRegex(ValueError,'for this issue'):self.x.work({'issue':'Q1','kind':'accept','reference':2,'source_reference':1,'summary':'wrong requirement'})
+  self.x.remote.assert_not_called()
+
+ def test_completed_task_receipts_never_qualify_active_task_and_counters_survive(self):
+  self.x.spec.update(authority_task_scoped_evidence=True,authority_readonly_validation=True)
+  state=self.x.state();state['issues']['Q1']={'failed_cycles':3,'delegation_failures':1,'accepted':{'test':'1'}}
+  state['executions']={str(i):{'task':'previous-task','issue':'Q1','host':host,'kind':'test','execution':{'returncode':0},'before':{},'after':{}} for i,host in ((1,'Dell1'),(2,'Dell2'))};self.x.save(state)
+  current=self.x.active_state();self.assertEqual(current['executions'],{});self.assertNotIn('accepted',current['issues']['Q1']);self.assertEqual(current['issues']['Q1']['failed_cycles'],3)
+  self.x.remote=Mock()
+  with self.assertRaisesRegex(ValueError,'OWN observed tests'):self.x.work({'issue':'Q1','kind':'accept','reference':2,'source_reference':1,'summary':'stale evidence'})
+  self.x.remote.assert_not_called()
+ def test_scoped_accept_uses_real_event_task_identity(self):
+  from jarvis.mission_store import MissionStore
+  with tempfile.TemporaryDirectory() as folder:
+   real=MissionStore(folder);m=real.create('fixture','model','conv',spec={'distributed_authority':True,'authority_requirements':['Q1'],'authority_readonly_validation':True,'authority_task_scoped_evidence':True})
+   real.event(m,'inference_finished',result={'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'}})
+   self.x.store=real;self.x.m=m;self.x.spec.update(authority_task_scoped_evidence=True,authority_readonly_validation=True)
+   manifest={'x.py':'ab'*32};state=self.x.state();refs=[]
+   for host in ('Dell1','Dell2'):
+    e={'issue':'Q1','host':host,'kind':'test','execution':{'returncode':0},'before':manifest,'after':manifest};ref=real.event(m,'authority_execution',self.x.t,result=e);refs.append(ref);state['executions'][str(ref)]=e
+   self.x.save(state);self.x.remote=Mock(return_value=({'stdout':json.dumps({'after':manifest})},'fixture'))
+   result=self.x.work({'issue':'Q1','kind':'accept','reference':refs[1],'source_reference':refs[0],'summary':'actual same-task peer events'})
+   self.assertTrue(result['accepted']);self.assertEqual(len(self.x.active_state()['executions']),2)
+
+ def test_real_runner_preserves_failure_before_successful_pipe_tail(self):
+  import subprocess,sys
+  with tempfile.TemporaryDirectory() as folder:
+   command='jarvis_nonexistent_binary_for_pipefail_test 2>&1 | head -c 200'
+   result=subprocess.run([sys.executable,'-c',a.runner_program(command)],cwd=folder,capture_output=True,text=True,check=True)
+   receipt=json.loads(result.stdout)
+   self.assertEqual(receipt['execution']['returncode'],127)
+   self.assertIn('not found',receipt['execution']['stdout'])
+ def test_real_runner_successful_pipeline_still_succeeds(self):
+  import subprocess,sys
+  with tempfile.TemporaryDirectory() as folder:
+   result=subprocess.run([sys.executable,'-c',a.runner_program("printf actual-output | cat")],cwd=folder,capture_output=True,text=True,check=True)
+   receipt=json.loads(result.stdout)
+   self.assertEqual(receipt['execution']['returncode'],0);self.assertEqual(receipt['execution']['stdout'],'actual-output')
+
+ def test_explicit_deployment_boundary_retains_history_but_requires_fresh_receipts(self):
+  self.x.spec.update(authority_task_scoped_evidence=True,authority_evidence_after_event=10)
+  state=self.x.state();state['executions']={str(i):{'task':'task','issue':'Q1','host':'Dell1','kind':'test'} for i in (9,11)};self.x.save(state)
+  self.assertEqual(self.x.task_references(),{'11'});self.assertEqual(set(self.x.active_state()['executions']),{'11'})
+  self.assertEqual(set(self.x.state()['executions']),{'9','11'})
+
 class InterfaceGuardTests(unittest.TestCase):
  def test_third_schema_failure_requests_stop_and_keeps_events(self):
   store=Store()
