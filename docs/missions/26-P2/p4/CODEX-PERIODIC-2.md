@@ -11,3 +11,5 @@ Action : sauvegarde privée de l’état, archivage natif du dialogue de travail
 Contrôles : outils réellement proposés relus dans le payload56456, spec actuel vérifié, absence de lease active avant reprise, état queued et nombre de tentatives inchangé après transition. JARVIS garde le choix des commandes réelles, des assertions et de l’artefact horsengine ; aucun programme écrit à sa place.
 
 Une simple liste de fichiers ou un code processus0 ne démontre ni un test de conformité ni le code chargé. L’attestation mémoire manquante reste à décrire par JARVIS pour le coordinateur suivant. technical_review_recorded reste faux tant que le paquet n’est pas reçu. Aucun rejeu P2/P3 ni changement de service autorisé par ce diagnostic.
+
+Vérification après reprise : cycle56471 réellement démarré, archive56474 proposant exactement cinq outils (`authority_revise_plan`, `authority_work`, `authority_read_execution`, `authority_analyze`, `authority_finish`), sans les outils retirés. Lectures ciblées56481/56483 réussies par JARVIS. Main rendue au cycle actif, sans réception de l’audit.
