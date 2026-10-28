@@ -703,6 +703,15 @@ def focused_event_review(registry, content, cited):
     return result
 
 
+def format_only_report_segment(text):
+    text=text.strip()
+    if re.fullmatch(r'(?:-{3,}|\*{3,}|_{3,})',text):return True
+    heading=re.fullmatch(r'#{1,6}\s+(?:\d+(?:\.\d+)*\.\s+)?([^\n]+)',text)
+    if not heading:return False
+    label=heading.group(1).replace('**','').strip().casefold()
+    return label in {'champs réellement présents','champs requis mais absents','champs présents','champs absents'}
+
+
 def bounded_narrative_review(registry,instruction,data,schema,validator,snapshot):
     """Split oversized structured reviews, never truncate proofs or approve a part.
 
@@ -730,13 +739,18 @@ def bounded_narrative_review(registry,instruction,data,schema,validator,snapshot
         merged={'claims':left['claims']+right['claims'],
                 'issues':list(dict.fromkeys(left['issues']+right['issues'])),
                 'review_batches':left['review_batches']+right['review_batches'],
-                'context_strategy':'bounded-segments-v2'}
+                'context_strategy':'bounded-segments-v2',
+                'format_classifications':left.get('format_classifications',[])+right.get('format_classifications',[])}
         if checks:merged['cited_event_checks']=checks
         return merged
     def run(parts,initial=False):
         if len(parts)>maximum:
             middle=len(parts)//2
             return combine(run(parts[:middle]),run(parts[middle:]))
+        if len(parts)==1 and format_only_report_segment(parts[0]['text']):
+            part=parts[0]
+            event=store.event(ident,'narrative_format_classified',registry.context.get('task_id'),'JARVIS-engine',result={'segment':part['id'],'text':part['text'],'classification':'structural_label_only','no_model_call':True,'not_operational_evidence':True,'following_factual_segments_still_require_review':True})
+            return {'claims':[{'segment':part['id'],'verdict':'not_factual','references':[],'reason':'Structural label/separator only; following factual content is reviewed separately.'}],'issues':[],'review_batches':[event],'format_classifications':[part['id']],'context_strategy':'bounded-segments-v2'}
         current_schema=copy.deepcopy(schema)
         if initial:current_data=data
         else:

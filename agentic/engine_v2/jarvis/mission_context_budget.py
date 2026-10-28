@@ -226,7 +226,7 @@ class ContextBudget:
    active['read_delivery_history']=[{'invocation_id':o['invocation_id'],'parameters':o['parameters'],'ok':o['ok'],'delivery_count':o['result'].get('delivery_count'),'already_delivered':o['result'].get('already_delivered')} for o in checkpoint['last_observations'] if o['tool']=='authority_read_execution']
    active['operation_identity_rule']='Engine-issued identities from canonical tool invocations. Do not supply operation_id. Semantic dedupe and unknown-effect guards remain authoritative; historical aliases stay in the full checkpoint.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
-   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','state','escalation_event')} for c in active['counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
    if checkpoint.get('latest_successful_read'):
     active['latest_successful_read']=checkpoint['latest_successful_read']
@@ -270,7 +270,7 @@ class ContextBudget:
    active['task_contract']['semantic']=[{'contract':'active:'+str(i),'sha256':sha(c),'kind':c['kind']} for i,c in enumerate(contract.get('semantic',[]))]
    active['task_contract']['binding']='Exact stored predicates resolved by mission_verify active:N; completion enforces every original criterion.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
-   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','state','escalation_event')} for c in active['counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
   blue=[system,{'role':'user','content':encoded({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
   # Keep one complete native assistant/tool exchange when it fits. Do not alter

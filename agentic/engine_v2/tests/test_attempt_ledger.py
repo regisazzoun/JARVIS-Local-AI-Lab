@@ -12,6 +12,37 @@ class LedgerTests(unittest.TestCase):
   self.l.transition(a,'DISPATCHED');e=self.store.event(self.m,'p2_started_observed',result={'attempt':a,'marker':{'child_started':True}});self.l.transition(a,'RUNNING',evidence=e)
  def failed(self,a):
   result={'returncode':1,'started':{'child_started':True},'verified':False};e=self.store.event(self.m,'p2_result_observed',result={'attempt':a,'observation':result});self.l.transition(a,'EXECUTED_TEST_FAILED',evidence=e,result=result);self.l.failure(a,correction_changed=True)
+ def infrastructure_proof(self,actor='Codex'):
+  observed=self.store.event(self.m,'fixture_repair_test',actor='Codex',result={'software_fixture':True})
+  return self.store.event(self.m,'coordinator_infrastructure_verified',actor=actor,result={'problem':self.p,'verified':True,'evidence_events':[observed]})
+ def test_repaired_infrastructure_keeps_totals_and_still_blocks_fourth_functional_cycle(self):
+  for n in range(3):
+   a=self.attempt('infra'+str(n),'unavailable'+str(n));self.l.transition(a,'DISPATCHED')
+   e=self.store.event(self.m,'p2_dispatch_failure_observed',result={'attempt':a,'known_not_executed':True})
+   self.l.transition(a,'NOT_EXECUTED',evidence=e);self.l.failure(a,infrastructure=True)
+  self.l.resolve_infrastructure(self.p,self.infrastructure_proof())
+  self.l=AttemptLedger(MissionStore(self.root),self.m)
+  p=self.l.snapshot()['problems'][0];self.assertEqual((p['infra_incidents'],p['infra_resolved_through']),(3,3))
+  for n in range(3):
+   a=self.attempt('functional'+str(n),'fix'+str(n));self.started(a);self.failed(a)
+   self.assertEqual(self.l.snapshot()['problems'][0]['failed_cycles'],n+1)
+   if n<2:self.assertNotEqual(self.l.snapshot()['problems'][0]['state'],'ESCALATED')
+  self.assertTrue(self.l.begin(self.p,'renamed-fourth','Dell2','correction_test',{'command':'new alias'})['blocked'])
+  with self.assertRaises(ValueError):self.l.resolve_infrastructure(self.p,self.infrastructure_proof())
+ def test_model_note_cannot_acknowledge_infrastructure(self):
+  with self.assertRaises(ValueError):self.l.resolve_infrastructure(self.p,self.infrastructure_proof('JARVIS'))
+  self.assertEqual(self.l.snapshot()['problems'][0]['infra_resolved_through'],0)
+ def test_unknown_effect_prevents_infrastructure_resolution(self):
+  a=self.attempt();self.l.transition(a,'DISPATCHED');e=self.store.event(self.m,'p2_dispatch_failure_observed',result={'attempt':a,'known_not_executed':False})
+  self.l.transition(a,'VALIDATION_INCONCLUSIVE',evidence=e,unknown=True)
+  with self.assertRaises(ValueError):self.l.resolve_infrastructure(self.p,self.infrastructure_proof())
+ def test_old_ledger_schema_migrates_without_clearing_counts(self):
+  with self.store.db() as c:
+   c.execute('ALTER TABLE mission_problems_v2 DROP COLUMN infra_resolved_through')
+   c.execute('UPDATE mission_problems_v2 SET infra_incidents=2,failed_cycles=1')
+  other=AttemptLedger(self.store,self.m);p=other.snapshot()['problems'][0]
+  self.assertEqual((p['infra_incidents'],p['failed_cycles'],p['infra_resolved_through']),(2,1,0))
+
  def test_counter_persists_and_renamed_fourth_operation_is_blocked(self):
   for n in range(3):
    a=self.attempt(str(n),'changed-'+str(n));self.started(a);self.failed(a)

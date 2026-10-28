@@ -57,6 +57,20 @@ def pending_report_validation(store,mission,task_id):
                         'verdict':x['verdict'],'references':x.get('references',[])} for x in rejected[:3]],
                     rejected_passage_count=len(rejected),issue_count=len(issues),
                     erratum_reference=erratum.get('reference'),original_review_status=original['status'])
+                if original.get('issues') and not issues and not rejected and erratum.get('reference'):
+                    phase='verify'
+                    feedback['all_findings_withdrawn_by']=erratum['reference']
+        completion=None
+        if phase in ('correct','verify'):
+            status=store.contract_status(mission,task_id)
+            if status.get('all_satisfied') and status.get('completion_candidate'):
+                for semantic in status.get('semantic',[]):
+                    if semantic['contract'].get('kind')!='report' or semantic['contract'].get('source',{}).get('arguments',{}).get('path')!=path:continue
+                    with store.db() as c:
+                        observed=c.execute('SELECT result FROM mission_events WHERE mission=? AND id=?',(mission,semantic['event'])).fetchone()
+                    current=json.loads(observed['result']) if observed else {}
+                    if semantic.get('invocation_id') and current.get('status')=='PASS' and current.get('sha256')==hashlib.sha256(args.get('content','').encode()).hexdigest():
+                        phase='complete';completion={'verification_event':semantic['event'],'invocation_id':semantic['invocation_id'],'previous_attempt_state':row['state'],'old_failure_unchanged':True}
         observed_draft=None
         if phase=='correct':
             with store.db() as c:
@@ -64,7 +78,7 @@ def pending_report_validation(store,mission,task_id):
             for read in reads:
                 wrapper=json.loads(read['result']);value=wrapper.get('result',{})
                 content=value.get('stdout')
-                if wrapper.get('ok') and value.get('returncode')==0 and isinstance(content,str) and len(content.encode())<=6000 and not value.get('stdout_truncated') and hashlib.sha256(content.encode()).hexdigest()==hashlib.sha256(args.get('content','').encode()).hexdigest():
+                if wrapper.get('ok') and value.get('returncode')==0 and isinstance(content,str) and len(content.encode())<=8000 and not value.get('stdout_truncated') and hashlib.sha256(content.encode()).hexdigest()==hashlib.sha256(args.get('content','').encode()).hexdigest():
                     observed_draft={'invocation_id':read['id'],'content':content,'sha256':hashlib.sha256(content.encode()).hexdigest(),'meaning':'Complete previously read draft matching the completed write. Correct this text; no repeated read needed. Final verification must independently read the resulting file.'}
                     break
         return {'attempt':row['id'],'phase':phase,'report_path':path,'write_returncode':0,
@@ -73,6 +87,7 @@ def pending_report_validation(store,mission,task_id):
                 'verification_calls':[{'contract':'active:'+str(i)} for i in range(len(contract['semantic']))],
                 **({'review_feedback':feedback} if phase=='correct' else {}),
                 **({'observed_draft':observed_draft} if observed_draft else {}),
+                **({'completed_by_later_verification':completion} if completion else {}),
                 'meaning':{'verify':'Completed write only; verify the persisted report before another write. A rejected rewrite draft did not replace it.',
                            'correct':'Observed report verification failed; correct the recorded findings and verify the new file. Unrelated planning/service work is not needed for this correction.',
                            'complete':'Write and verification are recorded; normal task completion still checks freshness and every original criterion.'}[phase]}

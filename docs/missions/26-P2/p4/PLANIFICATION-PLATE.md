@@ -730,3 +730,45 @@ Contrôle69413 : payload natif précédemment refusé69400 admis à26815octets/2
 brouillon entier présent, sources intégrales archivées et compteurs inchangés.
 Problème de capacité résolu avec ce correctif réel, aucun seuil relevé.
 Reprise native ; aucun texte rédigé parCodex ni réceptiont1/P4 déduite.
+
+
+## Reprise assistée de t1 — 28 octobre, contrôleurs et cycle de rapport
+
+JARVIS a réellement lu les deux fichiers d’unité (68869/68871), puis écrit
+trois versions de son rapport (69115, 69439, 69792). Les FAIL restent conservés.
+Après trois versions et une nouvelle escalade d’interface, Codex a interrompu
+la stratégie de réécriture complète : retrait éditorial limité de la section
+facultative non prouvée sur le slot3 et de la note sur la méthode de rédaction.
+Déclenchement Codex69811, écriture broker69824, SHA256
+`7fe47c83ae837d85b6baf0a0cde29500fe445f41587abae2bc1185c7be98dac1`.
+Cette correction est attribuée à Codex, pas à une autocorrection autonome.
+[Preuve structurée](T1-ASSISTANCE-FACTUELLE.json).
+
+L’acquittement explicite d’incidents d’infrastructure conserve les totaux et
+les anciens états des tentatives. Preuve69689/acquittement69690 : trois
+incidents historiques demeurent comptés ; aucun cycle fonctionnel n’est effacé.
+La migration ajoute une borne d’acquittement dans le registre existant, sans
+second moteur. Un modèle ne peut pas s’auto-acquitter ; un effet inconnu
+empêche l’acquittement. Trois échecs fonctionnels interdisent toujours une
+quatrième correction autonome.
+
+Le parcours natif expose maintenant l’action correspondant à la phase réelle :
+écriture, vérification, correction ou clôture. Une découverte d’outil interdit
+ne promet plus une activation impossible. Un rejet du contrôleur explicitement
+retiré permet une nouvelle vérification du même fichier ; un PASS ultérieur,
+lié à une invocation native et à la même empreinte, expose la clôture normale,
+avec relecture et contrôle de fraîcheur. Les anciens FAIL ne deviennent pas PASS.
+
+Vérification réelle JARVIS69839 : tableau technique conforme, mais faux rejet
+du titre générique « Champs requis mais absents » (70004/70005), alors que le
+tableau suivant énumère ces champs. Correction limitée aux titres génériques
+exacts et séparateurs Markdown : classification déterministe non factuelle,
+tracée comme action du moteur. Les titres contenant des faits et les tableaux
+restent contrôlés par Qwen sur les sources complètes. Erratum70060 conserve les
+verdicts originaux. Aucun PASS n’est injecté.
+
+127 tests logiciels ciblés réussis. Correctifs installés avec sauvegardes
+privées, workers redémarrés à vide, conversation conservée. Reprise native
+de JARVIS sur le même rapport inchangé après erratum70060. À ce point t1
+n’est pas encore réceptionnée, la tâche systemd suivante reste à réaliser ;
+aucune réception globale P4 ni attestation de code chargé ne sont déduites.

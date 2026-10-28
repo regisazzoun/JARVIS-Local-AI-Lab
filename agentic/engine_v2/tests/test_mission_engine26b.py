@@ -9,6 +9,20 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_generic_format_label_does_not_hide_factual_count_heading(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
+        reference=self.observation();seen=[]
+        def callback(payload):
+            data=json.loads(payload['messages'][1]['content']);part=data['segments'][0];seen.append(part['id'])
+            self.assertIn('3 processus ont été exécutés',part['text'])
+            self.assertNotEqual(data['evidence']['counts']['observations_in_scope'],3)
+            return {'content':json.dumps({'claims':[{'segment':part['id'],'verdict':'contradicted','references':[],'reason':'False count software fixture'}],'issues':[]})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,'### 1.2. Champs requis mais **absents**\n\n# 3 processus ont été exécutés ('+reference+').','a')
+        self.assertEqual(seen,['S2']);self.assertEqual(result['format_classifications'],['S1'])
+        self.assertEqual(result['status'],'FAIL');self.assertEqual(result['claims'][1]['verdict'],'contradicted')
+        self.assertTrue(any(e['kind']=='narrative_format_classified' and e['actor']=='JARVIS-engine' for e in self.s.events(self.m)))
+
     def test_document_declared_source_stays_visible_for_each_split_claim(self):
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
         call=self.s.begin_call(self.m,'a','host_exec',{'argv':['cat','/etc/systemd/system/fixture.service']})

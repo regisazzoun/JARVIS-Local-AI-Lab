@@ -179,6 +179,62 @@ class ReportStepTests(unittest.TestCase):
   self.assertTrue(all(len(source['stdout'])>3000 for source in checkpoint['retained_unit_file_reads']))
   self.assertEqual(counts,self.s.attempt_ledger(self.m).snapshot())
 
+ def test_complete_known_draft_over_6000_bytes_is_not_silently_dropped(self):
+  from jarvis.legacy_attempts import guarded,settle,pending_report_validation
+  from types import SimpleNamespace
+  self.assertTrue(self.save()['ok']);body='x'*6400
+  reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'a'})
+  guarded(reg,'host_write_file',{'path':'/project/a.md','content':body},lambda a:{'returncode':0,'evidence_id':'fixture-write'},True)
+  settle(reg,{'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]})
+  call=self.s.begin_call(self.m,'a','host_read_file',{'path':'/project/a.md'})
+  self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':body,'stdout_truncated':False}},0)
+  self.assertEqual(pending_report_validation(self.s,self.m,'a')['observed_draft']['content'],body)
+
+ def test_completed_write_redirects_to_verification_without_reexposing_writer(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  self.completed_report_write();identity=self.root/'identity.txt';identity.write_text('Complete fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[]
+  def callback(payload):
+   captured.append(payload)
+   return {'tool_calls':[{'function':{'name':'host_write_file','arguments':{'path':'/project/a.md','content':'Unwanted duplicate fixture'}}}]}
+  missions.execution_core.transport=callback;missions.cycle.run(self.s.get(self.m))
+  self.assertIn('Prochaine action : mission_verify',captured[-1]['messages'][0]['content'])
+  self.assertNotIn('Écris ton rapport',captured[-1]['messages'][0]['content'])
+  result=self.s.observations(self.m,'a')[-1]['result']
+  self.assertFalse(result['ok']);self.assertEqual(result['report_workflow_phase'],'verify')
+  self.assertFalse(any(e['kind']=='execution_tool_discovered' for e in self.s.events(self.m)))
+  self.assertEqual(len(self.s.attempt_ledger(self.m).snapshot()['attempts']),1)
+
+ def test_withdrawn_controller_finding_requests_recheck_without_rewriting_or_erasing_failure(self):
+  import hashlib
+  from jarvis.legacy_attempts import settle,pending_report_validation
+  reg=self.completed_report_write();sha=hashlib.sha256(b'Software fixture report').hexdigest();issue='Generic heading falsely requires its following table'
+  review=self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','draft_sha256':sha,'issues':[issue],'claims':[]})
+  verdict={'status':'FAIL','sha256':sha,'contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]}
+  self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
+  self.assertEqual(pending_report_validation(self.s,self.m,'a')['phase'],'correct')
+  erratum=self.s.event(self.m,'controller_findings_rectified',actor='Codex-independent',result={'reason':'Observed structural-label controller defect','withdrawn':[{'event':review,'findings':[issue]}]})
+  state=pending_report_validation(self.s,self.m,'a')
+  self.assertEqual(state['phase'],'verify');self.assertEqual(state['review_feedback'] if 'review_feedback' in state else {},{})
+  self.assertEqual(self.s.attempt_ledger(self.m).snapshot()['attempts'][0]['state'],'EXECUTED_TEST_FAILED')
+  self.assertEqual(self.s.attempt_ledger(self.m).snapshot()['problems'][0]['infra_incidents'],1)
+
+ def test_fresh_pass_can_complete_same_artifact_while_old_failed_attempt_stays_failed(self):
+  import hashlib
+  from jarvis.legacy_attempts import settle,pending_report_validation
+  reg=self.completed_report_write();sha=hashlib.sha256(b'Software fixture report').hexdigest();contract=self.s.tasks(self.m)[0]['contract']['semantic'][0]
+  failure={'status':'FAIL','sha256':sha,'contract':contract};self.s.event(self.m,'semantic_verification','a',result=failure);settle(reg,failure)
+  write=self.s.begin_call(self.m,'a','host_write_file',{'path':'/project/a.md','content':'Software fixture report'});self.s.finish_call(write,{'ok':True,'result':{'returncode':0}},0)
+  read=self.s.begin_call(self.m,'a','host_read_file',{'path':'/project/a.md'});self.s.finish_call(read,{'ok':True,'result':{'returncode':0,'stdout':'Software fixture report'}},0)
+  success={'status':'PASS','sha256':sha,'contract':contract};event=self.s.event(self.m,'semantic_verification','a',result=success)
+  call=self.s.begin_call(self.m,'a','mission_verify',{'contract':'active:0'});self.s.finish_call(call,{'ok':True,'result':{**success,'verification_event':event}},0)
+  state=pending_report_validation(self.s,self.m,'a');self.assertEqual(state['phase'],'complete')
+  self.assertEqual(state['completed_by_later_verification']['verification_event'],event)
+  self.assertEqual(self.s.attempt_ledger(self.m).snapshot()['attempts'][0]['state'],'EXECUTED_TEST_FAILED')
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
  def test_validation_instruction_survives_budget_compaction(self):
   from jarvis.mission_context_budget import ContextBudget
   self.completed_report_write()
