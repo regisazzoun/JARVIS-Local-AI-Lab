@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-28T23:04:09.710199+00:00",
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "task": "t1-read-service-files",
+  "operator_of_interface_change": "Codex",
+  "model_selection": "Qwen via JARVIS engine on Dell1",
+  "contract": "report-cause-span.v1",
+  "failed_original_model_outputs": [
+    70376,
+    70381
+  ],
+  "original_insufficient_event": 70383,
+  "original_escalation_event": 70386,
+  "probe_observed_event": 70393,
+  "escalation_resolution_event": 70394,
+  "unchanged_report_sha256": "7fe47c83ae837d85b6baf0a0cde29500fe445f41587abae2bc1185c7be98dac1",
+  "installed_source_sha256": "9fe6c5215b981827c2b9494846040d8c2e99c10084e438db56dac136bf43a5e3",
+  "software_tests_passed": 133,
+  "counters_reset": false,
+  "full_report_reception": false,
+  "P4_received": false
+}

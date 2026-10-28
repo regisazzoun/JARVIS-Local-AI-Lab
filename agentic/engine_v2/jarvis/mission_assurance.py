@@ -601,14 +601,26 @@ def extract_cause_claim(registry, reference, passages):
     """Classify the assertion without disclosing original diagnostics to the model."""
     schema=object_schema({'category':{'type':'string','enum':['missing_historical_failures','missing_original_reference','invalid_reference','missing_output_artifact','counter_mismatch','test_injection_intent','other','none']},
         'cause_quote':{'type':'string'},'role':{'type':'string','enum':['past_rejection_cause','test_purpose','current_correction','no_claim']}})
-    if json.loads(registry.mission_store.get(registry.context['mission_id'])['spec']).get('bounded_narrative_review'):
-        # Select original spans instead of asking the model to retype and silently spell-correct them.
-        schema['properties']['cause_quote']['enum']=list(dict.fromkeys(['']+[part for passage in passages for part in [passage]+[line.strip(' -*\t') for line in passage.splitlines() if line.strip(' -*\t')]]))
+    bounded=json.loads(registry.mission_store.get(registry.context['mission_id'])['spec']).get('bounded_narrative_review')
+    instruction='Extrais la cause PASSÉE que le texte attribue à event_reference. Tu ne reçois AUCUN diagnostic original ni vérité attendue : ne juge PAS si le texte est vrai. missing_historical_failures = omission de mention/conservation des FAIL ou erreurs historiques dans un rapport ; missing_output_artifact = un fichier/livrable/étape requis manque au plan/résultat ; missing_original_reference = preuve/référence originale absente ; invalid_reference = identifiant erroné/inventé ; counter_mismatch = nombre de mesures/observations/comptage incorrect. Une correction actuelle et une intention d’injection ne sont pas la cause technique passée du refus. Le paragraphe peut mentionner plusieurs événements : ne classe que la cause attribuée à event_reference. role indique past_rejection_cause si une telle cause est affirmée.'
+    if bounded:
+        # Select an immutable original span ID. The model does not copy/recreate
+        # a potentially empty or silently corrected quote under constrained decoding.
+        texts=list(dict.fromkeys(part for passage in passages for part in [passage]+[line.strip(' -*\t') for line in passage.splitlines()] if part.strip()))
+        spans={'P'+str(i+1):text for i,text in enumerate(texts)}
+        fields=schema['properties'];fields.pop('cause_quote')
+        fields['cause_span_id']={'type':'string','enum':list(spans)+['NO_CAUSE']}
+        schema['required']=list(fields)
+        def selected(value):
+            if value['role']=='past_rejection_cause' and value['cause_span_id']=='NO_CAUSE':raise ValueError('Past rejection cause requires one supplied P span ID, not NO_CAUSE')
+        value=review_model(registry,'cause_extraction_spans',instruction+' Choisis cause_span_id dans report_spans ; le moteur récupère le texte original inchangé. NO_CAUSE est réservé à une absence de cause affirmée ; il est interdit pour past_rejection_cause. Ne recopie aucun texte.',
+            {'extraction_contract':'report-cause-span.v1','event_reference':reference,'report_spans':[{'id':key,'text':text} for key,text in spans.items()]},schema,validator=selected)
+        return {**value,'cause_quote':spans.get(value['cause_span_id'],''),'extraction_contract':'report-cause-span.v1'}
     def grounded(value):
         if value['role']=='past_rejection_cause' and not value['cause_quote'].strip():raise ValueError('A past rejection cause requires its exact non-empty report span; select a supplied cause_quote, never drop an asserted cause')
         if value['cause_quote'] and not any(value['cause_quote'] in passage for passage in passages):raise ValueError('Extract an exact cause span from the report, never paraphrase it')
     return review_model(registry,'cause_extraction',
-        'Extrais la cause PASSÉE que le texte attribue à event_reference. Tu ne reçois AUCUN diagnostic original ni vérité attendue : ne juge PAS si le texte est vrai. missing_historical_failures = omission de mention/conservation des FAIL ou erreurs historiques dans un rapport ; missing_output_artifact = un fichier/livrable/étape requis manque au plan/résultat ; missing_original_reference = preuve/référence originale absente ; invalid_reference = identifiant erroné/inventé ; counter_mismatch = nombre de mesures/observations/comptage incorrect. Une correction actuelle et une intention d’injection ne sont pas la cause technique passée du refus. Le paragraphe peut mentionner plusieurs événements : ne classe que la cause attribuée à event_reference. cause_quote copie le passage exact. role indique past_rejection_cause si une telle cause est affirmée.',
+        instruction+' cause_quote copie le passage exact.',
         {'event_reference':reference,'report_passages':passages},schema,validator=grounded)
 
 

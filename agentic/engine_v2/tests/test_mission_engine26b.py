@@ -120,14 +120,54 @@ class AssuranceTests(unittest.TestCase):
         self.r.assurance_transport=callback
         self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])
 
+    def test_unknown_cause_span_id_never_becomes_a_quote(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        self.responses=[{'category':'missing_original_reference','cause_span_id':'P999','role':'past_rejection_cause'}]*2
+        with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
+            extract_cause_claim(self.r,'event:1',['Preuve manquante.'])
+
+    def test_no_cause_span_cannot_drop_a_classified_past_cause(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        self.responses=[{'category':'missing_original_reference','cause_span_id':'NO_CAUSE','role':'past_rejection_cause'}]*2
+        with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
+            extract_cause_claim(self.r,'event:1',['Preuve manquante.'])
+
+    def test_span_selection_preserves_no_cause_without_inventing_one(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        self.responses=[{'category':'none','cause_span_id':'NO_CAUSE','role':'no_claim'}]
+        result=extract_cause_claim(self.r,'event:1',['Le FAIL historique est conservé.'])
+        self.assertEqual(result['cause_quote'],'')
+
+    def test_blind_span_choice_cannot_override_wrong_diagnostic_or_event_status(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        diagnostic='Historical FAIL must be explicitly retained; original events'
+        event=self.s.event(self.m,'semantic_verification',result={'status':'FAIL','issues':[diagnostic]});ref='event:'+str(event)
+        body='INSUFFICIENT '+ref+' : référence originale manquante.'
+        calls=[]
+        def callback(payload):
+            data=json.loads(payload['messages'][1]['content']);calls.append(data)
+            if 'report_spans' in data:
+                self.assertNotIn(diagnostic,json.dumps(data))
+                return {'content':json.dumps({'category':'missing_original_reference','cause_span_id':data['report_spans'][0]['id'],'role':'past_rejection_cause'})}
+            return {'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':'INSUFFICIENT','claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':0,'reason':'Incorrect fixture opinion'}}})}
+        self.r.assurance_transport=callback
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertTrue(any('claimed_status' in issue for issue in result['issues']))
+        self.assertFalse(result['checks'][ref]['supported'])
+        self.assertFalse(result['checks'][ref]['typed_cause_validation']['matches'])
+
     def test_exact_cause_selection_preserves_original_typo_without_hinting_category(self):
         from jarvis.mission_assurance import extract_cause_claim
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
         phrase='Ommission explicite du FAIL historique.'
         def callback(payload):
-            schema=payload['format'];choices=schema['properties']['cause_quote']['enum']
-            self.assertIn(phrase,choices);self.assertNotIn(phrase.replace('Ommission','Omission'),choices)
-            return {'content':json.dumps({'category':'missing_historical_failures','cause_quote':phrase,'role':'past_rejection_cause'})}
+            schema=payload['format'];data=json.loads(payload['messages'][1]['content']);choices={span['text']:span['id'] for span in data['report_spans']}
+            self.assertNotIn('cause_quote',schema['properties']);self.assertIn(phrase,choices);self.assertNotIn(phrase.replace('Ommission','Omission'),choices)
+            return {'content':json.dumps({'category':'missing_historical_failures','cause_span_id':choices[phrase],'role':'past_rejection_cause'})}
         self.r.assurance_transport=callback
         self.assertEqual(extract_cause_claim(self.r,'event:1',['- '+phrase])['cause_quote'],phrase)
 
