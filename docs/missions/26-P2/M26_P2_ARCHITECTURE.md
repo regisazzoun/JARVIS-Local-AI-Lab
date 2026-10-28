@@ -41,3 +41,13 @@ La reprise conserve failed_cycles=3 avec un pointeur de résolution42656, lié �
 ### Lecture de preuve et relais des escalades
 
 Pour cette mission seulement, `authority_typed_evidence` remplace la lecture générique ambiguë par un choix de références d’exécution réellement enregistrées. L’API restitue la sortie d’un reçu complet après SHA, par fenêtre de lignes. Le statut de lecture est séparé du code de l’ancien processus (`observed_process_returncode`) : lire correctement un test FAIL ne fait plus échouer le lecteur.24tests du garde et du lecteur (dont Registry),8de l’édition et1de dialogue ont réussi. La supervision existante accepte un périmètre configurable, sans modifier ses valeurs par défautJL03 ;3tests supplémentaires couvrent stabilité de cause, arrêt après trois passages avec journal canonique et périmètre fixe. Les passages simulés des tests ne sont pas des preuves d’intervention autonome.
+
+
+## Réception limitée du rapport préparatoire — 28 octobre 2026
+
+Rapport `version0-plan` reçu avec réserves68595, validation native68593 et
+revue finale68592 ; PASS68493, même empreinte du fichier,11passages/7sources.
+Infrastructure et assistance éditoriale Codex, plan/brouillons et revues Qwen ;
+autocorrection éditoriale autonome non reçue.101tests ciblésPASS, originaux et
+compteurs conservés. Les deux autres tâches de préparation et les preuves de
+déploiement restent à faire. Voir [réception](p4/RECEPTION-RAPPORT-PREPARATOIRE.md).

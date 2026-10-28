@@ -33,3 +33,13 @@ P3 : NON VALIDÉ, non transmise.
 P4 : NON VALIDÉ, non transmise.
 
 Les tests logiciels avec mocks ne seront pas présentés comme une exécution distribuée ou une preuve d’autonomie. Les artefacts candidats ne seront pas présentés comme une application déployée.
+
+
+## Réception limitée du rapport préparatoire — 28 octobre 2026
+
+Rapport `version0-plan` reçu avec réserves68595, validation native68593 et
+revue finale68592 ; PASS68493, même empreinte du fichier,11passages/7sources.
+Infrastructure et assistance éditoriale Codex, plan/brouillons et revues Qwen ;
+autocorrection éditoriale autonome non reçue.101tests ciblésPASS, originaux et
+compteurs conservés. Les deux autres tâches de préparation et les preuves de
+déploiement restent à faire. Voir [réception](p4/RECEPTION-RAPPORT-PREPARATOIRE.md).

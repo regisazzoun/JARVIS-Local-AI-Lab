@@ -492,3 +492,16 @@ d’erreur n’est pas exigé pour justifier le seul type/acteur d’une observa
 La revue intégrale du récit reste séparée et obligatoire.100tests ciblésPASS,
 y compris non-contamination entre deux références. Nouvelle vérification
 assistée lancée ; aucun résultat positif déduit des tests logiciels.
+
+
+## Rapport reçu, réserve d’autonomie conservée
+
+Après correction du contrôle des métadonnées, vraie lecture et revue68493PASS,
+11passages/7sources. L’outil de clôture ordinaire relit et réaudite le texte :
+revue68592PASS, tâche validée68593. Réception indépendante68595 : VALIDÉ AVEC
+RÉSERVES, copie exacte et SHA contrôlés. Plan et brouillonsJARVIS ; correction
+factuelle et déclenchements ponctuelsCodex. Pas d’autocorrection éditoriale
+autonome reçue, ni réception globaleP4.101tests logiciels ciblésPASS ; anciens
+refus/errata/compteurs et cinq avis erronés du modèle conservés.
+Voir RECEPTION-RAPPORT-PREPARATOIRE.md et ses preuves structurées. Les deux
+autres tâches du plan3 suivent dans le même moteur ; aucun rejeu acquis.

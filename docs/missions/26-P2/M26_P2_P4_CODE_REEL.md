@@ -25,3 +25,13 @@ Le superviseur périodique existant cible désormais ce seul paquet P4 ; P3 est 
 ## Intervention ciblée après stagnation
 
 Git absent sur copies exportées et mauvais chemin engine/core.py ont provoqué trois incidents. Préflight57077 confirme engine/jarvis/core.py et cinq empreintes surlesdeuxDell. Un défaut du schéma d'exécution a aussi été corrigé au commit926ab42 : executor/command obligatoires selon mode,70testsPASS. JARVIS a réellement produit des artefacts surDell2(57177) etDell1(57205), relus parCodex57490 : deux fichiers correspondants, pas une réception complète. Mode d'exécution contraint ensuite relâché pour la suite. [Dossier et limites](p4/INTERVENTION-GIT-CHEMINS-CONTRAT.md). Code chargé toujours non prouvé, P4 toujours NON VALIDÉ.
+
+
+## Réception limitée du rapport préparatoire — 28 octobre 2026
+
+Rapport `version0-plan` reçu avec réserves68595, validation native68593 et
+revue finale68592 ; PASS68493, même empreinte du fichier,11passages/7sources.
+Infrastructure et assistance éditoriale Codex, plan/brouillons et revues Qwen ;
+autocorrection éditoriale autonome non reçue.101tests ciblésPASS, originaux et
+compteurs conservés. Les deux autres tâches de préparation et les preuves de
+déploiement restent à faire. Voir [réception](p4/RECEPTION-RAPPORT-PREPARATOIRE.md).

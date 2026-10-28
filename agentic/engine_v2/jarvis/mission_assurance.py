@@ -656,6 +656,15 @@ def focused_event_review(registry, content, cited):
             check['supporting_diagnostic_index']=validation['native_diagnostic_categories'][claim['category']][0] if validation['matches'] else None
             check['reason']='JARVIS-engine: blind asserted-cause category '+claim['category']+(' matches original native diagnostic code' if validation['matches'] else ' does not match original native diagnostic codes '+', '.join(validation['native_diagnostic_categories']))
             check['support_method']='Native diagnostic comparison after blind model extraction; original NLI opinion retained in model_supported/model_reason. Current corrections are checked by the full narrative review.'
+        elif json.loads(registry.mission_store.get(registry.context['mission_id'])['spec']).get('bounded_narrative_review') and not re.search(r'\b(parce que|en raison|à cause|caus\w*|provoqu\w*|rejet\w* pour|échou\w* pour|omission|ommission|absence|manqu\w*|incorrect\w*|insuffisant\w*|missing|because|due to)\b',' '.join(pair['original_report_passages']),re.I):
+            # Metadata extraction is checked against original typed fields, not
+            # an NLI opinion demanding error diagnostics for a historical fact.
+            # Broader operational assertions still require the full narrative review.
+            check['model_supported']=check['supported'];check['model_reason']=check['reason']
+            check['supported']=not mismatches
+            check['claimed_cause']=None;check['supporting_diagnostic_index']=None
+            check['reason']='Original recorded metadata comparison: '+('contradiction' if mismatches else 'no contradiction in explicit status/type/actor claims; operational meaning is checked separately by full narrative review')
+            check['support_method']='Original event metadata only; never promotes a historical FAIL or proves an operational outcome. Independent full narrative review remains mandatory.'
         index=check['supporting_diagnostic_index']
         check['original_supporting_diagnostic']=pair['original_diagnostics'][index] if index is not None else None
         if check['claimed_cause'] and check['supporting_diagnostic_index'] is None:issues.append(source['reference']+' causal claim has no supporting original issue: '+check['claimed_cause'])

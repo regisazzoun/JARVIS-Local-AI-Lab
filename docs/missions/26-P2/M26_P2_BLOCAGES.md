@@ -55,3 +55,13 @@ L’interface d’édition structurée a produit les modifications Qwen42498/425
 Après des progrès source réels, le moteur a arrêté trois lectures `mission_evidence` : Qwen utilisait le nom UUID d’un fichier reçu. Le lecteur typé `authority_read_execution` propose les vrais ids numériques et relit les sorties complètes vérifiées par SHA, avec pagination par lignes. Test réel sur42878 reçu. Sa première lecture de test négatif a aussi révélé une erreur d’intégration du nouvel outil : le code retour historique1 était interprété par Registry comme échec de la lecture. Le champ est maintenant `observed_process_returncode`, avec test d’intégration Registry ; erreur historique42906 conservée, aucune réécriture des compteurs.
 
 Le relais Codex périodique déjà disponible pourJL03 est configuré pour cette seule missionP2. CLI réellement disponible (`M26_SUPERVISION_READY`), détection réelle de l’escalade en contrôle sans lancement, tests de non-quatrième passage et reconstruction des compteurs depuis le journal. [Supervision et limites](SUPERVISION-CODEX.md). Les nouvelles unités n’activent niP3/P4ni autre mission. Le reload du lecteur a volontairement interrompu les workers, puis la mission a été remise en file après rechargement. Cela ne constitue ni une réception P2 ni une garantie de correction de tout futur blocage.
+
+
+## Réception limitée du rapport préparatoire — 28 octobre 2026
+
+Rapport `version0-plan` reçu avec réserves68595, validation native68593 et
+revue finale68592 ; PASS68493, même empreinte du fichier,11passages/7sources.
+Infrastructure et assistance éditoriale Codex, plan/brouillons et revues Qwen ;
+autocorrection éditoriale autonome non reçue.101tests ciblésPASS, originaux et
+compteurs conservés. Les deux autres tâches de préparation et les preuves de
+déploiement restent à faire. Voir [réception](p4/RECEPTION-RAPPORT-PREPARATOIRE.md).

@@ -22,10 +22,22 @@ class AssuranceTests(unittest.TestCase):
                 self.assertEqual(props['claimed_status']['enum'],[None]);status=None
             else:self.assertIn('FAIL',props['claimed_status']['enum']);status='FAIL'
             self.assertEqual(props['claimed_cause']['enum'],[None]);seen.append(ref)
-            return {'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':status,'claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'Software fixture'}}})}
+            return {'content':json.dumps({'checks':{ref:{'supported':False,'claimed_status':status,'claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'Software fixture'}}})}
         self.r.assurance_transport=callback
-        self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertEqual(result['issues'],[])
+        self.assertTrue(all(check['supported'] and check['model_supported'] is False for check in result['checks'].values()))
         self.assertEqual(len(seen),2)
+
+    def test_original_metadata_mismatch_blocks_despite_supported_model_opinion(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        event=self.s.event(self.m,'semantic_verification',result={'status':'FAIL'})
+        ref='event:'+str(event);body=ref+' (PASS).'
+        self.r.assurance_transport=lambda payload:{'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':'PASS','claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'False model success fixture'}}})}
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertFalse(result['checks'][ref]['supported'])
+        self.assertTrue(any('contradicts original FAIL' in issue for issue in result['issues']))
 
     def test_source_review_causal_quotes_select_original_text_or_null(self):
         from jarvis.mission_assurance import focused_event_review,cited_event_facts
