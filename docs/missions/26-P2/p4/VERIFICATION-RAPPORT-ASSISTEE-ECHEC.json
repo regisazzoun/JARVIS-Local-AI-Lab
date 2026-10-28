@@ -1,0 +1,57 @@
+{
+  "trigger_event": 68183,
+  "invocation": "db415d2b86654cb5a5a32066acbb80b5",
+  "result": {
+    "ok": false,
+    "result": {
+      "returncode": 1,
+      "status": "FAIL",
+      "checks": [
+        {
+          "predicate": "narrative_matches_original_evidence",
+          "pass": false,
+          "draft_sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0"
+        }
+      ],
+      "sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0",
+      "issues": [
+        "event:66368 claimed_status PASS contradicts original None",
+        "event:66904 claimed_status FAIL contradicts original None",
+        "event:67201 source claim rejected: Le passage rapporte que des vérifications antérieures ont échoué, mais cela ne constitue pas une preuve de l’état actuel de event:67201 dans les diagnostics originaux ; le diagnostic original ne mentionne que l’horodatage non conforme et l’ | Original diagnostic: Date du document (2026-10-28T13:15:58+01:00) non conforme aux horodatages des reçus (création à 02:23:17) et non étayée par une source.",
+        "event:67634 causal claim has no supporting original issue: Des vérifications antérieures du rapport ont échoué : event:66872 (FAIL), event:67201 (FAIL) et event:67634 (FAIL). Leurs résultats et les brouillons originaux restent conservés ; ils ne deviennent pas des réussites du rapport courant.",
+        "event:67634 source claim rejected: JARVIS-engine: blind asserted-cause category missing_historical_failures does not match original native diagnostic codes missing_original_reference | Original diagnostic: None",
+        "event:67730 source claim rejected: Aucun diagnostic original (original_diagnostics est vide) ne soutient l’événement ; le passage rapporté ne fournit aucune preuve factuelle indépendante de l’événement (seulement une description narrative de l’assistance de Codex), donc la支持 | Original diagnostic: None"
+      ],
+      "contract": {
+        "kind": "report",
+        "source": {
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md"
+          },
+          "tool": "host_read_file"
+        }
+      },
+      "observations": [
+        {
+          "invocation": "eed3035b53e340908ecd5a0cf6affac5",
+          "broker_evidence": "604f70eadfde4202b63ffa5ba3be25b0",
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md"
+          }
+        }
+      ],
+      "observed_at": 1793207671.8709245,
+      "verifier": "broker-read+JARVIS-reviewer26B",
+      "verification_event": 68289
+    },
+    "risk": "host_authorized",
+    "tool": "mission_verify",
+    "elapsed_s": 160.493
+  },
+  "trigger": "Codex",
+  "reviewer": "JARVIS/Qwen80B on Dell1",
+  "autonomous_trigger": false,
+  "task_complete": false,
+  "global_P4_received": false
+}

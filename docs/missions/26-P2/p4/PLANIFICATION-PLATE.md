@@ -472,3 +472,23 @@ causale reformulée ;68138 INSUFFICIENT, escalade68141 conservée. Même mécani
 de sélection des passages originaux appliqué à claimed_cause dans cette seconde
 interface, avec null si aucune cause alléguée.99tests logiciels ciblésPASS.
 Installation68143 et nouveau contrôle natif, pas de PASS présumé.
+
+
+### Attribution exacte des affirmations aux événements
+
+Après la boucle de lectures68180, Codex déclenche le même outil mission_verify
+(68183, invocationdb415d2b86654cb5a5a32066acbb80b5). Ce déclenchement est assisté,
+le contrôle reste le vrai vérificateur et Qwen80B surDell1.11passages conformes,
+mais verdict68289FAIL : la seconde lecture attribue PASS à66368 sans ce mot
+dans son passage, FAIL à66904 provenant de66872, et confond échec historique
+et état actuel. Original conservé dans VERIFICATION-RAPPORT-ASSISTEE-ECHEC.json.
+
+CorrectifCodex68291 : contrôle par clauses originales contenant la référence
+concernée ; statuts/type/acteur uniquement parmi les libellés explicitement
+écrits dans ce passage. Une mention d’échec sans cause alléguée ne devient pas
+une assertion de cause ; comparaison aux diagnostics maintenue pour les causes
+explicites. L’événement prouve son propre état historique ; un diagnostic
+d’erreur n’est pas exigé pour justifier le seul type/acteur d’une observation.
+La revue intégrale du récit reste séparée et obligatoire.100tests ciblésPASS,
+y compris non-contamination entre deux références. Nouvelle vérification
+assistée lancée ; aucun résultat positif déduit des tests logiciels.

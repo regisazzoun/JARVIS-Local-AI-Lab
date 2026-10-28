@@ -9,6 +9,24 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_source_review_does_not_import_neighbouring_status_or_invent_a_cause(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        first=self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={})
+        second=self.s.event(self.m,'semantic_verification',result={'status':'FAIL'})
+        body='La rectification event:'+str(first)+' retire un reproche, sans annuler le FAIL de event:'+str(second)+'.'
+        seen=[]
+        def callback(payload):
+            pair=json.loads(payload['messages'][1]['content'])['source_report_pairs'][0];ref=pair['source']['reference'];props=payload['format']['properties']['checks']['properties'][ref]['properties']
+            if ref=='event:'+str(first):
+                self.assertEqual(props['claimed_status']['enum'],[None]);status=None
+            else:self.assertIn('FAIL',props['claimed_status']['enum']);status='FAIL'
+            self.assertEqual(props['claimed_cause']['enum'],[None]);seen.append(ref)
+            return {'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':status,'claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'Software fixture'}}})}
+        self.r.assurance_transport=callback
+        self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])
+        self.assertEqual(len(seen),2)
+
     def test_source_review_causal_quotes_select_original_text_or_null(self):
         from jarvis.mission_assurance import focused_event_review,cited_event_facts
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
