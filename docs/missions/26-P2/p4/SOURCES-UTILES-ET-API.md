@@ -78,6 +78,21 @@ ni script ni compteurs de supervision ne sont réinitialisés.
 
 ## Suite et retour arrière
 
+Une seconde adaptation cible la consigne de préparation, commit151f27c,
+installation64583. Le prompt système répétait « Première obligation : observe
+les sources […] avant de planifier » alors que le plan et les inspections
+étaient déjà enregistrés. En mode identifiants serveur, cette phrase est désormais
+remplacée seulement si la tâche possède une inspection réellement réussie et un
+plan existant. Le modèle garde le droit de lire une information manquante précise.
+L’indicateur `initial_observation_instruction` rend cette sélection observable.
+Le lien avec la stagnation est une hypothèse de coordination à éprouver par les
+actions suivantes, pas une preuve d’autocorrection déjà reçue.
+
+145 tests logiciels ciblés restent réussis ; 10 tests de persistance durables
+exécutés sur chaque Dell. Ils ne remplacent pas le contrôle du nouveau prompt
+effectivement envoyé ni la réception du raccordement applicatif. Aucune nouvelle
+tâche, remise à zéro ou décision de code à la place du modèle n’est introduite.
+
 JARVIS doit encore écrire l’instrumentation du worker candidat, tester une
 divergence réelle, faire vérifier la même version sur l’autre Dell et rendre
 un rapport fidèle. Aucun succès applicatif n’est déduit des 145 tests.

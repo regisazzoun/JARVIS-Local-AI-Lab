@@ -1,0 +1,24 @@
+{
+  "no_inference": true,
+  "input_bytes": 26228,
+  "budget": 27648,
+  "reported_test_reference": 65099,
+  "original_case_statuses": [
+    "PASS",
+    "FAIL",
+    "INSUFFICIENT",
+    "NO_REPORT_DISABLED"
+  ],
+  "printed_not_independently_verified": true,
+  "tools": [
+    "mission_note",
+    "authority_work",
+    "authority_read_execution",
+    "authority_analyze",
+    "authority_sync",
+    "authority_finish",
+    "context_recall"
+  ],
+  "counts_unchanged": true,
+  "event": 65155
+}

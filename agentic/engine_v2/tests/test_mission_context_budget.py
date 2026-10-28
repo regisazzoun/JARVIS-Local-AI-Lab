@@ -305,7 +305,7 @@ class ContextTests(unittest.TestCase):
   spec={'authority_engine_operation_ids':True,'authority_workspace':{'local_root':self.tmp.name}}
   with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
   import hashlib
-  source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text()
+  source=(Path(__file__).parents[1]/'jarvis/worker.py').read_text()+'\n'+('# full receipt tail marker\n'*70)
   raw=json.dumps({'execution':{'returncode':0,'stdout':source,'stderr':''}}).encode()
   path=Path(self.tmp.name)/'receipts'/self.m/'fixture.json';path.parent.mkdir(parents=True);path.write_bytes(raw)
   entry={'host':'Dell1','kind':'inspect','after':{'worker.py':'current'},'execution':{'returncode':0,'stdout':source[:700]+'[EXCERPT]'+source[-100:],'stdout_model_excerpt':True},'full_receipt':{'local':str(path),'sha256':hashlib.sha256(raw).hexdigest()}}
@@ -313,7 +313,8 @@ class ContextTests(unittest.TestCase):
   _,checkpoint=self.b.checkpoint('recover without execution')
   self.assertIn('def run(config_path,slot)',checkpoint['latest_successful_read']['content'])
   self.assertNotIn('[EXCERPT]',checkpoint['latest_successful_read']['content'])
-  self.assertFalse(checkpoint['latest_successful_read']['excerpt_truncated'])
+  self.assertTrue(checkpoint['latest_successful_read']['excerpt_truncated'])
+  self.assertNotIn('full receipt tail marker',checkpoint['latest_successful_read']['content'])
   path.write_bytes(raw+b'tampered')
   _,checkpoint=self.b.checkpoint('reject changed receipt')
   self.assertNotIn('latest_successful_read',checkpoint)
