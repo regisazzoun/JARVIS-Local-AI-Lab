@@ -328,3 +328,26 @@ tous les segments ; ce diagnostic ne démontre pas qu’elle passera. Le rapport
 reste non reçu, préparation/P4 EN COURS — NON VALIDÉES. Directives consultées :
 AGENTS, charte, présente reprise et supervision ; autorisations et goal65937
 préservés, aucune relecture du paquet historique réintroduite.
+
+## Passage2 mission_verify : correctif chargé, main rendue
+
+Passage67017 : aucun appel commencé de cette unité ni mission running.
+Les sept anciens appels started concernent d'autres missions inactives et ne
+sont ni repris ni modifiés. Les12tests report-step/projection passent.
+Correctif97f892d installé dans mission_assurance.py, sauvegarde privée et
+rechargement des deux workers, nouveaux PID321975/321977. La lecture Python
+installée confirme les retraits exacts validés66904 ; aucune attestation du
+candidat applicatif n'en est déduite.
+
+Préflight hors inférence du groupe de sept segments : capacité refusée après
+ajout des rectifications exactes. Cet échec reste conservé ; aucun préflight
+réussi de tous les sous-groupes n'est prétendu. Le mécanisme natif existant
+bounded_narrative_review découpe sur ContextCapacityError, garde chaque segment,
+et doit satisfaire l'admission27648 à chaque passage avant toute inférence.
+
+Installation67021, instruction67022, contexte archivé67023 puis remise en
+file67024. Qwen conserve vérification/correction de son rapport et le plan3.
+Compteur mission_verify4, anciens refus, STATE et toutes preuves conservés.
+Aucun nouveau plan, déploiement applicatif, réception de préparation/P4,
+MANUAL-HOLD ni autre agentCodex. Directives consultées : AGENTS, charte,
+PLANIFICATION-PLATE et supervision ; goal65937 et autorisations conservés.
