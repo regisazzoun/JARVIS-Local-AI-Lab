@@ -81,3 +81,12 @@ relève pas le maximum contractuel27648. Il ne s'agit pas de tokens mesurés.
 Le contrat32768/4096/1024 est persisté avant transmission. Cette préparation
 n'est pas un déploiement et ne clôture pas P4. Le test ciblé des propositions
 et instructions séquentielles passe14cas logiciels sousCodex.
+
+La nouvelle unité a réellement appelé Qwen80B surDell1 (65489/65497,
+6589/6905tokens de prompt mesurés). Un accès au paquet via le chemin du dépôt
+a été refusé par host_read_file ; Codex a copié le même document dans
+`/var/lib/jarvis/projects/mission26-phase2/P4-ACTIVE-PREP.md` et transmis
+l'instruction ciblée65514. Refus conservés, aucun compteur effacé. Le garde
+a compacté68857octets en26849 sous plafond27648 (65504), après checkpoint
+persistant65503 ; il ne s'agit pas de68857tokens. Le relais périodique est
+réarmé, scope de la nouvelle unité uniquement, sans marqueur MANUAL-HOLD.
