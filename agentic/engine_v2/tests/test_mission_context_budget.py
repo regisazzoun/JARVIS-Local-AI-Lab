@@ -26,6 +26,27 @@ class ContextTests(unittest.TestCase):
   state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
   self.assertEqual(state['objective'],'current objective')
   self.assertEqual(state['owner_goal'],'short owner objective')
+ def test_traceback_does_not_block_task_when_receipt_reference_fits(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  error='Traceback (most recent call last):\n'+('  stack frame\n'*45)+'FileNotFoundError: /report.md'
+  call=self.s.begin_call(self.m,'task','host_read_file',{'path':'/report.md'})
+  self.s.finish_call(call,{'ok':False,'error':error},0)
+  # Find the tight admission window: a receipt reference must permit progress
+  # while every exact objective, predicate and original error stays canonical.
+  compacted=None
+  for limit in range(3000,8000,25):
+   p=self.payload()
+   try:self.b.prepare(p,{'limit':limit})
+   except ContextCapacityError:continue
+   state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+   if state.get('latest_tool_failure',{}).get('full_error_reference'):
+    compacted=state;self.assertLessEqual(serialized_bytes(p),limit-2048);break
+  self.assertIsNotNone(compacted)
+  self.assertEqual(compacted['objective'],'current objective')
+  self.assertEqual(compacted['owner_goal'],'short owner objective')
+  self.assertEqual(compacted['task_contract']['semantic'],[self.contract])
+  self.assertEqual(compacted['latest_tool_failure']['error'],'FileNotFoundError: /report.md')
+  self.assertEqual(self.s.observations(self.m,'task')[-1]['result']['error'],error)
  def test_reserved_operation_ids_survive_compaction_without_mutating_ledger(self):
   operations={'inspect-20250621-002':{'arguments':{'executor':'Dell2','command':'original'},'result':{'returncode':0}},'uncertain-op':{'arguments':{'executor':'Dell1','command':'maybe-write'}}}
   self.s.event(self.m,'authority_state',result={'operations':operations})

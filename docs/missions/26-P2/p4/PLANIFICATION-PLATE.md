@@ -159,3 +159,29 @@ de capacité n’était pas marqué résolu. Après le préflight réel66373, Co
 marque uniquement ce problème RESOLVED66378 ; infra_incidents=5, failed_cycles,
 escalation_event et tous les refus restent inchangés. Nouvelle remise en file
 66379 ; aucune quatrième exécution de lecture n’est autorisée par ce changement.
+
+## Passage périodique2 : diagnostic compact, compteurs conservés
+
+Le passage2 démarre66423, sans Codex parallèle ni MANUAL-HOLD. Le cycle17
+avait réellement observé le rapport absent66410 et sa vérification
+INSUFFICIENT66411 ; aucune rédaction ni réception n'en est déduite.
+L'incident de capacité6 reste conservé : la projection finale dépassait la
+borne de208octets, notamment à cause de la trace Python historique répétée.
+
+Correction infrastructure Codex : uniquement en dernier recours de compaction,
+projeter la dernière ligne de l'erreur et la référence de son invocation.
+Le reçu intégral, les objectifs, contrats, schémas et compteurs restent intacts.
+40tests de contexte passent, dont une admission serrée avec conservation du
+prédicat exact et de l'erreur originale. Préflight66430 :27316/27648octets ;
+après instruction courte66431, préflight66435 :27216/27648.
+
+Aucune mission running ni appel en attente avant rechargement des deux workers.
+La tentative systemctl sans sudo a été refusée par l'authentification locale ;
+sudo non interactif a effectivement rechargé les workers (PID298586/298588).
+Cela ne constitue pas une attestation mémoire du candidat applicatif.
+Seul le problème de capacité est marqué RESOLVED66436 sur preuve66435,
+infra_incidents=6 et failed_cycles=0 conservés, autres refus inchangés.
+Contexte précédent archivé66437 ; remise en file66438, cycle18 réellement
+commencé66439 et admission native66444 à27455/27648octets, fenêtre32768.
+Le modèle garde la rédaction du rapport, ses décisions et la suite du plan3.
+Aucun attester applicatif déployé, aucune préparation ni P4 reçue ici.

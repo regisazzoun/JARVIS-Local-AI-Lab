@@ -286,6 +286,18 @@ class ContextBudget:
    active['decisions']=active.get('decisions',[])[:1];active['model_notes']=active.get('model_notes',[])[:1]
    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
   if serialized_bytes(candidate)>budget:
+   # A Python traceback is diagnostic history, not an owner constraint. Keep
+   # its terminal error and canonical receipt binding before rejecting a task.
+   failure=active.get('latest_tool_failure')
+   if failure:
+    with self.store.db() as c:
+     receipt=c.execute('SELECT result FROM tool_calls WHERE mission=? AND id=?',(self.m,failure['invocation_id'])).fetchone()
+    error=json.loads(receipt['result']).get('error') if receipt else failure['error']
+    failure['error']=(str(error).splitlines() or ['Unknown error'])[-1][:180]
+    failure['full_error_reference']=failure['invocation_id']
+    failure['meaning']='Historical failure; full error in canonical tool receipt. Not a functional verdict.'
+   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+  if serialized_bytes(candidate)>budget:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Mandatory policy/objective/contracts/tool schema exceed capacity; coordinator must split the task, not silently truncate constraints'})
    raise ContextCapacityError('Mandatory active task does not fit: checkpoint saved, no inference dispatched')
   original[:]=candidate['messages'];payload['messages']=original
