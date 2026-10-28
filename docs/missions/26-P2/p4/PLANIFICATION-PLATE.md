@@ -243,3 +243,27 @@ Le rapport absent66534 et son verdict INSUFFICIENT66535 restent historiques.
 Qwen garde rédaction/choix ; le paquet exige l'écriture avant nouvelle
 vérification, sans quatrième relecture des faits reçus. Aucun rapport,
 préparation ou P4 reçu sur ce préflight ; admission native suivante à observer.
+
+## Passage borné après refus de schéma66683
+
+Passage1 démarré66685, unité interrompue sans appel en attente ni autre
+mission running. Trois propositions nouvelles `mission_plan_report_step`
+avec `artifacts=[]` ont été refusées ; le plan3 demeure celui reçu en
+couverture66089, sans réception des opérations. Aucun quatrième essai de
+cette stratégie n’a été exécuté parCodex.
+
+Correction de contexte seulement66687 : distinguer la tâche de rapport
+`version0-plan` d’une nouvelle planification, exposer son chemin contractuel
+et quatre extraits des vrais reçus natifs66653/66655/66657/66659. Qwen garde
+la rédaction, les choix et les vérifications ; aucun rapport rédigé parCodex.
+L’instruction66686 relative à un contrôle indépendant utile surDell2 reste
+conservée ; aucune délégation n’est déduite de cette instruction.
+
+Préflight66690 :27604/27648octets. Plan, tâches, goal65937, spec, problèmes
+et compteurs d’interface comparés inchangés66691. Dialogue archivé66692,
+escalade traitée66693 sans effacement du compte3, remise en file66694.
+Cycle21 commencé66695 ; admission native66700 réellement passée à
+27604/27648octets, fenêtre32768 observée via api/ps. L’inférence utile est
+laissée finir. Aucun code modifié, service rechargé, MANUAL-HOLD créé,
+attester déployé ni préparation/P4 reçue dans ce passage. STATE et tous
+compteurs du coordinateur conservés.
