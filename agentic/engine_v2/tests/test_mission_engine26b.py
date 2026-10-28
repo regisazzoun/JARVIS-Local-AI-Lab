@@ -9,6 +9,18 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_source_review_causal_quotes_select_original_text_or_null(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        reference=self.observation();body='Opération observée, sans cause alléguée : '+reference+'.'
+        def callback(payload):
+            pair=json.loads(payload['messages'][1]['content'])['source_report_pairs'][0];ref=pair['source']['reference']
+            allowed=payload['format']['properties']['checks']['properties'][ref]['properties']['claimed_cause']['enum']
+            self.assertIn(None,allowed);self.assertIn(body,allowed)
+            return {'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':None,'claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'Software fixture'}}})}
+        self.r.assurance_transport=callback
+        self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])
+
     def test_exact_cause_selection_preserves_original_typo_without_hinting_category(self):
         from jarvis.mission_assurance import extract_cause_claim
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))

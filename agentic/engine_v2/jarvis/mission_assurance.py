@@ -605,6 +605,10 @@ def focused_event_review(registry, content, cited):
     # Separate inference contexts prevent causes from leaking between events.
     for pair in pairs:
         reference=pair['source']['reference'];single_schema=object_schema({'checks':object_schema({reference:check})})
+        if json.loads(registry.mission_store.get(registry.context['mission_id'])['spec']).get('bounded_narrative_review'):
+            import copy
+            single_schema=copy.deepcopy(single_schema)
+            single_schema['properties']['checks']['properties'][reference]['properties']['claimed_cause']['enum']=list(dict.fromkeys([None]+[part for passage in pair['original_report_passages'] for part in [passage]+[line.strip(' -*\t') for line in passage.splitlines() if line.strip(' -*\t')]]))
         categories=diagnostic_categories(pair['source'],pair['original_diagnostics'])
         if categories:
             extracted=extract_cause_claim(registry,reference,pair['original_report_passages'])

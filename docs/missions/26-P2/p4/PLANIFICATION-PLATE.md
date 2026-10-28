@@ -456,3 +456,19 @@ un passage, refus67769/67771 et escalade67774 conservés. Même contenu séparé
 en13paragraphes67776, sans retrait de preuve. Réception encore non acquise ;
 contrôle complet et indépendant requis. Les sources historiques de missions
 sœurs ne sont pas automatiquement accessibles par le résolveur actuel.
+
+
+### Revue finale ciblée et deuxième contrat de citation
+
+La table séparée a été contrôlée mais sa référence65474 appartient à la
+mission sœur, non résolue dans ce contexte : refus68019 conservé. La portée
+descriptive a été réduite68029 : proposition technique JARVIS conservée
+intégralement, historique complet archivé, trois FAIL explicites et attribution
+Codex maintenus. Aucun seuil relevé ni critère technique supprimé.
+
+Les11passages du rapport resserré sont contrôlés68051–68111 sans réserve.
+Le contrôle séparé des sources échoue cependant68132/68137 pour citation
+causale reformulée ;68138 INSUFFICIENT, escalade68141 conservée. Même mécanisme
+de sélection des passages originaux appliqué à claimed_cause dans cette seconde
+interface, avec null si aucune cause alléguée.99tests logiciels ciblésPASS.
+Installation68143 et nouveau contrôle natif, pas de PASS présumé.
