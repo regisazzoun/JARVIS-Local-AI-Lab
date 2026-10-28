@@ -132,3 +132,24 @@ et modèle réellement observé. Ces actions sont distinctes du contrôle indép
 Codex, et ne sont pas une preuve de clôture de la préparation ou de touteP4.
 Le schéma host_write_file nécessaire à son rapport a été exposé par Codex via
 la découverte existante66286 ; aucune écriture du contenu réalisée parCodex.
+
+## Passage périodique après les trois relectures refusées66347
+
+Passage1 démarré66349, aucune intervention Codex parallèle ni MANUAL-HOLD.
+Les lectures natives66291/66335 et show66330 existaient ; trois répétitions
+ont déclenché le garde. Le cycle avait chargé ses découvertes avant66286 :
+son archive66338 omettait encore host_write_file. Codex archive le contexte
+périmé66352, sans toucher aux tâches, au plan3 ni aux compteurs.
+
+Le nouveau cycle expose réellement host_write_file dans66357. Il rencontre
+ensuite la borne de contexte66359 avant toute inférence : incident5 conservé,
+zéro échec fonctionnel déduit. Codex conserve les observations complètes66350
+et remplace ses seuls rappels courants par des références compactes66367/66368,
+avec instruction66369. Le préflight du vrai payload passe à26985octets/27648,
+fenêtre32768 inchangée, outil d’écriture présent. Pas de modification logicielle
+ni redémarrage de service dans ce passage. Les archives et refus restent intacts.
+
+La remise en file rend la rédaction et les choix àQwen ; elle ne reçoit aucun
+rapport. Le rapport de plan, la préparation et P4 restent à vérifier. La projection
+des preuves natives dans le champ observed_evidence (actuellement Authority)
+reste une limite identifiée ; aucune autonomie sans assistance n’est déduite.
