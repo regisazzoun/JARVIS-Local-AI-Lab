@@ -607,3 +607,8 @@ remise en file. Aucun cat rejoué, aucun rapport écrit parCodex, aucun déploie
 applicatif ni réception t1/P4. STATE et compteurs conservés, aucun MANUAL-HOLD
 ni agent parallèle. Directives relues : AGENTS, charte, présent dossier,
 réception68595, supervision, SUIVI/ROADMAP ; autorisations et périmètre conservés.
+
+Résultat natif observé après résolution68937 et remise en file68938 : cycle43,
+admission68944 réussie à27257octets/27648, fenêtre réellement observée32768.
+Mission running, t1 active ; inférence utile laissée finir. Cette admission
+confirme la correction de capacité, sans prouver le rapport ni sa réception.
