@@ -5,6 +5,16 @@ from jarvis.tools import Registry
 from jarvis.memory import Memory
 from jarvis.mission_store import MissionStore
 class ReportStepTests(unittest.TestCase):
+ def test_saved_plan_is_not_reported_as_unexecuted_when_review_exceeds_budget(self):
+  from unittest.mock import patch
+  from jarvis.mission_context_budget import ContextCapacityError
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'autonomous':True,'planning_report_steps':True,'assurance':True}),self.m))
+  with patch('jarvis.mission_assurance.audit_plan',side_effect=ContextCapacityError('oversized review fixture')):
+   result=self.save()
+  self.assertTrue(result['ok'],result);value=result['result']
+  self.assertEqual(value['current_plan_version'],1);self.assertFalse(value['execution_allowed'])
+  self.assertEqual(value['coverage']['status'],'INSUFFICIENT');self.assertTrue(value['coverage']['review_pending'])
+  self.assertEqual(len(self.s.plans(self.m)),1);self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
   self.s=MissionStore(self.root);self.m=self.s.create('Observe and report','model','conv',spec={'autonomous':True,'planning_report_steps':True})

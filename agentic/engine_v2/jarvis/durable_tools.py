@@ -15,8 +15,18 @@ def register(registry):
     def plan(args):
         from .mission_assurance import enabled, audit_plan, plan_view
         tasks=store().plan(key(), args['tasks'], author='JARVIS', metadata=args.get('metadata'), reason=args.get('reason','initial plan'), expected_version=args.get('expected_version'), append=args.get('append',False), patch=args.get('patch',False))
-        review=audit_plan(registry) if enabled(store(),key()) else None
-        return {'tasks':tasks,'plans':plan_view(store(),key()) if enabled(store(),key()) else store().plans(key()),'coverage':review,'execution_allowed':not review or review['status']=='PASS','current_plan_version':len(store().plans(key())), 'next_action':'Revise missing outcomes yourself with append/patch, expected_version=current_plan_version' if review and review['status']!='PASS' else 'Execute ready task'}
+        from .mission_context_budget import ContextCapacityError
+        try:
+            review=audit_plan(registry) if enabled(store(),key()) else None
+        except ContextCapacityError as exc:
+            # Source plan is already durable; unavailable review is not an
+            # unexecuted save, and must not invite an identical second mutation.
+            event=store().event(key(),'plan_review_deferred',actor='JARVIS-engine',result={
+                'plan_saved':True,'current_plan_version':len(store().plans(key())),
+                'execution_allowed':False,'error':str(exc),'exception_type':type(exc).__name__})
+            review={'status':'INSUFFICIENT','review_pending':True,'error':str(exc),
+                    'reference':event,'instruction':'Plan already saved; do not resubmit the same step. Review must complete before execution.'}
+        return {'tasks':tasks,'plans':plan_view(store(),key()) if enabled(store(),key()) else store().plans(key()),'coverage':review,'execution_allowed':not review or review['status']=='PASS','current_plan_version':len(store().plans(key())), 'next_action':review['instruction'] if review and review.get('review_pending') else ('Revise missing outcomes yourself with append/patch, expected_version=current_plan_version' if review and review['status']!='PASS' else 'Execute ready task')}
     def progress(args):
         current=getattr(registry,'mission_store',None)
         def summary(tasks):return [{k:t.get(k) for k in ('id','title','state','artifact','report_sha256')} for t in tasks]

@@ -37,6 +37,10 @@ class Core:
             budget=None
             if role=='mission' and context.get('mission_id') and getattr(self.tools,'mission_store',None):
                 from .mission_context_budget import ContextBudget,capacity
+                # HybridRouter already enforces this profile on the wire. Reserve
+                # that same response budget before admission, including reviewers.
+                response=self.config['hybrid_compute'].get('mission_segment_tokens',4096)
+                payload={**payload,'options':{**payload.get('options',{}),'num_predict':response}}
                 budget=ContextBudget(self.tools.mission_store,context['mission_id'],context.get('task_id'))
                 discovered=capacity(self.config,payload.get('model'))
                 payload=budget.prepare(payload,discovered,self.config.get('durable_num_predict',4096))

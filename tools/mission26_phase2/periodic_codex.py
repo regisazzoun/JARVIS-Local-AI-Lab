@@ -60,6 +60,11 @@ def main():
                 if stopped and escalations:
                     reason=escalations[-1]['result'];condition=reason.get('category') or reason.get('reason') or 'STOPPED'
                 productive=[e['created'] for e in events if e['kind']=='authority_validation' or (e['kind']=='coordinator_escalation_resolved' and e['actor'].startswith('Codex')) or (e['kind']=='authority_execution' and (e['result'].get('kind')=='test' or (e['result'].get('kind')=='correct' and e['result'].get('before')!=e['result'].get('after'))))]
+                if CONFIG.get('normal_engine_progress'):
+                    # Normal preparation records useful plan/observation progress
+                    # through the existing worker classifier, not Authority events.
+                    # Lease heartbeats and mission_progress polling do not update it.
+                    productive.append(mission['last_progress'])
                 if state in ('queued','running') and time.time()-max(productive or [mission.get('created') or mission['updated']])>CONFIG.get('no_productive_seconds',600):
                     stalled=True;condition='NO_PRODUCTIVE_EXECUTION'
             # Let the explicit one-shot dispatcher consume an already reviewed repair.

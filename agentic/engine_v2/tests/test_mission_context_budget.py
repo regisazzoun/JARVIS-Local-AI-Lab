@@ -85,6 +85,20 @@ class ContextTests(unittest.TestCase):
    p=self.payload();core.ollama(p);sent=Router.return_value.infer.call_args.args[0];self.assertLessEqual(serialized_bytes(sent),14336)
   usage=self.b.latest('context_backend_usage')[0]['result'];self.assertEqual(usage['actual_prompt_tokens'],1200);self.assertTrue(usage['within_effective_context'])
 
+ def test_review_admission_uses_the_same_response_profile_as_router(self):
+  from jarvis.core import Core
+  from jarvis.memory import Memory
+  cfg={'hybrid_compute':{'nodes':{},'mission_segment_tokens':4096},'compute_role':'mission'}
+  core=Core(cfg,Memory(Path(self.tmp.name)/'memory.sqlite'));core.tools.mission_store=self.s;core.tools.context={'mission_id':self.m,'task_id':'task'}
+  payload={'model':'model','messages':[{'role':'system','content':'Reviewer policy'},{'role':'user','content':'x'*20000}], 'format':{'type':'object'},'options':{'num_predict':8192}}
+  with patch('jarvis.compute.HybridRouter') as Router,patch('jarvis.mission_context_budget.capacity',return_value={'limit':32768}):
+   Router.return_value.infer.return_value=({'content':'{}'},{'node':'Dell1','num_ctx':32768,'prompt_eval_count':5000})
+   core.ollama(payload);sent=Router.return_value.infer.call_args.args[0]
+  self.assertEqual(sent['options']['num_predict'],4096);self.assertEqual(payload['options']['num_predict'],8192)
+  check=self.b.latest('context_budget_checked')[0]['result'];self.assertEqual(check['response_reserved'],4096)
+  self.assertEqual(check['input_budget_estimate'],27648);self.assertFalse(check['compacted'])
+  self.assertEqual(sent['messages'],payload['messages']);self.assertEqual(sent['format'],payload['format'])
+
  def test_manual_restart_checkpoint_is_not_shadowed_by_automatic_snapshots(self):
   from types import SimpleNamespace
   from jarvis.mission_context_budget import register

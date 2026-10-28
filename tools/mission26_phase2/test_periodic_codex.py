@@ -5,6 +5,19 @@ from jarvis.mission_store import MissionStore
 spec=importlib.util.spec_from_file_location('periodic_codex',pathlib.Path(__file__).with_name('periodic_codex.py'))
 p=importlib.util.module_from_spec(spec);spec.loader.exec_module(p)
 class CoordinationTests(unittest.TestCase):
+ def test_normal_preparation_progress_does_not_trigger_authority_only_stall(self):
+  with tempfile.TemporaryDirectory() as root:
+   root=pathlib.Path(root);store=MissionStore(root);mission=store.create('fixture','model','conv');store.transition(mission,'running',progress=True)
+   with store.db() as c:c.execute('UPDATE missions SET created=created-3600 WHERE id=?',(mission,))
+   private=root/'private';private.mkdir();(private/'PROMPT.md').write_text('Software fixture, not an agent mission')
+   registry=root/'registry.json';registry.write_text(json.dumps({'tasks':[{'id':'P4','mission_id':mission}]}))
+   process=Mock(returncode=0);process.communicate.return_value=None
+   config={'allowed_mission_ids':[mission],'normal_engine_progress':True}
+   with patch.multiple(p,ROOT=str(root),PRIVATE=private,REGISTER=registry,REPO=str(root),ALLOWED_TASKS={'P4'},CONFIG=config),patch.object(p.subprocess,'Popen',return_value=process) as spawn,redirect_stdout(io.StringIO()):
+    p.main();spawn.assert_not_called()
+    self.assertEqual(json.loads((private/'STATE.json').read_text())['status'],'WATCHING_NO_INTERVENTION_NEEDED')
+    config['normal_engine_progress']=False;p.main();self.assertEqual(spawn.call_count,1)
+
  def test_condition_key_ignores_result_and_new_session(self):
   with patch.object(p,'CONFIG',{'scope':'M26-P2'}):
    one=[{'task':'P2','mission':'same','condition':'proof-id','state':'interrupted','result':{'id':'first'}}]
