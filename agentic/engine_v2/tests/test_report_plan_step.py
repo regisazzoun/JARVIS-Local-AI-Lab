@@ -73,6 +73,45 @@ class ReportStepTests(unittest.TestCase):
     self.assertFalse(any(e['kind'] in ('authority_interface_failure','authority_escalation') for e in events))
     self.assertNotEqual(missions.store.tasks(m)[0]['state'],'validated')
 
+ def test_observed_facts_are_not_requested_again_without_explicit_tool_focus(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  self.assertTrue(self.save()['ok'])
+  call=self.s.begin_call(self.m,'a','mission_report_facts',{})
+  self.s.finish_call(call,{'ok':True,'result':{'scope_task':'a'}},0)
+  identity=self.root/'identity.txt';identity.write_text('Full fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[]
+  def callback(payload):
+   captured.append(payload)
+   return {'tool_calls':[{'function':{'name':'mission_note','arguments':{'content':'Software fixture only'}}}]}
+  missions.execution_core.transport=callback;missions.cycle.run(self.s.get(self.m))
+  self.assertIn('déjà observée dans le journal',captured[-1]['messages'][0]['content'])
+  names={t['function']['name'] for t in captured[-1]['tools']}
+  self.assertNotIn('mission_report_facts',names);self.assertIn('host_write_file',names);self.assertIn('host_service',names)
+
+ def test_original_service_fields_survive_later_notes_and_large_receipt_excerpt(self):
+  from jarvis.mission_context_budget import ContextBudget
+  from jarvis.mission_assurance import evidence_snapshot
+  self.assertTrue(self.save()['ok'])
+  body='Noise='+('x'*7000)+'\nMainPID=1234\nEnvironmentFiles=\nFragmentPath=/fixture.service\nActiveState=active\n'
+  call=self.s.begin_call(self.m,'a','host_service',{'action':'show','service':'fixture.service'})
+  self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':body,'stdout_truncated':False}},0)
+  for i in range(4):
+   note=self.s.begin_call(self.m,'a','mission_note',{'content':str(i)});self.s.finish_call(note,{'ok':True,'result':{}},0)
+  _,cp=ContextBudget(self.s,self.m,'a').checkpoint('Service source retention fixture')
+  observed=cp['retained_service_observations'][0]
+  self.assertEqual(observed['fields']['MainPID'],'1234');self.assertEqual(observed['fields']['EnvironmentFiles'],'')
+  card=next(row for row in evidence_snapshot(self.s,self.m,'a')['receipts'] if row['reference']==call)
+  self.assertEqual(card['observed_service_properties']['fields'],observed['fields'])
+  self.assertNotIn('Noise',observed['fields'])
+
+ def test_truncated_or_failed_service_read_cannot_prove_properties(self):
+  from jarvis.mission_reporting import service_observation
+  args={'action':'show','service':'fixture.service'}
+  for wrapper in [{'ok':False,'result':{'returncode':0,'stdout':'MainPID=1234'}},{'ok':True,'result':{'returncode':1,'stdout':'MainPID=1234'}},{'ok':True,'result':{'returncode':0,'stdout':'MainPID=1234','stdout_truncated':True}}]:
+   self.assertIsNone(service_observation(args,wrapper))
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded

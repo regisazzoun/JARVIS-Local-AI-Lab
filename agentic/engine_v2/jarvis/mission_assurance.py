@@ -401,9 +401,12 @@ def evidence_snapshot(store, ident, task_id=None):
         if 'content' in safe_args:
             safe_args['content_sha256']=hashlib.sha256(str(safe_args.pop('content')).encode()).hexdigest()
         text=encoded(raw)
+        from .mission_reporting import service_observation
+        service_fields=service_observation(args,result) if name=='host_service' else None
         receipts.append({'reference':o['id'],**({'event_reference':event_aliases[o['id']]} if o['id'] in event_aliases else {}),'actor':'JARVIS','executor':'broker' if name.startswith('host_') else 'JARVIS-engine',
             'tool':name,'arguments':safe_args,'broker_evidence':raw.get('evidence_id') if isinstance(raw,dict) else None,'ok':result.get('ok'),'error':result.get('error'),
             'created':datetime.fromtimestamp(o['created'],ZoneInfo('Europe/Paris')).isoformat(),
+            **({'observed_service_properties':service_fields} if service_fields else {}),
             'observed':raw if len(text)<=6000 else {'explicit_excerpt':text[:4000]+text[-1500:],'full_sha256':digest(raw)}})
     events=[{'reference':'event:'+str(e['id']),'task':e['task'],'result':e['result']} for e in store.events(ident,limit=1000000) if e['kind']=='semantic_verification' and e['result'].get('contract',{}).get('kind')!='report' and (scope_tasks is None or e['task'] in scope_tasks)]
     coverage_reviews=[{'reference':'event:'+str(e['id']),'status':e['result'].get('status'),'plan_version':e['result'].get('plan_version'),'issues':e['result'].get('issues',[])} for e in store.events(ident,limit=1000000) if e['kind']=='coverage_review']

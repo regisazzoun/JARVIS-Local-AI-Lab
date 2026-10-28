@@ -27,3 +27,30 @@ compteurs inchangés, résolution70610. Contexte actif réinitialisé depuis le
 checkpoint ; archives conservées, nouvelles observations systemd acquises.
 JARVIS reprend la rédaction de son propre rapport à partir de ces preuves.
 Aucune réception de cette tâche ni deP4 n’est annoncée par cette correction.
+
+
+## Passage des faits observés à la rédaction
+
+Après reprise, deux consultations réelles du registre (70623/70633), puis un
+refus de répétition et escalade70645. Le moteur ne détectait l’acquisition des
+faits que sous un focus d’outils explicite ; les tâches ordinaires gardaient
+la consigne de consulter le registre avant chaque rédaction. La détection
+porte désormais sur les reçus réussis de la tâche, même sans focus spécial.
+L’outil de faits déjà consulté n’est plus proposé comme prochaine action ;
+les autres outils d’observation restent disponibles. Le choix de contenu
+reste celui du modèle. La garde anti-répétition n’est pas désactivée.
+
+Les sorties systemd show complètes dépassent huit kilo-octets. Une simple
+coupe début/fin pouvait retirer les propriétés nécessaires du milieu du
+texte. Le checkpoint et le contrôleur reçoivent maintenant une sélection
+exacte des champs réellement présents dans les sorties réussies et complètes
+(PID, chemins, états, dépendances, environnement, commande). Références, heure
+d’observation et SHA du texte original restent associés. Un champ non
+sélectionné ne devient jamais absent ; aucune sortie échouée ou tronquée ne
+peut fournir ces propriétés. Les textes complets demeurent dans les reçus.
+Ces valeurs sont historiques et ne prouvent aucun état après redémarrage.
+
+180 tests ciblés PASS sur les quatre modules. Le checkpoint réel70647 conserve
+les quatre observations utiles après notes et consultations du registre ;
+compteurs vérifiés inchangés. Installation et résolution70648, reprise native
+de JARVIS. Rapport suivant etP4 toujours non reçus à ce stade.
