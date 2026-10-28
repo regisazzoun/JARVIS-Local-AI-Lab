@@ -70,3 +70,14 @@ restent à réceptionner séparément. Ni14A ni24-Old ne sont lancées ou clôtu
 Les évolutions du moteur passent161 tests logiciels ciblés après intégration du
 source reçu. Ce nombre ne constitue pas une mesure d’autonomie. Les observations
 structurées et reçus sont dans `RECEPTION-CANDIDAT-WORKER.json`.
+
+## Suite effectivement transmise
+
+P4-ACTIVE-PREP : `e98fd4bbe37c492b922db9b5a1d782aa`, événement65476. Le worker a pris
+l'unité en charge (`running`,65478). Premier contrôle de contexte65479 :
+9347octets envoyés, plafond effectif23552 à cette étape de planification
+(réponse8192 réservée par le planificateur) ; ce plafond plus restrictif ne
+relève pas le maximum contractuel27648. Il ne s'agit pas de tokens mesurés.
+Le contrat32768/4096/1024 est persisté avant transmission. Cette préparation
+n'est pas un déploiement et ne clôture pas P4. Le test ciblé des propositions
+et instructions séquentielles passe14cas logiciels sousCodex.

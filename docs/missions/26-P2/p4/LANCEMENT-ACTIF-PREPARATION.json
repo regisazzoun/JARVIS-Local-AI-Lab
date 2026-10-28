@@ -1,0 +1,24 @@
+{
+  "id": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "event": 65476,
+  "goal": "P4-ACTIVE-PREP — préparation courte de l’intégration canonique. Le candidat worker est reçu avec réserves65474 ; ne pas rejouer ses tests ni P2/P3. Identifie par observations réelles les unités, chemins, configurations et versions des workers canoniques. Choisis un plan d’intégration progressive et retour arrière préservant conversation et autres workers. Précise les preuves de code réellement chargé, la fraîcheur du rapport de démarrage et un chemin de rapport distinct par worker/slot. Livrable : rapport compact de préparation, observations référencées, plan de canari/rollback et limites ; fichiers persistants dans le projet mission26-phase2. Choisis librement tes observations et ton plan. Cette unité prépare l’activation autorisée : ne modifie et ne déploie pas les services applicatifs dans cette seule préparation. Le paquet suivant permettra le déploiement après revue technique sans nouvelle approbation humaine. Source SDK /home/adminjarvis/JARVIS/mission26-phase2/agentic/engine_v2/jarvis ; runtime réel /opt/jarvis/conversation ; candidats Dell /opt/jarvis-lab/mission26-phase2/engine. Worker reçu SHA c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef. Lire seulement le paquet docs/missions/26-P2/p4/PAQUET-SUIVANT-ACTIF.md et les observations nécessaires, pas tout l’historique. PID, disque ou Git seuls ne prouvent pas le code chargé. Rapports sans secrets. Qwen80B reste décisionnaire ; les opérations distantes utiles se font via les outils existants, Mac autorisé pour observer ses propres services. Contexte32768tokens total, réponse4096+marge1024, entrée27648 selon garde conservateur ; inscrire ce résultat avant délégation, découper si trop gros. Trois échecs comparables maximum puis diagnostic/escalade, compteurs préservés. Aucune modification de modèles/routage/matériel ni autre mission ;14A/24Old restent distinctes. AGENTS et charte consultés, autorisations autonomes conservées.",
+  "spec": {
+    "parent_mission": "3aa717f3887e49daa7daf7e883ee52e4",
+    "preceding_candidate": "d8fe752876db480cbe5f22cd5525e2dd",
+    "preceding_reception": 65474,
+    "owner_priority": "P4-ACTIVE-PREP",
+    "context_result_objective": {
+      "total_context_tokens_max": 32768,
+      "response_tokens_reserved": 4096,
+      "template_tokens_reserved": 1024,
+      "input_tokens_max": 27648,
+      "result_required": "Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.",
+      "admission_measure": "UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count"
+    },
+    "autonomous": true,
+    "assurance": true,
+    "compact_semantic_references": true,
+    "authority_engine_operation_ids": true,
+    "coordinator_periodic_authorized": true
+  }
+}

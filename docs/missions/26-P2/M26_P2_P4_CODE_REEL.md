@@ -1,3 +1,9 @@
+## P4 — candidat reçu, préparation canonique transmise le28octobre2026
+
+Candidat worker **VALIDÉ AVEC RÉSERVES**, réception65474 : application réelle JARVIS64975 surDell1, même manifeste synchronisé65185, quatre cas exécutés65099/Dell1 et65210/Dell2 (conformePASS, divergenceFAIL, absentINSUFFICIENT, désactivé sansrapport). Code de raccordement **Qwen80B assisté parCodex après escalade**, oracle et contrôle indépendantCodex. Originaux, refus et errata conservés. Ces essais isolés ne prouvent aucun déploiement canonique ni réceptionglobaleP4.
+
+Nouvelle unité séquentielle `e98fd4bbe37c492b922db9b5a1d782aa` : **P4-ACTIVE-PREP**, dans le même moteurSQLite, prépare les chemins/services réels, canari, fraîcheur des rapports et retour arrière. Choix des observations et plan confiés àQwen80B ; fenêtre32768 inscrite avanttransmission. Pas de rejeuP2/P3/candidat. L'intégration réelle suivra après revue technique sans nouvelle validationhumaine. Supervision réorientée vers cette seule unité, compteurs historiques conservés. [Réception et attribution](p4/RECEPTION-CANDIDAT-WORKER.md) · [Paquet transmis](p4/LANCEMENT-ACTIF-PREPARATION.json). P4/phase2 restent **EN COURS — NON VALIDÉES** ; aucune14A/24Old/mainmerge.
+
 ## Actualisation — reprise P4 du27octobre2026
 
 Audit initial completed, cinq tâchesvalidées techniquement. Réception indépendante58952 limitée aux lectures de deux sources et artefacts : prose NON REÇUE, erreurs/versionsoriginales conservées. Le codePython réellement chargé reste non prouvé. [Réception limitée](p4/RECEPTION-AUDIT-LIMITEE.json).
