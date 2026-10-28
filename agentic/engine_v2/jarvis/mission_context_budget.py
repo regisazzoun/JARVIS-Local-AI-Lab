@@ -79,12 +79,26 @@ class ContextBudget:
   # Keep substantive evidence independently of the last failed reader calls.
   # Process exit zero remains a process fact, never a semantic verdict.
   observed_evidence=[{'reference':int(ref),'executor':e['host'],'kind':e['kind'],'observed_process_returncode':e['execution']['returncode'],'stdout':preview(e['execution'].get('stdout',''),1200),'stderr':preview(e['execution'].get('stderr',''),300),'source_version':sha(e.get('after',{})),'adequacy':'not inferred from process return code'} for ref,e in executions if e.get('kind') in ('test','inspect')][-2:]
+  # Retain actual unit-file receipts across failed rereads and compaction.
+  # These are historical file observations, never proof of loaded service code.
+  unit_reads={}
+  with self.store.db() as c:
+   unit_rows=c.execute("SELECT id,arguments,result FROM mission_events WHERE mission=? AND task IS ? AND kind='tool_finished' AND tool='host_exec' ORDER BY id DESC",(self.m,self.task)).fetchall()
+  for row in unit_rows:
+   args=json.loads(row['arguments']);wrapper=json.loads(row['result']);value=wrapper.get('result',{})
+   for path in ('/etc/systemd/system/jarvis-mission-worker.service','/etc/systemd/system/jarvis-mission-worker@.service'):
+    if path in unit_reads or args not in ({'command':'cat '+path},{'argv':['cat',path]}):continue
+    if wrapper.get('ok') is not True or value.get('returncode')!=0 or value.get('stdout_truncated') or value.get('timeout'):continue
+    text=value.get('stdout')
+    if not isinstance(text,str) or len(text)>4000:continue
+    unit_reads[path]={'reference':row['id'],'path':path,'stdout':text,'sha256':hashlib.sha256(text.encode()).hexdigest(),'meaning':'Historical successful file read; does not prove loaded code or current service state'}
   reserved_operation_ids=sorted(authority[0]['result'].get('operations',{})) if authority else []
   authority_counters={issue:{k:v.get(k,0) for k in ('failed_cycles','delegation_failures','correction_resolved_through','delegation_resolved_through','correction_resolution_event')} for issue,v in (authority[0]['result'].get('issues',{}) if authority else {}).items()}
   with self.store.db() as c:
    interfaces=[dict(r) for r in c.execute("SELECT json_extract(result,'$.epoch') epoch,json_extract(result,'$.category') category,max(json_extract(result,'$.count')) count FROM mission_events WHERE mission=? AND kind='authority_interface_failure' GROUP BY epoch,category ORDER BY epoch,category",(self.m,))]
   route=self.latest('compute_route_observed');last_inference={k:route[0]['result'].get(k) for k in ('node','effective_model','num_ctx','prompt_eval_count')} if route else None
   checkpoint={'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':self.latest('coordinator_instruction',1),'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
+  if unit_reads:checkpoint['retained_unit_file_reads']=list(unit_reads.values())
   if spec.get('authority_engine_operation_ids'):
    # A delivered error page is useful diagnostic data, never a successful
    # source observation. Preserve distinct successful stdout windows separately.
@@ -192,6 +206,7 @@ class ContextBudget:
   active['coordinator_instructions']=[{'reference':e['id'],'instruction':preview(e['result'].get('instruction',e['result']),900)} for e in checkpoint['coordinator_instructions']]
   active['verified_api_observations']=[{'reference':e['id'],'actor':e['actor'],'observed_at':e['created'],'observation':preview(e['result'],700)} for e in checkpoint['verified_api_observations']]
   active['last_observations']=checkpoint['last_observations']
+  if checkpoint.get('retained_unit_file_reads'):active['retained_unit_file_reads']=checkpoint['retained_unit_file_reads']
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
    if checkpoint.get('reported_test_output'):active['reported_test_output']=checkpoint['reported_test_output']

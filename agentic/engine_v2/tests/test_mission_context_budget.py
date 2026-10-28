@@ -9,6 +9,16 @@ class ContextTests(unittest.TestCase):
   self.contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/result.json'}},'expected':{'/value':42}}
   self.s.plan(self.m,[{'id':'task','title':'task','objective':'current objective','contract':{'semantic':[self.contract]}}]);self.b=ContextBudget(self.s,self.m,'task');self.cap={'limit':16384,'source':'test fixture, not real backend'}
  def payload(self):return {'model':'model','messages':[{'role':'system','content':'KEEP ALL OWNER POLICY'},{'role':'user','content':'historic output '+('x'*80000)}],'tools':[],'options':{'num_predict':1024}}
+ def test_unit_receipts_survive_failed_rereads_and_compaction(self):
+  path='/etc/systemd/system/jarvis-mission-worker.service'
+  ref=self.s.event(self.m,'tool_finished','task','JARVIS',tool='host_exec',arguments={'command':'cat '+path},result={'ok':True,'result':{'returncode':0,'stdout':'[Service]\nUser=adminjarvis\n','stdout_truncated':False}})
+  self.s.event(self.m,'tool_finished','task','JARVIS',tool='host_exec',arguments={'command':'cat '+path},result={'ok':False,'error':'repeat'})
+  self.s.event(self.m,'tool_finished','other','JARVIS',tool='host_exec',arguments={'command':'cat '+path},result={'ok':True,'result':{'returncode':0,'stdout':'WRONG TASK'}})
+  self.s.event(self.m,'tool_finished','task','JARVIS',tool='host_exec',arguments={'command':'cat '+path},result={'ok':True,'result':{'returncode':0,'stdout':'TRUNCATED','stdout_truncated':True}})
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['retained_unit_file_reads'][0]['reference'],ref)
+  self.assertEqual(state['retained_unit_file_reads'][0]['stdout'],'[Service]\nUser=adminjarvis\n')
  def test_initial_planning_preserves_owner_objective_once_under_budget(self):
   goal='Exact owner requirements. '*320
   mission=self.s.create(goal,'model','conv',project='phase')

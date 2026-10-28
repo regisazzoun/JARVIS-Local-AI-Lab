@@ -549,3 +549,28 @@ jamais PASS ; problèmes/compteurs comparés inchangés. Reçus68621/68767 proje
 en file68788 : Qwen garde rédaction t1 puis vérification et suite séquentielle.
 Aucun rapport rédigé parCodex, aucune réception t1/préparation/P4 ni déploiement
 applicatif. Aucun MANUAL-HOLD, autre agent ou compteur remis à zéro.
+
+## Passage1 host_exec répétition — conservation des reçus d'unités
+
+Escalade68905 : trois refus de répétition, sans nouvel échec fonctionnel.
+Les correctifs de classement précédents étaient déjà installés. Diagnostic
+Codex : le checkpoint conservait les sorties Authority mais pas durablement
+les sorties host_exec des unités après d'autres appels. Ce manque est démontré
+par le code ; son rôle dans le choix répété de Qwen reste une hypothèse.
+
+Correction68908 : conservation des dernières lectures exactes, réussies et
+non tronquées des deux fichiers, dans la même tâche, avec références et SHA.
+Les commandes composées, erreurs, sorties tronquées et autres tâches ne sont
+pas retenues. Les42tests de contexte passent, dont un test de conservation
+après refus avec exclusion d'une autre tâche et d'une sortie tronquée.
+Sauvegarde privée puis rechargement des deux workers après vérification zéro
+mission running/zéro appel started de cette unité. Aucun cat rejoué parCodex.
+
+Checkpoint68909 confirme les reçus existants68869/68871 et leurs textes.
+Instruction68910, contexte archivé puis remise en file : Qwen rédige son propre
+rapport t1 avant contrôle natif, puis poursuit séquentiellement. Problèmes et
+compteurs comparés inchangés ; STATE du superviseur préservé. Aucun rapport
+rédigé parCodex, aucune réception t1/préparation/P4, aucun déploiement applicatif,
+MANUAL-HOLD ou agent parallèle. Directives consultées : AGENTS, charte,
+PLANIFICATION-PLATE, réception68595, supervision, SUIVI/ROADMAP ; goal65937,
+plan3 et autorisations préservés. Le prompt historique P2 n'est pas réintroduit.
