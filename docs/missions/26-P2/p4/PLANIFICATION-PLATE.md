@@ -574,3 +574,15 @@ rédigé parCodex, aucune réception t1/préparation/P4, aucun déploiement appl
 MANUAL-HOLD ou agent parallèle. Directives consultées : AGENTS, charte,
 PLANIFICATION-PLATE, réception68595, supervision, SUIVI/ROADMAP ; goal65937,
 plan3 et autorisations préservés. Le prompt historique P2 n'est pas réintroduit.
+
+### Résultat immédiat de la reprise68910
+
+Le worker a repris cycle41 mais l'admission68918 a refusé le contexte avant
+inférence : les deux reçus conservés font dépasser le budget avec les12schémas
+actuels. Exception68919, incident de contexte10 conservé, escalade68920 ; état
+final interrupted68922. La remise en file précédente ne constitue donc aucune
+progression Qwen ni réussite du correctif en parcours complet. Les42tests
+logiciels ne démontraient pas cette admission réelle. Prochaine correction :
+réduire les schémas proposés ou découper la projection, en conservant exigences,
+reçus complets et budget27648 ; aucune remise en file inchangée dans ce passage
+borné. Pas de réception t1 ni P4.
