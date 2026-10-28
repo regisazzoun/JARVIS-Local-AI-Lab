@@ -209,3 +209,17 @@ aide n'est déduite de cette correction de contexte Codex.
 Confirmation native : cycle19 commencé66523, admission réelle66528 à
 27377/27648octets après compaction, capacité32768 observée via api/ps.
 L'inférence utile est laissée finir ; admission ne vaut pas rapport reçu.
+
+### Résultat du cycle19 : reprise arrêtée, préparation non reçue
+
+L'admission66528 a bien été suivie d'une inférence réelle66529 :8160tokens
+de prompt mesurés. Qwen a choisi mission_verify active:0 avant rédaction.
+Lecture66534 : fichier toujours absent ; verdict66535 INSUFFICIENT conservé.
+Le tour suivant est refusé avant inférence66542 (payload28647octets avant
+compaction, borne27648). Incident de capacité7 conservé66543/66544, aucun
+échec fonctionnel déduit. État final interrupted66546, sans appel en attente.
+La projection66516 n'a donc pas suffi à obtenir la rédaction. Pas de nouvelle
+relance inchangée : les compteurs, le problème de capacité escaladé et les deux
+refus mission_verify restent intacts. Prochaine correction à examiner : budget
+de la projection après verdict de rapport absent, puis écriture réelle parQwen
+avant toute nouvelle vérification. Aucun rapport, préparation ou P4 reçu.
