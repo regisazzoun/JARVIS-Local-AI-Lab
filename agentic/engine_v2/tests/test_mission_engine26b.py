@@ -9,6 +9,17 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_exact_cause_selection_preserves_original_typo_without_hinting_category(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        phrase='Ommission explicite du FAIL historique.'
+        def callback(payload):
+            schema=payload['format'];choices=schema['properties']['cause_quote']['enum']
+            self.assertIn(phrase,choices);self.assertNotIn(phrase.replace('Ommission','Omission'),choices)
+            return {'content':json.dumps({'category':'missing_historical_failures','cause_quote':phrase,'role':'past_rejection_cause'})}
+        self.r.assurance_transport=callback
+        self.assertEqual(extract_cause_claim(self.r,'event:1',['- '+phrase])['cause_quote'],phrase)
+
     def test_cited_coordinator_instruction_is_visible_without_becoming_execution_proof(self):
         from jarvis.mission_assurance import cited_event_facts
         text='Keep the original FAIL and correct your own narrative.'

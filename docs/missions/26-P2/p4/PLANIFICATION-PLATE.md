@@ -416,3 +416,22 @@ de correction conserve ce texte sans nouvelle lecture ; le contrôle final
 reste une lecture indépendante. Pour les rapports longs/non observés, la
 lecture reste disponible.97tests logiciels ciblés passent. Aucune rédaction du
 rapport parCodex et aucun PASS automatique. Reprise dans la même mission.
+
+
+### Rectification de la date et sélection des citations
+
+Contrôle indépendant67371 : le document reprend exactement l’horloge
+2026-10-28T13:15:58 fournie dans le contexte66932 avant l’écriture66938.
+La réserve67200 comparait à tort cette date à la création de mission ; elle
+est retirée par erratum lié, sans effacer le FAIL67201. JARVIS n’a pas
+« corrigé » cette date : le contrôle fautif est attribué au vérificateur.
+[Preuve](RECTIFICATION-HORODATAGE-RAPPORT.json).
+
+La seconde revue couvre les14passages mais le contrôle des causes refuse
+ensuite deux réponses67406/67411 : le modèle remplace Ommission par Omission
+dans une citation censée être exacte. Vérification67412 INSUFFICIENT et
+escalade67415 conservées. CorrectifCodex67417 : sélection d’une ligne ou d’un
+paragraphe original dans le schéma ; catégorie et verdict restent choisis
+parlemodèle sans diagnostic attendu. Le champ observed d’une observation
+ducoordinateur est aussi conservé dans sa projection, avec auteur/type/heure.
+98tests logiciels ciblésPASS. Reprise native requise, aucune réception déduite.
