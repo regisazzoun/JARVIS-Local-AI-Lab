@@ -185,3 +185,27 @@ Contexte précédent archivé66437 ; remise en file66438, cycle18 réellement
 commencé66439 et admission native66444 à27455/27648octets, fenêtre32768.
 Le modèle garde la rédaction du rapport, ses décisions et la suite du plan3.
 Aucun attester applicatif déployé, aucune préparation ni P4 reçue ici.
+
+## Passage périodique : faits déjà consultés, refus66513
+
+Le passage1 de cette cause démarre66515. La mission est interrupted, sans
+appel outil en cours. Les trois refus comparables de mission_report_facts
+sont conservés ; le reçu réussi ef0f4ae3438d4c41b7a2e2911efa9a61 existe déjà.
+Les deux fichiers d'unité et les observations show natives ont aussi réussi.
+Le contexte courant présentait surtout la dernière sortie show volumineuse.
+
+Codex projette66516 des extraits référencés de quatre vrais reçus natifs,
+sans refaire de lecture système ni écrire le rapport du modèle. Le rappel
+corrige explicitement la relecture des faits déjà reçus ; les attributions et
+limites restent exigées. Préflight hors inférence66520 du dernier payload réel
+avec cette projection :27377/27648octets, host_write_file présent. Ce rejeu de
+projection ne garantit pas à lui seul l'admission du prochain contexte reconstruit.
+Ancien dialogue archivé66521, remise en file66522 ; même plan3, tâches,
+originaux, compteurs et fenêtre32768. Aucun changement logiciel, redémarrage,
+attester applicatif ou réception de préparation/P4 dans cette intervention.
+La rédaction et les choix techniques restent àQwen ; aucune autonomie sans
+aide n'est déduite de cette correction de contexte Codex.
+
+Confirmation native : cycle19 commencé66523, admission réelle66528 à
+27377/27648octets après compaction, capacité32768 observée via api/ps.
+L'inférence utile est laissée finir ; admission ne vaut pas rapport reçu.
