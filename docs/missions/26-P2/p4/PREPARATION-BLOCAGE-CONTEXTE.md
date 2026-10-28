@@ -70,3 +70,37 @@ Codex. Les missions sans option gardent les sept outils historiques du plan.
 L’option ne peut pas ouvrir host_exec avant le plan même si son nom est fourni.
 Cinq tests de portée PASS ; source3c1065d installé dans les workers,65658.
 Même mission, compteur d’incidents3 conservé, aucune réinitialisation des erreurs.
+
+### Escalade de planification et correction du système
+
+Trois plans natifs refusés (critères incomplets / conteneurs mal formés), puis
+une assistance de contexte neuf au mêmeQwen80B, bornée à trois propositions :
+65775,65781,65787. Aucune n'est recevable, aucune n'est appliquée ; aucune
+quatrième proposition assistée. Les deux dernières sorties sont archivées avant
+validation ; la première n'a pas été conservée intégralement par le harnais
+Codex, défaut du harnais rectifié et signalé. Les plans devinaient notamment
+config.yaml et startup.log, ainsi que des champs de vérification inexistants.
+Ce ne sont pas des tests de l'application et aucun FAIL fonctionnel n'en découle.
+
+Codex identifie ensuite une vraie contradiction du moteur : l'instruction
+système demande encore une lecture initiale alors que planning_tools la ferme.
+La branche d'outil indisponible précède également le garde des signatures et peut
+répéter son refus. Source8db4f20 corrige l'instruction conditionnelle et réutilise
+le compteur d'interface persistant existant avec bounded_interface_errors=true
+sur cette mission normale. Six testsPASS, dont un vraiDurableCycle avec trois
+appels host_exec indisponibles aux paramètres différents : trois refus, une
+escalade, aucun corps de commande exécuté, événements relus après réouverture.
+Les37tests du composantAuthority ont aussi passé pendant cette intervention.
+
+Installation65793, archivage de l'ancien contexte par rebase_context, sans
+suppression des reçus, incidents ou propositions. Même unité remise en file
+avec un changement réel du système, pas une quatrième proposition assistée.
+Aucun plan Codex fourni. La préparation et P4 restent NON VALIDÉES tant que les
+preuves et livrables attendus ne sont pas obtenus.
+
+Capacité manquante confirmée dans le broker : les deux unités workers étaient
+absentes de la politique host_service. Codex ajoute seulement status/show/
+is-active/is-enabled et la lecture des deux fichiers d'unité (65777). Aucun
+restart/stop/déploiement accordé par ce complément ; sauvegarde privée de la
+politique, relecture à chaque requête sans arrêt du broker. Les autres entrées
+restent préservées. Qwen doit utiliser lui-même ces observations.

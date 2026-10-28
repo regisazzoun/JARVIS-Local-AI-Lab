@@ -1,3 +1,7 @@
+## P4 — reprise technique du28octobre2026
+
+Contexte corrigé7470d62 installé65588 ; fenêtre32768 conservée. Les propositions de plan imbriqué ont échoué, originaux/compteurs conservés. Après escalade, adaptateur plat571956d installé65968 : Qwen choisit chaque étape, même mission_plan/SQLite et mêmes contrôles de couverture/prose. Trois étapes réellement sauvegardées, couverture du plan3 acceptée66089 ; exécution de la première tâche relancée après correction de la vue d’interface66105. Aucun déploiement de l’attestation applicative ni réceptionP4. Paquet de coordination corrigé65937 pour retirer une lecture déjà effectuée ; ne pas remettre cette consigne obsolète. Interface mission_plan_report_step opt-in ; ni quatrième proposition assistée ni remise à zéro. [Dossier](docs/missions/26-P2/p4/PLANIFICATION-PLATE.md). Supervision normale suit aussi last_progress du worker ; garde3refus et périmètre identique.
+
 ## P4 — candidat reçu, préparation canonique transmise le28octobre2026
 
 Candidat worker **VALIDÉ AVEC RÉSERVES**, réception65474 : application réelle JARVIS64975 surDell1, même manifeste synchronisé65185, quatre cas exécutés65099/Dell1 et65210/Dell2 (conformePASS, divergenceFAIL, absentINSUFFICIENT, désactivé sansrapport). Code de raccordement **Qwen80B assisté parCodex après escalade**, oracle et contrôle indépendantCodex. Originaux, refus et errata conservés. Ces essais isolés ne prouvent aucun déploiement canonique ni réceptionglobaleP4.
