@@ -38,7 +38,7 @@ def task_gate(registry, task, chosen):
             return False
         if name in ('host_exec','host_write_file','host_edit_file','host_delete_file','skill_test','skill_run','host_ansible','mcp_tools'):
             return True
-        if name=='host_service':return action not in ('status','is-active','is-enabled')
+        if name=='host_service':return action not in ('status','show','is-active','is-enabled')
         if name=='host_project_service':return action not in ('status','logs')
         if name=='host_package':return action!='status'
         if name=='host_remote':return action in ('write_file','package_install','project_exec','service','supervision_install','desktop_configure','tailscale_configure')

@@ -4,6 +4,22 @@ from unittest.mock import Mock
 from jarvis.mission_store import MissionStore
 from jarvis.legacy_attempts import guarded,settle
 class CanonicalGuardTests(unittest.TestCase):
+ def test_service_show_is_an_observation_even_while_real_mutation_is_unknown(self):
+  from pathlib import Path
+  from jarvis.tools import Registry
+  from jarvis.memory import Memory
+  with self.assertRaises(ConnectionError):
+   guarded(self.reg,'host_exec',{'command':'fixture effect'},Mock(side_effect=ConnectionError('lost')),True)
+  reg=Registry(Memory(Path(self.temp.name)/'memory.sqlite'),self.temp.name)
+  reg.mission_store=self.s;reg.context={'mission_id':self.m,'task_id':'task'}
+  service=Mock(return_value={'returncode':0,'stdout':'ActiveState=active'})
+  reg.specs['host_service']=('fixture service',{'service':{'type':'string'},'action':{'type':'string'}},['service','action'],'host_authorized',service)
+  self.assertTrue(reg.execute('host_service',{'service':'fixture.service','action':'show'})['ok'])
+  blocked=reg.execute('host_service',{'service':'fixture.service','action':'restart'})
+  self.assertFalse(blocked['ok']);self.assertEqual(service.call_count,1)
+  rows=self.s.attempt_ledger(self.m).snapshot()['attempts'];self.assertEqual(len(rows),1)
+  self.assertEqual(rows[0]['state'],'VALIDATION_INCONCLUSIVE');self.assertTrue(rows[0]['unknown_outcome'])
+
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.s=MissionStore(self.temp.name);self.m=self.s.create('goal','model','conversation');self.contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/fixture.json'}},'expected':{'/value':42}}
   self.s.plan(self.m,[{'id':'task','title':'task','contract':{'semantic':[self.contract]}}]);self.reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'task'})
