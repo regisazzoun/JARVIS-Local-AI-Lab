@@ -612,3 +612,39 @@ Résultat natif observé après résolution68937 et remise en file68938 : cycle4
 admission68944 réussie à27257octets/27648, fenêtre réellement observée32768.
 Mission running, t1 active ; inférence utile laissée finir. Cette admission
 confirme la correction de capacité, sans prouver le rapport ni sa réception.
+
+## Passage3 répétition host_read_file — sélection de rédaction t1
+
+Escalade69000 : la lecture directe reste répétée malgré les deux reçus complets
+déjà conservés et le budget respecté. Mission interrupted, zéro mission running
+et zéro appel started observés avant intervention. Les corrections précédentes
+sont présentes ; aucun cat ni ancien rapport reçu n'a été rejoué parCodex.
+
+Correction de configurationCodex69003 : retrait de `host_read_file` de
+`execution_tool_focus` pour la seule tâche t1. Les outils de rédaction,
+vérification et clôture restent proposés ; la vérification native conserve sa
+lecture indépendante du rapport et tous ses contrôles. Aucun changement de
+code, contrat, plan3, goal65937, autre tâche ou service. Sauvegarde privée,
+comparaison stricte des tables tâches/plans/problèmes/tentatives avant remise
+en file : inchangées. Les compteurs historiques restent conservés.
+
+Instruction69004, dialogue archivé69005, remise en file69006. Cycle44 : archive
+native69010 et checkpoint69011 contrôlés, relecture directe absente des schémas,
+deux reçus complets68869/68871 présents. Admission69012 à25515octets/27648 avec
+fenêtre32768. Six tests ciblés de contexte PASS. Qwen garde la rédaction et la
+vérification ; une admission n'est pas une réception du rapport.
+
+Directives relues : AGENTS, charte, présent dossier, réception68595, supervision,
+SUIVI/ROADMAP. L'ancien périmètreP2 du prompt historique ne remplace pas l'ordre
+courant P4-ACTIVE-PREP. Aucun MANUAL-HOLD, agent parallèle, déploiement applicatif
+ni réception t1/préparation/P4. Aucun compteur du superviseur modifié.
+
+Qwen a ensuite proposé deux textes t1 (69016/69028), mais leurs écritures ont
+été refusées avant exécution69017/69029 : autre tentative ancienne de lecture
+du rapport absent, reçu68832 rc1, encore VALIDATION_INCONCLUSIVE. Escalade69031
+conservée. RectificationCodex69033/69034 : tentative retirée BLOCKED, issue
+connue, sans PASS ni effacement des incidents ; le reçu initial et la sauvegarde
+privée gardent le résultat original. Les compteurs problèmes sont comparés
+inchangés. Instruction69035 et reprise après correction effective, sans appel
+started ni inférence interrompue. Ces propositions refusées ne sont ni un
+rapport écrit ni des tests fonctionnels échoués.
