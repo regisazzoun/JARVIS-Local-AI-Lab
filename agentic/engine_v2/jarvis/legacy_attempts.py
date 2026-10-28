@@ -31,13 +31,30 @@ def pending_report_validation(store,mission,task_id):
         if result.get('returncode')!=0 or not result.get('started',{}).get('child_started'):return None
         phase={'VALIDATION_INCONCLUSIVE':'verify','EXECUTED_TEST_FAILED':'correct','SUCCESS':'complete'}[row['state']]
         verdict=result.get('verification',{})
+        feedback={'verification_event':verdict.get('verification_event'),'status':verdict.get('status'),
+                  'global_findings':[str(x)[-300:] for x in verdict.get('issues',[])[:4]],
+                  'issue_count':len(verdict.get('issues',[])),
+                  'meaning':'Reviewer findings about a prior report, not new operational facts. Inspect original proofs and correct your own prose.'}
+        if phase=='correct' and verdict.get('sha256'):
+            with store.db() as c:
+                review=c.execute("SELECT id,result FROM mission_events WHERE mission=? AND task=? AND kind='narrative_review' AND json_extract(result,'$.draft_sha256')=? ORDER BY id DESC LIMIT 1",(mission,task_id,verdict['sha256'])).fetchone()
+            if review:
+                from .mission_assurance import finding_rectifications
+                original=json.loads(review['result']);reference='event:'+str(review['id'])
+                erratum=finding_rectifications(store,mission).get(reference,{})
+                withdrawn=erratum.get('withdrawn_findings',[])
+                issues=[x for x in original['issues'] if x not in withdrawn]
+                rejected=[claim for claim in original.get('claims',[]) if claim.get('verdict') in ('contradicted','insufficient')]
+                feedback.update(review_reference=reference,global_findings=[str(x)[:300] for x in issues if ' => ' not in x][:4],
+                    rejected_passages=[{'segment':x['segment'],'quote':x['quote'][:300],
+                        'quote_is_excerpt':len(x['quote'])>300,'reason':x.get('reason',''),
+                        'verdict':x['verdict'],'references':x.get('references',[])} for x in rejected[:3]],
+                    rejected_passage_count=len(rejected),issue_count=len(issues),
+                    erratum_reference=erratum.get('reference'),original_review_status=original['status'])
         return {'attempt':row['id'],'phase':phase,'report_path':path,'write_returncode':0,
                 'expected_written_content_sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),
                 'verification_calls':[{'contract':'active:'+str(i)} for i in range(len(contract['semantic']))],
-                **({'review_feedback':{'verification_event':verdict.get('verification_event'),
-                    'status':verdict.get('status'),'issues':[str(x)[:250] for x in verdict.get('issues',[])[:6]],
-                    'issue_count':len(verdict.get('issues',[])),
-                    'meaning':'Reviewer findings about the prior report; inspect original evidence and correct your own prose.'}} if phase=='correct' else {}),
+                **({'review_feedback':feedback} if phase=='correct' else {}),
                 'meaning':{'verify':'Completed write only; verify the persisted report before another write. A rejected rewrite draft did not replace it.',
                            'correct':'Observed report verification failed; correct the recorded findings and verify the new file. Unrelated planning/service work is not needed for this correction.',
                            'complete':'Write and verification are recorded; normal task completion still checks freshness and every original criterion.'}[phase]}

@@ -93,6 +93,26 @@ class ReportStepTests(unittest.TestCase):
    c.execute('INSERT INTO mission_attempts_v2 ('+','.join(row)+') VALUES ('+','.join('?' for _ in row)+')',tuple(row.values()))
   self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
 
+ def test_corrective_feedback_keeps_reason_and_exact_controller_errata(self):
+  from jarvis.legacy_attempts import pending_report_validation,settle
+  import hashlib
+  reg=self.completed_report_write();sha=hashlib.sha256(b'Software fixture report').hexdigest()
+  wrong='Formatting is not a technical failure';quote='Long original statement '*40
+  finding=quote+' => contradicted: Wrong actor'
+  review=self.s.event(self.m,'narrative_review','a',result={'draft_sha256':sha,'status':'FAIL',
+      'issues':['Historical FAIL must be retained',wrong,finding],
+      'claims':[{'segment':'S2','quote':quote,'reason':'Wrong actor','verdict':'contradicted','references':['actor:Codex']}]})
+  erratum=self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={
+      'withdrawn':[{'event':review,'findings':[wrong]}],'reason':'Formatting is not factual'})
+  verdict={'status':'FAIL','sha256':sha,'contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]}
+  self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
+  feedback=pending_report_validation(self.s,self.m,'a')['review_feedback']
+  self.assertEqual(feedback['global_findings'],['Historical FAIL must be retained'])
+  self.assertEqual(feedback['rejected_passages'][0]['reason'],'Wrong actor')
+  self.assertTrue(feedback['rejected_passages'][0]['quote_is_excerpt'])
+  self.assertEqual(feedback['erratum_reference'],'event:'+str(erratum))
+  self.assertEqual(feedback['original_review_status'],'FAIL');self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
  def test_execution_projection_keeps_identity_owner_goal_and_stored_criterion(self):
   from jarvis.core import Core
   from jarvis.missions import Missions
