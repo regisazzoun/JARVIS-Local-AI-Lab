@@ -298,6 +298,14 @@ class ContextBudget:
     failure['meaning']='Historical failure; full error in canonical tool receipt. Not a functional verdict.'
    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
   if serialized_bytes(candidate)>budget:
+   # Preserve every refusal count with its fingerprint, using a compact map.
+   # Full epoch/category bindings remain in the referenced checkpoint.
+   counters=active.get('interface_counters',[])
+   if counters and all('category_sha256' in c for c in counters):
+    active['interface_counters']={c['category_sha256']:c['count'] for c in counters}
+    active['interface_counters_checkpoint']=checkpoint_id
+   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+  if serialized_bytes(candidate)>budget:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Mandatory policy/objective/contracts/tool schema exceed capacity; coordinator must split the task, not silently truncate constraints'})
    raise ContextCapacityError('Mandatory active task does not fit: checkpoint saved, no inference dispatched')
   original[:]=candidate['messages'];payload['messages']=original

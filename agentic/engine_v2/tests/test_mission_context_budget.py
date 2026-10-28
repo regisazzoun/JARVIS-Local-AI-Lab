@@ -47,6 +47,23 @@ class ContextTests(unittest.TestCase):
   self.assertEqual(compacted['task_contract']['semantic'],[self.contract])
   self.assertEqual(compacted['latest_tool_failure']['error'],'FileNotFoundError: /report.md')
   self.assertEqual(self.s.observations(self.m,'task')[-1]['result']['error'],error)
+ def test_compact_counter_map_preserves_all_refusals(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'compact_semantic_references':True}),self.m))
+  for i in range(17):self.s.event(self.m,'authority_interface_failure',result={'epoch':'initial','category':'tool:'+str(i),'count':i%3+1})
+  found=None
+  for limit in range(5000,11000,25):
+   p=self.payload()
+   try:self.b.prepare(p,{'limit':limit})
+   except ContextCapacityError:continue
+   state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+   if isinstance(state.get('interface_counters'),dict):found=state;break
+  self.assertIsNotNone(found)
+  from jarvis.mission_context_budget import sha
+  self.assertEqual(found['interface_counters'],{sha(['initial','tool:'+str(i)]):i%3+1 for i in range(17)})
+  self.assertEqual(found['objective'],'current objective')
+  checkpoint=self.b.latest('operational_checkpoint')[0]
+  self.assertEqual(found['interface_counters_checkpoint'],checkpoint['id'])
+  self.assertEqual(len(checkpoint['result']['checkpoint']['interface_counters']),17)
  def test_reserved_operation_ids_survive_compaction_without_mutating_ledger(self):
   operations={'inspect-20250621-002':{'arguments':{'executor':'Dell2','command':'original'},'result':{'returncode':0}},'uncertain-op':{'arguments':{'executor':'Dell1','command':'maybe-write'}}}
   self.s.event(self.m,'authority_state',result={'operations':operations})

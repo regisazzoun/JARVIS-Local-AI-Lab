@@ -223,3 +223,23 @@ relance inchangée : les compteurs, le problème de capacité escaladé et les d
 refus mission_verify restent intacts. Prochaine correction à examiner : budget
 de la projection après verdict de rapport absent, puis écriture réelle parQwen
 avant toute nouvelle vérification. Aucun rapport, préparation ou P4 reçu.
+
+## Passage2 après incident7 : compteurs projetés sans répétition des clés
+
+Le passage66548 constate zéro mission running et zéro appel commencé en attente.
+La dernière projection conservait17compteurs d'interface avec les mêmes clés
+JSON répétées. Codex compacte ce seul format en dictionnaire empreinte→compteur,
+en dernier recours d'admission ; toutes les valeurs restent présentes et les
+liaisons epoch/catégorie restent dans le checkpoint référencé. Aucun garde,
+objectif, contrat ou compteur n'est retiré.41tests de contexte passent, dont
+un nouveau cas conservant les17compteurs et le checkpoint complet.
+
+Sauvegarde privée du module installé, rechargement des seuls deux workers
+sans opération active ; aucun attester applicatif installé. Instruction66549,
+préflight66553 du vrai payload66540 :27525/27648octets, sans inférence.
+Seul le problème de capacité est marqué résolu66554, infra_incidents=7 et
+failed_cycles=0 conservés. Ancien contexte archivé66555, remise en file66556.
+Le rapport absent66534 et son verdict INSUFFICIENT66535 restent historiques.
+Qwen garde rédaction/choix ; le paquet exige l'écriture avant nouvelle
+vérification, sans quatrième relecture des faits reçus. Aucun rapport,
+préparation ou P4 reçu sur ce préflight ; admission native suivante à observer.
