@@ -36,3 +36,23 @@ LANCEMENT-ACTIF-PREPARATION.json, PAQUET-SUIVANT-ACTIF.md et dernier état de
 RECEPTION-CANDIDAT-WORKER.md. Autorisations autonomes conservées ; pas de
 contradiction ajoutée. Aucun MANUAL-HOLD. Registre reçu inchangé ; P4 et phase2
 restent non validées. Candidat65474/P2/P3 non rejoués, aucune autre mission.
+
+## Reprise interactive autorisée du28octobre2026
+
+Le propriétaire demande « reprend ». Codex installe le correctif7470d62 dans
+le SDK d’orchestration canonique (65588), après38tests PASS avec le venv réel.
+Un premier lancement avec le Python système manquait jsonschema : erreur de
+l’environnement de test, corrigée en réutilisant le venv, sans installation.
+Préflight courant65587 :27371octets/27648, objectif complet conservé,
+aucune inférence ni outil exécuté pendant ce préflight. La marge277octets reste
+faible et ne prouve pas l’admission des tours suivants.
+
+Même mission remise en file après changement réel du code, et seulement après
+vérification de l’absence d’appel started dans cette mission. Les trois
+incidents d’infrastructure et zéro échec fonctionnel restent conservés ; le
+problème est marqué RESOLVED, sans effacer l’escalade ni les compteurs.
+Sauvegarde privée du module avant installation ; retour arrière par restauration
+du module et redémarrage des deux workers. Aucune autre mission relancée,
+aucun déploiement de l’attestation applicative candidate dans cette correction.
+Instruction65583 : le paquet a déjà été lu, enregistrer le plan choisi parQwen
+puis observer les services, sans refaire la lecture.
