@@ -231,6 +231,9 @@ class ContextBudget:
       result.pop('content',None)
       result['content_reference']='latest_successful_read.content; duplicate prefix omitted, full receipt retained'
   if self.task:
+   from .legacy_attempts import pending_report_validation
+   pending_report=pending_report_validation(self.store,self.m,self.task)
+   if pending_report:active['pending_report_validation']=pending_report
    # Compaction must not hide already verified criteria or a written report.
    # These are canonical backend facts, not a model-authored progress summary.
    status=self.store.contract_status(self.m,self.task)

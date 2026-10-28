@@ -447,6 +447,14 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 schemas=[s for s in schemas if s['function']['name']!='intervention_report']
                 if json.loads(mission['spec']).get('planning_report_steps'):
                     messages[0]['content']=report_execution_prompt(identity)+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
+                    from .legacy_attempts import pending_report_validation
+                    pending_report=pending_report_validation(store,ident,task_id)
+                    if pending_report:
+                        schemas=[s for s in schemas if s['function']['name'] in {
+                            'mission_verify','mission_report_review','host_read_file',
+                            'mission_evidence','mission_note','context_recall'}]
+                        messages.append({'role':'user','content':'Écriture déjà terminée, vérification requise : '+encoded(pending_report)})
+                        store.event(ident,'pending_report_verification_focus',task_id,'JARVIS-engine',result=pending_report)
             if json.loads(mission['spec']).get('distributed_authority'):
                 from .distributed_authority import TOOLS, Authority, model_view as authority_view, working_state as authority_working_state
                 names=set(TOOLS) if not current_tasks or not all(t['state']=='validated' for t in current_tasks) else {'intervention_report'}

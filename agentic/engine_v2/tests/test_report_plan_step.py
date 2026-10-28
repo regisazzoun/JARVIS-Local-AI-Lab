@@ -5,6 +5,56 @@ from jarvis.tools import Registry
 from jarvis.memory import Memory
 from jarvis.mission_store import MissionStore
 class ReportStepTests(unittest.TestCase):
+ def completed_report_write(self):
+  from types import SimpleNamespace
+  from jarvis.legacy_attempts import guarded
+  self.assertTrue(self.save()['ok'])
+  reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'a'})
+  guarded(reg,'host_write_file',{'path':'/project/a.md','content':'Software fixture report'},lambda a:{'returncode':0,'evidence_id':'software-fixture-write'},True)
+  return reg
+
+ def test_pending_report_projection_requires_known_completed_matching_write(self):
+  from jarvis.legacy_attempts import pending_report_validation
+  import hashlib
+  self.completed_report_write()
+  p=pending_report_validation(self.s,self.m,'a');self.assertIsNotNone(p)
+  self.assertEqual(p['expected_written_content_sha256'],hashlib.sha256(b'Software fixture report').hexdigest())
+  self.assertEqual(p['verification_calls'],[{'contract':'active:0'}]);self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+  self.assertIsNone(pending_report_validation(self.s,self.m,'other-task'))
+  with self.s.db() as c:c.execute('UPDATE mission_attempts_v2 SET unknown_outcome=1 WHERE id=?',(p['attempt'],))
+  self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
+
+ def test_actual_cycle_focuses_validation_then_restores_tools_after_observed_failure(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  from jarvis.legacy_attempts import settle,pending_report_validation
+  reg=self.completed_report_write();identity=self.root/'identity.txt';identity.write_text('Full test identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[]
+  def transport(payload):
+   captured.append(payload)
+   return {'tool_calls':[{'function':{'name':'mission_note','arguments':{'content':'Software fixture, not an actual model'}}}]}
+  missions.execution_core.transport=transport;missions.cycle.run(self.s.get(self.m))
+  names={t['function']['name'] for t in captured[-1]['tools']}
+  self.assertIn('mission_verify',names);self.assertNotIn('host_write_file',names);self.assertNotIn('mission_plan_report_step',names)
+  verdict={'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]}
+  self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
+  self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
+  missions.cycle.run(self.s.get(self.m))
+  names={t['function']['name'] for t in captured[-1]['tools']};self.assertIn('host_write_file',names)
+  attempt=self.s.attempt_ledger(self.m).snapshot()['attempts'][0]
+  self.assertEqual(attempt['state'],'EXECUTED_TEST_FAILED');self.assertFalse(attempt['unknown_outcome'])
+
+ def test_validation_instruction_survives_budget_compaction(self):
+  from jarvis.mission_context_budget import ContextBudget
+  self.completed_report_write()
+  payload={'model':'fixture','messages':[{'role':'system','content':'Complete policy'},{'role':'user','content':'old '*30000}],'options':{'num_predict':1024},'tools':[]}
+  result=ContextBudget(self.s,self.m,'a').prepare(payload,{'limit':16384})
+  state=json.loads(result['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['pending_report_validation']['report_path'],'/project/a.md')
+  self.assertEqual(state['pending_report_validation']['verification_calls'],[{'contract':'active:0'}])
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
  def test_execution_projection_keeps_identity_owner_goal_and_stored_criterion(self):
   from jarvis.core import Core
   from jarvis.missions import Missions

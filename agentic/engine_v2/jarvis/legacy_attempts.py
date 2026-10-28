@@ -4,7 +4,34 @@ A broker process success remains inconclusive until the persisted task predicate
 are independently observed. This never promotes a transport rc0 to acceptance.
 """
 import json
+import hashlib
 from .attempt_ledger import digest
+
+
+def pending_report_validation(store,mission,task_id):
+    """A completed report write needs observation, not another mutation.
+
+    Return only durable execution facts. Unknown executions and unrelated tasks
+    never become known writes by this projection.
+    """
+    if not task_id:return None
+    spec=json.loads(store.get(mission)['spec'])
+    if not spec.get('planning_report_steps'):return None
+    task=next((t for t in store.tasks(mission) if t['id']==task_id),None)
+    contract=(task or {}).get('contract',{});path=contract.get('report_path')
+    if not path or not any(c.get('kind')=='report' for c in contract.get('semantic',[])):return None
+    with store.db() as c:
+        if not c.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='mission_attempts_v2'").fetchone():return None
+        rows=c.execute("SELECT id,request,result FROM mission_attempts_v2 WHERE mission=? AND state='VALIDATION_INCONCLUSIVE' AND unknown_outcome=0 ORDER BY created DESC",(mission,)).fetchall()
+    for row in rows:
+        request=json.loads(row['request']);result=json.loads(row['result']);args=request.get('arguments',{})
+        if request.get('task')!=task_id or request.get('tool')!='host_write_file' or args.get('path')!=path:continue
+        if result.get('returncode')!=0 or not result.get('started',{}).get('child_started'):continue
+        return {'attempt':row['id'],'report_path':path,'write_returncode':0,
+                'expected_written_content_sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),
+                'verification_calls':[{'contract':'active:'+str(i)} for i in range(len(contract['semantic']))],
+                'meaning':'Completed write only; report facts not yet verified. Read and verify the persisted report before any new write. A rejected rewrite draft did not replace this file.'}
+    return None
 
 
 def task_contract(reg):
