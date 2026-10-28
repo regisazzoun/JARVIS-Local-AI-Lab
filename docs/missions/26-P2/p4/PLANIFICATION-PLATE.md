@@ -267,3 +267,39 @@ Cycle21 commencé66695 ; admission native66700 réellement passée à
 laissée finir. Aucun code modifié, service rechargé, MANUAL-HOLD créé,
 attester déployé ni préparation/P4 reçue dans ce passage. STATE et tous
 compteurs du coordinateur conservés.
+
+## Passage final3/3 : rapport écrit, réception toujours manquante
+
+Passage66717, diagnostic Codex66718 : mission interrupted, aucune mission
+running ni appel outil started. Aucune relance inchangée, remise à zéro,
+modification logicielle, opération systemd ou création MANUAL-HOLD.
+STATE du coordinateur et tous compteurs restent conservés.
+
+Correction des indications précédentes de rapport absent : Qwen avait écrit
+le rapport contractuel au reçu66615 (rc0,7778octets). Lecture indépendante
+Codex66718 confirme son existence, SHA256
+`ac1251604c708777a137327a26ad0ab6455b31c3feef8c178cf61862a58509b0`.
+Cette présence ne vaut aucune réception du contenu. L'écriture canonique
+`ebaaa1012d0e4771bb37555e218c4424` reste VALIDATION_INCONCLUSIVE,
+unknown_outcome=0 : effet connu, validation encore requise.
+
+Au cycle21, Qwen a proposé une réécriture66705, refusée66706 avant dispatch
+par ce garde. Le brouillon refusé reste dans le journal ; il n'a pas remplacé
+le fichier66615. Son affirmation de lien symbolique entre les unités et son
+assimilation du candidat au seul slot2 ne sont pas étayées par les reçus.
+Le rapport existant comporte aussi des références mal attribuées :
+66291/66335 sont des lectures de fichiers d'unité, pas show slot2 ;
+66367/66368 sont des projections de contexte, pas de nouvelles permissions.
+Les chemins slot3 hypothétiques et un contrôle syntaxique ne démontrent
+ni canari déployé ni code Python chargé. Aucun de ces textes n'est reçu.
+
+Après ce refus, admission66712 arrêtée avant l'inférence suivante :
+34692octets avant compaction, borne27648 ; incident8 et escalade66714
+conservés, zéro échec fonctionnel déduit. La fenêtre32768 reste inchangée.
+Le diagnostic final ne résout pas artificiellement cet incident : prochaine
+correction technique nécessaire, une projection bornée permettant à Qwen de
+vérifier l'écriture existante avant toute nouvelle mutation, puis de corriger
+son rapport selon les preuves et de poursuivre son plan3. Aucun nouveau plan
+fourni parCodex, aucun quatrième essai de stratégie refusée. Après réception
+réelle de toute la préparation seulement, intégration autorisée sans nouvelle
+validation humaine. Préparation et P4 restent EN COURS — NON VALIDÉES.
