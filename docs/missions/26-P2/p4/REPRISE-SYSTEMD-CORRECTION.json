@@ -14,5 +14,17 @@
   "P4_received": false,
   "software_tests": 182,
   "old_failures_and_counters_retained": true,
-  "resolution_event": 71125
+  "resolution_event": 71125,
+  "native_verification_pass_events": [
+    71134,
+    71135
+  ],
+  "native_task_closure_events": [
+    71313,
+    71314
+  ],
+  "native_task_state": "validated",
+  "independent_preparation_reception": false,
+  "phase_diagnosis_event": 71340,
+  "final_preparation_instruction_event": 71341
 }

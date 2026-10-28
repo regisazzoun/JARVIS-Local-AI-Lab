@@ -142,3 +142,22 @@ Le nouveau texte reçoit PASS71134/71135. Après un premier refus d’identifian
 clôture avec l’identifiant de tâche correct ; aucun appel de clôture n’a été
 effectué à sa place par Codex. Le contrôle natif de clôture est en cours à la
 transmission. Un PASS de texte ne reçoit ni le déploiement canonique ni P4.
+
+
+## Clôture systemd acquise, passage au bilan de préparation
+
+Clôture native réussie71313/71314 après le second appel JARVIS71168 :
+`step-1-a-observation-systemd` est `validated`, même SHA256
+`c441c3b46f8cb667bcb4935821b0f95141abde0d123b4fce4b861206d5dd4f25`.
+Les trois tâches du plan3 sont validées. Aucun appel de clôture fait par Codex.
+La préparation entière attend toujours son bilan et sa réception indépendante.
+
+Après mission_progress71325, Qwen a demandé host_service hors de la phase
+finale : refus71335, compteur historique4 et escalade71337 conservés.
+Diagnostic Codex-periodic71340 : ce refus ne démontre pas une capacité service
+manquante et ne justifie pas une nouvelle lecture. Consigne71341 limitée au
+bilan final via les outils offerts, sans refaire les rapports reçus ni leurs
+vérifications. Ancien contexte de travail archivé, tâches, STATE, preuves et
+compteurs préservés ; reprise queued dans le même moteur. Aucun changement
+logiciel ou nouveau test requis par cette transition. P4 reste ouverte, aucun
+attester canonique déployé, aucune autonomie éditoriale globale reçue.
