@@ -701,3 +701,32 @@ restants conservés. Contrôle69345 : bons reçus sélectionnés, rapport inchan
 parCodex, compteurs inchangés. Blocage résolu techniquement sans faux succès.
 Qwen reprend la correction de sa rédaction puis la vérification dans le même
 plan3 ; aucune réceptiont1/P4 et aucun déploiement d’attestation déduits.
+
+
+## Brouillon conservé après résolution explicite de l’escalade
+
+Après la correction des sources, JARVIS demande encore une lecture du rapport
+et atteint69380 : le brouillon existe, mais sa projection disparaissait lorsque
+l’ancienne écriture passait ESCALATED après FAIL, même une fois le problème
+explicitement RESOLVED parCodex. Correction du cycle de reprise : seuls les
+anciens rapports effectivement écrits (enfantrc0), relus àempreinte identique,
+avec FAIL observé et problèmeRESOLVED, reviennent en phasecorrect. L’ancienne
+tentative reste ESCALATED ; aucune issue inconnue n’est projetée comme écrite.
+106tests ciblésPASS, dont état non résolu toujours arrêté et compteur conservé.
+
+Le focus de rédaction déclaré est aussi conservé pendant cette correction ;
+les outils de vérification reviennent après la nouvelle écriture réelle.
+Préflight69391 à27444octets, mais l’entrée native69400/69402 dépasse encore
+la marge : ce refus reste conservé, aucune inférence n’a été lancée.
+
+CorrectionP3 ciblée : lorsque le brouillon complet est fourni et que l’entrée
+ne tient plus, garder ce brouillon entier ; remplacer seulement les copies
+des anciennes sources dans le contexte actif par chemins/références/SHA. Les
+textes intégraux restent dans le checkpoint déjà écrit ; le vérificateur reçoit
+toujours les sources originales complètes.107tests ciblésPASS, dont reprise
+avec brouillon intégral et sources complètes conservées hors contexte.
+
+Contrôle69413 : payload natif précédemment refusé69400 admis à26815octets/27648,
+brouillon entier présent, sources intégrales archivées et compteurs inchangés.
+Problème de capacité résolu avec ce correctif réel, aucun seuil relevé.
+Reprise native ; aucun texte rédigé parCodex ni réceptiont1/P4 déduite.

@@ -323,6 +323,13 @@ class ContextBudget:
     active['interface_counters']={c['category_sha256']:c['count'] for c in counters}
     active['interface_counters_checkpoint']=checkpoint_id
    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+  if serialized_bytes(candidate)>budget and active.get('pending_report_validation',{}).get('observed_draft') and active.get('retained_unit_file_reads'):
+   # The complete current draft has priority during editorial correction.
+   # Older complete source bodies stay in the already persisted checkpoint;
+   # their paths, exact receipt references and hashes remain in active context.
+   active['retained_unit_file_reads']=[{k:v for k,v in read.items() if k!='stdout'} for read in active['retained_unit_file_reads']]
+   active['unit_source_bodies_checkpoint']=checkpoint_id
+   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
   if serialized_bytes(candidate)>budget:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Mandatory policy/objective/contracts/tool schema exceed capacity; coordinator must split the task, not silently truncate constraints'})
    raise ContextCapacityError('Mandatory active task does not fit: checkpoint saved, no inference dispatched')

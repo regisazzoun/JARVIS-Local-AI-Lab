@@ -22,14 +22,20 @@ def pending_report_validation(store,mission,task_id):
     if not path or not any(c.get('kind')=='report' for c in contract.get('semantic',[])):return None
     with store.db() as c:
         if not c.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='mission_attempts_v2'").fetchone():return None
-        rows=c.execute("SELECT id,state,unknown_outcome,request,result FROM mission_attempts_v2 WHERE mission=? ORDER BY created DESC",(mission,)).fetchall()
+        rows=c.execute("SELECT id,problem,state,unknown_outcome,request,result FROM mission_attempts_v2 WHERE mission=? ORDER BY created DESC",(mission,)).fetchall()
     for row in rows:
         request=json.loads(row['request']);result=json.loads(row['result']);args=request.get('arguments',{})
         if request.get('task')!=task_id or request.get('tool')!='host_write_file' or args.get('path')!=path:continue
         # Never skip a newer unknown write to present an old report as current.
-        if row['unknown_outcome'] or row['state'] not in ('VALIDATION_INCONCLUSIVE','EXECUTED_TEST_FAILED','SUCCESS'):return None
+        if row['unknown_outcome']:return None
+        resumed=False
+        if row['state'] in ('BLOCKED','ESCALATED'):
+            with store.db() as c:
+                problem=c.execute('SELECT state FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(mission,row['problem'])).fetchone()
+            resumed=bool(problem and problem['state']=='RESOLVED' and result.get('verification',{}).get('status')=='FAIL')
+        if not resumed and row['state'] not in ('VALIDATION_INCONCLUSIVE','EXECUTED_TEST_FAILED','SUCCESS'):return None
         if result.get('returncode')!=0 or not result.get('started',{}).get('child_started'):return None
-        phase={'VALIDATION_INCONCLUSIVE':'verify','EXECUTED_TEST_FAILED':'correct','SUCCESS':'complete'}[row['state']]
+        phase='correct' if resumed else {'VALIDATION_INCONCLUSIVE':'verify','EXECUTED_TEST_FAILED':'correct','SUCCESS':'complete'}[row['state']]
         verdict=result.get('verification',{})
         feedback={'verification_event':verdict.get('verification_event'),'status':verdict.get('status'),
                   'global_findings':[str(x)[-300:] for x in verdict.get('issues',[])[:4]],
@@ -62,6 +68,7 @@ def pending_report_validation(store,mission,task_id):
                     observed_draft={'invocation_id':read['id'],'content':content,'sha256':hashlib.sha256(content.encode()).hexdigest(),'meaning':'Complete previously read draft matching the completed write. Correct this text; no repeated read needed. Final verification must independently read the resulting file.'}
                     break
         return {'attempt':row['id'],'phase':phase,'report_path':path,'write_returncode':0,
+                **({'resumed_after_coordinator_resolution':{'original_attempt_state':row['state'],'problem_state':'RESOLVED','old_failure_and_counts_unchanged':True}} if resumed else {}),
                 'expected_written_content_sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),
                 'verification_calls':[{'contract':'active:'+str(i)} for i in range(len(contract['semantic']))],
                 **({'review_feedback':feedback} if phase=='correct' else {}),

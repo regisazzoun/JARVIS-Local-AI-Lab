@@ -126,6 +126,58 @@ class ReportStepTests(unittest.TestCase):
   missions.cycle.run(self.s.get(self.m))
   names={s['function']['name'] for s in captured[-1]['tools']}
   self.assertIn('mission_verify',names);self.assertNotIn('host_write_file',names)
+  from jarvis.legacy_attempts import settle
+  settle(reg,{'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]})
+  read=self.s.begin_call(self.m,'a','host_read_file',{'path':'/project/a.md'})
+  self.s.finish_call(read,{'ok':True,'result':{'returncode':0,'stdout':'Software fixture report','stdout_truncated':False}},0)
+  missions.cycle.run(self.s.get(self.m))
+  self.assertEqual({s['function']['name'] for s in captured[-1]['tools']},{'host_write_file','mission_note','mission_block'})
+
+ def test_resolved_escalation_exposes_known_failed_draft_without_erasing_history(self):
+  import hashlib
+  from jarvis.legacy_attempts import settle,pending_report_validation
+  reg=self.completed_report_write();ledger=self.s.attempt_ledger(self.m)
+  attempt=ledger.snapshot()['attempts'][0]
+  with self.s.db() as c:c.execute('UPDATE mission_problems_v2 SET infra_incidents=2 WHERE mission=? AND fingerprint=?',(self.m,attempt['problem']))
+  verdict={'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0],'sha256':hashlib.sha256(b'Software fixture report').hexdigest()}
+  settle(reg,verdict)
+  self.assertEqual(ledger.get(attempt['id'])['state'],'ESCALATED')
+  self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
+  call=self.s.begin_call(self.m,'a','host_read_file',{'path':'/project/a.md'})
+  self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'Software fixture report','stdout_truncated':False}},0)
+  with self.s.db() as c:c.execute("UPDATE mission_problems_v2 SET state='RESOLVED' WHERE mission=? AND fingerprint=?",(self.m,attempt['problem']))
+  state=pending_report_validation(self.s,self.m,'a')
+  self.assertEqual(state['phase'],'correct');self.assertEqual(state['observed_draft']['content'],'Software fixture report')
+  self.assertTrue(state['resumed_after_coordinator_resolution']['old_failure_and_counts_unchanged'])
+  self.assertEqual(ledger.get(attempt['id'])['state'],'ESCALATED')
+  self.assertEqual(ledger.snapshot()['problems'][0]['infra_incidents'],3)
+  with self.s.db() as c:c.execute('UPDATE mission_attempts_v2 SET unknown_outcome=1 WHERE id=?',(attempt['id'],))
+  self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
+
+ def test_full_correction_draft_kept_while_old_unit_bodies_are_archived(self):
+  from jarvis.legacy_attempts import guarded,settle
+  from jarvis.mission_context_budget import ContextBudget
+  from types import SimpleNamespace
+  self.assertTrue(self.save()['ok']);body='Draft fixture. '*390
+  reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'a'})
+  guarded(reg,'host_write_file',{'path':'/project/a.md','content':body},lambda a:{'returncode':0,'evidence_id':'fixture-write'},True)
+  settle(reg,{'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]})
+  call=self.s.begin_call(self.m,'a','host_read_file',{'path':'/project/a.md'})
+  self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':body,'stdout_truncated':False}},0)
+  sources=['/etc/systemd/system/jarvis-mission-worker.service','/etc/systemd/system/jarvis-mission-worker@.service']
+  for path in sources:
+   call=self.s.begin_call(self.m,'a','host_exec',{'command':'cat '+path})
+   self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'[Service]\n'+'# source fixture\n'*200}},0)
+  counts=self.s.attempt_ledger(self.m).snapshot()
+  b=ContextBudget(self.s,self.m,'a')
+  result=b.prepare({'model':'fixture','messages':[{'role':'system','content':'Complete policy'},{'role':'user','content':'old '*30000}],'options':{'num_predict':1024},'tools':[]},{'limit':13000})
+  state=json.loads(result['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['pending_report_validation']['observed_draft']['content'],body)
+  self.assertTrue(all('stdout' not in source for source in state['retained_unit_file_reads']))
+  with self.s.db() as c:checkpoint=json.loads(c.execute('SELECT result FROM mission_events WHERE id=?',(state['unit_source_bodies_checkpoint'],)).fetchone()[0])['checkpoint']
+  self.assertEqual(len(checkpoint['retained_unit_file_reads']),2)
+  self.assertTrue(all(len(source['stdout'])>3000 for source in checkpoint['retained_unit_file_reads']))
+  self.assertEqual(counts,self.s.attempt_ledger(self.m).snapshot())
 
  def test_validation_instruction_survives_budget_compaction(self):
   from jarvis.mission_context_budget import ContextBudget
