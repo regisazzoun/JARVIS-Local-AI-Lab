@@ -1,0 +1,73 @@
+{
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "observed_at": 1793190296.5868177,
+  "current_state": "interrupted",
+  "plan_version": 3,
+  "native_narrative_review": 66871,
+  "semantic_verification": 66872,
+  "verdict": "FAIL",
+  "native_batches": [
+    {
+      "event": 66848,
+      "segments": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "full_report_received": false
+    },
+    {
+      "event": 66864,
+      "segments": [
+        "S18",
+        "S19",
+        "S20",
+        "S21",
+        "S22",
+        "S23",
+        "S24",
+        "S25"
+      ],
+      "full_report_received": false
+    },
+    {
+      "event": 66870,
+      "segments": [
+        "S26",
+        "S27",
+        "S28",
+        "S29",
+        "S30",
+        "S31",
+        "S32",
+        "S33",
+        "S34"
+      ],
+      "full_report_received": false
+    }
+  ],
+  "all_segments": 34,
+  "controller_erratum": 66904,
+  "unwithdrawn_original_findings": [
+    "Historical FAIL must be explicitly retained",
+    "At least one original receipt/event reference must appear in narrative"
+  ],
+  "correction_interface_installation": 66909,
+  "P4_received": false,
+  "preparation_received": false,
+  "codex_wrote_corrected_report": false
+}

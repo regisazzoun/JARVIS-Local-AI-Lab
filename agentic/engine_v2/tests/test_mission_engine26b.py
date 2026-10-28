@@ -9,6 +9,33 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_cited_coordinator_instruction_is_visible_without_becoming_execution_proof(self):
+        from jarvis.mission_assurance import cited_event_facts
+        text='Keep the original FAIL and correct your own narrative.'
+        ref=self.s.event(self.m,'coordinator_instruction',actor='Codex',result={'instruction':text})
+        row=cited_event_facts(self.s,self.m,'Instruction event:'+str(ref))[0]
+        self.assertEqual(row['facts']['instruction_text'],text)
+        self.assertIn('Not evidence of execution',row['facts']['instruction_scope'])
+        self.assertEqual(row['kind'],'coordinator_instruction');self.assertEqual(row['actor'],'Codex')
+        self.assertNotIn('status',row['facts'])
+
+    def test_single_segment_factual_review_has_only_valid_verdicts_and_complete_coverage(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
+        ref=self.observation();body='Une lecture a été observée : '+ref+'.\n\nHypothèse : la suite pourrait être vérifiée.'
+        observed=[]
+        def callback(payload):
+            data=json.loads(payload['messages'][1]['content']);parts=data['segments'];self.assertEqual(len(parts),1)
+            part=parts[0];choices=payload['format']['properties']['claims']['items']['properties']['verdict']['enum']
+            if part['id']=='S1':
+                self.assertEqual(choices,['supported','contradicted','insufficient'])
+                verdict='supported';refs=[ref]
+            else:verdict='qualified_hypothesis';refs=[]
+            observed.append(part['id'])
+            return {'content':json.dumps({'claims':[{'segment':part['id'],'verdict':verdict,'references':refs,'reason':'Software fixture'}],'issues':[]})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,body,'a');self.assertEqual(observed,['S1','S2'])
+        self.assertEqual(result['status'],'PASS');self.assertEqual([c['quote'] for c in result['claims']],body.split('\n\n'))
+
     def test_bounded_report_review_covers_every_segment_and_preserves_a_failed_part(self):
         from jarvis.mission_context_budget import ContextCapacityError,serialized_bytes
         with self.s.db() as c:

@@ -376,3 +376,24 @@ comparable. Aucun service modifié, rapport rédigé parCodex, MANUAL-HOLD ou
 Codex parallèle. Préparation/P4 restent EN COURS — NON VALIDÉES ; intégration
 ultérieure autorisée après réception réelle, aucune validation humaine ajoutée.
 Directives relues : AGENTS courant, charte, présente reprise et supervision.
+
+
+## Déblocage du contrôle du rapport — revue unitaire
+
+Après l’escalade67077, Codex a corrigé le vérificateur : les instructions
+citées sont désormais fournies avec leur auteur et leur portée historique,
+sans devenir une preuve d’exécution. La mission utilise une revue par passage
+(`narrative_review_max_segments=1`), avec couverture exhaustive et contrôle
+des références. Un passage factuel ne peut plus être écarté comme titre ou
+hypothèse non qualifiée ; le verdict supported/contradicted/insufficient reste
+celui du modèle. Aucun PASS n’est fourni à Qwen.
+
+84 tests logiciels ciblés passent ; ils ne prouvent pas la réception du rapport.
+Installation67088, instruction67089, reprise67092 sur le même plan3. Les compteurs
+persistants sont comparés avant/après et inchangés. Sauvegarde privée pour retour
+arrière et rechargement des seuls workers inactifs. Le probe indépendant67084
+n’a pas enregistré de réponse : aucun résultat n’en est déduit.
+
+La nouvelle vérification native est en cours. Le rapport reste non reçu tant
+que son verdict complet et ses preuves ne sont pas obtenus. Aucun déploiement
+de l’attestation applicative ni réception globale P4 n’en découle.
