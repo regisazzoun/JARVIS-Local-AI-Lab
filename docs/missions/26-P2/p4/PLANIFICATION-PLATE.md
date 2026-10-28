@@ -351,3 +351,28 @@ Compteur mission_verify4, anciens refus, STATE et toutes preuves conservés.
 Aucun nouveau plan, déploiement applicatif, réception de préparation/P4,
 MANUAL-HOLD ni autre agentCodex. Directives consultées : AGENTS, charte,
 PLANIFICATION-PLATE et supervision ; goal65937 et autorisations conservés.
+
+## Passage3 mission_verify : arrêt conservé, diagnostic67080
+
+Contrôle ciblé : aucune mission running ni invocation started de cette unité.
+Après le correctif chargé67021, vérification67074 toujours INSUFFICIENT :
+le contrôleur classe S3 comme hypothèse puis non factuel (67068/67073).
+Chaque réponse ne couvre que trois des sept segments du lot67058. L'admission
+avait réussi à24368 puis24647octets (67064/67069) ; ce refus précis n'est donc
+pas un dépassement de contexte. Le refus antérieur du lot14 reste67056.
+
+La projection de l'instruction citée66911 contient facts={} : son contenu
+historique pourrait aider à vérifier la conformité alléguée dansS3, sans
+prouver aucune correction technique. Ce manque est observé ; son rôle causal
+dans l'erreur du contrôleur reste une hypothèse. Correction à examiner :
+projection attribuée de l'instruction et revue plus étroite couvrant tous les
+segments, contrôles de classification et d'admission conservés. Aucun correctif
+supplémentaire installé ni réussite de cette approche prétendue dans ce passage.
+
+Diagnostic67080, erratum numérique lié dans DIAGNOSTIC-REVUE-PASSAGE3.json.
+État interrupted, goal65937, spec, plan3 et compteurs conservés, refus5 et
+escalade67077 intacts. Pas de remise en file inchangée ni quatrième passage
+comparable. Aucun service modifié, rapport rédigé parCodex, MANUAL-HOLD ou
+Codex parallèle. Préparation/P4 restent EN COURS — NON VALIDÉES ; intégration
+ultérieure autorisée après réception réelle, aucune validation humaine ajoutée.
+Directives relues : AGENTS courant, charte, présente reprise et supervision.
