@@ -56,3 +56,17 @@ du module et redémarrage des deux workers. Aucune autre mission relancée,
 aucun déploiement de l’attestation applicative candidate dans cette correction.
 Instruction65583 : le paquet a déjà été lu, enregistrer le plan choisi parQwen
 puis observer les services, sans refaire la lecture.
+
+### Boucle de relecture repérée pendant la reprise
+
+Le budget corrigé a laissé passer plusieurs inférences réelles (premier paquet
+26192octets,65595), mais Qwen a essayé de nouveaux chemins vers le même paquet.
+Codex a interrompu cette stratégie avant toute opération applicative et ajouté
+une portée optionnelle `planning_tools` au filtre de planification existant.
+La mission courante expose seulement mission_plan/mission_note/mission_progress
+pendant le plan ; après acceptation de la couverture, les outils des tâches
+choisis parQwen restent disponibles. Aucun plan ni commande technique écrit par
+Codex. Les missions sans option gardent les sept outils historiques du plan.
+L’option ne peut pas ouvrir host_exec avant le plan même si son nom est fourni.
+Cinq tests de portée PASS ; source3c1065d installé dans les workers,65658.
+Même mission, compteur d’incidents3 conservé, aucune réinitialisation des erreurs.
