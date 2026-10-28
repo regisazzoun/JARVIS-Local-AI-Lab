@@ -1,0 +1,18 @@
+{
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "task": "step-1-a-observation-systemd",
+  "phase_prompt_repair_event": 70951,
+  "model_write_tool_event": 70977,
+  "model_write_invocation": "760b52c9ce43415ab8a139526366080f",
+  "report_sha256": "c441c3b46f8cb667bcb4935821b0f95141abde0d123b4fce4b861206d5dd4f25",
+  "explicit_FAIL_present": true,
+  "explicit_INSUFFICIENT_present": false,
+  "native_verification_started_event": 70987,
+  "interface_repair_operator": "Codex",
+  "report_correction_actor": "JARVIS/Qwen",
+  "report_received": false,
+  "P4_received": false,
+  "software_tests": 182,
+  "old_failures_and_counters_retained": true,
+  "resolution_event": 71125
+}

@@ -127,3 +127,11 @@ Le texte du rapport reste celui de JARVIS ; aucun statut reçu n’est forcé.
 instructions de correction et absence de réécriture/contrôle redondant dans
 les instructions de clôture. Reprise native après installation, utilisation
 réelle à contrôler avant de qualifier cette dernière réparation.
+
+
+Utilisation réelle constatée après la correction des instructions : écriture
+JARVIS70977, nouveau texte comportant explicitement FAIL mais pas INSUFFICIENT, puis
+vérification native70987 sur le fichier relu70989. Cette utilisation prouve
+le passage à l’action proposée, pas encore l’exactitude finale du rapport.
+[Reçu de reprise](REPRISE-SYSTEMD-CORRECTION.json). Aucun texte de cette nouvelle
+version rédigé par Codex ; verdict et réception restent à obtenir.
