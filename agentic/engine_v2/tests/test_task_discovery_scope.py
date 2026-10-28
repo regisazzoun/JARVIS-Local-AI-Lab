@@ -1,8 +1,23 @@
 import unittest
-from jarvis.durable_cycle import discovery_schemas, task_schemas
+from jarvis.durable_cycle import discovery_schemas, task_schemas, planning_schemas
 
 
 class TaskDiscoveryScope(unittest.TestCase):
+    def test_planning_observation_boundary_preserves_model_plan_and_blocks_actions(self):
+        names=['mission_plan','mission_note','mission_progress','host_read_file','host_policy','host_exec']
+        schemas=[{'function':{'name':n}} for n in names]
+        offered=planning_schemas(schemas,{'planning_tools':['host_exec']})
+        self.assertEqual({s['function']['name'] for s in offered},
+                         {'mission_plan','mission_note','mission_progress'})
+        self.assertEqual(schemas,[{'function':{'name':n}} for n in names])
+
+    def test_legacy_planning_keeps_reads_and_explicit_empty_scope_closes_them(self):
+        schemas=[{'function':{'name':n}} for n in ['mission_plan','host_read_file','host_exec']]
+        self.assertEqual([s['function']['name'] for s in planning_schemas(schemas,{})],['mission_plan','host_read_file'])
+        self.assertEqual([s['function']['name'] for s in planning_schemas(schemas,{'planning_tools':[]})],['mission_plan'])
+        with self.assertRaisesRegex(ValueError,'planning_tools'):
+            planning_schemas(schemas,{'planning_tools':'mission_plan'})
+
     def setUp(self):
         self.schemas = [{'function': {'name': name}} for name in (
             'host_remote', 'host_write_file', 'host_read_file',

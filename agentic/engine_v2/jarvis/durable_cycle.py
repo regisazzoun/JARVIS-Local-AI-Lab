@@ -46,6 +46,22 @@ def coordinator_guidance(store, ident, task_id):
             (ident,*actors,task_id))]
 
 
+def planning_schemas(schemas, spec):
+    """Limit optional planning observations without writing the model's plan.
+
+    Explicit scope never grants tools outside the existing planning barrier.
+    Legacy missions retain the same planning observations.
+    """
+    allowed={'mission_plan','mission_note','host_policy','skill_list',
+             'capability_status','host_read_file','mission_progress'}
+    selected=spec.get('planning_tools')
+    if selected is not None:
+        if not isinstance(selected,list) or any(not isinstance(x,str) for x in selected):
+            raise ValueError('planning_tools must be a list of registered tool names')
+        allowed &= set(selected)|{'mission_plan','mission_note','mission_progress'}
+    return [s for s in schemas if s['function']['name'] in allowed]
+
+
 def task_schemas(schemas, definition):
     """Focus a declared tool selection; policy/registry still enforce all calls."""
     selected=(definition or {}).get('tools')
@@ -398,7 +414,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 messages.append({'role':'user','content':'Coordination autorisée récente, à appliquer avant les anciennes conclusions du modèle : '+encoded([json.loads(r['result']) for r in reversed(guidance)])})
             current_tasks=store.tasks(ident)
             if not current_tasks or assured and not coverage_state(store,ident)['accepted']:
-                schemas=[s for s in schemas if s['function']['name'] in ('mission_plan','mission_note','host_policy','skill_list','capability_status','host_read_file','mission_progress')]
+                schemas=planning_schemas(schemas,json.loads(mission['spec']))
             elif all(t['state']=='validated' for t in current_tasks):
                 from .mission_assurance import closure_state
                 closure=closure_state(store,ident) if assured else {'final_allowed':True}
