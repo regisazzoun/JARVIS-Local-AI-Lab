@@ -453,7 +453,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         allowed_report_tools={
                             'mission_verify','mission_report_review','host_read_file',
                             'mission_evidence','mission_note','context_recall'}
-                        if pending_report['phase']=='correct':allowed_report_tools.update({'host_write_file','host_edit_file','mission_report_facts'})
+                        if pending_report['phase']=='correct':allowed_report_tools.update({'host_write_file','mission_report_facts'})
                         if pending_report['phase']=='complete':allowed_report_tools.add('mission_task_complete')
                         available=core.tools.schemas()
                         schemas=[s for s in available if s['function']['name'] in allowed_report_tools]
