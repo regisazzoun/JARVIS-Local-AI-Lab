@@ -64,3 +64,14 @@ Aucune clôture14A/phase2, aucun lancement24-Old, aucune fusion main.
 - [Refus antérieur conservé](VERIFICATION-RAPPORT-ASSISTEE-ECHEC.json).
 - [Désaccords de métadonnées avant correction](VERIFICATION-RAPPORT-ASSISTEE-REFUS-METADONNEES.json).
 - [Historique technique](PLANIFICATION-PLATE.md).
+
+## Relais de la suite
+
+La tâche suivante `t1-read-service-files` a réellement démarré et lu l’unité
+canonique (68621). Un blocage distinct a été diagnostiqué : cette lecturecat
+était classée comme mutation et bloquait l’écriture d’un rapport encore absent.
+Rectification68670 : reçu de lecture conservé, tentative retirée de la file
+des effets en attente sans faux PASS ni compteur effacé. JARVIS reçoit les
+consignes d’utiliser les lectures natives et de rédiger son artefact avant
+vérification. Remise en file et timer de supervision actif ; aucune réception
+de cette deuxième tâche n’est acquise par ce relais.
