@@ -11,7 +11,7 @@ def service_observation(arguments, result):
     if not result.get('ok'):return None
     raw=result.get('result',{});text=raw.get('stdout')
     if raw.get('returncode')!=0 or not isinstance(text,str) or raw.get('stdout_truncated') or raw.get('timeout'):return None
-    selected={'service':arguments['service'],'action':arguments['action'],'stdout_sha256':hashlib.sha256(text.encode()).hexdigest(),
+    selected={'service':arguments['service'],'action':arguments['action'],'observed_returncode':raw['returncode'],'stdout_sha256':hashlib.sha256(text.encode()).hexdigest(),
               'meaning':'Selected original historical read values only; omitted fields are not absent, and this does not prove loaded Python code or current state after restart.'}
     if arguments['action']=='is-active':selected['observed_state_text']=text.strip()
     else:

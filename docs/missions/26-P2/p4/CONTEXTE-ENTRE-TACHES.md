@@ -68,3 +68,26 @@ politique/objectif conservés, quatre observations intactes. Pas de hausse du
 contexte32768. Les treize incidents de capacité restent comptés, acquittement
 explicite70666/70667 après preuve ; aucun échec fonctionnel effacé. Reprise de
 la même tâche après ce changement technique, sans répéter la stratégie refusée.
+
+
+## Vérification du rapport effectivement écrit
+
+JARVIS a écrit réellement son rapport d’état70691. La première revue a été
+refusée : doublon entre propriétés systemd sélectionnées et extraits bruts longs
+des mêmes reçus. La vue de revue conserve maintenant les propriétés exactes,
+rc, références broker et empreintes, sans envoyer une seconde fois le stdout.
+Les sorties complètes restent dans les reçus. Aucun champ omis n’est déclaré
+absent. Le code observé sur disque n’est toujours pas assimilé au code chargé.
+
+La phase de rapport vérifié expose uniquement la vérification native et
+notes/blocage ; la phase de clôture expose la clôture native et notes/blocage.
+Le contrôle complet reste dans les mêmes outils backend, avec relecture réelle,
+revue des affirmations et fraîcheur. Cela supprime les schémas redondants du
+contexte et les appels concurrents de revue du même rapport.
+
+180 tests PASS. Deux préflights sur les vraies entrées refusées :70749,
+25635/27648octets pour la revue ;70753,26911/27648 pour le décideur en phase
+vérification. Même politique, objectif, passages, critères et sources conservés.
+Preuve de réparation70754/acquittement70755 : incidents historiques maintenus,
+pas de compteur remis àzéro ni PASS injecté. Le même rapport reprend son
+contrôle natif ; cette correction ne le reçoit pas par anticipation.

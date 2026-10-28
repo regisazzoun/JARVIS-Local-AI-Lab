@@ -533,6 +533,12 @@ def report_model_view(snapshot, content, recent=4):
             card['observed']={k:v for k,v in observed.items() if k!='diagnostic'}
             card['broker_diagnostic_omitted']=True
             card['complete_original_in_mission_evidence']=True
+        if card.get('observed_service_properties'):
+            # The selected exact fields already represent this complete read.
+            # Do not send the same large stdout again as a beginning/end excerpt.
+            card['observed']={'returncode':card['observed_service_properties']['observed_returncode'],'evidence_id':card.get('broker_evidence'),**{key:observed[key] for key in ('duration_s','stdout_truncated','timeout') if key in observed}}
+            card['complete_original_in_mission_evidence']=True
+            card['original_output_scope']='Exact selected service properties above; other properties remain in the original receipt, omission is not absence.'
         cards.append(card)
     view={key:snapshot[key] for key in ('mission','created','scope_task','raw_goal','counts','tasks','plans','infrastructure_author','plan_and_operations_author','active_contracts')}
     view['closure']=snapshot.get('closure',{})

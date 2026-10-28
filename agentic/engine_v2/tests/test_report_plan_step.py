@@ -106,6 +106,11 @@ class ReportStepTests(unittest.TestCase):
   card=next(row for row in evidence_snapshot(self.s,self.m,'a')['receipts'] if row['reference']==call)
   self.assertEqual(card['observed_service_properties']['fields'],observed['fields'])
   self.assertNotIn('Noise',observed['fields'])
+  from jarvis.mission_assurance import report_model_view
+  model_card=next(row for row in report_model_view(evidence_snapshot(self.s,self.m,'a'),card['reference'])['receipts'] if row['reference']==call)
+  self.assertEqual(model_card['observed_service_properties']['fields']['MainPID'],'1234')
+  self.assertNotIn('explicit_excerpt',model_card['observed']);self.assertTrue(model_card['complete_original_in_mission_evidence'])
+  self.assertEqual(model_card['observed']['returncode'],0)
 
  def test_truncated_or_failed_service_read_cannot_prove_properties(self):
   from jarvis.mission_reporting import service_observation
@@ -145,6 +150,7 @@ class ReportStepTests(unittest.TestCase):
   missions.execution_core.transport=transport;missions.cycle.run(self.s.get(self.m))
   names={t['function']['name'] for t in captured[-1]['tools']}
   self.assertIn('mission_verify',names);self.assertNotIn('host_write_file',names);self.assertNotIn('mission_plan_report_step',names)
+  self.assertEqual(names,{'mission_verify','mission_note','mission_block'})
   verdict={'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]}
   self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
   self.assertEqual(pending_report_validation(self.s,self.m,'a')['phase'],'correct')
