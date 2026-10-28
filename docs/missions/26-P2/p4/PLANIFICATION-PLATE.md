@@ -397,3 +397,22 @@ n’a pas enregistré de réponse : aucun résultat n’en est déduit.
 La nouvelle vérification native est en cours. Le rapport reste non reçu tant
 que son verdict complet et ses preuves ne sont pas obtenus. Aucun déploiement
 de l’attestation applicative ni réception globale P4 n’en découle.
+
+
+### Résultat natif et correction du parcours de rédaction
+
+La revue native67200 couvre les14passages. S3 est supported67133, avec les trois
+références contrôlées. Le verdict67201 reste FAIL pour une date précise non
+étayée dans l’en-tête ; il ne s’agit plus d’un refus de schéma. La comparaison
+à l’heure de création de mission dans cette réserve ne prouve pas l’heure de
+rédaction du rapport : cette distinction est signalée àJARVIS.
+
+Le mode correction masquait host_read_file : escalade67221, exposition corrigée
+67223. Puis deux lectures identiques ont été réellement exécutées67240/67251 ;
+la troisième a été bloquée67262, escalade67264 conservée. Codex a donc apporté
+une projection durable du brouillon complet déjà observé : empreinte égale à
+l’écriture réussie, sortie non tronquée, tâche et chemin identiques. Le contexte
+de correction conserve ce texte sans nouvelle lecture ; le contrôle final
+reste une lecture indépendante. Pour les rapports longs/non observés, la
+lecture reste disponible.97tests logiciels ciblés passent. Aucune rédaction du
+rapport parCodex et aucun PASS automatique. Reprise dans la même mission.

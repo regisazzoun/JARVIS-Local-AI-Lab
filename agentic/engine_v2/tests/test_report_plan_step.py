@@ -78,10 +78,23 @@ class ReportStepTests(unittest.TestCase):
   self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
   self.assertEqual(pending_report_validation(self.s,self.m,'a')['phase'],'correct')
   missions.cycle.run(self.s.get(self.m))
-  names={t['function']['name'] for t in captured[-1]['tools']};self.assertIn('host_write_file',names)
+  names={t['function']['name'] for t in captured[-1]['tools']};self.assertIn('host_write_file',names);self.assertIn('host_read_file',names)
   self.assertNotIn('mission_plan_report_step',names);self.assertNotIn('host_service',names)
   attempt=self.s.attempt_ledger(self.m).snapshot()['attempts'][0]
   self.assertEqual(attempt['state'],'EXECUTED_TEST_FAILED');self.assertFalse(attempt['unknown_outcome'])
+
+ def test_correction_keeps_exact_read_draft_without_confusing_old_or_truncated_content(self):
+  from jarvis.legacy_attempts import settle,pending_report_validation
+  reg=self.completed_report_write()
+  settle(reg,{'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]})
+  for content,truncated in [('old report',False),('Software fixture report',True),('Software fixture report',False)]:
+   self.s.import_observation(self.m,{'tool':'host_read_file','arguments':{'path':'/project/a.md'},'created':1,'result':{'ok':True,'result':{'returncode':0,'stdout':content,'stdout_truncated':truncated}}})
+   self.assertNotIn('observed_draft',pending_report_validation(self.s,self.m,'a'))
+   # Imported historical reads carry no task, hence cannot satisfy this task's projection.
+  with self.s.db() as c:c.execute('UPDATE tool_calls SET task=? WHERE mission=? AND tool=?',('a',self.m,'host_read_file'))
+  value=pending_report_validation(self.s,self.m,'a')['observed_draft']
+  self.assertEqual(value['content'],'Software fixture report')
+  self.assertEqual(value['sha256'],pending_report_validation(self.s,self.m,'a')['expected_written_content_sha256'])
 
  def test_validation_instruction_survives_budget_compaction(self):
   from jarvis.mission_context_budget import ContextBudget

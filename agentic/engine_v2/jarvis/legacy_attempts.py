@@ -51,10 +51,21 @@ def pending_report_validation(store,mission,task_id):
                         'verdict':x['verdict'],'references':x.get('references',[])} for x in rejected[:3]],
                     rejected_passage_count=len(rejected),issue_count=len(issues),
                     erratum_reference=erratum.get('reference'),original_review_status=original['status'])
+        observed_draft=None
+        if phase=='correct':
+            with store.db() as c:
+                reads=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task=? AND tool='host_read_file' AND json_extract(arguments,'$.path')=? ORDER BY created DESC LIMIT 8",(mission,task_id,path)).fetchall()
+            for read in reads:
+                wrapper=json.loads(read['result']);value=wrapper.get('result',{})
+                content=value.get('stdout')
+                if wrapper.get('ok') and value.get('returncode')==0 and isinstance(content,str) and len(content.encode())<=6000 and not value.get('stdout_truncated') and hashlib.sha256(content.encode()).hexdigest()==hashlib.sha256(args.get('content','').encode()).hexdigest():
+                    observed_draft={'invocation_id':read['id'],'content':content,'sha256':hashlib.sha256(content.encode()).hexdigest(),'meaning':'Complete previously read draft matching the completed write. Correct this text; no repeated read needed. Final verification must independently read the resulting file.'}
+                    break
         return {'attempt':row['id'],'phase':phase,'report_path':path,'write_returncode':0,
                 'expected_written_content_sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),
                 'verification_calls':[{'contract':'active:'+str(i)} for i in range(len(contract['semantic']))],
                 **({'review_feedback':feedback} if phase=='correct' else {}),
+                **({'observed_draft':observed_draft} if observed_draft else {}),
                 'meaning':{'verify':'Completed write only; verify the persisted report before another write. A rejected rewrite draft did not replace it.',
                            'correct':'Observed report verification failed; correct the recorded findings and verify the new file. Unrelated planning/service work is not needed for this correction.',
                            'complete':'Write and verification are recorded; normal task completion still checks freshness and every original criterion.'}[phase]}
