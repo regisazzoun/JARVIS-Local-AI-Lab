@@ -610,12 +610,15 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 store.finish_call(token, result, time.monotonic()-started)
                 interface_spec=json.loads(mission['spec'])
                 actual_verdict=result.get('result') or {}
-                executed_verification_failure=name=='mission_verify' and actual_verdict.get('status')=='FAIL' and actual_verdict.get('verification_event')
-                if executed_verification_failure:
-                    store.event(ident,'semantic_failure_returned_to_model',task_id,'JARVIS-engine',result={
+                executed_verification_result=name=='mission_verify' and actual_verdict.get('status') in ('FAIL','PARTIAL','INSUFFICIENT') and actual_verdict.get('verification_event')
+                if executed_verification_result:
+                    status=actual_verdict['status']
+                    store.event(ident,'semantic_failure_returned_to_model' if status=='FAIL' else 'semantic_result_returned_to_model',task_id,'JARVIS-engine',result={
                         'verification_event':actual_verdict['verification_event'],
-                        'test_executed':True,'status':'FAIL','not_an_interface_refusal':True})
-                if (interface_spec.get('distributed_authority') or interface_spec.get('bounded_interface_errors')) and not result.get('ok') and not executed_verification_failure:
+                        **({'test_executed':True} if status=='FAIL' else {}),
+                        'verification_executed':True,'status':status,'not_an_interface_refusal':True,
+                        'functional_success':False,'meaning':'A recorded verification result, not proof that the underlying functional operation or test ran successfully.'})
+                if (interface_spec.get('distributed_authority') or interface_spec.get('bounded_interface_errors')) and not result.get('ok') and not executed_verification_result:
                     from .distributed_authority import interface_failure
                     if interface_failure(store,ident,task_id,name,result.get('error','')):
                         from .missions import MissionInterrupted

@@ -42,6 +42,37 @@ class ReportStepTests(unittest.TestCase):
   self.assertEqual(missions.store.observations(m)[-1]['result']['result']['status'],'FAIL')
   self.assertNotEqual(missions.store.tasks(m)[0]['state'],'validated')
 
+ def test_context_checkpoint_does_not_reinject_other_task_coordination(self):
+  from jarvis.mission_context_budget import ContextBudget
+  self.s.event(self.m,'coordinator_instruction',None,actor='Codex',result={'instruction':'GLOBAL owner scope'})
+  self.s.event(self.m,'coordinator_instruction','previous-task',actor='Codex',result={'instruction':'VERIFY PREVIOUS REPORT ONLY'})
+  counts=self.s.attempt_ledger(self.m).snapshot()
+  _,checkpoint=ContextBudget(self.s,self.m,'a').checkpoint('Task boundary software fixture')
+  self.assertEqual([x['result']['instruction'] for x in checkpoint['coordinator_instructions']],['GLOBAL owner scope'])
+  self.assertEqual(counts,self.s.attempt_ledger(self.m).snapshot())
+  self.assertTrue(any(e['task']=='previous-task' for e in self.s.events(self.m)))
+
+ def test_recorded_insufficient_and_partial_results_are_not_interface_refusals(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  identity=self.root/'identity.txt';identity.write_text('Full fixture identity')
+  for status in ('INSUFFICIENT','PARTIAL'):
+   with self.subTest(status=status):
+    core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+    missions=Missions(core,self.root,start_worker=False,start_publisher=False)
+    m=missions.store.create('Verify fixture','fixture','conv',spec={'bounded_interface_errors':True})
+    missions.store.plan(m,[{'id':'a','title':'Verify','objective':'Observe actual result','tools':['mission_verify']}])
+    def verify(args):
+     verdict={'status':status,'observations':[]}
+     event=missions.store.event(m,'semantic_verification','a',result=verdict)
+     return {'returncode':1,'verification_event':event,**verdict}
+    old=missions.execution_core.tools.specs['mission_verify'];missions.execution_core.tools.specs['mission_verify']=(*old[:4],verify)
+    missions.execution_core.transport=lambda p:{'tool_calls':[{'function':{'name':'mission_verify','arguments':{'contract':{}}}}]}
+    missions.cycle.run(missions.store.get(m));events=missions.store.events(m)
+    self.assertTrue(any(e['kind']=='semantic_result_returned_to_model' and e['result']['status']==status and not e['result'].get('test_executed') for e in events))
+    self.assertFalse(any(e['kind'] in ('authority_interface_failure','authority_escalation') for e in events))
+    self.assertNotEqual(missions.store.tasks(m)[0]['state'],'validated')
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded

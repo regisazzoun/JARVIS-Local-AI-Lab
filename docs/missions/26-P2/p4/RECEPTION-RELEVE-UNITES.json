@@ -1,0 +1,68 @@
+{
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "task": "t1-read-service-files",
+  "status": "VALIDÉ AVEC RÉSERVES",
+  "native_completion_event": 70571,
+  "native_completion_tool_event": 70572,
+  "full_review_pass_event": 70544,
+  "semantic_pass_events": [
+    70545,
+    70559
+  ],
+  "report_sha256": "7fe47c83ae837d85b6baf0a0cde29500fe445f41587abae2bc1185c7be98dac1",
+  "source_observations": [
+    {
+      "event": 68869,
+      "native_invocation": "bf5a31e9d2eb4b64adcd9041c85ff376",
+      "broker_evidence": "affca2d347224074a5ba8e8e87ba4d2b",
+      "source_sha256": "8c52a835ef425a912ea253a2bc14cb9c5c54f119ae56e03401080652dd0c0d87",
+      "observed_values": {
+        "User": "adminjarvis",
+        "WorkingDirectory": "/opt/jarvis/conversation",
+        "ExecStart": "/opt/jarvis/conversation/.venv/bin/python -m jarvis.worker --config /opt/jarvis/conversation/config/13e.json --slot 1",
+        "After": "network-online.target jarvis-host-bridge.service",
+        "Wants": "network-online.target"
+      },
+      "absent_directives": [
+        "EnvironmentFile",
+        "ExecStartPre",
+        "ExecStartPost",
+        "TimeoutStartSec",
+        "ProtectSystem",
+        "ProtectHome"
+      ]
+    },
+    {
+      "event": 68871,
+      "native_invocation": "4e5dee7a613f43c199c80487382bcc16",
+      "broker_evidence": "66c25c923dff48659efd9151160027e8",
+      "source_sha256": "8f327aaf941a151cbb80a2ec4a9e715c8d09245517eadd4eaf5b8dbefe24d74e",
+      "observed_values": {
+        "User": "adminjarvis",
+        "WorkingDirectory": "/opt/jarvis/conversation",
+        "ExecStart": "/opt/jarvis/conversation/.venv/bin/python -m jarvis.worker --config /opt/jarvis/conversation/config/13e.json --slot %i",
+        "After": "jarvis-conversation.service jarvis-host-bridge.service",
+        "Wants": "jarvis-conversation.service"
+      },
+      "absent_directives": [
+        "EnvironmentFile",
+        "ExecStartPre",
+        "ExecStartPost",
+        "TimeoutStartSec",
+        "ProtectSystem",
+        "ProtectHome"
+      ]
+    }
+  ],
+  "controller_change_operator": "Codex",
+  "first_three_report_versions": "JARVIS",
+  "bounded_editorial_removal": "Codex event69824",
+  "actual_cause_selection": "Qwen event70531 selected P1, compared to original diagnostics",
+  "autonomous_editorial_correction_received": false,
+  "report_declared_date_is_not_a_measured_execution_timestamp": true,
+  "source_files_are_not_proof_of_effective_systemd_or_loaded_Python_state": true,
+  "old_failures_and_counters_preserved": true,
+  "remaining_task": "step-1-a-observation-systemd",
+  "P4_received": false,
+  "reception_event": 70607
+}
