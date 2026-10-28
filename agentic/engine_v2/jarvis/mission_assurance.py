@@ -465,6 +465,12 @@ def cited_event_facts(store, ident, text):
         facts={key:original[key] for key in ('status','error','error_code','reason','scope','faults','author','author_not_blamed','purpose','contract_version','report_contract_version','draft_sha256','contract','checks','observations','observed_at') if key in original}
         if 'issues' in original:facts['issues']=[str(issue)[:1000] for issue in original['issues'][:16]]
         if reference in rectifications:facts['controller_rectification']=rectifications[reference]
+        if event['kind']=='controller_findings_rectified':
+            facts['validated_rectifications']=[
+                {'original_reference':source,**correction}
+                for source,correction in rectifications.items()
+                if correction['reference']==reference]
+            facts['rectification_scope']='Withdrawal of controller findings only; not execution of a report correction or deployment. Historical verdict unchanged.'
         result.append({'reference':reference,'found_in_mission':True,'kind':event['kind'],'actor':event['actor'],'task':event['task'],
                        'created':datetime.fromtimestamp(event['created'],ZoneInfo('Europe/Paris')).isoformat(),'facts':facts,
                        'original_result_sha256':digest(original),'full_original_in_mission_evidence':True,

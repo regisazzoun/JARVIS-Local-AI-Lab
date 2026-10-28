@@ -303,3 +303,28 @@ son rapport selon les preuves et de poursuivre son plan3. Aucun nouveau plan
 fourni parCodex, aucun quatrième essai de stratégie refusée. Après réception
 réelle de toute la préparation seulement, intégration autorisée sans nouvelle
 validation humaine. Préparation et P4 restent EN COURS — NON VALIDÉES.
+
+## Passage borné sur mission_verify — diagnostic67015
+
+Passage1 démarré67014 : mission interrupted, aucune mission running et aucun
+appel outil commencé en attente. Vérification67010 INSUFFICIENT : réponses
+contrôleur67002/67007 rejetées67003/67008 sur la classification du passageS3.
+Elles ne couvrent en outre que trois des sept segments attendus. Escalade67012,
+compteur4 conservé ; aucune nouvelle vérification inchangée ni remise en file.
+
+La projection du reçu de rectification66904 conservait le motif mais pas les
+retraits exacts validés ; ceux-ci étaient liés au FAIL original66872. Codex
+prépare une correction symétrique : le reçu d’erratum cité expose aussi ses
+retraits validés, leurs références et le FAIL historique inchangé. Un retrait
+de reproche du contrôleur ne prouve jamais une correction exécutée du rapport.
+Test réel SQLite : retrait exact conservé, reproche inventé et acteurJARVIS
+non habilité exclus ;12tests report-step/projection PASS.
+
+Correctif source seulement, non installé et non chargé dans les workers.
+Aucune opération systemd, écriture du rapport à la place deQwen, nouvelle
+inférence ou création MANUAL-HOLD. STATE et tous compteurs conservés.
+La reprise exige une correction effectivement chargée et une revue couvrant
+tous les segments ; ce diagnostic ne démontre pas qu’elle passera. Le rapport
+reste non reçu, préparation/P4 EN COURS — NON VALIDÉES. Directives consultées :
+AGENTS, charte, présente reprise et supervision ; autorisations et goal65937
+préservés, aucune relecture du paquet historique réintroduite.

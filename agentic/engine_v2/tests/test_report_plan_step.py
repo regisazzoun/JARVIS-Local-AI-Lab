@@ -5,6 +5,21 @@ from jarvis.tools import Registry
 from jarvis.memory import Memory
 from jarvis.mission_store import MissionStore
 class ReportStepTests(unittest.TestCase):
+ def test_citing_erratum_preserves_exact_validated_withdrawals(self):
+  from jarvis.mission_assurance import cited_event_facts
+  original=self.s.event(self.m,'narrative_review',result={'status':'FAIL','issues':['real defect','controller defect']})
+  erratum=self.s.event(self.m,'controller_findings_rectified',actor='Codex-independent',result={
+      'reason':'Controller defect withdrawn, original failure retained',
+      'withdrawn':[{'event':original,'findings':['controller defect','invented finding']}]})
+  facts=cited_event_facts(self.s,self.m,'event:'+str(erratum))[0]['facts']
+  correction=facts['validated_rectifications'][0]
+  self.assertEqual(correction['original_reference'],'event:'+str(original))
+  self.assertEqual(correction['withdrawn_findings'],['controller defect'])
+  self.assertEqual(correction['original_status_unchanged'],'FAIL')
+  forged=self.s.event(self.m,'controller_findings_rectified',actor='JARVIS',result={
+      'reason':'not authoritative','withdrawn':[{'event':original,'findings':['real defect']}]})
+  self.assertEqual(cited_event_facts(self.s,self.m,'event:'+str(forged))[0]['facts']['validated_rectifications'],[])
+
  def test_executed_fail_returns_to_model_without_interface_escalation(self):
   from jarvis.core import Core
   from jarvis.missions import Missions
