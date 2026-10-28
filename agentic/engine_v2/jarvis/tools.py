@@ -293,7 +293,7 @@ class Registry:
         return schema
 
     def schemas(self,all_tools=False):
-        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name.startswith('context_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id'))) and not (name.startswith('p2_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('p2_reception',{}).get('active'))) and not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
+        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name=='mission_plan_report_step' and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('planning_report_steps'))) and not (name.startswith('context_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id'))) and not (name.startswith('p2_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('p2_reception',{}).get('active'))) and not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
         start=time.monotonic();start_wall=time.time();result=None
         try:
@@ -305,7 +305,7 @@ class Registry:
             unknown=set(args)-set(schema['properties']);missing=[k for k in schema['required'] if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
             from jsonschema import Draft202012Validator
-            if name=='mission_plan':
+            if name in ('mission_plan','mission_plan_report_step'):
                 normalized=decode_plan_arguments(args,schema)
                 if normalized!=args and getattr(self,'mission_store',None):
                     from .mission_assurance import VERSION
