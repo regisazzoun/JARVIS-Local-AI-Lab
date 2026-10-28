@@ -112,3 +112,10 @@ class FocusedDraftTests(unittest.TestCase):
   self.assertTrue(coding_focus_required(spec,state('correct',0,{'f':'a'},{'f':'b'},'9')))
   self.assertFalse(coding_focus_required(spec,state('correct',0,{'f':'a'},{'f':'b'})))
   self.assertFalse(coding_focus_required({},{}))
+
+ def test_compact_reference_mode_exposes_targeted_recall_without_changing_legacy(self):
+  from jarvis.durable_cycle import semantic_reference_schemas
+  schemas=[{'function':{'name':name,'parameters':{}}} for name in ['authority_work','context_recall','context_checkpoint']]
+  self.assertEqual([s['function']['name'] for s in semantic_reference_schemas(schemas,None)],['authority_work'])
+  self.assertEqual([s['function']['name'] for s in semantic_reference_schemas(schemas,None,preserve_recall=True)],['authority_work','context_recall'])
+  self.assertEqual(len(schemas),3)

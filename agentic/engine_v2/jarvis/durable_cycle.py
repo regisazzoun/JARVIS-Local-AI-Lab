@@ -17,8 +17,8 @@ def coding_focus_required(spec, active):
         and e.get('execution',{}).get('returncode')==0 and e.get('before')!=e.get('after')
         for ref,e in active.get('executions',{}).items())
 
-def semantic_reference_schemas(schemas, task):
-    schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_')])
+def semantic_reference_schemas(schemas, task, preserve_recall=False):
+    schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_') or preserve_recall and s['function']['name']=='context_recall'])
     for schema in schemas:
         if schema['function']['name']=='mission_verify':
             schema['function']['parameters']['properties']['contract']={
@@ -454,7 +454,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     messages[0:2]=authority_prompt[:2]
                 store.event(ident,'authority_context_prepared',task_id,'JARVIS-engine',result={'messages_chars':len(encoded(messages)),'tools':len(schemas),'complete_receipts_preserved':True,'initial_observation_instruction':not (json.loads(mission['spec']).get('authority_engine_operation_ids') and current_tasks and any(e.get('kind')=='inspect' and e.get('execution',{}).get('returncode')==0 for e in durable['executions'].values()))})
             if json.loads(mission['spec']).get('compact_semantic_references'):
-                schemas=semantic_reference_schemas(schemas,task)
+                schemas=semantic_reference_schemas(schemas,task,preserve_recall=bool(json.loads(mission['spec']).get('authority_engine_operation_ids')))
             from .mission_context_budget import result_objective
             context_objective=result_objective(core.config)
             if context_objective:
