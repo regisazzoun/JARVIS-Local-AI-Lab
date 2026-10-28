@@ -530,3 +530,22 @@ mission remise en file ; problèmes et compteurs comparés strictement inchangé
 Plan3, goal65937, spec et tâche reçue68595 préservés. Pas de MANUAL-HOLD ni agent
 parallèle. Préparation/P4 restent EN COURS — NON VALIDÉES. Directives relues :
 AGENTS, charte, présent dossier, réception du rapport, supervision, SUIVI/ROADMAP.
+
+## Passage3 host_exec:P2 — forme command réellement utilisée
+
+La lecture68767 du template a réussi rc0, mais le précédent correctif ne
+reconnaissait que argv : la forme publique command a encore créé un effet
+inconclusif et bloqué68777, escalade68779/count6 conservée. Correction68783 :
+les deux chaînes command exactes sont aussi reconnues comme observations ;
+les commandes composées et chemins différents restent protégés. Le cycle
+ne réinitialise plus ses répétitions après ces observations. Douze tests du
+garde PASS, incluant lecture command pendant une mutation inconnue toujours
+bloquée. Installation des deux modules, sauvegarde privée read-command-68782,
+rechargement des workers après contrôle zéro mission running/zéro appel en attente.
+
+Tentative d2fdb4f53974416ba8024d4aa3889e74 conservée BLOCKED68784, unknown=false,
+jamais PASS ; problèmes/compteurs comparés inchangés. Reçus68621/68767 projetés
+68785 sans nouvelle lecture. Instruction68786, dialogue archivé68787, remise
+en file68788 : Qwen garde rédaction t1 puis vérification et suite séquentielle.
+Aucun rapport rédigé parCodex, aucune réception t1/préparation/P4 ni déploiement
+applicatif. Aucun MANUAL-HOLD, autre agent ou compteur remis à zéro.

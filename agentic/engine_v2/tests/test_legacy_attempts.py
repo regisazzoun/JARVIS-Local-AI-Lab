@@ -28,7 +28,11 @@ class CanonicalGuardTests(unittest.TestCase):
   read=Mock(return_value={'returncode':0,'stdout':'real unit'})
   self.assertEqual(guarded(self.reg,'host_exec',args,read,True)['stdout'],'real unit')
   read.assert_called_once_with(args)
-  for bad in ({'command':'cat /etc/systemd/system/jarvis-mission-worker.service'},
+  for path in ('/etc/systemd/system/jarvis-mission-worker.service','/etc/systemd/system/jarvis-mission-worker@.service'):
+   command={'command':'cat '+path}
+   self.assertEqual(guarded(self.reg,'host_exec',command,read,True)['stdout'],'real unit')
+  self.assertEqual(read.call_count,3)
+  for bad in ({'command':'cat /etc/systemd/system/jarvis-mission-worker.service; touch /tmp/effect'},
               {**args,'command':'write'}, {'argv':['sh','-c','cat /etc/systemd/system/jarvis-mission-worker.service']},
               {'argv':['cat','/unrelated']}, {'argv':args['argv']+['/another']}):
    self.assertFalse(known_unit_file_read('host_exec',bad))

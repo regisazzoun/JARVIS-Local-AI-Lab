@@ -98,10 +98,12 @@ def observed_targets(reg,criteria):
 
 
 def known_unit_file_read(name,args):
-    """Exact argv-only unit observation; broker policy still authorizes dispatch."""
-    return (name=='host_exec' and set(args)=={'argv'} and
-            args['argv'] in ([ 'cat', '/etc/systemd/system/jarvis-mission-worker.service' ],
-                            [ 'cat', '/etc/systemd/system/jarvis-mission-worker@.service' ]))
+    """Exact unit observations in either public host_exec representation."""
+    paths=('/etc/systemd/system/jarvis-mission-worker.service',
+           '/etc/systemd/system/jarvis-mission-worker@.service')
+    return name=='host_exec' and (
+        set(args)=={'argv'} and args['argv'] in (['cat',p] for p in paths) or
+        set(args)=={'command'} and args['command'] in ('cat '+p for p in paths))
 
 
 def guarded(reg,name,args,fn,mutating):
