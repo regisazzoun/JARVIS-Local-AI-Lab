@@ -586,3 +586,24 @@ logiciels ne démontraient pas cette admission réelle. Prochaine correction :
 réduire les schémas proposés ou découper la projection, en conservant exigences,
 reçus complets et budget27648 ; aucune remise en file inchangée dans ce passage
 borné. Pas de réception t1 ni P4.
+
+## Passage2 répétition host_exec — admission des schémas t1
+
+Arrêt68918 avant inférence : reçus complets présents mais douze schémas,
+avec host_exec et sans host_write_file dans le plan d'origine. CorrectionCodex
+opt-in `execution_tool_focus`, limitée à t1 : outils de rédaction, lecture et
+validation ; le plan3, goal65937 et les contrats restent intacts. La politique
+et les gardes backend restent applicables. Six tests de contexte de tâche et
+42tests de budget PASS. Précontrôle du vrai payload archivé :26710octets sur
+27648, deux reçus complets68869/68871 conservés. Ce précontrôle n'est pas une
+preuve d'inférence ni une réception.
+
+Module sauvegardé en privé et installé, deux workers rechargés après contrôle
+zéro mission running/zéro appel started. Instruction68928, action68932 : Qwen
+rédige lui-même t1 puis vérifie. Première remise en file bloquée correctement
+68935 par l'escalade persistante68920 ; résolution explicite après correction,
+sans effacer les dix incidents ni changer les autres champs du problème, puis
+remise en file. Aucun cat rejoué, aucun rapport écrit parCodex, aucun déploiement
+applicatif ni réception t1/P4. STATE et compteurs conservés, aucun MANUAL-HOLD
+ni agent parallèle. Directives relues : AGENTS, charte, présent dossier,
+réception68595, supervision, SUIVI/ROADMAP ; autorisations et périmètre conservés.

@@ -398,10 +398,19 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if feedback and feedback['review_reference']!=last_report_feedback:
                     last_report_feedback=feedback['review_reference']
                     store.event(ident,'report_correction_context_prepared',task_id,'JARVIS-engine',result=feedback)
-            schemas=task_schemas(core.tools.schemas(),definition) if task_id else core.tools.schemas()
+            schema_definition=definition
+            tool_focus=json.loads(mission['spec']).get('execution_tool_focus',{}).get(task_id)
+            if task_id and tool_focus is not None:
+                if not isinstance(tool_focus,list) or not tool_focus or any(not isinstance(x,str) for x in tool_focus):
+                    raise ValueError('execution_tool_focus must select registered tools per task')
+                registered={s['function']['name'] for s in core.tools.schemas()}
+                if set(tool_focus)-registered:
+                    raise ValueError('execution_tool_focus contains unregistered tools')
+                schema_definition={**definition,'tools':tool_focus,'strict_tools':True}
+            schemas=task_schemas(core.tools.schemas(),schema_definition) if task_id else core.tools.schemas()
             if compact_finalization:schemas=[s for s in schemas if s['function']['name']=='intervention_report']
             offered={s['function']['name'] for s in schemas}
-            if task_id and not definition.get('strict_tools'):
+            if task_id and not schema_definition.get('strict_tools'):
                 schemas += [s for s in discovery_schemas(core.tools.schemas(), definition) if s['function']['name'] in discovered-offered]
             context_chars = core.config.get('durable_num_ctx',core.config.get('num_ctx',8192))*3 - len(encoded(schemas)) - 4096
             if len(encoded(messages)) > context_chars:
