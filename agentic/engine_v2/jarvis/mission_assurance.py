@@ -491,6 +491,7 @@ def cited_event_facts(store, ident, text):
 
 
 def receipt_event_aliases(content):
+    content=content.replace('**','').replace('`','')
     aliases={'event:'+value for value in re.findall(r'\bevent\s*:\s*(\d+)',content,re.I)}
     for match in re.finditer(r'\b(?:refs?|references?|références?)\s*:?\s*(\d+(?:\s*[,/]\s*\d+)*)',content,re.I):
         aliases.update('event:'+value for value in re.findall(r'\d+',match.group(1)))

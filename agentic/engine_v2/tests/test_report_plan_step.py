@@ -118,6 +118,23 @@ class ReportStepTests(unittest.TestCase):
   for wrapper in [{'ok':False,'result':{'returncode':0,'stdout':'MainPID=1234'}},{'ok':True,'result':{'returncode':1,'stdout':'MainPID=1234'}},{'ok':True,'result':{'returncode':0,'stdout':'MainPID=1234','stdout_truncated':True}}]:
    self.assertIsNone(service_observation(args,wrapper))
 
+ def test_correction_keeps_full_draft_and_archives_large_service_values(self):
+  from jarvis.legacy_attempts import settle
+  from jarvis.mission_context_budget import ContextBudget
+  reg=self.completed_report_write();settle(reg,{'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]})
+  read=self.s.begin_call(self.m,'a','host_read_file',{'path':'/project/a.md'});self.s.finish_call(read,{'ok':True,'result':{'returncode':0,'stdout':'Software fixture report'}},0)
+  call=self.s.begin_call(self.m,'a','host_service',{'action':'show','service':'fixture.service'})
+  self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'Environment='+('x'*18000)+'\nMainPID=1234\n','stdout_truncated':False}},0)
+  payload={'model':'fixture','messages':[{'role':'system','content':'Full owner policy'},{'role':'user','content':'old '*30000}],'options':{'num_predict':4096},'tools':[]}
+  result=ContextBudget(self.s,self.m,'a').prepare(payload,{'limit':16384},4096)
+  active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
+  self.assertEqual(active['pending_report_validation']['observed_draft']['content'],'Software fixture report')
+  self.assertNotIn('fields',active['retained_service_observations'][0])
+  self.assertTrue(active['service_source_scopes']);self.assertNotIn('meaning',active['retained_service_observations'][0])
+  with self.s.db() as c:cp=json.loads(c.execute('select result from mission_events where id=?',(active['service_source_values_checkpoint'],)).fetchone()[0])['checkpoint']
+  self.assertEqual(cp['retained_service_observations'][0]['fields']['MainPID'],'1234')
+  self.assertEqual(len(cp['retained_service_observations'][0]['fields']['Environment']),18000)
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded
@@ -161,7 +178,7 @@ class ReportStepTests(unittest.TestCase):
   with self.s.db() as c:c.execute('UPDATE tool_calls SET task=? WHERE id=?',('a',read))
   missions.cycle.run(self.s.get(self.m))
   names={t['function']['name'] for t in captured[-1]['tools']}
-  self.assertEqual(names,{'host_write_file','mission_verify','mission_evidence','mission_note'})
+  self.assertEqual(names,{'host_write_file','mission_note','mission_block'})
   attempt=self.s.attempt_ledger(self.m).snapshot()['attempts'][0]
   self.assertEqual(attempt['state'],'EXECUTED_TEST_FAILED');self.assertFalse(attempt['unknown_outcome'])
 

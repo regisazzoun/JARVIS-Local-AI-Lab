@@ -487,7 +487,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         if pending_report['phase']=='correct':allowed_report_tools.update({'host_write_file','mission_report_facts'})
                         # Only suppress a redundant read when the exact complete draft is supplied.
                         if pending_report.get('observed_draft'):
-                            allowed_report_tools=set(tool_focus) if facts_already_observed else {'host_write_file','mission_verify','mission_evidence','mission_note'}
+                            allowed_report_tools={'host_write_file','mission_note','mission_block'}
                         if pending_report['phase']=='verify':allowed_report_tools={'mission_verify','mission_note','mission_block'}
                         if pending_report['phase']=='complete':allowed_report_tools={'mission_task_complete','mission_note','mission_block'}
                         available=core.tools.schemas()

@@ -342,6 +342,14 @@ class ContextBudget:
    active['retained_unit_file_reads']=[{k:v for k,v in read.items() if k!='stdout'} for read in active['retained_unit_file_reads']]
    active['unit_source_bodies_checkpoint']=checkpoint_id
    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+  if serialized_bytes(candidate)>budget and active.get('pending_report_validation',{}).get('observed_draft') and active.get('retained_service_observations'):
+   # Same correction priority as file reads: full original service values remain
+   # in the persisted checkpoint and independent verifier, not duplicated next
+   # to the complete report currently being corrected.
+   active['service_source_scopes']=list(dict.fromkeys(read['meaning'] for read in active['retained_service_observations'] if read.get('meaning')))
+   active['retained_service_observations']=[{**{k:v for k,v in read.items() if k not in ('fields','meaning')},**({'field_names':list(read['fields'])} if 'fields' in read else {})} for read in active['retained_service_observations']]
+   active['service_source_values_checkpoint']=checkpoint_id
+   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
   if serialized_bytes(candidate)>budget:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Mandatory policy/objective/contracts/tool schema exceed capacity; coordinator must split the task, not silently truncate constraints'})
    raise ContextCapacityError('Mandatory active task does not fit: checkpoint saved, no inference dispatched')

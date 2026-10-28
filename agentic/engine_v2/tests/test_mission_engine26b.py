@@ -76,6 +76,9 @@ class AssuranceTests(unittest.TestCase):
         self.assertEqual([r['reference'] for r in view['receipts']],[call])
         self.assertIn(alias,snapshot_references(snapshot))
         self.assertFalse(any('At least one' in x for x in deterministic_report_issues(body,snapshot)))
+        marked='- **Référence** : `'+alias.split(':')[1]+'` (action show)'
+        self.assertEqual([r['reference'] for r in report_model_view(snapshot,marked,recent=0)['receipts']],[call])
+        self.assertFalse(any('At least one' in x for x in deterministic_report_issues(marked,snapshot)))
         self.assertTrue(any('At least one' in x for x in deterministic_report_issues('refs 999999999',snapshot)))
 
     def test_source_review_does_not_import_neighbouring_status_or_invent_a_cause(self):

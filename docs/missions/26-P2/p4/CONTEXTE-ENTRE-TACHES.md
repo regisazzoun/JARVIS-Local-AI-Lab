@@ -91,3 +91,27 @@ vérification. Même politique, objectif, passages, critères et sources conserv
 Preuve de réparation70754/acquittement70755 : incidents historiques maintenus,
 pas de compteur remis àzéro ni PASS injecté. Le même rapport reprend son
 contrôle natif ; cette correction ne le reçoit pas par anticipation.
+
+
+## Correction de la narration après son premier verdict
+
+Revue70893/70894 : le rapport ne conservait pas explicitement les FAIL
+historiques ; ce point reste à corriger par JARVIS. Deux autres reproches
+provenaient du parseur : les sources étaient citées sous `**Référence**`,
+format Markdown non reconnu. La détection normalise ce seul balisage puis
+résout les vrais reçus existants. Aucune référence inconnue n’est inventée.
+Erratum70928 retire uniquement les reproches de références/sources absentes ;
+le tableau doit être revu sur les sources, pas reçu par cet erratum.
+
+La correction reçoit le brouillon complet. Si le paquet ne tient plus, les
+anciennes valeurs systemd sont conservées intégralement dans le checkpoint,
+avec champs, références et empreintes dans l’état actif ; la revue indépendante
+continue de recevoir les propriétés originales. Les scopes explicatifs
+identiques sont présentés une seule fois, sans perdre leur portée. Toutes les
+contraintes, tous les compteurs et les textes originaux restent conservés.
+
+181 tests ciblés PASS. Préflight70927 sur le vrai paquet refusé70904 :
+27366/27648octets, brouillon5365octets entier, quatre observations référencées
+et valeurs complètes archivées. Réparation70929/acquittement70930 après cette
+preuve, totaux inchangés. JARVIS reprend la correction de son propre récit ;
+aucune réécriture du rapport par Codex dans cette étape, aucun PASS injecté.
