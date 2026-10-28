@@ -574,7 +574,13 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         result = core.tools.execute(name, args)
                 store.finish_call(token, result, time.monotonic()-started)
                 interface_spec=json.loads(mission['spec'])
-                if (interface_spec.get('distributed_authority') or interface_spec.get('bounded_interface_errors')) and not result.get('ok'):
+                actual_verdict=result.get('result') or {}
+                executed_verification_failure=name=='mission_verify' and actual_verdict.get('status')=='FAIL' and actual_verdict.get('verification_event')
+                if executed_verification_failure:
+                    store.event(ident,'semantic_failure_returned_to_model',task_id,'JARVIS-engine',result={
+                        'verification_event':actual_verdict['verification_event'],
+                        'test_executed':True,'status':'FAIL','not_an_interface_refusal':True})
+                if (interface_spec.get('distributed_authority') or interface_spec.get('bounded_interface_errors')) and not result.get('ok') and not executed_verification_failure:
                     from .distributed_authority import interface_failure
                     if interface_failure(store,ident,task_id,name,result.get('error','')):
                         from .missions import MissionInterrupted

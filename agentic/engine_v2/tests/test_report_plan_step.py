@@ -5,6 +5,28 @@ from jarvis.tools import Registry
 from jarvis.memory import Memory
 from jarvis.mission_store import MissionStore
 class ReportStepTests(unittest.TestCase):
+ def test_executed_fail_returns_to_model_without_interface_escalation(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  identity=self.root/'identity.txt';identity.write_text('Full fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False)
+  m=missions.store.create('Verify fixture','fixture','conv',spec={'bounded_interface_errors':True})
+  missions.store.plan(m,[{'id':'a','title':'Verify','objective':'Check real outcome','tools':['mission_verify']}])
+  def verify(args):
+   verdict={'status':'FAIL','observations':[{'software_fixture':True}]}
+   event=missions.store.event(m,'semantic_verification','a',result=verdict)
+   return {'returncode':1,'verification_event':event,**verdict}
+  old=missions.execution_core.tools.specs['mission_verify']
+  missions.execution_core.tools.specs['mission_verify']=(*old[:4],verify)
+  missions.execution_core.transport=lambda p:{'tool_calls':[{'function':{'name':'mission_verify','arguments':{'contract':{}}}}]}
+  missions.cycle.run(missions.store.get(m))
+  events=missions.store.events(m)
+  self.assertTrue(any(e['kind']=='semantic_failure_returned_to_model' for e in events))
+  self.assertFalse(any(e['kind'] in ('authority_interface_failure','authority_escalation') for e in events))
+  self.assertEqual(missions.store.observations(m)[-1]['result']['result']['status'],'FAIL')
+  self.assertNotEqual(missions.store.tasks(m)[0]['state'],'validated')
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded
