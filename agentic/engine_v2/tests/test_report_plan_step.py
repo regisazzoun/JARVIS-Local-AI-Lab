@@ -80,6 +80,11 @@ class ReportStepTests(unittest.TestCase):
   missions.cycle.run(self.s.get(self.m))
   names={t['function']['name'] for t in captured[-1]['tools']};self.assertIn('host_write_file',names);self.assertIn('host_read_file',names)
   self.assertNotIn('mission_plan_report_step',names);self.assertNotIn('host_service',names)
+  read=self.s.import_observation(self.m,{'tool':'host_read_file','arguments':{'path':'/project/a.md'},'created':1,'result':{'ok':True,'result':{'returncode':0,'stdout':'Software fixture report','stdout_truncated':False}}})
+  with self.s.db() as c:c.execute('UPDATE tool_calls SET task=? WHERE id=?',('a',read))
+  missions.cycle.run(self.s.get(self.m))
+  names={t['function']['name'] for t in captured[-1]['tools']}
+  self.assertEqual(names,{'host_write_file','mission_verify','mission_evidence','mission_note'})
   attempt=self.s.attempt_ledger(self.m).snapshot()['attempts'][0]
   self.assertEqual(attempt['state'],'EXECUTED_TEST_FAILED');self.assertFalse(attempt['unknown_outcome'])
 

@@ -435,3 +435,24 @@ paragraphe original dans le schéma ; catégorie et verdict restent choisis
 parlemodèle sans diagnostic attendu. Le champ observed d’une observation
 ducoordinateur est aussi conservé dans sa projection, avec auteur/type/heure.
 98tests logiciels ciblésPASS. Reprise native requise, aucune réception déduite.
+
+
+### Assistance factuelle ponctuelle et périmètre de vérification
+
+JARVIS a réécrit le rapport67462 puis67682. Le contrôle indépendant67555/67562
+a relevé des types d’événements et une portée d’erratum erronés. Le second
+brouillon conservait une partie de ces défauts. Codex a suspendu la mission
+entre appels puis rectifié ces seuls faits67729/67730, original privé et
+empreintes conservés. Ce travail n’est pas une autocorrectionJARVIS validée.
+[Attribution et empreintes](ASSISTANCE-FACTUELLE-RAPPORT.json).
+
+La projection du rapport complet allongeait le contexte de correction :
+67646 refus avant inférence, incident9 conservé. Outils ciblés writer/verify/
+évidence/note lorsque ce brouillon est fourni, préflight27188octets et
+installation67654 ; aucun seuil relevé ni objectif/critère supprimé.
+
+Première vérification après assistance : table13sources trop grande pour
+un passage, refus67769/67771 et escalade67774 conservés. Même contenu séparé
+en13paragraphes67776, sans retrait de preuve. Réception encore non acquise ;
+contrôle complet et indépendant requis. Les sources historiques de missions
+sœurs ne sont pas automatiquement accessibles par le résolveur actuel.
