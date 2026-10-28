@@ -115,3 +115,15 @@ contraintes, tous les compteurs et les textes originaux restent conservés.
 et valeurs complètes archivées. Réparation70929/acquittement70930 après cette
 preuve, totaux inchangés. JARVIS reprend la correction de son propre récit ;
 aucune réécriture du rapport par Codex dans cette étape, aucun PASS injecté.
+
+
+L’entrée de correction a été admise27251octets70942, mais Qwen a demandé un
+contrôle au lieu de rédiger : refus70947/escalade70949, anciens compteurs
+conservés. Le message générique contenait encore une consigne inconditionnelle
+de vérification pendant la phase de correction. Correction70951 : chaque phase
+ne demande que l’action réellement proposée (écriture, contrôle ou clôture).
+Le texte du rapport reste celui de JARVIS ; aucun statut reçu n’est forcé.
+182tests ciblés PASS, dont absence de commande de contrôle/clôture dans les
+instructions de correction et absence de réécriture/contrôle redondant dans
+les instructions de clôture. Reprise native après installation, utilisation
+réelle à contrôler avant de qualifier cette dernière réparation.

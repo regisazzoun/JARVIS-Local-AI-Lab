@@ -76,11 +76,15 @@ Les journaux complets et versions sont persistants, ne recharge pas récursiveme
     if facts_already_observed and writing_focus:
         prompt=prompt.replace("Si un outil enregistré nécessaire n'est pas encore exposé, demande-le avec ses vrais paramètres : le moteur peut en exposer le schéma au tour suivant ; cela ne change aucune permission.",
             "Cette phase propose seulement la rédaction à partir des observations acquises. Après une écriture réellement exécutée, le moteur proposera les outils de vérification indépendants ; ne demande pas les outils masqués ni une nouvelle lecture des archives.")
-    if phase in ('verify','complete'):
+    if phase in ('verify','correct','complete'):
         start=prompt.index('Écris ton rapport')
-        end=prompt.index('Conserve FAIL/',start)
-        action=('Le rapport courant a un reçu d’écriture achevé. Prochaine action : mission_verify avec contract="active:0" (puis les autres critères déclarés). Ne réécris pas cette version avant son verdict. ' if phase=='verify' else 'Le rapport et les critères ont été vérifiés. Prochaine action : mission_task_complete avec l’identifiant réel, le chemin du rapport et la preuve reçue ; le backend contrôle encore leur fraîcheur. Ne réécris pas le rapport reçu. ')
-        prompt=prompt[:start]+action+prompt[end:]
+        end=prompt.index('Les journaux complets',start)
+        action={
+            'verify':'Le rapport courant a un reçu d’écriture achevé. Prochaine action : mission_verify avec contract="active:0" (puis les autres critères déclarés). Ne réécris pas cette version avant son verdict. Une observation réussie ne doit jamais être déduite du seul fichier présent.',
+            'correct':'Le contrôle du rapport a échoué. Prochaine action : host_write_file dans active_task.contract.report_path pour corriger TON brouillon fourni selon review_feedback. Conserve les valeurs étayées, références réelles et FAIL/PARTIAL/INSUFFICIENT historiques ; distingue Codex, Qwen et machines exécutantes. Aucun nouveau contrôle ne peut remplacer cette correction. Les outils de vérification seront proposés après une nouvelle écriture réellement observée. Si des preuves indispensables manquent, utilise mission_block avec un diagnostic précis.',
+            'complete':'Le rapport et les critères ont été vérifiés. Prochaine action : mission_task_complete avec l’identifiant réel, le chemin du rapport et evidence_id de completion_candidate ; le backend contrôle encore leur fraîcheur. Ne réécris pas le rapport reçu et ne recommence pas ses opérations.'
+        }[phase]
+        prompt=prompt[:start]+action+' Ne clos jamais P4 sur ces seuls rapports de préparation. '+prompt[end:]
     return prompt
 
 

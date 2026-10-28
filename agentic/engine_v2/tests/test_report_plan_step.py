@@ -135,6 +135,15 @@ class ReportStepTests(unittest.TestCase):
   self.assertEqual(cp['retained_service_observations'][0]['fields']['MainPID'],'1234')
   self.assertEqual(len(cp['retained_service_observations'][0]['fields']['Environment']),18000)
 
+ def test_phase_instructions_only_request_an_action_offered_in_that_phase(self):
+  from jarvis.durable_cycle import report_execution_prompt
+  correction=report_execution_prompt('Full owner identity',True,'correct')
+  self.assertIn('Prochaine action : host_write_file',correction)
+  self.assertNotIn('mission_verify',correction);self.assertNotIn('mission_task_complete',correction)
+  completion=report_execution_prompt('Full owner identity',True,'complete')
+  self.assertIn('Prochaine action : mission_task_complete',completion)
+  self.assertNotIn('mission_verify',completion);self.assertNotIn('host_write_file',completion)
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded
