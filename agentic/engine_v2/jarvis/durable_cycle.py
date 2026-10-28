@@ -450,10 +450,14 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     from .legacy_attempts import pending_report_validation
                     pending_report=pending_report_validation(store,ident,task_id)
                     if pending_report:
-                        schemas=[s for s in schemas if s['function']['name'] in {
+                        allowed_report_tools={
                             'mission_verify','mission_report_review','host_read_file',
-                            'mission_evidence','mission_note','context_recall'}]
-                        messages.append({'role':'user','content':'Écriture déjà terminée, vérification requise : '+encoded(pending_report)})
+                            'mission_evidence','mission_note','context_recall'}
+                        if pending_report['phase']=='correct':allowed_report_tools.update({'host_write_file','host_edit_file','mission_report_facts'})
+                        if pending_report['phase']=='complete':allowed_report_tools.add('mission_task_complete')
+                        available=core.tools.schemas()
+                        schemas=[s for s in available if s['function']['name'] in allowed_report_tools]
+                        messages.append({'role':'user','content':'État réel du rapport de la tâche : '+encoded(pending_report)})
                         store.event(ident,'pending_report_verification_focus',task_id,'JARVIS-engine',result=pending_report)
             if json.loads(mission['spec']).get('distributed_authority'):
                 from .distributed_authority import TOOLS, Authority, model_view as authority_view, working_state as authority_working_state

@@ -9,7 +9,7 @@ from .attempt_ledger import digest
 
 
 def pending_report_validation(store,mission,task_id):
-    """A completed report write needs observation, not another mutation.
+    """Project the known report-write lifecycle: verify, correct, or complete.
 
     Return only durable execution facts. Unknown executions and unrelated tasks
     never become known writes by this projection.
@@ -22,15 +22,25 @@ def pending_report_validation(store,mission,task_id):
     if not path or not any(c.get('kind')=='report' for c in contract.get('semantic',[])):return None
     with store.db() as c:
         if not c.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='mission_attempts_v2'").fetchone():return None
-        rows=c.execute("SELECT id,request,result FROM mission_attempts_v2 WHERE mission=? AND state='VALIDATION_INCONCLUSIVE' AND unknown_outcome=0 ORDER BY created DESC",(mission,)).fetchall()
+        rows=c.execute("SELECT id,state,unknown_outcome,request,result FROM mission_attempts_v2 WHERE mission=? ORDER BY created DESC",(mission,)).fetchall()
     for row in rows:
         request=json.loads(row['request']);result=json.loads(row['result']);args=request.get('arguments',{})
         if request.get('task')!=task_id or request.get('tool')!='host_write_file' or args.get('path')!=path:continue
-        if result.get('returncode')!=0 or not result.get('started',{}).get('child_started'):continue
-        return {'attempt':row['id'],'report_path':path,'write_returncode':0,
+        # Never skip a newer unknown write to present an old report as current.
+        if row['unknown_outcome'] or row['state'] not in ('VALIDATION_INCONCLUSIVE','EXECUTED_TEST_FAILED','SUCCESS'):return None
+        if result.get('returncode')!=0 or not result.get('started',{}).get('child_started'):return None
+        phase={'VALIDATION_INCONCLUSIVE':'verify','EXECUTED_TEST_FAILED':'correct','SUCCESS':'complete'}[row['state']]
+        verdict=result.get('verification',{})
+        return {'attempt':row['id'],'phase':phase,'report_path':path,'write_returncode':0,
                 'expected_written_content_sha256':hashlib.sha256(args.get('content','').encode()).hexdigest(),
                 'verification_calls':[{'contract':'active:'+str(i)} for i in range(len(contract['semantic']))],
-                'meaning':'Completed write only; report facts not yet verified. Read and verify the persisted report before any new write. A rejected rewrite draft did not replace this file.'}
+                **({'review_feedback':{'verification_event':verdict.get('verification_event'),
+                    'status':verdict.get('status'),'issues':[str(x)[:250] for x in verdict.get('issues',[])[:6]],
+                    'issue_count':len(verdict.get('issues',[])),
+                    'meaning':'Reviewer findings about the prior report; inspect original evidence and correct your own prose.'}} if phase=='correct' else {}),
+                'meaning':{'verify':'Completed write only; verify the persisted report before another write. A rejected rewrite draft did not replace it.',
+                           'correct':'Observed report verification failed; correct the recorded findings and verify the new file. Unrelated planning/service work is not needed for this correction.',
+                           'complete':'Write and verification are recorded; normal task completion still checks freshness and every original criterion.'}[phase]}
     return None
 
 

@@ -39,9 +39,10 @@ class ReportStepTests(unittest.TestCase):
   self.assertIn('mission_verify',names);self.assertNotIn('host_write_file',names);self.assertNotIn('mission_plan_report_step',names)
   verdict={'status':'FAIL','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]}
   self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
-  self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
+  self.assertEqual(pending_report_validation(self.s,self.m,'a')['phase'],'correct')
   missions.cycle.run(self.s.get(self.m))
   names={t['function']['name'] for t in captured[-1]['tools']};self.assertIn('host_write_file',names)
+  self.assertNotIn('mission_plan_report_step',names);self.assertNotIn('host_service',names)
   attempt=self.s.attempt_ledger(self.m).snapshot()['attempts'][0]
   self.assertEqual(attempt['state'],'EXECUTED_TEST_FAILED');self.assertFalse(attempt['unknown_outcome'])
 
@@ -54,6 +55,21 @@ class ReportStepTests(unittest.TestCase):
   self.assertEqual(state['pending_report_validation']['report_path'],'/project/a.md')
   self.assertEqual(state['pending_report_validation']['verification_calls'],[{'contract':'active:0'}])
   self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
+ def test_pass_only_exposes_completion_and_newer_unknown_write_invalidates_old_focus(self):
+  from jarvis.legacy_attempts import pending_report_validation,settle
+  reg=self.completed_report_write()
+  verdict={'status':'PASS','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0]}
+  self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
+  self.assertEqual(pending_report_validation(self.s,self.m,'a')['phase'],'complete')
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+  # A newer unknown write is a distinct software fixture state, not proof that
+  # the previous PASS still describes the current file.
+  with self.s.db() as c:
+   row=dict(c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=?',(self.m,)).fetchone())
+   row.update(id='newer-unknown-fixture',operation_key='unknown',signature='newer',state='VALIDATION_INCONCLUSIVE',unknown_outcome=1,created=row['created']+1)
+   c.execute('INSERT INTO mission_attempts_v2 ('+','.join(row)+') VALUES ('+','.join('?' for _ in row)+')',tuple(row.values()))
+  self.assertIsNone(pending_report_validation(self.s,self.m,'a'))
 
  def test_execution_projection_keeps_identity_owner_goal_and_stored_criterion(self):
   from jarvis.core import Core

@@ -9,6 +9,39 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_bounded_report_review_covers_every_segment_and_preserves_a_failed_part(self):
+        from jarvis.mission_context_budget import ContextCapacityError,serialized_bytes
+        with self.s.db() as c:
+            c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'autonomous':True,'assurance':True,'bounded_narrative_review':True}),self.m))
+        reference=self.observation()
+        parts=['Hypothèse : '+('élément de contexte incertain. '*45) for _ in range(8)]
+        parts[0]+=' Référence : '+reference
+        body='\n\n'.join(parts);reviewed=[];rejected=[]
+        def callback(payload):
+            size=serialized_bytes(payload)
+            if size>14000:
+                rejected.append(size);raise ContextCapacityError('Software admission fixture; no model dispatched')
+            data=json.loads(payload['messages'][1]['content']);segments=data['segments']
+            reviewed.extend(s['id'] for s in segments)
+            return {'content':json.dumps({'claims':[{'segment':s['id'],'verdict':'contradicted' if s['id']=='S5' else 'qualified_hypothesis','references':[],'reason':'Software fixture finding'} for s in segments], 'issues':['Deliberate fixture contradiction'] if any(s['id']=='S5' for s in segments) else []})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,body,'a')
+        self.assertTrue(rejected);self.assertEqual(reviewed,['S'+str(i) for i in range(1,9)])
+        self.assertEqual([x['quote'] for x in result['claims']],[part.strip() for part in parts])
+        self.assertEqual(result['status'],'FAIL');self.assertIn('Deliberate fixture contradiction',result['issues'])
+        self.assertGreater(len(result['review_batches']),1);self.assertEqual(result['draft'],body)
+        self.assertEqual(len([e for e in self.s.events(self.m,limit=10000) if e['kind']=='narrative_review']),1)
+
+    def test_single_oversized_report_segment_never_gets_a_partial_pass(self):
+        from jarvis.mission_context_budget import ContextCapacityError
+        with self.s.db() as c:
+            c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        def callback(payload):raise ContextCapacityError('Single source cannot fit fixture')
+        self.r.assurance_transport=callback
+        with self.assertRaisesRegex(ContextCapacityError,'Single narrative segment'):
+            audit_report(self.r,'Hypothèse : élément non vérifié.','a')
+        self.assertFalse(any(e['kind']=='narrative_review' for e in self.s.events(self.m,limit=10000)))
+
     def setUp(self):
         tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup)
         self.s=MissionStore(tmp.name)
