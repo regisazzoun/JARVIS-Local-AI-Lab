@@ -505,3 +505,28 @@ autonome reçue, ni réception globaleP4.101tests logiciels ciblésPASS ; ancien
 refus/errata/compteurs et cinq avis erronés du modèle conservés.
 Voir RECEPTION-RAPPORT-PREPARATOIRE.md et ses preuves structurées. Les deux
 autres tâches du plan3 suivent dans le même moteur ; aucun rejeu acquis.
+
+## Passage2 host_exec:P2 — classement des lectures corrigé
+
+Diagnostic68737 : mission interrupted, aucune mission running ni appel started
+pour cette unité. Malgré68670, Qwen a répété la lecture canonique68731 puis
+le garde a refusé la lecture suivante68733 ; escalade68735, compteur5 conservé.
+Le rapport t1 est toujours absent au reçu68726. Aucun échec fonctionnel ni
+réception de cette tâche n'est déduit de ces événements.
+
+Correction Codex du garde : seules les formes argv exactes `cat` des deux
+fichiers d'unité existants sont des observations. Les commandes shell, arguments
+supplémentaires et autres chemins restent soumis au garde ; la politique broker
+reste applicable.12tests legacy et13tests report-step PASS, dont maintien d'une
+mutation inconnue bloquée pendant une lecture. Installation et rechargement des
+workers inactifs ; première copie non privilégiée refusée, copie sudo réussie,
+deux rechargements sans appel utile interrompu. Sauvegarde privée conservée.
+Aucune instrumentation applicative installée par ce changement.
+
+Rectification68738 : nouvelle tentative de lecture connue retirée BLOCKED,
+jamais transformée en PASS. Instruction68740 : exploiter les reçus sans rejouer
+cat, écrire son propre rapport avant vérification native. Dialogue archivé,
+mission remise en file ; problèmes et compteurs comparés strictement inchangés.
+Plan3, goal65937, spec et tâche reçue68595 préservés. Pas de MANUAL-HOLD ni agent
+parallèle. Préparation/P4 restent EN COURS — NON VALIDÉES. Directives relues :
+AGENTS, charte, présent dossier, réception du rapport, supervision, SUIVI/ROADMAP.

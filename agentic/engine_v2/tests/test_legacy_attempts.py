@@ -20,6 +20,24 @@ class CanonicalGuardTests(unittest.TestCase):
   rows=self.s.attempt_ledger(self.m).snapshot()['attempts'];self.assertEqual(len(rows),1)
   self.assertEqual(rows[0]['state'],'VALIDATION_INCONCLUSIVE');self.assertTrue(rows[0]['unknown_outcome'])
 
+ def test_exact_unit_read_does_not_create_effect_or_unlock_unknown_mutation(self):
+  from jarvis.legacy_attempts import known_unit_file_read
+  with self.assertRaises(ConnectionError):
+   guarded(self.reg,'host_exec',{'command':'fixture effect'},Mock(side_effect=ConnectionError('lost')),True)
+  args={'argv':['cat','/etc/systemd/system/jarvis-mission-worker.service']}
+  read=Mock(return_value={'returncode':0,'stdout':'real unit'})
+  self.assertEqual(guarded(self.reg,'host_exec',args,read,True)['stdout'],'real unit')
+  read.assert_called_once_with(args)
+  for bad in ({'command':'cat /etc/systemd/system/jarvis-mission-worker.service'},
+              {**args,'command':'write'}, {'argv':['sh','-c','cat /etc/systemd/system/jarvis-mission-worker.service']},
+              {'argv':['cat','/unrelated']}, {'argv':args['argv']+['/another']}):
+   self.assertFalse(known_unit_file_read('host_exec',bad))
+  self.assertFalse(known_unit_file_read('host_write_file',args))
+  with self.assertRaisesRegex(ValueError,'no action dispatched'):
+   guarded(self.reg,'host_exec',{'command':'another mutation'},Mock(),True)
+  rows=self.s.attempt_ledger(self.m).snapshot()['attempts']
+  self.assertEqual(len(rows),1);self.assertTrue(rows[0]['unknown_outcome'])
+
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.s=MissionStore(self.temp.name);self.m=self.s.create('goal','model','conversation');self.contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/fixture.json'}},'expected':{'/value':42}}
   self.s.plan(self.m,[{'id':'task','title':'task','contract':{'semantic':[self.contract]}}]);self.reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'task'})

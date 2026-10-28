@@ -97,12 +97,19 @@ def observed_targets(reg,criteria):
     return result
 
 
+def known_unit_file_read(name,args):
+    """Exact argv-only unit observation; broker policy still authorizes dispatch."""
+    return (name=='host_exec' and set(args)=={'argv'} and
+            args['argv'] in ([ 'cat', '/etc/systemd/system/jarvis-mission-worker.service' ],
+                            [ 'cat', '/etc/systemd/system/jarvis-mission-worker@.service' ]))
+
+
 def guarded(reg,name,args,fn,mutating):
     contract=task_contract(reg)
     # Wrapper/orchestrator tools recurse through the same Registry; guard the
     # actual host/skill/MCP operation, never count both wrapper and effect.
     selected=name.startswith('host_') or name in ('skill_run','skill_test','mcp_tools')
-    if not mutating or not selected or not contract or getattr(reg,'_p2_inside_effect',False):return fn(args)
+    if not mutating or known_unit_file_read(name,args) or not selected or not contract or getattr(reg,'_p2_inside_effect',False):return fn(args)
     if name=='host_write_file' and args.get('path')==contract['task'].get('contract',{}).get('report_path') and not any(c.get('source',{}).get('arguments',{}).get('path')==args.get('path') for c in contract['criteria']):return fn(args)
     store=contract['store'];mission=contract['mission'];ledger=store.attempt_ledger(mission)
     binding={'criteria':contract['criteria']}
