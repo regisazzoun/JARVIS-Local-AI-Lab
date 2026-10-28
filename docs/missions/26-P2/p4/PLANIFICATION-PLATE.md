@@ -772,3 +772,21 @@ privées, workers redémarrés à vide, conversation conservée. Reprise native
 de JARVIS sur le même rapport inchangé après erratum70060. À ce point t1
 n’est pas encore réceptionnée, la tâche systemd suivante reste à réaliser ;
 aucune réception globale P4 ni attestation de code chargé ne sont déduites.
+
+
+### Citation causale vide : défaut de contrat du contrôleur
+
+Relecture native70078 : les passages techniques passent, mais70214/70215
+rejettent la description du FAIL69316. Sortie70201 : catégorie
+missing_original_reference, rôle past_rejection_cause, citation vide. Cette
+combinaison contradictoire échappait au contrôle de format, puis empêchait la
+comparaison typée avec les diagnostics originaux ; NLI70205 exigeait àtort un
+diagnostic pour prouver le statut historique.
+
+Correction de contrat : une cause passée nécessite un extrait exact non vide.
+La réparation de format reste bornée à deux sorties ; si elles restent
+invalides, résultat INSUFFICIENT, jamais PASS. Deux tests vérifient la réparation
+et le refus persistant.129tests ciblésPASS. Erratum70233 retire ce seul faux
+rejet, originaux conservés ; même fichier, aucune réécriture ni compteur effacé.
+Nouvelle vérification native demandée après installation, sans déclarer t1 ouP4
+réceptionnées par anticipation.

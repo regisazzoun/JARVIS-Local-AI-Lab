@@ -9,6 +9,21 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_empty_past_cause_is_repaired_before_comparing_diagnostics(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        passage='FAIL initial sur preuves manquantes'
+        self.responses=[{'category':'missing_original_reference','cause_quote':'','role':'past_rejection_cause'},
+                        {'category':'missing_original_reference','cause_quote':passage,'role':'past_rejection_cause'}]
+        result=extract_cause_claim(self.r,'event:1',[passage])
+        self.assertEqual(result['cause_quote'],passage)
+        self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']),1)
+
+    def test_repeated_empty_past_cause_stays_insufficient(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        self.responses=[{'category':'missing_original_reference','cause_quote':'','role':'past_rejection_cause'}]*2
+        with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
+            extract_cause_claim(self.r,'event:1',['FAIL sur preuves manquantes'])
+
     def test_generic_format_label_does_not_hide_factual_count_heading(self):
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
         reference=self.observation();seen=[]

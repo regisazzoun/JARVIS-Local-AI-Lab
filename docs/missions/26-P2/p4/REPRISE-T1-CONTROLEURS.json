@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-10-28T20:38:26.569752+00:00",
+  "operator": "Codex",
+  "commit": "355f321 + subsequent exact cause-span validation",
+  "scope": "Existing M26-P2/P4 report lifecycle; not global P4 acceptance",
+  "software_tests": {
+    "modules": [
+      "test_attempt_ledger",
+      "test_report_plan_step",
+      "test_mission_engine26b"
+    ],
+    "passed": 129,
+    "autonomy_evidence": false
+  },
+  "installed_modules": [
+    {
+      "name": "attempt_ledger.py",
+      "source_sha256": "5463b1664ddd2713001c3b2260641dbbe45417bb2d251999ea1aa233e79214a4",
+      "installed_sha256": "5463b1664ddd2713001c3b2260641dbbe45417bb2d251999ea1aa233e79214a4"
+    },
+    {
+      "name": "durable_cycle.py",
+      "source_sha256": "1912546931e974629dce53950951e481d478fb3e8a9e9f97f58f12ccc70e972b",
+      "installed_sha256": "1912546931e974629dce53950951e481d478fb3e8a9e9f97f58f12ccc70e972b"
+    },
+    {
+      "name": "legacy_attempts.py",
+      "source_sha256": "55d171d4bc45e9835a9fc62dd080daca41059d1d9904a276bd6ce2be5793fdb3",
+      "installed_sha256": "55d171d4bc45e9835a9fc62dd080daca41059d1d9904a276bd6ce2be5793fdb3"
+    },
+    {
+      "name": "mission_assurance.py",
+      "source_sha256": "3e92895288bf07bd825de6ccbf408dff8d6f8c5179689b79aec7933fdcbeba5c",
+      "installed_sha256": "3e92895288bf07bd825de6ccbf408dff8d6f8c5179689b79aec7933fdcbeba5c"
+    },
+    {
+      "name": "mission_context_budget.py",
+      "source_sha256": "876926058a7c48256371473d636ba273c312344c22f63b27a8aa75abe3298e00",
+      "installed_sha256": "876926058a7c48256371473d636ba273c312344c22f63b27a8aa75abe3298e00"
+    }
+  ],
+  "native_mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "original_report_fail_events": [
+    69316,
+    69664,
+    70005,
+    70215
+  ],
+  "generic_heading_erratum_event": 70060,
+  "source_receipts": [
+    68869,
+    68871
+  ],
+  "history_preserved": true,
+  "P4_received": false,
+  "cause_contract_erratum_event": 70233
+}
