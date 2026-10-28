@@ -119,3 +119,14 @@ class FocusedDraftTests(unittest.TestCase):
   self.assertEqual([s['function']['name'] for s in semantic_reference_schemas(schemas,None)],['authority_work'])
   self.assertEqual([s['function']['name'] for s in semantic_reference_schemas(schemas,None,preserve_recall=True)],['authority_work','context_recall'])
   self.assertEqual(len(schemas),3)
+
+ def test_test_focus_preserves_model_choice_and_restores_coding_after_failed_test(self):
+  from jarvis.durable_cycle import candidate_test_focus
+  spec={'authority_code_focus':True,'authority_code_focus_since':10}
+  state={'executions':{'11':{'kind':'correct','before':{'worker':'old'},'after':{'worker':'new'},'execution':{'returncode':0}}}}
+  self.assertTrue(candidate_test_focus(spec,state))
+  state['executions']['12']={'kind':'test','execution':{'returncode':0}}
+  self.assertTrue(candidate_test_focus(spec,state))
+  state['executions']['13']={'kind':'test','execution':{'returncode':1}}
+  self.assertFalse(candidate_test_focus(spec,state))
+  self.assertFalse(candidate_test_focus({},state))

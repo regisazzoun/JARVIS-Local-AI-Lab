@@ -17,6 +17,13 @@ def coding_focus_required(spec, active):
         and e.get('execution',{}).get('returncode')==0 and e.get('before')!=e.get('after')
         for ref,e in active.get('executions',{}).items())
 
+def candidate_test_focus(spec, active):
+    """After a real edit, expose testing; restore coding after an observed test failure."""
+    if not spec.get('authority_code_focus'):return False
+    corrections=[int(ref) for ref,e in active.get('executions',{}).items() if int(ref)>spec.get('authority_code_focus_since',0) and e.get('kind')=='correct' and e.get('execution',{}).get('returncode')==0 and isinstance(e.get('before'),dict) and isinstance(e.get('after'),dict) and e['before']!=e['after']]
+    if not corrections:return False
+    return not any(int(ref)>max(corrections) and e.get('kind')=='test' and e.get('execution',{}).get('returncode')!=0 for ref,e in active.get('executions',{}).items())
+
 def semantic_reference_schemas(schemas, task, preserve_recall=False):
     schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_') or preserve_recall and s['function']['name']=='context_recall'])
     for schema in schemas:
@@ -419,6 +426,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
                 if names!={'intervention_report'} and coding_focus_required(json.loads(mission['spec']),authority.active_state()):
                     names &= {'authority_draft_edit','authority_apply_draft','authority_edit'}
+                elif names!={'intervention_report'} and candidate_test_focus(json.loads(mission['spec']),authority.active_state()):
+                    names-={'authority_draft_edit','authority_apply_draft','authority_edit','authority_resources'}
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
                 durable=authority.active_state()
                 # Evidence is durable, not a growing prompt. Last observations and

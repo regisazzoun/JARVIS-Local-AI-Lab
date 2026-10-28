@@ -230,6 +230,11 @@ class Registry:
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
             if name=='authority_work':
+                from .distributed_authority import Authority
+                from .durable_cycle import candidate_test_focus
+                authority=Authority(self)
+                if candidate_test_focus(authority.spec,authority.active_state()):
+                    schema['properties']['kind']['enum']=['test','analyze','accept']
                 schema['allOf']=[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},
                                   'then':{'required':['reference','source_reference']}}]
                 schema['allOf'].append({'if':{'properties':{'kind':{'enum':['inspect','correct','test']}},'required':['kind']},

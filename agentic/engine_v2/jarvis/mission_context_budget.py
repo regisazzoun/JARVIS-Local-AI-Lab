@@ -45,6 +45,14 @@ def observation_view(o):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
  return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
 
+def reported_suite(text,reference):
+ """Project printed JSON fields, never promote them to a verifier verdict."""
+ try:value=json.loads(text)
+ except (ValueError,TypeError):return None
+ if not isinstance(value,dict) or not isinstance(value.get('cases'),list) or 'suite_pass' not in value:return None
+ cases=value['cases']
+ return {'reference':int(reference),'full_stdout_sha256':hashlib.sha256(text.encode()).hexdigest(),'suite_pass':value['suite_pass'],'oracle_sha256':value.get('oracle_sha256'),'sources_sha256':preview(value.get('sources_sha256',{}),400),'cases':[{k:preview(c[k],100) for k in ('case','observed_status','expected_status','worker_pid','report_pid','canonical_service_tested') if k in c} for c in cases[:10] if isinstance(c,dict)],'cases_omitted':max(0,len(cases)-10),'meaning':'Printed test output, not independent semantic verification. Full original fields and artifacts remain in the immutable receipt.'}
+
 class ContextBudget:
  def __init__(self,store,mission,task=None):self.store=store;self.m=mission;self.task=task
  def latest(self,kind,limit=1):
@@ -82,7 +90,7 @@ class ContextBudget:
    # source observation. Preserve distinct successful stdout windows separately.
    from .distributed_authority import version
    current_version=version(executions[-1][1].get('after',{})) if executions else None
-   pages=[]
+   pages=[];test_summaries=[]
    with self.store.db() as c:
     readers=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='authority_read_execution' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 32",(self.m,self.task)).fetchall()
    for row in readers:
@@ -93,10 +101,14 @@ class ContextBudget:
     if not value.get('content') or reference<=spec.get('authority_evidence_after_event',0):continue
     if observed_rc!=0 or value.get('stream','stdout')!='stdout':continue
     if current_version and value.get('source_version')!=current_version:continue
+    if value.get('kind',entry.get('kind') if entry else None)=='test':
+     summary=reported_suite(value['content'],reference)
+     if summary:test_summaries.append(summary)
+     continue
     pages.append({**{k:value.get(k) for k in ('reference','executor','stream','start_line','total_lines','content','source_version','excerpt_truncated')},'invocation_id':row['id']})
    for ref,entry in reversed(executions):
     text=entry.get('execution',{}).get('stdout','')
-    if entry.get('kind')!='inspect' or entry.get('execution',{}).get('returncode')!=0 or not text or version(entry.get('after',{}))!=current_version:continue
+    if entry.get('kind') not in ('inspect','test') or entry.get('execution',{}).get('returncode')!=0 or not text or version(entry.get('after',{}))!=current_version:continue
     # The recorded stdout can be an excerpt with a discontinuous tail. Recover
     # its immutable full receipt locally when present, never rerun the command.
     receipt=entry.get('full_receipt')
@@ -112,6 +124,10 @@ class ContextBudget:
       text=execution.get('stdout','')
      except (OSError,ValueError,KeyError,TypeError):continue
     elif entry.get('execution',{}).get('stdout_model_excerpt') or entry.get('execution',{}).get('output_truncated'):continue
+    if entry.get('kind')=='test':
+     summary=reported_suite(text,ref)
+     if summary:test_summaries.append(summary)
+     continue
     lines=text.splitlines();page='\n'.join(lines[:60]);content=page[:6000]
     pages.append({'reference':int(ref),'executor':entry['host'],'stream':'stdout','start_line':1,'total_lines':len(lines),'content':content,'source_version':current_version,'excerpt_truncated':len(lines)>60 or len(page)>6000})
    # Prefer a substantive page over newer path-only metadata. Do not claim it
@@ -128,6 +144,7 @@ class ContextBudget:
    if retained:
     checkpoint['latest_successful_read']=retained[0]
     checkpoint['retained_inspection_pages']=retained
+   if test_summaries:checkpoint['reported_test_output']=max(test_summaries,key=lambda s:s['reference'])
   e=self.store.event(self.m,'operational_checkpoint',self.task,'JARVIS-engine',result={'sha256':sha(checkpoint),'checkpoint':checkpoint})
   return e,checkpoint
  def recall(self,reference,offset=0,limit=1800):
@@ -173,6 +190,7 @@ class ContextBudget:
   active['last_observations']=checkpoint['last_observations']
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
+   if checkpoint.get('reported_test_output'):active['reported_test_output']=checkpoint['reported_test_output']
    # Notes/analyze calls must not erase the last tool refusal after three turns.
    # Preserve the observation without declaring it a failed application test.
    with self.store.db() as c:failure=c.execute("SELECT id,tool,arguments,result FROM tool_calls WHERE mission=? AND task IS ? AND json_extract(result,'$.ok')=0 ORDER BY created DESC,rowid DESC LIMIT 1",(self.m,self.task)).fetchone()

@@ -343,3 +343,20 @@ class ContextTests(unittest.TestCase):
   self.assertEqual(failure['parameters'],args);self.assertIn('6000',failure['error'])
   self.assertIn('does not mean an executed test failed',state['active_task_contract_status']['meaning'])
   self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
+ def test_large_test_json_keeps_fail_and_insufficient_without_reinjecting_full_reports(self):
+  import hashlib
+  spec={'authority_engine_operation_ids':True,'authority_workspace':{'local_root':self.tmp.name}}
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  output={'suite_pass':True,'oracle_sha256':'actual-script-digest','cases':[{'case':name,'observed_status':status,'expected_status':status,'large_report':'x'*20000,'canonical_service_tested':False} for name,status in [('match','PASS'),('changed','FAIL'),('missing','INSUFFICIENT')]]}
+  text=json.dumps(output);raw=json.dumps({'execution':{'returncode':0,'stdout':text,'stderr':''}}).encode()
+  path=Path(self.tmp.name)/'receipts'/self.m/'test.json';path.parent.mkdir(parents=True);path.write_bytes(raw)
+  entry={'host':'Dell1','kind':'test','after':{'worker.py':'current'},'execution':{'returncode':0,'stdout':text[:1500]+'[EXCERPT]','stdout_model_excerpt':True},'full_receipt':{'local':str(path),'sha256':hashlib.sha256(raw).hexdigest()}}
+  ref=self.s.event(self.m,'authority_execution','task',result=entry);self.s.event(self.m,'authority_state',result={'issues':{},'executions':{str(ref):entry}})
+  p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  summary=state['reported_test_output'];self.assertEqual(summary['reference'],ref)
+  self.assertEqual([c['observed_status'] for c in summary['cases']],['PASS','FAIL','INSUFFICIENT'])
+  self.assertEqual(summary['full_stdout_sha256'],hashlib.sha256(text.encode()).hexdigest())
+  self.assertIn('not independent semantic verification',summary['meaning'])
+  self.assertNotIn('large_report',json.dumps(p));self.assertEqual(path.read_bytes(),raw)
+  self.assertLessEqual(serialized_bytes(p),14336)
