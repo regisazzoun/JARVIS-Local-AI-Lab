@@ -648,3 +648,26 @@ privée gardent le résultat original. Les compteurs problèmes sont comparés
 inchangés. Instruction69035 et reprise après correction effective, sans appel
 started ni inférence interrompue. Ces propositions refusées ne sont ni un
 rapport écrit ni des tests fonctionnels échoués.
+
+
+## Reprise après boucle de consultation des faits — 28 octobre 2026
+
+Le propriétaire demande l’aide à la reprise. Escalade69076 : JARVIS répète
+mission_report_facts alors que la consultation de la tâche a réussi
+(fdfb4db01e3f4db1be6443eab8d1431d), les deux unités sont intégralement retenues
+68869/68871 et le rapport n’existe pas encore. Aucune invocation commencée
+ni effet inconnu en attente avant intervention interactive.
+
+CorrectifCodex69078 : en mode de rédaction explicitement ciblé, si les faits
+ont déjà été consultés avec succès, l’instruction ne demande plus leur nouvelle
+consultation ni la découverte d’un outil masqué. Seuls writer/note/block sont
+proposés avant l’écriture ; la preuve d’une écriture exécutée rétablit ensuite
+les outils normaux de vérification/clôture. La sélection stricte reste effective
+face aux anciens outils découverts. Aucun texte de rapport écrit parCodex,
+aucun plan/contrat modifié, aucun seuil ni compteur remis à zéro.
+
+102tests logiciels ciblésPASS : transition rédaction depuis faits acquis, puis
+retour à la vérification après véritable écriture dans le test logiciel.
+Préflight69082 à21494octets/27648, sans inférence ni preuve de réception.
+Module et configuration précédents sauvegardés en privé, workers inactifs
+rechargés. Reprise de la même mission et du plan3 ; tâche t1/P4 non reçues.

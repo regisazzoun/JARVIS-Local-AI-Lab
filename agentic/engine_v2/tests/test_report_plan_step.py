@@ -101,6 +101,32 @@ class ReportStepTests(unittest.TestCase):
   self.assertEqual(value['content'],'Software fixture report')
   self.assertEqual(value['sha256'],pending_report_validation(self.s,self.m,'a')['expected_written_content_sha256'])
 
+ def test_focused_writing_uses_observed_facts_then_restores_native_verification(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  from jarvis.legacy_attempts import guarded
+  from types import SimpleNamespace
+  self.assertTrue(self.save()['ok'])
+  with self.s.db() as c:
+   spec=json.loads(self.s.get(self.m)['spec']);spec['execution_tool_focus']={'a':['host_write_file','mission_note','mission_block']}
+   c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  identity=self.root/'identity.txt';identity.write_text('Complete fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[]
+  missions.execution_core.transport=lambda payload:captured.append(payload) or {'tool_calls':[{'function':{'name':'mission_note','arguments':{'content':'Software fixture, no real model'}}}]}
+  missions.cycle.run(self.s.get(self.m))
+  self.assertIn('Consulte mission_report_facts avant de rédiger',captured[-1]['messages'][0]['content'])
+  call=self.s.begin_call(self.m,'a','mission_report_facts',{});self.s.finish_call(call,{'ok':True,'result':{'software_fixture':True}},0)
+  missions.cycle.run(self.s.get(self.m))
+  self.assertNotIn('Consulte mission_report_facts avant de rédiger',captured[-1]['messages'][0]['content'])
+  self.assertIn('déjà observée',captured[-1]['messages'][0]['content'])
+  self.assertEqual({s['function']['name'] for s in captured[-1]['tools']},{'host_write_file','mission_note','mission_block'})
+  reg=SimpleNamespace(mission_store=self.s,context={'mission_id':self.m,'task_id':'a'})
+  guarded(reg,'host_write_file',{'path':'/project/a.md','content':'Software fixture report'},lambda a:{'returncode':0,'evidence_id':'fixture-write'},True)
+  missions.cycle.run(self.s.get(self.m))
+  names={s['function']['name'] for s in captured[-1]['tools']}
+  self.assertIn('mission_verify',names);self.assertNotIn('host_write_file',names)
+
  def test_validation_instruction_survives_budget_compaction(self):
   from jarvis.mission_context_budget import ContextBudget
   self.completed_report_write()
