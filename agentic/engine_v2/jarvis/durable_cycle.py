@@ -414,7 +414,12 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 messages.append({'role':'user','content':'Coordination autorisée récente, à appliquer avant les anciennes conclusions du modèle : '+encoded([json.loads(r['result']) for r in reversed(guidance)])})
             current_tasks=store.tasks(ident)
             if not current_tasks or assured and not coverage_state(store,ident)['accepted']:
-                schemas=planning_schemas(schemas,json.loads(mission['spec']))
+                planning_spec=json.loads(mission['spec'])
+                schemas=planning_schemas(schemas,planning_spec)
+                if planning_spec.get('planning_tools') is not None:
+                    messages[0]['content']=messages[0]['content'].replace(
+                        'Si aucun plan n’existe, lis les entrées nécessaires avec les outils de lecture proposés puis enregistre ton propre plan global via mission_plan.',
+                        'Les observations préparatoires sont déjà disponibles dans les preuves persistantes. Enregistre maintenant ton propre plan global via mission_plan ; ne tente pas des lectures absentes de la portée de planification.')
             elif all(t['state']=='validated' for t in current_tasks):
                 from .mission_assurance import closure_state
                 closure=closure_state(store,ident) if assured else {'final_allowed':True}
@@ -541,7 +546,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     with invocation_scope(token):
                         result = core.tools.execute(name, args)
                 store.finish_call(token, result, time.monotonic()-started)
-                if json.loads(mission['spec']).get('distributed_authority') and not result.get('ok'):
+                interface_spec=json.loads(mission['spec'])
+                if (interface_spec.get('distributed_authority') or interface_spec.get('bounded_interface_errors')) and not result.get('ok'):
                     from .distributed_authority import interface_failure
                     if interface_failure(store,ident,task_id,name,result.get('error','')):
                         from .missions import MissionInterrupted
