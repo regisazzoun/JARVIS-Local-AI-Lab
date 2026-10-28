@@ -35,7 +35,7 @@ class TaskDiscoveryScope(unittest.TestCase):
         schemas=[{'function':{'name':n}} for n in names]
         offered=planning_schemas(schemas,{'planning_tools':['host_exec']})
         self.assertEqual({s['function']['name'] for s in offered},
-                         {'mission_plan','mission_note','mission_progress'})
+                         {'mission_plan'})
         self.assertEqual(schemas,[{'function':{'name':n}} for n in names])
 
     def test_legacy_planning_keeps_reads_and_explicit_empty_scope_closes_them(self):

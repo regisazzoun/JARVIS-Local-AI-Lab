@@ -58,7 +58,7 @@ def planning_schemas(schemas, spec):
     if selected is not None:
         if not isinstance(selected,list) or any(not isinstance(x,str) for x in selected):
             raise ValueError('planning_tools must be a list of registered tool names')
-        allowed &= set(selected)|{'mission_plan','mission_note','mission_progress'}
+        allowed &= set(selected)|{'mission_plan'}
     return [s for s in schemas if s['function']['name'] in allowed]
 
 
