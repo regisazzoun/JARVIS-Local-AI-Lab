@@ -135,3 +135,10 @@ vérification native70987 sur le fichier relu70989. Cette utilisation prouve
 le passage à l’action proposée, pas encore l’exactitude finale du rapport.
 [Reçu de reprise](REPRISE-SYSTEMD-CORRECTION.json). Aucun texte de cette nouvelle
 version rédigé par Codex ; verdict et réception restent à obtenir.
+
+
+Le nouveau texte reçoit PASS71134/71135. Après un premier refus d’identifiant
+(tâche confondue avec l’identifiant de mission71147), JARVIS a repris seul la
+clôture avec l’identifiant de tâche correct ; aucun appel de clôture n’a été
+effectué à sa place par Codex. Le contrôle natif de clôture est en cours à la
+transmission. Un PASS de texte ne reçoit ni le déploiement canonique ni P4.
