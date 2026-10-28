@@ -130,3 +130,11 @@ class FocusedDraftTests(unittest.TestCase):
   state['executions']['13']={'kind':'test','execution':{'returncode':1}}
   self.assertFalse(candidate_test_focus(spec,state))
   self.assertFalse(candidate_test_focus({},state))
+
+ def test_periodic_guidance_requires_explicit_child_authorization(self):
+  from jarvis.durable_cycle import coordinator_guidance
+  self.s.event(self.m,'coordinator_instruction','task','Codex-periodic',result={'instruction':'authorized support only'})
+  self.assertEqual(coordinator_guidance(self.s,self.m,'task'),[])
+  spec=json.loads(self.s.get(self.m)['spec']);spec['coordinator_periodic_authorized']=True
+  with self.s.db() as c:c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+  self.assertEqual(len(coordinator_guidance(self.s,self.m,'task')),1)

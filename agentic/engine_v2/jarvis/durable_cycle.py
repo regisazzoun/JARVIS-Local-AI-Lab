@@ -36,7 +36,8 @@ def semantic_reference_schemas(schemas, task, preserve_recall=False):
 
 def coordinator_guidance(store, ident, task_id):
     """Include the authorized periodic relay only in its M26-P2 scope."""
-    actors=('Codex','Codex-periodic') if ident=='3aa717f3887e49daa7daf7e883ee52e4' else ('Codex',)
+    spec=json.loads(store.get(ident)['spec'])
+    actors=('Codex','Codex-periodic') if ident=='3aa717f3887e49daa7daf7e883ee52e4' or spec.get('coordinator_periodic_authorized') else ('Codex',)
     with store.db() as c:
         return [dict(r) for r in c.execute(
             "SELECT id,result FROM mission_events WHERE mission=? AND actor IN ("+
