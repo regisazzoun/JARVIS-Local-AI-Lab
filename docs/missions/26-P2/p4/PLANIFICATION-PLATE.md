@@ -104,3 +104,31 @@ Les copiesDell candidates restent à leur version reçue antérieure ; ne jamais
 confondre leur ancien manifeste avec celui du SDK actuel ni en déduire le code
 chargé du service conversation. La future réception d’intégration devra comparer
 les versions effectivement concernées.
+
+## Lecture systemd classée à tort en mutation, puis retest réel
+
+277e05e corrige `host_service show` dans le Registry, le suivi des effets du
+cycle et la réception des rapports. Onze tests du garde canonique passent,
+dont une observation show autorisée pendant qu’une véritable mutation inconnue
+reste protégée ; restart reste bloqué. Aucun garde de mutation n’est affaibli.
+
+L’ancienne lecture30a1c76e987543c9a2a9eb730d2585cb avait réellement fini rc0,
+mais était liée à la vérification du rapport futur encore absent. Son résultat
+historique INSUFFICIENT est conservé, jamais reçu comme PASS. Liaison retirée du
+flux de mutations sous état historique BLOCKED, unknown_outcome=0 conservé,
+sans effacement ni nouvelle interprétation des compteurs. Contrôle indépendant
+Codex66249 : les deux services actifs, show réel rc0 sur chacun, zéro nouvelle
+tentative de mutation. Voir SYSTEMD-SHOW-RECEPTION.json ; aucune attestation
+mémoire n’en est déduite.
+
+Un passage périodique66241 a commencé pendant la reprise interactive. Codex
+l’a arrêté avant installation pour sérialiser les changements, événement dédié
+conservé, tentative1 non effacée. MANUAL-HOLD protège ensuite l’installation ;
+les anciens logs, limites de compte et compteurs restent dans le dossier privé.
+
+JARVIS a ensuite repris des lectures natives réussies des deux vrais fichiers
+d’unité systemd. Voir REPRISE-EXECUTION-NATIVE.json pour identifiants, reçus broker
+et modèle réellement observé. Ces actions sont distinctes du contrôle indépendant
+Codex, et ne sont pas une preuve de clôture de la préparation ou de touteP4.
+Le schéma host_write_file nécessaire à son rapport a été exposé par Codex via
+la découverte existante66286 ; aucune écriture du contenu réalisée parCodex.

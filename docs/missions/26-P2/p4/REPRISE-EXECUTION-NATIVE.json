@@ -1,0 +1,62 @@
+{
+  "observed_at": 1793182864.709179,
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "mission_state": "running",
+  "native_service_unit_reads": [
+    {
+      "invocation_id": "f639aefa3dcf477a85491fc5710fa8ab",
+      "created": 1793182839.531099,
+      "operator": "JARVIS native worker",
+      "tool": "host_read_file",
+      "path": "/etc/systemd/system/jarvis-mission-worker.service",
+      "returncode": 0,
+      "broker_evidence": "b5400133d65d4182b5492df5529f4b3d"
+    },
+    {
+      "invocation_id": "ed5a3df8438f4e579362afb470f57e30",
+      "created": 1793182817.4513898,
+      "operator": "JARVIS native worker",
+      "tool": "host_read_file",
+      "path": "/etc/systemd/system/jarvis-mission-worker@.service",
+      "returncode": 0,
+      "broker_evidence": "c5eb9bf6cd7c43bba1f928a9e8bfc2ea"
+    },
+    {
+      "invocation_id": "15b010a1639c4c62b82e94c2c452ff94",
+      "created": 1793182816.8950462,
+      "operator": "JARVIS native worker",
+      "tool": "host_read_file",
+      "path": "/etc/systemd/system/jarvis-mission-worker.service",
+      "returncode": 0,
+      "broker_evidence": "47e133fb194840a580f05a732ceadaa4"
+    }
+  ],
+  "last_observed_model": {
+    "event": 66288,
+    "node": "Dell1",
+    "effective_model": "qwen3-coder-next:q4_K_M",
+    "num_ctx": 32768,
+    "prompt_eval_count": 8160
+  },
+  "plan_version": 3,
+  "plan_coverage_event": 66089,
+  "task_states": [
+    {
+      "id": "version0-plan",
+      "state": "running"
+    },
+    {
+      "id": "t1-read-service-files",
+      "state": "pending"
+    },
+    {
+      "id": "step-1-a-observation-systemd",
+      "state": "pending"
+    }
+  ],
+  "show_classification_reception": 66249,
+  "attestation_candidate_deployed": false,
+  "preparation_received": false,
+  "phase_P4_received": false,
+  "supervision_scope": "same preparation only; native worker useful progress; no historical tests replayed"
+}
