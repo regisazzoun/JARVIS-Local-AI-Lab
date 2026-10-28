@@ -9,6 +9,46 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_document_declared_source_stays_visible_for_each_split_claim(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
+        call=self.s.begin_call(self.m,'a','host_exec',{'argv':['cat','/etc/systemd/system/fixture.service']})
+        self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'[Service]\nUser=fixture\n'}},0)
+        with self.s.db() as c:event=c.execute("SELECT id FROM mission_events WHERE invocation=? AND kind='tool_finished'",(call,)).fetchone()[0]
+        seen=[]
+        def callback(payload):
+            value=json.loads(payload['messages'][1]['content']);part=value['segments'][0]
+            source=next(r for r in value['evidence']['receipts'] if r['reference']==call)
+            self.assertEqual(source['observed']['stdout'],'[Service]\nUser=fixture\n');seen.append(part['id'])
+            return {'content':json.dumps({'claims':[{'segment':part['id'],'verdict':'supported','references':[call],'reason':'Software fixture'}],'issues':[]})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,'Source : refs '+str(event)+'.\n\nEnvironmentFile est absent du fichier.','a')
+        self.assertEqual(result['status'],'PASS');self.assertEqual(seen,['S1','S2'])
+
+    def test_older_cat_source_and_later_read_failure_both_reach_reviewer(self):
+        from jarvis.mission_assurance import evidence_snapshot,report_model_view
+        path='/etc/systemd/system/fixture.service'
+        good=self.s.begin_call(self.m,'a','host_exec',{'argv':['cat',path]})
+        self.s.finish_call(good,{'ok':True,'result':{'returncode':0,'stdout':'[Service]\nUser=fixture\n'}},0)
+        bad=self.s.begin_call(self.m,'a','host_read_file',{'path':path})
+        self.s.finish_call(bad,{'ok':False,'error':'Fixture denied later read','result':{'returncode':1}},0)
+        fake=self.s.begin_call(self.m,'a','host_exec',{'command':'echo fabricated > '+path})
+        self.s.finish_call(fake,{'ok':True,'result':{'returncode':0,'stdout':'fabricated'}},0)
+        view=report_model_view(evidence_snapshot(self.s,self.m,'a'),'Fichier '+path,recent=0)
+        ids={r['reference'] for r in view['receipts']}
+        self.assertIn(good,ids);self.assertIn(bad,ids);self.assertNotIn(fake,ids)
+
+    def test_numeric_receipt_alias_must_resolve_to_actual_completed_event(self):
+        from jarvis.mission_assurance import evidence_snapshot,report_model_view,snapshot_references
+        call=self.s.begin_call(self.m,'a','host_exec',{'command':'cat /etc/systemd/system/fixture.service'})
+        self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'Fixture contents'}},0)
+        snapshot=evidence_snapshot(self.s,self.m,'a');row=next(r for r in snapshot['receipts'] if r['reference']==call)
+        alias=row['event_reference'];body='Sources : refs '+alias.split(':')[1]
+        view=report_model_view(snapshot,body,recent=0)
+        self.assertEqual([r['reference'] for r in view['receipts']],[call])
+        self.assertIn(alias,snapshot_references(snapshot))
+        self.assertFalse(any('At least one' in x for x in deterministic_report_issues(body,snapshot)))
+        self.assertTrue(any('At least one' in x for x in deterministic_report_issues('refs 999999999',snapshot)))
+
     def test_source_review_does_not_import_neighbouring_status_or_invent_a_cause(self):
         from jarvis.mission_assurance import focused_event_review,cited_event_facts
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))

@@ -671,3 +671,33 @@ retour à la vérification après véritable écriture dans le test logiciel.
 Préflight69082 à21494octets/27648, sans inférence ni preuve de réception.
 Module et configuration précédents sauvegardés en privé, workers inactifs
 rechargés. Reprise de la même mission et du plan3 ; tâche t1/P4 non reçues.
+
+
+## Première écriture réelle et sélection des sources corrigée
+
+JARVIS a réellement écrit son rapport t1 :69115, fichier5901octets observé
+ensuite par le broker. La transition native vers la vérification est visible
+69116 ; admission69121 à25720octets/27648. Codex n’a pas rédigé ce rapport.
+
+Premier contrôle69316FAIL conservé : historiqueFAIL manquant, référence de
+reçu non reconnue et trois reproches d’absence de preuves de champs absents.
+Ces derniers sont dus à une projection incomplète des sources : cat viaargv
+avait réellement lu les deux unités68869/68871, mais la sélection du contrôleur
+ne conservait pas ces anciens reçus pour les paragraphes de tableau.
+
+CorrectifCodex69341 : alias d’événement terminé lié àl’invocation exacte,
+sélection des vraies lecturescat par chemin, conservation d’une lecture réussie
+avec un éventuel refus plus récent, et maintien des sources explicitement
+déclarées pour chaque segment du rapport. Une commande d’écriture produisant
+un texte n’est pas assimilée à une lecturecat. Un numéro inconnu ne satisfait
+jamais la référence obligatoire.
+
+105tests logiciels ciblésPASS, dont séparation dernière erreur/ancienne lecture
+réussie et source d’en-tête conservée pour le tableau suivant. Contrôle
+indépendant des deux textes d’unité : directives EnvironmentFile, ExecStartPre/
+Post, TimeoutStartSec, ProtectSystem/Home effectivement absentes. Erratum69342
+retire les trois seuls reproches de preuves absentes ; FAIL et deux diagnostics
+restants conservés. Contrôle69345 : bons reçus sélectionnés, rapport inchangé
+parCodex, compteurs inchangés. Blocage résolu techniquement sans faux succès.
+Qwen reprend la correction de sa rédaction puis la vérification dans le même
+plan3 ; aucune réceptiont1/P4 et aucun déploiement d’attestation déduits.

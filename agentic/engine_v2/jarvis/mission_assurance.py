@@ -385,6 +385,8 @@ def evidence_snapshot(store, ident, task_id=None):
     observations=[o for o in store.observations(ident) if scope_tasks is None or o['task'] in scope_tasks]
     report_paths={t.get('contract',{}).get('report_path') for t in all_tasks}
     report_paths.update(criterion.get('source',{}).get('arguments',{}).get('path') for t in all_tasks for criterion in t.get('contract',{}).get('semantic',[]) if criterion.get('kind')=='report')
+    with store.db() as c:
+        event_aliases={r['invocation']:'event:'+str(r['event_id']) for r in c.execute("SELECT invocation,max(id) event_id FROM mission_events WHERE mission=? AND kind='tool_finished' GROUP BY invocation",(ident,)) if r['invocation']}
     receipts=[]
     for o in observations:
         name=o['tool']; args=o['arguments']; result=o.get('result') or {}
@@ -399,7 +401,7 @@ def evidence_snapshot(store, ident, task_id=None):
         if 'content' in safe_args:
             safe_args['content_sha256']=hashlib.sha256(str(safe_args.pop('content')).encode()).hexdigest()
         text=encoded(raw)
-        receipts.append({'reference':o['id'],'actor':'JARVIS','executor':'broker' if name.startswith('host_') else 'JARVIS-engine',
+        receipts.append({'reference':o['id'],**({'event_reference':event_aliases[o['id']]} if o['id'] in event_aliases else {}),'actor':'JARVIS','executor':'broker' if name.startswith('host_') else 'JARVIS-engine',
             'tool':name,'arguments':safe_args,'broker_evidence':raw.get('evidence_id') if isinstance(raw,dict) else None,'ok':result.get('ok'),'error':result.get('error'),
             'created':datetime.fromtimestamp(o['created'],ZoneInfo('Europe/Paris')).isoformat(),
             'observed':raw if len(text)<=6000 else {'explicit_excerpt':text[:4000]+text[-1500:],'full_sha256':digest(raw)}})
@@ -434,12 +436,15 @@ def deterministic_report_issues(content, snapshot):
         for value in re.findall(r'\b'+label+r'\s*[:=]\s*(\d+)\b',content,re.I):
             if int(value)!=expected: issues.append(label+' incorrect: expected '+str(expected)+', actual '+value)
     refs={r['reference'] for r in snapshot['receipts']}|{r['broker_evidence'] for r in snapshot['receipts'] if r.get('broker_evidence')}|{e['reference'] for e in snapshot['semantic_verifications']}|{e['reference'] for e in snapshot.get('coverage_reviews',[])+snapshot.get('report_failures',[])}
-    if refs and not any(r in content for r in refs): issues.append('At least one original receipt/event reference must appear in the narrative')
+    aliases=receipt_event_aliases(content)
+    cited_known=any(row.get('event_reference') in aliases for row in snapshot['receipts'])
+    if refs and not cited_known and not any(r in content for r in refs): issues.append('At least one original receipt/event reference must appear in the narrative')
     return issues
 
 
 def snapshot_references(snapshot):
     return ({r['reference'] for r in snapshot['receipts']}
+        | {r['event_reference'] for r in snapshot['receipts'] if r.get('event_reference')}
         | {r['broker_evidence'] for r in snapshot['receipts'] if r.get('broker_evidence')}
         | {r['observed'].get('evidence_id') for r in snapshot['receipts'] if isinstance(r.get('observed'),dict) and r['observed'].get('evidence_id')}
         | {e['reference'] for e in snapshot['semantic_verifications']}
@@ -482,15 +487,40 @@ def cited_event_facts(store, ident, text):
     return result
 
 
+def receipt_event_aliases(content):
+    aliases={'event:'+value for value in re.findall(r'\bevent\s*:\s*(\d+)',content,re.I)}
+    for match in re.finditer(r'\b(?:refs?|references?|références?)\s*:?\s*(\d+(?:\s*[,/]\s*\d+)*)',content,re.I):
+        aliases.update('event:'+value for value in re.findall(r'\d+',match.group(1)))
+    return aliases
+
+
+def receipt_read_paths(row):
+    args=row['arguments']
+    if row['tool']=='host_read_file' and isinstance(args.get('path'),str):return {args['path']}
+    if row['tool']!='host_exec':return set()
+    import shlex
+    argv=args.get('argv')
+    if argv is None:
+        try:argv=shlex.split(args.get('command',''))
+        except ValueError:return set()
+    if not isinstance(argv,list) or len(argv)<2 or argv[0] not in ('cat','/bin/cat','/usr/bin/cat'):return set()
+    if not all(isinstance(path,str) and path.startswith('/') and not any(x in path for x in '*?[];|&<>$`\n') for path in argv[1:]):return set()
+    return set(argv[1:])
+
+
 def report_model_view(snapshot, content, recent=4):
     """Relevant original facts fit the model window; omission is never absence."""
     ids={value.lower() for value in re.findall(r'\b[0-9a-f]{32}\b',content,re.I)}
     receipts=snapshot['receipts'];chosen={row['reference'] for row in receipts if row['reference'].lower() in ids or str(row.get('broker_evidence','')).lower() in ids}
-    paths={str(row['arguments'].get('path','')) for row in receipts if row['arguments'].get('path')}
+    aliases=receipt_event_aliases(content)
+    chosen.update(row['reference'] for row in receipts if row.get('event_reference') in aliases)
+    paths=set().union(*(receipt_read_paths(row) for row in receipts)) if receipts else set()
     for path in paths:
         if path in content or Path(path).name in content:
-            last=next((row for row in reversed(receipts) if row['arguments'].get('path')==path),None)
-            if last:chosen.add(last['reference'])
+            matching=[row for row in receipts if path in receipt_read_paths(row)]
+            if matching:chosen.add(matching[-1]['reference'])
+            successful=[row for row in matching if row.get('ok') and row.get('observed',{}).get('returncode')==0]
+            if successful:chosen.add(successful[-1]['reference'])
     chosen.update(row['reference'] for row in receipts[-recent:] if recent)
     cards=[]
     for row in receipts:
@@ -686,6 +716,11 @@ def bounded_narrative_review(registry,instruction,data,schema,validator,snapshot
         return review_model(registry,'narrative',instruction,data,schema,validator=validator)
     import copy
     from .mission_context_budget import ContextCapacityError
+    document_text='\n\n'.join(part['text'] for part in data['segments'])
+    document_aliases=receipt_event_aliases(document_text)
+    document_uuids=set(re.findall(r'\b[0-9a-f]{32}\b',document_text,re.I))
+    document_sources=[row for row in report_model_view(snapshot,document_text,recent=0)['receipts']
+                      if row.get('event_reference') in document_aliases or row['reference'] in document_uuids or row.get('broker_evidence') in document_uuids]
     maximum=spec.get('narrative_review_max_segments',16)
     if type(maximum) is not int or not 1<=maximum<=16:raise ValueError('narrative_review_max_segments must be 1..16')
     def combine(left,right):
@@ -710,6 +745,11 @@ def bounded_narrative_review(registry,instruction,data,schema,validator,snapshot
             current_snapshot={**snapshot,'cited_event_facts':cited}
             current_data={'segments':parts,'evidence':report_model_view(current_snapshot,text,recent=0)}
             view=current_data['evidence']
+            # Document-declared original sources remain available for tables and
+            # follow-on assertions that do not repeat the citation in every paragraph.
+            merged={row['reference']:row for row in document_sources+view['receipts']}
+            view['receipts']=list(merged.values())
+            view['document_source_references']=[row['reference'] for row in document_sources]
             full_index=view['known_receipt_references']
             # The complete UUID index is durable, not evidence for this passage.
             # Explicitly cited receipts are selected above and remain available.
