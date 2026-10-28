@@ -89,6 +89,7 @@ class ReportStepTests(unittest.TestCase):
   self.assertIn('déjà observée dans le journal',captured[-1]['messages'][0]['content'])
   names={t['function']['name'] for t in captured[-1]['tools']}
   self.assertNotIn('mission_report_facts',names);self.assertIn('host_write_file',names);self.assertIn('host_service',names)
+  self.assertEqual(names,{'host_service','host_write_file','mission_note','mission_block'})
 
  def test_original_service_fields_survive_later_notes_and_large_receipt_excerpt(self):
   from jarvis.mission_context_budget import ContextBudget

@@ -54,3 +54,17 @@ Ces valeurs sont historiques et ne prouvent aucun état après redémarrage.
 les quatre observations utiles après notes et consultations du registre ;
 compteurs vérifiés inchangés. Installation et résolution70648, reprise native
 de JARVIS. Rapport suivant etP4 toujours non reçus à ce stade.
+
+
+Le premier paquet intégrant ces observations a été refusé avant inférence
+(70657), sans effet exécuté. L’étape déclarait uniquement host_service ; la
+sélection initiale ajoutait onze outils de contrôle sans exposer l’écriture
+du rapport. Après acquisition des faits, le moteur propose désormais les outils
+déclarés par le plan et l’écriture/note/blocage, sans boucle de découverte du
+registre déjà lu. Les vrais outils d’observation déclarés restent disponibles.
+
+Préflight70665 sur le paquet réellement refusé70655 : 24900octets/27648,
+politique/objectif conservés, quatre observations intactes. Pas de hausse du
+contexte32768. Les treize incidents de capacité restent comptés, acquittement
+explicite70666/70667 après preuve ; aucun échec fonctionnel effacé. Reprise de
+la même tâche après ce changement technique, sans répéter la stratégie refusée.

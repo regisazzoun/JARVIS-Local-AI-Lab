@@ -474,11 +474,13 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     if task_id:
                         with store.db() as c:
                             facts_already_observed=bool(c.execute("SELECT 1 FROM tool_calls WHERE mission=? AND task=? AND tool='mission_report_facts' AND state='finished' AND json_extract(result,'$.ok')=1 LIMIT 1",(ident,task_id)).fetchone())
-                    messages[0]['content']=report_execution_prompt(identity,facts_already_observed,writing_focus=bool(tool_focus))+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
+                    if facts_already_observed and not tool_focus:
+                        tool_focus=(set((definition or {}).get('tools',[]))-{'mission_report_facts','mission_verify','mission_report_review','mission_task_complete'})|{'host_write_file','mission_note','mission_block'}
+                    messages[0]['content']=report_execution_prompt(identity,facts_already_observed,writing_focus=bool(tool_focus) and set(tool_focus)<={'host_write_file','mission_note','mission_block'})+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
                     from .legacy_attempts import pending_report_validation
                     pending_report=pending_report_validation(store,ident,task_id)
                     if pending_report:
-                        messages[0]['content']=report_execution_prompt(identity,facts_already_observed,pending_report['phase'],writing_focus=bool(tool_focus))+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
+                        messages[0]['content']=report_execution_prompt(identity,facts_already_observed,pending_report['phase'],writing_focus=bool(tool_focus) and set(tool_focus)<={'host_write_file','mission_note','mission_block'})+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
                         allowed_report_tools={
                             'mission_verify','mission_report_review','host_read_file',
                             'mission_evidence','mission_note','context_recall'}
