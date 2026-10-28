@@ -153,3 +153,9 @@ La remise en file rend la rédaction et les choix àQwen ; elle ne reçoit aucun
 rapport. Le rapport de plan, la préparation et P4 restent à vérifier. La projection
 des preuves natives dans le champ observed_evidence (actuellement Authority)
 reste une limite identifiée ; aucune autonomie sans assistance n’est déduite.
+
+Le garde persistant a encore bloqué la remise en file66376 : son incident
+de capacité n’était pas marqué résolu. Après le préflight réel66373, Codex
+marque uniquement ce problème RESOLVED66378 ; infra_incidents=5, failed_cycles,
+escalation_event et tous les refus restent inchangés. Nouvelle remise en file
+66379 ; aucune quatrième exécution de lecture n’est autorisée par ce changement.
