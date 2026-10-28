@@ -418,7 +418,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if not json.loads(mission['spec']).get('authority_engine_operation_ids'):names-={'authority_draft_edit','authority_apply_draft'}
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
                 if names!={'intervention_report'} and coding_focus_required(json.loads(mission['spec']),authority.active_state()):
-                    names &= {'authority_draft_edit','authority_apply_draft','authority_edit','authority_analyze','mission_note','context_checkpoint','context_recall'}
+                    names &= {'authority_draft_edit','authority_apply_draft','authority_edit'}
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
                 durable=authority.active_state()
                 # Evidence is durable, not a growing prompt. Last observations and

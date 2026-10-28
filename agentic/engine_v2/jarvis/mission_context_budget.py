@@ -173,6 +173,13 @@ class ContextBudget:
   active['last_observations']=checkpoint['last_observations']
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
+   # Notes/analyze calls must not erase the last tool refusal after three turns.
+   # Preserve the observation without declaring it a failed application test.
+   with self.store.db() as c:failure=c.execute("SELECT id,tool,arguments,result FROM tool_calls WHERE mission=? AND task IS ? AND json_extract(result,'$.ok')=0 ORDER BY created DESC,rowid DESC LIMIT 1",(self.m,self.task)).fetchone()
+   if failure:
+    failed=json.loads(failure['result']);params=json.loads(failure['arguments'])
+    active['latest_tool_failure']={'invocation_id':failure['id'],'tool':failure['tool'],'parameters':{k:v for k,v in params.items() if k in ('path','executor','issue','reference','proposal_reference','stream','start_line','max_lines')},'error':str(failed.get('error','See original tool receipt'))[:650],'meaning':'Historical tool failure, not a failed application test by itself. Compare later actions before treating it as still unresolved.'}
+
    proposals=self.latest('authority_code_proposal')
    if proposals:
     proposal=proposals[0];data=proposal['result']['proposal']
@@ -206,6 +213,7 @@ class ContextBudget:
    # These are canonical backend facts, not a model-authored progress summary.
    status=self.store.contract_status(self.m,self.task)
    active['active_task_contract_status']={k:v for k,v in status.items() if k!='semantic'}
+   active['active_task_contract_status']['meaning']='Reception status only: all_satisfied=false does not mean an executed test failed. Actual test outcomes require their observed receipts.'
    active['active_task_contract_status']['semantic']=[
     {**{k:v for k,v in item.items() if k!='contract'},'contract':'active:'+str(i)}
     for i,item in enumerate(status.get('semantic',[]))]

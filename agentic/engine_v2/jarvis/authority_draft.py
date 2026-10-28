@@ -104,6 +104,6 @@ def apply_draft(authority, arguments):
     authority.store.finish_call(token,result,time.monotonic()-start)
     value=result.get('result',{})
     received=bool(result.get('ok') and value.get('execution',{}).get('returncode')==0 and value.get('actual_changed_files'))
-    record={'proposal_reference':reference,'parent_invocation':parent,'edit_invocation':token,'apply_decision':decision,'applied':received,'tested':False,'execution_result':result,'next_action':'Run YOUR actual discriminating test, then peer verification at exact manifest.' if received else 'Read the actual execution result; diagnose before another correction. Do not call this applied or tested.'}
+    record={'returncode':0 if received else 1,'proposal_reference':reference,'parent_invocation':parent,'edit_invocation':token,'apply_decision':decision,'applied':received,'tested':False,'execution_result':result,'next_action':'Run YOUR actual discriminating test, then peer verification at exact manifest.' if received else 'Read the actual execution result; diagnose before another correction. Do not call this applied or tested.'}
     if received:authority.event('authority_code_proposal_applied',record,actor='JARVIS/Qwen80B')
     return record

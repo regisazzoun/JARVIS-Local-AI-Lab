@@ -329,3 +329,17 @@ class ContextTests(unittest.TestCase):
   p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
   self.assertNotIn('pending_code_proposal',state)
   self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')
+
+ def test_last_tool_failure_is_not_erased_by_notes_or_successful_analysis(self):
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'authority_engine_operation_ids':True}),self.m))
+  args={'issue':'Q1','executor':'Dell1','path':'engine/large.py'}
+  token=self.s.begin_call(self.m,'task','authority_draft_edit',args)
+  self.s.finish_call(token,{'ok':False,'error':'Source exceeds focused 6000-byte unit; choose a smaller file'},0)
+  for name in ['mission_note','mission_note','authority_analyze']:
+   call=self.s.begin_call(self.m,'task',name,{})
+   self.s.finish_call(call,{'ok':True,'result':{'not_a_resolution':True}},0)
+  p=self.payload();self.b.prepare(p,self.cap);state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  failure=state['latest_tool_failure'];self.assertEqual(failure['invocation_id'],token)
+  self.assertEqual(failure['parameters'],args);self.assertIn('6000',failure['error'])
+  self.assertIn('does not mean an executed test failed',state['active_task_contract_status']['meaning'])
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'pending')

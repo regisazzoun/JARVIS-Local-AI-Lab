@@ -94,7 +94,7 @@ class FocusedDraftTests(unittest.TestCase):
  def test_stale_source_anchor_refuses_write_without_promoting_success(self):
   proposal=self.call();self.path.write_text('def run(): return 99\n')
   result=self.apply(proposal['proposal_reference'])
-  self.assertFalse(result['applied']);self.assertFalse(result['tested'])
+  self.assertFalse(result['applied']);self.assertFalse(result['tested']);self.assertEqual(result['returncode'],1)
   self.assertEqual(self.path.read_text(),'def run(): return 99\n')
  def test_apply_foreign_task_proposal_is_refused(self):
   proposal=self.call();self.reg.context['task_id']='other';other=Authority(self.reg)
