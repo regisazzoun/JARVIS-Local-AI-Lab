@@ -182,6 +182,10 @@ class ContextBudget:
   active={k:checkpoint[k] for k in ('mission','parent_mission','priority','task','objective','task_contract','task_dependencies','plan','workspace','model','authority_counters','reserved_operation_ids','interface_counters','last_inference','pending_effects','modifications','tests','observed_evidence','next_authorized_action')}
   active['operation_identity_rule']='All reserved_operation_ids belong to durable operations. A different intended operation needs an unused id; retry requires ALL original arguments unchanged. Never replay unknown effects. Counters and backend refusals remain authoritative.'
   active['offered_tools']=[t['function']['name'] for t in payload.get('tools',[])];active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive
+  # Initial planning has no separate task objective. Keep the exact owner text
+  # once; the complete checkpoint still stores both canonical fields.
+  if active['owner_goal']==active['objective']:
+   active['owner_goal']={'same_as':'objective','canonical_mission':self.m}
   active['counters']=[x for x in checkpoint['counters'] if x['failed_cycles'] or x['infra_incidents'] or x['state']!='OPEN']
   active['decisions']=[{'reference':e['id'],'actor':e['actor'],'instruction':preview(e['result'].get('instruction'),600)} for e in checkpoint['decisions']]
   active['model_notes']=[{'reference':e['id'],'content':preview(e['result'],500),'verification':'model note, not independently established fact'} for e in checkpoint['model_notes']]

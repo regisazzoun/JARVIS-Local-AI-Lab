@@ -9,6 +9,23 @@ class ContextTests(unittest.TestCase):
   self.contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/result.json'}},'expected':{'/value':42}}
   self.s.plan(self.m,[{'id':'task','title':'task','objective':'current objective','contract':{'semantic':[self.contract]}}]);self.b=ContextBudget(self.s,self.m,'task');self.cap={'limit':16384,'source':'test fixture, not real backend'}
  def payload(self):return {'model':'model','messages':[{'role':'system','content':'KEEP ALL OWNER POLICY'},{'role':'user','content':'historic output '+('x'*80000)}],'tools':[],'options':{'num_predict':1024}}
+ def test_initial_planning_preserves_owner_objective_once_under_budget(self):
+  goal='Exact owner requirements. '*320
+  mission=self.s.create(goal,'model','conv',project='phase')
+  budget=ContextBudget(self.s,mission)
+  p=self.payload();budget.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['objective'],goal)
+  self.assertEqual(state['owner_goal'],{'same_as':'objective','canonical_mission':mission})
+  self.assertLessEqual(serialized_bytes(p),14336)
+  checkpoint=budget.latest('operational_checkpoint')[0]['result']['checkpoint']
+  self.assertEqual(checkpoint['owner_goal'],goal)
+  self.assertEqual(checkpoint['objective'],goal)
+ def test_distinct_owner_and_task_objectives_both_survive(self):
+  p=self.payload();self.b.prepare(p,self.cap)
+  state=json.loads(p['messages'][1]['content']);state=state.get('operational_state',state)
+  self.assertEqual(state['objective'],'current objective')
+  self.assertEqual(state['owner_goal'],'short owner objective')
  def test_reserved_operation_ids_survive_compaction_without_mutating_ledger(self):
   operations={'inspect-20250621-002':{'arguments':{'executor':'Dell2','command':'original'},'result':{'returncode':0}},'uncertain-op':{'arguments':{'executor':'Dell1','command':'maybe-write'}}}
   self.s.event(self.m,'authority_state',result={'operations':operations})
