@@ -131,3 +131,32 @@ l’obligation d’inspection initiale à chaque tour.141tests ciblésPASS, ense
 recouvrant les campagnes précédentes (ne pas additionner). Installation et reprise
 74951 : objectif conservé, oracle fourni, même mission/plan/compteurs. P3 reste non
 reçue, P4 attend et l’épreuve finale distincte n’est pas encore transmise.
+
+## Boucle corrective restaurée après le test ciblé
+
+JARVIS a exécuté l’oracle surDell2 :74992,4tests,2PASS/2FAIL, code de processus1.
+Source de test inchangée et manifeste stable, preuves
+[CONTROLE-CIBLE-EXECUTE.json](CONTROLE-CIBLE-EXECUTE.json). Un essai suivant75083
+surDell1 a doublé un préfixe de chemin et n’a pas lancé le test ; la commande avec
+chemins absolus a été fournie pour supprimer cette ambiguïté, sans classer ce
+refus de fichier comme un échec fonctionnel du contrôleur.
+
+Le focus de codage ne s’appliquait qu’avant la première modification : après un
+test échoué, il exposait à nouveau tout le catalogue au lieu de guider la boucle
+courte. Il revient maintenant après chaque échec, avec diagnostic préalable si
+le dernier vrai test n’a pas été analysé. L’analyse est écrite par Qwen et liée
+à la référence réelle ; l’orchestrateur ne choisit pas son hypothèse.
+
+Dans une tâche exigeant un changement de comportement, le filtre AST s’applique
+aussi aux anciennes propositions. Les propositions déjà appliquées restent
+idempotentes dans le backend, mais ne sont plus proposées comme prochaines
+corrections. Les brouillons refusés sur une source inchangée restent limités ;
+une vraie version ultérieure autorise son propre travail sans remettre à zéro
+les cycles de l’anomalie. Le curseur de phase74951 écarte l’ancienne écriture
+cosmétique de la réception de ce nouveau résultat ; les échecs et compteurs
+précédents restent intacts.
+
+88tests logiciels ciblésPASS. Préflight réel75274 :23538/27648octets, prochain outil
+`authority_analyze`, aucune action exécutée par cette sonde, compteur inchangé.
+[Contrat](BOUCLE-CORRECTION-REPRISE.json). Même mission et plan2 repris.
+Cela prouve la réparation du chemin d’exécution, pas encore la réussite de P3.

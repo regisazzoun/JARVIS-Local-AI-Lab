@@ -23,6 +23,9 @@ def canonical_call(authority, tool, arguments):
         raise ValueError('Draft requires its canonical started invocation in the active task')
     return invocation
 
+def proposal_changes_logic(proposal):
+    return any(ast.dump(ast.parse(edit.get('old') or ''))!=ast.dump(ast.parse(edit['new'])) for edit in proposal['edits'])
+
 
 def source_program(path,symbol=None):
     program="""import json,pathlib,hashlib,ast
@@ -121,8 +124,10 @@ def apply_draft(authority, arguments):
         applied=c.execute("SELECT result FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal_applied' AND json_extract(result,'$.proposal_reference')=? ORDER BY id DESC LIMIT 1",(authority.m,authority.t,reference)).fetchone()
     if not row or row['mission']!=authority.m or row['task']!=authority.t or row['actor']!='JARVIS/Qwen80B':
         raise ValueError('Proposal not authored by Qwen in this exact mission/task')
-    if applied:return {**json.loads(applied['result']),'cached':True,'next_action':'Already applied once. Run or inspect actual tests; do not reapply.'}
     proposal=json.loads(row['result'])['proposal']
+    if authority.spec.get('authority_behavioral_change') and not proposal_changes_logic(proposal):
+        raise ValueError('Formatting/newline-only proposal is ineligible for this behavioral correction; historical application, if any, remains recorded')
+    if applied:return {**json.loads(applied['result']),'cached':True,'next_action':'Already applied once. Run or inspect actual tests; do not reapply.'}
     budget(authority.state(),proposal['issue'])
     decision=authority.decision(arguments)
     token=authority.store.begin_call(authority.m,authority.t,'authority_edit',proposal)

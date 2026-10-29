@@ -110,6 +110,21 @@ class FocusedDraftTests(unittest.TestCase):
   self.a.spec['authority_coding_objective']='Preserve required behavior in the actual function'
   with self.assertRaisesRegex(ValueError,'actual code change'):self.call({**self.args(),'request':'apply'})
   self.assertFalse(self.remote_calls);self.assertFalse(self.payloads)
+ def test_failed_test_restores_short_coding_phase_until_new_correction(self):
+  from jarvis.durable_cycle import coding_focus_required,candidate_test_focus
+  spec={'authority_code_focus':True};state={'executions':{}}
+  self.assertTrue(coding_focus_required(spec,state))
+  state['executions']['10']={'kind':'correct','execution':{'returncode':0},'before':{'x':'a'},'after':{'x':'b'}}
+  self.assertFalse(coding_focus_required(spec,state));self.assertTrue(candidate_test_focus(spec,state))
+  state['executions']['11']={'kind':'test','execution':{'returncode':1}}
+  self.assertTrue(coding_focus_required(spec,state));self.assertFalse(candidate_test_focus(spec,state))
+  state['executions']['12']={'kind':'correct','execution':{'returncode':0},'before':{'x':'b'},'after':{'x':'c'}}
+  self.assertFalse(coding_focus_required(spec,state));self.assertTrue(candidate_test_focus(spec,state))
+ def test_preexisting_style_proposal_cannot_be_applied_to_behavioral_task(self):
+  self.reply['new_content']=self.original+'\n'
+  proposal=self.call();self.a.spec['authority_behavioral_change']=True
+  with self.assertRaisesRegex(ValueError,'ineligible'):self.apply(proposal['proposal_reference'])
+  self.assertEqual(self.path.read_text(),self.original)
  def test_requires_canonical_call_before_source_read(self):
   with self.assertRaisesRegex(ValueError,'canonical started'):draft(self.a,self.args())
   self.assertFalse(self.remote_calls);self.assertFalse(self.payloads)

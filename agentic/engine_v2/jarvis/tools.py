@@ -241,7 +241,10 @@ class Registry:
                     schema['required']=list(dict.fromkeys(schema['required']+['symbol']))
             if name=='authority_apply_draft':
                 with self.mission_store.db() as connection:
-                    proposals=[row[0] for row in connection.execute("SELECT id FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal' AND actor='JARVIS/Qwen80B' ORDER BY id DESC",(self.context['mission_id'],self.context.get('task_id')))]
+                    rows=connection.execute("SELECT p.id,p.result FROM mission_events p WHERE p.mission=? AND p.task IS ? AND p.kind='authority_code_proposal' AND p.actor='JARVIS/Qwen80B' AND NOT EXISTS (SELECT 1 FROM mission_events a WHERE a.mission=p.mission AND a.task IS p.task AND a.kind='authority_code_proposal_applied' AND json_extract(a.result,'$.proposal_reference')=p.id) ORDER BY p.id DESC",(self.context['mission_id'],self.context.get('task_id'))).fetchall()
+                behavioral=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_behavioral_change')
+                from .authority_draft import proposal_changes_logic
+                proposals=[row['id'] for row in rows if not behavioral or proposal_changes_logic(json.loads(row['result'])['proposal'])]
                 if proposals:schema['properties']['proposal_reference']['enum']=proposals
             if name=='authority_work':
                 from .distributed_authority import Authority

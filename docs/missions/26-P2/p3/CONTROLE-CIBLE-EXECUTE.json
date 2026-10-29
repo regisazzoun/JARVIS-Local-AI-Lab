@@ -1,0 +1,18 @@
+{
+  "execution_event": 74992,
+  "model_decision": 74975,
+  "executor": "Dell2",
+  "kind": "test",
+  "observed_returncode": 1,
+  "test_source_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+  "test_source_unchanged": true,
+  "source_version_stable": true,
+  "candidate_module_sha256": "ac46fa95bd17c3221e780b615f2e25ab65544889e85c7568b486c15374d1da77",
+  "full_receipt_sha256": "d694cf8aee0aaae5eb91cfddc72d3cda66a80df3ace39922dbfe80d40843375c",
+  "tests_run": 4,
+  "pass": 2,
+  "fail": 2,
+  "functional_reception": false,
+  "scope": "Real JARVIS worker execution of independent software oracle; deterministic backend fixture, not actual model reasoning benchmark",
+  "not_final_VF01": true
+}

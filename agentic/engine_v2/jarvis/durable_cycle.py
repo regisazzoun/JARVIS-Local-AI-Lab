@@ -11,11 +11,13 @@ from pathlib import Path
 from .mission_store import encoded, signature
 
 def coding_focus_required(spec, active):
-    """Explicit short coding packet; leave it after an observed real correction."""
-    return bool(spec.get('authority_code_focus')) and not any(
+    """Short coding phase, restored after a failed test until the next correction."""
+    if not spec.get('authority_code_focus'):return False
+    corrections=[int(ref) for ref,e in active.get('executions',{}).items() if
         int(ref)>spec.get('authority_code_focus_since',0) and e.get('kind')=='correct'
         and e.get('execution',{}).get('returncode')==0 and e.get('before')!=e.get('after')
-        for ref,e in active.get('executions',{}).items())
+        ]
+    return not corrections or any(int(ref)>max(corrections) and e.get('kind')=='test' and e.get('execution',{}).get('returncode')!=0 for ref,e in active.get('executions',{}).items())
 
 def focused_source_prompt(text):
     """Keep offered editing tools consistent with the bounded coding phase."""
@@ -591,15 +593,23 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if not json.loads(mission['spec']).get('authority_engine_operation_ids'):names-={'authority_draft_edit','authority_apply_draft'}
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
                 if names!={'intervention_report'} and coding_focus_required(json.loads(mission['spec']),authority.active_state()):
+                    analysis_available='authority_analyze' in names
+                    needs_analysis=any(issue.get('last_failed_test') and str(issue.get('analyzed'))!=str(issue['last_failed_test']) for issue in authority.active_state().get('issues',{}).values())
                     names &= {'authority_draft_edit','authority_apply_draft','authority_edit'}
                     with store.db() as connection:
-                        proposal=connection.execute("SELECT id FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal' AND actor='JARVIS/Qwen80B' LIMIT 1",(ident,task_id)).fetchone()
-                        latest_draft=connection.execute("SELECT result FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_draft_started' ORDER BY id DESC LIMIT 1",(ident,task_id)).fetchone()
+                        proposal_rows=connection.execute("SELECT p.result FROM mission_events p WHERE p.mission=? AND p.task IS ? AND p.kind='authority_code_proposal' AND p.actor='JARVIS/Qwen80B' AND NOT EXISTS (SELECT 1 FROM mission_events a WHERE a.mission=p.mission AND a.task IS p.task AND a.kind='authority_code_proposal_applied' AND json_extract(a.result,'$.proposal_reference')=p.id)",(ident,task_id)).fetchall()
+                        if json.loads(mission['spec']).get('authority_behavioral_change'):
+                            from .authority_draft import proposal_changes_logic
+                            proposal=any(proposal_changes_logic(json.loads(row['result'])['proposal']) for row in proposal_rows)
+                        else:proposal=bool(proposal_rows)
+                        latest_draft=connection.execute("SELECT id,result FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_draft_started' ORDER BY id DESC LIMIT 1",(ident,task_id)).fetchone()
                         if latest_draft:
                             draft=json.loads(latest_draft['result'])
                             count=connection.execute("SELECT count(*) FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_draft_started' AND json_extract(result,'$.path')=? AND json_extract(result,'$.source_sha256')=?",(ident,task_id,draft['path'],draft['source_sha256'])).fetchone()[0]
-                            if count>=3:names.discard('authority_draft_edit')
+                            changed_since=any(int(ref)>max(latest_draft['id'],json.loads(mission['spec']).get('authority_code_focus_since',0)) and e.get('kind')=='correct' and e.get('execution',{}).get('returncode')==0 and e.get('before',{}).get(draft['path'])!=e.get('after',{}).get(draft['path']) for ref,e in authority.active_state().get('executions',{}).items())
+                            if count>=3 and not changed_since:names.discard('authority_draft_edit')
                     if not proposal:names.discard('authority_apply_draft')
+                    if needs_analysis:names={'authority_analyze'} if analysis_available else set()
                     if not names:
                         store.event(ident,'authority_escalation',task_id,'JARVIS-engine',result={'reason':'Three focused drafts exhausted on unchanged source with no usable proposal; no fourth inference'})
                         from .missions import MissionInterrupted
@@ -634,7 +644,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
 
                 if coding_focus_required(json.loads(mission['spec']),authority.active_state()):
                     authority_prompt[0]['content']=focused_source_prompt(authority_prompt[0]['content'])
-                    if 'authority_draft_edit' not in names:
+                    if names=={'authority_analyze'}:
+                        authority_prompt[0]['content']+='\nLe dernier test échoué attend ton diagnostic : authority_analyze enregistre ton hypothèse et rattache sa référence réelle. Aucun changement avant cette analyse ; les outils de correction reviennent ensuite.'
+                    elif 'authority_draft_edit' not in names:
                         authority_prompt[0]['content']+='\nTrois propositions existent déjà sur cette source inchangée : la rédaction est indisponible. Examine les propositions et les contrôles reçus avant de choisir une référence applicable ; aucune quatrième rédaction ne remet le compteur à zéro.'
                 if not authority_history_started:
                     messages=authority_prompt
