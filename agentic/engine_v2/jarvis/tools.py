@@ -246,6 +246,18 @@ class Registry:
                 from .authority_draft import proposal_changes_logic
                 proposals=[row['id'] for row in rows if not behavioral or proposal_changes_logic(json.loads(row['result'])['proposal'])]
                 if proposals:schema['properties']['proposal_reference']['enum']=proposals
+            if name=='authority_sync':
+                from .distributed_authority import Authority
+                executions=Authority(self).active_state()['executions'];by_host={}
+                for host in schema['properties']['source']['enum']:
+                    rows=[(int(ref),entry) for ref,entry in executions.items() if entry.get('host')==host and isinstance(entry.get('after'),dict)]
+                    if rows:
+                        latest=max(rows,key=lambda row:row[0])[1]['after']
+                        by_host[host]=sorted((ref for ref,entry in rows if entry['after']==latest),reverse=True)[:16]
+                if by_host:
+                    schema['properties']['source']['enum']=list(by_host)
+                    schema['allOf']=[{'if':{'properties':{'source':{'const':host}},'required':['source']},'then':{'properties':{'source_reference':{'enum':refs}}}} for host,refs in by_host.items()]
+                    schema['properties']['source_reference']['description']='Exact execution reference at the latest observed source manifest on the chosen host; not a proposal id. Remote freshness is checked again before transfer.'
             if name=='authority_work':
                 from .distributed_authority import Authority
                 from .durable_cycle import candidate_test_focus

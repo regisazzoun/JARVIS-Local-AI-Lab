@@ -1,3 +1,13 @@
+## P3 — circuit de reprise et versions corrigés — 29 octobre 2026
+
+Le candidat Qwen75462 est appliqué75575 ; quatre cas ciblésPASS75624 surDell1.
+Le testDell2 75723 utilisait une ancienne copie : le focus compare maintenant les
+versions et les schémas de sync lient hôte et vraie référence d’exécution.
+157tests ciblésPASS ; reprise75867, préflight24445/27648. P3 reste NON REÇUE :
+contrôle indépendant des tailles variables et vérification du même code surDell2
+restent requis. P4 attend, VF01 non transmis, compteurs/originaux conservés.
+[Dossier](docs/missions/26-P2/p3/REPRISE-APRES-STAGNATION.md).
+
 ## Reprise P3 sur fonction réelle — 29 octobre 2026
 
 Après arrêt borné74344, Codex ajoute l’édition AST d’une fonction dans son vrai

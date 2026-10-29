@@ -13,11 +13,16 @@ from .mission_store import encoded, signature
 def coding_focus_required(spec, active):
     """Short coding phase, restored after a failed test until the next correction."""
     if not spec.get('authority_code_focus'):return False
-    corrections=[int(ref) for ref,e in active.get('executions',{}).items() if
+    corrections=[(int(ref),e) for ref,e in active.get('executions',{}).items() if
         int(ref)>spec.get('authority_code_focus_since',0) and e.get('kind')=='correct'
         and e.get('execution',{}).get('returncode')==0 and e.get('before')!=e.get('after')
         ]
-    return not corrections or any(int(ref)>max(corrections) and e.get('kind')=='test' and e.get('execution',{}).get('returncode')!=0 for ref,e in active.get('executions',{}).items())
+    if not corrections:return True
+    reference,correction=max(corrections,key=lambda item:item[0])
+    return failed_test_on_version(active,reference,correction['after'])
+
+def failed_test_on_version(active,reference,manifest):
+    return any(int(ref)>reference and e.get('kind')=='test' and e.get('execution',{}).get('returncode')!=0 and e.get('before')==e.get('after')==manifest for ref,e in active.get('executions',{}).items())
 
 def focused_source_prompt(text):
     """Keep offered editing tools consistent with the bounded coding phase."""
@@ -35,9 +40,10 @@ def source_preparation_observed(active):
 def candidate_test_focus(spec, active):
     """After a real edit, expose testing; restore coding after an observed test failure."""
     if not spec.get('authority_code_focus'):return False
-    corrections=[int(ref) for ref,e in active.get('executions',{}).items() if int(ref)>spec.get('authority_code_focus_since',0) and e.get('kind')=='correct' and e.get('execution',{}).get('returncode')==0 and isinstance(e.get('before'),dict) and isinstance(e.get('after'),dict) and e['before']!=e['after']]
+    corrections=[(int(ref),e) for ref,e in active.get('executions',{}).items() if int(ref)>spec.get('authority_code_focus_since',0) and e.get('kind')=='correct' and e.get('execution',{}).get('returncode')==0 and isinstance(e.get('before'),dict) and isinstance(e.get('after'),dict) and e['before']!=e['after']]
     if not corrections:return False
-    return not any(int(ref)>max(corrections) and e.get('kind')=='test' and e.get('execution',{}).get('returncode')!=0 for ref,e in active.get('executions',{}).items())
+    reference,correction=max(corrections,key=lambda item:item[0])
+    return not failed_test_on_version(active,reference,correction['after'])
 
 def semantic_reference_schemas(schemas, task, preserve_recall=False):
     schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_') or preserve_recall and s['function']['name']=='context_recall'])

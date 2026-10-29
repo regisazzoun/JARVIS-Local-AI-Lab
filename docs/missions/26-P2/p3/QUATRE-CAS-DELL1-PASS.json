@@ -1,0 +1,21 @@
+{
+  "proposal": 75462,
+  "application_execution": 75575,
+  "test_execution": 75624,
+  "executor": "Dell1",
+  "test_returncode": 0,
+  "cases": 4,
+  "pass": 4,
+  "fail": 0,
+  "module_sha256": "d475c0a5407d530c0aece33a4ddc9d3e7f2ed6e4347ee1c6d15411f0e95d53d9",
+  "matches_model_function_with_documented_terminal_newline": true,
+  "source_and_test_stable": true,
+  "oracle_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+  "functional_reception": false,
+  "remaining_controls": [
+    "Independent peer run on exact version",
+    "Variable input widths, including two15000-byte outcomes: fixed batch2 is insufficient as a general capacity guarantee",
+    "Independent Codex reception and factual report"
+  ],
+  "not_final_VF01": true
+}

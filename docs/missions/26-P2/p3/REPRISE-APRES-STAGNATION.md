@@ -160,3 +160,43 @@ précédents restent intacts.
 `authority_analyze`, aucune action exécutée par cette sonde, compteur inchangé.
 [Contrat](BOUCLE-CORRECTION-REPRISE.json). Même mission et plan2 repris.
 Cela prouve la réparation du chemin d’exécution, pas encore la réussite de P3.
+
+## Frontière de fonction et version réellement testée
+
+La proposition75462, rédigée par Qwen, passait l’analyse syntaxique isolée mais
+n’avait pas de retour à la ligne final. À l’application, `return review` se collait
+au `def ensure_plan_review` suivant. Le garde syntaxique du module a empêché
+l’écriture. Codex corrige cette frontière de transport ; la sortie originale du
+modèle reste conservée et la normalisation est journalisée. Les tests couvrent
+une fonction immédiatement suivie d’une autre, ainsi qu’une proposition déjà
+persistée sans saut de ligne. [Reprise](FRONTIERE-FONCTION-REPRISE.json).
+
+Après réparation : application réelle75575 surDell1, quatre cas ciblésPASS75624,
+module complet comparé à la composition attendue avec la seule normalisation
+annoncée. [Preuves](QUATRE-CAS-DELL1-PASS.json). Le candidat reste un lot fixe2 :
+deux exigences de15000octets dépassent27648 avant même le reste du paquet.
+Le contrôle de tailles variables reste donc obligatoire avant réception générale.
+
+Le test75723 surDell2 portait encore sur l’ancienne copie. Le focus de correction
+considérait tout échec ultérieur comme rejet du code nouveau ; il renvoyait ainsi
+le modèle rédiger sur une version dont les trois brouillons étaient épuisés.
+Il compare maintenant le manifeste stable du test au manifeste de la correction.
+Un échec d’une ancienne copie conduit à synchroniser/vérifier la version actuelle.
+Les compteurs historiques ne sont pas remis à zéro.
+
+Le schéma de synchronisation expose les références d’exécution de la dernière
+version observée par hôte, liées au choix de l’hôte source ; un identifiant de
+proposition ne peut plus être choisi à sa place. L’outil recontrôle la fraîcheur
+avant transfert. Les nouveaux reçus d’application remontent aussi leur vraie
+référence d’exécution au premier niveau, sans réécrire les anciens reçus.
+157tests ciblésPASS, dont échec d’un pair sur ancienne version et références de
+synchronisation hôte/version. Préflight75866 :24445/27648octets ; synchronisation
+proposée, rédaction indisponible à cette phase. Résolution75867 de l’arrêt75856,
+même mission/plan2 remis en file. [Contrat](REPRISE-VERSION-SOURCE.json).
+
+Réserve de classification conservée :75391 était une erreur d’argument `.` ajouté
+au lancement du probe, pas l’exécution de ses quatre cas. L’analyse erronée75427
+reste archivée avec rectification ultérieure. Les compteurs bruts n’ont pas été
+effacés ; leur interprétation et la portée des campagnes doivent rester explicites
+dans la réception finale. La ponctuation ambiguë de la première consigne Codex a
+été remplacée par une invocation ARGV/ENV complète dans le texte court transmis.

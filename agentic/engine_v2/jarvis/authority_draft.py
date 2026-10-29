@@ -104,13 +104,17 @@ def draft(authority, arguments):
     result=json.loads(message.get('content',''))
     if set(result)!=set(schema['required']) or not isinstance(result['new_content'],str) or not isinstance(result['rationale'],str):raise ValueError('Invalid draft contract')
     if len(result['new_content'])>12000 or len(result['rationale'])>1000 or result['new_content']==source['source']:raise ValueError('Draft is oversized or makes no source change')
+    normalized=bool(source.get('symbol') and source['source'].endswith('\n') and not result['new_content'].endswith('\n'))
+    if normalized:result['new_content']+='\n'
+    if result['new_content']==source['source'] or len(result['new_content'])>12000:
+        raise ValueError('Draft makes no source change or exceeds capacity after function boundary normalization')
     parsed=ast.parse(result['new_content'])
     if authority.spec.get('authority_behavioral_change') and ast.dump(parsed)==ast.dump(ast.parse(source['source'])):
         raise ValueError('Behavioral task requires a code logic change; formatting/newline-only proposal does not satisfy its result contract')
     if source.get('symbol') and sum(isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef)) and n.name==source['symbol'] for n in parsed.body)!=1:
         raise ValueError('Proposal must retain the selected top-level function exactly once')
     proposal={'issue':arguments['issue'],'executor':arguments['executor'],'summary':result['rationale'],'edits':[{'path':source['path'],'old':source['source'],'new':result['new_content']}]}
-    evidence=authority.event('authority_code_proposal',{'inference':inference,'source_sha256':source['sha256'],'source_unit':{k:v for k,v in source.items() if k!='source'},'proposal':proposal,'applied':False,'tested':False},actor='JARVIS/Qwen80B')
+    evidence=authority.event('authority_code_proposal',{'inference':inference,'source_sha256':source['sha256'],'source_unit':{k:v for k,v in source.items() if k!='source'},'proposal':proposal,'normalizations':['function_terminal_newline'] if normalized else [],'applied':False,'tested':False},actor='JARVIS/Qwen80B')
     return {'proposal_reference':evidence,'path':source['path'],'executor':arguments['executor'],'rationale':result['rationale'],'new_content':result['new_content'][:1800],'preview_truncated':len(result['new_content'])>1800,'full_proposal_in_canonical_event':True,'applied':False,'tested':False,'next_action':'Review YOUR proposal, then authority_apply_draft with proposal_reference. Exact source anchor and existing guards apply. Use context_recall on the proposal reference if further review is needed; no recopy of the code required.'}
 
 
@@ -128,6 +132,11 @@ def apply_draft(authority, arguments):
     if authority.spec.get('authority_behavioral_change') and not proposal_changes_logic(proposal):
         raise ValueError('Formatting/newline-only proposal is ineligible for this behavioral correction; historical application, if any, remains recorded')
     if applied:return {**json.loads(applied['result']),'cached':True,'next_action':'Already applied once. Run or inspect actual tests; do not reapply.'}
+    if json.loads(row['result']).get('source_unit',{}).get('symbol'):
+        for edit in proposal['edits']:
+            if edit['old'].endswith('\n') and not edit['new'].endswith('\n'):
+                edit['new']+='\n'
+                authority.event('authority_source_unit_boundary_normalized',{'proposal_reference':reference,'path':edit['path'],'normalization':'function_terminal_newline','original_proposal_preserved':True,'not_application_algorithm_change':True})
     budget(authority.state(),proposal['issue'])
     decision=authority.decision(arguments)
     token=authority.store.begin_call(authority.m,authority.t,'authority_edit',proposal)
@@ -137,5 +146,6 @@ def apply_draft(authority, arguments):
     value=result.get('result',{})
     received=bool(result.get('ok') and value.get('execution',{}).get('returncode')==0 and value.get('actual_changed_files'))
     record={'returncode':0 if received else 1,'proposal_reference':reference,'parent_invocation':parent,'edit_invocation':token,'apply_decision':decision,'applied':received,'tested':False,'execution_result':result,'next_action':'Run YOUR actual discriminating test, then peer verification at exact manifest.' if received else 'Read the actual execution result; diagnose before another correction. Do not call this applied or tested.'}
+    if received:record.update(reference=value['reference'],executor=value['executor'],source_version=value['version'],actual_changed_files=value['actual_changed_files'])
     if received:authority.event('authority_code_proposal_applied',record,actor='JARVIS/Qwen80B')
     return record

@@ -116,7 +116,7 @@ class FocusedDraftTests(unittest.TestCase):
   self.assertTrue(coding_focus_required(spec,state))
   state['executions']['10']={'kind':'correct','execution':{'returncode':0},'before':{'x':'a'},'after':{'x':'b'}}
   self.assertFalse(coding_focus_required(spec,state));self.assertTrue(candidate_test_focus(spec,state))
-  state['executions']['11']={'kind':'test','execution':{'returncode':1}}
+  state['executions']['11']={'kind':'test','execution':{'returncode':1},'before':{'x':'b'},'after':{'x':'b'}}
   self.assertTrue(coding_focus_required(spec,state));self.assertFalse(candidate_test_focus(spec,state))
   state['executions']['12']={'kind':'correct','execution':{'returncode':0},'before':{'x':'b'},'after':{'x':'c'}}
   self.assertFalse(coding_focus_required(spec,state));self.assertTrue(candidate_test_focus(spec,state))
@@ -125,6 +125,25 @@ class FocusedDraftTests(unittest.TestCase):
   proposal=self.call();self.a.spec['authority_behavioral_change']=True
   with self.assertRaisesRegex(ValueError,'ineligible'):self.apply(proposal['proposal_reference'])
   self.assertEqual(self.path.read_text(),self.original)
+ def test_function_without_final_newline_keeps_following_definition_separate(self):
+  suffix='def other():\n return 99\n';self.path.write_text(self.original+suffix)
+  self.reply['new_content']='def run():\n return 2'
+  result=self.call({**self.args(),'symbol':'run'})
+  self.assertTrue(self.apply(result['proposal_reference'])['applied'])
+  self.assertEqual(self.path.read_text(),'def run():\n return 2\n'+suffix)
+ def test_stored_legacy_function_proposal_gets_boundary_without_rewriting_original(self):
+  suffix='def other():\n return 99\n';self.path.write_text(self.original+suffix)
+  proposal={'issue':'Q1','executor':'Dell2','summary':'fixture legacy model proposal','edits':[{'path':'engine/worker.py','old':self.original,'new':'def run():\n return 2'}]}
+  ref=self.s.event(self.m,'authority_code_proposal','task',actor='JARVIS/Qwen80B',result={'source_unit':{'symbol':'run'},'proposal':proposal})
+  self.assertTrue(self.apply(ref)['applied']);self.assertEqual(self.path.read_text(),'def run():\n return 2\n'+suffix)
+  original=next(e for e in self.s.events(self.m) if e['id']==ref)
+  self.assertFalse(original['result']['proposal']['edits'][0]['new'].endswith('\n'))
+ def test_peer_failure_on_stale_source_does_not_reopen_current_correction(self):
+  from jarvis.durable_cycle import coding_focus_required,candidate_test_focus
+  spec={'authority_code_focus':True};state={'executions':{'10':{'kind':'correct','host':'Dell1','execution':{'returncode':0},'before':{'x':'old'},'after':{'x':'new'}},'11':{'kind':'test','host':'Dell2','execution':{'returncode':1},'before':{'x':'old'},'after':{'x':'old'}}}}
+  self.assertFalse(coding_focus_required(spec,state));self.assertTrue(candidate_test_focus(spec,state))
+  state['executions']['12']={'kind':'test','host':'Dell2','execution':{'returncode':1},'before':{'x':'new'},'after':{'x':'new'}}
+  self.assertTrue(coding_focus_required(spec,state));self.assertFalse(candidate_test_focus(spec,state))
  def test_requires_canonical_call_before_source_read(self):
   with self.assertRaisesRegex(ValueError,'canonical started'):draft(self.a,self.args())
   self.assertFalse(self.remote_calls);self.assertFalse(self.payloads)
@@ -158,7 +177,7 @@ class FocusedDraftTests(unittest.TestCase):
    self.assertEqual(name,'authority_edit')
    before=self.path.read_bytes()
    r=subprocess.run(['python3','-c',edit_program(args['edits'],allow_workspace_absolute=True)],cwd=self.root,capture_output=True,text=True)
-   return {'ok':True,'result':{'actual_changed_files':['engine/worker.py'] if self.path.read_bytes()!=before else [],'execution':{'returncode':r.returncode,'stderr':r.stderr}}}
+   return {'ok':True,'result':{'reference':101,'executor':args['executor'],'version':'software-fixture-version','actual_changed_files':['engine/worker.py'] if self.path.read_bytes()!=before else [],'execution':{'returncode':r.returncode,'stderr':r.stderr}}}
   self.reg.execute=execute
   args={'proposal_reference':reference};token=self.s.begin_call(self.m,'task','authority_apply_draft',args)
   try:
@@ -206,7 +225,7 @@ class FocusedDraftTests(unittest.TestCase):
   self.assertTrue(candidate_test_focus(spec,state))
   state['executions']['12']={'kind':'test','execution':{'returncode':0}}
   self.assertTrue(candidate_test_focus(spec,state))
-  state['executions']['13']={'kind':'test','execution':{'returncode':1}}
+  state['executions']['13']={'kind':'test','execution':{'returncode':1},'before':{'worker':'new'},'after':{'worker':'new'}}
   self.assertFalse(candidate_test_focus(spec,state))
   self.assertFalse(candidate_test_focus({},state))
 

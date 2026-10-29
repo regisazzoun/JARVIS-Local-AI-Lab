@@ -60,3 +60,14 @@ class ExecutionContractTests(unittest.TestCase):
   self.store.event(self.m,'authority_code_proposal','audit',actor='Codex',result={'fixture':True})
   schema=self.reg.active_schema('authority_apply_draft')
   self.assertEqual(schema['properties']['proposal_reference']['enum'],[own])
+
+ def test_sync_schema_binds_execution_reference_to_current_host_source(self):
+  state={'issues':{},'syncs':[],'executions':{'1':{'host':'Dell1','after':{'x':'old'}},'2':{'host':'Dell1','after':{'x':'new'}},'3':{'host':'Dell2','after':{'x':'peer'}}}}
+  self.store.event(self.m,'authority_state',result=state)
+  schema=self.reg.active_schema('authority_sync')
+  args={'issue':'AUDIT','source':'Dell1','destination':'Dell2','source_reference':2,'files':['x'],'summary':'model chooses sync'}
+  self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+  for bad in (1,3,123456):
+   args['source_reference']=bad;self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
+  args.update(source='Dell2',destination='Dell1',source_reference=3)
+  self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))

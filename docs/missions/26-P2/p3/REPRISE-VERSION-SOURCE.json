@@ -1,0 +1,21 @@
+{
+  "proof": 75866,
+  "resolution": 75867,
+  "software_tests": 157,
+  "request_bytes": 24445,
+  "budget": 27648,
+  "offered_tools": [
+    "mission_note",
+    "authority_revise_plan",
+    "authority_work",
+    "authority_read_execution",
+    "authority_analyze",
+    "authority_sync",
+    "authority_finish",
+    "context_recall"
+  ],
+  "new_version_test": 75624,
+  "stale_version_test": 75723,
+  "general_reception": false,
+  "variable_input_check": "PENDING"
+}
