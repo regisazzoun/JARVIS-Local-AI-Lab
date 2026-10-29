@@ -6,7 +6,7 @@ séparée `codex/optimisation-interconnexions-ia`. Défaut WebUI27B, fournisseur
 explicitement affectés et admission Dell via ComputeQueue existante. La création
 canonique porte request_kind=mission et un vrai reçu ; une lecture ne vaut pas
 création. La sonde27fc9d276ccc435bb32fcfeaeee2969c est terminée comme essai
-incomplete après trois refus de plan, preuves conservées ; aucun rapport reçu.
+incomplet, en état moteur interrupted après trois refus de plan, preuves conservées ; aucun rapport reçu.
 M26-P4 reste en pause, MANUAL-HOLD maintenu. Aucun nouveau modèle ni inference
 Dell2 inventée ; aucune fusion automatique dans main.
 [Réception](docs/missions/OPTIMISATION-INTERCONNEXIONS-IA/RAPPORT-FINAL.md).

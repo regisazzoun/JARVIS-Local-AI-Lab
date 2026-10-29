@@ -38,4 +38,6 @@ now=json.loads(subprocess.check_output(['sudo','docker','exec','jarvis-open-webu
 old_catalog=json.loads(Path('/home/adminjarvis/JARVIS/audit-interconnexions-ia-private/models-before.json').read_text());r['model_catalogues_unchanged']={}
 for name,host in [('Mac','127.0.0.1:11434'),('Dell1-main','192.168.1.75:11434'),('Dell1-missions','192.168.1.75:11435')]:
  current=json.load(urllib.request.urlopen('http://'+host+'/api/tags',timeout=8));key=lambda d:sorted((x['name'],x['digest'],x['size']) for x in d['models']);r['model_catalogues_unchanged'][name]=key(current)==key(old_catalog[name]['/api/tags'])
+r['unit_files']={n:{'identical_to_installed':(R/'tools/optimisation_interconnexions'/n).read_bytes()==Path('/etc/systemd/system',n).read_bytes(),'exec_start':subprocess.check_output(['systemctl','show',n,'-p','ExecStart','--value'],text=True)} for n in ['jarvis-qwen-guard.service','jarvis-webui-tools.service']}
+r['integration_hashes']={str(f.relative_to(R)):hashlib.sha256(f.read_bytes()).hexdigest() for f in (R/'tools/optimisation_interconnexions').glob('*.py')}
 (D/'VERIFICATION-INDEPENDANTE.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n');print('Verification exported',r['data_preserved'],r['model_catalogues_unchanged'])

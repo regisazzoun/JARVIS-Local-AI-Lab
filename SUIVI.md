@@ -2,7 +2,7 @@
 
 **✅ Audit établi ; ✅🟡 corrections installées avec réserves.** [Bilan initial](docs/missions/AUDIT-INTERCONNEXIONS-IA/BILAN-ARCHITECTURAL.md), PR31, puis autorisation propriétaire de corriger. WebUI utilise désormais27B par défaut, avec fournisseurs disjoints ; API conversationnelle réparée sans relever la fenêtreMac ; appelsWebUI/Code surDell intégrés à l'admission canonique existante. Formulaire de choix testé,17tests logicielsPASS, données et poids conservés. [Réception des corrections](docs/missions/OPTIMISATION-INTERCONNEXIONS-IA/RAPPORT-FINAL.md).
 
-Création de mission depuisWebUI réellement reçue, worker80B démarré ; la sonde27fc9d276ccc435bb32fcfeaeee2969c reste **incomplete après trois refus de plan**, aucun rapport final reçu. FinalisationCode toujours réservée. Dell2 est un exécuteurSSH, pas un serveurLLM. M26-P4 reste en pause ; aucune14A/24-Old ni fusionmain.
+Création de mission depuisWebUI réellement reçue, worker80B démarré ; la sonde27fc9d276ccc435bb32fcfeaeee2969c est **incomplète, arrêtée en état moteur interrupted après trois refus de plan**, aucun rapport final reçu. FinalisationCode toujours réservée. Dell2 est un exécuteurSSH, pas un serveurLLM. M26-P4 reste en pause ; aucune14A/24-Old ni fusionmain.
 
 ## Qwen Code / Open WebUI / Apache / Tailscale — 29 octobre 2026
 

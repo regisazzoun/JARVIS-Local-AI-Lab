@@ -40,7 +40,7 @@ Le chemin API qui renvoyait503 répond maintenant réellement BONJOUR sur Qwen27
 
 Le contrôle Qwen Code en lecture seule a encore atteint la limite12tours/code53 en répétant des testsPASS. Ce défaut de finalisation reste explicitement ouvert ; son trafic a bien utilisé l'admission commune. Le nouveau correctif de programmation réalisé pendant l'audit avait, lui, terminé/code0 avec3testsPASS. Ces deux résultats ne sont pas confondus.
 
-Le premier lancement de mission par le profilCode a échoué : un essai429, puis le modèle a appelé la lecture et présenté un faux identifiant. Après correction du contrat et profil spécialisé, le navigateur obtient le vrai reçu du moteur : **27fc9d276ccc435bb32fcfeaeee2969c**, étatqueued à la création. Le worker utilise ensuite80B/Dell1. La réception du lancement ne déclare pas la mission terminée. Après trois refus de plan88715/88740/88758, la sonde est classéeincomplete : création et démarrage reçus, exécution/rapport non reçus. Les détails et interventions sont dans SONDE-MOTEUR.json.
+Le premier lancement de mission par le profilCode a échoué : un essai429, puis le modèle a appelé la lecture et présenté un faux identifiant. Après correction du contrat et profil spécialisé, le navigateur obtient le vrai reçu du moteur : **27fc9d276ccc435bb32fcfeaeee2969c**, étatqueued à la création. Le worker utilise ensuite80B/Dell1. La réception du lancement ne déclare pas la mission terminée. Après trois refus de plan88715/88740/88758, la sonde est classée incomplète (état moteur interrupted) : création et démarrage reçus, exécution/rapport non reçus. Les détails et interventions sont dans SONDE-MOTEUR.json.
 
 ## Conservation et périmètre
 
