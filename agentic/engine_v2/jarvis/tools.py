@@ -234,6 +234,17 @@ class Registry:
                 if probes:
                     schema['properties']['probe_id']['enum']=list(probes)
                     schema['properties']['probe_id']['description']=json.dumps({key:probe.get('description','Owner-declared regression') for key,probe in probes.items()},ensure_ascii=False)
+                    from .distributed_authority import Authority
+                    from .authority_probe import matrix
+                    active=Authority(self).active_state()
+                    candidates=[(int(ref),row) for ref,row in active['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+                    if candidates:
+                        progress=matrix(Authority(self).spec,active,max(candidates,key=lambda item:item[0])[1]['after'])
+                        remaining={key:[host for host,rows in progress.items() if rows[key]['status']!='PASS'] for key in probes}
+                        remaining={key:hosts for key,hosts in remaining.items() if hosts}
+                        if remaining:
+                            schema['properties']['probe_id']['enum']=list(remaining)
+                            schema['allOf']=[{'if':{'properties':{'probe_id':{'const':key}},'required':['probe_id']},'then':{'properties':{'executor':{'enum':hosts}}}} for key,hosts in remaining.items()]
             if name=='authority_draft_edit':
                 draft_spec=json.loads(self.mission_store.get(self.context['mission_id'])['spec'])
                 units=draft_spec.get('authority_draft_units')
@@ -338,6 +349,22 @@ class Registry:
         if name=='authority_work' and getattr(self,'mission_store',None) and self.context.get('mission_id'):
             if json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_probes') and not self.context.get('_authority_declared_probe'):
                 schema['properties']['kind']['enum']=[kind for kind in schema['properties']['kind']['enum'] if kind!='test']
+                # Test-only acceptance must cite two passed TESTS, never the
+                # correction reference used by the editable candidate workflow.
+                from .distributed_authority import Authority
+                from .authority_probe import matrix
+                authority=Authority(self);active=authority.active_state()
+                candidates=[(int(ref),row) for ref,row in active['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+                if authority.spec.get('authority_readonly_validation') and candidates:
+                    progress=matrix(authority.spec,active,max(candidates,key=lambda item:item[0])[1]['after'])
+                    if all(item['status']=='PASS' for rows in progress.values() for item in rows.values()):
+                        peers={item['reference']:[peer['reference'] for other,items in progress.items() if other!=host for peer in items.values()] for host,rows in progress.items() for item in rows.values()}
+                        schema['properties']['kind']['enum']=['accept']
+                        schema['required']=list(dict.fromkeys(schema['required']+['reference','source_reference']))
+                        schema['properties']['reference']['description']='Required passed TEST execution reference on one Dell; choose from the completed probe matrix.'
+                        schema['properties']['source_reference']['description']='Required passed TEST execution reference on the OTHER Dell, at the identical manifest; choose an independent peer from the completed probe matrix.'
+                        for field in ['reference','source_reference']:schema['properties'][field]['enum']=list(peers)
+                        schema['allOf'] += [{'if':{'properties':{'reference':{'const':ref}},'required':['reference']},'then':{'properties':{'source_reference':{'enum':refs}}}} for ref,refs in peers.items()]
         return schema
 
     def schemas(self,all_tools=False):

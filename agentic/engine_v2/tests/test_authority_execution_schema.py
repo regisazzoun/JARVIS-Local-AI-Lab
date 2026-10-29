@@ -83,3 +83,58 @@ class ExecutionContractTests(unittest.TestCase):
   self.assertNotIn('test',self.reg.active_schema('authority_work')['properties']['kind']['enum'])
   self.reg.context['_authority_declared_probe']={'parent':'internal-fixture'}
   self.assertIn('test',self.reg.active_schema('authority_work')['properties']['kind']['enum'])
+
+ def declared_progress_fixture(self):
+  from jarvis.authority_probe import declaration_digest
+  spec=json.loads(self.store.get(self.m)['spec']);spec.update(authority_probes={'core':{'argv':['core'],'sources':{}},'variable':{'argv':['var'],'sources':{}}},authority_code_focus=True)
+  with self.store.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  manifest={'app.py':'new'}
+  state={'issues':{},'syncs':[],'executions':{'1':{'host':'Dell1','kind':'correct','before':{'app.py':'old'},'after':manifest,'execution':{'returncode':0}}}}
+  def add(ref,host,key):
+   state['executions'][str(ref)]={'host':host,'kind':'test','probe_id':key,'probe_declaration_sha256':declaration_digest(spec['authority_probes'][key]),'before':manifest,'after':manifest,'execution':{'returncode':0}}
+   self.store.event(self.m,'authority_state',result=state)
+  return state,add
+
+ def test_probe_schema_excludes_already_passed_pair_at_exact_version(self):
+  state,add=self.declared_progress_fixture();add(2,'Dell1','core')
+  schema=self.reg.active_schema('authority_run_probe');args={'issue':'AUDIT','probe_id':'core','executor':'Dell1','summary':'choose missing control'}
+  self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
+  args['executor']='Dell2';self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+  args.update(probe_id='variable',executor='Dell1');self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+  add(3,'Dell2','core');self.assertEqual(self.reg.active_schema('authority_run_probe')['properties']['probe_id']['enum'],['variable'])
+
+ def test_readonly_declared_accept_schema_requires_passed_tests_on_other_peer(self):
+  state,add=self.declared_progress_fixture()
+  for ref,host,key in [(2,'Dell1','core'),(3,'Dell2','core'),(4,'Dell1','variable'),(5,'Dell2','variable')]:add(ref,host,key)
+  args={'issue':'AUDIT','kind':'accept','summary':'same code, both declared probes','operation_id':'fixture','reference':5,'source_reference':4}
+  self.assertFalse(self.errors(args))
+  from jarvis.structured_actions import request,response
+  schema=self.reg.active_schema('authority_work')
+  self.assertIn('reference',schema['required'])
+  self.assertIn('source_reference',schema['required'])
+  payload,transport=request({'messages':[{'role':'system','content':'fixture'}],'tools':[{'type':'function','function':{'name':'authority_work','parameters':schema}}]})
+  self.assertEqual(response({'content':json.dumps({'tool':'authority_work','arguments':args})},transport)['tool_calls'][0]['function']['arguments'],args)
+  missing=dict(args);missing.pop('reference')
+  with self.assertRaises(ValueError):response({'content':json.dumps({'tool':'authority_work','arguments':missing})},transport)
+  args['source_reference']=1;self.assertTrue(self.errors(args),'A correction receipt is not a passed test in read-only mode')
+  args['source_reference']=3;self.assertTrue(self.errors(args),'The same host is not an independent peer')
+
+ def test_declared_acceptance_uses_native_call_and_existing_acceptance_gates(self):
+  from unittest.mock import patch
+  from jarvis.authority_identity import invocation_scope
+  from jarvis.distributed_authority import Authority
+  state,add=self.declared_progress_fixture()
+  for ref,host,key in [(2,'Dell1','core'),(3,'Dell2','core'),(4,'Dell1','variable'),(5,'Dell2','variable')]:add(ref,host,key)
+  for row in state['executions'].values():row['issue']='AUDIT'
+  state['issues']={'AUDIT':{'failed_cycles':0,'delegation_failures':0}};state['operations']={}
+  self.store.event(self.m,'authority_state',result=state)
+  with self.store.db() as c:
+   spec=json.loads(self.store.get(self.m)['spec']);spec['authority_engine_operation_ids']=True;c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  args={'issue':'AUDIT','validator':'Dell2','summary':'Actual recorded software fixture observations'}
+  self.store.event(self.m,'inference_finished',result={'software_fixture_only':True,'metrics':{'node':'Dell1','effective_model':'qwen3-coder-next:q4_K_M'}})
+  token=self.store.begin_call(self.m,'audit','authority_accept_probes',args)
+  with invocation_scope(token),patch.object(Authority,'source_manifest',return_value={'app.py':'new'}):
+   result=self.reg.execute('authority_accept_probes',args)
+  self.assertTrue(result['ok'],result);self.assertEqual(result['result']['resolved_source_reference'],4)
+  self.assertEqual(Authority(self.reg).state()['issues']['AUDIT']['accepted']['test'],'5')
+  self.assertTrue(any(row['kind']=='authority_probe_acceptance_bound' for row in self.store.events(self.m)))

@@ -209,4 +209,3 @@ ni remise à zéro, ni quatrième tentative identique sous un autre nom.
 Les travaux indépendants continuent. Une dépendance externe réellement absente
 reste explicitement bloquée ; ne pas annoncer une activité inexistante.
 Aucune nouvelle validation humaine pour les opérations déjà autorisées.
-

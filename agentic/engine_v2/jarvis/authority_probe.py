@@ -62,3 +62,36 @@ def matrix(spec,state,manifest):
   execution=row['execution'];status='NOT_EXECUTED' if row.get('test_execution_status')=='NOT_EXECUTED' else 'PASS' if execution['returncode']==0 and not execution.get('output_truncated') else 'FAIL'
   out[host][key]={'status':status,'reference':int(reference),'process_returncode':execution['returncode']}
  return out
+
+
+def acceptance_request(spec,state,args):
+ """Resolve evidence mechanically; the model still decides whether/to whom to accept."""
+ if not spec.get('authority_probes'):raise ValueError('No declared probes to accept')
+ rows=state.get('executions',{})
+ corrections=[(int(ref),row) for ref,row in rows.items() if row.get('issue')==args['issue'] and row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+ if not corrections:raise ValueError('No actual source correction observed for declared probes')
+ source_ref,source=max(corrections,key=lambda item:item[0]);progress=matrix(spec,state,source['after'])
+ if any(row['status']!='PASS' for items in progress.values() for row in items.values()):raise ValueError('All declared probes must pass on both executors at the exact candidate version')
+ host=args['validator']
+ if host not in progress:raise ValueError('Unknown validator')
+ reference=max(row['reference'] for row in progress[host].values())
+ if spec.get('authority_readonly_validation'):
+  source_ref=max(row['reference'] for peer,items in progress.items() if peer!=host for row in items.values())
+ elif source['host']==host:raise ValueError('Validator must be the peer of the actual correcting host')
+ return {'issue':args['issue'],'kind':'accept','reference':reference,'source_reference':source_ref,'summary':args['summary']}
+
+
+def accept_probes(authority,args):
+ parent=canonical_call(authority,'authority_accept_probes',args)
+ request=acceptance_request(authority.spec,authority.active_state(),args)
+ authority.decision({'issue':args['issue'],'validator':args['validator'],'summary':args['summary'],'action':'accept observed declared probes','evidence_resolution':'engine binds actual passed receipts, not model-invented references'})
+ token=authority.store.begin_call(authority.m,authority.t,'authority_work',request)
+ authority.event('authority_probe_acceptance_bound',{'parent':parent,'execution_invocation':token,'model_selected_validator':args['validator'],'bound_request':request,'evidence_ids_resolved_by':'JARVIS-engine from exact-version passed probe receipts','acceptance_not_yet_proved':True},actor='JARVIS-engine')
+ start=time.monotonic()
+ try:
+  with invocation_scope(token):result=authority.reg.execute('authority_work',request)
+ except Exception as exc:
+  authority.store.finish_call(token,{'ok':False,'error':str(exc)},time.monotonic()-start);raise
+ authority.store.finish_call(token,result,time.monotonic()-start)
+ if not result.get('ok'):raise ValueError(result.get('error','Acceptance not obtained'))
+ return {**result['result'],'resolved_test_reference':request['reference'],'resolved_source_reference':request['source_reference']}

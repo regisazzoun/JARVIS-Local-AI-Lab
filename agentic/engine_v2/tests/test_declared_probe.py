@@ -59,3 +59,33 @@ class ClassificationAuditTests(unittest.TestCase):
  def test_model_cannot_reclassify_a_counter(self):
   a,ref=self.source_failure('unittest.loader._FailedTest.tests\nModuleNotFoundError: no module\nRan 1 test in 0.000s')
   with self.assertRaisesRegex(ValueError,'coordinator'):self.l.reclassify_unloaded_test(ref,self.proof(ref,'JARVIS'))
+
+class EvidenceBoundAcceptanceTests(unittest.TestCase):
+ def fixture(self):
+  from jarvis.authority_probe import declaration_digest
+  spec={'authority_readonly_validation':True,'authority_probes':{'core':{'argv':['core'],'sources':{}},'var':{'argv':['var'],'sources':{}}}}
+  manifest={'app':'current'};rows={'10':{'issue':'R','host':'Dell1','kind':'correct','before':{'app':'old'},'after':manifest,'execution':{'returncode':0}}}
+  for ref,host,key in [(11,'Dell1','core'),(12,'Dell1','var'),(13,'Dell2','core'),(14,'Dell2','var')]:
+   rows[str(ref)]={'issue':'R','host':host,'kind':'test','probe_id':key,'probe_declaration_sha256':declaration_digest(spec['authority_probes'][key]),'before':manifest,'after':manifest,'execution':{'returncode':0}}
+  return spec,{'executions':rows},{'issue':'R','validator':'Dell2','summary':'Model decides acceptance from recorded observations'}
+ def test_readonly_resolves_two_actual_passed_peer_tests(self):
+  from jarvis.authority_probe import acceptance_request
+  spec,state,args=self.fixture();r=acceptance_request(spec,state,args)
+  self.assertEqual((r['reference'],r['source_reference']),(14,12));self.assertEqual(r['kind'],'accept')
+ def test_editable_retains_actual_correction_provenance(self):
+  from jarvis.authority_probe import acceptance_request
+  spec,state,args=self.fixture();spec['authority_readonly_validation']=False
+  self.assertEqual(acceptance_request(spec,state,args)['source_reference'],10)
+  args['validator']='Dell1'
+  with self.assertRaisesRegex(ValueError,'peer'):acceptance_request(spec,state,args)
+ def test_cannot_accept_missing_failed_or_wrong_version_probes(self):
+  import copy
+  from jarvis.authority_probe import acceptance_request
+  spec,state,args=self.fixture()
+  for change in ['missing','failed','version','declaration']:
+   bad=copy.deepcopy(state)
+   if change=='missing':bad['executions'].pop('14')
+   elif change=='failed':bad['executions']['14']['execution']['returncode']=1
+   elif change=='version':bad['executions']['14']['after']={'app':'stale'}
+   else:bad['executions']['14']['probe_declaration_sha256']='changed'
+   with self.subTest(change=change),self.assertRaisesRegex(ValueError,'All declared probes'):acceptance_request(spec,bad,args)

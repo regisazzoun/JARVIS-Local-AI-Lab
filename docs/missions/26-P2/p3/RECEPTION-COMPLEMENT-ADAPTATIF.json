@@ -1,0 +1,52 @@
+{
+  "status": "VALIDÉ AVEC RÉSERVES",
+  "scope": "Complément P3 logiciel, candidat adaptatif et validation croisée seulement",
+  "mission": "bfd9a813c1804ffcaad77c9f01d54045",
+  "receipts": [
+    {
+      "event": 76710,
+      "host": "Dell1",
+      "probe": "coverage-core",
+      "receipt_sha256": "b17b62e8e80500a2195ea0aa63064e638fefd8e0b44e7849477a9245294417d6",
+      "returncode": 0
+    },
+    {
+      "event": 76838,
+      "host": "Dell1",
+      "probe": "coverage-variable",
+      "receipt_sha256": "be2be4e3b4442ccb34ffe4d4eb59a4096c1af6c7506c0d6e1dc656eb1cbd5ce3",
+      "returncode": 0
+    },
+    {
+      "event": 76888,
+      "host": "Dell2",
+      "probe": "coverage-variable",
+      "receipt_sha256": "be2be4e3b4442ccb34ffe4d4eb59a4096c1af6c7506c0d6e1dc656eb1cbd5ce3",
+      "returncode": 0
+    },
+    {
+      "event": 76940,
+      "host": "Dell2",
+      "probe": "coverage-core",
+      "receipt_sha256": "3634b1552846c4e970d382cba0a09dfa694d4086145d8d5ec1d74222ceb33596",
+      "returncode": 0
+    }
+  ],
+  "module_sha256": "2291e13d5d7db220effaacea603c69b8e0aca8a3632ee31067e92dc1dca0421a",
+  "native_acceptance": 77065,
+  "native_task_finish": 77092,
+  "native_report": 77110,
+  "report_original_sha256": "3e0e7765a00981c14c0485f6059ff3e2427cad6e908fc63ad85cf726738cbcac",
+  "erratum": "Les deux Dell ont exécuté les probes choisis par JARVIS ; ce ne sont pas des contrôles indépendants rédigés par Dell1. Algorithme proposé par Qwen76621 après diagnostic/revue Codex ; application Codex76636/76661, contrôles Codex76653 puis JARVIS76710/76838/76888/76940. Les anciens FAIL restent historiques ; 76661 est une application, pas leur effacement ni une décision JARVIS. Le problème de correction demeure ESCALATED avec résolution assistée pour tests seuls, trois échecs qualifiés et deux classifications rectifiées conservés. Backend de revue contrôlé : qualité réelle du modèle et autocorrection autonome non reçues. authority_accept_probes est déjà installée et utilisée77065 ; aucune nouvelle installation de cette API requise.",
+  "canonical_preflight_event": 77112,
+  "independent_canonical_check": "AST differs only audit_plan from backed-up current canonical module; runtime/repo SHA447722ee7f09cbc56cf678fa5ac4173bb79b938e7033121dff1e533c98b0b5c8; 5 adaptive software tests PASS after PYTHONPATH correction",
+  "P4_received": false,
+  "phase2_received": false,
+  "autonomous_self_correction_received": false,
+  "reviewer_quality_received": false,
+  "counters_preserved": true,
+  "reception_event": 77116,
+  "supplementary_verification_event": 77138,
+  "reconciliation_event": 77152,
+  "canonical_erratum": 77114
+}

@@ -1,3 +1,17 @@
+## Complément P3 reçu avec réserves ; P4 reprise — 29 octobre 2026
+
+Réception indépendante77116 après clôture native JARVIS : CORE4+VAR2 passent
+surDEUX Dell, reçus76710/76838/76888/76940 au même manifeste, contrôle77004.
+Algorithme Qwen assisté, revue/application Codex après escalade ; historique conservé.
+Fonction audit_plan intégrée dans la base canonique actuelle77115, rollback prévu,
+125tests de régression et5tests sur import installé PASS, pas de somme avec suites
+qui se recouvrent. API de réception par preuves réellement utilisée par JARVIS.
+Bilan libre rectifié séparément77114 : autonomie éditoriale non reçue.
+Même checkpoint P4 c32347de3edf4288a4751a3e65afa7eb remis enfile, préflight77123
+16273/27648octets. Surveillance basculée surP4 ; P4 etphase2 restent NONVALIDÉES.
+VF01 non transmis, ni14A ni24Old lancées.
+[Réception et suite](docs/missions/26-P2/p3/RECEPTION-ADAPTATIVE-ET-REPRISE-P4.json).
+
 ## Continuité opérationnelle — directive propriétaire du 29 octobre 2026
 
 Consigne permanente pour toutes les missions autorisées : en cas de blocage,

@@ -598,7 +598,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if names!={'intervention_report'}:names|={'context_checkpoint','context_resume','context_recall'}
                 if not json.loads(mission['spec']).get('authority_engine_operation_ids'):names-={'authority_draft_edit','authority_apply_draft'}
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
-                if not json.loads(mission['spec']).get('authority_probes'):names.discard('authority_run_probe')
+                if not json.loads(mission['spec']).get('authority_probes'):names-={'authority_run_probe','authority_accept_probes'}
                 if names!={'intervention_report'} and coding_focus_required(json.loads(mission['spec']),authority.active_state()):
                     analysis_available='authority_analyze' in names
                     needs_analysis=any(issue.get('last_failed_test') and str(issue.get('analyzed'))!=str(issue['last_failed_test']) for issue in authority.active_state().get('issues',{}).values())
@@ -628,7 +628,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         current=[(int(ref),row) for ref,row in authority.active_state()['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
                         progress=matrix(json.loads(mission['spec']),authority.active_state(),max(current,key=lambda item:item[0])[1]['after'])
                         if all(item['status']=='PASS' for host in progress.values() for item in host.values()):
-                            names&={'authority_finish','context_recall'} if all(v.get('accepted') for v in authority.active_state()['issues'].values()) else {'authority_work','context_recall'}
+                            names&={'authority_finish'} if all(v.get('accepted') for v in authority.active_state()['issues'].values()) else {'authority_accept_probes'}
                         else:names&={'authority_run_probe','authority_sync','authority_read_execution','context_recall'}
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
                 durable=authority.active_state()
