@@ -92,6 +92,24 @@ class FocusedDraftTests(unittest.TestCase):
   self.assertTrue(result.startswith('Owner policy.'))
   self.assertNotIn('authority_work kind=inspect',result)
   self.assertIn('authority_draft_edit',result);self.assertIn('sans application ni test',result)
+ def test_real_correction_or_failed_test_does_not_restart_initial_inspection(self):
+  from jarvis.durable_cycle import source_preparation_observed
+  self.assertFalse(source_preparation_observed({'executions':{'1':{'kind':'analyze','summary':'source observed'}}}))
+  for kind,code in [('correct',0),('test',1)]:
+   self.assertTrue(source_preparation_observed({'executions':{'1':{'kind':kind,'execution':{'returncode':code},'before':{},'after':{}}}}))
+  self.assertFalse(source_preparation_observed({'executions':{'1':{'kind':'correct','execution':{},'before':{},'after':{}}}}))
+ def test_result_contract_survives_isolated_drafting_and_rejects_style_only(self):
+  self.a.spec['authority_coding_objective']='Actual owner outcome: bounded semantic coverage with complete evidence'
+  self.a.spec['authority_behavioral_change']=True
+  self.call()
+  facts=json.loads(self.payloads[-1]['messages'][1]['content'])
+  self.assertEqual(facts['owner_result_contract'],self.a.spec['authority_coding_objective'])
+  self.reply['new_content']=self.original.rstrip()+'\n\n'
+  with self.assertRaisesRegex(ValueError,'formatting/newline-only'):self.call()
+ def test_bare_action_word_is_not_a_delegated_code_objective(self):
+  self.a.spec['authority_coding_objective']='Preserve required behavior in the actual function'
+  with self.assertRaisesRegex(ValueError,'actual code change'):self.call({**self.args(),'request':'apply'})
+  self.assertFalse(self.remote_calls);self.assertFalse(self.payloads)
  def test_requires_canonical_call_before_source_read(self):
   with self.assertRaisesRegex(ValueError,'canonical started'):draft(self.a,self.args())
   self.assertFalse(self.remote_calls);self.assertFalse(self.payloads)

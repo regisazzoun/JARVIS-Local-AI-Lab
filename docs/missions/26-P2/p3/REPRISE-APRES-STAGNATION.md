@@ -94,3 +94,40 @@ reste6000, et la requête complète reste soumise à27648. Les trois brouillons 
 source inchangée sont épuisés : pas de quatrième génération autonome ; seuls les
 vrais brouillons existants restent applicables jusqu’au prochain résultat observé.
 [Preuves](TRANSPORT-PATCH-ET-REPRISE.json). Même mission et plan2 remis en file.
+
+## Résultat attendu conservé dans le contexte de codage
+
+L’application réelle74675/74682 surDell1 porte sur la proposition74585. Le contrôle
+AST confirme que sa logique est identique à l’original : l’écriture de fichier est
+prouvée, la correction fonctionnelle est rejetée74948. La synchronisation74920 vers
+Dell2 est réelle, mais ne transforme pas cette proposition en solution.
+
+Le test JARVIS74722 a lancé437cas :1échec et53erreurs d’import de composants
+extérieurs à l’export. Cette campagne ne qualifie pas le contrôle de couverture.
+Codex fournit donc un oracle ciblé indépendant, sans recopier `audit_plan` ni
+`review_model` : il importe les vrais modules et exerce le vrai `ContextBudget`,
+avec une réponse backend contrôlée. Il teste compatibilité petite entrée,
+cinq exigences longues réductibles, omission qui ne doit pas produire PASS,
+et entrée indivisible bloquée. Baseline locale :4tests,2PASS/2FAIL. Ce contrôle
+logiciel n’atteste pas le raisonnement d’un modèle réel ni l’autonomie de JARVIS.
+Ce n’est pas l’épreuve finaleM26-P2-VF01.
+
+Le même script a été transféré sur les deuxDell74947 ; son empreinte doit rester
+inchangée dans les contrôles indépendants. [Entrée et provenance](CONTROLE-CIBLE-FOURNI.json).
+Le script reproductible est [coverage_budget_probe.py](../../../../tools/mission26_phase2/probes/coverage_budget_probe.py).
+Les sorties originales restent en stockage privé ; aucune campagne P2 reçue rejouée.
+
+Cause supplémentaire corrigée : la rédaction isolée n’avait pour objectif que la
+chaîne choisie par le modèle ; `apply`/`propose` perdaient donc le résultat attendu.
+Le mode ciblé conserve maintenant `authority_coding_objective` indépendamment de
+cette chaîne, sans recharger le parent ni son historique. Une demande trop courte
+est refusée en schéma et au backend. Le flag opt-in `authority_behavioral_change`
+refuse une proposition dont l’AST est identique ; cela élimine le style seul sans
+prétendre qu’un AST différent prouve une bonne correction. Les tests fonctionnels
+et le contrôle Codex restent obligatoires. Les autres missions gardent leur mode.
+
+Une correction ou un test réellement observé empêche désormais de réintroduire
+l’obligation d’inspection initiale à chaque tour.141tests ciblésPASS, ensembles
+recouvrant les campagnes précédentes (ne pas additionner). Installation et reprise
+74951 : objectif conservé, oracle fourni, même mission/plan/compteurs. P3 reste non
+reçue, P4 attend et l’épreuve finale distincte n’est pas encore transmise.

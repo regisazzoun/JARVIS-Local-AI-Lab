@@ -23,6 +23,13 @@ def focused_source_prompt(text):
         'Les inspections préalables sont archivées. authority_draft_edit lit le fichier réel ou la fonction symbol avant de te confier sa modification dans un contexte isolé.')
     return text+'\nPhase courte de correction : les outils proposés produisent et appliquent du code. Tu choisis le changement et son exécutant. authority_draft_edit retourne une proposition, sans application ni test ; examine-la puis authority_apply_draft. Après une modification observée, les outils de test et de validation indépendante reviennent. Une proposition seule ne clôture pas la tâche.'
 
+def source_preparation_observed(active):
+    for evidence in active.get('executions',{}).values():
+        kind=evidence.get('kind');execution=evidence.get('execution',{})
+        if kind=='inspect' and execution.get('returncode')==0:return True
+        if kind in ('correct','test') and type(execution.get('returncode')) is int and isinstance(evidence.get('before'),dict) and isinstance(evidence.get('after'),dict):return True
+    return False
+
 def candidate_test_focus(spec, active):
     """After a real edit, expose testing; restore coding after an observed test failure."""
     if not spec.get('authority_code_focus'):return False
@@ -620,7 +627,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         'Les identifiants d’opération sont attribués par le moteur depuis les appels persistants. Ne fournis AUCUN operation_id. Le registre déduplique les intentions identiques et bloque les effets inconnus avant toute répétition.')
                     authority_prompt[0]['content']+='\nPour authority_work et authority_edit : aucun operation_id dans les arguments ; les commandes, le code et les machines restent TES décisions.'
                     inspected=[int(ref) for ref,e in durable['executions'].items() if e.get('kind')=='inspect' and e.get('execution',{}).get('returncode')==0]
-                    if current_tasks and inspected:
+                    if current_tasks and source_preparation_observed(durable):
                         authority_prompt[0]['content']=authority_prompt[0]['content'].replace(
                             'Première obligation : observe les sources avec authority_work kind=inspect avant de planifier; choisis toi-même la machine et la commande.',
                             'L’observation initiale et le plan sont déjà enregistrés pour cette tâche. Ne recommence pas la préparation à chaque tour. Exploite les observations persistantes pour décider la suite de la tâche active ; une lecture supplémentaire doit viser une information précise réellement manquante, pas une nouvelle localisation des mêmes fichiers.')
@@ -636,7 +643,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     # Preserve the actual assistant/tool dialogue within this
                     # bounded quantum, instead of resetting Qwen after every call.
                     messages[0:2]=authority_prompt[:2]
-                store.event(ident,'authority_context_prepared',task_id,'JARVIS-engine',result={'messages_chars':len(encoded(messages)),'tools':len(schemas),'complete_receipts_preserved':True,'initial_observation_instruction':not (json.loads(mission['spec']).get('authority_engine_operation_ids') and current_tasks and any(e.get('kind')=='inspect' and e.get('execution',{}).get('returncode')==0 for e in durable['executions'].values()))})
+                store.event(ident,'authority_context_prepared',task_id,'JARVIS-engine',result={'messages_chars':len(encoded(messages)),'tools':len(schemas),'complete_receipts_preserved':True,'initial_observation_instruction':not (json.loads(mission['spec']).get('authority_engine_operation_ids') and current_tasks and source_preparation_observed(durable))})
             if json.loads(mission['spec']).get('compact_semantic_references'):
                 schemas=semantic_reference_schemas(schemas,task,preserve_recall=bool(json.loads(mission['spec']).get('authority_engine_operation_ids')))
             from .mission_context_budget import result_objective

@@ -230,7 +230,11 @@ class Registry:
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
             if name=='authority_draft_edit':
-                units=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_draft_units')
+                draft_spec=json.loads(self.mission_store.get(self.context['mission_id'])['spec'])
+                units=draft_spec.get('authority_draft_units')
+                if draft_spec.get('authority_coding_objective'):
+                    schema['properties']['request']['minLength']=20
+                    schema['properties']['request']['description']='Describe the actual code change, not apply/propose alone. The immutable task result contract is included in the isolated coding context.'
                 if units and len(units)==1:
                     schema['properties']['path']['enum']=[units[0]['path']]
                     schema['properties']['symbol']['enum']=[units[0]['symbol']]
