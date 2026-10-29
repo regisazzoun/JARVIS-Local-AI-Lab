@@ -1,3 +1,15 @@
+## P4 — plan12 : défaut backend rendu malgré dépassement — 29 octobre 2026
+
+Incident78280–78285 : singleton30640/27648, pool déjà actif ; collision réelle
+masquée par exception avant contrôles backend. CorrectifCodex78288 : si revue
+sémantique trop grosse ET défaut déterministe existant, retour FAIL backend,
+coverage vide et39exigences explicitement non revues. Sans défaut, exception
+conservée ; aucune capacité supplémentaire ni couverture sémantique prétendue.
+111tests ciblésPASS ; probe import runtime confirme collisionFAIL sans inférence.
+Workers inactifs rechargés78289 ; mêmeplan12 remis enfile78295, septincidents
+conservés. Qwen doit réviser ses tâches existantes ; P4 NONREÇUE, aucun actif.
+[Preuves](docs/missions/26-P2/p4/REVUE-PLAN12-REFUS-DETERMINISTE.json).
+
 ## P4 — revue plan11, transport sans perte — 29 octobre 2026
 
 Incident78002–78005 : revue singleton30843/27648octets après croissance du plan11.

@@ -339,6 +339,25 @@ def artifact_dependency_issues(plan):
     return issues
 
 
+def plan_contract_issues(req, plan):
+    """Backend defects can reject a plan even when semantic review cannot fit."""
+    issues = typed_coverage_issues(req, plan) + artifact_dependency_issues(plan)
+    from .verification import validate_contract, validate_report_source
+    report_paths = {}
+    for task in plan['tasks']:
+        path = task.get('contract', {}).get('report_path')
+        if path in report_paths:
+            issues.append('Report artifact collision: ' + task['id'] + ' and ' + report_paths[path] + ' share ' + str(path) + '. Use distinct task report paths so received hashes remain reproducible.')
+        report_paths[path] = task['id']
+        for criterion in task.get('contract', {}).get('semantic', []):
+            try:
+                validate_contract(criterion)
+                validate_report_source(task, criterion)
+            except ValueError as exc:
+                issues.append('Unexecutable contract ' + task['id'] + ': ' + str(exc))
+    return issues
+
+
 def audit_plan(registry):
     from .mission_context_budget import ContextCapacityError
     from .verification import validate_contract, validate_report_source
@@ -395,7 +414,22 @@ def audit_plan(registry):
             return {'coverage': coverage, 'issues': issues}
 
     requirements_list = sorted(list(req['requirements']), key=lambda r: r['id'])
-    full_review = _review_batch(requirements_list)
+    try:
+        full_review = _review_batch(requirements_list)
+    except ContextCapacityError:
+        blockers = plan_contract_issues(req, saved['plan'])
+        if not blockers:
+            raise
+        # A deterministic FAIL is sufficient to request corrections. It cannot
+        # establish semantic coverage or open execution; retry on the revised plan.
+        review = {'status': 'FAIL', 'coverage': [], 'issues': blockers,
+            'semantic_review_completed': False, 'semantic_review_deferred': 'ContextCapacityError',
+            'unreviewed_requirements': [r['id'] for r in requirements_list],
+            'plan_version': saved['version'], 'goal_sha256': req['goal_sha256'],
+            'requirements_version': req.get('version', 1), 'requirements_sha256': digest(req),
+            'plan_sha256': saved['sha256'], 'author': 'JARVIS-backend', 'contract_version': VERSION}
+        store.event(ident, 'coverage_review', actor='JARVIS-backend', result=review)
+        return review
 
     coverage_results = full_review['coverage']
     all_issues = list(full_review.get('issues', []))
@@ -407,19 +441,7 @@ def audit_plan(registry):
     rows = review['coverage']
     seen = [x['requirement'] for x in rows]
     task_ids = {t['id'] for t in saved['plan']['tasks']}
-    issues = list(review['issues']) + typed_coverage_issues(req, saved['plan']) + artifact_dependency_issues(saved['plan'])
-    report_paths = {}
-    for task in saved['plan']['tasks']:
-        path = task.get('contract', {}).get('report_path')
-        if path in report_paths:
-            issues.append('Report artifact collision: ' + task['id'] + ' and ' + report_paths[path] + ' share ' + str(path) + '. Use distinct task report paths so received hashes remain reproducible.')
-        report_paths[path] = task['id']
-        for criterion in task.get('contract', {}).get('semantic', []):
-            try:
-                validate_contract(criterion)
-                validate_report_source(task, criterion)
-            except ValueError as exc:
-                issues.append('Unexecutable contract ' + task['id'] + ': ' + str(exc))
+    issues = list(review['issues']) + plan_contract_issues(req, saved['plan'])
     if set(seen) != expected or len(seen) != len(set(seen)):
         issues.append('Review must address every extracted requirement exactly once')
     for row in rows:
