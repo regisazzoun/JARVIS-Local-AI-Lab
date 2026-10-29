@@ -197,8 +197,10 @@ class MissionStore:
             raise ValueError('Identifiants dupliqués')
         visited = set()
         def visit(ident, chain):
-            if ident in chain or ident not in mapping:
-                raise ValueError('Dépendance cyclique ou absente')
+            if ident not in mapping:
+                raise ValueError('depends: identifiant absent '+repr(ident)+'; IDs enregistrés dans ce plan: '+', '.join(sorted(mapping))+'. Utilise des IDs de tâches, jamais des descriptions; sauvegarde un prérequis avant de le référencer. Aucun plan sauvegardé.')
+            if ident in chain:
+                raise ValueError('depends: dépendance cyclique vers '+repr(ident)+' via '+', '.join(sorted(chain))+'. Aucun plan sauvegardé.')
             if ident in visited:
                 return
             for dep in mapping[ident]['depends']:

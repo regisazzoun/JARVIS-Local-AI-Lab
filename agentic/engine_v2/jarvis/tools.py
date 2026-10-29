@@ -209,6 +209,12 @@ class Registry:
                 schema['properties']['path']['enum']=[path]
                 schema['properties']['path']['description']='Current factual report only. Application source changes belong to the remote worker workspace.'
         if name=='mission_plan_report_step' and store and self.context.get('mission_id'):
+            dependency_ids=[t['id'] for t in store.tasks(self.context['mission_id'])]
+            schema['properties']['depends']['description']='Existing saved task IDs only, never action descriptions or future steps. Use [] when no dependency is needed. Save a new prerequisite first, then revise this step. No self dependency or cycle.'
+            if dependency_ids:
+                schema['properties']['depends']['items']['enum']=dependency_ids
+            else:
+                schema['properties']['depends']['maxItems']=0
             schema['properties']['tools']['items']['enum']=sorted(self.specs)
             schema['properties']['tools']['description']='Choose actual registered operational tools. The adapter adds the scoped report writer automatically; host_remote is the real remote execution API, not invented aliases.'
             from .durable_cycle import report_plan_tool_issues

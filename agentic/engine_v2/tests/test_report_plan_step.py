@@ -548,3 +548,17 @@ class ReportStepTests(unittest.TestCase):
   schema=self.r.active_schema('host_write_file')
   self.assertFalse(list(Draft202012Validator(schema).iter_errors({'path':'/project/a.md','content':'Factual report'})))
   self.assertTrue(list(Draft202012Validator(schema).iter_errors({'path':'/project/application.py','content':'Unrelated source change'})))
+
+ def test_dependency_schema_and_backend_reject_prose_without_mutation(self):
+  from jsonschema import Draft202012Validator
+  self.assertTrue(self.save()['ok'])
+  schema=self.r.active_schema('mission_plan_report_step')
+  request={**self.args,'id':'b','expected_version':1,'depends':['Read the actual source']}
+  self.assertTrue(list(Draft202012Validator(schema).iter_errors(request)))
+  result=self.save(request);self.assertFalse(result['ok']);self.assertIn('depends',result['error'])
+  self.assertEqual(len(self.s.plans(self.m)),1)
+  request['depends']=['a'];request['report_path']='/project/b.md'
+  self.assertTrue(self.save(request)['ok'])
+  cycle=self.save({**self.args,'expected_version':2,'depends':['b']})
+  self.assertFalse(cycle['ok']);self.assertIn('cyclique',cycle['error'])
+  self.assertEqual(len(self.s.plans(self.m)),2)
