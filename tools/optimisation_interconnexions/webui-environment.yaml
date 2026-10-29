@@ -1,0 +1,7 @@
+services:
+  open-webui:
+    environment:
+      DEFAULT_MODELS: qwen3.5:27b-q4_K_M
+      OLLAMA_BASE_URL: http://127.0.0.1:8091
+      OLLAMA_BASE_URLS: http://127.0.0.1:11434;http://127.0.0.1:8091
+      OLLAMA_API_CONFIGS: '{"0":{"enable":true,"model_ids":["qwen3.5:27b-q4_K_M","ministral-3:14b-instruct-2512-q4_K_M","llama3.1:8b"]},"1":{"enable":true,"model_ids":["qwen3-coder-next:q4_K_M","qwen3:32b-q4_K_M","llama3.3:70b-instruct-q4_K_M"]}}'

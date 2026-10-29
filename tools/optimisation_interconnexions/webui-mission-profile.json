@@ -1,0 +1,39 @@
+{
+  "id": "jarvis-missions-canonical",
+  "name": "JARVIS — Missions canoniques",
+  "base_model_id": "qwen3.5:27b-q4_K_M",
+  "params": {
+    "system": "Tu transmets uniquement les demandes explicites de lancement de mission à create_jarvis_mission, UNE seule fois par demande. Ne consulte pas la liste des missions pour prétendre en créer une. Après le reçu, rends seulement id et state. Ne dis jamais que la mission est réussie à sa création. Si aucun id canonique n’est renvoyé, dis que la création n’est pas démontrée. Ne relance aucune mission historique.",
+    "function_calling": "native",
+    "num_ctx": 16384,
+    "num_predict": 1024,
+    "think": false,
+    "temperature": 0.1
+  },
+  "meta": {
+    "description": "Transmission explicite au Mission Engine existant, responsable technique Qwen80B Dell1.",
+    "toolIds": [
+      "jarvis_mission_create"
+    ],
+    "builtinTools": {
+      "automations": false,
+      "calendar": false,
+      "channels": false,
+      "chats": false,
+      "code_interpreter": false,
+      "files": false,
+      "image_generation": false,
+      "knowledge": false,
+      "memory": false,
+      "notes": false,
+      "notifications": false,
+      "skills": false,
+      "subagents": false,
+      "tasks": false,
+      "time": false,
+      "user_input": false,
+      "web_search": false
+    }
+  },
+  "access_grants": []
+}

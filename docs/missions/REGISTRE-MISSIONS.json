@@ -2280,5 +2280,35 @@
       }
     ],
     "derniere_actualisation": "2026-10-29"
+  },
+  {
+    "identifiant": "AUDIT-INTERCONNEXIONS-IA",
+    "nom": "Architecture réellement installée et interconnexions IA",
+    "etat": "✅ Audit réalisé — défauts et limites documentés",
+    "executant_reel": "Codex inventaires/contrôles ; QwenCode80B correctif de fixture",
+    "resultats_prouves": "Huit livrables, matrice/diagramme, profils/catalogues, SSH sur deux Dell, correctif3PASS ; 503 API non restreinte et JSON historique reproduits",
+    "reserves": "Audit de diagnostic ; corrections reçues séparément",
+    "documents_sources": [
+      {
+        "path": "docs/missions/AUDIT-INTERCONNEXIONS-IA/BILAN-ARCHITECTURAL.md",
+        "url": ""
+      }
+    ],
+    "derniere_actualisation": "2026-10-29"
+  },
+  {
+    "identifiant": "OPTIMISATION-INTERCONNEXIONS-IA",
+    "nom": "Corrections après bilan et admission commune",
+    "etat": "✅🟡 GO avec réserves",
+    "executant_reel": "Codex infrastructure ; modèles pour appels et sonde ; réception Codex",
+    "resultats_prouves": "Défaut27B, placement explicite, API200/16384, admission commune Dell, création WebUI→Engine,17testsPASS, données/poids conservés",
+    "reserves": "Sonde incomplete après3refus de plan ; finalisationCode non reçue ; pas d’inférenceDell2 ; M26-P4 en pause",
+    "documents_sources": [
+      {
+        "path": "docs/missions/OPTIMISATION-INTERCONNEXIONS-IA/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "derniere_actualisation": "2026-10-29"
   }
 ]

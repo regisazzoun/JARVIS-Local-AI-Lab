@@ -1,0 +1,13 @@
+{
+  "previous_server_sha256": "e9d48626b69c9ce94afa7630e51af04c335192892bf88913638f13e005149e48",
+  "active_missions_before": 0,
+  "health_before": {
+    "application": "ok",
+    "database": "ok",
+    "ollama": "0.40.3",
+    "busy": false,
+    "mission_busy": false,
+    "conversation_node": "Mac-mini"
+  },
+  "operation": "Only server.py and new conversation_tools.py; other installed modules and owner pause preserved"
+}

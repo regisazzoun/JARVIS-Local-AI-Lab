@@ -1,0 +1,61 @@
+{
+  "time": "2026-10-29T22:26:02.328187+00:00",
+  "source_hashes": [
+    {
+      "source": "agentic/engine_v2/jarvis/server.py",
+      "installed": "/opt/jarvis/conversation/jarvis/server.py",
+      "equal": true,
+      "sha256": "f393499d653451513ad7b5c6a0f31a2b9458820aeaa076a9cfbe97b77d539898"
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/conversation_tools.py",
+      "installed": "/opt/jarvis/conversation/jarvis/conversation_tools.py",
+      "equal": true,
+      "sha256": "529f37f87e16b2e39238f5d8ceb6e6fb731e7895cf907ba0a3cc35e92f7a950e"
+    }
+  ],
+  "services": {
+    "jarvis-conversation": "MainPID=610786\nExecMainStartTimestamp=Thu 2026-10-29 23:22:43 CET\nActiveState=active",
+    "jarvis-host-bridge": "MainPID=3477877\nExecMainStartTimestamp=Sat 2026-10-24 02:27:46 CEST\nActiveState=active",
+    "jarvis-launcher3": "MainPID=140146\nExecMainStartTimestamp=Tue 2026-10-27 18:07:09 CET\nActiveState=active",
+    "jarvis-mission-worker": "MainPID=577156\nExecMainStartTimestamp=Thu 2026-10-29 19:35:11 CET\nActiveState=active",
+    "jarvis-mission-worker@2": "MainPID=577158\nExecMainStartTimestamp=Thu 2026-10-29 19:35:11 CET\nActiveState=active",
+    "jarvis-qwen-guard": "MainPID=608911\nExecMainStartTimestamp=Thu 2026-10-29 23:10:18 CET\nActiveState=active",
+    "jarvis-webui-tools": "MainPID=610787\nExecMainStartTimestamp=Thu 2026-10-29 23:22:43 CET\nActiveState=active",
+    "apache2": "MainPID=584110\nExecMainStartTimestamp=Thu 2026-10-29 19:58:47 CET\nActiveState=active"
+  },
+  "old_P4": {
+    "id": "c32347de3edf4288a4751a3e65afa7eb",
+    "state": "interrupted",
+    "active_task": "version0"
+  },
+  "manual_hold_present": true,
+  "data_preserved": {
+    "previous_chats": 12,
+    "total_chats_now": 16,
+    "all_previous_chat_payloads_identical": true
+  },
+  "model_catalogues_unchanged": {
+    "Mac": true,
+    "Dell1-main": true,
+    "Dell1-missions": true
+  },
+  "unit_files": {
+    "jarvis-qwen-guard.service": {
+      "identical_to_installed": true,
+      "exec_start": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /home/adminjarvis/JARVIS/optimisation-interconnexions-ia/tools/optimisation_interconnexions/inference_gateway.py ; ignore_errors=no ; start_time=[Thu 2026-10-29 23:10:18 CET] ; stop_time=[n/a] ; pid=608911 ; code=(null) ; status=0/0 }\n"
+    },
+    "jarvis-webui-tools.service": {
+      "identical_to_installed": true,
+      "exec_start": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /home/adminjarvis/JARVIS/optimisation-interconnexions-ia/tools/optimisation_interconnexions/webui_adapter.py ; ignore_errors=no ; start_time=[Thu 2026-10-29 23:22:43 CET] ; stop_time=[n/a] ; pid=610787 ; code=(null) ; status=0/0 }\n"
+    }
+  },
+  "integration_hashes": {
+    "tools/optimisation_interconnexions/test_gateway.py": "414b5415ecf43afc78f61eb17f900e154cfddb9c34ad2936fb67d023fce14ae1",
+    "tools/optimisation_interconnexions/collect_proofs.py": "3f6fd2fd8c1d28dc61f8344627ac8bf9baf736153390cf9058fa79c6000b361b",
+    "tools/optimisation_interconnexions/webui_adapter.py": "9fcbf42b77d5b7103932bf65acf27d90d78d6b964992bc7f9fb079f9c3bb5418",
+    "tools/optimisation_interconnexions/run_checks.py": "1b568c7bc9aebbfea835d21109051341ba479d3a9f290f0ee6fca2fc42464ce8",
+    "tools/optimisation_interconnexions/webui_mission_tool.py": "4efa33dbf8a49e26899c534c22511930a6c928801fd51783e8321b68b3925d30",
+    "tools/optimisation_interconnexions/inference_gateway.py": "ffa3c50d0b1a2665ad3dfdbca5bd0b454b8ccc9b4823f400ae136c502d8877bd"
+  }
+}
