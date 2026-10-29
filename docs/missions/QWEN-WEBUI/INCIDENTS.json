@@ -33,6 +33,7 @@
     "test expected WAV while Open WebUI converts TTS output to MP3; audio itself is valid",
     "STT multipart uses chunked transfer: adapter now decodes bounded chunked input",
     "old plaintext JARVIS credentials no longer match current auth; private local service session provisioned in existing auth_sessions table, no password reset",
-    "Dell2-to-tailnet HTTP timeout; Dell1-to-tailnet HTTP200 observed"
+    "Dell2-to-tailnet HTTP timeout; Dell1-to-tailnet HTTP200 observed",
+    "Final wrapper check reached code53 after repeated successful tests; startup instruction corrected and real Qwen retest code0/3turns retained in FINALISATION-QWEN.json"
   ]
 }

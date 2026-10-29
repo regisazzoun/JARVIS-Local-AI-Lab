@@ -42,8 +42,12 @@
     },
     {
       "path": "tools/qwen_webui/qwen-local",
-      "sha256": "a63f69a6aa1f33b1e07e0661d7efe98f2fd9d5dfc9ef4c99bad6f12fedaa254a"
+      "sha256": "dfc80b6d8eb7a856331e88fb27016e129790ceb951fd4f1ffd507386e8df5d50"
     }
   ],
-  "M26_P4_owner_pause_preserved": true
+  "M26_P4_owner_pause_preserved": true,
+  "wrapper_retested_after_final_instruction_change": {
+    "result": "PASS 0",
+    "trace": "FINALISATION-QWEN.json"
+  }
 }
