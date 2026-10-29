@@ -1,0 +1,22 @@
+test_explicit_empty_or_subset_is_preserved (test_conversation_tools_api.ConversationAPI.test_explicit_empty_or_subset_is_preserved) ... ok
+test_explicit_mission_creation_does_not_become_a_status_query (test_conversation_tools_api.ConversationAPI.test_explicit_mission_creation_does_not_become_a_status_query) ... ok
+test_invalid_configuration_fails_instead_of_silently_granting_tools (test_conversation_tools_api.ConversationAPI.test_invalid_configuration_fails_instead_of_silently_granting_tools) ... ok
+test_missions_and_agent_mode_are_not_restricted_by_chat_default (test_conversation_tools_api.ConversationAPI.test_missions_and_agent_mode_are_not_restricted_by_chat_default) ... ok
+test_real_handler_limits_default_without_expanding_context (test_conversation_tools_api.ConversationAPI.test_real_handler_limits_default_without_expanding_context) ... ok
+test_prior_read_is_preserved_and_mutation_is_deferred_before_effect (test_chat_promotion.ChatPromotionTest.test_prior_read_is_preserved_and_mutation_is_deferred_before_effect) ... ok
+test_compute_status_view_keeps_actual_routes_without_old_resource_corpus (test_task_context28a.TaskContextTests.test_compute_status_view_keeps_actual_routes_without_old_resource_corpus) ... ok
+test_execution_focus_changes_schemas_without_changing_plan (test_task_context28a.TaskContextTests.test_execution_focus_changes_schemas_without_changing_plan) ... ok
+test_known_tool_can_be_discovered_without_bypassing_execution_phase (test_task_context28a.TaskContextTests.test_known_tool_can_be_discovered_without_bypassing_execution_phase) ... ok
+test_legacy_schemas_stay_available_without_a_tool_selection (test_task_context28a.TaskContextTests.test_legacy_schemas_stay_available_without_a_tool_selection) ... ok
+test_long_goal_scoped_execution_keeps_contract_and_fits_budget (test_task_context28a.TaskContextTests.test_long_goal_scoped_execution_keeps_contract_and_fits_budget) ... ok
+test_new_task_does_not_replay_other_task_receipts_or_completion_claims (test_task_context28a.TaskContextTests.test_new_task_does_not_replay_other_task_receipts_or_completion_claims) ... ok
+test_context_expansion_is_refused (test_gateway.GatewayTests.test_context_expansion_is_refused) ... ok
+test_existing_canonical_reservation_cannot_be_bypassed (test_gateway.GatewayTests.test_existing_canonical_reservation_cannot_be_bypassed) ... ok
+test_model_management_endpoints_are_not_exposed (test_gateway.GatewayTests.test_model_management_endpoints_are_not_exposed) ... ok
+test_native_uses_existing_queue_and_enforces_window (test_gateway.GatewayTests.test_native_uses_existing_queue_and_enforces_window) ... ok
+test_oversized_body_is_not_dispatched (test_gateway.GatewayTests.test_oversized_body_is_not_dispatched) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 2.529s
+
+OK

@@ -1,0 +1,39 @@
+{
+  "operator": "Codex",
+  "observed_during_development": [
+    {
+      "failure": "HTTP fixture403",
+      "cause": "example config allowed_hosts used fixed port; temporary test server used another port",
+      "correction": "test host configured to real ephemeral address, production host guard preserved"
+    },
+    {
+      "failure": "HTTP fixture400",
+      "cause": "default list included optional compute tools absent in non-hybrid test registry",
+      "correction": "default is intersection of known conversation names with registered tools; explicit misconfiguration still refused"
+    },
+    {
+      "failure": "Native WebUI429",
+      "cause": "two-second queue wait under concurrent actual requests",
+      "correction": "bounded thirty-second wait with same canonical priority"
+    },
+    {
+      "failure": "False model claim of mission creation",
+      "cause": "model used mission_list then invented a noncanonical id",
+      "correction": "explicit mission tool/profile, created flag, strict canonical receipt and request_kind"
+    },
+    {
+      "failure": "Three probe planning refusals",
+      "events": [
+        88715,
+        88740,
+        88758
+      ],
+      "outcome": "probe incomplete; no fabricated plan or received final report"
+    },
+    {
+      "failure": "Qwen Code finalization",
+      "returncode": 53,
+      "outcome": "known limitation retained, not reclassified as success"
+    }
+  ]
+}

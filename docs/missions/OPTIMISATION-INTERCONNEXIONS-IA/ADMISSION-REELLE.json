@@ -1,0 +1,252 @@
+[
+  {
+    "time": 1793311478.4820673,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 187,
+    "node": "Dell1",
+    "queue_id": "33247f7e9672403eba302def95f3ca0d",
+    "http_status": 200,
+    "finished": 1793311494.8745503
+  },
+  {
+    "time": 1793311596.2461479,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 13959,
+    "node": "Dell1",
+    "queue_id": "8e20ef9f2ecd448da9db3090dcc2dda1",
+    "http_status": 200,
+    "finished": 1793311604.272865
+  },
+  {
+    "time": 1793311604.5635684,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 15065,
+    "node": "Dell1",
+    "queue_id": "ade69a37696846338e26f2eedff4aa65",
+    "http_status": 200,
+    "finished": 1793311606.6137471
+  },
+  {
+    "time": 1793311606.7594051,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 16171,
+    "node": "Dell1",
+    "queue_id": "278efed1c52d41b5bcefdbc710bd7b5b",
+    "http_status": 200,
+    "finished": 1793311608.6597838
+  },
+  {
+    "time": 1793311608.8105292,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 17505,
+    "node": "Dell1",
+    "queue_id": "8de01b0428094cbb8d27a520898f5114",
+    "http_status": 200,
+    "finished": 1793311610.8428214
+  },
+  {
+    "time": 1793311611.0099564,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 18611,
+    "node": "Dell1",
+    "queue_id": "fd9f774bf7e747c6895be1f8705973a1",
+    "http_status": 200,
+    "finished": 1793311612.7373629
+  },
+  {
+    "time": 1793311612.9458332,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 19717,
+    "node": "Dell1",
+    "queue_id": "796a917584eb43edb22da9221778ef1c",
+    "http_status": 200,
+    "finished": 1793311614.7264843
+  },
+  {
+    "time": 1793311614.9267673,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 20823,
+    "node": "Dell1",
+    "queue_id": "fea49403ea9a4a22a2128333ffd00913",
+    "http_status": 200,
+    "finished": 1793311616.814782
+  },
+  {
+    "time": 1793311616.9946563,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 21929,
+    "node": "Dell1",
+    "queue_id": "7dc62652b7014f72a72e0e1ec7deadf3",
+    "http_status": 200,
+    "finished": 1793311618.8247383
+  },
+  {
+    "time": 1793311618.9981627,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 23035,
+    "node": "Dell1",
+    "queue_id": "f8654399005446249f1c563826b137ef",
+    "http_status": 200,
+    "finished": 1793311620.786311
+  },
+  {
+    "time": 1793311620.9820383,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 24141,
+    "node": "Dell1",
+    "queue_id": "88b95441c04f49309170a31ae125a9e8",
+    "http_status": 200,
+    "finished": 1793311622.883156
+  },
+  {
+    "time": 1793311623.0800467,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 25247,
+    "node": "Dell1",
+    "queue_id": "1df736ad2c9e468b9c97f95d7812e35a",
+    "http_status": 200,
+    "finished": 1793311624.8763702
+  },
+  {
+    "time": 1793311623.636091,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 18083,
+    "node": "Dell1",
+    "error": "Inference queue timeout; retain checkpoint and retry: Dell1",
+    "http_status": 429,
+    "finished": 1793311625.8275528
+  },
+  {
+    "time": 1793311623.5881524,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 1894,
+    "node": "Dell1",
+    "queue_id": "0bac88131aa5466c85eb1e56bb2cd6c2",
+    "http_status": 200,
+    "finished": 1793311626.3349261
+  },
+  {
+    "time": 1793311625.03519,
+    "path": "/v1/chat/completions",
+    "role": "mission",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 26353,
+    "node": "Dell1",
+    "queue_id": "072f9b7c005b4d3b8830b53b74a0dac0",
+    "http_status": 200,
+    "finished": 1793311628.1181626
+  },
+  {
+    "time": 1793311703.595402,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 1894,
+    "node": "Dell1",
+    "queue_id": "2d861f231cbe4013b734ec454c6a25bd",
+    "http_status": 200,
+    "finished": 1793311704.4040327
+  },
+  {
+    "time": 1793311703.6422184,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 18083,
+    "node": "Dell1",
+    "queue_id": "3d9a862898e54cca825a2aaad5a1d18e",
+    "http_status": 200,
+    "finished": 1793311713.766946
+  },
+  {
+    "time": 1793311714.1173353,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 21755,
+    "node": "Dell1",
+    "queue_id": "de1b3b91a6664d72aacb42c3593f3666",
+    "http_status": 200,
+    "finished": 1793311716.940573
+  },
+  {
+    "time": 1793311717.0505786,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 1907,
+    "node": "Dell1",
+    "queue_id": "0b32719932244318bad9c82e23cde332",
+    "http_status": 200,
+    "finished": 1793311719.7850811
+  },
+  {
+    "time": 1793311719.913451,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 1653,
+    "node": "Dell1",
+    "queue_id": "10b3d94f395c4e358e615e1a8bb09bbf",
+    "http_status": 200,
+    "finished": 1793311721.2630343
+  },
+  {
+    "time": 1793312585.1397443,
+    "path": "/api/chat",
+    "http_status": 413,
+    "input_bytes": 28083,
+    "rejected_before_dispatch": true,
+    "reason": "Split request before transmission; approved byte budget27648"
+  },
+  {
+    "time": 1793312703.7706497,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 238,
+    "node": "Dell1",
+    "queue_id": "0403e2a12395460f949e3448dd00bb17",
+    "http_status": 200,
+    "finished": 1793312710.2130232
+  },
+  {
+    "time": 1793312704.0227492,
+    "path": "/api/chat",
+    "role": "critical",
+    "model": "qwen3-coder-next:q4_K_M",
+    "input_bytes": 182,
+    "node": "Dell1",
+    "queue_id": "957846187b04474eaf75e8bd672d0461",
+    "http_status": 200,
+    "finished": 1793312710.5617034
+  }
+]

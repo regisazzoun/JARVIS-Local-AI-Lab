@@ -1,3 +1,16 @@
+## Audit IA puis corrections autorisées — 29 octobre 2026
+
+Le propriétaire autorise, après gel du bilan, les corrections et optimisations
+nécessaires sans validation intermédiaire. Audit figé sur PR31 ; réalisation
+séparée `codex/optimisation-interconnexions-ia`. Défaut WebUI27B, fournisseurs
+explicitement affectés et admission Dell via ComputeQueue existante. La création
+canonique porte request_kind=mission et un vrai reçu ; une lecture ne vaut pas
+création. La sonde27fc9d276ccc435bb32fcfeaeee2969c est terminée comme essai
+incomplet, en état moteur interrupted après trois refus de plan, preuves conservées ; aucun rapport reçu.
+M26-P4 reste en pause, MANUAL-HOLD maintenu. Aucun nouveau modèle ni inference
+Dell2 inventée ; aucune fusion automatique dans main.
+[Réception](docs/missions/OPTIMISATION-INTERCONNEXIONS-IA/RAPPORT-FINAL.md).
+
 ## Qwen Code / WebUI — ordre propriétaire du 29 octobre 2026
 
 Nouvelle mission autonome sur Mac mini : réutiliser Open WebUI et ses données,

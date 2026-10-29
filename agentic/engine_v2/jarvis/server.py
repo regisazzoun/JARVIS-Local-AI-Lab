@@ -64,7 +64,9 @@ def make_handler(core,auth=None):
                 if auth and not auth.valid(self.headers):self.send({'error':'Authentification requise'},401);return
                 if p=='/api/logout' and auth:
                     auth.logout(self.headers);self.new_cookie='jarvis_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0';self.send({'ok':True});return
-                if p=='/api/missions':
+                if p=='/api/missions' and d.get('request_kind') not in (None,'mission'):
+                    raise ValueError('request_kind must be mission when explicitly creating a mission')
+                if p=='/api/missions' and d.get('request_kind')!='mission':
                     from .intent import classify,mission_answer
                     intent=classify(d['goal'])
                     factual=mission_answer(d['goal'],core.missions.store)
@@ -94,7 +96,10 @@ def make_handler(core,auth=None):
                         result=core.missions.submit(d['text'],d['model'],d.get('conversation'),d.get('project',''))
                         result.update(answer='Mission enregistrée ; exécution et preuves dans le Sandbox.',tools=[])
                         self.send(result,202)
-                    else:self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False,mission_id=d.get('mission_id'),allowed_tools=d.get('allowed_tools')))
+                    else:
+                        from .conversation_tools import bounded_conversation_tools
+                        allowed=bounded_conversation_tools(d,core.tools.specs,core.config)
+                        self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False,mission_id=d.get('mission_id'),allowed_tools=allowed))
                 elif p=='/api/missions':self.send(core.missions.submit(d['goal'],d['model'],d.get('conversation'),d.get('project',''),d.get('spec')))
                 elif p=='/api/missions/resume':self.send(core.missions.resume(d['id']))
                 elif p=='/api/missions/interrupt':self.send(core.missions.interrupt(d['id']))
@@ -113,7 +118,9 @@ def make_handler(core,auth=None):
             except PermissionError as e:self.send({'error':str(e)},403)
             except Busy as e:self.send({'error':str(e)},409)
             except (ValueError,KeyError,json.JSONDecodeError) as e:self.send({'error':str(e)},400)
-            except Exception:self.send({'error':'Service indisponible ou délai dépassé. Réessayer après vérification locale.'},503)
+            except Exception:
+                __import__('logging').exception('JARVIS_HTTP_503_DIAG')
+                self.send({'error':'Service indisponible ou délai dépassé. Réessayer après vérification locale.'},503)
     return Handler
 
 def main():

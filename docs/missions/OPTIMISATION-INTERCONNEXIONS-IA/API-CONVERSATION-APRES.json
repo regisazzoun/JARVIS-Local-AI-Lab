@@ -1,0 +1,103 @@
+{
+  "spoken_answer": "BONJOUR",
+  "preferences": {
+    "language": "fr",
+    "voice_length": "short",
+    "sources": "cite",
+    "verification": "always"
+  },
+  "preference_events": [],
+  "conversation": "84eb2c2f-ed5e-437d-835f-313a70952871",
+  "answer": "BONJOUR",
+  "model": "qwen3.5:27b-q4_K_M",
+  "execution": {
+    "load_duration": 9195445,
+    "prompt_eval_duration": 768785000,
+    "eval_duration": 117163000,
+    "eval_count": 5,
+    "prompt_eval_count": 2785,
+    "total_duration": 940062356,
+    "done_reason": "stop",
+    "node": "Mac-mini",
+    "effective_model": "qwen3.5:27b-q4_K_M",
+    "requested_model": "qwen3.5:27b-q4_K_M",
+    "role": "conversation",
+    "compute_job": "05e6551368f74408afc1437cd105dce9",
+    "first_content_s": 0.824204817879945,
+    "first_content_total_s": 1.071165096014738,
+    "admission_s": 0.11212179204449058,
+    "queue_wait_s": 0.13483848609030247,
+    "request_elapsed_s": 0.9416143109556288,
+    "end_to_end_s": 1.1885748521890491,
+    "route_failures": [],
+    "num_ctx": 16384,
+    "admission_resources": {
+      "captured_at": 1793311374.319423,
+      "memory_total_bytes": 33500024832,
+      "memory_available_bytes": 25313599488,
+      "cpu_threads": 12,
+      "load1": 0.501953125,
+      "gpu": [
+        {
+          "index": 0.0,
+          "total_mib": 24576.0,
+          "free_mib": 6255.0,
+          "utilization_percent": 0.0,
+          "temperature_c": 40.0,
+          "power_w": 17.51
+        }
+      ]
+    }
+  },
+  "requested_model": "qwen3.5:27b-q4_K_M",
+  "memories_used": [
+    "3314a1b3-b98f-4173-a760-b5190d39dd6b",
+    "b7ca3925-a62d-46cc-b6a3-e8ef82d864c8"
+  ],
+  "tools": [],
+  "timings": {
+    "voice_summary_s": 0.0003229451831430197,
+    "generation_s": 1.2958863109815866,
+    "ollama": [
+      {
+        "load_duration": 9195445,
+        "prompt_eval_duration": 768785000,
+        "eval_duration": 117163000,
+        "eval_count": 5,
+        "prompt_eval_count": 2785,
+        "total_duration": 940062356,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "05e6551368f74408afc1437cd105dce9",
+        "first_content_s": 0.824204817879945,
+        "first_content_total_s": 1.071165096014738,
+        "admission_s": 0.11212179204449058,
+        "queue_wait_s": 0.13483848609030247,
+        "request_elapsed_s": 0.9416143109556288,
+        "end_to_end_s": 1.1885748521890491,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1793311374.319423,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 25313599488,
+          "cpu_threads": 12,
+          "load1": 0.501953125,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6255.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 40.0,
+              "power_w": 17.51
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

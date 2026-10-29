@@ -1,3 +1,9 @@
+## Audit et corrections des interconnexions IA — 29 octobre 2026
+
+**✅ Audit établi ; ✅🟡 corrections installées avec réserves.** [Bilan initial](docs/missions/AUDIT-INTERCONNEXIONS-IA/BILAN-ARCHITECTURAL.md), PR31, puis autorisation propriétaire de corriger. WebUI utilise désormais27B par défaut, avec fournisseurs disjoints ; API conversationnelle réparée sans relever la fenêtreMac ; appelsWebUI/Code surDell intégrés à l'admission canonique existante. Formulaire de choix testé,17tests logicielsPASS, données et poids conservés. [Réception des corrections](docs/missions/OPTIMISATION-INTERCONNEXIONS-IA/RAPPORT-FINAL.md).
+
+Création de mission depuisWebUI réellement reçue, worker80B démarré ; la sonde27fc9d276ccc435bb32fcfeaeee2969c est **incomplète, arrêtée en état moteur interrupted après trois refus de plan**, aucun rapport final reçu. FinalisationCode toujours réservée. Dell2 est un exécuteurSSH, pas un serveurLLM. M26-P4 reste en pause ; aucune14A/24-Old ni fusionmain.
+
 ## Qwen Code / Open WebUI / Apache / Tailscale — 29 octobre 2026
 
 **✅🟡 GO avec réserves — HTTPS réceptionné.** Open WebUI existant et Apache opérationnels ; accès privé **https://jarvis-macmini.tail805e83.ts.net/**. Après signalement du propriétaire, contrôles Codex : HTTP200/TLS0 sur Mac et Dell1, Chromium en contexte sécurisé. Qwen Code80B, correction réelle3testsPASS et déclenchement navigateur déjà reçus ; Whisper/Piper et conversations conservés. Microphone physique/Safari/iPhone, reboot complet et finalisation générale Qwen Code restent réservés. [Preuves HTTPS](docs/missions/QWEN-WEBUI/HTTPS-RECEPTION.json) · [Rapport](docs/missions/QWEN-WEBUI/RAPPORT-FINAL.md). PR30 sans fusion automatique.
