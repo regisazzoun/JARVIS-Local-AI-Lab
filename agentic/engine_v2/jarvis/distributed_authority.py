@@ -194,6 +194,20 @@ class Authority:
     observed['execution'][field]=text[:1500]+'\n[EXCERPT; complete immutable receipt at full_receipt]\n'+text[-500:]
     observed['execution'][field+'_model_excerpt']=True
   return observed,call
+ def source_manifest(self,host):
+  """Observe full source identity without passing a large JSON through stdout."""
+  if self.spec.get('authority_durable_receipts'):
+   observed,call=self.durable_run(host,'true',{},self.state())
+  else:
+   raw,call=self.remote(host,'python3 -c '+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
+   if raw.get('stdout_truncated'):raise ValueError('Source manifest transport truncated; no source identity established')
+   observed=json.loads(raw['stdout'])
+  if observed['execution']['returncode']!=0 or observed['execution'].get('output_truncated'):
+   raise ValueError('Source manifest observation incomplete')
+  if observed['before']!=observed['after']:raise ValueError('Source changed during manifest observation')
+  manifest=observed['after']
+  self.event('authority_manifest_observed',{'host':host,'files':len(manifest),'version':version(manifest),'invocation':call,'full_receipt':observed.get('full_receipt'),'scope':'source identity observation, not an application test'})
+  return manifest
  def read_execution(self,a):
   reference=str(a['reference']);entry=self.state().get('executions',{}).get(reference)
   if not entry:raise ValueError('Execution reference is not recorded in this mission')
@@ -267,9 +281,7 @@ class Authority:
     raise ValueError('Independent validation requires source_reference of an actual '+('passed TEST' if readonly else 'CORRECTION')+' EXECUTION for this issue on the OTHER Dell; validator is '+obs['host']+'. Both references on one Dell cannot qualify. EXACT full manifest required. Run a fresh test on the other Dell if no compatible reference exists. Candidates: '+str([{'reference':int(k),'host':r['host'],'same_manifest':r['after']==obs['after'],'returncode':r.get('execution',{}).get('returncode')} for k,r in state['executions'].items() if r.get('kind')==('test' if readonly else 'correct') and r.get('issue')==issue and r.get('host')!=obs['host']][-3:]))
    if not readonly and source['before']==source['after']:raise ValueError('Source correction has no observed file change; a declared correction is not an actual modification')
    if readonly and (source['execution']['returncode']!=0 or source['before']!=source['after']):raise ValueError('Test-only peer must have actually passed on stable source')
-   current,_=self.remote(obs['host'],"python3 -c "+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
-   fresh=json.loads(current['stdout'])
-   if fresh['after']!=obs['after']:raise ValueError('Validator workspace changed since the passed test')
+   if self.source_manifest(obs['host'])!=obs['after']:raise ValueError('Validator workspace changed since the passed test')
    v.pop('pending_correction',None)
    v['accepted']={'decision':decision,'test':ref,'source':str(a['source_reference']),'version':version(obs['after']),'host':obs['host'],'independent':True,'validation_scope':'test-only, no correction claimed' if readonly else 'source correction and independent test'}
    from jarvis.authority_attempts import AuthorityAttempts
@@ -344,8 +356,7 @@ class Authority:
   # Version precondition chosen by model; no implicit merge or silent overwrite.
   ref=state['executions'].get(str(a['source_reference']))
   if not ref or ref['host']!=src:raise ValueError('source_reference requires the numeric execution reference returned by authority_work, NOT a file/version SHA. Observed source candidates: '+str([{'reference':key,'kind':row['kind'],'host':row['host']} for key,row in state['executions'].items() if row['host']==src][-3:]))
-  before,_=self.remote(src,'python3 -c '+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
-  if json.loads(before['stdout'])['after']!=ref['after']:raise ValueError('Source changed; inspect and choose the current source reference')
+  if self.source_manifest(src)!=ref['after']:raise ValueError('Source changed; inspect and choose the current source reference')
   import zipfile
   # Archive content is selected by Qwen. Existing SHA-checked broker transports bytes.
   cmd="python3 -c "+shlex.quote("import zipfile;z=zipfile.ZipFile('_authority.zip','w');[z.write(f,f) for f in "+repr(files)+"];z.close()")
@@ -356,8 +367,7 @@ class Authority:
    token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic();r=self.reg.execute('host_remote',args);self.store.finish_call(token,r,time.monotonic()-start)
    if not r.get('ok'):raise RuntimeError(str(r)[:1000])
   check,_=self.remote(dst,"python3 -c "+shlex.quote("import zipfile;z=zipfile.ZipFile('_authority.zip');assert all(not p.startswith('/') and '..' not in p.split('/') for p in z.namelist());z.extractall('.')"))
-  after,_=self.remote(dst,'python3 -c '+shlex.quote(runner_program('true',self.spec.get('authority_manifest_roots'))))
-  manifest=json.loads(after['stdout'])['after']
+  manifest=self.source_manifest(dst)
   if any(manifest.get(f)!=ref['after'].get(f) for f in files):raise ValueError('Transferred file hash mismatch')
   receipt={'decision':decision,'source':src,'destination':dst,'files':files,'source_reference':a['source_reference'],'version':version(manifest),'exact_workspace':manifest==ref['after']}
   state['syncs'].append(receipt);self.save(state);self.event('authority_synchronized',receipt)

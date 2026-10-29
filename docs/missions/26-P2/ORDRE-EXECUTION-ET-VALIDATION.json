@@ -2,7 +2,7 @@
   "owner_instruction": "execute ces taches en deleguant les calculs a jarvis .tu realisera les controle puis un test pour valider sera donné a jarvis",
   "recorded_at": "2026-10-29T10:14:44.045484+00:00",
   "canonical_engine": "Existing MissionStore, no second execution engine",
-  "active_native_mission": "c32347de3edf4288a4751a3e65afa7eb",
+  "active_native_mission": "bfd9a813c1804ffcaad77c9f01d54045",
   "roles": {
     "technical_decisions": "JARVIS/Qwen80B",
     "calculations_builds_tests": "Dell1 and Dell2 under JARVIS",
@@ -14,13 +14,15 @@
       "id": "P3-CIBLE",
       "objective": "Corrections P3 ciblées et contrat d’appels fiable",
       "status": "EN COURS",
-      "depends_on": null
+      "depends_on": null,
+      "native_mission": "bfd9a813c1804ffcaad77c9f01d54045"
     },
     {
       "id": "P4-CANARI",
       "objective": "Staging puis intégration canari et réception des situations P4",
       "status": "EN ATTENTE DU CONTRÔLE P3",
-      "depends_on": "P3-CIBLE"
+      "depends_on": "P3-CIBLE",
+      "native_mission": "c32347de3edf4288a4751a3e65afa7eb"
     },
     {
       "id": "JL03-REEL",

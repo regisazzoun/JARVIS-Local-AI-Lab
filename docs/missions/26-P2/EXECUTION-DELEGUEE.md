@@ -37,3 +37,34 @@ Préflight71918 :15415/27648octets.199tests ciblésPASS, pas preuve d’autonomi
 Ces correctifs sont Codex. Le code fonctionnel du complémentP3 sera confié à
 JARVIS sur copies isolées des deux Dell, puis contrôlé par Codex avant installation.
 Les dix casP2, la réceptionP3 et le candidatP4 déjà reçus ne sont pas rejoués.
+
+## Complément P3 réellement transmis
+
+Mission native `bfd9a813c1804ffcaad77c9f01d54045` : JARVIS doit implémenter
+le contrôle de couverture résilient aux revues trop volumineuses, avec tests
+sur les deux Dell. Le paquet contient l’objectif et les contraintes, pas un
+algorithme rédigé par Codex. Les exports comprennent105fichiers Python sources/tests,
+une identité de test et un manifeste (107fichiers suivis). L’archive d’entrée est
+vérifiée par empreinte sur chaque Dell ; [transferts](p3/ENTREES-CONTROLE-BORNE.json)
+et [objectif transmis](p3/LANCEMENT-CONTROLES-BORNES.json).
+
+Les trois inspections demandées ont rencontré un refus **avant exécution** :
+le contrôle préalable sérialisait le manifeste complet dans stdout, plafonné
+à16000octets. Codex a étendu le transport existant des reçus complets avec SHA
+aux observations de manifeste préalables, aux contrôles de fraîcheur et aux
+synchronisations. Aucun fichier n’est écarté du contrôle pour réduire la sortie.
+Une observation instable, incomplète ou tronquée est refusée.
+
+Installation71979 ; contrôles réels71998 :107fichiers identiques sur les deux Dell,
+reçus complets26567octets. [Preuves](p3/TRANSPORT-MANIFESTES.json).
+163tests logiciels ciblés passent (105contrats/transport/contexte et58interfaces/
+intégration historique), dont un véritable processus local produisant un manifeste
+supérieur à16Ko. Ils contrôlent l’infrastructure, pas l’autonomie de JARVIS.
+Résolution71999, même mission remise en file ; compteurs et incidents conservés.
+Retour arrière : restaurer les deux modules sauvegardés dans le stockage privé,
+puis redémarrer les seuls workers en l’absence d’action active. Conversation et
+interface n’ont pas été remplacées.
+
+L’implémentation P3, sa réception indépendante, l’intégration P4 et l’épreuve
+finale distincte restent à exécuter. Le test `M26-P2-VF01` demeure **NON TRANSMIS**
+jusqu’aux contrôles Codex. Aucun statut global n’est promu par cette réparation.

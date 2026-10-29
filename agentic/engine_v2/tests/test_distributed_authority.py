@@ -69,12 +69,14 @@ class GuardTests(unittest.TestCase):
   self.x.store=real;self.x.m=mission
   observed={'before':{'a.py':'A'},'after':{'a.py':'A'},'execution':{'returncode':1,'stdout':'FAIL real process fixture','stderr':'','output_truncated':False}}
   self.x.remote=Mock(return_value=({'stdout':json.dumps(observed)},'broker-test'))
+  self.x.source_manifest=Mock(return_value={'a.py':'A'})
   baseline=self.x.work({'issue':'Q1','kind':'test','summary':'baseline','executor':'Dell1','command':'false','operation_id':'baseline'})
   self.assertTrue(baseline['test_executed']);self.assertEqual(baseline['execution']['returncode'],1);self.assertEqual(baseline['failed_cycles'],0)
   self.x.work({'issue':'Q1','kind':'analyze','summary':'Interpret actual failure','reference':baseline['reference']})
   changed={'before':{'a.py':'A'},'after':{'a.py':'B'},'execution':{'returncode':0,'stdout':'changed','stderr':'','output_truncated':False}}
   self.x.remote=Mock(return_value=({'stdout':json.dumps(changed)},'broker-edit'))
   self.x.work({'issue':'Q1','kind':'correct','summary':'attempt','executor':'Dell1','command':'false','operation_id':'correct-1'})
+  self.x.source_manifest=Mock(return_value={'a.py':'B'})
   observed['before']={'a.py':'B'};observed['after']={'a.py':'B'};self.x.remote=Mock(return_value=({'stdout':json.dumps(observed)},'broker-test'))
   failed=self.x.work({'issue':'Q1','kind':'test','summary':'verification','executor':'Dell1','command':'false','operation_id':'test-1'})
   self.assertEqual(failed['failed_cycles'],1)
@@ -88,6 +90,7 @@ class GuardTests(unittest.TestCase):
   self.x.store=real;self.x.m=mission
   observed={'before':{'a.py':'A'},'after':{'a.py':'A'},'execution':{'returncode':1,'stdout':'','stderr':"ModuleNotFoundError: No module named jarvis",'output_truncated':False}}
   self.x.remote=Mock(return_value=({'stdout':json.dumps(observed)},'broker-fixture'))
+  self.x.source_manifest=Mock(return_value={'a.py':'A'})
   result=self.x.work({'issue':'Q1','kind':'test','summary':'missing dependency','executor':'Dell1','command':'import-missing','operation_id':'import'})
   self.assertFalse(result['test_executed']);self.assertEqual(result['failed_cycles'],0)
   self.assertEqual(real.attempt_ledger(mission).snapshot()['attempts'][0]['state'],'EXECUTION_FAILED')
@@ -174,9 +177,43 @@ class GuardTests(unittest.TestCase):
   self.x.store=real;self.x.m=mission;self.x.spec['authority_readonly_validation']=True
   state=self.x.state();manifest={'source.py':'a'*64}
   state['executions']={str(i):{'issue':'Q1','kind':'test','host':host,'before':manifest,'after':manifest,'execution':{'returncode':0,'output_truncated':False}} for i,host in ((1,'Dell1'),(2,'Dell2'))};self.x.save(state)
-  self.x.remote=Mock(return_value=({'stdout':json.dumps({'after':manifest})},'fixture'))
+  self.x.remote=Mock(return_value=({'stdout':json.dumps({'before':manifest,'after':manifest,'execution':{'returncode':0}})},'fixture'))
   result=self.x.work({'issue':'Q1','kind':'accept','reference':2,'source_reference':1,'summary':'Independent test-only proof'})
   self.assertTrue(result['accepted']);self.assertEqual(result['validation_scope'],'test-only, no correction claimed')
+ def test_complete_manifest_uses_durable_transport_beyond_broker_limit(self):
+  import subprocess,shutil
+  with tempfile.TemporaryDirectory() as folder:
+   root=Path(folder);remote=root/'remote';remote.mkdir()
+   for i in range(200):(remote/('source_%03d.py'%i)).write_text('value = '+str(i))
+   self.x.spec.update(authority_durable_receipts=True)
+   self.x.remote_root=str(remote);self.x.local=root/'local'
+   def execute_remote(host,command):
+    process=subprocess.run(['bash','-c',command],cwd=remote,capture_output=True,text=True,check=True)
+    self.assertLess(len(process.stdout),16000)
+    return {'stdout':process.stdout,'stdout_truncated':False},'actual-local-process'
+   def download(tool,args):
+    shutil.copyfile(args['path'],args['local_path']);return {'ok':True}
+   self.x.remote=execute_remote;self.r.execute=download
+   self.s.begin_call=lambda *args:'download-receipt'
+   self.s.finish_call=lambda *args:None
+   manifest=self.x.source_manifest('Dell2')
+   self.assertEqual(len(manifest),200)
+   event=self.s.rows[-1]['result'];receipt=event['full_receipt']
+   self.assertGreater(receipt['bytes'],16000)
+   full=Path(receipt['local']).read_bytes()
+   self.assertEqual(a.hashlib.sha256(full).hexdigest(),receipt['sha256'])
+   self.assertEqual(json.loads(full)['before'],manifest)
+   self.assertEqual(event['host'],'Dell2')
+ def test_manifest_rejects_unstable_or_failed_observation(self):
+  self.x.spec['authority_durable_receipts']=True
+  for observed in ({'before':{},'after':{'changed.py':'new'},'execution':{'returncode':0}},
+                   {'before':{},'after':{},'execution':{'returncode':1}},
+                   {'before':{},'after':{},'execution':{'returncode':0,'output_truncated':True}}):
+   self.x.durable_run=Mock(return_value=(observed,'receipt'))
+   with self.assertRaises(ValueError):self.x.source_manifest('Dell1')
+ def test_legacy_truncated_manifest_is_not_source_proof(self):
+  self.x.remote=Mock(return_value=({'stdout':'{"after":','stdout_truncated':True},'receipt'))
+  with self.assertRaisesRegex(ValueError,'transport truncated'):self.x.source_manifest('Dell1')
  def test_version_sensitive_to_every_file(self):
   self.assertNotEqual(a.version({'a.py':'x'}),a.version({'a.py':'x','test.py':'y'}))
 
@@ -209,7 +246,7 @@ class GuardTests(unittest.TestCase):
    manifest={'x.py':'ab'*32};state=self.x.state();refs=[]
    for host in ('Dell1','Dell2'):
     e={'issue':'Q1','host':host,'kind':'test','execution':{'returncode':0},'before':manifest,'after':manifest};ref=real.event(m,'authority_execution',self.x.t,result=e);refs.append(ref);state['executions'][str(ref)]=e
-   self.x.save(state);self.x.remote=Mock(return_value=({'stdout':json.dumps({'after':manifest})},'fixture'))
+   self.x.save(state);self.x.remote=Mock(return_value=({'stdout':json.dumps({'before':manifest,'after':manifest,'execution':{'returncode':0}})},'fixture'))
    result=self.x.work({'issue':'Q1','kind':'accept','reference':refs[1],'source_reference':refs[0],'summary':'actual same-task peer events'})
    self.assertTrue(result['accepted']);self.assertEqual(len(self.x.active_state()['executions']),2)
 

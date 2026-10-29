@@ -19,9 +19,7 @@ class AuthorityAttempts:
   problem=self.ledger.problem(scope,descriptor)
   # Observe source version before lookup, so a cached test can never receive a
   # different version edited by another actor since its original execution.
-  from .distributed_authority import runner_program
-  raw,_=self.a.remote(args['executor'],'python3 -c '+__import__('shlex').quote(runner_program('true',self.a.spec.get('authority_manifest_roots'))))
-  current=json.loads(raw['stdout'])['after']
+  current=self.a.source_manifest(args['executor'])
   request={'command':args['command'],'kind':kind,'source_manifest':current}
   if self.a.spec.get('authority_engine_operation_ids'):
    # A completed-task receipt must never masquerade as this task's execution.

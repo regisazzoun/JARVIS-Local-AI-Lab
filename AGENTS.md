@@ -1,3 +1,14 @@
+## Exécution déléguée autorisée — 29 octobre 2026
+
+Décision propriétaire : JARVIS/Qwen80B décide et répartit les calculs sur les Dell ;
+Codex contrôle, puis confie un test de validation distinct à JARVIS. Une priorité
+principale à la fois : complément P3, intégration P4, correction JL03 ouverte,
+contrôles puis test distinct. Mission P3 native `bfd9a813c1804ffcaad77c9f01d54045`
+transmise ; blocage préalable de manifeste réparé71999 après contrôles réels sur
+les deux Dell71998. P4 reste NON VALIDÉE ; test distinct NON TRANSMIS.
+Aucune nouvelle confirmation humaine. Historique et acquis conservés.
+[Ordre et attribution](docs/missions/26-P2/EXECUTION-DELEGUEE.md).
+
 ## Bilan P2–P4 et continuité — 29 octobre 2026
 
 P2 (dix scénarios + intégration historique ciblée52932) etP3 sont **VALIDÉES AVEC RÉSERVES**. P4 reste **EN COURS — NON VALIDÉE**. Préparation native completed, trois tâches validées, bilan PASS71627/enregistré71630, réception indépendante71632 avec réserve d’abréviation de reçu corrigée dans un erratum, original conservé.188tests ciblés du dernier déblocage passent ; aucune autonomie éditoriale globale reçue. Suite P4-CANARY-STAGE c32347de3edf4288a4751a3e65afa7eb effectivement transmise : adapter/qualifier un artefact sur la base actuelle, deuxDell, avant activation. Aucun déploiement canonique ni réception des huit casP4 acquis. [Bilan complet](docs/missions/26-P2/BILAN-P2-P4-2026-10-29.md).
