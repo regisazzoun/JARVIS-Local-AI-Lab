@@ -1,0 +1,50 @@
+{
+  "input_archive_sha256": "e636f930068aeec5cca6bb210772fbbb61212286e7226dc0a94117a8521002c9",
+  "source_file_count": 105,
+  "scope": "Installed Python source snapshot, NOT proof of loaded code",
+  "transport_operator": "Codex",
+  "algorithm_implemented_by_seed": false,
+  "transfers": [
+    {
+      "host": "dell-observe",
+      "action": "project_upload",
+      "native_invocation": "09e2cd59da2048919d2cdce106c75ee5",
+      "initiator": "Codex",
+      "broker_evidence": "b5c49c47fbf84934aa9d7c777b8317f4",
+      "observed_returncode": 0,
+      "stdout": "{\"direction\": \"upload\", \"remote_path\": \"/opt/jarvis-lab/mission26-phase2/p3-bounded-inputs.zip\", \"local_path\": \"/var/lib/jarvis/projects/mission26-phase2/p3-bounded-inputs.zip\", \"sha256\": \"e636f930068aeec5cca6bb210772fbbb61212286e7226dc0a94117a8521002c9\", \"bytes\": 339274}",
+      "trigger_event": 71921
+    },
+    {
+      "host": "dell-observe",
+      "action": "project_exec",
+      "native_invocation": "49d88fa4931c45ed9ed1587d53d40f69",
+      "initiator": "Codex",
+      "broker_evidence": "f21c0eeb8e54402196a3c1ca49f09236",
+      "observed_returncode": 0,
+      "stdout": "{\"input_sha256\": \"e636f930068aeec5cca6bb210772fbbb61212286e7226dc0a94117a8521002c9\", \"files\": 107, \"workspace\": \"p3-bounded-review\", \"code_implementation_not_provided\": true}\n",
+      "trigger_event": 71924
+    },
+    {
+      "host": "dell2",
+      "action": "project_upload",
+      "native_invocation": "f36e88f25f10429cbd07c6754c6149b6",
+      "initiator": "Codex",
+      "broker_evidence": "ed0f0d491e97474ab3eb7129355b7a9a",
+      "observed_returncode": 0,
+      "stdout": "{\"direction\": \"upload\", \"remote_path\": \"/opt/jarvis-lab/mission26-phase2/p3-bounded-inputs.zip\", \"local_path\": \"/var/lib/jarvis/projects/mission26-phase2/p3-bounded-inputs.zip\", \"sha256\": \"e636f930068aeec5cca6bb210772fbbb61212286e7226dc0a94117a8521002c9\", \"bytes\": 339274}",
+      "trigger_event": 71927
+    },
+    {
+      "host": "dell2",
+      "action": "project_exec",
+      "native_invocation": "6262d741f3b94ca29adb0f41c12bf25b",
+      "initiator": "Codex",
+      "broker_evidence": "b952ce89723e4cc2becbb7f1f9ff84c1",
+      "observed_returncode": 0,
+      "stdout": "{\"input_sha256\": \"e636f930068aeec5cca6bb210772fbbb61212286e7226dc0a94117a8521002c9\", \"files\": 107, \"workspace\": \"p3-bounded-review\", \"code_implementation_not_provided\": true}\n",
+      "trigger_event": 71930
+    }
+  ],
+  "event": 71932
+}

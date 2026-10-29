@@ -1,0 +1,16 @@
+{
+  "source_context_event": 66932,
+  "original_clock": "2026-10-28T13:15:58.888387+01:00",
+  "reported_document_date": "2026-10-28T13:15:58+01:00",
+  "write_started_event": 66938,
+  "write_started_at": "2026-10-28T12:16:38.325306+00:00",
+  "independent_conclusion": "Document date matches actual clock supplied to the author before writing. Mission creation time is unrelated to document drafting time. No operational execution timestamp inferred.",
+  "original_review": 67200,
+  "original_semantic_FAIL": 67201,
+  "withdrawn_findings": [
+    "Date du document (2026-10-28T13:15:58+01:00) non conforme aux horodatages des reçus (création à 02:23:17) et non étayée par une source."
+  ],
+  "old_FAIL_unchanged": true,
+  "actor": "Codex-independent",
+  "rectification_event": 67371
+}

@@ -1,0 +1,16 @@
+{
+  "id": "9e4a61d6faea4b73ad31251e72dcf7c1",
+  "parent": "3aa717f3887e49daa7daf7e883ee52e4",
+  "goal": "P3 uniquement, P2 est reçu avec réserves (reçu parent52932). Fiabiliser durablement le contexte des missionsQwen80B : budget fondé sur la capacité effective, archives techniques complètes horsprompt, checkpoint structuré et reprise sans perdre décisions, compteursP2 ni opérations déjàvalidées. Repères provisoires Codex faute de définition retrouvée : coucheBLEUE=contexte actif borné, coucheVERTE=mémoire opérationnelle persistante dans MissionStore/SQLite canonique ; archives existantes conservées, aucune seconde mémoire. P3-CAPACITE.json contient les mesures réellement lues : configuration24576, capacitéchargée observée si disponible, maximum théorique distinct. Ne les remplace pas par une limiteinventée. Sources utiles engine/jarvis/core.py (Core.ollama centralise l’inférence), durable_cycle.py, mission_store.py, mission_assurance.py. Observe seulement les sections nécessaires, propose ton planP3 puis choisis modifications et sous-tâches surlesdeuxDell. Codex fournit les capacités d’infrastructure manquantes et reçoit; tu décides scénarios/commandes et analyses les résultats. Tester sortievolumineuse, contexteprochelimite, reprise avec compteurs conservés et sans doublon. Ne développe pas de code pour des APIsimaginées : consulte les signatures réelles. Maximum3échecs comparables puis dossierCodex, ne bouclepas surleslectures. AucunP4,14A,24-Old ouchangementsmodèles/routage. Directives AGENTS,charte,MISSION,réceptionP2 relues; autorisations propriétaire du27octobre conservées, écarts aucun hors correspondance des couleurs explicitement provisoire.",
+  "event": 52936,
+  "capacity": {
+    "observed_at": 1793093159.7342272,
+    "model": "qwen3-coder-next:q4_K_M",
+    "configured_inference_num_ctx": 24576,
+    "loaded_context_length": null,
+    "model_metadata_context_length": 262144,
+    "source": "actual configured Dell1 endpoint api/ps and api/show; metadata maximum is not active capacity",
+    "tokenizer_endpoint_available": false,
+    "tokenizer_probe": "props/tokenize endpoints actually returned404; use an explicitly labelled conservative estimate unless a real tokenizer is found"
+  }
+}

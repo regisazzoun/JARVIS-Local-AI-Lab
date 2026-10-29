@@ -1,0 +1,11 @@
+# Reprise à une nouvelle frontière de cycle — 27 octobre 2026
+
+Mission unique d8fe752876db480cbe5f22cd5525e2dd, parent et SQLite conservés. Directives relues : AGENTS, charte, supervision, paquet candidat, correction du faux match, interface de version, plan enregistré, SUIVI et ROADMAP. Autorisation de toute P4 conservée sans nouvelle validation humaine.
+
+La version courante est bien3. Les trois propositions rejetées tentaient de supprimer P4-ATTEST-01, déjà tentée ; refus62033 et escalade62035 légitimes, sans changement de version. Le planv3 de Qwen reste intact : un lot complet instrumentation/tests indépendants/rapport. Aucun plan de remplacement écrit par Codex.
+
+Preuve nouvelle62038 : l’archive réelle62025 contient encore seulement mission_note et authority_revise_plan. La levée61990 est intervenue pendant un quantum dont le snapshot de mission conservait l’ancienne restriction. Une construction neuve du registre avec le spec actuel expose authority_work, authority_edit, authority_sync, authority_finish et les outils de lecture/analyse ; le schéma impose const3. Un test indépendant en SQLite temporaire confirme le refus de suppression d’une tâche tentée sans incrément de version. Ce test n’est aucun des cas natifs déjà reçus.
+
+Action Codex62041 : sauvegarde privée, archivage natif du dialogue, consigne62039 puis nouvelle frontière queued, sans modification source/service ni reload. Plan, spec, état Authority, compteurs de refus et ledger comparés avant/après : identiques. Résolution du blocage de transport des outils enregistrée séparément ; aucune résolution applicative ni réception candidate déduite.
+
+Qwen conserve code/commandes/tests/exécutants et doit exécuter son lot P4-ATTEST-01. Retests61801/61857 reçus61894 non rejoués. L’instrumentation du vrai worker reste à démontrer. technical_review_recorded=false ; aucune continuation créée avant fin réelle et revue indépendante. Suite P4 intégration/déploiement/validation réelle autorisée après revue satisfaisante, avec retour arrière ; huit situations et réception globale toujours dues. Registre, configuration/script superviseur et compteurs inchangés ; aucun autre périmètre, modèle, routage ou fusion main.

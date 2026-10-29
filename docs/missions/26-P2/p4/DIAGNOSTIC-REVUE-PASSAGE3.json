@@ -1,0 +1,40 @@
+{
+  "event": 67080,
+  "periodic_attempt": 3,
+  "mission_state": "interrupted",
+  "active_task": "version0-plan",
+  "running_missions": [],
+  "pending_calls": [],
+  "observed_failure": {
+    "verification": 67074,
+    "tool_result": 67075,
+    "classification_rejections": [
+      67068,
+      67073
+    ],
+    "escalation": 67077,
+    "interface_failure_count": 5,
+    "prepared_batch": 67058,
+    "expected_segments": 7,
+    "returned_segments_per_attempt": 3,
+    "capacity_refusal": 67056,
+    "admitted_input_bytes": [
+      24368,
+      24647
+    ],
+    "input_budget": 27648
+  },
+  "diagnosis": "Loaded erratum projection preserves exact withdrawals, but controller again misclassifies factual S3 as qualified_hypothesis then not_factual. Both structured responses omit four required segments. Cited event:66911 projects facts={} although its original instruction exists. This missing instruction may obstruct checking conformity; it does not establish the cause of the classification failures. No complete narrative verdict exists.",
+  "correction_to_examine": "Project explicitly cited coordinator instructions as attributed historical text, never as reviewer instructions or independent operational proof. Independently test a narrower semantic review against the original seven segments, including S3 and complete coverage. Require actual loaded correction and conservative admission before resuming. Preserve all original failures and counters.",
+  "action": "No unchanged retry, no queue transition, no reset, no software installation, no systemd action, no report writing by Codex. Target remains blocked pending a real technical correction; fourth comparable periodic passage forbidden.",
+  "preparation_received": false,
+  "P4_received": false,
+  "directives_consulted": [
+    "AGENTS.md current head",
+    "docs/CHARTE_DIRECTIVES_JARVIS.md",
+    "docs/missions/26-P2/p4/PLANIFICATION-PLATE.md",
+    "docs/missions/26-P2/SUPERVISION-CODEX.md"
+  ],
+  "authorization_preserved": "goal65937, same plan3/store, no historical packet reread, no deployment in preparation, integration authorized after actual preparation receipt; no human approval added",
+  "diagnostic_erratum_event": 67081
+}

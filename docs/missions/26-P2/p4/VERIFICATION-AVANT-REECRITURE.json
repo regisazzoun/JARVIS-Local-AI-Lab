@@ -1,0 +1,23 @@
+{
+  "event": 66727,
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "original_archive": 66710,
+  "pending_attempt": "ebaaa1012d0e4771bb37555e218c4424",
+  "sent_bytes": 23025,
+  "input_budget": 27648,
+  "window_tokens": 32768,
+  "no_inference_dispatched": true,
+  "pending_report_validation_preserved": true,
+  "tools": [
+    "mission_evidence",
+    "mission_note",
+    "mission_verify",
+    "mission_report_review",
+    "host_read_file"
+  ],
+  "tests": [
+    "8 report-step/projection tests PASS",
+    "11 canonical guard tests PASS"
+  ],
+  "no_write_or_validation_claimed": true
+}

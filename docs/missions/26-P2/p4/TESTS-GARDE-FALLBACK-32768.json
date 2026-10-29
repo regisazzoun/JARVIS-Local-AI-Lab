@@ -1,0 +1,50 @@
+{
+  "event": 58683,
+  "actor": "Codex",
+  "results": [
+    {
+      "host": "dell-observe",
+      "upload_evidence": [
+        "947be249c84445c0bd4b9cac4d32287e",
+        "11a85af942bb47d5beb3a99d13aa9f68"
+      ],
+      "test_evidence": "369cd204e38e48bb808be7e99d0f544a",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "----------------------------------------------------------------------\nRan 16 tests in 0.274s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.716,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    },
+    {
+      "host": "dell2",
+      "upload_evidence": [
+        "efbb52530dd74647ba56bac81841ca30",
+        "7d4411bf35314c8abbfd1018021e44f7"
+      ],
+      "test_evidence": "11d59128ea934c6e8dacee8fad81b5f0",
+      "result": {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "----------------------------------------------------------------------\nRan 16 tests in 0.271s\n\nOK\n",
+        "timeout": false,
+        "duration_s": 0.716,
+        "stdout_truncated": false,
+        "stderr_truncated": false,
+        "project_root": "/opt/jarvis-lab/mission26-phase2",
+        "persistent_write_roots": [
+          "/opt/jarvis-lab/mission26-phase2"
+        ],
+        "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+      }
+    }
+  ]
+}

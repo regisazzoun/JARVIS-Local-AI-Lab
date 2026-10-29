@@ -1,0 +1,11 @@
+# Intervention Codex-periodic44018 — raccordement de l’échec enfant
+
+P2 🟡 non reçue ; mission native 3aa717f3887e49daa7daf7e883ee52e4 seulement. Directives relues : AGENTS, charte, SUPERVISION-CODEX, contrat MISSION, état courant SUIVI/ROADMAP et dernier dossier43967. Autonomie conservée ; aucun autre agent, MANUAL-HOLD, changement superviseur/compteurs, P3/P4 ou merge.
+
+Cause vérifiée : après43967, Qwen relit encore les anciens huit PASS et tente une quatrième clôture refusée44012–44016. SQL/références déjà réparés ; aucune répétition de cette réparation. Sur le candidat réel Dell1, test_p2_call_lifecycle échoue encore : enfant Python retourne7, journal ATTEMPT_STATE vide. Les conclusions44003/44012 de candidat fiable sont donc invalides ; les refus historiques restent conservés.
+
+Correctif applicatif ciblé Codex-periodic44018 : finish_call conserve l’identifiant tool_finished et, uniquement pour host_remote avec enveloppe ok et code enfant entier non nul, journalise EXECUTION_FAILED dans la même transaction, avec référence. Aucun SUCCESS ajouté. Source avant f3897e0e4997d117299d66563745214e42457974c2315486c6b91242643a060e ; après fcd02cbba0f184501b03e1b141b6f4d4b5f1cb51f38995e884195d374f3828b9. Patch publié à côté de ce rapport ; sauvegarde distante privée.
+
+Test attesté44018 : neuf tests unittest PASS (cycle enfant + huit tests des références). Le processus de test retourne0 ; résultat distinct du broker. La première réponse contenant les sources complètes a été tronquée : mutation non répétée, lecture du diff réel puis tests renouvelés pour lever l’incertitude. Reçus et logs privés conservés. Cette validation logicielle ne prouve pas les dix scénarios autonomes.
+
+Instruction44019 : Qwen doit inspecter/retester, compléter les chemins réels manquants puis synchroniser source ET tests et faire contrôler Dell2. Réparation Codex distincte d’une autocorrection Qwen. Aucun assouplissement d’acceptation, aucune réception. Mission interrupted sans lease ni appel inachevé observée avant intervention ; contexte actif archivé, source/plan/conversation/checkpoints préservés. Transition queued puis restitution44022. failed_cycles4/correction_resolved_through3 inchangés. Moteur installé intact, aucun reload nécessaire. Dell2 encore non synchronisé pour ce correctif.

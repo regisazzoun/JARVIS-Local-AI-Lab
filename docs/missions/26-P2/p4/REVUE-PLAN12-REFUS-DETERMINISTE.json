@@ -1,0 +1,126 @@
+{
+  "repair": 78288,
+  "idle_reload": 78289,
+  "strategy": 78290,
+  "infrastructure_verification": 78291,
+  "infrastructure_resolution": 78292,
+  "resolution": 78295,
+  "instruction": 78293,
+  "state": "queued",
+  "P4_received": false,
+  "input_budget": 27648,
+  "tests_passed": 111,
+  "probe": {
+    "plan_version": 12,
+    "plan_sha256": "2155e3c45dfc853d5e19812a40ff399d5b69cc050bf0b550dfbe05d24dacb14b",
+    "module": "/opt/jarvis/conversation/jarvis/mission_assurance.py",
+    "result": {
+      "status": "FAIL",
+      "coverage": [],
+      "issues": [
+        "Report artifact collision: c32347de and version0 share /var/lib/jarvis/projects/mission26-phase2/canary-stage/report_c32347de.md. Use distinct task report paths so received hashes remain reproducible."
+      ],
+      "semantic_review_completed": false,
+      "semantic_review_deferred": "ContextCapacityError",
+      "unreviewed_requirements": [
+        "R1",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R16",
+        "R17",
+        "R18",
+        "R19",
+        "R2",
+        "R20",
+        "R21",
+        "R22",
+        "R23",
+        "R24",
+        "R25",
+        "R26",
+        "R27",
+        "R28",
+        "R29",
+        "R3",
+        "R30",
+        "R31",
+        "R32",
+        "R33",
+        "R34",
+        "R35",
+        "R36",
+        "R37",
+        "R38",
+        "R39",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "plan_version": 12,
+      "goal_sha256": "55840ae312686c08a64c645eccbd086e53b8a4cab0cb303892d735a41cf21b43",
+      "requirements_version": 1,
+      "requirements_sha256": "c84d0e8d893bf988f849e0e8bbd6dbb1d68cd647cc52da07258e0d78d33e4578",
+      "plan_sha256": "2155e3c45dfc853d5e19812a40ff399d5b69cc050bf0b550dfbe05d24dacb14b",
+      "author": "JARVIS-backend",
+      "contract_version": "26b.10"
+    },
+    "rejected_sizes": [
+      38865,
+      34956,
+      32600,
+      31465,
+      31013,
+      30640
+    ],
+    "no_inference_dispatched": true,
+    "original_roundtrips_verified": 6,
+    "scope": "Software probe only; no semantic review quality or autonomy proof"
+  },
+  "installed_modules": [
+    {
+      "file": "/opt/jarvis/conversation/jarvis/mission_assurance.py",
+      "sha256": "c427285ae2c1561c21fa37f6c2ce5c402e23094667513795c79996c9b56f24ce"
+    }
+  ],
+  "limits": [
+    "Capacity remains30640/27648 for plan12; correction exposes existing deterministic refusal, not a general capacity solution",
+    "All39requirements explicitly unreviewed; no semantic quality or autonomy received",
+    "No canonical plan changes, no active canary deployment, P4 not received"
+  ],
+  "native_observation": {
+    "backend_refusal_event": 78317,
+    "next_action_admission_event": 78322,
+    "budget": {
+      "archive": 78320,
+      "capacity": {
+        "configured_limit": 32768,
+        "hard_context_limit": 32768,
+        "limit": 32768,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793288145.5831547,
+        "observed_loaded_limit": 32768,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 78321,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 27648,
+      "original_bytes": 68025,
+      "response_reserved": 4096,
+      "sent_bytes": 19664,
+      "template_margin": 1024,
+      "within_budget": true
+    },
+    "semantic_review_completed": false,
+    "Qwen_next_action_result": "pending at handoff"
+  }
+}

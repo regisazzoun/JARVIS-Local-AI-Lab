@@ -1,0 +1,40 @@
+{
+  "source_unit_observation": 74357,
+  "model_inference": 74368,
+  "plan_revision_invocation": "aac4ed768012454ebcd73ed27e57a99e",
+  "plan_version": 2,
+  "tasks": [
+    {
+      "id": "p3-bounded-review-audit-plan-inspect",
+      "title": "p3-bounded-review-audit-plan-inspect",
+      "state": "running"
+    }
+  ],
+  "observations": [
+    {
+      "bytes": 5437,
+      "end_line": 309,
+      "host": "Dell1",
+      "module_sha256": "a3332ac319186f9e128e278e53fcdbd5b9431766061b7b1d92ae6c68fbe08fca",
+      "path": "p3-bounded-review/engine/jarvis/mission_assurance.py",
+      "read_invocation": "2b093f4b13ad42f6b13dd23533ccc1a0",
+      "sha256": "b8094cd7f0d03c4436b3008275fa929bc1d9f3657a7d47e549c76e66e1e4da5e",
+      "start_line": 276,
+      "symbol": "audit_plan"
+    },
+    {
+      "bytes": 5437,
+      "end_line": 309,
+      "host": "Dell2",
+      "module_sha256": "a3332ac319186f9e128e278e53fcdbd5b9431766061b7b1d92ae6c68fbe08fca",
+      "path": "p3-bounded-review/engine/jarvis/mission_assurance.py",
+      "read_invocation": "8ca3054a36af40dbb881dc727b4fd9c6",
+      "sha256": "b8094cd7f0d03c4436b3008275fa929bc1d9f3657a7d47e549c76e66e1e4da5e",
+      "start_line": 276,
+      "symbol": "audit_plan"
+    }
+  ],
+  "coordinator_authored_plan": false,
+  "application_code_not_yet_modified": true,
+  "coordination_constraints": "Codex requested one short reception lot retaining the attempted task id. Qwen authored its contents. First revision refusal preserved; not a claim of unassisted planning."
+}

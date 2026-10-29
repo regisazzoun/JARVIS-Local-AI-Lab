@@ -1,0 +1,76 @@
+{
+  "owner_instruction": "execute ces taches en deleguant les calculs a jarvis .tu realisera les controle puis un test pour valider sera donné a jarvis",
+  "recorded_at": "2026-10-29T10:14:44.045484+00:00",
+  "canonical_engine": "Existing MissionStore, no second execution engine",
+  "active_native_mission": "bfd9a813c1804ffcaad77c9f01d54045",
+  "roles": {
+    "technical_decisions": "JARVIS/Qwen80B",
+    "calculations_builds_tests": "Dell1 and Dell2 under JARVIS",
+    "infrastructure_and_independent_reception": "Codex"
+  },
+  "single_main_priority": true,
+  "steps": [
+    {
+      "id": "P3-CIBLE",
+      "objective": "Corrections P3 ciblées et contrat d’appels fiable",
+      "status": "EN COURS",
+      "depends_on": null,
+      "native_mission": "bfd9a813c1804ffcaad77c9f01d54045"
+    },
+    {
+      "id": "P4-CANARI",
+      "objective": "Staging puis intégration canari et réception des situations P4",
+      "status": "EN ATTENTE DU CONTRÔLE P3",
+      "depends_on": "P3-CIBLE",
+      "native_mission": "c32347de3edf4288a4751a3e65afa7eb"
+    },
+    {
+      "id": "JL03-REEL",
+      "objective": "Une correction JL03 encore ouverte choisie après lecture du registre",
+      "status": "EN ATTENTE P4",
+      "depends_on": "P4-CANARI"
+    },
+    {
+      "id": "CODEX-CONTROLE",
+      "objective": "Contrôles indépendants des artefacts et comportements réels",
+      "status": "EN ATTENTE",
+      "depends_on": "JL03-REEL"
+    },
+    {
+      "id": "JARVIS-VALIDATION",
+      "objective": "Épreuve distincte donnée à JARVIS après contrôle Codex",
+      "status": "NON TRANSMISE",
+      "depends_on": "CODEX-CONTROLE"
+    },
+    {
+      "id": "M26-RECEPTION",
+      "objective": "Réception explicite de la phase2 sur preuves",
+      "status": "EN ATTENTE",
+      "depends_on": "JARVIS-VALIDATION"
+    },
+    {
+      "id": "14A-FINALE",
+      "objective": "Épreuve14A distincte après réceptionM26",
+      "status": "PLANIFIÉE CONDITIONNELLE",
+      "depends_on": "M26-RECEPTION"
+    },
+    {
+      "id": "24-OLD",
+      "objective": "Mémoire enrichie/AutoDream après14A",
+      "status": "PLANIFIÉE CONDITIONNELLE",
+      "depends_on": "14A-FINALE"
+    }
+  ],
+  "validation_test": {
+    "id": "M26-P2-VF01",
+    "status": "NON TRANSMIS",
+    "release_condition": "Implementation and independent Codex controls received",
+    "operator": "JARVIS",
+    "test_data_and_expected_results": "Prepared separately by Codex from actual implemented system; not model-authored ground truth",
+    "not_14A": true,
+    "not_replay_of_ten_P2_cases": true
+  },
+  "phase2_complete": false,
+  "14A_closed": false,
+  "memory_started": false
+}

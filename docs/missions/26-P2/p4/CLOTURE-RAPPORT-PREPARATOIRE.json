@@ -1,0 +1,22 @@
+{
+  "native_tool_result": {
+    "ok": true,
+    "result": {
+      "state": "validated",
+      "id": "version0-plan",
+      "report_path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md",
+      "sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0"
+    },
+    "risk": "host_authorized",
+    "tool": "mission_task_complete",
+    "elapsed_s": 147.065
+  },
+  "native_invocation": "6251ac76c7894cfaa837c7f1a6a7a7e0",
+  "independent_event": 68495,
+  "trigger": "Codex",
+  "full_report_review": "JARVIS/Qwen80B Dell1",
+  "task": "version0-plan",
+  "current_task_state": "validated",
+  "autonomous_correction_received": false,
+  "P4_received": false
+}

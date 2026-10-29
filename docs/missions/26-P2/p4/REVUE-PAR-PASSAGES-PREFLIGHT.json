@@ -1,0 +1,58 @@
+{
+  "event": 66808,
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "original_archive": 66749,
+  "original_review_bytes": 51114,
+  "accepted_batch_sizes": [
+    {
+      "segments": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14",
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "bytes": 27291
+    },
+    {
+      "segments": [
+        "S18",
+        "S19",
+        "S20",
+        "S21",
+        "S22",
+        "S23",
+        "S24",
+        "S25",
+        "S26",
+        "S27",
+        "S28",
+        "S29",
+        "S30",
+        "S31",
+        "S32",
+        "S33",
+        "S34"
+      ],
+      "bytes": 27494
+    }
+  ],
+  "all_segments_covered_once": true,
+  "segment_count": 34,
+  "input_budget": 27648,
+  "no_model_inference": true,
+  "no_report_verdict": true,
+  "simulation_events_explicitly_prefixed": true
+}

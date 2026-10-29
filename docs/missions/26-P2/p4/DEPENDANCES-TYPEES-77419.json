@@ -1,0 +1,23 @@
+{
+  "mission": "c32347de3edf4288a4751a3e65afa7eb",
+  "diagnosis": "77414: model passed action descriptions as dependency IDs; three refusals preserved, escalation77416",
+  "repair": 77419,
+  "preflight": 77430,
+  "strategy": 77431,
+  "resolution": 77432,
+  "software_tests_passed": 47,
+  "input_bytes": 22436,
+  "budget_bytes": 27648,
+  "actual_model": "qwen3-coder-next:q4_K_M",
+  "node": "Dell1",
+  "no_tool_dispatched_in_preflight": true,
+  "model_selected_dependency_ids": [],
+  "plan_version_preserved": 5,
+  "writer_adapter_77337_preserved": true,
+  "writer_scope": "active report_path only",
+  "stage_only": true,
+  "P4_received": false,
+  "phase2_received": false,
+  "counts_and_original_refusals_preserved": true,
+  "actors": "Codex corrected transport; Qwen authors plan and operational choices"
+}

@@ -34,7 +34,13 @@ def register(registry):
             c.execute('INSERT OR REPLACE INTO mission_operations VALUES(?,?,?,?,?,?)',(mission,key,sig,None,'started',None))
         token=store.begin_call(mission,task,name,params)
         with store.db() as c:c.execute('UPDATE mission_operations SET invocation=? WHERE mission=? AND key=?',(token,mission,key))
-        start=time.monotonic();result=registry.execute(name,params)
+        start=time.monotonic()
+        previous_key=registry.context.get('durable_operation_key')
+        registry.context['durable_operation_key']=key
+        try:result=registry.execute(name,params)
+        finally:
+            if previous_key is None:registry.context.pop('durable_operation_key',None)
+            else:registry.context['durable_operation_key']=previous_key
         store.finish_call(token,result,time.monotonic()-start)
         with store.db() as c:c.execute('UPDATE mission_operations SET state=?,result=? WHERE mission=? AND key=?',('finished',encoded(result),mission,key))
         return {'returncode':0 if result.get('ok') else 1,'original_invocation':token,'replayed':False,'observed_receipt':result}

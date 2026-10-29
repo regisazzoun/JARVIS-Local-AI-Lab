@@ -1,0 +1,50 @@
+{
+  "trigger_event": 68395,
+  "invocation": "b5de443a24f6415081f4fabb94e34a43",
+  "result": {
+    "ok": true,
+    "result": {
+      "returncode": 0,
+      "status": "PASS",
+      "checks": [
+        {
+          "predicate": "narrative_matches_original_evidence",
+          "pass": true,
+          "draft_sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0"
+        }
+      ],
+      "sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0",
+      "issues": [],
+      "contract": {
+        "kind": "report",
+        "source": {
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md"
+          },
+          "tool": "host_read_file"
+        }
+      },
+      "observations": [
+        {
+          "invocation": "41e1e82f34ce43c0b6f574385e93712f",
+          "broker_evidence": "de4629af7cf14d89ba7ec8d3eebb853d",
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md"
+          }
+        }
+      ],
+      "observed_at": 1793208214.7467985,
+      "verifier": "broker-read+JARVIS-reviewer26B",
+      "verification_event": 68493
+    },
+    "risk": "host_authorized",
+    "tool": "mission_verify",
+    "elapsed_s": 141.3
+  },
+  "trigger": "Codex",
+  "reviewer": "JARVIS/Qwen80B on Dell1",
+  "autonomous_trigger": false,
+  "task_complete": false,
+  "global_P4_received": false
+}

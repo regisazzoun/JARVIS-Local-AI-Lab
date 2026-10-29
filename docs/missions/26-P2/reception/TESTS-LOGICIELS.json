@@ -1,0 +1,24 @@
+{
+  "actor": "Codex",
+  "classification": "software tests, not autonomy acceptance",
+  "local_suites": {
+    "test_attempt_ledger": 11,
+    "test_durable": 10,
+    "test_distributed_authority": 25,
+    "test_authority_edit": 8,
+    "test_authority_dialogue": 1
+  },
+  "local_total": 55,
+  "local_verdict": "PASS",
+  "remote_suites": {
+    "Dell1": {
+      "test_attempt_ledger": 11,
+      "verdict": "PASS"
+    },
+    "Dell2": {
+      "test_attempt_ledger": 11,
+      "verdict": "PASS"
+    }
+  },
+  "remote_evidence_file": "VERIFICATION-SOURCES.json"
+}

@@ -103,6 +103,10 @@ class Registry:
         register_jl03_assist(self)
         from .distributed_authority import register as register_authority
         register_authority(self)
+        from .p2_reception import register as register_p2_reception
+        register_p2_reception(self)
+        from .mission_context_budget import register as register_context_budget
+        register_context_budget(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):
@@ -198,6 +202,26 @@ class Registry:
         import copy
         schema=copy.deepcopy(parameter_schema(name,self.specs[name]))
         store=getattr(self,'mission_store',None)
+        if name=='host_write_file' and store and self.context.get('mission_id') and self.context.get('task_id') and json.loads(store.get(self.context['mission_id'])['spec']).get('planning_report_steps'):
+            task=next((row for row in store.tasks(self.context['mission_id']) if row['id']==self.context['task_id']),None)
+            path=(task or {}).get('contract',{}).get('report_path')
+            if path:
+                schema['properties']['path']['enum']=[path]
+                schema['properties']['path']['description']='Current factual report only. Application source changes belong to the remote worker workspace.'
+        if name=='mission_plan_report_step' and store and self.context.get('mission_id'):
+            dependency_ids=[t['id'] for t in store.tasks(self.context['mission_id'])]
+            schema['properties']['depends']['description']='Existing saved task IDs only, never action descriptions or future steps. Use [] when no dependency is needed. Save a new prerequisite first, then revise this step. No self dependency or cycle.'
+            if dependency_ids:
+                schema['properties']['depends']['items']['enum']=dependency_ids
+            else:
+                schema['properties']['depends']['maxItems']=0
+            schema['properties']['tools']['items']['enum']=sorted(self.specs)
+            schema['properties']['tools']['description']='Choose actual registered operational tools. The adapter adds the scoped report writer automatically; host_remote is the real remote execution API, not invented aliases.'
+            from .durable_cycle import report_plan_tool_issues
+            defects=report_plan_tool_issues(store,self.context['mission_id'],self.specs)
+            if defects:
+                schema['properties']['id']['enum']=[row['task'] for row in defects]
+                schema['allOf']=[{'if':{'properties':{'id':{'const':row['task']}},'required':['id']},'then':{'properties':{'report_path':{'const':row['report_path']}}}} for row in defects]
         if name=='mission_plan' and store and json.loads(store.get(self.context['mission_id'])['spec']).get('autonomous'):
             props=schema['properties'];task=props['tasks']['items']
             task['required']=['id','title','depends','objective','tools','observations','verification','recovery','artifacts','contract']
@@ -217,10 +241,154 @@ class Registry:
                 if declaration.get('type')=='string':declaration['minLength']=1
             if not store.plans(self.context['mission_id']):schema['required']=['tasks','metadata']
             else:schema['required']=['tasks','expected_version','reason']
+        if name=='p2_execute' and getattr(self,'mission_store',None) and self.context.get('mission_id'):
+            cfg=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('p2_reception',{})
+            if cfg.get('case'):schema['properties']['scenario']['enum']=[cfg['case']]
+        if name.startswith('authority_') and getattr(self,'mission_store',None) and self.context.get('mission_id'):
+            import copy
+            schema=copy.deepcopy(schema)
+            ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
+            if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
+            if name=='authority_run_probe':
+                probes=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_probes',{})
+                if probes:
+                    schema['properties']['probe_id']['enum']=list(probes)
+                    schema['properties']['probe_id']['description']=json.dumps({key:probe.get('description','Owner-declared regression') for key,probe in probes.items()},ensure_ascii=False)
+                    from .distributed_authority import Authority
+                    from .authority_probe import matrix
+                    active=Authority(self).active_state()
+                    candidates=[(int(ref),row) for ref,row in active['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+                    if candidates:
+                        progress=matrix(Authority(self).spec,active,max(candidates,key=lambda item:item[0])[1]['after'])
+                        remaining={key:[host for host,rows in progress.items() if rows[key]['status']!='PASS'] for key in probes}
+                        remaining={key:hosts for key,hosts in remaining.items() if hosts}
+                        if remaining:
+                            schema['properties']['probe_id']['enum']=list(remaining)
+                            schema['allOf']=[{'if':{'properties':{'probe_id':{'const':key}},'required':['probe_id']},'then':{'properties':{'executor':{'enum':hosts}}}} for key,hosts in remaining.items()]
+            if name=='authority_draft_edit':
+                draft_spec=json.loads(self.mission_store.get(self.context['mission_id'])['spec'])
+                units=draft_spec.get('authority_draft_units')
+                if draft_spec.get('authority_coding_objective'):
+                    schema['properties']['request']['minLength']=20
+                    schema['properties']['request']['description']='Describe the actual code change, not apply/propose alone. The immutable task result contract is included in the isolated coding context.'
+                if units and len(units)==1:
+                    schema['properties']['path']['enum']=[units[0]['path']]
+                    schema['properties']['symbol']['enum']=[units[0]['symbol']]
+                    schema['required']=list(dict.fromkeys(schema['required']+['symbol']))
+            if name=='authority_apply_draft':
+                with self.mission_store.db() as connection:
+                    rows=connection.execute("SELECT p.id,p.result FROM mission_events p WHERE p.mission=? AND p.task IS ? AND p.kind='authority_code_proposal' AND p.actor='JARVIS/Qwen80B' AND NOT EXISTS (SELECT 1 FROM mission_events a WHERE a.mission=p.mission AND a.task IS p.task AND a.kind='authority_code_proposal_applied' AND json_extract(a.result,'$.proposal_reference')=p.id) ORDER BY p.id DESC",(self.context['mission_id'],self.context.get('task_id'))).fetchall()
+                behavioral=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_behavioral_change')
+                from .authority_draft import proposal_changes_logic
+                proposals=[row['id'] for row in rows if not behavioral or proposal_changes_logic(json.loads(row['result'])['proposal'])]
+                if proposals:schema['properties']['proposal_reference']['enum']=proposals
+            if name=='authority_sync':
+                from .distributed_authority import Authority
+                executions=Authority(self).active_state()['executions'];by_host={}
+                for host in schema['properties']['source']['enum']:
+                    rows=[(int(ref),entry) for ref,entry in executions.items() if entry.get('host')==host and isinstance(entry.get('after'),dict)]
+                    if rows:
+                        latest=max(rows,key=lambda row:row[0])[1]['after']
+                        by_host[host]=sorted((ref for ref,entry in rows if entry['after']==latest),reverse=True)[:16]
+                if by_host:
+                    schema['properties']['source']['enum']=list(by_host)
+                    schema['allOf']=[{'if':{'properties':{'source':{'const':host}},'required':['source']},'then':{'properties':{'source_reference':{'enum':refs}}}} for host,refs in by_host.items()]
+                    schema['properties']['source_reference']['description']='Exact execution reference at the latest observed source manifest on the chosen host; not a proposal id. Remote freshness is checked again before transfer.'
+            if name=='authority_work':
+                from .distributed_authority import Authority
+                from .durable_cycle import candidate_test_focus
+                authority=Authority(self)
+                if candidate_test_focus(authority.spec,authority.active_state()):
+                    schema['properties']['kind']['enum']=['test','analyze','accept']
+                if authority.spec.get('authority_probes') and not self.context.get('_authority_declared_probe'):
+                    schema['properties']['kind']['enum']=[kind for kind in schema['properties']['kind']['enum'] if kind!='test']
+                    if candidate_test_focus(authority.spec,authority.active_state()):
+                        candidates=[(int(ref),row) for ref,row in authority.active_state()['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+                        if candidates:
+                            from .authority_probe import matrix
+                            reference,correction=max(candidates,key=lambda item:item[0]);progress=matrix(authority.spec,authority.active_state(),correction['after'])
+                            if all(item['status']=='PASS' for host in progress.values() for item in host.values()):
+                                schema['properties']['kind']['enum']=['accept']
+                                schema['properties']['source_reference']['enum']=[reference]
+                                schema['properties']['reference']['enum']=[item['reference'] for host,items in progress.items() if host!=correction['host'] for item in items.values()]
+                schema['allOf']=[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},
+                                  'then':{'required':['reference','source_reference']}}]
+                schema['allOf'].append({'if':{'properties':{'kind':{'enum':['inspect','correct','test']}},'required':['kind']},
+                                        'then':{'required':['executor','command'],'properties':{'command':{'minLength':1}}}})
+                schema['properties']['reference']['description']='For accept: REQUIRED passed TEST execution event id. This is separate from source_reference; never omit it or put it only in summary.'
+                schema['properties']['source_reference']['description']='For accept: REQUIRED actual changed CORRECTION execution on the OTHER Dell with exact same full manifest as the test. A passed test is not a correction. If no matching correction exists, do not retry accept or manufacture a no-op correction; continue the missing application work and report provenance.'
+            if name=='authority_read_execution':
+                from .distributed_authority import Authority, version
+                authority=Authority(self)
+                executions=authority.state().get('executions',{})
+                if authority.spec.get('authority_engine_operation_ids'):
+                    # Active schemas should not advertise obsolete source
+                    # snapshots as current. Archives remain in canonical SQLite
+                    # and readable with context_recall, without broad history.
+                    executions=authority.active_state().get('executions',{})
+                    newest=max(executions,key=int) if executions else None
+                    current=version(executions[newest].get('after',{})) if newest else None
+                    executions={ref:e for ref,e in executions.items() if version(e.get('after',{}))==current}
+                    references=sorted((int(ref) for ref in executions),reverse=True)[:16]
+                    schema['properties']['reference']['description']='Active execution references at the current source manifest, newest first. Historical versions remain archived: use context_recall, not a stale read as current source. This tool reads recorded command output, NEVER the source file named by that output.'
+                else:references=[int(ref) for ref in executions]
+                if references:schema['properties']['reference']['enum']=references
+                schema['properties']['start_line'].update(default=1, description='ONE-BASED line number: first line is 1, never 0. Omit start_line to read from the beginning.')
+                schema['properties']['max_lines'].pop('maximum',None)
+                schema['properties']['max_lines'].update(default=40, description='Positive requested line count; output is capped at 80 lines per read. Omit for 40; paginate using start_line.')
+            if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_readonly_validation'):
+                schema['properties']['kind']['enum']=['inspect','test','analyze','accept']
+                schema['properties']['source_reference']['description']='Owner test-only mode: actual passed TEST execution on the OTHER Dell, identical complete source manifest. No source correction is claimed.'
+            if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_task_scoped_evidence'):
+                from .distributed_authority import Authority
+                active=Authority(self).active_state()
+                tests=[(ref,e) for ref,e in active['executions'].items() if e.get('kind')=='test' and e.get('execution',{}).get('returncode')==0 and e.get('before')==e.get('after')]
+                if len({e['host'] for _,e in tests})<2:
+                    schema['properties']['kind']['enum']=[k for k in schema['properties']['kind']['enum'] if k!='accept']
+                schema['properties']['reference']['description']='Execution event of THIS active task; completed-task receipts remain archived, not acceptance candidates.'
+                schema['properties']['source_reference']['description']='Independent peer execution of THIS active task on the OTHER Dell, at identical source manifest.'
+            if name=='authority_work' and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_execution_only'):
+                schema['properties']['kind']['enum']=[k for k in schema['properties']['kind']['enum'] if k in ('inspect','correct','test')]
+                schema['required']=list(dict.fromkeys(schema['required']+['executor','command']))
+                schema['properties']['command']['minLength']=1
+            if 'steps' in schema['properties']:schema['properties']['steps']['items']['properties']['issues']['items']['enum']=ids
+            if name in ('authority_work','authority_edit') and json.loads(store.get(self.context['mission_id'])['spec']).get('authority_engine_operation_ids'):
+                schema['properties'].pop('operation_id',None)
+                schema['required']=[k for k in schema['required'] if k!='operation_id']
+                schema['description']='The engine assigns operation identity from the canonical tool invocation. Do NOT supply operation_id. Commands, edits and executors remain your choices. Identical intents are deduplicated by the persistent ledger; unknown effects require observation.'
+                if name=='authority_edit':
+                    schema['properties']['edits']['items']['properties']['path']['description']='Source path relative to the declared workspace, or absolute INSIDE that same workspace. Outside paths, traversal, runtime/receipts and escaping symlinks remain refused.'
+            if name in ('authority_plan','authority_revise_plan'):
+                history=store.plans(self.context['mission_id'])
+                current=history[-1]['version'] if history else 0
+                schema['properties']['expected_version']={'type':'integer','const':current,
+                    'description':'CURRENT saved version, exactly '+str(current)+'. The server assigns the next version; do not send the next number.'}
+                if history:
+                    schema['required']=list(dict.fromkeys(schema['required']+['expected_version','reason']))
+
+        if name=='authority_work' and getattr(self,'mission_store',None) and self.context.get('mission_id'):
+            if json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_probes') and not self.context.get('_authority_declared_probe'):
+                schema['properties']['kind']['enum']=[kind for kind in schema['properties']['kind']['enum'] if kind!='test']
+                # Test-only acceptance must cite two passed TESTS, never the
+                # correction reference used by the editable candidate workflow.
+                from .distributed_authority import Authority
+                from .authority_probe import matrix
+                authority=Authority(self);active=authority.active_state()
+                candidates=[(int(ref),row) for ref,row in active['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+                if authority.spec.get('authority_readonly_validation') and candidates:
+                    progress=matrix(authority.spec,active,max(candidates,key=lambda item:item[0])[1]['after'])
+                    if all(item['status']=='PASS' for rows in progress.values() for item in rows.values()):
+                        peers={item['reference']:[peer['reference'] for other,items in progress.items() if other!=host for peer in items.values()] for host,rows in progress.items() for item in rows.values()}
+                        schema['properties']['kind']['enum']=['accept']
+                        schema['required']=list(dict.fromkeys(schema['required']+['reference','source_reference']))
+                        schema['properties']['reference']['description']='Required passed TEST execution reference on one Dell; choose from the completed probe matrix.'
+                        schema['properties']['source_reference']['description']='Required passed TEST execution reference on the OTHER Dell, at the identical manifest; choose an independent peer from the completed probe matrix.'
+                        for field in ['reference','source_reference']:schema['properties'][field]['enum']=list(peers)
+                        schema['allOf'] += [{'if':{'properties':{'reference':{'const':ref}},'required':['reference']},'then':{'properties':{'source_reference':{'enum':refs}}}} for ref,refs in peers.items()]
         return schema
 
     def schemas(self,all_tools=False):
-        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
+        return [{'type':'function','function':{'name':name,'description':s[0],'parameters':self.active_schema(name)}} for name,s in self.specs.items() if not (name=='mission_plan' and getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('planning_report_steps')) and not (name=='mission_plan_report_step' and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('planning_report_steps'))) and not (name.startswith('context_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id'))) and not (name.startswith('p2_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('p2_reception',{}).get('active'))) and not (name.startswith('authority_') and not (getattr(self,'mission_store',None) and self.context.get('mission_id') and json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('distributed_authority'))) and not (name=='lab_terminal' and self.context.get('host_target') and not all_tools)]
     def execute(self,name,args):
         start=time.monotonic();start_wall=time.time();result=None
         try:
@@ -228,11 +396,11 @@ class Registry:
             description,props,required,risk,fn=self.specs[name]
             if risk not in ('read_only','pending_write','lab_reversible','host_authorized'):raise ValueError('Risque non autorisé')
             if not isinstance(args,dict):raise ValueError('Arguments : objet JSON requis pour '+name)
-            unknown=set(args)-set(props);missing=[k for k in required if k not in args]
+            schema=self.active_schema(name)
+            unknown=set(args)-set(schema['properties']);missing=[k for k in schema['required'] if k not in args]
             if unknown or missing:raise ValueError('Arguments invalides pour '+name+' : absents='+str(missing)+', inconnus='+str(sorted(unknown))+', champs permis='+str(list(props)))
             from jsonschema import Draft202012Validator
-            schema=self.active_schema(name)
-            if name=='mission_plan':
+            if name in ('mission_plan','mission_plan_report_step'):
                 normalized=decode_plan_arguments(args,schema)
                 if normalized!=args and getattr(self,'mission_store',None):
                     from .mission_assurance import VERSION
@@ -248,7 +416,7 @@ class Registry:
             controller=getattr(self,'mission_controller',None)
             action=args.get('action','')
             from .mcp_gateway import is_mutating as mcp_mutates
-            mutating=(name=='mcp_tools' and mcp_mutates(args)) or name in ('mission_action','skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
+            mutating=(name=='mcp_tools' and mcp_mutates(args)) or name in ('mission_action','skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','show','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
                 from .intent import classify
                 if classify(self.context.get('owner_text',''))=='question':
@@ -258,7 +426,8 @@ class Registry:
                 controller.store.event(mission['id'],'chat_promoted',actor='JARVIS-engine',tool=name,arguments=args,result={'executed':False})
                 self.context['mission_id']=mission['id']
                 return {'ok':False,'tool':name,'deferred':True,'mission_id':mission['id'],'conversation':mission['conversation'],'result':{'executed':False,'state':'queued'}}
-            value=fn(args)
+            from .legacy_attempts import guarded
+            value=guarded(self,name,args,fn,mutating)
             if name=='procedure_save':self.memory.document(args['content'],source='technical-procedure/'+str(__import__('hashlib').sha256(args['content'].encode()).hexdigest()),project='')
             if name=='web_fetch':self.context.setdefault('verified_sources',[]).append(value['url'])
             result={'ok':value.get('returncode',0)==0,'result':value,'risk':risk}

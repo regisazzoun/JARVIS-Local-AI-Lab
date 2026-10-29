@@ -1,0 +1,9 @@
+[Unit]
+Description=Check M26-P2 escalations every two minutes, without blind resubmission
+[Timer]
+OnActiveSec=60
+OnUnitInactiveSec=120
+AccuracySec=5
+Unit=jarvis-m26-p2-supervision.service
+[Install]
+WantedBy=timers.target

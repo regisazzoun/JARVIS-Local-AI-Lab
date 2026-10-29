@@ -1,0 +1,32 @@
+{
+  "event": 66249,
+  "source_commit": "277e05e",
+  "tests": "11 canonical guard tests PASS, including read allowed while genuine unknown mutation remains protected",
+  "observations": [
+    {
+      "invocation": "c05dd5fa65ee436a89aa7a6ea03d94f5",
+      "operator": "Codex independent verification",
+      "unit": "jarvis-mission-worker.service",
+      "returncode": 0,
+      "state": "active",
+      "pid": "296323",
+      "fragment": "/etc/systemd/system/jarvis-mission-worker.service",
+      "working_directory": "/opt/jarvis/conversation",
+      "not_runtime_code_attestation": true
+    },
+    {
+      "invocation": "9d11d83536c744d5a37de04ab41c2b0a",
+      "operator": "Codex independent verification",
+      "unit": "jarvis-mission-worker@2.service",
+      "returncode": 0,
+      "state": "active",
+      "pid": "296324",
+      "fragment": "/etc/systemd/system/jarvis-mission-worker@.service",
+      "working_directory": "/opt/jarvis/conversation",
+      "not_runtime_code_attestation": true
+    }
+  ],
+  "new_mutation_attempts_from_show": 0,
+  "retired_misclassification": 66243,
+  "P4_received": false
+}

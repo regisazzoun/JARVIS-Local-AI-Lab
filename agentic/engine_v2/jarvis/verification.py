@@ -157,7 +157,7 @@ class Verifier:
 
     def read(self, source):
         name, args = source['tool'], source['arguments']
-        allowed = name == 'host_read_file' or name == 'host_github' and args.get('action') == 'file' or name == 'host_remote' and args.get('action') in ('read_file','project_probe','hybrid_catalogue','hybrid_program_reception') or name == 'host_service' and args.get('action') == 'is-active'
+        allowed = name == 'host_read_file' or name == 'host_github' and args.get('action') == 'file' or name == 'host_remote' and args.get('action') in ('read_file','project_probe','project_download','hybrid_catalogue','hybrid_program_reception') or name == 'host_service' and args.get('action') == 'is-active'
         if not allowed:
             raise ValueError('Independent read required: host_read_file, host_remote read_file/project_probe (fixed read-only probes), host_github file, host_service is-active')
         store = getattr(self.registry, 'mission_store', None)
@@ -167,6 +167,11 @@ class Verifier:
         if token:
             store.finish_call(token, receipt, time.monotonic()-start)
         result = receipt.get('result', {})
+        if name=='host_remote' and args.get('action')=='project_download':
+            if not receipt.get('ok') or not result.get('sha256'):raise ValueError('Fresh remote download unavailable')
+            body,local=self.read({'tool':'host_read_file','arguments':{'path':args['local_path']}})
+            if hashlib.sha256(body.encode()).hexdigest()!=result['sha256']:raise ValueError('Remote download SHA differs from actual local read')
+            return body, {'invocation':token,'broker_evidence':result.get('evidence_id'),'tool':name,'arguments':args,'remote_sha256':result['sha256'],'fresh_local_read':local}
         # Explicit truncation is never accepted as complete content.
         if result.get('truncated') or result.get('stdout_truncated') or result.get('stderr_truncated') or result.get('next_offset') or result.get('stdout_model_excerpt'):
             raise ValueError('Read truncated: insufficient evidence')
@@ -214,6 +219,8 @@ class Verifier:
         store = getattr(self.registry, 'mission_store', None)
         if store:
             verdict['verification_event'] = store.event(self.registry.context['mission_id'], 'semantic_verification', self.registry.context.get('task_id'), 'JARVIS-engine', result=verdict)
+        from .legacy_attempts import settle
+        settle(self.registry,verdict)
         return {'returncode': 0 if verdict['status'] == 'PASS' else 1, **verdict}
 
 
@@ -232,4 +239,4 @@ def resolve_contract(registry,value):
 
 
 def register(registry):
-    registry.specs['mission_verify'] = ('For a persisted active-task criterion use contract="active:0" (then active:1, etc). Resolves the exact stored contract without copying numbers, types or fields; always performs the same real independent read and full predicate validation. Full predicates remain in active_task.contract.semantic. Also accepts an explicit contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length. kind text requires equals or sha256; kind digest reads a manifest and actual content baseline_source, comparing its field to SHA256 of baseline bytes. kind report reads the task report_path or declared prose artifact and audits claims against original receipts. service requires host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Legacy explicit contracts remain supported for skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(resolve_contract(registry,a['contract'])))
+    registry.specs['mission_verify'] = ('For remote project artifacts, source host_remote action=project_download with project/path/local_path performs a fresh SHA-checked download and actual local read on every verification. For a persisted active-task criterion use contract="active:0" (then active:1, etc). Resolves the exact stored contract without copying numbers, types or fields; always performs the same real independent read and full predicate validation. Full predicates remain in active_task.contract.semantic. Also accepts an explicit contract object or JSON STRING: {kind:"json",source:{tool:"host_read_file",arguments:{path:"..."}},expected:{"/port":8091},types:{"/port":"integer"},baseline_source:{tool:"host_read_file",arguments:{path:"original.json"}},preserve:["/label","/preserve"]}. JSON relations:[{kind:length,array:/names,count:/count}] verifies an integer global total equals actual array length. kind text requires equals or sha256; kind digest reads a manifest and actual content baseline_source, comparing its field to SHA256 of baseline bytes. kind report reads the task report_path or declared prose artifact and audits claims against original receipts. service requires host_service is-active and expected_state. PASS/FAIL/PARTIAL/INSUFFICIENT; never a keyword check. Legacy explicit contracts remain supported for skills.', {'contract': {'type':['object','string'],'maxLength':64000}}, ['contract'], 'host_authorized', lambda a: Verifier(registry).verify(resolve_contract(registry,a['contract'])))

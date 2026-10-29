@@ -1,0 +1,237 @@
+{
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "state": "running",
+  "plan_versions": [
+    {
+      "version": 1,
+      "author": "JARVIS",
+      "sha256": "42a0b075c08bec9e2dff2bdae63b6b4af24d9a8eed436630644048d37a7385aa"
+    },
+    {
+      "version": 2,
+      "author": "JARVIS",
+      "sha256": "2657827656625bb0bd02c967927014d56baa25aa4500fd382f447f52314b7a17"
+    },
+    {
+      "version": 3,
+      "author": "JARVIS",
+      "sha256": "d4c76a2913b5241d91953d6867db942890c935e4600710047f80b0b094593e03"
+    }
+  ],
+  "events": [
+    {
+      "id": 65988,
+      "kind": "model_report_step_saved",
+      "actor": "JARVIS",
+      "result": {
+        "adapter_author": "Codex",
+        "ordinary_plan_gate_retained": true,
+        "task": "version0-plan",
+        "task_values_author": "JARVIS",
+        "verification_kind_chosen_by_tool": "report"
+      }
+    },
+    {
+      "id": 66014,
+      "kind": "coverage_review",
+      "actor": "JARVIS-reviewer",
+      "result": {
+        "author": "JARVIS-reviewer",
+        "contract_version": "26b.10",
+        "coverage": [
+          {
+            "covered": true,
+            "reason": "Le plan inclut une étape `version0-plan` visant à construire le plan global de préparation, qui doit inclure un rapport compact dans `/var/lib/jarvis/projects/mission26-phase2/`, avec plan canari/rollback et limites. Le livrable futur `rapport-P4-ACTIVE-PREP.md` est explicitement mentionné dans `artifacts` du plan.",
+            "requirement": "R1",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’étape `t1-read-service-files` lit les fichiers unité systemd via `host_exec`, extrait les champs requis (ExecStart, WorkingDirectory, etc.), ce qui couvre l’identification des unités, chemins, configurations et versions par observations réelles.",
+            "requirement": "R2",
+            "tasks": [
+              "t1-read-service-files"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "La lecture des fichiers unité permet d’extraire le chemin du binaire (`ExecStart`), les variables de slot (`%i`, `%n`, `%p`) et donc de déduire le chemin distinct par worker/slot. La fraîcheur du rapport de démarrage et les preuves de code chargé sont à vérifier via `host_service`, mais aucune tâche ne les prévoit encore → **non couvert**.",
+            "requirement": "R3",
+            "tasks": [
+              "t1-read-service-files"
+            ]
+          },
+          {
+            "covered": false,
+            "reason": "Aucune tâche ne prévoit d’interroger les services via `host_service show/status/is-active` pour observer les runtime réels `/opt/jarvis/conversation/jarvis` et les unités `jarvis-mission-worker.service` et `jarvis-mission-worker@2.service`. C’est une exigence directe non couverte.",
+            "requirement": "R4",
+            "tasks": []
+          },
+          {
+            "covered": true,
+            "reason": "L’étape `t1-read-service-files` lit explicitement les fichiers `/etc/systemd/system/jarvis-mission-worker.service` et `jarvis-mission-worker@.service` via `host_exec`.",
+            "requirement": "R5",
+            "tasks": [
+              "t1-read-service-files"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` inclut une observation explicite : « Aucune lecture disque ou PID seul ne prouve le code chargé ; les preuves doivent être réelles et liées à l’état actif du service. » Cela couvre l’exigence de ne pas se contenter d’une lecture disque/PID/Git.",
+            "requirement": "R6",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` interdit explicitement « rejeu des phases P2/P3/candidat », ce qui respecte R7.",
+            "requirement": "R7",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Les deux tâches incluent dans leur `contract.context_result_objective` la contrainte de fenêtre (≤27648 tokens entrée, 32768 contexte total, 4096+1024 marge). L’objectif de `version0-plan` mentionne aussi explicitement l’objectif avant transmission.",
+            "requirement": "R8",
+            "tasks": [
+              "version0-plan",
+              "t1-read-service-files"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` inclut une clause de récupération : « En cas de non-réception… renvoyer… Si version >0, reprendre avec correction des manquants. » Cela implique la gestion d’échecs répétés et la conservation des compteurs.",
+            "requirement": "R9",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` interdit « déploiement ou modification de service applicatif ». `t1-read-service-files` utilise `host_exec` pour lecture seule, pas de modification.",
+            "requirement": "R10",
+            "tasks": [
+              "version0-plan",
+              "t1-read-service-files"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` est de « Faire approuver la couverture globale avant exécution », ce qui prépare la suite déploiement autorisée après revue technique.",
+            "requirement": "R11",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` inclut l’observation : « Les copies Dell ne sont pas le service actif. »",
+            "requirement": "R12",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "Les tâches sont définies sans outils imposés a priori (sauf contraintes), et `t1-read-service-files` autorise `host_exec` sans préciser la commande exacte, laissant Qwen choisir les outils/exécutants/vérifications.",
+            "requirement": "R13",
+            "tasks": [
+              "version0-plan",
+              "t1-read-service-files"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` interdit « lecture redondante du paquet préparatoire déjà reçu (65528/65537) ».",
+            "requirement": "R14",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` interdit « modèles/routage/matériel ni 14A/24Old/autre mission ; aucun secret publié ».",
+            "requirement": "R15",
+            "tasks": [
+              "version0-plan"
+            ]
+          },
+          {
+            "covered": true,
+            "reason": "L’objectif de `version0-plan` mentionne « Autorisations autonomes et charte conservées ».",
+            "requirement": "R16",
+            "tasks": [
+              "version0-plan"
+            ]
+          }
+        ],
+        "goal_sha256": "731d1e572cf175b53c95eb7f418a3a1a9fff5118026b1b1e0b2abd58b18aa8db",
+        "issues": [
+          "R3 non couvert : aucune tâche ne prévoit d’analyser les preuves de code chargé (via `host_service`), la fraîcheur du rapport de démarrage, ni le chemin distinct par worker/slot à partir des unités.",
+          "R4: Aucune tâche ne prévoit d’interroger les services via `host_service show/status/is-active` pour observer les runtime réels `/opt/jarvis/conversation/jarvis` et les unités `jarvis-mission-worker.service` et `jarvis-mission-worker@2.service`. C’est une exigence directe non couverte."
+        ],
+        "plan_sha256": "2657827656625bb0bd02c967927014d56baa25aa4500fd382f447f52314b7a17",
+        "plan_version": 2,
+        "requirements_sha256": "ab5e696575656844f780214f03914ec078333205c5e2ed29aa969bfef472fbe0",
+        "requirements_version": 2,
+        "status": "FAIL"
+      }
+    },
+    {
+      "id": 66015,
+      "kind": "model_report_step_saved",
+      "actor": "JARVIS",
+      "result": {
+        "adapter_author": "Codex",
+        "ordinary_plan_gate_retained": true,
+        "task": "t1-read-service-files",
+        "task_values_author": "JARVIS",
+        "verification_kind_chosen_by_tool": "report"
+      }
+    },
+    {
+      "id": 66047,
+      "kind": "context_capacity_blocked",
+      "actor": "JARVIS-engine",
+      "result": {
+        "archive": 66045,
+        "capacity": {
+          "configured_limit": 32768,
+          "hard_context_limit": 32768,
+          "limit": 32768,
+          "model": "qwen3-coder-next:q4_K_M",
+          "node": "Dell1",
+          "observation_error": null,
+          "observed_at": 1793181873.0923612,
+          "observed_loaded_limit": 32768,
+          "source": "configured limit and actual api/ps"
+        },
+        "checkpoint": 66046,
+        "compacted": false,
+        "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+        "input_budget_estimate": 23552,
+        "original_bytes": 26090,
+        "reason": "Structured review evidence cannot be silently discarded; reduce report/claim scope or fetch targeted evidence",
+        "response_reserved": 8192,
+        "template_margin": 1024
+      }
+    }
+  ],
+  "application_deployment_received": false,
+  "phase_P4_received": false,
+  "assisted_proposals": {
+    "attempts": [
+      65775,
+      65781,
+      65787
+    ],
+    "received": false,
+    "fourth_dispatched": false
+  },
+  "new_interface_installation": 65968,
+  "original_worker_infra_incidents_preserved": 3
+}

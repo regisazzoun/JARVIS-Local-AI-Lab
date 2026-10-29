@@ -1,0 +1,112 @@
+{
+  "event": 57077,
+  "mission": "d1b0d69639724c60b5bd1b2143b1a5fa",
+  "proof": {
+    "actor": "Codex",
+    "observed_at": 1793101589.9728413,
+    "strategy_change": "Git commands on non-Git exported workspaces -> Python3/hashlib with observed exact paths",
+    "observations": [
+      {
+        "host": "dell-observe",
+        "receipt": "fcd080d06bc34e9ebcf84d8cb940a95e",
+        "observation": {
+          "correct_path_exists": true,
+          "engine_git_directory": false,
+          "files": {
+            "engine/jarvis/core.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+            },
+            "engine/jarvis/distributed_authority.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "61c964f4138b7a6d18df5ae67622dbd9c47db81c9b29f0d08abf2529207dcc45"
+            },
+            "engine/jarvis/durable_cycle.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "182ccc78062afd5e1b45ab24d1411f8360704a4e5dd6d290ca5b6cec6822546b"
+            },
+            "engine/jarvis/mission_context_budget.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "1f4748a0630c6e48e5461c265d81027256125fa7a80c85910442d6c863a3ba0e"
+            },
+            "engine/jarvis/tools.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "de92091b7eae3fb807e39a155c67cc2cd64746d5a17d5dbfcb750e7cc12a706f"
+            }
+          },
+          "git_binary": null,
+          "reference_commit": "105c4ff4af0cf693369efd3570c55d431c3ec6c9",
+          "scope": "Copies verified on disk, NOT actual Python objects loaded in Mac service",
+          "workspace": "/opt/jarvis-lab/mission26-phase2",
+          "workspace_git_directory": false,
+          "wrong_path_exists": false
+        }
+      },
+      {
+        "host": "dell2",
+        "receipt": "03bedf12e6cb4cba9b5e7b65124d8a3a",
+        "observation": {
+          "correct_path_exists": true,
+          "engine_git_directory": false,
+          "files": {
+            "engine/jarvis/core.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+            },
+            "engine/jarvis/distributed_authority.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "61c964f4138b7a6d18df5ae67622dbd9c47db81c9b29f0d08abf2529207dcc45"
+            },
+            "engine/jarvis/durable_cycle.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "182ccc78062afd5e1b45ab24d1411f8360704a4e5dd6d290ca5b6cec6822546b"
+            },
+            "engine/jarvis/mission_context_budget.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "1f4748a0630c6e48e5461c265d81027256125fa7a80c85910442d6c863a3ba0e"
+            },
+            "engine/jarvis/tools.py": {
+              "exists": true,
+              "matches_source_observation": true,
+              "sha256": "de92091b7eae3fb807e39a155c67cc2cd64746d5a17d5dbfcb750e7cc12a706f"
+            }
+          },
+          "git_binary": null,
+          "reference_commit": "105c4ff4af0cf693369efd3570c55d431c3ec6c9",
+          "scope": "Copies verified on disk, NOT actual Python objects loaded in Mac service",
+          "workspace": "/opt/jarvis-lab/mission26-phase2",
+          "workspace_git_directory": false,
+          "wrong_path_exists": false
+        }
+      }
+    ],
+    "canonical_repository": {
+      "branch": "codex/mission-26-phase2-boucles-contexte-code-reel",
+      "observed_head": "13db3abe8329a3c708e1e299647dda824b95f0c6",
+      "engine_diff_since_reference": []
+    },
+    "no_packages_installed": true,
+    "no_source_or_service_change": true,
+    "no_loaded_code_attestation": true
+  },
+  "counters_retained": {
+    "failed_cycles": 0,
+    "delegation_failures": 3,
+    "delegation_resolved_through": null,
+    "correction_resolved_through": null
+  },
+  "counter_resolution": {
+    "delegation_resolved_through": 3,
+    "evidence": 57077
+  },
+  "audit_received": false
+}

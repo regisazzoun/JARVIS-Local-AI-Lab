@@ -1,0 +1,16 @@
+{
+  "model_proposal": 74445,
+  "execution": 75343,
+  "application": 75350,
+  "executor": "Dell1",
+  "independent_source_read": "2fa86d4e81c44c96ac35f723edfd6dca",
+  "observed_source_sha256": "2b791622e3f71ce7c497e8a8d30bcf8958e9d657c37f9e64e446212082766981",
+  "observed_module_sha256": "73d726b5cd31dd07fdc5d19fdb514bfca216eeee5a4089588ea2400e1500a968",
+  "observed_source_bytes": 6458,
+  "matches_model_proposal_ignoring_terminal_newlines": true,
+  "functional_reception": false,
+  "known_limitation": "Fixed batch count500 alone does not prove fitting actual byte budget; targeted regression still required",
+  "application_algorithm_author": "JARVIS/Qwen80B",
+  "source_transport_and_independent_control": "Codex",
+  "event": 75421
+}

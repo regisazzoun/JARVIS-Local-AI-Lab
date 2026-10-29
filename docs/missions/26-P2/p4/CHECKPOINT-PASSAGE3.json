@@ -1,0 +1,46 @@
+{
+  "mission": "d8fe752876db480cbe5f22cd5525e2dd",
+  "verification_event": 60615,
+  "instruction_event": 60616,
+  "action_event": 60617,
+  "candidate_finished": false,
+  "technical_review_recorded": false,
+  "receipts": {
+    "dell-observe": {
+      "evidence_id": "bec314fd72a946a3a1797242590788a1",
+      "observation": {
+        "jarvis/attest.py": {
+          "exists": true,
+          "sha256": "ee613cf18b89e26a35a007c02fcbd7469bb66ed932dce769af99350da2b4065d"
+        },
+        "jarvis/worker.py": {
+          "exists": true,
+          "sha256": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5"
+        },
+        "jarvis/core.py": {
+          "exists": true,
+          "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+        }
+      }
+    },
+    "dell2": {
+      "evidence_id": "3a79b7a92447481ab29528c0c562d4ee",
+      "observation": {
+        "jarvis/attest.py": {
+          "exists": false,
+          "sha256": null
+        },
+        "jarvis/worker.py": {
+          "exists": true,
+          "sha256": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5"
+        },
+        "jarvis/core.py": {
+          "exists": true,
+          "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+        }
+      }
+    }
+  },
+  "next": "Qwen correction in existing mission; final review only after real completion, then sequential P4 integration/deployment/real validation with verifiable rollback",
+  "global_P4_received": false
+}

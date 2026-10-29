@@ -1,0 +1,233 @@
+{
+  "mission": "d8fe752876db480cbe5f22cd5525e2dd",
+  "scope": "Candidate worker integration only; no canonical worker service attestation/deployment received",
+  "native_plan_version": 3,
+  "source_correction": 64975,
+  "native_apply": 64982,
+  "duplicate_apply_cached": 64994,
+  "native_sync": 65185,
+  "native_acceptance": 65447,
+  "source_version": "495d5650f667d66c5885d600f3d5b12ba766ecefa7bb9c4417d3e6474285581f",
+  "tests": [
+    {
+      "reference": 65099,
+      "executor": "Dell1",
+      "immutable_receipt": {
+        "bytes": 15682,
+        "download_invocation": "a38ee2529d964267a1c624faaf473afa",
+        "local": "/var/lib/jarvis/projects/mission26-phase2/receipts/d8fe752876db480cbe5f22cd5525e2dd/7067cba10f9f45e98da6f6a0ae601aa0.json",
+        "remote": "/opt/jarvis-lab/mission26-phase2/.receipts/7067cba10f9f45e98da6f6a0ae601aa0.json",
+        "sha256": "03efa66e5f80592ffd0f9241f615bac72c73cf6126fffbad51cac94f282dbb63"
+      },
+      "oracle_sha256": "7be05d607c56efebdcad010e653ed9c2e268025500925810fd70beee81610894",
+      "worker_sha256": "c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef",
+      "cases": [
+        {
+          "case": "match",
+          "observed_status": "PASS",
+          "expected_status": "PASS",
+          "worker_pid": 5,
+          "report_pid": 5,
+          "report_sha256": "08ac59a65ebf7e3e0bc857747c5b22f954ee780a2d8230b85e2b78398f243731",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "changed",
+          "observed_status": "FAIL",
+          "expected_status": "FAIL",
+          "worker_pid": 7,
+          "report_pid": 7,
+          "report_sha256": "d19e54ed48181e8de4e08ced7acf7af45da10e0cbb9fa62ff3ac39c236d87921",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "missing",
+          "observed_status": "INSUFFICIENT",
+          "expected_status": "INSUFFICIENT",
+          "worker_pid": 9,
+          "report_pid": 9,
+          "report_sha256": "83928675e4a8fd54ad105d59c329a031a6cc2fa42f6075370fce6ae91ad695b5",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "disabled",
+          "observed_status": "NO_REPORT_DISABLED",
+          "expected_status": "NO_REPORT_DISABLED",
+          "worker_pid": 11,
+          "report_pid": null,
+          "report_sha256": null,
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        }
+      ],
+      "pid_scope": "Project execution PID namespace plus broker invocation, not canonical host systemd PID",
+      "application_source_unchanged_during_test": true
+    },
+    {
+      "reference": 65210,
+      "executor": "Dell2",
+      "immutable_receipt": {
+        "bytes": 15680,
+        "download_invocation": "73a0522be67c40359aac0600ebc9c74b",
+        "local": "/var/lib/jarvis/projects/mission26-phase2/receipts/d8fe752876db480cbe5f22cd5525e2dd/4de4c57507704e54b879206c751b4597.json",
+        "remote": "/opt/jarvis-lab/mission26-phase2/.receipts/4de4c57507704e54b879206c751b4597.json",
+        "sha256": "8e1800155848937b20e5235eed2d88c7254d2993004bff49ba43dfac0c54fbc7"
+      },
+      "oracle_sha256": "7be05d607c56efebdcad010e653ed9c2e268025500925810fd70beee81610894",
+      "worker_sha256": "c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef",
+      "cases": [
+        {
+          "case": "match",
+          "observed_status": "PASS",
+          "expected_status": "PASS",
+          "worker_pid": 5,
+          "report_pid": 5,
+          "report_sha256": "70ced02a98ad0464afa805c427cf06bdd4d819ce8b5a7af83e8f6600dd1320bc",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "changed",
+          "observed_status": "FAIL",
+          "expected_status": "FAIL",
+          "worker_pid": 7,
+          "report_pid": 7,
+          "report_sha256": "caf05280b0e5f3f59e83537faf4382febcd23acadc4f2ee12995906d6ae50a08",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "missing",
+          "observed_status": "INSUFFICIENT",
+          "expected_status": "INSUFFICIENT",
+          "worker_pid": 9,
+          "report_pid": 9,
+          "report_sha256": "e74408b4b3a22a0465472f73a899eab90cbf4676bbf730fb045d8bfec30db3dd",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "disabled",
+          "observed_status": "NO_REPORT_DISABLED",
+          "expected_status": "NO_REPORT_DISABLED",
+          "worker_pid": 11,
+          "report_pid": null,
+          "report_sha256": null,
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        }
+      ],
+      "pid_scope": "Project execution PID namespace plus broker invocation, not canonical host systemd PID",
+      "application_source_unchanged_during_test": true
+    },
+    {
+      "reference": 65331,
+      "executor": "Dell2",
+      "immutable_receipt": {
+        "bytes": 15684,
+        "download_invocation": "73da8c5e4d0c4fbeb5ac853acec0a284",
+        "local": "/var/lib/jarvis/projects/mission26-phase2/receipts/d8fe752876db480cbe5f22cd5525e2dd/336ae8a20e594c01809c2e7d83f0b850.json",
+        "remote": "/opt/jarvis-lab/mission26-phase2/.receipts/336ae8a20e594c01809c2e7d83f0b850.json",
+        "sha256": "2c87919fa2e4665a67e3cd6c1c20dd4e231871d68588a8c2e067123db72c5410"
+      },
+      "oracle_sha256": "7be05d607c56efebdcad010e653ed9c2e268025500925810fd70beee81610894",
+      "worker_sha256": "c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef",
+      "cases": [
+        {
+          "case": "match",
+          "observed_status": "PASS",
+          "expected_status": "PASS",
+          "worker_pid": 5,
+          "report_pid": 5,
+          "report_sha256": "c1549863d5be10f7ff3de352112f8cedf5d7de97b7192cb4300fea760de21c41",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "changed",
+          "observed_status": "FAIL",
+          "expected_status": "FAIL",
+          "worker_pid": 7,
+          "report_pid": 7,
+          "report_sha256": "9b011be6eafeda60600f3f99c0b06946aa183636bc3c4157d41c14dd094926d6",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "missing",
+          "observed_status": "INSUFFICIENT",
+          "expected_status": "INSUFFICIENT",
+          "worker_pid": 9,
+          "report_pid": 9,
+          "report_sha256": "154bce1d13fb3ad9d5f54e8a85ce2f46b0d2a4f62c09995eb15ac3875626db6c",
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        },
+        {
+          "case": "disabled",
+          "observed_status": "NO_REPORT_DISABLED",
+          "expected_status": "NO_REPORT_DISABLED",
+          "worker_pid": 11,
+          "report_pid": null,
+          "report_sha256": null,
+          "canonical_service_tested": false,
+          "real_Core_and_Missions": true
+        }
+      ],
+      "pid_scope": "Project execution PID namespace plus broker invocation, not canonical host systemd PID",
+      "application_source_unchanged_during_test": true
+    }
+  ],
+  "independent_second_read": [
+    {
+      "host": "dell-observe",
+      "receipt": "5f21049ab76a474e9064f786da7bd907",
+      "observed_sha256": {
+        "engine/jarvis/worker.py": "c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef",
+        "engine/jarvis/core.py": "2315a7c5047faf67930568eb561720ce9b41fa5c1a99a73fb3c8fc23d868c54c",
+        "engine/jarvis/attest.py": "d7d388ca2823102f3f59d45da9472e000d9937f454c11a2c95676ebad3abd147",
+        "oracles/probe_candidate_worker.py": "7be05d607c56efebdcad010e653ed9c2e268025500925810fd70beee81610894"
+      }
+    },
+    {
+      "host": "dell2",
+      "receipt": "4e4f110f2c74490db944a42e540b176f",
+      "observed_sha256": {
+        "engine/jarvis/worker.py": "c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef",
+        "engine/jarvis/core.py": "2315a7c5047faf67930568eb561720ce9b41fa5c1a99a73fb3c8fc23d868c54c",
+        "engine/jarvis/attest.py": "d7d388ca2823102f3f59d45da9472e000d9937f454c11a2c95676ebad3abd147",
+        "oracles/probe_candidate_worker.py": "7be05d607c56efebdcad010e653ed9c2e268025500925810fd70beee81610894"
+      }
+    }
+  ],
+  "three_native_drafts_rejected": [
+    64834,
+    64855,
+    64876
+  ],
+  "Codex_supervised_Qwen_inferences": [
+    64937,
+    64943
+  ],
+  "rejected_assisted_proposal": 64938,
+  "retained_assisted_proposal": 64944,
+  "attribution": {
+    "infrastructure_and_oracles": "Codex",
+    "worker_patch": "Qwen80B with explicit Codex factual diagnosis/API example after escalation",
+    "application_sync_tests_accept": "JARVIS",
+    "independent_reception": "Codex"
+  },
+  "historical_failures_not_reclassified": true,
+  "reservations": [
+    "Autonomous code diagnosis not demonstrated by these assisted drafts",
+    "Repeated sync/test calls required coordination to reach formal acceptance",
+    "Original prose omits assistance and is not the canonical attribution",
+    "Python code-object scope excludes globals/defaults/closures/native behavior",
+    "Startup snapshot only; no freshness guarantee for a long-running canonical worker",
+    "No active systemd worker attestation or full eight P4 deployment cases yet"
+  ],
+  "reception_event": 65474
+}

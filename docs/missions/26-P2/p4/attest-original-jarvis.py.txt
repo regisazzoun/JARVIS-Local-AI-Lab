@@ -1,0 +1,108 @@
+import hashlib
+import inspect
+import os
+import sys
+import time
+from typing import Dict, Any, Optional, List
+from pathlib import Path
+
+
+class AttestRuntime:
+    def __init__(self, root: Path):
+        self.root = Path(root).resolve()
+        self._measurements: Dict[str, Any] = {}
+        self._start_time = time.time()
+
+    def _hash_file(self, path: Path) -> str:
+        """SHA256 of file content."""
+        data = path.read_bytes()
+        return hashlib.sha256(data).hexdigest()
+
+    def _hash_object_code(self, obj: Any) -> str:
+        """SHA256 of source code of a function/class/module."""
+        try:
+            src = inspect.getsource(obj)
+            return hashlib.sha256(src.encode('utf-8')).hexdigest()
+        except (OSError, TypeError):
+            # Fallback: use module filename + qualname if source unavailable
+            try:
+                mod = inspect.getmodule(obj)
+                if mod and hasattr(mod, '__file__') and mod.__file__:
+                    return hashlib.sha256(f"{mod.__file__}:{getattr(obj, '__qualname__', repr(obj))}".encode('utf-8')).hexdigest()
+            except Exception:
+                pass
+            return 'unavailable'
+
+    def _gather_module_info(self, module_name: str) -> Optional[Dict[str, Any]]:
+        """Gather module info: path, file hash, and object hashes."""
+        if module_name not in sys.modules:
+            return None
+        mod = sys.modules[module_name]
+        mod_file = getattr(mod, '__file__', None)
+        if not mod_file or not Path(mod_file).is_file():
+            return None
+        path = Path(mod_file).resolve()
+        file_hash = self._hash_file(path)
+        # Gather function/class hashes
+        objects = []
+        for name, obj in inspect.getmembers(mod, lambda x: inspect.isfunction(x) or inspect.isclass(x)):
+            if getattr(obj, '__module__', None) == module_name:
+                objects.append({"name": name, "code_hash": self._hash_object_code(obj)})
+        return {
+            "path": str(path),
+            "file_hash": file_hash,
+            "loaded_at": self._start_time,
+            "pid": os.getpid(),
+            "objects": objects,
+        }
+
+    def measure_module(self, module_name: str) -> bool:
+        """Record current state of a module (must be imported). Return True if valid."""
+        info = self._gather_module_info(module_name)
+        if not info:
+            return False
+        self._measurements[module_name] = info
+        return True
+
+    def verify_against_candidate(self, candidate_path: str) -> Dict[str, Any]:
+        """Compare all measured modules to a candidate on disk."""
+        results = {}
+        for name, stored in self._measurements.items():
+            candidate = Path(candidate_path).resolve() / Path(stored["path"]).name
+            if not candidate.is_file():
+                results[name] = {
+                    "status": "missing",
+                    "candidate_path": str(candidate),
+                    "stored_path": stored["path"],
+                    "stored_hash": stored["file_hash"],
+                }
+                continue
+            candidate_hash = self._hash_file(candidate)
+            if candidate_hash != stored["file_hash"]:
+                results[name] = {
+                    "status": "mismatch",
+                    "candidate_hash": candidate_hash,
+                    "stored_hash": stored["file_hash"],
+                    "candidate_path": str(candidate),
+                    "stored_path": stored["path"],
+                    "objects_expected": stored["objects"],
+                }
+            else:
+                results[name] = {
+                    "status": "match",
+                    "candidate_hash": candidate_hash,
+                    "stored_hash": stored["file_hash"],
+                    "candidate_path": str(candidate),
+                    "stored_path": stored["path"],
+                    "objects_match": True,
+                }
+        return results
+
+    def to_report(self) -> Dict[str, Any]:
+        """Return full attestation report."""
+        return {
+            "start_time": self._start_time,
+            "now": time.time(),
+            "pid": os.getpid(),
+            "measurements": self._measurements,
+        }

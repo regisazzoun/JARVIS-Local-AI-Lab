@@ -1,0 +1,13 @@
+# P4 candidat — checkpoint périodique 59644
+
+Directives relues : AGENTS.md, charte fondamentale, LANCEMENT-ATTESTATION.json, REPRISE-MEMOIRE.md, SUPERVISION-CODEX.md et événements ciblés. Autorisation propriétaire de toute la suite P4 conservée, sans nouvelle approbation humaine. La restriction candidat sans déploiement ne reporte pas indéfiniment la suite après revue.
+
+Mission d8fe752876db480cbe5f22cd5525e2dd toujours running, plan v1, tâche P4-ATTEST-01 running et quatre tâches pending au contrôle. Quatorze exécutions natives, toutes de type inspect ; aucune correction ni test candidat observé. Le signal NO_PRODUCTIVE_EXECUTION correspond donc à une absence réelle de production du candidat, mais les inspections évoluent.
+
+Trois reçus complets relus et leurs SHA vérifiés : 59530 (Dell2, rc=0, 285 lignes), 59572 (Dell1, rc=1, ImportError: attempted relative import with no known parent package), 59602 (Dell1, rc=0, 44 lignes de worker.py). Les trois manifestes avant/après sont inchangés. Détails dans CONTROLE-PERIODIQUE-59644.json. La lecture réussie suit une stratégie différente de l’import échoué ; aucune capacité manquante du moteur n’est démontrée par cette erreur Python.
+
+Action Codex-periodic 59644 : contrôle des preuves, maintien de l’exécution native en cours, aucun queued, aucun reload ni correctif applicatif écrit à la place de Qwen. Le modèle conserve plan/fichiers/commandes/tests. Le précédent message coordinateur 59402 signalait déjà l’incompatibilité des lots élémentaires du plan v1 avec accept ; sa révision reste une décision Qwen. Compteurs et refus conservés, aucune modification du script superviseur.
+
+Revue indépendante du candidat NON effectuée : candidat non terminé. technical_review_recorded reste false. Registre et allowed_tasks/allowed_mission_ids restent sur cette mission unique ; aucune continuation ne doit être créée avant revue, ni recréée si elle existe déjà. Après fin réelle : contrôler code, instrumentation, tests pertinents des deux Dell au même manifeste, fidélité du rapport et retour arrière. Si insuffisant, dossier borné/correction Qwen ; si satisfaisant, transmettre la seule continuation P4 d’intégration/déploiement/validation réelle sous parent 3aa717f3887e49daa7daf7e883ee52e4, déplacer cette entrée dans received_tasks sans perdre les compteurs, actualiser uniquement registre/config autorisés et publier le paquet.
+
+Fenêtre 32768, réponse 4096 et marge 1024, entrée 27648 conservées. Les huit situations et la réception globale P4 restent exigées ; déploiement et test candidat ne suffisent pas. Aucun rejeu P2/P3/audit reçu, autre mission, modèle/routage ou fusion main.

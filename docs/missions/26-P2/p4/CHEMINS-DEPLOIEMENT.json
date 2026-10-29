@@ -1,0 +1,107 @@
+{
+  "source_commit": "8ed99a8c11c055457d83e7b01e754e507fe37ca0",
+  "reason": "Native edit63157 rejected absolute path inside workspace before any write; same root and guards retained",
+  "software_tests_local": 136,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        "e07fdb02d04a4271b36053ddcb25e82b",
+        "2d32a6cf6c79426bb04a56351b039380",
+        "e9075f98706e481b9b7145c614a58585",
+        "442792d5c77d47b18c509f57faba2857"
+      ],
+      "tests": [
+        {
+          "receipt": "ff133704953b4b3bace73ca19d7994c6",
+          "test": "test_authority_edit.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.621s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.018,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "67fd7683f170412e9e81113eb15101e0",
+          "test": "test_authority_identity.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.350s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.767,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        "a3fb5dd4747d415aaed2c889c9ef1f15",
+        "9e282f73f7094f1ab863eb9acff84202",
+        "198bad3bd16c4fe7869209b56563f092",
+        "77dfb0712efb424f8ec4e551f86afee3"
+      ],
+      "tests": [
+        {
+          "receipt": "94dc56c7d1b044af8c7f3d9e036c928c",
+          "test": "test_authority_edit.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.604s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.018,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "26c6148264f046d7a82ddac374a431ad",
+          "test": "test_authority_identity.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.350s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.817,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/workspace-paths-1793142066",
+  "guard_scope": "New server-operation-ID mode only; outside paths, traversal, runtime, receipts and escaping symlinks remain refused; legacy edit command unchanged",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 63326
+}

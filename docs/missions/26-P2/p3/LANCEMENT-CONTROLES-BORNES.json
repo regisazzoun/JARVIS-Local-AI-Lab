@@ -1,0 +1,45 @@
+{
+  "mission": "bfd9a813c1804ffcaad77c9f01d54045",
+  "goal": "Compléter P3 : rendre le contrôle de couverture des plans résilient aux entrées structurées trop volumineuses, dans le moteur existant. Travaille sur le vrai audit_plan et les appels de revue, à partir de la copie canonique fournie. Choisis une réduction sans perte ou un découpage borné selon le budget effectif ; toutes les exigences doivent rester contrôlées, les dépendances et contraintes globales conservées, et un lot FAIL/INSUFFICIENT ne doit jamais produire un PASS global. Un contrôle réellement indivisible doit rester explicitement bloqué sans relance identique. Implémente le candidat et des tests pertinents sur les deux Dell, avec vérification indépendante de la même version. Exerce les vrais modules importés, pas une recopie des fonctions sous test. Livrable : code, tests, manifeste/provenance et bilan court avec limites ; un plan seul n’est pas le livrable. Base déjà transportée et extraite par Codex sur les deux Dell : /opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine ; manifeste p3-bounded-review/INPUT-MANIFEST.json, reçu71932 dans le projet. Ce sont des exports sans Git, pas des services actifs. Travaille seulement sous p3-bounded-review, préserve l’ancien candidat et canary-stage. Qwen80B choisit diagnostic, méthode, commandes et répartition. Codex contrôlera avant installation ; puis une épreuve distincte te sera donnée. Aucun déploiement applicatif dans cette unité. Fenêtre32768, réponse4096 et marge1024, garde entrée27648 prudente : satisfaire ce résultat avant toute transmission ; découper si trop gros, jamais tronquer silencieusement les contraintes. Trois échecs comparables puis analyse/escalade, compteurs conservés. Ni modèle/routage/matériel ni14A/24-Old pendant ce complémentP3.",
+  "spec": {
+    "parent_mission": "3aa717f3887e49daa7daf7e883ee52e4",
+    "owner_priority": "P3-BOUNDED-REVIEWS",
+    "autonomous": false,
+    "assurance": false,
+    "distributed_authority": true,
+    "authority_requirements": [
+      "P3-COVERAGE-BUDGET"
+    ],
+    "authority_workspace": {
+      "project": "mission26-phase2",
+      "remote_root": "/opt/jarvis-lab/mission26-phase2",
+      "local_root": "/var/lib/jarvis/projects/mission26-phase2/p3-bounded-review"
+    },
+    "authority_manifest_roots": [
+      "p3-bounded-review"
+    ],
+    "authority_engine_operation_ids": true,
+    "authority_durable_receipts": true,
+    "authority_task_scoped_evidence": true,
+    "authority_typed_evidence": true,
+    "structured_action_calls": true,
+    "compact_semantic_references": true,
+    "coordinator_periodic_authorized": true,
+    "context_result_objective": {
+      "admission_measure": "UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count",
+      "input_tokens_max": 27648,
+      "response_tokens_reserved": 4096,
+      "result_required": "Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.",
+      "template_tokens_reserved": 1024,
+      "total_context_tokens_max": 32768
+    },
+    "source_input_event": 71932,
+    "preceding_p4_stage": "c32347de3edf4288a4751a3e65afa7eb"
+  },
+  "p4_checkpoint_preserved": "c32347de3edf4288a4751a3e65afa7eb",
+  "seed_input_event": 71932,
+  "operator_technical_decisions": "JARVIS/Qwen80B",
+  "computations_and_tests": "Dell1/Dell2",
+  "independent_controls": "Codex",
+  "validation_test": "M26-P2-VF01 remains NOT TRANSMITTED until independent controls"
+}

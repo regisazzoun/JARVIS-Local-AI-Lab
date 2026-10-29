@@ -1,0 +1,18 @@
+{
+  "case": "S02",
+  "verifier": "Codex",
+  "status": "VALIDÉ",
+  "no_model_report_used_as_proof": true,
+  "attempt": "1d6e0956db604781ab23473281fca220",
+  "executor": "Dell2",
+  "state": "EXECUTED_TEST_FAILED",
+  "failed_cycles": 0,
+  "infra_incidents": 0,
+  "observed_states": [
+    "PENDING",
+    "DISPATCHED",
+    "RUNNING",
+    "EXECUTED_TEST_FAILED"
+  ],
+  "reception_event": 44403
+}

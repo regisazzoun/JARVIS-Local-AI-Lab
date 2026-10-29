@@ -5,6 +5,21 @@ from .mission_store import encoded
 from .verification import exact
 
 
+def service_observation(arguments, result):
+    """Bounded exact fields from a complete successful systemd read receipt."""
+    if arguments.get('action') not in ('show','is-active') or not arguments.get('service'):return None
+    if not result.get('ok'):return None
+    raw=result.get('result',{});text=raw.get('stdout')
+    if raw.get('returncode')!=0 or not isinstance(text,str) or raw.get('stdout_truncated') or raw.get('timeout'):return None
+    selected={'service':arguments['service'],'action':arguments['action'],'observed_returncode':raw['returncode'],'stdout_sha256':hashlib.sha256(text.encode()).hexdigest(),
+              'meaning':'Selected original historical read values only; omitted fields are not absent, and this does not prove loaded Python code or current state after restart.'}
+    if arguments['action']=='is-active':selected['observed_state_text']=text.strip()
+    else:
+        names={'Id','Names','LoadState','ActiveState','SubState','MainPID','ExecMainPID','FragmentPath','DropInPaths','User','Group','WorkingDirectory','Environment','EnvironmentFiles','ExecStart','After','Wants','Requires','ControlGroup','InvocationID'}
+        selected['fields']={line.split('=',1)[0]:line.split('=',1)[1] for line in text.splitlines() if '=' in line and line.split('=',1)[0] in names}
+    return selected
+
+
 def facts(store, ident):
     observations = store.observations(ident)
     events = store.events(ident, limit=1000000)
@@ -38,7 +53,7 @@ def task_gate(registry, task, chosen):
             return False
         if name in ('host_exec','host_write_file','host_edit_file','host_delete_file','skill_test','skill_run','host_ansible','mcp_tools'):
             return True
-        if name=='host_service':return action not in ('status','is-active','is-enabled')
+        if name=='host_service':return action not in ('status','show','is-active','is-enabled')
         if name=='host_project_service':return action not in ('status','logs')
         if name=='host_package':return action!='status'
         if name=='host_remote':return action in ('write_file','package_install','project_exec','service','supervision_install','desktop_configure','tailscale_configure')

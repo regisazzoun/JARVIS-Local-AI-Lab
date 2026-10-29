@@ -1,0 +1,235 @@
+{
+  "mission": "d8fe752876db480cbe5f22cd5525e2dd",
+  "actor": "JARVIS/Qwen80B",
+  "inference_node": "Dell1",
+  "events": [
+    {
+      "id": 62724,
+      "kind": "authority_model_decision",
+      "actor": "JARVIS/Qwen80B",
+      "invocation": null,
+      "result": {
+        "inference_event": 62722,
+        "inference_machine": "Dell1",
+        "instruction": {
+          "command": "head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/worker.py && echo \"---CUT---\" && head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+          "executor": "Dell1",
+          "issue": "P4-ATTEST",
+          "kind": "inspect",
+          "summary": "Inspecter les fichiers engine/jarvis/worker.py et engine/jarvis/core.py pour identifier où insérer les fonctions get_object_code_hash et attestation_report, et vérifier la structure actuelle du worker."
+        },
+        "model": "qwen3-coder-next:q4_K_M"
+      }
+    },
+    {
+      "id": 62725,
+      "kind": "authority_operation_identity",
+      "actor": "JARVIS-engine",
+      "invocation": null,
+      "result": {
+        "assigned_by": "JARVIS-engine",
+        "decision": 62724,
+        "invocation": "d1cd24ebd3f34bfd9b56515dfe012952",
+        "not_model_generated": true,
+        "operation_id": "call:d1cd24ebd3f34bfd9b56515dfe012952"
+      }
+    },
+    {
+      "id": 62737,
+      "kind": "authority_execution",
+      "actor": "JARVIS-engine",
+      "invocation": null,
+      "result": {
+        "host": "Dell1",
+        "kind": "inspect",
+        "decision": 62724,
+        "returncode": 0
+      }
+    },
+    {
+      "id": 62743,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "invocation": "d1cd24ebd3f34bfd9b56515dfe012952",
+      "ok": true,
+      "result": {
+        "reference": 62737,
+        "cached": null,
+        "original_reference": null,
+        "executor": "Dell1"
+      }
+    },
+    {
+      "id": 62770,
+      "kind": "authority_model_decision",
+      "actor": "JARVIS/Qwen80B",
+      "invocation": null,
+      "result": {
+        "inference_event": 62768,
+        "inference_machine": "Dell1",
+        "instruction": {
+          "command": "head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/worker.py && echo \"---CUT---\" && head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+          "executor": "Dell1",
+          "issue": "P4-ATTEST",
+          "kind": "inspect",
+          "summary": "Inspecter les fichiers engine/jarvis/worker.py et engine/jarvis/core.py sur Dell1 pour identifier où insérer les fonctions get_object_code_hash et attestation_report, et vérifier la structure actuelle du worker."
+        },
+        "model": "qwen3-coder-next:q4_K_M"
+      }
+    },
+    {
+      "id": 62771,
+      "kind": "authority_operation_identity",
+      "actor": "JARVIS-engine",
+      "invocation": null,
+      "result": {
+        "assigned_by": "JARVIS-engine",
+        "decision": 62770,
+        "invocation": "493357f1e0744d5d9bb42f5c85269d3f",
+        "not_model_generated": true,
+        "operation_id": "call:493357f1e0744d5d9bb42f5c85269d3f"
+      }
+    },
+    {
+      "id": 62774,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "invocation": "493357f1e0744d5d9bb42f5c85269d3f",
+      "ok": true,
+      "result": {
+        "reference": 62737,
+        "cached": true,
+        "original_reference": 62737,
+        "executor": "Dell1"
+      }
+    },
+    {
+      "id": 62785,
+      "kind": "authority_model_decision",
+      "actor": "JARVIS/Qwen80B",
+      "invocation": null,
+      "result": {
+        "inference_event": 62783,
+        "inference_machine": "Dell1",
+        "instruction": {
+          "command": "cd /opt/jarvis-lab/mission26-phase2 && python3 -c \"import engine.jarvis.worker as w; import inspect; print(inspect.getfile(w)); print(inspect.getsource(w.Worker)[:2000])\" 2>&1 && python3 -c \"import engine.jarvis.attest as a; import inspect; print(inspect.getfile(a)); print(dir(a))\" 2>&1",
+          "executor": "Dell1",
+          "issue": "P4-ATTEST",
+          "kind": "inspect",
+          "summary": "Inspect worker.py and attest.py on Dell1 to understand current structure and prepare instrumentation plan for get_object_code_hash and attestation_report."
+        },
+        "model": "qwen3-coder-next:q4_K_M"
+      }
+    },
+    {
+      "id": 62786,
+      "kind": "authority_operation_identity",
+      "actor": "JARVIS-engine",
+      "invocation": null,
+      "result": {
+        "assigned_by": "JARVIS-engine",
+        "decision": 62785,
+        "invocation": "569c67284ea34d24a83f46716bab7147",
+        "not_model_generated": true,
+        "operation_id": "call:569c67284ea34d24a83f46716bab7147"
+      }
+    },
+    {
+      "id": 62798,
+      "kind": "authority_execution",
+      "actor": "JARVIS-engine",
+      "invocation": null,
+      "result": {
+        "host": "Dell1",
+        "kind": "inspect",
+        "decision": 62785,
+        "returncode": 1
+      }
+    },
+    {
+      "id": 62804,
+      "kind": "tool_finished",
+      "actor": "JARVIS",
+      "invocation": "569c67284ea34d24a83f46716bab7147",
+      "ok": true,
+      "result": {
+        "reference": 62798,
+        "cached": null,
+        "original_reference": null,
+        "executor": "Dell1"
+      }
+    }
+  ],
+  "canonical_calls": [
+    {
+      "id": "d1cd24ebd3f34bfd9b56515dfe012952",
+      "task": "P4-ATTEST-01",
+      "tool": "authority_work",
+      "arguments": {
+        "command": "head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/worker.py && echo \"---CUT---\" && head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+        "executor": "Dell1",
+        "issue": "P4-ATTEST",
+        "kind": "inspect",
+        "summary": "Inspecter les fichiers engine/jarvis/worker.py et engine/jarvis/core.py pour identifier où insérer les fonctions get_object_code_hash et attestation_report, et vérifier la structure actuelle du worker."
+      },
+      "state": "finished"
+    },
+    {
+      "id": "493357f1e0744d5d9bb42f5c85269d3f",
+      "task": "P4-ATTEST-01",
+      "tool": "authority_work",
+      "arguments": {
+        "command": "head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/worker.py && echo \"---CUT---\" && head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+        "executor": "Dell1",
+        "issue": "P4-ATTEST",
+        "kind": "inspect",
+        "summary": "Inspecter les fichiers engine/jarvis/worker.py et engine/jarvis/core.py sur Dell1 pour identifier où insérer les fonctions get_object_code_hash et attestation_report, et vérifier la structure actuelle du worker."
+      },
+      "state": "finished"
+    },
+    {
+      "id": "569c67284ea34d24a83f46716bab7147",
+      "task": "P4-ATTEST-01",
+      "tool": "authority_work",
+      "arguments": {
+        "command": "cd /opt/jarvis-lab/mission26-phase2 && python3 -c \"import engine.jarvis.worker as w; import inspect; print(inspect.getfile(w)); print(inspect.getsource(w.Worker)[:2000])\" 2>&1 && python3 -c \"import engine.jarvis.attest as a; import inspect; print(inspect.getfile(a)); print(dir(a))\" 2>&1",
+        "executor": "Dell1",
+        "issue": "P4-ATTEST",
+        "kind": "inspect",
+        "summary": "Inspect worker.py and attest.py on Dell1 to understand current structure and prepare instrumentation plan for get_object_code_hash and attestation_report."
+      },
+      "state": "finished"
+    }
+  ],
+  "deduplicated_receipt": {
+    "id": 62774,
+    "kind": "tool_finished",
+    "actor": "JARVIS",
+    "invocation": "493357f1e0744d5d9bb42f5c85269d3f",
+    "ok": true,
+    "result": {
+      "reference": 62737,
+      "cached": true,
+      "original_reference": 62737,
+      "executor": "Dell1"
+    }
+  },
+  "same_command_different_summaries": [
+    {
+      "command": "head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/worker.py && echo \"---CUT---\" && head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+      "executor": "Dell1",
+      "issue": "P4-ATTEST",
+      "kind": "inspect",
+      "summary": "Inspecter les fichiers engine/jarvis/worker.py et engine/jarvis/core.py pour identifier où insérer les fonctions get_object_code_hash et attestation_report, et vérifier la structure actuelle du worker."
+    },
+    {
+      "command": "head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/worker.py && echo \"---CUT---\" && head -n 100 /opt/jarvis-lab/mission26-phase2/engine/jarvis/core.py",
+      "executor": "Dell1",
+      "issue": "P4-ATTEST",
+      "kind": "inspect",
+      "summary": "Inspecter les fichiers engine/jarvis/worker.py et engine/jarvis/core.py sur Dell1 pour identifier où insérer les fonctions get_object_code_hash et attestation_report, et vérifier la structure actuelle du worker."
+    }
+  ],
+  "old_aliases_unchanged": true,
+  "independent_review_event": 62931
+}

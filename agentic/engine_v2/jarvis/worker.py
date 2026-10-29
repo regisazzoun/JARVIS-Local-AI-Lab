@@ -32,6 +32,29 @@ def run(config_path,slot):
     missions=Missions(core,ROOT,start_worker=True,recover_exclusive=slot is None,start_publisher=slot in (None,1))
     def stop(signum,frame):missions.stop.set()
     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
+    
+    # Attestation: optional opt-in via config key
+    if config.get('attestation',{}).get('enabled',False):
+        from .attest import attestation_report
+        attestation_config=config['attestation']
+        candidate_dir=attestation_config.get('candidate_directory')
+        if not candidate_dir:
+            raise ValueError('attestation.candidate_directory must be set when attestation.enabled=True')
+        symbols={
+            __name__: ['run','main'],
+            Core.__module__: ['Core.ollama','Core.chat']
+        }
+        output_file=attestation_config.get('output_file',ROOT/'runtime/attestation.json')
+        report=attestation_report(
+            module_names=[__name__,Core.__module__],
+            candidate_path=candidate_dir,
+            max_age_seconds=attestation_config.get('max_age_seconds',30),
+            symbols=symbols
+        )
+        os.makedirs(os.path.dirname(output_file),exist_ok=True)
+        with open(output_file,'w') as f:
+            json.dump(report,f,indent=2)
+    
     while not missions.stop.wait(1):pass
     # Stop dispatch, let a current bounded inference/tool finish its receipt.
     while core.missions.execution_core.lock.locked():time.sleep(.2)

@@ -1,0 +1,77 @@
+{
+  "source_commit": "151f27c2e9058b98cb7000fd4edd2af7122d8fc2",
+  "reason": "System prompt repeated first source-observation obligation after successful inspections and saved plan; make bootstrap instruction conditional on actual task state",
+  "software_tests_local": 145,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        {
+          "backup_file": "durable_cycle.py",
+          "receipt": "e1856e013e134a71b4ada59b4aeffd9d",
+          "sha256": "56e4bf67abf4fbec9018feb354c49f02ed29eb4c7cba1cd378d2e061ce5fa4f5"
+        },
+        "4a7151ead55d4c40938cef5c7d475a3b",
+        "6f7dff7d6cb54a7fa313af593a1bf221"
+      ],
+      "tests": [
+        {
+          "receipt": "6c98406c1d9246c39f044140f4c7aee6",
+          "test": "test_durable.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.100s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.516,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        {
+          "backup_file": "durable_cycle.py",
+          "receipt": "06d5af9e662b47818169500d35c253e9",
+          "sha256": "56e4bf67abf4fbec9018feb354c49f02ed29eb4c7cba1cd378d2e061ce5fa4f5"
+        },
+        "ac629df620d14ed2a0027065cccb49b4",
+        "107fe112c79245e8be8f213f678a25b3"
+      ],
+      "tests": [
+        {
+          "receipt": "333f066d443f4c6dad0764b5a0f8b833",
+          "test": "test_durable.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.105s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.516,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/phase-prompt-1793144634",
+  "guard_scope": "New identity mode: initial-observation instruction ends only after current task has recorded successful inspection and plan exists. Qwen still chooses all commands, code, hosts and subsequent actions. No changes to counters or acceptance predicates",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 64583
+}

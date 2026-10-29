@@ -1,0 +1,81 @@
+{
+  "status": "VALIDÉ AVEC RÉSERVES",
+  "mission": "9e4a61d6faea4b73ad31251e72dcf7c1",
+  "source_commit": "105c4ff",
+  "criteria": {
+    "bounded_actual_context": {
+      "first_reduction": 53564,
+      "usage": {
+        "n": 112,
+        "max_tokens": 6448,
+        "all_observed_within": 1
+      },
+      "capacity": 24576,
+      "estimator": "UTF-8 bytes conservatively estimated, not actual tokenization"
+    },
+    "full_actual_large_stdout": {
+      "execution": 55057,
+      "bytes": 219000,
+      "sha_checked_independently": 55126
+    },
+    "both_Dell_actual_operations": [
+      54802,
+      54841,
+      54895,
+      55057,
+      55210,
+      55238
+    ],
+    "checkpoint": 54911,
+    "real_worker_restart": 54915,
+    "actual_model_resume": 54930,
+    "counter_comparisons": {
+      "authority_counters_unchanged": true,
+      "counters_preserved": true,
+      "current_process_id": 71255,
+      "current_reference": 54929,
+      "interface_counters_unchanged": true,
+      "old_process_id": 70821,
+      "previous_reference": 54911
+    },
+    "controlled_no_replay_check": 55251,
+    "targeted_old_incident_recall": 54073,
+    "native_exact_source_cross_host_accept": {
+      "event": 55272,
+      "result": {
+        "decision": 55268,
+        "host": "Dell2",
+        "independent": true,
+        "source": "55238",
+        "test": "55210",
+        "validation_scope": "test-only, no correction claimed",
+        "version": "b2dbeeab3a54947a9915a6038294093eca415c161323b5ff7dd5ea8c6ff79cc9"
+      }
+    },
+    "model_report_corrected": {
+      "original_invocation": "148748d5270b4e3da41c9f37609c0064",
+      "correction_requested": 55297,
+      "final_sha256": "7f6976b0aa9442baeb8149c5aa073e878e2dd95ccca8c85023040c76f4a65a0c"
+    }
+  },
+  "software_tests": {
+    "passed": 67,
+    "not_autonomy_proof": true
+  },
+  "reservations": [
+    "Codex infrastructure fixes and staged tool availability were required to stop repeated reads; unassisted general autonomy is not received",
+    "First free report factually wrong, preserved; corrected report needs attribution/SHA clarification in authoritative annex",
+    "No actual tokenizer; conservative byte estimate with actual backend usage checked. Structured reviews too large fail closed rather than automatic sharding",
+    "No test filled the actual KV context near24576tokens; actual pressure/compaction and large-output externalization were observed",
+    "No universal exactly-once/idempotence claim; one controlled Dell2 effect verified after restart"
+  ],
+  "clarifications": {
+    "55210": "Dell2 stdout283bytes, file859999bytes",
+    "55238": "Dell1 stdout2087bytes",
+    "5ad719f6": "P3-02-run TASK report hash, not final report hash",
+    "55251": "Codex file/non-replay check; native cross-host acceptance is the event separately cited"
+  },
+  "14A_closed": false,
+  "phase2_complete": false,
+  "reception_event": 55310
+}

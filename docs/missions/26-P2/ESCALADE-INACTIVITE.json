@@ -1,0 +1,31 @@
+{
+  "mission": "3aa717f3887e49daa7daf7e883ee52e4",
+  "status": "BLOQUÉ",
+  "engine_state": "interrupted",
+  "reason": "Three conflicting operation_id refusals; bounded recovery approaches did not produce usable source implementation",
+  "initial_escalation_event": 42375,
+  "preserved_attempts": [
+    {
+      "event": 42465,
+      "decision": 42461,
+      "invocation": "e019d4089f8c457f978694a3d59a43ac",
+      "evidence_id": "e7f2600d204b469aa77619bf8743e09a",
+      "returncode": 1,
+      "stderr": "E\n======================================================================\nERROR: test_mission_store_persistence (unittest.loader._FailedTest.test_mission_store_persistence)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_mission_store_persistence\nTraceback (most recent call last):\n  File \"/usr/lib/python3.13/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\nModuleNotFoundError: No module named 'engine.tests.test_mission_store_persistence'\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n",
+      "classification": "Command executed; requested target test NOT_EXECUTED because module absent; no source increment observed"
+    },
+    {
+      "event": 42472,
+      "decision": 42468,
+      "invocation": "9a3de858e8444a4a805a9cbe74bd0900",
+      "evidence_id": "12e3175271a046eca8c0b973e1229bf3",
+      "returncode": 1,
+      "stderr": "E\n======================================================================\nERROR: test_mission_store (unittest.loader._FailedTest.test_mission_store)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_mission_store\nTraceback (most recent call last):\n  File \"/usr/lib/python3.13/unittest/loader.py\", line 137, in loadTestsFromName\n    module = __import__(module_name)\nModuleNotFoundError: No module named 'engine.tests.test_mission_store'\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n",
+      "classification": "Command executed; requested target test NOT_EXECUTED because module absent; no source increment observed"
+    }
+  ],
+  "codex_fix": "Actionable collision diagnostic, guard retained;16 software tests passed",
+  "P2_received": false,
+  "P3_P4_assigned": false,
+  "autonomous_unattended_recovery_claimed": false
+}

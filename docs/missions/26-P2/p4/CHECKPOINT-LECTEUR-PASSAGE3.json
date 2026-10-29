@@ -1,0 +1,30 @@
+{
+  "mission": "d8fe752876db480cbe5f22cd5525e2dd",
+  "state": "interrupted",
+  "dossier_event": 61363,
+  "checkpoint": 61364,
+  "action": 61365,
+  "receipt": {
+    "reference": 61212,
+    "executor": "Dell1",
+    "kind": "inspect",
+    "observed_process_returncode": 0,
+    "stream": "stdout",
+    "start_line": 1,
+    "content": "get_object_code_hash: False\nattestation_report: False\nget_object_code_hash source: MISSING\nattestation_report source: MISSING",
+    "total_lines": 4,
+    "source_complete": true,
+    "excerpt_truncated": false,
+    "source_version": "d689ec943a904345f9f45c3da0746febc4ab869f34eb19e56ab4942552c28353",
+    "full_receipt": {
+      "bytes": 12019,
+      "download_invocation": "85443d47aa864124989f1347f8fc6cda",
+      "local": "/var/lib/jarvis/projects/mission26-phase2/receipts/d8fe752876db480cbe5f22cd5525e2dd/4cbe0febd37242d1857d419bfa6e8d25.json",
+      "remote": "/opt/jarvis-lab/mission26-phase2/.receipts/4cbe0febd37242d1857d419bfa6e8d25.json",
+      "sha256": "e00e7ec94906638eee99d0801d8bdd1b60056a6b6c1b0575f38796fd8144b3bc"
+    }
+  },
+  "counters_preserved": true,
+  "technical_review_recorded": false,
+  "status": "BLOCKED: comparable pass3/3 exhausted; focused infrastructure correction before resume; candidate review pending"
+}

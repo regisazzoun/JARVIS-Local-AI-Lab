@@ -1,0 +1,49 @@
+{
+  "diagnostic_event": 76597,
+  "repair_packet_event": 76598,
+  "escalation_event": 76594,
+  "functional_escalation_event": 76486,
+  "qualified_failed_cycles": 3,
+  "misclassified_failed_cycles": 2,
+  "historical_total": 5,
+  "receipts": [
+    {
+      "reference": 76210,
+      "executor": "Dell2",
+      "returncode": 1,
+      "receipt_sha256": "18eb80b9e86c84d514c8aa97360609c7ea84924f19c7be7adf6bf04fc32d5a55",
+      "module_sha256": "d475c0a5407d530c0aece33a4ddc9d3e7f2ed6e4347ee1c6d15411f0e95d53d9",
+      "oracle_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de"
+    },
+    {
+      "reference": 76325,
+      "executor": "Dell1",
+      "returncode": 0,
+      "receipt_sha256": "8e353a49fec61e6aaa13c0d77147d8569c1feddb6ce465bb1a3a0a6968419fee",
+      "module_sha256": "85f42030d905356670665819f4986ec8ab9094a369a0c77bf9bafc8deb9bb11a",
+      "oracle_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de"
+    },
+    {
+      "reference": 76377,
+      "executor": "Dell2",
+      "returncode": 0,
+      "receipt_sha256": "1d30d3f8c2773d25665d88c866c45dab9845e66d8aae109f093b23f4695c9f27",
+      "module_sha256": "d475c0a5407d530c0aece33a4ddc9d3e7f2ed6e4347ee1c6d15411f0e95d53d9",
+      "oracle_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de"
+    },
+    {
+      "reference": 76477,
+      "executor": "Dell1",
+      "returncode": 1,
+      "receipt_sha256": "c371b9bea82a3e4080e6c3ff04ddc47307f10187592ea72a9acaebb26b943a90",
+      "module_sha256": "85f42030d905356670665819f4986ec8ab9094a369a0c77bf9bafc8deb9bb11a",
+      "oracle_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de"
+    }
+  ],
+  "patch_sha256": "b09aa9151df7c93a45df74b7d66b998fba5753dcbc304b94900a1de43914b2bf",
+  "candidate_received": false,
+  "mission_state": "interrupted",
+  "next": "Qwen diagnostic and technically different repair strategy; verified assistance required before any new execution segment. No fourth blind retry.",
+  "P4": "WAITING",
+  "VF01": "NOT_TRANSMITTED"
+}

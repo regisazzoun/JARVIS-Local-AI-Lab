@@ -1,0 +1,42 @@
+{
+  "repair_event": 77253,
+  "preflight_event": 77260,
+  "strategy_event": 77261,
+  "input_bytes": 24068,
+  "budget": 27648,
+  "software_tests_passed": 174,
+  "historical_defects": [
+    {
+      "task": "version0",
+      "unknown_tools": [],
+      "missing_report_writer": true,
+      "report_path": "/var/lib/jarvis/projects/mission26-phase2/canary-stage/report_c32347de.md"
+    },
+    {
+      "task": "P4-CANARY-STAGE-STEP-1",
+      "unknown_tools": [
+        "host_exec#dell2"
+      ],
+      "missing_report_writer": true,
+      "report_path": "/var/lib/jarvis/projects/mission26-phase2/canary-stage/staging/P4-STEP1-audit.diff"
+    }
+  ],
+  "latest_coverage": {
+    "event": 77233,
+    "status": "FAIL",
+    "issues": [
+      "R23 et R24 ne sont pas couverts : aucune tâche ne valide ou justifie le choix du plan et de sa répartition par l’agent, alors que le raw_goal les exige explicitement.",
+      "R36, R37, R38, R39 non couverts : aucune tâche ne mentionne explicitement les contraintes d’exclusion (modèles/routage/matériel, 14A/24Old/autre mission, autorisations autonomes, charte conservée).",
+      "R27–R29 couverts par recovery de c32347de, mais le schéma actif ne prévoit pas host_exec#dell2 (seul host_remote existe), ce qui rend la couverture théorique mais non opérationnelle sans adaptation.",
+      "Report artifact collision: c32347de and version0 share /var/lib/jarvis/projects/mission26-phase2/canary-stage/report_c32347de.md. Use distinct task report paths so received hashes remain reproducible.",
+      "R23: Aucune tâche ne couvre explicitement le choix du plan par l’agent (R23). Le plan est fourni, mais aucune tâche ne valide ou justifie ce choix.",
+      "R24: Aucune tâche ne couvre explicitement la répartition choisie par l’agent (R24).",
+      "R36: Aucune tâche ne mentionne explicitement l’absence de modèles/routage/matériel dans ses contraintes ou observations.",
+      "R37: Aucune tâche ne mentionne explicitement l’absence de 14A/24Old/autre mission.",
+      "R38: Aucune tâche ne mentionne explicitement les autorisations autonomes.",
+      "R39: Aucune tâche ne mentionne explicitement la charte conservée."
+    ]
+  },
+  "P4_received": false,
+  "no_automatic_acceptance_or_failure_reset": true
+}

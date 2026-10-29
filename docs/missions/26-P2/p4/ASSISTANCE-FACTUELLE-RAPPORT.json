@@ -1,0 +1,27 @@
+{
+  "started_event": 67729,
+  "actor": "Codex",
+  "before_sha256": "0c7e2f90654f37bbfae4ead219849d85255a6f0f25a67a05b07e55bcfa0f89b3",
+  "after_sha256": "6dbb7aa1b9dd466866004de2b98261db1609a337e50acfb7d810cabfd7f4025d",
+  "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md",
+  "original_preserved": true,
+  "execution_plan_written_by": "JARVIS",
+  "factual_rectification_by": "Codex",
+  "autonomous_report_correction_validated": false,
+  "report_received": false,
+  "event_types": {
+    "65474": "codex_worker_candidate_reception",
+    "65528": "tool_finished",
+    "65537": "tool_finished",
+    "66089": "coverage_review",
+    "66872": "semantic_verification",
+    "66904": "controller_findings_rectified",
+    "66911": "coordinator_instruction",
+    "67200": "narrative_review",
+    "67201": "semantic_verification",
+    "67371": "controller_findings_rectified",
+    "67633": "narrative_review",
+    "67634": "semantic_verification"
+  },
+  "applied_event": 67730
+}

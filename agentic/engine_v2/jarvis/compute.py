@@ -17,6 +17,9 @@ import uuid
 class ResourceUnavailable(RuntimeError):
     pass
 
+class ContextAdmissionError(ResourceUnavailable):
+    """Owner context rejection must not be bypassed by another-node fallback."""
+    pass
 
 class ComputeQueue:
     def __init__(self, database):
@@ -161,7 +164,7 @@ class HybridRouter:
     def infer(self,payload,role='conversation',mission=None):
         try:return self._infer(payload,role,mission)
         except (ResourceUnavailable,OSError,ValueError) as exc:
-            if role!='critical':raise
+            if role!='critical' or isinstance(exc,ContextAdmissionError):raise
             fallback_config={**self.config,'routes':{**self.config['routes'],'critical':['Mac-mini']}}
             fallback=HybridRouter(fallback_config,self.queue.path,self.fetch)
             message,metrics=fallback._infer(payload,role,mission)
@@ -184,6 +187,8 @@ class HybridRouter:
             if model.startswith(('llama','qwen3-coder-next')):effective.pop('think',None)
             effective['options']={**payload.get('options',{})}
             context=node.get('inference_num_ctx')
+            if node.get('hard_context_limit') and effective['options'].get('num_ctx',context or node['hard_context_limit'])>node['hard_context_limit']:
+                raise ContextAdmissionError('Context exceeds owner hard ceiling; split task before transmission')
             if context:
                 if effective['options'].get('num_ctx',context)>context:
                     raise ResourceUnavailable('Requested context exceeds measured node profile: '+name)
@@ -191,6 +196,17 @@ class HybridRouter:
                 # between conversation, summaries and fallback/escalation calls.
                 effective['options']['num_ctx']=context
             if role=='mission':effective['options']['num_predict']=self.config.get('mission_segment_tokens',4096)
+            if node.get('hard_context_limit'):
+                # Final boundary shared by mission/critical paths, even without
+                # a mission store. Never let the backend silently drop messages.
+                from .mission_context_budget import serialized_bytes
+                ceiling=node['hard_context_limit'];reply=effective['options'].get('num_predict',4096)
+                if type(reply) is not int or reply<=0:reply=4096
+                if effective['options'].get('num_ctx',ceiling)>ceiling:
+                    raise ContextAdmissionError('Context exceeds owner hard ceiling; split task before transmission')
+                if serialized_bytes(effective)>ceiling-reply-node.get('context_template_margin',1024):
+                    raise ContextAdmissionError('Input exceeds conservative admission budget; split task before transmission, no inference sent')
+                effective['truncate']=False
             request=urllib.request.Request(node['url'].rstrip('/')+'/api/chat',data=json.dumps(effective).encode(),headers={'Content-Type':'application/json'})
             message={'role':'assistant','content':''};done=None
             with urllib.request.urlopen(request,timeout=self.config.get('inference_timeout',180)) as response:

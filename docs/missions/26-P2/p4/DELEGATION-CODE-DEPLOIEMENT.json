@@ -1,0 +1,141 @@
+{
+  "source_commit": "37b0cf52fcb36bded557b0d6c7323e73a06f9cdd",
+  "reason": "Persistent read loop64624 after capacity repairs; add fresh bounded model coding context with proposal-only output and canonical apply-by-reference",
+  "software_tests_local": 157,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        {
+          "backup_file": "distributed_authority.py",
+          "receipt": "3f7d5d6f18cb4902a65cbf6c6d383763",
+          "sha256": "e2c5974f004d3499071effd44ca0e3552cafcaebbda881f92bc1d8b811b86943"
+        },
+        {
+          "backup_file": "durable_cycle.py",
+          "receipt": "a793342465824ebcadbfd8ba31dd0a21",
+          "sha256": "9d877f9d099f266c38ac2e714d3490936d0fb7e1b4f7a439c9577bc84a892690"
+        },
+        {
+          "backup_file": "mission_context_budget.py",
+          "receipt": "2c3f277c9afa4e9aa63b4f4e0bcb996e",
+          "sha256": "a739595a34af3eea03f3e37d81c0614f21415e374c366653db0f2fed6230804f"
+        },
+        "1dc5a4e94a754ee8945362e4158891e9",
+        "90e0d96c6028452e848167932fc9a7c8",
+        "16af408435204cea8ae1355d5e21baf3",
+        "b2b7fc3d7d9240e2ad6ce7b3a0f83c6b",
+        "812e690b57724a7f8bfca0bc3a9a5bd8",
+        "94f4b5a218254de481985e031da90145"
+      ],
+      "tests": [
+        {
+          "receipt": "6a8555c2caaf478180d6267359b4cad4",
+          "test": "test_authority_draft.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 1.120s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.519,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "efce85849fe44cebb4c1954f3631b25a",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 0.569s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.018,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        {
+          "backup_file": "distributed_authority.py",
+          "receipt": "b2b0dad9b9474e7a8659875142e499a5",
+          "sha256": "e2c5974f004d3499071effd44ca0e3552cafcaebbda881f92bc1d8b811b86943"
+        },
+        {
+          "backup_file": "durable_cycle.py",
+          "receipt": "106c3176b3da46a69ffb855c404bad5a",
+          "sha256": "9d877f9d099f266c38ac2e714d3490936d0fb7e1b4f7a439c9577bc84a892690"
+        },
+        {
+          "backup_file": "mission_context_budget.py",
+          "receipt": "52bbd6813ec64048b8f21c3e853f8cbd",
+          "sha256": "a739595a34af3eea03f3e37d81c0614f21415e374c366653db0f2fed6230804f"
+        },
+        "d658639d313646cd86cdb5f2d9b1c601",
+        "51610a8e8713411eaba9bab9cf9abf3f",
+        "42b309a07f444b4ebe531f009bfee7fc",
+        "d4082e5acda74878b51aee8dae61f885",
+        "eca607f48f0648e6b18292f586f1977c",
+        "4e8888458cef4bb798aa6184b913790e"
+      ],
+      "tests": [
+        {
+          "receipt": "a496c4249d5f4e079257cfc28fd3ad42",
+          "test": "test_authority_draft.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.890s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.266,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "0daa78c6a8484d8182bfe06ebaf1619d",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "..................................\n----------------------------------------------------------------------\nRan 34 tests in 0.552s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.068,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/focused-draft-1793145426",
+  "guard_scope": "Same router/transport/model and SQLite; model chooses objective/path/executor/code. Fresh code draft never writes. Apply uses canonical nested authority_edit with exact source anchor and existing counters; no tests inferred. Explicit coding focus ends only after real successful correction",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 64626
+}

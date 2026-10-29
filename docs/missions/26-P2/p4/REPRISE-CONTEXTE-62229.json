@@ -1,0 +1,18 @@
+{
+  "cause": "ContextCapacityError: compacted input 28669 exceeds conservative budget27648",
+  "action": "mission spec compact_semantic_references=true; existing implementation; no application code changed",
+  "tests": {
+    "exact_archived_payload_bytes": 24686,
+    "input_budget": 27648,
+    "context_tests": 25,
+    "result": "PASS",
+    "counters_unchanged": true
+  },
+  "instruction_event": 62239,
+  "no_deployment": true,
+  "P4_received": false,
+  "event": 62241,
+  "recovery_resolution_event": 62247,
+  "historical_infra_incidents": 3,
+  "historical_escalation_event": 62226
+}

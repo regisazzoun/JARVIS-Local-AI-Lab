@@ -1,0 +1,151 @@
+{
+  "source_commit": "6bf65e4c1dfb2ec84444c42502dab0608ff43a2e",
+  "reason": "Keep failed draft read64683 visible across notes; failed apply returns non-success; current short coding packet offers drafting/application only, normal tools return after actual source correction",
+  "software_tests_local": 158,
+  "tests": [
+    {
+      "host": "dell-observe",
+      "upload_receipts": [
+        {
+          "backup_file": "authority_draft.py",
+          "receipt": "50511077cc1a49b09ce41714aed48d25",
+          "sha256": "c0af6a14ad220ab104fd0e12da77923f2769a6ce03373e8e20e06ac668fffc24"
+        },
+        {
+          "backup_file": "distributed_authority.py",
+          "receipt": "eb84fdf54cd94c8f8861c97669ad9a33",
+          "sha256": "ac37218c37ce86a3ceecbe1a24fd2194436846a002819a0116dbe88a5dc9b9b0"
+        },
+        {
+          "backup_file": "durable_cycle.py",
+          "receipt": "ab55e5915fbd44aea9ceca4a62af54b5",
+          "sha256": "64e4db5ad4c5379f86000a3540e5e34731a95f52645d4a2c0a95c4fa3fdefbf9"
+        },
+        {
+          "backup_file": "mission_context_budget.py",
+          "receipt": "a0f0d4f022c74901bb7dd7d72c6d40de",
+          "sha256": "e4adabbe31b3b3082915e82b759fdaa13cea269f13fc861e2da5815437120de8"
+        },
+        "e6f19678d0364d5b94eedba0dce89a27",
+        "e756aab001ca4d929790b8b6c32a6367",
+        "7f0567e14de54aabb34ad82f04381fb0",
+        "8ed6a3e880fb4c9b8f3295d4733d1d10",
+        "f86c7e32137d453ba63e69e23368276c",
+        "4a552dfc5a6849009d14ed8af44a0ecd"
+      ],
+      "tests": [
+        {
+          "receipt": "5028510241c94635801a00803f500957",
+          "test": "test_authority_draft.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 1.082s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.519,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "b9a1accb82444dd8a19199cc59cdbd38",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...................................\n----------------------------------------------------------------------\nRan 35 tests in 0.561s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.067,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    },
+    {
+      "host": "dell2",
+      "upload_receipts": [
+        {
+          "backup_file": "authority_draft.py",
+          "receipt": "23fde7e8f2c24254a2cbb5d4c7f47bb6",
+          "sha256": "c0af6a14ad220ab104fd0e12da77923f2769a6ce03373e8e20e06ac668fffc24"
+        },
+        {
+          "backup_file": "distributed_authority.py",
+          "receipt": "f2e661bd2af14cb7b3bd243263d0e073",
+          "sha256": "ac37218c37ce86a3ceecbe1a24fd2194436846a002819a0116dbe88a5dc9b9b0"
+        },
+        {
+          "backup_file": "durable_cycle.py",
+          "receipt": "a634bc7abab54cada18c9f54b0299466",
+          "sha256": "64e4db5ad4c5379f86000a3540e5e34731a95f52645d4a2c0a95c4fa3fdefbf9"
+        },
+        {
+          "backup_file": "mission_context_budget.py",
+          "receipt": "fd33d29a10b144aa8a731614ead411ef",
+          "sha256": "e4adabbe31b3b3082915e82b759fdaa13cea269f13fc861e2da5815437120de8"
+        },
+        "b92575d99e9d48a6a7cd0fa572a9b99b",
+        "edd16f99f62a49ada06b5b6bae8dab92",
+        "d39784a4685447d3aea3aad03f414f05",
+        "0333662ff2da4887958a33d087050a4d",
+        "5235e8aaccbf41a2893eeee834bb8f09",
+        "1442ea5205e040a5baa7432216d204bf"
+      ],
+      "tests": [
+        {
+          "receipt": "bf53519f34ed4ee7afcddee2b49cc549",
+          "test": "test_authority_draft.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...........\n----------------------------------------------------------------------\nRan 11 tests in 1.013s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 1.418,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        },
+        {
+          "receipt": "4c329a7681ed4bd88d285a1ca9f71344",
+          "test": "test_mission_context_budget.py",
+          "result": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "...................................\n----------------------------------------------------------------------\nRan 35 tests in 0.592s\n\nOK\n",
+            "timeout": false,
+            "duration_s": 0.967,
+            "stdout_truncated": false,
+            "stderr_truncated": false,
+            "project_root": "/opt/jarvis-lab/mission26-phase2",
+            "persistent_write_roots": [
+              "/opt/jarvis-lab/mission26-phase2"
+            ],
+            "temporary_paths_notice": "Use the project root for durable logs and outputs. /tmp is ephemeral. Other filesystem paths are not project storage."
+          }
+        }
+      ]
+    }
+  ],
+  "backup": "/home/adminjarvis/JARVIS/mission26-phase2-private/draft-retention-1793145954",
+  "guard_scope": "Same router/transport/model and SQLite; model chooses objective/path/executor/code. Fresh code draft never writes. Apply uses canonical nested authority_edit with exact source anchor and existing counters; no tests inferred. Explicit coding focus ends only after real successful correction",
+  "JARVIS_actual_use_received": false,
+  "candidate_worker_untouched_by_Codex": true,
+  "counts_not_reset": true,
+  "event": 64810
+}

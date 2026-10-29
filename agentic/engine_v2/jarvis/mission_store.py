@@ -33,6 +33,49 @@ def arguments_match(actual, expected):
 
 
 class MissionStore:
+    def attempt_ledger(self, mission):
+        from .attempt_ledger import AttemptLedger
+        return AttemptLedger(self, mission)
+
+    def attempt_state(self, mission, state, reference=None, connection=None):
+        if state not in (
+            'PENDING', 'DISPATCHED', 'RUNNING', 'NOT_EXECUTED',
+            'EXECUTION_FAILED', 'EXECUTED_TEST_FAILED', 'VALIDATION_INCONCLUSIVE',
+            'SUCCESS', 'BLOCKED', 'ESCALATED'
+        ):
+            raise ValueError(f"Invalid attempt state: {state}")
+        if state == 'SUCCESS':
+            if reference is None:
+                raise ValueError("SUCCESS attempt must include a reference to an observed event")
+            if not isinstance(reference, int):
+                raise ValueError("SUCCESS reference must be an integer event ID")
+            with self.db() as db:
+                row = db.execute("SELECT kind,tool,result FROM mission_events WHERE mission=? AND id=?", (mission, reference)).fetchone()
+            if row is None:
+                raise ValueError("SUCCESS reference not found in the same mission")
+            observation = json.loads(row['result'])
+            if row['kind'] == 'authority_execution':
+                execution = observation.get('execution', {})
+            elif row['kind'] == 'tool_finished' and row['tool'] == 'host_remote' and observation.get('ok') is True:
+                payload = observation.get('result', {})
+                execution = payload.get('execution', payload)
+                if payload.get('returncode', 0) != 0:
+                    raise ValueError("SUCCESS reference has a failed transport")
+            else:
+                raise ValueError("SUCCESS requires an observed execution, not a plan")
+            code = execution.get('returncode')
+            if type(code) is not int or code != 0:
+                raise ValueError("SUCCESS requires an observed successful child process")
+        if reference is not None:
+            result = {"state": state, "reference": str(reference)}
+        else:
+            result = {"state": state}
+        return self.event(
+            mission, 'ATTEMPT_STATE', task=None, actor='JARVIS-engine',
+            tool='mission_store', arguments={}, result=result,
+            duration=None, invocation=None, connection=connection
+        )
+
     def __init__(self, root):
         self.root = Path(root)
         self.path = self.root / 'runtime/missions.sqlite'
@@ -137,20 +180,27 @@ class MissionStore:
                 tasks=[replacements.get(t['id'],t) for t in saved['tasks']]
             metadata=metadata or {k:v for k,v in saved.items() if k!='tasks'}
         normalized = []
+        resource_objective=json.loads(self.get(ident)['spec']).get('context_result_objective')
+        received={t['id'] for t in self.tasks(ident) if t['state']=='validated'}
         for t in tasks:
             if not isinstance(t, dict) or not isinstance(t.get('id'), str) or not isinstance(t.get('title'), str):
                 raise ValueError('Chaque tâche exige id et title textuels')
             deps = t.get('depends', t.get('deps', []))
             if not isinstance(deps, list) or any(not isinstance(x, str) for x in deps):
                 raise ValueError('depends doit être une liste d’identifiants')
-            normalized.append({**t, 'depends': deps})
+            item={**t, 'depends': deps}
+            if resource_objective and t['id'] not in received:
+                item['contract']={**t.get('contract',{}),'context_result_objective':resource_objective}
+            normalized.append(item)
         mapping = {t['id']: t for t in normalized}
         if len(mapping) != len(normalized):
             raise ValueError('Identifiants dupliqués')
         visited = set()
         def visit(ident, chain):
-            if ident in chain or ident not in mapping:
-                raise ValueError('Dépendance cyclique ou absente')
+            if ident not in mapping:
+                raise ValueError('depends: identifiant absent '+repr(ident)+'; IDs enregistrés dans ce plan: '+', '.join(sorted(mapping))+'. Utilise des IDs de tâches, jamais des descriptions; sauvegarde un prérequis avant de le référencer. Aucun plan sauvegardé.')
+            if ident in chain:
+                raise ValueError('depends: dépendance cyclique vers '+repr(ident)+' via '+', '.join(sorted(chain))+'. Aucun plan sauvegardé.')
             if ident in visited:
                 return
             for dep in mapping[ident]['depends']:
@@ -298,18 +348,30 @@ class MissionStore:
             row = c.execute('SELECT * FROM tool_calls WHERE id=?', (token,)).fetchone()
             c.execute('UPDATE tool_calls SET state=?,result=?,updated=? WHERE id=?', ('finished', encoded(result), time.time(), token))
             c.execute('INSERT INTO checkpoints(mission,tool,result,created) VALUES(?,?,?,?)', (row['mission'], row['tool'], encoded(result), time.time()))
-            self.event(row['mission'], 'tool_finished', row['task'], 'JARVIS', row['tool'], json.loads(row['arguments']), result, duration, token, c)
+            observation = self.event(row['mission'], 'tool_finished', row['task'], 'JARVIS', row['tool'], json.loads(row['arguments']), result, duration, token, c)
+            # Codex-periodic: classify an observed failed child, never broker success.
+            if row['tool'] == 'host_remote' and result.get('ok') is True:
+                payload = result.get('result', {})
+                execution = payload.get('execution', payload) if isinstance(payload, dict) else {}
+                code = execution.get('returncode') if isinstance(execution, dict) else None
+                if type(code) is int and code != 0:
+                    self.attempt_state(row['mission'], 'EXECUTION_FAILED', reference=observation, connection=c)
             c.execute('UPDATE missions SET updated=?,last_progress=? WHERE id=?', (time.time(), time.time(), row['mission']))
 
-    def observations(self, ident, task=None):
+    def observations(self, ident, task=None, limit=None):
         with self.db() as c:
             query = 'SELECT * FROM tool_calls WHERE mission=?'
             params = [ident]
             if task is not None:
                 query += ' AND task=?'
                 params.append(task)
-            return [{**dict(r), 'arguments': json.loads(r['arguments'] or '{}'), 'result': json.loads(r['result'] or '{}') if r['result'] else None}
-                    for r in c.execute(query + ' ORDER BY created', params)]
+            if limit is not None:
+                if type(limit) is not int or limit<1:raise ValueError('Positive observation limit required')
+                query+=' ORDER BY created DESC,rowid DESC LIMIT ?';params.append(limit)
+            else:query+=' ORDER BY created,rowid'
+            rows=list(c.execute(query,params))
+            if limit is not None:rows.reverse()
+            return [{**dict(r), 'arguments': json.loads(r['arguments'] or '{}'), 'result': json.loads(r['result'] or '{}') if r['result'] else None} for r in rows]
 
     def events(self, ident, after=0, limit=150):
         with self.db() as c:

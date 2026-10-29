@@ -15,8 +15,18 @@ def register(registry):
     def plan(args):
         from .mission_assurance import enabled, audit_plan, plan_view
         tasks=store().plan(key(), args['tasks'], author='JARVIS', metadata=args.get('metadata'), reason=args.get('reason','initial plan'), expected_version=args.get('expected_version'), append=args.get('append',False), patch=args.get('patch',False))
-        review=audit_plan(registry) if enabled(store(),key()) else None
-        return {'tasks':tasks,'plans':plan_view(store(),key()) if enabled(store(),key()) else store().plans(key()),'coverage':review,'execution_allowed':not review or review['status']=='PASS','current_plan_version':len(store().plans(key())), 'next_action':'Revise missing outcomes yourself with append/patch, expected_version=current_plan_version' if review and review['status']!='PASS' else 'Execute ready task'}
+        from .mission_context_budget import ContextCapacityError
+        try:
+            review=audit_plan(registry) if enabled(store(),key()) else None
+        except ContextCapacityError as exc:
+            # Source plan is already durable; unavailable review is not an
+            # unexecuted save, and must not invite an identical second mutation.
+            event=store().event(key(),'plan_review_deferred',actor='JARVIS-engine',result={
+                'plan_saved':True,'current_plan_version':len(store().plans(key())),
+                'execution_allowed':False,'error':str(exc),'exception_type':type(exc).__name__})
+            review={'status':'INSUFFICIENT','review_pending':True,'error':str(exc),
+                    'reference':event,'instruction':'Plan already saved; do not resubmit the same step. Review must complete before execution.'}
+        return {'tasks':tasks,'plans':plan_view(store(),key()) if enabled(store(),key()) else store().plans(key()),'coverage':review,'execution_allowed':not review or review['status']=='PASS','current_plan_version':len(store().plans(key())), 'next_action':review['instruction'] if review and review.get('review_pending') else ('Revise missing outcomes yourself with append/patch, expected_version=current_plan_version' if review and review['status']!='PASS' else 'Execute ready task')}
     def progress(args):
         current=getattr(registry,'mission_store',None)
         def summary(tasks):return [{k:t.get(k) for k in ('id','title','state','artifact','report_sha256')} for t in tasks]
@@ -38,6 +48,32 @@ def register(registry):
             ident=row['id']
         mission=controller.store.get(ident)
         return {'mission':ident,'state':mission['state'],'tasks':summary(controller.store.tasks(ident))}
+    def report_step(args):
+        """Model-selected report verification, flattened transport; same plan gate."""
+        if not json.loads(store().get(key())['spec']).get('planning_report_steps'):
+            raise ValueError('Report-step planning is not enabled for this mission')
+        task={k:args[k] for k in ('id','title','depends','objective','tools','observations','verification','recovery','artifacts')}
+        # Report persistence is mandatory adapter infrastructure, not a model
+        # technical operation. The central writer is scoped to report_path.
+        task['tools']=list(dict.fromkeys(task['tools']+['host_write_file']))
+        task['contract']={'report_path':args['report_path'],'semantic':[{
+            'kind':'report','source':{'tool':'host_read_file','arguments':{'path':args['report_path']}}}]}
+        plans=store().plans(key());current=plans[-1]['version'] if plans else 0
+        if args['expected_version']!=current:
+            raise ValueError('Current plan version is '+str(current)+'; no step saved')
+        payload={'tasks':[task],'expected_version':current,'reason':args['reason']}
+        if plans:
+            payload['patch' if any(t['id']==args['id'] for t in store().tasks(key())) else 'append']=True
+        else:
+            payload['metadata']={'objective':args['plan_objective'],'success_criteria':args['plan_success_criteria'],
+                                 'artifacts':args['plan_artifacts'],'stop_conditions':args['plan_stop_conditions']}
+        # Validate the exact ordinary interface; no weakened acceptance or second store.
+        result=registry.execute('mission_plan',payload)
+        if not result.get('ok'):raise ValueError(result.get('error','Plan step rejected'))
+        store().event(key(),'model_report_step_saved',registry.context.get('task_id'),'JARVIS',result={
+            'task':args['id'],'verification_kind_chosen_by_tool':'report',
+            'adapter_author':'Codex','task_values_author':'JARVIS','report_writer_added_by_adapter':True,'ordinary_plan_gate_retained':True})
+        return result['result']
     def listing(args):
         controller=getattr(registry,'mission_controller',None)
         if not controller:raise ValueError('Moteur durable indisponible')
@@ -229,3 +265,10 @@ def register(registry):
          {'id': {'type': 'string'}, 'evidence_id': {'type': 'string'}, 'report_path': {'type': 'string'}}, ['id', 'evidence_id', 'report_path'], complete)]
     for name, desc, props, required, fn in definitions:
         registry.specs[name] = (desc, props, required, 'host_authorized', fn)
+    flat={k:{'type':'string','minLength':1} for k in ('id','title','objective','verification','recovery','report_path','reason','plan_objective')}
+    flat.update({k:{'type':'array','items':{'type':'string','minLength':1},**({} if k=='depends' else {'minItems':1})}
+                 for k in ('depends','tools','observations','artifacts','plan_success_criteria','plan_artifacts','plan_stop_conditions')})
+    flat['expected_version']={'type':'integer','minimum':0}
+    registry.specs['mission_plan_report_step']=(
+        'Enregistrer UNE étape de ton choix vérifiée par rapport factuel relu et confronté aux reçus. Interface plate : aucun champ tasks ni contract à écrire. report_path est le rapport propre à cette étape ; son existence seule ne valide rien. Tu choisis toutes les valeurs. Première étape version0 : renseigner les champs plan_* du plan global. Ensuite expected_version=version COURANTE ; nouvelle id ajoute, id non reçue existante révise, tâches reçues immuables. La couverture globale doit passer avant exécution ; compléter les exigences manquantes par de nouvelles étapes. Ne pas utiliser pour prétendre recevoir un déploiement sur la seule prose.',
+        flat,list(flat),'host_authorized',report_step)

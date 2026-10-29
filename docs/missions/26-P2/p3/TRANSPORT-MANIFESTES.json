@@ -1,0 +1,27 @@
+{
+  "event": 71998,
+  "observations": [
+    {
+      "host": "Dell1",
+      "event": 71991,
+      "files": 107,
+      "version": "a0e9a1e59478d43c6b7322a870f362cf37d0dbf41b869e1c0b6c6b0c22140146",
+      "receipt_sha256": "277f8d39e1970e07dc4e40ba333e0da33093e4bdb75d97e4ac537d1b57dc657b",
+      "receipt_bytes": 26567,
+      "operator": "Codex",
+      "scope": "Preflight infrastructure observation, not JARVIS implementation/test"
+    },
+    {
+      "host": "Dell2",
+      "event": 71997,
+      "files": 107,
+      "version": "a0e9a1e59478d43c6b7322a870f362cf37d0dbf41b869e1c0b6c6b0c22140146",
+      "receipt_sha256": "277f8d39e1970e07dc4e40ba333e0da33093e4bdb75d97e4ac537d1b57dc657b",
+      "receipt_bytes": 26567,
+      "operator": "Codex",
+      "scope": "Preflight infrastructure observation, not JARVIS implementation/test"
+    }
+  ],
+  "both_Dell_exact_same_source": true,
+  "software_tests_passed": 105
+}

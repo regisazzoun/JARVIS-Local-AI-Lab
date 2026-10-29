@@ -1,0 +1,1345 @@
+[
+  {
+    "id": 53553,
+    "kind": "codex_context_capability_installed",
+    "actor": "Codex",
+    "created": 1793095096.4536715,
+    "result": {
+      "instruction": "P3 SDK infrastructure maintenant apportée par Codex et installée dans le vrai Core.ollama et surlesdeuxDell : mission_context_budget.py. Nouveaux outils context_checkpoint(reason,pause_for_restart), context_resume(reference optionnel), context_recall(reference numérique,offset,limit). Pas une contribution de codeJARVIS. TA responsabilité : démonstration réelleP3 surlesdeuxDell, commandes et analyse choisies par toi. Révise ton plan v1 : ses lots purement inspectifs ne sont pas réceptionnables seuls. Regroupe en un lot de démonstrationP3 couvrant l'exigence exacte P3 ; critères, scénarios et commandes restent tes décisions. Profil tests de source seulement : aucun besoin de modifier artificiellement engine ; les commandes test peuvent créer des données expérimentales dans p3-output hors engine. L'acceptation exige deux exécutions testPASS surDell distincts au même manifeste engine. Ne confonds pas tests logiciels et démonstration. Démontrer : grande sortie réelle (au moins100000 caractères, reçucomplet préservé horsprompt), plusieurs sous-tâches, effet initial non dupliqué, checkpoint structuré puis pause_for_restart:true. Codex redémarre les workers autonomement ; à la reprise appelle context_resume puis vérifie l'effet non répété et les compteurs. Utilise context_recall pour consulter un ancien incident ciblé de cette mission. Capacité effective observée24576 ; octets=UTF8 estimationprudente, pas tokensmesurés. Les erreurs d'interface initiales restent dans SQLite, aucune remiseàzéro. Termine avec preuves et réserves. P4 attend. Autorisations propriétaire, AGENTS et charte conservées; aucun autre service/modèle/routage modifié.",
+      "modules": [
+        {
+          "host": "dell-observe",
+          "module": "core.py",
+          "receipt": "a21f5627c6eb4938b18db271bff3f925",
+          "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+        },
+        {
+          "host": "dell2",
+          "module": "core.py",
+          "receipt": "acda6e1c05784869b6ba6fb96fee1bef",
+          "sha256": "a8d898f30cc51aa9e358fcadb8cd60c55b2fe40dadcb36055a28583afa072f55"
+        },
+        {
+          "host": "dell-observe",
+          "module": "durable_cycle.py",
+          "receipt": "a2e63b0fad0d40e292c1ecca93f83ba7",
+          "sha256": "c75311657fe3517281d450f81fb4123621074ed8fbcb0e2577904256d4c07d18"
+        },
+        {
+          "host": "dell2",
+          "module": "durable_cycle.py",
+          "receipt": "db6fde5f66cb497487abc85ca9cd75ce",
+          "sha256": "c75311657fe3517281d450f81fb4123621074ed8fbcb0e2577904256d4c07d18"
+        },
+        {
+          "host": "dell-observe",
+          "module": "mission_store.py",
+          "receipt": "4ec1714466ea43818d4e45404f2c9538",
+          "sha256": "9a550695984881f9f401dbdf8eca533d7783ab46b5313954b99a08a0be259632"
+        },
+        {
+          "host": "dell2",
+          "module": "mission_store.py",
+          "receipt": "6951dcc2c39d4ed99c89f285778a6ab5",
+          "sha256": "9a550695984881f9f401dbdf8eca533d7783ab46b5313954b99a08a0be259632"
+        },
+        {
+          "host": "dell-observe",
+          "module": "distributed_authority.py",
+          "receipt": "3ab5cb864f84489a8842c7bf418d1c43",
+          "sha256": "54749522bb7c4fd3e95ad3d1acf8e3e7bb2c35453435f6cb26c581735cbc64cd"
+        },
+        {
+          "host": "dell2",
+          "module": "distributed_authority.py",
+          "receipt": "34d897ded98c4f3cb34629392bc90d00",
+          "sha256": "54749522bb7c4fd3e95ad3d1acf8e3e7bb2c35453435f6cb26c581735cbc64cd"
+        },
+        {
+          "host": "dell-observe",
+          "module": "tools.py",
+          "receipt": "a50485beb8134b6cbd1b123bedc4b63d",
+          "sha256": "043849ba95a5647dc6d2530d9d4b7568267f1aa6b08a872d97843f689edf19de"
+        },
+        {
+          "host": "dell2",
+          "module": "tools.py",
+          "receipt": "82bd9f8376664dae871c219c12cc1d14",
+          "sha256": "043849ba95a5647dc6d2530d9d4b7568267f1aa6b08a872d97843f689edf19de"
+        },
+        {
+          "host": "dell-observe",
+          "module": "mission_context_budget.py",
+          "receipt": "b4c62a36a5294254a0fb9051b0c35530",
+          "sha256": "f0e5a6e936dd638e8c6490b737cf74cc339cfffd325a5dde0674204eed07722e"
+        },
+        {
+          "host": "dell2",
+          "module": "mission_context_budget.py",
+          "receipt": "c30bfb3909834b7ab4d8e4563b8ddbd6",
+          "sha256": "f0e5a6e936dd638e8c6490b737cf74cc339cfffd325a5dde0674204eed07722e"
+        }
+      ],
+      "rollback": "/home/adminjarvis/JARVIS/mission26-phase2-private/p3-runtime-backup",
+      "tests": {
+        "local_targeted": 55,
+        "not_operational_autonomy": true,
+        "result": "PASS"
+      }
+    }
+  },
+  {
+    "id": 53557,
+    "kind": "codex_deployment_incident",
+    "actor": "Codex",
+    "created": 1793095103.2824192,
+    "result": {
+      "not_jarvis_fault": true,
+      "reason": "Restart requested before final module copy complete; one worker briefly failed import, automatic restart recovered after copy. Deployment now complete before reload. Mission stayed interrupted; no model command replayed"
+    }
+  },
+  {
+    "id": 53564,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095105.2175887,
+    "result": {
+      "archive": 53562,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095105.0003192,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53563,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 31176,
+      "response_reserved": 4096,
+      "sent_bytes": 18423,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53565,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095118.5428445,
+    "result": {
+      "actual_prompt_tokens": 5205,
+      "budget_event": 53564,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53584,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095121.4446046,
+    "result": {
+      "archive": 53582,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095121.1511822,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53583,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 46731,
+      "response_reserved": 4096,
+      "sent_bytes": 18392,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53585,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095132.4559867,
+    "result": {
+      "actual_prompt_tokens": 5209,
+      "budget_event": 53584,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53603,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095138.1291716,
+    "result": {
+      "archive": 53601,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095137.9635732,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53602,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 43129,
+      "response_reserved": 4096,
+      "sent_bytes": 18464,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53605,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095152.1671922,
+    "result": {
+      "actual_prompt_tokens": 5225,
+      "budget_event": 53603,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53628,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095155.3384223,
+    "result": {
+      "archive": 53626,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095155.1655898,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53627,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 49947,
+      "response_reserved": 4096,
+      "sent_bytes": 19106,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53629,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095167.586263,
+    "result": {
+      "actual_prompt_tokens": 5393,
+      "budget_event": 53628,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53638,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095168.4184275,
+    "result": {
+      "archive": 53636,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095168.3170953,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53637,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 38462,
+      "response_reserved": 4096,
+      "sent_bytes": 19106,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53639,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095179.8043985,
+    "result": {
+      "actual_prompt_tokens": 5395,
+      "budget_event": 53638,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53648,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095180.891958,
+    "result": {
+      "archive": 53646,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095180.6055174,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53647,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 40114,
+      "response_reserved": 4096,
+      "sent_bytes": 19106,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53649,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095192.5258038,
+    "result": {
+      "actual_prompt_tokens": 5400,
+      "budget_event": 53648,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53658,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095193.6228118,
+    "result": {
+      "archive": 53656,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095193.3164678,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53657,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 41880,
+      "response_reserved": 4096,
+      "sent_bytes": 19106,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53659,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095205.7990365,
+    "result": {
+      "actual_prompt_tokens": 5400,
+      "budget_event": 53658,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53668,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095206.76903,
+    "result": {
+      "archive": 53666,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095206.5191324,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53667,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 41430,
+      "response_reserved": 4096,
+      "sent_bytes": 19106,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53669,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095218.0785031,
+    "result": {
+      "actual_prompt_tokens": 5399,
+      "budget_event": 53668,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53678,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095218.9966006,
+    "result": {
+      "archive": 53676,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095218.8891633,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53677,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 41929,
+      "response_reserved": 4096,
+      "sent_bytes": 19106,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53680,
+    "kind": "codex_context_reply_fix",
+    "actor": "Codex",
+    "created": 1793095222.0145905,
+    "result": {
+      "cause": "Budget reduction dropped actual last tool content; model recalled checkpoint references repeatedly. Native assistant/tool pair now preferred over historical previews; targeted recall content retained. All original traces preserved",
+      "deployment": [
+        {
+          "host": "dell-observe",
+          "receipt": "8a77fd42c660408da0d81035cadac4be"
+        },
+        {
+          "host": "dell2",
+          "receipt": "ead74160c1884f908609b4820643766e"
+        }
+      ],
+      "tests": "13 software PASS"
+    }
+  },
+  {
+    "id": 53683,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095230.6505594,
+    "result": {
+      "actual_prompt_tokens": 5397,
+      "budget_event": 53678,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53692,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095267.9932632,
+    "result": {
+      "archive": 53690,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095267.695714,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53691,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 40513,
+      "response_reserved": 4096,
+      "sent_bytes": 14671,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53693,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095279.9575586,
+    "result": {
+      "actual_prompt_tokens": 3941,
+      "budget_event": 53692,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53703,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095281.228126,
+    "result": {
+      "archive": 53701,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095280.9425678,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53702,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 37988,
+      "response_reserved": 4096,
+      "sent_bytes": 16019,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53704,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095290.4751327,
+    "result": {
+      "actual_prompt_tokens": 4292,
+      "budget_event": 53703,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53713,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095291.7415638,
+    "result": {
+      "archive": 53711,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095291.423395,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53712,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 41140,
+      "response_reserved": 4096,
+      "sent_bytes": 17470,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53714,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095302.2839758,
+    "result": {
+      "actual_prompt_tokens": 4697,
+      "budget_event": 53713,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53723,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095303.277957,
+    "result": {
+      "archive": 53721,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095303.2180972,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53722,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 42534,
+      "response_reserved": 4096,
+      "sent_bytes": 17447,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53724,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095314.3227785,
+    "result": {
+      "actual_prompt_tokens": 5055,
+      "budget_event": 53723,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53733,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095315.3837793,
+    "result": {
+      "archive": 53731,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095315.1614227,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53732,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 45894,
+      "response_reserved": 4096,
+      "sent_bytes": 18432,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53734,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095326.2595198,
+    "result": {
+      "actual_prompt_tokens": 5061,
+      "budget_event": 53733,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53743,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095327.3655715,
+    "result": {
+      "archive": 53741,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095327.1600416,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53742,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 46167,
+      "response_reserved": 4096,
+      "sent_bytes": 17596,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53745,
+    "kind": "codex_context_reply_fix",
+    "actor": "Codex",
+    "created": 1793095335.092419,
+    "result": {
+      "cause": "Latest coordinator instruction was selected oldest-first after compaction, and automatic archive references prompted recursive recall. Retain newest instruction and explicitly identify automatic references as storage evidence, not required additional input. Original traces preserved",
+      "deployment": [
+        {
+          "host": "dell-observe",
+          "receipt": "1a8a0456692e48b3b85dd66cbc4c46be"
+        },
+        {
+          "host": "dell2",
+          "receipt": "b1511cda35e84199a53583ec25b98c7f"
+        }
+      ],
+      "tests": "14 software PASS"
+    }
+  },
+  {
+    "id": 53748,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095338.3074584,
+    "result": {
+      "actual_prompt_tokens": 4875,
+      "budget_event": 53743,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53757,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095377.6379478,
+    "result": {
+      "archive": 53755,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095377.412979,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53756,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 42144,
+      "response_reserved": 4096,
+      "sent_bytes": 15067,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53758,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095386.3787403,
+    "result": {
+      "actual_prompt_tokens": 4031,
+      "budget_event": 53757,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53772,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095390.9986384,
+    "result": {
+      "archive": 53770,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095390.686812,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53771,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 39318,
+      "response_reserved": 4096,
+      "sent_bytes": 16351,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53773,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095400.0128636,
+    "result": {
+      "actual_prompt_tokens": 4495,
+      "budget_event": 53772,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53782,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095401.0097017,
+    "result": {
+      "archive": 53780,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095400.698868,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53781,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 43427,
+      "response_reserved": 4096,
+      "sent_bytes": 19042,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53783,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095412.511967,
+    "result": {
+      "actual_prompt_tokens": 5139,
+      "budget_event": 53782,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53792,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095413.577702,
+    "result": {
+      "archive": 53790,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095413.2696996,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53791,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 45996,
+      "response_reserved": 4096,
+      "sent_bytes": 18458,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53793,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095424.403142,
+    "result": {
+      "actual_prompt_tokens": 5047,
+      "budget_event": 53792,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53802,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095425.4225333,
+    "result": {
+      "archive": 53800,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095425.1181004,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53801,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 47750,
+      "response_reserved": 4096,
+      "sent_bytes": 18573,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53803,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095435.4310052,
+    "result": {
+      "actual_prompt_tokens": 5031,
+      "budget_event": 53802,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53812,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095436.4615235,
+    "result": {
+      "archive": 53810,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095436.1478832,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53811,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 47242,
+      "response_reserved": 4096,
+      "sent_bytes": 18458,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53813,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095447.2326884,
+    "result": {
+      "actual_prompt_tokens": 5046,
+      "budget_event": 53812,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53822,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095448.3144307,
+    "result": {
+      "archive": 53820,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095448.113685,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53821,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 42879,
+      "response_reserved": 4096,
+      "sent_bytes": 16334,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53823,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095458.746253,
+    "result": {
+      "actual_prompt_tokens": 4555,
+      "budget_event": 53822,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53832,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095459.915642,
+    "result": {
+      "archive": 53830,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095459.657827,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53831,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 38386,
+      "response_reserved": 4096,
+      "sent_bytes": 16269,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53836,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095469.0124831,
+    "result": {
+      "actual_prompt_tokens": 4535,
+      "budget_event": 53832,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53845,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095508.270475,
+    "result": {
+      "archive": 53843,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095507.963459,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53844,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 22513,
+      "response_reserved": 4096,
+      "sent_bytes": 12386,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53846,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095518.6814737,
+    "result": {
+      "actual_prompt_tokens": 3703,
+      "budget_event": 53845,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53857,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095519.9619694,
+    "result": {
+      "archive": 53855,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095519.7347763,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53856,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 24962,
+      "response_reserved": 4096,
+      "sent_bytes": 13396,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53858,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095530.6329126,
+    "result": {
+      "actual_prompt_tokens": 3987,
+      "budget_event": 53857,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53869,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095531.8614855,
+    "result": {
+      "archive": 53867,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095531.6120105,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53868,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 27277,
+      "response_reserved": 4096,
+      "sent_bytes": 13765,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53870,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095543.5982087,
+    "result": {
+      "actual_prompt_tokens": 4086,
+      "budget_event": 53869,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53881,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095544.8901997,
+    "result": {
+      "archive": 53879,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095544.5916862,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53880,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 28424,
+      "response_reserved": 4096,
+      "sent_bytes": 13975,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53883,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095562.9379284,
+    "result": {
+      "actual_prompt_tokens": 4167,
+      "budget_event": 53881,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  },
+  {
+    "id": 53893,
+    "kind": "context_budget_checked",
+    "actor": "JARVIS-engine",
+    "created": 1793095563.9317284,
+    "result": {
+      "archive": 53891,
+      "capacity": {
+        "configured_limit": 24576,
+        "limit": 24576,
+        "model": "qwen3-coder-next:q4_K_M",
+        "node": "Dell1",
+        "observation_error": null,
+        "observed_at": 1793095563.6893027,
+        "observed_loaded_limit": 24576,
+        "source": "configured limit and actual api/ps"
+      },
+      "checkpoint": 53892,
+      "compacted": true,
+      "estimator": "conservative UTF-8 serialized bytes, NOT measured tokens",
+      "input_budget_estimate": 19456,
+      "original_bytes": 31959,
+      "response_reserved": 4096,
+      "sent_bytes": 17649,
+      "template_margin": 1024,
+      "within_budget": true
+    }
+  },
+  {
+    "id": 53894,
+    "kind": "context_backend_usage",
+    "actor": "JARVIS-engine",
+    "created": 1793095576.4932344,
+    "result": {
+      "actual_prompt_tokens": 5158,
+      "budget_event": 53893,
+      "effective_context": 24576,
+      "model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "response_reserved": 4096,
+      "within_effective_context": true
+    }
+  }
+]

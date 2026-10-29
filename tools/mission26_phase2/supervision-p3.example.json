@@ -1,0 +1,25 @@
+{
+  "private": "/home/adminjarvis/JARVIS/mission26-phase2-private/supervision",
+  "register": "/var/lib/jarvis/projects/mission26-phase2/REGISTRE-CODEX.json",
+  "repo": "/home/adminjarvis/JARVIS/mission26-phase2",
+  "allowed_tasks": [
+    "P3"
+  ],
+  "no_productive_seconds": 600,
+  "allowed_mission_ids": [
+    "9e4a61d6faea4b73ad31251e72dcf7c1"
+  ],
+  "monitor_units": [
+    "jarvis-mission-worker.service",
+    "jarvis-mission-worker@2.service",
+    "jarvis-host-bridge.service",
+    "jarvis-conversation.service",
+    "jarvis-launcher3.service",
+    "jarvis-m26-p2-supervision.timer",
+    "jarvis-mission-health.timer",
+    "jarvis-m26-p2-supervision.service"
+  ],
+  "health_max_age_seconds": 180,
+  "service_recovery_grace_seconds": 60,
+  "coordinator_service": "jarvis-m26-p2-supervision.service"
+}

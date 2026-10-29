@@ -1,3 +1,7 @@
+## Mise à jour du26octobre2026 — réception ciblée M26-P2
+
+Les dix scénarios P2 ont leurs contrôles indépendants, verdict VALIDÉ AVEC RÉSERVES sur le parcours natif opt-in. S09 assisté par Codex ; migration globale des chemins historiques non reçue. Phase2 non clôturée, P3/P4 non transmises. Voir [réception et limites](26-P2/M26_P2_RAPPORT_FINAL.md), PR29. Ne pas rejouer les cas négatifs ni lancer14A/24-Old par déduction.
+
 ## Décision propriétaire du24octobre2026 — lancement et livraisonJL-03
 
 Mission27 expressément lancée malgré les séquences historiques conservées ci-dessous. V3 séparée livrée pour essais avec réserves : [rapport27](27-JL-03/RAPPORT-FINAL.md). Le Sandbox est remplacé par le flux chronologique intégral des événements/actions/sorties disponibles, sans prétendu raisonnement interne. DépôtJARVIS-Launcher3/port8766 ; JL-01/JL-02préservés. Autonomie sans assistance non reçue ;14Aet24-Oldrestent distinctes non lancées, Dell2inactif.28AetTTS-01conservent leurs clôtures précédentes.

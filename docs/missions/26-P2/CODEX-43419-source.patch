@@ -1,0 +1,28 @@
+--- engine/jarvis/mission_store.py
++++ engine/jarvis/mission_store.py
+@@ -46,9 +46,22 @@
+             if not isinstance(reference, int):
+                 raise ValueError("SUCCESS reference must be an integer event ID")
+             with self.db() as db:
+-                cur = db.execute("SELECT id FROM mission_events WHERE mission=? AND id=?", (mission, reference))
+-                if cur.fetchone() is None:
+-                    raise ValueError(f"SUCCESS reference {reference} not found in mission_events for mission {mission}")
++                row = db.execute("SELECT kind,tool,result FROM mission_events WHERE mission=? AND id=?", (mission, reference)).fetchone()
++            if row is None:
++                raise ValueError("SUCCESS reference not found in the same mission")
++            observation = json.loads(row['result'])
++            if row['kind'] == 'authority_execution':
++                execution = observation.get('execution', {})
++            elif row['kind'] == 'tool_finished' and row['tool'] == 'host_remote' and observation.get('ok') is True:
++                payload = observation.get('result', {})
++                execution = payload.get('execution', payload)
++                if payload.get('returncode', 0) != 0:
++                    raise ValueError("SUCCESS reference has a failed transport")
++            else:
++                raise ValueError("SUCCESS requires an observed execution, not a plan")
++            code = execution.get('returncode')
++            if type(code) is not int or code != 0:
++                raise ValueError("SUCCESS requires an observed successful child process")
+         if reference is not None:
+             result = {"state": state, "reference": str(reference)}
+         else:

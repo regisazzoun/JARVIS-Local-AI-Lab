@@ -1,0 +1,25 @@
+{
+  "strategy_event": 76663,
+  "proposal_event": 76621,
+  "application_event": 76636,
+  "codex_controls_event": 76653,
+  "resolution_event": 76660,
+  "candidate_reference": 76661,
+  "preflight_event": 76670,
+  "input_bytes": 27380,
+  "budget": 27648,
+  "module_sha256": "2291e13d5d7db220effaacea603c69b8e0aca8a3632ee31067e92dc1dca0421a",
+  "attribution": {
+    "algorithm": "Qwen80B after Codex diagnostic; first proposal rejected and revised",
+    "review_and_application": "Codex after escalation",
+    "capability_tests": "Codex on Dell1, core4+variable2 PASS",
+    "agent_validation": "JARVIS pending both Dell"
+  },
+  "old_qualified_failures": 3,
+  "old_rectified_classifications": 2,
+  "historical_total": 5,
+  "canonical_correction_problem_remains_escalated": true,
+  "next_scope": "same mission/plan/task, read-only exact-version probes on both Dell",
+  "P3_received": false,
+  "P4": "WAITING"
+}

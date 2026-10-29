@@ -1,0 +1,177 @@
+"""Persistent attempt states in the canonical MissionStore SQLite; no second engine."""
+import hashlib,json,time,uuid
+
+STATES={'PENDING','DISPATCHED','RUNNING','NOT_EXECUTED','EXECUTION_FAILED','EXECUTED_TEST_FAILED','VALIDATION_INCONCLUSIVE','SUCCESS','BLOCKED','ESCALATED'}
+TRANSITIONS={
+ 'PENDING':{'DISPATCHED','NOT_EXECUTED','BLOCKED'},
+ 'DISPATCHED':{'RUNNING','NOT_EXECUTED','VALIDATION_INCONCLUSIVE'},
+ 'RUNNING':{'EXECUTION_FAILED','EXECUTED_TEST_FAILED','VALIDATION_INCONCLUSIVE','SUCCESS'},
+ 'VALIDATION_INCONCLUSIVE':{'NOT_EXECUTED','RUNNING','EXECUTION_FAILED','EXECUTED_TEST_FAILED','SUCCESS','BLOCKED'},
+ 'NOT_EXECUTED':{'DISPATCHED','BLOCKED'},'EXECUTION_FAILED':{'BLOCKED'},'EXECUTED_TEST_FAILED':{'BLOCKED'},'BLOCKED':{'ESCALATED'}}
+def encoded(value):return json.dumps(value,sort_keys=True,ensure_ascii=False)
+def digest(value):return hashlib.sha256(encoded(value).encode()).hexdigest()
+class AttemptLedger:
+ def __init__(self,store,mission):
+  self.store=store;self.m=mission;store.get(mission)
+  with store.db() as c:
+   c.executescript('''CREATE TABLE IF NOT EXISTS mission_problems_v2(
+    mission TEXT NOT NULL,scope TEXT NOT NULL,fingerprint TEXT NOT NULL,descriptor TEXT NOT NULL,
+    failed_cycles INTEGER NOT NULL DEFAULT 0,infra_incidents INTEGER NOT NULL DEFAULT 0,
+    state TEXT NOT NULL DEFAULT 'OPEN',escalation_event INTEGER,
+    PRIMARY KEY(mission,fingerprint),UNIQUE(mission,scope));
+   CREATE TABLE IF NOT EXISTS mission_attempts_v2(
+    id TEXT PRIMARY KEY,mission TEXT NOT NULL,problem TEXT NOT NULL,operation_key TEXT NOT NULL,
+    signature TEXT NOT NULL,executor TEXT NOT NULL,phase TEXT NOT NULL,request TEXT NOT NULL,
+    state TEXT NOT NULL,unknown_outcome INTEGER NOT NULL DEFAULT 0,result TEXT NOT NULL DEFAULT '{}',
+    created REAL NOT NULL,updated REAL NOT NULL,
+    UNIQUE(mission,problem,operation_key),UNIQUE(mission,problem,signature));''')
+   if 'infra_resolved_through' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
+    c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN infra_resolved_through INTEGER NOT NULL DEFAULT 0')
+   if 'misclassified_failed_cycles' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
+    c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN misclassified_failed_cycles INTEGER NOT NULL DEFAULT 0')
+ def reclassify_unloaded_test(self,reference,evidence):
+  """Rectify proved loader failures, retaining raw totals and original events.
+
+  This is a coordinator audit, never an agent retry/reset operation.
+  """
+  if self.store.get(self.m)['state']!='interrupted':raise ValueError('Classification audit requires interrupted execution')
+  from .authority_attempts import test_not_loaded
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   proof=c.execute('SELECT actor,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
+   if not proof or proof['actor'] not in ('Codex','Codex-periodic') or proof['kind']!='coordinator_test_loading_failure_verified':raise ValueError('Explicit coordinator loader-failure verification required')
+   data=json.loads(proof['result'])
+   if data.get('test_reference')!=reference or data.get('verified') is not True:raise ValueError('Verification must bind the exact test execution')
+   event=c.execute("SELECT result FROM mission_events WHERE mission=? AND id=? AND kind='authority_execution'",(self.m,reference)).fetchone()
+   if not event:raise ValueError('Native test execution absent')
+   observation=json.loads(event['result']);execution=observation.get('execution',{})
+   if observation.get('kind')!='test' or observation.get('before')!=observation.get('after') or execution.get('returncode')==0 or execution.get('output_truncated') or execution.get('stdout_model_excerpt') or execution.get('stderr_model_excerpt') or not test_not_loaded(execution):raise ValueError('Complete native evidence does not prove a pure loader failure')
+   prior=c.execute("SELECT id,result FROM mission_events WHERE mission=? AND kind='p2_test_classification_corrected' AND json_extract(result,'$.test_reference')=?",(self.m,reference)).fetchone()
+   if prior:return {**json.loads(prior['result']),'event':prior['id'],'cached':True}
+   corrections=[]
+   for row in c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=?',(self.m,)).fetchall():
+    result=json.loads(row['result']);related=str(result.get('failed_test_reference',''))==str(reference)
+    own=str(result.get('value',{}).get('reference',''))==str(reference)
+    if related:
+     counted=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_problem_counter' AND json_extract(result,'$.attempt')=? AND json_extract(result,'$.counter')='failed_cycles'",(self.m,row['id'])).fetchone()
+     if not counted or not result.get('failure_counted'):raise ValueError('Counted functional failure not established')
+     problem=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
+     if problem['failed_cycles']<1:raise ValueError('Qualified counter cannot become negative')
+     c.execute('UPDATE mission_problems_v2 SET failed_cycles=failed_cycles-1,misclassified_failed_cycles=misclassified_failed_cycles+1,infra_incidents=infra_incidents+1 WHERE mission=? AND fingerprint=?',(self.m,row['problem']))
+     corrections.append({'attempt':row['id'],'problem':row['problem'],'old_qualified_failed_cycles':problem['failed_cycles'],'new_qualified_failed_cycles':problem['failed_cycles']-1,'historical_total_preserved':problem['failed_cycles']+problem['misclassified_failed_cycles']})
+     result.update(verification_not_executed=True,failure_counted=False,misclassified_failure_verification=evidence)
+     c.execute("UPDATE mission_attempts_v2 SET state='VALIDATION_INCONCLUSIVE',unknown_outcome=0,result=?,updated=? WHERE id=?",(encoded(result),time.time(),row['id']))
+    elif own:
+     result.update(verification_not_executed=True,classification_verification=evidence)
+     if isinstance(result.get('value'),dict):result['value']={**result['value'],'test_executed':False,'classification_verification':evidence}
+     c.execute("UPDATE mission_attempts_v2 SET state='EXECUTION_FAILED',result=?,updated=? WHERE id=?",(encoded(result),time.time(),row['id']))
+   for problem in {row['problem'] for row in corrections}:
+    c.execute("UPDATE mission_problems_v2 SET state='OPEN' WHERE mission=? AND fingerprint=? AND failed_cycles<3 AND infra_incidents-infra_resolved_through<3 AND state IN ('BLOCKED','ESCALATED')",(self.m,problem))
+   result={'test_reference':reference,'verification_event':evidence,'test_execution_status':'NOT_EXECUTED','command_executed':True,'corrections':corrections,'original_events_preserved':True,'not_a_counter_reset':True}
+   result['event']=self.store.event(self.m,'p2_test_classification_corrected',actor='Codex',result=result,connection=c)
+   return result
+ def resolve_infrastructure(self,problem,evidence):
+  """Acknowledge verified infrastructure repair; never erase failures or unknown effects."""
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   proof=c.execute('SELECT actor,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
+   if not proof or proof['actor'] not in ('Codex','Codex-periodic') or proof['kind']!='coordinator_infrastructure_verified':raise ValueError('Infrastructure resolution needs an explicit coordinator verification event')
+   data=json.loads(proof['result']);refs=data.get('evidence_events',[])
+   if data.get('problem')!=problem or data.get('verified') is not True or not refs:raise ValueError('Verified repair must bind this exact problem and its evidence')
+   for ref in refs:
+    if type(ref) is not int or ref==evidence or not c.execute('SELECT id FROM mission_events WHERE mission=? AND id=?',(self.m,ref)).fetchone():raise ValueError('Repair evidence absent from this mission')
+   p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,problem)).fetchone()
+   if not p or p['failed_cycles']>=3:raise ValueError('Three functional failures remain escalated; infrastructure repair cannot reset them')
+   if c.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone():raise ValueError('Observe pending or unknown effects before infrastructure resolution')
+   c.execute("UPDATE mission_problems_v2 SET infra_resolved_through=infra_incidents,state='RESOLVED' WHERE mission=? AND fingerprint=?",(self.m,problem))
+   return self.store.event(self.m,'p2_infrastructure_resolution',actor='JARVIS-engine',result={'problem':problem,'verification_event':evidence,'infra_incidents':p['infra_incidents'],'infra_resolved_through':p['infra_incidents'],'failed_cycles':p['failed_cycles'],'old_attempts_and_totals_unchanged':True},connection=c)
+ def problem(self,scope,descriptor):
+  fingerprint=digest({'mission':self.m,'scope':scope,'descriptor':descriptor})
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   row=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND scope=?',(self.m,scope)).fetchone()
+   if row and row['fingerprint']!=fingerprint:raise ValueError('Owner problem contract immutable; aliases cannot change its identity')
+   if not row:c.execute('INSERT INTO mission_problems_v2(mission,scope,fingerprint,descriptor) VALUES(?,?,?,?)',(self.m,scope,fingerprint,encoded(descriptor)))
+  return fingerprint
+ def begin(self,problem,key,executor,phase,request):
+  signature=digest({'executor':executor,'phase':phase,'request':request})
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,problem)).fetchone()
+   if not p:raise ValueError('Problem not registered')
+   same=c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND operation_key=?',(self.m,problem,key)).fetchone()
+   if same and same['signature']!=signature:raise ValueError('Operation key conflicts with original request; nothing executed')
+   if p['state'] in ('BLOCKED','ESCALATED'):
+    event=self.store.event(self.m,'p2_attempt_rejected',actor='JARVIS-engine',result={'problem':problem,'operation_key':key,'reason':'three failed cycles/incidents; no autonomous fourth','failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents']},connection=c)
+    return {'blocked':True,'state':p['state'],'event':event,'problem':problem}
+   same=same or c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND signature=?',(self.m,problem,signature)).fetchone()
+   pending=c.execute("SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone()
+   if pending:return {'requires_observation':True,'attempt':pending['id'],'state':pending['state'],'problem':problem}
+   if same:
+    repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,problem,same['updated'])).fetchone() if same['state']=='NOT_EXECUTED' and p['state']=='RESOLVED' else None
+    if repair:return {'attempt':same['id'],'state':'NOT_EXECUTED','problem':problem,'verified_retry':repair['id']}
+    return {'cached':True,'attempt':same['id'],'state':same['state'],'result':json.loads(same['result']),'problem':problem}
+   ident=uuid.uuid4().hex;now=time.time()
+   c.execute('INSERT INTO mission_attempts_v2(id,mission,problem,operation_key,signature,executor,phase,request,state,created,updated) VALUES(?,?,?,?,?,?,?,?,?,?,?)',(ident,self.m,problem,key,signature,executor,phase,encoded(request),'PENDING',now,now))
+   self.store.event(self.m,'p2_attempt_transition',actor='JARVIS-engine',result={'attempt':ident,'problem':problem,'from':None,'state':'PENDING','executor':executor},connection=c)
+   return {'attempt':ident,'problem':problem,'state':'PENDING'}
+ def get(self,attempt):
+  with self.store.db() as c:row=c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND id=?',(self.m,attempt)).fetchone()
+  if not row:raise ValueError('Attempt absent from this mission')
+  result=dict(row);result['request']=json.loads(result['request']);result['result']=json.loads(result['result']);return result
+ def transition(self,attempt,state,evidence=None,result=None,unknown=None):
+  if state not in STATES:raise ValueError('Unknown attempt state')
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE');row=c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND id=?',(self.m,attempt)).fetchone()
+   if not row or state not in TRANSITIONS.get(row['state'],set()):raise ValueError('Illegal attempt transition '+str(row['state'] if row else None)+' -> '+state)
+   if row['state']=='NOT_EXECUTED' and state=='DISPATCHED':
+    problem=c.execute('SELECT state,failed_cycles,infra_incidents,infra_resolved_through FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
+    repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,row['problem'],row['updated'])).fetchone()
+    if not repair or problem['state']!='RESOLVED' or problem['failed_cycles']>=3 or problem['infra_incidents']-problem['infra_resolved_through']>=3:raise ValueError('Known non-execution retry requires a later verified infrastructure repair')
+    result={'verified_retry':repair['id'],'previous_result':json.loads(row['result'])};unknown=False
+   if state not in ('DISPATCHED','BLOCKED'):
+    proof=c.execute('SELECT id,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
+    if not proof:raise ValueError('Observed state requires same-mission evidence event')
+   if state not in ('DISPATCHED','BLOCKED'):
+    observed=json.loads(proof['result'] or '{}')
+    expected_kind={'RUNNING':'p2_started_observed','NOT_EXECUTED':'p2_dispatch_failure_observed','EXECUTION_FAILED':'p2_result_observed','EXECUTED_TEST_FAILED':'p2_result_observed','SUCCESS':'p2_result_observed','ESCALATED':'p2_escalation'}.get(state)
+    if expected_kind and proof['kind']!=expected_kind:raise ValueError('Evidence is not an observation for this transition')
+    if observed.get('attempt')!=attempt:raise ValueError('Evidence belongs to another attempt')
+    if state=='RUNNING' and not observed.get('marker',{}).get('child_started'):raise ValueError('No observed child start')
+    if state=='NOT_EXECUTED' and observed.get('known_not_executed') is not True:raise ValueError('Non-execution not established')
+    if state=='VALIDATION_INCONCLUSIVE' and proof['kind'] not in ('p2_result_observed','p2_dispatch_failure_observed'):raise ValueError('Missing uncertainty observation')
+    if state in ('SUCCESS','EXECUTION_FAILED','EXECUTED_TEST_FAILED') and observed.get('observation')!=result:raise ValueError('Result differs from original observed evidence')
+   if state=='SUCCESS':
+    if not result or result.get('returncode')!=0 or result.get('verified') is not True or not result.get('started'):
+     raise ValueError('SUCCESS requires observed start, child0 and actual verification PASS')
+   c.execute('UPDATE mission_attempts_v2 SET state=?,unknown_outcome=?,result=?,updated=? WHERE id=?',(state,row['unknown_outcome'] if unknown is None else int(unknown),encoded(result if result is not None else json.loads(row['result'])),time.time(),attempt))
+   event=self.store.event(self.m,'p2_attempt_transition',actor='JARVIS-engine',result={'attempt':attempt,'problem':row['problem'],'from':row['state'],'state':state,'evidence':evidence,'unknown_outcome':unknown},connection=c)
+   return event
+ def failure(self,attempt,*,correction_changed=False,infrastructure=False):
+  row=self.get(attempt)
+  if row['result'].get('failure_counted'):return
+  if infrastructure and row['state'] not in ('NOT_EXECUTED','VALIDATION_INCONCLUSIVE'):raise ValueError('No observed infrastructure failure')
+  if not infrastructure and row['state'] not in ('EXECUTION_FAILED','EXECUTED_TEST_FAILED'):raise ValueError('No observed failed correction')
+  escalate=None
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE');result=json.loads(c.execute('SELECT result FROM mission_attempts_v2 WHERE id=?',(attempt,)).fetchone()['result'])
+   if result.get('failure_counted'):return
+   field='infra_incidents' if infrastructure or not correction_changed else 'failed_cycles'
+   c.execute('UPDATE mission_problems_v2 SET '+field+'='+field+'+1 WHERE mission=? AND fingerprint=?',(self.m,row['problem']))
+   result['failure_counted']=True;c.execute('UPDATE mission_attempts_v2 SET result=? WHERE id=?',(encoded(result),attempt))
+   p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
+   self.store.event(self.m,'p2_problem_counter',actor='JARVIS-engine',result={'attempt':attempt,'problem':row['problem'],'counter':field,'failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents']},connection=c)
+   if p['failed_cycles']>=3 or p['infra_incidents']-p['infra_resolved_through']>=3:
+    c.execute("UPDATE mission_problems_v2 SET state='BLOCKED' WHERE mission=? AND fingerprint=?",(self.m,row['problem']))
+    e=self.store.event(self.m,'p2_escalation',actor='JARVIS-engine',result={'problem':row['problem'],'attempt':attempt,'failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents'],'reason':'Three confirmed failures; no fourth autonomous correction','request_to':'Codex','evidence':result},connection=c)
+    c.execute("UPDATE mission_problems_v2 SET state='ESCALATED',escalation_event=? WHERE mission=? AND fingerprint=?",(e,self.m,row['problem']))
+    escalate=e
+    self.store.event(self.m,'p2_problem_transition',actor='JARVIS-engine',result={'problem':row['problem'],'states':['BLOCKED','ESCALATED'],'evidence':e},connection=c)
+  if escalate:
+   self.transition(attempt,'BLOCKED',evidence=escalate)
+   self.transition(attempt,'ESCALATED',evidence=escalate)
+ def snapshot(self):
+  with self.store.db() as c:
+   problems=[dict(r) for r in c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
+   attempts=[dict(r) for r in c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? ORDER BY created,id',(self.m,))]
+  return {'mission':self.m,'problems':problems,'attempts':attempts}

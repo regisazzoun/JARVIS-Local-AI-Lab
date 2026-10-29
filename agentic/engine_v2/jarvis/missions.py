@@ -53,6 +53,11 @@ class Missions:
         # New user goals use semantic/autonomous contracts by default.
         # Explicit historical task specs and persisted missions keep their mode.
         spec=dict(spec or {})
+        if spec.get('distributed_authority'):
+            spec.setdefault('authority_engine_operation_ids',True)
+        from .mission_context_budget import result_objective
+        objective=result_objective(self.core.config)
+        if objective:spec['context_result_objective']=objective
         if not spec.get('tasks'):
             spec.setdefault('autonomous',True)
             if spec.get('autonomous'): spec.setdefault('assurance',True)
@@ -180,6 +185,12 @@ class Missions:
                     self.store.transition(row['id'],'publishing' if pending else 'completed',delay=10 if pending else 0)
                     continue
                 if self.defer_waiting_tasks(row):continue
+                from .worker_recovery import blocked_problem
+                blocked=blocked_problem(self.store,row['id'])
+                if blocked:
+                    self.store.event(row['id'],'worker_dispatch_blocked',actor='JARVIS-engine',result={'problem':blocked,'reason':'Persistent escalation; no fourth automatic dispatch'})
+                    self.store.transition(row['id'],'interrupted',blocked)
+                    continue
                 result = self.cycle.run(row)
                 tasks = self.store.tasks(row['id'])
                 if result.get('progress'):self.publish_progress(row)
@@ -195,8 +206,9 @@ class Missions:
                         c.execute('UPDATE missions SET stagnant_cycles=stagnant_cycles+1 WHERE id=?',(row['id'],))
                         stagnant=c.execute('SELECT stagnant_cycles FROM missions WHERE id=?',(row['id'],)).fetchone()[0]
                     if stagnant>=3:
-                        state='blocked'
-                        result['blockage']='Trois cycles sans nouvelle observation utile ; reprise technique automatique après attente, sans nouvelle validation humaine.'
+                        state='interrupted'
+                        result['blockage']='Trois cycles sans observation utile : stratégie suspendue, diagnostic et escalade Codex; aucune quatrième reprise identique automatique.'
+                        self.store.event(row['id'],'p2_escalation',actor='JARVIS-engine',result={'reason':result['blockage'],'stagnant_cycles':stagnant,'request_to':'Codex'})
                 if state=='completed':self.record_final(row)
                 self.store.transition(row['id'], state, result, delay=60 if state=='blocked' else 0 if result.get('progress') else 10,
                                       progress=bool(result.get('progress')))
@@ -204,9 +216,10 @@ class Missions:
                 if row: self.store.transition(row['id'], 'interrupted')
             except Exception as exc:
                 if row:
-                    # No fixed attempt limit: a recoverable transport failure retains all work.
+                    from .worker_recovery import record_failure
+                    recovery=record_failure(self.store,row,exc)
                     self.store.event(row['id'], 'cycle_error', result={'error': str(exc), 'type': type(exc).__name__})
-                    self.store.transition(row['id'], 'retrying', {'error': str(exc)}, delay=min(60, 2**min(row['attempts'], 6)))
+                    self.store.transition(row['id'], 'interrupted' if recovery['stop'] else 'retrying', {'error':str(exc),'recovery':recovery},delay=0 if recovery['stop'] else min(60,2**min(row['attempts'],6)))
             finally:
                 done.set()
                 self.execution_core.tools.context = {}

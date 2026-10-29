@@ -190,3 +190,22 @@ Après trois échecs comparables, arrêter immédiatement la stratégie en cours
 Si la recherche et les corrections bornées ne permettent pas de résoudre le blocage, demander explicitement l'intervention deCodex avec un dossier succinct : objectif bloqué, cause observée, approches et tentatives, erreurs exactes/références, correction envisagée et aide attendue. L'appel est désormais permis aussi pour un blocage persistant, pas seulement pour une capacité manquante. Ne pas poursuivre seul une boucle sans progrès. Si l'outil de demande n'est pas disponible dans la phase courante, conserver la demande prête dans mission_note et le journal pour transmission ; ne pas inventer une demande enregistrée.
 
 Si l'assistance est indisponible, conserver ce dossier et continuer les tâches indépendantes réalisables. Codex intervient ponctuellement puis rend la main. Les interdictionsOllama/routage/répartition/autres changements d'architecture restent strictement inchangées.
+
+
+## Contexte Qwen80B — décision propriétaire du27octobre2026
+
+Après essai réel concluant surDell1, fenêtre totale32768tokens, réponse4096 et marge1024 réservées. Cette fenêtre doit figurer comme objectif de résultat dans les tâches avant transmission ; redécouper tout paquet trop grand, conserver les preuves hors contexte. Contrôle conservateur avant envoi, distinct du nombre exact de tokens backend. Aucun dépassement automatique ni troncature silencieuse. Ne pas étendre cette réception de capacité à une réception P4 ou14A.
+
+## Continuité opérationnelle — directive propriétaire du 29 octobre 2026
+
+Consigne permanente pour toutes les missions autorisées : en cas de blocage,
+arrêter la stratégie infructueuse, diagnostiquer, corriger si nécessaire et
+relancer depuis le checkpoint utile sans attendre une nouvelle sollicitation
+humaine. La limite de trois échecs comparables reste obligatoire : elle arrête
+une stratégie et déclenche son escalade, pas l’abandon silencieux de la mission.
+Codex traite l’escalade, vérifie le changement technique et rend la main à
+JARVIS ; les compteurs et preuves restent persistants. Ni redémarrage aveugle,
+ni remise à zéro, ni quatrième tentative identique sous un autre nom.
+Les travaux indépendants continuent. Une dépendance externe réellement absente
+reste explicitement bloquée ; ne pas annoncer une activité inexistante.
+Aucune nouvelle validation humaine pour les opérations déjà autorisées.

@@ -1,0 +1,16 @@
+{
+  "source_commit": "cbd0a70",
+  "no_inference": true,
+  "context_bytes": 26273,
+  "input_budget": 27648,
+  "offered_tools": [
+    "mission_note",
+    "authority_analyze",
+    "authority_draft_edit",
+    "authority_apply_draft",
+    "authority_edit"
+  ],
+  "plan_version": 3,
+  "scope": "Explicit short coding packet; tests and normal tools return after actual correction; no counter reset",
+  "event": 64628
+}

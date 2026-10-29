@@ -1,0 +1,21 @@
+{
+  "mission": "c32347de3edf4288a4751a3e65afa7eb",
+  "diagnostic": 77179,
+  "verified_api": 77183,
+  "resolution": 77184,
+  "instruction": 77180,
+  "preflight_bytes": 18472,
+  "state_after": "queued",
+  "plan_version": 3,
+  "P4_received": false,
+  "actors": {
+    "repair": "Codex-periodic",
+    "next_decisions_and_execution": "JARVIS/Qwen80B and Dell executors"
+  },
+  "counters_preserved": true,
+  "observed_worker_cycle": 77186,
+  "observed_runtime_budget_event": 77191,
+  "observed_runtime_input_bytes": 27058,
+  "state_observed": "running",
+  "application_result_received": false
+}

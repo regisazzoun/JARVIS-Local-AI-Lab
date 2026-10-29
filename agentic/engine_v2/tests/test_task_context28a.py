@@ -10,6 +10,21 @@ from jarvis.durable_cycle import task_schemas
 
 
 class TaskContextTests(unittest.TestCase):
+    def test_execution_focus_changes_schemas_without_changing_plan(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);memory=Memory(root/'runtime/memory.sqlite');cfg=json.loads((ROOT/'config/example.json').read_text())
+            cfg.update(durable_num_ctx=32768,durable_cycle_rounds=1)
+            core=Core(cfg,memory);engine=Missions(core,root,start_worker=False);s=engine.store
+            m=s.create('fixture','local','conv',spec={'execution_tool_focus':{'active':['host_write_file','mission_verify']}})
+            s.plan(m,[{'id':'active','title':'write existing report','depends':[],'tools':['host_exec']}])
+            before=s.plans(m);seen=[]
+            def transport(payload):
+                seen.append({x['function']['name'] for x in payload['tools']})
+                return {'role':'assistant','content':'Fixture only'}
+            engine.execution_core.transport=transport;engine.cycle.run(s.get(m))
+            self.assertIn('host_write_file',seen[0]);self.assertIn('mission_verify',seen[0])
+            self.assertNotIn('host_exec',seen[0]);self.assertEqual(before,s.plans(m))
+
     def test_new_task_does_not_replay_other_task_receipts_or_completion_claims(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);memory=Memory(root/'runtime/memory.sqlite');cfg=json.loads((ROOT/'config/example.json').read_text())

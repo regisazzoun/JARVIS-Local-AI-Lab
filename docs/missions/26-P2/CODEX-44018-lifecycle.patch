@@ -1,0 +1,18 @@
+--- a/engine/jarvis/mission_store.py
++++ b/engine/jarvis/mission_store.py
+@@ -337,7 +337,14 @@
+             row = c.execute('SELECT * FROM tool_calls WHERE id=?', (token,)).fetchone()
+             c.execute('UPDATE tool_calls SET state=?,result=?,updated=? WHERE id=?', ('finished', encoded(result), time.time(), token))
+             c.execute('INSERT INTO checkpoints(mission,tool,result,created) VALUES(?,?,?,?)', (row['mission'], row['tool'], encoded(result), time.time()))
+-            self.event(row['mission'], 'tool_finished', row['task'], 'JARVIS', row['tool'], json.loads(row['arguments']), result, duration, token, c)
++            observation = self.event(row['mission'], 'tool_finished', row['task'], 'JARVIS', row['tool'], json.loads(row['arguments']), result, duration, token, c)
++            # Codex-periodic: classify an observed failed child, never broker success.
++            if row['tool'] == 'host_remote' and result.get('ok') is True:
++                payload = result.get('result', {})
++                execution = payload.get('execution', payload) if isinstance(payload, dict) else {}
++                code = execution.get('returncode') if isinstance(execution, dict) else None
++                if type(code) is int and code != 0:
++                    self.attempt_state(row['mission'], 'EXECUTION_FAILED', reference=observation, connection=c)
+             c.execute('UPDATE missions SET updated=?,last_progress=? WHERE id=?', (time.time(), time.time(), row['mission']))
+ 
+     def observations(self, ident, task=None):

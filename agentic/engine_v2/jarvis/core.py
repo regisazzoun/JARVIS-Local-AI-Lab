@@ -26,6 +26,8 @@ class Core:
         except Exception:pass
         return status
     def ollama(self,payload):
+        payload=dict(payload)
+        action_contract=payload.pop('_jarvis_action_contract',None)
         if self.config.get('hybrid_compute'):
             from .compute import HybridRouter
             router=getattr(self,'compute_router',None)
@@ -34,7 +36,26 @@ class Core:
                 self.compute_router=router
             context=getattr(self.tools,'context',{})
             role=self.config.get('compute_role',context.get('compute_role','conversation'))
+            budget=None
+            if role=='mission' and context.get('mission_id') and getattr(self.tools,'mission_store',None):
+                from .mission_context_budget import ContextBudget,capacity
+                # HybridRouter already enforces this profile on the wire. Reserve
+                # that same response budget before admission, including reviewers.
+                response=self.config['hybrid_compute'].get('mission_segment_tokens',4096)
+                payload={**payload,'options':{**payload.get('options',{}),'num_predict':response}}
+                budget=ContextBudget(self.tools.mission_store,context['mission_id'],context.get('task_id'))
+                discovered=capacity(self.config,payload.get('model'))
+                payload=budget.prepare(payload,discovered,self.config.get('durable_num_predict',4096),structured_action=action_contract=='jarvis.action.v1')
             message,metrics=router.infer(payload,role,context.get('mission_id'))
+            if budget:
+                checked=budget.latest('context_budget_checked')[0]
+                tokens=metrics.get('prompt_eval_count');actual=metrics.get('num_ctx')
+                fits=type(tokens) is int and type(actual) is int and tokens+checked['result']['response_reserved']<=actual
+                budget.store.event(budget.m,'context_backend_usage',budget.task,'JARVIS-engine',result={'budget_event':checked['id'],'actual_prompt_tokens':tokens,'effective_context':actual,'response_reserved':checked['result']['response_reserved'],'within_effective_context':fits if type(tokens) is int else None,'node':metrics.get('node'),'model':metrics.get('effective_model')})
+                if type(tokens) is int and not fits:
+                    from .mission_context_budget import ContextCapacityError
+                    budget.store.transition(budget.m,'interrupted',result={'reason':'Observed backend usage violates budget; stop before any model-selected action'})
+                    raise ContextCapacityError('Actual context budget violated; checkpoint and original messages retained, no model action dispatched')
             self.metrics.append(metrics)
             if context.get('mission_id') and getattr(self,'missions',None):
                 self.missions.store.event(context['mission_id'],'compute_route_observed',task=context.get('task_id'),actor='JARVIS-engine',result=metrics)
@@ -203,7 +224,10 @@ class Core:
                     tool_start=time.monotonic()
                     if allowed_tools is not None and name not in allowed_tools:
                         result={'ok':False,'tool':name,'error':'Tool outside this explicit delegation subset; use offered tools. No operation or new mission was performed.','risk':'no_action'}
-                    else:result=self.tools.execute(name,arguments)
+                    else:
+                        from .authority_identity import invocation_scope
+                        with invocation_scope(token):
+                            result=self.tools.execute(name,arguments)
                     if token:controller.store.finish_call(token,result,time.monotonic()-tool_start)
                     if result.get('deferred'):
                         answer='Mission durable enregistrée : '+result['mission_id']+'. Exécution et preuves dans le Sandbox.'

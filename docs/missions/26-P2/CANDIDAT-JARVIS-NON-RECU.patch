@@ -1,0 +1,103 @@
+--- a/engine/jarvis/mission_store.py
++++ b/engine/jarvis/mission_store.py
+@@ -33,6 +33,23 @@
+ 
+ 
+ class MissionStore:
++    def attempt_state(self, mission, state, reference=None, connection=None):
++        if state not in (
++            'PENDING', 'DISPATCHED', 'RUNNING', 'NOT_EXECUTED',
++            'EXECUTION_FAILED', 'EXECUTED_TEST_FAILED', 'VALIDATION_INCONCLUSIVE',
++            'SUCCESS', 'BLOCKED', 'ESCALATED'
++        ):
++            raise ValueError(f"Invalid attempt state: {state}")
++        if reference is not None:
++            result = {"state": state, "reference": str(reference)}
++        else:
++            result = {"state": state}
++        return self.event(
++            mission, 'ATTEMPT_STATE', task=None, actor='JARVIS-engine',
++            tool='mission_store', arguments={}, result=result,
++            duration=None, invocation=None, connection=connection
++        )
++
+     def __init__(self, root):
+         self.root = Path(root)
+         self.path = self.root / 'runtime/missions.sqlite'
+--- /dev/null
++++ b/engine/tests/test_mission_store_attempts.py
+@@ -0,0 +1,74 @@
++import tempfile
++import unittest
++import json
++from pathlib import Path
++from engine.jarvis.mission_store import MissionStore
++
++class TestMissionStoreAttempts(unittest.TestCase):
++    def test_attempt_state_valid_states(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            store = MissionStore(root)
++            mission_id = store.create(goal="test", model="test", conversation="test")
++            
++            valid_states = (
++                'PENDING', 'DISPATCHED', 'RUNNING', 'NOT_EXECUTED',
++                'EXECUTION_FAILED', 'EXECUTED_TEST_FAILED', 'VALIDATION_INCONCLUSIVE',
++                'SUCCESS', 'BLOCKED', 'ESCALATED'
++            )
++            for state in valid_states:
++                rowid = store.attempt_state(mission_id, state)
++                self.assertIsInstance(rowid, int)
++                self.assertGreater(rowid, 0)
++
++    def test_attempt_state_invalid_state_raises(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            store = MissionStore(root)
++            mission_id = store.create(goal="test", model="test", conversation="test")
++            
++            with self.assertRaises(ValueError):
++                store.attempt_state(mission_id, "INVALID_STATE")
++
++    def test_attempt_state_persistence_across_instances(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            # Première instance
++            store1 = MissionStore(root)
++            mission_id = store1.create(goal="test", model="test", conversation="test")
++            
++            rowid1 = store1.attempt_state(mission_id, "SUCCESS", reference="ref-abc")
++            
++            # Nouvelle instance
++            store2 = MissionStore(root)
++            # Lecture directe dans mission_events
++            with store2.db() as conn:
++                cur = conn.execute(
++                    "SELECT mission, kind, result FROM mission_events WHERE rowid=?",
++                    (rowid1,)
++                )
++                row = cur.fetchone()
++                self.assertIsNotNone(row)
++                self.assertEqual(row["mission"], mission_id)
++                self.assertEqual(row["kind"], "ATTEMPT_STATE")
++                result = json.loads(row["result"])
++                self.assertEqual(result["state"], "SUCCESS")
++                self.assertEqual(result["reference"], "ref-abc")
++
++    def test_attempt_state_without_reference(self):
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            store = MissionStore(root)
++            mission_id = store.create(goal="test", model="test", conversation="test")
++            
++            rowid = store.attempt_state(mission_id, "BLOCKED")
++            with store.db() as conn:
++                cur = conn.execute("SELECT result FROM mission_events WHERE rowid=?", (rowid,))
++                row = cur.fetchone()
++                result = json.loads(row["result"])
++                self.assertIn("state", result)
++                self.assertEqual(result["state"], "BLOCKED")
++                self.assertNotIn("reference", result)
++
++if __name__ == '__main__':
++    unittest.main()

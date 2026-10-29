@@ -1,3 +1,242 @@
+## P4 — plan12 : défaut backend rendu malgré dépassement — 29 octobre 2026
+
+Incident78280–78285 : singleton30640/27648, pool déjà actif ; collision réelle
+masquée par exception avant contrôles backend. CorrectifCodex78288 : si revue
+sémantique trop grosse ET défaut déterministe existant, retour FAIL backend,
+coverage vide et39exigences explicitement non revues. Sans défaut, exception
+conservée ; aucune capacité supplémentaire ni couverture sémantique prétendue.
+111tests ciblésPASS ; probe import runtime confirme collisionFAIL sans inférence.
+Workers inactifs rechargés78289 ; mêmeplan12 remis enfile78295, septincidents
+conservés. Qwen doit réviser ses tâches existantes ; P4 NONREÇUE, aucun actif.
+[Preuves](docs/missions/26-P2/p4/REVUE-PLAN12-REFUS-DETERMINISTE.json).
+
+## P4 — revue plan11, transport sans perte — 29 octobre 2026
+
+Incident78002–78005 : revue singleton30843/27648octets après croissance du plan11.
+CorrectifCodex78008 : pool de valeurs strictement identiques dans le seul
+transport de couverture ; reconstruction intégrale vérifiée pour59paquets,
+plan canonique inchangé, ordre/multiplicité/tableaux et valeurs distinctes conservés.
+89tests ciblésPASS ; import runtime :39exigences en30lots, max27616/27648,
+collision des rapports toujoursFAIL. Probe logiciel, pas qualité Qwen/autonomie.
+Workers sans mission active rechargés78009, conversation préservée ; résolution
+78015, mêmeplan11 remis enfile, sixincidents conservés. P4 NONREÇUE ; aucun
+déploiement actif. [Preuves](docs/missions/26-P2/p4/REVUE-PLAN11-TRANSPORT-SANS-PERTE.json).
+
+## P4 — revue plan10, déduplication par tâche — 29 octobre 2026
+
+Incident77780–77783 : singleton29926/27648octets malgré déduplication des listes.
+CorrectifCodex77786 : projections de tâches strictement identiques référencées
+individuellement, textes historiques répétés référencés et JSON compact.
+Plan complet, valeurs distinctes et39exigences conservés ; probe import runtime
+22lots, max27565/27648, collision des rapports toujoursFAIL.54tests ciblésPASS.
+Workers inactifs rechargés77787 après contrôles, conversation préservée.
+Résolution77793, mêmeplan10 remis enfile, cinq incidents conservés.
+Probe logiciel distinct de qualité revueQwen ; P4 NONREÇUE, aucun déploiement actif.
+[Preuves](docs/missions/26-P2/p4/REVUE-PLAN10-DEDUPLICATION-PAR-TACHE.json).
+
+## P4 — revue trop grosse : historique dédupliqué — 29 octobre 2026
+
+Diagnostic77603/77605 : même une exigence seule dépassait le budget avec le
+plan9 complet et les projections historiques répétées. CorrectifCodex77613 :
+références explicites pour projections id/title/artifacts strictement identiques,
+plan complet et historique distinct conservés ; seule cette fonction remplacée.
+69tests ciblésPASS ; probe import runtime :39exigences en15lots, collision de
+rapports toujoursFAIL. Aucun test de qualité réelle du reviewer déduit du probe.
+Workers rechargés77614 après contrôle aucune mission running/queued/retrying,
+aucun appel cible en cours ; conversation préservée. Résolution infrastructure
+77617 et reprise77620 au mêmeplan9, quatre incidents historiques conservés.
+Premier lot natif admis77636 :27150/27648octets, fenêtre32768 inchangée.
+Réponses réelles Qwen observées77643/77650/77654 ; revue globale encore en
+cours à ce relevé ; P4 NONREÇUE, aucun déploiement actif.
+[Preuves](docs/missions/26-P2/p4/REVUE-HISTORIQUE-DEDUPLIQUEE.json).
+
+## Surveillance des plantages et blocages — 29 octobre 2026
+
+Contrôle de santé systemd installé toutes les60secondes, activé après reboot,
+lié au même registre/moteur : workers, broker, conversation, JL03 et supervision.
+RelevéHEALTH.json persistant, redémarrages natifs observés, état inconnu distingué
+d’une panne ; pas de conclusion depuis une chargeGPU nulle. Escalade via le
+coordinateur existant, compteursbornés conservés ; aucune commande rejouée par
+le moniteur.21tests ciblésPASS et plantage contrôlé d’un serviceisolé (sortie42,
+redémarrage natif1, processus différent) ; workersréels non interrompus.
+Services sains au contrôle ; P4 a un blocageContextCapacityError distinct àtraiter.
+[Preuves](docs/missions/26-P2/SURVEILLANCE-SANTE-PREUVES.json).
+
+## P4 — adaptateur de rapport vérifié sur Qwen — 29 octobre 2026
+
+Après refus de format, diagnostic77335 : le backend n’appliquait pas contains
+pour imposer l’écrivain du rapport. Ce transport obligatoire est maintenant
+ajouté mécaniquement par l’adaptateur Codex, limité au report_path ; les vrais
+outils opérationnels restent choisis par Qwen. Erreurs de champs précises et
+sorties originales refusées désormais archivées.177tests ciblésPASS ; essai
+réel Qwen77347 conforme,23919/27648octets, aucune mutation pendant le contrôle.
+Résolution77349, même checkpoint P4 repris, compteurs conservés. P4 etphase2
+restent NONVALIDÉES, aucun artefact canari reçu à ce jalon.
+[Preuves](docs/missions/26-P2/p4/ADAPTATEUR-RAPPORT-VERIFIE.json).
+
+## P4 — contrats d’outils contrôlés avant reprise — 29 octobre 2026
+
+Le plan historique retenait un rapport sans outil d’écriture et l’alias inexistant
+host_exec#dell2. Garde installée77253 : Qwen doit corriger les déclarations des
+tâches existantes avant exécution, avec vrais nomsAPI et écrivain du rapport.
+Les chemins et critères existants sont préservés ; aucun plan rédigé par Codex.
+Écriture centrale limitée au report_path77295, opérations applicatives surDell.
+Le transport conditionnel JSON est corrigé pour les champs nommés title/type.
+175tests ciblésPASS ; préflight77260 :24068/27648octets. P4 reprise au même
+checkpoint, couverture77233 encoreFAIL : aucune réception P4/phase2.
+[Déblocage](docs/missions/26-P2/p4/PREFLIGHT-OUTILS-REELS.json).
+
+## Complément P3 reçu avec réserves ; P4 reprise — 29 octobre 2026
+
+Réception indépendante77116 après clôture native JARVIS : CORE4+VAR2 passent
+surDEUX Dell, reçus76710/76838/76888/76940 au même manifeste, contrôle77004.
+Algorithme Qwen assisté, revue/application Codex après escalade ; historique conservé.
+Fonction audit_plan intégrée dans la base canonique actuelle77115, rollback prévu,
+125tests de régression et5tests sur import installé PASS, pas de somme avec suites
+qui se recouvrent. API de réception par preuves réellement utilisée par JARVIS.
+Bilan libre rectifié séparément77114 : autonomie éditoriale non reçue.
+Même checkpoint P4 c32347de3edf4288a4751a3e65afa7eb remis enfile, préflight77123
+16273/27648octets. Surveillance basculée surP4 ; P4 etphase2 restent NONVALIDÉES.
+VF01 non transmis, ni14A ni24Old lancées.
+[Réception et suite](docs/missions/26-P2/p3/RECEPTION-ADAPTATIVE-ET-REPRISE-P4.json).
+
+## Continuité opérationnelle — directive propriétaire du 29 octobre 2026
+
+Consigne permanente pour toutes les missions autorisées : en cas de blocage,
+arrêter la stratégie infructueuse, diagnostiquer, corriger si nécessaire et
+relancer depuis le checkpoint utile sans attendre une nouvelle sollicitation
+humaine. La limite de trois échecs comparables reste obligatoire : elle arrête
+une stratégie et déclenche son escalade, pas l’abandon silencieux de la mission.
+Codex traite l’escalade, vérifie le changement technique et rend la main à
+JARVIS ; les compteurs et preuves restent persistants. Ni redémarrage aveugle,
+ni remise à zéro, ni quatrième tentative identique sous un autre nom.
+Les travaux indépendants continuent. Une dépendance externe réellement absente
+reste explicitement bloquée ; ne pas annoncer une activité inexistante.
+Aucune nouvelle validation humaine pour les opérations déjà autorisées.
+
+## P3 — candidat adaptatif et validation déléguée — 29 octobre 2026
+
+Après escalade, proposition Qwen76621 revue/appliquée par Codex76636 surDell1.
+Contrôle indépendant76653 : CORE4+VAR15000/18000 PASS ; ce ne sont pas des tests
+JARVIS. Reprise76660 en tests seuls, même mission/plan/tâche. Trois échecs
+qualifiés + deux classifications rectifiées conservés, problème correction
+escaladé. JARVIS doit synchroniser et tester le même code sur les deuxDell.
+P3 non reçue, P4 attend, aucun déploiement canonique ni VF01/14A/mémoire lancé.
+[Preuves](docs/missions/26-P2/p3/REPRISE-ADAPTATIVE-ASSISTEE.json).
+
+## P3 — probes déclarés exécutés, défaut confirmé — 29 octobre 2026
+
+JARVIS a réellement choisi les probes déclarés : VAR FAIL76210/Dell2, correction
+Qwen appliquée76325/Dell1, CORE PASS76377 sur ancienne versionDell2, VAR FAIL76477
+sur version corrigéeDell1. Codex a vérifié les quatre reçus complets par SHA,
+le test inchangé et le différentiel : le lot fixe2 reste présent ; les ajouts
+après review_model ne peuvent prévenir son exception d’admission.
+Trois échecs qualifiés + deux classifications rectifiées = historique5 conservé.
+Diagnostic76597 et paquet de réparation76598 inscrits dans la même mission.
+Arrêt maintenu après escalades76486/76594 : aucune quatrième tentative autonome,
+aucun acquittement infrastructure. P3 NON REÇUE, P4 attend, VF01 non transmis.
+[Preuves](docs/missions/26-P2/p3/DIAGNOSTIC-PROBES-76594.json).
+
+## P3 — circuit de reprise et versions corrigés — 29 octobre 2026
+
+Le candidat Qwen75462 est appliqué75575 ; quatre cas ciblésPASS75624 surDell1.
+Le testDell2 75723 utilisait une ancienne copie : le focus compare maintenant les
+versions et les schémas de sync lient hôte et vraie référence d’exécution.
+157tests ciblésPASS ; reprise75867, préflight24445/27648. P3 reste NON REÇUE :
+contrôle indépendant des tailles variables et vérification du même code surDell2
+restent requis. P4 attend, VF01 non transmis, compteurs/originaux conservés.
+[Dossier](docs/missions/26-P2/p3/REPRISE-APRES-STAGNATION.md).
+
+## Reprise P3 sur fonction réelle — 29 octobre 2026
+
+Après arrêt borné74344, Codex ajoute l’édition AST d’une fonction dans son vrai
+module, avec ancre exacte et contexte court. Observation74357 sur les deuxDell,
+plan2 rédigé parQwen avec assistance de cadrage, préflight10755/27648,
+résolution74381.90tests ciblés et5tests de supervisionPASS ; aucun candidat
+applicatif reçu à ce jalon. Compteurs et arrêt antérieur conservés. P4 attend,
+aucun14A/mémoire lancé. [Dossier](docs/missions/26-P2/p3/REPRISE-APRES-STAGNATION.md).
+
+## Exécution déléguée autorisée — 29 octobre 2026
+
+Décision propriétaire : JARVIS/Qwen80B décide et répartit les calculs sur les Dell ;
+Codex contrôle, puis confie un test de validation distinct à JARVIS. Une priorité
+principale à la fois : complément P3, intégration P4, correction JL03 ouverte,
+contrôles puis test distinct. Mission P3 native `bfd9a813c1804ffcaad77c9f01d54045`
+transmise ; blocage préalable de manifeste réparé71999 après contrôles réels sur
+les deux Dell71998. P4 reste NON VALIDÉE ; test distinct NON TRANSMIS.
+Aucune nouvelle confirmation humaine. Historique et acquis conservés.
+[Ordre et attribution](docs/missions/26-P2/EXECUTION-DELEGUEE.md).
+
+## Bilan P2–P4 et continuité — 29 octobre 2026
+
+P2 (dix scénarios + intégration historique ciblée52932) etP3 sont **VALIDÉES AVEC RÉSERVES**. P4 reste **EN COURS — NON VALIDÉE**. Préparation native completed, trois tâches validées, bilan PASS71627/enregistré71630, réception indépendante71632 avec réserve d’abréviation de reçu corrigée dans un erratum, original conservé.188tests ciblés du dernier déblocage passent ; aucune autonomie éditoriale globale reçue. Suite P4-CANARY-STAGE c32347de3edf4288a4751a3e65afa7eb effectivement transmise : adapter/qualifier un artefact sur la base actuelle, deuxDell, avant activation. Aucun déploiement canonique ni réception des huit casP4 acquis. [Bilan complet](docs/missions/26-P2/BILAN-P2-P4-2026-10-29.md).
+
+## P4 — trois tâches reçues nativement, finalisation débloquée — 29 octobre 2026
+
+Les trois tâches du plan3 sont `validated`, dernière clôture71313. Le bilan final s’était bloqué sur des lectures répétées. Mode `factual_finalization` installé dans le même moteur : objectif et faits canoniques fournis, JARVIS rédige son propre bilan, contrôle factuel backend inchangé. **188 tests ciblés passent** ; paquet de décision12302/27648 et revue corrigée19014/27648 après sélection précise des sources. Originaux et compteurs conservés. JARVIS reprend le bilan ; préparation entière et P4 restent à réceptionner, aucun attester canonique déployé, aucune autonomie éditoriale globale reçue. [Architecture et preuves](docs/missions/26-P2/p4/FINALISATION-FACTUELLE.md).
+
+## P4 — rapport des unités reçu, reprise systemd — 29 octobre 2026
+
+`t1-read-service-files` est **VALIDÉ AVEC RÉSERVES** : PASS complet70544, clôture native70571/70572 et réception indépendante70607, rapport inchangé. Interface de citations par identifiants utilisée réellement par Qwen. Autonomie éditoriale non reçue ; lecture des fichiers ne prouve pas le code chargé. JARVIS a ensuite observé les services actifs70584/70586/70588/70590. Une fuite de consigne t1 dans le contexte réduit de la tâche suivante a été corrigée ; PARTIAL/INSUFFICIENT ne sont plus assimilés à des refus d’interface. **182 tests ciblés passent**. Résolutions70610/70648 : consignes limitées à la tâche, faits déjà acquis reconnus sans focus spécial, propriétés systemd originales conservées avec reçus, compteurs inchangés. La dernière tâche de préparation reprend ; P4 reste ouverte, aucun déploiement d’attestation acquis. [Réception](docs/missions/26-P2/p4/RECEPTION-RELEVE-UNITES.md) · [Correction du contexte](docs/missions/26-P2/p4/CONTEXTE-ENTRE-TACHES.md).
+
+## P4 — reprise assistée du rapport t1, 28 octobre 2026
+
+JARVIS a lu les deux unités réelles et écrit trois versions de son rapport. Après escalade, Codex a retiré deux passages non prouvés et corrigé les contrôleurs : conservation des sources, projection du brouillon, acquittement explicite des incidents sans effacer les totaux, phases de vérification et citations causales obligatoires. **129 tests ciblés passent**, correctifs installés, JARVIS reprend la vérification du même fichier. Les FAIL/INSUFFICIENT et compteurs sont conservés ; aucune réception globale P4, aucune preuve de déploiement de l’attestation active. Autonomie éditoriale toujours non reçue. La tâche systemd suit après t1 ; aucun rejeu P2/P3/candidat. [Dossier et attribution](docs/missions/26-P2/p4/PLANIFICATION-PLATE.md).
+
+## P4 — rapport préparatoire débloqué le 28 octobre 2026
+
+Réception **VALIDÉ AVEC RÉSERVES**, événement68595 : rapport `version0-plan` validé nativement68593 après PASS68493 et seconde revue complète68592. Même fichier relu, même SHA256 ; 11 passages et 7 sources contrôlés. Plan et brouillons JARVIS, rectification factuelle et déclenchement ponctuel de vérification/clôture Codex après escalades. L’autocorrection éditoriale autonome reste **non reçue**. 101 tests logiciels ciblés passent ; les avis erronés du contrôleur et tous FAIL/INSUFFICIENT sont conservés. Comparaison native des métadonnées originales, revue sémantique complète et contrôles des causes maintenus. Les deux autres tâches de préparation et le déploiement canonique restent à réaliser ; aucune réception globaleP4. [Réception et preuves](docs/missions/26-P2/p4/RECEPTION-RAPPORT-PREPARATOIRE.md). Continuer le même plan3, sans réécrire le rapport reçu ni rejouer P2/P3/candidat ; compteurs conservés.
+
+## P4 — reprise technique du28octobre2026
+
+Contexte corrigé7470d62 installé65588 ; fenêtre32768 conservée. Les propositions de plan imbriqué ont échoué, originaux/compteurs conservés. Après escalade, adaptateur plat571956d installé65968 : Qwen choisit chaque étape, même mission_plan/SQLite et mêmes contrôles de couverture/prose. Trois étapes réellement sauvegardées, couverture du plan3 acceptée66089 ; exécution de la première tâche relancée après correction de la vue d’interface66105. Aucun déploiement de l’attestation applicative ni réceptionP4. Paquet de coordination corrigé65937 pour retirer une lecture déjà effectuée ; ne pas remettre cette consigne obsolète. Interface mission_plan_report_step opt-in ; ni quatrième proposition assistée ni remise à zéro. [Dossier](docs/missions/26-P2/p4/PLANIFICATION-PLATE.md). Supervision normale suit aussi last_progress du worker ; garde3refus et périmètre identique.
+
+## P4 — candidat reçu, préparation canonique transmise le28octobre2026
+
+Candidat worker **VALIDÉ AVEC RÉSERVES**, réception65474 : application réelle JARVIS64975 surDell1, même manifeste synchronisé65185, quatre cas exécutés65099/Dell1 et65210/Dell2 (conformePASS, divergenceFAIL, absentINSUFFICIENT, désactivé sansrapport). Code de raccordement **Qwen80B assisté parCodex après escalade**, oracle et contrôle indépendantCodex. Originaux, refus et errata conservés. Ces essais isolés ne prouvent aucun déploiement canonique ni réceptionglobaleP4.
+
+Nouvelle unité séquentielle `e98fd4bbe37c492b922db9b5a1d782aa` : **P4-ACTIVE-PREP**, dans le même moteurSQLite, prépare les chemins/services réels, canari, fraîcheur des rapports et retour arrière. Choix des observations et plan confiés àQwen80B ; fenêtre32768 inscrite avanttransmission. Pas de rejeuP2/P3/candidat. L'intégration réelle suivra après revue technique sans nouvelle validationhumaine. Supervision réorientée vers cette seule unité, compteurs historiques conservés. [Réception et attribution](docs/missions/26-P2/p4/RECEPTION-CANDIDAT-WORKER.md) · [Paquet transmis](docs/missions/26-P2/p4/LANCEMENT-ACTIF-PREPARATION.json). P4/phase2 restent **EN COURS — NON VALIDÉES** ; aucune14A/24Old/mainmerge.
+
+## P4 — conservation des vraies lectures et API corrigées
+
+Audit : un tool-ok contenant un processus rc1 pouvait remplacer le code utile par une erreur ; sélection corrigée, deux pages distinctes conservées, reçus complets vérifiés. Le helper attestation_report accepte la sélection explicite des symboles. Source f90790e, installation64398, API observée64399, préflight64402 à27016octets/27648 avec worker complet et API présents.145 tests locaux,17attest+33contexte surchaqueDell réussis sousCodex. JARVIS reprend le mêmeplan3 ; instrumentation candidate encoreàprouver, P4 NON VALIDÉE. Aucun attester installé danslesservicesactifsMac, compteurs conservés. [Détails](docs/missions/26-P2/p4/SOURCES-UTILES-ET-API.md).
+
+## P4 — interfaces corrigées, reprise native
+
+Les identités serveur, la conservation des pages de source utiles et l’édition par chemin absolu interne sont corrigées dans le moteur existant. Déploiement63326 : 136 tests ciblés locaux et24 tests sur chaque Dell réussis. La reprise a révélé une boucle contournant la signature par max_lines ; garde persistant du contenu effectif installé63429, 139 tests locaux et67 sur chaque Dell réussis. Références courantes séparées des archives63738, 140 tests locaux et15 de projection/identités parDell. Reprise de JARVIS sur le plan3 existant ; instrumentation du worker candidat et réceptionP4 restent à prouver. Compteurs conservés, pas de déploiement applicatif par cette intervention. [Détails et preuves](docs/missions/26-P2/p4/INTERFACES-PERENNES.md).
+
+## P4 — identifiants pérennes reçus dans le parcours natif
+
+Le propriétaire autorise une correctionpérenne du blocage desclés. Mode authority_engine_operation_ids=true installé dans la missionP4 existante : authority_work/authority_edit ne reçoivent PLUS operation_id ; le moteur le lie àl’invocationSQLite réelle. Nouvellesmissionsdistribuées viaAPI activent cemode, anciennesmissions explicites legacy préservées. Qwen garde choix ducode/commandes/exécutants.130tests ciblésPASS,14nouveaux surchaqueDell, preuveJARVIS62931 : exécution62737 puis répétition descriptiondifférente réutilisée62774 sans doublecommande. Anciennesclés/compteurs préservés, résultat inconnu toujoursbloqué. Nepas proposer de noms de clés ni effacer les anciensrefus ; lire docs/missions/26-P2/p4/IDENTIFIANTS-DURABLES.md. L’ancien candidat59858 connu mais nonreçu est quarantinéBLOCKED comme supersédé62708, jamais reçu ni réinterprétécomme testPASS. Plan3 etmissiond8fe752876db480cbe5f22cd5525e2dd conservés. BibliothèqueCodeX reçue partiellement, instrumentationworker/suiteP4 encoreàdémontrer. Aucune fusionmain ni14A/24Old.
+
+## P4 reprise depuis l’état persistant —27octobre2026
+
+Audit natif terminé (cinq tâchesvalidées), réception indépendante limitée aux deux sources/artefacts avec réserve de prose :58952, dossier d’erreurs58945. P4 globale NON VALIDÉE. Nouveau paquet court réellement transmis àQwen80B : attestation du codePython chargé, candidat surlesdeuxDell, missiond8fe752876db480cbe5f22cd5525e2dd. Plan/fichiers/tests/répartition à choisir parQwen ; déploiement ultérieur après contrôle, sans nouvelle validationhumaine. Objectif de contexte32768 déjàpersisté avant transmission ; aucune repriseP2/P3. [Paquet](docs/missions/26-P2/p4/LANCEMENT-ATTESTATION.json) · [Reprise et réserves](docs/missions/26-P2/p4/REPRISE-MEMOIRE.md).
+
+## Décision propriétaire du27octobre2026 — fenêtre avant transmission
+
+Qwen80B Dell1 :32768tokens de contexte total après deux essais réels Codex (18876/26614tokens de prompt, VRAMlibremin1129/1163Mio). Réserver4096réponse+1024gabarit, entrée27648 avec contrôle conservateur explicitement distinct des tokens mesurés. Chaque sous-tâche doit porter cette fenêtre comme objectif de résultat dans son contrat avant transmission ; découper si trop gros, ne pas tronquer les exigences. Garde final du routeur et truncate=false ; pas de contournement par fallback. Compteurs préservés. Voir docs/missions/26-P2/p4/CONTEXTE-32768.md ; aucun succèsP4 ni autonomie déduit de ces testsCodex.
+
+## Phase2 — réception P3 et lancement P4 du27octobre2026
+
+P3 reçue **VALIDÉ AVEC RÉSERVES**, événement55310, continuation9e4a61d6faea4b73ad31251e72dcf7c1 completed ; lectures stériles/erreurs de rapports et correctionsCodex conservées. Lire docs/missions/26-P2/p3/RECEPTION-P3.json et ERRATA-RAPPORTS.md. P4 maintenant réellement lancée, premier audit natifd1b0d69639724c60b5bd1b2143b1a5fa ; lire M26_P2_P4_CODE_REEL.md. Le même timer de supervision cible P4-AUDIT, P2/P3 dans received_tasks, aucun rejeu. Copiesengine surDell ne sont pas l'application activeMac ; code disque/commit≠code chargé. Aucun déploiement dans ce premier audit ; suite P4 autorisée séquentiellement sans validation humaine. Autonomie complète sans guidage non reçue, ni14A/24Old/mainmerge. MANUAL-HOLD à retirer au retour au moteur.
+
+## Ordre propriétaire du27octobre2026 — suite complète Phase2
+
+Terminer P2 sur les chemins historiques concernés sans rejouer S01–S10, puis P3 contexte avec couches bleue/verte, puis P4 code réellement utilisé. Une priorité à la fois ; aucune validation humaine intermédiaire. Continuités natives P2-INTEGRATION b6d6cc3b05b94650acc5b26bfa2660d4 et P2-CANONICAL ad0b6c41dcde48dcb45829566336e494, liées au parent et même SQLite. Le test initial JARVIS incorrect est conservé/non reçu ; Codex a apporté les raccordements et oracles, JARVIS les utilise sur les Dell. Lire [état de reprise](docs/missions/26-P2/REPRISE-27-OCTOBRE.md). P3/P4 restent séquentielles, autorisées après réception précédente ; ne pas confondre cette autorisation avec une réception acquise. Définitions des couleurs non retrouvées dans les sources, clarification textuelle demandée. Préserver tous acquis, ni14A ni24-Old, aucune fusion main. MANUAL-HOLD actif pendant intervention interactive.
+
+## M26-P2 — réception ciblée des dix scénarios
+
+Dix scénarios reçus le26octobre2026 : VALIDÉ AVEC RÉSERVES dans le parcours natif opt-in. S09 a nécessité un contrôle Codex après trois vérifications infructueuses ; ne pas l’attribuer à une autocorrection JARVIS. Sources finales comparées Mac/deuxDell et11 nouveaux testsPASS sur chaque Dell. Ne pas rejouer les cas reçus, effacer compteurs ou conclure à une migration globale. La mission native reste en revue d’intégration ; ancienne liste de tâches non artificiellement clôturée. Registre superviseur `tasks` vide, réception classée dans `received_tasks`, donc aucune relance de ces tests négatifs. P3/P4 non transmises et14A distincte. [Rapport](docs/missions/26-P2/M26_P2_RAPPORT_FINAL.md).
+
+## M26-P2 — relais de supervision installé
+
+La supervision des escalades P2 réutilise le coordinateur périodique existant, avec unités dédiées `jarvis-m26-p2-supervision.*` et périmètre limité à la mission3aa717f3887e49daa7daf7e883ee52e4. Lire [son fonctionnement](docs/missions/26-P2/SUPERVISION-CODEX.md) avant intervention interactive. Vérifier un passage en cours et utiliser MANUAL-HOLD pour éviter une double intervention ; les passages périodiques détiennent déjà leur verrou et ne créent pas ce marqueur. Aucune réception P2/P3/P4 implicite ; compteurs préservés, trois passages comparables maximum. Les anciennes missions JL03 restent reçues et ne sont pas relancées.
+
+## Mission26 Phase2 — lancement du26octobre2026
+
+Mission M26-P2 lancée par le propriétaire : P2 boucles, puis P3 contexte, puis P4 code réel. Ne transmettre à JARVIS qu’une priorité à la fois, attendre réception avant suivante. Qwen80B décide et répartit les opérations réelles sur les deux Dell ; Codex audite, reçoit et traite les escalades. Conserver preuves et compteurs, ne pas reprendre automatiquement les correctifs Phase1 reçus. Pas de nouveau modèle ou chantier matériel, pas de fusion main. Nouvelle branche codex/mission-26-phase2-boucles-contexte-code-reel basée sur ba659f7/PR28. Les anciennes mentions Phase2 non lancée sont désormais historiques.
+
 ## Mission26 Phase1 — réception du26octobre2026
 
 ✅🟡 GO AVEC RÉSERVES pour la chaîne isolée Qwen80B/Dell1 → exécutants Dell1/Dell2. Mission native e26946bff84d4e06ad395b969ffcd72f completed, deux lots reçus, oracle Codex12/12 sur chaque Dell,35 tests logiciels. Ne pas relancer les correctifs reçus. Activation ciblée, mode assurance complet et bascule globale JL03 non qualifiés ; rapports libres encore fragiles, trois textes conservés avec errata. Conserver compteurs et origines Codex/JARVIS. [Réception](docs/missions/26-P1/RAPPORT-FINAL.md), [limites d’utilisation](docs/missions/26-P1/INSTALLATION-UTILISATION.md), PR28, aucune fusion main.14A et Phase2 restent distinctes, aucune autre mission lancée.

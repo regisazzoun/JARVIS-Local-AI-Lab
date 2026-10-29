@@ -1,0 +1,27 @@
+{
+  "source_event": 74947,
+  "logic_review_event": 74948,
+  "sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+  "remote_path": "/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine/tests/coverage_budget_probe.py",
+  "transfers": [
+    {
+      "host": "dell-observe",
+      "native_invocation": "65986ff333244ec88945fa6df949b8d0",
+      "reported_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+      "author": "Codex independent regression input",
+      "not_JARVIS_implementation": true
+    },
+    {
+      "host": "dell2",
+      "native_invocation": "b75bae6ae2ee4eeb8e9b6a0519d64253",
+      "reported_sha256": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+      "author": "Codex independent regression input",
+      "not_JARVIS_implementation": true
+    }
+  ],
+  "baseline_local_tests": 4,
+  "baseline_pass": 2,
+  "baseline_fail": 2,
+  "not_final_VF01": true,
+  "not_actual_model_backend": true
+}

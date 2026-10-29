@@ -1,0 +1,36 @@
+{
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "task": "version0-plan",
+  "status": "VALIDÉ AVEC RÉSERVES",
+  "scope": "Preparatory report only; other2tasks and globalP4 remain unreceived",
+  "sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0",
+  "task_verified_event": 68593,
+  "last_complete_narrative_review": 68592,
+  "native_semantic_PASS": 68493,
+  "native_verify_invocation": "b5de443a24f6415081f4fabb94e34a43",
+  "native_completion_invocation": "6251ac76c7894cfaa837c7f1a6a7a7e0",
+  "full_segments_reviewed": 11,
+  "focused_sources_checked": 7,
+  "all_source_checks_supported": true,
+  "model_disagreements_retained": 5,
+  "software_tests_passed": 101,
+  "attribution": {
+    "plan_and_initial_drafts": "JARVIS/Qwen80B",
+    "editorial_factual_assistance_and_engine_fixes": "Codex",
+    "final_review": "JARVIS/Qwen80B Dell1",
+    "review_and_completion_trigger": "Codex after escalation"
+  },
+  "autonomous_editorial_correction_received": false,
+  "P4_received": false,
+  "remaining_tasks": [
+    {
+      "id": "t1-read-service-files",
+      "state": "pending"
+    },
+    {
+      "id": "step-1-a-observation-systemd",
+      "state": "pending"
+    }
+  ],
+  "reception_event": 68595
+}

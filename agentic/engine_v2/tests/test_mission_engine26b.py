@@ -9,6 +9,293 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_shared_coverage_schema_preserves_each_requirement_and_task_enum(self):
+        import jsonschema
+        self.responses=[self.extraction()]
+        requirements(self.r)
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        captured=[]
+        def review(payload):
+            captured.append(payload['format'])
+            return {'content':json.dumps(self.coverage())}
+        self.r.assurance_transport=review
+        self.assertEqual(audit_plan(self.r)['status'],'PASS')
+        schema=captured[0]
+        self.assertIn('$defs',schema)
+        for invalid in ('missing','unknown_task','extra_requirement','bad_type'):
+            value=self.coverage()
+            if invalid=='missing':del value['coverage']['R2']
+            elif invalid=='unknown_task':value['coverage']['R1']['tasks']=['absent']
+            elif invalid=='extra_requirement':value['coverage']['R3']=value['coverage']['R1']
+            else:value['coverage']['R1']['covered']='true'
+            with self.subTest(invalid=invalid),self.assertRaises(jsonschema.ValidationError):
+                jsonschema.validate(value,schema)
+
+    def test_empty_past_cause_is_repaired_before_comparing_diagnostics(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        passage='FAIL initial sur preuves manquantes'
+        self.responses=[{'category':'missing_original_reference','cause_quote':'','role':'past_rejection_cause'},
+                        {'category':'missing_original_reference','cause_quote':passage,'role':'past_rejection_cause'}]
+        result=extract_cause_claim(self.r,'event:1',[passage])
+        self.assertEqual(result['cause_quote'],passage)
+        self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='review_format_rejected']),1)
+
+    def test_repeated_empty_past_cause_stays_insufficient(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        self.responses=[{'category':'missing_original_reference','cause_quote':'','role':'past_rejection_cause'}]*2
+        with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
+            extract_cause_claim(self.r,'event:1',['FAIL sur preuves manquantes'])
+
+    def test_finalization_review_keeps_task_metadata_and_cited_actor_proofs(self):
+        from jarvis.mission_assurance import evidence_snapshot,report_model_view
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        spec=json.loads(self.s.get(self.m)['spec']);spec['factual_finalization']=True
+        with self.s.db() as c:
+            c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+            c.execute("update tasks set state='validated' where mission=?",(self.m,))
+        refs=[self.s.event(self.m,'coordinator_instruction',actor='Codex',result={'instruction':'Software fixture '+str(i)}) for i in range(12)]
+        snapshot=evidence_snapshot(self.s,self.m);snapshot['plan_definitions']=self.s.plans(self.m)
+        body='Task '+snapshot['tasks'][0]['id']+' and event:'+str(refs[0])
+        from jarvis.mission_assurance import cited_event_facts
+        snapshot['cited_event_facts']=cited_event_facts(self.s,self.m,body)
+        view=report_model_view(snapshot,body,recent=0)
+        self.assertTrue(snapshot['factual_finalization']);self.assertEqual(view['plan_definitions'],[])
+        self.assertEqual(view['raw_goal'],self.s.get(self.m)['goal'])
+        self.assertIn('title',view['tasks'][0]);self.assertEqual(view['tasks'][0]['state'],'validated')
+        self.assertIn('event:'+str(refs[0]),view['codex_interventions']['references'])
+        self.assertEqual(view['codex_interventions']['count'],12)
+        self.assertEqual(view['codex_interventions']['references_omitted'],9)
+        with self.s.db() as c:c.execute("update tasks set state='pending' where mission=?",(self.m,))
+        self.assertFalse(evidence_snapshot(self.s,self.m)['factual_finalization'])
+
+    def test_source_filename_matching_does_not_select_substring_or_directory(self):
+        from jarvis.mission_assurance import report_model_view,evidence_snapshot
+        calls={}
+        for path in ['/old/P4-ACTIVE-PREP.md','/old/jarvis','/actual/plan-P4-ACTIVE-PREP.md']:
+            inv=self.s.begin_call(self.m,'a','host_read_file',{'path':path});self.s.finish_call(inv,{'ok':True,'result':{'returncode':0,'stdout':'source fixture'}},0);calls[path]=inv
+        snapshot=evidence_snapshot(self.s,self.m)
+        view=report_model_view(snapshot,'Artifact `plan-P4-ACTIVE-PREP.md` from `unit_jarvis-worker.md`',recent=0)
+        self.assertEqual([x['reference'] for x in view['receipts']],[calls['/actual/plan-P4-ACTIVE-PREP.md']])
+        exact=report_model_view(snapshot,'Read `/old/P4-ACTIVE-PREP.md`',recent=0)
+        self.assertEqual([x['reference'] for x in exact['receipts']],[calls['/old/P4-ACTIVE-PREP.md']])
+
+    def test_cat_of_model_report_cannot_be_used_as_independent_technical_source(self):
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        path=self.s.tasks(self.m)[0]['contract']['report_path']
+        inv=self.s.begin_call(self.m,'a','host_exec',{'command':'cat '+path})
+        self.s.finish_call(inv,{'ok':True,'result':{'returncode':0,'stdout':'Invented technical success'}},0)
+        self.assertNotIn(inv,[x['reference'] for x in evidence_snapshot(self.s,self.m)['receipts']])
+
+    def test_generic_format_label_does_not_hide_factual_count_heading(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
+        reference=self.observation();seen=[]
+        def callback(payload):
+            data=json.loads(payload['messages'][1]['content']);part=data['segments'][0];seen.append(part['id'])
+            self.assertIn('3 processus ont été exécutés',part['text'])
+            self.assertNotEqual(data['evidence']['counts']['observations_in_scope'],3)
+            return {'content':json.dumps({'claims':[{'segment':part['id'],'verdict':'contradicted','references':[],'reason':'False count software fixture'}],'issues':[]})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,'### 1.2. Champs requis mais **absents**\n\n# 3 processus ont été exécutés ('+reference+').','a')
+        self.assertEqual(seen,['S2']);self.assertEqual(result['format_classifications'],['S1'])
+        self.assertEqual(result['status'],'FAIL');self.assertEqual(result['claims'][1]['verdict'],'contradicted')
+        self.assertTrue(any(e['kind']=='narrative_format_classified' and e['actor']=='JARVIS-engine' for e in self.s.events(self.m)))
+
+    def test_document_declared_source_stays_visible_for_each_split_claim(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
+        call=self.s.begin_call(self.m,'a','host_exec',{'argv':['cat','/etc/systemd/system/fixture.service']})
+        self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'[Service]\nUser=fixture\n'}},0)
+        with self.s.db() as c:event=c.execute("SELECT id FROM mission_events WHERE invocation=? AND kind='tool_finished'",(call,)).fetchone()[0]
+        seen=[]
+        def callback(payload):
+            value=json.loads(payload['messages'][1]['content']);part=value['segments'][0]
+            source=next(r for r in value['evidence']['receipts'] if r['reference']==call)
+            self.assertEqual(source['observed']['stdout'],'[Service]\nUser=fixture\n');seen.append(part['id'])
+            return {'content':json.dumps({'claims':[{'segment':part['id'],'verdict':'supported','references':[call],'reason':'Software fixture'}],'issues':[]})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,'Source : refs '+str(event)+'.\n\nEnvironmentFile est absent du fichier.','a')
+        self.assertEqual(result['status'],'PASS');self.assertEqual(seen,['S1','S2'])
+
+    def test_older_cat_source_and_later_read_failure_both_reach_reviewer(self):
+        from jarvis.mission_assurance import evidence_snapshot,report_model_view
+        path='/etc/systemd/system/fixture.service'
+        good=self.s.begin_call(self.m,'a','host_exec',{'argv':['cat',path]})
+        self.s.finish_call(good,{'ok':True,'result':{'returncode':0,'stdout':'[Service]\nUser=fixture\n'}},0)
+        bad=self.s.begin_call(self.m,'a','host_read_file',{'path':path})
+        self.s.finish_call(bad,{'ok':False,'error':'Fixture denied later read','result':{'returncode':1}},0)
+        fake=self.s.begin_call(self.m,'a','host_exec',{'command':'echo fabricated > '+path})
+        self.s.finish_call(fake,{'ok':True,'result':{'returncode':0,'stdout':'fabricated'}},0)
+        view=report_model_view(evidence_snapshot(self.s,self.m,'a'),'Fichier '+path,recent=0)
+        ids={r['reference'] for r in view['receipts']}
+        self.assertIn(good,ids);self.assertIn(bad,ids);self.assertNotIn(fake,ids)
+
+    def test_numeric_receipt_alias_must_resolve_to_actual_completed_event(self):
+        from jarvis.mission_assurance import evidence_snapshot,report_model_view,snapshot_references
+        call=self.s.begin_call(self.m,'a','host_exec',{'command':'cat /etc/systemd/system/fixture.service'})
+        self.s.finish_call(call,{'ok':True,'result':{'returncode':0,'stdout':'Fixture contents'}},0)
+        snapshot=evidence_snapshot(self.s,self.m,'a');row=next(r for r in snapshot['receipts'] if r['reference']==call)
+        alias=row['event_reference'];body='Sources : refs '+alias.split(':')[1]
+        view=report_model_view(snapshot,body,recent=0)
+        self.assertEqual([r['reference'] for r in view['receipts']],[call])
+        self.assertIn(alias,snapshot_references(snapshot))
+        self.assertFalse(any('At least one' in x for x in deterministic_report_issues(body,snapshot)))
+        marked='- **Référence** : `'+alias.split(':')[1]+'` (action show)'
+        self.assertEqual([r['reference'] for r in report_model_view(snapshot,marked,recent=0)['receipts']],[call])
+        self.assertFalse(any('At least one' in x for x in deterministic_report_issues(marked,snapshot)))
+        self.assertTrue(any('At least one' in x for x in deterministic_report_issues('refs 999999999',snapshot)))
+
+    def test_source_review_does_not_import_neighbouring_status_or_invent_a_cause(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        first=self.s.event(self.m,'controller_findings_rectified',actor='Codex',result={})
+        second=self.s.event(self.m,'semantic_verification',result={'status':'FAIL'})
+        body='La rectification event:'+str(first)+' retire un reproche, sans annuler le FAIL de event:'+str(second)+'.'
+        seen=[]
+        def callback(payload):
+            pair=json.loads(payload['messages'][1]['content'])['source_report_pairs'][0];ref=pair['source']['reference'];props=payload['format']['properties']['checks']['properties'][ref]['properties']
+            if ref=='event:'+str(first):
+                self.assertEqual(props['claimed_status']['enum'],[None]);status=None
+            else:self.assertIn('FAIL',props['claimed_status']['enum']);status='FAIL'
+            self.assertEqual(props['claimed_cause']['enum'],[None]);seen.append(ref)
+            return {'content':json.dumps({'checks':{ref:{'supported':False,'claimed_status':status,'claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'Software fixture'}}})}
+        self.r.assurance_transport=callback
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertEqual(result['issues'],[])
+        self.assertTrue(all(check['supported'] and check['model_supported'] is False for check in result['checks'].values()))
+        self.assertEqual(len(seen),2)
+
+    def test_original_metadata_mismatch_blocks_despite_supported_model_opinion(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        event=self.s.event(self.m,'semantic_verification',result={'status':'FAIL'})
+        ref='event:'+str(event);body=ref+' (PASS).'
+        self.r.assurance_transport=lambda payload:{'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':'PASS','claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'False model success fixture'}}})}
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertFalse(result['checks'][ref]['supported'])
+        self.assertTrue(any('contradicts original FAIL' in issue for issue in result['issues']))
+
+    def test_source_review_causal_quotes_select_original_text_or_null(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        reference=self.observation();body='Opération observée, sans cause alléguée : '+reference+'.'
+        def callback(payload):
+            pair=json.loads(payload['messages'][1]['content'])['source_report_pairs'][0];ref=pair['source']['reference']
+            allowed=payload['format']['properties']['checks']['properties'][ref]['properties']['claimed_cause']['enum']
+            self.assertIn(None,allowed);self.assertIn(body,allowed)
+            return {'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':None,'claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':None,'reason':'Software fixture'}}})}
+        self.r.assurance_transport=callback
+        self.assertEqual(focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))['issues'],[])
+
+    def test_unknown_cause_span_id_never_becomes_a_quote(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        self.responses=[{'category':'missing_original_reference','cause_span_id':'P999','role':'past_rejection_cause'}]*2
+        with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
+            extract_cause_claim(self.r,'event:1',['Preuve manquante.'])
+
+    def test_no_cause_span_cannot_drop_a_classified_past_cause(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        self.responses=[{'category':'missing_original_reference','cause_span_id':'NO_CAUSE','role':'past_rejection_cause'}]*2
+        with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
+            extract_cause_claim(self.r,'event:1',['Preuve manquante.'])
+
+    def test_span_selection_preserves_no_cause_without_inventing_one(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        self.responses=[{'category':'none','cause_span_id':'NO_CAUSE','role':'no_claim'}]
+        result=extract_cause_claim(self.r,'event:1',['Le FAIL historique est conservé.'])
+        self.assertEqual(result['cause_quote'],'')
+
+    def test_blind_span_choice_cannot_override_wrong_diagnostic_or_event_status(self):
+        from jarvis.mission_assurance import focused_event_review,cited_event_facts
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        diagnostic='Historical FAIL must be explicitly retained; original events'
+        event=self.s.event(self.m,'semantic_verification',result={'status':'FAIL','issues':[diagnostic]});ref='event:'+str(event)
+        body='INSUFFICIENT '+ref+' : référence originale manquante.'
+        calls=[]
+        def callback(payload):
+            data=json.loads(payload['messages'][1]['content']);calls.append(data)
+            if 'report_spans' in data:
+                self.assertNotIn(diagnostic,json.dumps(data))
+                return {'content':json.dumps({'category':'missing_original_reference','cause_span_id':data['report_spans'][0]['id'],'role':'past_rejection_cause'})}
+            return {'content':json.dumps({'checks':{ref:{'supported':True,'claimed_status':'INSUFFICIENT','claimed_kind':None,'claimed_actor':None,'claimed_cause':None,'supporting_diagnostic_index':0,'reason':'Incorrect fixture opinion'}}})}
+        self.r.assurance_transport=callback
+        result=focused_event_review(self.r,body,cited_event_facts(self.s,self.m,body))
+        self.assertTrue(any('claimed_status' in issue for issue in result['issues']))
+        self.assertFalse(result['checks'][ref]['supported'])
+        self.assertFalse(result['checks'][ref]['typed_cause_validation']['matches'])
+
+    def test_exact_cause_selection_preserves_original_typo_without_hinting_category(self):
+        from jarvis.mission_assurance import extract_cause_claim
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        phrase='Ommission explicite du FAIL historique.'
+        def callback(payload):
+            schema=payload['format'];data=json.loads(payload['messages'][1]['content']);choices={span['text']:span['id'] for span in data['report_spans']}
+            self.assertNotIn('cause_quote',schema['properties']);self.assertIn(phrase,choices);self.assertNotIn(phrase.replace('Ommission','Omission'),choices)
+            return {'content':json.dumps({'category':'missing_historical_failures','cause_span_id':choices[phrase],'role':'past_rejection_cause'})}
+        self.r.assurance_transport=callback
+        self.assertEqual(extract_cause_claim(self.r,'event:1',['- '+phrase])['cause_quote'],phrase)
+
+    def test_cited_coordinator_instruction_is_visible_without_becoming_execution_proof(self):
+        from jarvis.mission_assurance import cited_event_facts
+        text='Keep the original FAIL and correct your own narrative.'
+        ref=self.s.event(self.m,'coordinator_instruction',actor='Codex',result={'instruction':text})
+        row=cited_event_facts(self.s,self.m,'Instruction event:'+str(ref))[0]
+        self.assertEqual(row['facts']['instruction_text'],text)
+        self.assertIn('Not evidence of execution',row['facts']['instruction_scope'])
+        self.assertEqual(row['kind'],'coordinator_instruction');self.assertEqual(row['actor'],'Codex')
+        self.assertNotIn('status',row['facts'])
+
+    def test_single_segment_factual_review_has_only_valid_verdicts_and_complete_coverage(self):
+        with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
+        ref=self.observation();body='Une lecture a été observée : '+ref+'.\n\nHypothèse : la suite pourrait être vérifiée.'
+        observed=[]
+        def callback(payload):
+            data=json.loads(payload['messages'][1]['content']);parts=data['segments'];self.assertEqual(len(parts),1)
+            part=parts[0];choices=payload['format']['properties']['claims']['items']['properties']['verdict']['enum']
+            if part['id']=='S1':
+                self.assertEqual(choices,['supported','contradicted','insufficient'])
+                verdict='supported';refs=[ref]
+            else:verdict='qualified_hypothesis';refs=[]
+            observed.append(part['id'])
+            return {'content':json.dumps({'claims':[{'segment':part['id'],'verdict':verdict,'references':refs,'reason':'Software fixture'}],'issues':[]})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,body,'a');self.assertEqual(observed,['S1','S2'])
+        self.assertEqual(result['status'],'PASS');self.assertEqual([c['quote'] for c in result['claims']],body.split('\n\n'))
+
+    def test_bounded_report_review_covers_every_segment_and_preserves_a_failed_part(self):
+        from jarvis.mission_context_budget import ContextCapacityError,serialized_bytes
+        with self.s.db() as c:
+            c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'autonomous':True,'assurance':True,'bounded_narrative_review':True}),self.m))
+        reference=self.observation()
+        parts=['Hypothèse : '+('élément de contexte incertain. '*45) for _ in range(8)]
+        parts[0]+=' Référence : '+reference
+        body='\n\n'.join(parts);reviewed=[];rejected=[]
+        def callback(payload):
+            size=serialized_bytes(payload)
+            if size>14000:
+                rejected.append(size);raise ContextCapacityError('Software admission fixture; no model dispatched')
+            data=json.loads(payload['messages'][1]['content']);segments=data['segments']
+            reviewed.extend(s['id'] for s in segments)
+            return {'content':json.dumps({'claims':[{'segment':s['id'],'verdict':'contradicted' if s['id']=='S5' else 'qualified_hypothesis','references':[],'reason':'Software fixture finding'} for s in segments], 'issues':['Deliberate fixture contradiction'] if any(s['id']=='S5' for s in segments) else []})}
+        self.r.assurance_transport=callback
+        result=audit_report(self.r,body,'a')
+        self.assertTrue(rejected);self.assertEqual(reviewed,['S'+str(i) for i in range(1,9)])
+        self.assertEqual([x['quote'] for x in result['claims']],[part.strip() for part in parts])
+        self.assertEqual(result['status'],'FAIL');self.assertIn('Deliberate fixture contradiction',result['issues'])
+        self.assertGreater(len(result['review_batches']),1);self.assertEqual(result['draft'],body)
+        self.assertEqual(len([e for e in self.s.events(self.m,limit=10000) if e['kind']=='narrative_review']),1)
+
+    def test_single_oversized_report_segment_never_gets_a_partial_pass(self):
+        from jarvis.mission_context_budget import ContextCapacityError
+        with self.s.db() as c:
+            c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True}),self.m))
+        def callback(payload):raise ContextCapacityError('Single source cannot fit fixture')
+        self.r.assurance_transport=callback
+        with self.assertRaisesRegex(ContextCapacityError,'Single narrative segment'):
+            audit_report(self.r,'Hypothèse : élément non vérifié.','a')
+        self.assertFalse(any(e['kind']=='narrative_review' for e in self.s.events(self.m,limit=10000)))
+
     def setUp(self):
         tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup)
         self.s=MissionStore(tmp.name)

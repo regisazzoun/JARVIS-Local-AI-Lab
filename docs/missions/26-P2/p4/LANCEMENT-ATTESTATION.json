@@ -1,0 +1,42 @@
+{
+  "id": "d8fe752876db480cbe5f22cd5525e2dd",
+  "event": 58954,
+  "goal": "P4 — paquet suivant, CANDIDAT D’ATTESTATION seulement. Développe dans le code réel du Mission Engine un mécanisme réutilisable qui distingue le source sur disque des fonctions Python effectivement chargées dans un processus. Choisis ton plan, tes fichiers, ta conception, tes tests et les exécutants. Cible : modules réels engine/jarvis/worker.py et core.py présents dans les copiesDell ; source canonique Mac /home/adminjarvis/JARVIS/mission26-phase2, service réel /opt/jarvis/conversation. Le nouveau mécanisme doit pouvoir fournir identité du processus, instant de mesure, empreinte des objetscode réellement en mémoire et comparaison à un candidat explicite. Une relecture du fichier, inspect.getsource, Git, PID ou /proc/maps seuls ne prouvent pas ces objets. Une version ancienne chargée malgré un disque changé doit être détectée. Tester aussi concordance, observation périmée ou manquante ; ne jamais transformer un cas inconnu en PASS. Prépare l’instrumentation utile dans le candidat sans toucher aux services actifs. Travaille et teste réellement surlesdeuxDell au même manifeste ; l’un corrige, l’autre vérifie indépendamment. L’exportengine est un candidat, pas l’application déployée. Livrables : code applicatif réutilisable, tests pertinents, petit rapport fidèle aux reçus et dossier d’intégration/retourarrière pourCodex. Aucun nouveau moteur, aucune base mémoire concurrente, aucun nouveau modèle. Fenêtre32768tokens totale, réponse4096+marge1024 réservées, entrée27648 selon garde conservateur ; écrire ce critère dans les sous-tâches avant transmission, découper si trop gros. AcquisP2/P3 et sixPASS d’audit préservés, aucune reprise de leurs tests. Rapport d’audit ancien non reçu comme prose ; ne pas reprendre ses chemins ou SHA fictifs. Maximum3échecs comparables puis escalade avec preuves, pas de remiseàzéro. Codex installera le candidat après contrôle indépendant ; ce paquet ne reçoit ni déploiement ni touteP4. Directives consultées : AGENTS,charte,M26-P2 et auditP4 ; autorisations autonomes préservées.",
+  "spec": {
+    "parent_mission": "3aa717f3887e49daa7daf7e883ee52e4",
+    "preceding_P4_audit": "d1b0d69639724c60b5bd1b2143b1a5fa",
+    "preceding_audit_reception": 58952,
+    "owner_priority": "P4-ATTEST-CANDIDAT",
+    "context_result_objective": {
+      "total_context_tokens_max": 32768,
+      "response_tokens_reserved": 4096,
+      "template_tokens_reserved": 1024,
+      "input_tokens_max": 27648,
+      "result_required": "Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.",
+      "admission_measure": "UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count"
+    },
+    "distributed_authority": true,
+    "authority_task_scoped_evidence": true,
+    "authority_durable_receipts": true,
+    "authority_typed_evidence": true,
+    "authority_manifest_roots": [
+      "engine"
+    ],
+    "authority_workspace": {
+      "project": "mission26-phase2",
+      "remote_root": "/opt/jarvis-lab/mission26-phase2",
+      "local_root": "/var/lib/jarvis/projects/mission26-phase2"
+    },
+    "authority_requirements": [
+      "P4-ATTEST"
+    ],
+    "authority_interface_epoch": "P4-runtime-attestation-candidate",
+    "authority_disabled_tools": [
+      "context_recall"
+    ],
+    "autonomous": false,
+    "assurance": false,
+    "compact_finalization": true
+  },
+  "preceding_reception": 58952
+}

@@ -21,15 +21,16 @@ class BrokerError(RuntimeError):
         self.response=response
         super().__init__(json.dumps(response,ensure_ascii=False))
 
-def request(operation,arguments,workload_class=None):
+def request(operation,arguments,workload_class=None,*,_endpoint=None):
     try:
-        return _request(operation,arguments,workload_class)
+        if _endpoint is None:return _request(operation,arguments,workload_class)
+        return _request(operation,arguments,workload_class,_endpoint=_endpoint)
     except OSError as exc:
         raise BrokerError(transport_failure(operation,exc)) from exc
 
-def _request(operation,arguments,workload_class=None):
+def _request(operation,arguments,workload_class=None,*,_endpoint=None):
     with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as s:
-        s.settimeout(660);s.connect(SOCKET)
+        s.settimeout(660);s.connect(_endpoint or SOCKET)
         s.sendall(json.dumps({'operation':operation,'arguments':arguments,'workload_class':workload_class or WORKLOAD_CLASS.get() or os.environ.get('JARVIS_WORKLOAD_CLASS','interactive')}).encode()+b'\n')
         data=b''
         while not data.endswith(b'\n'):
@@ -100,7 +101,7 @@ def register(registry):
     spec('host_resources','Ressources CPU RAM GPU et inventaire Tailscale réel',[])
     spec('host_github','GitHub authentifié sans exposer le jeton. Actions inspect, file, download, branches, pages, clone, push (un fichier <1Mo), pull_request brouillon, create (Launcher2 seul), enable_pages (Launcher2 branche gh-pages). file lit path (ou file) exact ; download lit path et enregistre le fichier complet dans destination absolue autorisée, sans recopier son contenu. file et clone acceptent branch pour lire une branche précise. push nécessite path DOSSIER racine local, branch jarvis/..., file relatif (pas le fichier dans path). push_tree publie un lot explicite : path dossier, files chaîne JSON de chemins relatifs ; exclure .env/secrets/binaires. Produit commit_sha et verified, reprise idempotente sans force. verify_tree reprend path dossier et files JSON et compare chaque blob distant avec les sources locales ; absent ou différent échoue. Autres actions : repositories, branch_create, commits, verify_commit, diff, prs, pr_status. Pour commits, verify_commit, diff, prs et pr_status, branch est obligatoire et doit être la branche réelle jarvis/... ou codex/... (les PR sont listées par branche head). verify_commit exige en plus le commit SHA attendu. pull_request crée ou met à jour la PR existante. Les commits locaux via host_exec restent possibles ; push_tree crée un commit distant de sources contrôlées sans exporter les secrets/historique local. Jamais main ; gh-pages accepté pour Launcher2 seul.',['repository','action','path','branch','file','body','destination','files','commit','title','message'],['repository','action'])
     spec('host_remote','SSH sur profil activé : identity/resources/services/proof, write_file/read_file (path/content), package_install (package), service (service/service_action). Opérations structurées supplémentaires si accordées : supervision_install, supervision_test, desktop_configure, desktop_test, desktop_network_test, tailscale_configure (installe le client sur Dell, réutilise uniquement une clé privée préprovisionnée), tailscale_status (état réel sans secret), desktop_gateway_configure (passerelle privée du Mac lorsque Dell n’a pas de client Tailscale). Elles exécutent une infrastructure fixe sans renvoyer de secret. Voir host_policy. project_exec(project,command) exécute dans un confinement distant du seul projet accordé, réseau hôte et /usr lecture seule, sans clés ni sudo ; pour client WebRTC de réception sur Dell1. Administration Dell activée selon la politique propriétaire 11B.',['host','action','path','content','package','service','service_action','project','command'],['host','action'])
-    registry.specs['host_remote'][1]['local_path']={'type':'string','description':'project_upload/download only: local source/destination. project, path (remote absolute), local_path required; transfers bytes with SHA256 comparison. Download into /var/lib/jarvis/projects/tts-01; upload only readable allowed roots. Never returns binary contents.'}
+    registry.specs['host_remote'][1]['local_path']={'type':'string','description':'project_upload/download only: local source/destination. project, path (remote absolute), local_path required; transfers bytes with SHA256 comparison. Use the selected project transfer_local_root declared by host_policy for downloads (e.g. /var/lib/jarvis/projects/mission26-phase2 for that project); upload only readable allowed roots. Never returns binary contents.'}
     registry.specs['host_remote'][1]['model']={'type':'string','maxLength':128,'description':'action=model_pull (alias pull) only: exact allowed Ollama tag, e.g. qwen3:32b-q4_K_M. Bounded resumable download on the target mission service. Success requires final success AND exact catalogue readback. Other models are rejected by owner policy.'}
     registry.specs['host_remote'][1]['probe']={'type':'string','enum':['gpu_inventory','tts_runtime','archive_inventory','script_syntax','tts_samples'],'description':'action project_probe only, with project:tts-01. Fixed independent read in a read-only project mount. No command or content accepted; usable as mission_verify source.'}
     old=registry.specs['host_remote']

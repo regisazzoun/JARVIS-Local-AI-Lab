@@ -1,0 +1,51 @@
+{
+  "event": 57955,
+  "mission": "d1b0d69639724c60b5bd1b2143b1a5fa",
+  "proof": [
+    {
+      "host": "dell-observe",
+      "receipt": "b09105d7fb6f472ea35770a97c56e658",
+      "observation": {
+        "path": "artefacts/source_hashes.json",
+        "bytes": 3095,
+        "sha256": "c583f8e885dbbeff45c22c082031613ab865d6c6b5560df81c50c4c3bdc1b313",
+        "observed_files": [
+          "core.py",
+          "tools.py"
+        ],
+        "comparisons": {
+          "core.py": true,
+          "tools.py": true
+        },
+        "imagined_helper_exists": false,
+        "loaded_memory_proven": false
+      }
+    },
+    {
+      "host": "dell2",
+      "receipt": "f69bc60fc9f1446f84ad4aa08e2919e9",
+      "observation": {
+        "path": "artefacts/source_hashes.json",
+        "bytes": 3095,
+        "sha256": "c583f8e885dbbeff45c22c082031613ab865d6c6b5560df81c50c4c3bdc1b313",
+        "observed_files": [
+          "core.py",
+          "tools.py"
+        ],
+        "comparisons": {
+          "core.py": true,
+          "tools.py": true
+        },
+        "imagined_helper_exists": false,
+        "loaded_memory_proven": false
+      }
+    }
+  ],
+  "received_tasks_preserved": [
+    "WP1",
+    "WP2",
+    "WP3",
+    "WP4"
+  ],
+  "audit_received": false
+}

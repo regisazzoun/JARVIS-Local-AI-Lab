@@ -1,0 +1,56 @@
+{
+  "trigger_event": 68293,
+  "invocation": "09a69531808e469b8c299989db99cb39",
+  "result": {
+    "ok": false,
+    "result": {
+      "returncode": 1,
+      "status": "FAIL",
+      "checks": [
+        {
+          "predicate": "narrative_matches_original_evidence",
+          "pass": false,
+          "draft_sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0"
+        }
+      ],
+      "sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0",
+      "issues": [
+        "event:66368 source claim rejected: Aucun diagnostic original fourni (original_diagnostics vide), donc impossible de vérifier le statut/type/acteur de l’événement. Les passages cités mentionnent 'event:66368' et son supposé état 'slot2 actif', mais ne fournissent aucun élémé́ | Original diagnostic: None",
+        "event:66872 source claim rejected: Le passage rapporte 'event:66872 (FAIL)' mais ne fournit aucun diagnostic original explicitement lié à cet événement dans les original_diagnostics ; le diagnostic #0 mentionne une exigence générale ('Historical FAIL must be explicitly...')却 | Original diagnostic: Historical FAIL must be explicitly retained; see original semantic, coverage and editorial review events",
+        "event:67201 source claim rejected: Le rapport ne fournit aucun statut, type, acteur ou cause explicitement attribués à event:67201 dans les passages fournis ; seul le libellé '(FAIL)' est indiqué, mais sans précision sur la nature du FAIL ni son étayage par une source. | Original diagnostic: Date du document (2026-10-28T13:15:58+01:00) non conforme aux horodatages des reçus (création à 02:23:17) et non étayée par une source.",
+        "event:67634 source claim rejected: Le passage 'event:67201 (FAIL) et event:67634 (FAIL).' ne contient aucune référence à un receipt ou événement original étayant l’existence ou le contenu des étapes mentionnées, contrairement à l’exigence affirmée dans le diagnostic 1 : 'Até | Original diagnostic: S13 : titre affirmant une fondation sur receipts sans aucune référence ou observation factuelle étayant l’existence ou le contenu de ces étapes",
+        "event:67730 source claim rejected: Aucune preuve factuelle ou diagnostic fourni pour l’événement event:67730 ; seule une mention de rectification factuelle par Codex est présente, sans description de l’événement lui-même, de son statut, type, acteur ou cause alléguée. | Original diagnostic: None"
+      ],
+      "contract": {
+        "kind": "report",
+        "source": {
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md"
+          },
+          "tool": "host_read_file"
+        }
+      },
+      "observations": [
+        {
+          "invocation": "8d33f2a002dd4e659dc4d55ff9ef58b9",
+          "broker_evidence": "243d3faeabd643df993267507eda27fc",
+          "tool": "host_read_file",
+          "arguments": {
+            "path": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md"
+          }
+        }
+      ],
+      "observed_at": 1793207970.8959858,
+      "verifier": "broker-read+JARVIS-reviewer26B",
+      "verification_event": 68391
+    },
+    "risk": "host_authorized",
+    "tool": "mission_verify",
+    "elapsed_s": 149.23
+  },
+  "trigger": "Codex",
+  "reviewer": "JARVIS/Qwen80B on Dell1",
+  "autonomous_trigger": false,
+  "task_complete": false,
+  "global_P4_received": false
+}
