@@ -394,6 +394,7 @@ def evidence_snapshot(store, ident, task_id=None):
         if name=='host_policy': continue
         # A model-authored report cannot serve as evidence for its own assertions.
         if args.get('path') in report_paths and name in ('host_write_file','host_edit_file','host_read_file'): continue
+        if name=='host_exec' and receipt_read_paths({'tool':name,'arguments':args}) & report_paths:continue
         if not result: continue
         if name=='mission_verify' and (result.get('result') or {}).get('contract',{}).get('kind')=='report': continue
         raw=result.get('result',{})
@@ -416,6 +417,10 @@ def evidence_snapshot(store, ident, task_id=None):
         'created':datetime.fromtimestamp(store.get(ident)['created'],ZoneInfo('Europe/Paris')).isoformat(),
         'infrastructure_author':'Codex','plan_and_operations_author':'JARVIS','closure':closure_state(store,ident),'active_contracts':{'reference':'contracts:active','engine':VERSION,'requirements':GOAL_VERSION,'report':REPORT_VERSION},
         'limitations':'Receipt excerpts are not full program specifications. Idempotence requires successful repeated application and compared state. No observation means unverified, never success.'}
+    data['factual_finalization']=bool(task_id is None and json.loads(store.get(ident)['spec']).get('factual_finalization') and all_tasks and all(t['state']=='validated' for t in all_tasks))
+    if data['factual_finalization']:
+        titles={t['id']:t['title'] for t in all_tasks}
+        data['tasks']=[{**t,'title':titles[t['id']]} for t in data['tasks']]
     if data['goal_requirements']:
         data['goal_requirements']={**data['goal_requirements'],'reference':'requirements:'+str(data['goal_requirements'].get('version',1))}
     data['counts']={'observations_in_scope':len(receipts),'plans':len(ledger['plans']),
@@ -520,7 +525,8 @@ def report_model_view(snapshot, content, recent=4):
     chosen.update(row['reference'] for row in receipts if row.get('event_reference') in aliases)
     paths=set().union(*(receipt_read_paths(row) for row in receipts)) if receipts else set()
     for path in paths:
-        if path in content or Path(path).name in content:
+        names=(path,Path(path).name)
+        if any(re.search(r'(?<![\w./-])'+re.escape(value)+r'(?![\w./-])',content) for value in names):
             matching=[row for row in receipts if path in receipt_read_paths(row)]
             if matching:chosen.add(matching[-1]['reference'])
             successful=[row for row in matching if row.get('ok') and row.get('observed',{}).get('returncode')==0]
@@ -563,6 +569,17 @@ def report_model_view(snapshot, content, recent=4):
         selected=[task for task in original['plan']['tasks'] if task['id']==snapshot.get('scope_task') or re.search(r'(?<![\w-])'+re.escape(task['id'])+r'(?![\w-])',content,re.I)]
         definitions.append({**{k:v for k,v in original.items() if k!='plan'},'plan':{**{k:v for k,v in original['plan'].items() if k!='tasks'},'tasks':selected},'explicit_excerpt':True,'all_task_ids':[task['id'] for task in original['plan']['tasks']]})
     view['plan_definitions']=definitions
+    if snapshot.get('factual_finalization'):
+        # Final outcome metadata is proved by canonical task rows and hashes.
+        # Full execution contracts remain stored, not duplicated in every prose
+        # segment. Claims about omitted plan details are not thereby proved.
+        view['plan_definitions']=[]
+        view['plan_definition_scope']='Final task metadata only; full versioned contracts remain in mission evidence. Omitted plan details are neither absent nor proved.'
+        refs=view['codex_interventions']['references']
+        cited={event['reference'] for event in view['cited_event_facts'] if event.get('found_in_mission')}
+        kept=list(dict.fromkeys([ref for ref in refs if ref in cited]+refs[-2:]))
+        view['codex_interventions']['references']=kept
+        view['codex_interventions']['references_omitted']=len(refs)-len(kept)
     return view
 
 

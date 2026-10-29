@@ -24,6 +24,46 @@ class AssuranceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'INSUFFICIENT'):
             extract_cause_claim(self.r,'event:1',['FAIL sur preuves manquantes'])
 
+    def test_finalization_review_keeps_task_metadata_and_cited_actor_proofs(self):
+        from jarvis.mission_assurance import evidence_snapshot,report_model_view
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        spec=json.loads(self.s.get(self.m)['spec']);spec['factual_finalization']=True
+        with self.s.db() as c:
+            c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+            c.execute("update tasks set state='validated' where mission=?",(self.m,))
+        refs=[self.s.event(self.m,'coordinator_instruction',actor='Codex',result={'instruction':'Software fixture '+str(i)}) for i in range(12)]
+        snapshot=evidence_snapshot(self.s,self.m);snapshot['plan_definitions']=self.s.plans(self.m)
+        body='Task '+snapshot['tasks'][0]['id']+' and event:'+str(refs[0])
+        from jarvis.mission_assurance import cited_event_facts
+        snapshot['cited_event_facts']=cited_event_facts(self.s,self.m,body)
+        view=report_model_view(snapshot,body,recent=0)
+        self.assertTrue(snapshot['factual_finalization']);self.assertEqual(view['plan_definitions'],[])
+        self.assertEqual(view['raw_goal'],self.s.get(self.m)['goal'])
+        self.assertIn('title',view['tasks'][0]);self.assertEqual(view['tasks'][0]['state'],'validated')
+        self.assertIn('event:'+str(refs[0]),view['codex_interventions']['references'])
+        self.assertEqual(view['codex_interventions']['count'],12)
+        self.assertEqual(view['codex_interventions']['references_omitted'],9)
+        with self.s.db() as c:c.execute("update tasks set state='pending' where mission=?",(self.m,))
+        self.assertFalse(evidence_snapshot(self.s,self.m)['factual_finalization'])
+
+    def test_source_filename_matching_does_not_select_substring_or_directory(self):
+        from jarvis.mission_assurance import report_model_view,evidence_snapshot
+        calls={}
+        for path in ['/old/P4-ACTIVE-PREP.md','/old/jarvis','/actual/plan-P4-ACTIVE-PREP.md']:
+            inv=self.s.begin_call(self.m,'a','host_read_file',{'path':path});self.s.finish_call(inv,{'ok':True,'result':{'returncode':0,'stdout':'source fixture'}},0);calls[path]=inv
+        snapshot=evidence_snapshot(self.s,self.m)
+        view=report_model_view(snapshot,'Artifact `plan-P4-ACTIVE-PREP.md` from `unit_jarvis-worker.md`',recent=0)
+        self.assertEqual([x['reference'] for x in view['receipts']],[calls['/actual/plan-P4-ACTIVE-PREP.md']])
+        exact=report_model_view(snapshot,'Read `/old/P4-ACTIVE-PREP.md`',recent=0)
+        self.assertEqual([x['reference'] for x in exact['receipts']],[calls['/old/P4-ACTIVE-PREP.md']])
+
+    def test_cat_of_model_report_cannot_be_used_as_independent_technical_source(self):
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        path=self.s.tasks(self.m)[0]['contract']['report_path']
+        inv=self.s.begin_call(self.m,'a','host_exec',{'command':'cat '+path})
+        self.s.finish_call(inv,{'ok':True,'result':{'returncode':0,'stdout':'Invented technical success'}},0)
+        self.assertNotIn(inv,[x['reference'] for x in evidence_snapshot(self.s,self.m)['receipts']])
+
     def test_generic_format_label_does_not_hide_factual_count_heading(self):
         with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'bounded_narrative_review':True,'narrative_review_max_segments':1}),self.m))
         reference=self.observation();seen=[]
