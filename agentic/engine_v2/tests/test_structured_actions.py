@@ -40,6 +40,7 @@ class StructuredActionTests(unittest.TestCase):
   original={'type':'object','properties':{'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'executor':{'type':'string','enum':['Dell1','Dell2']},'command':{'type':'string'},'reference':{'type':'integer'},'source_reference':{'type':'integer'}},'required':['kind'],'additionalProperties':False,'allOf':[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},'then':{'required':['reference','source_reference']}},{'if':{'properties':{'kind':{'enum':['inspect','correct','test']}},'required':['kind']},'then':{'required':['executor','command'],'properties':{'command':{'minLength':1}}}}]}
   variants=explicit_variants(original)
   self.assertNotIn('allOf',variants)
+  self.assertEqual(len(variants['oneOf']),3)  # identical execution contracts share one branch
   for item in variants['oneOf']:
    mode=item['properties']['kind']['enum'][0]
    if mode in ('inspect','correct','test'):

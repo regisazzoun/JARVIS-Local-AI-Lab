@@ -35,14 +35,17 @@ def explicit_variants(params):
     values=params.get('properties',{}).get(discriminator,{}).get('enum')
     if not values:return params
     base=copy.deepcopy(params);base.pop('allOf');definitions=base.pop('$defs',{})
-    field_key='_action_fields'
+    field_key='_f'
     if field_key in definitions:return params
     definitions[field_key]=copy.deepcopy(base['properties']);variants=[]
+    groups={}
     for value in values:
-        variant=copy.deepcopy(base);variant['properties'][discriminator]['enum']=[value]
-        for clause in clauses:
-            rule=clause['if']['properties'][discriminator]
-            if value not in rule.get('enum',[rule.get('const')]):continue
+        matches=tuple(i for i,clause in enumerate(clauses) if value in clause['if']['properties'][discriminator].get('enum',[clause['if']['properties'][discriminator].get('const')]))
+        groups.setdefault(matches,[]).append(value)
+    for matches,group in groups.items():
+        variant=copy.deepcopy(base);variant['properties'][discriminator]['enum']=group
+        for index in matches:
+            clause=clauses[index]
             for field in clause['then'].get('required',[]):
                 if field not in variant['required']:variant['required'].append(field)
             for field,constraints in clause['then'].get('properties',{}).items():

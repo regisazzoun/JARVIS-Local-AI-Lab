@@ -91,3 +91,13 @@ identifiants inventés dans son texte ne sont pas des preuves. Préflight de la
 requête suivante72211 :26713/27648octets. Résolution72212 puis remise en file de
 la même mission, historique et compteurs intacts. [Reçus](p3/CONTRAT-EXECUTION-EXPLICITE.json).
 L’implémentation P3 demandée à JARVIS demeure non reçue à ce stade.
+
+Une reprise a ensuite atteint la limite d’entrée : le schéma explicite était
+trop redondant à côté de l’état courant. Le garde a refusé l’inférence et trois
+incidents d’infrastructure ont été conservés72303 ; aucun échec de test déduit.
+Les modes ayant exactement les mêmes obligations sont désormais regroupés dans
+une seule branche explicite, sans affaiblir le contrat.72tests ciblésPASS, sonde
+réelle72309 conforme mais non dispatchée ; requête suivante25874/27648octets72316.
+Résolution attestée72317–72319, compteur historique3 conservé avec acquittement
+explicite du registre natif. [Preuves](p3/SCHEMA-BORNE-REPRISE.json). Même mission
+reprise ; l’implémentation applicative et son test distinct restent non reçus.
