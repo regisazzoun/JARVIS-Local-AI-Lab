@@ -144,6 +144,58 @@ class ReportStepTests(unittest.TestCase):
   self.assertIn('Prochaine action : mission_task_complete',completion)
   self.assertNotIn('mission_verify',completion);self.assertNotIn('host_write_file',completion)
 
+ def test_factual_finalization_refuses_pending_tasks_and_preserves_original_goal(self):
+  from jarvis.durable_cycle import factual_finalization_view
+  self.assertTrue(self.save()['ok'])
+  with self.assertRaisesRegex(ValueError,'every actual task validated'):factual_finalization_view(self.s,self.m)
+  self.s.event(self.m,'semantic_verification','a',result={'status':'INSUFFICIENT'})
+  with self.s.db() as c:c.execute("update tasks set state='validated',artifact='/fixture/report.md',report_sha256=? where mission=?",('a'*64,self.m))
+  counts=self.s.attempt_ledger(self.m).snapshot();before=len(self.s.observations(self.m))
+  data=factual_finalization_view(self.s,self.m)
+  self.assertEqual(data['objective'],self.s.get(self.m)['goal']);self.assertEqual(data['verified_task_count'],1)
+  self.assertEqual(data['verified_tasks'][0]['report_sha256'],'a'*64)
+  self.assertEqual(data['historical_outcomes']['INSUFFICIENT']['recorded_events'],1)
+  self.assertNotIn('final_call',data);self.assertNotIn('content',data)
+  self.assertEqual(before,len(self.s.observations(self.m)));self.assertEqual(counts,self.s.attempt_ledger(self.m).snapshot())
+
+ def test_factual_finalization_preserves_model_authorship_and_skips_old_context(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  self.assertTrue(self.save()['ok']);spec=json.loads(self.s.get(self.m)['spec']);spec['factual_finalization']=True
+  with self.s.db() as c:
+   c.execute("update tasks set state='validated' where mission=?",(self.m,))
+   c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+   c.execute('insert or replace into mission_context values(?,?,?,?)',(self.m,None,json.dumps([{'role':'system','content':'OLD'},{'role':'user','content':'OLD'},{'role':'user','content':'STALE_REOPEN_ALL_TASKS'}]),1))
+  identity=self.root/'identity.txt';identity.write_text('Full fixture owner identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[];written=[]
+  def model(payload):
+   captured.append(payload)
+   return {'tool_calls':[{'function':{'name':'intervention_report','arguments':{'content':'Unique explanatory model fixture text'}}}]}
+  old=missions.execution_core.tools.specs['intervention_report'];missions.execution_core.tools.specs['intervention_report']=(*old[:4],lambda args:written.append(args['content']) or {'saved':True,'fixture':True})
+  missions.execution_core.transport=model;result=missions.cycle.run(self.s.get(self.m))
+  self.assertEqual(written,['Unique explanatory model fixture text']);self.assertTrue(result['report']['fixture'])
+  self.assertEqual({t['function']['name'] for t in captured[-1]['tools']},{'intervention_report'})
+  self.assertNotIn('STALE_REOPEN_ALL_TASKS',json.dumps(captured[-1]));self.assertNotIn('final_call',json.dumps(captured[-1]))
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'validated')
+
+ def test_finalization_does_not_offer_report_when_external_closure_is_blocked(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  self.assertTrue(self.save()['ok']);spec=json.loads(self.s.get(self.m)['spec']);spec['factual_finalization']=True
+  with self.s.db() as c:
+   c.execute("update tasks set state='validated' where mission=?",(self.m,));c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+  self.s.event(self.m,'goal_requirements',result={'closure':{'on_unavailable':'waiting_external','external_paths':['/missing/external.wav']}})
+  identity=self.root/'identity.txt';identity.write_text('Full fixture owner identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'));missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[]
+  def model(payload):
+   captured.append(payload);return {'tool_calls':[{'function':{'name':'mission_report_facts','arguments':{}}}]}
+  missions.execution_core.transport=model;missions.cycle.run(self.s.get(self.m))
+  self.assertEqual({t['function']['name'] for t in captured[-1]['tools']},{'mission_block'})
+  self.assertEqual(self.s.observations(self.m)[-1]['result']['report_workflow_phase'],'finalize')
+  self.assertFalse(any(e['kind']=='execution_tool_discovered' for e in self.s.events(self.m)))
+  self.assertEqual(self.s.tasks(self.m)[0]['state'],'validated')
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded
