@@ -1,0 +1,119 @@
+{
+  "active_skills": [
+    {
+      "name": "debian-diagnostic",
+      "version": 1
+    },
+    {
+      "name": "dell-roundtrip",
+      "version": 1
+    },
+    {
+      "name": "github-publish",
+      "version": 1
+    },
+    {
+      "name": "config-repair",
+      "version": 6
+    }
+  ],
+  "health_units": "Id=jarvis-mission-health.timer\nActiveState=active\nUnitFileState=enabled\n\nId=jarvis-m26-p2-supervision.timer\nActiveState=inactive\nUnitFileState=disabled\n\nId=jarvis-resource-watchdog.service\nActiveState=active\nUnitFileState=enabled\n",
+  "manual_hold_exists": true,
+  "native_tools": [
+    "system_status",
+    "disk_usage",
+    "jarvis_services",
+    "software_versions",
+    "propose_memory",
+    "hardware_inventory",
+    "service_logs",
+    "read_configuration",
+    "web_search",
+    "web_fetch",
+    "lab_terminal",
+    "active_memories",
+    "intervention_report",
+    "host_policy",
+    "host_exec",
+    "host_read_file",
+    "host_write_file",
+    "host_edit_file",
+    "host_delete_file",
+    "host_package",
+    "host_service",
+    "host_logs",
+    "host_diagnostics",
+    "host_resources",
+    "host_github",
+    "host_remote",
+    "host_ansible",
+    "capability_request",
+    "capability_status",
+    "capability_test",
+    "host_project_service",
+    "mission_plan",
+    "mission_progress",
+    "mission_task_complete",
+    "procedure_save",
+    "mission_block",
+    "mission_list",
+    "mission_read_batch",
+    "mission_publish",
+    "mission_evidence",
+    "mission_note",
+    "mission_verify",
+    "mission_report_facts",
+    "mission_action",
+    "mission_report_review",
+    "skill_list",
+    "skill_define",
+    "skill_test",
+    "skill_activate",
+    "skill_run",
+    "mcp_tools",
+    "compute_status",
+    "compute_escalate",
+    "compute_benchmark",
+    "compute_project_gpu",
+    "jl03_run_checked_protocol",
+    "jl03_apply_candidate_fix",
+    "jl03_candidate_check",
+    "jl03_write_fact_report",
+    "jl03_verify_report",
+    "jl03_finish_checked_task"
+  ],
+  "sources": [
+    {
+      "path": "/opt/jarvis/conversation/jarvis/core.py",
+      "sha256": "89b700824fa99d445345a576f71f2d527131aaebd7d154f792977b82338af36a"
+    },
+    {
+      "path": "/opt/jarvis/conversation/jarvis/compute.py",
+      "sha256": "2668741fdff2d296d880ffe546a47f7d94e3e08550cf848bc798a109bcd14cc8"
+    },
+    {
+      "path": "/opt/jarvis/conversation/jarvis/distributed_authority.py",
+      "sha256": "966b01ee14b6ddf1f2f982a8d3def30359e771c55b0345cc72331ef9f6e0c61f"
+    },
+    {
+      "path": "/usr/local/lib/jarvis-host/host_bridge.py",
+      "sha256": "f231891327170b47669be85268a089a7deed0b3e09002bec4a3db870e7c9c1f1"
+    },
+    {
+      "path": "/var/lib/jarvis/projects/jl03/backend/server.py",
+      "sha256": "7b67eb9a3cd1887cc6582198e0bc7f8c1e12289697004e9c7d1d868d88bb54ba"
+    },
+    {
+      "path": "/home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/adapter.py",
+      "sha256": "142bddcdbaea18ca3845b1691dfdcb2fa9f175fe338074ca4a72a3da1927eecd"
+    },
+    {
+      "path": "/home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/ollama_guard.py",
+      "sha256": "d3ef626f6a2f91822f81e700edfb3aaa4ec2abaa7784f0b25a3b0ca4e27bc6ef"
+    },
+    {
+      "path": "/home/adminjarvis/.local/bin/qwen-local",
+      "sha256": "dfc80b6d8eb7a856331e88fb27016e129790ceb951fd4f1ffd507386e8df5d50"
+    }
+  ]
+}

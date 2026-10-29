@@ -1,0 +1,409 @@
+{
+  "Mac": {
+    "/api/version": {
+      "version": "0.40.3"
+    },
+    "/api/tags": {
+      "models": [
+        {
+          "name": "qwen3.5:27b-q4_K_M",
+          "model": "qwen3.5:27b-q4_K_M",
+          "modified_at": "2026-10-12T22:49:37.500059387+02:00",
+          "size": 17478556591,
+          "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+          "details": {
+            "parent_model": "qwen35-validation-20261004:27b-q4",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "26.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "llamacpp"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "ministral-3:14b-instruct-2512-q4_K_M",
+          "model": "ministral-3:14b-instruct-2512-q4_K_M",
+          "modified_at": "2026-10-12T20:07:29.019965308+02:00",
+          "size": 9082537546,
+          "digest": "4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "mistral3",
+            "families": [
+              "mistral3"
+            ],
+            "parameter_size": "13.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools"
+          ]
+        },
+        {
+          "name": "llama3.1:8b",
+          "model": "llama3.1:8b",
+          "modified_at": "2026-10-12T18:16:41.699406124+02:00",
+          "size": 4920753328,
+          "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "8.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 131072,
+            "embedding_length": 4096,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        }
+      ]
+    },
+    "/api/ps": {
+      "models": []
+    }
+  },
+  "Dell1-main": {
+    "/api/version": {
+      "version": "0.40.3"
+    },
+    "/api/tags": {
+      "models": [
+        {
+          "name": "qwen3-coder-next:q4_K_M",
+          "model": "qwen3-coder-next:q4_K_M",
+          "modified_at": "2026-10-23T21:25:01.630463685+02:00",
+          "size": 51741611823,
+          "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3next",
+            "families": [
+              "qwen3next"
+            ],
+            "parameter_size": "79.7B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2048,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        },
+        {
+          "name": "qwen3:32b-q4_K_M",
+          "model": "qwen3:32b-q4_K_M",
+          "modified_at": "2026-10-23T17:10:35.695158323+02:00",
+          "size": 20201253829,
+          "digest": "030ee887880fc378860c2dd35101da424377520441ae4bfe7be6deff8ade7840",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "32.8B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 40960,
+            "embedding_length": 5120,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "llama3.3:70b-instruct-q4_K_M",
+          "model": "llama3.3:70b-instruct-q4_K_M",
+          "modified_at": "2026-10-23T15:47:32.362593387+02:00",
+          "size": 42520413916,
+          "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "70.6B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 131072,
+            "embedding_length": 8192,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        },
+        {
+          "name": "qwen3.5:27b-q4_K_M",
+          "model": "qwen3.5:27b-q4_K_M",
+          "modified_at": "2026-10-23T15:38:52.601841238+02:00",
+          "size": 17478556591,
+          "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+          "details": {
+            "parent_model": "qwen35-validation-20261004:27b-q4",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "26.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "llamacpp"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "ministral-3:14b-instruct-2512-q4_K_M",
+          "model": "ministral-3:14b-instruct-2512-q4_K_M",
+          "modified_at": "2026-10-12T20:07:29.019965308+02:00",
+          "size": 9082537546,
+          "digest": "4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "mistral3",
+            "families": [
+              "mistral3"
+            ],
+            "parameter_size": "13.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools"
+          ]
+        },
+        {
+          "name": "llama3.1:8b",
+          "model": "llama3.1:8b",
+          "modified_at": "2026-10-12T18:16:41.699406124+02:00",
+          "size": 4920753328,
+          "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "8.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 131072,
+            "embedding_length": 4096,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        }
+      ]
+    },
+    "/api/ps": {
+      "models": []
+    }
+  },
+  "Dell1-missions": {
+    "/api/version": {
+      "version": "0.40.3"
+    },
+    "/api/tags": {
+      "models": [
+        {
+          "name": "qwen3-coder-next:q4_K_M",
+          "model": "qwen3-coder-next:q4_K_M",
+          "modified_at": "2026-10-23T21:25:01.630463685+02:00",
+          "size": 51741611823,
+          "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3next",
+            "families": [
+              "qwen3next"
+            ],
+            "parameter_size": "79.7B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 2048,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        },
+        {
+          "name": "qwen3:32b-q4_K_M",
+          "model": "qwen3:32b-q4_K_M",
+          "modified_at": "2026-10-23T17:10:35.695158323+02:00",
+          "size": 20201253829,
+          "digest": "030ee887880fc378860c2dd35101da424377520441ae4bfe7be6deff8ade7840",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "qwen3",
+            "families": [
+              "qwen3"
+            ],
+            "parameter_size": "32.8B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 40960,
+            "embedding_length": 5120,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "llama3.3:70b-instruct-q4_K_M",
+          "model": "llama3.3:70b-instruct-q4_K_M",
+          "modified_at": "2026-10-23T15:47:32.362593387+02:00",
+          "size": 42520413916,
+          "digest": "a6eb4748fd2990ad2952b2335a95a7f952d1a06119a0aa6a2df6cd052a93a3fa",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "70.6B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 131072,
+            "embedding_length": 8192,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        },
+        {
+          "name": "qwen3.5:27b-q4_K_M",
+          "model": "qwen3.5:27b-q4_K_M",
+          "modified_at": "2026-10-23T15:38:52.601841238+02:00",
+          "size": 17478556591,
+          "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+          "details": {
+            "parent_model": "qwen35-validation-20261004:27b-q4",
+            "format": "gguf",
+            "family": "qwen35",
+            "families": [
+              "qwen35"
+            ],
+            "parameter_size": "26.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "llamacpp"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools",
+            "thinking"
+          ]
+        },
+        {
+          "name": "ministral-3:14b-instruct-2512-q4_K_M",
+          "model": "ministral-3:14b-instruct-2512-q4_K_M",
+          "modified_at": "2026-10-12T20:07:29.019965308+02:00",
+          "size": 9082537546,
+          "digest": "4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "mistral3",
+            "families": [
+              "mistral3"
+            ],
+            "parameter_size": "13.9B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 262144,
+            "embedding_length": 5120,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "vision",
+            "tools"
+          ]
+        },
+        {
+          "name": "llama3.1:8b",
+          "model": "llama3.1:8b",
+          "modified_at": "2026-10-12T18:16:41.699406124+02:00",
+          "size": 4920753328,
+          "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "8.0B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 131072,
+            "embedding_length": 4096,
+            "runner": "ggml"
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        }
+      ]
+    },
+    "/api/ps": {
+      "models": []
+    }
+  }
+}

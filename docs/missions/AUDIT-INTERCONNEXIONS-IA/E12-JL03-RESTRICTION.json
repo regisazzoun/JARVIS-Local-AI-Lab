@@ -1,0 +1,253 @@
+{
+  "raw_api_restricted": {
+    "status": 200,
+    "result": {
+      "spoken_answer": "Je suis prêt sur votre Mac mini Debian avec vos préférences françaises activées. J'attends simplement votre prochaine instruction pour intervenir.",
+      "preferences": {
+        "language": "fr",
+        "voice_length": "short",
+        "sources": "cite",
+        "verification": "always"
+      },
+      "preference_events": [],
+      "conversation": "ff5a1a56-4a64-47f5-9e85-ccf54ce38883",
+      "answer": "Bonjour. Je suis opérationnel sur votre Mac mini Debian. Vos préférences actives (langue française, synthèse vocale courte, vérification systématique et citation des sources) sont confirmées dans le registre local sans action supplémentaire nécessaire. Je reste en attente d'une directive précise pour toute intervention technique.",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 10553684,
+        "prompt_eval_duration": 1290166000,
+        "eval_duration": 1640256000,
+        "eval_count": 63,
+        "prompt_eval_count": 1263,
+        "total_duration": 3303663369,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "5e4f7032b3474612814038cf74cbac51",
+        "first_content_s": 1.6647026669234037,
+        "first_content_total_s": 1.9532496889587492,
+        "admission_s": 0.10598206613212824,
+        "queue_wait_s": 0.1825649559032172,
+        "request_elapsed_s": 3.305174631997943,
+        "end_to_end_s": 3.593721966026351,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1793310826.385136,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 26277515264,
+          "cpu_threads": 12,
+          "load1": 0.638671875,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6263.0,
+              "utilization_percent": 0.0,
+              "temperature_c": 35.0,
+              "power_w": 17.69
+            }
+          ]
+        }
+      },
+      "requested_model": "qwen3.5:27b-q4_K_M",
+      "memories_used": [
+        "3314a1b3-b98f-4173-a760-b5190d39dd6b",
+        "b7ca3925-a62d-46cc-b6a3-e8ef82d864c8"
+      ],
+      "tools": [],
+      "timings": {
+        "voice_summary_s": 1.5953462419565767,
+        "generation_s": 3.6840602289885283,
+        "ollama": [
+          {
+            "load_duration": 10553684,
+            "prompt_eval_duration": 1290166000,
+            "eval_duration": 1640256000,
+            "eval_count": 63,
+            "prompt_eval_count": 1263,
+            "total_duration": 3303663369,
+            "done_reason": "stop",
+            "node": "Mac-mini",
+            "effective_model": "qwen3.5:27b-q4_K_M",
+            "requested_model": "qwen3.5:27b-q4_K_M",
+            "role": "conversation",
+            "compute_job": "5e4f7032b3474612814038cf74cbac51",
+            "first_content_s": 1.6647026669234037,
+            "first_content_total_s": 1.9532496889587492,
+            "admission_s": 0.10598206613212824,
+            "queue_wait_s": 0.1825649559032172,
+            "request_elapsed_s": 3.305174631997943,
+            "end_to_end_s": 3.593721966026351,
+            "route_failures": [],
+            "num_ctx": 16384,
+            "admission_resources": {
+              "captured_at": 1793310826.385136,
+              "memory_total_bytes": 33500024832,
+              "memory_available_bytes": 26277515264,
+              "cpu_threads": 12,
+              "load1": 0.638671875,
+              "gpu": [
+                {
+                  "index": 0.0,
+                  "total_mib": 24576.0,
+                  "free_mib": 6263.0,
+                  "utilization_percent": 0.0,
+                  "temperature_c": 35.0,
+                  "power_w": 17.69
+                }
+              ]
+            }
+          },
+          {
+            "load_duration": 1998037,
+            "prompt_eval_duration": 278138000,
+            "eval_duration": 715698000,
+            "eval_count": 28,
+            "prompt_eval_count": 126,
+            "total_duration": 1353854129,
+            "done_reason": "stop",
+            "node": "Mac-mini",
+            "effective_model": "qwen3.5:27b-q4_K_M",
+            "requested_model": "qwen3.5:27b-q4_K_M",
+            "role": "conversation",
+            "compute_job": "c5acc52d38a0462d9c72151eff0459b9",
+            "first_content_s": 0.638678853167221,
+            "first_content_total_s": 0.7905517350882292,
+            "admission_s": 0.004071745090186596,
+            "queue_wait_s": 0.14780113683082163,
+            "request_elapsed_s": 1.3543584500439465,
+            "end_to_end_s": 1.5062315419781953,
+            "route_failures": [],
+            "num_ctx": 16384,
+            "admission_resources": {
+              "captured_at": 1793310826.385136,
+              "memory_total_bytes": 33500024832,
+              "memory_available_bytes": 26277515264,
+              "cpu_threads": 12,
+              "load1": 0.638671875,
+              "gpu": [
+                {
+                  "index": 0.0,
+                  "total_mib": 24576.0,
+                  "free_mib": 6263.0,
+                  "utilization_percent": 0.0,
+                  "temperature_c": 35.0,
+                  "power_w": 17.69
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "JL03_default": {
+    "status": 200,
+    "result": {
+      "spoken_answer": "Bonjour. Je suis JARVIS, votre assistant local sur Debian, prêt à répondre avec précision et concision conformément à vos préférences enregistrées pour des réponses vocales courtes. Comment puis-je vous aider ?",
+      "preferences": {
+        "language": "fr",
+        "voice_length": "short",
+        "sources": "cite",
+        "verification": "always"
+      },
+      "preference_events": [],
+      "conversation": "95ae7ef1-8933-4b50-8980-820c728355ec",
+      "answer": "Bonjour. Je suis JARVIS, votre assistant local sur Debian, prêt à répondre avec précision et concision conformément à vos préférences enregistrées pour des réponses vocales courtes. Comment puis-je vous aider ?",
+      "model": "qwen3.5:27b-q4_K_M",
+      "execution": {
+        "load_duration": 5878153,
+        "prompt_eval_duration": 2334999000,
+        "eval_duration": 1173158000,
+        "eval_count": 45,
+        "prompt_eval_count": 2784,
+        "total_duration": 3835454947,
+        "done_reason": "stop",
+        "node": "Mac-mini",
+        "effective_model": "qwen3.5:27b-q4_K_M",
+        "requested_model": "qwen3.5:27b-q4_K_M",
+        "role": "conversation",
+        "compute_job": "b7754d152f344aa6a376d6132e26640d",
+        "first_content_s": 2.662756983889267,
+        "first_content_total_s": 2.8910131349693984,
+        "admission_s": 0.058408281998708844,
+        "queue_wait_s": 0.1698478690814227,
+        "request_elapsed_s": 3.836161153856665,
+        "end_to_end_s": 4.064417480956763,
+        "route_failures": [],
+        "num_ctx": 16384,
+        "admission_resources": {
+          "captured_at": 1793310831.6428442,
+          "memory_total_bytes": 33500024832,
+          "memory_available_bytes": 25383559168,
+          "cpu_threads": 12,
+          "load1": 1.068359375,
+          "gpu": [
+            {
+              "index": 0.0,
+              "total_mib": 24576.0,
+              "free_mib": 6257.0,
+              "utilization_percent": 26.0,
+              "temperature_c": 46.0,
+              "power_w": 290.35
+            }
+          ]
+        }
+      },
+      "requested_model": "qwen3.5:27b-q4_K_M",
+      "memories_used": [
+        "3314a1b3-b98f-4173-a760-b5190d39dd6b",
+        "b7ca3925-a62d-46cc-b6a3-e8ef82d864c8"
+      ],
+      "tools": [],
+      "timings": {
+        "voice_summary_s": 3.4844037145376205e-05,
+        "generation_s": 4.162029305938631,
+        "ollama": [
+          {
+            "load_duration": 5878153,
+            "prompt_eval_duration": 2334999000,
+            "eval_duration": 1173158000,
+            "eval_count": 45,
+            "prompt_eval_count": 2784,
+            "total_duration": 3835454947,
+            "done_reason": "stop",
+            "node": "Mac-mini",
+            "effective_model": "qwen3.5:27b-q4_K_M",
+            "requested_model": "qwen3.5:27b-q4_K_M",
+            "role": "conversation",
+            "compute_job": "b7754d152f344aa6a376d6132e26640d",
+            "first_content_s": 2.662756983889267,
+            "first_content_total_s": 2.8910131349693984,
+            "admission_s": 0.058408281998708844,
+            "queue_wait_s": 0.1698478690814227,
+            "request_elapsed_s": 3.836161153856665,
+            "end_to_end_s": 4.064417480956763,
+            "route_failures": [],
+            "num_ctx": 16384,
+            "admission_resources": {
+              "captured_at": 1793310831.6428442,
+              "memory_total_bytes": 33500024832,
+              "memory_available_bytes": 25383559168,
+              "cpu_threads": 12,
+              "load1": 1.068359375,
+              "gpu": [
+                {
+                  "index": 0.0,
+                  "total_mib": 24576.0,
+                  "free_mib": 6257.0,
+                  "utilization_percent": 26.0,
+                  "temperature_c": 46.0,
+                  "power_w": 290.35
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

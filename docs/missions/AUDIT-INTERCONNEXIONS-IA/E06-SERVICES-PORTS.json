@@ -1,0 +1,41 @@
+{
+  "jarvis-host-bridge": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /usr/local/lib/jarvis-host/host_bridge.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+    "public_environment": {}
+  },
+  "jarvis-launcher3": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 /var/lib/jarvis/projects/jl03/backend/server.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+    "public_environment": {
+      "JL03_PORT": "8766"
+    }
+  },
+  "jarvis-open-webui": {
+    "ActiveState": "active",
+    "SubState": "exited",
+    "UnitFileState": "enabled",
+    "ExecStart": "{ path=/usr/bin/docker ; argv[]=/usr/bin/docker compose up -d --pull never ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+    "public_environment": {}
+  },
+  "docker": "jarvis-open-webui ghcr.io/open-webui/open-webui:v0.12.0 Up 3 hours (healthy)\n",
+  "http://127.0.0.1:8783/": {
+    "status": 200,
+    "content_type": "text/html"
+  },
+  "http://127.0.0.1:8766/health": {
+    "error": "HTTP Error 404: Not Found"
+  },
+  "http://127.0.0.1:8765/api/health": {
+    "status": 200,
+    "content_type": "application/json"
+  },
+  "http://127.0.0.1:8092/health": {
+    "status": 200,
+    "content_type": "application/json"
+  }
+}
