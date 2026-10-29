@@ -58,6 +58,12 @@ class FocusedDraftTests(unittest.TestCase):
   result=self.apply(proposal['proposal_reference'])
   self.assertTrue(result['applied'])
   self.assertEqual(self.path.read_text(),prefix+self.reply['new_content']+suffix)
+ def test_changed_function_may_grow_beyond_old_whole_file_limit(self):
+  self.original='def run():\n "'+('bounded function text '*340)+'"\n return 1\n';self.path.write_text(self.original)
+  self.assertGreater(len(self.original.encode()),6000)
+  self.reply['new_content']=self.original.replace('return 1','return 2')
+  result=self.call({**self.args(),'symbol':'run'})
+  self.assertTrue(self.apply(result['proposal_reference'])['applied'])
  def test_missing_ambiguous_or_renamed_symbol_is_rejected(self):
   with self.assertRaisesRegex(ValueError,'Source read not received'):
    self.call({**self.args(),'symbol':'missing'})

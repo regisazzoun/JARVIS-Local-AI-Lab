@@ -41,7 +41,8 @@ if symbol is not None:
  node=nodes[0];start=min([node.lineno]+[d.lineno for d in node.decorator_list]);end=node.end_lineno
  raw=''.join(text.splitlines(keepends=True)[start-1:end]).encode('utf-8')
  unit={'symbol':symbol,'start_line':start,'end_line':end,'module_sha256':module_sha256}
-if len(raw)>6000:raise ValueError('Source exceeds focused 6000-byte unit; choose a smaller function or file')
+limit=12000 if symbol is not None else 6000
+if len(raw)>limit:raise ValueError('Source exceeds focused '+str(limit)+'-byte unit; choose a smaller function or file')
 print(json.dumps({'path':str(rel),'source':raw.decode('utf-8'),'sha256':hashlib.sha256(raw).hexdigest(),**unit}))
 """
     return re.sub(r'\b(PATH|SYMBOL)\b',lambda match:repr(path if match[0]=='PATH' else symbol),program)

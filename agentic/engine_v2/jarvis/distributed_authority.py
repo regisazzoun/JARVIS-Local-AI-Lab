@@ -180,7 +180,21 @@ class Authority:
   remote_path=self.remote_root+'/.receipts/'+receipt_id+'.json'
   operation['receipt_path']=remote_path;self.save(state)
   body=receipt_program(command,remote_path,self.spec.get('authority_manifest_roots'))
-  raw,call=self.remote(host,'python3 -c '+shlex.quote(body));header=json.loads(raw['stdout'])
+  remote_command='python3 -c '+shlex.quote(body);runner=None
+  schema=self.reg.active_schema('host_remote') if hasattr(self.reg,'active_schema') else {}
+  command_limit=schema.get('properties',{}).get('command',{}).get('maxLength',4000)
+  if len(remote_command)>command_limit:
+   launcher=self.local/'receipts'/self.m/(receipt_id+'.runner.py');launcher.parent.mkdir(parents=True,exist_ok=True)
+   launcher.write_text(body);runner_path=self.remote_root+'/.receipts/'+receipt_id+'.runner.py'
+   args={'host':HOSTS[host],'action':'project_upload','project':self.project,'path':runner_path,'local_path':str(launcher)}
+   token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic();transfer=self.reg.execute('host_remote',args);self.store.finish_call(token,transfer,time.monotonic()-start)
+   if not transfer.get('ok'):raise RuntimeError('Execution runner upload failed before command dispatch: '+str(transfer)[:500])
+   checksum=hashlib.sha256(launcher.read_bytes()).hexdigest()
+   # Verify transferred bytes inside the existing sandbox before executing.
+   bootstrap='import hashlib,pathlib; p=pathlib.Path('+repr(runner_path)+'); data=p.read_bytes(); assert hashlib.sha256(data).hexdigest()=='+repr(checksum)+'; exec(compile(data,str(p),"exec"))'
+   remote_command='python3 -c '+shlex.quote(bootstrap)
+   runner={'local':str(launcher),'remote':runner_path,'sha256':checksum,'upload_invocation':token,'logical_command_sha256':hashlib.sha256(command.encode()).hexdigest()}
+  raw,call=self.remote(host,remote_command);header=json.loads(raw['stdout'])
   local=self.local/'receipts'/self.m/(receipt_id+'.json');local.parent.mkdir(parents=True,exist_ok=True)
   args={'host':HOSTS[host],'action':'project_download','project':self.project,'path':remote_path,'local_path':str(local)}
   token=self.store.begin_call(self.m,self.t,'host_remote',args);start=time.monotonic();r=self.reg.execute('host_remote',args);self.store.finish_call(token,r,time.monotonic()-start)
@@ -188,6 +202,7 @@ class Authority:
   data=local.read_bytes()
   if hashlib.sha256(data).hexdigest()!=header['sha256']:raise ValueError('Complete receipt digest mismatch')
   observed=json.loads(data);observed['full_receipt']={'remote':remote_path,'local':str(local),'sha256':header['sha256'],'bytes':len(data),'download_invocation':token}
+  if runner:observed['execution_runner']=runner
   for field in ('stdout','stderr'):
    text=observed['execution'].get(field,'')
    if len(text)>2000:

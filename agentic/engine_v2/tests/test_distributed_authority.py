@@ -204,6 +204,26 @@ class GuardTests(unittest.TestCase):
    self.assertEqual(a.hashlib.sha256(full).hexdigest(),receipt['sha256'])
    self.assertEqual(json.loads(full)['before'],manifest)
    self.assertEqual(event['host'],'Dell2')
+ def test_large_edit_command_uses_sha_checked_file_and_short_dispatch(self):
+  import subprocess,shutil
+  with tempfile.TemporaryDirectory() as folder:
+   root=Path(folder);remote=root/'remote';remote.mkdir();self.x.remote_root=str(remote);self.x.local=root/'local'
+   content=('literal quotes \" and apostrophe '+chr(39)+' $(not_a_shell_command) '*3)*200
+   command='python3 -c '+a.shlex.quote('from pathlib import Path; Path("effect.txt").write_text('+repr(content)+'); print("executed once")')
+   calls=[]
+   def execute_remote(host,text):
+    calls.append(text);self.assertLess(len(text),4000)
+    process=subprocess.run(['bash','-c',text],cwd=remote,capture_output=True,text=True,check=True)
+    return {'stdout':process.stdout},'actual-local-process'
+   def transfer(tool,args):
+    src=Path(args['local_path'] if args['action']=='project_upload' else args['path'])
+    dst=Path(args['path'] if args['action']=='project_upload' else args['local_path']);dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dst);return {'ok':True}
+   self.x.remote=execute_remote;self.r.execute=transfer;self.s.begin_call=lambda *args:'software-transfer';self.s.finish_call=lambda *args:None
+   observed,_=self.x.durable_run('Dell1',command,{},self.x.state())
+   self.assertEqual((remote/'effect.txt').read_text(),content)
+   self.assertEqual(observed['execution']['returncode'],0)
+   self.assertEqual(observed['execution_runner']['logical_command_sha256'],a.hashlib.sha256(command.encode()).hexdigest())
+   self.assertEqual(len(calls),1)
  def test_manifest_rejects_unstable_or_failed_observation(self):
   self.x.spec['authority_durable_receipts']=True
   for observed in ({'before':{},'after':{'changed.py':'new'},'execution':{'returncode':0}},

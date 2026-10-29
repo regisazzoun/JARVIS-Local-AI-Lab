@@ -57,3 +57,40 @@ Retour arrière : sauvegardes privées des modules et du coordinateur ; restaure
 puis redémarrer les seuls workers, après observation d’absence d’opérations actives.
 Conversation et interface préservées. Ni modèle, routage ni matériel modifiés.
 P3 doit encore livrer son code et ses tests ; P4 reste en attente, VF01 non transmis.
+
+## Proposition reçue, transport du patch et issue observée
+
+JARVIS a utilisé le nouvel outil : proposition74445 surDell1, contexte de rédaction
+8036octets74441. Son algorithme utilise des lots fixes500 ; Codex ne le reçoit pas
+comme preuve de respect du budget. Les propositions74519 (style) et74585
+(quasi identique) sont conservées mais ne remplissent pas l’objectif fonctionnel,
+contrôle indépendant74629. Aucun de ces textes ne vaut test ou déploiement.
+
+L’application a rencontré la limite de longueur du schéma `host_remote` : l’ancre
+et le nouveau code rendaient l’enveloppe inline trop longue. La commande exacte
+refusée a été reliée au registre natif avant tout rejeu ; une lecture indépendante
+a confirmé module et fonction inchangés. L’issue auparavant inconnue est observée
+`NOT_EXECUTED`74610, sans réécrire son ancien événement incertain.
+
+Le transport durable transfère maintenant une enveloppe trop longue comme fichier
+privé `.receipts/*.runner.py` via le broker existant, puis vérifie son empreinte
+avant exécution d’une courte commande. Le script conserve le contenu original,
+les limites du sandbox, les manifestes et le reçu complet ; aucune augmentation
+de plafond, aucune troncature. Les octets vérifiés sont ceux compilés. Test réel
+Codex surDell2 : commande logique25391caractères, exécution réussie et seconde
+lecture du fichier privé concordante74622. C’est un contrôle d’infrastructure,
+pas une correction applicative JARVIS.
+
+148tests ciblésPASS. La transition d’une issue inconnue vers `NOT_EXECUTED`
+nécessite une preuve explicite de non-exécution. Une réémission de la même intention
+n’est autorisée qu’après réparation d’infrastructure attestée ultérieurement ;
+elle réutilise l’identifiant de tentative et garde les événements et compteurs.
+Une issue inconnue ou trois échecs fonctionnels restent bloquants. Résolution74626,
+aucune issue inconnue restante avant reprise.
+
+La limite des fonctions ciblées passe à12000octets pour permettre la reprise
+d’une fonction modifiée plus grande que l’original ; la limite d’un fichier entier
+reste6000, et la requête complète reste soumise à27648. Les trois brouillons sur
+source inchangée sont épuisés : pas de quatrième génération autonome ; seuls les
+vrais brouillons existants restent applicables jusqu’au prochain résultat observé.
+[Preuves](TRANSPORT-PATCH-ET-REPRISE.json). Même mission et plan2 remis en file.

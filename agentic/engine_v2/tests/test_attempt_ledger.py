@@ -5,6 +5,20 @@ from jarvis.attempt_ledger import AttemptLedger,digest
 class LedgerTests(unittest.TestCase):
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name);self.store=MissionStore(self.root);self.m=self.store.create('test','model','conv');self.l=self.store.attempt_ledger(self.m);self.p=self.l.problem('component',{'criterion':'fixed'})
+ def test_unknown_becomes_not_executed_only_with_observation_then_verified_retry(self):
+  a=self.attempt();self.l.transition(a,'DISPATCHED')
+  uncertain=self.store.event(self.m,'p2_dispatch_failure_observed',result={'attempt':a,'known_not_executed':False})
+  self.l.transition(a,'VALIDATION_INCONCLUSIVE',evidence=uncertain,unknown=True);self.l.failure(a,infrastructure=True)
+  with self.assertRaises(ValueError):self.l.transition(a,'NOT_EXECUTED',evidence=uncertain,unknown=False)
+  observed=self.store.event(self.m,'p2_dispatch_failure_observed',result={'attempt':a,'known_not_executed':True,'reason':'Fixture: local schema rejected before dispatch'})
+  self.l.transition(a,'NOT_EXECUTED',evidence=observed,unknown=False)
+  with self.assertRaisesRegex(ValueError,'verified infrastructure'):self.l.transition(a,'DISPATCHED')
+  repair=self.infrastructure_proof();self.l.resolve_infrastructure(self.p,repair)
+  retry=self.l.begin(self.p,'new-session-alias','Dell1','correction_test',{'command':'exit1'})
+  self.assertEqual(retry['attempt'],a);self.assertIn('verified_retry',retry)
+  self.l.transition(a,'DISPATCHED');self.assertFalse(self.l.get(a)['unknown_outcome'])
+  self.assertFalse(self.l.get(a)['result'].get('failure_counted'))
+  self.assertEqual(self.l.snapshot()['problems'][0]['infra_incidents'],1)
  def tearDown(self):self.temp.cleanup()
  def attempt(self,key='a',command='exit1'):
   return self.l.begin(self.p,key,'Dell1','correction_test',{'command':command})['attempt']

@@ -587,7 +587,16 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     names &= {'authority_draft_edit','authority_apply_draft','authority_edit'}
                     with store.db() as connection:
                         proposal=connection.execute("SELECT id FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal' AND actor='JARVIS/Qwen80B' LIMIT 1",(ident,task_id)).fetchone()
+                        latest_draft=connection.execute("SELECT result FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_draft_started' ORDER BY id DESC LIMIT 1",(ident,task_id)).fetchone()
+                        if latest_draft:
+                            draft=json.loads(latest_draft['result'])
+                            count=connection.execute("SELECT count(*) FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_draft_started' AND json_extract(result,'$.path')=? AND json_extract(result,'$.source_sha256')=?",(ident,task_id,draft['path'],draft['source_sha256'])).fetchone()[0]
+                            if count>=3:names.discard('authority_draft_edit')
                     if not proposal:names.discard('authority_apply_draft')
+                    if not names:
+                        store.event(ident,'authority_escalation',task_id,'JARVIS-engine',result={'reason':'Three focused drafts exhausted on unchanged source with no usable proposal; no fourth inference'})
+                        from .missions import MissionInterrupted
+                        raise MissionInterrupted('Focused drafting exhausted; coordinator diagnosis required')
                 elif names!={'intervention_report'} and candidate_test_focus(json.loads(mission['spec']),authority.active_state()):
                     names-={'authority_draft_edit','authority_apply_draft','authority_edit','authority_resources'}
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
@@ -618,6 +627,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
 
                 if coding_focus_required(json.loads(mission['spec']),authority.active_state()):
                     authority_prompt[0]['content']=focused_source_prompt(authority_prompt[0]['content'])
+                    if 'authority_draft_edit' not in names:
+                        authority_prompt[0]['content']+='\nTrois propositions existent déjà sur cette source inchangée : la rédaction est indisponible. Examine les propositions et les contrôles reçus avant de choisir une référence applicable ; aucune quatrième rédaction ne remet le compteur à zéro.'
                 if not authority_history_started:
                     messages=authority_prompt
                     authority_history_started=True

@@ -6,8 +6,8 @@ TRANSITIONS={
  'PENDING':{'DISPATCHED','NOT_EXECUTED','BLOCKED'},
  'DISPATCHED':{'RUNNING','NOT_EXECUTED','VALIDATION_INCONCLUSIVE'},
  'RUNNING':{'EXECUTION_FAILED','EXECUTED_TEST_FAILED','VALIDATION_INCONCLUSIVE','SUCCESS'},
- 'VALIDATION_INCONCLUSIVE':{'RUNNING','EXECUTION_FAILED','EXECUTED_TEST_FAILED','SUCCESS','BLOCKED'},
- 'NOT_EXECUTED':{'BLOCKED'},'EXECUTION_FAILED':{'BLOCKED'},'EXECUTED_TEST_FAILED':{'BLOCKED'},'BLOCKED':{'ESCALATED'}}
+ 'VALIDATION_INCONCLUSIVE':{'NOT_EXECUTED','RUNNING','EXECUTION_FAILED','EXECUTED_TEST_FAILED','SUCCESS','BLOCKED'},
+ 'NOT_EXECUTED':{'DISPATCHED','BLOCKED'},'EXECUTION_FAILED':{'BLOCKED'},'EXECUTED_TEST_FAILED':{'BLOCKED'},'BLOCKED':{'ESCALATED'}}
 def encoded(value):return json.dumps(value,sort_keys=True,ensure_ascii=False)
 def digest(value):return hashlib.sha256(encoded(value).encode()).hexdigest()
 class AttemptLedger:
@@ -64,7 +64,10 @@ class AttemptLedger:
    same=same or c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND signature=?',(self.m,problem,signature)).fetchone()
    pending=c.execute("SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE'))",(self.m,problem)).fetchone()
    if pending:return {'requires_observation':True,'attempt':pending['id'],'state':pending['state'],'problem':problem}
-   if same:return {'cached':True,'attempt':same['id'],'state':same['state'],'result':json.loads(same['result']),'problem':problem}
+   if same:
+    repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,problem,same['updated'])).fetchone() if same['state']=='NOT_EXECUTED' and p['state']=='RESOLVED' else None
+    if repair:return {'attempt':same['id'],'state':'NOT_EXECUTED','problem':problem,'verified_retry':repair['id']}
+    return {'cached':True,'attempt':same['id'],'state':same['state'],'result':json.loads(same['result']),'problem':problem}
    ident=uuid.uuid4().hex;now=time.time()
    c.execute('INSERT INTO mission_attempts_v2(id,mission,problem,operation_key,signature,executor,phase,request,state,created,updated) VALUES(?,?,?,?,?,?,?,?,?,?,?)',(ident,self.m,problem,key,signature,executor,phase,encoded(request),'PENDING',now,now))
    self.store.event(self.m,'p2_attempt_transition',actor='JARVIS-engine',result={'attempt':ident,'problem':problem,'from':None,'state':'PENDING','executor':executor},connection=c)
@@ -78,6 +81,11 @@ class AttemptLedger:
   with self.store.db() as c:
    c.execute('BEGIN IMMEDIATE');row=c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND id=?',(self.m,attempt)).fetchone()
    if not row or state not in TRANSITIONS.get(row['state'],set()):raise ValueError('Illegal attempt transition '+str(row['state'] if row else None)+' -> '+state)
+   if row['state']=='NOT_EXECUTED' and state=='DISPATCHED':
+    problem=c.execute('SELECT state,failed_cycles,infra_incidents,infra_resolved_through FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
+    repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,row['problem'],row['updated'])).fetchone()
+    if not repair or problem['state']!='RESOLVED' or problem['failed_cycles']>=3 or problem['infra_incidents']-problem['infra_resolved_through']>=3:raise ValueError('Known non-execution retry requires a later verified infrastructure repair')
+    result={'verified_retry':repair['id'],'previous_result':json.loads(row['result'])};unknown=False
    if state not in ('DISPATCHED','BLOCKED'):
     proof=c.execute('SELECT id,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
     if not proof:raise ValueError('Observed state requires same-mission evidence event')
