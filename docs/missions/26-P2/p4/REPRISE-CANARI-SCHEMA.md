@@ -29,10 +29,12 @@ Pas de déploiement actif dans cette unité, pas de bilan prérédigé ni de res
 ## Retour natif observé avant fin du passage
 
 La correction est bien transmise, mais JARVIS appelle ensuite `host_read_file`
-sans chemin71823. Le broker sélectionne par défaut le répertoire du projet ;
+avec le chemin explicite du répertoire du projet71823 ;
 `IsADirectoryError` est conservée71824. Le compteur historique de cette autre
 catégorie vaut4 (71825) et provoque immédiatement l’escalade71826 et l’arrêt71827.
 La reprise contextuelle n’est donc pas reçue comme correction réussie. Diagnostic
-borné71828 : examiner le contrat du chemin facultatif et la projection de décision
-de planification avant une autre reprise. Aucune seconde relance dans ce passage,
+borné71828, rectifié71829 après comparaison des arguments originaux : le modèle
+a fourni un répertoire au lecteur de fichiers. Le diagnostic broker de paramètre
+omis ne prouve pas une omission du modèle. Aucune capacité manquante démontrée.
+Examiner cette décision de lecture avant une autre reprise. Aucune seconde relance dans ce passage,
 aucun effacement de compteurs. État final observé : `interrupted`, plan version2.
