@@ -1,0 +1,15 @@
+{
+  "scope": "P4-CANARY-STAGE",
+  "status": "interrupted",
+  "diagnosis": "Actual no-dispatch Qwen probes omit mandatory report writer; contains and prefixItems not enforced by backend grammar. Prefix experiment removed. Precise leaf validation diagnostics tested.",
+  "counter_preserved": 4,
+  "no_resume_without_verified_repair": true,
+  "concurrent_workspace_changes_observed": [
+    "HEAD changed to 80b894c during passage",
+    "durable_tools.py report writer adapter added and tools.py contains removed by another intervention during passage"
+  ],
+  "next_action": "Serialize intervention; independently verify new report-writer adapter and actual next packet before restart. Do not overwrite concurrent changes or launch another worker now.",
+  "software_diagnostic_tests": 13,
+  "P4_received": false,
+  "event": 77335
+}

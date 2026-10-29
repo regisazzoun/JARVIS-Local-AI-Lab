@@ -1,0 +1,20 @@
+{
+  "mission": "c32347de3edf4288a4751a3e65afa7eb",
+  "status": "P4 EN COURS — NON VALIDÉE",
+  "repair": 77337,
+  "actual_Qwen_preflight": 77347,
+  "input_bytes": 23919,
+  "input_budget": 27648,
+  "model_action_valid": true,
+  "preflight_no_tool_dispatched": true,
+  "software_tests_passed": 177,
+  "strategy": 77348,
+  "resolution": 77349,
+  "old_refusals_and_counters_preserved": true,
+  "next": "Native worker executes model-authored repairs, then real artifact and peer tests; no Codex plan substituted",
+  "canonical_writer_scope": "Active report_path only",
+  "adapter_author": "Codex",
+  "technical_decisions": "JARVIS/Qwen80B",
+  "P3_targeted_reception": 77116,
+  "P4_received": false
+}

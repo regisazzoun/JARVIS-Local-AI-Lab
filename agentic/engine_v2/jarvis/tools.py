@@ -210,8 +210,7 @@ class Registry:
                 schema['properties']['path']['description']='Current factual report only. Application source changes belong to the remote worker workspace.'
         if name=='mission_plan_report_step' and store and self.context.get('mission_id'):
             schema['properties']['tools']['items']['enum']=sorted(self.specs)
-            schema['properties']['tools']['contains']={'const':'host_write_file'}
-            schema['properties']['tools']['description']='Choose actual registered operational tools. Include host_write_file for this step mandatory factual report; host_remote is the real remote execution API, not invented aliases.'
+            schema['properties']['tools']['description']='Choose actual registered operational tools. The adapter adds the scoped report writer automatically; host_remote is the real remote execution API, not invented aliases.'
             from .durable_cycle import report_plan_tool_issues
             defects=report_plan_tool_issues(store,self.context['mission_id'],self.specs)
             if defects:

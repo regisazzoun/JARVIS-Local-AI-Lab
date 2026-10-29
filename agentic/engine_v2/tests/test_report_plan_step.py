@@ -525,9 +525,9 @@ class ReportStepTests(unittest.TestCase):
  def test_report_step_rejects_unknown_tools_before_saving_a_plan(self):
   result=self.save({**self.args,'tools':['host_write_file','host_exec#dell2']})
   self.assertFalse(result['ok']);self.assertEqual(self.s.plans(self.m),[])
- def test_mandatory_report_without_writer_is_rejected_before_save(self):
+ def test_report_writer_is_added_without_choosing_operational_tools(self):
   result=self.save({**self.args,'tools':['host_read_file']})
-  self.assertFalse(result['ok']);self.assertEqual(self.s.plans(self.m),[])
+  self.assertTrue(result['ok'],result);self.assertEqual(self.s.plans(self.m)[-1]['plan']['tasks'][0]['tools'],['host_read_file','host_write_file'])
  def test_legacy_bad_tool_contract_requires_model_repair_preserving_path(self):
   from jarvis.durable_cycle import report_plan_tool_issues
   from jsonschema import Draft202012Validator

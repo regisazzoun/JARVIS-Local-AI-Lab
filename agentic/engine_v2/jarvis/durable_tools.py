@@ -53,6 +53,9 @@ def register(registry):
         if not json.loads(store().get(key())['spec']).get('planning_report_steps'):
             raise ValueError('Report-step planning is not enabled for this mission')
         task={k:args[k] for k in ('id','title','depends','objective','tools','observations','verification','recovery','artifacts')}
+        # Report persistence is mandatory adapter infrastructure, not a model
+        # technical operation. The central writer is scoped to report_path.
+        task['tools']=list(dict.fromkeys(task['tools']+['host_write_file']))
         task['contract']={'report_path':args['report_path'],'semantic':[{
             'kind':'report','source':{'tool':'host_read_file','arguments':{'path':args['report_path']}}}]}
         plans=store().plans(key());current=plans[-1]['version'] if plans else 0
@@ -69,7 +72,7 @@ def register(registry):
         if not result.get('ok'):raise ValueError(result.get('error','Plan step rejected'))
         store().event(key(),'model_report_step_saved',registry.context.get('task_id'),'JARVIS',result={
             'task':args['id'],'verification_kind_chosen_by_tool':'report',
-            'adapter_author':'Codex','task_values_author':'JARVIS','ordinary_plan_gate_retained':True})
+            'adapter_author':'Codex','task_values_author':'JARVIS','report_writer_added_by_adapter':True,'ordinary_plan_gate_retained':True})
         return result['result']
     def listing(args):
         controller=getattr(registry,'mission_controller',None)

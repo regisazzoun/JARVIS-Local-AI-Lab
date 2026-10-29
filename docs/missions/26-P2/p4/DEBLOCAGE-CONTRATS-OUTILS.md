@@ -33,3 +33,26 @@ P4 est remise en file sur le même checkpoint. Les corrections d’infrastructur
 sont Codex, les prochaines révisions de plan et opérations restent JARVIS/Qwen.
 Aucun artefact canari ni déploiement actif n’est reçu à ce jalon. P3 conserve sa
 réception ciblée avec réserves77116 ; P4 etphase2 restent NONVALIDÉES.
+
+## Rectification du transport après essai réel
+
+Le garde contains du schéma n’était pas appliqué par la grammaire du backend :
+les essais sans dispatch de la coordination confirment l’omission du writer77335.
+Les refus précédents restent archivés, aucun succès n’est déduit de ces essais.
+L’ajout de host_write_file est donc effectué par l’adaptateur de rapport et
+explicitement attribué à Codex ; il ne choisit aucune opération applicative.
+Le champ tools reste validé contre les vrais nomsAPI, la portée d’écriture
+centrale reste bornée au report_path. Le plan et les opérations sont ceux de Qwen.
+
+Les erreurs de sélection structurée indiquent désormais les champs fautifs au
+lieu d’un objet complet tronqué ; le moteur archive la sortie originale refusée.
+177tests ciblésPASS. Essai Qwen réel77347 : action conforme au nouveau contrat,
+23919/27648octets, sans dispatch ni mutation du plan. Résolution77349 ; même
+checkpoint remis enfile. P4 reste NONVALIDÉE : ce contrôle de transport ne prouve
+ni artefact canari ni déploiement. Les quatre anciens refus sont conservés.
+
+Les interventions manuelles et périodiques doivent utiliser le même verrou
+coordinator.lock. Créer MANUAL-HOLD avant de l’acquérir, laisser finir un passage
+engagé, puis conserver le verrou pendant les mutations. Retirer le hold et rendre
+le verrou après vérification de la reprise. Ce protocole utilise le verrou déjà
+présent et évite deux corrections concurrentes dans le même dépôt.

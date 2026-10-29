@@ -43,3 +43,14 @@ Le refus42889 venait d’un nom de fichier UUID utilisé dans mission_evidence. 
 ### Correction de classification du lecteur
 
 Le premier usage réel sur un ancien test échoué a révélé que le Registry assimilait son code retour historique à un échec du lecteur. Le champ est désormais `observed_process_returncode`, vérifié par un test d’intégration exécutant le Registry avec SQLite temporaire. Les24tests du garde/lecteur passent. L’ancien événement42906 reste conservé avec son erratum. Les unités et les scripts d’installation sont publiés sous tools/mission26_phase2 ; aucun état simulé n’est présenté comme une exécution de Codex.
+
+
+## Sérialisation des interventions manuelles
+
+Utiliser le verrou existant `coordinator.lock` aussi pour le coordinateur principal :
+créer `MANUAL-HOLD`, acquérir ce verrou en attendant la fin d’un passage engagé,
+puis corriger/vérifier/reprendre. Ne pas écrire simultanément avec un passage
+périodique. Retirer le hold et libérer le verrou après reprise ; ne pas remettre
+STATE.json à zéro. La directive permanente du29octobre exige la prise en charge
+des blocages sans nouvelle relance humaine, avec changement technique vérifié,
+compteurs persistants et retour à JARVIS.

@@ -91,7 +91,21 @@ def response(message,schema,select_only=False):
     except (ValueError,TypeError) as exc:raise ValueError('Invalid structured action JSON') from exc
     errors=list(Draft202012Validator(schema).iter_errors(value))
     if errors:
-        error=min(errors,key=lambda item:len(item.absolute_path))
-        raise ValueError('Structured action does not match offered tool schema: '+str(error.message)[:600])
+        def leaves(error):
+            if error.context:
+                for child in error.context:yield from leaves(child)
+            else:yield error
+        details=[leaf for error in errors for leaf in leaves(error)]
+        # Show the closest matching branch's concrete constraints, rather than
+        # truncating the entire generated action before the failing field.
+        branches={}
+        for error in details:
+            path=list(error.absolute_schema_path)
+            choices=[i for i,item in enumerate(path) if item in ('oneOf','anyOf')]
+            key=tuple(path[:choices[-1]+2]) if choices else ()
+            branches.setdefault(key,[]).append(error)
+        closest=min(branches.values(),key=len)
+        diagnostic='; '.join('/'.join(map(str,e.absolute_path))+': '+e.validator+' '+e.message for e in closest)
+        raise ValueError('Structured action does not match offered tool schema: '+diagnostic[:600])
     if select_only:return value['tool']
     return {'role':'assistant','content':'','tool_calls':[{'function':{'name':value['tool'],'arguments':value['arguments']}}]}

@@ -1,3 +1,15 @@
+## P4 — adaptateur de rapport vérifié sur Qwen — 29 octobre 2026
+
+Après refus de format, diagnostic77335 : le backend n’appliquait pas contains
+pour imposer l’écrivain du rapport. Ce transport obligatoire est maintenant
+ajouté mécaniquement par l’adaptateur Codex, limité au report_path ; les vrais
+outils opérationnels restent choisis par Qwen. Erreurs de champs précises et
+sorties originales refusées désormais archivées.177tests ciblésPASS ; essai
+réel Qwen77347 conforme,23919/27648octets, aucune mutation pendant le contrôle.
+Résolution77349, même checkpoint P4 repris, compteurs conservés. P4 etphase2
+restent NONVALIDÉES, aucun artefact canari reçu à ce jalon.
+[Preuves](docs/missions/26-P2/p4/ADAPTATEUR-RAPPORT-VERIFIE.json).
+
 ## P4 — contrats d’outils contrôlés avant reprise — 29 octobre 2026
 
 Le plan historique retenait un rapport sans outil d’écriture et l’alias inexistant

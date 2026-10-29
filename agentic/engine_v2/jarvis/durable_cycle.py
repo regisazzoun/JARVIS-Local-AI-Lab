@@ -740,7 +740,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     selected_action_tool=None
                 except ValueError as exc:
                     from .distributed_authority import interface_failure
-                    rejected=store.event(ident,'structured_action_rejected',task_id,'JARVIS-engine',result={'error':str(exc),'model_action_not_dispatched':True,'contract':'jarvis.action.v1'})
+                    rejected=store.event(ident,'structured_action_rejected',task_id,'JARVIS-engine',result={'error':str(exc),'model_action_not_dispatched':True,'contract':'jarvis.action.v1','model_output':message,'inference_event':inference_event})
                     if interface_failure(store,ident,task_id,'structured_action',str(exc)):
                         from .missions import MissionInterrupted
                         raise MissionInterrupted('Three structured action failures; no tool dispatched; diagnose before resume')

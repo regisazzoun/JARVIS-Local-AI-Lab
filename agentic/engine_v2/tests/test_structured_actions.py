@@ -14,6 +14,10 @@ class StructuredActionTests(unittest.TestCase):
  def test_bullet_string_is_rejected_without_silent_array_coercion(self):
   _,schema=request(self.payload())
   with self.assertRaisesRegex(ValueError,'does not match'):response({'content':json.dumps({'tool':'plan','arguments':{'observations':'- first\n- second'}})},schema)
+ def test_rejection_reports_field_constraint_instead_of_truncated_action(self):
+  _,schema=request(self.payload())
+  with self.assertRaisesRegex(ValueError,'arguments/observations:'):
+   response({'content':json.dumps({'tool':'plan','arguments':{'observations':'x'*2000}})},schema)
  def test_unknown_tool_extra_argument_and_native_call_are_rejected(self):
   _,schema=request(self.payload())
   for value in [{'tool':'shell','arguments':{}},{'tool':'plan','arguments':{'observations':[],'unoffered':True}}]:
@@ -88,3 +92,9 @@ class StructuredActionTests(unittest.TestCase):
   self.assertEqual(response({'content':json.dumps(selected)},schema)['tool_calls'][0]['function']['arguments']['title'],'Model title')
   selected['arguments']['report_path']='/two.md'
   with self.assertRaises(ValueError):response({'content':json.dumps(selected)},schema)
+
+ def test_rejected_action_diagnostic_names_missing_field_instead_of_echoing_action(self):
+  _,schema=request(self.payload())
+  with self.assertRaisesRegex(ValueError,'observations.*required') as error:
+   response({'content':json.dumps({'tool':'plan','arguments':{}})},schema)
+  self.assertNotIn("{'tool':",str(error.exception))
