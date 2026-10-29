@@ -9,6 +9,28 @@ from jarvis.mission_assurance import requirements, audit_plan, coverage_state, a
 from test_mission_engine26 import task, contract
 
 class AssuranceTests(unittest.TestCase):
+    def test_shared_coverage_schema_preserves_each_requirement_and_task_enum(self):
+        import jsonschema
+        self.responses=[self.extraction()]
+        requirements(self.r)
+        self.s.plan(self.m,[task()],author='JARVIS',metadata=self.meta)
+        captured=[]
+        def review(payload):
+            captured.append(payload['format'])
+            return {'content':json.dumps(self.coverage())}
+        self.r.assurance_transport=review
+        self.assertEqual(audit_plan(self.r)['status'],'PASS')
+        schema=captured[0]
+        self.assertIn('$defs',schema)
+        for invalid in ('missing','unknown_task','extra_requirement','bad_type'):
+            value=self.coverage()
+            if invalid=='missing':del value['coverage']['R2']
+            elif invalid=='unknown_task':value['coverage']['R1']['tasks']=['absent']
+            elif invalid=='extra_requirement':value['coverage']['R3']=value['coverage']['R1']
+            else:value['coverage']['R1']['covered']='true'
+            with self.subTest(invalid=invalid),self.assertRaises(jsonschema.ValidationError):
+                jsonschema.validate(value,schema)
+
     def test_empty_past_cause_is_repaired_before_comparing_diagnostics(self):
         from jarvis.mission_assurance import extract_cause_claim
         passage='FAIL initial sur preuves manquantes'
