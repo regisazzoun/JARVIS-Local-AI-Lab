@@ -1,0 +1,36 @@
+{
+  "mission": "c32347de3edf4288a4751a3e65afa7eb",
+  "parent_mission": "3aa717f3887e49daa7daf7e883ee52e4",
+  "preceding_preparation": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "preceding_reception_event": 71632,
+  "goal": "Préparer et qualifier un artefact canari pour intégrer l’attestation du worker reçue65474 sur la base canonique ACTUELLE, sans déployer ni modifier les services actifs dans cette unité. Le canari visé par la préparation est le slot2 ; préserve la conversation et l’autre worker. Compare le raccordement candidat avec /opt/jarvis/conversation/jarvis/worker.py et les API réellement installées ; ne remplace pas le code récent par une ancienne copie complète. Choisis les modifications minimales, les versions, la stratégie de retour arrière et des chemins de rapport distincts et frais. Les deux Dell doivent participer réellement à la construction et à la vérification indépendante du même artefact, sans recopier les fonctions applicatives dans le test. Travaille dans canary-stage sous /opt/jarvis-lab/mission26-phase2 sur les Dell et conserve les artefacts dans /var/lib/jarvis/projects/mission26-phase2/canary-stage. Candidat existant sur les Dell : /opt/jarvis-lab/mission26-phase2/engine ; source SDK : /home/adminjarvis/JARVIS/mission26-phase2/agentic/engine_v2/jarvis. Préserve ces acquis. Livrable : artefact compatible avec la base actuelle, manifeste/provenance, tests réels et bilan court avec limites et procédure de canari/rollback ; aucune attestation de service actif déduite de ces tests de staging. Tu choisis ton plan et ta répartition. Ne refais pas P2/P3 ni la campagne antérieure du candidat inchangé. Si une capacité de transfert/exécution manque, documente cause et aide attendue àCodex après trois échecs comparables, sans boucle. Fenêtre32768 totale,4096réponse+1024marge,entrée27648 conservatrice : inscrire ce résultat avant toute délégation et découper si trop gros. Ni modèles/routage/matériel, ni14A/24Old/autre mission ; autorisations autonomes et charte conservées.",
+  "spec": {
+    "assurance": true,
+    "autonomous": true,
+    "bounded_interface_errors": true,
+    "bounded_narrative_review": true,
+    "compact_semantic_references": true,
+    "context_result_objective": {
+      "admission_measure": "UTF-8 serialized bytes used as conservative token upper estimate, NOT exact tokenizer count",
+      "input_tokens_max": 27648,
+      "response_tokens_reserved": 4096,
+      "result_required": "Chaque sous-tâche doit tenir dans cette fenêtre avant transmission. Sinon découper, archiver et référencer ; ne pas tronquer les exigences.",
+      "template_tokens_reserved": 1024,
+      "total_context_tokens_max": 32768
+    },
+    "coordinator_periodic_authorized": true,
+    "narrative_review_max_segments": 1,
+    "parent_mission": "3aa717f3887e49daa7daf7e883ee52e4",
+    "preceding_preparation": "e98fd4bbe37c492b922db9b5a1d782aa",
+    "preceding_preparation_reception": 71632,
+    "preceding_candidate": "d8fe752876db480cbe5f22cd5525e2dd",
+    "owner_priority": "P4-CANARY-STAGE",
+    "planning_report_steps": true,
+    "planning_tools": [
+      "mission_plan_report_step",
+      "host_read_file"
+    ],
+    "factual_finalization": true
+  },
+  "no_active_service_deployment_in_this_unit": true
+}

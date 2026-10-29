@@ -1,0 +1,44 @@
+{
+  "mission": "e98fd4bbe37c492b922db9b5a1d782aa",
+  "status": "VALIDÉ AVEC RÉSERVES",
+  "scope": "P4 preparation only; not canonical deployment or global phase reception",
+  "native_state": "completed",
+  "native_review_event": 71627,
+  "native_report_finished_event": 71630,
+  "native_report_invocation": "bd87bc003bd14f99b04ee33e771b2873",
+  "saved_report_sha256": "fff7e7f72272debd9bf512cf5e5bb529042cba542c150766b2693c555556da01",
+  "original_narrative_sha256": "9659594fb4eb6a0442db0e7eb268ae2bee1baee016264566cb4e7a23b5d90769",
+  "verified_tasks": [
+    {
+      "id": "version0-plan",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission26-phase2/plan-P4-ACTIVE-PREP.md",
+      "sha256": "fe4b5c800ea44cd308e5e4ef0788ec461844035922bbf658a69ca89134796ba0"
+    },
+    {
+      "id": "t1-read-service-files",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission26-phase2/unit_jarvis-mission-worker.service.md",
+      "sha256": "7fe47c83ae837d85b6baf0a0cde29500fe445f41587abae2bc1185c7be98dac1"
+    },
+    {
+      "id": "step-1-a-observation-systemd",
+      "state": "validated",
+      "artifact": "/var/lib/jarvis/projects/mission26-phase2/step-1-observation-systemd.md",
+      "sha256": "c441c3b46f8cb667bcb4935821b0f95141abde0d123b4fce4b861206d5dd4f25"
+    }
+  ],
+  "reserves": [
+    "Codex infrastructure and bounded editorial help were required; general unassisted editorial autonomy not received",
+    "First parenthetical abbreviation770102e22b in final model report belongs to another invocation, not the broker evidence of first reference4b50149f; primary full invocation references remain correct, rectification kept separately",
+    "Reported service states are historical observations, not loaded-code attestation or a new deployment"
+  ],
+  "correct_first_reference": {
+    "invocation": "4b50149f1ed64aa49bc33f934b7d33e7",
+    "broker_evidence": "ff29a21714654638b0e0408ac4b7015b"
+  },
+  "P4_received": false,
+  "phase2_received": false,
+  "14A_closed": false,
+  "reception_event": 71632
+}

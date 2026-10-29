@@ -1,3 +1,7 @@
+## Bilan P2–P4 et continuité — 29 octobre 2026
+
+P2 (dix scénarios + intégration historique ciblée52932) etP3 sont **VALIDÉES AVEC RÉSERVES**. P4 reste **EN COURS — NON VALIDÉE**. Préparation native completed, trois tâches validées, bilan PASS71627/enregistré71630, réception indépendante71632 avec réserve d’abréviation de reçu corrigée dans un erratum, original conservé.188tests ciblés du dernier déblocage passent ; aucune autonomie éditoriale globale reçue. Suite P4-CANARY-STAGE c32347de3edf4288a4751a3e65afa7eb effectivement transmise : adapter/qualifier un artefact sur la base actuelle, deuxDell, avant activation. Aucun déploiement canonique ni réception des huit casP4 acquis. [Bilan complet](docs/missions/26-P2/BILAN-P2-P4-2026-10-29.md).
+
 ## P4 — trois tâches reçues nativement, finalisation débloquée — 29 octobre 2026
 
 Les trois tâches du plan3 sont `validated`, dernière clôture71313. Le bilan final s’était bloqué sur des lectures répétées. Mode `factual_finalization` installé dans le même moteur : objectif et faits canoniques fournis, JARVIS rédige son propre bilan, contrôle factuel backend inchangé. **188 tests ciblés passent** ; paquet de décision12302/27648 et revue corrigée19014/27648 après sélection précise des sources. Originaux et compteurs conservés. JARVIS reprend le bilan ; préparation entière et P4 restent à réceptionner, aucun attester canonique déployé, aucune autonomie éditoriale globale reçue. [Architecture et preuves](docs/missions/26-P2/p4/FINALISATION-FACTUELLE.md).
