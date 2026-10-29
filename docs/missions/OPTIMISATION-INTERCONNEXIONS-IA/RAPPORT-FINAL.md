@@ -16,6 +16,8 @@
 | Données et modèles |12conversations antérieures identiques ;16avec les essais ;les trois catalogues de poids inchangés | VERIFICATION-INDEPENDANTE.json |
 | Services et pauseP4 | Services centraux actifs ;P4 toujoursinterrupted/version0 ;MANUAL-HOLDprésent | VERIFICATION-INDEPENDANTE.json |
 
+Deux inférences réelles concurrentes sur le garde ont ensuite répondu200 en6,502s et6,611s. La deuxième attend donc plus de deux secondes sans l’ancien429 ;l’énumération de charge limitée n’est pas présentée comme une réponse sémantiquement complète. [Preuve de concurrence](CONCURRENCE-REELLE.json).
+
 **17tests logiciels ciblés passent** :5pour le vrai handlerconversation/création,5pour le garde/admission et7régressions existantes. Ces résultats sont distincts des inférences réelles et des validations historiquesP2/P3 ;aucune addition avec les anciennes campagnes.
 
 ## Ce qui a échoué, sans réécriture des faits
@@ -34,3 +36,5 @@ Aucun poids, pilote ou système n'est installé, déplacé ou supprimé. Aucun s
 Les anciens échangesWebUI peuvent garder8B ;le défaut27B s'applique aux nouvelles sélections. Les messagesJSON historiques ne sont ni effacés ni exécutés arbitrairement. La gestion de profils reste disponible ;le port d'inférence ne publie pas les opérations de téléchargement/suppression de poids, qui restent des opérations d'administration distinctes.
 
 Les limites restantes sont explicites :planification/finalisation du moteur, finalisationCode, admission des autres consommateurs historiques éventuels de11434, inférenceDell2, Safari/iPhone, microphone physique et rebootglobal. Elles ne nécessitent pas de réinstaller les composants déjà fonctionnels. [Utilisation et retour arrière](REPRISE-ET-RETOUR-ARRIERE.md), [réalisation](REALISATION.md).
+
+Publication : [PR32](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/32), empilée sur laPR31 documentaire ;implémentation initiale3eb47eb, preuves et clarifications dans les commits suivants. Aucune fusion automatique.
