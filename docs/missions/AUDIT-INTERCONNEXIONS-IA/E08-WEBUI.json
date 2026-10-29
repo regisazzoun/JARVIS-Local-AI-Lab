@@ -1,0 +1,139 @@
+{
+  "profiles": [
+    {
+      "id": "llama3.1:8b",
+      "name": "JARVIS — Qualité (Llama 3.1 8B)",
+      "base_model_id": null,
+      "params": {
+        "num_ctx": 8192,
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "num_predict": 2048
+      },
+      "system_prompt_sha256": "3e6711233d65fcc2ef1a30fd1a89bb95ee4b944a1e67a93ac496baef2524b4ed",
+      "system_mentions_ask_user": false,
+      "tools": [],
+      "description": "Mission 07 : contexte 8K, fidélité documentaire et autocorrection. Même modèle et mêmes poids."
+    },
+    {
+      "id": "ministral-3:14b-instruct-2512-q4_K_M",
+      "name": "JARVIS — Mistral 14B Qualité",
+      "base_model_id": null,
+      "params": {
+        "num_ctx": 8192,
+        "temperature": 0.1,
+        "top_p": 0.9,
+        "num_predict": 3072
+      },
+      "system_prompt_sha256": "9103276e6d7628a0587e4b6235f597fc12d24b245755968012b68e25822c01f3",
+      "system_mentions_ask_user": false,
+      "tools": [],
+      "description": "Ministral 3 14B Q4_K_M : profil expérimental, contrôle humain requis pour les propositions techniques."
+    },
+    {
+      "id": "qwen3.5:27b-q4_K_M",
+      "name": "JARVIS — Qwen 3.5 27B Qualité",
+      "base_model_id": null,
+      "params": {
+        "num_ctx": 8192,
+        "num_predict": 4096,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 1.5,
+        "repeat_penalty": 1.0,
+        "think": true
+      },
+      "system_prompt_sha256": "9103276e6d7628a0587e4b6235f597fc12d24b245755968012b68e25822c01f3",
+      "system_mentions_ask_user": false,
+      "tools": [],
+      "description": "Qwen 3.5 27B Q4_K_M, raisonnement natif, contexte 8192. Vérification humaine des propositions techniques."
+    },
+    {
+      "id": "jarvis-qwen-code-lab",
+      "name": "JARVIS — Développement Qwen Code (expérimental)",
+      "base_model_id": "qwen3-coder-next:q4_K_M",
+      "params": {
+        "function_calling": "native",
+        "num_ctx": 32768,
+        "num_predict": 4096,
+        "temperature": 0.1
+      },
+      "system_prompt_sha256": "9b21790590635a58513c290cf42f695d96bd943fa00aa09ad7371d65c252b486",
+      "system_mentions_ask_user": false,
+      "tools": [
+        "jarvis_qwen_local"
+      ],
+      "description": "Qwen80B Dell1, outils JARVIS et programmation dans les projets dédiés. Ne remplace pas JL03."
+    }
+  ],
+  "user_selection": [
+    {}
+  ],
+  "conversation_model_counts": {
+    "llama3.1:8b": 9,
+    "jarvis-qwen-code-lab": 1,
+    "qwen3.5:27b-q4_K_M": 1
+  },
+  "raw_json_messages": [
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    },
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    },
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    },
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    },
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    },
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    },
+    {
+      "role": "assistant",
+      "model": "llama3.1:8b",
+      "content_form": "JSON ask_user rendered as message text; original remains private"
+    }
+  ],
+  "runtime_providers": [
+    "http://127.0.0.1:11434",
+    "http://192.168.1.75:11435"
+  ],
+  "source_selection_rule": "ollama-router.py:1123 random.choice(models[model][urls]); llama8 and qwen27 urls=[0,1]; coder80 urls=[1]",
+  "default_environment": "DEFAULT_MODELS=llama3.1:8b; ENABLE_PERSISTENT_CONFIG=false",
+  "new_browser_test": {
+    "default_model_buttons": [
+      "JARVIS — Qualité (Llama 3.1 8B) "
+    ],
+    "requests": [],
+    "url": "https://jarvis-macmini.tail805e83.ts.net/c/e5cbd074-68cd-4002-8f0e-be5e1a57db29",
+    "conversation_text": "J’hésite entre synchroniser mes fichiers ou seulement mon agenda. Avant de proposer une solution, demande-moi de choisir entre ces deux options.\n\nOct 29, 10:47 PM\nJARVIS — Qualité (Llama 3.1 8B)\nChoisissez votre option\nVoulez-vous synchroniser vos fichiers ou votre agenda ?\nSynchroniser vos fichiers\nSynchroniser vos fichiers avec votre compte en ligne.\nRecommended\nSynchroniser votre agenda\nSynchroniser votre agenda avec votre compte en ligne.\nCancel\nPrevious\nSubmit answers\n\n\n\n\nJARVIS — Qualité (Llama 3.1 8B)\nOpen WebUI",
+    "secure_context": true
+  },
+  "historical_display_reproduced": {
+    "raw_ask_user_visible": true,
+    "output_types": [
+      "message"
+    ],
+    "tool_calls": false,
+    "count": 7
+  }
+}

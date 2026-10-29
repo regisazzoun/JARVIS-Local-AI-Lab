@@ -1,0 +1,53 @@
+{
+  "Mac": {
+    "models": [
+      {
+        "name": "qwen3.5:27b-q4_K_M",
+        "model": "qwen3.5:27b-q4_K_M",
+        "size": 17456756161,
+        "digest": "64ae5b1d651fb2709d5928ccb8dcfb4bb2cc9c2c8001ac34497e36a6cf905b59",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "26.9B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-29T22:55:44.83705218+01:00",
+        "size_vram": 17456756161,
+        "context_length": 16384,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "Dell1-main": {
+    "models": []
+  },
+  "Dell1-missions": {
+    "models": [
+      {
+        "name": "qwen3-coder-next:q4_K_M",
+        "model": "qwen3-coder-next:q4_K_M",
+        "size": 53582867932,
+        "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3next",
+          "families": [
+            "qwen3next"
+          ],
+          "parameter_size": "79.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-29T22:58:40.083056772+01:00",
+        "size_vram": 47695517447,
+        "context_length": 32768,
+        "runner": "llamacpp"
+      }
+    ]
+  }
+}

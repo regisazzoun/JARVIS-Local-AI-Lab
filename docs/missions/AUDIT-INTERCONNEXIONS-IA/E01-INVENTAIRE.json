@@ -1,0 +1,78 @@
+{
+  "time": "2026-10-29T21:58:56.166353+00:00",
+  "machines": {
+    "Mac": {
+      "os": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"13\"\nVERSION=\"13 (trixie)\"\nVERSION_CODENAME=trixie\nDEBIAN_VERSION_FULL=13.7\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n",
+      "kernel": "6.18.54-1-t2-trixie",
+      "cpu": {
+        "CPU(s):": "12",
+        "Model name:": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz"
+      },
+      "ram_gib": 31.2,
+      "gpu": {
+        "rc": 0,
+        "out": "0, NVIDIA GeForce RTX 3090, 24576 MiB, 6 MiB, 0 %, 38\n",
+        "err": ""
+      },
+      "tailscale_state": "Running",
+      "running_services": [
+        "apache2.service                         loaded active running The Apache HTTP Server",
+        "docker.service                          loaded active running Docker Application Container Engine",
+        "jarvis-conversation.service             loaded active running JARVIS conversation, voix CPU et mémoire canonique",
+        "jarvis-dell-desktop-gateway.service     loaded active running JARVIS private Dell desktop gateway",
+        "jarvis-host-bridge.service              loaded active running JARVIS authorized host operations broker - mission 11",
+        "jarvis-launcher3.service                loaded active running JARVIS Launcher3 independent web adapter",
+        "jarvis-mission-worker.service           loaded active running JARVIS existing durable engine — background worker",
+        "jarvis-mission-worker@2.service         loaded active running JARVIS canonical durable mission worker slot 2",
+        "jarvis-mission23-livekit-agent.service  loaded active running JARVIS project mission23 livekit-agent",
+        "jarvis-mission23-livekit-server.service loaded active running JARVIS project mission23 livekit-server",
+        "jarvis-ollama.service                   loaded active running JARVIS Ollama local",
+        "jarvis-qwen-guard.service               loaded active running JARVIS Qwen Code local Ollama context guard",
+        "jarvis-resource-watchdog.service        loaded active running JARVIS interaction-aware resource quotas",
+        "jarvis-webui-tools.service              loaded active running Open WebUI thin JARVIS and Qwen Code adapter",
+        "tailscaled.service                      loaded active running Tailscale node agent"
+      ]
+    },
+    "Dell1": {
+      "os": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"13\"\nVERSION=\"13 (trixie)\"\nVERSION_CODENAME=trixie\nDEBIAN_VERSION_FULL=13.7\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n",
+      "kernel": "6.12.113+deb13-amd64",
+      "cpu": {
+        "CPU(s):": "36",
+        "Model name:": "Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz"
+      },
+      "ram_gib": 251.42,
+      "gpu": {
+        "rc": 0,
+        "out": "0, NVIDIA GeForce RTX 3090, 24576 MiB, 11 MiB, 0 %, 37\n1, NVIDIA GeForce RTX 3090, 24576 MiB, 52 MiB, 0 %, 39\n",
+        "err": ""
+      },
+      "tailscale_state": "Running",
+      "running_services": [
+        "jarvis-desktop-plasma.service   loaded active running JARVIS isolated Plasma X11 session",
+        "jarvis-desktop-vnc.service      loaded active running JARVIS private virtual desktop VNC",
+        "jarvis-ollama-missions.service  loaded active running JARVIS28A experimental Dell mission inference",
+        "jarvis-ollama.service           loaded active running JARVIS Dell Ollama inference",
+        "jarvis-progress-console.service loaded active running JARVIS deployment progress on dedicated console",
+        "tailscaled.service              loaded active running Tailscale node agent"
+      ]
+    },
+    "Dell2": {
+      "os": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"13\"\nVERSION=\"13 (trixie)\"\nVERSION_CODENAME=trixie\nDEBIAN_VERSION_FULL=13.7\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n",
+      "kernel": "6.12.113+deb13-amd64",
+      "cpu": {
+        "CPU(s):": "36",
+        "Model name:": "Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz"
+      },
+      "ram_gib": 125.51,
+      "gpu": {
+        "rc": 0,
+        "out": "0, NVIDIA GeForce RTX 3090, 24576 MiB, 1 MiB, 0 %, 46\n1, NVIDIA GeForce RTX 3080, 10240 MiB, 1 MiB, 0 %, 55\n",
+        "err": ""
+      },
+      "tailscale_state": null,
+      "running_services": [
+        "jarvis-progress-console.service loaded active running JARVIS deployment progress on dedicated console"
+      ]
+    }
+  }
+}

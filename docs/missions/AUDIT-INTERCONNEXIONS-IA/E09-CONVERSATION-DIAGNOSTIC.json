@@ -1,0 +1,106 @@
+{
+  "routing": {
+    "default_model": "qwen3.5:27b-q4_K_M",
+    "num_ctx": 16384,
+    "durable_num_ctx": 32768,
+    "hybrid_compute": {
+      "version": "28a.1",
+      "conversation_model": "qwen3.5:27b-q4_K_M",
+      "allow_local_mission_fallback": false,
+      "mission_segment_tokens": 4096,
+      "queue_timeout": 120,
+      "inference_timeout": 180,
+      "nodes": {
+        "Mac-mini": {
+          "enabled": true,
+          "roles": [
+            "conversation",
+            "critical"
+          ],
+          "url": "http://127.0.0.1:11434",
+          "conversation_model": "qwen3.5:27b-q4_K_M",
+          "minimum_available_ram_bytes": 3221225472,
+          "max_model_bytes": 25769803776,
+          "resource_action": "local",
+          "inference_num_ctx": 16384
+        },
+        "Dell1": {
+          "enabled": true,
+          "roles": [
+            "mission",
+            "critical"
+          ],
+          "url": "http://192.168.1.75:11435",
+          "mission_model": "qwen3-coder-next:q4_K_M",
+          "host_profile": "dell-observe",
+          "resource_action": "hybrid_resources",
+          "minimum_available_ram_bytes": 25769803776,
+          "max_model_bytes": 193273528320,
+          "inference_num_ctx": 32768,
+          "hard_context_limit": 32768,
+          "context_template_margin": 1024
+        },
+        "Dell2": {
+          "enabled": false,
+          "roles": [
+            "mission",
+            "critical"
+          ],
+          "url": null,
+          "mission_model": "llama3.3:70b-instruct-q4_K_M",
+          "state": "offline_pending_enrollment",
+          "mission_allocation_fraction": 1.0
+        }
+      },
+      "routes": {
+        "conversation": [
+          "Mac-mini"
+        ],
+        "critical": [
+          "Dell1",
+          "Mac-mini"
+        ],
+        "mission": [
+          "Dell1",
+          "Dell2"
+        ]
+      },
+      "interactive_queue_timeout": 2
+    },
+    "ollama_route": [
+      "Mac-mini",
+      "Dell1"
+    ],
+    "ollama_nodes": {
+      "Mac-mini": "http://127.0.0.1:11434",
+      "Dell1": "http://192.168.1.75:11434"
+    },
+    "mission_ollama_route": [
+      "Dell1",
+      "Mac-mini"
+    ]
+  },
+  "canonical_chat": {
+    "status": 503,
+    "body": "{\"error\": \"Service indisponible ou délai dépassé. Réessayer après vérification locale.\"}"
+  },
+  "diagnostic_journal": "Oct 29 22:48:48 JARVIS-MacMIini python[178452]: 2026-10-29 22:48:48,917 ERROR JARVIS_HTTP_503_DIAG\nOct 29 22:48:48 JARVIS-MacMIini python[178452]: Traceback (most recent call last):\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/server.py\", line 97, in do_POST\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:     else:self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False,mission_id=d.get('mission_id'),allowed_tools=d.get('allowed_tools')))\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:                    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/core.py\", line 191, in chat\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:     if offered:payload['tools']=offered\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:         ^^^^^^^^^^^^^^^^^^^^^^^\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/core.py\", line 43, in ollama\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:     # that same response budget before admission, including reviewers.\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/compute.py\", line 165, in infer\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:     try:return self._infer(payload,role,mission)\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/compute.py\", line 194, in _infer\nOct 29 22:48:48 JARVIS-MacMIini python[178452]:     raise ResourceUnavailable('Requested context exceeds measured node profile: '+name)\nOct 29 22:48:48 JARVIS-MacMIini python[178452]: jarvis.compute.ResourceUnavailable: Requested context exceeds measured node profile: Mac-mini\nOct 29 22:50:07 JARVIS-MacMIini python[178452]: 2026-10-29 22:50:07,827 ERROR JARVIS_HTTP_503_DIAG\nOct 29 22:50:07 JARVIS-MacMIini python[178452]: Traceback (most recent call last):\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/server.py\", line 97, in do_POST\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:     else:self.send(core.chat(d['text'],d['model'],d.get('conversation'),d.get('project',''),d.get('retain',True),False,mission_id=d.get('mission_id'),allowed_tools=d.get('allowed_tools')))\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:                    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/core.py\", line 191, in chat\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:     if offered:payload['tools']=offered\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:         ^^^^^^^^^^^^^^^^^^^^^^^\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/core.py\", line 43, in ollama\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:     # that same response budget before admission, including reviewers.\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/compute.py\", line 165, in infer\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:     try:return self._infer(payload,role,mission)\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:   File \"/opt/jarvis/conversation/jarvis/compute.py\", line 194, in _infer\nOct 29 22:50:07 JARVIS-MacMIini python[178452]:     raise ResourceUnavailable('Requested context exceeds measured node profile: '+name)\nOct 29 22:50:07 JARVIS-MacMIini python[178452]: jarvis.compute.ResourceUnavailable: Requested context exceeds measured node profile: Mac-mini\n",
+  "loaded_process": "MainPID=178452\nExecMainStartTimestamp=Tue 2026-10-27 23:27:07 CET\n",
+  "disk_sources": [
+    {
+      "name": "core.py",
+      "sha256": "89b700824fa99d445345a576f71f2d527131aaebd7d154f792977b82338af36a",
+      "mtime": 1793268859.4718137
+    },
+    {
+      "name": "compute.py",
+      "sha256": "2668741fdff2d296d880ffe546a47f7d94e3e08550cf848bc798a109bcd14cc8",
+      "mtime": 1793115462.7975037
+    },
+    {
+      "name": "durable_cycle.py",
+      "sha256": "2dc842c918c231318260cafd71817c84caff5a2cc07319304e48688c8fb403f0",
+      "mtime": 1793298911.587296
+    }
+  ]
+}

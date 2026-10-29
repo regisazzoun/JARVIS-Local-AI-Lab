@@ -1,0 +1,101 @@
+{
+  "mission_states": {
+    "completed": 22,
+    "incomplete": 1,
+    "interrupted": 19,
+    "reported": 3,
+    "waiting_external": 6
+  },
+  "p4": {
+    "id": "c32347de3edf4288a4751a3e65afa7eb",
+    "state": "interrupted",
+    "active_task": "version0",
+    "updated": 1793299359.8227837
+  },
+  "events_recent": [
+    {
+      "id": 88518,
+      "actor": "systemd-health",
+      "kind": "mission_service_health_observed",
+      "tool": null,
+      "created": 1793299406.9301186
+    },
+    {
+      "id": 88517,
+      "actor": "JARVIS-engine",
+      "kind": "stale_worker_transition_ignored",
+      "tool": null,
+      "created": 1793299374.1625106
+    },
+    {
+      "id": 88516,
+      "actor": "JARVIS-engine",
+      "kind": "structured_action_selected",
+      "tool": null,
+      "created": 1793299374.1356468
+    },
+    {
+      "id": 88515,
+      "actor": "JARVIS-engine",
+      "kind": "inference_finished",
+      "tool": null,
+      "created": 1793299374.1105957
+    },
+    {
+      "id": 88514,
+      "actor": "JARVIS-engine",
+      "kind": "compute_route_observed",
+      "tool": null,
+      "created": 1793299374.0432715
+    },
+    {
+      "id": 88513,
+      "actor": "JARVIS-engine",
+      "kind": "context_backend_usage",
+      "tool": null,
+      "created": 1793299373.9546132
+    },
+    {
+      "id": 88512,
+      "actor": "JARVIS-engine",
+      "kind": "context_budget_checked",
+      "tool": null,
+      "created": 1793299360.5154283
+    },
+    {
+      "id": 88511,
+      "actor": "Codex",
+      "kind": "owner_mission_paused",
+      "tool": null,
+      "created": 1793299359.8858433
+    },
+    {
+      "id": 88510,
+      "actor": "JARVIS-engine",
+      "kind": "state_changed",
+      "tool": null,
+      "created": 1793299359.8228295
+    },
+    {
+      "id": 88509,
+      "actor": "JARVIS-engine",
+      "kind": "operational_checkpoint",
+      "tool": null,
+      "created": 1793299356.2065496
+    },
+    {
+      "id": 88508,
+      "actor": "JARVIS-engine",
+      "kind": "context_archive",
+      "tool": null,
+      "created": 1793299355.7495468
+    },
+    {
+      "id": 88507,
+      "actor": "JARVIS-engine",
+      "kind": "inference_context_prepared",
+      "tool": null,
+      "created": 1793299355.6402144
+    }
+  ]
+}

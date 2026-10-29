@@ -1,0 +1,338 @@
+{
+  "fixture": "boolean string false wrongly treated as true",
+  "before": "test_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... FAIL\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n======================================================================\nFAIL: test_false_string (test_flags.Flags.test_false_string)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions/test_flags.py\", line 4, in test_false_string\n    def test_false_string(self): self.assertIs(enabled('false'),False)\n                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not False\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=1)\n",
+  "trace_sha256": "f5cfbf6c71a9e821241a6a4a1cb55404429b0b8bc1a21d7c0ac26f29235cbf0a",
+  "events": [
+    {
+      "type": "system",
+      "subtype": "init",
+      "uuid": "bbfab538-54be-4b36-9515-048e59c92400",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "cwd": "/home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions",
+      "tools": [
+        "read_file",
+        "edit",
+        "notebook_edit",
+        "run_shell_command"
+      ],
+      "mcp_servers": [],
+      "model": "qwen3-coder-next:q4_K_M",
+      "permission_mode": "yolo",
+      "slash_commands": [
+        "advisor",
+        "auth",
+        "bug",
+        "clear",
+        "compress",
+        "compress-fast",
+        "config",
+        "context",
+        "curator",
+        "diff",
+        "docs",
+        "doctor",
+        "effort",
+        "export",
+        "extensions",
+        "goal",
+        "hooks",
+        "import-config",
+        "init",
+        "insight",
+        "language",
+        "model",
+        "output-style",
+        "stats",
+        "status",
+        "summary",
+        "tasks",
+        "update",
+        "workflows"
+      ],
+      "qwen_code_version": "0.26.4",
+      "agents": [
+        "general-purpose",
+        "Explore",
+        "statusline-setup",
+        "review-agent",
+        "claude-code",
+        "codex"
+      ]
+    },
+    {
+      "type": "stream_event",
+      "uuid": "356f7627-4a82-44f7-915d-7f70ec5a22b2",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "event": {
+        "type": "goal_state",
+        "goal_state": {
+          "v": 2,
+          "goal": null,
+          "activity": "idle"
+        }
+      }
+    },
+    {
+      "type": "assistant",
+      "uuid": "e77f57b1-4401-440d-a666-9a5c5a174903",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "id": "e77f57b1-4401-440d-a666-9a5c5a174903",
+        "type": "message",
+        "role": "assistant",
+        "model": "qwen3-coder-next:q4_K_M",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "call_wc1n9a3d",
+            "name": "read_file",
+            "input": {
+              "file_path": "/home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions/flags.py"
+            }
+          },
+          {
+            "type": "tool_use",
+            "id": "call_ml95dx83",
+            "name": "read_file",
+            "input": {
+              "file_path": "/home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions/test_flags.py"
+            }
+          }
+        ],
+        "stop_reason": "tool_use",
+        "usage": {
+          "input_tokens": 3655,
+          "output_tokens": 84,
+          "cache_read_input_tokens": 0,
+          "total_tokens": 3739
+        }
+      }
+    },
+    {
+      "type": "user",
+      "uuid": "c19a9e94-c101-423f-8557-3c8d51878dd5",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "call_wc1n9a3d",
+            "is_error": false,
+            "content": "def enabled(value):\n    return bool(value)\n"
+          }
+        ]
+      }
+    },
+    {
+      "type": "user",
+      "uuid": "a737de94-9f00-4c52-9e75-42f935712784",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "call_ml95dx83",
+            "is_error": false,
+            "content": "import unittest\nfrom flags import enabled\nclass Flags(unittest.TestCase):\n    def test_false_string(self): self.assertIs(enabled('false'),False)\n    def test_true_string(self): self.assertIs(enabled('true'),True)\n    def test_bools(self): self.assertIs(enabled(False),False);self.assertIs(enabled(True),True)\nif __name__=='__main__':unittest.main()\n"
+          }
+        ]
+      }
+    },
+    {
+      "type": "assistant",
+      "uuid": "aab814ca-a569-4845-98b3-d92d5153fa20",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "id": "aab814ca-a569-4845-98b3-d92d5153fa20",
+        "type": "message",
+        "role": "assistant",
+        "model": "qwen3-coder-next:q4_K_M",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "call_r8ya1uxv",
+            "name": "run_shell_command",
+            "input": {
+              "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+              "description": "Run tests to observe the defect",
+              "is_background": false
+            }
+          }
+        ],
+        "stop_reason": "tool_use",
+        "usage": {
+          "input_tokens": 3840,
+          "output_tokens": 76,
+          "cache_read_input_tokens": 0,
+          "total_tokens": 3916
+        }
+      }
+    },
+    {
+      "type": "user",
+      "uuid": "bf38d1a9-f4a6-4202-8113-6965b4eb7c67",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "call_r8ya1uxv",
+            "is_error": true,
+            "content": "Command: cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v\nDirectory: (root)\nOutput: test_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... FAIL\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n======================================================================\nFAIL: test_false_string (test_flags.Flags.test_false_string)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions/test_flags.py\", line 4, in test_false_string\n    def test_false_string(self): self.assertIs(enabled('false'),False)\n                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: True is not False\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nFAILED (failures=1)\nError: (none)\nExit Code: 1\nSignal: (none)\nProcess Group PGID: (none)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "assistant",
+      "uuid": "8dc17d90-c899-4eda-a478-9834f7a94b0c",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "id": "8dc17d90-c899-4eda-a478-9834f7a94b0c",
+        "type": "message",
+        "role": "assistant",
+        "model": "qwen3-coder-next:q4_K_M",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "call_ksjxxrdk",
+            "name": "edit",
+            "input": {
+              "file_path": "/home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions/flags.py",
+              "old_string": "def enabled(value):\n    return bool(value)",
+              "new_string": "def enabled(value):\n    if isinstance(value, str):\n        return value.lower() != 'false'\n    return bool(value)"
+            }
+          }
+        ],
+        "stop_reason": "tool_use",
+        "usage": {
+          "input_tokens": 4146,
+          "output_tokens": 93,
+          "cache_read_input_tokens": 0,
+          "total_tokens": 4239
+        }
+      }
+    },
+    {
+      "type": "user",
+      "uuid": "4873f478-8e00-41dd-b686-e05b0aca67de",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "call_ksjxxrdk",
+            "is_error": false,
+            "content": "The file: /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions/flags.py has been updated. This file was automatically recorded as a workspace artifact with workspacePath \"flags.py\". No extra artifact registration step is needed. Showing lines 1-5 of 5 from the edited file:\n\n---\n\ndef enabled(value):\n    if isinstance(value, str):\n        return value.lower() != 'false'\n    return bool(value)\n"
+          }
+        ]
+      }
+    },
+    {
+      "type": "assistant",
+      "uuid": "3954f19e-b88d-4ba0-b19d-7c6e274853c6",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "id": "3954f19e-b88d-4ba0-b19d-7c6e274853c6",
+        "type": "message",
+        "role": "assistant",
+        "model": "qwen3-coder-next:q4_K_M",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "call_n664em10",
+            "name": "run_shell_command",
+            "input": {
+              "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+              "description": "Run tests to verify the fix",
+              "is_background": false
+            }
+          }
+        ],
+        "stop_reason": "tool_use",
+        "usage": {
+          "input_tokens": 4344,
+          "output_tokens": 76,
+          "cache_read_input_tokens": 0,
+          "total_tokens": 4420
+        }
+      }
+    },
+    {
+      "type": "user",
+      "uuid": "e4ea6caf-2937-4856-998f-8a78fba6a5d8",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "call_n664em10",
+            "is_error": false,
+            "content": "test_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK"
+          }
+        ]
+      }
+    },
+    {
+      "type": "assistant",
+      "uuid": "3f447f61-d8c2-46a6-908a-1f0ef0e8d57a",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "parent_tool_use_id": null,
+      "message": {
+        "id": "3f447f61-d8c2-46a6-908a-1f0ef0e8d57a",
+        "type": "message",
+        "role": "assistant",
+        "model": "qwen3-coder-next:q4_K_M",
+        "content": [
+          {
+            "type": "text",
+            "text": "Corrige le défaut de `enabled` dans `flags.py` : la fonction devait gérer les chaînes `'false'` et `'true'` (insensibles à la casse) en plus des booléens. Le test est maintenant passé.\n\n**Fait :** `flags.py` corrigé, tous les tests passent."
+          }
+        ],
+        "stop_reason": null,
+        "usage": {
+          "input_tokens": 4629,
+          "output_tokens": 77,
+          "cache_read_input_tokens": 0,
+          "total_tokens": 4706
+        }
+      }
+    },
+    {
+      "type": "result",
+      "subtype": "success",
+      "uuid": "5c709b6c-2f00-42d4-bd34-9105c3e3b99a",
+      "session_id": "bbfab538-54be-4b36-9515-048e59c92400",
+      "is_error": false,
+      "duration_ms": 32889,
+      "duration_api_ms": 32583,
+      "num_turns": 5,
+      "result": "Corrige le défaut de `enabled` dans `flags.py` : la fonction devait gérer les chaînes `'false'` et `'true'` (insensibles à la casse) en plus des booléens. Le test est maintenant passé.\n\n**Fait :** `flags.py` corrigé, tous les tests passent.",
+      "usage": {
+        "input_tokens": 20614,
+        "output_tokens": 406,
+        "cache_read_input_tokens": 0,
+        "total_tokens": 21020
+      },
+      "permission_denials": []
+    }
+  ],
+  "test_file_unchanged": true,
+  "independent_test_returncode": 0,
+  "diff": "diff --git a/flags.py b/flags.py\nindex d9b775b..9e0f9ee 100644\n--- a/flags.py\n+++ b/flags.py\n@@ -1,2 +1,4 @@\n def enabled(value):\n+    if isinstance(value, str):\n+        return value.lower() != 'false'\n     return bool(value)\n"
+}
