@@ -34,6 +34,30 @@ class StructuredActionTests(unittest.TestCase):
   with self.assertRaises(ValidationError):validate({'expected_version':3,'title':'Next version guessed'},result[0]['function']['parameters'])
   self.assertEqual(props['title'],{'type':'string'});self.assertNotIn('enum',source[0]['function']['parameters']['properties']['expected_version'])
 
+ def test_conditional_execution_fields_are_explicit_in_each_grammar_variant(self):
+  from jarvis.structured_actions import explicit_variants
+  from jsonschema import Draft202012Validator
+  original={'type':'object','properties':{'kind':{'type':'string','enum':['inspect','correct','test','analyze','accept']},'executor':{'type':'string','enum':['Dell1','Dell2']},'command':{'type':'string'},'reference':{'type':'integer'},'source_reference':{'type':'integer'}},'required':['kind'],'additionalProperties':False,'allOf':[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},'then':{'required':['reference','source_reference']}},{'if':{'properties':{'kind':{'enum':['inspect','correct','test']}},'required':['kind']},'then':{'required':['executor','command'],'properties':{'command':{'minLength':1}}}}]}
+  variants=explicit_variants(original)
+  self.assertNotIn('allOf',variants)
+  for item in variants['oneOf']:
+   mode=item['properties']['kind']['enum'][0]
+   if mode in ('inspect','correct','test'):
+    self.assertIn('executor',item['required']);self.assertIn('command',item['required'])
+    self.assertEqual(item['properties']['command']['minLength'],1)
+   if mode=='accept':self.assertTrue({'reference','source_reference'}<=set(item['required']))
+  source=self.payload();source['tools'][0]['function']['parameters']=original
+  _,schema=request(source)
+  for kind in original['properties']['kind']['enum']:
+   for fields in ({},{'executor':'Dell2'},{'executor':'Dell1','command':''},{'executor':'Dell2','command':'python3 -V'},{'reference':1,'source_reference':2}):
+    args={'kind':kind,**fields}
+    expected=Draft202012Validator(original).is_valid(args)
+    self.assertEqual(Draft202012Validator(variants).is_valid(args),expected)
+    self.assertEqual(Draft202012Validator(schema).is_valid({'tool':'plan','arguments':args}),expected)
+ def test_unknown_conditional_contract_is_preserved_without_weakening(self):
+  from jarvis.structured_actions import explicit_variants
+  schema={'type':'object','allOf':[{'if':{'required':['x']},'then':{'anyOf':[{'required':['y']},{'required':['z']}]}}]}
+  self.assertEqual(explicit_variants(schema),schema)
  def test_malformed_or_multiple_actions_cannot_be_dispatched(self):
   _,schema=request(self.payload())
   for text in ['<function=plan><parameter>',json.dumps([{'tool':'plan','arguments':{'observations':[]}}])]:

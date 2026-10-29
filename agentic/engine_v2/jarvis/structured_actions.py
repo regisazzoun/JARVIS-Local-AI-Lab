@@ -10,12 +10,57 @@ from jsonschema import Draft202012Validator
 CONTRACT='jarvis.action.v1'
 
 
+def explicit_variants(params):
+    """Express finite discriminator contracts without conditional grammar rules.
+
+    Only the known lossless subset is expanded. Unsupported contracts retain
+    their original schema and backend validation; no requirements are dropped.
+    """
+    clauses=params.get('allOf',[])
+    if not clauses:return params
+    discriminator=None
+    for clause in clauses:
+        if set(clause)!={'if','then'}:return params
+        condition=clause['if'];props=condition.get('properties',{})
+        if len(props)!=1 or set(condition)-{'properties','required'}:return params
+        key=next(iter(props));rule=props[key]
+        if key not in params.get('required',[]) or set(rule) not in ({'const'},{'enum'}):return params
+        if condition.get('required',[]) not in ([],[key]):return params
+        if discriminator is not None and discriminator!=key:return params
+        discriminator=key
+        if set(clause['then'])-{'required','properties'}:return params
+        for field,constraints in clause['then'].get('properties',{}).items():
+            base=params.get('properties',{}).get(field,{})
+            if any(k in base and base[k]!=v for k,v in constraints.items()):return params
+    values=params.get('properties',{}).get(discriminator,{}).get('enum')
+    if not values:return params
+    base=copy.deepcopy(params);base.pop('allOf');definitions=base.pop('$defs',{})
+    field_key='_action_fields'
+    if field_key in definitions:return params
+    definitions[field_key]=copy.deepcopy(base['properties']);variants=[]
+    for value in values:
+        variant=copy.deepcopy(base);variant['properties'][discriminator]['enum']=[value]
+        for clause in clauses:
+            rule=clause['if']['properties'][discriminator]
+            if value not in rule.get('enum',[rule.get('const')]):continue
+            for field in clause['then'].get('required',[]):
+                if field not in variant['required']:variant['required'].append(field)
+            for field,constraints in clause['then'].get('properties',{}).items():
+                variant['properties'].setdefault(field,{}).update(constraints)
+        for field,definition in list(variant['properties'].items()):
+            if definition==definitions[field_key].get(field):
+                escaped=field.replace('~','~0').replace('/','~1')
+                variant['properties'][field]={'$ref':'#/$defs/'+field_key+'/'+escaped}
+        variants.append(variant)
+    return {'$defs':definitions,'oneOf':variants,'type':'object'}
+
+
 def request(payload):
     schemas=payload.get('tools',[])
     if not schemas:raise ValueError('Structured action requires actual offered tools')
     branches=[]
     for index,tool in enumerate(schemas):
-        fn=tool['function'];params=copy.deepcopy(fn['parameters'])
+        fn=tool['function'];params=explicit_variants(copy.deepcopy(fn['parameters']))
         def relocate(value):
             if isinstance(value,list):return [relocate(item) for item in value]
             if not isinstance(value,dict):return value

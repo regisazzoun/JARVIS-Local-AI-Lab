@@ -68,3 +68,26 @@ interface n’ont pas été remplacées.
 L’implémentation P3, sa réception indépendante, l’intégration P4 et l’épreuve
 finale distincte restent à exécuter. Le test `M26-P2-VF01` demeure **NON TRANSMIS**
 jusqu’aux contrôles Codex. Aucun statut global n’est promu par cette réparation.
+
+## Contrat explicite des actions exécutables
+
+Après reprise, JARVIS a exécuté ses inspections72029/72063 sur Dell1.
+Deux lectures suivantes72111/72168 ont réellement échoué sur des chemins
+inexistants ; ces résultats sont conservés et distincts des tests fonctionnels.
+Codex a précisé la localisation observée de la fonction `audit_plan` et rappelé
+le contrat des lots de réception, sans écrire son algorithme ni réviser son plan.
+
+Trois propositions sans `executor`/`command` ont été refusées avant dispatch72198.
+Les obligations conditionnelles du schéma étaient contrôlées par le backend,
+mais non respectées dans les sorties observées du générateur. Codex a compilé
+le sous-ensemble connu des discriminants finis en variantes explicites, avec
+les mêmes champs obligatoires et les mêmes types. Les définitions sont partagées
+pour limiter la taille ; les formes conditionnelles inconnues sont conservées,
+aucune obligation supprimée.72tests ciblésPASS, dont comparaison d’acceptation
+entre schéma original et variantes pour les modes et paramètres incomplets.
+
+Sonde réelleQwen72204 : action conforme **non exécutée** ; les références et
+identifiants inventés dans son texte ne sont pas des preuves. Préflight de la
+requête suivante72211 :26713/27648octets. Résolution72212 puis remise en file de
+la même mission, historique et compteurs intacts. [Reçus](p3/CONTRAT-EXECUTION-EXPLICITE.json).
+L’implémentation P3 demandée à JARVIS demeure non reçue à ce stade.
