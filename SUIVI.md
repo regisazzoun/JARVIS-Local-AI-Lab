@@ -1,3 +1,13 @@
+## P3 — candidat adaptatif et validation déléguée — 29 octobre 2026
+
+Après escalade, proposition Qwen76621 revue/appliquée par Codex76636 surDell1.
+Contrôle indépendant76653 : CORE4+VAR15000/18000 PASS ; ce ne sont pas des tests
+JARVIS. Reprise76660 en tests seuls, même mission/plan/tâche. Trois échecs
+qualifiés + deux classifications rectifiées conservés, problème correction
+escaladé. JARVIS doit synchroniser et tester le même code sur les deuxDell.
+P3 non reçue, P4 attend, aucun déploiement canonique ni VF01/14A/mémoire lancé.
+[Preuves](docs/missions/26-P2/p3/REPRISE-ADAPTATIVE-ASSISTEE.json).
+
 ## P3 — probes déclarés exécutés, défaut confirmé — 29 octobre 2026
 
 JARVIS a réellement choisi les probes déclarés : VAR FAIL76210/Dell2, correction

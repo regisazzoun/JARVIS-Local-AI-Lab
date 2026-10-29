@@ -223,3 +223,24 @@ le diagnostic, choisir une stratégie différente adaptant les lots au paquet r�
 préserver les contraintes globales et bloquer un singleton indivisible. Cette note
 ne prouve pas une stratégie implémentée/vérifiée et ne débloque pas une quatrième
 tentative. Mission interrupted ; P3 non reçue, P4 attend, VF01 non transmis.
+
+## Reprise adaptative assistée — 29 octobre 2026
+
+Après trois échecs fonctionnels, Codex traite l’escalade sans lancer une quatrième
+correction autonome. Qwen80B propose76616 une stratégie de bissection récursive
+sur ContextCapacityError ; Codex relève76617 les imports absents et la perte de
+métadonnées, Qwen les corrige76621. Les originaux sont conservés.
+
+Codex applique le candidat revu76636 sur Dell1 avec contrôle du SHA source,
+sauvegarde privée et compilation du module complet. Seul audit_plan change.
+Contrôle indépendant76653 : quatre cas CORE et deux cas variables15000/18000 PASS.
+Ces exécutions sont celles de Codex, pas une démonstration autonome de JARVIS.
+
+Résolution assistée76660, même mission/plan/tâche en tests seuls. Les trois échecs
+qualifiés, les deux classifications rectifiées et le problème de correction
+ESCALATED restent conservés. Les marqueurs de résolution permettent uniquement
+la validation après réparation réelle ; les outils d’édition sont exclus.
+JARVIS doit synchroniser depuis la référence native76661 et faire passer les
+DEUX probes sur les DEUX Dell au même manifeste avant acceptation. Préflight76670 :
+27380/27648octets. Aucun déploiement canonique du candidat ; P3 non reçue, P4 attend.
+[Preuves](REPRISE-ADAPTATIVE-ASSISTEE.json) ; [différentiel proposé](QWEN-AUDIT-PLAN-ADAPTATIF.patch).
