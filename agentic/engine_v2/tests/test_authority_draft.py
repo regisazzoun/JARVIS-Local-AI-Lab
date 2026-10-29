@@ -46,6 +46,46 @@ class FocusedDraftTests(unittest.TestCase):
   self.assertEqual(self.remote_calls[0][0],'Dell2');self.assertEqual(result['executor'],'Dell2')
   events=self.s.events(self.m);proposal=next(e for e in events if e['kind']=='authority_code_proposal')
   self.assertEqual(proposal['actor'],'JARVIS/Qwen80B');self.assertFalse(proposal['result']['applied'])
+ def test_symbol_proposal_edits_real_function_inside_large_module_only(self):
+  prefix='"'+('unchanged documentation '*400)+'"\n'
+  suffix='\ndef other():\n return 99\n'
+  self.path.write_text(prefix+self.original+suffix)
+  proposal=self.call({**self.args(),'symbol':'run'})
+  payload=json.loads(self.payloads[0]['messages'][1]['content'])
+  self.assertEqual(payload['file']['source'],self.original)
+  self.assertEqual(payload['file']['symbol'],'run')
+  self.assertNotIn(prefix,json.dumps(self.payloads[0]))
+  result=self.apply(proposal['proposal_reference'])
+  self.assertTrue(result['applied'])
+  self.assertEqual(self.path.read_text(),prefix+self.reply['new_content']+suffix)
+ def test_missing_ambiguous_or_renamed_symbol_is_rejected(self):
+  with self.assertRaisesRegex(ValueError,'Source read not received'):
+   self.call({**self.args(),'symbol':'missing'})
+  self.path.write_text(self.original+self.original)
+  with self.assertRaisesRegex(ValueError,'Source read not received'):
+   self.call({**self.args(),'symbol':'run'})
+  self.path.write_text(self.original);self.reply['new_content']='def renamed():\n return 2\n'
+  with self.assertRaisesRegex(ValueError,'retain the selected'):
+   self.call({**self.args(),'symbol':'run'})
+ def test_decorated_symbol_and_template_words_in_path_preserved(self):
+  self.path=self.root/'engine/PATH_SYMBOL.py'
+  self.original='@staticmethod\ndef run():\n return 1\n';self.path.write_text(self.original)
+  self.reply['new_content']='@staticmethod\ndef run():\n return 2\n'
+  result=self.call({**self.args(),'path':'engine/PATH_SYMBOL.py','symbol':'run'})
+  self.assertTrue(self.apply(result['proposal_reference'])['applied'])
+  self.assertEqual(self.path.read_text(),self.reply['new_content'])
+ def test_declared_source_unit_rejects_invented_filename_before_remote(self):
+  self.a.spec['authority_draft_units']=[{'path':'engine/worker.py','symbol':'run'}]
+  with self.assertRaisesRegex(ValueError,'observed source unit'):
+   self.call({**self.args(),'path':'engine/run.py','symbol':'run'})
+  self.assertFalse(self.remote_calls)
+ def test_coding_phase_does_not_order_an_unoffered_inspection_tool(self):
+  from jarvis.durable_cycle import focused_source_prompt
+  original='Owner policy. Première obligation : observe les sources avec authority_work kind=inspect avant de planifier; choisis toi-même la machine et la commande.'
+  result=focused_source_prompt(original)
+  self.assertTrue(result.startswith('Owner policy.'))
+  self.assertNotIn('authority_work kind=inspect',result)
+  self.assertIn('authority_draft_edit',result);self.assertIn('sans application ni test',result)
  def test_requires_canonical_call_before_source_read(self):
   with self.assertRaisesRegex(ValueError,'canonical started'):draft(self.a,self.args())
   self.assertFalse(self.remote_calls);self.assertFalse(self.payloads)

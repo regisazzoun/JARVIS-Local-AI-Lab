@@ -1,3 +1,12 @@
+## Reprise P3 sur fonction réelle — 29 octobre 2026
+
+Après arrêt borné74344, Codex ajoute l’édition AST d’une fonction dans son vrai
+module, avec ancre exacte et contexte court. Observation74357 sur les deuxDell,
+plan2 rédigé parQwen avec assistance de cadrage, préflight10755/27648,
+résolution74381.90tests ciblés et5tests de supervisionPASS ; aucun candidat
+applicatif reçu à ce jalon. Compteurs et arrêt antérieur conservés. P4 attend,
+aucun14A/mémoire lancé. [Dossier](docs/missions/26-P2/p3/REPRISE-APRES-STAGNATION.md).
+
 ## Exécution déléguée autorisée — 29 octobre 2026
 
 Décision propriétaire : JARVIS/Qwen80B décide et répartit les calculs sur les Dell ;

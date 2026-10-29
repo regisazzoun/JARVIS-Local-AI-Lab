@@ -1,0 +1,38 @@
+{
+  "mission": "bfd9a813c1804ffcaad77c9f01d54045",
+  "source_observation": 74357,
+  "plan_version": 2,
+  "model_plan_inference": 74368,
+  "preflight": 74379,
+  "request_bytes": 10755,
+  "budget": 27648,
+  "strategy_event": 74380,
+  "resolution": 74381,
+  "software_tests": 90,
+  "supervision_tests": 5,
+  "prior_passages_preserved": 3,
+  "prior_correction_infrastructure_incidents_preserved": 2,
+  "installed_modules": [
+    {
+      "file": "authority_draft.py",
+      "sha256": "6b36f1ff49ea949e8809d83000d6e55d454eee91831038cfc92f7be1881a0dd4"
+    },
+    {
+      "file": "distributed_authority.py",
+      "sha256": "2e8088e0f6076ab597aeccb1b4d6a6c0394fd498064087ace9e8c1be2666cb4a"
+    },
+    {
+      "file": "tools.py",
+      "sha256": "b4ca77cf8c633b58f02a7fa12c12c422887f7b7bb96f130cfa3e86f76a6dd335"
+    },
+    {
+      "file": "durable_cycle.py",
+      "sha256": "5bc6336d02633b74c867e2a8eea3ad31b1949f64de489664d640060886ba2377"
+    },
+    {
+      "file": "periodic_codex.py",
+      "sha256": "6e29bba62adcbbd18f0f5a70e36e4f811231527fe8c8765f675349ff103a0061"
+    }
+  ],
+  "application_code_not_yet_modified": true
+}

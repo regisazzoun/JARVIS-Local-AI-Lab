@@ -43,3 +43,20 @@ class ExecutionContractTests(unittest.TestCase):
   schema=self.reg.active_schema('authority_revise_plan')
   self.assertEqual(schema['properties']['expected_version']['const'],2)
   self.assertEqual(len(self.store.plans(self.m)),2)
+
+ def test_focused_source_unit_advertises_real_module_and_symbol(self):
+  with self.store.db() as c:
+   spec=json.loads(self.store.get(self.m)['spec']);spec['authority_draft_units']=[{'path':'engine/jarvis/mission_assurance.py','symbol':'audit_plan'}]
+   c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  schema=self.reg.active_schema('authority_draft_edit')
+  args={'issue':'AUDIT','executor':'Dell2','path':'engine/jarvis/mission_assurance.py','symbol':'audit_plan','request':'Model chooses the correction'}
+  self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+  args['path']='engine/audit_plan.py';self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
+  args['path']='engine/jarvis/mission_assurance.py';args.pop('symbol');self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
+
+ def test_apply_schema_only_offers_real_same_task_model_proposals(self):
+  own=self.store.event(self.m,'authority_code_proposal','audit',actor='JARVIS/Qwen80B',result={'fixture':True})
+  self.store.event(self.m,'authority_code_proposal','other',actor='JARVIS/Qwen80B',result={'fixture':True})
+  self.store.event(self.m,'authority_code_proposal','audit',actor='Codex',result={'fixture':True})
+  schema=self.reg.active_schema('authority_apply_draft')
+  self.assertEqual(schema['properties']['proposal_reference']['enum'],[own])

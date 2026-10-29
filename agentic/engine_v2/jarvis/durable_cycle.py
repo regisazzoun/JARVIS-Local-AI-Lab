@@ -17,6 +17,12 @@ def coding_focus_required(spec, active):
         and e.get('execution',{}).get('returncode')==0 and e.get('before')!=e.get('after')
         for ref,e in active.get('executions',{}).items())
 
+def focused_source_prompt(text):
+    """Keep offered editing tools consistent with the bounded coding phase."""
+    text=text.replace('Première obligation : observe les sources avec authority_work kind=inspect avant de planifier; choisis toi-même la machine et la commande.',
+        'Les inspections préalables sont archivées. authority_draft_edit lit le fichier réel ou la fonction symbol avant de te confier sa modification dans un contexte isolé.')
+    return text+'\nPhase courte de correction : les outils proposés produisent et appliquent du code. Tu choisis le changement et son exécutant. authority_draft_edit retourne une proposition, sans application ni test ; examine-la puis authority_apply_draft. Après une modification observée, les outils de test et de validation indépendante reviennent. Une proposition seule ne clôture pas la tâche.'
+
 def candidate_test_focus(spec, active):
     """After a real edit, expose testing; restore coding after an observed test failure."""
     if not spec.get('authority_code_focus'):return False
@@ -579,6 +585,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 names-=set(json.loads(mission['spec']).get('authority_disabled_tools',[]))
                 if names!={'intervention_report'} and coding_focus_required(json.loads(mission['spec']),authority.active_state()):
                     names &= {'authority_draft_edit','authority_apply_draft','authority_edit'}
+                    with store.db() as connection:
+                        proposal=connection.execute("SELECT id FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal' AND actor='JARVIS/Qwen80B' LIMIT 1",(ident,task_id)).fetchone()
+                    if not proposal:names.discard('authority_apply_draft')
                 elif names!={'intervention_report'} and candidate_test_focus(json.loads(mission['spec']),authority.active_state()):
                     names-={'authority_draft_edit','authority_apply_draft','authority_edit','authority_resources'}
                 schemas=[s for s in core.tools.schemas() if s['function']['name'] in names]
@@ -607,6 +616,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                             'Première obligation : observe les sources avec authority_work kind=inspect avant de planifier; choisis toi-même la machine et la commande.',
                             'L’observation initiale et le plan sont déjà enregistrés pour cette tâche. Ne recommence pas la préparation à chaque tour. Exploite les observations persistantes pour décider la suite de la tâche active ; une lecture supplémentaire doit viser une information précise réellement manquante, pas une nouvelle localisation des mêmes fichiers.')
 
+                if coding_focus_required(json.loads(mission['spec']),authority.active_state()):
+                    authority_prompt[0]['content']=focused_source_prompt(authority_prompt[0]['content'])
                 if not authority_history_started:
                     messages=authority_prompt
                     authority_history_started=True

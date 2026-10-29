@@ -35,6 +35,20 @@ class CoordinationTests(unittest.TestCase):
     self.assertEqual(spawn.call_count,3);self.assertEqual(json.loads((private/'STATE.json').read_text())['status'],'COORDINATOR_BOUNDED_STOP')
     (private/'STATE.json').unlink();p.main();self.assertEqual(spawn.call_count,3)
    events=[e for e in store.events(mission) if e['kind']=='coordinator_periodic_started'];self.assertEqual([e['result']['attempt'] for e in events],[1,2,3]);self.assertEqual(len([e for e in store.events(mission) if e['kind']=='coordinator_bounded_stop']),1)
+ def test_only_evidenced_technical_strategy_changes_coordination_identity(self):
+  with tempfile.TemporaryDirectory() as root:
+   store=MissionStore(root);mission=store.create('fixture','model','conv')
+   observation=store.event(mission,'source_unit_observed',actor='Codex',result={'fixture':True})
+   def event(actor='Codex',**changes):
+    data={'verified':True,'evidence_events':[observation],'installed_modules':[{'file':'authority_draft.py','sha256':'a'*64}]};data.update(changes)
+    return store.event(mission,'coordinator_strategy_verified',actor=actor,result=data)
+   good=event();self.assertEqual(p.verified_strategy(store,mission,good),good)
+   for bad in (event(actor='JARVIS'),event(evidence_events=[]),event(evidence_events=[999999]),event(installed_modules=[]),event(installed_modules=[{'file':'fake','sha256':'renamed'}])):
+    self.assertIsNone(p.verified_strategy(store,mission,bad))
+   with patch.object(p,'CONFIG',{'scope':'M26-P2'}):
+    before=[{'task':'P3','mission':mission,'condition':'NO_PRODUCTIVE_EXECUTION'}]
+    after=[{**before[0],'verified_strategy_event':good}]
+    self.assertNotEqual(p.condition_key(before),p.condition_key(after))
  def test_out_of_scope_mission_is_never_dispatched(self):
   with tempfile.TemporaryDirectory() as root:
    root=pathlib.Path(root);store=MissionStore(root);mission=store.create('fixture','model','conv');store.transition(mission,'interrupted')

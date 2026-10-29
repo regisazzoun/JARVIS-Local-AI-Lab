@@ -23,7 +23,22 @@ ALLOWED_TASKS = set(CONFIG.get('allowed_tasks',['D03','D04','D17']))
 def condition_key(attention):
     if not CONFIG:return hashlib.sha256(json.dumps(attention,sort_keys=True).encode()).hexdigest()
     stable=[{'task':row['task'],'mission':row['mission'],'condition':row['condition']} for row in attention]
+    for item,row in zip(stable,attention):
+        if row.get('verified_strategy_event'):item['verified_strategy_event']=row['verified_strategy_event']
     return hashlib.sha256(json.dumps(stable,sort_keys=True).encode()).hexdigest()
+
+
+def verified_strategy(store,mission,reference):
+    """Only an evidenced technical repair opens a different coordination strategy."""
+    if type(reference) is not int:return None
+    with store.db() as connection:
+        row=connection.execute('SELECT actor,kind,result FROM mission_events WHERE mission=? AND id=?',(mission,reference)).fetchone()
+        if not row or row['actor'] not in ('Codex','Codex-periodic') or row['kind']!='coordinator_strategy_verified':return None
+        data=json.loads(row['result']);refs=data.get('evidence_events',[]);modules=data.get('installed_modules',[])
+        if data.get('verified') is not True or not refs or not modules:return None
+        if any(not isinstance(m,dict) or not m.get('file') or not isinstance(m.get('sha256'),str) or len(m['sha256'])!=64 or any(c not in '0123456789abcdef' for c in m['sha256']) for m in modules):return None
+        if any(type(ref) is not int or ref==reference or not connection.execute('SELECT id FROM mission_events WHERE mission=? AND id=?',(mission,ref)).fetchone() for ref in refs):return None
+    return reference
 
 
 
@@ -74,7 +89,10 @@ def main():
             attention.append({'task':task['id'],'mission':mission['id'],'state':state,
                               'result':json.loads(mission.get('result') or '{}'),
                               'plan_version':plans[-1]['version'] if plans else 0})
-            if CONFIG:attention[-1]['condition']=condition
+            if CONFIG:
+                attention[-1]['condition']=condition
+                strategy=verified_strategy(store,mission['id'],task.get('coordination_strategy_event'))
+                if strategy:attention[-1]['verified_strategy_event']=strategy
         statefile = PRIVATE/'STATE.json'
         saved = json.loads(statefile.read_text()) if statefile.exists() else {'attempts':{}}
         if not attention:

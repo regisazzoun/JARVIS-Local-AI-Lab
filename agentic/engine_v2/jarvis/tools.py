@@ -229,6 +229,16 @@ class Registry:
             schema=copy.deepcopy(schema)
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
+            if name=='authority_draft_edit':
+                units=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_draft_units')
+                if units and len(units)==1:
+                    schema['properties']['path']['enum']=[units[0]['path']]
+                    schema['properties']['symbol']['enum']=[units[0]['symbol']]
+                    schema['required']=list(dict.fromkeys(schema['required']+['symbol']))
+            if name=='authority_apply_draft':
+                with self.mission_store.db() as connection:
+                    proposals=[row[0] for row in connection.execute("SELECT id FROM mission_events WHERE mission=? AND task IS ? AND kind='authority_code_proposal' AND actor='JARVIS/Qwen80B' ORDER BY id DESC",(self.context['mission_id'],self.context.get('task_id')))]
+                if proposals:schema['properties']['proposal_reference']['enum']=proposals
             if name=='authority_work':
                 from .distributed_authority import Authority
                 from .durable_cycle import candidate_test_focus
