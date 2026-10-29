@@ -1,3 +1,15 @@
+## Surveillance des plantages et blocages — 29 octobre 2026
+
+Contrôle de santé systemd installé toutes les60secondes, activé après reboot,
+lié au même registre/moteur : workers, broker, conversation, JL03 et supervision.
+RelevéHEALTH.json persistant, redémarrages natifs observés, état inconnu distingué
+d’une panne ; pas de conclusion depuis une chargeGPU nulle. Escalade via le
+coordinateur existant, compteursbornés conservés ; aucune commande rejouée par
+le moniteur.21tests ciblésPASS et plantage contrôlé d’un serviceisolé (sortie42,
+redémarrage natif1, processus différent) ; workersréels non interrompus.
+Services sains au contrôle ; P4 a un blocageContextCapacityError distinct àtraiter.
+[Preuves](docs/missions/26-P2/SURVEILLANCE-SANTE-PREUVES.json).
+
 ## P4 — adaptateur de rapport vérifié sur Qwen — 29 octobre 2026
 
 Après refus de format, diagnostic77335 : le backend n’appliquait pas contains

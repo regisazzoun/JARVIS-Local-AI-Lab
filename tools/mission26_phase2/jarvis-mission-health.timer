@@ -1,0 +1,9 @@
+[Unit]
+Description=Check persistent JARVIS service health every minute and after boot
+[Timer]
+OnBootSec=45
+OnUnitActiveSec=60
+AccuracySec=5
+Unit=jarvis-mission-health.service
+[Install]
+WantedBy=timers.target

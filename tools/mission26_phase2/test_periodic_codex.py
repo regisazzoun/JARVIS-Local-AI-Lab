@@ -55,3 +55,33 @@ class CoordinationTests(unittest.TestCase):
    private=root/'private';private.mkdir();registry=root/'registry.json';registry.write_text(json.dumps({'tasks':[{'id':'P2','mission_id':mission}]}))
    with patch.multiple(p,ROOT=str(root),PRIVATE=private,REGISTER=registry,REPO=str(root),ALLOWED_TASKS={'P2'},CONFIG={'allowed_mission_ids':['some-other-mission']}),patch.object(p.subprocess,'Popen') as spawn,redirect_stdout(io.StringIO()):
     p.main();spawn.assert_not_called()
+ def test_service_failure_is_actionable_without_waiting_ten_minutes(self):
+  with tempfile.TemporaryDirectory() as root:
+   root=pathlib.Path(root);private=root/'private';private.mkdir();store=MissionStore(root);mission=store.create('fixture','model','conv');store.transition(mission,'queued',progress=True)
+   (private/'PROMPT.md').write_text('Software health integration fixture; not a real mission')
+   (private/'HEALTH.json').write_text(json.dumps({'checked_at':p.time.time(),'status':'ATTENTION','unavailable_units':['jarvis-mission-worker.service']}))
+   registry=root/'registry.json';registry.write_text(json.dumps({'tasks':[{'id':'P4','mission_id':mission}]}))
+   config={'allowed_mission_ids':[mission],'normal_engine_progress':True,'monitor_units':['jarvis-mission-worker.service']}
+   with patch.multiple(p,ROOT=str(root),PRIVATE=private,REGISTER=registry,CONFIG=config,ALLOWED_TASKS={'P4'}),patch.dict(p.os.environ,{'JARVIS_COORDINATOR_DRY_RUN':'1'}),redirect_stdout(io.StringIO()) as out:
+    p.main()
+   self.assertIn('SERVICE_UNAVAILABLE:jarvis-mission-worker.service',out.getvalue())
+ def test_stale_health_monitor_is_not_assumed_healthy(self):
+  with tempfile.TemporaryDirectory() as root:
+   private=pathlib.Path(root)
+   condition,health=p.service_condition({'monitor_units':['jarvis-worker.service']},private)
+   self.assertEqual(condition,'SERVICE_HEALTH_STALE');self.assertTrue(health['monitor_stale'])
+ def test_bundled_resolutions_do_not_leave_obsolete_escalations_active(self):
+  events=[{'id':1,'kind':'authority_escalation','actor':'JARVIS-engine','result':{}},{'id':2,'kind':'authority_escalation','actor':'JARVIS-engine','result':{}},{'id':3,'kind':'coordinator_escalation_resolved','actor':'Codex','result':{'escalation_events':[1,2]}},{'id':4,'kind':'p2_escalation','actor':'JARVIS-engine','result':{'reason':'Actual new worker failure'}}]
+  self.assertEqual([e['id'] for e in p.unresolved_escalations(events)],[4])
+  events[-2]['actor']='JARVIS'
+  self.assertEqual([e['id'] for e in p.unresolved_escalations(events)],[1,2,4])
+ def test_native_worker_exception_is_reported_as_current_stop_cause(self):
+  with tempfile.TemporaryDirectory() as root:
+   root=pathlib.Path(root);store=MissionStore(root);mission=store.create('fixture','model','conv');store.transition(mission,'interrupted')
+   store.event(mission,'authority_escalation',actor='JARVIS-engine',result={'category':'old-format'})
+   store.event(mission,'p2_escalation',actor='JARVIS-engine',result={'reason':'Three comparable worker exceptions'})
+   store.event(mission,'cycle_error',actor='JARVIS-engine',result={'type':'ContextCapacityError'})
+   private=root/'private';private.mkdir();registry=root/'register.json';registry.write_text(json.dumps({'tasks':[{'id':'P4','mission_id':mission}]}))
+   with patch.multiple(p,ROOT=str(root),PRIVATE=private,REGISTER=registry,CONFIG={'allowed_mission_ids':[mission]},ALLOWED_TASKS={'P4'}),patch.dict(p.os.environ,{'JARVIS_COORDINATOR_DRY_RUN':'1'}),redirect_stdout(io.StringIO()) as out:
+    p.main()
+   self.assertIn('WORKER_EXCEPTION:ContextCapacityError',out.getvalue())

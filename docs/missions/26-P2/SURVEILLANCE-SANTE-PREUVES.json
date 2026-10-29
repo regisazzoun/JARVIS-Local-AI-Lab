@@ -1,0 +1,89 @@
+{
+  "health_status": "OK",
+  "observed_units": {
+    "jarvis-mission-worker.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-mission-worker@2.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-host-bridge.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-conversation.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-launcher3.service": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-m26-p2-supervision.timer": {
+      "ActiveState": "active",
+      "SubState": "waiting",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-mission-health.timer": {
+      "ActiveState": "active",
+      "SubState": "running",
+      "Result": "success",
+      "status": "OK"
+    },
+    "jarvis-m26-p2-supervision.service": {
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "Result": "success",
+      "status": "OK"
+    }
+  },
+  "native_health_event": 77610,
+  "timers": {
+    "jarvis-mission-health.timer": "enabled",
+    "jarvis-m26-p2-supervision.timer": "enabled"
+  },
+  "health_period_seconds": 60,
+  "coordinator_period_after_completion_seconds": 120,
+  "no_productive_seconds": 600,
+  "stale_health_seconds": 180,
+  "targeted_software_tests": 21,
+  "installed_modules": [
+    {
+      "file": "/usr/local/lib/jarvis-coordination/periodic_codex.py",
+      "sha256": "871549a35c85e455dc76cffaa5b6a4a17031d136982b2c9ad1bfb186bb8cca5f"
+    },
+    {
+      "file": "/usr/local/lib/jarvis-coordination/service_watch.py",
+      "sha256": "697409b324e8edb5eb879fb1f62cef50777af2706b3bef3141c12214ee67998d"
+    }
+  ],
+  "controlled_process_crash": {
+    "service": "jarvis-mission-health-probe.service",
+    "intentional_exit_code": 42,
+    "native_restart_count": 1,
+    "different_processes": true,
+    "direct_poll_failure_phase_observed": false,
+    "journal_confirms_exit42_and_restart": true,
+    "test_service_stopped_and_unloaded": true,
+    "production_workers_not_interrupted": true,
+    "not_an_agent_mission_resume_test": true
+  },
+  "bounds": "No task or worker command replay by monitor; native restarts stay systemd-owned. Three coordinator starts for the same continuing service outage then persisted escalation. Existing three-pass Codex/mission guards retained.",
+  "mission_state": "interrupted",
+  "current_native_problem": "ContextCapacityError; live service status is healthy, not proof of productive mission execution",
+  "no_phase2_reception": true,
+  "event": 77611
+}

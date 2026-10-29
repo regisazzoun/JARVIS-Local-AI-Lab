@@ -8,5 +8,18 @@
   "no_productive_seconds": 600,
   "allowed_mission_ids": [
     "3aa717f3887e49daa7daf7e883ee52e4"
-  ]
+  ],
+  "monitor_units": [
+    "jarvis-mission-worker.service",
+    "jarvis-mission-worker@2.service",
+    "jarvis-host-bridge.service",
+    "jarvis-conversation.service",
+    "jarvis-launcher3.service",
+    "jarvis-m26-p2-supervision.timer",
+    "jarvis-mission-health.timer",
+    "jarvis-m26-p2-supervision.service"
+  ],
+  "health_max_age_seconds": 180,
+  "service_recovery_grace_seconds": 60,
+  "coordinator_service": "jarvis-m26-p2-supervision.service"
 }

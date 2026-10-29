@@ -54,3 +54,47 @@ périodique. Retirer le hold et libérer le verrou après reprise ; ne pas remet
 STATE.json à zéro. La directive permanente du29octobre exige la prise en charge
 des blocages sans nouvelle relance humaine, avec changement technique vérifié,
 compteurs persistants et retour à JARVIS.
+
+
+## Surveillance santé ajoutée le29octobre
+
+`jarvis-mission-health.timer`, activé au démarrage, lance un contrôle toutes les
+60secondes via `service_watch.py`, sans attendre la fin d’un passage Codex long.
+Le contrôle observe huit unités existantes : deux workers, broker, conversation,
+JL03, timer et service du coordinateur, et son propre timer. Un service oneshot
+inactif après succès est normal ; un code d’échec ou une unité absente reste
+signalé. Une observation indisponible est UNKNOWN, pas un plantage confirmé.
+Les redémarrages natifs et leurs incréments sont enregistrés dans HEALTH.json.
+
+Les workers possèdent déjà Restart=on-failure (3/5secondes). Le moniteur ne tue
+ni ne redémarre un worker actif, ne réinitialise aucun checkpoint et ne rejoue
+aucune commande. Les effets inconnus restent à observer avant toute reprise.
+Après60secondes de récupération automatique prolongée ou en cas de service
+arrêté/failed, le moniteur demande le service de coordination existant. Il écrit
+son constat avant de le démarrer, respecte MANUAL-HOLD/le coordinateur actif et
+un intervalle de120secondes entre demandes. Trois demandes pour une panne
+continue maximum ; ensuite `mission_health_escalation` persistant, sans quatrième
+relance aveugle. Les tentatives historiques restent archivées après récupération.
+
+Le coordinateur conserve ses propres trois passages par condition. Il distingue
+les dernières escalades natives P2 des anciennes erreurs d’interface, et reconnaît
+les résolutions groupées par IDs. La stagnation utile reste contrôlée à600secondes ;
+les heartbeat, CPU/GPU à0 et connexions seules ne prouvent ni progrès ni panne.
+Un relevé santé vieux de180secondes déclenche SERVICE_HEALTH_STALE : le moniteur
+n’est pas implicitement considéré sain lorsqu’il cesse de publier.
+
+`HEALTH.json`, `STATE.json` et les journaux privés restent sous le dossier de
+supervision ; les événements apparaissent dans le MissionStore canonique.
+Pas de nouveau moteur, pas de nouvelle mémoire. Les exemples de configuration
+conservent les paramètres pour les missions suivantes, avec leur registre et
+périmètre propres. Un arrêt électrique de l’hôte empêche ses moniteurs locaux
+de tourner ; les timers reprennent après son démarrage.
+
+Validation :12tests du moniteur et9tests de coordination PASS. Service réel
+isolé volontairement sorti42, NRestarts=1 et secondPID observés ; journal systemd
+confirme échec puis redémarrage. Le premier relevé était déjàOK : ne pas prétendre
+avoir observé directement la phase d’échec dans ce poll. Service de test arrêté
+et unité transitoire déchargée ; le reset-failed ultérieur était sans objet.
+Les services JARVIS n’ont pas été perturbés. Ce test valide le redémarrage d’un
+processus témoin, pas une réception supplémentaire d’autonomie agentique.
+Voir SURVEILLANCE-SANTE-PREUVES.json. P4 etphase2 restent NONVALIDÉES.

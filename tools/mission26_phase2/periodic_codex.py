@@ -42,6 +42,28 @@ def verified_strategy(store,mission,reference):
 
 
 
+
+
+def unresolved_escalations(events):
+    resolved=set()
+    for event in events:
+        if event['kind']!='coordinator_escalation_resolved' or not event['actor'].startswith('Codex'):continue
+        data=event['result'];refs=[data.get('escalation_event')]
+        refs+=data.get('escalation_events',[])+data.get('escalations',[])
+        resolved.update(ref for ref in refs if type(ref) is int)
+    return [event for event in events if event['kind'] in ('authority_escalation','p2_escalation') and event['id'] not in resolved]
+
+
+def service_condition(config,private):
+    if not config.get('monitor_units'):return None,None
+    sys.path.insert(0,str(Path(__file__).parent))
+    from service_watch import read_health
+    health=read_health(private,config.get('health_max_age_seconds',180))
+    if health['monitor_stale']:return 'SERVICE_HEALTH_STALE',health
+    if health.get('unavailable_units'):return 'SERVICE_UNAVAILABLE:'+','.join(health['unavailable_units']),health
+    return None,health
+
+
 def main():
     os.umask(0o077)
     PRIVATE.mkdir(exist_ok=True, mode=0o700)
@@ -56,6 +78,7 @@ def main():
             return
         tasks = json.loads(REGISTER.read_text())['tasks']
         attention = []
+        service_issue,service_health=service_condition(CONFIG,PRIVATE)
         for task in tasks:
             if task['id'] not in ALLOWED_TASKS: continue
             if CONFIG.get('allowed_mission_ids') and task['mission_id'] not in CONFIG['allowed_mission_ids']: continue
@@ -67,13 +90,13 @@ def main():
             condition = 'STOPPED_OR_REVIEW' if stopped or review else 'STALLED'
             if CONFIG:
                 with store.db() as connection:
-                    selected=connection.execute("SELECT id,kind,actor,created,result FROM mission_events WHERE mission=? AND kind IN ('authority_escalation','authority_execution','authority_validation','coordinator_escalation_resolved') ORDER BY id",(mission['id'],)).fetchall()
+                    selected=connection.execute("SELECT id,kind,actor,created,result FROM mission_events WHERE mission=? AND kind IN ('authority_escalation','p2_escalation','cycle_error','authority_execution','authority_validation','coordinator_escalation_resolved') ORDER BY id",(mission['id'],)).fetchall()
                 events=[{**dict(e),'result':json.loads(e['result'] or '{}')} for e in selected]
-                escalations=[e for e in events if e['kind']=='authority_escalation']
-                resolved_escalations={e['result'].get('escalation_event') for e in events if e['kind']=='coordinator_escalation_resolved' and e['actor'].startswith('Codex')}
-                escalations=[e for e in escalations if e['id'] not in resolved_escalations]
+                escalations=unresolved_escalations(events)
                 if stopped and escalations:
                     reason=escalations[-1]['result'];condition=reason.get('category') or reason.get('reason') or 'STOPPED'
+                    errors=[event for event in events if event['kind']=='cycle_error' and event['id']>escalations[-1]['id']]
+                    if escalations[-1]['kind']=='p2_escalation' and errors:condition='WORKER_EXCEPTION:'+str(errors[-1]['result'].get('type','UNKNOWN'))
                 productive=[e['created'] for e in events if e['kind']=='authority_validation' or (e['kind']=='coordinator_escalation_resolved' and e['actor'].startswith('Codex')) or (e['kind']=='authority_execution' and (e['result'].get('kind')=='test' or (e['result'].get('kind')=='correct' and e['result'].get('before')!=e['result'].get('after'))))]
                 if CONFIG.get('normal_engine_progress'):
                     # Normal preparation records useful plan/observation progress
@@ -82,6 +105,8 @@ def main():
                     productive.append(mission['last_progress'])
                 if state in ('queued','running') and time.time()-max(productive or [mission.get('created') or mission['updated']])>CONFIG.get('no_productive_seconds',600):
                     stalled=True;condition='NO_PRODUCTIVE_EXECUTION'
+            if service_issue and state not in ('completed','publishing','cancelled'):
+                stalled=True;condition=service_issue
             # Let the explicit one-shot dispatcher consume an already reviewed repair.
             if task.get('corrective_resume',{}).get('armed'): continue
             if not (stopped or review or stalled): continue
@@ -91,6 +116,7 @@ def main():
                               'plan_version':plans[-1]['version'] if plans else 0})
             if CONFIG:
                 attention[-1]['condition']=condition
+                if service_health:attention[-1]['service_health']={key:service_health.get(key) for key in ('checked_at','status','unavailable_units','monitor_stale')}
                 strategy=verified_strategy(store,mission['id'],task.get('coordination_strategy_event'))
                 if strategy:attention[-1]['verified_strategy_event']=strategy
         statefile = PRIVATE/'STATE.json'

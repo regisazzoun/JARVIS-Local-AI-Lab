@@ -1,0 +1,12 @@
+[Unit]
+Description=Observe JARVIS service health and request existing bounded coordination
+After=network-online.target
+[Service]
+Type=oneshot
+User=adminjarvis
+Group=adminjarvis
+WorkingDirectory=/home/adminjarvis/JARVIS/mission26-phase2
+Environment=JARVIS_COORDINATOR_CONFIG=/home/adminjarvis/JARVIS/mission26-phase2-private/supervision/config.json
+UMask=0077
+ExecStart=/opt/jarvis/conversation/.venv/bin/python /usr/local/lib/jarvis-coordination/service_watch.py
+TimeoutStartSec=30
