@@ -1,3 +1,15 @@
+## P4 — contrats d’outils contrôlés avant reprise — 29 octobre 2026
+
+Le plan historique retenait un rapport sans outil d’écriture et l’alias inexistant
+host_exec#dell2. Garde installée77253 : Qwen doit corriger les déclarations des
+tâches existantes avant exécution, avec vrais nomsAPI et écrivain du rapport.
+Les chemins et critères existants sont préservés ; aucun plan rédigé par Codex.
+Écriture centrale limitée au report_path77295, opérations applicatives surDell.
+Le transport conditionnel JSON est corrigé pour les champs nommés title/type.
+175tests ciblésPASS ; préflight77260 :24068/27648octets. P4 reprise au même
+checkpoint, couverture77233 encoreFAIL : aucune réception P4/phase2.
+[Déblocage](docs/missions/26-P2/p4/PREFLIGHT-OUTILS-REELS.json).
+
 ## Complément P3 reçu avec réserves ; P4 reprise — 29 octobre 2026
 
 Réception indépendante77116 après clôture native JARVIS : CORE4+VAR2 passent

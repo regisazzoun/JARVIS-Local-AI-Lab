@@ -521,3 +521,30 @@ class ReportStepTests(unittest.TestCase):
   with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'autonomous':True}),self.m))
   self.assertNotIn('mission_plan_report_step',[s['function']['name'] for s in self.r.schemas()])
   self.assertFalse(self.save({**self.args,'id':'c','expected_version':1})['ok']);self.assertEqual(len(self.s.plans(self.m)),1)
+
+ def test_report_step_rejects_unknown_tools_before_saving_a_plan(self):
+  result=self.save({**self.args,'tools':['host_write_file','host_exec#dell2']})
+  self.assertFalse(result['ok']);self.assertEqual(self.s.plans(self.m),[])
+ def test_mandatory_report_without_writer_is_rejected_before_save(self):
+  result=self.save({**self.args,'tools':['host_read_file']})
+  self.assertFalse(result['ok']);self.assertEqual(self.s.plans(self.m),[])
+ def test_legacy_bad_tool_contract_requires_model_repair_preserving_path(self):
+  from jarvis.durable_cycle import report_plan_tool_issues
+  from jsonschema import Draft202012Validator
+  self.assertTrue(self.save()['ok']);plan=self.s.plans(self.m)[-1]['plan'];plan['tasks'][0]['tools']=['host_read_file','host_exec#dell2']
+  with self.s.db() as c:c.execute('UPDATE mission_plans SET plan=? WHERE mission=? AND version=1',(json.dumps(plan),self.m))
+  # This fixture models an already persisted historical declaration, not a new
+  # planner request admitted under the corrected schema.
+  defects=report_plan_tool_issues(self.s,self.m,self.r.specs)
+  self.assertEqual(defects[0]['task'],'a');self.assertTrue(defects[0]['missing_report_writer'])
+  schema=self.r.active_schema('mission_plan_report_step')
+  good={**self.args,'expected_version':1};self.assertFalse(list(Draft202012Validator(schema).iter_errors(good)))
+  self.assertTrue(list(Draft202012Validator(schema).iter_errors({**good,'id':'rename-to-hide'})))
+  self.assertTrue(list(Draft202012Validator(schema).iter_errors({**good,'report_path':'/project/other.md'})))
+
+ def test_central_report_writer_cannot_be_used_for_application_source_changes(self):
+  from jsonschema import Draft202012Validator
+  self.assertTrue(self.save()['ok']);self.r.context['task_id']='a'
+  schema=self.r.active_schema('host_write_file')
+  self.assertFalse(list(Draft202012Validator(schema).iter_errors({'path':'/project/a.md','content':'Factual report'})))
+  self.assertTrue(list(Draft202012Validator(schema).iter_errors({'path':'/project/application.py','content':'Unrelated source change'})))

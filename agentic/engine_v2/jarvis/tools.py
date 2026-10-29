@@ -202,6 +202,21 @@ class Registry:
         import copy
         schema=copy.deepcopy(parameter_schema(name,self.specs[name]))
         store=getattr(self,'mission_store',None)
+        if name=='host_write_file' and store and self.context.get('mission_id') and self.context.get('task_id') and json.loads(store.get(self.context['mission_id'])['spec']).get('planning_report_steps'):
+            task=next((row for row in store.tasks(self.context['mission_id']) if row['id']==self.context['task_id']),None)
+            path=(task or {}).get('contract',{}).get('report_path')
+            if path:
+                schema['properties']['path']['enum']=[path]
+                schema['properties']['path']['description']='Current factual report only. Application source changes belong to the remote worker workspace.'
+        if name=='mission_plan_report_step' and store and self.context.get('mission_id'):
+            schema['properties']['tools']['items']['enum']=sorted(self.specs)
+            schema['properties']['tools']['contains']={'const':'host_write_file'}
+            schema['properties']['tools']['description']='Choose actual registered operational tools. Include host_write_file for this step mandatory factual report; host_remote is the real remote execution API, not invented aliases.'
+            from .durable_cycle import report_plan_tool_issues
+            defects=report_plan_tool_issues(store,self.context['mission_id'],self.specs)
+            if defects:
+                schema['properties']['id']['enum']=[row['task'] for row in defects]
+                schema['allOf']=[{'if':{'properties':{'id':{'const':row['task']}},'required':['id']},'then':{'properties':{'report_path':{'const':row['report_path']}}}} for row in defects]
         if name=='mission_plan' and store and json.loads(store.get(self.context['mission_id'])['spec']).get('autonomous'):
             props=schema['properties'];task=props['tasks']['items']
             task['required']=['id','title','depends','objective','tools','observations','verification','recovery','artifacts','contract']

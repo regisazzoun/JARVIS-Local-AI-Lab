@@ -79,3 +79,12 @@ class StructuredActionTests(unittest.TestCase):
   _,schema=request(self.payload())
   for text in ['<function=plan><parameter>',json.dumps([{'tool':'plan','arguments':{'observations':[]}}])]:
    with self.assertRaises(ValueError):response({'content':text},schema)
+
+ def test_conditional_schema_fields_named_like_json_schema_keywords_remain_valid(self):
+  payload=self.payload()
+  payload['tools'][0]['function']['parameters']={'type':'object','properties':{'id':{'type':'string','enum':['one','two']},'title':{'type':'string'},'type':{'type':'string'},'required':{'type':'string'},'report_path':{'type':'string'}},'required':['id','title','type','required','report_path'],'additionalProperties':False,'allOf':[{'if':{'properties':{'id':{'const':'one'}},'required':['id']},'then':{'properties':{'report_path':{'const':'/one.md'}}}},{'if':{'properties':{'id':{'const':'two'}},'required':['id']},'then':{'properties':{'report_path':{'const':'/two.md'}}}}]}
+  out,schema=request(payload)
+  selected={'tool':'plan','arguments':{'id':'one','title':'Model title','type':'Model type','required':'Model value','report_path':'/one.md'}}
+  self.assertEqual(response({'content':json.dumps(selected)},schema)['tool_calls'][0]['function']['arguments']['title'],'Model title')
+  selected['arguments']['report_path']='/two.md'
+  with self.assertRaises(ValueError):response({'content':json.dumps(selected)},schema)

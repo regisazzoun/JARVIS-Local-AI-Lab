@@ -45,6 +45,23 @@ def candidate_test_focus(spec, active):
     reference,correction=max(corrections,key=lambda item:item[0])
     return not failed_test_on_version(active,reference,correction['after'])
 
+def report_plan_tool_issues(store,ident,registered):
+    """Detect unusable model declarations without selecting operational tools."""
+    if not json.loads(store.get(ident)['spec']).get('planning_report_steps'):return []
+    plans=store.plans(ident)
+    if not plans:return []
+    received={t['id'] for t in store.tasks(ident) if t['state']=='validated'}
+    issues=[]
+    for task in plans[-1]['plan']['tasks']:
+        if task['id'] in received:continue
+        contract=task.get('contract',{})
+        if not any(c.get('kind')=='report' for c in contract.get('semantic',[])):continue
+        tools=task.get('tools',[]);unknown=sorted(set(tools)-set(registered))
+        missing='host_write_file' not in tools
+        if unknown or missing:issues.append({'task':task['id'],'unknown_tools':unknown,'missing_report_writer':missing,'report_path':contract.get('report_path')})
+    return issues
+
+
 def semantic_reference_schemas(schemas, task, preserve_recall=False):
     schemas=copy.deepcopy([s for s in schemas if not s['function']['name'].startswith('context_') or preserve_recall and s['function']['name']=='context_recall'])
     for schema in schemas:
@@ -528,9 +545,12 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             pending_report=None
             facts_already_observed=False
             current_tasks=store.tasks(ident)
-            if not current_tasks or assured and not coverage_state(store,ident)['accepted']:
+            invalid_report_tools=report_plan_tool_issues(store,ident,core.tools.specs)
+            if not current_tasks or invalid_report_tools or assured and not coverage_state(store,ident)['accepted']:
                 planning_spec=json.loads(mission['spec'])
-                schemas=planning_schemas(schemas,planning_spec)
+                schemas=planning_schemas(core.tools.schemas() if invalid_report_tools else schemas,planning_spec)
+                if invalid_report_tools:
+                    messages.append({'role':'user','content':'Repair existing pending task tool declarations before execution; do not append unrelated tasks. Choose actual registered operational tools and include host_write_file for the mandatory report. Preserve report paths and original acceptance predicates. Known contract defects: '+encoded(invalid_report_tools)})
                 saved_plans=store.plans(ident)
                 schemas=plan_version_schemas(schemas,saved_plans[-1]['version'] if saved_plans else 0)
                 if planning_spec.get('planning_report_steps'):

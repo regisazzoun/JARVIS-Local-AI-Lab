@@ -37,7 +37,7 @@ def explicit_variants(params):
     base=copy.deepcopy(params);base.pop('allOf');definitions=base.pop('$defs',{})
     field_key='_f'
     if field_key in definitions:return params
-    definitions[field_key]=copy.deepcopy(base['properties']);variants=[]
+    definitions[field_key]={'type':'object','properties':copy.deepcopy(base['properties'])};variants=[]
     groups={}
     for value in values:
         matches=tuple(i for i,clause in enumerate(clauses) if value in clause['if']['properties'][discriminator].get('enum',[clause['if']['properties'][discriminator].get('const')]))
@@ -51,9 +51,9 @@ def explicit_variants(params):
             for field,constraints in clause['then'].get('properties',{}).items():
                 variant['properties'].setdefault(field,{}).update(constraints)
         for field,definition in list(variant['properties'].items()):
-            if definition==definitions[field_key].get(field):
+            if definition==definitions[field_key]['properties'].get(field):
                 escaped=field.replace('~','~0').replace('/','~1')
-                variant['properties'][field]={'$ref':'#/$defs/'+field_key+'/'+escaped}
+                variant['properties'][field]={'$ref':'#/$defs/'+field_key+'/properties/'+escaped}
         variants.append(variant)
     return {'$defs':definitions,'oneOf':variants,'type':'object'}
 
