@@ -1,3 +1,15 @@
+## P4 — revue plan11, transport sans perte — 29 octobre 2026
+
+Incident78002–78005 : revue singleton30843/27648octets après croissance du plan11.
+CorrectifCodex78008 : pool de valeurs strictement identiques dans le seul
+transport de couverture ; reconstruction intégrale vérifiée pour59paquets,
+plan canonique inchangé, ordre/multiplicité/tableaux et valeurs distinctes conservés.
+89tests ciblésPASS ; import runtime :39exigences en30lots, max27616/27648,
+collision des rapports toujoursFAIL. Probe logiciel, pas qualité Qwen/autonomie.
+Workers sans mission active rechargés78009, conversation préservée ; résolution
+78015, mêmeplan11 remis enfile, sixincidents conservés. P4 NONREÇUE ; aucun
+déploiement actif. [Preuves](docs/missions/26-P2/p4/REVUE-PLAN11-TRANSPORT-SANS-PERTE.json).
+
 ## P4 — revue plan10, déduplication par tâche — 29 octobre 2026
 
 Incident77780–77783 : singleton29926/27648octets malgré déduplication des listes.
