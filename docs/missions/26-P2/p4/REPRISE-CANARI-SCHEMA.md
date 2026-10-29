@@ -25,3 +25,14 @@ du plan, de construction sur les deux Dell ni de réception des huit cas P4.
 JARVIS garde le choix des fichiers, méthodes, étapes et exécutants ; le prochain
 refus comparable conserve les trois précédents et entraîne immédiatement l’arrêt.
 Pas de déploiement actif dans cette unité, pas de bilan prérédigé ni de reset.
+
+## Retour natif observé avant fin du passage
+
+La correction est bien transmise, mais JARVIS appelle ensuite `host_read_file`
+sans chemin71823. Le broker sélectionne par défaut le répertoire du projet ;
+`IsADirectoryError` est conservée71824. Le compteur historique de cette autre
+catégorie vaut4 (71825) et provoque immédiatement l’escalade71826 et l’arrêt71827.
+La reprise contextuelle n’est donc pas reçue comme correction réussie. Diagnostic
+borné71828 : examiner le contrat du chemin facultatif et la projection de décision
+de planification avant une autre reprise. Aucune seconde relance dans ce passage,
+aucun effacement de compteurs. État final observé : `interrupted`, plan version2.
