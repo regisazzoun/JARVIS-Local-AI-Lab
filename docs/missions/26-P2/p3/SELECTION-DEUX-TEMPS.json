@@ -1,0 +1,31 @@
+{
+  "event": 72401,
+  "tool_selection_event": 72389,
+  "selected_tool": "authority_read_execution",
+  "second_stage_bytes": 18946,
+  "budget": 27648,
+  "budget_events": [
+    {
+      "id": 72385,
+      "sent_bytes": 22735,
+      "input_budget_estimate": 27648,
+      "within_budget": true
+    },
+    {
+      "id": 72395,
+      "sent_bytes": 18946,
+      "input_budget_estimate": 27648,
+      "within_budget": true
+    },
+    {
+      "id": 72398,
+      "sent_bytes": 18946,
+      "input_budget_estimate": 27648,
+      "within_budget": true
+    }
+  ],
+  "real_Qwen_schema_valid": true,
+  "probe_tool_not_dispatched": true,
+  "software_tests_passed": 208,
+  "algorithm_implemented_by_codex": false
+}

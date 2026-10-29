@@ -101,3 +101,31 @@ réelle72309 conforme mais non dispatchée ; requête suivante25874/27648octets7
 Résolution attestée72317–72319, compteur historique3 conservé avec acquittement
 explicite du registre natif. [Preuves](p3/SCHEMA-BORNE-REPRISE.json). Même mission
 reprise ; l’implémentation applicative et son test distinct restent non reçus.
+
+## Sélection des outils en deux temps
+
+La réduction précédente a permis une lecture réelle72351, puis l’état augmenté
+a de nouveau atteint la garde de contexte. Incident72377 : quatrième incident
+historique après la résolution attestée des trois précédents, arrêt immédiat ;
+aucune quatrième répétition autonome de la même stratégie, aucun test exécuté.
+
+Codex a changé la stratégie de transport : mode opt-in
+`structured_action_two_stage`. Qwen voit le catalogue complet des outils
+actuellement autorisés et choisit un nom. Le tour suivant présente le schéma
+complet de cet outil, puis Qwen choisit les paramètres. Le choix du nom est
+journalisé avec le reçu d’inférence ; il ne déclenche aucune opération. Les
+permissions, le registre, la provenance et les contrôles backend s’appliquent
+ensuite. Une sélection devenue indisponible est abandonnée avant paramètres.
+À une nouvelle session, un choix sans paramètres peut être refait sans rejouer
+d’effet ; aucune commande n’a démarré à ce stade.
+
+208tests ciblésPASS. Sonde réelle72401 : Qwen a choisi `authority_read_execution`
+puis des paramètres conformes ; **outil non exécuté par cette sonde**. Paquets
+22735 et18946octets, sous27648 ; aucune augmentation de fenêtre ni retrait des
+contraintes. [Preuves](p3/SELECTION-DEUX-TEMPS.json). Installation et résolution
+72402–72404 avec acquittement natif, compteur historique4 conservé. Retour arrière :
+restaurer les modules sauvegardés et désactiver le mode dans la spécification de
+cette mission, après contrôle d’absence d’action active.
+
+JARVIS reprend le même complémentP3. Aucun artefact applicatif reçu ni test de
+validation finale transmis à ce stade. Ces adaptations de transport sont Codex.

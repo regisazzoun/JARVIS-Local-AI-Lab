@@ -58,11 +58,15 @@ def explicit_variants(params):
     return {'$defs':definitions,'oneOf':variants,'type':'object'}
 
 
-def request(payload):
+def request(payload,select_only=False):
     schemas=payload.get('tools',[])
     if not schemas:raise ValueError('Structured action requires actual offered tools')
     branches=[]
     for index,tool in enumerate(schemas):
+        if select_only:
+            fn=tool['function']
+            branches.append({'type':'object','properties':{'tool':{'type':'string','enum':[fn['name']],'description':fn.get('description','')}},'required':['tool'],'additionalProperties':False})
+            continue
         fn=tool['function'];params=explicit_variants(copy.deepcopy(fn['parameters']))
         def relocate(value):
             if isinstance(value,list):return [relocate(item) for item in value]
@@ -74,11 +78,14 @@ def request(payload):
     Draft202012Validator.check_schema(schema)
     result=copy.deepcopy(payload);result.pop('tools',None);result['format']=schema
     result['_jarvis_action_contract']=CONTRACT
-    result['messages'][0]['content']+='\nTransport '+CONTRACT+' : choisis toi-même une seule action parmi les noms du schéma. Réponds par un objet JSON tool/arguments conforme au schéma, sans XML ni appel natif. Les tableaux restent des tableaux et les objets des objets. Les permissions et contrôles backend restent inchangés ; une sélection n’est pas une exécution.'
+    if select_only:
+        result['messages'][0]['content']+='\nTransport '+CONTRACT+' : choisis toi-même le prochain outil parmi le catalogue complet proposé. Réponds seulement par un objet JSON tool. Ce choix ne déclenche aucune opération ; son schéma complet sera fourni au tour suivant pour que tu choisisses les paramètres.'
+    else:
+        result['messages'][0]['content']+='\nTransport '+CONTRACT+' : choisis toi-même une seule action parmi les noms du schéma. Réponds par un objet JSON tool/arguments conforme au schéma, sans XML ni appel natif. Les tableaux restent des tableaux et les objets des objets. Les permissions et contrôles backend restent inchangés ; une sélection n’est pas une exécution.'
     return result,schema
 
 
-def response(message,schema):
+def response(message,schema,select_only=False):
     if not isinstance(message,dict) or message.get('tool_calls'):raise ValueError('Expected one schema-constrained JSON action, not native tool calls')
     try:value=json.loads(message.get('content',''))
     except (ValueError,TypeError) as exc:raise ValueError('Invalid structured action JSON') from exc
@@ -86,4 +93,5 @@ def response(message,schema):
     if errors:
         error=min(errors,key=lambda item:len(item.absolute_path))
         raise ValueError('Structured action does not match offered tool schema: '+str(error.message)[:600])
+    if select_only:return value['tool']
     return {'role':'assistant','content':'','tool_calls':[{'function':{'name':value['tool'],'arguments':value['arguments']}}]}

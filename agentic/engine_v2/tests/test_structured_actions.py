@@ -59,6 +59,22 @@ class StructuredActionTests(unittest.TestCase):
   from jarvis.structured_actions import explicit_variants
   schema={'type':'object','allOf':[{'if':{'required':['x']},'then':{'anyOf':[{'required':['y']},{'required':['z']}]}}]}
   self.assertEqual(explicit_variants(schema),schema)
+ def test_two_stage_choice_preserves_catalogue_and_does_not_produce_calls(self):
+  source=self.payload();source['tools'].append({'type':'function','function':{'name':'test','description':'Independent validation','parameters':{'type':'object','properties':{'command':{'type':'string'}},'required':['command'],'additionalProperties':False}}})
+  offered,schema=request(source,select_only=True)
+  self.assertEqual([b['properties']['tool']['enum'][0] for b in schema['oneOf']],['plan','test'])
+  self.assertNotIn('arguments',schema['oneOf'][0]['properties'])
+  choice=response({'content':json.dumps({'tool':'test'})},schema,select_only=True)
+  self.assertEqual(choice,'test');self.assertEqual(len(source['tools']),2)
+  narrowed={**source,'tools':[x for x in source['tools'] if x['function']['name']==choice]}
+  _,arguments_schema=request(narrowed)
+  with self.assertRaises(ValueError):response({'content':json.dumps({'tool':'test','arguments':{}})},arguments_schema)
+  selected=response({'content':json.dumps({'tool':'test','arguments':{'command':'model-chosen test'}})},arguments_schema)
+  self.assertEqual(selected['tool_calls'][0]['function']['arguments']['command'],'model-chosen test')
+ def test_two_stage_choice_rejects_unknown_tool_and_premature_arguments(self):
+  _,schema=request(self.payload(),select_only=True)
+  for value in ({'tool':'unknown'},{'tool':'plan','arguments':{'observations':[]}}):
+   with self.assertRaises(ValueError):response({'content':json.dumps(value)},schema,select_only=True)
  def test_malformed_or_multiple_actions_cannot_be_dispatched(self):
   _,schema=request(self.payload())
   for text in ['<function=plan><parameter>',json.dumps([{'tool':'plan','arguments':{'observations':[]}}])]:

@@ -438,6 +438,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             discovered={r[0] for r in c.execute("SELECT DISTINCT tool FROM mission_events WHERE mission=? AND task=? AND kind='execution_tool_discovered'",(ident,task_id))}
         # This is a scheduling quantum, not a mission deadline. Checkpoints survive it.
         authority_history_started=False
+        selected_action_tool=None
         for _ in range(core.config.get('durable_cycle_rounds', 12)):
             if core.missions.is_interrupted(ident):
                 from .missions import MissionInterrupted
@@ -633,16 +634,30 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     'selected_tools':len(schemas),'base_chars':len(encoded(base)),
                     'messages_chars':len(encoded(messages)),'budget_chars':context_chars,
                     'full_goal_preserved':True,'task_id':task_id})
-            action_schema=None
+            action_schema=None;action_selection_only=False
             if json.loads(mission['spec']).get('structured_action_calls'):
                 from .structured_actions import request as action_request
-                payload,action_schema=action_request(payload)
+                if json.loads(mission['spec']).get('structured_action_two_stage'):
+                    offered={item['function']['name'] for item in payload['tools']}
+                    if selected_action_tool not in offered:selected_action_tool=None
+                    action_selection_only=selected_action_tool is None
+                    if selected_action_tool:
+                        payload['tools']=[item for item in payload['tools'] if item['function']['name']==selected_action_tool]
+                        payload['messages']=copy.deepcopy(payload['messages'])
+                        payload['messages'][0]['content']+='\nTu as choisi '+selected_action_tool+' au tour précédent. Voici son contrat complet ; choisis toi-même les paramètres. Aucun outil n’a encore été exécuté pour ce choix.'
+                payload,action_schema=action_request(payload,select_only=action_selection_only)
             inference_start=time.monotonic()
             message = core.transport(payload)
-            store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)
+            inference_event=store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)
             if action_schema is not None:
                 from .structured_actions import response as action_response
-                try:message=action_response(message,action_schema)
+                try:
+                    if action_selection_only:
+                        selected_action_tool=action_response(message,action_schema,select_only=True)
+                        store.event(ident,'structured_action_tool_selected',task_id,'JARVIS',result={'model_selected_tool':selected_action_tool,'inference_event':inference_event,'metrics':core.metrics[-1] if core.metrics else {},'tool_not_dispatched':True,'next':'Model selects arguments from this tool complete schema'})
+                        continue
+                    message=action_response(message,action_schema)
+                    selected_action_tool=None
                 except ValueError as exc:
                     from .distributed_authority import interface_failure
                     rejected=store.event(ident,'structured_action_rejected',task_id,'JARVIS-engine',result={'error':str(exc),'model_action_not_dispatched':True,'contract':'jarvis.action.v1'})
