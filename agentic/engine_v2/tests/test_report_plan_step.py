@@ -196,6 +196,35 @@ class ReportStepTests(unittest.TestCase):
   self.assertFalse(any(e['kind']=='execution_tool_discovered' for e in self.s.events(self.m)))
   self.assertEqual(self.s.tasks(self.m)[0]['state'],'validated')
 
+ def test_structured_action_reaches_native_plan_with_typed_arrays(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  spec=json.loads(self.s.get(self.m)['spec']);spec['structured_action_calls']=True;spec['planning_tools']=['mission_plan_report_step']
+  with self.s.db() as c:c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+  identity=self.root/'identity.txt';identity.write_text('Complete owner fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'));missions=Missions(core,self.root,start_worker=False,start_publisher=False);sent=[]
+  def model(payload):
+   sent.append(payload);return {'content':json.dumps({'tool':'mission_plan_report_step','arguments':self.args})}
+  missions.execution_core.transport=model;result=missions.cycle.run(self.s.get(self.m))
+  self.assertTrue(result['progress']);self.assertNotIn('tools',sent[-1]);self.assertIn('format',sent[-1])
+  self.assertEqual(self.s.plans(self.m)[0]['author'],'JARVIS');self.assertEqual(self.s.plans(self.m)[0]['plan']['tasks'][0]['observations'],self.args['observations'])
+  self.assertTrue(any(e['kind']=='structured_action_selected' and e['result']['dispatch_not_yet_proved'] for e in self.s.events(self.m)))
+  self.assertEqual(self.s.observations(self.m)[0]['tool'],'mission_plan_report_step')
+
+ def test_three_invalid_structured_actions_stop_without_any_tool_dispatch(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions,MissionInterrupted
+  spec=json.loads(self.s.get(self.m)['spec']);spec.update(structured_action_calls=True,planning_tools=['mission_plan_report_step'])
+  with self.s.db() as c:c.execute('update missions set spec=? where id=?',(json.dumps(spec),self.m))
+  identity=self.root/'identity.txt';identity.write_text('Complete owner fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':4,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'));missions=Missions(core,self.root,start_worker=False,start_publisher=False)
+  broken={**self.args,'observations':'- not an array'};calls=[]
+  def model(payload):calls.append(payload);return {'content':json.dumps({'tool':'mission_plan_report_step','arguments':broken})}
+  missions.execution_core.transport=model
+  with self.assertRaises(MissionInterrupted):missions.cycle.run(self.s.get(self.m))
+  self.assertEqual(len(calls),3);self.assertEqual(self.s.observations(self.m),[]);self.assertEqual(self.s.plans(self.m),[])
+  self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='structured_action_rejected']),3)
+
  def completed_report_write(self):
   from types import SimpleNamespace
   from jarvis.legacy_attempts import guarded

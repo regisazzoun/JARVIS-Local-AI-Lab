@@ -9,6 +9,36 @@ class ContextTests(unittest.TestCase):
   self.contract={'kind':'json','source':{'tool':'host_read_file','arguments':{'path':'/result.json'}},'expected':{'/value':42}}
   self.s.plan(self.m,[{'id':'task','title':'task','objective':'current objective','contract':{'semantic':[self.contract]}}]);self.b=ContextBudget(self.s,self.m,'task');self.cap={'limit':16384,'source':'test fixture, not real backend'}
  def payload(self):return {'model':'model','messages':[{'role':'system','content':'KEEP ALL OWNER POLICY'},{'role':'user','content':'historic output '+('x'*80000)}],'tools':[],'options':{'num_predict':1024}}
+ def test_typed_action_format_compacts_context_but_preserves_schema_goal_and_counters(self):
+  from jarvis.structured_actions import request
+  source=self.payload();source['tools']=[{'type':'function','function':{'name':'read','parameters':{'type':'object','properties':{'path':{'type':'string'}},'required':['path'],'additionalProperties':False}}}]
+  payload,schema=request(source);payload.pop('_jarvis_action_contract')
+  before=self.s.attempt_ledger(self.m).snapshot()
+  result=self.b.prepare(payload,self.cap,structured_action=True)
+  self.assertEqual(result['format'],schema)
+  active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
+  self.assertEqual(active['offered_tools'],['read']);self.assertEqual(active['owner_goal'],self.s.get(self.m)['goal'])
+  self.assertEqual(before,self.s.attempt_ledger(self.m).snapshot());self.assertLessEqual(serialized_bytes(result),self.cap['limit']-1024-1024)
+  review=self.payload();review['format']={'type':'object','properties':{'review':{'type':'boolean'}}}
+  with self.assertRaises(ContextCapacityError):self.b.prepare(review,self.cap)
+
+ def test_core_strips_private_action_marker_and_never_applies_it_to_a_review(self):
+  from jarvis.core import Core
+  from jarvis.memory import Memory
+  from jarvis.structured_actions import request
+  cfg={'compute_role':'mission','hybrid_compute':{'routes':{'mission':['Dell1']},'nodes':{'Dell1':{'enabled':True,'hard_context_limit':32768}},'mission_segment_tokens':4096}}
+  core=Core(cfg,Memory(Path(self.tmp.name)/'runtime/memory.sqlite'));core.tools.root=Path(self.tmp.name);core.tools.context={'mission_id':self.m,'task_id':'task'};core.tools.mission_store=self.s
+  source=self.payload();source['tools']=[{'type':'function','function':{'name':'read','parameters':{'type':'object','properties':{'path':{'type':'string'}},'required':['path'],'additionalProperties':False}}}]
+  payload,schema=request(source);sent=[]
+  def infer(p,*args):
+   sent.append(copy.deepcopy(p));return ({'content':'{}'},{'prompt_eval_count':20,'num_ctx':32768,'node':'Dell1','effective_model':'fixture'})
+  with patch('jarvis.compute.HybridRouter') as Router,patch('jarvis.mission_context_budget.capacity',return_value={'limit':32768}):
+   Router.return_value.infer.side_effect=infer;core.ollama(payload)
+   review=self.payload();review['format']={'type':'object','properties':{'verdict':{'type':'boolean'}}}
+   with self.assertRaises(ContextCapacityError):core.ollama(review)
+  self.assertEqual(len(sent),1);self.assertNotIn('_jarvis_action_contract',sent[0]);self.assertEqual(sent[0]['format'],schema)
+  self.assertIn('KEEP ALL OWNER POLICY',sent[0]['messages'][0]['content'])
+
  def test_unit_receipts_survive_failed_rereads_and_compaction(self):
   path='/etc/systemd/system/jarvis-mission-worker.service'
   ref=self.s.event(self.m,'tool_finished','task','JARVIS',tool='host_exec',arguments={'command':'cat '+path},result={'ok':True,'result':{'returncode':0,'stdout':'[Service]\nUser=adminjarvis\n','stdout_truncated':False}})

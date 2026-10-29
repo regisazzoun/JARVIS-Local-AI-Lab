@@ -46,6 +46,16 @@ def coordinator_guidance(store, ident, task_id):
             (ident,*actors,task_id))]
 
 
+def plan_version_schemas(schemas, current_version):
+    """Expose the actual optimistic concurrency token, never a proposed plan."""
+    result=copy.deepcopy(schemas)
+    for schema in result:
+        if schema['function']['name']=='mission_plan_report_step':
+            schema['function']['parameters']['properties']['expected_version']={'type':'integer','enum':[current_version],
+                'description':'Exact CURRENT saved version, not the next version. Native backend rechecks it before saving; content/steps remain your decisions.'}
+    return result
+
+
 def planning_schemas(schemas, spec):
     """Limit optional planning observations without writing the model's plan.
 
@@ -499,6 +509,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             if not current_tasks or assured and not coverage_state(store,ident)['accepted']:
                 planning_spec=json.loads(mission['spec'])
                 schemas=planning_schemas(schemas,planning_spec)
+                saved_plans=store.plans(ident)
+                schemas=plan_version_schemas(schemas,saved_plans[-1]['version'] if saved_plans else 0)
                 if planning_spec.get('planning_report_steps'):
                     # Identity and full owner objective remain intact. Replace only
                     # obsolete engine API instructions during this declared phase.
@@ -621,9 +633,25 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     'selected_tools':len(schemas),'base_chars':len(encoded(base)),
                     'messages_chars':len(encoded(messages)),'budget_chars':context_chars,
                     'full_goal_preserved':True,'task_id':task_id})
+            action_schema=None
+            if json.loads(mission['spec']).get('structured_action_calls'):
+                from .structured_actions import request as action_request
+                payload,action_schema=action_request(payload)
             inference_start=time.monotonic()
             message = core.transport(payload)
             store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)
+            if action_schema is not None:
+                from .structured_actions import response as action_response
+                try:message=action_response(message,action_schema)
+                except ValueError as exc:
+                    from .distributed_authority import interface_failure
+                    rejected=store.event(ident,'structured_action_rejected',task_id,'JARVIS-engine',result={'error':str(exc),'model_action_not_dispatched':True,'contract':'jarvis.action.v1'})
+                    if interface_failure(store,ident,task_id,'structured_action',str(exc)):
+                        from .missions import MissionInterrupted
+                        raise MissionInterrupted('Three structured action failures; no tool dispatched; diagnose before resume')
+                    messages.append({'role':'user','content':'Action non exécutée, format JSON refusé : '+str(exc)+'. Utilise exactement le schéma tool/arguments proposé.'})
+                    continue
+                store.event(ident,'structured_action_selected',task_id,'JARVIS-engine',result={'contract':'jarvis.action.v1','model_selected_tool':message['tool_calls'][0]['function']['name'],'arguments_sha256':hashlib.sha256(encoded(message['tool_calls'][0]['function']['arguments']).encode()).hexdigest(),'dispatch_not_yet_proved':True})
             from .protocol import normalize_message
             message=normalize_message(message,core.tools.specs)
             calls = message.get('tool_calls', [])

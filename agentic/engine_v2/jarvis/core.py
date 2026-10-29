@@ -26,6 +26,8 @@ class Core:
         except Exception:pass
         return status
     def ollama(self,payload):
+        payload=dict(payload)
+        action_contract=payload.pop('_jarvis_action_contract',None)
         if self.config.get('hybrid_compute'):
             from .compute import HybridRouter
             router=getattr(self,'compute_router',None)
@@ -43,7 +45,7 @@ class Core:
                 payload={**payload,'options':{**payload.get('options',{}),'num_predict':response}}
                 budget=ContextBudget(self.tools.mission_store,context['mission_id'],context.get('task_id'))
                 discovered=capacity(self.config,payload.get('model'))
-                payload=budget.prepare(payload,discovered,self.config.get('durable_num_predict',4096))
+                payload=budget.prepare(payload,discovered,self.config.get('durable_num_predict',4096),structured_action=action_contract=='jarvis.action.v1')
             message,metrics=router.infer(payload,role,context.get('mission_id'))
             if budget:
                 checked=budget.latest('context_budget_checked')[0]

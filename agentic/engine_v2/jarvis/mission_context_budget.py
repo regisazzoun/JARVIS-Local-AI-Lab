@@ -183,7 +183,7 @@ class ContextBudget:
   raw=r['result'];return {'reference':reference,'kind':r['kind'],'actor':r['actor'],'sha256':hashlib.sha256(raw.encode()).hexdigest(),'content':raw[offset:offset+limit],'offset':offset,'next_offset':offset+limit if offset+limit<len(raw) else None,'total_chars':len(raw),'excerpt_is_not_complete_source':offset>0 or len(raw)>limit}
  def archive(self,payload,reason):
   return self.store.event(self.m,'context_archive',self.task,'JARVIS-engine',result={'sha256':sha(payload),'payload':payload,'reason':reason,'not_conversation_memory':True})
- def prepare(self,payload,observed,response_default=4096):
+ def prepare(self,payload,observed,response_default=4096,structured_action=False):
   # UTF-8 serialized bytes are deliberately conservative, explicitly labelled.
   # An actual model tokenizer can replace this estimate; never call it measured
   # tokens. Include schemas/format and a separate template/control-token margin.
@@ -199,14 +199,14 @@ class ContextBudget:
    self.store.event(self.m,'context_budget_checked',self.task,'JARVIS-engine',result={**measurement,'sent_bytes':serialized_bytes(payload),'within_budget':True});return payload
   archive=self.archive(copy.deepcopy(payload),'active input approaches effective context capacity')
   checkpoint_id,checkpoint=self.checkpoint('automatic pre-inference checkpoint',automatic=True)
-  if payload.get('format'):
+  if payload.get('format') and not structured_action:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Structured review evidence cannot be silently discarded; reduce report/claim scope or fetch targeted evidence'})
    raise ContextCapacityError('Structured review exceeds conservative input budget; original evidence archived, no inference dispatched')
   original=payload['messages'];system=copy.deepcopy(next((x for x in original if x.get('role')=='system'),{'role':'system','content':'Authorized mission; original owner constraints remain canonical.'}))
   system['content']+='\nLe checkpoint ci-dessous contient déjà l’état utile. Les références archive/checkpoint automatiques prouvent le stockage ; ne les recharge pas récursivement. Applique la dernière instruction coordinateur, puis décide une action dans la tâche. context_recall sert à un ancien incident précis, context_resume à une reprise manuelle.'
   active={k:checkpoint[k] for k in ('mission','parent_mission','priority','task','objective','task_contract','task_dependencies','plan','workspace','model','authority_counters','reserved_operation_ids','interface_counters','last_inference','pending_effects','modifications','tests','observed_evidence','next_authorized_action')}
   active['operation_identity_rule']='All reserved_operation_ids belong to durable operations. A different intended operation needs an unused id; retry requires ALL original arguments unchanged. Never replay unknown effects. Counters and backend refusals remain authoritative.'
-  active['offered_tools']=[t['function']['name'] for t in payload.get('tools',[])];active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive
+  active['offered_tools']=([branch['properties']['tool']['enum'][0] for branch in payload['format']['oneOf']] if structured_action else [t['function']['name'] for t in payload.get('tools',[])]);active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive
   # Initial planning has no separate task objective. Keep the exact owner text
   # once; the complete checkpoint still stores both canonical fields.
   if active['owner_goal']==active['objective']:
