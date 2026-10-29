@@ -166,5 +166,33 @@
     "All software probe verdicts controlled; real report collision remains a backend blocker",
     "No active canary deployment; P4 and phase2 not received",
     "The lossless pool does not guarantee that an arbitrarily larger future plan can fit; input guard remains enforced"
-  ]
+  ],
+  "real_reviewer_erratum": {
+    "event": 78068,
+    "original_event": 78037,
+    "facts": {
+      "P4-CANARY-STAGE-step10": {
+        "tools": [
+          "host_exec",
+          "host_package",
+          "host_write_file"
+        ],
+        "tools_type": "list",
+        "contract_present": true,
+        "report_path": "/var/lib/jarvis/projects/mission26-phase2/canary-stage/reports/step10_native_review.md"
+      },
+      "c32347de3edf4288a4751a3e65afa7eb": {
+        "tools": [
+          "host_exec",
+          "host_package",
+          "host_write_file"
+        ],
+        "tools_type": "list",
+        "contract_present": true,
+        "report_path": "/var/lib/jarvis/projects/mission26-phase2/canary-stage/reports/r00_step1_review_plan_canary_build.md"
+      }
+    },
+    "quality_received": false,
+    "original_preserved": true
+  }
 }
