@@ -1,0 +1,68 @@
+"""Loopback-only OpenAI-compatible relay; reject oversized requests, never truncate."""
+import datetime, hashlib, json, os, time, urllib.request, urllib.error
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+ROOT=Path(os.environ.get('QWEN_RECEIPTS','/home/adminjarvis/JARVIS/qwen-code-openwebui-private/requests'))
+ROOT.mkdir(parents=True,exist_ok=True)
+BUDGET=27648
+class Handler(BaseHTTPRequestHandler):
+    def log_message(self,*args): pass
+    def do_GET(self): self.relay()
+    def do_POST(self): self.relay()
+    def relay(self):
+        if self.path not in ['/v1/chat/completions','/v1/models']:
+            self.send_error(404); return
+        n=int(self.headers.get('Content-Length','0'))
+        if n>1000000:self.send_error(413);return
+        raw=self.rfile.read(n) if n else None
+        ident=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%f')
+        record={'time':ident,'actor':'Qwen Code','inference_machine':'Dell1','model':'qwen3-coder-next:q4_K_M','path':self.path,'bytes':n,'budget_bytes':BUDGET,'sha256':hashlib.sha256(raw or b'').hexdigest()}
+        if raw:
+            data=json.loads(raw)
+            if data.get('model')!='qwen3-coder-next:q4_K_M' or n>BUDGET:
+                record['status']='REFUSED_BEFORE_INFERENCE';(ROOT/(ident+'.json')).write_text(json.dumps(record));self.send_error(413,'Model or context budget refused');return
+            # The established model is retained; cap output and request the approved runtime window.
+            data['max_tokens']=min(data.get('max_tokens',4096),4096)
+            data['options']={'num_ctx':32768,'num_predict':4096}
+            raw=json.dumps(data,separators=(',',':'),ensure_ascii=False).encode()
+        try:
+            if self.path=='/v1/models':
+                req=urllib.request.Request('http://192.168.1.75:11435/v1/models')
+                with urllib.request.urlopen(req,timeout=20) as r:
+                    self.send_response(200);self.send_header('Content-Type','application/json');self.end_headers();self.wfile.write(r.read())
+            else:
+                # Ollama's OpenAI endpoint does not accept num_ctx. Translate to native chat.
+                messages=data['messages']
+                for m in messages:
+                    if isinstance(m.get('content'),list):m['content']='\n'.join(x.get('text','') for x in m['content'] if isinstance(x,dict))
+                    for tc in m.get('tool_calls',[]):
+                        args=tc['function'].get('arguments',{})
+                        if isinstance(args,str):tc['function']['arguments']=json.loads(args)
+                payload={'model':data['model'],'messages':messages,'tools':data.get('tools',[]),'stream':True,'options':{'num_ctx':32768,'num_predict':4096,'temperature':data.get('temperature',0.1)},'keep_alive':'10m'}
+                req=urllib.request.Request('http://192.168.1.75:11435/api/chat',data=json.dumps(payload).encode(),headers={'Content-Type':'application/json'})
+                with urllib.request.urlopen(req,timeout=600) as r:
+                    self.send_response(200);self.send_header('Content-Type','text/event-stream');self.send_header('Connection','close');self.end_headers()
+                    tool_index=0;had_tools=False
+                    for line in r:
+                        if not line.strip():continue
+                        item=json.loads(line);msg=item.get('message',{});delta={}
+                        if msg.get('content'):delta['content']=msg['content']
+                        if msg.get('thinking'):delta['reasoning_content']=msg['thinking']
+                        if msg.get('tool_calls'):
+                            had_tools=True;delta['tool_calls']=[]
+                            for tc in msg['tool_calls']:
+                                f=tc['function'];delta['tool_calls'].append({'index':tool_index,'id':tc.get('id','call_'+str(tool_index)+'_'+ident),'type':'function','function':{'name':f['name'],'arguments':json.dumps(f.get('arguments',{}),ensure_ascii=False)}});tool_index+=1
+                        done=item.get('done',False)
+                        chunk={'id':'chatcmpl-'+ident,'object':'chat.completion.chunk','created':int(time.time()),'model':data['model'],'choices':[{'index':0,'delta':delta,'finish_reason':('tool_calls' if had_tools else 'stop') if done else None}]}
+                        if done:
+                            record['runtime_num_ctx']=32768;record['max_output_tokens']=4096;record['prompt_eval_count']=item.get('prompt_eval_count');record['eval_count']=item.get('eval_count')
+                            chunk['usage']={'prompt_tokens':item.get('prompt_eval_count',0),'completion_tokens':item.get('eval_count',0),'total_tokens':item.get('prompt_eval_count',0)+item.get('eval_count',0)}
+                        self.wfile.write(('data: '+json.dumps(chunk)+'\n\n').encode());self.wfile.flush()
+                    self.wfile.write(b'data: [DONE]\n\n');self.wfile.flush()
+            record['status']='FORWARDED'
+        except Exception as e:
+            record['status']='ERROR';record['error']=str(e)
+            try:self.send_error(502)
+            except Exception:pass
+        finally:(ROOT/(ident+'.json')).write_text(json.dumps(record,indent=2)+'\n')
+if __name__=='__main__':ThreadingHTTPServer(('127.0.0.1',8091),Handler).serve_forever()

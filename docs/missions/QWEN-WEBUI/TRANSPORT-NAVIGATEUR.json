@@ -1,0 +1,26 @@
+{
+  "websocket": {
+    "upgrade_http": 101,
+    "protocol": "WebSocket via Apache proxy"
+  },
+  "streaming": {
+    "events": 119,
+    "first_event_seconds": 0.326,
+    "last_event_seconds": 2.394,
+    "spread_seconds": 2.068
+  },
+  "tailnet_remote": {
+    "executor": "Codex via SSH Dell1",
+    "curl_to": "http://jarvis-macmini.tail805e83.ts.net/api/version",
+    "status": 200,
+    "name_resolution": "curl --resolve used for isolated server test; MagicDNS client setup on MacBook/iPhone not tested"
+  },
+  "browser": {
+    "engine": "Chromium headless Playwright",
+    "login": "PASS existing account",
+    "model_selection": "PASS experimental profile",
+    "conversation": "PASS tool execution and displayed unittest results",
+    "physical_microphone": "NOT_TESTED",
+    "Safari_iPhone": "NOT_TESTED"
+  }
+}

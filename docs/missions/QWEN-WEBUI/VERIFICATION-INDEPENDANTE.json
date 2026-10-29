@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-29T19:04:08.812387+00:00",
+  "actor": "Codex",
+  "checks": {
+    "integration_live": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_adapter_requires_key (__main__.Live.test_adapter_requires_key) ... ok\ntest_apache_preserves_backend (__main__.Live.test_apache_preserves_backend) ... ok\ntest_canonical_missions_are_compact (__main__.Live.test_canonical_missions_are_compact) ... ok\ntest_context_refused_before_inference (__main__.Live.test_context_refused_before_inference) ... ok\ntest_traversal_project_refused (__main__.Live.test_traversal_project_refused) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.114s\n\nOK\n"
+    },
+    "fixture_independent": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_empty (test_prices.Prices.test_empty) ... ok\ntest_input_unchanged (test_prices.Prices.test_input_unchanged) ... ok\ntest_sum (test_prices.Prices.test_sum) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    "apache_syntax": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Syntax OK\n"
+    },
+    "canonical_health": {
+      "returncode": 0,
+      "stdout": "{\"application\": \"ok\", \"database\": \"ok\", \"ollama\": \"0.40.3\", \"busy\": false, \"mission_busy\": false, \"conversation_node\": \"Mac-mini\"}",
+      "stderr": ""
+    }
+  },
+  "installed_sources": [
+    {
+      "path": "tools/qwen_webui/ollama_guard.py",
+      "sha256": "d3ef626f6a2f91822f81e700edfb3aaa4ec2abaa7784f0b25a3b0ca4e27bc6ef"
+    },
+    {
+      "path": "tools/qwen_webui/adapter.py",
+      "sha256": "142bddcdbaea18ca3845b1691dfdcb2fa9f175fe338074ca4a72a3da1927eecd"
+    },
+    {
+      "path": "tools/qwen_webui/webui_tool.py",
+      "sha256": "15b3d1f1b0dc783f7f724e8f36d04a060e01fe3ad0b895ad005af9cd05eff9b4"
+    },
+    {
+      "path": "tools/qwen_webui/qwen-local-task",
+      "sha256": "b0d7870601c69b3cfb8739796aa06b6eab5c02e8f5849aca8f59b76608cd3b18"
+    },
+    {
+      "path": "tools/qwen_webui/qwen-local",
+      "sha256": "dfc80b6d8eb7a856331e88fb27016e129790ceb951fd4f1ffd507386e8df5d50"
+    }
+  ],
+  "M26_P4_owner_pause_preserved": true,
+  "wrapper_retested_after_final_instruction_change": {
+    "result": "PASS 0",
+    "trace": "FINALISATION-QWEN.json"
+  }
+}

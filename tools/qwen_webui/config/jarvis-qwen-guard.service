@@ -1,0 +1,12 @@
+[Unit]
+Description=JARVIS Qwen Code local Ollama context guard
+After=network-online.target
+Wants=network-online.target
+[Service]
+User=adminjarvis
+ExecStart=/usr/bin/python3 /home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/ollama_guard.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+[Install]
+WantedBy=multi-user.target

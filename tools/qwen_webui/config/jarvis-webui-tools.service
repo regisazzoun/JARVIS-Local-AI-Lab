@@ -1,0 +1,12 @@
+[Unit]
+Description=Open WebUI thin JARVIS and Qwen Code adapter
+After=jarvis-conversation.service jarvis-qwen-guard.service
+[Service]
+User=adminjarvis
+WorkingDirectory=/home/adminjarvis/JARVIS/qwen-code-projects
+ExecStart=/usr/bin/python3 /home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/adapter.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+[Install]
+WantedBy=multi-user.target

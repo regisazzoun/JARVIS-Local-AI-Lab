@@ -1,3 +1,17 @@
+## Qwen Code / WebUI — ordre propriétaire du 29 octobre 2026
+
+Nouvelle mission autonome sur Mac mini : réutiliser Open WebUI et ses données,
+publier par Apache/Tailscale privé, installer Qwen Code expérimental sur le 80B
+Dell1 existant et raccorder les API JARVIS sans nouvel orchestrateur.
+Préserver JL03, les services, la mémoire et les travaux non commités.
+M26-P4 reste explicitement en pause : ne pas retirer MANUAL-HOLD ni réactiver
+son superviseur dans cette mission. Réserve HTTPS levée le 29 octobre : HTTP200
+et certificat valide vérifiés sur Mac, Dell1 et Chromium ; accès privé
+https://jarvis-macmini.tail805e83.ts.net/. Les anciens blocages HTTPS sont
+historiques. Microphone physique et clients Apple restent à qualifier.
+Aucune fusion automatique dans main.
+[Rapport](docs/missions/QWEN-WEBUI/RAPPORT-FINAL.md).
+
 ## P4 — plan12 : défaut backend rendu malgré dépassement — 29 octobre 2026
 
 Incident78280–78285 : singleton30640/27648, pool déjà actif ; collision réelle

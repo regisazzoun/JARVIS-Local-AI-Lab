@@ -1,0 +1,39 @@
+{
+  "https": "BLOCKED: Tailscale Serve/HTTPS not enabled in account; local CLI requests admin-console activation",
+  "http": "http://jarvis-macmini.tail805e83.ts.net",
+  "scope": "tailnet only; no Funnel",
+  "authorization": "user mission full autonomous local installation; no intermediate approval invented",
+  "original_attempts": [
+    {
+      "file": "qwen-acceptance.jsonl",
+      "sha256": "18f674f1516e424ad69cc287fe29013783ff838f7857b2373926eca437fa1b5f"
+    },
+    {
+      "file": "qwen-acceptance-native.jsonl",
+      "sha256": "cf0d46b3fa8a0bf54e71d6addcb4165eac3c4df0feca04a1990345c6b4f577ed"
+    },
+    {
+      "file": "qwen-acceptance-bare.jsonl",
+      "sha256": "3f77ab0a29265e89ef3159fd62a691b0c60a8e003e171ed7e3ce668484c6a1f2"
+    },
+    {
+      "file": "qwen-acceptance-2.jsonl",
+      "sha256": "368dddef1dc9576b8b274ac09d4fec1e5da07c3f20e2d10c79bea512b1e857f8"
+    },
+    {
+      "file": "qwen-acceptance-3.jsonl",
+      "sha256": "ed4df9a80f5c84ffa49a7dc0350bb70f6e5f2a90cc3e63a21c91e3297d28c34d"
+    }
+  ],
+  "errors_retained": [
+    "default Qwen tools 46793 bytes refused before inference",
+    "shell-only configuration still 38740 bytes; implicit builtin tools remain",
+    "bare mode requires explicit credentials; auth failed before inference",
+    "first OpenAI-compatible call reached legacy Dell11434 CPU runner/context4096; stopped and native relay to existing11435 implemented",
+    "test expected WAV while Open WebUI converts TTS output to MP3; audio itself is valid",
+    "STT multipart uses chunked transfer: adapter now decodes bounded chunked input",
+    "old plaintext JARVIS credentials no longer match current auth; private local service session provisioned in existing auth_sessions table, no password reset",
+    "Dell2-to-tailnet HTTP timeout; Dell1-to-tailnet HTTP200 observed",
+    "Final wrapper check reached code53 after repeated successful tests; startup instruction corrected and real Qwen retest code0/3turns retained in FINALISATION-QWEN.json"
+  ]
+}

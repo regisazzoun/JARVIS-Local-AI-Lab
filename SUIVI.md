@@ -1,3 +1,9 @@
+## Qwen Code / Open WebUI / Apache / Tailscale — 29 octobre 2026
+
+**✅🟡 GO avec réserves — HTTPS réceptionné.** Open WebUI existant et Apache opérationnels ; accès privé **https://jarvis-macmini.tail805e83.ts.net/**. Après signalement du propriétaire, contrôles Codex : HTTP200/TLS0 sur Mac et Dell1, Chromium en contexte sécurisé. Qwen Code80B, correction réelle3testsPASS et déclenchement navigateur déjà reçus ; Whisper/Piper et conversations conservés. Microphone physique/Safari/iPhone, reboot complet et finalisation générale Qwen Code restent réservés. [Preuves HTTPS](docs/missions/QWEN-WEBUI/HTTPS-RECEPTION.json) · [Rapport](docs/missions/QWEN-WEBUI/RAPPORT-FINAL.md). PR30 sans fusion automatique.
+
+**M26-P4 reste en pause propriétaire**, état interrompu et maintien du MANUAL-HOLD ; cette nouvelle mission ne la relance pas. Les mentions d'activité P4 ci-dessous sont historiques.
+
 ## Surveillance des plantages et blocages — 29 octobre 2026
 
 Contrôle de santé systemd installé toutes les60secondes, activé après reboot,

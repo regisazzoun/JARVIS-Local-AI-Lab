@@ -1,0 +1,68 @@
+{
+  "test_conversation_id": "be21fde4-262b-46a7-aa6b-463e9df2ba7f",
+  "qwen_receipts": [
+    {
+      "id": "20261029T185728.345491",
+      "actor": "Qwen Code",
+      "trigger": "Open WebUI tool",
+      "model": "qwen3-coder-next:q4_K_M",
+      "inference_machine": "Dell1",
+      "execution_machine": "Mac mini experimental workspace",
+      "project": "acceptance",
+      "base_commit": "3ba9210d1585bc99e92a4875848f149753224932",
+      "returncode": 53,
+      "seconds": 21.01,
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "trace": "/home/adminjarvis/JARVIS/qwen-code-openwebui-private/20261029T185728.345491.jsonl",
+      "trace_sha256": "0b2753a98a523455da0480618f9fde11470b1d71da2de522d197fc2fe45e4e6d",
+      "validation": "NOT_INDEPENDENTLY_VALIDATED",
+      "result": {}
+    },
+    {
+      "id": "20261029T185753.873458",
+      "actor": "Qwen Code",
+      "trigger": "Open WebUI tool",
+      "model": "qwen3-coder-next:q4_K_M",
+      "inference_machine": "Dell1",
+      "execution_machine": "Mac mini experimental workspace",
+      "project": "acceptance",
+      "base_commit": "3ba9210d1585bc99e92a4875848f149753224932",
+      "returncode": 0,
+      "seconds": 4.98,
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "trace": "/home/adminjarvis/JARVIS/qwen-code-openwebui-private/20261029T185753.873458.jsonl",
+      "trace_sha256": "0377cb6d368850ecce99bc7a63a208e4cee6c4d3291429118829afada57f8adc",
+      "validation": "NOT_INDEPENDENTLY_VALIDATED",
+      "result": {
+        "type": "result",
+        "subtype": "success",
+        "uuid": "aa6903b2-38c4-46a0-854b-666917fda494",
+        "session_id": "2d1fd0ac-3373-4e32-9128-08d30c11c1e3",
+        "is_error": false,
+        "duration_ms": 4027,
+        "duration_api_ms": 3903,
+        "num_turns": 2,
+        "result": "Tous les 3 tests passent avec succès :\n- `test_empty` ✓\n- `test_input_unchanged` ✓\n- `test_sum` ✓",
+        "usage": {
+          "input_tokens": 7433,
+          "output_tokens": 111,
+          "cache_read_input_tokens": 0,
+          "total_tokens": 7544
+        },
+        "permission_denials": []
+      }
+    }
+  ],
+  "test_messages": [
+    {
+      "role": "user",
+      "content": "Utilise qwen_code pour lire prices.py puis exécuter python3 -m unittest -v dans le projet acceptance. Ne modifie aucun fichier. Attends le résultat réel puis donne les résultats. Ne crée aucune mission JARVIS.",
+      "done": null
+    },
+    {
+      "role": "assistant",
+      "content": "Les tests unitaires ont été exécutés avec succès dans le projet `acceptance`. Voici les résultats :\n\n- **`test_empty`** : ✓ Passé  \n- **`test_input_unchanged`** : ✓ Passé  \n- **`test_sum`** : ✓ Passé  \n\nTous les 3 tests passent sans erreur.",
+      "done": true
+    }
+  ]
+}

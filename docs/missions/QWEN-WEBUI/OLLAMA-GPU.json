@@ -1,0 +1,30 @@
+{
+  "model_service": {
+    "version": "0.40.3"
+  },
+  "models_loaded": {
+    "models": [
+      {
+        "name": "qwen3-coder-next:q4_K_M",
+        "model": "qwen3-coder-next:q4_K_M",
+        "size": 53582867932,
+        "digest": "ca06e9e4087c714d44355bf954099187890e63084b4a632b8e9956c4b9492074",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3next",
+          "families": [
+            "qwen3next"
+          ],
+          "parameter_size": "79.7B",
+          "quantization_level": "Q4_K_M"
+        },
+        "expires_at": "2026-10-29T20:08:04.764739324+01:00",
+        "size_vram": 47695517447,
+        "context_length": 32768,
+        "runner": "llamacpp"
+      }
+    ]
+  },
+  "gpu_snapshot": "0, NVIDIA GeForce RTX 3090, 23285 MiB, 24576 MiB, 0 %, 42\n1, NVIDIA GeForce RTX 3090, 23092 MiB, 24576 MiB, 0 %, 54\n"
+}
