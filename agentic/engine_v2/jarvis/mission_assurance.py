@@ -45,10 +45,25 @@ def plan_evolution_view(store, ident):
     """Keep first candidate and recent evolution; repeated old task lists stay durable."""
     plans=store.plans(ident)
     selected={0,len(plans)-2,len(plans)-1}
-    return [{'version':p['version'],'author':p['author'],'sha256':p['sha256'],
-             **({'tasks':[{'id':t['id'],'title':t['title'],'artifacts':t.get('artifacts',[])} for t in p['plan']['tasks']]}
-                if index in selected else {'definitions':'Historical snapshot available via mission_progress plan_version; omission here is not absence.'})}
-            for index,p in enumerate(plans)]
+    def projection(plan):
+        return [{'id':t['id'],'title':t['title'],'artifacts':t.get('artifacts',[])} for t in plan['tasks']]
+    # The complete current plan accompanies this view in coverage requests.
+    # Reference only exact duplicate projections; changed historical values
+    # remain inline. Full contracts, versions and hashes stay canonical.
+    current=projection(plans[-1]['plan']) if plans else []
+    seen={encoded(current):'plan.tasks projected to id,title,artifacts (artifacts defaults to [])'}
+    result=[]
+    for index,p in enumerate(plans):
+        row={'version':p['version'],'author':p['author'],'sha256':p['sha256']}
+        if index in selected:
+            tasks=projection(p['plan']);key=encoded(tasks)
+            if key in seen:row['tasks_same_as']=seen[key]
+            else:
+                row['tasks']=tasks
+                seen[key]='plan_evolution version '+str(p['version'])+'.tasks'
+        else:row['definitions']='Historical snapshot available via mission_progress plan_version; omission here is not absence.'
+        result.append(row)
+    return result
 
 
 def coverage_state(store, ident):

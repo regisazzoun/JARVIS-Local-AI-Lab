@@ -1,0 +1,179 @@
+{
+  "repair": 77613,
+  "idle_reload": 77614,
+  "strategy": 77615,
+  "infrastructure_verification": 77616,
+  "infrastructure_resolution": 77617,
+  "resolution": 77620,
+  "instruction": 77618,
+  "state": "queued",
+  "P4_received": false,
+  "input_budget": 27648,
+  "tests_passed": 69,
+  "probe": {
+    "leaf_replay": {
+      "before_bytes": 28702,
+      "after_bytes": 26769,
+      "budget": 27648,
+      "all_other_fields_unchanged": true
+    },
+    "plan_version": 9,
+    "requirements_reviewed_once": [
+      "R1",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R2",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R3",
+      "R30",
+      "R31",
+      "R32",
+      "R33",
+      "R34",
+      "R35",
+      "R36",
+      "R37",
+      "R38",
+      "R39",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9"
+    ],
+    "admitted_payload_sizes": [
+      27150,
+      26968,
+      26994,
+      27522,
+      27149,
+      27471,
+      27473,
+      27107,
+      27340,
+      27000,
+      27334,
+      26945,
+      27299,
+      26918,
+      27417
+    ],
+    "oversize_parents_split_before_inference": [
+      38375,
+      32279,
+      29410,
+      27710,
+      28108,
+      29277,
+      28212,
+      32504,
+      29557,
+      28039,
+      27926,
+      29355,
+      27836,
+      27927
+    ],
+    "retained_backend_issues": [
+      "Report artifact collision: c32347de and version0 share /var/lib/jarvis/projects/mission26-phase2/canary-stage/report_c32347de.md. Use distinct task report paths so received hashes remain reproducible."
+    ],
+    "real_model_inference": false,
+    "no_tool_dispatched": true,
+    "original_plan_sha256": "c8fb2667c3909f9482cde66db64a7974477c59c2e24173759950816841ce87e8",
+    "module": "/opt/jarvis/conversation/jarvis/mission_assurance.py"
+  },
+  "installed_modules": [
+    {
+      "file": "/opt/jarvis/conversation/jarvis/mission_assurance.py",
+      "sha256": "8d096ce7c1295442332f091d6bda64b6be81f89722b6014ccb62c97f8e2f5d4a"
+    }
+  ],
+  "native_first_admission": {
+    "event": 77636,
+    "sent_bytes": 27150,
+    "input_budget": 27648,
+    "observed_loaded_limit": 32768,
+    "actual_Qwen_review_result": "Real coverage batch responses observed; global coverage verdict pending at this bounded handoff"
+  },
+  "limits": [
+    "No P4 reception",
+    "No active canary deployment",
+    "No P3 replay",
+    "Software probe is not autonomous JARVIS validation",
+    "Conversation service unchanged; idle mission workers reloaded for code repair"
+  ],
+  "native_real_Qwen_reviews_observed": [
+    {
+      "event": 77639,
+      "purpose": "coverage",
+      "effective_model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "done_reason": "stop",
+      "input_characters": 26689,
+      "not_a_global_coverage_verdict": true
+    },
+    {
+      "event": 77643,
+      "purpose": "coverage",
+      "effective_model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "done_reason": "stop",
+      "input_characters": 26516,
+      "not_a_global_coverage_verdict": true
+    },
+    {
+      "event": 77650,
+      "purpose": "coverage",
+      "effective_model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "done_reason": "stop",
+      "input_characters": 26540,
+      "not_a_global_coverage_verdict": true
+    },
+    {
+      "event": 77654,
+      "purpose": "coverage",
+      "effective_model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "done_reason": "stop",
+      "input_characters": 27049,
+      "not_a_global_coverage_verdict": true
+    },
+    {
+      "event": 77664,
+      "purpose": "coverage",
+      "effective_model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "done_reason": "stop",
+      "input_characters": 26701,
+      "not_a_global_coverage_verdict": true
+    },
+    {
+      "event": 77668,
+      "purpose": "coverage",
+      "effective_model": "qwen3-coder-next:q4_K_M",
+      "node": "Dell1",
+      "done_reason": "stop",
+      "input_characters": 27016,
+      "not_a_global_coverage_verdict": true
+    }
+  ]
+}

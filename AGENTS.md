@@ -1,3 +1,19 @@
+## P4 — revue trop grosse : historique dédupliqué — 29 octobre 2026
+
+Diagnostic77603/77605 : même une exigence seule dépassait le budget avec le
+plan9 complet et les projections historiques répétées. CorrectifCodex77613 :
+références explicites pour projections id/title/artifacts strictement identiques,
+plan complet et historique distinct conservés ; seule cette fonction remplacée.
+69tests ciblésPASS ; probe import runtime :39exigences en15lots, collision de
+rapports toujoursFAIL. Aucun test de qualité réelle du reviewer déduit du probe.
+Workers rechargés77614 après contrôle aucune mission running/queued/retrying,
+aucun appel cible en cours ; conversation préservée. Résolution infrastructure
+77617 et reprise77620 au mêmeplan9, quatre incidents historiques conservés.
+Premier lot natif admis77636 :27150/27648octets, fenêtre32768 inchangée.
+Réponses réelles Qwen observées77643/77650/77654 ; revue globale encore en
+cours à ce relevé ; P4 NONREÇUE, aucun déploiement actif.
+[Preuves](docs/missions/26-P2/p4/REVUE-HISTORIQUE-DEDUPLIQUEE.json).
+
 ## Surveillance des plantages et blocages — 29 octobre 2026
 
 Contrôle de santé systemd installé toutes les60secondes, activé après reboot,
