@@ -1,3 +1,15 @@
+## P4 — revue plan10, déduplication par tâche — 29 octobre 2026
+
+Incident77780–77783 : singleton29926/27648octets malgré déduplication des listes.
+CorrectifCodex77786 : projections de tâches strictement identiques référencées
+individuellement, textes historiques répétés référencés et JSON compact.
+Plan complet, valeurs distinctes et39exigences conservés ; probe import runtime
+22lots, max27565/27648, collision des rapports toujoursFAIL.54tests ciblésPASS.
+Workers inactifs rechargés77787 après contrôles, conversation préservée.
+Résolution77793, mêmeplan10 remis enfile, cinq incidents conservés.
+Probe logiciel distinct de qualité revueQwen ; P4 NONREÇUE, aucun déploiement actif.
+[Preuves](docs/missions/26-P2/p4/REVUE-PLAN10-DEDUPLICATION-PAR-TACHE.json).
+
 ## P4 — revue trop grosse : historique dédupliqué — 29 octobre 2026
 
 Diagnostic77603/77605 : même une exigence seule dépassait le budget avec le
