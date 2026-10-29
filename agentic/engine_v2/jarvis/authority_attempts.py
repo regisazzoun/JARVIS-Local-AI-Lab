@@ -2,12 +2,16 @@
 
 No application command/test selection. Qwen still chooses both and the executor.
 """
-import json
+import json,re
 from .attempt_ledger import digest
+
+def test_not_loaded(execution):
+ text=str(execution.get('stderr',''))+'\n'+str(execution.get('stdout',''))
+ return bool('JARVIS_PROBE_NOT_STARTED' in text or ('unittest.loader._FailedTest' in text and re.search(r'Ran 1 test\b',text) and ('ModuleNotFoundError:' in text or 'AttributeError:' in text or 'ImportError:' in text)))
 
 def test_infrastructure_error(execution):
  text=str(execution.get('stderr',''))
- return execution.get('returncode') in (126,127) or any(k in text for k in ('ModuleNotFoundError:','FileNotFoundError:','command not found'))
+ return test_not_loaded(execution) or execution.get('returncode') in (126,127) or any(k in text for k in ('ModuleNotFoundError:','FileNotFoundError:','command not found'))
 
 class AuthorityAttempts:
  def __init__(self,authority):
@@ -21,6 +25,8 @@ class AuthorityAttempts:
   # different version edited by another actor since its original execution.
   current=self.a.source_manifest(args['executor'])
   request={'command':args['command'],'kind':kind,'source_manifest':current}
+  declared=self.a.reg.context.get('_authority_declared_probe')
+  if kind=='test' and declared:request['declared_probe']={'id':declared['probe_id'],'sha256':declared['declaration_sha256']}
   if self.a.spec.get('authority_engine_operation_ids'):
    # A completed-task receipt must never masquerade as this task's execution.
    # Same-task repeats still deduplicate; issue failure counters stay shared.
@@ -53,7 +59,7 @@ class AuthorityAttempts:
     if raw['problem']!=problem or raw['state']!='VALIDATION_INCONCLUSIVE' or raw['unknown_outcome']:continue
     prior=self.ledger.get(raw['id']);r=prior['result']
     if r.get('source_manifest')!=observed['after']:continue
-    failed={**r,'verified':False,'failed_test_reference':value['reference'],'test_execution':execution}
+    failed={**r,'verified':False,'failed_test_reference':value['reference'],'test_execution':execution,'verification_not_executed':False}
     proof=self.s.event(self.m,'p2_result_observed',actor='JARVIS-engine',result={'attempt':raw['id'],'observation':failed,'state':'EXECUTED_TEST_FAILED'})
     self.ledger.transition(raw['id'],'EXECUTED_TEST_FAILED',evidence=proof,result=failed,unknown=False);self.ledger.failure(raw['id'],correction_changed=r['source_changed'])
  def accepted(self,issue,source_reference,acceptance):
@@ -61,6 +67,6 @@ class AuthorityAttempts:
    if raw['state']!='VALIDATION_INCONCLUSIVE' or raw['unknown_outcome']:continue
    row=self.ledger.get(raw['id']);r=row['result']
    if r.get('value',{}).get('reference')!=int(source_reference):continue
-   result={**r,'verified':True,'independent_acceptance':acceptance}
+   result={**r,'verified':True,'independent_acceptance':acceptance,'verification_not_executed':False}
    proof=self.s.event(self.m,'p2_result_observed',actor='JARVIS-engine',result={'attempt':raw['id'],'observation':result,'state':'SUCCESS'})
    self.ledger.transition(raw['id'],'SUCCESS',evidence=proof,result=result,unknown=False)

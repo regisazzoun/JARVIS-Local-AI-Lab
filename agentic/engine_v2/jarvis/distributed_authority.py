@@ -13,7 +13,7 @@ PROJECT = 'mission26-phase1'
 ROOT = '/opt/jarvis-lab/mission26-phase1'
 LOCAL = Path('/var/lib/jarvis/projects/mission26-phase1')
 HOSTS = {'Dell1': 'dell-observe', 'Dell2': 'dell2'}
-TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_draft_edit', 'authority_apply_draft', 'authority_analyze', 'authority_read_execution','context_checkpoint','context_resume','context_recall']
+TOOLS = ['authority_plan', 'authority_revise_plan', 'authority_work', 'authority_sync', 'authority_finish', 'mission_note', 'mission_evidence', 'authority_resources', 'authority_edit', 'authority_draft_edit', 'authority_apply_draft', 'authority_analyze', 'authority_read_execution','authority_run_probe','context_checkpoint','context_resume','context_recall']
 
 # This observer is infrastructure, not an application test. Commands are model supplied.
 RUNNER = r'''
@@ -296,6 +296,10 @@ class Authority:
     raise ValueError('Independent validation requires source_reference of an actual '+('passed TEST' if readonly else 'CORRECTION')+' EXECUTION for this issue on the OTHER Dell; validator is '+obs['host']+'. Both references on one Dell cannot qualify. EXACT full manifest required. Run a fresh test on the other Dell if no compatible reference exists. Candidates: '+str([{'reference':int(k),'host':r['host'],'same_manifest':r['after']==obs['after'],'returncode':r.get('execution',{}).get('returncode')} for k,r in state['executions'].items() if r.get('kind')==('test' if readonly else 'correct') and r.get('issue')==issue and r.get('host')!=obs['host']][-3:]))
    if not readonly and source['before']==source['after']:raise ValueError('Source correction has no observed file change; a declared correction is not an actual modification')
    if readonly and (source['execution']['returncode']!=0 or source['before']!=source['after']):raise ValueError('Test-only peer must have actually passed on stable source')
+   if self.spec.get('authority_probes'):
+    from jarvis.authority_probe import matrix
+    progress=matrix(self.spec,self.active_state(),obs['after'])
+    if any(probe['status']!='PASS' for host in progress.values() for probe in host.values()):raise ValueError('All owner-declared probes must actually pass on BOTH executors at this exact source version: '+json.dumps(progress))
    if self.source_manifest(obs['host'])!=obs['after']:raise ValueError('Validator workspace changed since the passed test')
    v.pop('pending_correction',None)
    v['accepted']={'decision':decision,'test':ref,'source':str(a['source_reference']),'version':version(obs['after']),'host':obs['host'],'independent':True,'validation_scope':'test-only, no correction claimed' if readonly else 'source correction and independent test'}
@@ -325,6 +329,11 @@ class Authority:
    self.event('authority_delegation_failure',{'decision':decision,'executor':host,'error':str(error),'count':v['delegation_failures']})
    raise
   observed.update(issue=issue,task=self.t,host=host,kind=kind,decision=decision,broker_invocation=call)
+  if kind=='test':
+   from jarvis.authority_attempts import test_not_loaded
+   observed['test_execution_status']='NOT_EXECUTED' if test_not_loaded(observed['execution']) else 'EXECUTED'
+   declared=self.reg.context.get('_authority_declared_probe')
+   if declared:observed.update(probe_id=declared['probe_id'],probe_declaration_sha256=declared['declaration_sha256'],probe_command_author=declared['command_author'],probe_selection_invocation=declared['parent'])
   ref=str(self.event('authority_execution',observed));state['executions'][ref]=observed
   if kind=='inspect' and observed['before']!=observed['after']:
    persistent.finish(attempt['attempt'],observed,{'reference':int(ref),'executor':host,'execution':observed['execution']})
@@ -413,6 +422,8 @@ def register(reg):
  add('authority_read_execution','Read actual stdout/stderr of an execution in THIS mission, using its numeric execution reference. Not a UUID, receipt filename, model decision or broker id. Reads complete SHA-checked receipt when available; select line window to avoid repeated full-file excerpts.',{'reference':reference,'stream':{'type':'string','enum':['stdout','stderr']},'start_line':{'type':'integer','minimum':1},'max_lines':{'type':'integer','minimum':1,'maximum':80}},['reference'],'read_execution')
  add('authority_analyze','Record YOUR technical diagnosis of the observed failed execution for this issue (test, or initial inspection before planning). The engine attaches its exact existing execution reference automatically. No command is run. Use before the next correction; do not send a shell command or guess an event number.',{'issue':issue,'summary':text},['issue','summary'],'analyze_latest')
  from jarvis.authority_draft import draft,apply_draft
+ from jarvis.authority_probe import run_probe
+ reg.specs['authority_run_probe']=('Run an owner-declared regression probe on YOUR chosen Dell. Choose probe id and executor; exact argv/environment and immutable test hashes come from the declared test contract, not a guessed module name. Uses the same Authority receipts, counters and version checks. Model selects operation; command author stays explicit.',{'issue':issue,'probe_id':{'type':'string'},'executor':{'type':'string','enum':list(HOSTS)},'summary':text},['issue','probe_id','executor','summary'],'host_authorized',lambda a:run_probe(Authority(reg),a))
  reg.specs['authority_draft_edit']=('Delegate a focused code proposal to Qwen80B with a FRESH small context: choose executor, existing Python path and optional top-level function symbol, precise request and useful API facts. Reads the actual file, returns YOUR model-authored literal edits, never applies or tests them. Use this to leave a read-only investigation loop; review then authority_apply_draft. Maximum three drafts on unchanged source, counters persist.',{'issue':issue,'executor':{'type':'string','enum':list(HOSTS)},'path':{'type':'string','maxLength':500},'symbol':{'type':'string','pattern':'^[A-Za-z_][A-Za-z0-9_]*$','description':'Existing top-level function to edit inside a large module; not a filename. Omit for an entire small file.'},'request':{'type':'string','minLength':1,'maxLength':2000},'context':{'type':'string','maxLength':2000}},['issue','executor','path','request'],'read_only',lambda a:draft(Authority(reg),a))
  reg.specs['authority_apply_draft']=('Apply YOUR stored Qwen-authored proposal by its numeric reference through the existing authority_edit. Never recopy code. Exact old-source anchor, same counters, canonical calls, no tests implied. Repeated application returns the original observed receipt without rewriting.',{'proposal_reference':{'type':'integer','minimum':1}},['proposal_reference'],'lab_reversible',lambda a:apply_draft(Authority(reg),a))
  add('authority_edit','Apply YOUR literal source edits on a chosen Dell, with real before/after receipts. File contents are data, not a shell script. Existing file: old must match exactly once; new replaces it. New file: old=null, new is complete file content, target must not exist. No tests are implicitly run. Same correction counters and idempotency as authority_work. Never recopy a whole existing class to replace the application.',{'issue':issue,'executor':{'type':'string','enum':list(HOSTS)},'summary':text,'operation_id':text,'edits':{'type':'array','minItems':1,'maxItems':8,'items':{'type':'object','required':['path','old','new'],'properties':{'path':{'type':'string','minLength':1},'old':{'type':['string','null']},'new':{'type':'string'}},'additionalProperties':False}}},['issue','executor','summary','operation_id','edits'],'edit')

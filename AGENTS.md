@@ -1,3 +1,16 @@
+## P3 — probes déclarés exécutés, défaut confirmé — 29 octobre 2026
+
+JARVIS a réellement choisi les probes déclarés : VAR FAIL76210/Dell2, correction
+Qwen appliquée76325/Dell1, CORE PASS76377 sur ancienne versionDell2, VAR FAIL76477
+sur version corrigéeDell1. Codex a vérifié les quatre reçus complets par SHA,
+le test inchangé et le différentiel : le lot fixe2 reste présent ; les ajouts
+après review_model ne peuvent prévenir son exception d’admission.
+Trois échecs qualifiés + deux classifications rectifiées = historique5 conservé.
+Diagnostic76597 et paquet de réparation76598 inscrits dans la même mission.
+Arrêt maintenu après escalades76486/76594 : aucune quatrième tentative autonome,
+aucun acquittement infrastructure. P3 NON REÇUE, P4 attend, VF01 non transmis.
+[Preuves](docs/missions/26-P2/p3/DIAGNOSTIC-PROBES-76594.json).
+
 ## P3 — circuit de reprise et versions corrigés — 29 octobre 2026
 
 Le candidat Qwen75462 est appliqué75575 ; quatre cas ciblésPASS75624 surDell1.

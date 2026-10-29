@@ -229,6 +229,11 @@ class Registry:
             schema=copy.deepcopy(schema)
             ids=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_requirements',['Q1','Q2'])
             if 'issue' in schema['properties']:schema['properties']['issue']['enum']=ids
+            if name=='authority_run_probe':
+                probes=json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_probes',{})
+                if probes:
+                    schema['properties']['probe_id']['enum']=list(probes)
+                    schema['properties']['probe_id']['description']=json.dumps({key:probe.get('description','Owner-declared regression') for key,probe in probes.items()},ensure_ascii=False)
             if name=='authority_draft_edit':
                 draft_spec=json.loads(self.mission_store.get(self.context['mission_id'])['spec'])
                 units=draft_spec.get('authority_draft_units')
@@ -264,6 +269,17 @@ class Registry:
                 authority=Authority(self)
                 if candidate_test_focus(authority.spec,authority.active_state()):
                     schema['properties']['kind']['enum']=['test','analyze','accept']
+                if authority.spec.get('authority_probes') and not self.context.get('_authority_declared_probe'):
+                    schema['properties']['kind']['enum']=[kind for kind in schema['properties']['kind']['enum'] if kind!='test']
+                    if candidate_test_focus(authority.spec,authority.active_state()):
+                        candidates=[(int(ref),row) for ref,row in authority.active_state()['executions'].items() if row.get('kind')=='correct' and row.get('execution',{}).get('returncode')==0 and row.get('before')!=row.get('after')]
+                        if candidates:
+                            from .authority_probe import matrix
+                            reference,correction=max(candidates,key=lambda item:item[0]);progress=matrix(authority.spec,authority.active_state(),correction['after'])
+                            if all(item['status']=='PASS' for host in progress.values() for item in host.values()):
+                                schema['properties']['kind']['enum']=['accept']
+                                schema['properties']['source_reference']['enum']=[reference]
+                                schema['properties']['reference']['enum']=[item['reference'] for host,items in progress.items() if host!=correction['host'] for item in items.values()]
                 schema['allOf']=[{'if':{'properties':{'kind':{'const':'accept'}},'required':['kind']},
                                   'then':{'required':['reference','source_reference']}}]
                 schema['allOf'].append({'if':{'properties':{'kind':{'enum':['inspect','correct','test']}},'required':['kind']},
@@ -319,6 +335,9 @@ class Registry:
                 if history:
                     schema['required']=list(dict.fromkeys(schema['required']+['expected_version','reason']))
 
+        if name=='authority_work' and getattr(self,'mission_store',None) and self.context.get('mission_id'):
+            if json.loads(self.mission_store.get(self.context['mission_id'])['spec']).get('authority_probes') and not self.context.get('_authority_declared_probe'):
+                schema['properties']['kind']['enum']=[kind for kind in schema['properties']['kind']['enum'] if kind!='test']
         return schema
 
     def schemas(self,all_tools=False):

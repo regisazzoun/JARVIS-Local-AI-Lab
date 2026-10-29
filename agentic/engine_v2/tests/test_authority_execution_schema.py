@@ -71,3 +71,15 @@ class ExecutionContractTests(unittest.TestCase):
    args['source_reference']=bad;self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
   args.update(source='Dell2',destination='Dell1',source_reference=3)
   self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+
+ def test_declared_probe_replaces_free_test_command_in_outer_schema(self):
+  with self.store.db() as c:
+   spec=json.loads(self.store.get(self.m)['spec']);spec['authority_probes']={'coverage':{'argv':['python3','probe.py'],'sources':{},'description':'owner regression'}}
+   c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  schema=self.reg.active_schema('authority_run_probe')
+  args={'issue':'AUDIT','probe_id':'coverage','executor':'Dell2','summary':'model selects supplied control'}
+  self.assertFalse(list(Draft202012Validator(schema).iter_errors(args)))
+  args['probe_id']='guessed';self.assertTrue(list(Draft202012Validator(schema).iter_errors(args)))
+  self.assertNotIn('test',self.reg.active_schema('authority_work')['properties']['kind']['enum'])
+  self.reg.context['_authority_declared_probe']={'parent':'internal-fixture'}
+  self.assertIn('test',self.reg.active_schema('authority_work')['properties']['kind']['enum'])

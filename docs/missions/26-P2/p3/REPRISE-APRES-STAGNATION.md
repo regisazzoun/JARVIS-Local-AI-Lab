@@ -200,3 +200,26 @@ reste archivée avec rectification ultérieure. Les compteurs bruts n’ont pas 
 effacés ; leur interprétation et la portée des campagnes doivent rester explicites
 dans la réception finale. La ponctuation ambiguë de la première consigne Codex a
 été remplacée par une invocation ARGV/ENV complète dans le texte court transmis.
+
+## Probes déclarés et arrêt fonctionnel vérifié
+
+La classification76120–76144 reste exacte à son jalon : un échec qualifié et deux
+classifications rectifiées, historique3. Les probes ont ensuite été choisis et
+exécutés par JARVIS : VAR76210/Dell2 FAIL ; correction Qwen76325/Dell1 ;
+CORE76377/Dell2 PASS sur l’ancien module ; VAR76477/Dell1 FAIL sur le nouveau.
+Le test est resté au SHA indépendant déclaré. Les reçus complets ont été vérifiés
+par Codex76597 ; [empreintes et versions](DIAGNOSTIC-PROBES-76594.json).
+
+Les deux nouveaux échecs sont fonctionnels : ContextCapacityError pour une entrée
+réductible. La correction conserve BATCH_SIZE=2 et ajoute des contrôles après
+review_model, donc après le point qui lève l’exception. L’analyse Qwen assimilant
+le PASS CORE de l’ancien Dell2 à une divergence de sérialisation est réfutée par
+les versions et les contrats distincts. Le budget d’entrée est27648octets, pas32768.
+
+Le registre porte désormais3échecs qualifiés +2classifications rectifiées =5.
+Les compteurs, originaux et arrêt sont conservés ; aucune résolution infrastructure
+ni nouveau segment d’exécution déclaré. Paquet court76598 pour JARVIS : revoir
+le diagnostic, choisir une stratégie différente adaptant les lots au paquet réel,
+préserver les contraintes globales et bloquer un singleton indivisible. Cette note
+ne prouve pas une stratégie implémentée/vérifiée et ne débloque pas une quatrième
+tentative. Mission interrupted ; P3 non reçue, P4 attend, VF01 non transmis.

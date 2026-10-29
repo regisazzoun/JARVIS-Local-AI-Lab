@@ -27,6 +27,49 @@ class AttemptLedger:
     UNIQUE(mission,problem,operation_key),UNIQUE(mission,problem,signature));''')
    if 'infra_resolved_through' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
     c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN infra_resolved_through INTEGER NOT NULL DEFAULT 0')
+   if 'misclassified_failed_cycles' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
+    c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN misclassified_failed_cycles INTEGER NOT NULL DEFAULT 0')
+ def reclassify_unloaded_test(self,reference,evidence):
+  """Rectify proved loader failures, retaining raw totals and original events.
+
+  This is a coordinator audit, never an agent retry/reset operation.
+  """
+  if self.store.get(self.m)['state']!='interrupted':raise ValueError('Classification audit requires interrupted execution')
+  from .authority_attempts import test_not_loaded
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   proof=c.execute('SELECT actor,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
+   if not proof or proof['actor'] not in ('Codex','Codex-periodic') or proof['kind']!='coordinator_test_loading_failure_verified':raise ValueError('Explicit coordinator loader-failure verification required')
+   data=json.loads(proof['result'])
+   if data.get('test_reference')!=reference or data.get('verified') is not True:raise ValueError('Verification must bind the exact test execution')
+   event=c.execute("SELECT result FROM mission_events WHERE mission=? AND id=? AND kind='authority_execution'",(self.m,reference)).fetchone()
+   if not event:raise ValueError('Native test execution absent')
+   observation=json.loads(event['result']);execution=observation.get('execution',{})
+   if observation.get('kind')!='test' or observation.get('before')!=observation.get('after') or execution.get('returncode')==0 or execution.get('output_truncated') or execution.get('stdout_model_excerpt') or execution.get('stderr_model_excerpt') or not test_not_loaded(execution):raise ValueError('Complete native evidence does not prove a pure loader failure')
+   prior=c.execute("SELECT id,result FROM mission_events WHERE mission=? AND kind='p2_test_classification_corrected' AND json_extract(result,'$.test_reference')=?",(self.m,reference)).fetchone()
+   if prior:return {**json.loads(prior['result']),'event':prior['id'],'cached':True}
+   corrections=[]
+   for row in c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=?',(self.m,)).fetchall():
+    result=json.loads(row['result']);related=str(result.get('failed_test_reference',''))==str(reference)
+    own=str(result.get('value',{}).get('reference',''))==str(reference)
+    if related:
+     counted=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_problem_counter' AND json_extract(result,'$.attempt')=? AND json_extract(result,'$.counter')='failed_cycles'",(self.m,row['id'])).fetchone()
+     if not counted or not result.get('failure_counted'):raise ValueError('Counted functional failure not established')
+     problem=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
+     if problem['failed_cycles']<1:raise ValueError('Qualified counter cannot become negative')
+     c.execute('UPDATE mission_problems_v2 SET failed_cycles=failed_cycles-1,misclassified_failed_cycles=misclassified_failed_cycles+1,infra_incidents=infra_incidents+1 WHERE mission=? AND fingerprint=?',(self.m,row['problem']))
+     corrections.append({'attempt':row['id'],'problem':row['problem'],'old_qualified_failed_cycles':problem['failed_cycles'],'new_qualified_failed_cycles':problem['failed_cycles']-1,'historical_total_preserved':problem['failed_cycles']+problem['misclassified_failed_cycles']})
+     result.update(verification_not_executed=True,failure_counted=False,misclassified_failure_verification=evidence)
+     c.execute("UPDATE mission_attempts_v2 SET state='VALIDATION_INCONCLUSIVE',unknown_outcome=0,result=?,updated=? WHERE id=?",(encoded(result),time.time(),row['id']))
+    elif own:
+     result.update(verification_not_executed=True,classification_verification=evidence)
+     if isinstance(result.get('value'),dict):result['value']={**result['value'],'test_executed':False,'classification_verification':evidence}
+     c.execute("UPDATE mission_attempts_v2 SET state='EXECUTION_FAILED',result=?,updated=? WHERE id=?",(encoded(result),time.time(),row['id']))
+   for problem in {row['problem'] for row in corrections}:
+    c.execute("UPDATE mission_problems_v2 SET state='OPEN' WHERE mission=? AND fingerprint=? AND failed_cycles<3 AND infra_incidents-infra_resolved_through<3 AND state IN ('BLOCKED','ESCALATED')",(self.m,problem))
+   result={'test_reference':reference,'verification_event':evidence,'test_execution_status':'NOT_EXECUTED','command_executed':True,'corrections':corrections,'original_events_preserved':True,'not_a_counter_reset':True}
+   result['event']=self.store.event(self.m,'p2_test_classification_corrected',actor='Codex',result=result,connection=c)
+   return result
  def resolve_infrastructure(self,problem,evidence):
   """Acknowledge verified infrastructure repair; never erase failures or unknown effects."""
   with self.store.db() as c:
@@ -39,7 +82,7 @@ class AttemptLedger:
     if type(ref) is not int or ref==evidence or not c.execute('SELECT id FROM mission_events WHERE mission=? AND id=?',(self.m,ref)).fetchone():raise ValueError('Repair evidence absent from this mission')
    p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,problem)).fetchone()
    if not p or p['failed_cycles']>=3:raise ValueError('Three functional failures remain escalated; infrastructure repair cannot reset them')
-   if c.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE'))",(self.m,problem)).fetchone():raise ValueError('Observe pending or unknown effects before infrastructure resolution')
+   if c.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone():raise ValueError('Observe pending or unknown effects before infrastructure resolution')
    c.execute("UPDATE mission_problems_v2 SET infra_resolved_through=infra_incidents,state='RESOLVED' WHERE mission=? AND fingerprint=?",(self.m,problem))
    return self.store.event(self.m,'p2_infrastructure_resolution',actor='JARVIS-engine',result={'problem':problem,'verification_event':evidence,'infra_incidents':p['infra_incidents'],'infra_resolved_through':p['infra_incidents'],'failed_cycles':p['failed_cycles'],'old_attempts_and_totals_unchanged':True},connection=c)
  def problem(self,scope,descriptor):
@@ -62,7 +105,7 @@ class AttemptLedger:
     event=self.store.event(self.m,'p2_attempt_rejected',actor='JARVIS-engine',result={'problem':problem,'operation_key':key,'reason':'three failed cycles/incidents; no autonomous fourth','failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents']},connection=c)
     return {'blocked':True,'state':p['state'],'event':event,'problem':problem}
    same=same or c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND signature=?',(self.m,problem,signature)).fetchone()
-   pending=c.execute("SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE'))",(self.m,problem)).fetchone()
+   pending=c.execute("SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone()
    if pending:return {'requires_observation':True,'attempt':pending['id'],'state':pending['state'],'problem':problem}
    if same:
     repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,problem,same['updated'])).fetchone() if same['state']=='NOT_EXECUTED' and p['state']=='RESOLVED' else None

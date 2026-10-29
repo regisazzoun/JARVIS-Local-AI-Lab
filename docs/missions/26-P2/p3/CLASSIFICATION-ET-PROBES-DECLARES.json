@@ -1,0 +1,73 @@
+{
+  "classification_events": [
+    76120,
+    76122,
+    76124
+  ],
+  "corrected_counted_cycles": 2,
+  "qualified_failed_cycles": 1,
+  "misclassified_failed_cycles": 2,
+  "historical_total_preserved": 3,
+  "nonexecuted_test_references": [
+    75391,
+    75908,
+    76001
+  ],
+  "capability_control_event": 76130,
+  "controls": [
+    {
+      "executor": "Dell1",
+      "native_invocation": "239a72c5b6c843e5b1ed756ff40d5895",
+      "observed_returncode": 0,
+      "actual_cases": 4,
+      "test_source_guard": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+      "operator": "Codex capability check, not JARVIS declared-probe execution"
+    },
+    {
+      "executor": "Dell2",
+      "native_invocation": "4ac629b07868437fad42ae6b4798d30b",
+      "observed_returncode": 0,
+      "actual_cases": 4,
+      "test_source_guard": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de",
+      "operator": "Codex capability check, not JARVIS declared-probe execution"
+    }
+  ],
+  "infrastructure_resolution": 76132,
+  "preflight": 76144,
+  "request_bytes": 19164,
+  "input_budget": 27648,
+  "software_tests_passed": 164,
+  "probe_contracts": {
+    "coverage-core": {
+      "author": "Codex independent regression",
+      "description": "Four actual-module checks: small input, five long outcomes, uncovered outcome, indivisible input",
+      "argv": [
+        "python3",
+        "/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine/tests/coverage_budget_probe.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine:/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine/tests"
+      },
+      "sources": {
+        "/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine/tests/coverage_budget_probe.py": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de"
+      }
+    },
+    "coverage-variable": {
+      "author": "Codex independent regression",
+      "description": "Two requirements of15000 then18000bytes each must be reviewed in bounded calls; immutable original fixture and actual application/guard",
+      "argv": [
+        "python3",
+        "-c",
+        "from coverage_budget_probe import CoverageBudgetProbe; c=CoverageBudgetProbe(); c.exercise(2,15000); c.exercise(2,18000); print(\"VARIABLE_INPUTS_PASS\")"
+      ],
+      "env": {
+        "PYTHONPATH": "/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine:/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine/tests"
+      },
+      "sources": {
+        "/opt/jarvis-lab/mission26-phase2/p3-bounded-review/engine/tests/coverage_budget_probe.py": "1deeed02bc6cdf8e4fa4107a9873c37ecba3ad6393176928b67b6b728b25d1de"
+      }
+    }
+  },
+  "agent_results_not_yet_received": true,
+  "no_genuine_functional_failure_removed": true
+}
