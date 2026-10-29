@@ -1,0 +1,18 @@
+# Merge into the EXISTING Open WebUI compose service; keep image, volume and secret.
+# This is a fragment, not a second application deployment.
+services:
+  open-webui:
+    environment:
+      OLLAMA_BASE_URL: http://192.168.1.75:11435
+      OLLAMA_BASE_URLS: http://127.0.0.1:11434;http://192.168.1.75:11435
+      WEBUI_URL: https://jarvis-macmini.tail805e83.ts.net
+      CORS_ALLOW_ORIGIN: http://192.168.1.99:3000;http://127.0.0.1:3000;http://127.0.0.1:8088;http://100.74.214.86;http://jarvis-macmini.tail805e83.ts.net;https://jarvis-macmini.tail805e83.ts.net
+      AUDIO_STT_ENGINE: openai
+      AUDIO_STT_OPENAI_API_BASE_URL: http://127.0.0.1:8092/v1
+      AUDIO_STT_OPENAI_API_KEY: ${QWEN_ADAPTER_KEY}
+      AUDIO_STT_MODEL: whisper-small
+      AUDIO_TTS_ENGINE: openai
+      AUDIO_TTS_OPENAI_API_BASE_URL: http://127.0.0.1:8092/v1
+      AUDIO_TTS_OPENAI_API_KEY: ${QWEN_ADAPTER_KEY}
+      AUDIO_TTS_MODEL: piper
+      AUDIO_TTS_VOICE: fr_FR-tom-medium

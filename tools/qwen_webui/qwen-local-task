@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /home/adminjarvis/.local/bin/qwen-local --output-format stream-json -p "$1"

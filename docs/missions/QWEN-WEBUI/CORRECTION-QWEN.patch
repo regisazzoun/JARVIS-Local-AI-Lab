@@ -1,0 +1,8 @@
+diff --git a/prices.py b/prices.py
+index ff03b72..9d5cff7 100644
+--- a/prices.py
++++ b/prices.py
+@@ -1,2 +1,2 @@
+ def total_cents(prices):
+-    return sum(prices) + 1
++    return sum(prices)

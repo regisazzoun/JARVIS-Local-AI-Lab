@@ -1,3 +1,9 @@
+## Qwen Code / Open WebUI / Apache / Tailscale — 29 octobre 2026
+
+**🟡 Incomplet : fonctions locales reçues, HTTPS tailnet bloqué.** Open WebUI existant conservé, Apache installé sur loopback8088, accès HTTP privé Tailscale vérifié depuis Dell1. Qwen Code0.26.4 utilise réellement le80B existant duDell1 : correction source et3testsPASS, déclenchement depuis une conversation Chromium. Whisper/Piper raccordés ; neuf conversations historiques identiques. HTTPS/Serve nécessite une activation dans le compte Tailscale ; microphone distant/Safari/iPhone non testés. Aucun remplacement deJL03 ni nouvelle mémoire canonique. [Rapport et preuves](docs/missions/QWEN-WEBUI/RAPPORT-FINAL.md), branche `codex/qwen-code-openwebui-apache-tailscale`, aucune fusion automatique.
+
+**M26-P4 reste en pause propriétaire**, état interrompu et maintien du MANUAL-HOLD ; cette nouvelle mission ne la relance pas. Les mentions d'activité P4 ci-dessous sont historiques.
+
 ## Surveillance des plantages et blocages — 29 octobre 2026
 
 Contrôle de santé systemd installé toutes les60secondes, activé après reboot,

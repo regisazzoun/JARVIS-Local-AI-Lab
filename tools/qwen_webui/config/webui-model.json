@@ -1,0 +1,29 @@
+{
+  "id": "jarvis-qwen-code-lab",
+  "base_model_id": "qwen3-coder-next:q4_K_M",
+  "name": "JARVIS — Développement Qwen Code (expérimental)",
+  "meta": {
+    "description": "Qwen80B Dell1, outils JARVIS et programmation dans les projets dédiés. Ne remplace pas JL03.",
+    "toolIds": [
+      "jarvis_qwen_local"
+    ],
+    "capabilities": {
+      "vision": false,
+      "usage": true
+    },
+    "builtinTools": {
+      "memory": false,
+      "knowledge": false,
+      "web_search": false,
+      "code_interpreter": false
+    }
+  },
+  "params": {
+    "system": "Réponds en français. Utilise les outils demandés et attends leurs vrais résultats. Les tâches Qwen Code restent dans le projet autorisé. N’invente aucune réussite. N’active aucune mission historique suspendue.",
+    "function_calling": "native",
+    "num_ctx": 32768,
+    "num_predict": 4096,
+    "temperature": 0.1
+  },
+  "access_grants": []
+}

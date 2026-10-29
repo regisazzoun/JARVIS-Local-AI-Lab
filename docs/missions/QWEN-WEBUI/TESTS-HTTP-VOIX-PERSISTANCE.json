@@ -1,0 +1,64 @@
+{
+  "audio_after_container_recreation": {
+    "stt_engine": "openai",
+    "tts_engine": "openai",
+    "stt_base": "http://127.0.0.1:8092/v1",
+    "tts_base": "http://127.0.0.1:8092/v1"
+  },
+  "speech_transcription": {
+    "text": "Bonjour, le test vocal jarvis est opérationnel.",
+    "filename": "8a50b29d-f2c2-4f9f-9197-7e5f791b17af.mp3"
+  },
+  "reboot_OS": "NOT_EXECUTED: preserve active unrelated services",
+  "HTTPS_certificate_browser": "NOT_EXECUTED: tailnet HTTPS/Serve disabled",
+  "data_preserved": {
+    "users_before": 1,
+    "users_after": 1,
+    "original_chats": 9,
+    "new_total_chats": 10,
+    "original_chats_identical": true
+  },
+  "speech_audio": {
+    "format": "MP3 (conversion by existing Open WebUI backend)",
+    "bytes": 31782,
+    "sha256": "b1b108f872308db265ea904faea0864b205113f1db80d9826980cb798d1f4a8b"
+  },
+  "conversation_80B": {
+    "id": "qwen3-coder-next:q4_K_M-27ccb647-cbb3-4f9d-9568-d61530b0aeda",
+    "created": 1793300165,
+    "model": "qwen3-coder-next:q4_K_M",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "CONVERSATION_LOCALE_OK"
+        }
+      }
+    ],
+    "object": "chat.completion",
+    "usage": {
+      "input_tokens": 20,
+      "output_tokens": 7,
+      "total_tokens": 27,
+      "prompt_tokens": 20,
+      "completion_tokens": 7,
+      "response_token/s": 85.8,
+      "prompt_token/s": 167.37,
+      "total_duration": 478814495,
+      "load_duration": 5377792,
+      "prompt_eval_count": 20,
+      "prompt_eval_duration": 119496000,
+      "eval_count": 7,
+      "eval_duration": 81586000,
+      "approximate_total": "0h0m0s",
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    }
+  }
+}

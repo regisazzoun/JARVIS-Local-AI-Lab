@@ -1,0 +1,30 @@
+{
+  "time": "2026-10-29T18:59:11.976596+00:00",
+  "operator": "Codex",
+  "commands": {
+    "versions": {
+      "returncode": 0,
+      "stdout": "apache2\t2.4.69-1~deb13u1\n",
+      "stderr": ""
+    },
+    "serve": {
+      "returncode": 0,
+      "stdout": "{\n  \"TCP\": {\n    \"80\": {\n      \"HTTP\": true\n    }\n  },\n  \"Web\": {\n    \"jarvis-macmini.tail805e83.ts.net:80\": {\n      \"Handlers\": {\n        \"/\": {\n          \"Proxy\": \"http://127.0.0.1:8088\"\n        }\n      }\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    "services": {
+      "returncode": 0,
+      "stdout": "Id=apache2.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-qwen-guard.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-webui-tools.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-open-webui.service\nActiveState=active\nSubState=exited\nUnitFileState=enabled\n\nId=jarvis-conversation.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-host-bridge.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-launcher3.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-mission-worker.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n\nId=jarvis-mission-worker@2.service\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+      "stderr": ""
+    },
+    "pause": {
+      "returncode": 1,
+      "stdout": "disabled\n",
+      "stderr": ""
+    }
+  },
+  "manual_hold_exists": true,
+  "node_system": "v20.19.2",
+  "node_experimental": "v22.23.4",
+  "qwen_code": "0.26.4"
+}
