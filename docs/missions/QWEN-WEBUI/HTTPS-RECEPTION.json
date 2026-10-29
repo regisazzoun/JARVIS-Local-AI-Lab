@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-29T21:43:11.547331+00:00",
+  "operator": "Codex",
+  "owner_observation": "HTTPS fonctionne; lever la réserve",
+  "checks": {
+    "serve": {
+      "returncode": 0,
+      "stdout": "{\n  \"TCP\": {\n    \"443\": {\n      \"HTTPS\": true\n    },\n    \"80\": {\n      \"HTTP\": true\n    }\n  },\n  \"Web\": {\n    \"jarvis-macmini.tail805e83.ts.net:443\": {\n      \"Handlers\": {\n        \"/\": {\n          \"Proxy\": \"http://127.0.0.1:8088\"\n        }\n      }\n    },\n    \"jarvis-macmini.tail805e83.ts.net:80\": {\n      \"Handlers\": {\n        \"/\": {\n          \"Proxy\": \"http://127.0.0.1:8088\"\n        }\n      }\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    "https": {
+      "returncode": 0,
+      "stdout": "{\"version\":\"0.12.0\",\"deployment_id\":\"\"}\nHTTP=200 TLS_VERIFY=0\n",
+      "stderr": ""
+    }
+  },
+  "browser": {
+    "browser": "Chromium headless, normal certificate checks",
+    "status": 200,
+    "url": "https://jarvis-macmini.tail805e83.ts.net/auth?redirect=%2F",
+    "secure_context": true,
+    "media_devices_api": true,
+    "physical_microphone_tested": false
+  },
+  "remote_dell1": {
+    "operator": "Codex via existing SSH profile",
+    "returncode": 0,
+    "stdout": "{\"version\":\"0.12.0\",\"deployment_id\":\"\"}\nHTTP=200 TLS_VERIFY=0\n",
+    "stderr": ""
+  }
+}

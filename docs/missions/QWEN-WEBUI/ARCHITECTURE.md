@@ -2,8 +2,7 @@
 
 ```mermaid
 flowchart LR
-  U[Équipement autorisé du tailnet] --> T[Tailscale Serve privé HTTP :80]
-  H[HTTPS :443 — activation du tailnet manquante] -.-> T
+  U[Équipement autorisé du tailnet] --> T[Tailscale Serve privé HTTPS :443 et HTTP :80]
   T --> A[Apache 127.0.0.1:8088]
   A --> W[Open WebUI existant 192.168.1.99:3000]
   W --> O[Ollama Mac :11434 / Dell1 :11435]
@@ -14,7 +13,7 @@ flowchart LR
   G --> D[Ollama missions Dell1 :11435 / Qwen80B]
 ```
 
-Apache est un reverse proxy, pas le serveur applicatif Python. Il écoute seulement sur loopback. Tailscale publie ce listener dans le tailnet, sans Funnel. Les connexions WebSocket sont transférées par `proxy_http`/`upgrade=websocket`; le streaming SSE est conservé. Le certificat HTTPS ne peut pas être reçu actuellement : la fonction correspondante est désactivée dans le compte Tailscale. Aucun certificat auto-signé n'est présenté comme accepté.
+Apache est un reverse proxy, pas le serveur applicatif Python. Il écoute seulement sur loopback. Tailscale publie ce listener dans le tailnet, sans Funnel. Les connexions WebSocket sont transférées par `proxy_http`/`upgrade=websocket`; le streaming SSE est conservé. HTTPS est reçu après activation extérieure : HTTP200/TLS0 sur Mac et Dell1, Chromium en contexte sécurisé avec contrôle normal du certificat. Les preuves sont dans HTTPS-RECEPTION.json ; l'ancien blocage est conservé dans l'instantané initial du rapport.
 
 Open WebUI conserve son conteneur, son image épinglée et le volume `jarvis-open-webui-data`. Le fragment de configuration complète le compose existant. Les API de modèles comprennent le Mac et le service de missions Dell1 déjà déployé sur11435. Le service historique11434 du Dell n'est pas arrêté. La première tentative Qwen Code l'avait sollicité et créé un runner CPU4096 inutile : cette tentative est conservée, interrompue, puis seule sa résidence est libérée après arrêt.
 

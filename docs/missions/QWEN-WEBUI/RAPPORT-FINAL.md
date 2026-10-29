@@ -1,5 +1,27 @@
 # Réception — Qwen Code / Open WebUI / Apache / Tailscale
 
+## Actualisation du 29 octobre 2026 — réserve HTTPS levée
+
+**✅🟡 GO avec réserves.** Le propriétaire signale HTTPS fonctionnel. Codex vérifie
+ensuite HTTP200 et validation TLS0, sans ignorer les certificats, sur le Mac et
+réellement depuis Dell1. Chromium ouvre l'interface avec les contrôles de certificat
+normaux : `isSecureContext=true`, API `mediaDevices` disponible. Accès actuel :
+**https://jarvis-macmini.tail805e83.ts.net/**, privé au tailnet.
+[Preuves indépendantes](HTTPS-RECEPTION.json).
+
+L'activation HTTPS est constatée après intervention extérieure ; elle n'est pas
+attribuée à Codex. Aucune configuration ni aucun service n'est modifié par cette
+levée de réserve. Les accès HTTP existants restent présents. Le microphone physique,
+Safari/iPhone, le reboot complet et les limites de finalisation Qwen Code restent
+les réserves déjà documentées. La disponibilité de l'API micro ne prouve pas une
+capture acoustique. M26-P4 reste en pause ; aucune fusion automatique.
+
+## Instantané initial conservé — avant activation HTTPS
+
+Le texte ci-dessous conserve la réception initiale et ses réserves à cette date ;
+les mentions «HTTPS bloqué/non reçu» sont désormais historiques et remplacées
+uniquement pour ce critère par l'actualisation ci-dessus.
+
 **29 octobre2026 — 🟡 INCOMPLET : fonctions locales et accès tailnet HTTP démontrés ; HTTPS et microphone distant non reçus.** Le blocage restant dépend de l'activation HTTPS/Serve dans le compte Tailscale existant. L'installation n'attend aucune nouvelle approbation de mission ; le client réclame une action administrateur externe dont Codex n'a pas la session authentifiée. Aucun certificat accepté n'est inventé.
 
 ## Résultats livrés

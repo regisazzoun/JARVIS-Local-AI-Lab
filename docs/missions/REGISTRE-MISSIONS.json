@@ -2269,10 +2269,10 @@
   {
     "identifiant": "QWEN-WEBUI",
     "nom": "Qwen Code, Open WebUI, Apache et Tailscale",
-    "etat": "🟡 INCOMPLET — local/HTTP reçus, HTTPS externe non activé",
+    "etat": "✅🟡 GO avec réserves — HTTPS réceptionné",
     "executant_reel": "Codex infrastructure/contrôles ; Qwen Code80B Dell1 décide des corrections du projet Mac ; API JARVIS voix/missions réutilisées",
-    "resultats_prouves": "Login Chromium, conversation80B, proxy101/SSE, HTTPtailnetDell1, correction réelle3testsPASS, outil QwenCode déclenché depuis WebUI, Whisper/Piper et données conservés",
-    "reserves": "HTTPS/micro distant/Safari/iPhone non reçus ; rebootOS non exécuté ; première invocation outil arrêtée à12tours conservée",
+    "resultats_prouves": "Login Chromium, conversation80B, proxy101/SSE, HTTPtailnetDell1, correction réelle3testsPASS, outil QwenCode déclenché depuis WebUI, Whisper/Piper et données conservés ; HTTPS200/TLS0 Mac et Dell1, Chromium contexte sécurisé après activation extérieure",
+    "reserves": "Microphone physique/Safari/iPhone et rebootOS non testés ; finalisation générale QwenCode non garantie, essais arrêtés et correction ciblée conservés.",
     "documents_sources": [
       {
         "path": "docs/missions/QWEN-WEBUI/RAPPORT-FINAL.md",

@@ -2,9 +2,9 @@
 
 ## Accès disponible
 
-Depuis un équipement autorisé connecté à Tailscale : **http://jarvis-macmini.tail805e83.ts.net/**. Se connecter avec le compte Open WebUI existant. Le test distant Dell1 emploie `curl --resolve` pour isoler le transport ; MagicDNS/Safari/iPhone ne sont pas requalifiés par cet essai. L'accès historique LAN reste `http://192.168.1.99:3000`.
+Depuis un équipement autorisé connecté à Tailscale : **https://jarvis-macmini.tail805e83.ts.net/**. Se connecter avec le compte Open WebUI existant. Le test distant Dell1 emploie `curl --resolve` pour isoler le transport ; MagicDNS/Safari/iPhone ne sont pas requalifiés par cet essai. L'accès historique LAN reste `http://192.168.1.99:3000`.
 
-L'URL cible **https://jarvis-macmini.tail805e83.ts.net/** reste non opérationnelle tant que HTTPS/Serve n'est pas activé dans l'administration du tailnet existant. Le client a fourni son lien d'activation, conservé dans les traces privées. Après activation, exécuter `tools/qwen_webui/enable_tailnet_https.sh` ; il vérifie le certificat avec le magasin système avant de retirer HTTP. Ne pas activer Funnel. Le microphone sur une URL distante HTTP n'est pas réceptionné ; son accès navigateur exige HTTPS.
+HTTPS est désormais reçu : HTTP200 et certificat valide sur Mac/Dell1 ; Chromium ouvre l'interface en contexte sécurisé. Voir [preuves](HTTPS-RECEPTION.json). Les accès HTTP historiques restent disponibles ; privilégier HTTPS. L'API microphone est accessible en contexte sécurisé, mais aucun essai physique Safari/iPhone/microphone n'est déduit de ce contrôle. Le script de bascule est conservé pour la reproduction ; l'activation du compte n'est plus une dépendance ouverte.
 
 Dans Open WebUI, choisir **JARVIS — Développement Qwen Code (expérimental)**. Le profil utilise le80B existant, sans téléchargement de poids. Demander par exemple : « Utilise qwen_code pour lire prices.py et exécuter python3 -m unittest -v dans le projet acceptance ; ne modifie aucun fichier. » Les outils de consultation et de création de mission canonique sont également disponibles. Ne pas demander la reprise d'une ancienne mission suspendue par inadvertance.
 
