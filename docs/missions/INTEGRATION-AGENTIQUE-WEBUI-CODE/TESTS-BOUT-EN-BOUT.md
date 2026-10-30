@@ -40,3 +40,9 @@ Le premier essai de14avances a affirmé terminer alors que13seulement étaient p
 ## Restitution finale WebUI
 
 Après clôture, un nouveau parcours Chromium authentifié sur le profil27B a fait appeler réellement `jarvis_missions read`. Le fil affiche `completed`, `T1 validated` et le SHA256 exact du rapport. Les quatre contrôles de contenu sont vrais ; [preuve de restitution](WEBUI-RESTITUTION-SONDE.json), sorties et capture originales privées. Aucune nouvelle mission créée par cette lecture.
+
+## Isolation des profils et disponibilité après recharge
+
+Le profil standard conserve les contrats plats, les contrôles de revue et la finalisation factuelle générale, sans imposer le compositeur limité aux reçus systemd. Les options de composition de service et FACTS_ONLY sont appliquées seulement au profil explicite `service_observation` (`f66b0c8`). Les tests refusent la contamination du profil standard ; la configuration du profil service actuel correspond à celle de la sonde reçue. Aucune mission historique n’est réécrite.
+
+Un lancement de la suite vivante immédiatement après le dernier redémarrage de l’adaptateur a rencontré trois refus de connexion pendant son initialisation ; l’original `live-tests-immediate-restart.log` reste conservé. Après disponibilité réelle, les cinq contrôles repassent PASS. Cet incident de démarrage n’est ni un test fonctionnel exécuté puis échoué ni un résultat masqué.

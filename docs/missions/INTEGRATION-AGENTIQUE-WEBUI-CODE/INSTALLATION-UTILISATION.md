@@ -44,3 +44,5 @@ La création depuis les clients sélectionne les contrats plats et la restitutio
 Le garde actif utilise `/opt/jarvis/inference-gateway/optimisation_interconnexions/inference_gateway.py`, avec le relais sous `/opt/jarvis/inference-gateway/qwen_webui/ollama_guard.py`. L’adaptateur actif est `/opt/jarvis/webui-tools/webui_adapter.py`. Les services n’utilisent plus les fichiers du worktree de développement pour ces deux composants. Identités et contrôles : [DEPLOIEMENT.json](DEPLOIEMENT.json).
 
 Le complément de correction0ad2e8c déploie aussi `jarvis/durable_cycle.py`. Sa sauvegarde privée est `durable_cycle.before-observation-recovery.py` ; retour arrière par restauration de ce seul fichier puis recharge des workers sans mission active. La réception de la même sonde après correction figure dans `CORRECTION-VERIFICATION-PENDANTE.md`.
+
+Le compositeur de relevé systemd est réservé au profil `service_observation` ; il n’est pas imposé aux objectifs généraux du profil standard. Après une recharge systemd, attendre que le port applicatif réponde avant les contrôles HTTP : l’état active du processus ne garantit pas la fin de son initialisation.

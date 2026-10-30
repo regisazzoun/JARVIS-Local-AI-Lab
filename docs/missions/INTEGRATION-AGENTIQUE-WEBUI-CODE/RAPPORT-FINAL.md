@@ -27,7 +27,7 @@ GitHub a été utilisé réellement depuis WebUI : lecture, recherche retournant
 
 Codex a développé/installé les adaptateurs, contrats, correctifs et fixtures ; il a effectué les contrôles indépendants et les reprises assistées explicitement tracées. JARVIS a choisi et appelé les outils depuis WebUI et le moteur ; Qwen Code a effectué la correction source et les commandes MCP distantes observées. Le manifeste final Dell2 a été réalisé par JARVIS via l’outil distant, pas par Code. Les tableaux déterministes restent attribués au moteur. Voir [ATTRIBUTION.md](ATTRIBUTION.md).
 
-Sources : `40196e9`, `c9843d2` et `0ad2e8c`, sur `codex/integration-agentique-webui-qwen-code`, à la suite de PR34. Publication sans fusion automatique dans main. La pause propriétaire de M26-P4 et son MANUAL-HOLD sont conservés ; aucun modèle téléchargé, déplacé ou supprimé.
+Sources : `40196e9`, `c9843d2`, `0ad2e8c` et `f66b0c8`, sur `codex/integration-agentique-webui-qwen-code`, à la suite de PR34. Publication sans fusion automatique dans main. La pause propriétaire de M26-P4 et son MANUAL-HOLD sont conservés ; aucun modèle téléchargé, déplacé ou supprimé.
 
 Directives effectivement consultées : AGENTS.md, charte, SUIVI/ROADMAP et états documentés référencés dans le diagnostic ; configurations et journaux actifs contrôlés. Autorisations d’intégration préservées ; aucune validation intermédiaire ajoutée. L’authentification Google est une dépendance technique de compte, pas une approbation de travaux déjà autorisés.
 
