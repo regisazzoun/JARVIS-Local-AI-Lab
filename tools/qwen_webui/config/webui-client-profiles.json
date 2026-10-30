@@ -1,0 +1,87 @@
+[
+  {
+    "id": "jarvis-tools-conversation",
+    "name": "JARVIS — Conversation et outils",
+    "base_model_id": "qwen3.5:27b-q4_K_M",
+    "params": {
+      "system": "Réponds en français. Tu disposes des outils structurés JARVIS réellement exposés. Pour une opération utilise jarvis_catalog puis jarvis_schema puis jarvis_call et attends les résultats. Ne simule jamais ask_user en JSON texte. Ne crée une mission que sur demande explicite, ne relance aucune mission suspendue. Un reçu ne prouve pas la justesse du résultat. Précise les échecs et limites de l’opération demandée. Ne parle du raccordement Google que si Google est concerné. Les opérations suivent la politique du broker existant.",
+      "function_calling": "native",
+      "num_ctx": 16384,
+      "num_predict": 2048,
+      "think": false,
+      "temperature": 0.1
+    },
+    "meta": {
+      "background_image_url": null,
+      "description": "Qwen27B Mac mini et accès aux capacités canoniques JARVIS. Google nécessite le raccordement du compte.",
+      "i18n": null,
+      "capabilities": {
+        "builtin_tools": false
+      },
+      "knowledge": null,
+      "voice": null,
+      "voice_avatar": null,
+      "toolIds": [
+        "jarvis_capabilities"
+      ],
+      "builtinTools": {
+        "memory": false,
+        "knowledge": false,
+        "web_search": false,
+        "code_interpreter": false,
+        "user_input": false
+      }
+    },
+    "access_grants": [],
+    "is_active": true
+  },
+  {
+    "id": "jarvis-qwen-code-lab",
+    "name": "JARVIS — Développement Qwen Code (expérimental)",
+    "base_model_id": "qwen3-coder-next:q4_K_M",
+    "params": {
+      "system": "Réponds en français. Utilise les outils demandés et attends leurs vrais résultats. Les tâches Qwen Code restent dans le projet autorisé. N’invente aucune réussite. N’active aucune mission historique suspendue.",
+      "function_calling": "native",
+      "num_ctx": 32768,
+      "num_predict": 4096,
+      "temperature": 0.1
+    },
+    "meta": {
+      "background_image_url": null,
+      "description": "Qwen80B Dell1, outils JARVIS et programmation dans les projets dédiés. Ne remplace pas JL03.",
+      "i18n": null,
+      "capabilities": {
+        "vision": false,
+        "usage": true,
+        "builtin_tools": false
+      },
+      "knowledge": null,
+      "voice": null,
+      "voice_avatar": null,
+      "toolIds": [
+        "jarvis_capabilities"
+      ],
+      "builtinTools": {
+        "automations": false,
+        "calendar": false,
+        "channels": false,
+        "chats": false,
+        "code_interpreter": false,
+        "files": false,
+        "image_generation": false,
+        "knowledge": false,
+        "memory": false,
+        "notes": false,
+        "notifications": false,
+        "skills": false,
+        "subagents": false,
+        "tasks": false,
+        "time": false,
+        "user_input": false,
+        "web_search": false
+      }
+    },
+    "access_grants": [],
+    "is_active": true
+  }
+]

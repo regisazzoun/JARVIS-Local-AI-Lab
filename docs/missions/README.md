@@ -1,3 +1,7 @@
+## Intégration WebUI / Qwen Code — 30 octobre2026
+
+[Rapport](INTEGRATION-AGENTIQUE-WEBUI-CODE/RAPPORT-FINAL.md) · [preuves](INTEGRATION-AGENTIQUE-WEBUI-CODE/PREUVES-JARVIS.json) · [Google](INTEGRATION-AGENTIQUE-WEBUI-CODE/GOOGLE-RACCORDEMENT.md). Connecteurs déployés avec réserves ; réception globale incomplète, Google à connecter ; sonde native clôturée après correction structurelle et reprise assistée. Les réceptions historiques restent conservées.
+
 ## Mission27 — JL-03, livraison24octobre2026
 
 [Rapport de réception](27-JL-03/RAPPORT-FINAL.md) · [Attribution](27-JL-03/ATTRIBUTION-CODEX-JARVIS.md) · [Preuves](27-JL-03/PREUVES-INDEX.json) · [Sources indépendantes](https://github.com/regisazzoun/JARVIS-Launcher3/tree/codex/mission-27-jl03). Référence pour **00 — Pilotage général**. Réception techniqueGOavec réserves ; développement autonome sans assistance non reçu.

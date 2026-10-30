@@ -3,11 +3,14 @@
 No scheduler, model weights, or second canonical memory are created here.
 Qwen Code runs one bounded specialist call at a time in dedicated projects.
 """
-import sqlite3, datetime, email, email.policy, hashlib, http.cookiejar, json, os, re, secrets, subprocess, threading, time, urllib.request, urllib.error
+import sqlite3, datetime, email, email.policy, hashlib, http.cookiejar, json, os, re, secrets, subprocess, threading, time, urllib.request, urllib.error, sys, signal
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+sys.path.insert(0,'/opt/jarvis/conversation')
+from jarvis.client_capabilities import Capabilities
 PRIVATE=Path('/home/adminjarvis/JARVIS/qwen-code-openwebui-private')
 PROJECTS=Path('/home/adminjarvis/JARVIS/qwen-code-projects')
+SHARED_PROJECTS=Path('/var/lib/jarvis/projects/qwen-code')
 KEY=(PRIVATE/'adapter-key').read_text().strip()
 LOCK=threading.Lock()
 class Jarvis:
@@ -38,6 +41,7 @@ class Handler(BaseHTTPRequestHandler):
         if self.path=='/health':self.send({'status':'ok','canonical':'JARVIS existing API'});return
         self.send({'error':'not found'},404)
     def do_POST(self):
+        dispatch_possible=False
         if not secrets.compare_digest(self.headers.get('Authorization',''),'Bearer '+KEY):self.send({'error':'unauthorized'},401);return
         n=int(self.headers.get('Content-Length','0'))
         if self.headers.get('Transfer-Encoding','').lower()=='chunked':
@@ -63,6 +67,20 @@ class Handler(BaseHTTPRequestHandler):
                 if len(parts)!=1:raise ValueError('one audio file required')
                 result=json.loads(J.request('/api/stt',parts[0].get_payload(decode=True),True));self.send({'text':result.get('text',result.get('transcription',''))});return
             d=json.loads(raw)
+            if self.path.startswith('/tools/capabilities/'):
+                api=Capabilities(origin='OpenWebUI')
+                operation=self.path.rsplit('/',1)[-1]
+                if operation=='catalog':result=api.catalog(d.get('query',''),d.get('offset',0))
+                elif operation=='schema':result=api.schema(d['name'])
+                elif operation=='call':
+                    dispatch_possible=True
+                    result=api.call(d['name'],d.get('arguments',{}),d.get('request_id'))
+                elif operation=='receipt':result=api.receipt(d['id'],d.get('offset',0),d.get('limit',3000))
+                elif operation=='missions':
+                    dispatch_possible=d.get('action')=='create'
+                    result=api.missions(d.get('action','list'),d.get('id'),d.get('goal'),d.get('after',0),d.get('profile','standard'))
+                else:raise ValueError('Unknown capabilities operation')
+                self.send(result);return
             if self.path=='/v1/audio/speech':self.send(J.request('/api/tts',{'text':d['input']}),mime='audio/wav');return
             if self.path=='/tools/missions':
                 result=json.loads(J.request('/api/missions'))
@@ -71,29 +89,62 @@ class Handler(BaseHTTPRequestHandler):
             if self.path=='/tools/jarvis_task':
                 goal=d['goal']
                 if not isinstance(goal,str) or not 1<=len(goal)<=2000:raise ValueError('goal length 1..2000')
+                dispatch_possible=True
                 result=json.loads(J.request('/api/missions',{'goal':goal,'model':'qwen3-coder-next:q4_K_M','project':'Qwen-WebUI','request_kind':'mission'}))
                 if not re.fullmatch('[0-9a-f]{32}',str(result.get('id',''))):
                     self.send({'error':'Invalid canonical mission receipt; inspect the registry before any resubmission','state':'UNKNOWN','created':None},502);return
                 self.send({'operation':'mission_create','created':True,**{k:result.get(k) for k in ['id','mission_id','conversation','state']}});return
+            if self.path=='/tools/qwen_code_status':
+                receipts=[]
+                for path in sorted(PRIVATE.glob('*-receipt.json'),reverse=True)[:5]:
+                    value=json.loads(path.read_text())
+                    row={k:value.get(k) for k in ('id','project','returncode','outcome','timed_out','seconds','validation')}
+                    with Capabilities().memory.connect() as database:
+                        audit=database.execute("SELECT id FROM audit WHERE operation='client_tool_result' AND json_extract(CASE WHEN json_valid(target) THEN target ELSE '{}' END,'$.result.result.id')=? ORDER BY id DESC LIMIT 1",(value.get('id'),)).fetchone()
+                    row['client_audit_id']=audit['id'] if audit else None
+                    receipts.append(row)
+                self.send({'busy':LOCK.locked(),'recent_receipts':receipts,'authority':'existing specialist process lock and persisted execution receipts; no new scheduler'});return
             if self.path!='/tools/qwen_code':self.send({'error':'not found'},404);return
             project=d.get('project','acceptance');task=d['task']
             if not re.fullmatch('[a-zA-Z0-9_-]{1,48}',project) or not isinstance(task,str) or not 1<=len(task)<=3000:raise ValueError('project identifier or task invalid')
-            wd=PROJECTS/project
-            if wd.is_symlink() or not wd.is_dir() or wd.resolve().parent!=PROJECTS.resolve():raise ValueError('existing dedicated project required')
+            namespace=d.get('namespace','legacy')
+            if namespace not in ('legacy','shared'):raise ValueError('unknown project namespace')
+            project_root=SHARED_PROJECTS if namespace=='shared' else PROJECTS
+            wd=project_root/project
+            if wd.is_symlink() or not wd.is_dir() or wd.resolve().parent!=project_root.resolve():raise ValueError('existing dedicated project required')
+            parent=d.get('parent_mission');parent_task=d.get('parent_task')
+            if parent:
+                api=Capabilities(mission=parent,task=parent_task)
+                if not parent_task or api.store.get(parent)['state']!='running':raise ValueError('active canonical parent task required')
             if not LOCK.acquire(False):self.send({'error':'Qwen Code busy; no duplicate dispatched'},409);return
             try:
                 ident=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%f')
                 out=PRIVATE/(ident+'.jsonl');err=PRIVATE/(ident+'.stderr')
                 before=subprocess.check_output(['git','rev-parse','HEAD'],cwd=wd,text=True).strip()
                 started=time.monotonic()
+                environment={**os.environ,'JARVIS_MCP_MISSION':parent or '', 'JARVIS_MCP_TASK':parent_task or ''}
+                timed_out=False
                 with out.open('w') as o,err.open('w') as e:
-                    run=subprocess.run(['/home/adminjarvis/.local/bin/qwen-local-task',task],cwd=wd,stdout=o,stderr=e,timeout=660)
+                    dispatch_possible=True
+                    run=subprocess.Popen(['/home/adminjarvis/.local/bin/qwen-local-task',task],cwd=wd,stdout=o,stderr=e,env=environment,start_new_session=True)
+                    try:run.wait(timeout=660)
+                    except subprocess.TimeoutExpired:
+                        timed_out=True
+                        os.killpg(run.pid,signal.SIGTERM)
+                        try:run.wait(timeout=5)
+                        except subprocess.TimeoutExpired:
+                            os.killpg(run.pid,signal.SIGKILL);run.wait()
                 diff=subprocess.check_output(['git','diff','--'],cwd=wd)
                 receipt={'id':ident,'actor':'Qwen Code','trigger':'Open WebUI tool','model':'qwen3-coder-next:q4_K_M','inference_machine':'Dell1','execution_machine':'Mac mini experimental workspace','project':project,'base_commit':before,'returncode':run.returncode,'seconds':round(time.monotonic()-started,2),'diff_sha256':hashlib.sha256(diff).hexdigest(),'trace':str(out),'trace_sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'validation':'NOT_INDEPENDENTLY_VALIDATED'}
-                lines=[json.loads(l) for l in out.read_text().splitlines() if l.startswith('{')]
+                receipt.update(trigger=d.get('trigger','Open WebUI tool'),namespace=namespace,parent_mission=parent,parent_task=parent_task,working_directory=str(wd),session_turn_limit=-1,job_wall_time_seconds=660)
+                receipt.update(timed_out=timed_out,outcome='UNKNOWN_OBSERVE_EFFECTS_BEFORE_RETRY' if timed_out else 'PROCESS_EXITED')
+                lines=[]
+                for line in out.read_text().splitlines():
+                    try:lines.append(json.loads(line))
+                    except ValueError:pass
                 receipt['result']=next((x for x in reversed(lines) if x.get('type')=='result'),{})
                 (PRIVATE/(ident+'-receipt.json')).write_text(json.dumps(receipt,indent=2)+'\n');self.send(receipt)
             finally:LOCK.release()
-        except (ValueError,KeyError) as e:self.send({'error':str(e),'status':'NOT_EXECUTED'},400)
-        except Exception as e:self.send({'error':str(e),'status':'NOT_VALIDATED'},502)
+        except (ValueError,KeyError) as e:self.send({'error':str(e),'status':'UNKNOWN_OBSERVE_BEFORE_RETRY' if dispatch_possible else 'NOT_EXECUTED'},400)
+        except Exception as e:self.send({'error':str(e),'status':'UNKNOWN_OBSERVE_BEFORE_RETRY' if dispatch_possible else 'NOT_VALIDATED'},502)
 if __name__=='__main__':ThreadingHTTPServer(('127.0.0.1',8092),Handler).serve_forever()

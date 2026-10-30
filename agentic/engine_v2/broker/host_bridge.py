@@ -166,8 +166,8 @@ print(json.dumps({'changed':updated!=body,'before_sha256':before,'after_sha256':
         return results
     if op=='host_github':
         repo=a['repository']; action=a['action']
-        if repo not in cfg['repositories'] and not (action in ('file','inspect','download','branches') and repo in cfg.get('read_repositories',[])):raise PermissionError('Dépôt hors politique')
-        if action in ('repositories','commits','verify_commit','prs','pr_status','diff','branch_create','push_tree','verify_tree','pull_request'):
+        if repo not in cfg['repositories'] and not (action in ('file','inspect','download','branches','search_code') and repo in cfg.get('read_repositories',[])):raise PermissionError('Dépôt hors politique')
+        if action in ('search_code','repositories','commits','verify_commit','prs','pr_status','diff','branch_create','push_tree','verify_tree','pull_request'):
             from github_connector import execute as github_execute
             return github_execute(a,cfg,run,sandbox,root_for)
         if action=='create':

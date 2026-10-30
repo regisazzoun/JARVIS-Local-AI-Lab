@@ -1,0 +1,40 @@
+{
+  "actor": "Codex independent direct file and runtime read",
+  "mission": "864da7c457ef4d82b0b284d9ceb30eeb",
+  "report_path": "/var/lib/jarvis/projects/mission26-phase2/reports/jarvis-conversation-status.md",
+  "report_sha256": "f49c7c435695198029b164ddf64776abd53e1785c17bd29c9c44e48d4c83ef96",
+  "report_author": "JARVIS-engine; Qwen selected receipts and invoked composer",
+  "checks": {
+    "file_matches_canonical_render": true,
+    "all_latest_references_present": true,
+    "receipt_count": 3,
+    "all_service_actions_read_only": true,
+    "native_report_verification_pass_event": 94067,
+    "model_chosen_calls": [
+      {
+        "service": "jarvis-conversation.service",
+        "action": "show",
+        "returncode": 0,
+        "reference": "013a3eb281bb4e25a98cebdf0d3b6bfd"
+      },
+      {
+        "service": "jarvis-conversation.service",
+        "action": "status",
+        "returncode": 0,
+        "reference": "6339983b35cf496c81a5209923eb091e"
+      },
+      {
+        "service": "jarvis-conversation.service",
+        "action": "is-active",
+        "returncode": 0,
+        "reference": "deed803b57cd4b639db758c6fc54d43f"
+      }
+    ]
+  },
+  "current_service_independent": {
+    "stdout": "active",
+    "returncode": 0
+  },
+  "comparison_scope": "Exact direct file versus original canonical receipt renderer, not an independent natural-language review algorithm",
+  "old_failures_preserved": true
+}

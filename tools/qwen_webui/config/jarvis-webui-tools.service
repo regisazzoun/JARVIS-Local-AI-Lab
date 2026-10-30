@@ -4,7 +4,7 @@ After=jarvis-conversation.service jarvis-qwen-guard.service
 [Service]
 User=adminjarvis
 WorkingDirectory=/home/adminjarvis/JARVIS/qwen-code-projects
-ExecStart=/usr/bin/python3 /home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/adapter.py
+ExecStart=/opt/jarvis/conversation/.venv/bin/python /opt/jarvis/webui-tools/webui_adapter.py
 Restart=on-failure
 RestartSec=3
 NoNewPrivileges=true

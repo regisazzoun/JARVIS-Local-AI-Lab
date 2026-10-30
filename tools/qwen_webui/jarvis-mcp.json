@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "jarvis": {
+      "command": "/opt/jarvis/conversation/.venv/bin/python",
+      "args": [
+        "-m",
+        "jarvis.client_mcp"
+      ],
+      "cwd": "/opt/jarvis/conversation",
+      "trust": true
+    }
+  }
+}

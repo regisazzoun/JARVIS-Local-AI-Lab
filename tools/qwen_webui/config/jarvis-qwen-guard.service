@@ -4,7 +4,7 @@ After=network-online.target
 Wants=network-online.target
 [Service]
 User=adminjarvis
-ExecStart=/usr/bin/python3 /home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/ollama_guard.py
+ExecStart=/opt/jarvis/conversation/.venv/bin/python /opt/jarvis/inference-gateway/optimisation_interconnexions/inference_gateway.py
 Restart=on-failure
 RestartSec=3
 NoNewPrivileges=true

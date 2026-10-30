@@ -1,0 +1,20 @@
+{
+  "actor": "Codex browser observation",
+  "model": "qwen3.5:27b-q4_K_M",
+  "profile": "jarvis-tools-conversation",
+  "real_authenticated_browser": true,
+  "mission": "864da7c457ef4d82b0b284d9ceb30eeb",
+  "checks": {
+    "mission_completed_visible": true,
+    "task_validated_visible": true,
+    "exact_report_hash_visible": true,
+    "native_tool_result_visible": true
+  },
+  "source_body_sha256": "2ee41d33b65a12685e062735a910a5decce2c8be4acddae5556fbc1e741d23b6",
+  "screenshot_sha256": "8cdbcd2607fbd790761d43474fd8abae40ad86bbd8e385b803a287f91224bddd",
+  "state": "completed",
+  "task_state": "validated",
+  "report_sha256": "f49c7c435695198029b164ddf64776abd53e1785c17bd29c9c44e48d4c83ef96",
+  "no_mission_started_by_this_read": true,
+  "scope": "Real rendered answer and tool invocation, not a simulated interface or API-only check"
+}

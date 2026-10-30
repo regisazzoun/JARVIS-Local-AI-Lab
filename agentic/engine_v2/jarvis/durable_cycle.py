@@ -666,6 +666,15 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                             messages[0]['content']+='\nPour cette photographie de services seulement, tu peux compléter les observations réellement manquantes avec host_service avant de corriger ton brouillon. Les observations déjà acquises restent disponibles ; aucune mutation de service n’est autorisée. Ce complément ne remplace pas la correction des affirmations refusées.'
                         available=core.tools.schemas()
                         schemas=[s for s in available if s['function']['name'] in allowed_report_tools]
+                        if pending_report['phase']=='verify' and json.loads(mission['spec']).get('read_only_service_snapshot'):
+                            # An INSUFFICIENT review is not a failed correction. Keep the
+                            # write protected, but let Qwen acquire missing runtime evidence.
+                            schemas=copy.deepcopy([s for s in available if s['function']['name'] in allowed_report_tools|{'host_service','mission_report_facts'}])
+                            for schema in schemas:
+                                if schema['function']['name']=='host_service':
+                                    schema['function']['parameters']['properties']['action']['enum']=['status','show','is-active','is-enabled']
+                            messages[0]['content']+='\nSi la vérification manque de reçus systemd, tu peux compléter les observations en lecture seule avec host_service puis consulter mission_report_facts et vérifier à nouveau. Une absence de reçu ne prouve ni une panne ni un blocage externe. Le brouillon reste non validé ; aucune écriture ou mutation de service à cette étape. Les compteurs et anciens résultats restent conservés.'
+                            store.event(ident,'report_observation_recovery_offered',task_id,'JARVIS-engine',result={'phase':'verify','read_only_actions':['status','show','is-active','is-enabled'],'write_still_protected':True,'counters_reset':False})
                         messages.append({'role':'user','content':'État réel du rapport de la tâche : '+encoded(pending_report)})
                         store.event(ident,'pending_report_verification_focus',task_id,'JARVIS-engine',result=pending_report)
                     elif facts_already_observed:

@@ -1,0 +1,22 @@
+{
+  "qwen_code_version": "0.26.4",
+  "source": "Installed settings schema and config loader: CLI ?? settings ?? -1",
+  "before_wrapper_sha256": "4e443986ebb85e8295be451f4b1f3ab38bb9e6d241ae3f36c286d1419d666e01",
+  "after_wrapper_sha256": "939a1636a42cc5b883a83dc8d135938309399d9b346c1e012956f6db11224bae",
+  "maxSessionTurns": -1,
+  "maxToolCalls": -1,
+  "goalMaxTurns": -1,
+  "goal_tools_no_longer_excluded": true,
+  "runtime_real_session_tests": {
+    "D_turns": 18,
+    "E_turns": 29,
+    "D_steps": 14,
+    "E_steps": 14,
+    "new_goal_session": "complete and re-read after reopen",
+    "complex_history_goal": "NOT_RECEIVED"
+  },
+  "existing_P2_counters_untouched": true,
+  "context_window_tokens": 32768,
+  "local_compaction_threshold": 0.18,
+  "bare_mode_settings_override_fixed": true
+}

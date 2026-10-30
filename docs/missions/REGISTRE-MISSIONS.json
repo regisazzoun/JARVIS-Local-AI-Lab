@@ -2353,5 +2353,27 @@
     "prochaine_action": "Conserver le mode factuel ; qualifier séparément toute nouvelle rédaction libre. P4 reste en pause propriétaire.",
     "derniere_actualisation": "2026-10-30",
     "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/34"
+  },
+  {
+    "identifiant": "INTEGRATION-AGENTIQUE-WEBUI-CODE-2026-10-30",
+    "nom": "Intégration agentique Open WebUI / Qwen Code",
+    "fonction_principale": "Exposer les outils canoniques et le spécialiste de programmation aux clients existants",
+    "objectifs": "Connecter WebUI/Code aux missions, Skills, broker, GitHub et Google ; corriger les plafonds et permissions Code",
+    "materiel": "Mac mini coordination ;80B Dell1 ;Dell1/Dell2 exécution SSH",
+    "composants": "Façade du registre existant, MCP stdio, adaptateur WebUI, relais Ollama et connecteur Google",
+    "executant_reel": "Codex développe et contrôle ;JARVIS appelle les outils ;Qwen Code corrige source et exécute tests locaux/distants ;manifeste finalDell2 parJARVIS",
+    "documents_sources": [
+      {
+        "path": "docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/integration-agentique-webui-qwen-code/docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/RAPPORT-FINAL.md"
+      }
+    ],
+    "etat": "GO avec réserves pour connecteurs ; réception globale incomplète",
+    "resultats_prouves": "93tests logiciels et5contrôles vivantsPASS ;sessions18/29tours et14étapes ;Goal simple clôturé/relu ;correction source et tests deuxDell ;GitHub lecture/publication viaSkill ;HTTPS et services actifs ;sonde de servicecompleted94109 après reprise assistée, troislectures réelles, rapportPASS et contrôle indépendant",
+    "reserves": "Google AUTH_REQUIRED ;plan initial imparfait et réception de sonde assistée, sans autonomie générale reçue ;Goal complexe et rédaction libre non reçus ;rechercheGitHub incomplète ;Apple/microphone/reboot non testés",
+    "dependances": "PR34 /55a1d06 ;modèles et bases existants ;code40196e9/c9843d2 /0ad2e8c",
+    "prochaine_action": "Raccorder OAuthGoogle avec le propriétaire puis recevoir ses accès ;qualifier séparément les plans et bilans libres complexes. Ne pas relancerP4.",
+    "derniere_actualisation": "2026-10-30",
+    "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/35"
   }
 ]

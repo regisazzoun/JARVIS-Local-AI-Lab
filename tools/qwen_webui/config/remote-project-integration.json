@@ -1,0 +1,12 @@
+{
+  "purpose": "Targeted addition to the two existing remote profiles; preserve all existing fields and credentials",
+  "profiles": ["dell-observe", "dell2"],
+  "project": "integration-agentique",
+  "project_exec_options": {
+    "root": "/opt/jarvis-lab/integration-agentique",
+    "gpu": false,
+    "root_readonly": true,
+    "transfer": true,
+    "transfer_local_root": "/var/lib/jarvis/projects/integration-agentique"
+  }
+}
