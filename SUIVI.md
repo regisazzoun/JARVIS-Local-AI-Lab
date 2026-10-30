@@ -1,3 +1,11 @@
+## Diagnostic des boucles IA — 30 octobre 2026
+
+**✅🟡 Correctifs déployés avec réserves ; rapport JARVIS ❌ NON VALIDÉ.** Même historique Qwen Code : ancien prompt répète, prompt court termine ; adaptation Ollama corrigée séparément. 185tests logiciels ciblés PASS. L’ancienne règle réinjectant tous les FAIL sans distinguer les SHA est corrigée ; l’identité réellement chargée étaitv2, pasv1 (erratum91407).
+
+JARVIS a produit son plan accepté et observé12noms d’unités :9sorties active,3inactive (codes0×9,3×2,4×1), avec diagnostic status distinct confirmant mdmonitor introuvable. Son rapport inverse encore3/4 ; contrôle indépendant92030/92031 FAIL,6échecs historiques dont3dans le segment courant, sonde interrompue/escaladée sans quatrième correction. La revue automatique reste INSUFFICIENT pour un segment trop volumineux. Quatre comparaisons courtes montrent des erreurs factuelles même en contexte neuf avec source officielle : aucun succès général de prose annoncé.
+
+[Rapport de réception](docs/missions/DIAGNOSTIC-BOUCLES-IA/RAPPORT-FINAL.md) · [Relevé factuel Codex](docs/missions/DIAGNOSTIC-BOUCLES-IA/RELEVE-FACTUEL-CODEX.md) · [Preuves](docs/missions/DIAGNOSTIC-BOUCLES-IA/VERIFICATION-INDEPENDANTE.json). Branche `codex/diagnostic-boucles-ia`, sur PR32 ; aucune fusion main. M26-P4 reste interrompue, MANUAL-HOLD conservé ; aucun modèle ni base remplacé. Services actifs et WebUI HTTPS200/TLS0 au contrôle.
+
 ## Audit et corrections des interconnexions IA — 29 octobre 2026
 
 **✅ Audit établi ; ✅🟡 corrections installées avec réserves.** [Bilan initial](docs/missions/AUDIT-INTERCONNEXIONS-IA/BILAN-ARCHITECTURAL.md), PR31, puis autorisation propriétaire de corriger. WebUI utilise désormais27B par défaut, avec fournisseurs disjoints ; API conversationnelle réparée sans relever la fenêtreMac ; appelsWebUI/Code surDell intégrés à l'admission canonique existante. Formulaire de choix testé,17tests logicielsPASS, données et poids conservés. [Réception des corrections](docs/missions/OPTIMISATION-INTERCONNEXIONS-IA/RAPPORT-FINAL.md).

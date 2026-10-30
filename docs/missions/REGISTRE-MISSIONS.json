@@ -2310,5 +2310,26 @@
       }
     ],
     "derniere_actualisation": "2026-10-29"
+  },
+  {
+    "identifiant": "DIAG-BOUCLES-IA-20261030",
+    "nom": "Diagnostic causal Qwen Code / JARVIS / adaptation Ollama",
+    "fonction_principale": "Isoler les boucles de finalisation et les erreurs de contexte, sans reprendre P4",
+    "objectifs": "Corriger les collisions de workflow et de preuves, distinguer génération modèle et défauts de transport",
+    "materiel": "Mac mini Debian ; inférence80B Dell1, modèle existant",
+    "composants": "Mission Engine/SQLite existants, Qwen Code0.26.4, Ollama0.40.3, relais8091",
+    "executant_reel": "Codex développe/audite ; Qwen Code corrige le programme ; JARVIS planifie/observe/écrit ses brouillons",
+    "documents_sources": [
+      {
+        "path": "docs/missions/DIAGNOSTIC-BOUCLES-IA/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/diagnostic-boucles-ia/docs/missions/DIAGNOSTIC-BOUCLES-IA/RAPPORT-FINAL.md"
+      }
+    ],
+    "etat": "✅🟡 Correctifs déployés avec réserves ; sonde incomplète, rapport NON VALIDÉ",
+    "resultats_prouves": "185testsPASS ; A/B Code et finalisations réelles ; plan JARVIS PASS ;12noms observés ; états négatifs conservés ; reprise et compteurs bornés avec historique ; services et HTTPS fonctionnels",
+    "reserves": "Prose JARVIS inverse3/4, comptages erronés dans les4comparaisons ; revue automatique du dernier rapport INSUFFICIENT pour capacité ; autonomie générale non reçue",
+    "dependances": "PR32, moteur canonique et outils existants ; aucun nouveau modèle",
+    "prochaine_action": "Concevoir une stratégie techniquement différente pour les affirmations factuelles ; ne pas répéter le rapport ou reprendre P4 automatiquement",
+    "derniere_actualisation": "2026-10-30"
   }
 ]

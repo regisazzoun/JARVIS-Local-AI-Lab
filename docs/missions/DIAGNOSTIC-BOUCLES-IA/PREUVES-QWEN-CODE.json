@@ -1,0 +1,285 @@
+{
+  "date": "2026-10-30T08:32:51.543868+00:00",
+  "scope": "Model decisions vs context vs Ollama adaptation; original probes retained; P4 not resumed",
+  "model": "qwen3-coder-next:q4_K_M",
+  "qwen_code": "0.26.4",
+  "ollama": "0.40.3",
+  "window": 32768,
+  "conservative_input_byte_limit": 27648,
+  "output_max": 4096,
+  "replays": {
+    "matrix": [
+      {
+        "variant": "legacy",
+        "prompt_tokens": 3925,
+        "output_tokens": 81,
+        "seconds": 1.2974012570921332,
+        "proposed_tools": [
+          "run_shell_command"
+        ],
+        "answer": "",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "named",
+        "prompt_tokens": 3925,
+        "output_tokens": 81,
+        "seconds": 1.383275211090222,
+        "proposed_tools": [
+          "run_shell_command"
+        ],
+        "answer": "",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "minimal",
+        "prompt_tokens": 3837,
+        "output_tokens": 87,
+        "seconds": 2.553856838028878,
+        "proposed_tools": [],
+        "answer": "Résultat de l'exécution des tests :\n\n```\ntest_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n```\n\nTous les 3 tests ont réussi avec succès.",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "named_minimal",
+        "prompt_tokens": 3837,
+        "output_tokens": 87,
+        "seconds": 1.339614467928186,
+        "proposed_tools": [],
+        "answer": "Résultat de l'exécution des tests :\n\n```\ntest_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n```\n\nTous les 3 tests ont réussi avec succès.",
+        "tools_executed_by_replay": false
+      }
+    ],
+    "ablation": [
+      {
+        "variant": "without_read_rule",
+        "prompt_tokens": 3918,
+        "output_tokens": 16,
+        "seconds": 7.501237715128809,
+        "proposed_tools": [],
+        "answer": "Ran 3 tests in 0.000s - OK",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "without_modification_rule",
+        "prompt_tokens": 3910,
+        "output_tokens": 81,
+        "seconds": 8.268071319209412,
+        "proposed_tools": [
+          "run_shell_command"
+        ],
+        "answer": "",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "without_stop_rule",
+        "prompt_tokens": 3886,
+        "output_tokens": 87,
+        "seconds": 8.892290556104854,
+        "proposed_tools": [],
+        "answer": "Résultat de l'exécution des tests :\n\n```\ntest_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n```\n\nTous les 3 tests ont réussi avec succès.",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "without_budget_rule",
+        "prompt_tokens": 3907,
+        "output_tokens": 81,
+        "seconds": 8.686303443042561,
+        "proposed_tools": [
+          "run_shell_command"
+        ],
+        "answer": "",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "minimal_safe",
+        "prompt_tokens": 3860,
+        "output_tokens": 87,
+        "seconds": 8.899393806001171,
+        "proposed_tools": [],
+        "answer": "Résultat de l'exécution des tests :\n\n```\ntest_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n```\n\nTous les 3 tests ont réussi avec succès.",
+        "tools_executed_by_replay": false
+      },
+      {
+        "variant": "positive_stop",
+        "prompt_tokens": 3902,
+        "output_tokens": 16,
+        "seconds": 7.908231519162655,
+        "proposed_tools": [],
+        "answer": "Ran 3 tests in 0.000s.\n\nOK",
+        "tools_executed_by_replay": false
+      }
+    ]
+  },
+  "end_to_end": [
+    {
+      "name": "baseline",
+      "exit": 0,
+      "turns": 2,
+      "seconds": 24.465,
+      "final": "3 tests réussis.",
+      "model_tool_calls": [
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        }
+      ],
+      "trace_sha256": "ec28ae949b95b70df916899f7f0134d81e053680d1375dad8a40d1d53d72cb7f"
+    },
+    {
+      "name": "original-prompt",
+      "exit": 53,
+      "turns": null,
+      "seconds": null,
+      "final": null,
+      "model_tool_calls": [
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        },
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        },
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        },
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/audit-interconnexions && python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        }
+      ],
+      "trace_sha256": "d88a5811342d47ad9706f0bd5bc5d4bcaab1c9f190d6840ffe177547845601ed"
+    },
+    {
+      "name": "positive-prompt",
+      "exit": 53,
+      "turns": null,
+      "seconds": null,
+      "final": null,
+      "model_tool_calls": [
+        {
+          "command": "python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        },
+        {
+          "command": "python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        },
+        {
+          "command": "python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        },
+        {
+          "command": "python3 -m unittest -v",
+          "description": "Running python3 -m unittest -v to execute tests",
+          "is_background": false
+        }
+      ],
+      "trace_sha256": "a89d72aaa17a6c86a577d37b91f97df66733be82ec18959cd56c20fa6a5a6747"
+    },
+    {
+      "name": "minimal-e2e",
+      "exit": 0,
+      "turns": 2,
+      "seconds": 4.6,
+      "final": "Résultat des tests :\n\n```\ntest_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n```\n\nTous les 3 tests passent avec succès.",
+      "model_tool_calls": [
+        {
+          "command": "python3 -m unittest -v",
+          "description": "Exécuter les tests unitaires avec verbose",
+          "is_background": false
+        }
+      ],
+      "trace_sha256": "15ef9d24477354797057c6d199d74c234f6cce6e066c44877fe30c2ee792551a"
+    },
+    {
+      "name": "shipping-correction",
+      "exit": 0,
+      "turns": 5,
+      "seconds": 40.932,
+      "final": "Tous les tests passent.\n\n---\n\n## Bilan\n\n**Défaut identifié :** La condition dans `shipping.py` utilisait `total > 50` au lieu de `total >= 50`.\n\n**Correction appliquée :** Changement de `>` en `>=` dans la fonction `shipping_fee()`.\n\n**Résultat :** \n- Pour `total < 50` : frais de port = 5€\n- Pour `total >= 50` : frais de port = 0€\n\n**Vérification :** Les 3 tests existants passent tous (`test_below`, `test_at_threshold`, `test_above`).",
+      "model_tool_calls": [
+        {
+          "file_path": "/home/adminjarvis/JARVIS/qwen-code-projects/diagnostic-boucles/shipping.py"
+        },
+        {
+          "file_path": "/home/adminjarvis/JARVIS/qwen-code-projects/diagnostic-boucles/test_shipping.py"
+        },
+        {
+          "file_path": "/home/adminjarvis/JARVIS/qwen-code-projects/diagnostic-boucles/shipping.py",
+          "old_string": "def shipping_fee(total):\n    return 0 if total > 50 else 5",
+          "new_string": "def shipping_fee(total):\n    return 0 if total >= 50 else 5"
+        },
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/diagnostic-boucles && python3 -m pytest test_shipping.py -v",
+          "description": "Exécution des tests pour vérifier la correction"
+        },
+        {
+          "command": "cd /home/adminjarvis/JARVIS/qwen-code-projects/diagnostic-boucles && python3 -m unittest test_shipping -v",
+          "description": "Exécution des tests avec unittest"
+        }
+      ],
+      "trace_sha256": "ef95e679d29352ddedaf40d3819e40162dda8ea03fc92a9beb0296d96e03e464"
+    },
+    {
+      "name": "deployed-readonly",
+      "exit": 0,
+      "turns": 2,
+      "seconds": 19.495,
+      "final": "Résultat de l'exécution des tests :\n\n```\ntest_bools (test_flags.Flags.test_bools) ... ok\ntest_false_string (test_flags.Flags.test_false_string) ... ok\ntest_true_string (test_flags.Flags.test_true_string) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n```\n\nTous les 3 tests ont réussi avec succès.",
+      "model_tool_calls": [
+        {
+          "command": "python3 -m unittest -v",
+          "description": "Running unittest with verbose output",
+          "is_background": false
+        }
+      ],
+      "trace_sha256": "4d0949c08103490d6be167e01a14f4516b88c2b9f6435ca56deb437f677faf0e"
+    }
+  ],
+  "correction_independent": {
+    "before": {
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "test_above (test_shipping.Shipping.test_above) ... ok\ntest_at_threshold (test_shipping.Shipping.test_at_threshold) ... FAIL\ntest_below (test_shipping.Shipping.test_below) ... ok\n\n======================================================================\nFAIL: test_at_threshold (test_shipping.Shipping.test_at_threshold)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/adminjarvis/JARVIS/qwen-code-projects/diagnostic-boucles/test_shipping.py\", line 5, in test_at_threshold\n    def test_at_threshold(self): self.assertEqual(shipping_fee(50),0)\n                                 ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\nAssertionError: 5 != 0\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=1)\n",
+      "test_sha256": "3ef76ec05bebd1d71b763f115c401886e8046bfc44850b2c97cdbd7dd6234099"
+    },
+    "after": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_above (test_shipping.Shipping.test_above) ... ok\ntest_at_threshold (test_shipping.Shipping.test_at_threshold) ... ok\ntest_below (test_shipping.Shipping.test_below) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+    },
+    "test_unchanged": true,
+    "source": "def shipping_fee(total):\n    return 0 if total >= 50 else 5\n",
+    "diff": "diff --git a/shipping.py b/shipping.py\nindex 58a675b..526006b 100644\n--- a/shipping.py\n+++ b/shipping.py\n@@ -1,2 +1,2 @@\n def shipping_fee(total):\n-    return 0 if total > 50 else 5\n+    return 0 if total >= 50 else 5\n"
+  },
+  "live_truncation": {
+    "id": "chatcmpl-20261030T082108.737994",
+    "object": "chat.completion.chunk",
+    "created": 1793348468,
+    "model": "qwen3-coder-next:q4_K_M",
+    "choices": [
+      {
+        "index": 0,
+        "delta": {},
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 1,
+      "total_tokens": 19
+    }
+  },
+  "reserve": "Shipping free prose inferred an euro currency absent from the test contract. The code/test result is independently established; general factual editorial autonomy is not received."
+}

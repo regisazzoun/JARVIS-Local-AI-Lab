@@ -1,0 +1,188 @@
+{
+  "strategy_repair": 90482,
+  "start_event": 90484,
+  "final_state": "interrupted",
+  "operator_stop": null,
+  "events": [
+    {
+      "id": 90485,
+      "kind": "state_changed",
+      "result": {
+        "delay": 0,
+        "state": "queued"
+      }
+    },
+    {
+      "id": 90502,
+      "kind": "planning_review_progress",
+      "result": {
+        "basis": "Actual review outcomes and strict reduction of stable owner/artifact defects; new IDs/plan saves alone are not progress",
+        "blocked": false,
+        "current_plan_version": 28,
+        "defects": [
+          "review-not-passed"
+        ],
+        "failed_reviews_retained": 11,
+        "last_review_status": "FAIL",
+        "meaningful": false,
+        "nonimproving_reviews": 0,
+        "plan_version": 11,
+        "review_event": 89266,
+        "review_pending": true,
+        "runtime_repair_event": 90482,
+        "status": "INSUFFICIENT",
+        "verified_repair_event": 90482
+      }
+    },
+    {
+      "id": 90503,
+      "kind": "plan_revised",
+      "result": {
+        "reason": "La version précédente (v2) est rejetée pour duplication d’identifiants. Une observation non destructive exige un plan différent et sans duplication, même dans l’approche. Le contrôleur a rejeté une revision avec 'uniqueItems' non respecté. Une nouvelle étape identique en fond mais avec ID distinct est la seule action autorisée en l’absence de capacité à relire les étapes existantes.",
+        "sha256": "f221dc1c114ec0e1220c3c818ecd49f406a003ee4889d1b46197573419dc0f86",
+        "tasks": 18,
+        "version": 29
+      }
+    },
+    {
+      "id": 90513,
+      "kind": "planning_review_progress",
+      "result": {
+        "basis": "Actual review outcomes and strict reduction of stable owner/artifact defects; new IDs/plan saves alone are not progress",
+        "blocked": false,
+        "current_plan_version": 29,
+        "defects": [
+          "artifact-order:report_path"
+        ],
+        "failed_reviews_retained": 12,
+        "meaningful": false,
+        "nonimproving_reviews": 1,
+        "plan_version": 29,
+        "review_event": 90510,
+        "review_pending": false,
+        "runtime_repair_event": 90482,
+        "status": "FAIL",
+        "verified_repair_event": 90482
+      }
+    },
+    {
+      "id": 90514,
+      "kind": "state_changed",
+      "result": {
+        "delay": 10,
+        "state": "queued"
+      }
+    },
+    {
+      "id": 90564,
+      "kind": "plan_revised",
+      "result": {
+        "reason": "Plan en cours (v29), dernière tentative rejetée par doublon de step ID non unique. Ce pas remplace les étapes obsolètes sans duplication, en alignement avec les instructions du coordinateur (réduction/révision, pas doublons).",
+        "sha256": "608eed3447567303ee8171f46f6d6ccbe54efec5a8734e033a1e0b730d421012",
+        "tasks": 18,
+        "version": 30
+      }
+    },
+    {
+      "id": 90571,
+      "kind": "plan_review_deferred",
+      "result": {
+        "current_plan_version": 30,
+        "error": "Structured review exceeds conservative input budget; original evidence archived, no inference dispatched",
+        "exception_type": "ContextCapacityError",
+        "execution_allowed": false,
+        "plan_saved": true
+      }
+    },
+    {
+      "id": 90574,
+      "kind": "planning_review_progress",
+      "result": {
+        "basis": "Actual review outcomes and strict reduction of stable owner/artifact defects; new IDs/plan saves alone are not progress",
+        "blocked": false,
+        "current_plan_version": 30,
+        "defects": [
+          "artifact-order:report_path"
+        ],
+        "failed_reviews_retained": 12,
+        "last_review_status": "FAIL",
+        "meaningful": false,
+        "nonimproving_reviews": 1,
+        "plan_version": 29,
+        "review_event": 90510,
+        "review_pending": true,
+        "runtime_repair_event": 90482,
+        "status": "INSUFFICIENT",
+        "verified_repair_event": 90482
+      }
+    },
+    {
+      "id": 90575,
+      "kind": "state_changed",
+      "result": {
+        "delay": 10,
+        "state": "queued"
+      }
+    },
+    {
+      "id": 90610,
+      "kind": "plan_revised",
+      "result": {
+        "reason": "host_policy autorise les commandes status/show/is-active/is-enabled sur 11 unités systemd ; les tentatives passées n’ont pas produit d’état observable.",
+        "sha256": "d722ce9012a8557178a341f47bf95ce03a03f1ce22c03a2c72c0884770503b55",
+        "tasks": 18,
+        "version": 31
+      }
+    },
+    {
+      "id": 90617,
+      "kind": "plan_review_deferred",
+      "result": {
+        "current_plan_version": 31,
+        "error": "Structured review exceeds conservative input budget; original evidence archived, no inference dispatched",
+        "exception_type": "ContextCapacityError",
+        "execution_allowed": false,
+        "plan_saved": true
+      }
+    },
+    {
+      "id": 90620,
+      "kind": "planning_review_progress",
+      "result": {
+        "basis": "Actual review outcomes and strict reduction of stable owner/artifact defects; new IDs/plan saves alone are not progress",
+        "blocked": false,
+        "current_plan_version": 31,
+        "defects": [
+          "artifact-order:report_path"
+        ],
+        "failed_reviews_retained": 12,
+        "last_review_status": "FAIL",
+        "meaningful": false,
+        "nonimproving_reviews": 1,
+        "plan_version": 29,
+        "review_event": 90510,
+        "review_pending": true,
+        "runtime_repair_event": 90482,
+        "status": "INSUFFICIENT",
+        "verified_repair_event": 90482
+      }
+    },
+    {
+      "id": 90621,
+      "kind": "p2_escalation",
+      "result": {
+        "reason": "Trois cycles sans observation utile : stratégie suspendue, diagnostic et escalade Codex; aucune quatrième reprise identique automatique.",
+        "request_to": "Codex",
+        "stagnant_cycles": 3
+      }
+    },
+    {
+      "id": 90622,
+      "kind": "state_changed",
+      "result": {
+        "delay": 10,
+        "state": "interrupted"
+      }
+    }
+  ]
+}

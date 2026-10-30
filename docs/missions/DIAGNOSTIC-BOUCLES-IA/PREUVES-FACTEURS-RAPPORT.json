@@ -1,0 +1,119 @@
+{
+  "rows": [
+    {
+      "variant": "previous_no_reference",
+      "previous_draft": true,
+      "official_reference": false,
+      "facts_sha256": "8635f3d55f3e1430e70bf36ffa3c1dc6991c11d9e93aaec70ad26bb3897a70b9",
+      "request_sha256": "f47838c277bc451b53e1a6602fa54a21c030b444609de49965d4bbb79de13743",
+      "input_bytes": 15061,
+      "seconds": 15.978768781991675,
+      "prompt_eval_count": 5079,
+      "eval_count": 666,
+      "done_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"report\": \"# État observé des services JARVIS — 2026-10-30T09:51:52 à 11:00:59 UTC+01:00\\n\\n**Méthode** : 12 appels `systemctl is-active` exécutés selon la politique `a52057b73ef5464ebd6d932798cdc0cc`. Aucune modification effectuée.\\n\\n## Résultats bruts\\n\\n| État observé | Comptage | Services concernés |\\n|--------------|----------|-------------------|\\n| `active` (`returncode=0`) | 9 | `NetworkManager`, `jarvis-agent-proof`, `jarvis-conversation`, `jarvis-dell-desktop-gateway`, `jarvis-mission-worker`, `jarvis-mission-worker@2`, `jarvis-ollama`, `jarvis-open-webui`, `ssh` |\\n| `inactive` (`returncode=4`) | 1 | `mdmonitor` |\\n| `not-found`/`masked` (`returncode=3`) | 2 | `nvidia-persistenced`, `systemd-networkd` |\\n\\n**Total interrogé** : 12/12 unités listées dans `observed_host_policy.services`. Aucune unité non observée.\\n\\n## Preuves (extraites des reçus)\\n\\n- `jarvis-conversation.service` → `returncode=0`, `observed_text=\\\"active\\\"`, invocation `233eb89cb7d44aafbba6e201b2a1a572`\\n- `mdmonitor.service` → `returncode=4`, invocation `9c4a3a106ab348e78741b919f5f1e032`\\n- `systemd-networkd.service` → `returncode=3`, `stderr=\\\"Loaded: loaded (/usr/lib/systemd/system/systemd-networkd.service; disabled; preset: enabled)\\\\nActive: inactive (dead)\\\"`, invocation `fa5ade3000cd4f9298e6683ea1dea0c4`\\n\\n## Limites\\n\\n- `is-active` ne garantit ni la persistance au redémarrage, ni la santé fonctionnelle (ex. : service démarré mais bloqué).\\n- `returncode=3` indique absence ou masquage (non installé, masqué ou fichier d’unité absent).\\n- Aucune lecture `is-enabled` ou `status` n’a été effectuée pour les 12 unités (cf. `unobserved_units_reference`).\\n\\n**Bilan** : 9 services actifs, 3 non actifs (1 inactif, 2 absents/masqués). Observation complète, non destructive, conforme à la mission.\"\n}"
+      },
+      "tools_executed": false,
+      "model": "qwen3-coder-next:q4_K_M",
+      "identity_file": "/opt/jarvis/conversation/identity/JARVIS-v2.md",
+      "report_characters": 1763,
+      "schema_valid": true,
+      "independent_observations": [
+        "Interprétation code3 absence/masquage et code4 inactivité contraire aux sources",
+        "Attribue des lignes stdout de status au stderr du reçu is-active"
+      ],
+      "factual_reception": "FAIL",
+      "not_an_autonomous_correction_attempt": true
+    },
+    {
+      "variant": "fresh_no_reference",
+      "previous_draft": false,
+      "official_reference": false,
+      "facts_sha256": "8635f3d55f3e1430e70bf36ffa3c1dc6991c11d9e93aaec70ad26bb3897a70b9",
+      "request_sha256": "77f47d39d8c1bc3097733d40f76edaab3562a756b1be74ceafd2f05143ab41de",
+      "input_bytes": 9910,
+      "seconds": 9.689576545031741,
+      "prompt_eval_count": 3091,
+      "eval_count": 429,
+      "done_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"report\": \"Bilan d’observation non destructive des services JARVIS (12 unités déclarées dans host_policy). 12 appels à `systemctl is-active` ont été exécutés : 9 retournent `active` (code 0), 1 `inactive` (code 4, `mdmonitor.service`), 2 `inactive` (code 3, `nvidia-persistenced.service` et `systemd-networkd.service`). Aucun appel à `is-enabled`, `status` ou `show` n’a fourni de données exploitables pour l’état d’activation (4 appels `status` ont échoué ou fourni des sorties non interprétables comme preuve d’activation). Parmi les 12 services, 10 sont observés comme `active` via `is-active` avec code 0 : NetworkManager, jarvis-agent-proof, jarvis-conversation, jarvis-dell-desktop-gateway, jarvis-mission-worker, jarvis-mission-worker@2, jarvis-ollama, jarvis-open-webui, ssh. Deux services (`mdmonitor.service`, `systemd-networkd.service`) sont `inactive` (codes 4 et 3). `nvidia-persistenced.service` est également `inactive` (code 3). Les codes 3 et 4 indiquent respectivement « non trouvé » ou « inactive » selon systemd, mais `systemd-networkd.service` est bien chargé (« Loaded: disabled ») et `mdmonitor.service` n’est pas trouvé. Aucune modification n’a été effectuée. Limites : `is-active` ne garantit pas la santé fonctionnelle, et les codes de retour 3/4 ne permettent pas de distinguer absence du fichier unité d’un arrêt volontaire. Sources : reçus `is-active` (12), `status` (4), `show`/`is-enabled` (0).\"\n}"
+      },
+      "tools_executed": false,
+      "model": "qwen3-coder-next:q4_K_M",
+      "identity_file": "/opt/jarvis/conversation/identity/JARVIS-v2.md",
+      "report_characters": 1414,
+      "schema_valid": true,
+      "independent_observations": [
+        "Annonce10actifs mais en énumère9",
+        "Inverse les significations3/4 et minimise les status fournis"
+      ],
+      "factual_reception": "FAIL",
+      "not_an_autonomous_correction_attempt": true
+    },
+    {
+      "variant": "previous_with_reference",
+      "previous_draft": true,
+      "official_reference": true,
+      "facts_sha256": "8635f3d55f3e1430e70bf36ffa3c1dc6991c11d9e93aaec70ad26bb3897a70b9",
+      "request_sha256": "bab718bc6d1df2fbdf0291adda1ef641df1ed336193765cf499c4025bf1bcd89",
+      "input_bytes": 15352,
+      "seconds": 12.069841850083321,
+      "prompt_eval_count": 5150,
+      "eval_count": 631,
+      "done_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"report\": \"# État observé des services JARVIS — 2026-10-30T09:51:52 à 11:00:59 UTC+01:00\\n\\n**Méthode** : 12 appels `systemctl is-active` exécutés selon `host_policy` (invocation `a52057b73ef5464ebd6d932798cdc0cc`). Aucune modification effectuée.\\n\\n## Résultats bruts\\n- **9 services actifs** (`returncode=0`, `observed_text=\\\"active\\\"`) : `NetworkManager`, `jarvis-agent-proof`, `jarvis-conversation`, `jarvis-dell-desktop-gateway`, `jarvis-mission-worker`, `jarvis-mission-worker@2`, `jarvis-ollama`, `jarvis-open-webui`, `ssh`.\\n- **1 service inactif** (`returncode=4`, `observed_text=\\\"inactive\\\"`) : `mdmonitor.service` (invocation `9c4a3a106ab348e78741b919f5f1e032`).\\n- **2 services absents/masqués** (`returncode=3`) : `nvidia-persistenced.service` (`512eacb2d79740c5b5015fef37e73e4d`) et `systemd-networkd.service` (`fa5ade3000cd4f9298e6683ea1dea0c4`, `stderr=\\\"Loaded: loaded (/usr/lib/systemd/system/systemd-networkd.service; disabled; preset: enabled)\\\\nActive: inactive (dead)\\\"`).\\n\\n## Complétude\\nToutes les 12 unités listées dans `observed_host_policy.services` ont été interrogées. Aucune lecture manquante.\\n\\n## Limites\\n- `is-active` ne garantit pas la santé fonctionnelle, seulement l’état visible au moment de l’appel.\\n- `returncode=3` indique que l’unité n’est pas trouvée (non installée, masquée ou supprimée), pas nécessairement une erreur de configuration.\\n- Aucune vérification `is-enabled` ou `status` n’a été effectuée pour les 12 unités (cf. `unobserved_units_reference`).\\n\\n**Source** : `observed_service_reads.*.is-active`, `status_receipts`, `service_snapshot_summary`, `is_active_receipts`.\\n\\n**Génération** : 2026-10-30T11:08:00+01:00 par JARVIS.\"\n}"
+      },
+      "tools_executed": false,
+      "model": "qwen3-coder-next:q4_K_M",
+      "identity_file": "/opt/jarvis/conversation/identity/JARVIS-v2.md",
+      "report_characters": 1650,
+      "schema_valid": true,
+      "independent_observations": [
+        "Conserve code3 absent/masqué malgré la référence officielle fournie",
+        "Affirme absence de status pour12 alors que des status originaux sont fournis"
+      ],
+      "factual_reception": "FAIL",
+      "not_an_autonomous_correction_attempt": true
+    },
+    {
+      "variant": "fresh_with_reference",
+      "previous_draft": false,
+      "official_reference": true,
+      "facts_sha256": "8635f3d55f3e1430e70bf36ffa3c1dc6991c11d9e93aaec70ad26bb3897a70b9",
+      "request_sha256": "21c3f489d86589bdb18fd3ee22300bffcbba86291d6410f221d8ef2ec6ae71e4",
+      "input_bytes": 10201,
+      "seconds": 5.830904379021376,
+      "prompt_eval_count": 3162,
+      "eval_count": 371,
+      "done_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"report\": \"Bilan d’observation non destructive des services JARVIS (12 unités déclarées dans host_policy). 12 appels à `systemctl is-active` ont été exécutés : 9 retournent `active` (code 0), 3 `inactive` (codes 3 ou 4). Parmi les 12 services, 8 sont confirmés actifs via `is-active` avec code 0 : NetworkManager, jarvis-agent-proof, jarvis-conversation, jarvis-dell-desktop-gateway, jarvis-mission-worker, jarvis-mission-worker@2, jarvis-ollama, jarvis-open-webui, ssh. Deux services (`mdmonitor.service`, `nvidia-persistenced.service`) sont signalés `inactive` avec codes respectifs 4 (non trouvé) et 3 (non actif). Un troisième (`systemd-networkd.service`) est `inactive (dead)` selon `status`, bien que `is-active` n’ait pas été invoqué pour lui (unobserved). Aucune invocation de `is-enabled` n’a été réalisée. Les codes de retour respectent la documentation systemd (0=actif, 3=non actif, 4=unité introuvable). Aucune donnée sur l’état activé/désactivé au démarrage, ni sur les états détaillés (substate), ni sur les logs. Limites : absence de `status` pour 8 services, absence de `show`, et impossibilité de distinguer une unité absente d’une unité inactive sans lecture explicite de `stderr`. Aucune modification n’a été effectuée.\"\n}"
+      },
+      "tools_executed": false,
+      "model": "qwen3-coder-next:q4_K_M",
+      "identity_file": "/opt/jarvis/conversation/identity/JARVIS-v2.md",
+      "report_characters": 1228,
+      "schema_valid": true,
+      "independent_observations": [
+        "Mapping3/4 corrigé",
+        "Annonce8actifs mais en énumère9",
+        "Déclare systemd-networkd non interrogé malgré son reçu is-active fourni"
+      ],
+      "factual_reception": "FAIL",
+      "not_an_autonomous_correction_attempt": true
+    }
+  ],
+  "seed": 42,
+  "temperature": 0.1,
+  "native_gateway": "127.0.0.1:8091/api/chat",
+  "host_tools_executed": false,
+  "mission_resumed": false,
+  "scope": "Four targeted samples, no universal model diagnosis"
+}

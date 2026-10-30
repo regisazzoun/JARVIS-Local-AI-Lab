@@ -9,6 +9,8 @@ supprimé, aucune quatrième répétition de stratégie inchangée ni modèle re
 M26-P4 reste en pause ; MANUAL-HOLD et services hors périmètre conservés.
 Aucune fusion automatique dans main. Voir docs/missions/DIAGNOSTIC-BOUCLES-IA/.
 
+Réception ciblée :185testsPASS, finalisationCode reçue sur les essais. La sonde JARVIS reste interrompue/escaladée après3échecs du dernier segment (6historiques, frontière3) ;12observations réelles, prose NON VALIDÉE. Les comparaisons de contexte ne sont pas des corrections autonomes ni une réception. L’identité active étaitv2 ; attribution initialev1 rectifiée. Conserver les anciens rapports, la pauseP4 et les compteurs ; une reprise nécessite un changement technique réellement vérifié, jamais un renommage.
+
 ## Audit IA puis corrections autorisées — 29 octobre 2026
 
 Le propriétaire autorise, après gel du bilan, les corrections et optimisations
