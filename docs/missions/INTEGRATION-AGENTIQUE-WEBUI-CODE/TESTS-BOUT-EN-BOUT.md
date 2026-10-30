@@ -1,6 +1,6 @@
 # Réception ciblée — 30 octobre 2026
 
-Code livré : `40196e9`, puis sélection des profils `c9843d2`. Les preuves structurées sont dans [PREUVES-JARVIS.json](PREUVES-JARVIS.json) ; les sorties originales et secrets restent dans le stockage privé de mission. Les tests logiciels ne constituent pas une preuve d’autonomie.
+Code livré : `40196e9`, sélection des profils `c9843d2`, correction du workflow de rapport `0ad2e8c`. Les preuves structurées sont dans [PREUVES-JARVIS.json](PREUVES-JARVIS.json) ; les sorties originales et secrets restent dans le stockage privé de mission. Les tests logiciels ne constituent pas une preuve d’autonomie.
 
 | Parcours | Résultat observé | Réception et limites |
 |---|---|---|
@@ -13,7 +13,7 @@ Code livré : `40196e9`, puis sélection des profils `c9843d2`. Les preuves stru
 | G Plus de12tours | D :18tours et14avances réelles ; E :29tours,14avances,697303ms, chaîne de nonces vérifiée et source inchangée | ✅ Deux sessions indépendantes ; les erreurs A/B/C restent archivées |
 | H Objectifs natifs | Premier Goal clôturé puis relu ; nouveau smoke Goal avec fichier JSON42,4tours,54,433s, complet et relu après réouverture | ✅🟡 Permissions et persistance reçues ; cas à historique complexe encore en pause/non reçu |
 | I Skill existant | Découverte puis exécution réelle de `github-publish`v1 par JARVIS, run13a842ffa056491aac2356dd133965c8 | ✅ Reçu sur branche d’essai sans fusion |
-| Mission canonique | Création WebUI de864da7c457ef4d82b0b284d9ceb30eeb ; worker80B démarre ; plan plat accepté après correction d’interface ; fichier unité lu et brouillon écrit | 🟡 Cycle complet NON REÇU, état final `interrupted` ; voir incident ci-dessous |
+| Mission canonique | Création WebUI de864da7c457ef4d82b0b284d9ceb30eeb ; worker80B démarre ; plan plat accepté après correction d’interface ; fichier unité lu et brouillon écrit | ✅🟡 Clôture native94109 après correctif structurel, PASS94064/94067 et validation T194089 ; réception assistée, pas autonomie initiale du plan |
 
 ## Échecs conservés et rectifications
 
@@ -23,14 +23,20 @@ La sonde a écrit un nouveau brouillon dans `/var/lib/jarvis/projects/mission26-
 
 La vérification de ce brouillon a échoué. Le moteur a borné les refus de `mission_block` faute d’observation réellement associée à la tâche. Après sélection explicite par Codex du profil d’observation de service, la reprise est restée sur la vérification pendante ; une nouvelle instruction ne remplace pas cette étape durable. Événement93896 : escalade, compteur4 incluant les trois refus antérieurs, sans remise à zéro. Cette reprise assistée n’est pas présentée comme respect autonome de trois cycles nouveaux. Aucun essai supplémentaire identique n’est lancé et aucune fausse clôture n’est enregistrée.
 
+La correction structurelle0ad2e8c a ensuite rouvert les outils de lecture manquants pendant la phase verify : événement93898, reprise du même historique. Qwen a exécuté trois lectures systemd93926/93950/93974, fait vérifier et rejeter l’ancien brouillon94001, composé et écrit le relevé corrigé94024–94041, puis vérifié le fichier94064/94067 PASS. T1 validée94089 ; clôture native94109. Tous les anciens INSUFFICIENT, FAIL et refus sont conservés. Le [contrôle indépendant](CONTROLE-INDEPENDANT-SONDE.json) compare le fichier direct aux trois reçus et vérifie à nouveau le service actif. La génération factuelle est attribuée au moteur, pas à une prose libre du modèle.
+
 Deux appels spécialiste illustrent les limites du rapport libre : le job20261030T163014.659151 s’est arrêté avec erreur après de vraies commandes sur les Dell ; le job20261030T165316.139746 a retourné0 malgré des paramètres distants refusés puis un repli local. Le contrôle indépendant a rejeté ce prétendu succès. L’outil direct a ensuite permis à JARVIS de produire un vrai manifeste Dell2. Le dernier manifeste n’est pas attribué à Qwen Code.
 
 Le premier essai de14avances a affirmé terminer alors que13seulement étaient présentes. Ce bilan est conservé avec son rappel correctif. Les sessions D/E reçues sont distinctes et vérifiées sur leur journal réel.
 
 ## Contrôles logiciels et déploiement
 
-- **50 tests ciblés PASS** :31nouveaux tests de façade/idempotence, contrats Ollama, connecteur Google, GitHub, asynchronisme et spécialiste ;19contrôles ciblés MCP/Skills/compteurs historiques.
+- **93 tests ciblés PASS** :32nouveaux tests de façade/idempotence, contrats Ollama, connecteur Google, GitHub, asynchronisme et spécialiste ;61contrôles ciblés MCP/Skills/compteurs et workflow de rapport historiques.
 - **5 contrôles vivants PASS** : proxy Apache, authentification de l’adaptateur, taille des missions retournées, refus de contexte trop gros avant inférence et refus d’un chemin de projet invalide.
-- Identité de **7 fichiers déployés** vérifiée ; sept services centraux contrôlés actifs et HTTPS200. Détails dans [DEPLOIEMENT.json](DEPLOIEMENT.json).
+- Identité de **8 fichiers déployés** vérifiée ; sept services centraux contrôlés actifs et HTTPS200. Détails dans [DEPLOIEMENT.json](DEPLOIEMENT.json).
 - Cinq relevés réels de disponibilité WebUI pendant un appel Code : environ10–33ms. Ce sont des requêtes de santé/HTTP, pas les percentiles de conversation.
 - Aucun reboot complet ni arrêt arbitraire des sessions interactives utilisateur ; les services modifiés ont été rechargés après contrôle de leur activité.
+
+## Restitution finale WebUI
+
+Après clôture, un nouveau parcours Chromium authentifié sur le profil27B a fait appeler réellement `jarvis_missions read`. Le fil affiche `completed`, `T1 validated` et le SHA256 exact du rapport. Les quatre contrôles de contenu sont vrais ; [preuve de restitution](WEBUI-RESTITUTION-SONDE.json), sorties et capture originales privées. Aucune nouvelle mission créée par cette lecture.

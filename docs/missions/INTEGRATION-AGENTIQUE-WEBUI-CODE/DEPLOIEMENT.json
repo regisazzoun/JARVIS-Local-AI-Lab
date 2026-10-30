@@ -42,6 +42,12 @@
       "deployed": "/opt/jarvis/inference-gateway/optimisation_interconnexions/inference_gateway.py",
       "sha256": "5f000b3fa190e6676dcf354dff343ba59a73d565135f1454e0f801eb9be27ada",
       "identical": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/durable_cycle.py",
+      "deployed": "/opt/jarvis/conversation/jarvis/durable_cycle.py",
+      "sha256": "076deacaff24c6f8c0d709f36b64f6e69035034a67c4fa26b757b1af31144dda",
+      "identical": true
     }
   ],
   "services": {
@@ -55,5 +61,7 @@
   },
   "https_status": 200,
   "historical_runtime_additions_preserved": true,
-  "whole_machine_reboot_tested": false
+  "whole_machine_reboot_tested": false,
+  "captured_utc": "2026-10-30T18:02:20.757577+00:00",
+  "structural_followup_commit": "0ad2e8c"
 }

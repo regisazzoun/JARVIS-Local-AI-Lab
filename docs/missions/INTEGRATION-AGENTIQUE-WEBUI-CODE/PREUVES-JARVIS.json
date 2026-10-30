@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-30T17:53:37.261466+00:00",
+  "generated_utc": "2026-10-30T18:02:20.791911+00:00",
   "branch": "codex/integration-agentique-webui-qwen-code",
   "base_commit": "55a1d066d7a401dcd9d5a22acea6bbea793968b2",
   "actors": {
@@ -8,13 +8,14 @@
     "Qwen Code": "Programming on Mac workspace, inference Dell1; MCP remote commands distinguished from local shell"
   },
   "software_tests": {
-    "passed": 50,
-    "log_sha256": "f0a5628eee21b3a180b6e7778e80eec6145979432a214d5e493f77142e032870",
-    "scope": "31 new targeted tests and19 targeted non-regression tests; not agent autonomy"
+    "passed": 93,
+    "log_sha256": "133371346b51b70aa19c3d83a0c2de5d94ee4d2f83f85e348bf2b47915b7d977",
+    "scope": "32 new targeted tests and61 targeted non-regression tests; not agent autonomy"
   },
   "implementation_commits": [
     "40196e9",
-    "c9843d2"
+    "c9843d2",
+    "0ad2e8c"
   ],
   "live_tests": {
     "passed": 5,
@@ -42,9 +43,19 @@
       "counters_reset": false,
       "seconds": 128.87
     },
-    "final_escalation_event": 93896,
+    "observation_recovery": {
+      "actor": "Codex observer",
+      "mission": "864da7c457ef4d82b0b284d9ceb30eeb",
+      "structural_correction_event": 93898,
+      "state": "completed",
+      "seconds": 196.65,
+      "last_event": 94109,
+      "counters_reset": false,
+      "automatic_retries": false
+    },
+    "previous_escalation_event": 93896,
     "count_at_last_refusal": 4,
-    "qualification": "Explicit Codex-assisted resumption retained the prior count3; no automatic fourth correction is claimed. Native probe remains NOT_RECEIVED, pending draft verification and unsupported mission_block evidence."
+    "qualification": "Explicit Codex-assisted resumption retained the prior count3; no automatic fourth correction is claimed. Previous profiles were NOT_RECEIVED. Structural recovery0ad2e8c restored model-chosen read-only observations, then native completion94109. Original failures/counters retained; assisted reception, not general autonomous planning."
   },
   "counts": {
     "registered_definitions": 86,
@@ -236,12 +247,75 @@
     "meaning": "Actual HTTPS health requests while a real WebUI-dispatched Qwen Code call has no final receipt. Not a conversation latency percentile."
   },
   "canonical_mission": {
+    "webui_final_observation": {
+      "actor": "Codex browser observation",
+      "model": "qwen3.5:27b-q4_K_M",
+      "profile": "jarvis-tools-conversation",
+      "real_authenticated_browser": true,
+      "mission": "864da7c457ef4d82b0b284d9ceb30eeb",
+      "checks": {
+        "mission_completed_visible": true,
+        "task_validated_visible": true,
+        "exact_report_hash_visible": true,
+        "native_tool_result_visible": true
+      },
+      "source_body_sha256": "2ee41d33b65a12685e062735a910a5decce2c8be4acddae5556fbc1e741d23b6",
+      "screenshot_sha256": "8cdbcd2607fbd790761d43474fd8abae40ad86bbd8e385b803a287f91224bddd",
+      "state": "completed",
+      "task_state": "validated",
+      "report_sha256": "f49c7c435695198029b164ddf64776abd53e1785c17bd29c9c44e48d4c83ef96",
+      "no_mission_started_by_this_read": true,
+      "scope": "Real rendered answer and tool invocation, not a simulated interface or API-only check"
+    },
+    "independent_report_check": {
+      "actor": "Codex independent direct file and runtime read",
+      "mission": "864da7c457ef4d82b0b284d9ceb30eeb",
+      "report_path": "/var/lib/jarvis/projects/mission26-phase2/reports/jarvis-conversation-status.md",
+      "report_sha256": "f49c7c435695198029b164ddf64776abd53e1785c17bd29c9c44e48d4c83ef96",
+      "report_author": "JARVIS-engine; Qwen selected receipts and invoked composer",
+      "checks": {
+        "file_matches_canonical_render": true,
+        "all_latest_references_present": true,
+        "receipt_count": 3,
+        "all_service_actions_read_only": true,
+        "native_report_verification_pass_event": 94067,
+        "model_chosen_calls": [
+          {
+            "service": "jarvis-conversation.service",
+            "action": "show",
+            "returncode": 0,
+            "reference": "013a3eb281bb4e25a98cebdf0d3b6bfd"
+          },
+          {
+            "service": "jarvis-conversation.service",
+            "action": "status",
+            "returncode": 0,
+            "reference": "6339983b35cf496c81a5209923eb091e"
+          },
+          {
+            "service": "jarvis-conversation.service",
+            "action": "is-active",
+            "returncode": 0,
+            "reference": "deed803b57cd4b639db758c6fc54d43f"
+          }
+        ]
+      },
+      "current_service_independent": {
+        "stdout": "active",
+        "returncode": 0
+      },
+      "comparison_scope": "Exact direct file versus original canonical receipt renderer, not an independent natural-language review algorithm",
+      "old_failures_preserved": true
+    },
+    "completed_event": 94109,
+    "task_validated_event": 94089,
+    "original_model_prose_published": false,
     "record": {
       "id": "864da7c457ef4d82b0b284d9ceb30eeb",
       "goal": "observation réelle et en lecture seule du service jarvis-conversation.service",
-      "state": "interrupted",
+      "state": "completed",
       "created": 1793380372.7805207,
-      "updated": 1793382665.3921437
+      "updated": 1793383159.1614492
     },
     "events": [
       {
@@ -5255,9 +5329,1493 @@
         "actor": "JARVIS-engine",
         "tool": null,
         "created": 1793382665.3923094
+      },
+      {
+        "id": 93898,
+        "kind": "coordinator_infrastructure_corrected",
+        "actor": "Codex",
+        "tool": null,
+        "created": 1793382955.9814246
+      },
+      {
+        "id": 93899,
+        "kind": "working_context_rebased",
+        "actor": "Codex",
+        "tool": null,
+        "created": 1793382956.1099067
+      },
+      {
+        "id": 93900,
+        "kind": "coordinator_instruction",
+        "actor": "Codex",
+        "tool": null,
+        "created": 1793382956.1743698
+      },
+      {
+        "id": 93901,
+        "kind": "state_changed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382956.3527353
+      },
+      {
+        "id": 93902,
+        "kind": "cycle_started",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382957.3351777
+      },
+      {
+        "id": 93903,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382957.7381005
+      },
+      {
+        "id": 93904,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382957.8244016
+      },
+      {
+        "id": 93905,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382957.8954837
+      },
+      {
+        "id": 93906,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382957.9194467
+      },
+      {
+        "id": 93907,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382957.9661074
+      },
+      {
+        "id": 93908,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382958.1838582
+      },
+      {
+        "id": 93909,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382958.4007406
+      },
+      {
+        "id": 93910,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.2928088
+      },
+      {
+        "id": 93911,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.3778136
+      },
+      {
+        "id": 93912,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.441872
+      },
+      {
+        "id": 93913,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793382968.4639366
+      },
+      {
+        "id": 93914,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.6871061
+      },
+      {
+        "id": 93915,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.7299044
+      },
+      {
+        "id": 93916,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.8182635
+      },
+      {
+        "id": 93917,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.9029412
+      },
+      {
+        "id": 93918,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382968.97499
+      },
+      {
+        "id": 93919,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382969.0318656
+      },
+      {
+        "id": 93920,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382969.2037945
+      },
+      {
+        "id": 93921,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382978.7190194
+      },
+      {
+        "id": 93922,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382978.8072717
+      },
+      {
+        "id": 93923,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382978.87466
+      },
+      {
+        "id": 93924,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382978.9199693
+      },
+      {
+        "id": 93925,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_service",
+        "created": 1793382978.9935508
+      },
+      {
+        "id": 93926,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_service",
+        "created": 1793382979.3105786
+      },
+      {
+        "id": 93927,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382979.7242615
+      },
+      {
+        "id": 93928,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382979.7884285
+      },
+      {
+        "id": 93929,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382979.8233585
+      },
+      {
+        "id": 93930,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382979.9894743
+      },
+      {
+        "id": 93931,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382980.1083605
+      },
+      {
+        "id": 93932,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382980.2507315
+      },
+      {
+        "id": 93933,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382980.4732487
+      },
+      {
+        "id": 93934,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382988.4196637
+      },
+      {
+        "id": 93935,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382988.4887831
+      },
+      {
+        "id": 93936,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382988.5127788
+      },
+      {
+        "id": 93937,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793382988.5374713
+      },
+      {
+        "id": 93938,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382988.7732272
+      },
+      {
+        "id": 93939,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382988.8594773
+      },
+      {
+        "id": 93940,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382988.9412408
+      },
+      {
+        "id": 93941,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382989.1092424
+      },
+      {
+        "id": 93942,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382989.229331
+      },
+      {
+        "id": 93943,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382989.3463075
+      },
+      {
+        "id": 93944,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382989.4991052
+      },
+      {
+        "id": 93945,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382998.0665834
+      },
+      {
+        "id": 93946,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382998.1308546
+      },
+      {
+        "id": 93947,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382998.1987078
+      },
+      {
+        "id": 93948,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382998.2852323
+      },
+      {
+        "id": 93949,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_service",
+        "created": 1793382998.3752124
+      },
+      {
+        "id": 93950,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_service",
+        "created": 1793382998.80859
+      },
+      {
+        "id": 93951,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.2939603
+      },
+      {
+        "id": 93952,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.3802476
+      },
+      {
+        "id": 93953,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.4748342
+      },
+      {
+        "id": 93954,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.5417178
+      },
+      {
+        "id": 93955,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.5993154
+      },
+      {
+        "id": 93956,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.783347
+      },
+      {
+        "id": 93957,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793382999.954908
+      },
+      {
+        "id": 93958,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.0553648
+      },
+      {
+        "id": 93959,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.0794492
+      },
+      {
+        "id": 93960,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.1035042
+      },
+      {
+        "id": 93961,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383012.1281106
+      },
+      {
+        "id": 93962,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.3556826
+      },
+      {
+        "id": 93963,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.4420373
+      },
+      {
+        "id": 93964,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.5174432
+      },
+      {
+        "id": 93965,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.686784
+      },
+      {
+        "id": 93966,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.814101
+      },
+      {
+        "id": 93967,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383012.9627404
+      },
+      {
+        "id": 93968,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383013.1272075
+      },
+      {
+        "id": 93969,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383025.7109387
+      },
+      {
+        "id": 93970,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383025.7570899
+      },
+      {
+        "id": 93971,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383025.8021023
+      },
+      {
+        "id": 93972,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383025.8479543
+      },
+      {
+        "id": 93973,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_service",
+        "created": 1793383025.8973076
+      },
+      {
+        "id": 93974,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_service",
+        "created": 1793383026.4141994
+      },
+      {
+        "id": 93975,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383026.7908351
+      },
+      {
+        "id": 93976,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383026.8772163
+      },
+      {
+        "id": 93977,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383026.9850764
+      },
+      {
+        "id": 93978,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383027.0988462
+      },
+      {
+        "id": 93979,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383027.227787
+      },
+      {
+        "id": 93980,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383027.336501
+      },
+      {
+        "id": 93981,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383027.5201733
+      },
+      {
+        "id": 93982,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383038.5087578
+      },
+      {
+        "id": 93983,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383038.5326087
+      },
+      {
+        "id": 93984,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383038.5793703
+      },
+      {
+        "id": 93985,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383038.6042943
+      },
+      {
+        "id": 93986,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383038.875986
+      },
+      {
+        "id": 93987,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383038.9894483
+      },
+      {
+        "id": 93988,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383039.0669355
+      },
+      {
+        "id": 93989,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383039.0895119
+      },
+      {
+        "id": 93990,
+        "kind": "context_archive",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383039.12263
+      },
+      {
+        "id": 93991,
+        "kind": "operational_checkpoint",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383039.2951608
+      },
+      {
+        "id": 93992,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383039.4444625
+      },
+      {
+        "id": 93993,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383052.1179585
+      },
+      {
+        "id": 93994,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383052.1835766
+      },
+      {
+        "id": 93995,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383052.2296126
+      },
+      {
+        "id": 93996,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383052.274524
+      },
+      {
+        "id": 93997,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "mission_verify",
+        "created": 1793383052.3226578
+      },
+      {
+        "id": 93998,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383052.3708344
+      },
+      {
+        "id": 93999,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383052.720824
+      },
+      {
+        "id": 94000,
+        "kind": "narrative_review",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383052.9386282
+      },
+      {
+        "id": 94001,
+        "kind": "semantic_verification",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383053.0626
+      },
+      {
+        "id": 94002,
+        "kind": "p2_result_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383053.1791701
+      },
+      {
+        "id": 94003,
+        "kind": "p2_attempt_transition",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383053.317844
+      },
+      {
+        "id": 94004,
+        "kind": "p2_problem_counter",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383053.4107354
+      },
+      {
+        "id": 94005,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "mission_verify",
+        "created": 1793383053.593583
+      },
+      {
+        "id": 94006,
+        "kind": "semantic_failure_returned_to_model",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383053.657167
+      },
+      {
+        "id": 94007,
+        "kind": "report_correction_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383053.8930335
+      },
+      {
+        "id": 94008,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383054.099075
+      },
+      {
+        "id": 94009,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383054.4959888
+      },
+      {
+        "id": 94010,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383054.5829432
+      },
+      {
+        "id": 94011,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383054.680606
+      },
+      {
+        "id": 94012,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383063.1676233
+      },
+      {
+        "id": 94013,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383063.213953
+      },
+      {
+        "id": 94014,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383063.2378092
+      },
+      {
+        "id": 94015,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383063.2627115
+      },
+      {
+        "id": 94016,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383063.53817
+      },
+      {
+        "id": 94017,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383063.8853025
+      },
+      {
+        "id": 94018,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383063.9726489
+      },
+      {
+        "id": 94019,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383064.0764143
+      },
+      {
+        "id": 94020,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383074.2262297
+      },
+      {
+        "id": 94021,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383074.3144355
+      },
+      {
+        "id": 94022,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383074.3813877
+      },
+      {
+        "id": 94023,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383074.4054554
+      },
+      {
+        "id": 94024,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "mission_report_compose",
+        "created": 1793383074.4287977
+      },
+      {
+        "id": 94025,
+        "kind": "proof_bound_report_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383074.7104313
+      },
+      {
+        "id": 94026,
+        "kind": "narrative_review",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383074.9779048
+      },
+      {
+        "id": 94027,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_write_file",
+        "created": 1793383075.0434086
+      },
+      {
+        "id": 94028,
+        "kind": "p2_attempt_transition",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383075.1812541
+      },
+      {
+        "id": 94029,
+        "kind": "p2_attempt_transition",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383075.2706773
+      },
+      {
+        "id": 94030,
+        "kind": "canonical_attempt_bound",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383075.357372
+      },
+      {
+        "id": 94031,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383075.4278686
+      },
+      {
+        "id": 94032,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383075.794574
+      },
+      {
+        "id": 94033,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383076.1184685
+      },
+      {
+        "id": 94034,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383076.5130334
+      },
+      {
+        "id": 94035,
+        "kind": "p2_started_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383076.5570414
+      },
+      {
+        "id": 94036,
+        "kind": "p2_attempt_transition",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383076.623942
+      },
+      {
+        "id": 94037,
+        "kind": "p2_result_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383076.7097757
+      },
+      {
+        "id": 94038,
+        "kind": "p2_attempt_transition",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383076.7570784
+      },
+      {
+        "id": 94039,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_write_file",
+        "created": 1793383076.9230242
+      },
+      {
+        "id": 94040,
+        "kind": "proof_bound_report_write_requested",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383077.0320003
+      },
+      {
+        "id": 94041,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "mission_report_compose",
+        "created": 1793383077.2107878
+      },
+      {
+        "id": 94042,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383077.573155
+      },
+      {
+        "id": 94043,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383077.6593637
+      },
+      {
+        "id": 94044,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383077.786206
+      },
+      {
+        "id": 94045,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383077.853068
+      },
+      {
+        "id": 94046,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383077.901712
+      },
+      {
+        "id": 94047,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383087.5429726
+      },
+      {
+        "id": 94048,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383087.6102467
+      },
+      {
+        "id": 94049,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383087.6340163
+      },
+      {
+        "id": 94050,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383087.659134
+      },
+      {
+        "id": 94051,
+        "kind": "report_observation_recovery_offered",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383087.9180994
+      },
+      {
+        "id": 94052,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383088.0043788
+      },
+      {
+        "id": 94053,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383088.07721
+      },
+      {
+        "id": 94054,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383088.1202462
+      },
+      {
+        "id": 94055,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383088.1728635
+      },
+      {
+        "id": 94056,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383098.9695356
+      },
+      {
+        "id": 94057,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383099.0390172
+      },
+      {
+        "id": 94058,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383099.0701103
+      },
+      {
+        "id": 94059,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383099.093482
+      },
+      {
+        "id": 94060,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "mission_verify",
+        "created": 1793383099.1419532
+      },
+      {
+        "id": 94061,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383099.2104135
+      },
+      {
+        "id": 94062,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "host_read_file",
+        "created": 1793383099.5757258
+      },
+      {
+        "id": 94063,
+        "kind": "narrative_review",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383099.8294375
+      },
+      {
+        "id": 94064,
+        "kind": "semantic_verification",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383099.9164782
+      },
+      {
+        "id": 94065,
+        "kind": "p2_result_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383100.0664566
+      },
+      {
+        "id": 94066,
+        "kind": "p2_attempt_transition",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383100.1772807
+      },
+      {
+        "id": 94067,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "mission_verify",
+        "created": 1793383100.356087
+      },
+      {
+        "id": 94068,
+        "kind": "state_changed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383100.5401764
+      },
+      {
+        "id": 94069,
+        "kind": "cycle_started",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383101.3066154
+      },
+      {
+        "id": 94070,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383101.692362
+      },
+      {
+        "id": 94071,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383101.7839024
+      },
+      {
+        "id": 94072,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383101.8703241
+      },
+      {
+        "id": 94073,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383102.058935
+      },
+      {
+        "id": 94074,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383116.4007454
+      },
+      {
+        "id": 94075,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383116.4787443
+      },
+      {
+        "id": 94076,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383116.5028985
+      },
+      {
+        "id": 94077,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383116.5276222
+      },
+      {
+        "id": 94078,
+        "kind": "pending_report_verification_focus",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383116.808047
+      },
+      {
+        "id": 94079,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383116.9078705
+      },
+      {
+        "id": 94080,
+        "kind": "inference_context_prepared",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383117.0178802
+      },
+      {
+        "id": 94081,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383117.0839455
+      },
+      {
+        "id": 94082,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383133.4006178
+      },
+      {
+        "id": 94083,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383133.4681976
+      },
+      {
+        "id": 94084,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383133.4923313
+      },
+      {
+        "id": 94085,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383133.5167747
+      },
+      {
+        "id": 94086,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "mission_task_complete",
+        "created": 1793383133.6101434
+      },
+      {
+        "id": 94087,
+        "kind": "narrative_review",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383134.0691907
+      },
+      {
+        "id": 94088,
+        "kind": "task_verified",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383134.1581182
+      },
+      {
+        "id": 94089,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "mission_task_complete",
+        "created": 1793383134.4169507
+      },
+      {
+        "id": 94090,
+        "kind": "state_changed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383134.6244214
+      },
+      {
+        "id": 94091,
+        "kind": "cycle_started",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383134.7523825
+      },
+      {
+        "id": 94092,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383135.011482
+      },
+      {
+        "id": 94093,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383135.1085236
+      },
+      {
+        "id": 94094,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383141.7652566
+      },
+      {
+        "id": 94095,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383141.810053
+      },
+      {
+        "id": 94096,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383141.8550587
+      },
+      {
+        "id": 94097,
+        "kind": "structured_action_tool_selected",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383141.9010968
+      },
+      {
+        "id": 94098,
+        "kind": "task_context_result_objective",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383142.109593
+      },
+      {
+        "id": 94099,
+        "kind": "context_budget_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383142.2086256
+      },
+      {
+        "id": 94100,
+        "kind": "context_backend_usage",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383158.0742738
+      },
+      {
+        "id": 94101,
+        "kind": "compute_route_observed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383158.1627192
+      },
+      {
+        "id": 94102,
+        "kind": "inference_finished",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383158.228607
+      },
+      {
+        "id": 94103,
+        "kind": "structured_action_selected",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383158.274266
+      },
+      {
+        "id": 94104,
+        "kind": "tool_started",
+        "actor": "JARVIS",
+        "tool": "intervention_report",
+        "created": 1793383158.3236718
+      },
+      {
+        "id": 94105,
+        "kind": "model_report_original",
+        "actor": "JARVIS",
+        "tool": null,
+        "created": 1793383158.3529778
+      },
+      {
+        "id": 94106,
+        "kind": "report_facts_checked",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383158.5183136
+      },
+      {
+        "id": 94107,
+        "kind": "factual_final_publication",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383158.6039896
+      },
+      {
+        "id": 94108,
+        "kind": "tool_finished",
+        "actor": "JARVIS",
+        "tool": "intervention_report",
+        "created": 1793383158.77984
+      },
+      {
+        "id": 94109,
+        "kind": "state_changed",
+        "actor": "JARVIS-engine",
+        "tool": null,
+        "created": 1793383159.1616838
       }
     ],
-    "execution_received": false,
+    "execution_received": true,
     "creation_is_not_execution": true
   },
   "old_p4": {
@@ -5956,8 +7514,8 @@
     },
     {
       "name": "software-tests-final.log",
-      "sha256": "f0a5628eee21b3a180b6e7778e80eec6145979432a214d5e493f77142e032870",
-      "bytes": 7463
+      "sha256": "133371346b51b70aa19c3d83a0c2de5d94ee4d2f83f85e348bf2b47915b7d977",
+      "bytes": 15576
     },
     {
       "name": "turns-d.jsonl",

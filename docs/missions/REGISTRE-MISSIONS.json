@@ -2369,10 +2369,11 @@
       }
     ],
     "etat": "GO avec réserves pour connecteurs ; réception globale incomplète",
-    "resultats_prouves": "50tests logiciels et5contrôles vivantsPASS ;sessions18/29tours et14étapes ;Goal simple clôturé/relu ;correction source et tests deuxDell ;GitHub lecture/publication viaSkill ;HTTPS et services actifs",
-    "reserves": "Google AUTH_REQUIRED ;sonde native interrompue sur vérification de brouillon ;Goal complexe et rédaction libre non reçus ;rechercheGitHub incomplète ;Apple/microphone/reboot non testés",
-    "dependances": "PR34 /55a1d06 ;modèles et bases existants ;code40196e9/c9843d2",
-    "prochaine_action": "Raccorder OAuthGoogle avec le propriétaire puis recevoir ses accès ;analyser séparément la vérification pendante de la sonde avant reprise justifiée. Ne pas relancerP4.",
-    "derniere_actualisation": "2026-10-30"
+    "resultats_prouves": "93tests logiciels et5contrôles vivantsPASS ;sessions18/29tours et14étapes ;Goal simple clôturé/relu ;correction source et tests deuxDell ;GitHub lecture/publication viaSkill ;HTTPS et services actifs ;sonde de servicecompleted94109 après reprise assistée, troislectures réelles, rapportPASS et contrôle indépendant",
+    "reserves": "Google AUTH_REQUIRED ;plan initial imparfait et réception de sonde assistée, sans autonomie générale reçue ;Goal complexe et rédaction libre non reçus ;rechercheGitHub incomplète ;Apple/microphone/reboot non testés",
+    "dependances": "PR34 /55a1d06 ;modèles et bases existants ;code40196e9/c9843d2 /0ad2e8c",
+    "prochaine_action": "Raccorder OAuthGoogle avec le propriétaire puis recevoir ses accès ;qualifier séparément les plans et bilans libres complexes. Ne pas relancerP4.",
+    "derniere_actualisation": "2026-10-30",
+    "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/35"
   }
 ]

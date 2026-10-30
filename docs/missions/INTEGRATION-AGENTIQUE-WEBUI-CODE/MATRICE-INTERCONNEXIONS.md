@@ -7,7 +7,7 @@
 | WebUI → Qwen80B Dell1 | Profil développement existant | Outils de registre commun ; délégation spécialiste réelle |
 | WebUI → outils hôte / recherche | Adaptateur limité missions/Code | Ressources et recherche réellement affichées |
 | WebUI → GitHub / Skill Lab | Raccordement incomplet | `github-publish`, branche d’essai, vérification des blobs et lecture indépendante |
-| WebUI → missions | API canonique existante | Liste réelle ; façade de création avec contrôle du reçu, pas de seconde file |
+| WebUI → missions | API canonique existante | Liste/création réelles ; sonde de service clôturée nativement après correction et reprise assistée, sans seconde file |
 | Code → registre JARVIS | Isolé des capacités communes | MCP stdio et reçus canoniques, appels réels |
 | Code → Dell2 | Non exposé dans le lanceur initial | Transferts et unittest réellement exécutés, limites de finalisation documentées |
 | Code → Goal Runtime | Outils explicitement exclus | Lecture/actualisation autorisées ; clôture observée et cas longs réservés |
