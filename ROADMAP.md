@@ -4,7 +4,7 @@
 
 JARVIS a sélectionné16reçus et déclenché le compositeur, l’écriture et la vérification. Relevé reçu93060/93087 et contrôle indépendant93156 :12unités,20appels, valeurs/dates/UUID exacts. Après trois explications refusées, repli explicite FACTS_ONLY décidé par Codex : tableau rédigé par le moteur, prose libre archivée sans publication. Clôture native de la sonde999923…93179, bilan global vérifié93180. Les deux protections sont livrées ; la justesse générale de la rédaction libre reste réservée.
 
-[Réception](docs/missions/FIABILISATION-RAPPORTS/RAPPORT-FINAL.md) · [preuves](docs/missions/FIABILISATION-RAPPORTS/PREUVES-JARVIS.json). Branche `codex/fiabilisation-rapports-preuves`, issue de PR33 ; aucune fusion main. M26-P4 reste interrompue et MANUAL-HOLD conservé ; aucune14A/24-Old déclenchée.
+[Réception](docs/missions/FIABILISATION-RAPPORTS/RAPPORT-FINAL.md) · [preuves](docs/missions/FIABILISATION-RAPPORTS/PREUVES-JARVIS.json). Branche `codex/fiabilisation-rapports-preuves`, [PR34](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/34) sur PR33 ; aucune fusion main. M26-P4 reste interrompue et MANUAL-HOLD conservé ; aucune14A/24-Old déclenchée.
 
 ## Diagnostic des boucles IA — 30 octobre 2026
 

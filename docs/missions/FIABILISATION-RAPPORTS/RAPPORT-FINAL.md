@@ -46,3 +46,5 @@ Le renderer global rencontrait un ancien événement sémantique sans champ `obs
 Les services conversation, broker, JL03, workers, guard, WebUI/tools, Apache et Ollama étaient actifs au contrôle ; WebUI privé HTTP200 avec vérification TLS0. Aucun test de microphone Apple ajouté. Aucun modèle, système, routage Ollama ou base canonique remplacé.
 
 **M26-P4 reste interrompue et MANUAL-HOLD conservé.** La sonde originale27fc… reste interrompue. Aucune clôture14A/26B/P4 ni lancement24-Old. La branche de livraison est `codex/fiabilisation-rapports-preuves`, issue de `aaf72cc`/PR33 ; aucune fusion dans main.
+
+Publication : [PR34](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/34), base [PR33](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/33), sans fusion. Code, tests et preuves initiales : `7751f786aed79c6be1ac117f23a11ee81f9fbdd3`.
