@@ -164,3 +164,10 @@ class OperationalPolicyTests(unittest.TestCase):
   active=json.loads(p['messages'][1]['content']);active=active.get('operational_state',active)
   self.assertEqual(active['report_reference_contract'],{'source_invocation':ref,**contract})
 if __name__=='__main__':unittest.main()
+
+ def test_stale_report_facts_are_a_read_prerequisite_before_another_write(self):
+  from jarvis.durable_cycle import report_refresh_tools
+  offered=report_refresh_tools({'host_write_file','host_service','mission_verify','mission_note','mission_block'})
+  self.assertEqual(offered,{'mission_report_facts','mission_note','mission_block'})
+  self.assertNotIn('host_write_file',offered)
+  self.assertEqual(report_refresh_tools(set()),{'mission_report_facts'})
