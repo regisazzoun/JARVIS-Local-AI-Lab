@@ -1,0 +1,36 @@
+{
+  "incident": "CODE-CONTEXT-01",
+  "actor_resolution": "Codex",
+  "original_budget_bytes": 27648,
+  "context_window_tokens": 32768,
+  "attempts": [
+    {
+      "trace": "turns-b.jsonl",
+      "result": "FAIL HTTP413, step7,10turns"
+    },
+    {
+      "trace": "turns-b-resume.jsonl",
+      "change": "Declared context32768 and early compaction0.18",
+      "result": "FAIL existing context could not compact"
+    },
+    {
+      "trace": "turns-c.jsonl",
+      "change": "Fresh session, early compaction and shorter commands",
+      "result": "FAIL HTTP413,12turns"
+    }
+  ],
+  "after_third": "Same strategy suspended; transport source audited, not a counter reset. Original steps and false summaries preserved.",
+  "technical_changes": [
+    "Paginated capability discovery, no complete catalog dumped into context",
+    "HTTP stream=false now receives chat.completion JSON; stream=true keeps SSE",
+    "JSON schemas preserved through native Ollama format",
+    "Pinned Qwen Code local-endpoint structured-output compatibility patch",
+    "Installed SDK bare mode required explicit local runtime budget; settings file alone ignored",
+    "Cache-sharing disabled for compaction side-request to avoid unnecessary tool schemas"
+  ],
+  "real_retest": {
+    "D": "RECEIVED:18turns,14real advances,MCP discovery",
+    "E": "RECEIVED:29turns,14real advances,697.303s,persistent nonce recovery without Codex reminder"
+  },
+  "old_failures_unchanged": true
+}

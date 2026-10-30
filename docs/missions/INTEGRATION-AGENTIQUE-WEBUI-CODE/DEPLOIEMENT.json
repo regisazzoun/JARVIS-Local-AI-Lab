@@ -1,0 +1,59 @@
+{
+  "actor": "Codex",
+  "files": [
+    {
+      "source": "agentic/engine_v2/jarvis/client_capabilities.py",
+      "deployed": "/opt/jarvis/conversation/jarvis/client_capabilities.py",
+      "sha256": "66806085df18bb58ea68cd3d62dd4c2fefad68bdeb82daafda998869834aa4c9",
+      "identical": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/client_mcp.py",
+      "deployed": "/opt/jarvis/conversation/jarvis/client_mcp.py",
+      "sha256": "b0ebef17577e54cea84655e659171097aa7f89cab9d79414123af45874f27b3d",
+      "identical": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/google_workspace.py",
+      "deployed": "/opt/jarvis/conversation/jarvis/google_workspace.py",
+      "sha256": "b2192045dd761eb47c46b1e3cfd5b2c1ef6bb45e5e6211fc9ea63e5d7a155795",
+      "identical": true
+    },
+    {
+      "source": "agentic/engine_v2/jarvis/qwen_specialist.py",
+      "deployed": "/opt/jarvis/conversation/jarvis/qwen_specialist.py",
+      "sha256": "31d34815217abe5e8cbdce0f4b67bcbcfc742793587ecdbbc9ff87960f7bb3fd",
+      "identical": true
+    },
+    {
+      "source": "tools/optimisation_interconnexions/webui_adapter.py",
+      "deployed": "/opt/jarvis/webui-tools/webui_adapter.py",
+      "sha256": "c19581a9a7cff973e9c0e5a805f81b811d844d142bd0e5d1087dc6d726e9305c",
+      "identical": true
+    },
+    {
+      "source": "tools/qwen_webui/ollama_guard.py",
+      "deployed": "/opt/jarvis/inference-gateway/qwen_webui/ollama_guard.py",
+      "sha256": "82e9a24029f2db182023ee478d69b1f1e472d2d6f3c62647de8da6d26fdae6e4",
+      "identical": true
+    },
+    {
+      "source": "tools/optimisation_interconnexions/inference_gateway.py",
+      "deployed": "/opt/jarvis/inference-gateway/optimisation_interconnexions/inference_gateway.py",
+      "sha256": "5f000b3fa190e6676dcf354dff343ba59a73d565135f1454e0f801eb9be27ada",
+      "identical": true
+    }
+  ],
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-qwen-guard": "active",
+    "apache2": "active",
+    "tailscaled": "active"
+  },
+  "https_status": 200,
+  "historical_runtime_additions_preserved": true,
+  "whole_machine_reboot_tested": false
+}

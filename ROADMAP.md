@@ -1,3 +1,11 @@
+## Intégration agentique WebUI / Qwen Code — 30 octobre 2026
+
+**✅🟡 Connecteurs déployés avec réserves ; réception globale incomplète.** WebUI27B Mac et profil80B Dell1 raccordés au registre/broker/Skills canoniques ; Code corrige une vraie source, appelle MCP et exécute des tests sur les deux Dell. Deux sessions indépendantes réalisent14étapes vérifiées en18/29tours, sans plafond12. Contrats JSON/non-streaming et contexte local32768 corrigés.50tests logiciels et5contrôles vivantsPASS ;7fichiers déployés identiques, services contrôlés actifs et HTTPS200.
+
+GitHub lecture/écriture/Skill reçus ; recherche réellement exécutée mais incomplète. Google reste **AUTH_REQUIRED** : guide de raccordement promis au propriétaire, aucune réception distante inventée. La sonde864da7… reste **interrupted/escaladée**, sa vérification de brouillon n’étant pas résolue ; un faux succès Code distant a été rejeté et son manifeste rectifié ensuite par JARVIS, pas par Code. Prose libre et Goal à historique complexe réservés. M26-P4 et MANUAL-HOLD conservés ; aucune14A/24-Old ni fusionmain.
+
+[Rapport](docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/RAPPORT-FINAL.md) · [tests](docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/TESTS-BOUT-EN-BOUT.md) · [preuves](docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/PREUVES-JARVIS.json) · [raccordement Google](docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/GOOGLE-RACCORDEMENT.md). Branche `codex/integration-agentique-webui-qwen-code`, à la suite de PR34.
+
 ## Rapports et revue sous budget — 30 octobre 2026
 
 **✅🟡 GO avec réserves : publication factuelle reçue ; prose libre autonome NON REÇUE.**221tests logiciels PASS. Revue atomique et sources ciblées :54lots natifs terminés, entrées admises au maximum27532/27648octets ; fenêtre32768tokens inchangée. Les faux PASS du reviewer sont conservés avec leurs rectifications.
