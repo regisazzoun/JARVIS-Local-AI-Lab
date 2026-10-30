@@ -133,6 +133,13 @@ def planning_schemas(schemas, spec):
     return [s for s in schemas if s['function']['name'] in allowed]
 
 
+def refresh_facts_after_service_observation(repeats,result):
+    """A newly completed read changes ledger facts, not correction counters."""
+    from .operational_policy import service_read_completed
+    raw=result.get('result') or {}
+    if service_read_completed(result) and raw.get('evidence_id') and type(raw.get('returncode')) is int and not raw.get('timeout'):repeats.pop(signature('mission_report_facts',{}),None)
+
+
 def service_snapshot_prompt(identity,facts_already_observed=False,phase=None,writing_focus=False):
     """Task-specific workflow; exact owner goal/contracts remain in active state."""
     actions={
@@ -877,6 +884,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 effect=name=='host_github' and args.get('action')=='download' and result.get('result',{}).get('changed',True) or name in ('host_write_file','host_delete_file','host_exec') or name=='host_project_service' and args.get('action') not in ('status','logs') or name=='host_package' and args.get('action') in ('install','configure') or name=='host_service' and args.get('action') not in ('status','show','is-active','is-enabled') or name in ('host_remote','host_ansible') and (args.get('action') in ('write_file','deploy_file','package_install','supervision_install','desktop_configure','desktop_gateway_configure','tailscale_configure') or args.get('action')=='service' and args.get('service_action') not in ('status','show','is-active','is-enabled'))
                 from .legacy_attempts import known_unit_file_read
                 if known_unit_file_read(name,args):effect=False
+                if name=='host_service' and json.loads(mission['spec']).get('read_only_service_snapshot'):refresh_facts_after_service_observation(repeats,result)
                 if result.get('ok') and effect:repeats.clear() # A new state requires fresh observations.
                 visible=model_observation(result)
                 if json.loads(mission['spec']).get('distributed_authority'):

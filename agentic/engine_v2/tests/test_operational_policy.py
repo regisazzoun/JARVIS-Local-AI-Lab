@@ -217,4 +217,13 @@ class OperationalPolicyTests(unittest.TestCase):
   self.assertEqual(data['reviews_since_last_scoped_pass'],3)
   self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='narrative_review']),3)
 
+ def test_changed_service_evidence_refreshes_only_the_fact_read_stutter_guard(self):
+  from jarvis.durable_cycle import refresh_facts_after_service_observation,signature
+  key=signature('mission_report_facts',{});write=signature('host_write_file',{'path':'/report.md'})
+  counters={key:2,write:2}
+  refresh_facts_after_service_observation(counters,{'ok':False,'result':{'diagnostic':{'error_category':'permission_denied'}}})
+  self.assertEqual(counters[key],2)
+  refresh_facts_after_service_observation(counters,{'ok':False,'result':{'diagnostic':{'error_category':'application_error'},'evidence_id':'real','duration_s':0.1,'returncode':3}})
+  self.assertNotIn(key,counters);self.assertEqual(counters[write],2)
+
 if __name__=='__main__':unittest.main()
