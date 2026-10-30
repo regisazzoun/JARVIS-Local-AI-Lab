@@ -29,6 +29,40 @@ class AttemptLedger:
     c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN infra_resolved_through INTEGER NOT NULL DEFAULT 0')
    if 'misclassified_failed_cycles' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
     c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN misclassified_failed_cycles INTEGER NOT NULL DEFAULT 0')
+   if 'correction_resolved_through' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
+    c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN correction_resolved_through INTEGER NOT NULL DEFAULT 0')
+ def resolve_report_interface(self,problem,evidence):
+  """Coordinator-only new report strategy after a verified interface repair.
+
+  Historical failed totals/attempts remain immutable. This does not receive a
+  report or permit changing application predicates. Three new failures stop.
+  """
+  from pathlib import Path
+  if self.store.get(self.m)['state']!='interrupted':raise ValueError('Report recovery requires interrupted execution')
+  allowed={'mission_reporting.py','mission_assurance.py','durable_cycle.py','mission_context_budget.py','operational_policy.py'}
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   proof=c.execute('SELECT id,actor,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
+   if not proof or proof['actor']!='Codex' or proof['kind']!='coordinator_report_interface_verified':raise ValueError('Explicit coordinator report-interface verification required')
+   data=json.loads(proof['result']);refs=data.get('evidence_events',[])
+   if data.get('problem')!=problem or data.get('verified') is not True or not refs:raise ValueError('Verification must bind the exact report problem and evidence')
+   if any(type(ref) is not int or ref>=evidence or not c.execute('SELECT id FROM mission_events WHERE mission=? AND id=?',(self.m,ref)).fetchone() for ref in refs):raise ValueError('Original verification evidence missing')
+   before=c.execute('SELECT actor,result FROM mission_events WHERE mission=? AND id=? AND id<?',(self.m,data.get('previous_verification'),evidence)).fetchone()
+   manifest=data.get('deployed_manifest') or {};old=json.loads(before['result']).get('deployed_manifest',{}) if before and before['actor']=='Codex' else {}
+   if not manifest or not old or not any(name in old and old[name]!=value for name,value in manifest.items()):raise ValueError('An actual changed report interface is required, not a renamed retry')
+   base=(self.store.root/'jarvis').resolve()
+   for name,value in manifest.items():
+    path=(base/name).resolve()
+    if name not in allowed or not path.is_relative_to(base) or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=value:raise ValueError('Deployed report interface hash mismatch')
+   previous_resolution=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_report_interface_resolution' AND json_extract(result,'$.problem')=? ORDER BY id DESC LIMIT 1",(self.m,problem)).fetchone()
+   if previous_resolution and data.get('previous_verification',0)<=previous_resolution['id']:raise ValueError('The before-repair proof predates the previous recovery; a new actual repair is required')
+   p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,problem)).fetchone()
+   if p and p['escalation_event'] and proof['id']<=p['escalation_event']:raise ValueError('Repair proof predates the latest escalation')
+   criteria=json.loads(p['descriptor']).get('criteria',[]) if p else []
+   if not p or p['state'] not in ('BLOCKED','ESCALATED') or p['failed_cycles']-p['correction_resolved_through']<3 or not criteria or any(x.get('kind')!='report' for x in criteria):raise ValueError('Only an escalated report-validation problem may use this recovery')
+   if c.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone():raise ValueError('Observe pending or unknown effects before recovery')
+   c.execute("UPDATE mission_problems_v2 SET correction_resolved_through=failed_cycles,state='RESOLVED' WHERE mission=? AND fingerprint=?",(self.m,problem))
+   return self.store.event(self.m,'p2_report_interface_resolution',actor='JARVIS-engine',result={'problem':problem,'verification_event':evidence,'failed_cycles':p['failed_cycles'],'correction_resolved_through':p['failed_cycles'],'active_failed_cycles':0,'old_attempts_and_totals_unchanged':True,'report_received':False},connection=c)
  def reclassify_unloaded_test(self,reference,evidence):
   """Rectify proved loader failures, retaining raw totals and original events.
 
@@ -66,7 +100,7 @@ class AttemptLedger:
      if isinstance(result.get('value'),dict):result['value']={**result['value'],'test_executed':False,'classification_verification':evidence}
      c.execute("UPDATE mission_attempts_v2 SET state='EXECUTION_FAILED',result=?,updated=? WHERE id=?",(encoded(result),time.time(),row['id']))
    for problem in {row['problem'] for row in corrections}:
-    c.execute("UPDATE mission_problems_v2 SET state='OPEN' WHERE mission=? AND fingerprint=? AND failed_cycles<3 AND infra_incidents-infra_resolved_through<3 AND state IN ('BLOCKED','ESCALATED')",(self.m,problem))
+    c.execute("UPDATE mission_problems_v2 SET state='OPEN' WHERE mission=? AND fingerprint=? AND failed_cycles-correction_resolved_through<3 AND infra_incidents-infra_resolved_through<3 AND state IN ('BLOCKED','ESCALATED')",(self.m,problem))
    result={'test_reference':reference,'verification_event':evidence,'test_execution_status':'NOT_EXECUTED','command_executed':True,'corrections':corrections,'original_events_preserved':True,'not_a_counter_reset':True}
    result['event']=self.store.event(self.m,'p2_test_classification_corrected',actor='Codex',result=result,connection=c)
    return result
@@ -81,7 +115,7 @@ class AttemptLedger:
    for ref in refs:
     if type(ref) is not int or ref==evidence or not c.execute('SELECT id FROM mission_events WHERE mission=? AND id=?',(self.m,ref)).fetchone():raise ValueError('Repair evidence absent from this mission')
    p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,problem)).fetchone()
-   if not p or p['failed_cycles']>=3:raise ValueError('Three functional failures remain escalated; infrastructure repair cannot reset them')
+   if not p or p['failed_cycles']-p['correction_resolved_through']>=3:raise ValueError('Three functional failures remain escalated; infrastructure repair cannot reset them')
    if c.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone():raise ValueError('Observe pending or unknown effects before infrastructure resolution')
    c.execute("UPDATE mission_problems_v2 SET infra_resolved_through=infra_incidents,state='RESOLVED' WHERE mission=? AND fingerprint=?",(self.m,problem))
    return self.store.event(self.m,'p2_infrastructure_resolution',actor='JARVIS-engine',result={'problem':problem,'verification_event':evidence,'infra_incidents':p['infra_incidents'],'infra_resolved_through':p['infra_incidents'],'failed_cycles':p['failed_cycles'],'old_attempts_and_totals_unchanged':True},connection=c)
@@ -125,9 +159,9 @@ class AttemptLedger:
    c.execute('BEGIN IMMEDIATE');row=c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND id=?',(self.m,attempt)).fetchone()
    if not row or state not in TRANSITIONS.get(row['state'],set()):raise ValueError('Illegal attempt transition '+str(row['state'] if row else None)+' -> '+state)
    if row['state']=='NOT_EXECUTED' and state=='DISPATCHED':
-    problem=c.execute('SELECT state,failed_cycles,infra_incidents,infra_resolved_through FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
+    problem=c.execute('SELECT state,failed_cycles,correction_resolved_through,infra_incidents,infra_resolved_through FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
     repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,row['problem'],row['updated'])).fetchone()
-    if not repair or problem['state']!='RESOLVED' or problem['failed_cycles']>=3 or problem['infra_incidents']-problem['infra_resolved_through']>=3:raise ValueError('Known non-execution retry requires a later verified infrastructure repair')
+    if not repair or problem['state']!='RESOLVED' or problem['failed_cycles']-problem['correction_resolved_through']>=3 or problem['infra_incidents']-problem['infra_resolved_through']>=3:raise ValueError('Known non-execution retry requires a later verified infrastructure repair')
     result={'verified_retry':repair['id'],'previous_result':json.loads(row['result'])};unknown=False
    if state not in ('DISPATCHED','BLOCKED'):
     proof=c.execute('SELECT id,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()
@@ -160,8 +194,8 @@ class AttemptLedger:
    c.execute('UPDATE mission_problems_v2 SET '+field+'='+field+'+1 WHERE mission=? AND fingerprint=?',(self.m,row['problem']))
    result['failure_counted']=True;c.execute('UPDATE mission_attempts_v2 SET result=? WHERE id=?',(encoded(result),attempt))
    p=c.execute('SELECT * FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(self.m,row['problem'])).fetchone()
-   self.store.event(self.m,'p2_problem_counter',actor='JARVIS-engine',result={'attempt':attempt,'problem':row['problem'],'counter':field,'failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents']},connection=c)
-   if p['failed_cycles']>=3 or p['infra_incidents']-p['infra_resolved_through']>=3:
+   self.store.event(self.m,'p2_problem_counter',actor='JARVIS-engine',result={'attempt':attempt,'problem':row['problem'],'counter':field,'failed_cycles':p['failed_cycles'],'active_failed_cycles':p['failed_cycles']-p['correction_resolved_through'],'infra_incidents':p['infra_incidents']},connection=c)
+   if p['failed_cycles']-p['correction_resolved_through']>=3 or p['infra_incidents']-p['infra_resolved_through']>=3:
     c.execute("UPDATE mission_problems_v2 SET state='BLOCKED' WHERE mission=? AND fingerprint=?",(self.m,row['problem']))
     e=self.store.event(self.m,'p2_escalation',actor='JARVIS-engine',result={'problem':row['problem'],'attempt':attempt,'failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents'],'reason':'Three confirmed failures; no fourth autonomous correction','request_to':'Codex','evidence':result},connection=c)
     c.execute("UPDATE mission_problems_v2 SET state='ESCALATED',escalation_event=? WHERE mission=? AND fingerprint=?",(e,self.m,row['problem']))

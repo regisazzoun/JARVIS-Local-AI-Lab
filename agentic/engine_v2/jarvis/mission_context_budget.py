@@ -6,6 +6,8 @@ in MissionStore; a checkpoint is structured evidence, not a model-only summary.
 import copy,hashlib,json,time,urllib.request,os,socket
 from .mission_store import encoded
 
+def blue_json(value):return json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+
 class ContextCapacityError(ValueError):pass
 
 def sha(value):return hashlib.sha256(encoded(value).encode()).hexdigest()
@@ -43,7 +45,17 @@ def capacity(config,model):
 
 def observation_view(o):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
- return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
+ return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','service','service_action','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
+
+def service_observation_view(rows,snapshot):
+ """Deduplicate only exact observations, preserving their event/invocation binding."""
+ result=[]
+ for row in rows:
+  same=snapshot.get(row.get('service'),{}).get(row.get('action'),{})
+  if same and row.get('action') in ('is-active','is-enabled') and row.get('observed_at')==same.get('observed_at') and row.get('observed_returncode')==same.get('returncode') and row.get('observed_state_text')==same.get('observed_text'):
+   result.append({'reference':row['reference'],'same_observation_as':{'service':row['service'],'action':row['action'],'invocation':same['invocation']},'meaning':'Exact values/time retained once in observed_service_reads; full original also remains at this event reference.'})
+  else:result.append(row)
+ return result
 
 def reported_suite(text,reference):
  """Project printed JSON fields, never promote them to a verifier verdict."""
@@ -68,7 +80,7 @@ class ContextBudget:
    plan=c.execute('SELECT version,sha256 FROM mission_plans WHERE mission=? ORDER BY version DESC LIMIT 1',(self.m,)).fetchone()
   self.store.attempt_ledger(self.m)
   with self.store.db() as c:
-   counters=[dict(r) for r in c.execute('SELECT scope,fingerprint,failed_cycles,infra_incidents,state,escalation_event FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
+   counters=[dict(r) for r in c.execute('SELECT scope,fingerprint,failed_cycles,correction_resolved_through,failed_cycles-correction_resolved_through AS active_failed_cycles,infra_incidents,state,escalation_event FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
    pending=[dict(r) for r in c.execute("SELECT id,problem,executor,phase,state,unknown_outcome FROM mission_attempts_v2 WHERE mission=? AND state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE') ORDER BY created,id",(self.m,))]
    rows=c.execute("SELECT t.id,t.tool,t.arguments,t.result,(SELECT max(e.id) FROM mission_events e WHERE e.mission=t.mission AND e.invocation=t.id AND e.kind='tool_finished') event_reference FROM tool_calls t WHERE t.mission=? AND (? IS NULL OR t.task=?) ORDER BY t.created DESC,t.rowid DESC LIMIT 3",(self.m,self.task,self.task)).fetchall()
   observations=[{**dict(o),'arguments':json.loads(o['arguments']),'result':json.loads(o['result'] or '{}')} for o in reversed(rows)]
@@ -109,6 +121,20 @@ class ContextBudget:
    interfaces=[dict(r) for r in c.execute("SELECT json_extract(result,'$.epoch') epoch,json_extract(result,'$.category') category,max(json_extract(result,'$.count')) count FROM mission_events WHERE mission=? AND kind='authority_interface_failure' GROUP BY epoch,category ORDER BY epoch,category",(self.m,))]
   route=self.latest('compute_route_observed');last_inference={k:route[0]['result'].get(k) for k in ('node','effective_model','num_ctx','prompt_eval_count')} if route else None
   checkpoint={'retained_service_observations':list(service_reads.values()),'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':current_guidance,'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
+  from .operational_policy import observed_policy,planning_feedback
+  checkpoint['planning_feedback']=planning_feedback(self.store,self.m)
+  checkpoint['report_workspace']=spec.get('report_workspace')
+  if spec.get('read_only_service_snapshot'):
+   from .operational_policy import observed_service_reads,service_snapshot_summary,observed_policy
+   checkpoint['observed_service_reads']=observed_service_reads(self.store,self.m)
+   checkpoint['service_snapshot_summary']=service_snapshot_summary(observed_policy(self.store,self.m),checkpoint['observed_service_reads'])
+   with self.store.db() as db:fact=db.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='mission_report_facts' AND state='finished' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 1",(self.m,self.task)).fetchone()
+   if fact:
+    contract=(json.loads(fact['result']).get('result') or {}).get('report_reference_contract')
+    if contract:checkpoint['report_reference_contract']={'source_invocation':fact['id'],**contract}
+
+  policy=observed_policy(self.store,self.m)
+  if policy:checkpoint['observed_host_policy']=policy
   if unit_reads:checkpoint['retained_unit_file_reads']=list(unit_reads.values())
   if spec.get('authority_engine_operation_ids'):
    # A delivered error page is useful diagnostic data, never a successful
@@ -217,8 +243,14 @@ class ContextBudget:
   active['coordinator_instructions']=[{'reference':e['id'],'instruction':preview(e['result'].get('instruction',e['result']),900)} for e in checkpoint['coordinator_instructions']]
   active['verified_api_observations']=[{'reference':e['id'],'actor':e['actor'],'observed_at':e['created'],'observation':preview(e['result'],700)} for e in checkpoint['verified_api_observations']]
   active['last_observations']=checkpoint['last_observations']
+  active['planning_feedback']=checkpoint['planning_feedback']
+  active['report_workspace']=checkpoint.get('report_workspace')
+  if 'observed_service_reads' in checkpoint:active['observed_service_reads']=checkpoint['observed_service_reads']
+  if 'service_snapshot_summary' in checkpoint:active['service_snapshot_summary']=checkpoint['service_snapshot_summary']
+  if 'report_reference_contract' in checkpoint:active['report_reference_contract']=checkpoint['report_reference_contract']
+  if checkpoint.get('observed_host_policy'):active['observed_host_policy']=checkpoint['observed_host_policy']
   if checkpoint.get('retained_unit_file_reads'):active['retained_unit_file_reads']=checkpoint['retained_unit_file_reads']
-  if checkpoint.get('retained_service_observations'):active['retained_service_observations']=checkpoint['retained_service_observations']
+  if checkpoint.get('retained_service_observations'):active['retained_service_observations']=service_observation_view(checkpoint['retained_service_observations'],checkpoint.get('observed_service_reads',{}))
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
    if checkpoint.get('reported_test_output'):active['reported_test_output']=checkpoint['reported_test_output']
@@ -238,7 +270,7 @@ class ContextBudget:
    active['read_delivery_history']=[{'invocation_id':o['invocation_id'],'parameters':o['parameters'],'ok':o['ok'],'delivery_count':o['result'].get('delivery_count'),'already_delivered':o['result'].get('already_delivered')} for o in checkpoint['last_observations'] if o['tool']=='authority_read_execution']
    active['operation_identity_rule']='Engine-issued identities from canonical tool invocations. Do not supply operation_id. Semantic dedupe and unknown-effect guards remain authoritative; historical aliases stay in the full checkpoint.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
-   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','correction_resolved_through','active_failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
    if checkpoint.get('latest_successful_read'):
     active['latest_successful_read']=checkpoint['latest_successful_read']
@@ -260,7 +292,25 @@ class ContextBudget:
   if self.task:
    from .legacy_attempts import pending_report_validation
    pending_report=pending_report_validation(self.store,self.m,self.task)
-   if pending_report:active['pending_report_validation']=pending_report
+   if pending_report:
+    active['pending_report_validation']=pending_report
+    if active.get('observed_service_reads') and active.get('retained_service_observations'):
+     # Snapshot invocation outputs remain complete in observed_service_reads.
+     # Older event projections are optional history, not another set of owner
+     # constraints; their timestamps must never be equated with call creation.
+     active['service_event_history']={'checkpoint_reference':checkpoint_id,'event_references':[row['reference'] for row in checkpoint['retained_service_observations']],'sha256':sha(checkpoint['retained_service_observations']),'meaning':'Additional original event projections archived. Full latest invocation outputs and their own timestamps remain in observed_service_reads; event times are distinct.'}
+     active.pop('retained_service_observations',None)
+    selection_only=bool(structured_action and payload.get('format',{}).get('oneOf') and all('arguments' not in branch.get('properties',{}) for branch in payload['format']['oneOf']))
+    read_stage=bool(set(active['offered_tools'])<={'mission_report_facts','host_service','mission_note','mission_block'} and set(active['offered_tools'])&{'mission_report_facts','host_service'})
+    if selection_only or read_stage:
+     # Reading ledger facts needs the draft identity, not its whole old body.
+     # The full pending write/read and findings stay canonical and are restored
+     # in the next action context when the writer is offered.
+     active['pending_report_validation']={k:v for k,v in pending_report.items() if k!='observed_draft'}
+     active['report_refresh_phase']={'draft_body_and_findings':'Full current draft in canonical state; restored for writer arguments, not needed for tool selection or a service/ledger read','latest_review_reference':pending_report.get('review_feedback',{}).get('review_reference'),'no_report_validation_inferred':True}
+    # Planning refusals are historical diagnostics once executing an accepted
+    # report task. Preserve their binding, not a redundant full planning view.
+    active['planning_feedback']={'checkpoint_reference':checkpoint_id,'sha256':sha(checkpoint['planning_feedback']),'meaning':'Historical planning feedback archived; current task, contract, report findings and all counters remain explicit.'}
    # Compaction must not hide already verified criteria or a written report.
    # These are canonical backend facts, not a model-authored progress summary.
    status=self.store.contract_status(self.m,self.task)
@@ -282,9 +332,9 @@ class ContextBudget:
    active['task_contract']['semantic']=[{'contract':'active:'+str(i),'sha256':sha(c),'kind':c['kind']} for i,c in enumerate(contract.get('semantic',[]))]
    active['task_contract']['binding']='Exact stored predicates resolved by mission_verify active:N; completion enforces every original criterion.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
-   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','correction_resolved_through','active_failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
-  blue=[system,{'role':'user','content':encoded({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
+  blue=[system,{'role':'user','content':blue_json({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
   # Keep one complete native assistant/tool exchange when it fits. Do not alter
   # executed arguments to manufacture a different historical command.
   start=next((i for i in range(len(original)-1,-1,-1) if original[i].get('role')=='assistant' and original[i].get('tool_calls')),None)
@@ -294,12 +344,12 @@ class ContextBudget:
    # Preserve the last actual reply over redundant historical previews. A
    # reference without its latest result can otherwise cause recall loops.
    if active.get('additional_inspection_pages'):
-    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+    candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
    if serialized_bytes(candidate)>budget and active.get('additional_inspection_pages'):
     page=active['latest_successful_read']
     if len(page['content'])>2400:
      active['latest_successful_read']={**page,'content':page['content'][:2400],'excerpt_truncated':True,'next_character_offset':2400,'full_window_reference':page['reference']}
-     candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+     candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
    if serialized_bytes(candidate)<=budget:
     original[:]=candidate['messages'];payload['messages']=original
     self.store.event(self.m,'context_budget_checked',self.task,'JARVIS-engine',result={**measurement,'compacted':True,'archive':archive,'checkpoint':checkpoint_id,'sent_bytes':serialized_bytes(payload),'within_budget':True})
@@ -307,14 +357,14 @@ class ContextBudget:
    for key in ('decisions','model_notes','last_observations'):
     active.pop(key,None)
    active['coordinator_instructions']=active['coordinator_instructions'][:1]
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]+tail
-  if serialized_bytes(candidate)>budget:candidate['messages']=[system,{'role':'user','content':encoded(active|{'last_observations':checkpoint['last_observations'][-1:]})}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]+tail
+  if serialized_bytes(candidate)>budget:candidate['messages']=[system,{'role':'user','content':blue_json(active|{'last_observations':checkpoint['last_observations'][-1:]})}]
   if serialized_bytes(candidate)>budget:
    # Preview lengths shrink, never owner objective, predicates or system policy.
    active['last_observations']=[{'reference':o['reference'],'tool':o['tool'],'result':preview(o.get('result'),350)} for o in checkpoint['last_observations'][-2:]]
    active['coordinator_instructions']=active['coordinator_instructions'][:1]
    active['decisions']=active.get('decisions',[])[:1];active['model_notes']=active.get('model_notes',[])[:1]
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget:
    # A Python traceback is diagnostic history, not an owner constraint. Keep
    # its terminal error and canonical receipt binding before rejecting a task.
@@ -326,7 +376,7 @@ class ContextBudget:
     failure['error']=(str(error).splitlines() or ['Unknown error'])[-1][:180]
     failure['full_error_reference']=failure['invocation_id']
     failure['meaning']='Historical failure; full error in canonical tool receipt. Not a functional verdict.'
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget:
    # Preserve every refusal count with its fingerprint, using a compact map.
    # Full epoch/category bindings remain in the referenced checkpoint.
@@ -334,14 +384,14 @@ class ContextBudget:
    if counters and all('category_sha256' in c for c in counters):
     active['interface_counters']={c['category_sha256']:c['count'] for c in counters}
     active['interface_counters_checkpoint']=checkpoint_id
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget and active.get('pending_report_validation',{}).get('observed_draft') and active.get('retained_unit_file_reads'):
    # The complete current draft has priority during editorial correction.
    # Older complete source bodies stay in the already persisted checkpoint;
    # their paths, exact receipt references and hashes remain in active context.
    active['retained_unit_file_reads']=[{k:v for k,v in read.items() if k!='stdout'} for read in active['retained_unit_file_reads']]
    active['unit_source_bodies_checkpoint']=checkpoint_id
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget and active.get('pending_report_validation',{}).get('observed_draft') and active.get('retained_service_observations'):
    # Same correction priority as file reads: full original service values remain
    # in the persisted checkpoint and independent verifier, not duplicated next
@@ -349,7 +399,7 @@ class ContextBudget:
    active['service_source_scopes']=list(dict.fromkeys(read['meaning'] for read in active['retained_service_observations'] if read.get('meaning')))
    active['retained_service_observations']=[{**{k:v for k,v in read.items() if k not in ('fields','meaning')},**({'field_names':list(read['fields'])} if 'fields' in read else {})} for read in active['retained_service_observations']]
    active['service_source_values_checkpoint']=checkpoint_id
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Mandatory policy/objective/contracts/tool schema exceed capacity; coordinator must split the task, not silently truncate constraints'})
    raise ContextCapacityError('Mandatory active task does not fit: checkpoint saved, no inference dispatched')

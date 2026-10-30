@@ -1,0 +1,110 @@
+{
+  "event": 89825,
+  "stages": [
+    {
+      "stage": "select",
+      "input_bytes": 22739,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "host_policy",
+      "input_bytes": 16893,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "host_write_file",
+      "input_bytes": 17190,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "host_service",
+      "input_bytes": 17458,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "capability_request",
+      "input_bytes": 17471,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "capability_status",
+      "input_bytes": 16976,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_progress",
+      "input_bytes": 17316,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_task_complete",
+      "input_bytes": 17057,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_block",
+      "input_bytes": 17166,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_evidence",
+      "input_bytes": 17189,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_note",
+      "input_bytes": 16928,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_plan_report_step",
+      "input_bytes": 21477,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_verify",
+      "input_bytes": 18213,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_report_facts",
+      "input_bytes": 16990,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    },
+    {
+      "stage": "mission_report_review",
+      "input_bytes": 17319,
+      "budget": 27648,
+      "within_budget": true,
+      "inference_dispatched": false
+    }
+  ]
+}

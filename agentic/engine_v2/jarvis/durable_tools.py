@@ -14,6 +14,8 @@ def register(registry):
     def key(): return registry.context['mission_id']
     def plan(args):
         from .mission_assurance import enabled, audit_plan, plan_view
+        from .planning_progress import require_revision_capacity
+        require_revision_capacity(store(),key())
         tasks=store().plan(key(), args['tasks'], author='JARVIS', metadata=args.get('metadata'), reason=args.get('reason','initial plan'), expected_version=args.get('expected_version'), append=args.get('append',False), patch=args.get('patch',False))
         from .mission_context_budget import ContextCapacityError
         try:
@@ -64,12 +66,20 @@ def register(registry):
         payload={'tasks':[task],'expected_version':current,'reason':args['reason']}
         if plans:
             payload['patch' if any(t['id']==args['id'] for t in store().tasks(key())) else 'append']=True
-        else:
-            payload['metadata']={'objective':args['plan_objective'],'success_criteria':args['plan_success_criteria'],
-                                 'artifacts':args['plan_artifacts'],'stop_conditions':args['plan_stop_conditions']}
+        payload['metadata']={'objective':args['plan_objective'],'success_criteria':args['plan_success_criteria'],
+                             'artifacts':args['plan_artifacts'],'stop_conditions':args['plan_stop_conditions']}
+        removed=args.get('remove_pending_steps',[])
+        if removed:
+            if not plans or not any(t['id']==args['id'] for t in plans[-1]['plan']['tasks']) or args['id'] in removed:raise ValueError('Keep the revised step; remove only other unattempted pending IDs')
+            known={row['id']:row for row in store().tasks(key())}
+            if any(i not in known or known[i]['state']!='pending' or store().observations(key(),i) for i in removed):
+                raise ValueError('Only existing pending steps without observations may be removed; received/attempted evidence stays intact')
+            payload['tasks']=[task if old['id']==args['id'] else old for old in plans[-1]['plan']['tasks'] if old['id'] not in removed]
+            payload.pop('patch',None);payload.pop('append',None)
         # Validate the exact ordinary interface; no weakened acceptance or second store.
         result=registry.execute('mission_plan',payload)
         if not result.get('ok'):raise ValueError(result.get('error','Plan step rejected'))
+        if removed:store().event(key(),'model_plan_pruned',actor='JARVIS',result={'removed_unattempted_ids':removed,'all_old_versions_retained':True,'selection_author':'JARVIS'})
         store().event(key(),'model_report_step_saved',registry.context.get('task_id'),'JARVIS',result={
             'task':args['id'],'verification_kind_chosen_by_tool':'report',
             'adapter_author':'Codex','task_values_author':'JARVIS','report_writer_added_by_adapter':True,'ordinary_plan_gate_retained':True})
@@ -269,6 +279,8 @@ def register(registry):
     flat.update({k:{'type':'array','items':{'type':'string','minLength':1},**({} if k=='depends' else {'minItems':1})}
                  for k in ('depends','tools','observations','artifacts','plan_success_criteria','plan_artifacts','plan_stop_conditions')})
     flat['expected_version']={'type':'integer','minimum':0}
+    required_flat=list(flat)
+    flat['remove_pending_steps']={'type':'array','items':{'type':'string'},'uniqueItems':True,'description':'Optional: IDs of duplicate/unneeded pending steps to remove while revising this existing step. Only never-attempted steps; all old versions and owner predicates retained. Never remove the current revised ID.'}
     registry.specs['mission_plan_report_step']=(
         'Enregistrer UNE étape de ton choix vérifiée par rapport factuel relu et confronté aux reçus. Interface plate : aucun champ tasks ni contract à écrire. report_path est le rapport propre à cette étape ; son existence seule ne valide rien. Tu choisis toutes les valeurs. Première étape version0 : renseigner les champs plan_* du plan global. Ensuite expected_version=version COURANTE ; nouvelle id ajoute, id non reçue existante révise, tâches reçues immuables. La couverture globale doit passer avant exécution ; compléter les exigences manquantes par de nouvelles étapes. Ne pas utiliser pour prétendre recevoir un déploiement sur la seule prose.',
-        flat,list(flat),'host_authorized',report_step)
+        flat,required_flat,'host_authorized',report_step)

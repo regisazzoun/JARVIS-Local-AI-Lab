@@ -1,0 +1,208 @@
+{
+  "at": "2026-10-30T10:24:00.785545+00:00",
+  "author": "Codex-independent",
+  "software_tests": 185,
+  "software_verdict": "PASS",
+  "qwen_code_targeted_completion": "PASS",
+  "jarvis_plan": "PASS event89591",
+  "jarvis_service_observations": {
+    "policy_invocation": "a52057b73ef5464ebd6d932798cdc0cc",
+    "allowed_units": 12,
+    "by_action": {
+      "is-active": {
+        "observed_units": 12,
+        "stdout_counts": {
+          "active": 9,
+          "inactive": 3
+        },
+        "returncode_counts": {
+          "0": 9,
+          "4": 1,
+          "3": 2
+        },
+        "unobserved_units": []
+      },
+      "is-enabled": {
+        "observed_units": 0,
+        "stdout_counts": {},
+        "returncode_counts": {},
+        "unobserved_units_count": 12,
+        "unobserved_units_reference": "All keys of observed_host_policy.services"
+      },
+      "status": {
+        "observed_units": 4,
+        "stdout_counts": {},
+        "returncode_counts": {
+          "0": 2,
+          "4": 1,
+          "3": 1
+        },
+        "unobserved_units": [
+          "jarvis-conversation.service",
+          "jarvis-dell-desktop-gateway.service",
+          "jarvis-mission-worker.service",
+          "jarvis-mission-worker@2.service",
+          "jarvis-ollama.service",
+          "jarvis-open-webui.service",
+          "nvidia-persistenced.service",
+          "ssh.service"
+        ]
+      },
+      "show": {
+        "observed_units": 0,
+        "stdout_counts": {},
+        "returncode_counts": {},
+        "unobserved_units_count": 12,
+        "unobserved_units_reference": "All keys of observed_host_policy.services"
+      }
+    },
+    "meaning": "Exact receipt counts by action and printed value, not health, presence, restart or deployment verification."
+  },
+  "actual_last_is_active_observations": [
+    {
+      "service": "NetworkManager.service",
+      "invocation": "3529c3f730264bb7b899ce4a3da51ff4",
+      "observed_at": 1793352647.242422,
+      "observed_at_iso": "2026-10-30T10:30:47+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-agent-proof.service",
+      "invocation": "0b9ef9b10a61454aac61dce2b44acf96",
+      "observed_at": 1793350312.0717022,
+      "observed_at_iso": "2026-10-30T09:51:52+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-conversation.service",
+      "invocation": "233eb89cb7d44aafbba6e201b2a1a572",
+      "observed_at": 1793350383.2175553,
+      "observed_at_iso": "2026-10-30T09:53:03+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-dell-desktop-gateway.service",
+      "invocation": "07b01b3c12984c62adbe9b4689054eed",
+      "observed_at": 1793353231.0315936,
+      "observed_at_iso": "2026-10-30T10:40:31+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-mission-worker.service",
+      "invocation": "f4541922b0cf4a9ea51fd8e4a479c111",
+      "observed_at": 1793352710.4790313,
+      "observed_at_iso": "2026-10-30T10:31:50+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-mission-worker@2.service",
+      "invocation": "bd9773c72f6d44ccaea0caef50930355",
+      "observed_at": 1793352742.31263,
+      "observed_at_iso": "2026-10-30T10:32:22+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-ollama.service",
+      "invocation": "eb77a552ebc5433cae5f2b6ec819d247",
+      "observed_at": 1793350480.1998117,
+      "observed_at_iso": "2026-10-30T09:54:40+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "jarvis-open-webui.service",
+      "invocation": "ae48ef2a5d06441a82c6b55db7b7be63",
+      "observed_at": 1793350455.3655415,
+      "observed_at_iso": "2026-10-30T09:54:15+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "mdmonitor.service",
+      "invocation": "9c4a3a106ab348e78741b919f5f1e032",
+      "observed_at": 1793353334.079049,
+      "observed_at_iso": "2026-10-30T10:42:14+01:00",
+      "returncode": 4,
+      "observed_text": "inactive"
+    },
+    {
+      "service": "nvidia-persistenced.service",
+      "invocation": "512eacb2d79740c5b5015fef37e73e4d",
+      "observed_at": 1793354201.323218,
+      "observed_at_iso": "2026-10-30T10:56:41+01:00",
+      "returncode": 3,
+      "observed_text": "inactive"
+    },
+    {
+      "service": "ssh.service",
+      "invocation": "48094bec627d494a9673afd28437154d",
+      "observed_at": 1793354261.323078,
+      "observed_at_iso": "2026-10-30T10:57:41+01:00",
+      "returncode": 0,
+      "observed_text": "active"
+    },
+    {
+      "service": "systemd-networkd.service",
+      "invocation": "fa5ade3000cd4f9298e6683ea1dea0c4",
+      "observed_at": 1793354459.7678246,
+      "observed_at_iso": "2026-10-30T11:00:59+01:00",
+      "returncode": 3,
+      "observed_text": "inactive"
+    }
+  ],
+  "jarvis_narrative_reception": "NON VALIDÉ",
+  "independent_final_narrative_event": 92030,
+  "independent_final_semantic_event": 92031,
+  "original_automatic_review": "INSUFFICIENT, single narrative segment plus evidence exceeds capacity",
+  "original_model_draft_preserved": true,
+  "service_health": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-launcher3": "active",
+    "jarvis-qwen-guard": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active"
+  },
+  "conversation_health": {
+    "application": "ok",
+    "database": "ok",
+    "ollama": "0.40.3",
+    "busy": false,
+    "mission_busy": false,
+    "conversation_node": "Mac-mini"
+  },
+  "private_webui_https": {
+    "curl_returncode": 0,
+    "http_and_tls_result": "200 0"
+  },
+  "mission_states": [
+    {
+      "mission": "27fc9d276ccc435bb32fcfeaeee2969c",
+      "state": "interrupted",
+      "worker_lease_present": false,
+      "running_compute_jobs": 0
+    },
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "state": "interrupted",
+      "worker_lease_present": false,
+      "running_compute_jobs": 0
+    },
+    {
+      "mission": "c32347de3edf4288a4751a3e65afa7eb",
+      "state": "interrupted",
+      "worker_lease_present": false,
+      "running_compute_jobs": 0
+    }
+  ],
+  "p4_owner_hold": true,
+  "canonical_database_unchanged_location": "/opt/jarvis/conversation/runtime/missions.sqlite",
+  "no_fourth_autonomous_report_correction": true
+}

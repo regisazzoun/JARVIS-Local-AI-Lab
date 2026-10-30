@@ -1,0 +1,83 @@
+{
+  "narrative_event": 92030,
+  "semantic_event": 92031,
+  "verdict": {
+    "status": "FAIL",
+    "verifier": "Codex-independent exact original-receipt comparison",
+    "contract": {
+      "kind": "report",
+      "source": {
+        "arguments": {
+          "path": "/var/lib/jarvis/projects/webui-probe-clean-20261030/observation_services_2026-10-30.md"
+        },
+        "tool": "host_read_file"
+      }
+    },
+    "sha256": "2f3824f0077ef248d441aee0f72963611ee579c6ad9b3c030313f87c71936007",
+    "issues": [
+      "Code3 interprété à tort comme unité absente/masquée. Le reçu status de systemd-networkd indique explicitement Loaded: loaded et inactive(dead) ; son is-active retourne3, pas une absence.",
+      "nvidia-persistenced et systemd-networkd sont présentés absents/masqués à partir du code3. Ce code ne prouve pas cette affirmation ; le status networkd la contredit."
+    ],
+    "checks": [
+      {
+        "predicate": "report_code_interpretation_matches_original_state",
+        "pass": false
+      }
+    ],
+    "independent_narrative_review": 92030,
+    "returncode": 1,
+    "verification_event": 92031
+  },
+  "problems": [
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "scope": "canonical-action:9330f6251621491fd4886e512056f037bc032959ddf7a3c972e6fb52e9ca2401",
+      "fingerprint": "3c3bff74f830cc554497d3bbff8c2b4d5d76c4ad1195debe81a0cbd30209e4b1",
+      "descriptor": "{\"criteria\": [{\"kind\": \"report\", \"source\": {\"arguments\": {\"path\": \"/var/lib/jarvis/projects/webui-probe-clean-20261030/observation_services_2026-10-30.md\"}, \"tool\": \"host_read_file\"}}]}",
+      "failed_cycles": 6,
+      "infra_incidents": 1,
+      "state": "ESCALATED",
+      "escalation_event": 92035,
+      "infra_resolved_through": 0,
+      "misclassified_failed_cycles": 0,
+      "correction_resolved_through": 3
+    },
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "scope": "worker-recovery:ContextCapacityError",
+      "fingerprint": "55bb25cabf24e595cdc12426b683e898f9d9cc5f2115a87767ac2cad213e8ef6",
+      "descriptor": "{\"component\": \"durable-worker\", \"exception_type\": \"ContextCapacityError\"}",
+      "failed_cycles": 0,
+      "infra_incidents": 13,
+      "state": "RESOLVED",
+      "escalation_event": 91792,
+      "infra_resolved_through": 13,
+      "misclassified_failed_cycles": 0,
+      "correction_resolved_through": 0
+    }
+  ],
+  "sources": [
+    {
+      "reference": "2ddb1d7902924073b1f27340925e1c90",
+      "arguments": {
+        "action": "status",
+        "service": "mdmonitor.service"
+      },
+      "returncode": 4,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "Unit mdmonitor.service could not be found.\n",
+      "loaded_state_excerpt": null
+    },
+    {
+      "reference": "72425eb7c6554ed99c69840f667f1abb",
+      "arguments": {
+        "action": "status",
+        "service": "systemd-networkd.service"
+      },
+      "returncode": 3,
+      "stdout_sha256": "04e1a76ca4384fe4ba432b43e0e1142dea340709821415b6d59d0cd795398ae5",
+      "stderr": "",
+      "loaded_state_excerpt": "Loaded: loaded"
+    }
+  ]
+}

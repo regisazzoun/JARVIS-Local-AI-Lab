@@ -13,8 +13,8 @@ def record_failure(store,row,error):
   if old:return json.loads(old['result'])
   pending=[dict(r) for r in c.execute("SELECT id,tool,state FROM tool_calls WHERE mission=? AND state='started'",(mission,))]
   c.execute('UPDATE mission_problems_v2 SET infra_incidents=infra_incidents+1 WHERE mission=? AND fingerprint=?',(mission,problem))
-  count=c.execute('SELECT infra_incidents FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(mission,problem)).fetchone()[0]
-  result={'problem':problem,'cycle':cycle,'incident_count':count,'exception_type':type(error).__name__,'error':str(error),'unknown_effect_calls':pending,'stop':bool(pending) or count>=3,'test_failure_count':0,'meaning':'Worker exception, not a functional test verdict'}
+  counts=c.execute('SELECT infra_incidents,infra_resolved_through FROM mission_problems_v2 WHERE mission=? AND fingerprint=?',(mission,problem)).fetchone();count=counts['infra_incidents'];active_count=count-counts['infra_resolved_through']
+  result={'problem':problem,'cycle':cycle,'incident_count':count,'active_incident_count':active_count,'infra_resolved_through':counts['infra_resolved_through'],'exception_type':type(error).__name__,'error':str(error),'unknown_effect_calls':pending,'stop':bool(pending) or active_count>=3,'test_failure_count':0,'meaning':'Worker exception, not a functional test verdict'}
   event=store.event(mission,'worker_recovery_recorded',actor='JARVIS-engine',result=result,connection=c)
   if result['stop']:
    escalation=store.event(mission,'p2_escalation',actor='JARVIS-engine',result={'problem':problem,'reason':'Unknown effect requires observation' if pending else 'Three comparable worker exceptions; no fourth automatic cycle','request_to':'Codex','worker_recovery_event':event,'infra_incidents':count},connection=c)

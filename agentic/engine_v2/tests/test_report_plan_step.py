@@ -507,6 +507,55 @@ class ReportStepTests(unittest.TestCase):
   self.assertEqual(self.s.plans(self.m)[0]['author'],'JARVIS')
   self.assertNotIn('mission_plan',[s['function']['name'] for s in self.r.schemas()])
   self.assertIn('mission_plan_report_step',[s['function']['name'] for s in self.r.schemas()])
+ def test_revision_updates_model_supplied_global_metadata_in_same_plan_history(self):
+  self.assertTrue(self.save()['ok'])
+  revised={**self.args,'expected_version':1,'plan_objective':'Corrected objective from the model','plan_success_criteria':['Corrected factual criterion'],'plan_artifacts':['/project/a.md'],'plan_stop_conditions':['Verified observation obtained']}
+  result=self.save(revised);self.assertTrue(result['ok'],result)
+  plans=self.s.plans(self.m);self.assertEqual(len(plans),2)
+  self.assertEqual(plans[-1]['plan']['objective'],revised['plan_objective'])
+  self.assertEqual(plans[0]['plan']['objective'],self.args['plan_objective'])
+  self.assertEqual([t['id'] for t in self.s.tasks(self.m)],['a'])
+ def test_outside_report_path_is_repairable_on_existing_step_and_bound_to_workspace(self):
+  self.assertTrue(self.save()['ok'])
+  with self.s.db() as db:
+   spec=json.loads(self.s.get(self.m)['spec']);spec['report_workspace']='/allowed/mission';db.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  from jarvis.durable_cycle import report_plan_tool_issues
+  defects=report_plan_tool_issues(self.s,self.m,self.r.specs)
+  self.assertTrue(defects[0]['invalid_report_path'])
+  from jsonschema import Draft202012Validator
+  schema=self.r.active_schema('mission_plan_report_step');Draft202012Validator.check_schema(schema)
+  self.assertFalse(Draft202012Validator(schema).is_valid({**self.args,'expected_version':1,'report_path':'/old/report.md'}))
+  repaired={**self.args,'expected_version':1,'report_path':'/allowed/mission/report.md','artifacts':['/allowed/mission/report.md'],'plan_artifacts':['/allowed/mission/report.md']}
+  self.assertTrue(self.save(repaired)['ok'])
+  self.assertEqual(report_plan_tool_issues(self.s,self.m,self.r.specs),[])
+ def test_model_can_remove_only_unattempted_duplicate_steps_in_its_own_revision(self):
+  self.assertTrue(self.save()['ok'])
+  self.assertTrue(self.save({**self.args,'id':'b','expected_version':1,'report_path':'/project/b.md','artifacts':['/project/b.md']})['ok'])
+  result=self.save({**self.args,'expected_version':2,'remove_pending_steps':['b']})
+  self.assertTrue(result['ok'],result);self.assertEqual([t['id'] for t in self.s.tasks(self.m)],['a'])
+  self.assertEqual(len(self.s.plans(self.m)[1]['plan']['tasks']),2)
+  self.assertTrue(any(e['kind']=='model_plan_pruned' for e in self.s.events(self.m)))
+ def test_pruning_attempted_step_is_refused_without_removing_its_evidence(self):
+  self.assertTrue(self.save()['ok'])
+  self.assertTrue(self.save({**self.args,'id':'b','expected_version':1,'report_path':'/project/b.md','artifacts':['/project/b.md']})['ok'])
+  token=self.s.begin_call(self.m,'b','host_service',{'service':'fixture','action':'is-active'});self.s.finish_call(token,{'ok':False,'error':'fixture'},0)
+  result=self.save({**self.args,'expected_version':2,'remove_pending_steps':['b']})
+  self.assertFalse(result['ok']);self.assertEqual(len(self.s.tasks(self.m)),2);self.assertEqual(self.s.observations(self.m,'b')[0]['id'],token)
+ def test_flat_planning_callback_does_not_credit_an_unreviewed_save_as_progress(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  from unittest.mock import patch
+  identity=self.root/'identity.txt';identity.write_text('Software fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False)
+  m=missions.store.create('Fixture planning','fixture','conv',spec={'planning_report_steps':True})
+  execution=missions.execution_core
+  registered=execution.tools.specs['mission_plan_report_step']
+  execution.tools.specs['mission_plan_report_step']=(*registered[:4],lambda args:{'plan_saved':True,'review_pending':True})
+  execution.transport=lambda payload:{'tool_calls':[{'function':{'name':'mission_plan_report_step','arguments':dict(self.args)}}]}
+  with patch('jarvis.planning_progress.assess',return_value={'blocked':False,'meaningful':False,'status':'INSUFFICIENT'}):
+   result=missions.cycle.run(missions.store.get(m))
+  self.assertFalse(result['progress']);self.assertEqual(result['planning_review']['status'],'INSUFFICIENT')
  def test_append_requires_current_version_and_cannot_change_received_task(self):
   self.assertTrue(self.save()['ok'])
   new={**self.args,'id':'b','depends':['a'],'expected_version':1,'report_path':'/project/b.md','artifacts':['/project/b.md']}

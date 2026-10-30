@@ -8,7 +8,7 @@ from http.server import ThreadingHTTPServer
 from pathlib import Path
 sys.path.insert(0,'/opt/jarvis/conversation')
 from jarvis.compute import ComputeQueue,ResourceUnavailable
-spec=importlib.util.spec_from_file_location('installed_qwen_guard','/home/adminjarvis/JARVIS/qwen-code-openwebui/tools/qwen_webui/ollama_guard.py')
+spec=importlib.util.spec_from_file_location('installed_qwen_guard',Path(__file__).resolve().parents[1]/'qwen_webui/ollama_guard.py')
 old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
 QUEUE=ComputeQueue(os.environ.get('JARVIS_MISSIONS_DB','/opt/jarvis/conversation/runtime/missions.sqlite'))
 UPSTREAM=os.environ.get('JARVIS_DELL_OLLAMA_URL','http://192.168.1.75:11435')

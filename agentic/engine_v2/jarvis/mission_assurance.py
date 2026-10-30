@@ -482,12 +482,21 @@ def ensure_plan_review(registry):
     store=registry.mission_store;ident=registry.context['mission_id']
     plans=store.plans(ident)
     if not plans:return None
+    deferred=latest(store,ident,'plan_review_deferred')
+    if deferred and deferred.get('exception_type')=='ContextCapacityError' and deferred.get('current_plan_version')==plans[-1]['version']:
+        return {'status':'INSUFFICIENT','review_pending':True,'execution_allowed':False,
+                'error':deferred['error'],'current_plan_version':plans[-1]['version'],
+                'instruction':'Review did not execute: current plan exceeds input capacity. Revise/reduce your own pending plan using the offered planning interface; do not resubmit an identical candidate. Execution remains forbidden until a real coverage PASS.'}
     previous=latest(store,ident,'coverage_review')
     if previous and 'Review must address every extracted requirement exactly once' in previous.get('issues',[]) and previous.get('contract_version')!=VERSION:
         store.event(ident,'coverage_format_rectification',actor='JARVIS-engine',result={'previous_plan_version':previous.get('plan_version'),'previous_status_preserved':previous.get('status'),'author_not_blamed':True,'reason':'Historical review omitted/duplicated requirement rows; a reviewer-format defect, not proof of an incomplete plan. Recheck using required requirement keys.'})
     if not previous or previous.get('plan_sha256')!=plans[-1]['sha256'] or previous.get('contract_version')!=VERSION or previous.get('requirements_sha256')!=digest(latest(store,ident,'goal_requirements')) or previous.get('goal_sha256')!=hashlib.sha256(store.get(ident)['goal'].encode()).hexdigest():
         store.event(ident,'coverage_review_recovered',result={'version':plans[-1]['version'],'plan_preserved':True,'actions_replayed':False})
-        return audit_plan(registry)
+        from .mission_context_budget import ContextCapacityError
+        try:return audit_plan(registry)
+        except ContextCapacityError as exc:
+            store.event(ident,'plan_review_deferred',actor='JARVIS-engine',result={'plan_saved':True,'current_plan_version':plans[-1]['version'],'execution_allowed':False,'error':str(exc),'exception_type':'ContextCapacityError'})
+            return {'status':'INSUFFICIENT','review_pending':True,'execution_allowed':False,'error':str(exc),'instruction':'Review did not execute; revise your own pending plan before a new review. No operational action is allowed.'}
     return previous
 
 
@@ -496,11 +505,14 @@ def pending_report_feedback(store, ident, task_id=None):
     with store.db() as connection:
         rows=connection.execute("SELECT id,actor,result FROM mission_events WHERE mission=? AND task IS ? AND kind='narrative_review' ORDER BY id DESC",(ident,task_id)).fetchall()
     if not rows or json.loads(rows[0]['result']).get('status')!='FAIL':return None
-    unresolved=[]
+    current_hash=json.loads(rows[0]['result']).get('draft_sha256')
+    unresolved=[];historical=[]
     for row in rows:
         review=json.loads(row['result'])
         if review.get('status')=='PASS':break
-        if review.get('status')=='FAIL':unresolved.append((row,review))
+        if review.get('status')=='FAIL':
+            if current_hash and review.get('draft_sha256')!=current_hash:historical.append({'reference':'event:'+str(row['id']),'draft_sha256':review.get('draft_sha256'),'status':'FAIL'})
+            else:unresolved.append((row,review))
     unresolved.sort(key=lambda pair:pair[0]['actor']!='Codex-independent')
     rectifications=finding_rectifications(store,ident)
     issues=[];remaining=6000
@@ -512,7 +524,7 @@ def pending_report_feedback(store, ident, task_id=None):
             excerpt=str(issue)[:min(1500,remaining)];issues.append(excerpt);remaining-=len(excerpt)
     latest_review=json.loads(rows[0]['result'])
     return {'review_reference':'event:'+str(rows[0]['id']),'draft_sha256':latest_review.get('draft_sha256'),'issues':issues,'full_findings_in_mission_evidence':True,
-            'reviews_since_last_scoped_pass':len(unresolved),'required_action':'Re-evaluate these historical findings against your CURRENT draft; some may already be fixed. A later different FAIL does not silently resolve earlier independent findings. Keep corrected facts, never reintroduce an old fault. Headings classified not_factual are allowed; only issues and contradicted/insufficient passages are errors. Do not rerun successful technical work just to correct prose.'}
+            'historical_draft_findings':historical,'historical_findings_are_not_current_assertions':True,'reviews_since_last_scoped_pass':len(unresolved)+len(historical),'required_action':'These issues concern the current draft hash only. Older drafts remain FAIL in historical_draft_findings; their old text is not an assertion about this version. An independent finding on this same hash remains unresolved until actual correction/rectification. Keep corrected facts, never reintroduce an old fault. Headings classified not_factual are allowed; only issues and contradicted/insufficient passages are errors. Do not rerun successful technical work just to correct prose.'}
 
 
 def finding_rectifications(store, ident):

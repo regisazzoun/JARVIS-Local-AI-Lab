@@ -1,19 +1,23 @@
 """Reports derived from receipts; free model narrative is archived separately."""
 import hashlib
 import json
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from .mission_store import encoded
 from .verification import exact
 
 
 def service_observation(arguments, result):
-    """Bounded exact fields from a complete successful systemd read receipt."""
-    if arguments.get('action') not in ('show','is-active') or not arguments.get('service'):return None
-    if not result.get('ok'):return None
+    """Bounded exact output fields from a complete observed systemd read receipt."""
+    if arguments.get('action') not in ('show','is-active','is-enabled') or not arguments.get('service'):return None
+    from .operational_policy import service_read_completed
+    if not service_read_completed(result):return None
     raw=result.get('result',{});text=raw.get('stdout')
-    if raw.get('returncode')!=0 or not isinstance(text,str) or raw.get('stdout_truncated') or raw.get('timeout'):return None
+    if type(raw.get('returncode')) is not int or not isinstance(text,str) or not text.strip() or raw.get('stdout_truncated') or raw.get('timeout'):return None
+    if arguments['action']=='show' and raw['returncode']!=0:return None
     selected={'service':arguments['service'],'action':arguments['action'],'observed_returncode':raw['returncode'],'stdout_sha256':hashlib.sha256(text.encode()).hexdigest(),
               'meaning':'Selected original historical read values only; omitted fields are not absent, and this does not prove loaded Python code or current state after restart.'}
-    if arguments['action']=='is-active':selected['observed_state_text']=text.strip()
+    if arguments['action'] in ('is-active','is-enabled'):selected['observed_state_text']=text.strip()
     else:
         names={'Id','Names','LoadState','ActiveState','SubState','MainPID','ExecMainPID','FragmentPath','DropInPaths','User','Group','WorkingDirectory','Environment','EnvironmentFiles','ExecStart','After','Wants','Requires','ControlGroup','InvocationID'}
         selected['fields']={line.split('=',1)[0]:line.split('=',1)[1] for line in text.splitlines() if '=' in line and line.split('=',1)[0] in names}
@@ -29,7 +33,7 @@ def facts(store, ident):
         args = dict(o['arguments'])
         if 'content' in args:
             args['content_sha256'] = hashlib.sha256(str(args.pop('content')).encode()).hexdigest()
-        actions.append({'invocation':o['id'],'task':o['task'],'initiator':'JARVIS','executor':'broker' if o['tool'].startswith('host_') else 'JARVIS-engine', 'tool':o['tool'],'parameters':args,'observed_ok':receipt.get('ok'), 'returncode':receipt.get('result',{}).get('returncode'), 'broker_evidence':receipt.get('result',{}).get('evidence_id'), 'error':receipt.get('error'), 'created':o['created']})
+        actions.append({'invocation':o['id'],'task':o['task'],'initiator':'JARVIS','executor':'broker' if o['tool'].startswith('host_') else 'JARVIS-engine', 'tool':o['tool'],'parameters':args,'observed_ok':receipt.get('ok'), 'returncode':receipt.get('result',{}).get('returncode'), 'broker_evidence':receipt.get('result',{}).get('evidence_id'), 'error':receipt.get('error'), 'created':o['created'],'created_iso':datetime.fromtimestamp(o['created'],ZoneInfo('Europe/Paris')).isoformat(timespec='seconds')})
     return {'mission':ident,'goal':store.get(ident)['goal'],'plans':[{k:r[k] for k in ('version','author','reason','sha256')} for r in store.plans(ident)],
             'tasks':[{k:t[k] for k in ('id','state','report_sha256','artifact')} for t in store.tasks(ident)],
             'actions':actions,'inference_routes':[{'event':e['id'],'created':e['created'],**{k:e['result'].get(k) for k in ('node','effective_model','requested_model','role','compute_job')}} for e in events if e['kind']=='compute_route_observed'],
@@ -89,5 +93,12 @@ def register(registry):
     def show(args):
         store=getattr(registry,'mission_store',None)
         if not store:raise ValueError('Durable mission required')
-        return facts(store,registry.context['mission_id'])
+        data=facts(store,registry.context['mission_id'])
+        if json.loads(store.get(registry.context['mission_id'])['spec']).get('read_only_service_snapshot'):
+            from .operational_policy import observed_policy,observed_service_reads,service_snapshot_summary
+            data['service_snapshot_summary']=service_snapshot_summary(observed_policy(store,registry.context['mission_id']),observed_service_reads(store,registry.context['mission_id']))
+        from .mission_assurance import evidence_snapshot
+        snapshot=evidence_snapshot(store,registry.context['mission_id'],registry.context.get('task_id'))
+        data['report_reference_contract']={'eligible_technical_references':[r['reference'] for r in snapshot['receipts']],'context_only_references':[r['invocation'] for r in data['actions'] if r['tool']=='host_policy'],'meaning':'Policy is authorizations only, not service-state evidence. Use original technical receipt references and created_iso; do not convert timestamps mentally or cite a draft as its own proof.'}
+        return data
     registry.specs['mission_report_facts']=('Read factual ledger: actors, tools, parameters, observed receipts, plan versions, semantic verdicts and Codex interventions. Use before report; narrative is not evidence.',{},[],'host_authorized',show)

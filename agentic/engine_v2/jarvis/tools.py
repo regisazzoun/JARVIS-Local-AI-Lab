@@ -210,6 +210,9 @@ class Registry:
                 schema['properties']['path']['description']='Current factual report only. Application source changes belong to the remote worker workspace.'
         if name=='mission_plan_report_step' and store and self.context.get('mission_id'):
             dependency_ids=[t['id'] for t in store.tasks(self.context['mission_id'])]
+            removable=[t['id'] for t in store.tasks(self.context['mission_id']) if t['state']=='pending' and not store.observations(self.context['mission_id'],t['id'])]
+            if removable:schema['properties']['remove_pending_steps']['items']['enum']=removable
+            else:schema['properties']['remove_pending_steps']['maxItems']=0
             schema['properties']['depends']['description']='Existing saved task IDs only, never action descriptions or future steps. Use [] when no dependency is needed. Save a new prerequisite first, then revise this step. No self dependency or cycle.'
             if dependency_ids:
                 schema['properties']['depends']['items']['enum']=dependency_ids
@@ -221,7 +224,12 @@ class Registry:
             defects=report_plan_tool_issues(store,self.context['mission_id'],self.specs)
             if defects:
                 schema['properties']['id']['enum']=[row['task'] for row in defects]
-                schema['allOf']=[{'if':{'properties':{'id':{'const':row['task']}},'required':['id']},'then':{'properties':{'report_path':{'const':row['report_path']}}}} for row in defects]
+                schema['allOf']=[{'if':{'properties':{'id':{'const':row['task']}},'required':['id']},'then':{'properties':{'report_path':{'const':row['report_path']}}}} for row in defects if not row.get('invalid_report_path')]
+            if schema.get('allOf')==[]:schema.pop('allOf')
+            workspace=json.loads(store.get(self.context['mission_id'])['spec']).get('report_workspace')
+            if workspace:
+                import re
+                schema['properties']['report_path']['pattern']='^'+re.escape(workspace.rstrip('/')+'/')+'.+'
         if name=='mission_plan' and store and json.loads(store.get(self.context['mission_id'])['spec']).get('autonomous'):
             props=schema['properties'];task=props['tasks']['items']
             task['required']=['id','title','depends','objective','tools','observations','verification','recovery','artifacts','contract']

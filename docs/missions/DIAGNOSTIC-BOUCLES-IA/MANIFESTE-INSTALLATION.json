@@ -1,0 +1,102 @@
+{
+  "time": "2026-10-30T10:24:00.824343+00:00",
+  "runtime_root": "/opt/jarvis/conversation",
+  "active_identity_file": "/opt/jarvis/conversation/identity/JARVIS-v2.md",
+  "active_identity_sha256": "f312f8f86ac523f041d6cdc82cc9462977fc6b4255f8d9d9ff160cde88d628fa",
+  "active_identity_unchanged": true,
+  "changes": [
+    {
+      "file": "identity/JARVIS-v1.md",
+      "before_sha256": "024e8b8e5541158f8f657d1d57088962e23037b090bbadf3a8fb0d24113e2628",
+      "installed_sha256": "a811c16186c981921fa7dc02a72b5b34798ce665ca3a3b7df536d09936f2d944",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/durable_cycle.py",
+      "before_sha256": "2dc842c918c231318260cafd71817c84caff5a2cc07319304e48688c8fb403f0",
+      "installed_sha256": "557f865f13e462fad7d44c8c374f451428f9fee8dfc0ff917e0c30cf0edd500c",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/mission_context_budget.py",
+      "before_sha256": "eb5d7feebee2befca139c5e347b605513c6c2f6fbcefa65eb81279f58c3f3b56",
+      "installed_sha256": "c8eb51d5d3345275a5cbe17645cfb7b9533bc6238c77970955d2acf080be7000",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/durable_tools.py",
+      "before_sha256": "1384a7b32c436306b0b9994f542e7a035368144caa9bbe679c1cd2d4d4e5e24b",
+      "installed_sha256": "b996f2a22b87ddc308e7be6c670decb468b834151c7b4c324c41ac84d86fe5a6",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/tools.py",
+      "before_sha256": "3b1cf2aa7139209f6241260280a848064baf058c30d545f697bf5827383fad8f",
+      "installed_sha256": "2ff43b81b927c15eb2816c7b7ed1d6bcfaae21e19087e408e38f908dd5ab3209",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/mission_store.py",
+      "before_sha256": "6f710238b739faa694bf698d3d226794a4a16ccdf0c789d267aa0db5165b05c8",
+      "installed_sha256": "51161332bbc4a731c1fbf917117e93117f57e599266b06fa24d916e414f24acd",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/planning_progress.py",
+      "before_sha256": "0bfd5013f2991cfd09e4d88555228d1b2fa43b60e8d1388b4b49374212900498",
+      "installed_sha256": "f77943901063b2ee4c8e89074c63fdfac407b920cbddd2d8fa4c94fe92bb44da",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/mission_assurance.py",
+      "before_sha256": "8cbff9887884d5eaafbce903e0cb0563000f755ff7c7d4797ee9733f25ea4cb3",
+      "installed_sha256": "d000da7a8e6e4322ff280517fcda95ca55b0f4721ac40c9af7ff156d0f38e730",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/mission_reporting.py",
+      "before_sha256": "6d025a3382cf9cc48c2f2f77b343330cd123a0a927ba3a92146f6d6e11c81efe",
+      "installed_sha256": "fff4bdba3bc1d3f8d137a3fb1b8ee656e875b0b478c0cff0a1fc83cb25c35f5c",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/attempt_ledger.py",
+      "before_sha256": "98ee7a32a48d7cbb22d5d42ef0f9b75433f141380d15edc174b620d58ecca94c",
+      "installed_sha256": "e2f083566ffdbbc3999c4c2f238cc1605c672f41b151f0cc960454962430f9bd",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/worker_recovery.py",
+      "before_sha256": "79720cd2dbef36855000f5104c876cf12a656d6f1d8ffdfb0c27da3d6df61c90",
+      "installed_sha256": "c55145645591fe83d2621c89b4805bbfe99de06a842e140cd0eef9ce94f77c86",
+      "strategy": "Targeted patch preserving pre-existing installed additions"
+    },
+    {
+      "file": "jarvis/operational_policy.py",
+      "before_sha256": null,
+      "installed_sha256": "f079ec62b8838d7352714ef68156197b7101e7368024498cffd393f91b7df520",
+      "strategy": "New module, canonical storage unchanged"
+    },
+    {
+      "file": "/home/adminjarvis/.local/bin/qwen-local",
+      "before_sha256": "dfc80b6d8eb7a856331e88fb27016e129790ceb951fd4f1ffd507386e8df5d50",
+      "installed_sha256": "4e443986ebb85e8295be451f4b1f3ab38bb9e6d241ae3f36c286d1419d666e01"
+    },
+    {
+      "file": "/etc/systemd/system/jarvis-qwen-guard.service",
+      "before_sha256": "6c933106043118a43eedd2bcbc0bc25ad1f148c04cc76aa646535cb733c957ea",
+      "installed_sha256": "5e739f0f16b39156a6371b4e9b35bd52d28a653930e7f7cb597a370de134bc8f"
+    },
+    {
+      "file": "tools/optimisation_interconnexions/inference_gateway.py",
+      "installed_sha256": "5f000b3fa190e6676dcf354dff343ba59a73d565135f1454e0f801eb9be27ada",
+      "strategy": "Service imports same branch modules; canonical queue reused"
+    },
+    {
+      "file": "tools/qwen_webui/ollama_guard.py",
+      "installed_sha256": "31142605d968e983dbcbc14c34f73806e932ee0842b9b7ca0753436650347380",
+      "strategy": "Service imports same branch modules; canonical queue reused"
+    }
+  ],
+  "database_migration": "Add correction_resolved_through default0; never delete old counters/events"
+}
