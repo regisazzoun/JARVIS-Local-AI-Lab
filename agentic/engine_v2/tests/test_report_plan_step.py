@@ -272,6 +272,29 @@ class ReportStepTests(unittest.TestCase):
   attempt=self.s.attempt_ledger(self.m).snapshot()['attempts'][0]
   self.assertEqual(attempt['state'],'EXECUTED_TEST_FAILED');self.assertFalse(attempt['unknown_outcome'])
 
+ def test_service_pending_write_can_acquire_missing_observations_without_promoting_insufficient(self):
+  from jarvis.core import Core
+  from jarvis.missions import Missions
+  from jarvis.legacy_attempts import pending_report_validation,settle
+  reg=self.completed_report_write();spec=json.loads(self.s.get(self.m)['spec']);spec['read_only_service_snapshot']=True
+  with self.s.db() as c:c.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps(spec),self.m))
+  verdict={'status':'INSUFFICIENT','contract':self.s.tasks(self.m)[0]['contract']['semantic'][0],'error':'No runtime receipts'}
+  self.s.event(self.m,'semantic_verification','a',result=verdict);settle(reg,verdict)
+  before=self.s.attempt_ledger(self.m).snapshot()
+  identity=self.root/'identity.txt';identity.write_text('Fixture identity')
+  core=Core({'identity_file':str(identity),'durable_cycle_rounds':1,'num_ctx':32768},Memory(self.root/'runtime/memory.sqlite'))
+  missions=Missions(core,self.root,start_worker=False,start_publisher=False);captured=[]
+  def model(payload):
+   captured.append(payload);return {'tool_calls':[{'function':{'name':'mission_note','arguments':{'content':'Fixture only'}}}]}
+  missions.execution_core.transport=model;missions.cycle.run(self.s.get(self.m))
+  offered={t['function']['name']:t for t in captured[-1]['tools']}
+  self.assertIn('host_service',offered);self.assertIn('mission_report_facts',offered);self.assertIn('mission_verify',offered)
+  self.assertNotIn('host_write_file',offered);self.assertNotIn('mission_task_complete',offered)
+  self.assertEqual(offered['host_service']['function']['parameters']['properties']['action']['enum'],['status','show','is-active','is-enabled'])
+  self.assertEqual(pending_report_validation(self.s,self.m,'a')['phase'],'verify')
+  after=self.s.attempt_ledger(self.m).snapshot();self.assertEqual(before['attempts'],after['attempts']);self.assertEqual(before['problems'],after['problems'])
+  self.assertNotEqual(self.s.tasks(self.m)[0]['state'],'validated')
+
  def test_correction_keeps_exact_read_draft_without_confusing_old_or_truncated_content(self):
   from jarvis.legacy_attempts import settle,pending_report_validation
   reg=self.completed_report_write()
