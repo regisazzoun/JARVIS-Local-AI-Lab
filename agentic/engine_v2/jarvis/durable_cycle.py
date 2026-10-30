@@ -768,6 +768,17 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
             if json.loads(mission['spec']).get('read_only_service_snapshot'):
                 from .operational_policy import observed_service_reads,unread_service_schemas
                 schemas=unread_service_schemas(schemas,observed_policy(store,ident),observed_service_reads(store,ident))
+            if json.loads(mission['spec']).get('report_rewrite_from_facts') and pending_report and pending_report['phase']=='correct':
+                from .report_claims import drafting_messages,drafting_schemas
+                messages=drafting_messages(identity,store,ident,task,pending_report,guidance,facts_already_observed)
+                schemas=drafting_schemas(schemas,definition['contract']['report_path'])
+                if json.loads(mission['spec']).get('proof_bound_report_write'):
+                    from .report_claims import register_composer
+                    register_composer(core.tools)
+                    offered={'mission_report_compose','mission_note','mission_block'}
+                    schemas=[item for item in core.tools.schemas() if item['function']['name'] in offered]
+                    messages[0]['content']+='\nInterface de rédaction actuelle : utilise mission_report_compose. Le moteur assemblera les faits exacts et leur tableau ; tu fournis toutes les références latest et une explication courte des limites ou prochaines vérifications, sans chiffres, dates, codes ni recomptage des services. Ne recopie aucun tableau ni rapport complet dans explanation. Pas de host_write_file direct dans cette phase. La vérification du fichier reste obligatoire après écriture.'
+
             from .mission_context_budget import result_objective
             context_objective=result_objective(core.config)
             if context_objective:

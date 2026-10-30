@@ -82,7 +82,7 @@ def render_final(store, ident, narrative):
         lines.append('| '+t['id']+' | '+t['state']+' | '+str(t['report_sha256'])+' |')
     lines.extend(['','Plans : '+encoded(data['plans']), '', 'Contrôles sémantiques (historique conservé) :'])
     for v in data['semantic_verifications']:
-        lines.append('- Événement '+str(v['event'])+' ; tâche '+str(v['task'])+' ; '+v['status']+' ; SHA256 '+str(v.get('sha256'))+' ; observations '+encoded(v['observations']))
+        lines.append('- Événement '+str(v['event'])+' ; tâche '+str(v['task'])+' ; '+v['status']+' ; SHA256 '+str(v.get('sha256'))+' ; observations '+encoded(v.get('observations',{'meaning':'No observations field in original historical event; no receipt inferred'})))
     lines.extend(['','Invocations journalisées : '+str(len(data['actions']))+'. Ce compte comprend contrôles, refus, macros et sous-appels ; il ne mesure pas autant de progrès autonomes.', '', 'Interventions Codex : '+encoded(data['codex_interventions']), '', 'Limites : conformité limitée aux prédicats déclarés et aux instants des lectures. Les rapports de tâches rédigés par le modèle restent à confronter aux reçus. Aucun GO14A automatique. Épreuve finale14A et24-Old non lancées.', '', 'Texte libre JARVIS original : SHA256 '+hashlib.sha256(narrative.encode()).hexdigest()+', archivé intégralement, sans promotion automatique en fait vérifié.'])
     body='\n'.join(lines)+'\n'
     store.event(ident,'report_facts_checked',result={'facts_sha256':hashlib.sha256(encoded(data).encode()).hexdigest(),'narrative_sha256':hashlib.sha256(narrative.encode()).hexdigest(),'policy':'deterministic factual final, original narrative preserved'})

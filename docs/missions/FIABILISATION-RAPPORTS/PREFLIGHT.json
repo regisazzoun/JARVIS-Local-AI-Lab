@@ -1,0 +1,26 @@
+{
+  "invalid_original_rejected_without_inference": true,
+  "correct_long_fixture_segments": 16,
+  "review_batches": 4,
+  "review_input_bytes": [
+    14973,
+    18089,
+    15490,
+    14508
+  ],
+  "max_review_input_bytes": 18089,
+  "writer_stages": [
+    {
+      "stage": "selection",
+      "input_bytes": 23501
+    },
+    {
+      "stage": "writer",
+      "input_bytes": 22934
+    }
+  ],
+  "budget": 27648,
+  "inference_dispatched": false,
+  "not_a_factual_reception_of_fixture": true,
+  "event": 92517
+}

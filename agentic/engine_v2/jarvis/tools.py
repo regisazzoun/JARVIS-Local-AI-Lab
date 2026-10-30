@@ -146,9 +146,13 @@ class Registry:
                 from .mission_assurance import enabled, require_report, require_final_outcome
                 if enabled(self.mission_store,self.context['mission_id']):
                     require_final_outcome(self)
-                    review=require_report(self,original)
-                    args={**args,'content':original+'\n\n---\n\n'+render_final(self.mission_store,self.context['mission_id'],original)}
-                    self.mission_store.event(self.context['mission_id'],'narrative_publication_approved',result={'draft_sha256':review['draft_sha256'],'snapshot_sha256':review['snapshot_sha256'],'reviewer':'JARVIS-reviewer'})
+                    if spec.get('proof_bound_explanation_mode')=='facts_only' and spec.get('proof_bound_report_write'):
+                        args={**args,'content':render_final(self.mission_store,self.context['mission_id'],original)+'\nMode FACTS_ONLY : la prose libre originale reste archivée et non validée. Seuls les faits du journal sont publiés ; les anciens faux PASS rectifiés restent des événements historiques.\n'}
+                        self.mission_store.event(self.context['mission_id'],'factual_final_publication',actor='JARVIS-engine',result={'original_draft_sha256':__import__('hashlib').sha256(original.encode()).hexdigest(),'published_sha256':__import__('hashlib').sha256(args['content'].encode()).hexdigest(),'model_prose_published':False,'facts_renderer':'existing mission_reporting.render_final, Codex-developed','all_tasks_received':True})
+                    else:
+                        review=require_report(self,original)
+                        args={**args,'content':original+'\n\n---\n\n'+render_final(self.mission_store,self.context['mission_id'],original)}
+                        self.mission_store.event(self.context['mission_id'],'narrative_publication_approved',result={'draft_sha256':review['draft_sha256'],'snapshot_sha256':review['snapshot_sha256'],'reviewer':'JARVIS-reviewer'})
                 else:
                     args={**args,'content':render_final(self.mission_store,self.context['mission_id'],original)}
         sources=self.context.get('verified_sources',[])

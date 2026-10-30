@@ -31,6 +31,45 @@ class AttemptLedger:
     c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN misclassified_failed_cycles INTEGER NOT NULL DEFAULT 0')
    if 'correction_resolved_through' not in {r['name'] for r in c.execute('PRAGMA table_info(mission_problems_v2)')}:
     c.execute('ALTER TABLE mission_problems_v2 ADD COLUMN correction_resolved_through INTEGER NOT NULL DEFAULT 0')
+ def rectify_report_success(self,attempt,verification):
+  """Coordinator reopening of a proved false PASS, with append-only erratum.
+
+  Same report bytes and exact task criterion are required. The old PASS and
+  original attempt result remain available; a real failed correction is counted.
+  This method is not exposed as a model tool and never resets a failure budget.
+  """
+  if self.store.get(self.m)['state']!='interrupted':raise ValueError('Report rectification requires interrupted execution')
+  with self.store.db() as c:
+   prior=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='coordinator_report_success_rectified' AND json_extract(result,'$.attempt')=?",(self.m,attempt)).fetchone()
+  if prior:
+   row=self.get(attempt)
+   if row['state']=='EXECUTED_TEST_FAILED':self.failure(attempt,correction_changed=bool(row['result'].get('change_observed')))
+   return {'event':prior['id'],'cached':True}
+  with self.store.db() as c:
+   c.execute('BEGIN IMMEDIATE')
+   row=c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND id=?',(self.m,attempt)).fetchone()
+   prior=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='coordinator_report_success_rectified' AND json_extract(result,'$.attempt')=?",(self.m,attempt)).fetchone()
+   if prior:raise ValueError('Concurrent rectification recorded; retry coordinator reconciliation without executing any operation')
+   proof=c.execute("SELECT * FROM mission_events WHERE mission=? AND id=? AND kind='semantic_verification'",(self.m,verification)).fetchone()
+   if not row or not proof:raise ValueError('Original attempt or fresh verification absent')
+   request=json.loads(row['request']);old=json.loads(row['result']);verdict=json.loads(proof['result'])
+   previous=old.get('verification',{})
+   if not previous and old.get('verification_events'):
+    original=c.execute("SELECT id,result FROM mission_events WHERE mission=? AND id=? AND kind='semantic_verification'",(self.m,old['verification_events'][-1])).fetchone()
+    if original:previous={**json.loads(original['result']),'verification_event':original['id']}
+   args=request.get('arguments',{})
+   task=next((t for t in self.store.tasks(self.m) if t['id']==request.get('task')),None)
+   if row['state']!='SUCCESS' or row['unknown_outcome'] or request.get('tool')!='host_write_file' or previous.get('status')!='PASS':raise ValueError('Known report write with original PASS required')
+   if not task or proof['task']!=task['id'] or verdict.get('contract') not in task['contract'].get('semantic',[]) or verdict.get('contract',{}).get('kind')!='report':raise ValueError('Exact report task criterion required')
+   expected=hashlib.sha256(args.get('content','').encode()).hexdigest()
+   if args.get('path')!=task['contract'].get('report_path') or previous.get('sha256')!=expected or verdict.get('sha256')!=expected or verdict.get('status')!='FAIL' or not verdict.get('observations') or proof['id']<=previous.get('verification_event',0):raise ValueError('Fresh FAIL must contradict PASS on identical observed report bytes')
+   verdict={**verdict,'verification_event':verification}
+   result={**old,'original_success_result':old,'verification':verdict,'verified':False,'failure_counted':False,'rectification_verification':verification}
+   c.execute("UPDATE mission_attempts_v2 SET state='EXECUTED_TEST_FAILED',result=?,updated=? WHERE id=?",(encoded(result),time.time(),attempt))
+   c.execute("UPDATE tasks SET state='running',last_error=?,updated=? WHERE mission=? AND id=?",('Original report PASS contradicted by fresh evidence; correction required',time.time(),self.m,task['id']))
+   event=self.store.event(self.m,'coordinator_report_success_rectified',task['id'],'Codex',result={'attempt':attempt,'original_verification':previous.get('verification_event'),'new_verification':verification,'sha256':expected,'old_state':'SUCCESS','new_state':'EXECUTED_TEST_FAILED','original_events_preserved':True,'counter_reset':False},connection=c)
+  self.failure(attempt,correction_changed=bool(old.get('change_observed')))
+  return {'event':event,'cached':False}
  def resolve_report_interface(self,problem,evidence):
   """Coordinator-only new report strategy after a verified interface repair.
 
@@ -39,7 +78,7 @@ class AttemptLedger:
   """
   from pathlib import Path
   if self.store.get(self.m)['state']!='interrupted':raise ValueError('Report recovery requires interrupted execution')
-  allowed={'mission_reporting.py','mission_assurance.py','durable_cycle.py','mission_context_budget.py','operational_policy.py'}
+  allowed={'mission_reporting.py','mission_assurance.py','durable_cycle.py','mission_context_budget.py','operational_policy.py','report_claims.py'}
   with self.store.db() as c:
    c.execute('BEGIN IMMEDIATE')
    proof=c.execute('SELECT id,actor,kind,result FROM mission_events WHERE mission=? AND id=?',(self.m,evidence)).fetchone()

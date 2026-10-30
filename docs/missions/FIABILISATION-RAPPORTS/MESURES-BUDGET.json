@@ -1,0 +1,703 @@
+{
+  "native_admission_events": 115,
+  "native_admitted_max_bytes": 27532,
+  "conservative_input_budget_bytes": 27648,
+  "context_tokens": 32768,
+  "response_tokens_reserved": 4096,
+  "template_margin": 1024,
+  "not_exact_token_counts": true,
+  "native_completed_atomic_review_batches": 54,
+  "model_review_quality_not_implied_by_capacity": true,
+  "events": [
+    {
+      "event": 92063,
+      "input_bytes": 23262,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92071,
+      "input_bytes": 23318,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92094,
+      "input_bytes": 26851,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92104,
+      "input_bytes": 26939,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92113,
+      "input_bytes": 10334,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92119,
+      "input_bytes": 10418,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92125,
+      "input_bytes": 16210,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92131,
+      "input_bytes": 14453,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92137,
+      "input_bytes": 13904,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92143,
+      "input_bytes": 12663,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92149,
+      "input_bytes": 11695,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92165,
+      "input_bytes": 23080,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92173,
+      "input_bytes": 23136,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92189,
+      "input_bytes": 23176,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92197,
+      "input_bytes": 23232,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92218,
+      "input_bytes": 27532,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92228,
+      "input_bytes": 26882,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92237,
+      "input_bytes": 13039,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92243,
+      "input_bytes": 15800,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92249,
+      "input_bytes": 13537,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92255,
+      "input_bytes": 12694,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92261,
+      "input_bytes": 13682,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92267,
+      "input_bytes": 12928,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92282,
+      "input_bytes": 24309,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92292,
+      "input_bytes": 24458,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92340,
+      "input_bytes": 24197,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92348,
+      "input_bytes": 24253,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92357,
+      "input_bytes": 24253,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92366,
+      "input_bytes": 24253,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92381,
+      "input_bytes": 24268,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92389,
+      "input_bytes": 24324,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92412,
+      "input_bytes": 23714,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92422,
+      "input_bytes": 23225,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92431,
+      "input_bytes": 11541,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92437,
+      "input_bytes": 11264,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92443,
+      "input_bytes": 13512,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92449,
+      "input_bytes": 11572,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92455,
+      "input_bytes": 14644,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92461,
+      "input_bytes": 16987,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92467,
+      "input_bytes": 12767,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92473,
+      "input_bytes": 13307,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92480,
+      "input_bytes": 13940,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92486,
+      "input_bytes": 12636,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92492,
+      "input_bytes": 11608,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92498,
+      "input_bytes": 15478,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92504,
+      "input_bytes": 13165,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92510,
+      "input_bytes": 14584,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92523,
+      "input_bytes": 14828,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92529,
+      "input_bytes": 11317,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92535,
+      "input_bytes": 10706,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92540,
+      "input_bytes": 4815,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92544,
+      "input_bytes": 4507,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92548,
+      "input_bytes": 4756,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92577,
+      "input_bytes": 25888,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92585,
+      "input_bytes": 25944,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92608,
+      "input_bytes": 23714,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92618,
+      "input_bytes": 23225,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 92627,
+      "input_bytes": 12639,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92633,
+      "input_bytes": 12562,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92639,
+      "input_bytes": 15600,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92645,
+      "input_bytes": 19965,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92651,
+      "input_bytes": 15571,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92657,
+      "input_bytes": 13143,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92663,
+      "input_bytes": 16320,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92669,
+      "input_bytes": 12685,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92675,
+      "input_bytes": 12754,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92681,
+      "input_bytes": 15901,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92687,
+      "input_bytes": 11849,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92703,
+      "input_bytes": 25602,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92711,
+      "input_bytes": 25658,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92728,
+      "input_bytes": 26444,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92736,
+      "input_bytes": 27153,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92744,
+      "input_bytes": 12804,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92750,
+      "input_bytes": 12652,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92756,
+      "input_bytes": 12587,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92762,
+      "input_bytes": 12596,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92768,
+      "input_bytes": 18294,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92774,
+      "input_bytes": 16730,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92780,
+      "input_bytes": 16166,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92786,
+      "input_bytes": 17328,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92792,
+      "input_bytes": 16698,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92798,
+      "input_bytes": 12788,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92805,
+      "input_bytes": 13074,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92811,
+      "input_bytes": 19460,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92817,
+      "input_bytes": 15739,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92823,
+      "input_bytes": 12550,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92838,
+      "input_bytes": 27086,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92862,
+      "input_bytes": 25368,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92870,
+      "input_bytes": 26169,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92881,
+      "input_bytes": 25453,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92889,
+      "input_bytes": 26254,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92898,
+      "input_bytes": 26278,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92909,
+      "input_bytes": 25477,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92917,
+      "input_bytes": 26278,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92926,
+      "input_bytes": 26278,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92937,
+      "input_bytes": 25477,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92945,
+      "input_bytes": 26278,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92961,
+      "input_bytes": 24125,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92969,
+      "input_bytes": 24926,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92981,
+      "input_bytes": 24125,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 92989,
+      "input_bytes": 24926,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93007,
+      "input_bytes": 24440,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93015,
+      "input_bytes": 25271,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93041,
+      "input_bytes": 27444,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93051,
+      "input_bytes": 26194,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 93070,
+      "input_bytes": 24716,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 93080,
+      "input_bytes": 24865,
+      "within_budget": true,
+      "compacted": true
+    },
+    {
+      "event": 93107,
+      "input_bytes": 13996,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93113,
+      "input_bytes": 14404,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93123,
+      "input_bytes": 15408,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93129,
+      "input_bytes": 15816,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93139,
+      "input_bytes": 16820,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93145,
+      "input_bytes": 17228,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93163,
+      "input_bytes": 13996,
+      "within_budget": true,
+      "compacted": false
+    },
+    {
+      "event": 93169,
+      "input_bytes": 14404,
+      "within_budget": true,
+      "compacted": false
+    }
+  ]
+}
