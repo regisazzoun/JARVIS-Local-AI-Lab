@@ -126,7 +126,7 @@ def service_snapshot_summary(policy,reads):
   for row in selected.values():
    if 'observed_text' in row:texts[row['observed_text']]=texts.get(row['observed_text'],0)+1
    code=str(row['returncode']);codes[code]=codes.get(code,0)+1
-  result[action]={'observed_units':len(selected),'stdout_counts':texts,'returncode_counts':codes,'unobserved_units':sorted(services-set(selected))}
+  result[action]={'observed_units':len(selected),'stdout_counts':texts,'returncode_counts':codes,'unobserved_units':sorted(services-set(selected))} if selected else {'observed_units':0,'stdout_counts':{},'returncode_counts':{},'unobserved_units_count':len(services),'unobserved_units_reference':'All keys of observed_host_policy.services'}
  return {'policy_invocation':(policy or {}).get('invocation_id'),'allowed_units':len(services),'by_action':result,'meaning':'Exact receipt counts by action and printed value, not health, presence, restart or deployment verification.'}
 
 def unread_service_schemas(schemas,policy,reads):
