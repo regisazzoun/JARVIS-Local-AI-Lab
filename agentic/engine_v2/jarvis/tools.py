@@ -107,6 +107,10 @@ class Registry:
         register_p2_reception(self)
         from .mission_context_budget import register as register_context_budget
         register_context_budget(self)
+        from .qwen_specialist import register as register_qwen_specialist
+        register_qwen_specialist(self)
+        from .google_workspace import register as register_google_workspace
+        register_google_workspace(self)
     def hardware(self,args):
         return {name:command(argv) for name,argv in {'cpu':['lscpu'],'ram':['free','-m'],'gpu':['nvidia-smi','--query-gpu=name,memory.used,utilization.gpu,temperature.gpu','--format=csv'],'disks':['lsblk','-o','NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS'],'network':['ip','-brief','address']}.items()}
     def logs(self,args):
@@ -428,7 +432,7 @@ class Registry:
             controller=getattr(self,'mission_controller',None)
             action=args.get('action','')
             from .mcp_gateway import is_mutating as mcp_mutates
-            mutating=(name=='mcp_tools' and mcp_mutates(args)) or name in ('mission_action','skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','show','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
+            mutating=(name=='mcp_tools' and mcp_mutates(args)) or name in ('qwen_code_run','mission_action','skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','show','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
                 from .intent import classify
                 if classify(self.context.get('owner_text',''))=='question':

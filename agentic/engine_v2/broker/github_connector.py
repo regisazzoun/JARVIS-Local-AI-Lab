@@ -23,6 +23,18 @@ def check_content(name,content):
 
 def execute(a,cfg,run,sandbox,root_for):
     action=a['action'];repo=a['repository'];user=cfg['user']
+    if action=='search_code':
+        from urllib.parse import urlencode
+        query=a.get('query','').strip()
+        if not query or len(query)>240 or re.search(r'(?i)(?:repo|org|user):',query):
+            raise ValueError('query: 1..240 characters, without repo/org/user qualifiers; repository scope is enforced')
+        result=run(['/usr/bin/gh','api','search/code?'+urlencode({'q':query+' repo:'+repo,'per_page':10})],30,user)
+        if result['returncode']==0:
+            value=json.loads(result['stdout'])
+            if any(item.get('repository',{}).get('full_name','').casefold()!=repo.casefold() for item in value.get('items',[])):
+                raise PermissionError('Search response contains a different repository')
+            result['stdout']=json.dumps({'repository':repo,'query':query,'total_count':value.get('total_count'),'incomplete_results':value.get('incomplete_results'),'items':[{k:item.get(k) for k in ('name','path','sha','html_url')} for item in value.get('items',[])], 'limitation':'GitHub code search indexes the default branch; no tested-branch claim.'})
+        return result
     if action=='repositories':return {'returncode':0,'stdout':json.dumps({'writable':cfg['repositories'],'read_only':cfg.get('read_repositories',[])})}
     if action in ('commits','verify_commit','prs','pr_status','diff'):
         branch=a.get('branch','')
@@ -95,11 +107,15 @@ print(json.dumps(out))
     for name,data in contents.items():check_content(name,data)
     if action=='verify_tree':
         from urllib.parse import quote
-        r=run(['/usr/bin/gh','api','repos/'+repo+'/git/trees/'+quote(branch,safe='')+'?recursive=1'],30,user,output_limit=2000000)
+        resolved=run(['/usr/bin/gh','api','repos/'+repo+'/commits/'+quote(branch,safe=''),'--jq','{commit:.sha,tree:.commit.tree.sha}'],30,user)
+        if resolved['returncode']:return resolved
+        version=json.loads(resolved['stdout'])
+        r=run(['/usr/bin/gh','api','repos/'+repo+'/git/trees/'+version['tree']+'?recursive=1'],30,user,output_limit=2000000)
         if r['returncode']:return r
         tree=json.loads(r['stdout']);remote={x['path']:x['sha'] for x in tree['tree'] if x['type']=='blob'}
+        if tree['sha']!=version['tree']:raise ValueError('GitHub tree response differs from the resolved immutable tree')
         missing=[n for n,d in contents.items() if remote.get(n)!=hashlib.sha1(b'blob '+str(len(d)).encode()+b'\0'+d).hexdigest()]
-        return {'returncode':1 if missing or tree.get('truncated') else 0,'verified':not missing and not tree.get('truncated',False),'stdout':json.dumps({'verified_files':list(contents),'missing_or_different':missing,'tree_sha':tree['sha']})}
+        return {'returncode':1 if missing or tree.get('truncated') else 0,'verified':not missing and not tree.get('truncated',False),'stdout':json.dumps({'verified_files':list(contents),'missing_or_different':missing,'tree_sha':tree['sha'],'commit_sha':version['commit']})}
     with tempfile.TemporaryDirectory(prefix='jarvis-tree-') as td:
         account=pwd.getpwnam(user);os.chown(td,account.pw_uid,account.pw_gid);os.chmod(td,0o700);clean=Path(td)/'repo'
         r=run(['/usr/bin/gh','repo','clone',repo,str(clean),'--','--depth','1'],90,user)
