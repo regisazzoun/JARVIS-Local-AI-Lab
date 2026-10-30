@@ -180,4 +180,17 @@ class OperationalPolicyTests(unittest.TestCase):
   self.assertEqual(service_observation_view([{**row,'observed_at':11}],snapshot),[{**row,'observed_at':11}])
   self.assertEqual(service_observation_view([{**row,'observed_state_text':'active'}],snapshot),[{**row,'observed_state_text':'active'}])
 
+ def test_actual_broker_inactive_wrapper_is_observed_but_denial_is_not(self):
+  from jarvis.operational_policy import observed_service_reads,service_read_completed
+  from jarvis.mission_reporting import service_observation
+  native={'ok':False,'error':'inactive\n','result':{'returncode':4,'stdout':'inactive\n','duration_s':0.017,'evidence_id':'broker-original','diagnostic':{'error_category':'application_error'}}}
+  args={'service':'mdmonitor.service','action':'is-active'}
+  ref=self.s.begin_call(self.m,None,'host_service',args);self.s.finish_call(ref,native,0)
+  self.assertEqual(observed_service_reads(self.s,self.m)['mdmonitor.service']['is-active']['returncode'],4)
+  self.assertEqual(service_observation(args,native)['observed_state_text'],'inactive')
+  denied={**native,'result':{**native['result'],'diagnostic':{'error_category':'permission_denied'}}}
+  self.assertFalse(service_read_completed(denied));self.assertIsNone(service_observation(args,denied))
+  missing={**native,'result':{k:v for k,v in native['result'].items() if k!='evidence_id'}}
+  self.assertFalse(service_read_completed(missing))
+
 if __name__=='__main__':unittest.main()

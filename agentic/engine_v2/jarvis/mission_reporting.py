@@ -10,7 +10,8 @@ from .verification import exact
 def service_observation(arguments, result):
     """Bounded exact output fields from a complete observed systemd read receipt."""
     if arguments.get('action') not in ('show','is-active','is-enabled') or not arguments.get('service'):return None
-    if not result.get('ok'):return None
+    from .operational_policy import service_read_completed
+    if not service_read_completed(result):return None
     raw=result.get('result',{});text=raw.get('stdout')
     if type(raw.get('returncode')) is not int or not isinstance(text,str) or not text.strip() or raw.get('stdout_truncated') or raw.get('timeout'):return None
     if arguments['action']=='show' and raw['returncode']!=0:return None

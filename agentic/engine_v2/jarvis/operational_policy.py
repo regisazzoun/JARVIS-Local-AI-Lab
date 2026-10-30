@@ -90,6 +90,11 @@ def planning_feedback(store,mission):
  return result
 
 READ_SERVICE_ACTIONS={'status','show','is-active','is-enabled'}
+def service_read_completed(wrapper):
+ """A nonzero observed process is not a denied/unexecuted broker operation."""
+ out=wrapper.get('result') or {}
+ return bool(wrapper.get('ok') or ((out.get('diagnostic') or {}).get('error_category')=='application_error' and out.get('evidence_id') and type(out.get('duration_s')) in (int,float) and type(out.get('returncode')) is int))
+
 def observed_service_reads(store,mission):
  """Original completed read outputs, including valid nonzero process exits.
 
@@ -103,7 +108,7 @@ def observed_service_reads(store,mission):
  snapshot={}
  for row in rows:
   args=json.loads(row['arguments']);wrapper=json.loads(row['result'] or '{}');out=wrapper.get('result') or {};action=args.get('action');service=args.get('service')
-  if not wrapper.get('ok') or action not in READ_SERVICE_ACTIONS or not service or type(out.get('returncode')) is not int or not isinstance(out.get('stdout'),str) or out.get('stdout_truncated') or out.get('timeout'):continue
+  if not service_read_completed(wrapper) or action not in READ_SERVICE_ACTIONS or not service or type(out.get('returncode')) is not int or not isinstance(out.get('stdout'),str) or out.get('stdout_truncated') or out.get('timeout'):continue
   from datetime import datetime
   from zoneinfo import ZoneInfo
   text=out['stdout'];item={'invocation':row['id'],'observed_at':row['created'],'observed_at_iso':datetime.fromtimestamp(row['created'],ZoneInfo('Europe/Paris')).isoformat(timespec='seconds'),'returncode':out['returncode']}
