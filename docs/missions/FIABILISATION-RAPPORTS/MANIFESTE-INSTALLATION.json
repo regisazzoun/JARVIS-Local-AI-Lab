@@ -1,0 +1,50 @@
+{
+  "canonical_runtime": "/opt/jarvis/conversation/jarvis",
+  "files_sha256": {
+    "report_claims.py": "f63edec46a7d5924aab9514e21f8d77d9c48a3119a192c7e8c4b2b647a734a06",
+    "mission_assurance.py": "5c707f5ac4a41380eef9ef58f9a04de1a732d62cd3956c089cb823217ce27698",
+    "durable_cycle.py": "01c77f75d3cbf73aa2702f7962b450b5df0b9cbe8f5fbb3de237605b0b9219d9",
+    "verification.py": "470a05cc2a014e7cf32eafd9a19af2b7c7f8db7caec1bd85f5193a8296321b23",
+    "attempt_ledger.py": "f7ade71335a0c8506ca7eb3cb098a35ebdc3a6dd172bb1257b8b9a3afe67797a",
+    "tools.py": "fe111d4c6c61ca474e4e31fcc70f0bce09e3478b6a3a7775bd482e28a6f99c18",
+    "mission_reporting.py": "c44dc8c5d971d7138c0d41dcef378324bfb691864baed6d41ba4d75e9c50f3a0"
+  },
+  "new_module": "report_claims.py",
+  "P4_state": "interrupted",
+  "MANUAL_HOLD_preserved": true,
+  "report_mission_state": "completed",
+  "task_states": [
+    {
+      "id": "step_R1-R2-R3",
+      "state": "validated"
+    }
+  ],
+  "counters": [
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "scope": "canonical-action:9330f6251621491fd4886e512056f037bc032959ddf7a3c972e6fb52e9ca2401",
+      "fingerprint": "3c3bff74f830cc554497d3bbff8c2b4d5d76c4ad1195debe81a0cbd30209e4b1",
+      "descriptor": "{\"criteria\": [{\"kind\": \"report\", \"source\": {\"arguments\": {\"path\": \"/var/lib/jarvis/projects/webui-probe-clean-20261030/observation_services_2026-10-30.md\"}, \"tool\": \"host_read_file\"}}]}",
+      "failed_cycles": 10,
+      "infra_incidents": 1,
+      "state": "RESOLVED",
+      "escalation_event": 92564,
+      "infra_resolved_through": 0,
+      "misclassified_failed_cycles": 0,
+      "correction_resolved_through": 9
+    },
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "scope": "worker-recovery:ContextCapacityError",
+      "fingerprint": "55bb25cabf24e595cdc12426b683e898f9d9cc5f2115a87767ac2cad213e8ef6",
+      "descriptor": "{\"component\": \"durable-worker\", \"exception_type\": \"ContextCapacityError\"}",
+      "failed_cycles": 0,
+      "infra_incidents": 17,
+      "state": "RESOLVED",
+      "escalation_event": 92850,
+      "infra_resolved_through": 17,
+      "misclassified_failed_cycles": 0,
+      "correction_resolved_through": 0
+    }
+  ]
+}

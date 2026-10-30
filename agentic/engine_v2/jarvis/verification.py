@@ -206,7 +206,7 @@ class Verifier:
             if contract.get('kind')=='report':
                 from .mission_assurance import audit_report
                 review=audit_report(self.registry,body,self.registry.context.get('task_id'))
-                verdict={'status':review['status'],'checks':[{'predicate':'narrative_matches_original_evidence','pass':review['status']=='PASS','draft_sha256':review['draft_sha256']}], 'sha256':hashlib.sha256(body.encode()).hexdigest(),'issues':review['issues']}
+                verdict={'status':review['status'],'checks':[{'predicate':'narrative_matches_original_evidence','pass':review['status']=='PASS','draft_sha256':review['draft_sha256']}], 'sha256':hashlib.sha256(body.encode()).hexdigest(),'issues':review['issues'],'verification_method':review.get('verification_method','broker-read+JARVIS-reviewer26B')}
             else:
                 verdict = evaluate(body, contract, baseline)
             if baseline_error:
@@ -215,7 +215,7 @@ class Verifier:
                     verdict['status']='PARTIAL' if any(c['pass'] for c in verdict['checks']) else 'INSUFFICIENT'
         except (ValueError, KeyError, TypeError, OSError) as exc:
             verdict = {'status': 'INSUFFICIENT', 'error': str(exc), 'checks': []}
-        verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier='broker-read+JARVIS-reviewer26B' if contract.get('kind')=='report' else 'deterministic26')
+        verdict.update(contract=contract, observations=refs, observed_at=time.time(), verifier=verdict.get('verification_method','broker-read+JARVIS-reviewer26B') if contract.get('kind')=='report' else 'deterministic26')
         store = getattr(self.registry, 'mission_store', None)
         if store:
             verdict['verification_event'] = store.event(self.registry.context['mission_id'], 'semantic_verification', self.registry.context.get('task_id'), 'JARVIS-engine', result=verdict)

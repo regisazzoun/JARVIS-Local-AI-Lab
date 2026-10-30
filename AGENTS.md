@@ -1,3 +1,11 @@
+## Fiabilisation des rapports — demande propriétaire du30octobre2026
+
+Les contrôles de publication et de budget sont installés en extension du moteur existant ;221tests ciblésPASS. Sonde999923… terminée nativement avec relevé factuel reçu et vérification indépendante. Le tableau est assemblé par JARVIS-engine, infrastructureCodex ; JARVIS sélectionne les reçus et déclenche l’écriture/les vérifications. Ne pas attribuer le tableau à une rédaction libre du modèle.
+
+Après trois commentaires refusés, Codex a activé le repli `proof_bound_explanation_mode=facts_only` dans ce profil. Les commentaires et faux PASS originaux restent archivés avec errata. La rédaction libre autonome et la qualité générale du reviewer restent NONREÇUES ; ne pas les déclarer fiabilisées par ce repli. Les autres missions ne reçoivent pas automatiquement ce profil ni cette réception.
+
+M26-P4 reste en pause, MANUAL-HOLD conservé. Aucune14A/24-Old ni fusionmain. Préserver les anciennes preuves et les compteurs. Voir [réception](docs/missions/FIABILISATION-RAPPORTS/RAPPORT-FINAL.md).
+
 ## Diagnostic boucles Code/JARVIS — ordre propriétaire du30octobre2026
 
 Le propriétaire demande d’isoler et corriger modèle/contexte/adaptation Ollama,

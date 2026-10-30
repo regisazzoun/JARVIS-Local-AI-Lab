@@ -1,0 +1,72 @@
+[
+  {
+    "write_invocation": "dbe48f3b3d2149b499bf9091de588f7e",
+    "state": "finished",
+    "created": 1793370951.5475082,
+    "sha256": "58a69506eb2f66b1b915de512cfbc1bac939401f61d0651b94ec2db058487249",
+    "characters": 1800,
+    "file": "JARVIS-RAPPORT-1.md",
+    "actor": "JARVIS",
+    "executor": "canonical broker on Mac mini",
+    "decision_model": "qwen3-coder-next:q4_K_M on Dell1",
+    "fact_table_author": null,
+    "model_free_prose_retained": true,
+    "reception_status": "NON VALIDÉ — original conservé"
+  },
+  {
+    "write_invocation": "88bae7bc75d24e06bfa704276ef3a180",
+    "state": "finished",
+    "created": 1793371232.3118134,
+    "sha256": "5a208b8b4f257fd97dc2b50d7dddcffdb70c1e689c0ab1e6a06f10769f46105e",
+    "characters": 1800,
+    "file": "JARVIS-RAPPORT-2.md",
+    "actor": "JARVIS",
+    "executor": "canonical broker on Mac mini",
+    "decision_model": "qwen3-coder-next:q4_K_M on Dell1",
+    "fact_table_author": null,
+    "model_free_prose_retained": true,
+    "reception_status": "NON VALIDÉ — original conservé"
+  },
+  {
+    "write_invocation": "10972eecd6874f6299fa9f0e988b7ca6",
+    "state": "finished",
+    "created": 1793371876.763333,
+    "sha256": "afa499cd2608ff6c71498619db19be2f98e8a44a5de10a84684140848f0fbe2c",
+    "characters": 5404,
+    "file": "JARVIS-RAPPORT-3.md",
+    "actor": "JARVIS",
+    "executor": "canonical broker on Mac mini",
+    "decision_model": "qwen3-coder-next:q4_K_M on Dell1",
+    "fact_table_author": null,
+    "model_free_prose_retained": true,
+    "reception_status": "NON VALIDÉ — original conservé"
+  },
+  {
+    "write_invocation": "0a65439c331c4cf8bc6639fe66ccd854",
+    "state": "finished",
+    "created": 1793372209.3196797,
+    "sha256": "34c87a0f80167b8f7f6f56f6e451fea978ad7356e012c8c3dd509fa26c4c65ac",
+    "characters": 3681,
+    "file": "JARVIS-RAPPORT-4.md",
+    "actor": "JARVIS",
+    "executor": "canonical broker on Mac mini",
+    "decision_model": "qwen3-coder-next:q4_K_M on Dell1",
+    "fact_table_author": null,
+    "model_free_prose_retained": true,
+    "reception_status": "NON VALIDÉ — original conservé"
+  },
+  {
+    "write_invocation": "de1917629b3d4707a4853975a00be606",
+    "state": "finished",
+    "created": 1793373699.0121646,
+    "sha256": "884fb38539b0c86b87d9890b76bcac14300bb1cb4ca63a77b1acf15b42f9a777",
+    "characters": 3860,
+    "file": "JARVIS-RAPPORT-5.md",
+    "actor": "JARVIS",
+    "executor": "canonical broker on Mac mini",
+    "decision_model": "qwen3-coder-next:q4_K_M on Dell1",
+    "fact_table_author": "JARVIS-engine (Codex implementation)",
+    "model_free_prose_retained": false,
+    "reception_status": "VALIDÉ EN MODE FACTUEL, prose libre non reçue"
+  }
+]

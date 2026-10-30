@@ -1,3 +1,11 @@
+## Rapports et revue sous budget — 30 octobre 2026
+
+**✅🟡 GO avec réserves : publication factuelle reçue ; prose libre autonome NON REÇUE.**221tests logiciels PASS. Revue atomique et sources ciblées :54lots natifs terminés, entrées admises au maximum27532/27648octets ; fenêtre32768tokens inchangée. Les faux PASS du reviewer sont conservés avec leurs rectifications.
+
+JARVIS a sélectionné16reçus et déclenché le compositeur, l’écriture et la vérification. Relevé reçu93060/93087 et contrôle indépendant93156 :12unités,20appels, valeurs/dates/UUID exacts. Après trois explications refusées, repli explicite FACTS_ONLY décidé par Codex : tableau rédigé par le moteur, prose libre archivée sans publication. Clôture native de la sonde999923…93179, bilan global vérifié93180. Les deux protections sont livrées ; la justesse générale de la rédaction libre reste réservée.
+
+[Réception](docs/missions/FIABILISATION-RAPPORTS/RAPPORT-FINAL.md) · [preuves](docs/missions/FIABILISATION-RAPPORTS/PREUVES-JARVIS.json). Branche `codex/fiabilisation-rapports-preuves`, issue de PR33 ; aucune fusion main. M26-P4 reste interrompue et MANUAL-HOLD conservé ; aucune14A/24-Old déclenchée.
+
 ## Diagnostic des boucles IA — 30 octobre 2026
 
 **✅🟡 Correctifs déployés avec réserves ; rapport JARVIS ❌ NON VALIDÉ.** Même historique Qwen Code : ancien prompt répète, prompt court termine ; adaptation Ollama corrigée séparément. 185tests logiciels ciblés PASS. L’ancienne règle réinjectant tous les FAIL sans distinguer les SHA est corrigée ; l’identité réellement chargée étaitv2, pasv1 (erratum91407).

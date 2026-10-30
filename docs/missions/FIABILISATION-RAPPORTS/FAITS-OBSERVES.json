@@ -1,0 +1,256 @@
+{
+  "code_call_counts": {
+    "0": 16,
+    "3": 2,
+    "4": 2
+  },
+  "code_unit_counts": {
+    "0": 9,
+    "3": 2,
+    "4": 1
+  },
+  "functional_health_tested": false,
+  "reference": "services:snapshot",
+  "meaning": "Derived distinct-unit counts from original is-active receipts, not command count or health.",
+  "nonzero_units": 3,
+  "nonzero_calls": 4,
+  "observed_units": 12,
+  "is_active_call_count": 20,
+  "stdout_counts": {
+    "active": 9,
+    "inactive": 3
+  },
+  "source_references": [
+    "0b9ef9b10a61454aac61dce2b44acf96",
+    "233eb89cb7d44aafbba6e201b2a1a572",
+    "eb77a552ebc5433cae5f2b6ec819d247",
+    "ae48ef2a5d06441a82c6b55db7b7be63",
+    "3529c3f730264bb7b899ce4a3da51ff4",
+    "f4541922b0cf4a9ea51fd8e4a479c111",
+    "bd9773c72f6d44ccaea0caef50930355",
+    "07b01b3c12984c62adbe9b4689054eed",
+    "9c4a3a106ab348e78741b919f5f1e032",
+    "512eacb2d79740c5b5015fef37e73e4d",
+    "48094bec627d494a9673afd28437154d",
+    "fa5ade3000cd4f9298e6683ea1dea0c4"
+  ],
+  "latest": [
+    {
+      "reference": "18bc4c1d9a254560a4357edd3d2f8421",
+      "event_reference": "event:89946",
+      "broker_evidence": "a822a965f7e24ee8a8701b176a7bad12",
+      "created": "2026-10-30T09:49:33.029503+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-agent-proof.service",
+      "action": "status",
+      "returncode": 0,
+      "status_lines": [
+        "Loaded: loaded (/etc/systemd/system/jarvis-agent-proof.service; disabled; preset: enabled)",
+        "Active: active (exited) since Sat 2026-10-17 14:05:54 CEST; 1 week 5 days ago"
+      ]
+    },
+    {
+      "reference": "0b9ef9b10a61454aac61dce2b44acf96",
+      "event_reference": "event:90068",
+      "broker_evidence": "2c01a36b751847b59cdd0e15d88c435a",
+      "created": "2026-10-30T09:51:52.071702+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-agent-proof.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "233eb89cb7d44aafbba6e201b2a1a572",
+      "event_reference": "event:90128",
+      "broker_evidence": "099f997b249b44b5877281b3abcceaee",
+      "created": "2026-10-30T09:53:03.217555+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-conversation.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "eb77a552ebc5433cae5f2b6ec819d247",
+      "event_reference": "event:90210",
+      "broker_evidence": "73e2243b89fe4df5afb64b2c76407733",
+      "created": "2026-10-30T09:54:40.199812+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-ollama.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "ae48ef2a5d06441a82c6b55db7b7be63",
+      "event_reference": "event:90190",
+      "broker_evidence": "8c0d934f8f9141f8aa20ab8aafc8b1a9",
+      "created": "2026-10-30T09:54:15.365541+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-open-webui.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "3529c3f730264bb7b899ce4a3da51ff4",
+      "event_reference": "event:90742",
+      "broker_evidence": "41466c83e8994f0b969f6b8b0f10c804",
+      "created": "2026-10-30T10:30:47.242422+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "NetworkManager.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "17c3a906e27b48e7b69dbecc905c800f",
+      "event_reference": "event:90764",
+      "broker_evidence": "84ec670833854945b95465fd349b59e5",
+      "created": "2026-10-30T10:31:18.838557+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "NetworkManager.service",
+      "action": "status",
+      "returncode": 0,
+      "status_lines": [
+        "Loaded: loaded (/usr/lib/systemd/system/NetworkManager.service; enabled; preset: enabled)",
+        "Active: active (running) since Mon 2026-10-12 22:00:25 CEST; 2 weeks 3 days ago"
+      ]
+    },
+    {
+      "reference": "f4541922b0cf4a9ea51fd8e4a479c111",
+      "event_reference": "event:90786",
+      "broker_evidence": "8013b906164a4606bfd08c73f8c911da",
+      "created": "2026-10-30T10:31:50.479031+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-mission-worker.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "bd9773c72f6d44ccaea0caef50930355",
+      "event_reference": "event:90809",
+      "broker_evidence": "5116b093bbcc4e11a4c504c91844afc9",
+      "created": "2026-10-30T10:32:22.312630+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-mission-worker@2.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "07b01b3c12984c62adbe9b4689054eed",
+      "event_reference": "event:91050",
+      "broker_evidence": "48c2bd897d48437080c9cae26e4a7ec1",
+      "created": "2026-10-30T10:40:31.031594+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "jarvis-dell-desktop-gateway.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "9c4a3a106ab348e78741b919f5f1e032",
+      "event_reference": "event:91117",
+      "broker_evidence": "cd08880108a04851ac7bc1332e426f52",
+      "created": "2026-10-30T10:42:14.079049+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "mdmonitor.service",
+      "action": "is-active",
+      "returncode": 4,
+      "stdout": "inactive"
+    },
+    {
+      "reference": "512eacb2d79740c5b5015fef37e73e4d",
+      "event_reference": "event:91449",
+      "broker_evidence": "74b9af26c2554356a726a225700589b4",
+      "created": "2026-10-30T10:56:41.323218+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "nvidia-persistenced.service",
+      "action": "is-active",
+      "returncode": 3,
+      "stdout": "inactive"
+    },
+    {
+      "reference": "48094bec627d494a9673afd28437154d",
+      "event_reference": "event:91494",
+      "broker_evidence": "0ee9fd1726cf436ea5a6a6595028211c",
+      "created": "2026-10-30T10:57:41.323078+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "ssh.service",
+      "action": "is-active",
+      "returncode": 0,
+      "stdout": "active"
+    },
+    {
+      "reference": "2ddb1d7902924073b1f27340925e1c90",
+      "event_reference": "event:91539",
+      "broker_evidence": "24409b20da484cf38ed18ae4e090c315",
+      "created": "2026-10-30T10:58:40.705093+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "mdmonitor.service",
+      "action": "status",
+      "returncode": 4,
+      "status_lines": []
+    },
+    {
+      "reference": "fa5ade3000cd4f9298e6683ea1dea0c4",
+      "event_reference": "event:91633",
+      "broker_evidence": "42670c9d29294f799c9ba2df781cafa8",
+      "created": "2026-10-30T11:00:59.767825+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "systemd-networkd.service",
+      "action": "is-active",
+      "returncode": 3,
+      "stdout": "inactive"
+    },
+    {
+      "reference": "72425eb7c6554ed99c69840f667f1abb",
+      "event_reference": "event:91678",
+      "broker_evidence": "756fc0db31bb42bdb7b0eb795a245b4f",
+      "created": "2026-10-30T11:02:03.481363+01:00",
+      "actor": "JARVIS",
+      "executor": "broker",
+      "tool": "host_service",
+      "service": "systemd-networkd.service",
+      "action": "status",
+      "returncode": 3,
+      "status_lines": [
+        "Loaded: loaded (/usr/lib/systemd/system/systemd-networkd.service; disabled; preset: enabled)",
+        "Active: inactive (dead)"
+      ]
+    }
+  ]
+}

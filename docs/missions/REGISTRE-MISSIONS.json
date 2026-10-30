@@ -2331,5 +2331,26 @@
     "dependances": "PR32, moteur canonique et outils existants ; aucun nouveau modèle",
     "prochaine_action": "Concevoir une stratégie techniquement différente pour les affirmations factuelles ; ne pas répéter le rapport ou reprendre P4 automatiquement",
     "derniere_actualisation": "2026-10-30"
+  },
+  {
+    "identifiant": "FIABILISATION-RAPPORTS-2026-10-30",
+    "nom": "Suite diagnostic IA — publication factuelle et revue bornée",
+    "fonction_principale": "Restitution confrontée aux reçus et contrôle du budget",
+    "objectifs": "Corriger les deux défauts de la sonde précédente sans relancer P4",
+    "materiel": "Mac mini coordination/broker ; Qwen80B sur Dell1",
+    "composants": "MissionStore existant, report_claims, vérificateur, renderer canonique",
+    "executant_reel": "Codex développe et contrôle ; JARVIS choisit les reçus et déclenche composition, écriture, vérification et clôture",
+    "documents_sources": [
+      {
+        "path": "docs/missions/FIABILISATION-RAPPORTS/RAPPORT-FINAL.md",
+        "url": ""
+      }
+    ],
+    "etat": "GO avec réserves — publication factuelle reçue, prose libre NON REÇUE",
+    "resultats_prouves": "221tests logicielsPASS ;54lots natifs de revue sous budget ; relevé factuel reçu93060/93087, contrôle indépendant93156 ; clôture native93179 et réception publication93180",
+    "reserves": "La rédaction libre et les avis du reviewer restent susceptibles d’erreurs ; repli FACTS_ONLY explicite après trois refus. Cette réception ne valide ni14A, ni26B/P4, ni une autonomie distribuée nouvelle.",
+    "dependances": "aaf72cc / PR33 ; sonde existante999923216804416eaf327c69ff62d8c2",
+    "prochaine_action": "Conserver le mode factuel ; qualifier séparément toute nouvelle rédaction libre. P4 reste en pause propriétaire.",
+    "derniere_actualisation": "2026-10-30"
   }
 ]

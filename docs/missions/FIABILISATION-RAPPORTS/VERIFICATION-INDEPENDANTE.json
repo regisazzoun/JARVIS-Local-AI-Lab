@@ -1,0 +1,68 @@
+{
+  "actor": "Codex",
+  "method": "Independent local file read and SQL parsing of original completed broker receipts; does not call the renderer or semantic verifier",
+  "mission": "999923216804416eaf327c69ff62d8c2",
+  "task_state": "validated",
+  "file_sha256": "884fb38539b0c86b87d9890b76bcac14300bb1cb4ca63a77b1acf15b42f9a777",
+  "table_exactly_matches_original_receipts": true,
+  "unique_units": 12,
+  "is_active_calls": 20,
+  "is_active_code_call_counts": {
+    "0": 16,
+    "4": 2,
+    "3": 2
+  },
+  "distinct_unit_stdout_counts": {
+    "active": 9,
+    "inactive": 3
+  },
+  "status_lines_match_originals": true,
+  "model_free_prose_published": false,
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-launcher3": "active",
+    "jarvis-qwen-guard": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active",
+    "apache2": "active",
+    "jarvis-ollama": "active",
+    "jarvis-open-webui": "active"
+  },
+  "private_webui_http": 200,
+  "tls_verification_result": 0,
+  "P4_state": "interrupted",
+  "MANUAL_HOLD_preserved": true,
+  "original_probe_state": "interrupted",
+  "functional_counters": [
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "scope": "canonical-action:9330f6251621491fd4886e512056f037bc032959ddf7a3c972e6fb52e9ca2401",
+      "fingerprint": "3c3bff74f830cc554497d3bbff8c2b4d5d76c4ad1195debe81a0cbd30209e4b1",
+      "descriptor": "{\"criteria\": [{\"kind\": \"report\", \"source\": {\"arguments\": {\"path\": \"/var/lib/jarvis/projects/webui-probe-clean-20261030/observation_services_2026-10-30.md\"}, \"tool\": \"host_read_file\"}}]}",
+      "failed_cycles": 10,
+      "infra_incidents": 1,
+      "state": "RESOLVED",
+      "escalation_event": 92564,
+      "infra_resolved_through": 0,
+      "misclassified_failed_cycles": 0,
+      "correction_resolved_through": 9
+    },
+    {
+      "mission": "999923216804416eaf327c69ff62d8c2",
+      "scope": "worker-recovery:ContextCapacityError",
+      "fingerprint": "55bb25cabf24e595cdc12426b683e898f9d9cc5f2115a87767ac2cad213e8ef6",
+      "descriptor": "{\"component\": \"durable-worker\", \"exception_type\": \"ContextCapacityError\"}",
+      "failed_cycles": 0,
+      "infra_incidents": 17,
+      "state": "RESOLVED",
+      "escalation_event": 92850,
+      "infra_resolved_through": 17,
+      "misclassified_failed_cycles": 0,
+      "correction_resolved_through": 0
+    }
+  ],
+  "Apple_microphone_test_performed": false,
+  "event": 93156
+}
