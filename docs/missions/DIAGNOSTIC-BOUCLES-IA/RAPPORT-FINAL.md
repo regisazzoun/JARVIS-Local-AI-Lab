@@ -58,3 +58,5 @@ Code : `7a6f4eb`, `1823b7f`, `accc640`, `5373123`, `b9d597c`, `18539cd`, `006781
 - [Arrêt natif de la sonde originale](PREUVE-ARRET-NATIF.json), [préflight deux étapes](PREUVE-BUDGET-DEUX-ETAPES.json).
 - [Contrôle final indépendant](CONTROLE-RAPPORT-FINAL.json), [santé et états finaux](VERIFICATION-INDEPENDANTE.json), [original JARVIS non validé](JARVIS-BROUILLON-NON-VALIDE.md).
 - [Tests logiciels](TESTS-LOGICIELS.txt). Ces tests ne sont pas des preuves fictives d’autonomie du modèle.
+
+Publication : [PR33](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/33), branche `codex/diagnostic-boucles-ia`, base [PR32](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/32). Sans fusion automatique. Les quatre empreintes des requêtes du script public de comparaison ont été reproduites exactement depuis les entrées figées, sans nouvelle inférence ; cela vérifie la reproductibilité des paquets, pas la justesse de leurs réponses.
