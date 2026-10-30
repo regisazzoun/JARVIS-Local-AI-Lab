@@ -12,6 +12,15 @@ from .authority_identity import invocation_scope
 
 EXPOSED={'system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_workspace','qwen_code_run','qwen_code_status'}
 
+# Select existing received interfaces for NEW integrated-client missions. No
+# owner goal, operational tasks, permissions or historical mission are rewritten.
+CLIENT_MISSION_PROFILE={'planning_context_compact':True,'planning_report_steps':True,
+    'structured_action_calls':True,'structured_action_two_stage':True,
+    'bounded_narrative_review':True,'narrative_review_max_segments':4,
+    'atomic_report_review':True,'report_rewrite_from_facts':True,
+    'proof_bound_report_write':True,'bounded_interface_errors':True,
+    'proof_bound_explanation_mode':'facts_only','factual_finalization':True}
+
 def fingerprint(value):return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
 class CanonicalAPI:
@@ -93,10 +102,13 @@ class Capabilities:
         call_completed=bool(result.get('ok') or name=='host_service' and service_read_completed(result))
         audit=self._audit('client_tool_result',{'request_id':ident,'start_audit_id':start,'origin':self.origin,'signature':signature,'tool':name,'arguments':arguments,'mission':self.mission,'task':self.task,'result':result,'call_completed':call_completed,'application_result_independently_verified':False})
         return self._model_result(result,{'audit_id':audit,'request_id':ident,'mission_id':self.mission,'invocation_id':token,'origin':self.origin,'call_completed':call_completed,'application_result_independently_verified':False})
-    def missions(self,action='list',ident=None,goal=None,after=0):
+    def missions(self,action='list',ident=None,goal=None,after=0,profile='standard'):
         if action=='create':
             if not isinstance(goal,str) or not 1<=len(goal)<=3000:raise ValueError('Explicit owner goal of1..3000characters required')
-            value=CanonicalAPI(self.root).request('/api/missions',{'goal':goal,'model':'qwen3-coder-next:q4_K_M','project':'IntegratedClients','request_kind':'mission'})
+            if profile not in ('standard','service_observation'):raise ValueError('Unknown existing mission profile')
+            spec=dict(CLIENT_MISSION_PROFILE)
+            if profile=='service_observation':spec['read_only_service_snapshot']=True
+            value=CanonicalAPI(self.root).request('/api/missions',{'goal':goal,'model':'qwen3-coder-next:q4_K_M','project':'IntegratedClients','request_kind':'mission','spec':spec})
             if not re.fullmatch('[0-9a-f]{32}',str(value.get('id',''))):
                 return {'created':None,'state':'UNKNOWN','error':'No valid canonical mission receipt; inspect existing missions before resubmitting'}
             return {'created':True,'source':'canonical existing Mission Engine',**value}

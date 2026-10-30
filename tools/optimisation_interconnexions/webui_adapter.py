@@ -78,7 +78,7 @@ class Handler(BaseHTTPRequestHandler):
                 elif operation=='receipt':result=api.receipt(d['id'],d.get('offset',0),d.get('limit',3000))
                 elif operation=='missions':
                     dispatch_possible=d.get('action')=='create'
-                    result=api.missions(d.get('action','list'),d.get('id'),d.get('goal'),d.get('after',0))
+                    result=api.missions(d.get('action','list'),d.get('id'),d.get('goal'),d.get('after',0),d.get('profile','standard'))
                 else:raise ValueError('Unknown capabilities operation')
                 self.send(result);return
             if self.path=='/v1/audio/speech':self.send(J.request('/api/tts',{'text':d['input']}),mime='audio/wav');return

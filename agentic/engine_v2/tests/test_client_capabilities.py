@@ -65,3 +65,21 @@ class MissionReceiptTests(unittest.TestCase):
    with patch.object(api,'registry',return_value=Catalog()):
     first=api.catalog();last=api.catalog(offset=first['next_offset']);found=api.catalog(query='qwen')
   self.assertEqual(len(first['tools']),12);self.assertEqual(len(last['tools']),1);self.assertEqual(found['tools'][0]['name'],'qwen_code_run')
+
+class ReceivedProfileTests(unittest.TestCase):
+ def test_service_profile_is_explicit_and_invalid_profile_never_dispatches(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   api=Capabilities(Path(tmp),config={'test':True})
+   with patch('jarvis.client_capabilities.CanonicalAPI.request',return_value={'id':'b'*32,'state':'queued'}) as request:
+    api.missions('create',goal='Observe service',profile='service_observation')
+    self.assertTrue(request.call_args.args[1]['spec']['read_only_service_snapshot'])
+    request.reset_mock()
+    with self.assertRaises(ValueError):api.missions('create',goal='Observe service',profile='unknown')
+    request.assert_not_called()
+ def test_new_client_mission_selects_existing_flat_contract_without_plan_or_readonly_lock(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   api=Capabilities(Path(tmp),config={'test':True})
+   with patch('jarvis.client_capabilities.CanonicalAPI.request',return_value={'id':'a'*32,'state':'queued'}) as request:
+    result=api.missions('create',goal='Owner goal')
+  payload=request.call_args.args[1];spec=payload['spec']
+  self.assertTrue(spec['planning_report_steps']);self.assertTrue(spec['bounded_interface_errors']);self.assertEqual(spec['proof_bound_explanation_mode'],'facts_only');self.assertNotIn('tasks',spec);self.assertNotIn('read_only_service_snapshot',spec);self.assertEqual(payload['goal'],'Owner goal');self.assertTrue(result['created'])

@@ -32,6 +32,6 @@ class Tools:
     async def jarvis_receipt(self,id:int,offset:int=0)->str:
         """Relire un reçu persistant. id : audit_id retourné par jarvis_call. offset : position en octets pour les longs reçus."""
         return await self._call('receipt',{'id':id,'offset':offset,'limit':3000})
-    async def jarvis_missions(self,action:str='list',id:str='',goal:str='',after:int=0)->str:
-        """Consulter list/read les missions canoniques. create crée une nouvelle mission uniquement sur demande explicite du propriétaire. id : mission pour read ; goal : objectif pour create ; after : pagination des événements."""
-        return await self._call('missions',{'action':action,'id':id,'goal':goal,'after':after})
+    async def jarvis_missions(self,action:str='list',id:str='',goal:str='',after:int=0,profile:str='standard')->str:
+        """Consulter list/read les missions canoniques. create crée une nouvelle mission uniquement sur demande explicite. id : mission pour read ; goal : objectif pour create ; after : pagination. profile standard utilise les interfaces plates et rapports factuels existants ; service_observation sélectionne le profil reçu d'observation systemd en lecture seule, seulement pour cet usage."""
+        return await self._call('missions',{'action':action,'id':id,'goal':goal,'after':after,'profile':profile})
