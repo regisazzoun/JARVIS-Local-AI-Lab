@@ -1,3 +1,14 @@
+## Diagnostic boucles Code/JARVIS — ordre propriétaire du30octobre2026
+
+Le propriétaire demande d’isoler et corriger modèle/contexte/adaptation Ollama,
+y compris l’effet des anciennes règles agentiques et la sonde des interconnexions.
+Corrections, essais bornés et publication autorisés sans validation intermédiaire.
+Préserver les tentatives originales et distinguer expérience de contexte neuf,
+reprise de la sonde historique et réception réelle. Aucun compteur historique
+supprimé, aucune quatrième répétition de stratégie inchangée ni modèle remplacé.
+M26-P4 reste en pause ; MANUAL-HOLD et services hors périmètre conservés.
+Aucune fusion automatique dans main. Voir docs/missions/DIAGNOSTIC-BOUCLES-IA/.
+
 ## Audit IA puis corrections autorisées — 29 octobre 2026
 
 Le propriétaire autorise, après gel du bilan, les corrections et optimisations

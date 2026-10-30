@@ -482,12 +482,21 @@ def ensure_plan_review(registry):
     store=registry.mission_store;ident=registry.context['mission_id']
     plans=store.plans(ident)
     if not plans:return None
+    deferred=latest(store,ident,'plan_review_deferred')
+    if deferred and deferred.get('exception_type')=='ContextCapacityError' and deferred.get('current_plan_version')==plans[-1]['version']:
+        return {'status':'INSUFFICIENT','review_pending':True,'execution_allowed':False,
+                'error':deferred['error'],'current_plan_version':plans[-1]['version'],
+                'instruction':'Review did not execute: current plan exceeds input capacity. Revise/reduce your own pending plan using the offered planning interface; do not resubmit an identical candidate. Execution remains forbidden until a real coverage PASS.'}
     previous=latest(store,ident,'coverage_review')
     if previous and 'Review must address every extracted requirement exactly once' in previous.get('issues',[]) and previous.get('contract_version')!=VERSION:
         store.event(ident,'coverage_format_rectification',actor='JARVIS-engine',result={'previous_plan_version':previous.get('plan_version'),'previous_status_preserved':previous.get('status'),'author_not_blamed':True,'reason':'Historical review omitted/duplicated requirement rows; a reviewer-format defect, not proof of an incomplete plan. Recheck using required requirement keys.'})
     if not previous or previous.get('plan_sha256')!=plans[-1]['sha256'] or previous.get('contract_version')!=VERSION or previous.get('requirements_sha256')!=digest(latest(store,ident,'goal_requirements')) or previous.get('goal_sha256')!=hashlib.sha256(store.get(ident)['goal'].encode()).hexdigest():
         store.event(ident,'coverage_review_recovered',result={'version':plans[-1]['version'],'plan_preserved':True,'actions_replayed':False})
-        return audit_plan(registry)
+        from .mission_context_budget import ContextCapacityError
+        try:return audit_plan(registry)
+        except ContextCapacityError as exc:
+            store.event(ident,'plan_review_deferred',actor='JARVIS-engine',result={'plan_saved':True,'current_plan_version':plans[-1]['version'],'execution_allowed':False,'error':str(exc),'exception_type':'ContextCapacityError'})
+            return {'status':'INSUFFICIENT','review_pending':True,'execution_allowed':False,'error':str(exc),'instruction':'Review did not execute; revise your own pending plan before a new review. No operational action is allowed.'}
     return previous
 
 

@@ -43,7 +43,7 @@ def capacity(config,model):
 
 def observation_view(o):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
- return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
+ return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','service','service_action','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
 
 def reported_suite(text,reference):
  """Project printed JSON fields, never promote them to a verifier verdict."""
@@ -109,6 +109,14 @@ class ContextBudget:
    interfaces=[dict(r) for r in c.execute("SELECT json_extract(result,'$.epoch') epoch,json_extract(result,'$.category') category,max(json_extract(result,'$.count')) count FROM mission_events WHERE mission=? AND kind='authority_interface_failure' GROUP BY epoch,category ORDER BY epoch,category",(self.m,))]
   route=self.latest('compute_route_observed');last_inference={k:route[0]['result'].get(k) for k in ('node','effective_model','num_ctx','prompt_eval_count')} if route else None
   checkpoint={'retained_service_observations':list(service_reads.values()),'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':current_guidance,'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
+  from .operational_policy import observed_policy,planning_feedback
+  checkpoint['planning_feedback']=planning_feedback(self.store,self.m)
+  checkpoint['report_workspace']=spec.get('report_workspace')
+  if spec.get('read_only_service_snapshot'):
+   from .operational_policy import observed_service_reads
+   checkpoint['observed_service_reads']=observed_service_reads(self.store,self.m)
+  policy=observed_policy(self.store,self.m)
+  if policy:checkpoint['observed_host_policy']=policy
   if unit_reads:checkpoint['retained_unit_file_reads']=list(unit_reads.values())
   if spec.get('authority_engine_operation_ids'):
    # A delivered error page is useful diagnostic data, never a successful
@@ -217,6 +225,10 @@ class ContextBudget:
   active['coordinator_instructions']=[{'reference':e['id'],'instruction':preview(e['result'].get('instruction',e['result']),900)} for e in checkpoint['coordinator_instructions']]
   active['verified_api_observations']=[{'reference':e['id'],'actor':e['actor'],'observed_at':e['created'],'observation':preview(e['result'],700)} for e in checkpoint['verified_api_observations']]
   active['last_observations']=checkpoint['last_observations']
+  active['planning_feedback']=checkpoint['planning_feedback']
+  active['report_workspace']=checkpoint.get('report_workspace')
+  if 'observed_service_reads' in checkpoint:active['observed_service_reads']=checkpoint['observed_service_reads']
+  if checkpoint.get('observed_host_policy'):active['observed_host_policy']=checkpoint['observed_host_policy']
   if checkpoint.get('retained_unit_file_reads'):active['retained_unit_file_reads']=checkpoint['retained_unit_file_reads']
   if checkpoint.get('retained_service_observations'):active['retained_service_observations']=checkpoint['retained_service_observations']
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):

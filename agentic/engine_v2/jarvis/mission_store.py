@@ -270,6 +270,10 @@ class MissionStore:
                             validate_report_source(previous.get(key,{}),check)
                         except ValueError:continue  # Repair an unexecutable historical declaration; never drop valid acceptance.
                         if not any(exact(check,x) for x in mapping[key].get('contract',{}).get('semantic',[])):
+                            from .operational_policy import report_relocation
+                            if report_relocation(self,ident,t,check,mapping[key].get('contract',{}).get('semantic',[])):
+                                self.event(ident,'unwritable_report_relocated',key,author,result={'previous_contract':check,'replacement_contract':mapping[key]['contract'],'reason':reason,'never_received':True,'owner_predicates_preserved':True},connection=c)
+                                continue
                             results=[e['result'].get('status') for e in self.events(ident,limit=1000000) if e['task']==key and e['kind']=='semantic_verification' and exact(e['result'].get('contract'),check)]
                             failed_candidate=(json.loads(self.get(ident)['spec']).get('assurance') and results and results[-1]=='FAIL' and 'PASS' not in results and t['state']!='validated')
                             if not failed_candidate:raise ValueError('Cannot weaken existing semantic contract: '+key)
