@@ -6,6 +6,8 @@ in MissionStore; a checkpoint is structured evidence, not a model-only summary.
 import copy,hashlib,json,time,urllib.request,os,socket
 from .mission_store import encoded
 
+def blue_json(value):return json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+
 class ContextCapacityError(ValueError):pass
 
 def sha(value):return hashlib.sha256(encoded(value).encode()).hexdigest()
@@ -332,7 +334,7 @@ class ContextBudget:
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
    active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','correction_resolved_through','active_failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
-  blue=[system,{'role':'user','content':encoded({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
+  blue=[system,{'role':'user','content':blue_json({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
   # Keep one complete native assistant/tool exchange when it fits. Do not alter
   # executed arguments to manufacture a different historical command.
   start=next((i for i in range(len(original)-1,-1,-1) if original[i].get('role')=='assistant' and original[i].get('tool_calls')),None)
@@ -342,12 +344,12 @@ class ContextBudget:
    # Preserve the last actual reply over redundant historical previews. A
    # reference without its latest result can otherwise cause recall loops.
    if active.get('additional_inspection_pages'):
-    candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+    candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
    if serialized_bytes(candidate)>budget and active.get('additional_inspection_pages'):
     page=active['latest_successful_read']
     if len(page['content'])>2400:
      active['latest_successful_read']={**page,'content':page['content'][:2400],'excerpt_truncated':True,'next_character_offset':2400,'full_window_reference':page['reference']}
-     candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+     candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
    if serialized_bytes(candidate)<=budget:
     original[:]=candidate['messages'];payload['messages']=original
     self.store.event(self.m,'context_budget_checked',self.task,'JARVIS-engine',result={**measurement,'compacted':True,'archive':archive,'checkpoint':checkpoint_id,'sent_bytes':serialized_bytes(payload),'within_budget':True})
@@ -355,14 +357,14 @@ class ContextBudget:
    for key in ('decisions','model_notes','last_observations'):
     active.pop(key,None)
    active['coordinator_instructions']=active['coordinator_instructions'][:1]
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]+tail
-  if serialized_bytes(candidate)>budget:candidate['messages']=[system,{'role':'user','content':encoded(active|{'last_observations':checkpoint['last_observations'][-1:]})}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]+tail
+  if serialized_bytes(candidate)>budget:candidate['messages']=[system,{'role':'user','content':blue_json(active|{'last_observations':checkpoint['last_observations'][-1:]})}]
   if serialized_bytes(candidate)>budget:
    # Preview lengths shrink, never owner objective, predicates or system policy.
    active['last_observations']=[{'reference':o['reference'],'tool':o['tool'],'result':preview(o.get('result'),350)} for o in checkpoint['last_observations'][-2:]]
    active['coordinator_instructions']=active['coordinator_instructions'][:1]
    active['decisions']=active.get('decisions',[])[:1];active['model_notes']=active.get('model_notes',[])[:1]
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget:
    # A Python traceback is diagnostic history, not an owner constraint. Keep
    # its terminal error and canonical receipt binding before rejecting a task.
@@ -374,7 +376,7 @@ class ContextBudget:
     failure['error']=(str(error).splitlines() or ['Unknown error'])[-1][:180]
     failure['full_error_reference']=failure['invocation_id']
     failure['meaning']='Historical failure; full error in canonical tool receipt. Not a functional verdict.'
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget:
    # Preserve every refusal count with its fingerprint, using a compact map.
    # Full epoch/category bindings remain in the referenced checkpoint.
@@ -382,14 +384,14 @@ class ContextBudget:
    if counters and all('category_sha256' in c for c in counters):
     active['interface_counters']={c['category_sha256']:c['count'] for c in counters}
     active['interface_counters_checkpoint']=checkpoint_id
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget and active.get('pending_report_validation',{}).get('observed_draft') and active.get('retained_unit_file_reads'):
    # The complete current draft has priority during editorial correction.
    # Older complete source bodies stay in the already persisted checkpoint;
    # their paths, exact receipt references and hashes remain in active context.
    active['retained_unit_file_reads']=[{k:v for k,v in read.items() if k!='stdout'} for read in active['retained_unit_file_reads']]
    active['unit_source_bodies_checkpoint']=checkpoint_id
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget and active.get('pending_report_validation',{}).get('observed_draft') and active.get('retained_service_observations'):
    # Same correction priority as file reads: full original service values remain
    # in the persisted checkpoint and independent verifier, not duplicated next
@@ -397,7 +399,7 @@ class ContextBudget:
    active['service_source_scopes']=list(dict.fromkeys(read['meaning'] for read in active['retained_service_observations'] if read.get('meaning')))
    active['retained_service_observations']=[{**{k:v for k,v in read.items() if k not in ('fields','meaning')},**({'field_names':list(read['fields'])} if 'fields' in read else {})} for read in active['retained_service_observations']]
    active['service_source_values_checkpoint']=checkpoint_id
-   candidate['messages']=[system,{'role':'user','content':encoded(active)}]
+   candidate['messages']=[system,{'role':'user','content':blue_json(active)}]
   if serialized_bytes(candidate)>budget:
    self.store.event(self.m,'context_capacity_blocked',self.task,'JARVIS-engine',result={**measurement,'archive':archive,'checkpoint':checkpoint_id,'reason':'Mandatory policy/objective/contracts/tool schema exceed capacity; coordinator must split the task, not silently truncate constraints'})
    raise ContextCapacityError('Mandatory active task does not fit: checkpoint saved, no inference dispatched')

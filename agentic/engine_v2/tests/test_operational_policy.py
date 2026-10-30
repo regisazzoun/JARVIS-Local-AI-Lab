@@ -226,4 +226,12 @@ class OperationalPolicyTests(unittest.TestCase):
   refresh_facts_after_service_observation(counters,{'ok':False,'result':{'diagnostic':{'error_category':'application_error'},'evidence_id':'real','duration_s':0.1,'returncode':3}})
   self.assertNotIn(key,counters);self.assertEqual(counters[write],2)
 
+ def test_blue_context_json_is_lossless_without_changing_canonical_hash_serialization(self):
+  from jarvis.mission_context_budget import blue_json,sha
+  from jarvis.mission_store import encoded
+  data={'goal':'Garder les espaces à l’intérieur du texte','contract':{'path':'/mon projet/fichier.md'},'states':['FAIL','INSUFFICIENT'],'counter':3}
+  original=encoded(data);before=sha(data);compact=blue_json(data)
+  self.assertEqual(json.loads(compact),data);self.assertEqual(sha(data),before);self.assertEqual(encoded(data),original)
+  self.assertLess(len(compact.encode()),len(original.encode()))
+
 if __name__=='__main__':unittest.main()
