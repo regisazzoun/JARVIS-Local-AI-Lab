@@ -171,4 +171,13 @@ class OperationalPolicyTests(unittest.TestCase):
   self.assertNotIn('host_write_file',offered)
   self.assertEqual(report_refresh_tools(set()),{'mission_report_facts'})
 
+ def test_service_deduplication_preserves_exact_values_and_distinct_observation_times(self):
+  from jarvis.mission_context_budget import service_observation_view
+  row={'reference':17,'service':'real.service','action':'is-active','observed_at':12,'observed_returncode':3,'observed_state_text':'inactive'}
+  snapshot={'real.service':{'is-active':{'invocation':'real-receipt','observed_at':12,'returncode':3,'observed_text':'inactive'}}}
+  compact=service_observation_view([row],snapshot)[0]
+  self.assertEqual(compact['reference'],17);self.assertEqual(compact['same_observation_as']['invocation'],'real-receipt')
+  self.assertEqual(service_observation_view([{**row,'observed_at':11}],snapshot),[{**row,'observed_at':11}])
+  self.assertEqual(service_observation_view([{**row,'observed_state_text':'active'}],snapshot),[{**row,'observed_state_text':'active'}])
+
 if __name__=='__main__':unittest.main()

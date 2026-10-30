@@ -19,3 +19,15 @@ class RecoveryTests(unittest.TestCase):
   row={'id':self.m,'attempts':1}
   a=record_failure(self.s,row,RuntimeError('broken'));b=record_failure(self.s,row,RuntimeError('broken'))
   self.assertEqual(a['incident_count'],b['incident_count'])
+
+ def test_verified_repair_keeps_totals_but_bounds_three_new_incidents(self):
+  for cycle in range(1,4):last=record_failure(self.s,{'id':self.m,'attempts':cycle},TimeoutError('old'))
+  p=last['problem'];ref=self.s.event(self.m,'repair_preflight',actor='Codex',result={'verified':True})
+  proof=self.s.event(self.m,'coordinator_infrastructure_verified',actor='Codex',result={'problem':p,'verified':True,'evidence_events':[ref]})
+  self.s.attempt_ledger(self.m).resolve_infrastructure(p,proof)
+  for cycle in range(4,7):
+   actual=record_failure(self.s,{'id':self.m,'attempts':cycle},TimeoutError('new'))
+   self.assertEqual(actual['incident_count'],cycle)
+   self.assertEqual(actual['active_incident_count'],cycle-3)
+   self.assertEqual(actual['stop'],cycle==6)
+  self.assertIsNotNone(blocked_problem(self.s,self.m))

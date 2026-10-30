@@ -45,6 +45,16 @@ def observation_view(o):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
  return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','service','service_action','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
 
+def service_observation_view(rows,snapshot):
+ """Deduplicate only exact observations, preserving their event/invocation binding."""
+ result=[]
+ for row in rows:
+  same=snapshot.get(row.get('service'),{}).get(row.get('action'),{})
+  if same and row.get('action') in ('is-active','is-enabled') and row.get('observed_at')==same.get('observed_at') and row.get('observed_returncode')==same.get('returncode') and row.get('observed_state_text')==same.get('observed_text'):
+   result.append({'reference':row['reference'],'same_observation_as':{'service':row['service'],'action':row['action'],'invocation':same['invocation']},'meaning':'Exact values/time retained once in observed_service_reads; full original also remains at this event reference.'})
+  else:result.append(row)
+ return result
+
 def reported_suite(text,reference):
  """Project printed JSON fields, never promote them to a verifier verdict."""
  try:value=json.loads(text)
@@ -236,7 +246,7 @@ class ContextBudget:
   if 'report_reference_contract' in checkpoint:active['report_reference_contract']=checkpoint['report_reference_contract']
   if checkpoint.get('observed_host_policy'):active['observed_host_policy']=checkpoint['observed_host_policy']
   if checkpoint.get('retained_unit_file_reads'):active['retained_unit_file_reads']=checkpoint['retained_unit_file_reads']
-  if checkpoint.get('retained_service_observations'):active['retained_service_observations']=checkpoint['retained_service_observations']
+  if checkpoint.get('retained_service_observations'):active['retained_service_observations']=service_observation_view(checkpoint['retained_service_observations'],checkpoint.get('observed_service_reads',{}))
   if json.loads(self.store.get(self.m)['spec']).get('authority_engine_operation_ids'):
    active.pop('reserved_operation_ids',None)
    if checkpoint.get('reported_test_output'):active['reported_test_output']=checkpoint['reported_test_output']
@@ -278,7 +288,11 @@ class ContextBudget:
   if self.task:
    from .legacy_attempts import pending_report_validation
    pending_report=pending_report_validation(self.store,self.m,self.task)
-   if pending_report:active['pending_report_validation']=pending_report
+   if pending_report:
+    active['pending_report_validation']=pending_report
+    # Planning refusals are historical diagnostics once executing an accepted
+    # report task. Preserve their binding, not a redundant full planning view.
+    active['planning_feedback']={'checkpoint_reference':checkpoint_id,'sha256':sha(checkpoint['planning_feedback']),'meaning':'Historical planning feedback archived; current task, contract, report findings and all counters remain explicit.'}
    # Compaction must not hide already verified criteria or a written report.
    # These are canonical backend facts, not a model-authored progress summary.
    status=self.store.contract_status(self.m,self.task)
