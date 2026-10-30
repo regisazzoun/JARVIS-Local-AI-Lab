@@ -45,6 +45,26 @@ def candidate_test_focus(spec, active):
     reference,correction=max(corrections,key=lambda item:item[0])
     return not failed_test_on_version(active,reference,correction['after'])
 
+def facts_match_current_task(store,ident,task_id):
+    """Historical report facts do not replace evidence for a revised task scope."""
+    with store.db() as c:
+        latest=c.execute('SELECT plan FROM mission_plans WHERE mission=? ORDER BY version DESC LIMIT 1',(ident,)).fetchone()
+        if not latest:return False
+        current=next((t for t in json.loads(latest['plan'])['tasks'] if t['id']==task_id),None)
+        facts=c.execute("SELECT created,result FROM tool_calls WHERE mission=? AND task=? AND tool='mission_report_facts' AND state='finished' AND json_extract(result,'$.ok')=1 ORDER BY created DESC",(ident,task_id)).fetchall()
+        for fact in facts:
+            prior=c.execute('SELECT plan FROM mission_plans WHERE mission=? AND created<=? ORDER BY version DESC LIMIT 1',(ident,fact['created'])).fetchone()
+            original=next((t for t in json.loads(prior['plan'])['tasks'] if t['id']==task_id),None) if prior else None
+            if current is not None and current==original:
+                if json.loads(store.get(ident)['spec']).get('read_only_service_snapshot'):
+                    payload=json.loads(fact['result'] or '{}').get('result') or {}
+                    if not payload.get('report_reference_contract'):continue
+                    from .operational_policy import observed_service_reads
+                    if any(row['observed_at']>fact['created'] for pairs in observed_service_reads(store,ident).values() for row in pairs.values()):continue
+                return True
+    return False
+
+
 def report_plan_tool_issues(store,ident,registered):
     """Detect unusable model declarations without selecting operational tools."""
     if not json.loads(store.get(ident)['spec']).get('planning_report_steps'):return []
@@ -228,6 +248,7 @@ def model_observation(value, limit=8000):
         compact={key:value[key] for key in ('mission','goal','tasks','scope') if key in value}
         compact['plans']=[{key:row[key] for key in ('version','author','sha256') if key in row} for row in value['plans']]
         compact['actions']=sorted(selected.values(),key=lambda row:row.get('created',0))
+        if 'report_reference_contract' in value:compact['report_reference_contract']=value['report_reference_contract']
         compact['semantic_verifications']=list(latest.values())
         compact['inference_routes']=value.get('inference_routes',[])[-8:]
         compact['counts']={'recorded_tool_calls':len(actions),'plan_versions':len(value['plans']),'semantic_events':len(value['semantic_verifications']),'codex_interventions':len(value['codex_interventions'])}
@@ -595,8 +616,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 if json.loads(mission['spec']).get('planning_report_steps'):
                     facts_already_observed=False
                     if task_id:
-                        with store.db() as c:
-                            facts_already_observed=bool(c.execute("SELECT 1 FROM tool_calls WHERE mission=? AND task=? AND tool='mission_report_facts' AND state='finished' AND json_extract(result,'$.ok')=1 LIMIT 1",(ident,task_id)).fetchone())
+                        facts_already_observed=facts_match_current_task(store,ident,task_id)
                     if facts_already_observed and not tool_focus:
                         tool_focus=(set((definition or {}).get('tools',[]))-{'mission_report_facts','mission_verify','mission_report_review','mission_task_complete'})|{'host_write_file','mission_note','mission_block'}
                     messages[0]['content']=report_execution_prompt(identity,facts_already_observed,writing_focus=bool(tool_focus) and set(tool_focus)<={'host_write_file','mission_note','mission_block'})+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
@@ -615,6 +635,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         if pending_report['phase']=='complete':allowed_report_tools={'mission_task_complete','mission_note','mission_block'}
                         if pending_report['phase']=='correct' and json.loads(mission['spec']).get('read_only_service_snapshot'):
                             allowed_report_tools.add('host_service')
+                            if not facts_already_observed:allowed_report_tools.add('mission_report_facts')
                             messages[0]['content']+='\nPour cette photographie de services seulement, tu peux compléter les observations réellement manquantes avec host_service avant de corriger ton brouillon. Les observations déjà acquises restent disponibles ; aucune mutation de service n’est autorisée. Ce complément ne remplace pas la correction des affirmations refusées.'
                         available=core.tools.schemas()
                         schemas=[s for s in available if s['function']['name'] in allowed_report_tools]

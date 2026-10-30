@@ -134,4 +134,33 @@ class OperationalPolicyTests(unittest.TestCase):
    self.assertEqual(facts['observed_state_text'],text.strip());self.assertEqual(facts['observed_returncode'],code)
    self.assertNotIn('status',facts)
   self.assertIsNone(service_observation({'service':'a.service','action':'show'},{'ok':True,'result':{'returncode':1,'stdout':'error'}}))
+ def test_new_report_reference_contract_survives_model_projection(self):
+  from jarvis.durable_cycle import model_observation
+  payload={'mission':'fixture','actions':[],'plans':[],'tasks':[],'semantic_verifications':[],'codex_interventions':[],'scope':'Predicates only; fixture','report_reference_contract':{'eligible_technical_references':['real-receipt']}}
+  view=model_observation({'ok':True,'result':payload})
+  self.assertEqual(view['result']['report_reference_contract'],payload['report_reference_contract'])
+ def test_snapshot_fact_cache_refreshes_for_new_observations_but_not_report_writes(self):
+  from jarvis.durable_cycle import facts_match_current_task
+  with self.s.db() as db:db.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'read_only_service_snapshot':True}),self.m))
+  self.s.plan(self.m,[{'id':'a','title':'observe','contract':{'report_path':'/report.md'}}])
+  def record(tool,args,result):
+   t=self.s.begin_call(self.m,'a',tool,args);self.s.finish_call(t,result,0);return t
+  record('mission_report_facts',{}, {'ok':True,'result':{'old_format':True}})
+  self.assertFalse(facts_match_current_task(self.s,self.m,'a'))
+  record('mission_report_facts',{}, {'ok':True,'result':{'report_reference_contract':{'eligible_technical_references':[]}}})
+  self.assertTrue(facts_match_current_task(self.s,self.m,'a'))
+  record('host_service',{'service':'a.service','action':'is-active'},{'ok':True,'result':{'returncode':0,'stdout':'active\n'}})
+  self.assertFalse(facts_match_current_task(self.s,self.m,'a'))
+  record('mission_report_facts',{}, {'ok':True,'result':{'report_reference_contract':{'eligible_technical_references':['receipt']}}})
+  record('host_write_file',{'path':'/report.md'},{'ok':True,'result':{'returncode':0}})
+  self.assertTrue(facts_match_current_task(self.s,self.m,'a'))
+ def test_reference_eligibility_contract_survives_compaction_of_a_snapshot(self):
+  with self.s.db() as db:db.execute('UPDATE missions SET spec=? WHERE id=?',(json.dumps({'read_only_service_snapshot':True}),self.m))
+  ref=self.s.begin_call(self.m,None,'mission_report_facts',{})
+  contract={'eligible_technical_references':['service-receipt'],'context_only_references':['policy-receipt']}
+  self.s.finish_call(ref,{'ok':True,'result':{'report_reference_contract':contract}},0)
+  p={'model':'fixture','messages':[{'role':'system','content':'owner policy'},{'role':'user','content':'x'*50000}],'tools':[],'options':{'num_predict':1024}}
+  ContextBudget(self.s,self.m).prepare(p,{'limit':16384})
+  active=json.loads(p['messages'][1]['content']);active=active.get('operational_state',active)
+  self.assertEqual(active['report_reference_contract'],{'source_invocation':ref,**contract})
 if __name__=='__main__':unittest.main()

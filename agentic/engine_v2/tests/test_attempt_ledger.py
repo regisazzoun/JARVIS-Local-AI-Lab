@@ -108,3 +108,48 @@ class LedgerTests(unittest.TestCase):
   result=runner.complete(self.l.get(a),receipt,1)
   self.assertEqual(result['state'],'EXECUTED_TEST_FAILED');self.assertEqual(result['failed_cycles'],1)
   self.assertEqual(result['result']['verification_semantic']['status'],'FAIL')
+
+ def report_problem(self):
+  self.p=self.l.problem('report-validation',{'criteria':[{'kind':'report','source':{'tool':'host_read_file','arguments':{'path':'/report.md'}}}]})
+  for n in range(3):
+   a=self.attempt('report'+str(n),'draft'+str(n));self.started(a);self.failed(a)
+  self.store.transition(self.m,'interrupted')
+ def report_proof(self,actor='Codex',change=True):
+  import hashlib
+  file=self.root/'jarvis/mission_reporting.py';file.parent.mkdir(exist_ok=True);file.write_text('old interface')
+  before=self.store.event(self.m,'codex_report_evidence_interface_repaired',actor='Codex',result={'deployed_manifest':{'mission_reporting.py':hashlib.sha256(file.read_bytes()).hexdigest()}})
+  if change:file.write_text('corrected interface')
+  observed=self.store.event(self.m,'coordinator_report_interface_preflight',actor='Codex',result={'software_fixture':True})
+  return self.store.event(self.m,'coordinator_report_interface_verified',actor=actor,result={'problem':self.p,'verified':True,'previous_verification':before,'evidence_events':[observed],'deployed_manifest':{'mission_reporting.py':hashlib.sha256(file.read_bytes()).hexdigest()}})
+ def test_report_repair_keeps_three_failed_cycles_and_blocks_after_three_new_ones(self):
+  self.report_problem();proof=self.report_proof();self.l.resolve_report_interface(self.p,proof)
+  other=AttemptLedger(MissionStore(self.root),self.m)
+  p=next(p for p in other.snapshot()['problems'] if p['fingerprint']==self.p)
+  self.assertEqual((p['failed_cycles'],p['correction_resolved_through'],p['state']),(3,3,'RESOLVED'))
+  for n in range(3):
+   a=self.attempt('repaired'+str(n),'new draft'+str(n));self.started(a);self.failed(a)
+  p=next(p for p in self.l.snapshot()['problems'] if p['fingerprint']==self.p)
+  self.assertEqual((p['failed_cycles'],p['correction_resolved_through'],p['state']),(6,3,'ESCALATED'))
+  self.assertTrue(self.l.begin(self.p,'renamed-fourth','Dell2','correction_test',{'command':'fourth'})['blocked'])
+  with self.assertRaises(ValueError):self.l.resolve_report_interface(self.p,proof)
+  with self.store.db() as db:old=json.loads(db.execute('SELECT result FROM mission_events WHERE id=?',(proof,)).fetchone()['result'])
+  renamed=self.store.event(self.m,'coordinator_report_interface_verified',actor='Codex',result=old)
+  with self.assertRaises(ValueError):self.l.resolve_report_interface(self.p,renamed)
+ def test_report_resolution_refuses_unchanged_interface_or_model_authorization(self):
+  self.report_problem()
+  with self.assertRaises(ValueError):self.l.resolve_report_interface(self.p,self.report_proof(change=False))
+  with self.assertRaises(ValueError):self.l.resolve_report_interface(self.p,self.report_proof(actor='JARVIS'))
+  p=next(p for p in self.l.snapshot()['problems'] if p['fingerprint']==self.p);self.assertEqual(p['correction_resolved_through'],0)
+ def test_report_recovery_cannot_unlock_an_application_predicate(self):
+  for n in range(3):
+   a=self.attempt('app'+str(n),'app correction'+str(n));self.started(a);self.failed(a)
+  self.store.transition(self.m,'interrupted')
+  with self.assertRaises(ValueError):self.l.resolve_report_interface(self.p,self.report_proof())
+ def test_report_recovery_requires_real_matching_deployed_hash(self):
+  self.report_problem();proof=self.report_proof();(self.root/'jarvis/mission_reporting.py').write_text('drifted code')
+  with self.assertRaisesRegex(ValueError,'hash mismatch'):self.l.resolve_report_interface(self.p,proof)
+ def test_old_schema_adds_report_resolution_baseline_without_erasing_failures(self):
+  self.report_problem()
+  with self.store.db() as db:db.execute('ALTER TABLE mission_problems_v2 DROP COLUMN correction_resolved_through')
+  other=AttemptLedger(self.store,self.m);p=next(p for p in other.snapshot()['problems'] if p['fingerprint']==self.p)
+  self.assertEqual((p['failed_cycles'],p['correction_resolved_through']),(3,0))

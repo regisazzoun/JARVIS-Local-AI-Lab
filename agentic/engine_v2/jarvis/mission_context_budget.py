@@ -68,7 +68,7 @@ class ContextBudget:
    plan=c.execute('SELECT version,sha256 FROM mission_plans WHERE mission=? ORDER BY version DESC LIMIT 1',(self.m,)).fetchone()
   self.store.attempt_ledger(self.m)
   with self.store.db() as c:
-   counters=[dict(r) for r in c.execute('SELECT scope,fingerprint,failed_cycles,infra_incidents,state,escalation_event FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
+   counters=[dict(r) for r in c.execute('SELECT scope,fingerprint,failed_cycles,correction_resolved_through,failed_cycles-correction_resolved_through AS active_failed_cycles,infra_incidents,state,escalation_event FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
    pending=[dict(r) for r in c.execute("SELECT id,problem,executor,phase,state,unknown_outcome FROM mission_attempts_v2 WHERE mission=? AND state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE') ORDER BY created,id",(self.m,))]
    rows=c.execute("SELECT t.id,t.tool,t.arguments,t.result,(SELECT max(e.id) FROM mission_events e WHERE e.mission=t.mission AND e.invocation=t.id AND e.kind='tool_finished') event_reference FROM tool_calls t WHERE t.mission=? AND (? IS NULL OR t.task=?) ORDER BY t.created DESC,t.rowid DESC LIMIT 3",(self.m,self.task,self.task)).fetchall()
   observations=[{**dict(o),'arguments':json.loads(o['arguments']),'result':json.loads(o['result'] or '{}')} for o in reversed(rows)]
@@ -115,6 +115,11 @@ class ContextBudget:
   if spec.get('read_only_service_snapshot'):
    from .operational_policy import observed_service_reads
    checkpoint['observed_service_reads']=observed_service_reads(self.store,self.m)
+   with self.store.db() as db:fact=db.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='mission_report_facts' AND state='finished' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 1",(self.m,self.task)).fetchone()
+   if fact:
+    contract=(json.loads(fact['result']).get('result') or {}).get('report_reference_contract')
+    if contract:checkpoint['report_reference_contract']={'source_invocation':fact['id'],**contract}
+
   policy=observed_policy(self.store,self.m)
   if policy:checkpoint['observed_host_policy']=policy
   if unit_reads:checkpoint['retained_unit_file_reads']=list(unit_reads.values())
@@ -228,6 +233,7 @@ class ContextBudget:
   active['planning_feedback']=checkpoint['planning_feedback']
   active['report_workspace']=checkpoint.get('report_workspace')
   if 'observed_service_reads' in checkpoint:active['observed_service_reads']=checkpoint['observed_service_reads']
+  if 'report_reference_contract' in checkpoint:active['report_reference_contract']=checkpoint['report_reference_contract']
   if checkpoint.get('observed_host_policy'):active['observed_host_policy']=checkpoint['observed_host_policy']
   if checkpoint.get('retained_unit_file_reads'):active['retained_unit_file_reads']=checkpoint['retained_unit_file_reads']
   if checkpoint.get('retained_service_observations'):active['retained_service_observations']=checkpoint['retained_service_observations']
@@ -250,7 +256,7 @@ class ContextBudget:
    active['read_delivery_history']=[{'invocation_id':o['invocation_id'],'parameters':o['parameters'],'ok':o['ok'],'delivery_count':o['result'].get('delivery_count'),'already_delivered':o['result'].get('already_delivered')} for o in checkpoint['last_observations'] if o['tool']=='authority_read_execution']
    active['operation_identity_rule']='Engine-issued identities from canonical tool invocations. Do not supply operation_id. Semantic dedupe and unknown-effect guards remain authoritative; historical aliases stay in the full checkpoint.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
-   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','correction_resolved_through','active_failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
    if checkpoint.get('latest_successful_read'):
     active['latest_successful_read']=checkpoint['latest_successful_read']
@@ -294,7 +300,7 @@ class ContextBudget:
    active['task_contract']['semantic']=[{'contract':'active:'+str(i),'sha256':sha(c),'kind':c['kind']} for i,c in enumerate(contract.get('semantic',[]))]
    active['task_contract']['binding']='Exact stored predicates resolved by mission_verify active:N; completion enforces every original criterion.'
    active['interface_counters']=[{'category_sha256':sha([c['epoch'],c['category']]),'count':c['count']} for c in checkpoint['interface_counters']]
-   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
+   active['counters']=[{k:c[k] for k in ('fingerprint','failed_cycles','correction_resolved_through','active_failed_cycles','misclassified_failed_cycles','infra_incidents','infra_resolved_through','state','escalation_event') if k in c} for c in active['counters']]
    active['observed_evidence']=[{k:e[k] for k in ('reference','executor','kind','observed_process_returncode','source_version')} for e in checkpoint['observed_evidence']]
   blue=[system,{'role':'user','content':encoded({'operational_state':active,'history':'Complete journal and archives retained. Use context_recall on references; do not repeat received actions.'})}]
   # Keep one complete native assistant/tool exchange when it fits. Do not alter
