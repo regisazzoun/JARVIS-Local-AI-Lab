@@ -206,4 +206,15 @@ class OperationalPolicyTests(unittest.TestCase):
   self.assertIn('mission_verify',service_snapshot_prompt('policy',True,'verify'))
   self.assertIn('mission_task_complete',service_snapshot_prompt('policy',True,'complete'))
 
+ def test_old_report_faults_are_archived_by_hash_without_masking_current_independent_findings(self):
+  from jarvis.mission_assurance import pending_report_feedback
+  old=self.s.event(self.m,'narrative_review','a',actor='Codex-independent',result={'status':'FAIL','draft_sha256':'old','issues':['Old wrong timestamp']})
+  independent=self.s.event(self.m,'narrative_review','a',actor='Codex-independent',result={'status':'FAIL','draft_sha256':'new','issues':['Current wrong count']})
+  self.s.event(self.m,'narrative_review','a',result={'status':'FAIL','draft_sha256':'new','issues':['Another current fault']})
+  data=pending_report_feedback(self.s,self.m,'a')
+  self.assertNotIn('Old wrong timestamp',data['issues']);self.assertIn('Current wrong count',data['issues'])
+  self.assertEqual(data['historical_draft_findings'][0]['reference'],'event:'+str(old))
+  self.assertEqual(data['reviews_since_last_scoped_pass'],3)
+  self.assertEqual(len([e for e in self.s.events(self.m) if e['kind']=='narrative_review']),3)
+
 if __name__=='__main__':unittest.main()

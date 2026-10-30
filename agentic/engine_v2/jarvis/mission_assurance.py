@@ -505,11 +505,14 @@ def pending_report_feedback(store, ident, task_id=None):
     with store.db() as connection:
         rows=connection.execute("SELECT id,actor,result FROM mission_events WHERE mission=? AND task IS ? AND kind='narrative_review' ORDER BY id DESC",(ident,task_id)).fetchall()
     if not rows or json.loads(rows[0]['result']).get('status')!='FAIL':return None
-    unresolved=[]
+    current_hash=json.loads(rows[0]['result']).get('draft_sha256')
+    unresolved=[];historical=[]
     for row in rows:
         review=json.loads(row['result'])
         if review.get('status')=='PASS':break
-        if review.get('status')=='FAIL':unresolved.append((row,review))
+        if review.get('status')=='FAIL':
+            if current_hash and review.get('draft_sha256')!=current_hash:historical.append({'reference':'event:'+str(row['id']),'draft_sha256':review.get('draft_sha256'),'status':'FAIL'})
+            else:unresolved.append((row,review))
     unresolved.sort(key=lambda pair:pair[0]['actor']!='Codex-independent')
     rectifications=finding_rectifications(store,ident)
     issues=[];remaining=6000
@@ -521,7 +524,7 @@ def pending_report_feedback(store, ident, task_id=None):
             excerpt=str(issue)[:min(1500,remaining)];issues.append(excerpt);remaining-=len(excerpt)
     latest_review=json.loads(rows[0]['result'])
     return {'review_reference':'event:'+str(rows[0]['id']),'draft_sha256':latest_review.get('draft_sha256'),'issues':issues,'full_findings_in_mission_evidence':True,
-            'reviews_since_last_scoped_pass':len(unresolved),'required_action':'Re-evaluate these historical findings against your CURRENT draft; some may already be fixed. A later different FAIL does not silently resolve earlier independent findings. Keep corrected facts, never reintroduce an old fault. Headings classified not_factual are allowed; only issues and contradicted/insufficient passages are errors. Do not rerun successful technical work just to correct prose.'}
+            'historical_draft_findings':historical,'historical_findings_are_not_current_assertions':True,'reviews_since_last_scoped_pass':len(unresolved)+len(historical),'required_action':'These issues concern the current draft hash only. Older drafts remain FAIL in historical_draft_findings; their old text is not an assertion about this version. An independent finding on this same hash remains unresolved until actual correction/rectification. Keep corrected facts, never reintroduce an old fault. Headings classified not_factual are allowed; only issues and contradicted/insufficient passages are errors. Do not rerun successful technical work just to correct prose.'}
 
 
 def finding_rectifications(store, ident):

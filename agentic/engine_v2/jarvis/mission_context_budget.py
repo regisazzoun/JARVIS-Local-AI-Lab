@@ -292,6 +292,18 @@ class ContextBudget:
    pending_report=pending_report_validation(self.store,self.m,self.task)
    if pending_report:
     active['pending_report_validation']=pending_report
+    if active.get('observed_service_reads') and active.get('retained_service_observations'):
+     # Snapshot invocation outputs remain complete in observed_service_reads.
+     # Older event projections are optional history, not another set of owner
+     # constraints; their timestamps must never be equated with call creation.
+     active['service_event_history']={'checkpoint_reference':checkpoint_id,'event_references':[row['reference'] for row in checkpoint['retained_service_observations']],'sha256':sha(checkpoint['retained_service_observations']),'meaning':'Additional original event projections archived. Full latest invocation outputs and their own timestamps remain in observed_service_reads; event times are distinct.'}
+     active.pop('retained_service_observations',None)
+    if set(active['offered_tools'])<={'mission_report_facts','mission_note','mission_block'} and 'mission_report_facts' in active['offered_tools']:
+     # Reading ledger facts needs the draft identity, not its whole old body.
+     # The full pending write/read and findings stay canonical and are restored
+     # in the next action context when the writer is offered.
+     active['pending_report_validation']={k:v for k,v in pending_report.items() if k not in ('observed_draft','review_feedback')}
+     active['report_refresh_phase']={'draft_body_and_findings':'Full pending_report_validation in canonical state; restored before writing','latest_review_reference':pending_report.get('review_feedback',{}).get('review_reference'),'no_report_validation_inferred':True}
     # Planning refusals are historical diagnostics once executing an accepted
     # report task. Preserve their binding, not a redundant full planning view.
     active['planning_feedback']={'checkpoint_reference':checkpoint_id,'sha256':sha(checkpoint['planning_feedback']),'meaning':'Historical planning feedback archived; current task, contract, report findings and all counters remain explicit.'}
