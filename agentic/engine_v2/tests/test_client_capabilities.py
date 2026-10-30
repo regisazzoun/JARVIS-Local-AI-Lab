@@ -73,6 +73,8 @@ class ReceivedProfileTests(unittest.TestCase):
    with patch('jarvis.client_capabilities.CanonicalAPI.request',return_value={'id':'b'*32,'state':'queued'}) as request:
     api.missions('create',goal='Observe service',profile='service_observation')
     self.assertTrue(request.call_args.args[1]['spec']['read_only_service_snapshot'])
+    self.assertTrue(request.call_args.args[1]['spec']['proof_bound_report_write'])
+    self.assertEqual(request.call_args.args[1]['spec']['proof_bound_explanation_mode'],'facts_only')
     request.reset_mock()
     with self.assertRaises(ValueError):api.missions('create',goal='Observe service',profile='unknown')
     request.assert_not_called()
@@ -82,4 +84,4 @@ class ReceivedProfileTests(unittest.TestCase):
    with patch('jarvis.client_capabilities.CanonicalAPI.request',return_value={'id':'a'*32,'state':'queued'}) as request:
     result=api.missions('create',goal='Owner goal')
   payload=request.call_args.args[1];spec=payload['spec']
-  self.assertTrue(spec['planning_report_steps']);self.assertTrue(spec['bounded_interface_errors']);self.assertEqual(spec['proof_bound_explanation_mode'],'facts_only');self.assertNotIn('tasks',spec);self.assertNotIn('read_only_service_snapshot',spec);self.assertEqual(payload['goal'],'Owner goal');self.assertTrue(result['created'])
+  self.assertTrue(spec['planning_report_steps']);self.assertTrue(spec['bounded_interface_errors']);self.assertNotIn('proof_bound_explanation_mode',spec);self.assertNotIn('proof_bound_report_write',spec);self.assertNotIn('report_rewrite_from_facts',spec);self.assertNotIn('tasks',spec);self.assertNotIn('read_only_service_snapshot',spec);self.assertEqual(payload['goal'],'Owner goal');self.assertTrue(result['created'])

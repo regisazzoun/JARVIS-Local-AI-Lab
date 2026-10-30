@@ -17,9 +17,10 @@ EXPOSED={'system_status','disk_usage','jarvis_services','software_versions','har
 CLIENT_MISSION_PROFILE={'planning_context_compact':True,'planning_report_steps':True,
     'structured_action_calls':True,'structured_action_two_stage':True,
     'bounded_narrative_review':True,'narrative_review_max_segments':4,
-    'atomic_report_review':True,'report_rewrite_from_facts':True,
-    'proof_bound_report_write':True,'bounded_interface_errors':True,
-    'proof_bound_explanation_mode':'facts_only','factual_finalization':True}
+    'atomic_report_review':True,'bounded_interface_errors':True,'factual_finalization':True}
+CLIENT_SERVICE_REPORT_PROFILE={'read_only_service_snapshot':True,
+    'report_rewrite_from_facts':True,'proof_bound_report_write':True,
+    'proof_bound_explanation_mode':'facts_only'}
 
 def fingerprint(value):return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
 
@@ -107,7 +108,7 @@ class Capabilities:
             if not isinstance(goal,str) or not 1<=len(goal)<=3000:raise ValueError('Explicit owner goal of1..3000characters required')
             if profile not in ('standard','service_observation'):raise ValueError('Unknown existing mission profile')
             spec=dict(CLIENT_MISSION_PROFILE)
-            if profile=='service_observation':spec['read_only_service_snapshot']=True
+            if profile=='service_observation':spec.update(CLIENT_SERVICE_REPORT_PROFILE)
             value=CanonicalAPI(self.root).request('/api/missions',{'goal':goal,'model':'qwen3-coder-next:q4_K_M','project':'IntegratedClients','request_kind':'mission','spec':spec})
             if not re.fullmatch('[0-9a-f]{32}',str(value.get('id',''))):
                 return {'created':None,'state':'UNKNOWN','error':'No valid canonical mission receipt; inspect existing missions before resubmitting'}
