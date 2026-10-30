@@ -147,11 +147,11 @@ class OperationalPolicyTests(unittest.TestCase):
    t=self.s.begin_call(self.m,'a',tool,args);self.s.finish_call(t,result,0);return t
   record('mission_report_facts',{}, {'ok':True,'result':{'old_format':True}})
   self.assertFalse(facts_match_current_task(self.s,self.m,'a'))
-  record('mission_report_facts',{}, {'ok':True,'result':{'report_reference_contract':{'eligible_technical_references':[]}}})
+  record('mission_report_facts',{}, {'ok':True,'result':{'service_snapshot_summary':{'allowed_units':0},'report_reference_contract':{'eligible_technical_references':[]}}})
   self.assertTrue(facts_match_current_task(self.s,self.m,'a'))
   record('host_service',{'service':'a.service','action':'is-active'},{'ok':True,'result':{'returncode':0,'stdout':'active\n'}})
   self.assertFalse(facts_match_current_task(self.s,self.m,'a'))
-  record('mission_report_facts',{}, {'ok':True,'result':{'report_reference_contract':{'eligible_technical_references':['receipt']}}})
+  record('mission_report_facts',{}, {'ok':True,'result':{'service_snapshot_summary':{'allowed_units':1},'report_reference_contract':{'eligible_technical_references':['receipt']}}})
   record('host_write_file',{'path':'/report.md'},{'ok':True,'result':{'returncode':0}})
   self.assertTrue(facts_match_current_task(self.s,self.m,'a'))
  def test_reference_eligibility_contract_survives_compaction_of_a_snapshot(self):
@@ -192,5 +192,18 @@ class OperationalPolicyTests(unittest.TestCase):
   self.assertFalse(service_read_completed(denied));self.assertIsNone(service_observation(args,denied))
   missing={**native,'result':{k:v for k,v in native['result'].items() if k!='evidence_id'}}
   self.assertFalse(service_read_completed(missing))
+
+ def test_snapshot_counts_distinguish_service_units_actions_and_nonzero_results(self):
+  from jarvis.operational_policy import service_snapshot_summary
+  policy={'invocation_id':'policy','services':{'a':[],'b':[],'c':[]}}
+  reads={'a':{'is-active':{'returncode':0,'observed_text':'active'},'status':{'returncode':0}},'b':{'is-active':{'returncode':4,'observed_text':'inactive'}}}
+  summary=service_snapshot_summary(policy,reads)['by_action']['is-active']
+  self.assertEqual(summary,{'observed_units':2,'stdout_counts':{'active':1,'inactive':1},'returncode_counts':{'0':1,'4':1},'unobserved_units':['c']})
+ def test_snapshot_prompt_keeps_workflow_without_irrelevant_historical_mission_instructions(self):
+  from jarvis.durable_cycle import service_snapshot_prompt
+  prompt=service_snapshot_prompt('Identity and owner policy',False,'correct')
+  self.assertIn('Identity and owner policy',prompt);self.assertIn('mission_report_facts',prompt);self.assertIn('host_write_file',prompt);self.assertNotIn('P4',prompt)
+  self.assertIn('mission_verify',service_snapshot_prompt('policy',True,'verify'))
+  self.assertIn('mission_task_complete',service_snapshot_prompt('policy',True,'complete'))
 
 if __name__=='__main__':unittest.main()

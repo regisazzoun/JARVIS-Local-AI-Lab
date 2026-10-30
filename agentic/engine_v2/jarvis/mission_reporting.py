@@ -94,6 +94,9 @@ def register(registry):
         store=getattr(registry,'mission_store',None)
         if not store:raise ValueError('Durable mission required')
         data=facts(store,registry.context['mission_id'])
+        if json.loads(store.get(registry.context['mission_id'])['spec']).get('read_only_service_snapshot'):
+            from .operational_policy import observed_policy,observed_service_reads,service_snapshot_summary
+            data['service_snapshot_summary']=service_snapshot_summary(observed_policy(store,registry.context['mission_id']),observed_service_reads(store,registry.context['mission_id']))
         from .mission_assurance import evidence_snapshot
         snapshot=evidence_snapshot(store,registry.context['mission_id'],registry.context.get('task_id'))
         data['report_reference_contract']={'eligible_technical_references':[r['reference'] for r in snapshot['receipts']],'context_only_references':[r['invocation'] for r in data['actions'] if r['tool']=='host_policy'],'meaning':'Policy is authorizations only, not service-state evidence. Use original technical receipt references and created_iso; do not convert timestamps mentally or cite a draft as its own proof.'}

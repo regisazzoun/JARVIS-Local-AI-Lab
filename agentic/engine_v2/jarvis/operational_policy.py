@@ -117,6 +117,18 @@ def observed_service_reads(store,mission):
   snapshot.setdefault(service,{})[action]=item
  return snapshot
 
+def service_snapshot_summary(policy,reads):
+ """Exact ledger counts with explicit referents, never a semantic success verdict."""
+ services=set((policy or {}).get('services',{}));result={}
+ for action in ('is-active','is-enabled','status','show'):
+  selected={name:pairs[action] for name,pairs in reads.items() if action in pairs and name in services}
+  texts={};codes={}
+  for row in selected.values():
+   if 'observed_text' in row:texts[row['observed_text']]=texts.get(row['observed_text'],0)+1
+   code=str(row['returncode']);codes[code]=codes.get(code,0)+1
+  result[action]={'observed_units':len(selected),'stdout_counts':texts,'returncode_counts':codes,'unobserved_units':sorted(services-set(selected))}
+ return {'policy_invocation':(policy or {}).get('invocation_id'),'allowed_units':len(services),'by_action':result,'meaning':'Exact receipt counts by action and printed value, not health, presence, restart or deployment verification.'}
+
 def unread_service_schemas(schemas,policy,reads):
  """Suppress duplicate snapshot reads; the model selects remaining pairs.
 

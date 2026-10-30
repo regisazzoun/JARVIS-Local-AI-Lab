@@ -123,8 +123,9 @@ class ContextBudget:
   checkpoint['planning_feedback']=planning_feedback(self.store,self.m)
   checkpoint['report_workspace']=spec.get('report_workspace')
   if spec.get('read_only_service_snapshot'):
-   from .operational_policy import observed_service_reads
+   from .operational_policy import observed_service_reads,service_snapshot_summary,observed_policy
    checkpoint['observed_service_reads']=observed_service_reads(self.store,self.m)
+   checkpoint['service_snapshot_summary']=service_snapshot_summary(observed_policy(self.store,self.m),checkpoint['observed_service_reads'])
    with self.store.db() as db:fact=db.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task IS ? AND tool='mission_report_facts' AND state='finished' AND json_extract(result,'$.ok')=1 ORDER BY created DESC,rowid DESC LIMIT 1",(self.m,self.task)).fetchone()
    if fact:
     contract=(json.loads(fact['result']).get('result') or {}).get('report_reference_contract')
@@ -243,6 +244,7 @@ class ContextBudget:
   active['planning_feedback']=checkpoint['planning_feedback']
   active['report_workspace']=checkpoint.get('report_workspace')
   if 'observed_service_reads' in checkpoint:active['observed_service_reads']=checkpoint['observed_service_reads']
+  if 'service_snapshot_summary' in checkpoint:active['service_snapshot_summary']=checkpoint['service_snapshot_summary']
   if 'report_reference_contract' in checkpoint:active['report_reference_contract']=checkpoint['report_reference_contract']
   if checkpoint.get('observed_host_policy'):active['observed_host_policy']=checkpoint['observed_host_policy']
   if checkpoint.get('retained_unit_file_reads'):active['retained_unit_file_reads']=checkpoint['retained_unit_file_reads']
