@@ -104,7 +104,7 @@ def owner_report_phase(store,mission,task,schemas):
     with store.db() as db:unknown=db.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND unknown_outcome=1 LIMIT 1",(mission['id'],)).fetchone()
     if Path(path).is_file() or unknown:return schemas,''
     offered=[item for item in schemas if item['function']['name'] not in ('mission_verify','mission_task_complete','mission_report_review')]
-    return offered,'\nPhase réelle : le rapport déclaré '+path+' n’est pas encore écrit et aucun effet inconnu n’est en attente. Réutilise les résultats reçus. Effectue seulement les opérations encore nécessaires puis écris TON rapport factuel. Ne vérifie pas un fichier absent : la vérification et la complétion reviendront après création. host_exec voit un système de fichiers confiné : l’absence de base de paquets visible ne prouve pas qu’un paquet est absent. Utilise host_package action=status pour son état installé ; ne réinstalle pas un outil déjà présent. Mentionne une limite observée sans boucler sur son inventaire. Aucun PASS n’est déduit de cette phase.'
+    return offered,'\n<JARVIS_OWNER_REPORT_PHASE>Phase réelle : le rapport déclaré '+path+' n’est pas encore écrit et aucun effet inconnu n’est en attente. Réutilise les résultats reçus. Effectue seulement les opérations encore nécessaires puis écris TON rapport factuel. Ne vérifie pas un fichier absent : la vérification et la complétion reviendront après création. host_exec voit un système de fichiers confiné : l’absence de base de paquets visible ne prouve pas qu’un paquet est absent. Utilise host_package action=status pour son état installé ; ne réinstalle pas un outil déjà présent. Mentionne une limite observée sans boucler sur son inventaire. Aucun PASS n’est déduit de cette phase.</JARVIS_OWNER_REPORT_PHASE>'
 
 def coordinator_guidance(store, ident, task_id):
     """Include the authorized periodic relay only in its M26-P2 scope."""
@@ -191,6 +191,13 @@ Les journaux complets et versions sont persistants, ne recharge pas récursiveme
         }[phase]
         prompt=prompt[:start]+action+' Ne clos jamais P4 sur ces seuls rapports de préparation. '+prompt[end:]
     return prompt
+
+
+def owner_execution_prompt(identity,facts_already_observed=False,phase=None,writing_focus=False):
+    prompt=report_execution_prompt(identity,facts_already_observed,phase,writing_focus)
+    prompt=prompt.replace('Le présent paquet prépare uniquement : aucun déploiement applicatif.',"Exécute réellement l’objectif de cette nouvelle mission propriétaire, dans les droits actuels du broker ; ne la limite pas artificiellement à une préparation.")
+    prompt=prompt.replace('Ne clos jamais P4 sur ces seuls rapports de préparation.','Ne réactive et ne modifie aucune mission historique suspendue.')
+    return prompt+"\nLes observations déjà reçues restent acquises. Ne refais pas un inventaire identique pour obtenir une certitude impossible dans le confinement : utilise les outils structurés adaptés et indique les limites observées. Ton rapport décrit les actes réellement effectués, leurs résultats et les inconnues ; il n’exige pas de tout découvrir avant de pouvoir l’écrire. Ni la mémoire ni un ancien rapport ne créent de nouveaux droits."
 
 
 def task_schemas(schemas, definition):
@@ -658,7 +665,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         facts_already_observed=facts_match_current_task(store,ident,task_id)
                     if facts_already_observed and not tool_focus:
                         tool_focus=(set((definition or {}).get('tools',[]))-{'mission_report_facts','mission_verify','mission_report_review','mission_task_complete'})|{'host_write_file','mission_note','mission_block'}
-                    execution_prompt=service_snapshot_prompt if json.loads(mission['spec']).get('read_only_service_snapshot') else report_execution_prompt
+                    execution_prompt=service_snapshot_prompt if json.loads(mission['spec']).get('read_only_service_snapshot') else owner_execution_prompt if json.loads(mission['spec']).get('client_autonomy') else report_execution_prompt
                     messages[0]['content']=execution_prompt(identity,facts_already_observed,writing_focus=bool(tool_focus) and set(tool_focus)<={'host_write_file','mission_note','mission_block'})+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
                     from .legacy_attempts import pending_report_validation
                     pending_report=pending_report_validation(store,ident,task_id)
@@ -804,8 +811,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     messages[0]['content']+='\nInterface de rédaction actuelle : utilise mission_report_compose. Le moteur assemblera les faits exacts et leur tableau ; tu fournis toutes les références latest et une explication courte des limites ou prochaines vérifications, sans chiffres, dates, codes ni recomptage des services. Ne recopie aucun tableau ni rapport complet dans explanation. Pas de host_write_file direct dans cette phase. La vérification du fichier reste obligatoire après écriture.'
 
             schemas,phase_instruction=owner_report_phase(store,mission,task,schemas)
-            if phase_instruction:
-                messages=copy.deepcopy(messages);messages[0]['content']+=phase_instruction
+            if phase_instruction or '<JARVIS_OWNER_REPORT_PHASE>' in messages[0]['content']:
+                messages=copy.deepcopy(messages)
+                messages[0]['content']=re.sub(r'\n<JARVIS_OWNER_REPORT_PHASE>.*?</JARVIS_OWNER_REPORT_PHASE>','',messages[0]['content'],flags=re.S)+phase_instruction
             from .mission_context_budget import result_objective
             context_objective=result_objective(core.config)
             if context_objective:

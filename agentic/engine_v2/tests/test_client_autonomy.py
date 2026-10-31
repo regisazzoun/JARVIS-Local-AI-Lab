@@ -150,6 +150,13 @@ class ReportLifecycleTests(unittest.TestCase):
    effect=Mock()
    with self.assertRaisesRegex(ValueError,'observe existing effect'):guarded(self.reg,name,args,effect,True)
    effect.assert_not_called()
+ def test_attested_completed_process_error_is_failed_not_unknown(self):
+  from jarvis.legacy_attempts import guarded
+  from unittest.mock import Mock
+  error=RuntimeError('process exit');error.response={'error_code':'RuntimeError','diagnostic':{'operation':'host_exec'},'evidence_id':'process-proof','result':{'returncode':1,'stdout':'observed output','stderr':'observed error'}}
+  with self.assertRaises(RuntimeError):guarded(self.reg,'host_exec',{'command':'failed process'},Mock(side_effect=error),True)
+  row=self.s.attempt_ledger(self.m).snapshot()['attempts'][0];self.assertEqual(row['state'],'EXECUTION_FAILED');self.assertFalse(row['unknown_outcome'])
+  effect=Mock(return_value={'returncode':0});guarded(self.reg,'host_exec',{'command':'different operation'},effect,True);effect.assert_called_once()
  def test_attested_package_policy_refusal_is_not_an_unknown_effect(self):
   from jarvis.legacy_attempts import guarded
   from unittest.mock import Mock
@@ -173,6 +180,14 @@ class ProcessContextTests(unittest.TestCase):
   result=observation_view(row,include_process_output=True)['result'];self.assertEqual(result['stdout'],'actual output');self.assertEqual(result['broker_evidence'],'broker-proof');self.assertEqual(result['full_output_reference'],12);self.assertFalse(result['stdout_excerpt'])
   row['result']['result']['stdout']='x'*1500
   self.assertTrue(observation_view(row,include_process_output=True)['result']['stdout_excerpt'])
+
+class OwnerPromptTests(unittest.TestCase):
+ def test_new_owner_task_executes_while_historical_prompt_is_preserved(self):
+  from jarvis.durable_cycle import owner_execution_prompt,report_execution_prompt
+  for phase in (None,'verify','correct','complete'):
+   text=owner_execution_prompt('Canonical identity',True,phase)
+   self.assertNotIn('prépare uniquement',text);self.assertNotIn('Ne clos jamais P4',text);self.assertIn('droits actuels du broker',text)
+   self.assertIn('Ne clos jamais P4',report_execution_prompt('Canonical identity',True,phase))
 
 class ReportPhaseTests(unittest.TestCase):
  def test_missing_report_waits_for_writer_but_unknown_effect_keeps_verifier(self):

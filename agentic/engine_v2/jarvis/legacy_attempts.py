@@ -176,6 +176,17 @@ def guarded(reg,name,args,fn,mutating):
         value=fn(args)
     except Exception as exc:
         response=getattr(exc,'response',{}) or {};diagnostic=response.get('diagnostic',{})
+        completed=response.get('result',{}) or {}
+        if report_only and type(completed.get('returncode')) is int and response.get('evidence_id') and diagnostic.get('operation')==name:
+            marker={'child_started':True,'basis':'completed broker failure receipt, not a live PID observation','broker_evidence':response['evidence_id']}
+            proof=store.event(mission,'p2_started_observed',actor='JARVIS-engine',result={'attempt':attempt,'marker':marker})
+            ledger.transition(attempt,'RUNNING',evidence=proof)
+            result={'value':completed,'returncode':completed['returncode'],'started':marker,'verified':False,'deferred_to_report':True,'change_observed':False,'error':str(exc)}
+            state='EXECUTION_FAILED' if completed['returncode'] else 'VALIDATION_INCONCLUSIVE'
+            proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':attempt,'observation':result,'state':state})
+            ledger.transition(attempt,state,evidence=proof,result=result,unknown=False)
+            if completed['returncode']:ledger.failure(attempt,correction_changed=False)
+            raise
         denied_before_execution=bool(report_only and name=='host_package' and response.get('error_code')=='PermissionError' and response.get('error')=='Paquet absent de la politique propriétaire' and diagnostic.get('operation')=='host_package' and diagnostic.get('error_category')=='permission_denied' and response.get('evidence_id'))
         proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':denied_before_execution,'error':str(exc),'requires_independent_observation':not denied_before_execution,'broker_refusal_evidence':response.get('evidence_id') if denied_before_execution else None})
         ledger.transition(attempt,'NOT_EXECUTED' if denied_before_execution else 'VALIDATION_INCONCLUSIVE',evidence=proof,result={'error':str(exc),'known_policy_refusal':denied_before_execution},unknown=not denied_before_execution)

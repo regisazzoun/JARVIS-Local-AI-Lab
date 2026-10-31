@@ -39,9 +39,13 @@ Un refus d’installation du paquet facultatif arp-scan95680 était traité comm
 
 Pour ces seules nouvelles tâchesWebUI à rapport absent, sans effet inconnu, la phase présente les outils opérationnels et l’écriture, puis repropose vérification/complétion dès création du fichier. Le modèle ne peut plus demander PASS sur un rapport inexistant ; un résultat inconnu conserve l’accès au vérificateur. Aucune tâche ni commande rédigée par le coordinateur, aucun critère reçu d’avance. Le contexte précise aussi la différence entre système de fichiers confiné host_exec et état des paquets via host_package status.
 
+Un processus terminé en erreur avec code entier et preuve broker liée était aussi classé inconnu. Pour ces tâchesWebUI, il est désormais EXECUTION_FAILED, compteurs et sortie conservés ; les pertes de transport sans reçu restent inconnues et bloquantes. La tentative existante a été clarifiée avec le reçu original, sans remise à zéro.
+
+Le paquet effectivement réduit contenait les anciennes consignes de préparation P4 : « Le présent paquet prépare uniquement : aucun déploiement applicatif » et « Ne clos jamais P4 ». Elles sont conservées pour les anciennes missions, mais remplacées pour les nouvelles missionsWebUI par l’exécution de leur propre objectif dans les droits courants du broker. Le filtre de phase est marqué pour retirer sa consigne précédente lorsque le rapport apparaît ; aucune restriction historique artificielle transportée vers la nouvelle mission.
+
 ## Vérifications
 
-147 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.
+149 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.
 
 Question navigateur distincte : langue et environnement retrouvés automatiquement depuis préférences/contexte, sans création de mission. Préférences réelles observées : languefr, longueur vocale courte, sources citées, vérification demandée. Le contenu des souvenirs privés n’est pas publié ici.
 
