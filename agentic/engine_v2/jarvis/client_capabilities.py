@@ -10,7 +10,7 @@ from .tools import Registry
 from .mission_store import MissionStore
 from .authority_identity import invocation_scope
 
-EXPOSED={'system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_mcp','google_workspace','qwen_code_run','qwen_code_status'}
+EXPOSED={'google_personal','google_education','skill_define','skill_test','skill_activate','system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_mcp','google_workspace','qwen_code_run','qwen_code_status'}
 
 # Select existing received interfaces for NEW integrated-client missions. No
 # owner goal, operational tasks, permissions or historical mission are rewritten.
@@ -59,7 +59,7 @@ class Capabilities:
         offset=max(0,int(offset));page=rows[offset:offset+12]
         return {'source':'canonical active JARVIS Registry','origin':self.origin,'tools':page,'matching_count':len(rows),'next_offset':offset+12 if offset+12<len(rows) else None,'schema_lookup':'jarvis_schema(name), then jarvis_call(name, arguments JSON). Search catalog query or page offset.','mission_tools':'jarvis_missions: list/read/create; creates canonical missions only on explicit owner request','limitations':'Configured does not mean executed. Direct tool receipt is not autonomous mission reception. Google availability must be checked.'}
     def schema(self,name):
-        if name not in EXPOSED:raise ValueError('Tool is outside the exposed client catalog')
+        if name not in EXPOSED:raise ValueError('Unknown client tool '+str(name)+'. Discover jarvis_catalog. Google methods such as drive.search are nested: use google_personal or google_education with action=schema/call and name='+str(name))
         reg=self.registry()
         if name not in reg.specs:raise ValueError('Tool not installed in active Registry')
         return {'name':name,'schema':reg.active_schema(name),'description':reg.specs[name][0]}

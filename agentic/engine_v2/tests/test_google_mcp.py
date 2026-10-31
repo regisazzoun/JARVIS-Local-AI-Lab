@@ -12,10 +12,12 @@ class Connector(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp:
    (Path(tmp)/'personal').symlink_to('/tmp')
    with self.assertRaises(ValueError):g.profile_dir('personal',Path(tmp))
- def test_unapproved_send_and_invites_are_never_dispatched(self):
-  for name in ('gmail.send','gmail.sendDraft','auth.clear','drive.trashFile'):
+ def test_owner_authorized_methods_and_confined_attachments(self):
+  for name in ('auth.clear','not.real'):
    with self.assertRaises(ValueError):g.validate_call(name,{},'personal')
-  with self.assertRaises(ValueError):g.validate_call('calendar.createEvent',{'attendees':['someone']},'personal')
+  for name in ('gmail.send','gmail.sendDraft','drive.trashFile','calendar.deleteEvent'):
+   g.validate_call(name,{},'personal')
+  g.validate_call('calendar.createEvent',{'attendees':['someone']},'personal')
   with self.assertRaises(ValueError):g.validate_call('gmail.createDraft',{'attachments':[{'filePath':'/home/adminjarvis/.ssh/id_ed25519'}]},'personal')
  def test_actual_download_path_and_symlink_escape_are_rejected(self):
   with tempfile.TemporaryDirectory() as tmp:
@@ -93,3 +95,14 @@ class OAuthCallback(unittest.TestCase):
  def test_callback_keeps_only_credential_fields(self):
   query={k:[v] for k,v in {'state':'expected','access_token':'software-fixture-only','refresh_token':'software-fixture-only','expiry_date':'42','extra':'not copied'}.items()}
   result=self.module.validate_callback(query,'expected');self.assertNotIn('extra',result);self.assertNotIn('state',result)
+
+class BoundIdentity(unittest.TestCase):
+ def test_profile_cannot_be_overridden(self):
+  class Registry:specs={}
+  reg=Registry();g.register(reg)
+  for profile in ('personal','education'):
+   spec=reg.specs['google_'+profile]
+   self.assertNotIn('profile',spec[1])
+   with patch.object(g,'perform',return_value={}) as perform:
+    spec[4]({'action':'status'})
+    self.assertEqual(perform.call_args.kwargs['profile'],profile)

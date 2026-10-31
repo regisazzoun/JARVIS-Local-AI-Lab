@@ -35,3 +35,10 @@ class Tools:
     async def jarvis_missions(self,action:str='list',id:str='',goal:str='',after:int=0,profile:str='standard')->str:
         """Consulter list/read les missions canoniques. create crée une nouvelle mission uniquement sur demande explicite. id : mission pour read ; goal : objectif pour create ; after : pagination. profile standard utilise les interfaces plates et rapports factuels existants ; service_observation sélectionne le profil reçu d'observation systemd en lecture seule, seulement pour cet usage."""
         return await self._call('missions',{'action':action,'id':id,'goal':goal,'after':after,'profile':profile})
+
+    async def google_personal(self,action:str='list',name:str='',arguments:str='{}',query:str='',offset:int=0)->str:
+        """Google PERSONNEL uniquement : list découvre les méthodes, schema décrit name, call exécute name avec arguments JSON. Drive/Docs/Sheets/Calendar/Gmail. Aucun changement implicite de compte."""
+        return await self._call('call',{'name':'google_personal','arguments':{'action':action,'name':name,'arguments':json.loads(arguments),'query':query,'offset':offset}})
+    async def google_education(self,action:str='list',name:str='',arguments:str='{}',query:str='',offset:int=0)->str:
+        """Google ÉDUCATION uniquement : list découvre les méthodes, schema décrit name, call exécute name avec arguments JSON. Drive/Docs/Sheets/Calendar/Gmail. Identité distincte du compte personnel."""
+        return await self._call('call',{'name':'google_education','arguments':{'action':action,'name':name,'arguments':json.loads(arguments),'query':query,'offset':offset}})

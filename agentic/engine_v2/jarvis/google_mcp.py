@@ -8,12 +8,15 @@ from pathlib import Path
 
 INSTALL=Path('/opt/jarvis/google-workspace-mcp')
 PROFILES=Path('/home/adminjarvis/.config/jarvis/google-mcp')
-FEATURES='chat.read:off,chat.write:off,people.read:off,slides.read:off,slides.write:off,tasks.read:off,tasks.write:off,gmail.send:off,gmail.sendDraft:off,calendar.deleteEvent:off,calendar.respondToEvent:off,drive.trashFile:off'
+FEATURES='chat.read:off,chat.write:off,people.read:off,slides.read:off,slides.write:off,tasks.read:off,tasks.write:off'
 ALLOWED={'docs.create','docs.getText','docs.getSuggestions','docs.writeText','docs.replaceText','docs.formatText',
- 'drive.search','drive.findFolder','drive.getComments','drive.downloadFile','drive.createFolder','drive.moveFile','drive.renameFile',
- 'calendar.list','calendar.listEvents','calendar.getEvent','calendar.findFreeTime','calendar.createEvent','calendar.updateEvent',
- 'gmail.search','gmail.get','gmail.downloadAttachment','gmail.listLabels','gmail.createDraft',
+ 'drive.search','drive.findFolder','drive.getComments','drive.downloadFile','drive.createFolder','drive.moveFile','drive.renameFile','drive.trashFile',
+ 'calendar.list','calendar.listEvents','calendar.getEvent','calendar.findFreeTime','calendar.createEvent','calendar.updateEvent','calendar.deleteEvent','calendar.respondToEvent',
+ 'gmail.search','gmail.get','gmail.downloadAttachment','gmail.listLabels','gmail.createDraft','gmail.send','gmail.sendDraft',
  'sheets.getText','sheets.getRange','sheets.getMetadata','time.getCurrentDate','time.getCurrentTime','time.getTimeZone'}
+
+def permitted(name):
+    return isinstance(name,str) and name.split('.',1)[0] in {'drive','docs','sheets','calendar','gmail','time'} and '.' in name
 
 ADDITIONS={
  'sheets.create':{'name':'sheets.create','description':'JARVIS additive bridge, not an upstream MCP method. Create a spreadsheet using upstream OAuth and its existing Drive scope. Requires authenticated reception.','inputSchema':{'type':'object','properties':{'title':{'type':'string','minLength':1,'maxLength':200}},'required':['title'],'additionalProperties':False}},
@@ -43,13 +46,12 @@ def confined_download(path,root):
     if root.resolve()!=root or not dest.is_absolute() or not dest.resolve().is_relative_to(root):raise ValueError('Download destination must remain under '+str(root))
 
 def validate_call(name,arguments,profile):
-    if name not in ALLOWED and name not in ADDITIONS:raise ValueError('Tool not exposed; email sending and destructive operations require a separate explicit owner action')
+    if not permitted(name):raise ValueError('Unknown Google MCP tool; use list/schema on google_personal or google_education')
     if not isinstance(arguments,dict):raise ValueError('arguments must be an object')
     if name in ADDITIONS:
         from jsonschema import validate
         validate(arguments,ADDITIONS[name]['inputSchema'])
-    if name in ('calendar.createEvent','calendar.updateEvent') and arguments.get('attendees'):raise ValueError('No invitations in this reception; omit attendees')
-    if name=='gmail.createDraft':
+    if name in ('gmail.createDraft','gmail.send'):
         for attachment in arguments.get('attachments',[]):
             confined_download(attachment['filePath'],Path('/var/lib/jarvis/projects/google-mcp')/profile/'downloads')
     # Upstream download tools bypass the host broker: constrain their destinations.
@@ -82,7 +84,7 @@ async def upstream(profile,action,name=None,arguments=None,root=PROFILES):
                 init=await session.initialize()
                 if action in ('list','schema'):
                     response=await session.list_tools()
-                    return {'server':init.serverInfo.model_dump(),'protocol_version':init.protocolVersion,'tools':[t.model_dump(exclude_none=True) for t in response.tools if t.name in ALLOWED]}
+                    return {'server':init.serverInfo.model_dump(),'protocol_version':init.protocolVersion,'tools':[t.model_dump(exclude_none=True) for t in response.tools if permitted(t.name)]}
                 response=await session.call_tool(name,arguments or {})
                 blocks=[]
                 for block in response.content:
@@ -126,5 +128,13 @@ def is_mutating(arguments):
     return arguments.get('action')=='call' and arguments.get('name') not in {'docs.getText','docs.getSuggestions','drive.search','drive.findFolder','drive.getComments','calendar.list','calendar.listEvents','calendar.getEvent','calendar.findFreeTime','gmail.search','gmail.get','gmail.listLabels','sheets.getText','sheets.getRange','sheets.getMetadata','time.getCurrentDate','time.getCurrentTime','time.getTimeZone'}
 
 def register(registry):
-    registry.specs['google_mcp']=('Google Workspace upstream MCP with publisher OAuth client: personal/education profiles. status reports real cached credentials; list(query,offset) discovers tools, schema(name) gives exact arguments, call(name,arguments) invokes the upstream server. Browser login via google-mcp-connect, never tokens in prompts. No owner Cloud project. AUTH_REQUIRED means no Google operation executed. Sheets upstream is read-only; sheets.create/writeRange are explicitly Codex additive bridges reusing upstream OAuth/Drive scope. No email sending exposed. Verify tool errors/content and independently read back writes.',
+    registry.specs['google_mcp']=('Google Workspace upstream MCP with publisher OAuth client: personal/education profiles. status reports real cached credentials; list(query,offset) discovers tools, schema(name) gives exact arguments, call(name,arguments) invokes the upstream server. Browser login via google-mcp-connect, never tokens in prompts. No owner Cloud project. AUTH_REQUIRED means no Google operation executed. Sheets upstream is read-only; sheets.create/writeRange are explicitly Codex additive bridges reusing upstream OAuth/Drive scope. Sending, invitations and trash operations use the existing upstream methods under the owner authorization. Verify tool errors/content and independently read back writes.',
       {'profile':{'type':'string','enum':['personal','education']},'action':{'type':'string','enum':['status','list','schema','call']},'name':{'type':'string'},'arguments':{'type':'object'},'query':{'type':'string'},'offset':{'type':'integer','minimum':0}},['profile','action'],'host_authorized',lambda a:perform(**a))
+
+    # Identity is bound by the tool, never inferred from conversation or payload.
+    for profile in ('personal','education'):
+        original=registry.specs['google_mcp']
+        props={k:v for k,v in original[1].items() if k!='profile'}
+        registry.specs['google_'+profile]=(
+            'Google '+profile+' ONLY. Account-bound interface. Use list/schema/call; never switch accounts implicitly. '+original[0],
+            props,['action'],'host_authorized',lambda a,profile=profile:perform(profile=profile,**a))

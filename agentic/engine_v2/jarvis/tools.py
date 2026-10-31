@@ -229,6 +229,7 @@ class Registry:
             else:
                 schema['properties']['depends']['maxItems']=0
             schema['properties']['tools']['items']['enum']=sorted(self.specs)
+            schema['properties']['artifacts']['description']='Only outputs this step will actually produce, not source directories or inputs. Put existing input paths in observations. Shared output files require dependency ordering; use distinct report paths.'
             schema['properties']['tools']['description']='Choose actual registered operational tools. The adapter adds the scoped report writer automatically; host_remote is the real remote execution API, not invented aliases.'
             from .durable_cycle import report_plan_tool_issues
             defects=report_plan_tool_issues(store,self.context['mission_id'],self.specs)
@@ -435,7 +436,7 @@ class Registry:
             action=args.get('action','')
             from .mcp_gateway import is_mutating as mcp_mutates
             from .google_mcp import is_mutating as google_mutates
-            mutating=(name=='google_mcp' and google_mutates(args)) or (name=='mcp_tools' and mcp_mutates(args)) or name in ('qwen_code_run','mission_action','skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','show','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
+            mutating=(name in ('google_mcp','google_personal','google_education') and google_mutates(args)) or (name=='mcp_tools' and mcp_mutates(args)) or name in ('qwen_code_run','mission_action','skill_define','skill_test','skill_activate','skill_run','host_exec','host_write_file','host_edit_file','host_delete_file','lab_terminal','intervention_report') or (name=='host_package' and action!='status') or (name=='host_service' and action not in ('status','show','is-active','is-enabled')) or (name=='host_project_service' and action not in ('status','logs')) or (name in ('host_remote','host_ansible') and action in ('project_exec','write_file','deploy_file','package_install','service','supervision_install','supervision_test','desktop_configure','desktop_test','desktop_network_test','desktop_gateway_configure','tailscale_configure')) or (name=='host_github' and action in ('push','push_tree','branch_create','clone','download','create','enable_pages','pull_request'))
             if controller and mutating and not self.context.get('mission_id'):
                 from .intent import classify
                 if classify(self.context.get('owner_text',''))=='question':

@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path('/opt/jarvis/conversation')
 # Explicit useful slice, derived schemas and execution from the same registry.
-EXPOSED = {'capability_status','host_service','host_logs','host_read_file','host_remote','host_ansible','skill_list','skill_run','google_mcp'}
+EXPOSED = {'capability_status','host_service','host_logs','host_read_file','host_remote','host_ansible','skill_list','skill_run','google_mcp','google_personal','google_education'}
 
 
 def is_mutating(arguments):
@@ -16,7 +16,7 @@ def is_mutating(arguments):
     value=json.loads(arguments.get('arguments','{}'))
     if not isinstance(value,dict):raise ValueError('MCP arguments must be a JSON object')
     if name=='skill_run':return True
-    if name=='google_mcp':
+    if name in ('google_mcp','google_personal','google_education'):
         from .google_mcp import is_mutating as google_mutation
         return google_mutation(value)
     if name=='host_service':return value.get('action') not in ('status','is-active','is-enabled')
