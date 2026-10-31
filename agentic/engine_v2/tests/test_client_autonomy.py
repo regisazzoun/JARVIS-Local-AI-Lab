@@ -21,6 +21,7 @@ class Autonomy(unittest.TestCase):
   active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
   self.assertEqual(active['current_action_schema'],schema);self.assertIn('canonical_memory_data',active)
   self.assertEqual(active['active_task']['id'],'t');self.assertEqual(active['active_task']['contract'],self.api.store.tasks(ident)[0]['contract'])
+  self.assertEqual(active['execution_environment']['command_host'],__import__('socket').gethostname());self.assertEqual(active['request_project'],'p')
   selected,_=request(source,select_only=True);selected.pop('_jarvis_action_contract');result=ContextBudget(self.api.store,ident,'t').prepare(selected,{'limit':16384},structured_action=True)
   active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
   self.assertNotIn('current_action_schema',active)
@@ -46,6 +47,7 @@ class Autonomy(unittest.TestCase):
    def schemas(self,*a):return [{'function':{'name':'host_exec'}}]
   with patch.object(self.api,'registry',return_value=Reg()):result=context(self.api,'contexte')
   self.assertEqual(result['identity'],'JARVIS Debian canonical identity');self.assertEqual(result['policy']['packages'],['nmap'])
+  self.assertEqual(result['environment']['command_host'],__import__('socket').gethostname());self.assertIn('inference Dell is not',result['environment']['execution_host'])
   with self.api.memory.connect() as c:record=json.loads(c.execute('select target from audit where id=?',(result['context_audit_id'],)).fetchone()[0])
   self.assertIn('preference_keys',record);self.assertNotIn('identity',record);self.assertNotIn('memories',record)
  def test_dispatch_is_idempotent_and_preserves_exact_owner_goal(self):

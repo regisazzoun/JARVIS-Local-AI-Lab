@@ -246,6 +246,10 @@ class ContextBudget:
   active={k:checkpoint[k] for k in ('mission','parent_mission','priority','task','objective','task_contract','task_dependencies','plan','workspace','model','authority_counters','reserved_operation_ids','interface_counters','last_inference','pending_effects','modifications','tests','observed_evidence','next_authorized_action')}
   if json.loads(self.store.get(self.m)['spec']).get('client_autonomy') and checkpoint.get('task'):
    active['active_task']={'id':checkpoint['task'],'objective':checkpoint['objective'],'state':checkpoint['task_state'],'contract':checkpoint['task_contract'],'deps':checkpoint['task_dependencies']}
+   from .context_retrieval import runtime_environment
+   active['execution_environment']=runtime_environment()
+   active['request_project']=self.store.get(self.m)['project']
+   active['mission_identity_rule']='The current mission id and owner goal define this request. A storage directory named mission26 is only an authorized root, not a different mission identity.'
    active['completed_process_rule']='execution_completed=true means observed finished process, not unknown effect. Reuse its receipt; do not repeat it. The task report still needs writing and verification; no functional PASS is inferred.'
   active['operation_identity_rule']='All reserved_operation_ids belong to durable operations. A different intended operation needs an unused id; retry requires ALL original arguments unchanged. Never replay unknown effects. Counters and backend refusals remain authoritative.'
   active['offered_tools']=([branch['properties']['tool']['enum'][0] for branch in payload['format']['oneOf']] if structured_action else [t['function']['name'] for t in payload.get('tools',[])]);active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive

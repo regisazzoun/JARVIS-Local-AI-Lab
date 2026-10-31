@@ -2,7 +2,7 @@
 import hashlib,json,platform,re,time,urllib.request
 from pathlib import Path
 from .client_capabilities import Capabilities,CanonicalAPI,CLIENT_MISSION_PROFILE
-from .context_retrieval import retrieve,view
+from .context_retrieval import retrieve,view,runtime_environment
 from .intent import classify
 from .memory import now
 PRIVATE=Path('/home/adminjarvis/JARVIS/webui-autonomie-private')
@@ -23,7 +23,7 @@ def context(api,text):
     data=retrieve(api.memory,text,project='')
     identity_path=Path(api.config.get('identity_file',api.root/'identity/JARVIS-v2.md'))
     identity=identity_path.read_text()
-    result={'identity':identity,'environment':{'system':platform.system(),'execution_host':'Mac mini JARVIS under Debian, not macOS. host_exec executes here; host_remote selects each Dell explicitly.','tools':'Discover jarvis_catalog/query, inspect jarvis_schema, execute jarvis_call or account-bound tools. Skills and MCP reuse the same broker.'},
+    result={'identity':identity,'environment':runtime_environment(),
       'inference_nodes':{name:{'address':__import__('urllib.parse',fromlist=['urlsplit']).urlsplit(node.get('url','')).hostname,'models':node.get('models',[])} for name,node in api.config.get('hybrid_compute',{}).get('nodes',{}).items()},
       'available_tools':sorted({s['function']['name'] for s in reg.schemas(True)}&__import__('jarvis.client_capabilities',fromlist=['EXPOSED']).EXPOSED),
       'policy':policy_view(raw.get('result',{})) if raw.get('ok') else {'observed_error':raw.get('error'),'verified':False},
