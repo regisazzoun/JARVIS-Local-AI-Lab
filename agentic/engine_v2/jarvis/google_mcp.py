@@ -105,8 +105,9 @@ def perform(profile,action='status',name=None,arguments=None,query='',offset=0,r
             return {**status,'returncode':1,'operation_executed':False,'mcp_tool_dispatched':False}
     directory.mkdir(mode=0o700,parents=True,exist_ok=True)
     with (directory/'operation.lock').open('a') as lock:
-        try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        except BlockingIOError:return {'profile':profile,'state':'BUSY','operation_executed':False,'retry_requires_observation':True}
+        # Serialize token refresh and calls per account; concurrent clients wait
+        # instead of receiving a false-positive BUSY receipt without dispatch.
+        fcntl.flock(lock,fcntl.LOCK_EX)
         try:value=asyncio.run(asyncio.wait_for(upstream(profile,action,name,arguments,root),timeout=90))
         except (TimeoutError,OSError):
             return {'profile':profile,'state':'UNKNOWN','returncode':75,'operation_executed':'UNKNOWN','retry_requires_observation':True,'reason':'Transport interrupted or timed out; inspect remote state before any repeated write'}
