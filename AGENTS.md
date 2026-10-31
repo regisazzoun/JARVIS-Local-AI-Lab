@@ -1,3 +1,7 @@
+## WebUI — correction des quatre raccordements d’autonomie autorisée
+
+Ordre propriétaire « corrige ces4points alors » : contexte/capacités actuels, mémoire canonique pertinente automatique, demande naturelle vers moteur existant, refus/résultats liés à des reçus réels. Extension cibléePR39, aucun nouveau moteur/mémoire ; autorisations de déploiement antérieures conservées. Réception navigateur sur sonde30dde783… en cours, assistance et incidents conservés ; ne pas déclarer autonomie générale depuis des tests logiciels ou une création de mission. M26-P4/MANUAL-HOLD et modèles/routes préservés. Voir docs/missions/WEBUI-AUTONOMIE-4POINTS/RAPPORT.md. Aucune fusion automatique main.
+
 ## BILAN-20261031 — inventaire et rationalisation documentaire
 
 Audit autorisé le 31 octobre : observations des trois machines, analyse des composants et recommandations, sans installation, suppression ou transformation de l’architecture. Réutilisation avant développement ; préserver les décisions de la PR36 sans importer silencieusement ses autres versions de documents. Le compte Google Éducation est désormais autorisé : lectures Drive/Calendar/Gmail reçues164/166/168, au-delà du rapport historique PR37 ; écritures et parcours client Éducation restent à vérifier.

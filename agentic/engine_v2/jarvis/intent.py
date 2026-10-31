@@ -8,7 +8,9 @@ def classify(text):
     value=normalize(text)
     if re.match(r'^(?:quel|quelle|quels|quelles|pourquoi|ou en|est.ce que|peux.tu (?:expliquer|me dire)|explique|donne.moi (?:l.etat|le statut))\b',value):return 'question'
     if re.search(r'\b(?:reprends|reprendre|poursuis|continue|termine)\b.*\bmission\s*23\b',value):return 'resume23'
-    if re.match(r'^(?:lance|demarre|execute|cree|developpe|installe|corrige|publie|reprends|poursuis|termine|peux.tu (?:lancer|executer|creer|developper|installer|corriger|publier))\b',value):return 'execute'
+    if re.match(r'^(?:je (?:veux|voudrais|souhaite|te demande) (?:que tu |de )?|(?:s.il te plait[, ]+)?)(?:scann(?:e|es|er)|execut(?:e|es|er)|install(?:e|es|er)|cre(?:e|es|er)|corrig(?:e|es|er)|publi(?:e|es|er)|analys(?:e|es|er)|inventori(?:e|es|er))\b',value):return 'execute'
+    if re.match(r'^(?:scanne|scan|inspecte|analyse|inventorie|recherche|verifie|liste)\b',value):return 'execute'
+    if re.match(r'^(?:lance|demarre|execute|cree|developpe|installe|corrige|publie|reprends|poursuis|termine|(?:peux|pourrais).tu (?:lancer|executer|creer|developper|installer|corriger|publier|scanner|analyser|inspecter|verifier|inventorier|rechercher|lister))\b',value):return 'execute'
     return 'conversation'
 
 def mission_answer(text,store):

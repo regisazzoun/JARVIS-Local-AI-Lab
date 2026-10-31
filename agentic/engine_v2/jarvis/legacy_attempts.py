@@ -156,7 +156,12 @@ def guarded(reg,name,args,fn,mutating):
     problem=ledger.problem('canonical-action:'+digest(binding),binding)
     key=str(reg.context.get('durable_operation_key') or digest({'tool':name,'arguments':args}))
     request={'tool':name,'arguments':args,'contract':contract['criteria'],'task':reg.context['task_id']}
-    begin=ledger.begin(problem,key,args.get('host','canonical-broker'),'execute',request)
+    spec=json.loads(store.get(mission)['spec'])
+    report_path=contract['task'].get('contract',{}).get('report_path')
+    report_only=bool(spec.get('client_autonomy') and spec.get('planning_report_steps') and report_path and all(c.get('kind')=='report' and c.get('source',{}).get('tool')=='host_read_file' and c.get('source',{}).get('arguments',{}).get('path')==report_path for c in contract['criteria']))
+    # The report validates the whole task after its operations. Known completed
+    # processes may precede that report; unknown effects still forbid replay.
+    begin=ledger.begin(problem,key,args.get('host','canonical-broker'),'execute',request,defer_report_validation=report_only)
     if begin.get('blocked'):raise ValueError('P2: problem escalated; no fourth operation. '+json.dumps(begin))
     if begin.get('requires_observation'):raise ValueError('P2: observe existing effect with mission_verify before another mutation; no action dispatched. '+json.dumps(begin))
     if begin.get('cached'):return ledger.get(begin['attempt'])['result']['value']
@@ -182,7 +187,7 @@ def guarded(reg,name,args,fn,mutating):
     if type(execution.get('returncode')) is int:code=execution['returncode']
     after=observed_targets(reg,contract['criteria']) if hasattr(reg,'execute') else {}
     changed=any(b.get('sha256') and before.get(k,{}).get('sha256') and b['sha256']!=before[k]['sha256'] for k,b in after.items())
-    result={'change_observed':bool(changed),'before':before,'after':after,'value':value,'returncode':code,'verified':False,'validation_scope':'persisted task contract','execution':execution}
+    result={'deferred_to_report':report_only,'change_observed':bool(changed),'before':before,'after':after,'value':value,'returncode':code,'verified':False,'validation_scope':'persisted task contract','execution':execution}
     if type(code) is not int:
         proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'observed_value':value})
         ledger.transition(attempt,'VALIDATION_INCONCLUSIVE',evidence=proof,result=result,unknown=True)
@@ -215,7 +220,12 @@ def settle(reg,verdict):
             proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':raw['id'],'observation':result,'state':'EXECUTED_TEST_FAILED'})
             if result.get('started'):
                 ledger.transition(raw['id'],'EXECUTED_TEST_FAILED',evidence=proof,result=result,unknown=False)
-                ledger.failure(raw['id'],correction_changed=bool(result.get('change_observed')))
+                spec=json.loads(store.get(mission)['spec'])
+                report_group=bool(spec.get('client_autonomy') and spec.get('planning_report_steps') and all(c.get('kind')=='report' for c in contract['criteria']))
+                if not report_group or raw['id']==pending[-1]['id']:
+                    ledger.failure(raw['id'],correction_changed=bool(result.get('change_observed')))
+                else:
+                    store.event(mission,'report_verdict_shared',contract['task']['id'],'JARVIS-engine',result={'attempt':raw['id'],'counted_in_attempt':pending[-1]['id'],'verification_event':verdict.get('verification_event'),'meaning':'One report verdict across several known operations; not several correction cycles'})
         elif len(latest)==len(contract['criteria']) and all(v['status']=='PASS' for v in latest.values()):
             if not attempt['result'].get('started') or attempt['unknown_outcome']:
                 store.event(mission,'canonical_effect_verified_execution_unknown',actor='JARVIS-engine',result={'attempt':raw['id'],'verification':verdict,'no_execution_success_claimed':True})

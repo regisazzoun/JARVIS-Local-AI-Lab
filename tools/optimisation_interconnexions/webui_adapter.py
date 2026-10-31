@@ -70,7 +70,16 @@ class Handler(BaseHTTPRequestHandler):
             if self.path.startswith('/tools/capabilities/'):
                 api=Capabilities(origin='OpenWebUI')
                 operation=self.path.rsplit('/',1)[-1]
-                if operation=='catalog':result=api.catalog(d.get('query',''),d.get('offset',0))
+                if operation=='owner_prepare':
+                    from jarvis.client_autonomy import OwnerClient
+                    dispatch_possible=True
+                    result=OwnerClient(api=api).prepare(**d)
+                elif operation in ('owner_status','owner_render'):
+                    from jarvis.client_autonomy import OwnerClient,render
+                    client=OwnerClient(api=api);client.authorize(d['user_id'])
+                    receipt=client.status(d['id']) if d.get('id') else {'state':'UNKNOWN','meaning':'No valid canonical mission receipt; inspect before retrying.'}
+                    result={'content':render(receipt)} if operation=='owner_render' else receipt
+                elif operation=='catalog':result=api.catalog(d.get('query',''),d.get('offset',0))
                 elif operation=='schema':result=api.schema(d['name'])
                 elif operation=='call':
                     dispatch_possible=True

@@ -116,6 +116,10 @@ class Missions:
         while not self.stop.wait(2):
             try: deliver_one(self.store)
             except Exception: logging.exception('Persistent publisher retry after storage failure')
+            try:
+                from .client_autonomy import deliver_one as deliver_client
+                deliver_client(self.store)
+            except Exception: logging.exception('WebUI receipt delivery failed; canonical mission state unchanged, retry on existing publisher loop')
 
     def record_final(self,row):
         report=self.store.get(row['id']).get('report_path')
@@ -182,16 +186,17 @@ class Missions:
                     with self.store.db() as c:
                         pending=c.execute("SELECT count(*) FROM publication_outbox WHERE mission=? AND state NOT IN ('verified','superseded')",(row['id'],)).fetchone()[0]
                     if not pending:self.record_final(row)
-                    self.store.transition(row['id'],'publishing' if pending else 'completed',delay=10 if pending else 0)
+                    self.store.transition(row['id'],'publishing' if pending else 'completed',delay=10 if pending else 0,owner=self.owner)
                     continue
                 if self.defer_waiting_tasks(row):continue
                 from .worker_recovery import blocked_problem
                 blocked=blocked_problem(self.store,row['id'])
                 if blocked:
                     self.store.event(row['id'],'worker_dispatch_blocked',actor='JARVIS-engine',result={'problem':blocked,'reason':'Persistent escalation; no fourth automatic dispatch'})
-                    self.store.transition(row['id'],'interrupted',blocked)
+                    self.store.transition(row['id'],'interrupted',blocked,owner=self.owner)
                     continue
                 result = self.cycle.run(row)
+                if self.store.get(row['id']).get('lease_owner')!=self.owner:continue
                 tasks = self.store.tasks(row['id'])
                 if result.get('progress'):self.publish_progress(row)
                 if result.get('external_block'):continue
@@ -211,15 +216,15 @@ class Missions:
                         self.store.event(row['id'],'p2_escalation',actor='JARVIS-engine',result={'reason':result['blockage'],'stagnant_cycles':stagnant,'request_to':'Codex'})
                 if state=='completed':self.record_final(row)
                 self.store.transition(row['id'], state, result, delay=60 if state=='blocked' else 0 if result.get('progress') else 10,
-                                      progress=bool(result.get('progress')))
+                                      progress=bool(result.get('progress')),owner=self.owner)
             except MissionInterrupted:
-                if row: self.store.transition(row['id'], 'interrupted')
+                if row: self.store.transition(row['id'], 'interrupted',owner=self.owner)
             except Exception as exc:
                 if row:
                     from .worker_recovery import record_failure
                     recovery=record_failure(self.store,row,exc)
                     self.store.event(row['id'], 'cycle_error', result={'error': str(exc), 'type': type(exc).__name__})
-                    self.store.transition(row['id'], 'interrupted' if recovery['stop'] else 'retrying', {'error':str(exc),'recovery':recovery},delay=0 if recovery['stop'] else min(60,2**min(row['attempts'],6)))
+                    self.store.transition(row['id'], 'interrupted' if recovery['stop'] else 'retrying', {'error':str(exc),'recovery':recovery},delay=0 if recovery['stop'] else min(60,2**min(row['attempts'],6)),owner=self.owner)
             finally:
                 done.set()
                 self.execution_core.tools.context = {}

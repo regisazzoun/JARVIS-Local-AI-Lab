@@ -489,11 +489,13 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         policies=[o['result']['result'] for o in observations if o['tool']=='host_policy' and (o['result'] or {}).get('ok')]
         policy=policies[-1] if policies else None
         tasks=[{k:t.get(k) for k in ('id','title','deps','state','artifact','report_sha256')} for t in store.tasks(ident)]
-        documents=core.memory.document_search((task or {}).get('objective',mission['goal']),mission['project'])[:2]
+        from .context_retrieval import retrieve,view
+        memory_context=retrieve(core.memory,(task or {}).get('objective',mission['goal']),mission['project'],mission['conversation'],True)
+        documents=memory_context['documents']
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS, pas par JARVIS-engine. Le modèle demandé à l’origine ('+mission['model']+') peut différer du moteur effectivement routé. Pour attribuer ton exécution, utilise last_observed_inference, compute_status et les événements compute_route_observed, jamais le seul modèle historique de mission. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
-               'debugging_checkpoint':debugging_state(store.observations(ident,task_id,limit=32)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
+               'debugging_checkpoint':debugging_state(store.observations(ident,task_id,limit=32)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents],'canonical_memory_data':view(memory_context,True)})}]
         factual_finalization=bool(json.loads(mission['spec']).get('factual_finalization') and not task and tasks and all(t['state']=='validated' for t in tasks))
         compact_finalization=bool(not factual_finalization and json.loads(mission['spec']).get('compact_finalization') and not task and tasks and all(t['state']=='validated' for t in tasks))
         if factual_finalization:
@@ -602,6 +604,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 planning_spec=json.loads(mission['spec'])
                 messages[0]['content']+='\nPHASE DE PLANIFICATION : seuls les outils de préparation sont proposés ici. Cette liste ne décrit pas les outils accessibles après acceptation du plan. Tu peux déclarer les vrais outils du catalogue enregistré pour les étapes futures ; ne conclus pas qu’un outil est absent du système parce qu’il est masqué dans cette phase. Les états systemd se vérifient par host_service action=is-active, pas par la seule lecture du fichier unité. Les conteneurs JSON attendus restent des objets/tableaux conformes au schéma, jamais des chaînes JSON incomplètes.'
                 schemas=planning_schemas(core.tools.schemas() if invalid_report_tools else schemas,planning_spec)
+                if planning_spec.get('client_autonomy') and policy:
+                    schemas=[item for item in schemas if item['function']['name']!='host_policy']
                 if invalid_report_tools:
                     messages.append({'role':'user','content':'Repair existing pending task tool declarations before execution; do not append unrelated tasks. Choose actual registered operational tools and include host_write_file for the mandatory report. Preserve original acceptance predicates and valid report paths; repair paths explicitly identified outside observed write roots/workspace. Known contract defects: '+encoded(invalid_report_tools)})
                 saved_plans=store.plans(ident)
@@ -817,6 +821,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         payload['messages']=copy.deepcopy(payload['messages'])
                         payload['messages'][0]['content']+='\nTu as choisi '+selected_action_tool+' au tour précédent. Voici son contrat complet ; choisis toi-même les paramètres. Aucun outil n’a encore été exécuté pour ce choix.'
                 payload,action_schema=action_request(payload,select_only=action_selection_only)
+                if json.loads(mission['spec']).get('client_autonomy') and not action_selection_only:
+                    payload['messages']=copy.deepcopy(payload['messages'])
+                    payload['messages'].append({'role':'user','content':'Contrat exact des paramètres pour ton outil choisi (données de schéma, pas une action prédéfinie) : '+encoded(action_schema)+'\nChoisis tes propres valeurs. command est une chaîne shell ; argv est un tableau exclusif. timeout est le seul champ de délai. Aucun champ supplémentaire.'})
             inference_start=time.monotonic()
             message = core.transport(payload)
             inference_event=store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)

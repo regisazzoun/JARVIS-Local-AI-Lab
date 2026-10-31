@@ -166,7 +166,7 @@ class AttemptLedger:
    if row and row['fingerprint']!=fingerprint:raise ValueError('Owner problem contract immutable; aliases cannot change its identity')
    if not row:c.execute('INSERT INTO mission_problems_v2(mission,scope,fingerprint,descriptor) VALUES(?,?,?,?)',(self.m,scope,fingerprint,encoded(descriptor)))
   return fingerprint
- def begin(self,problem,key,executor,phase,request):
+ def begin(self,problem,key,executor,phase,request,*,defer_report_validation=False):
   signature=digest({'executor':executor,'phase':phase,'request':request})
   with self.store.db() as c:
    c.execute('BEGIN IMMEDIATE')
@@ -178,8 +178,12 @@ class AttemptLedger:
     event=self.store.event(self.m,'p2_attempt_rejected',actor='JARVIS-engine',result={'problem':problem,'operation_key':key,'reason':'three failed cycles/incidents; no autonomous fourth','failed_cycles':p['failed_cycles'],'infra_incidents':p['infra_incidents']},connection=c)
     return {'blocked':True,'state':p['state'],'event':event,'problem':problem}
    same=same or c.execute('SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND signature=?',(self.m,problem,signature)).fetchone()
-   pending=c.execute("SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchone()
-   if pending:return {'requires_observation':True,'attempt':pending['id'],'state':pending['state'],'problem':problem}
+   pending=c.execute("SELECT * FROM mission_attempts_v2 WHERE mission=? AND problem=? AND (unknown_outcome=1 OR state IN ('PENDING','DISPATCHED','RUNNING') OR (state='VALIDATION_INCONCLUSIVE' AND coalesce(json_extract(result,'$.verification_not_executed'),0)!=1))",(self.m,problem)).fetchall()
+   for pending in pending:
+    value=json.loads(pending['result'])
+    known_completed=bool(defer_report_validation and not pending['unknown_outcome'] and pending['state']=='VALIDATION_INCONCLUSIVE' and value.get('returncode')==0 and value.get('started',{}).get('child_started'))
+    if known_completed:continue
+    return {'requires_observation':True,'attempt':pending['id'],'state':pending['state'],'problem':problem}
    if same:
     repair=c.execute("SELECT id FROM mission_events WHERE mission=? AND kind='p2_infrastructure_resolution' AND json_extract(result,'$.problem')=? AND created>? ORDER BY id DESC LIMIT 1",(self.m,problem,same['updated'])).fetchone() if same['state']=='NOT_EXECUTED' and p['state']=='RESOLVED' else None
     if repair:return {'attempt':same['id'],'state':'NOT_EXECUTED','problem':problem,'verified_retry':repair['id']}

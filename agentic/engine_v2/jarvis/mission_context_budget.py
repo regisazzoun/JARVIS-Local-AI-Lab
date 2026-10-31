@@ -124,6 +124,10 @@ class ContextBudget:
   from .operational_policy import observed_policy,planning_feedback
   checkpoint['planning_feedback']=planning_feedback(self.store,self.m)
   checkpoint['report_workspace']=spec.get('report_workspace')
+  if spec.get('client_autonomy'):
+   from .context_retrieval import retrieve,view
+   from .memory import Memory
+   checkpoint['canonical_memory_data']=view(retrieve(Memory(self.store.root/'runtime/memory.sqlite'),mission['goal'],mission['project'],mission['conversation'],True),True)
   if spec.get('read_only_service_snapshot'):
    from .operational_policy import observed_service_reads,service_snapshot_summary,observed_policy
    checkpoint['observed_service_reads']=observed_service_reads(self.store,self.m)
@@ -233,6 +237,10 @@ class ContextBudget:
   active={k:checkpoint[k] for k in ('mission','parent_mission','priority','task','objective','task_contract','task_dependencies','plan','workspace','model','authority_counters','reserved_operation_ids','interface_counters','last_inference','pending_effects','modifications','tests','observed_evidence','next_authorized_action')}
   active['operation_identity_rule']='All reserved_operation_ids belong to durable operations. A different intended operation needs an unused id; retry requires ALL original arguments unchanged. Never replay unknown effects. Counters and backend refusals remain authoritative.'
   active['offered_tools']=([branch['properties']['tool']['enum'][0] for branch in payload['format']['oneOf']] if structured_action else [t['function']['name'] for t in payload.get('tools',[])]);active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive
+  if structured_action and json.loads(self.store.get(self.m)['spec']).get('client_autonomy') and any('arguments' in branch.get('properties',{}) for branch in payload.get('format',{}).get('oneOf',[])):
+   active['current_action_schema']=payload['format']
+   active['current_action_schema_meaning']='Exact tool and argument fields; choose your own values. command is a string, argv an exclusive array; timeout is the timeout field. No extra fields.'
+
   # Initial planning has no separate task objective. Keep the exact owner text
   # once; the complete checkpoint still stores both canonical fields.
   if active['owner_goal']==active['objective']:
@@ -245,6 +253,7 @@ class ContextBudget:
   active['last_observations']=checkpoint['last_observations']
   active['planning_feedback']=checkpoint['planning_feedback']
   active['report_workspace']=checkpoint.get('report_workspace')
+  if checkpoint.get('canonical_memory_data'):active['canonical_memory_data']=checkpoint['canonical_memory_data']
   if 'observed_service_reads' in checkpoint:active['observed_service_reads']=checkpoint['observed_service_reads']
   if 'service_snapshot_summary' in checkpoint:active['service_snapshot_summary']=checkpoint['service_snapshot_summary']
   if 'report_reference_contract' in checkpoint:active['report_reference_contract']=checkpoint['report_reference_contract']
