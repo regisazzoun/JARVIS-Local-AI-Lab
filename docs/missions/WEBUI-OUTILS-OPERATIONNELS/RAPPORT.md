@@ -52,7 +52,7 @@ Assistance Codex explicitement tracée : arrêt après répétitions de host_pol
 
 Trois incidents ContextCapacityError ont ensuite arrêté la mission. Son entrée obligatoire dépassait le budget conservateur de 27648 octets estimés, pour une fenêtre serveur inchangée de 32768 tokens. Aucun OOM ni réduction de fenêtre n’est déduit de ces erreurs. Une mesure sur copies SQLite isolées du contrat compact donne **25333 octets**, sans inférence, sans résolution d’incident et sans modification de la mission réelle. Cette mesure n’est pas une réception d’exécution.
 
-Le contrôle automatique d’approbation a rejeté l’enregistrement d’une résolution d’incident et la reprise après ce stop persistant. Motif : preuve locale jugée insuffisante pour lever l’escalade sans autorisation explicite de cet acte. Une demande précise a été présentée ; la mission reste arrêtée, tous les totaux et historiques sont conservés. **Rapport final de la sonde et autonomie sans assistance NON REÇUS.** Aucun succès global n’est déduit des lectures ou de la création de mission.
+Le contrôle automatique d’approbation a rejeté l’enregistrement d’une résolution d’incident et la reprise après ce stop persistant. Motif : preuve locale jugée insuffisante pour lever l’escalade sans autorisation explicite de cet acte. Le propriétaire a ensuite explicitement autorisé la mesure, la résolution native et la reprise de cette même mission, avec tous les compteurs et historiques conservés. Cette autorisation n’a pas encore pu être exécutée : le Mac mini est inaccessible. **Rapport final de la sonde et autonomie sans assistance NON REÇUS.** Aucun succès global n’est déduit des lectures ou de la création de mission.
 
 ## Tests, déploiement et retour arrière
 
@@ -67,3 +67,9 @@ Sauvegardes privées : quatre modules, outil WebUI/valves et politique hôte. R�
 ## Incident de transport au contrôle final
 
 Après les réceptions et le rechargement final, les nouvelles connexions SSH au Mac mini ont expiré (Operation timed out). L’état actuel des services ne peut donc plus être reconfirmé : leur dernier contrôle positif reste historique à cette session. La cause réseau/hôte n’est pas établie. Aucune panne applicative ni causalité du déploiement n’est affirmée. La publication des sources et du présent rapport est poursuivie par le connecteur GitHub indépendant ; la copie de travail distante devra être resynchronisée avec cette branche avant toute nouvelle modification.
+
+## Reprise autorisée — accès hôte indisponible
+
+Le propriétaire a répondu « Oui, mesurer puis résoudre l’incident et reprendre ». Aucun nouvel accord de mission n’est nécessaire. Contrôle de reprise : Tailscale local Running, sans alerte ; pair jarvis-macmini Offline, dernière présence 2026-10-31T20:50:00.1Z (21 h 50 à Paris). SSH expire par l’adresse Tailscale et par l’adresse LAN documentée, avec la clé hôte existante conservée. Le Dell1 est en ligne, mais aucune clé hôte Dell n’est enregistrée sur ce MacBook : aucun nouvel accès n’a été créé.
+
+Aucune mesure nouvelle sur JARVIS, résolution de registre ou reprise de mission n’a été appliquée pendant cette tentative. La mesure isolée antérieure de 25333 octets demeure historique. Vérifier l’alimentation et le réseau du Mac mini ; à son retour, relire le checkpoint, remesurer le contrat compact, puis appliquer le mécanisme natif de résolution autorisé et reprendre le même identifiant. Ne pas effacer les incidents ni recréer la mission. Réconcilier également le worktree distant avec les publications GitHub effectuées durant l’indisponibilité, en conservant ses changements.
