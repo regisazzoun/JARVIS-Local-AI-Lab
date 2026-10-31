@@ -20,6 +20,7 @@ class Autonomy(unittest.TestCase):
   result=ContextBudget(self.api.store,ident,'t').prepare(payload,{'limit':16384},structured_action=True)
   active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
   self.assertEqual(active['current_action_schema'],schema);self.assertIn('canonical_memory_data',active)
+  self.assertEqual(active['active_task']['id'],'t');self.assertEqual(active['active_task']['contract'],self.api.store.tasks(ident)[0]['contract'])
   selected,_=request(source,select_only=True);selected.pop('_jarvis_action_contract');result=ContextBudget(self.api.store,ident,'t').prepare(selected,{'limit':16384},structured_action=True)
   active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
   self.assertNotIn('current_action_schema',active)

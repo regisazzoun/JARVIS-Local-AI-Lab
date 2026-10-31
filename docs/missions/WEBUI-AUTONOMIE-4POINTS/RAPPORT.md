@@ -45,6 +45,8 @@ Le paquet effectivement réduit contenait les anciennes consignes de préparatio
 
 Une erreur Codex d’import manquant dans le nettoyage de phase a provoqué deux NameError avant inférence et action. Import corrigé, nettoyage directement testé (remplacement, retrait après changement de phase, contraintes restantes conservées). Cycle réel96206 atteint après ce nettoyage ; résolution native96218. Deux incidents originaux conservés, résolus2/2, aucune commande attribuée à ces tours échoués.
 
+Autre décalage observé dans le paquet réel : les consignes citaient active_task.contract, mais la projection réduite ne présentait que task_contract. Pour les nouvelles missionsWebUI, active_task est maintenant reconstruit depuis les champs canoniques, sans nouvelle valeur inventée. Les processus réellement terminés en code0 sont explicitement identifiés comme attendant le rapport, sans PASS fonctionnel ; les effets inconnus gardent leur statut. Régression de structure ajoutée et paquet réel remesuré avant reprise.
+
 ## Vérifications
 
 150 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.

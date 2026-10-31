@@ -86,6 +86,12 @@ class ContextBudget:
    counters=[dict(r) for r in c.execute('SELECT scope,fingerprint,failed_cycles,correction_resolved_through,failed_cycles-correction_resolved_through AS active_failed_cycles,infra_incidents,state,escalation_event FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
    pending=[dict(r) for r in c.execute("SELECT id,problem,executor,phase,state,unknown_outcome FROM mission_attempts_v2 WHERE mission=? AND state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE') ORDER BY created,id",(self.m,))]
    rows=c.execute("SELECT t.id,t.tool,t.arguments,t.result,(SELECT max(e.id) FROM mission_events e WHERE e.mission=t.mission AND e.invocation=t.id AND e.kind='tool_finished') event_reference FROM tool_calls t WHERE t.mission=? AND (? IS NULL OR t.task=?) ORDER BY t.created DESC,t.rowid DESC LIMIT 3",(self.m,self.task,self.task)).fetchall()
+  if spec.get('client_autonomy'):
+   for item in pending:
+    if item['state']=='VALIDATION_INCONCLUSIVE' and not item['unknown_outcome']:
+     attempt=self.store.attempt_ledger(self.m).get(item['id']);known=attempt['result']
+     if known.get('returncode')==0 and known.get('started',{}).get('child_started'):
+      item['execution_completed']=True;item['report_validation_pending']=True
   observations=[{**dict(o),'arguments':json.loads(o['arguments']),'result':json.loads(o['result'] or '{}')} for o in reversed(rows)]
   authority=self.latest('authority_state');executions=list(authority[0]['result'].get('executions',{}).items()) if authority else []
   if spec.get('authority_task_scoped_evidence'):
@@ -238,6 +244,9 @@ class ContextBudget:
   original=payload['messages'];system=copy.deepcopy(next((x for x in original if x.get('role')=='system'),{'role':'system','content':'Authorized mission; original owner constraints remain canonical.'}))
   system['content']+='\nLe checkpoint ci-dessous contient déjà l’état utile. Les références archive/checkpoint automatiques prouvent le stockage ; ne les recharge pas récursivement. Applique la dernière instruction coordinateur, puis décide une action dans la tâche. context_recall sert à un ancien incident précis, context_resume à une reprise manuelle.'
   active={k:checkpoint[k] for k in ('mission','parent_mission','priority','task','objective','task_contract','task_dependencies','plan','workspace','model','authority_counters','reserved_operation_ids','interface_counters','last_inference','pending_effects','modifications','tests','observed_evidence','next_authorized_action')}
+  if json.loads(self.store.get(self.m)['spec']).get('client_autonomy') and checkpoint.get('task'):
+   active['active_task']={'id':checkpoint['task'],'objective':checkpoint['objective'],'state':checkpoint['task_state'],'contract':checkpoint['task_contract'],'deps':checkpoint['task_dependencies']}
+   active['completed_process_rule']='execution_completed=true means observed finished process, not unknown effect. Reuse its receipt; do not repeat it. The task report still needs writing and verification; no functional PASS is inferred.'
   active['operation_identity_rule']='All reserved_operation_ids belong to durable operations. A different intended operation needs an unused id; retry requires ALL original arguments unchanged. Never replay unknown effects. Counters and backend refusals remain authoritative.'
   active['offered_tools']=([branch['properties']['tool']['enum'][0] for branch in payload['format']['oneOf']] if structured_action else [t['function']['name'] for t in payload.get('tools',[])]);active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive
   if structured_action and json.loads(self.store.get(self.m)['spec']).get('client_autonomy') and any('arguments' in branch.get('properties',{}) for branch in payload.get('format',{}).get('oneOf',[])):
