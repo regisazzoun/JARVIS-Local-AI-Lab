@@ -42,7 +42,7 @@ Les méthodes de téléchargement/pièces jointes conservent leurs racines autor
 
 Branche de test : `jarvis/webui-operationnel-reception-20261031`, fichier `docs/receptions/WEBUI-OPERATIONNEL-20261031.md`. Fixture préparée par Codex ; publication par le Skill existant déclenché par Qwen dans WebUI. Pas de PR ni fusion pour la branche d’essai.
 
-Les chats et captures sont conservés ; leurs URL figurent dans PREUVES.json. Le chat de réception relit les reçus persistants SSH/Ansible/Skill et l’état de mission. Les données et IDs Google restent dans le répertoire privé, pas dans cette PR. Les huit relectures indépendantes Docs/Sheets/Calendar/Gmail et les deux Drive sont des contrôles de résultats, distincts des textes du modèle. Les méthodes d’envoi/suppression sont exposées, mais aucun envoi ni suppression n’a été utilisé comme test.
+Les chats et captures sont conservés sur JARVIS ; leurs URL sont archivées dans le dossier privé. Leur rapatriement n’a pas été possible après la perte d’accès SSH. Les conversations de réception restent enregistrées dans WebUI. Le chat de réception relit les reçus persistants SSH/Ansible/Skill et l’état de mission. Les données et IDs Google restent dans le répertoire privé, pas dans cette PR. Les huit relectures indépendantes Docs/Sheets/Calendar/Gmail et les deux Drive sont des contrôles de résultats, distincts des textes du modèle. Les méthodes d’envoi/suppression sont exposées, mais aucun envoi ni suppression n’a été utilisé comme test.
 
 ## Mission JARVIS : résultat et réserve essentielle
 
