@@ -1,0 +1,12 @@
+{
+  "services": {
+    "jarvis-webui-tools.service": [
+      "status",
+      "show",
+      "is-active",
+      "is-enabled"
+    ]
+  },
+  "purpose": "Observe the existing WebUI adapter; no mutation action added",
+  "backup": "Full policy retained privately on JARVIS"
+}
