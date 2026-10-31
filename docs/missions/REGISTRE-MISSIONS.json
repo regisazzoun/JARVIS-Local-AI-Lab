@@ -2375,5 +2375,26 @@
     "prochaine_action": "Raccorder OAuthGoogle avec le propriétaire puis recevoir ses accès ;qualifier séparément les plans et bilans libres complexes. Ne pas relancerP4.",
     "derniere_actualisation": "2026-10-30",
     "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/35"
+  },
+  {
+    "identifiant": "GOOGLE-MCP-OAUTH-2026-10-31",
+    "nom": "Google MCP avec OAuth applicatif fourni",
+    "fonction_principale": "Connecter gratuitement les comptes personal et education sans projetCloud administré par le propriétaire",
+    "objectifs": "Réutiliser un serveurGoogleMCP open source, isoler les profils et raccorder WebUI, Code et moteur canonique",
+    "materiel": "Mac mini Debian ;inférence27BMac/80BDell existante inchangée",
+    "composants": "Workspace MCP0.0.8 source089927e, OAuth/relais amont, registreMCP et façadesPR35, deuxcomplémentsSheets",
+    "executant_reel": "Codex développe/intègre et contrôle ;WebUIJARVIS et QwenCode appellent les outils ;modèle natif effectue7lectures, plan2Codex, rapport non reçu",
+    "documents_sources": [
+      {
+        "path": "docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/google-mcp-oauth-existant/docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md"
+      }
+    ],
+    "etat": "EN ATTENTE AUTHENTIFICATION — préintégration GO avec réserves",
+    "resultats_prouves": "20tests ciblésPASS ;OAuthpréloginGoogleclientfourni ;2profilsisolés ;MCP9/8historiquesconservés ;30méthodesamont+2addonsSheets ;appelsréelsWebUI/Code/moteur ;servicesactifs",
+    "reserves": "Aucuncompteauthentifié niAPI Googledistante reçue ;Sheetsécriturepréparée nonreçue ;rapportautonomedusondenativerejeté/arrêté ;relaisOAuthexterne nécessaire",
+    "dependances": "PR35/eb823a0 ;code1abd51d ;interactionnavigateurpropriétaire",
+    "prochaine_action": "Authentifier personal puis education avec google-mcp-connect ;exécuter recherches/lectures/créations/relectures et contrôler persistance ;respecter les éventuelles politiques réelles Éducation",
+    "derniere_actualisation": "2026-10-31"
   }
 ]

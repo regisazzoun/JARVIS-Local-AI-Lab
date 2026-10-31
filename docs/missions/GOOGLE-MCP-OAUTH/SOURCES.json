@@ -1,0 +1,95 @@
+{
+  "retrieved_date": "2026-10-31",
+  "repositories": [
+    {
+      "full_name": "gemini-cli-extensions/workspace",
+      "html_url": "https://github.com/gemini-cli-extensions/workspace",
+      "pushed_at": "2026-10-26T09:30:59Z",
+      "archived": false,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "googleworkspace/cli",
+      "html_url": "https://github.com/googleworkspace/cli",
+      "pushed_at": "2026-10-30T16:06:54Z",
+      "archived": false,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      }
+    },
+    {
+      "full_name": "taylorwilsdon/google_workspace_mcp",
+      "html_url": "https://github.com/taylorwilsdon/google_workspace_mcp",
+      "pushed_at": "2026-10-30T21:39:34Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "full_name": "kh0pper/google-workspace-mcp",
+      "html_url": "https://github.com/kh0pper/google-workspace-mcp",
+      "pushed_at": "2026-10-28T03:22:01Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "full_name": "rclone/rclone",
+      "html_url": "https://github.com/rclone/rclone",
+      "pushed_at": "2026-10-31T10:38:07Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    },
+    {
+      "full_name": "cafferychen777/gmail-mcp",
+      "html_url": "https://github.com/cafferychen777/gmail-mcp",
+      "pushed_at": "2026-03-28T16:50:01Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      }
+    }
+  ],
+  "selected_commit": "089927ead01433f38c65c12cdcd2ed9a18165277",
+  "source_links": {
+    "workspace-server/src/utils/config.ts": "https://github.com/gemini-cli-extensions/workspace/blob/089927ead01433f38c65c12cdcd2ed9a18165277/workspace-server/src/utils/config.ts",
+    "workspace-server/src/auth/AuthManager.ts": "https://github.com/gemini-cli-extensions/workspace/blob/089927ead01433f38c65c12cdcd2ed9a18165277/workspace-server/src/auth/AuthManager.ts",
+    "workspace-server/src/features/feature-config.ts": "https://github.com/gemini-cli-extensions/workspace/blob/089927ead01433f38c65c12cdcd2ed9a18165277/workspace-server/src/features/feature-config.ts",
+    "cloud_function/index.js": "https://github.com/gemini-cli-extensions/workspace/blob/089927ead01433f38c65c12cdcd2ed9a18165277/cloud_function/index.js",
+    "LICENSE": "https://github.com/gemini-cli-extensions/workspace/blob/089927ead01433f38c65c12cdcd2ed9a18165277/LICENSE"
+  },
+  "google_scope_references": [
+    "https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets/create",
+    "https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values/update"
+  ]
+}
