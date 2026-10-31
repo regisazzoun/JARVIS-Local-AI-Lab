@@ -195,3 +195,9 @@ Les erreurs restent documentées pour être corrigées. Les rapports historiques
 ---
 
 *Un laboratoire qui progresse par l’expérimentation, la vérification et le partage des résultats. Présentation inspirée du [profil de Régis](https://github.com/regisazzoun/Regis-AZZOUN).*
+
+## Bilan technique du 31 octobre 2026
+
+| Mission | Objet | État | Référence |
+|---|---|---|---|
+| BILAN-20261031 | Inventaire général et rationalisation documentaire | ✅🟡 GO avec réserves — audit réalisé, transformations non appliquées | [Rapport](docs/missions/BILAN-20261031/RAPPORT-FINAL.md) |

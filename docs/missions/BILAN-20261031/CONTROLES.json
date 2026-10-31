@@ -1,0 +1,348 @@
+{
+  "verdict": "PASS",
+  "scope": "contrôles documentaires et cohérence ; pas tests agentiques historiques",
+  "checks": [
+    {
+      "check": "JSON MANIFESTE-PUBLIC.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON RECHERCHE-AMONTS.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON SOURCES.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON STATISTIQUES.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON CONTROLES.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/dell2.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/mac.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/local.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/dell1.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/configurations.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/node-projects.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/observations-dell-qwen.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/catalogue-outils.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/manifest-prive.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/webui.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/catalogue-google.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/qwen-observation.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "JSON preuves/controle-final-services.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide materiels.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques materiels.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide logiciels.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques logiciels.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide applications-dell.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques applications-dell.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide applications-detail.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques applications-detail.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide modeles.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques modeles.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide composants-enfichables.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques composants-enfichables.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide interconnexions.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques interconnexions.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide developpements.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques developpements.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide services.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide unites-installees.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques unites-installees.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide api-routes.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques api-routes.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV non vide rationalisation.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "IDs uniques rationalisation.csv",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "5 GPU dont4 RTX3090 et1 RTX3080",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Mémoire physique32/256/128GiB",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "GPU Dell2 24+10GiB",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Ethernet actif1000Mb/s",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Comptage logiciels",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Comptage composants",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Comptage applications",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Applications par hôte72 lignes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Développements16 domaines",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Classes A-E exactes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Tous les IDs de flux référencés dans diagramme",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Pas de fluxF inconnu dans diagramme",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Dell2 aucune liaisoninférenceinventée",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "M26 hold préservé",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Six divergences runtime explicites",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Erreur de contexte préservée",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Deux reçus distants réellement exécutés",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Prose Qwen originale et erratum séparés",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Identifiants matériels bruts absents",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Adresses LAN/tailnet privées absentes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Pas de token privé apparent",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Liens Markdown locaux",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Registre identifiants uniques",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Référence mission dans SUIVI.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Référence mission dans ROADMAP.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Référence mission dans AGENTS.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Référence mission dans README.md",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 68,
+  "total": 68
+}

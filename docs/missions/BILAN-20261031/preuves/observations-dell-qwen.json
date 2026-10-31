@@ -1,0 +1,24 @@
+[
+  {
+    "audit_id": 190,
+    "origin": "QwenCode/MCP",
+    "host": "dell-observe",
+    "operation": "resources",
+    "returncode": 0,
+    "stdout": "               total       utilisé      libre     partagé tamp/cache   disponible\nMem:          257452        7251      104136         106      148414      250200\nÉchange:           0           0           0\nname, memory.used [MiB], utilization.gpu [%]\nNVIDIA GeForce RTX 3090, 23273 MiB, 0 %\nNVIDIA GeForce RTX 3090, 23090 MiB, 0 %\n",
+    "stderr": "",
+    "application_result_independently_verified": false,
+    "configured_command": "free -m; nvidia-smi --query-gpu=name,memory.used,utilization.gpu --format=csv"
+  },
+  {
+    "audit_id": 192,
+    "origin": "QwenCode/MCP",
+    "host": "dell2",
+    "operation": "resources",
+    "returncode": 0,
+    "stdout": "               total       utilisé      libre     partagé tamp/cache   disponible\nMem:          128524        1606      126900           1        1078      126918\nÉchange:           0           0           0\nname, memory.total [MiB], temperature.gpu\nNVIDIA GeForce RTX 3090, 24576 MiB, 48\nNVIDIA GeForce RTX 3080, 10240 MiB, 53\n",
+    "stderr": "",
+    "application_result_independently_verified": false,
+    "configured_command": "free -m; nvidia-smi --query-gpu=name,memory.total,temperature.gpu --format=csv"
+  }
+]

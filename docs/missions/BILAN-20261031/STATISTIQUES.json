@@ -1,0 +1,34 @@
+{
+  "machines_observed": 3,
+  "machines_inaccessible": 0,
+  "physical_gpus": 5,
+  "rtx3090": 4,
+  "rtx3080": 1,
+  "application_groups": 24,
+  "apt_installed_entries": {
+    "mac": 3070,
+    "dell1": 1233,
+    "dell2": 446
+  },
+  "software_rows": 4935,
+  "pluggable_components": 144,
+  "development_groups": 16,
+  "development_classes": {
+    "A": 5,
+    "B": 6,
+    "C": 2,
+    "D": 2,
+    "E": 1
+  },
+  "upstream_groups": 15,
+  "open_source_upstream_groups_with_identified_license": 12,
+  "overlap_groups": 3,
+  "native_tools": 87,
+  "visible_tools": 65,
+  "active_skills": 4,
+  "runtime_modules": 51,
+  "runtime_different_modules": 6,
+  "date_reference": "2026-10-31",
+  "collected_at_utc": "2026-10-31T20:00:54.022519+00:00",
+  "source_base": "501887131c88bad692e1a1c108dbce808f55d5b0"
+}

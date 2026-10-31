@@ -1,0 +1,149 @@
+{
+  "initial": {
+    "calls": [
+      {
+        "tool": "mcp__jarvis__jarvis_missions",
+        "input": {
+          "action": "list"
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_catalog",
+        "input": {
+          "query": "policy"
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_schema",
+        "input": {
+          "name": "host_remote"
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_remote_project",
+        "input": {
+          "host": "dell-observe",
+          "project": "system",
+          "command": "hostname && uptime"
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_remote_project",
+        "input": {
+          "host": "dell2",
+          "project": "system",
+          "command": "hostname"
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_receipt",
+        "input": {
+          "id": 188
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_missions",
+        "input": {
+          "action": "list"
+        }
+      }
+    ],
+    "results": [
+      {
+        "is_error": false,
+        "audit_ids": []
+      },
+      {
+        "is_error": false,
+        "audit_ids": []
+      },
+      {
+        "is_error": false,
+        "audit_ids": []
+      },
+      {
+        "is_error": true,
+        "audit_ids": []
+      },
+      {
+        "is_error": true,
+        "audit_ids": []
+      },
+      {
+        "is_error": false,
+        "audit_ids": [
+          "188"
+        ]
+      },
+      {
+        "is_error": false,
+        "audit_ids": []
+      }
+    ],
+    "completion": {
+      "type": "result",
+      "subtype": "error_during_execution",
+      "is_error": true,
+      "duration_ms": 106561,
+      "num_turns": 7,
+      "usage": {
+        "input_tokens": 46087,
+        "output_tokens": 4995,
+        "cache_read_input_tokens": 0,
+        "total_tokens": 51082
+      },
+      "error": {
+        "message": "[API Error: Context is too large to send safely after automatic compression. Estimated prompt tokens: 12946; hard limit: 9768; compression status: COMPRESSION_FAILED_API_ERROR. Start a new session or reduce the resumed history before continuing.]"
+      }
+    },
+    "raw_sha256": "8e8765449114ae56c287805e0d63c1dd36412f0b56e67ab72fb4710d4b60a32d",
+    "attribution": "Qwen Code/Qwen pour choix/appels ; prompt et contrôle Codex"
+  },
+  "guided": {
+    "calls": [
+      {
+        "tool": "mcp__jarvis__jarvis_call",
+        "input": {
+          "name": "host_remote",
+          "arguments": "{\"host\":\"dell-observe\",\"action\":\"resources\"}"
+        }
+      },
+      {
+        "tool": "mcp__jarvis__jarvis_call",
+        "input": {
+          "name": "host_remote",
+          "arguments": "{\"host\":\"dell2\",\"action\":\"resources\"}"
+        }
+      }
+    ],
+    "results": [
+      {
+        "is_error": false,
+        "audit_ids": [
+          "190"
+        ]
+      },
+      {
+        "is_error": false,
+        "audit_ids": [
+          "192"
+        ]
+      }
+    ],
+    "completion": {
+      "type": "result",
+      "subtype": "success",
+      "is_error": false,
+      "duration_ms": 11503,
+      "num_turns": 2,
+      "usage": {
+        "input_tokens": 10840,
+        "output_tokens": 316,
+        "cache_read_input_tokens": 0,
+        "total_tokens": 11156
+      }
+    },
+    "raw_sha256": "6a1429e0e47dc46dd0ef69eb072d1b2e7a6939d8d79c88b6202a40a6ff0cc0ee",
+    "attribution": "Qwen Code/Qwen pour choix/appels ; prompt et contrôle Codex"
+  }
+}

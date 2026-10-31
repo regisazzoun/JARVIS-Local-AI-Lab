@@ -1,0 +1,46 @@
+{
+  "container": {
+    "image": "ghcr.io/open-webui/open-webui:v0.12.0@sha256:1565038903151ced924b5a3226f73f40f16963df4b910441f6391f10144afdaa",
+    "environment": {
+      "DEFAULT_MODELS": "qwen3.5:27b-q4_K_M",
+      "AUDIO_STT_ENGINE": "openai",
+      "OLLAMA_BASE_URLS": "http://[adresse privée]:11434;http://[adresse privée]:8091",
+      "ENABLE_PERSISTENT_CONFIG": "false",
+      "OLLAMA_BASE_URL": "http://[adresse privée]:8091",
+      "AUDIO_TTS_ENGINE": "openai",
+      "OPENAI_API_BASE_URL": ""
+    }
+  },
+  "profiles": [
+    {
+      "id": "llama3.1:8b",
+      "name": "JARVIS — Qualité (Llama 3.1 8B)",
+      "base_model_id": null
+    },
+    {
+      "id": "ministral-3:14b-instruct-2512-q4_K_M",
+      "name": "JARVIS — Mistral 14B Qualité",
+      "base_model_id": null
+    },
+    {
+      "id": "qwen3.5:27b-q4_K_M",
+      "name": "JARVIS — Qwen 3.5 27B Qualité",
+      "base_model_id": null
+    },
+    {
+      "id": "jarvis-qwen-code-lab",
+      "name": "JARVIS — Développement Qwen Code (expérimental)",
+      "base_model_id": "qwen3-coder-next:q4_K_M"
+    },
+    {
+      "id": "jarvis-missions-canonical",
+      "name": "JARVIS — Missions canoniques",
+      "base_model_id": "qwen3.5:27b-q4_K_M"
+    },
+    {
+      "id": "jarvis-tools-conversation",
+      "name": "JARVIS — Conversation et outils",
+      "base_model_id": "qwen3.5:27b-q4_K_M"
+    }
+  ]
+}

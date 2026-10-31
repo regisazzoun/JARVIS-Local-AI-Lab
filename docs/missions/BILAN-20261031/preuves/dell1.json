@@ -1,0 +1,6829 @@
+{
+  "collected_at": "2026-10-31T19:50:51.578412+00:00",
+  "actor": "Codex",
+  "hardware": {
+    "id": "dell1",
+    "collected_at": "2026-10-31T19:50:51.578412+00:00",
+    "manufacturer_model": "Precision 5820 Tower X-Series",
+    "bios": "2.8.0",
+    "cpu": "Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz",
+    "cpu_logical": 36,
+    "cores_per_socket": "18",
+    "threads_per_core": "2",
+    "ram_physical_gib": 256,
+    "ram_os_bytes": 269958471680,
+    "memory_modules": [
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "os": "Debian 13.7",
+    "kernel": "6.12.113+deb13-amd64",
+    "gpus": [
+      {
+        "id": "dell1-gpu0",
+        "model": "NVIDIA GeForce RTX 3090",
+        "fingerprint": "dcdd952392873055",
+        "pci_bus": "00000000:17:00.0",
+        "vram_mib": 24576,
+        "vram_used_mib": 23127,
+        "utilization_percent": 26,
+        "temperature_c": 60,
+        "power_w": "160.47",
+        "power_limit_w": "250.00",
+        "driver": "550.163.01"
+      },
+      {
+        "id": "dell1-gpu1",
+        "model": "NVIDIA GeForce RTX 3090",
+        "fingerprint": "aab1fd2809f106d0",
+        "pci_bus": "00000000:B3:00.0",
+        "vram_mib": 24576,
+        "vram_used_mib": 23090,
+        "utilization_percent": 34,
+        "temperature_c": 75,
+        "power_w": "181.91",
+        "power_limit_w": "250.00",
+        "driver": "550.163.01"
+      }
+    ],
+    "disks": [
+      {
+        "id": "dell1-disk1",
+        "model": "KXG70PNV2T04 NVMe KIOXIA 2048GB",
+        "bytes": 2048408248320,
+        "transport": "nvme"
+      },
+      {
+        "id": "dell1-disk2",
+        "model": "PM9A1 NVMe Samsung 2048GB",
+        "bytes": 2048408248320,
+        "transport": "nvme"
+      }
+    ],
+    "raid": "RAID1 mdadm [2/2] [UU]",
+    "links": [
+      {
+        "id": "dell1-nic1",
+        "state": "up",
+        "speed_mbps": "1000",
+        "duplex": "full"
+      }
+    ],
+    "tailscale": "Running",
+    "service_counts": {
+      "active": 45,
+      "inactive": 81
+    },
+    "gpu_processes": 2,
+    "provenance": "observation directe Codex ; SSH épinglé pour Dell"
+  },
+  "packages": [
+    {
+      "name": "accountsservice",
+      "version": "23.13.9-7"
+    },
+    {
+      "name": "adduser",
+      "version": "3.152"
+    },
+    {
+      "name": "adwaita-icon-theme",
+      "version": "48.1-1"
+    },
+    {
+      "name": "alsa-topology-conf",
+      "version": "1.2.5.1-3"
+    },
+    {
+      "name": "alsa-ucm-conf",
+      "version": "1.2.14-1"
+    },
+    {
+      "name": "apparmor",
+      "version": "4.1.0-1"
+    },
+    {
+      "name": "apt",
+      "version": "3.0.3"
+    },
+    {
+      "name": "at-spi2-common",
+      "version": "2.56.2-1+deb13u2"
+    },
+    {
+      "name": "at-spi2-core",
+      "version": "2.56.2-1+deb13u2"
+    },
+    {
+      "name": "baloo6",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "base-files",
+      "version": "13.8+deb13u7"
+    },
+    {
+      "name": "base-passwd",
+      "version": "3.6.7"
+    },
+    {
+      "name": "bash",
+      "version": "5.2.37-2+b10"
+    },
+    {
+      "name": "bash-completion",
+      "version": "1:2.16.0-7"
+    },
+    {
+      "name": "binutils",
+      "version": "2.44-3"
+    },
+    {
+      "name": "binutils-common:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "binutils-x86-64-linux-gnu",
+      "version": "2.44-3"
+    },
+    {
+      "name": "breeze",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "breeze-cursor-theme",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "breeze-icon-theme",
+      "version": "4:5.116.0-1"
+    },
+    {
+      "name": "breeze-wallpaper",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "bsdutils",
+      "version": "1:2.41.5-0+deb13u1"
+    },
+    {
+      "name": "bubblewrap",
+      "version": "0.12.0-1~deb13u1"
+    },
+    {
+      "name": "build-essential",
+      "version": "12.12"
+    },
+    {
+      "name": "busybox",
+      "version": "1:1.37.0-6+b9"
+    },
+    {
+      "name": "bzip2",
+      "version": "1.0.8-6"
+    },
+    {
+      "name": "ca-certificates",
+      "version": "20250419"
+    },
+    {
+      "name": "console-setup",
+      "version": "1.242~deb13u1"
+    },
+    {
+      "name": "console-setup-linux",
+      "version": "1.242~deb13u1"
+    },
+    {
+      "name": "coreutils",
+      "version": "9.7-3"
+    },
+    {
+      "name": "cpio",
+      "version": "2.15+dfsg-2"
+    },
+    {
+      "name": "cpp",
+      "version": "4:14.2.0-1"
+    },
+    {
+      "name": "cpp-13",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "cpp-13-x86-64-linux-gnu",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "cpp-14",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "cpp-14-x86-64-linux-gnu",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "cpp-x86-64-linux-gnu",
+      "version": "4:14.2.0-1"
+    },
+    {
+      "name": "curl",
+      "version": "8.14.1-2+deb13u7"
+    },
+    {
+      "name": "dash",
+      "version": "0.5.12-12"
+    },
+    {
+      "name": "dbus",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-bin",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-daemon",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-session-bus-common",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-system-bus-common",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-user-session",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-x11",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dconf-gsettings-backend:amd64",
+      "version": "0.40.0-5"
+    },
+    {
+      "name": "dconf-service",
+      "version": "0.40.0-5"
+    },
+    {
+      "name": "debconf",
+      "version": "1.5.91"
+    },
+    {
+      "name": "debian-archive-keyring",
+      "version": "2025.1"
+    },
+    {
+      "name": "debianutils",
+      "version": "5.23.2"
+    },
+    {
+      "name": "diffutils",
+      "version": "1:3.10-4"
+    },
+    {
+      "name": "dirmngr",
+      "version": "2.4.7-21+deb13u1+b5"
+    },
+    {
+      "name": "distro-info-data",
+      "version": "0.66+deb13u2"
+    },
+    {
+      "name": "dkms",
+      "version": "3.2.2-1~deb13u1"
+    },
+    {
+      "name": "dmidecode",
+      "version": "3.6-2"
+    },
+    {
+      "name": "dmsetup",
+      "version": "2:1.02.205-2"
+    },
+    {
+      "name": "dolphin",
+      "version": "4:25.04.3-1+deb13u1"
+    },
+    {
+      "name": "dolphin-data",
+      "version": "4:25.04.3-1+deb13u1"
+    },
+    {
+      "name": "dpkg",
+      "version": "1.22.22"
+    },
+    {
+      "name": "dpkg-dev",
+      "version": "1.22.22"
+    },
+    {
+      "name": "dracut-install",
+      "version": "106-6"
+    },
+    {
+      "name": "drkonqi",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "e2fsprogs",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "e2fsprogs-l10n",
+      "version": "1.47.2-3"
+    },
+    {
+      "name": "efibootmgr",
+      "version": "18-2"
+    },
+    {
+      "name": "fakeroot",
+      "version": "1.37.1.1-1"
+    },
+    {
+      "name": "findutils",
+      "version": "4.10.0-3"
+    },
+    {
+      "name": "firmware-nvidia-gsp",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "fontconfig",
+      "version": "2.15.0-2.3"
+    },
+    {
+      "name": "fontconfig-config",
+      "version": "2.15.0-2.3"
+    },
+    {
+      "name": "fonts-dejavu-core",
+      "version": "2.37-8"
+    },
+    {
+      "name": "fonts-dejavu-mono",
+      "version": "2.37-8"
+    },
+    {
+      "name": "fonts-font-awesome",
+      "version": "5.0.10+really4.7.0~dfsg-4.1"
+    },
+    {
+      "name": "fonts-lato",
+      "version": "2.015-1"
+    },
+    {
+      "name": "frameworkintegration6",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "g++",
+      "version": "4:14.2.0-1"
+    },
+    {
+      "name": "g++-13",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "g++-13-x86-64-linux-gnu",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "g++-14",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "g++-14-x86-64-linux-gnu",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "g++-x86-64-linux-gnu",
+      "version": "4:14.2.0-1"
+    },
+    {
+      "name": "gcc",
+      "version": "4:14.2.0-1"
+    },
+    {
+      "name": "gcc-13",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-13-base:amd64",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-13-x86-64-linux-gnu",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-14",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "gcc-14-base:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "gcc-14-x86-64-linux-gnu",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "gcc-x86-64-linux-gnu",
+      "version": "4:14.2.0-1"
+    },
+    {
+      "name": "gdb",
+      "version": "16.3-1"
+    },
+    {
+      "name": "gettext-base",
+      "version": "0.23.1-2"
+    },
+    {
+      "name": "glx-alternative-mesa",
+      "version": "1.2.2"
+    },
+    {
+      "name": "glx-alternative-nvidia",
+      "version": "1.2.2"
+    },
+    {
+      "name": "glx-diversions",
+      "version": "1.2.2"
+    },
+    {
+      "name": "gnome-accessibility-themes",
+      "version": "3.28-4"
+    },
+    {
+      "name": "gnome-themes-extra-data",
+      "version": "3.28-4"
+    },
+    {
+      "name": "gnome-themes-extra:amd64",
+      "version": "3.28-4"
+    },
+    {
+      "name": "gnupg",
+      "version": "2.4.7-21+deb13u1"
+    },
+    {
+      "name": "gnupg-l10n",
+      "version": "2.4.7-21+deb13u1"
+    },
+    {
+      "name": "gpg",
+      "version": "2.4.7-21+deb13u1+b5"
+    },
+    {
+      "name": "gpg-agent",
+      "version": "2.4.7-21+deb13u1+b5"
+    },
+    {
+      "name": "gpgconf",
+      "version": "2.4.7-21+deb13u1+b5"
+    },
+    {
+      "name": "gpgsm",
+      "version": "2.4.7-21+deb13u1+b5"
+    },
+    {
+      "name": "grep",
+      "version": "3.11-4"
+    },
+    {
+      "name": "grub-common",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "grub-efi-amd64-bin",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "grub-efi-amd64-signed",
+      "version": "1+2.12+9+deb13u2"
+    },
+    {
+      "name": "grub-efi-amd64-unsigned",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "grub2-common",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "gsettings-desktop-schemas",
+      "version": "48.0-1"
+    },
+    {
+      "name": "gstreamer1.0-plugins-base:amd64",
+      "version": "1.26.2-1+deb13u2"
+    },
+    {
+      "name": "gtk-update-icon-cache",
+      "version": "4.18.6+ds-2"
+    },
+    {
+      "name": "gtk2-engines-pixbuf:amd64",
+      "version": "2.24.33-7"
+    },
+    {
+      "name": "gzip",
+      "version": "1.13-1+deb13u1"
+    },
+    {
+      "name": "hello",
+      "version": "2.10-5"
+    },
+    {
+      "name": "hicolor-icon-theme",
+      "version": "0.18-2"
+    },
+    {
+      "name": "hostname",
+      "version": "3.25"
+    },
+    {
+      "name": "ibverbs-providers:amd64",
+      "version": "56.1-1"
+    },
+    {
+      "name": "init-system-helpers",
+      "version": "1.69~deb13u1"
+    },
+    {
+      "name": "initramfs-tools",
+      "version": "0.148.4"
+    },
+    {
+      "name": "initramfs-tools-bin",
+      "version": "0.148.4"
+    },
+    {
+      "name": "initramfs-tools-core",
+      "version": "0.148.4"
+    },
+    {
+      "name": "iproute2",
+      "version": "6.15.0-1"
+    },
+    {
+      "name": "iptables",
+      "version": "1.8.11-2"
+    },
+    {
+      "name": "iso-codes",
+      "version": "4.18.0-1"
+    },
+    {
+      "name": "javascript-common",
+      "version": "12+nmu1"
+    },
+    {
+      "name": "kactivitymanagerd",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "kbd",
+      "version": "2.7.1-2"
+    },
+    {
+      "name": "kde-baseapps",
+      "version": "4:24.12.0+5.162"
+    },
+    {
+      "name": "kde-cli-tools",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "kde-cli-tools-data",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "kde-plasma-desktop",
+      "version": "5:162"
+    },
+    {
+      "name": "kde-style-breeze",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "kde-style-breeze-data",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "kded6",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "kdialog",
+      "version": "4:25.04.0-1"
+    },
+    {
+      "name": "keyboard-configuration",
+      "version": "1.242~deb13u1"
+    },
+    {
+      "name": "kf6-breeze-icon-theme",
+      "version": "6.13.0-3"
+    },
+    {
+      "name": "kglobalacceld",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "kio6",
+      "version": "6.13.0-6"
+    },
+    {
+      "name": "kirigami-addons-data",
+      "version": "1.7.0-1"
+    },
+    {
+      "name": "klibc-utils",
+      "version": "2.0.14-1"
+    },
+    {
+      "name": "kmod",
+      "version": "34.2-2"
+    },
+    {
+      "name": "konsole",
+      "version": "4:25.04.2-1"
+    },
+    {
+      "name": "konsole-kpart",
+      "version": "4:25.04.2-1"
+    },
+    {
+      "name": "krb5-locales",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "kwallet6",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "kwayland6-data",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "kwin-common",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "kwin-data",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "kwin-style-breeze",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "kwin-wayland",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "kwin-x11",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "layer-shell-qt",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "libaa1:amd64",
+      "version": "1.4p5-51.1+b1"
+    },
+    {
+      "name": "libabsl20240722:amd64",
+      "version": "20240722.0-4"
+    },
+    {
+      "name": "libaccinj64-12.4:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libaccounts-glib0:amd64",
+      "version": "1.27-1+b1"
+    },
+    {
+      "name": "libaccounts-qt6-1:amd64",
+      "version": "1.17-4+b1"
+    },
+    {
+      "name": "libaccountsservice0:amd64",
+      "version": "23.13.9-7"
+    },
+    {
+      "name": "libacl1:amd64",
+      "version": "2.3.2-2+b1"
+    },
+    {
+      "name": "libalgorithm-diff-perl",
+      "version": "1.201-1"
+    },
+    {
+      "name": "libalgorithm-diff-xs-perl",
+      "version": "0.04-9"
+    },
+    {
+      "name": "libalgorithm-merge-perl",
+      "version": "0.08-5"
+    },
+    {
+      "name": "libamd-comgr2:amd64",
+      "version": "6.0+git20231212.4510c28+dfsg-3+b2"
+    },
+    {
+      "name": "libamdhip64-5:amd64",
+      "version": "5.7.1-6+deb13u1"
+    },
+    {
+      "name": "libaom3:amd64",
+      "version": "3.12.1-1+deb13u1"
+    },
+    {
+      "name": "libapparmor1:amd64",
+      "version": "4.1.0-1"
+    },
+    {
+      "name": "libappimage1.0abi1t64:amd64",
+      "version": "1.0.4-5-4"
+    },
+    {
+      "name": "libappstream5:amd64",
+      "version": "1.0.5-1"
+    },
+    {
+      "name": "libappstreamqt3:amd64",
+      "version": "1.0.5-1"
+    },
+    {
+      "name": "libapt-pkg7.0:amd64",
+      "version": "3.0.3"
+    },
+    {
+      "name": "libarchive13t64:amd64",
+      "version": "3.7.4-4+deb13u1"
+    },
+    {
+      "name": "libaribb24-0t64:amd64",
+      "version": "1.0.3-2.1+b2"
+    },
+    {
+      "name": "libasan8:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libasound2-data",
+      "version": "1.2.14-1+deb13u1"
+    },
+    {
+      "name": "libasound2t64:amd64",
+      "version": "1.2.14-1+deb13u1"
+    },
+    {
+      "name": "libass9:amd64",
+      "version": "1:0.17.3-1+deb13u1"
+    },
+    {
+      "name": "libassuan9:amd64",
+      "version": "3.0.2-2"
+    },
+    {
+      "name": "libasyncns0:amd64",
+      "version": "0.8-6+b5"
+    },
+    {
+      "name": "libatasmart4:amd64",
+      "version": "0.19-5+b2"
+    },
+    {
+      "name": "libatk-bridge2.0-0t64:amd64",
+      "version": "2.56.2-1+deb13u2"
+    },
+    {
+      "name": "libatk-wrapper-java",
+      "version": "0.40.0-3"
+    },
+    {
+      "name": "libatk-wrapper-java-jni:amd64",
+      "version": "0.40.0-3+b3"
+    },
+    {
+      "name": "libatk1.0-0t64:amd64",
+      "version": "2.56.2-1+deb13u2"
+    },
+    {
+      "name": "libatomic1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libatspi2.0-0t64:amd64",
+      "version": "2.56.2-1+deb13u2"
+    },
+    {
+      "name": "libattr1:amd64",
+      "version": "1:2.5.2-3"
+    },
+    {
+      "name": "libaudit-common",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "name": "libaudit1:amd64",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "name": "libavahi-client3:amd64",
+      "version": "0.8-16"
+    },
+    {
+      "name": "libavahi-common-data:amd64",
+      "version": "0.8-16"
+    },
+    {
+      "name": "libavahi-common3:amd64",
+      "version": "0.8-16"
+    },
+    {
+      "name": "libavc1394-0:amd64",
+      "version": "0.5.4-5+b2"
+    },
+    {
+      "name": "libavcodec61:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libavfilter10:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libavformat61:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libavutil59:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libb2-1:amd64",
+      "version": "0.98.1-1.1+b2"
+    },
+    {
+      "name": "libbabeltrace1:amd64",
+      "version": "1.5.11-4+b2"
+    },
+    {
+      "name": "libbatterycontrol6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libbinutils:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libblas3:amd64",
+      "version": "3.12.1-6"
+    },
+    {
+      "name": "libblkid1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libblockdev-crypto3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-fs3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-loop3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-mdraid3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-nvme3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-part3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-swap3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev-utils3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libblockdev3:amd64",
+      "version": "3.3.0-2.1"
+    },
+    {
+      "name": "libbluray2:amd64",
+      "version": "1:1.3.4-1+b2"
+    },
+    {
+      "name": "libboost-filesystem1.83.0:amd64",
+      "version": "1.83.0-4.2"
+    },
+    {
+      "name": "libbpf1:amd64",
+      "version": "1:1.5.0-3"
+    },
+    {
+      "name": "libbrotli1:amd64",
+      "version": "1.1.0-2+b7"
+    },
+    {
+      "name": "libbs2b0:amd64",
+      "version": "3.1.0+dfsg-8+b1"
+    },
+    {
+      "name": "libbsd0:amd64",
+      "version": "0.12.2-2"
+    },
+    {
+      "name": "libbytesize-common",
+      "version": "2.11-2"
+    },
+    {
+      "name": "libbytesize1:amd64",
+      "version": "2.11-2"
+    },
+    {
+      "name": "libbz2-1.0:amd64",
+      "version": "1.0.8-6"
+    },
+    {
+      "name": "libc-bin",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc-dev-bin",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc-l10n",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc6-dev:amd64",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc6:amd64",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libcaca0:amd64",
+      "version": "0.99.beta20-5+deb13u1"
+    },
+    {
+      "name": "libcairo-gobject2:amd64",
+      "version": "1.18.4-1+b1"
+    },
+    {
+      "name": "libcairo2:amd64",
+      "version": "1.18.4-1+b1"
+    },
+    {
+      "name": "libcanberra0:amd64",
+      "version": "0.30-18"
+    },
+    {
+      "name": "libcap-ng0:amd64",
+      "version": "0.8.5-4+b1"
+    },
+    {
+      "name": "libcap2-bin",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "name": "libcap2:amd64",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "name": "libcares2:amd64",
+      "version": "1.34.5-1+deb13u1"
+    },
+    {
+      "name": "libcbor0.10:amd64",
+      "version": "0.10.2-2"
+    },
+    {
+      "name": "libcc1-0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libcddb2",
+      "version": "1.3.2-7.1"
+    },
+    {
+      "name": "libcdparanoia0:amd64",
+      "version": "3.10.2+debian-14+b1"
+    },
+    {
+      "name": "libchromaprint1:amd64",
+      "version": "1.5.1-7"
+    },
+    {
+      "name": "libcjson1:amd64",
+      "version": "1.7.18-3.1+deb13u1"
+    },
+    {
+      "name": "libcloudproviders0:amd64",
+      "version": "0.3.6-2"
+    },
+    {
+      "name": "libcodec2-1.2:amd64",
+      "version": "1.2.0-3"
+    },
+    {
+      "name": "libcolorcorrect6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libcolord2:amd64",
+      "version": "1.4.7-3"
+    },
+    {
+      "name": "libcom-err2:amd64",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "libcrypt-dev:amd64",
+      "version": "1:4.4.38-1"
+    },
+    {
+      "name": "libcrypt1:amd64",
+      "version": "1:4.4.38-1"
+    },
+    {
+      "name": "libcryptsetup12:amd64",
+      "version": "2:2.7.5-2"
+    },
+    {
+      "name": "libctf-nobfd0:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libctf0:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libcu++-dev",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "libcub-dev",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "libcublas12:amd64",
+      "version": "12.4.5.8~12.4.1-2"
+    },
+    {
+      "name": "libcublaslt12:amd64",
+      "version": "12.4.5.8~12.4.1-2"
+    },
+    {
+      "name": "libcuda1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libcudart12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcufft11:amd64",
+      "version": "11.2.1.3~12.4.1-2"
+    },
+    {
+      "name": "libcufftw11:amd64",
+      "version": "11.2.1.3~12.4.1-2"
+    },
+    {
+      "name": "libcuinj64-12.4:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcups2t64:amd64",
+      "version": "2.4.10-3+deb13u2"
+    },
+    {
+      "name": "libcupti-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcupti-doc",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcupti12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcurand10:amd64",
+      "version": "11.1.1+~10.3.5.147~12.4.1-2"
+    },
+    {
+      "name": "libcurl3t64-gnutls:amd64",
+      "version": "8.14.1-2+deb13u7"
+    },
+    {
+      "name": "libcurl4t64:amd64",
+      "version": "8.14.1-2+deb13u7"
+    },
+    {
+      "name": "libcusolver11:amd64",
+      "version": "11.6.1.9~12.4.1-2"
+    },
+    {
+      "name": "libcusolvermg11:amd64",
+      "version": "11.6.1.9~12.4.1-2"
+    },
+    {
+      "name": "libcusparse12:amd64",
+      "version": "12.3.1.170~12.4.1-2"
+    },
+    {
+      "name": "libdatrie1:amd64",
+      "version": "0.2.13-3+b1"
+    },
+    {
+      "name": "libdav1d7:amd64",
+      "version": "1.5.1-1"
+    },
+    {
+      "name": "libdb5.3t64:amd64",
+      "version": "5.3.28+dfsg2-9"
+    },
+    {
+      "name": "libdbus-1-3:amd64",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "libdc1394-25:amd64",
+      "version": "2.2.6-5"
+    },
+    {
+      "name": "libdconf1:amd64",
+      "version": "0.40.0-5"
+    },
+    {
+      "name": "libdebconfclient0:amd64",
+      "version": "0.280"
+    },
+    {
+      "name": "libdebuginfod-common",
+      "version": "0.192-4"
+    },
+    {
+      "name": "libdebuginfod1t64:amd64",
+      "version": "0.192-4"
+    },
+    {
+      "name": "libdecor-0-0:amd64",
+      "version": "0.2.2-2"
+    },
+    {
+      "name": "libdeflate0:amd64",
+      "version": "1.23-2"
+    },
+    {
+      "name": "libdevmapper1.02.1:amd64",
+      "version": "2:1.02.205-2"
+    },
+    {
+      "name": "libdisplay-info2:amd64",
+      "version": "0.2.0-2"
+    },
+    {
+      "name": "libdmtx0t64:amd64",
+      "version": "0.7.7-1.2+b1"
+    },
+    {
+      "name": "libdolphinvcs6:amd64",
+      "version": "4:25.04.3-1+deb13u1"
+    },
+    {
+      "name": "libdouble-conversion3:amd64",
+      "version": "3.3.1-1"
+    },
+    {
+      "name": "libdpkg-perl",
+      "version": "1.22.22"
+    },
+    {
+      "name": "libdrm-amdgpu1:amd64",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdrm-common",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdrm-intel1:amd64",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdrm2:amd64",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libduktape207:amd64",
+      "version": "2.7.0-2+b2"
+    },
+    {
+      "name": "libdvbpsi10:amd64",
+      "version": "1.3.3-1+b2"
+    },
+    {
+      "name": "libdvdnav4:amd64",
+      "version": "6.1.1-3+b1"
+    },
+    {
+      "name": "libdvdread8t64:amd64",
+      "version": "6.1.3-2"
+    },
+    {
+      "name": "libdw1t64:amd64",
+      "version": "0.192-4"
+    },
+    {
+      "name": "libebml5:amd64",
+      "version": "1.4.5-1+b1"
+    },
+    {
+      "name": "libebur128-1:amd64",
+      "version": "1.2.6-1+b2"
+    },
+    {
+      "name": "libedit2:amd64",
+      "version": "3.1-20250104-1"
+    },
+    {
+      "name": "libeditorconfig0:amd64",
+      "version": "0.12.9+~0.17.1-1"
+    },
+    {
+      "name": "libefiboot1t64:amd64",
+      "version": "38-3.1+b1"
+    },
+    {
+      "name": "libefivar1t64:amd64",
+      "version": "38-3.1+b1"
+    },
+    {
+      "name": "libegl-mesa0:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libegl-nvidia0:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libegl1:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libeis1:amd64",
+      "version": "1.3.901-1"
+    },
+    {
+      "name": "libelf1t64:amd64",
+      "version": "0.192-4"
+    },
+    {
+      "name": "libepoxy0:amd64",
+      "version": "1.5.10-2"
+    },
+    {
+      "name": "libepub0",
+      "version": "0.2.2-6+b2"
+    },
+    {
+      "name": "libevdev2:amd64",
+      "version": "1.13.4+dfsg-1"
+    },
+    {
+      "name": "libexiv2-28:amd64",
+      "version": "0.28.5+dfsg-1"
+    },
+    {
+      "name": "libexiv2-data",
+      "version": "0.28.5+dfsg-1"
+    },
+    {
+      "name": "libexpat1:amd64",
+      "version": "2.9.0-1~deb13u1"
+    },
+    {
+      "name": "libext2fs2t64:amd64",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "libfaad2:amd64",
+      "version": "2.11.2-1"
+    },
+    {
+      "name": "libfakeroot:amd64",
+      "version": "1.37.1.1-1"
+    },
+    {
+      "name": "libfdisk1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libffi8:amd64",
+      "version": "3.4.8-2"
+    },
+    {
+      "name": "libfftw3-double3:amd64",
+      "version": "3.3.10-2+b1"
+    },
+    {
+      "name": "libfftw3-single3:amd64",
+      "version": "3.3.10-2+b1"
+    },
+    {
+      "name": "libfido2-1:amd64",
+      "version": "1.15.0-1+b1"
+    },
+    {
+      "name": "libfile-fcntllock-perl",
+      "version": "0.22-4+b4"
+    },
+    {
+      "name": "libfile-readbackwards-perl",
+      "version": "1.06-2"
+    },
+    {
+      "name": "libflac14:amd64",
+      "version": "1.5.0+ds-2"
+    },
+    {
+      "name": "libflite1:amd64",
+      "version": "2.2-7"
+    },
+    {
+      "name": "libfontconfig1:amd64",
+      "version": "2.15.0-2.3"
+    },
+    {
+      "name": "libfontenc1:amd64",
+      "version": "1:1.1.8-1+b2"
+    },
+    {
+      "name": "libfreetype6:amd64",
+      "version": "2.13.3+dfsg-1+deb13u1"
+    },
+    {
+      "name": "libfribidi0:amd64",
+      "version": "1.0.16-1"
+    },
+    {
+      "name": "libfuse3-4:amd64",
+      "version": "3.17.2-3"
+    },
+    {
+      "name": "libgail-common:amd64",
+      "version": "2.24.33-7"
+    },
+    {
+      "name": "libgail18t64:amd64",
+      "version": "2.24.33-7"
+    },
+    {
+      "name": "libgbm1:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libgcc-13-dev:amd64",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "libgcc-14-dev:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgcc-s1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgcrypt20:amd64",
+      "version": "1.11.0-7+deb13u1"
+    },
+    {
+      "name": "libgdbm-compat4t64:amd64",
+      "version": "1.24-2"
+    },
+    {
+      "name": "libgdbm6t64:amd64",
+      "version": "1.24-2"
+    },
+    {
+      "name": "libgdk-pixbuf-2.0-0:amd64",
+      "version": "2.42.12+dfsg-4+deb13u1"
+    },
+    {
+      "name": "libgdk-pixbuf2.0-bin",
+      "version": "2.42.12+dfsg-4+deb13u1"
+    },
+    {
+      "name": "libgdk-pixbuf2.0-common",
+      "version": "2.42.12+dfsg-4+deb13u1"
+    },
+    {
+      "name": "libgfortran5:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgif7:amd64",
+      "version": "5.2.2-1+deb13u1"
+    },
+    {
+      "name": "libgl-dev:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libgl1-mesa-dri:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libgl1-nvidia-glvnd-glx:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libgl1:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libgles-nvidia1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libgles-nvidia2:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libgles1:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libgles2:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libglib2.0-0t64:amd64",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "name": "libglib2.0-data",
+      "version": "2.84.4-3~deb13u5"
+    },
+    {
+      "name": "libglvnd0:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libglx-dev:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libglx-mesa0:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libglx-nvidia0:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libglx0:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libgme0:amd64",
+      "version": "0.6.3-7+b2"
+    },
+    {
+      "name": "libgmp10:amd64",
+      "version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "name": "libgnutls30t64:amd64",
+      "version": "3.8.9-3+deb13u4"
+    },
+    {
+      "name": "libgomp1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgpg-error0:amd64",
+      "version": "1.51-4"
+    },
+    {
+      "name": "libgpgme11t64:amd64",
+      "version": "1.24.2-3"
+    },
+    {
+      "name": "libgpgmepp6t64:amd64",
+      "version": "1.24.2-3"
+    },
+    {
+      "name": "libgpm2:amd64",
+      "version": "1.20.7-11+b2"
+    },
+    {
+      "name": "libgprofng0:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libgraphite2-3:amd64",
+      "version": "1.3.14-2+deb13u1"
+    },
+    {
+      "name": "libgsm1:amd64",
+      "version": "1.0.22-1+b2"
+    },
+    {
+      "name": "libgssapi-krb5-2:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libgstreamer-plugins-base1.0-0:amd64",
+      "version": "1.26.2-1+deb13u2"
+    },
+    {
+      "name": "libgstreamer1.0-0:amd64",
+      "version": "1.26.2-2"
+    },
+    {
+      "name": "libgtk-3-0t64:amd64",
+      "version": "3.24.49-3"
+    },
+    {
+      "name": "libgtk-3-bin",
+      "version": "3.24.49-3"
+    },
+    {
+      "name": "libgtk-3-common",
+      "version": "3.24.49-3"
+    },
+    {
+      "name": "libgtk2.0-0t64:amd64",
+      "version": "2.24.33-7"
+    },
+    {
+      "name": "libgtk2.0-bin",
+      "version": "2.24.33-7"
+    },
+    {
+      "name": "libgtk2.0-common",
+      "version": "2.24.33-7"
+    },
+    {
+      "name": "libgudev-1.0-0:amd64",
+      "version": "238-6"
+    },
+    {
+      "name": "libharfbuzz0b:amd64",
+      "version": "10.2.0-1+deb13u1"
+    },
+    {
+      "name": "libhogweed6t64:amd64",
+      "version": "3.10.1-1"
+    },
+    {
+      "name": "libhsa-runtime64-1:amd64",
+      "version": "6.1.2-3"
+    },
+    {
+      "name": "libhsakmt1:amd64",
+      "version": "6.2.4+ds-1"
+    },
+    {
+      "name": "libhunspell-1.7-0:amd64",
+      "version": "1.7.2+really1.7.2-10+b4"
+    },
+    {
+      "name": "libhwasan0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libhwloc-plugins:amd64",
+      "version": "2.12.0-4"
+    },
+    {
+      "name": "libhwloc15:amd64",
+      "version": "2.12.0-4"
+    },
+    {
+      "name": "libhwy1t64:amd64",
+      "version": "1.2.0-2+b2"
+    },
+    {
+      "name": "libibmad5:amd64",
+      "version": "56.1-1"
+    },
+    {
+      "name": "libibumad3:amd64",
+      "version": "56.1-1"
+    },
+    {
+      "name": "libibus-1.0-5:amd64",
+      "version": "1.5.32-2"
+    },
+    {
+      "name": "libibverbs1:amd64",
+      "version": "56.1-1"
+    },
+    {
+      "name": "libice6:amd64",
+      "version": "2:1.1.1-1"
+    },
+    {
+      "name": "libicu76:amd64",
+      "version": "76.1-4"
+    },
+    {
+      "name": "libidn12:amd64",
+      "version": "1.43-1"
+    },
+    {
+      "name": "libidn2-0:amd64",
+      "version": "2.3.8-2"
+    },
+    {
+      "name": "libimobiledevice-1.0-6:amd64",
+      "version": "1.3.0+git20250228-2"
+    },
+    {
+      "name": "libimobiledevice-glue-1.0-0",
+      "version": "1.3.1-1"
+    },
+    {
+      "name": "libinih1:amd64",
+      "version": "59-1"
+    },
+    {
+      "name": "libinireader0:amd64",
+      "version": "59-1"
+    },
+    {
+      "name": "libinput-bin",
+      "version": "1.28.1-1+deb13u1"
+    },
+    {
+      "name": "libinput10:amd64",
+      "version": "1.28.1-1+deb13u1"
+    },
+    {
+      "name": "libip4tc2:amd64",
+      "version": "1.8.11-2"
+    },
+    {
+      "name": "libip6tc2:amd64",
+      "version": "1.8.11-2"
+    },
+    {
+      "name": "libipt2",
+      "version": "2.1.2-1"
+    },
+    {
+      "name": "libisl23:amd64",
+      "version": "0.27-1"
+    },
+    {
+      "name": "libitm1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libixml11t64:amd64",
+      "version": "1:1.14.20-1+deb13u1"
+    },
+    {
+      "name": "libjansson4:amd64",
+      "version": "2.14-2+b3"
+    },
+    {
+      "name": "libjbig0:amd64",
+      "version": "2.1-6.1+b2"
+    },
+    {
+      "name": "libjpeg62-turbo:amd64",
+      "version": "1:2.1.5-4"
+    },
+    {
+      "name": "libjs-jquery",
+      "version": "3.6.1+dfsg+~3.5.14-1"
+    },
+    {
+      "name": "libjs-sphinxdoc",
+      "version": "8.1.3-5"
+    },
+    {
+      "name": "libjs-underscore",
+      "version": "1.13.4~dfsg+~1.11.4-3"
+    },
+    {
+      "name": "libjson-c5:amd64",
+      "version": "0.18+ds-1"
+    },
+    {
+      "name": "libjxl0.11:amd64",
+      "version": "0.11.2-0.1~deb13u3"
+    },
+    {
+      "name": "libk5crypto3:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libkaccounts6-2:amd64",
+      "version": "4:25.04.0-1"
+    },
+    {
+      "name": "libkate1:amd64",
+      "version": "0.4.3-1"
+    },
+    {
+      "name": "libkdecorations3-6:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libkdecorations3private2:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libkexiv2qt6-0:amd64",
+      "version": "25.04.0-1"
+    },
+    {
+      "name": "libkeyutils1:amd64",
+      "version": "1.6.3-6"
+    },
+    {
+      "name": "libkf6archive-data",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6archive6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6attica6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6auth-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6authcore6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6baloo6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6balooengine6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6baloowidgets6:amd64",
+      "version": "4:25.04.0-1"
+    },
+    {
+      "name": "libkf6bookmarks-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6bookmarks6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6bookmarkswidgets6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6breezeicons6:amd64",
+      "version": "6.13.0-3"
+    },
+    {
+      "name": "libkf6calendarevents6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6codecs-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6codecs6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6colorscheme-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6colorscheme6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6completion-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6completion6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6config-bin",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6config-data",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6configcore6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6configgui6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6configqml6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6configwidgets-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6configwidgets6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6coreaddons-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6coreaddons6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6crash6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6dbusaddons-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6dbusaddons6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6declarative-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6doctools6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6filemetadata-bin:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6filemetadata-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6filemetadata3:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6globalaccel-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6globalaccel6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6guiaddons-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6guiaddons6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6holidays-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6holidays6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6i18n-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6i18n6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6i18nlocaledata6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6i18nqml6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6iconthemes-data",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6iconthemes6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6iconwidgets6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6idletime6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6itemmodels6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6itemviews-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6itemviews6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6jobwidgets-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6jobwidgets6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6kcmutils-data",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6kcmutils6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6kcmutilscore6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6kcmutilsquick6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6kiocore6:amd64",
+      "version": "6.13.0-6"
+    },
+    {
+      "name": "libkf6kiofilewidgets6:amd64",
+      "version": "6.13.0-6"
+    },
+    {
+      "name": "libkf6kiogui6:amd64",
+      "version": "6.13.0-6"
+    },
+    {
+      "name": "libkf6kiowidgets6:amd64",
+      "version": "6.13.0-6"
+    },
+    {
+      "name": "libkf6networkmanagerqt6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6newstuff-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6newstuffcore6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6newstuffwidgets6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6notifications-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6notifications6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6notifyconfig-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6notifyconfig6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6package-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6package6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6parts-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6parts6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6prison6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6prisonscanner6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6pty-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6pty6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6qqc2desktopstyle-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6runner6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6screendpms8:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libkf6service-bin",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6service-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6service6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6solid-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6solid6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6sonnet-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6sonnetcore6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6sonnetui6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6statusnotifieritem-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6statusnotifieritem6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6style6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6su-bin",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6su-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6su6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6svg6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6syndication6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6syntaxhighlighting-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6syntaxhighlighting6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6texteditor-bin",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6texteditor-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6texteditor6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6textwidgets-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6textwidgets6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6unitconversion-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6unitconversion6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6userfeedback-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6userfeedbackcore6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6userfeedbackwidgets6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6wallet-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6wallet6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6walletbackend6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6widgetsaddons-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6widgetsaddons6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6windowsystem-data",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6windowsystem6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkf6xmlgui-data",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkf6xmlgui6:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libkfontinst6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libkfontinstui6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libkglobalacceld0:amd64",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "libkirigami-data",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigami6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigamidelegates6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigamidialogs6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigamilayouts6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigamiplatform6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigamiprimitives6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libkirigamiprivate6:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "libklibc:amd64",
+      "version": "2.0.14-1"
+    },
+    {
+      "name": "libklipper6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libkmod2:amd64",
+      "version": "34.2-2"
+    },
+    {
+      "name": "libkmpris6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libkpipewire-data",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "libkpipewire6:amd64",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "libkpipewiredmabuf6:amd64",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "libkpipewirerecord6:amd64",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "libkrb5-3:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libkrb5support0:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libksba8:amd64",
+      "version": "1.6.7-2+b1"
+    },
+    {
+      "name": "libkscreen-data",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libkscreenlocker6:amd64",
+      "version": "6.3.5-1"
+    },
+    {
+      "name": "libksysguard-data",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "libksysguardformatter2:amd64",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "libksysguardsensorfaces2:amd64",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "libksysguardsensors2:amd64",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "libksysguardsystemstats2:amd64",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "libkwaylandclient6:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libkwin6",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "libkworkspace6-6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "liblapack3:amd64",
+      "version": "3.12.1-6"
+    },
+    {
+      "name": "liblastlog2-2:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "liblayershellqtinterface6:amd64",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "liblcms2-2:amd64",
+      "version": "2.16-2+deb13u2"
+    },
+    {
+      "name": "libldap-common",
+      "version": "2.6.10+dfsg-1"
+    },
+    {
+      "name": "libldap2:amd64",
+      "version": "2.6.10+dfsg-1"
+    },
+    {
+      "name": "liblerc4:amd64",
+      "version": "4.0.0+ds-5"
+    },
+    {
+      "name": "liblilv-0-0:amd64",
+      "version": "0.24.26-1"
+    },
+    {
+      "name": "liblirc-client0t64:amd64",
+      "version": "0.10.2-0.10"
+    },
+    {
+      "name": "libllvm17t64:amd64",
+      "version": "1:17.0.6-22+b2"
+    },
+    {
+      "name": "libllvm19:amd64",
+      "version": "1:19.1.7-3+b1"
+    },
+    {
+      "name": "liblmdb0:amd64",
+      "version": "0.9.31-1+b2"
+    },
+    {
+      "name": "liblocale-gettext-perl",
+      "version": "1.07-7+b1"
+    },
+    {
+      "name": "liblsan0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libltdl7:amd64",
+      "version": "2.5.4-4"
+    },
+    {
+      "name": "liblua5.2-0:amd64",
+      "version": "5.2.4-3+b3"
+    },
+    {
+      "name": "liblz4-1:amd64",
+      "version": "1.10.0-4"
+    },
+    {
+      "name": "liblzma5:amd64",
+      "version": "5.8.1-1+deb13u2"
+    },
+    {
+      "name": "liblzo2-2:amd64",
+      "version": "2.10-3+b1"
+    },
+    {
+      "name": "libmad0:amd64",
+      "version": "0.15.1b-11+b1"
+    },
+    {
+      "name": "libmatroska7:amd64",
+      "version": "1.7.1-1+b2"
+    },
+    {
+      "name": "libmbedcrypto16:amd64",
+      "version": "3.6.6-0.1~deb13u1"
+    },
+    {
+      "name": "libmd0:amd64",
+      "version": "1.1.0-2+b1"
+    },
+    {
+      "name": "libmd4c0:amd64",
+      "version": "0.5.2-2+b1"
+    },
+    {
+      "name": "libmnl0:amd64",
+      "version": "1.0.5-3"
+    },
+    {
+      "name": "libmount1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libmp3lame0:amd64",
+      "version": "3.100-6+b3"
+    },
+    {
+      "name": "libmpc3:amd64",
+      "version": "1.3.1-1+b3"
+    },
+    {
+      "name": "libmpcdec6:amd64",
+      "version": "2:0.1~r495-3"
+    },
+    {
+      "name": "libmpfr6:amd64",
+      "version": "4.2.2-1"
+    },
+    {
+      "name": "libmpg123-0t64:amd64",
+      "version": "1.32.10-1+deb13u1"
+    },
+    {
+      "name": "libmtdev1t64:amd64",
+      "version": "1.1.7-1"
+    },
+    {
+      "name": "libmtp-common",
+      "version": "1.1.22-1"
+    },
+    {
+      "name": "libmtp9t64:amd64",
+      "version": "1.1.22-1"
+    },
+    {
+      "name": "libmysofa1:amd64",
+      "version": "1.3.3+dfsg-1"
+    },
+    {
+      "name": "libncurses6:amd64",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "libncursesw6:amd64",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "libnetfilter-conntrack3:amd64",
+      "version": "1.1.0-1"
+    },
+    {
+      "name": "libnettle8t64:amd64",
+      "version": "3.10.1-1"
+    },
+    {
+      "name": "libnfnetlink0:amd64",
+      "version": "1.0.2-3"
+    },
+    {
+      "name": "libnfs14:amd64",
+      "version": "5.0.2-1+deb13u1"
+    },
+    {
+      "name": "libnftnl11:amd64",
+      "version": "1.2.9-1"
+    },
+    {
+      "name": "libnghttp2-14:amd64",
+      "version": "1.64.0-1.1+deb13u1"
+    },
+    {
+      "name": "libnghttp3-9:amd64",
+      "version": "1.8.0-1"
+    },
+    {
+      "name": "libngtcp2-16:amd64",
+      "version": "1.11.0-1+deb13u1"
+    },
+    {
+      "name": "libngtcp2-crypto-gnutls8:amd64",
+      "version": "1.11.0-1+deb13u1"
+    },
+    {
+      "name": "libnl-3-200:amd64",
+      "version": "3.7.0-2"
+    },
+    {
+      "name": "libnl-route-3-200:amd64",
+      "version": "3.7.0-2"
+    },
+    {
+      "name": "libnode115:amd64",
+      "version": "20.19.2+dfsg-1+deb13u3"
+    },
+    {
+      "name": "libnorm1t64:amd64",
+      "version": "1.5.9+dfsg-3.1+b2"
+    },
+    {
+      "name": "libnotificationmanager1",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libnppc12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppial12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppicc12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppidei12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppif12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppig12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppim12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppist12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppisu12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppitc12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnpps12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnpth0t64:amd64",
+      "version": "1.8-3"
+    },
+    {
+      "name": "libnspr4:amd64",
+      "version": "2:4.36-1"
+    },
+    {
+      "name": "libnss-systemd:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libnss3:amd64",
+      "version": "2:3.110-1+deb13u4"
+    },
+    {
+      "name": "libnuma1:amd64",
+      "version": "2.0.19-1"
+    },
+    {
+      "name": "libnvblas12:amd64",
+      "version": "12.4.5.8~12.4.1-2"
+    },
+    {
+      "name": "libnvcuvid1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvfatbin12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvidia-allocator1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-cfg1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-egl-gbm1:amd64",
+      "version": "1.1.2.1-1"
+    },
+    {
+      "name": "libnvidia-egl-wayland1:amd64",
+      "version": "1:1.1.18-1"
+    },
+    {
+      "name": "libnvidia-eglcore:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-encode1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-glcore:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-glvkspirv:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-gpucomp:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-ml-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvidia-ml1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-nvvm4:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-pkcs11-openssl3:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-ptxjitcompiler1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-rtcore:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvjitlink12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvjpeg12:amd64",
+      "version": "12.3.1.117~12.4.1-2"
+    },
+    {
+      "name": "libnvme1t64",
+      "version": "1.13-2"
+    },
+    {
+      "name": "libnvrtc-builtins12.4:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvrtc12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvtoolsext1:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvvm4:amd64",
+      "version": "12.4.131~12.4.1-2"
+    },
+    {
+      "name": "libogg0:amd64",
+      "version": "1.3.5-3+b2"
+    },
+    {
+      "name": "libopengl0:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libopenjp2-7:amd64",
+      "version": "2.5.3-2.1~deb13u2"
+    },
+    {
+      "name": "libopenmpt-modplug1:amd64",
+      "version": "0.8.9.0-openmpt1-2+b3"
+    },
+    {
+      "name": "libopenmpt0t64:amd64",
+      "version": "0.7.13-1+b1"
+    },
+    {
+      "name": "libopus0:amd64",
+      "version": "1.5.2-2"
+    },
+    {
+      "name": "liborc-0.4-0t64:amd64",
+      "version": "1:0.4.41-1"
+    },
+    {
+      "name": "libp11-kit0:amd64",
+      "version": "0.25.5-3"
+    },
+    {
+      "name": "libpackagekitqt6-1:amd64",
+      "version": "1.1.2-1+b1"
+    },
+    {
+      "name": "libpam-cap:amd64",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "name": "libpam-modules-bin",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpam-modules:amd64",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpam-runtime",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpam-systemd:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libpam0g:amd64",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpango-1.0-0:amd64",
+      "version": "1.56.3-1"
+    },
+    {
+      "name": "libpangocairo-1.0-0:amd64",
+      "version": "1.56.3-1"
+    },
+    {
+      "name": "libpangoft2-1.0-0:amd64",
+      "version": "1.56.3-1"
+    },
+    {
+      "name": "libparted2t64:amd64",
+      "version": "3.6-5"
+    },
+    {
+      "name": "libpci3:amd64",
+      "version": "1:3.13.0-2"
+    },
+    {
+      "name": "libpciaccess0:amd64",
+      "version": "0.17-3+b3"
+    },
+    {
+      "name": "libpcre2-16-0:amd64",
+      "version": "10.46-1~deb13u3"
+    },
+    {
+      "name": "libpcre2-8-0:amd64",
+      "version": "10.46-1~deb13u3"
+    },
+    {
+      "name": "libpcsclite1:amd64",
+      "version": "2.3.3-1"
+    },
+    {
+      "name": "libperl5.40:amd64",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "libpfm4:amd64",
+      "version": "4.13.0+git99-gc5587f9-1"
+    },
+    {
+      "name": "libpgm-5.3-0t64:amd64",
+      "version": "5.3.128~dfsg-2.1+b1"
+    },
+    {
+      "name": "libphonon-l10n",
+      "version": "4:4.12.0-5"
+    },
+    {
+      "name": "libphonon4qt6-4t64:amd64",
+      "version": "4:4.12.0-5"
+    },
+    {
+      "name": "libpipewire-0.3-0t64:amd64",
+      "version": "1.4.2-1"
+    },
+    {
+      "name": "libpixman-1-0:amd64",
+      "version": "0.44.0-3"
+    },
+    {
+      "name": "libplacebo349:amd64",
+      "version": "7.349.0-3"
+    },
+    {
+      "name": "libplasma-geolocation-interface6:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libplasma5support-data",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libplasma5support6:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "libplasma6:amd64",
+      "version": "6.3.5-1"
+    },
+    {
+      "name": "libplasmaactivities6:amd64",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "libplasmaactivitiesstats1:amd64",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "libplasmaquick6:amd64",
+      "version": "6.3.5-1"
+    },
+    {
+      "name": "libplist-2.0-4:amd64",
+      "version": "2.6.0-2+b1"
+    },
+    {
+      "name": "libpng16-16t64:amd64",
+      "version": "1.6.48-1+deb13u6"
+    },
+    {
+      "name": "libpocketsphinx3:amd64",
+      "version": "0.8+5prealpha+1-15+b4"
+    },
+    {
+      "name": "libpolkit-agent-1-0:amd64",
+      "version": "126-2"
+    },
+    {
+      "name": "libpolkit-gobject-1-0:amd64",
+      "version": "126-2"
+    },
+    {
+      "name": "libpolkit-qt6-1-1:amd64",
+      "version": "0.200.0-4+b1"
+    },
+    {
+      "name": "libpoppler-qt6-3t64:amd64",
+      "version": "25.03.0-5+deb13u4"
+    },
+    {
+      "name": "libpoppler147:amd64",
+      "version": "25.03.0-5+deb13u4"
+    },
+    {
+      "name": "libpopt0:amd64",
+      "version": "1.19+dfsg-2"
+    },
+    {
+      "name": "libpostproc58:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libproc2-0:amd64",
+      "version": "2:4.0.4-9"
+    },
+    {
+      "name": "libprocesscore10:amd64",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "libprotobuf-lite32t64:amd64",
+      "version": "3.21.12-11+deb13u1"
+    },
+    {
+      "name": "libproxy1v5:amd64",
+      "version": "0.5.9-1"
+    },
+    {
+      "name": "libpsl5t64:amd64",
+      "version": "0.21.2-1.1+b1"
+    },
+    {
+      "name": "libpulse-mainloop-glib0:amd64",
+      "version": "17.0+dfsg1-2+b1"
+    },
+    {
+      "name": "libpulse0:amd64",
+      "version": "17.0+dfsg1-2+b1"
+    },
+    {
+      "name": "libpython3-stdlib:amd64",
+      "version": "3.13.5-1"
+    },
+    {
+      "name": "libpython3.13-minimal:amd64",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "libpython3.13-stdlib:amd64",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "libpython3.13:amd64",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "libqaccessibilityclient-qt6-0:amd64",
+      "version": "0.6.0-3"
+    },
+    {
+      "name": "libqalculate-data",
+      "version": "5.5.2-1"
+    },
+    {
+      "name": "libqalculate23:amd64",
+      "version": "5.5.2-1+b1"
+    },
+    {
+      "name": "libqca-qt6-2:amd64",
+      "version": "2.3.10-1"
+    },
+    {
+      "name": "libqmobipocket6-2:amd64",
+      "version": "4:25.04.0-1"
+    },
+    {
+      "name": "libqrencode4:amd64",
+      "version": "4.1.1-2"
+    },
+    {
+      "name": "libqt6core5compat6:amd64",
+      "version": "6.8.2-3+b1"
+    },
+    {
+      "name": "libqt6core6t64:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6dbus6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6gui6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6labsplatform6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6multimedia6:amd64",
+      "version": "6.8.2-8"
+    },
+    {
+      "name": "libqt6network6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6opengl6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6openglwidgets6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6positioning6-plugins:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6positioning6:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6positioningquick6:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6printsupport6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6qml6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6qmlmeta6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6qmlmodels6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6qmlworkerscript6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6quick6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6quickcontrols2-6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6quickshapes6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6quicktemplates2-6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6quickwidgets6:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "libqt6sensors6:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6serialport6:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6shadertools6:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6sql6-sqlite:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6sql6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6svg6:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "libqt6texttospeech6:amd64",
+      "version": "6.8.2-2"
+    },
+    {
+      "name": "libqt6uitools6:amd64",
+      "version": "6.8.2-5"
+    },
+    {
+      "name": "libqt6virtualkeyboard6:amd64",
+      "version": "6.8.2+dfsg-3"
+    },
+    {
+      "name": "libqt6waylandclient6:amd64",
+      "version": "6.8.2-4"
+    },
+    {
+      "name": "libqt6waylandcompositor6:amd64",
+      "version": "6.8.2-4"
+    },
+    {
+      "name": "libqt6widgets6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libqt6wlshellintegration6:amd64",
+      "version": "6.8.2-4"
+    },
+    {
+      "name": "libqt6xml6:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "libquadmath0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libquickcharts1:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "libquickchartscontrols1:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "librabbitmq4:amd64",
+      "version": "0.15.0-1+deb13u2"
+    },
+    {
+      "name": "librav1e0.7:amd64",
+      "version": "0.7.1-9+b2"
+    },
+    {
+      "name": "libraw1394-11:amd64",
+      "version": "2.1.2-2+b2"
+    },
+    {
+      "name": "librdmacm1t64:amd64",
+      "version": "56.1-1"
+    },
+    {
+      "name": "libreadline8t64:amd64",
+      "version": "8.2-6"
+    },
+    {
+      "name": "libresid-builder0c2a:amd64",
+      "version": "2.1.1-16"
+    },
+    {
+      "name": "librist4:amd64",
+      "version": "0.2.11+dfsg-1"
+    },
+    {
+      "name": "librsvg2-2:amd64",
+      "version": "2.60.0+dfsg-1+deb13u1"
+    },
+    {
+      "name": "librsvg2-common:amd64",
+      "version": "2.60.0+dfsg-1+deb13u1"
+    },
+    {
+      "name": "librtmp1:amd64",
+      "version": "2.4+20151223.gitfa8646d.1-2+b5"
+    },
+    {
+      "name": "librubberband2:amd64",
+      "version": "3.3.0+dfsg-2+b3"
+    },
+    {
+      "name": "libsamplerate0:amd64",
+      "version": "0.2.2-4+b2"
+    },
+    {
+      "name": "libsasl2-2:amd64",
+      "version": "2.1.28+dfsg1-9"
+    },
+    {
+      "name": "libsasl2-modules-db:amd64",
+      "version": "2.1.28+dfsg1-9"
+    },
+    {
+      "name": "libsasl2-modules:amd64",
+      "version": "2.1.28+dfsg1-9"
+    },
+    {
+      "name": "libscim8v5:amd64",
+      "version": "1.4.18+git20211204-0.2+b4"
+    },
+    {
+      "name": "libsdl2-2.0-0:amd64",
+      "version": "2.32.4+dfsg-1"
+    },
+    {
+      "name": "libseccomp2:amd64",
+      "version": "2.6.0-2"
+    },
+    {
+      "name": "libsecret-1-0:amd64",
+      "version": "0.21.7-1"
+    },
+    {
+      "name": "libsecret-common",
+      "version": "0.21.7-1"
+    },
+    {
+      "name": "libselinux1:amd64",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsemanage-common",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsemanage2:amd64",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsensors-config",
+      "version": "1:3.6.2-2"
+    },
+    {
+      "name": "libsensors5:amd64",
+      "version": "1:3.6.2-2"
+    },
+    {
+      "name": "libsepol2:amd64",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libserd-0-0:amd64",
+      "version": "0.32.4-1"
+    },
+    {
+      "name": "libsframe1:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libsharpyuv0:amd64",
+      "version": "1.5.0-0.1"
+    },
+    {
+      "name": "libshine3:amd64",
+      "version": "3.1.1-2+b2"
+    },
+    {
+      "name": "libshout3:amd64",
+      "version": "2.4.6-1+b3"
+    },
+    {
+      "name": "libsidplay2:amd64",
+      "version": "2.1.1-16"
+    },
+    {
+      "name": "libsignon-qt6-1:amd64",
+      "version": "8.61+git20231015.c8ad982-7"
+    },
+    {
+      "name": "libslang2:amd64",
+      "version": "2.3.3-5+b2"
+    },
+    {
+      "name": "libsm6:amd64",
+      "version": "2:1.2.6-1"
+    },
+    {
+      "name": "libsmartcols1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libsnappy1v5:amd64",
+      "version": "1.2.2-1"
+    },
+    {
+      "name": "libsndfile1:amd64",
+      "version": "1.2.2-2+deb13u1"
+    },
+    {
+      "name": "libsodium23:amd64",
+      "version": "1.0.18-1+deb13u1"
+    },
+    {
+      "name": "libsord-0-0:amd64",
+      "version": "0.16.18-1"
+    },
+    {
+      "name": "libsource-highlight-common",
+      "version": "3.1.9-4.3"
+    },
+    {
+      "name": "libsource-highlight4t64:amd64",
+      "version": "3.1.9-4.3+b1"
+    },
+    {
+      "name": "libsoxr0:amd64",
+      "version": "0.1.3-4+b2"
+    },
+    {
+      "name": "libspa-0.2-modules:amd64",
+      "version": "1.4.2-1"
+    },
+    {
+      "name": "libspatialaudio0t64:amd64",
+      "version": "0.3.0+git20180730+dfsg1-2.1+b1"
+    },
+    {
+      "name": "libspeex1:amd64",
+      "version": "1.2.1-3"
+    },
+    {
+      "name": "libspeexdsp1:amd64",
+      "version": "1.2.1-3"
+    },
+    {
+      "name": "libsphinxbase3t64:amd64",
+      "version": "0.8+5prealpha+1-21+b1"
+    },
+    {
+      "name": "libsqlite3-0:amd64",
+      "version": "3.46.1-7+deb13u2"
+    },
+    {
+      "name": "libsquashfuse0:amd64",
+      "version": "0.5.2-0.2+b2"
+    },
+    {
+      "name": "libsratom-0-0:amd64",
+      "version": "0.6.18-1"
+    },
+    {
+      "name": "libsrt1.5-gnutls:amd64",
+      "version": "1.5.4-1+deb13u1"
+    },
+    {
+      "name": "libss2:amd64",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "libssh-4:amd64",
+      "version": "0.11.5-0+deb13u1"
+    },
+    {
+      "name": "libssh2-1t64:amd64",
+      "version": "1.11.1-1+deb13u2"
+    },
+    {
+      "name": "libssl3t64:amd64",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "name": "libstdc++-13-dev:amd64",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "libstdc++-14-dev:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libstdc++6:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libstemmer0d:amd64",
+      "version": "2.2.0-4+b2"
+    },
+    {
+      "name": "libsvtav1enc2:amd64",
+      "version": "2.3.0+dfsg-1"
+    },
+    {
+      "name": "libswresample5:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libswscale8:amd64",
+      "version": "7:7.1.5-0+deb13u1"
+    },
+    {
+      "name": "libsystemd-shared:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libsystemd0:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libtag2:amd64",
+      "version": "2.0.2-2"
+    },
+    {
+      "name": "libtaskmanager6",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libtasn1-6:amd64",
+      "version": "4.20.0-2+deb13u1"
+    },
+    {
+      "name": "libtbb-dev:amd64",
+      "version": "2022.1.0-1+deb13u1"
+    },
+    {
+      "name": "libtbb12:amd64",
+      "version": "2022.1.0-1+deb13u1"
+    },
+    {
+      "name": "libtbbbind-2-5:amd64",
+      "version": "2022.1.0-1+deb13u1"
+    },
+    {
+      "name": "libtbbmalloc2:amd64",
+      "version": "2022.1.0-1+deb13u1"
+    },
+    {
+      "name": "libtdb1:amd64",
+      "version": "2:1.4.13+samba4.22.11+dfsg-0+deb13u1"
+    },
+    {
+      "name": "libtext-charwidth-perl:amd64",
+      "version": "0.04-11+b4"
+    },
+    {
+      "name": "libtext-wrapi18n-perl",
+      "version": "0.06-10"
+    },
+    {
+      "name": "libthai-data",
+      "version": "0.1.29-2"
+    },
+    {
+      "name": "libthai0:amd64",
+      "version": "0.1.29-2+b1"
+    },
+    {
+      "name": "libtheora0:amd64",
+      "version": "1.2.0~alpha1+dfsg-6"
+    },
+    {
+      "name": "libtheoradec1:amd64",
+      "version": "1.2.0~alpha1+dfsg-6"
+    },
+    {
+      "name": "libtheoraenc1:amd64",
+      "version": "1.2.0~alpha1+dfsg-6"
+    },
+    {
+      "name": "libthrust-dev",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "libtiff6:amd64",
+      "version": "4.7.0-3+deb13u3"
+    },
+    {
+      "name": "libtinfo6:amd64",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "libtirpc-common",
+      "version": "1.3.6+ds-1"
+    },
+    {
+      "name": "libtirpc3t64:amd64",
+      "version": "1.3.6+ds-1"
+    },
+    {
+      "name": "libts0t64:amd64",
+      "version": "1.22-1.1+b1"
+    },
+    {
+      "name": "libtsan2:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libtwolame0:amd64",
+      "version": "0.4.0-2+b2"
+    },
+    {
+      "name": "libubsan1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libucx0:amd64",
+      "version": "1.18.1+ds-2+b1"
+    },
+    {
+      "name": "libudev1:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libudfread0:amd64",
+      "version": "1.1.2-1+b2"
+    },
+    {
+      "name": "libudisks2-0:amd64",
+      "version": "2.10.1-12.1+deb13u2"
+    },
+    {
+      "name": "libunibreak6:amd64",
+      "version": "6.1-3"
+    },
+    {
+      "name": "libunistring5:amd64",
+      "version": "1.3-2"
+    },
+    {
+      "name": "libunwind8:amd64",
+      "version": "1.8.1-0.1"
+    },
+    {
+      "name": "libupnp17t64:amd64",
+      "version": "1:1.14.20-1+deb13u1"
+    },
+    {
+      "name": "libupower-glib3:amd64",
+      "version": "1.90.9-1"
+    },
+    {
+      "name": "libusb-1.0-0:amd64",
+      "version": "2:1.0.28-1"
+    },
+    {
+      "name": "libusbmuxd-2.0-7:amd64",
+      "version": "2.1.0-1+b1"
+    },
+    {
+      "name": "libuuid1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libuv1t64:amd64",
+      "version": "1.50.0-2"
+    },
+    {
+      "name": "libva-drm2:amd64",
+      "version": "2.22.0-3"
+    },
+    {
+      "name": "libva-wayland2:amd64",
+      "version": "2.22.0-3"
+    },
+    {
+      "name": "libva-x11-2:amd64",
+      "version": "2.22.0-3"
+    },
+    {
+      "name": "libva2:amd64",
+      "version": "2.22.0-3"
+    },
+    {
+      "name": "libvdpau-dev:amd64",
+      "version": "1.5-3+b1"
+    },
+    {
+      "name": "libvdpau1:amd64",
+      "version": "1.5-3+b1"
+    },
+    {
+      "name": "libvidstab1.1:amd64",
+      "version": "1.1.0-2+b2"
+    },
+    {
+      "name": "libvisual-0.4-0:amd64",
+      "version": "0.4.2-2+b2"
+    },
+    {
+      "name": "libvlc5:amd64",
+      "version": "3.0.24-0+deb13u1"
+    },
+    {
+      "name": "libvlccore9:amd64",
+      "version": "3.0.24-0+deb13u1"
+    },
+    {
+      "name": "libvolume-key1:amd64",
+      "version": "0.3.12-9"
+    },
+    {
+      "name": "libvorbis0a:amd64",
+      "version": "1.3.7-3"
+    },
+    {
+      "name": "libvorbisenc2:amd64",
+      "version": "1.3.7-3"
+    },
+    {
+      "name": "libvorbisfile3:amd64",
+      "version": "1.3.7-3"
+    },
+    {
+      "name": "libvpl2",
+      "version": "1:2.14.0-1+b1"
+    },
+    {
+      "name": "libvpx9:amd64",
+      "version": "1.15.0-2.1+deb13u1"
+    },
+    {
+      "name": "libvulkan1:amd64",
+      "version": "1.4.309.0-1"
+    },
+    {
+      "name": "libwacom-common",
+      "version": "2.14.0-1"
+    },
+    {
+      "name": "libwacom9:amd64",
+      "version": "2.14.0-1"
+    },
+    {
+      "name": "libwayland-client0:amd64",
+      "version": "1.23.1-3"
+    },
+    {
+      "name": "libwayland-cursor0:amd64",
+      "version": "1.23.1-3"
+    },
+    {
+      "name": "libwayland-egl1:amd64",
+      "version": "1.23.1-3"
+    },
+    {
+      "name": "libwayland-server0:amd64",
+      "version": "1.23.1-3"
+    },
+    {
+      "name": "libweather-ion7",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "libwebp7:amd64",
+      "version": "1.5.0-0.1"
+    },
+    {
+      "name": "libwebpmux3:amd64",
+      "version": "1.5.0-0.1"
+    },
+    {
+      "name": "libwebrtc-audio-processing-1-3:amd64",
+      "version": "1.3-3+b1"
+    },
+    {
+      "name": "libwrap0:amd64",
+      "version": "7.6.q-36"
+    },
+    {
+      "name": "libwtmpdb0:amd64",
+      "version": "0.73.0-3+deb13u1"
+    },
+    {
+      "name": "libx11-6:amd64",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libx11-data",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libx11-dev:amd64",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libx11-xcb1:amd64",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libx264-164:amd64",
+      "version": "2:0.164.3108+git31e19f9-2+b1"
+    },
+    {
+      "name": "libx265-215:amd64",
+      "version": "4.1-2"
+    },
+    {
+      "name": "libxau-dev:amd64",
+      "version": "1:1.0.11-1"
+    },
+    {
+      "name": "libxau6:amd64",
+      "version": "1:1.0.11-1"
+    },
+    {
+      "name": "libxaw7:amd64",
+      "version": "2:1.0.16-1"
+    },
+    {
+      "name": "libxcb-composite0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-cursor0:amd64",
+      "version": "0.1.5-1"
+    },
+    {
+      "name": "libxcb-damage0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-dpms0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-dri3-0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-glx0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-icccm4:amd64",
+      "version": "0.4.2-1"
+    },
+    {
+      "name": "libxcb-image0:amd64",
+      "version": "0.4.0-2+b2"
+    },
+    {
+      "name": "libxcb-keysyms1:amd64",
+      "version": "0.4.1-1"
+    },
+    {
+      "name": "libxcb-present0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-randr0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-record0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-render-util0:amd64",
+      "version": "0.3.10-1"
+    },
+    {
+      "name": "libxcb-render0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-res0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-shape0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-shm0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-sync1:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-util1:amd64",
+      "version": "0.4.1-1"
+    },
+    {
+      "name": "libxcb-xfixes0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-xinput0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-xkb1:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-xv0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb1-dev:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb1:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcomposite1:amd64",
+      "version": "1:0.4.6-1"
+    },
+    {
+      "name": "libxcursor1:amd64",
+      "version": "1:1.2.3-1"
+    },
+    {
+      "name": "libxcvt0:amd64",
+      "version": "0.1.3-1"
+    },
+    {
+      "name": "libxdamage1:amd64",
+      "version": "1:1.1.6-1+b2"
+    },
+    {
+      "name": "libxdgutilsbasedir1.0.1:amd64",
+      "version": "1.0.1-3.1+b2"
+    },
+    {
+      "name": "libxdgutilsdesktopentry1.0.1:amd64",
+      "version": "1.0.1-3.1+b2"
+    },
+    {
+      "name": "libxdmcp-dev:amd64",
+      "version": "1:1.1.5-1"
+    },
+    {
+      "name": "libxdmcp6:amd64",
+      "version": "1:1.1.5-1"
+    },
+    {
+      "name": "libxext6:amd64",
+      "version": "2:1.3.4-1+b3"
+    },
+    {
+      "name": "libxfixes3:amd64",
+      "version": "1:6.0.0-2+b4"
+    },
+    {
+      "name": "libxfont2:amd64",
+      "version": "1:2.0.6-1+deb13u1"
+    },
+    {
+      "name": "libxft2:amd64",
+      "version": "2.3.6-1+b4"
+    },
+    {
+      "name": "libxi6:amd64",
+      "version": "2:1.8.2-1"
+    },
+    {
+      "name": "libxinerama1:amd64",
+      "version": "2:1.1.4-3+b4"
+    },
+    {
+      "name": "libxkbcommon-x11-0:amd64",
+      "version": "1.7.0-2"
+    },
+    {
+      "name": "libxkbcommon0:amd64",
+      "version": "1.7.0-2"
+    },
+    {
+      "name": "libxkbfile1:amd64",
+      "version": "1:1.1.0-1+b4"
+    },
+    {
+      "name": "libxkbregistry0:amd64",
+      "version": "1.7.0-2"
+    },
+    {
+      "name": "libxml2:amd64",
+      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3"
+    },
+    {
+      "name": "libxmlb2:amd64",
+      "version": "0.3.22-1"
+    },
+    {
+      "name": "libxmu6:amd64",
+      "version": "2:1.1.3-3+b4"
+    },
+    {
+      "name": "libxmuu1:amd64",
+      "version": "2:1.1.3-3+b4"
+    },
+    {
+      "name": "libxnvctrl0:amd64",
+      "version": "535.171.04-1+b2"
+    },
+    {
+      "name": "libxpm4:amd64",
+      "version": "1:3.5.17-1+deb13u1"
+    },
+    {
+      "name": "libxrandr2:amd64",
+      "version": "2:1.5.4-1+b3"
+    },
+    {
+      "name": "libxrender1:amd64",
+      "version": "1:0.9.12-1"
+    },
+    {
+      "name": "libxshmfence1:amd64",
+      "version": "1.3.3-1"
+    },
+    {
+      "name": "libxslt1.1:amd64",
+      "version": "1.1.35-1.2+deb13u3"
+    },
+    {
+      "name": "libxss1:amd64",
+      "version": "1:1.2.3-1+b3"
+    },
+    {
+      "name": "libxt6t64:amd64",
+      "version": "1:1.2.1-1.2+b2"
+    },
+    {
+      "name": "libxtables12:amd64",
+      "version": "1.8.11-2"
+    },
+    {
+      "name": "libxtst6:amd64",
+      "version": "2:1.2.5-1"
+    },
+    {
+      "name": "libxv1:amd64",
+      "version": "2:1.0.11-1.1+b3"
+    },
+    {
+      "name": "libxvidcore4:amd64",
+      "version": "2:1.3.7-1+b2"
+    },
+    {
+      "name": "libxxf86dga1:amd64",
+      "version": "2:1.1.5-1+b3"
+    },
+    {
+      "name": "libxxf86vm1:amd64",
+      "version": "1:1.1.4-1+b4"
+    },
+    {
+      "name": "libxxhash0:amd64",
+      "version": "0.8.3-2"
+    },
+    {
+      "name": "libyaml-0-2:amd64",
+      "version": "0.2.5-2"
+    },
+    {
+      "name": "libz3-4:amd64",
+      "version": "4.13.3-1"
+    },
+    {
+      "name": "libze1:amd64",
+      "version": "1.20.6-1"
+    },
+    {
+      "name": "libzimg2:amd64",
+      "version": "3.0.5+ds1-1+b2"
+    },
+    {
+      "name": "libzip5:amd64",
+      "version": "1.11.3-2"
+    },
+    {
+      "name": "libzix-0-0:amd64",
+      "version": "0.6.2-1"
+    },
+    {
+      "name": "libzmq5:amd64",
+      "version": "4.3.5-1+b3"
+    },
+    {
+      "name": "libzstd1:amd64",
+      "version": "1.5.7+dfsg-1"
+    },
+    {
+      "name": "libzvbi-common",
+      "version": "0.2.44-1"
+    },
+    {
+      "name": "libzvbi0t64:amd64",
+      "version": "0.2.44-1"
+    },
+    {
+      "name": "libzxing3:amd64",
+      "version": "2.3.0-4"
+    },
+    {
+      "name": "linux-base",
+      "version": "4.12.1"
+    },
+    {
+      "name": "linux-headers-6.12.113+deb13-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-headers-6.12.113+deb13-common",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-headers-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-image-6.12.113+deb13-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-image-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-kbuild-6.12.113+deb13",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-libc-dev",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-sysctl-defaults",
+      "version": "4.12.1"
+    },
+    {
+      "name": "locales",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "login",
+      "version": "1:4.16.0-2+really2.41.5-0+deb13u1"
+    },
+    {
+      "name": "login.defs",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "name": "logsave",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "lsb-release",
+      "version": "12.1-1"
+    },
+    {
+      "name": "luit",
+      "version": "2.0.20240910-1"
+    },
+    {
+      "name": "make",
+      "version": "4.4.1-2"
+    },
+    {
+      "name": "manpages",
+      "version": "6.9.1-1"
+    },
+    {
+      "name": "manpages-dev",
+      "version": "6.9.1-1"
+    },
+    {
+      "name": "mawk",
+      "version": "1.3.4.20250131-1"
+    },
+    {
+      "name": "mdadm",
+      "version": "4.4-11"
+    },
+    {
+      "name": "media-types",
+      "version": "13.0.0"
+    },
+    {
+      "name": "mesa-libgallium:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "mesa-vulkan-drivers:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "milou",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "mokutil",
+      "version": "0.7.2-1"
+    },
+    {
+      "name": "mount",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "ncurses-base",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "ncurses-bin",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "ncurses-term",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "netbase",
+      "version": "6.5"
+    },
+    {
+      "name": "node-acorn",
+      "version": "8.8.1+ds+~cs25.17.7-2"
+    },
+    {
+      "name": "node-balanced-match",
+      "version": "2.0.0-1"
+    },
+    {
+      "name": "node-brace-expansion",
+      "version": "2.0.1+~1.1.0-2"
+    },
+    {
+      "name": "node-cjs-module-lexer",
+      "version": "1.2.3+dfsg-1"
+    },
+    {
+      "name": "node-corepack",
+      "version": "0.24.0-5"
+    },
+    {
+      "name": "node-html5shiv",
+      "version": "3.7.3+dfsg-5"
+    },
+    {
+      "name": "node-minimatch",
+      "version": "9.0.3-6"
+    },
+    {
+      "name": "node-undici",
+      "version": "7.3.0+dfsg1+~cs24.12.11-1"
+    },
+    {
+      "name": "node-xtend",
+      "version": "4.0.2-3"
+    },
+    {
+      "name": "nodejs",
+      "version": "20.19.2+dfsg-1+deb13u3"
+    },
+    {
+      "name": "nsight-compute",
+      "version": "2024.1.1.4~12.4.1-2"
+    },
+    {
+      "name": "nsight-compute-target:amd64",
+      "version": "2024.1.1.4~12.4.1-2"
+    },
+    {
+      "name": "nsight-systems",
+      "version": "2023.4.4.54~12.4.1-2"
+    },
+    {
+      "name": "nsight-systems-target:amd64",
+      "version": "2023.4.4.54~12.4.1-2"
+    },
+    {
+      "name": "nvidia-alternative",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-cuda-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-cuda-gdb",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-cuda-toolkit",
+      "version": "12.4.131~12.4.1-2"
+    },
+    {
+      "name": "nvidia-cuda-toolkit-doc",
+      "version": "12.4.1-2"
+    },
+    {
+      "name": "nvidia-driver",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-driver-bin",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-driver-libs:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-egl-common",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-egl-icd:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-installer-cleanup",
+      "version": "20240109+1"
+    },
+    {
+      "name": "nvidia-kernel-common",
+      "version": "20240109+1"
+    },
+    {
+      "name": "nvidia-kernel-dkms",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-kernel-support",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-legacy-check",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-modprobe",
+      "version": "570.133.07-1"
+    },
+    {
+      "name": "nvidia-opencl-common",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-opencl-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-opencl-icd:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-openjdk-8-jre",
+      "version": "9.+8u452-ga-1~12.4.1-2"
+    },
+    {
+      "name": "nvidia-persistenced",
+      "version": "550.163.01-1"
+    },
+    {
+      "name": "nvidia-profiler",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-settings",
+      "version": "550.163.01-1"
+    },
+    {
+      "name": "nvidia-smi",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-support",
+      "version": "20240109+1"
+    },
+    {
+      "name": "nvidia-suspend-common",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-vdpau-driver:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-visual-profiler",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-vulkan-common",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-vulkan-icd:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvme-cli",
+      "version": "2.13-2"
+    },
+    {
+      "name": "ocean-sound-theme",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "ocl-icd-libopencl1:amd64",
+      "version": "2.3.3-1"
+    },
+    {
+      "name": "ocl-icd-opencl-dev:amd64",
+      "version": "2.3.3-1"
+    },
+    {
+      "name": "opencl-c-headers",
+      "version": "3.0~2024.10.24-2"
+    },
+    {
+      "name": "opencl-clhpp-headers",
+      "version": "3.0~2024.10.24-2"
+    },
+    {
+      "name": "openssh-client",
+      "version": "1:10.0p1-7+deb13u4"
+    },
+    {
+      "name": "openssh-server",
+      "version": "1:10.0p1-7+deb13u4"
+    },
+    {
+      "name": "openssh-sftp-server",
+      "version": "1:10.0p1-7+deb13u4"
+    },
+    {
+      "name": "openssl",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "name": "openssl-provider-legacy",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "name": "os-prober",
+      "version": "1.83"
+    },
+    {
+      "name": "oxygen-sounds",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "pahole",
+      "version": "1.30-1"
+    },
+    {
+      "name": "parted",
+      "version": "3.6-5"
+    },
+    {
+      "name": "passwd",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "name": "patch",
+      "version": "2.8-2"
+    },
+    {
+      "name": "pci.ids",
+      "version": "0.0~2025.06.09-1"
+    },
+    {
+      "name": "pciutils",
+      "version": "1:3.13.0-2"
+    },
+    {
+      "name": "perl",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "perl-base",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "perl-modules-5.40",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "phonon-backend-vlc-common",
+      "version": "0.12.0-3"
+    },
+    {
+      "name": "phonon4qt6-backend-vlc:amd64",
+      "version": "0.12.0-3+b4"
+    },
+    {
+      "name": "phonon4qt6:amd64",
+      "version": "4:4.12.0-5"
+    },
+    {
+      "name": "pinentry-curses",
+      "version": "1.3.1-2"
+    },
+    {
+      "name": "plasma-desktop",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "plasma-desktop-data",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "plasma-desktoptheme",
+      "version": "6.3.5-1"
+    },
+    {
+      "name": "plasma-integration",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "plasma-workspace",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "plasma-workspace-data",
+      "version": "4:6.3.6-2"
+    },
+    {
+      "name": "pnp.ids",
+      "version": "0.394-1"
+    },
+    {
+      "name": "polkit-kde-agent-1",
+      "version": "4:6.3.6-1"
+    },
+    {
+      "name": "polkitd",
+      "version": "126-2"
+    },
+    {
+      "name": "procps",
+      "version": "2:4.0.4-9"
+    },
+    {
+      "name": "psmisc",
+      "version": "23.7-2"
+    },
+    {
+      "name": "publicsuffix",
+      "version": "20250328.1952-0.1"
+    },
+    {
+      "name": "python-apt-common",
+      "version": "3.0.0"
+    },
+    {
+      "name": "python3",
+      "version": "3.13.5-1"
+    },
+    {
+      "name": "python3-apt",
+      "version": "3.0.0"
+    },
+    {
+      "name": "python3-attr",
+      "version": "25.3.0-1"
+    },
+    {
+      "name": "python3-jsonschema",
+      "version": "4.19.2-6"
+    },
+    {
+      "name": "python3-jsonschema-specifications",
+      "version": "2023.12.1-2"
+    },
+    {
+      "name": "python3-minimal",
+      "version": "3.13.5-1"
+    },
+    {
+      "name": "python3-pycryptodome",
+      "version": "3.20.0+dfsg-3"
+    },
+    {
+      "name": "python3-referencing",
+      "version": "0.36.2-1"
+    },
+    {
+      "name": "python3-rpds-py",
+      "version": "0.21.0-2+b1"
+    },
+    {
+      "name": "python3.13",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "python3.13-minimal",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "qdbus-qt6",
+      "version": "6.8.2-5"
+    },
+    {
+      "name": "qml6-module-org-kde-activities:amd64",
+      "version": "6.3.4-1"
+    },
+    {
+      "name": "qml6-module-org-kde-baloo:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-breeze",
+      "version": "6.3.5-1"
+    },
+    {
+      "name": "qml6-module-org-kde-config:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "qml6-module-org-kde-coreaddons:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-desktop",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-draganddrop:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-graphicaleffects:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-guiaddons:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-iconthemes:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "qml6-module-org-kde-kcmutils:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "qml6-module-org-kde-kholidays:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kirigami:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "qml6-module-org-kde-kirigamiaddons-components:amd64",
+      "version": "1.7.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kirigamiaddons-delegates:amd64",
+      "version": "1.7.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kirigamiaddons-tableview:amd64",
+      "version": "1.7.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kirigamiaddons-treeview:amd64",
+      "version": "1.7.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kitemmodels:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kquickcontrols:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kquickcontrolsaddons:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-ksvg",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-ksysguard:amd64",
+      "version": "4:6.3.5-1"
+    },
+    {
+      "name": "qml6-module-org-kde-kwindowsystem:amd64",
+      "version": "6.13.0-2"
+    },
+    {
+      "name": "qml6-module-org-kde-newstuff",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-notifications:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-pipewire:amd64",
+      "version": "6.3.6-1"
+    },
+    {
+      "name": "qml6-module-org-kde-plasma-plasma5support:amd64",
+      "version": "4:6.3.4-1"
+    },
+    {
+      "name": "qml6-module-org-kde-prison:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-quickcharts:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-sonnet:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-syntaxhighlighting:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-org-kde-userfeedback:amd64",
+      "version": "6.13.0-1"
+    },
+    {
+      "name": "qml6-module-qt-labs-folderlistmodel:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qt-labs-platform:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qt-labs-qmlmodels:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qt5compat-graphicaleffects:amd64",
+      "version": "6.8.2-3+b1"
+    },
+    {
+      "name": "qml6-module-qtcore:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtmultimedia:amd64",
+      "version": "6.8.2-8"
+    },
+    {
+      "name": "qml6-module-qtpositioning:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "qml6-module-qtqml-models:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtqml-workerscript:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtqml:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-controls:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-dialogs:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-effects:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-layouts:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-shapes:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-templates:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-tooling:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick-virtualkeyboard:amd64",
+      "version": "6.8.2+dfsg-3"
+    },
+    {
+      "name": "qml6-module-qtquick-window:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qml6-module-qtquick:amd64",
+      "version": "6.8.2+dfsg-7"
+    },
+    {
+      "name": "qt6-gtk-platformtheme:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "qt6-qpa-plugins:amd64",
+      "version": "6.8.2+dfsg-9+deb13u2"
+    },
+    {
+      "name": "qt6-svg-plugins:amd64",
+      "version": "6.8.2-3"
+    },
+    {
+      "name": "qt6-translations-l10n",
+      "version": "6.8.2-2"
+    },
+    {
+      "name": "qt6-wayland:amd64",
+      "version": "6.8.2-4"
+    },
+    {
+      "name": "readline-common",
+      "version": "8.2-6"
+    },
+    {
+      "name": "rpcsvc-proto",
+      "version": "1.4.3-1"
+    },
+    {
+      "name": "rsync",
+      "version": "3.5.0+ds1-0+deb13u1"
+    },
+    {
+      "name": "runit-helper",
+      "version": "2.16.4"
+    },
+    {
+      "name": "sddm",
+      "version": "0.21.0+git20250502.4fe234b-2"
+    },
+    {
+      "name": "sed",
+      "version": "4.9-2+deb13u1"
+    },
+    {
+      "name": "sensible-utils",
+      "version": "0.0.25"
+    },
+    {
+      "name": "sgml-base",
+      "version": "1.31+nmu1"
+    },
+    {
+      "name": "shared-mime-info",
+      "version": "2.4-5+b2"
+    },
+    {
+      "name": "shim-helpers-amd64-signed",
+      "version": "1+16.1+2~deb13u1"
+    },
+    {
+      "name": "shim-signed-common",
+      "version": "1.51~1+deb13u1+16.1-2~deb13u1"
+    },
+    {
+      "name": "shim-signed:amd64",
+      "version": "1.51~1+deb13u1+16.1-2~deb13u1"
+    },
+    {
+      "name": "shim-unsigned:amd64",
+      "version": "16.1-2~deb13u1"
+    },
+    {
+      "name": "smartmontools",
+      "version": "7.4-3"
+    },
+    {
+      "name": "sound-theme-freedesktop",
+      "version": "0.8-6~deb13u1"
+    },
+    {
+      "name": "sphinx-rtd-theme-common",
+      "version": "3.0.2+dfsg-2"
+    },
+    {
+      "name": "sq",
+      "version": "1.3.1-2+b2"
+    },
+    {
+      "name": "sqv",
+      "version": "1.3.0-3+b2"
+    },
+    {
+      "name": "sudo",
+      "version": "1.9.16p2-3+deb13u2"
+    },
+    {
+      "name": "systemd",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "systemd-cryptsetup",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "systemd-sysv",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "systemd-timesyncd",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "sysvinit-utils",
+      "version": "3.14-4"
+    },
+    {
+      "name": "tailscale",
+      "version": "1.104.2"
+    },
+    {
+      "name": "tar",
+      "version": "1.35+dfsg-3.1"
+    },
+    {
+      "name": "tigervnc-common",
+      "version": "1.15.0+dfsg-2.1~deb13u1"
+    },
+    {
+      "name": "tigervnc-standalone-server",
+      "version": "1.15.0+dfsg-2.1~deb13u1"
+    },
+    {
+      "name": "tigervnc-tools",
+      "version": "1.15.0+dfsg-2.1~deb13u1"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026c-0+deb13u1"
+    },
+    {
+      "name": "ucf",
+      "version": "3.0052"
+    },
+    {
+      "name": "udev",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "udisks2",
+      "version": "2.10.1-12.1+deb13u2"
+    },
+    {
+      "name": "update-glx",
+      "version": "1.2.2"
+    },
+    {
+      "name": "upower",
+      "version": "1.90.9-1"
+    },
+    {
+      "name": "util-linux",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "uuid-runtime",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "vlc-data",
+      "version": "3.0.24-0+deb13u1"
+    },
+    {
+      "name": "vlc-plugin-base:amd64",
+      "version": "3.0.24-0+deb13u1"
+    },
+    {
+      "name": "vlc-plugin-video-output:amd64",
+      "version": "3.0.24-0+deb13u1"
+    },
+    {
+      "name": "wget",
+      "version": "1.25.0-2"
+    },
+    {
+      "name": "x11-common",
+      "version": "1:7.7+24+deb13u1"
+    },
+    {
+      "name": "x11-utils",
+      "version": "7.7+7"
+    },
+    {
+      "name": "x11-xkb-utils",
+      "version": "7.7+9"
+    },
+    {
+      "name": "x11-xserver-utils",
+      "version": "7.7+11"
+    },
+    {
+      "name": "x11proto-dev",
+      "version": "2024.1-1"
+    },
+    {
+      "name": "xauth",
+      "version": "1:1.1.2-1.1"
+    },
+    {
+      "name": "xcvt",
+      "version": "0.1.3-1"
+    },
+    {
+      "name": "xdg-user-dirs",
+      "version": "0.18-2"
+    },
+    {
+      "name": "xfonts-base",
+      "version": "1:1.0.5+nmu1"
+    },
+    {
+      "name": "xfonts-encodings",
+      "version": "1:1.0.4-2.2"
+    },
+    {
+      "name": "xfonts-utils",
+      "version": "1:7.7+7"
+    },
+    {
+      "name": "xkb-data",
+      "version": "2.42-1"
+    },
+    {
+      "name": "xml-core",
+      "version": "0.19"
+    },
+    {
+      "name": "xorg-sgml-doctools",
+      "version": "1:1.11-1.1"
+    },
+    {
+      "name": "xserver-common",
+      "version": "2:21.1.16-1.3+deb13u4"
+    },
+    {
+      "name": "xserver-xorg",
+      "version": "1:7.7+24+deb13u1"
+    },
+    {
+      "name": "xserver-xorg-core",
+      "version": "2:21.1.16-1.3+deb13u4"
+    },
+    {
+      "name": "xserver-xorg-input-libinput",
+      "version": "1.5.0-1"
+    },
+    {
+      "name": "xserver-xorg-video-nvidia",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "xtrans-dev",
+      "version": "1.4.0-1"
+    },
+    {
+      "name": "xwayland",
+      "version": "2:24.1.6-1"
+    },
+    {
+      "name": "xz-utils",
+      "version": "5.8.1-1+deb13u2"
+    },
+    {
+      "name": "zlib1g:amd64",
+      "version": "1:1.3.dfsg+really1.3.1-1+b1"
+    },
+    {
+      "name": "zstd",
+      "version": "1.5.7+dfsg-1"
+    }
+  ],
+  "python_environments": [
+    {
+      "path": "/opt/jarvis-lab/tts-01/venv",
+      "rc": 0,
+      "inventory": {
+        "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+        "packages": [
+          [
+            "Jinja2",
+            "3.1.6"
+          ],
+          [
+            "MarkupSafe",
+            "3.0.3"
+          ],
+          [
+            "PyYAML",
+            "6.0.3"
+          ],
+          [
+            "Pygments",
+            "2.21.0"
+          ],
+          [
+            "accelerate",
+            "1.12.0"
+          ],
+          [
+            "annotated-doc",
+            "0.0.5"
+          ],
+          [
+            "annotated-types",
+            "0.8.0"
+          ],
+          [
+            "anyio",
+            "4.15.1"
+          ],
+          [
+            "audioop-lts",
+            "0.2.2"
+          ],
+          [
+            "brotli",
+            "1.2.1"
+          ],
+          [
+            "certifi",
+            "2026.10.19"
+          ],
+          [
+            "cffi",
+            "2.1.1"
+          ],
+          [
+            "charset-normalizer",
+            "3.5.2"
+          ],
+          [
+            "click",
+            "8.5.0"
+          ],
+          [
+            "cloudpickle",
+            "3.1.2"
+          ],
+          [
+            "decorator",
+            "5.3.1"
+          ],
+          [
+            "einops",
+            "0.8.2"
+          ],
+          [
+            "fastapi",
+            "0.161.1"
+          ],
+          [
+            "filelock",
+            "3.32.3"
+          ],
+          [
+            "flatbuffers",
+            "25.12.19"
+          ],
+          [
+            "fsspec",
+            "2026.7.0"
+          ],
+          [
+            "gradio",
+            "6.17.3"
+          ],
+          [
+            "gradio_client",
+            "2.5.0"
+          ],
+          [
+            "groovy",
+            "0.1.2"
+          ],
+          [
+            "h11",
+            "0.16.0"
+          ],
+          [
+            "hf-gradio",
+            "0.4.1"
+          ],
+          [
+            "hf-xet",
+            "1.7.0"
+          ],
+          [
+            "httpcore",
+            "1.0.9"
+          ],
+          [
+            "httpx",
+            "0.28.1"
+          ],
+          [
+            "huggingface_hub",
+            "0.36.2"
+          ],
+          [
+            "idna",
+            "3.20"
+          ],
+          [
+            "joblib",
+            "1.6.0"
+          ],
+          [
+            "lazy-loader",
+            "0.6"
+          ],
+          [
+            "librosa",
+            "1.0.0"
+          ],
+          [
+            "llvmlite",
+            "0.50.0"
+          ],
+          [
+            "markdown-it-py",
+            "4.2.0"
+          ],
+          [
+            "mdurl",
+            "0.1.2"
+          ],
+          [
+            "mpmath",
+            "1.3.0"
+          ],
+          [
+            "msgpack",
+            "1.2.3"
+          ],
+          [
+            "narwhals",
+            "2.27.1"
+          ],
+          [
+            "networkx",
+            "3.6.1"
+          ],
+          [
+            "numba",
+            "0.68.0"
+          ],
+          [
+            "numpy",
+            "2.5.4"
+          ],
+          [
+            "nvidia-cublas-cu12",
+            "12.4.5.8"
+          ],
+          [
+            "nvidia-cuda-cupti-cu12",
+            "12.4.127"
+          ],
+          [
+            "nvidia-cuda-nvrtc-cu12",
+            "12.4.127"
+          ],
+          [
+            "nvidia-cuda-runtime-cu12",
+            "12.4.127"
+          ],
+          [
+            "nvidia-cudnn-cu12",
+            "9.1.0.70"
+          ],
+          [
+            "nvidia-cufft-cu12",
+            "11.2.1.3"
+          ],
+          [
+            "nvidia-curand-cu12",
+            "10.3.5.147"
+          ],
+          [
+            "nvidia-cusolver-cu12",
+            "11.6.1.9"
+          ],
+          [
+            "nvidia-cusparse-cu12",
+            "12.3.1.170"
+          ],
+          [
+            "nvidia-cusparselt-cu12",
+            "0.6.2"
+          ],
+          [
+            "nvidia-ml-py",
+            "13.615.71"
+          ],
+          [
+            "nvidia-nccl-cu12",
+            "2.21.5"
+          ],
+          [
+            "nvidia-nvjitlink-cu12",
+            "12.4.127"
+          ],
+          [
+            "nvidia-nvtx-cu12",
+            "12.4.127"
+          ],
+          [
+            "onnxruntime",
+            "1.31.0"
+          ],
+          [
+            "opentelemetry-api",
+            "1.45.1"
+          ],
+          [
+            "orjson",
+            "3.13.0"
+          ],
+          [
+            "packaging",
+            "26.3"
+          ],
+          [
+            "pandas",
+            "3.1.0"
+          ],
+          [
+            "pillow",
+            "12.3.0"
+          ],
+          [
+            "pip",
+            "26.2.2"
+          ],
+          [
+            "platformdirs",
+            "4.13.5"
+          ],
+          [
+            "pooch",
+            "1.9.0"
+          ],
+          [
+            "protobuf",
+            "7.36.2"
+          ],
+          [
+            "psutil",
+            "7.2.2"
+          ],
+          [
+            "pycparser",
+            "3.12"
+          ],
+          [
+            "pydantic",
+            "2.14.1"
+          ],
+          [
+            "pydantic_core",
+            "2.50.1"
+          ],
+          [
+            "pydub",
+            "0.25.1"
+          ],
+          [
+            "python-dateutil",
+            "3.0.0"
+          ],
+          [
+            "python-multipart",
+            "0.0.32"
+          ],
+          [
+            "pytz",
+            "2026.5"
+          ],
+          [
+            "qwen-tts",
+            "0.1.1"
+          ],
+          [
+            "regex",
+            "2026.9.29"
+          ],
+          [
+            "requests",
+            "2.34.2"
+          ],
+          [
+            "rich",
+            "15.0.0"
+          ],
+          [
+            "safehttpx",
+            "0.1.7"
+          ],
+          [
+            "safetensors",
+            "0.8.0"
+          ],
+          [
+            "scikit-learn",
+            "1.9.1"
+          ],
+          [
+            "scipy",
+            "1.18.1"
+          ],
+          [
+            "semantic-version",
+            "2.10.0"
+          ],
+          [
+            "setuptools",
+            "84.2.1"
+          ],
+          [
+            "shellingham",
+            "1.5.4"
+          ],
+          [
+            "six",
+            "1.17.0"
+          ],
+          [
+            "soundfile",
+            "0.14.0"
+          ],
+          [
+            "sox",
+            "1.5.0"
+          ],
+          [
+            "soxr",
+            "1.1.0"
+          ],
+          [
+            "starlette",
+            "1.9.0"
+          ],
+          [
+            "sympy",
+            "1.13.1"
+          ],
+          [
+            "threadpoolctl",
+            "3.7.0"
+          ],
+          [
+            "tokenizers",
+            "0.22.2"
+          ],
+          [
+            "tomlkit",
+            "0.14.0"
+          ],
+          [
+            "torch",
+            "2.6.0+cu124"
+          ],
+          [
+            "torchaudio",
+            "2.6.0+cu124"
+          ],
+          [
+            "tqdm",
+            "4.70.1"
+          ],
+          [
+            "transformers",
+            "4.57.3"
+          ],
+          [
+            "triton",
+            "3.2.0"
+          ],
+          [
+            "typer",
+            "0.27.3"
+          ],
+          [
+            "typing-inspection",
+            "0.4.4"
+          ],
+          [
+            "typing_extensions",
+            "4.16.0"
+          ],
+          [
+            "tzdata",
+            "2026.5"
+          ],
+          [
+            "urllib3",
+            "2.8.0"
+          ],
+          [
+            "uvicorn",
+            "0.54.0"
+          ],
+          [
+            "wheel",
+            "0.48.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "services": [
+    {
+      "machine_id": "dell1",
+      "unit": "accounts-daemon.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "apparmor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "apt-daily-upgrade.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "apt-daily.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "auditd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "connman.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "console-screen.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "console-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "dbus.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "dpkg-db-backup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "e2scrub_all.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "e2scrub_reap.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "emergency.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "fstrim.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "getty-static.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "getty@tty1.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "getty@tty7.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "getty@tty8.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "grub-common.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "haveged.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "initrd-cleanup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "initrd-parse-etc.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "initrd-switch-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "initrd-udevadm-cleanup-db.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-desktop-plasma.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-desktop-vnc.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-gpu-normal.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-ollama-missions.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-ollama.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-progress-console.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "jarvis-supervision.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "kbd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "keyboard-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "kmod-static-nodes.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "ldconfig.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "mdcheck_continue.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "mdcheck_start.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "mdmonitor-oneshot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "mdmonitor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "modprobe@configfs.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "modprobe@drm.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "modprobe@efi_pstore.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "modprobe@fuse.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "modprobe@nvme_fabrics.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "NetworkManager.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "nvidia-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "nvidia-persistenced.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "nvidia-resume.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "nvidia-suspend.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "nvmefc-boot-connections.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "nvmf-autoconnect.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "plymouth-quit-wait.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "plymouth-start.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "polkit.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "rc-local.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "rescue.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "sddm.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "smartmontools.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "ssh.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "sshd-keygen.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "sshd@sshd-keygen.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "syslog.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-ask-password-console.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-ask-password-wall.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-battery-check.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-binfmt.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-bsod.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-confext.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-firstboot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-fsck-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-hibernate-clear.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-hibernate-resume.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-hostnamed.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-hwdb-update.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-hybrid-sleep.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-initctl.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-journal-catalog-update.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-journal-flush.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-journald.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-logind.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-machine-id-commit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-modules-load.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-network-generator.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-networkd-persistent-storage.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-networkd-wait-online.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-networkd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-oomd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-pcrmachine.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-pcrphase-initrd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-pcrphase-sysinit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-pcrphase.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-pstore.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-quotacheck-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-random-seed.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-remount-fs.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-resolved.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-rfkill.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-soft-reboot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-suspend-then-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-suspend.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-sysctl.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-sysext.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-sysusers.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-timesyncd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-tmpfiles-clean.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-tmpfiles-setup-dev-early.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-tmpfiles-setup-dev.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-tmpfiles-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-tpm2-setup-early.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-tpm2-setup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-udev-load-credentials.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-udev-settle.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-udev-trigger.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-udevd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-update-done.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-user-sessions.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "systemd-vconsole-setup.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "tailscaled.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "udisks2.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "upower.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "user-runtime-dir@1000.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "user-runtime-dir@102.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "user@1000.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "user@102.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell1",
+      "unit": "uuidd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    }
+  ],
+  "ollama_bindings": {
+    "11435": {
+      "version": {
+        "version": "0.40.3"
+      },
+      "tags": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 51741611823,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 2048,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "qwen3:32b-q4_K_M",
+            "model": "qwen3:32b-q4_K_M",
+            "size": 20201253829,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "32.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 40960,
+              "embedding_length": 5120,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 42520413916,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 131072,
+              "embedding_length": 8192,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 17478556591,
+            "details": {
+              "parent_model": "qwen35-validation-20261004:27b-q4",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 5120,
+              "runner": "llamacpp"
+            }
+          },
+          {
+            "name": "ministral-3:14b-instruct-2512-q4_K_M",
+            "model": "ministral-3:14b-instruct-2512-q4_K_M",
+            "size": 9082537546,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "mistral3",
+              "families": [
+                "mistral3"
+              ],
+              "parameter_size": "13.9B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 5120,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "llama3.1:8b",
+            "model": "llama3.1:8b",
+            "size": 4920753328,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "8.0B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 131072,
+              "embedding_length": 4096,
+              "runner": "ggml"
+            }
+          }
+        ]
+      },
+      "ps": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 53582867932,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-10-31T21:01:38.405675415+01:00",
+            "size_vram": 47695517447,
+            "context_length": 32768
+          }
+        ]
+      }
+    },
+    "11434": {
+      "version": {
+        "version": "0.40.3"
+      },
+      "tags": {
+        "models": [
+          {
+            "name": "qwen3-coder-next:q4_K_M",
+            "model": "qwen3-coder-next:q4_K_M",
+            "size": 51741611823,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3next",
+              "families": [
+                "qwen3next"
+              ],
+              "parameter_size": "79.7B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 2048,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "qwen3:32b-q4_K_M",
+            "model": "qwen3:32b-q4_K_M",
+            "size": 20201253829,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "32.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 40960,
+              "embedding_length": 5120,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "llama3.3:70b-instruct-q4_K_M",
+            "model": "llama3.3:70b-instruct-q4_K_M",
+            "size": 42520413916,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 131072,
+              "embedding_length": 8192,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "qwen3.5:27b-q4_K_M",
+            "model": "qwen3.5:27b-q4_K_M",
+            "size": 17478556591,
+            "details": {
+              "parent_model": "qwen35-validation-20261004:27b-q4",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "26.9B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 5120,
+              "runner": "llamacpp"
+            }
+          },
+          {
+            "name": "ministral-3:14b-instruct-2512-q4_K_M",
+            "model": "ministral-3:14b-instruct-2512-q4_K_M",
+            "size": 9082537546,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "mistral3",
+              "families": [
+                "mistral3"
+              ],
+              "parameter_size": "13.9B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 5120,
+              "runner": "ggml"
+            }
+          },
+          {
+            "name": "llama3.1:8b",
+            "model": "llama3.1:8b",
+            "size": 4920753328,
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "8.0B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 131072,
+              "embedding_length": 4096,
+              "runner": "ggml"
+            }
+          }
+        ]
+      },
+      "ps": {
+        "models": []
+      }
+    }
+  },
+  "collector_commands": {
+    "os": {
+      "command": "cat /etc/os-release; uname -r",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "cpu": {
+      "command": "lscpu -J",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "memory": {
+      "command": "free -b",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "dmi": {
+      "command": "sudo -n dmidecode -t system -t bios -t memory",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "disks": {
+      "command": "lsblk -b -J -o NAME,TYPE,SIZE,MODEL,FSTYPE,MOUNTPOINTS,TRAN,ROTA",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "filesystems": {
+      "command": "findmnt -J -o TARGET,SOURCE,FSTYPE,OPTIONS",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "raid": {
+      "command": "cat /proc/mdstat; sudo -n mdadm --detail --scan",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "pci": {
+      "command": "lspci -nnk",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "usb": {
+      "command": "lsusb; command -v boltctl >/dev/null && boltctl list",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "gpu": {
+      "command": "nvidia-smi --query-gpu=index,name,uuid,pci.bus_id,memory.total,memory.used,utilization.gpu,temperature.gpu,power.draw,power.limit,driver_version --format=csv,noheader,nounits",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "gpu_processes": {
+      "command": "nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader,nounits",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "gpu_driver": {
+      "command": "nvidia-smi; command -v nvcc >/dev/null && nvcc --version",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "network": {
+      "command": "ip -j address; ip -j route",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "links": {
+      "command": "for x in /sys/class/net/*; do n=${x##*/}; if [ -e \"$x/device\" ]; then echo \"INTERFACE:$n\"; sudo -n ethtool \"$n\"; fi; done",
+      "rc": 0,
+      "error": null,
+      "stderr_present": true
+    },
+    "cpu_temperature": {
+      "command": "command -v sensors >/dev/null && sensors",
+      "rc": 127,
+      "error": null,
+      "stderr_present": false
+    },
+    "tailscale": {
+      "command": "tailscale status --json",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "services": {
+      "command": "systemctl list-units --all --type=service --no-pager --plain --no-legend",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit_files": {
+      "command": "systemctl list-unit-files --type=service --no-pager --no-legend",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "failed": {
+      "command": "systemctl --failed --no-pager --plain",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "timers": {
+      "command": "systemctl list-timers --all --no-pager",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "listeners": {
+      "command": "sudo -n ss -ltnup",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "packages": {
+      "command": "dpkg-query -W -f='${binary:Package}\t${Version}\t${db:Status-Status}\n'",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "versions": {
+      "command": "python3 --version; node --version; npm --version; git --version; ssh -V; ansible --version; ollama --version",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "npm": {
+      "command": "npm list -g --depth=0 --json",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "containers": {
+      "command": "command -v docker >/dev/null && sudo -n docker ps -a --no-trunc --format json; command -v podman >/dev/null && podman ps -a --format json",
+      "rc": 127,
+      "error": null,
+      "stderr_present": false
+    },
+    "venvs": {
+      "command": "find /opt /home/adminjarvis/JARVIS /home/adminjarvis/.local -maxdepth 6 -name pyvenv.cfg -type f 2>/dev/null",
+      "rc": 1,
+      "error": null,
+      "stderr_present": false
+    },
+    "node_projects": {
+      "command": "find /opt /home/adminjarvis/JARVIS -maxdepth 4 -name package.json -not -path '*/node_modules/*' -type f 2>/dev/null",
+      "rc": 1,
+      "error": null,
+      "stderr_present": false
+    },
+    "custom_units": {
+      "command": "find /etc/systemd/system -maxdepth 3 -type f -name '*.service' -o -type f -name '*.conf'",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "processes": {
+      "command": "ps -eo pid,ppid,user,comm,pcpu,pmem --sort=-pcpu",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-desktop-plasma.service": {
+      "command": "systemctl show jarvis-desktop-plasma.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-desktop-vnc.service": {
+      "command": "systemctl show jarvis-desktop-vnc.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-gpu-normal.service": {
+      "command": "systemctl show jarvis-gpu-normal.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-ollama-missions.service": {
+      "command": "systemctl show jarvis-ollama-missions.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-ollama.service": {
+      "command": "systemctl show jarvis-ollama.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-progress-console.service": {
+      "command": "systemctl show jarvis-progress-console.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-supervision.service": {
+      "command": "systemctl show jarvis-supervision.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:tailscaled.service": {
+      "command": "systemctl show tailscaled.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    }
+  },
+  "raw_private_sha256": "0a5b4f7ca4db3cb5a00cf1f829d04056372d009cb8ecddc4e500ff4e1b492007"
+}

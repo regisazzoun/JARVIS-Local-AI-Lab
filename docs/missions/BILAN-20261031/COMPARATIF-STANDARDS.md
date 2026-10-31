@@ -1,0 +1,17 @@
+# Réutilisation : solutions comparées et limites des contrats
+
+Recherche du31octobre2026. Les métadonnées de maintenance et de licence sont dans [RECHERCHE-AMONTS.json](RECHERCHE-AMONTS.json). Un dépôt actif ne garantit ni support commercial ni compatibilité avec la version installée. Aucun composant ajouté pendant cet audit.
+
+| Besoin | Solution existante / source primaire | Fonction couverte | Écart avec JARVIS / décision |
+|---|---|---|---|
+| Programmation, outils, MCP | [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/features/mcp/) | Agent de développement et appels MCP | Déjà installé ; le moteur conserve mission, preuves et réception. Vérifier la version0.26.4, pas attribuer les fonctions latest automatiquement. |
+| Interface de chat et outils | [Open WebUI Tools](https://docs.openwebui.com/features/extensibility/plugin/tools/) et [MCP](https://docs.openwebui.com/features/extensibility/mcp/) | Chat, outils Python, serveurs externes HTTP/MCP | Déjà utilisé. La mémoire canonique et les preuves JARVIS ne découlent pas d’un chat Ollama brut. Configuration et adaptateur suffisent pour l’essentiel. |
+| MCP stdio vers OpenAPI | [MCPO](https://github.com/open-webui/mcpo) | Proxy standard pour exposer des outils MCP | Peut réduire un transport maison ; ne remplace pas les identifiants idempotents, la pagination métier et les reçus du client_capabilities. Comparer avant remplacement. |
+| Graphes et checkpoints | [LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence) | Persistance par thread et mémoire longue via stores | Couvre une part générique du moteur ; pas les politiques, l’identité exacte des machines ou l’oracle de code réel. Pas de migration justifiée par cet audit seul. |
+| Exécution durable et retries | [Temporal](https://docs.temporal.io/encyclopedia/retry-policies) | Politiques de retry et historique durable | Ajouterait serveur et nouveaux contrats. Un retry d’activité n’est pas un cycle diagnostic/correction/test. Alternative de moyen terme seulement si gain mesuré. |
+| Inventaire des hôtes | [Ansible setup](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/setup_module.html) | Collecte de faits système standard | Ansible est déjà installé sur le contrôleur Mac ; compléter pour NVIDIA et applications. Pas besoin de contrôleurs Ansible sur chaque cible. |
+| Mesures GPU | [nvidia_gpu_exporter](https://github.com/utkuozdemir/nvidia_gpu_exporter) | Métriques via nvidia-smi/NVML, découverte des cartes | Compatible en principe avec les sondes disponibles ; test de contrat requis pour les champs N/A et les cinq cartes. Ne diagnostique pas seul une mission bloquée. Réutiliser la collecte, adapter l’incident canonique. |
+| Réseau, services et quotas | systemd/cgroups, OpenSSH, Tailscale, Apache déjà présents | Services, limites CPU/RAM, transports et proxy | Rôles complémentaires ; ne pas recréer un système de services ou un transport réseau pour les mêmes fonctions. |
+| Google | Workspace MCP déjà installé, deux profils | OAuth fourni, outils Google | Les comptes fonctionnent dans la portée prouvée. Aucun remplacement payant/plafonné et aucun nouveau projet Cloud nécessaire à cet état reçu. Les deux ajouts Sheets restent attribués à Codex. |
+
+Pour chaque évolution : fixer une version et sa licence, comparer les schémas, permissions, retours d’erreur, idempotence et reprise aux contrats actuels, puis recevoir un scénario ciblé. Une interface similaire ne suffit pas à remplacer le composant métier.

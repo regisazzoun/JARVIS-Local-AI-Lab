@@ -1,0 +1,2810 @@
+{
+  "collected_at": "2026-10-31T19:50:51.857052+00:00",
+  "actor": "Codex",
+  "hardware": {
+    "id": "dell2",
+    "collected_at": "2026-10-31T19:50:51.857052+00:00",
+    "manufacturer_model": "Precision 5820 Tower X-Series",
+    "bios": "2.24.0",
+    "cpu": "Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz",
+    "cpu_logical": 36,
+    "cores_per_socket": "18",
+    "threads_per_core": "2",
+    "ram_physical_gib": 128,
+    "ram_os_bytes": 134767767552,
+    "memory_modules": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "os": "Debian 13.7",
+    "kernel": "6.12.113+deb13-amd64",
+    "gpus": [
+      {
+        "id": "dell2-gpu0",
+        "model": "NVIDIA GeForce RTX 3090",
+        "fingerprint": "165b9a7f874f0d32",
+        "pci_bus": "00000000:4F:00.0",
+        "vram_mib": 24576,
+        "vram_used_mib": 1,
+        "utilization_percent": 0,
+        "temperature_c": 48,
+        "power_w": "113.52",
+        "power_limit_w": "350.00",
+        "driver": "550.163.01"
+      },
+      {
+        "id": "dell2-gpu1",
+        "model": "NVIDIA GeForce RTX 3080",
+        "fingerprint": "8c5de7129fd13aa9",
+        "pci_bus": "00000000:BD:00.0",
+        "vram_mib": 10240,
+        "vram_used_mib": 1,
+        "utilization_percent": 0,
+        "temperature_c": 54,
+        "power_w": "[N/A]",
+        "power_limit_w": "320.00",
+        "driver": "550.163.01"
+      }
+    ],
+    "disks": [
+      {
+        "id": "dell2-disk1",
+        "model": "KXG70PNV2T04 NVMe KIOXIA 2048GB",
+        "bytes": 2048408248320,
+        "transport": "nvme"
+      },
+      {
+        "id": "dell2-disk2",
+        "model": "PM9A1 NVMe Samsung 2048GB",
+        "bytes": 2048408248320,
+        "transport": "nvme"
+      }
+    ],
+    "raid": "RAID1 mdadm [2/2] [UU]",
+    "links": [
+      {
+        "id": "dell2-nic1",
+        "state": "up",
+        "speed_mbps": "1000",
+        "duplex": "full"
+      }
+    ],
+    "tailscale": "binaire absent dans PATH ; paquet non trouvé",
+    "service_counts": {
+      "active": 36,
+      "inactive": 71
+    },
+    "gpu_processes": 0,
+    "provenance": "observation directe Codex ; SSH épinglé pour Dell"
+  },
+  "packages": [
+    {
+      "name": "adduser",
+      "version": "3.152"
+    },
+    {
+      "name": "apparmor",
+      "version": "4.1.0-1"
+    },
+    {
+      "name": "apt",
+      "version": "3.0.3"
+    },
+    {
+      "name": "base-files",
+      "version": "13.8+deb13u7"
+    },
+    {
+      "name": "base-passwd",
+      "version": "3.6.7"
+    },
+    {
+      "name": "bash",
+      "version": "5.2.37-2+b10"
+    },
+    {
+      "name": "bash-completion",
+      "version": "1:2.16.0-7"
+    },
+    {
+      "name": "binutils",
+      "version": "2.44-3"
+    },
+    {
+      "name": "binutils-common:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "binutils-x86-64-linux-gnu",
+      "version": "2.44-3"
+    },
+    {
+      "name": "bsdutils",
+      "version": "1:2.41.5-0+deb13u1"
+    },
+    {
+      "name": "bubblewrap",
+      "version": "0.12.0-1~deb13u1"
+    },
+    {
+      "name": "busybox",
+      "version": "1:1.37.0-6+b9"
+    },
+    {
+      "name": "bzip2",
+      "version": "1.0.8-6"
+    },
+    {
+      "name": "ca-certificates",
+      "version": "20250419+deb13u1"
+    },
+    {
+      "name": "console-setup",
+      "version": "1.242~deb13u1"
+    },
+    {
+      "name": "console-setup-linux",
+      "version": "1.242~deb13u1"
+    },
+    {
+      "name": "coreutils",
+      "version": "9.7-3"
+    },
+    {
+      "name": "cpio",
+      "version": "2.15+dfsg-2"
+    },
+    {
+      "name": "cpp-13",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "cpp-13-x86-64-linux-gnu",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "cpp-14",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "cpp-14-x86-64-linux-gnu",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "curl",
+      "version": "8.14.1-2+deb13u7"
+    },
+    {
+      "name": "dash",
+      "version": "0.5.12-12"
+    },
+    {
+      "name": "dbus",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-bin",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-daemon",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-session-bus-common",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-system-bus-common",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "dbus-user-session",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "debconf",
+      "version": "1.5.91"
+    },
+    {
+      "name": "debian-archive-keyring",
+      "version": "2025.1"
+    },
+    {
+      "name": "debianutils",
+      "version": "5.23.2"
+    },
+    {
+      "name": "diffutils",
+      "version": "1:3.10-4"
+    },
+    {
+      "name": "dkms",
+      "version": "3.2.2-1~deb13u1"
+    },
+    {
+      "name": "dmidecode",
+      "version": "3.6-2"
+    },
+    {
+      "name": "dmsetup",
+      "version": "2:1.02.205-2"
+    },
+    {
+      "name": "dpkg",
+      "version": "1.22.22"
+    },
+    {
+      "name": "dpkg-dev",
+      "version": "1.22.22"
+    },
+    {
+      "name": "dracut-install",
+      "version": "106-6"
+    },
+    {
+      "name": "e2fsprogs",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "e2fsprogs-l10n",
+      "version": "1.47.2-3"
+    },
+    {
+      "name": "efibootmgr",
+      "version": "18-2"
+    },
+    {
+      "name": "findutils",
+      "version": "4.10.0-3"
+    },
+    {
+      "name": "firmware-nvidia-gsp",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "g++-13",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "g++-13-x86-64-linux-gnu",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-13",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-13-base:amd64",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-13-x86-64-linux-gnu",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "gcc-14",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "gcc-14-base:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "gcc-14-x86-64-linux-gnu",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "gettext-base",
+      "version": "0.23.1-2"
+    },
+    {
+      "name": "glx-alternative-mesa",
+      "version": "1.2.2"
+    },
+    {
+      "name": "glx-alternative-nvidia",
+      "version": "1.2.2"
+    },
+    {
+      "name": "glx-diversions",
+      "version": "1.2.2"
+    },
+    {
+      "name": "grep",
+      "version": "3.11-4"
+    },
+    {
+      "name": "grub-common",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "grub-efi-amd64-bin",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "grub-efi-amd64-signed",
+      "version": "1+2.12+9+deb13u2"
+    },
+    {
+      "name": "grub-efi-amd64-unsigned",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "grub2-common",
+      "version": "2.12-9+deb13u2"
+    },
+    {
+      "name": "gzip",
+      "version": "1.13-1+deb13u1"
+    },
+    {
+      "name": "hostname",
+      "version": "3.25"
+    },
+    {
+      "name": "init-system-helpers",
+      "version": "1.69~deb13u1"
+    },
+    {
+      "name": "initramfs-tools",
+      "version": "0.148.4"
+    },
+    {
+      "name": "initramfs-tools-bin",
+      "version": "0.148.4"
+    },
+    {
+      "name": "initramfs-tools-core",
+      "version": "0.148.4"
+    },
+    {
+      "name": "iproute2",
+      "version": "6.15.0-1"
+    },
+    {
+      "name": "kbd",
+      "version": "2.7.1-2"
+    },
+    {
+      "name": "keyboard-configuration",
+      "version": "1.242~deb13u1"
+    },
+    {
+      "name": "klibc-utils",
+      "version": "2.0.14-1"
+    },
+    {
+      "name": "kmod",
+      "version": "34.2-2"
+    },
+    {
+      "name": "krb5-locales",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libaccinj64-12.4:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libacl1:amd64",
+      "version": "2.3.2-2+b1"
+    },
+    {
+      "name": "libapparmor1:amd64",
+      "version": "4.1.0-1"
+    },
+    {
+      "name": "libapt-pkg7.0:amd64",
+      "version": "3.0.3"
+    },
+    {
+      "name": "libasan8:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libatomic1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libattr1:amd64",
+      "version": "1:2.5.2-3"
+    },
+    {
+      "name": "libaudit-common",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "name": "libaudit1:amd64",
+      "version": "1:4.0.2-2+deb13u1"
+    },
+    {
+      "name": "libbinutils:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libblkid1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libbpf1:amd64",
+      "version": "1:1.5.0-3"
+    },
+    {
+      "name": "libbrotli1:amd64",
+      "version": "1.1.0-2+deb13u1"
+    },
+    {
+      "name": "libbsd0:amd64",
+      "version": "0.12.2-2"
+    },
+    {
+      "name": "libbz2-1.0:amd64",
+      "version": "1.0.8-6"
+    },
+    {
+      "name": "libc-bin",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc-dev-bin",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc-l10n",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc6-dev:amd64",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libc6:amd64",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "libcap-ng0:amd64",
+      "version": "0.8.5-4+b1"
+    },
+    {
+      "name": "libcap2-bin",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "name": "libcap2:amd64",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "name": "libcares2:amd64",
+      "version": "1.34.5-1+deb13u1"
+    },
+    {
+      "name": "libcbor0.10:amd64",
+      "version": "0.10.2-2"
+    },
+    {
+      "name": "libcc1-0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libcom-err2:amd64",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "libcrypt-dev:amd64",
+      "version": "1:4.4.38-1"
+    },
+    {
+      "name": "libcrypt1:amd64",
+      "version": "1:4.4.38-1"
+    },
+    {
+      "name": "libcryptsetup12:amd64",
+      "version": "2:2.7.5-2"
+    },
+    {
+      "name": "libctf-nobfd0:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libctf0:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libcu++-dev",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "libcub-dev",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "libcublas12:amd64",
+      "version": "12.4.5.8~12.4.1-2"
+    },
+    {
+      "name": "libcublaslt12:amd64",
+      "version": "12.4.5.8~12.4.1-2"
+    },
+    {
+      "name": "libcuda1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libcudart12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcufft11:amd64",
+      "version": "11.2.1.3~12.4.1-2"
+    },
+    {
+      "name": "libcufftw11:amd64",
+      "version": "11.2.1.3~12.4.1-2"
+    },
+    {
+      "name": "libcuinj64-12.4:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcupti-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcupti12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libcurand10:amd64",
+      "version": "11.1.1+~10.3.5.147~12.4.1-2"
+    },
+    {
+      "name": "libcurl4t64:amd64",
+      "version": "8.14.1-2+deb13u7"
+    },
+    {
+      "name": "libcusolver11:amd64",
+      "version": "11.6.1.9~12.4.1-2"
+    },
+    {
+      "name": "libcusolvermg11:amd64",
+      "version": "11.6.1.9~12.4.1-2"
+    },
+    {
+      "name": "libcusparse12:amd64",
+      "version": "12.3.1.170~12.4.1-2"
+    },
+    {
+      "name": "libdb5.3t64:amd64",
+      "version": "5.3.28+dfsg2-9"
+    },
+    {
+      "name": "libdbus-1-3:amd64",
+      "version": "1.16.2-2"
+    },
+    {
+      "name": "libdebconfclient0:amd64",
+      "version": "0.280"
+    },
+    {
+      "name": "libdevmapper1.02.1:amd64",
+      "version": "2:1.02.205-2"
+    },
+    {
+      "name": "libdpkg-perl",
+      "version": "1.22.22"
+    },
+    {
+      "name": "libdrm-amdgpu1:amd64",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdrm-common",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdrm-intel1:amd64",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdrm2:amd64",
+      "version": "2.4.124-2"
+    },
+    {
+      "name": "libdw1t64:amd64",
+      "version": "0.192-4"
+    },
+    {
+      "name": "libedit2:amd64",
+      "version": "3.1-20250104-1"
+    },
+    {
+      "name": "libefiboot1t64:amd64",
+      "version": "38-3.1+b1"
+    },
+    {
+      "name": "libefivar1t64:amd64",
+      "version": "38-3.1+b1"
+    },
+    {
+      "name": "libegl-mesa0:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libegl-nvidia0:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libegl1:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libelf1t64:amd64",
+      "version": "0.192-4"
+    },
+    {
+      "name": "libepoxy0:amd64",
+      "version": "1.5.10-2"
+    },
+    {
+      "name": "libexpat1:amd64",
+      "version": "2.9.0-1~deb13u1"
+    },
+    {
+      "name": "libext2fs2t64:amd64",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "libffi8:amd64",
+      "version": "3.4.8-2"
+    },
+    {
+      "name": "libfido2-1:amd64",
+      "version": "1.15.0-1+b1"
+    },
+    {
+      "name": "libfontenc1:amd64",
+      "version": "1:1.1.8-1+b2"
+    },
+    {
+      "name": "libfreetype6:amd64",
+      "version": "2.13.3+dfsg-1+deb13u1"
+    },
+    {
+      "name": "libfuse3-4:amd64",
+      "version": "3.17.2-3"
+    },
+    {
+      "name": "libgbm1:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libgcc-13-dev:amd64",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "libgcc-14-dev:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgcc-s1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgdbm-compat4t64:amd64",
+      "version": "1.24-2"
+    },
+    {
+      "name": "libgdbm6t64:amd64",
+      "version": "1.24-2"
+    },
+    {
+      "name": "libgl1-mesa-dri:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libgl1-nvidia-glvnd-glx:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libgl1:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libglvnd0:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libglx-mesa0:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "libglx-nvidia0:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libglx0:amd64",
+      "version": "1.7.0-1+b2"
+    },
+    {
+      "name": "libgmp10:amd64",
+      "version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "name": "libgnutls30t64:amd64",
+      "version": "3.8.9-3+deb13u4"
+    },
+    {
+      "name": "libgomp1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libgpm2:amd64",
+      "version": "1.20.7-11+b2"
+    },
+    {
+      "name": "libgprofng0:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libgssapi-krb5-2:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libhogweed6t64:amd64",
+      "version": "3.10.1-1"
+    },
+    {
+      "name": "libhwasan0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libice6:amd64",
+      "version": "2:1.1.1-1"
+    },
+    {
+      "name": "libicu76:amd64",
+      "version": "76.1-4"
+    },
+    {
+      "name": "libidn2-0:amd64",
+      "version": "2.3.8-2"
+    },
+    {
+      "name": "libisl23:amd64",
+      "version": "0.27-1"
+    },
+    {
+      "name": "libitm1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libjansson4:amd64",
+      "version": "2.14-2+b3"
+    },
+    {
+      "name": "libjson-c5:amd64",
+      "version": "0.18+ds-1"
+    },
+    {
+      "name": "libk5crypto3:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libkeyutils1:amd64",
+      "version": "1.6.3-6"
+    },
+    {
+      "name": "libklibc:amd64",
+      "version": "2.0.14-1"
+    },
+    {
+      "name": "libkmod2:amd64",
+      "version": "34.2-2"
+    },
+    {
+      "name": "libkrb5-3:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "libkrb5support0:amd64",
+      "version": "1.21.3-5+deb13u1"
+    },
+    {
+      "name": "liblastlog2-2:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libldap-common",
+      "version": "2.6.10+dfsg-1"
+    },
+    {
+      "name": "libldap2:amd64",
+      "version": "2.6.10+dfsg-1"
+    },
+    {
+      "name": "libllvm19:amd64",
+      "version": "1:19.1.7-3+b1"
+    },
+    {
+      "name": "liblocale-gettext-perl",
+      "version": "1.07-7+b1"
+    },
+    {
+      "name": "liblsan0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "liblz4-1:amd64",
+      "version": "1.10.0-4"
+    },
+    {
+      "name": "liblzma5:amd64",
+      "version": "5.8.1-1+deb13u2"
+    },
+    {
+      "name": "libmd0:amd64",
+      "version": "1.1.0-2+b1"
+    },
+    {
+      "name": "libmnl0:amd64",
+      "version": "1.0.5-3"
+    },
+    {
+      "name": "libmount1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libmpc3:amd64",
+      "version": "1.3.1-1+b3"
+    },
+    {
+      "name": "libmpfr6:amd64",
+      "version": "4.2.2-1"
+    },
+    {
+      "name": "libncursesw6:amd64",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "libnettle8t64:amd64",
+      "version": "3.10.1-1"
+    },
+    {
+      "name": "libnghttp2-14:amd64",
+      "version": "1.64.0-1.1+deb13u1"
+    },
+    {
+      "name": "libnghttp3-9:amd64",
+      "version": "1.8.0-1"
+    },
+    {
+      "name": "libnode115:amd64",
+      "version": "20.19.2+dfsg-1+deb13u3"
+    },
+    {
+      "name": "libnppc12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppial12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppicc12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppidei12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppif12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppig12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppim12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppist12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppisu12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnppitc12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnpps12:amd64",
+      "version": "12.2.5.30~12.4.1-2"
+    },
+    {
+      "name": "libnss-systemd:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libnvblas12:amd64",
+      "version": "12.4.5.8~12.4.1-2"
+    },
+    {
+      "name": "libnvfatbin12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvidia-egl-wayland1:amd64",
+      "version": "1:1.1.18-1"
+    },
+    {
+      "name": "libnvidia-eglcore:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-glcore:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-glvkspirv:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-gpucomp:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-ml-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvidia-ml1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-pkcs11-openssl3:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvidia-ptxjitcompiler1:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "libnvjitlink12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvjpeg12:amd64",
+      "version": "12.3.1.117~12.4.1-2"
+    },
+    {
+      "name": "libnvme1t64",
+      "version": "1.13-2"
+    },
+    {
+      "name": "libnvrtc-builtins12.4:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvrtc12:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvtoolsext1:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "libnvvm4:amd64",
+      "version": "12.4.131~12.4.1-2"
+    },
+    {
+      "name": "libp11-kit0:amd64",
+      "version": "0.25.5-3"
+    },
+    {
+      "name": "libpam-cap:amd64",
+      "version": "1:2.75-10+deb13u1+b3"
+    },
+    {
+      "name": "libpam-modules-bin",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpam-modules:amd64",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpam-runtime",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpam-systemd:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libpam0g:amd64",
+      "version": "1.7.0-5"
+    },
+    {
+      "name": "libpci3:amd64",
+      "version": "1:3.13.0-2"
+    },
+    {
+      "name": "libpciaccess0:amd64",
+      "version": "0.17-3+b3"
+    },
+    {
+      "name": "libpcre2-8-0:amd64",
+      "version": "10.46-1~deb13u2"
+    },
+    {
+      "name": "libperl5.40:amd64",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "libpixman-1-0:amd64",
+      "version": "0.44.0-3"
+    },
+    {
+      "name": "libpng16-16t64:amd64",
+      "version": "1.6.48-1+deb13u6"
+    },
+    {
+      "name": "libpopt0:amd64",
+      "version": "1.19+dfsg-2"
+    },
+    {
+      "name": "libproc2-0:amd64",
+      "version": "2:4.0.4-9"
+    },
+    {
+      "name": "libpsl5t64:amd64",
+      "version": "0.21.2-1.1+b1"
+    },
+    {
+      "name": "libpython3-stdlib:amd64",
+      "version": "3.13.5-1"
+    },
+    {
+      "name": "libpython3.13-minimal:amd64",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "libpython3.13-stdlib:amd64",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "libquadmath0:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libreadline8t64:amd64",
+      "version": "8.2-6"
+    },
+    {
+      "name": "librtmp1:amd64",
+      "version": "2.4+20151223.gitfa8646d.1-2+b5"
+    },
+    {
+      "name": "libsasl2-2:amd64",
+      "version": "2.1.28+dfsg1-9"
+    },
+    {
+      "name": "libsasl2-modules-db:amd64",
+      "version": "2.1.28+dfsg1-9"
+    },
+    {
+      "name": "libsasl2-modules:amd64",
+      "version": "2.1.28+dfsg1-9"
+    },
+    {
+      "name": "libseccomp2:amd64",
+      "version": "2.6.0-2"
+    },
+    {
+      "name": "libselinux1:amd64",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsemanage-common",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsemanage2:amd64",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsensors-config",
+      "version": "1:3.6.2-2"
+    },
+    {
+      "name": "libsensors5:amd64",
+      "version": "1:3.6.2-2"
+    },
+    {
+      "name": "libsepol2:amd64",
+      "version": "3.8.1-1"
+    },
+    {
+      "name": "libsframe1:amd64",
+      "version": "2.44-3"
+    },
+    {
+      "name": "libsm6:amd64",
+      "version": "2:1.2.6-1"
+    },
+    {
+      "name": "libsmartcols1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libsqlite3-0:amd64",
+      "version": "3.46.1-7+deb13u2"
+    },
+    {
+      "name": "libss2:amd64",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "libssh2-1t64:amd64",
+      "version": "1.11.1-1+deb13u2"
+    },
+    {
+      "name": "libssl3t64:amd64",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "name": "libstdc++-13-dev:amd64",
+      "version": "13.3.0-16"
+    },
+    {
+      "name": "libstdc++6:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libsystemd-shared:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libsystemd0:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libtasn1-6:amd64",
+      "version": "4.20.0-2+deb13u1"
+    },
+    {
+      "name": "libtext-charwidth-perl:amd64",
+      "version": "0.04-11+b4"
+    },
+    {
+      "name": "libtext-wrapi18n-perl",
+      "version": "0.06-10"
+    },
+    {
+      "name": "libthrust-dev",
+      "version": "2.3.2-2"
+    },
+    {
+      "name": "libtinfo6:amd64",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "libtirpc-common",
+      "version": "1.3.6+ds-1"
+    },
+    {
+      "name": "libtirpc3t64:amd64",
+      "version": "1.3.6+ds-1"
+    },
+    {
+      "name": "libtsan2:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libubsan1:amd64",
+      "version": "14.2.0-19"
+    },
+    {
+      "name": "libudev1:amd64",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "libunistring5:amd64",
+      "version": "1.3-2"
+    },
+    {
+      "name": "libunwind8:amd64",
+      "version": "1.8.1-0.1"
+    },
+    {
+      "name": "libuuid1:amd64",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "libuv1t64:amd64",
+      "version": "1.50.0-2"
+    },
+    {
+      "name": "libvdpau1:amd64",
+      "version": "1.5-3+b1"
+    },
+    {
+      "name": "libvulkan1:amd64",
+      "version": "1.4.309.0-1"
+    },
+    {
+      "name": "libwayland-client0:amd64",
+      "version": "1.23.1-3"
+    },
+    {
+      "name": "libwayland-server0:amd64",
+      "version": "1.23.1-3"
+    },
+    {
+      "name": "libwrap0:amd64",
+      "version": "7.6.q-36"
+    },
+    {
+      "name": "libwtmpdb0:amd64",
+      "version": "0.73.0-3+deb13u1"
+    },
+    {
+      "name": "libx11-6:amd64",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libx11-data",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libx11-xcb1:amd64",
+      "version": "2:1.8.12-1"
+    },
+    {
+      "name": "libxau6:amd64",
+      "version": "1:1.0.11-1"
+    },
+    {
+      "name": "libxaw7:amd64",
+      "version": "2:1.0.16-1"
+    },
+    {
+      "name": "libxcb-dri3-0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-glx0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-present0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-randr0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-shm0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-sync1:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb-xfixes0:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcb1:amd64",
+      "version": "1.17.0-2+b1"
+    },
+    {
+      "name": "libxcvt0:amd64",
+      "version": "0.1.3-1"
+    },
+    {
+      "name": "libxdmcp6:amd64",
+      "version": "1:1.1.5-1"
+    },
+    {
+      "name": "libxext6:amd64",
+      "version": "2:1.3.4-1+b3"
+    },
+    {
+      "name": "libxfont2:amd64",
+      "version": "1:2.0.6-1+deb13u1"
+    },
+    {
+      "name": "libxkbfile1:amd64",
+      "version": "1:1.1.0-1+b4"
+    },
+    {
+      "name": "libxml2:amd64",
+      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3"
+    },
+    {
+      "name": "libxmu6:amd64",
+      "version": "2:1.1.3-3+b4"
+    },
+    {
+      "name": "libxmuu1:amd64",
+      "version": "2:1.1.3-3+b4"
+    },
+    {
+      "name": "libxpm4:amd64",
+      "version": "1:3.5.17-1+deb13u1"
+    },
+    {
+      "name": "libxrandr2:amd64",
+      "version": "2:1.5.4-1+b3"
+    },
+    {
+      "name": "libxrender1:amd64",
+      "version": "1:0.9.12-1"
+    },
+    {
+      "name": "libxshmfence1:amd64",
+      "version": "1.3.3-1"
+    },
+    {
+      "name": "libxt6t64:amd64",
+      "version": "1:1.2.1-1.2+b2"
+    },
+    {
+      "name": "libxtables12:amd64",
+      "version": "1.8.11-2"
+    },
+    {
+      "name": "libxxf86vm1:amd64",
+      "version": "1:1.1.4-1+b4"
+    },
+    {
+      "name": "libxxhash0:amd64",
+      "version": "0.8.3-2"
+    },
+    {
+      "name": "libz3-4:amd64",
+      "version": "4.13.3-1"
+    },
+    {
+      "name": "libzstd1:amd64",
+      "version": "1.5.7+dfsg-1"
+    },
+    {
+      "name": "linux-base",
+      "version": "4.12.1"
+    },
+    {
+      "name": "linux-headers-6.12.113+deb13-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-headers-6.12.113+deb13-common",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-headers-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-image-6.12.113+deb13-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-image-amd64",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-kbuild-6.12.113+deb13",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-libc-dev",
+      "version": "6.12.113-1"
+    },
+    {
+      "name": "linux-sysctl-defaults",
+      "version": "4.12.1"
+    },
+    {
+      "name": "locales",
+      "version": "2.41-12+deb13u4"
+    },
+    {
+      "name": "login",
+      "version": "1:4.16.0-2+really2.41.5-0+deb13u1"
+    },
+    {
+      "name": "login.defs",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "name": "logsave",
+      "version": "1.47.2-3+b12"
+    },
+    {
+      "name": "make",
+      "version": "4.4.1-2"
+    },
+    {
+      "name": "manpages",
+      "version": "6.9.1-1"
+    },
+    {
+      "name": "manpages-dev",
+      "version": "6.9.1-1"
+    },
+    {
+      "name": "mawk",
+      "version": "1.3.4.20250131-1"
+    },
+    {
+      "name": "mdadm",
+      "version": "4.4-11"
+    },
+    {
+      "name": "media-types",
+      "version": "13.0.0"
+    },
+    {
+      "name": "mesa-libgallium:amd64",
+      "version": "25.0.7-2+deb13u1"
+    },
+    {
+      "name": "mokutil",
+      "version": "0.7.2-1"
+    },
+    {
+      "name": "mount",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "ncurses-base",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "ncurses-bin",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "ncurses-term",
+      "version": "6.5+20250216-2"
+    },
+    {
+      "name": "netbase",
+      "version": "6.5"
+    },
+    {
+      "name": "node-acorn",
+      "version": "8.8.1+ds+~cs25.17.7-2"
+    },
+    {
+      "name": "node-balanced-match",
+      "version": "2.0.0-1"
+    },
+    {
+      "name": "node-brace-expansion",
+      "version": "2.0.1+~1.1.0-2"
+    },
+    {
+      "name": "node-cjs-module-lexer",
+      "version": "1.2.3+dfsg-1"
+    },
+    {
+      "name": "node-corepack",
+      "version": "0.24.0-5"
+    },
+    {
+      "name": "node-minimatch",
+      "version": "9.0.3-6"
+    },
+    {
+      "name": "node-undici",
+      "version": "7.3.0+dfsg1+~cs24.12.11-1"
+    },
+    {
+      "name": "node-xtend",
+      "version": "4.0.2-3"
+    },
+    {
+      "name": "nodejs",
+      "version": "20.19.2+dfsg-1+deb13u3"
+    },
+    {
+      "name": "nvidia-alternative",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-cuda-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-cuda-toolkit",
+      "version": "12.4.131~12.4.1-2"
+    },
+    {
+      "name": "nvidia-driver",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-driver-bin",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-driver-libs:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-egl-common",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-egl-icd:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-installer-cleanup",
+      "version": "20240109+1"
+    },
+    {
+      "name": "nvidia-kernel-common",
+      "version": "20240109+1"
+    },
+    {
+      "name": "nvidia-kernel-dkms",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-kernel-support",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-legacy-check",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-modprobe",
+      "version": "570.133.07-1"
+    },
+    {
+      "name": "nvidia-opencl-dev:amd64",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-profiler",
+      "version": "12.4.127~12.4.1-2"
+    },
+    {
+      "name": "nvidia-smi",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvidia-support",
+      "version": "20240109+1"
+    },
+    {
+      "name": "nvidia-vdpau-driver:amd64",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "nvme-cli",
+      "version": "2.13-2"
+    },
+    {
+      "name": "ocl-icd-libopencl1:amd64",
+      "version": "2.3.3-1"
+    },
+    {
+      "name": "ocl-icd-opencl-dev:amd64",
+      "version": "2.3.3-1"
+    },
+    {
+      "name": "opencl-c-headers",
+      "version": "3.0~2024.10.24-2"
+    },
+    {
+      "name": "opencl-clhpp-headers",
+      "version": "3.0~2024.10.24-2"
+    },
+    {
+      "name": "openssh-client",
+      "version": "1:10.0p1-7+deb13u4"
+    },
+    {
+      "name": "openssh-server",
+      "version": "1:10.0p1-7+deb13u4"
+    },
+    {
+      "name": "openssh-sftp-server",
+      "version": "1:10.0p1-7+deb13u4"
+    },
+    {
+      "name": "openssl",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "name": "openssl-provider-legacy",
+      "version": "3.5.7-1~deb13u3"
+    },
+    {
+      "name": "os-prober",
+      "version": "1.83"
+    },
+    {
+      "name": "pahole",
+      "version": "1.30-1"
+    },
+    {
+      "name": "passwd",
+      "version": "1:4.17.4-2"
+    },
+    {
+      "name": "patch",
+      "version": "2.8-2"
+    },
+    {
+      "name": "pci.ids",
+      "version": "0.0~2025.06.09-1"
+    },
+    {
+      "name": "pciutils",
+      "version": "1:3.13.0-2"
+    },
+    {
+      "name": "perl",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "perl-base",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "perl-modules-5.40",
+      "version": "5.40.1-6+deb13u1"
+    },
+    {
+      "name": "procps",
+      "version": "2:4.0.4-9"
+    },
+    {
+      "name": "psmisc",
+      "version": "23.7-2"
+    },
+    {
+      "name": "publicsuffix",
+      "version": "20250328.1952-0.1"
+    },
+    {
+      "name": "python3",
+      "version": "3.13.5-1"
+    },
+    {
+      "name": "python3-attr",
+      "version": "25.3.0-1"
+    },
+    {
+      "name": "python3-jsonschema",
+      "version": "4.19.2-6"
+    },
+    {
+      "name": "python3-jsonschema-specifications",
+      "version": "2023.12.1-2"
+    },
+    {
+      "name": "python3-minimal",
+      "version": "3.13.5-1"
+    },
+    {
+      "name": "python3-referencing",
+      "version": "0.36.2-1"
+    },
+    {
+      "name": "python3-rpds-py",
+      "version": "0.21.0-2+b1"
+    },
+    {
+      "name": "python3.13",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "python3.13-minimal",
+      "version": "3.13.5-2+deb13u5"
+    },
+    {
+      "name": "readline-common",
+      "version": "8.2-6"
+    },
+    {
+      "name": "rpcsvc-proto",
+      "version": "1.4.3-1"
+    },
+    {
+      "name": "rsync",
+      "version": "3.5.0+ds1-0+deb13u1"
+    },
+    {
+      "name": "runit-helper",
+      "version": "2.16.4"
+    },
+    {
+      "name": "sed",
+      "version": "4.9-2+deb13u1"
+    },
+    {
+      "name": "sensible-utils",
+      "version": "0.0.25"
+    },
+    {
+      "name": "shim-helpers-amd64-signed",
+      "version": "1+16.1+2~deb13u1"
+    },
+    {
+      "name": "shim-signed-common",
+      "version": "1.51~1+deb13u1+16.1-2~deb13u1"
+    },
+    {
+      "name": "shim-signed:amd64",
+      "version": "1.51~1+deb13u1+16.1-2~deb13u1"
+    },
+    {
+      "name": "shim-unsigned:amd64",
+      "version": "16.1-2~deb13u1"
+    },
+    {
+      "name": "smartmontools",
+      "version": "7.4-3"
+    },
+    {
+      "name": "sqv",
+      "version": "1.3.0-3+b2"
+    },
+    {
+      "name": "sudo",
+      "version": "1.9.16p2-3+deb13u2"
+    },
+    {
+      "name": "systemd",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "systemd-cryptsetup",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "systemd-sysv",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "systemd-timesyncd",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "sysvinit-utils",
+      "version": "3.14-4"
+    },
+    {
+      "name": "tar",
+      "version": "1.35+dfsg-3.1"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026c-0+deb13u1"
+    },
+    {
+      "name": "ucf",
+      "version": "3.0052"
+    },
+    {
+      "name": "udev",
+      "version": "257.13-1~deb13u1"
+    },
+    {
+      "name": "update-glx",
+      "version": "1.2.2"
+    },
+    {
+      "name": "util-linux",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "uuid-runtime",
+      "version": "2.41.5-0+deb13u1"
+    },
+    {
+      "name": "wget",
+      "version": "1.25.0-2"
+    },
+    {
+      "name": "x11-common",
+      "version": "1:7.7+24+deb13u1"
+    },
+    {
+      "name": "x11-xkb-utils",
+      "version": "7.7+9"
+    },
+    {
+      "name": "xauth",
+      "version": "1:1.1.2-1.1"
+    },
+    {
+      "name": "xkb-data",
+      "version": "2.42-1"
+    },
+    {
+      "name": "xserver-common",
+      "version": "2:21.1.16-1.3+deb13u4"
+    },
+    {
+      "name": "xserver-xorg-core",
+      "version": "2:21.1.16-1.3+deb13u4"
+    },
+    {
+      "name": "xserver-xorg-video-nvidia",
+      "version": "550.163.01-2"
+    },
+    {
+      "name": "xz-utils",
+      "version": "5.8.1-1+deb13u2"
+    },
+    {
+      "name": "zlib1g:amd64",
+      "version": "1:1.3.dfsg+really1.3.1-1+b1"
+    },
+    {
+      "name": "zstd",
+      "version": "1.5.7+dfsg-1"
+    }
+  ],
+  "python_environments": [],
+  "services": [
+    {
+      "machine_id": "dell2",
+      "unit": "apparmor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "apt-daily-upgrade.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "apt-daily.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "auditd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "connman.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "console-screen.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "console-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "dbus.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "display-manager.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "dpkg-db-backup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "e2scrub_all.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "e2scrub_reap.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "emergency.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "fstrim.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "getty-static.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "getty@tty1.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "getty@tty8.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "grub-common.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "initrd-cleanup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "initrd-parse-etc.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "initrd-switch-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "initrd-udevadm-cleanup-db.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "jarvis-14b-reception.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "jarvis-progress-console.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "kbd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "keyboard-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "kmod-static-nodes.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "ldconfig.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "mdcheck_continue.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "mdcheck_start.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "mdmonitor-oneshot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "mdmonitor.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "modprobe@configfs.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "modprobe@drm.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "modprobe@efi_pstore.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "modprobe@fuse.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "modprobe@nvme_fabrics.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "NetworkManager.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "nvmefc-boot-connections.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "nvmf-autoconnect.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "plymouth-quit-wait.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "plymouth-start.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "rc-local.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "rescue.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "smartmontools.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "ssh.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "sshd-keygen.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "sshd@sshd-keygen.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "syslog.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-ask-password-console.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-ask-password-wall.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-battery-check.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-binfmt.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-bsod.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-confext.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-firstboot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-fsck-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-hibernate-clear.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-hibernate-resume.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-hostnamed.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-hwdb-update.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-hybrid-sleep.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-initctl.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-journal-catalog-update.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-journal-flush.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-journald.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-logind.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-machine-id-commit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-modules-load.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-network-generator.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-networkd-persistent-storage.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-networkd-wait-online.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-networkd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-oomd.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-pcrmachine.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-pcrphase-initrd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-pcrphase-sysinit.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-pcrphase.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-pstore.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-quotacheck-root.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-random-seed.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-remount-fs.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-rfkill.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-soft-reboot.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-suspend-then-hibernate.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-suspend.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-sysctl.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-sysext.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-sysusers.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-timesyncd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-tmpfiles-clean.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-tmpfiles-setup-dev-early.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-tmpfiles-setup-dev.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-tmpfiles-setup.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-tpm2-setup-early.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-tpm2-setup.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-udev-load-credentials.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-udev-settle.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-udev-trigger.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-udevd.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-update-done.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-user-sessions.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "systemd-vconsole-setup.service",
+      "load": "not-found",
+      "active": "inactive",
+      "sub": "dead"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "user-runtime-dir@1000.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "exited"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "user@1000.service",
+      "load": "loaded",
+      "active": "active",
+      "sub": "running"
+    },
+    {
+      "machine_id": "dell2",
+      "unit": "uuidd.service",
+      "load": "loaded",
+      "active": "inactive",
+      "sub": "dead"
+    }
+  ],
+  "ollama_bindings": {},
+  "collector_commands": {
+    "os": {
+      "command": "cat /etc/os-release; uname -r",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "cpu": {
+      "command": "lscpu -J",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "memory": {
+      "command": "free -b",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "dmi": {
+      "command": "sudo -n dmidecode -t system -t bios -t memory",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "disks": {
+      "command": "lsblk -b -J -o NAME,TYPE,SIZE,MODEL,FSTYPE,MOUNTPOINTS,TRAN,ROTA",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "filesystems": {
+      "command": "findmnt -J -o TARGET,SOURCE,FSTYPE,OPTIONS",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "raid": {
+      "command": "cat /proc/mdstat; sudo -n mdadm --detail --scan",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "pci": {
+      "command": "lspci -nnk",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "usb": {
+      "command": "lsusb; command -v boltctl >/dev/null && boltctl list",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "gpu": {
+      "command": "nvidia-smi --query-gpu=index,name,uuid,pci.bus_id,memory.total,memory.used,utilization.gpu,temperature.gpu,power.draw,power.limit,driver_version --format=csv,noheader,nounits",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "gpu_processes": {
+      "command": "nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory --format=csv,noheader,nounits",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "gpu_driver": {
+      "command": "nvidia-smi; command -v nvcc >/dev/null && nvcc --version",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "network": {
+      "command": "ip -j address; ip -j route",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "links": {
+      "command": "for x in /sys/class/net/*; do n=${x##*/}; if [ -e \"$x/device\" ]; then echo \"INTERFACE:$n\"; sudo -n ethtool \"$n\"; fi; done",
+      "rc": 0,
+      "error": null,
+      "stderr_present": true
+    },
+    "cpu_temperature": {
+      "command": "command -v sensors >/dev/null && sensors",
+      "rc": 127,
+      "error": null,
+      "stderr_present": false
+    },
+    "tailscale": {
+      "command": "tailscale status --json",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "services": {
+      "command": "systemctl list-units --all --type=service --no-pager --plain --no-legend",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit_files": {
+      "command": "systemctl list-unit-files --type=service --no-pager --no-legend",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "failed": {
+      "command": "systemctl --failed --no-pager --plain",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "timers": {
+      "command": "systemctl list-timers --all --no-pager",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "listeners": {
+      "command": "sudo -n ss -ltnup",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "packages": {
+      "command": "dpkg-query -W -f='${binary:Package}\t${Version}\t${db:Status-Status}\n'",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "versions": {
+      "command": "python3 --version; node --version; npm --version; git --version; ssh -V; ansible --version; ollama --version",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "npm": {
+      "command": "npm list -g --depth=0 --json",
+      "rc": 127,
+      "error": null,
+      "stderr_present": true
+    },
+    "containers": {
+      "command": "command -v docker >/dev/null && sudo -n docker ps -a --no-trunc --format json; command -v podman >/dev/null && podman ps -a --format json",
+      "rc": 127,
+      "error": null,
+      "stderr_present": false
+    },
+    "venvs": {
+      "command": "find /opt /home/adminjarvis/JARVIS /home/adminjarvis/.local -maxdepth 6 -name pyvenv.cfg -type f 2>/dev/null",
+      "rc": 1,
+      "error": null,
+      "stderr_present": false
+    },
+    "node_projects": {
+      "command": "find /opt /home/adminjarvis/JARVIS -maxdepth 4 -name package.json -not -path '*/node_modules/*' -type f 2>/dev/null",
+      "rc": 1,
+      "error": null,
+      "stderr_present": false
+    },
+    "custom_units": {
+      "command": "find /etc/systemd/system -maxdepth 3 -type f -name '*.service' -o -type f -name '*.conf'",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "processes": {
+      "command": "ps -eo pid,ppid,user,comm,pcpu,pmem --sort=-pcpu",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-14b-reception.service": {
+      "command": "systemctl show jarvis-14b-reception.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    },
+    "unit:jarvis-progress-console.service": {
+      "command": "systemctl show jarvis-progress-console.service --property=Id,FragmentPath,DropInPaths,ActiveState,SubState,MainPID,ExecStart,WorkingDirectory,User,ControlGroup,CPUQuotaPerSecUSec,MemoryMax,Restart,NRestarts,ActiveEnterTimestamp",
+      "rc": 0,
+      "error": null,
+      "stderr_present": false
+    }
+  },
+  "raw_private_sha256": "bd783e9f15c38c8cf11a375ede2320533278cbdee9c8052edfe8b5d6a3a233ec"
+}

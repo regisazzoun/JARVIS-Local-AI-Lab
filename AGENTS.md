@@ -1,3 +1,9 @@
+## BILAN-20261031 — inventaire et rationalisation documentaire
+
+Audit autorisé le 31 octobre : observations des trois machines, analyse des composants et recommandations, sans installation, suppression ou transformation de l’architecture. Réutilisation avant développement ; préserver les décisions de la PR36 sans importer silencieusement ses autres versions de documents. Le compte Google Éducation est désormais autorisé : lectures Drive/Calendar/Gmail reçues164/166/168, au-delà du rapport historique PR37 ; écritures et parcours client Éducation restent à vérifier.
+
+M26-P4 reste en pause et MANUAL-HOLD conservé. Sources, matrices, réserves et différences runtime/Git sont publiées dans [BILAN-20261031](docs/missions/BILAN-20261031/RAPPORT-FINAL.md). Aucun service redémarré, aucun modèle téléchargé et aucune fusion automatique dans main.
+
 ## Google MCP — actualisation après authentification personnelle
 
 Compte personnel : cinqAPI réelles, Docs/Sheets et relectures, WebUI/Code, persistance et renouvellement reçus avec réserves. Éducation : accès au service refusé signalé, aucunjeton reçu, cause administrative précise à identifier. Ne pas généraliser ce blocage au compte personnel et ne pas imposer un projetCloud.

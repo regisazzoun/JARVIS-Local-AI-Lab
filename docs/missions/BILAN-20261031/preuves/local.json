@@ -1,0 +1,433 @@
+{
+  "collected_at": "2026-10-31T19:52:25.684991+00:00",
+  "qwen_version": "0.26.4",
+  "manual_hold": true,
+  "databases": {
+    "memory": {
+      "tables": [
+        "schema_version",
+        "conversations",
+        "messages",
+        "messages_fts",
+        "messages_fts_data",
+        "messages_fts_idx",
+        "messages_fts_content",
+        "messages_fts_docsize",
+        "messages_fts_config",
+        "memories",
+        "memories_fts",
+        "memories_fts_data",
+        "memories_fts_idx",
+        "memories_fts_content",
+        "memories_fts_docsize",
+        "memories_fts_config",
+        "audit",
+        "documents",
+        "documents_fts",
+        "documents_fts_data",
+        "documents_fts_idx",
+        "documents_fts_content",
+        "documents_fts_docsize",
+        "documents_fts_config",
+        "tool_audit",
+        "preferences",
+        "preference_history",
+        "auth_sessions",
+        "mission_messages",
+        "jl03_projects",
+        "jl03_conversation_titles"
+      ],
+      "counts": {
+        "schema_version": 3,
+        "conversations": 182,
+        "messages": 414,
+        "messages_fts": 414,
+        "messages_fts_content": 414,
+        "memories": 5,
+        "memories_fts": 5,
+        "memories_fts_content": 5,
+        "audit": 186,
+        "documents": 101,
+        "documents_fts": 101,
+        "documents_fts_content": 101,
+        "tool_audit": 13366,
+        "preferences": 4,
+        "preference_history": 13,
+        "auth_sessions": 3,
+        "mission_messages": 55,
+        "jl03_projects": 2,
+        "jl03_conversation_titles": 2
+      }
+    },
+    "missions": {
+      "tables": [
+        "missions",
+        "checkpoints",
+        "tasks",
+        "procedures",
+        "launcher_operator_tasks",
+        "launcher_operator_events",
+        "mission_events",
+        "tool_calls",
+        "mission_context",
+        "publication_outbox",
+        "mission_context_archives",
+        "mission_plans",
+        "mission_operations",
+        "compute_jobs",
+        "mission_problems_v2",
+        "mission_attempts_v2"
+      ],
+      "counts": {
+        "missions": 55,
+        "checkpoints": 12915,
+        "tasks": 181,
+        "procedures": 1,
+        "launcher_operator_tasks": 5,
+        "launcher_operator_events": 21,
+        "mission_events": 94557,
+        "tool_calls": 12117,
+        "mission_context": 35,
+        "publication_outbox": 78,
+        "mission_context_archives": 312,
+        "mission_plans": 523,
+        "mission_operations": 3,
+        "compute_jobs": 7131,
+        "mission_problems_v2": 261,
+        "mission_attempts_v2": 302
+      }
+    },
+    "skill-lab": {
+      "tables": [
+        "versions",
+        "active",
+        "runs"
+      ],
+      "counts": {
+        "versions": 9,
+        "active": 4,
+        "runs": 15
+      }
+    }
+  },
+  "code_hashes": [
+    {
+      "file": "jl03_assist.py",
+      "installed_sha256": "0cb4cf163ca8248e45af515750388e18bc2bf45f1d8d787d732c5986bb0b04cc",
+      "git_sha256": "0cb4cf163ca8248e45af515750388e18bc2bf45f1d8d787d732c5986bb0b04cc"
+    },
+    {
+      "file": "distributed_authority.py",
+      "installed_sha256": "966b01ee14b6ddf1f2f982a8d3def30359e771c55b0345cc72331ef9f6e0c61f",
+      "git_sha256": "966b01ee14b6ddf1f2f982a8d3def30359e771c55b0345cc72331ef9f6e0c61f"
+    },
+    {
+      "file": "protocol.py",
+      "installed_sha256": "76195f56ac24defab24209ac7b1cff3597e76e7393d8c85abc8f65adce8afa40",
+      "git_sha256": "76195f56ac24defab24209ac7b1cff3597e76e7393d8c85abc8f65adce8afa40"
+    },
+    {
+      "file": "report_claims.py",
+      "installed_sha256": "f63edec46a7d5924aab9514e21f8d77d9c48a3119a192c7e8c4b2b647a734a06",
+      "git_sha256": "f63edec46a7d5924aab9514e21f8d77d9c48a3119a192c7e8c4b2b647a734a06"
+    },
+    {
+      "file": "memory.py",
+      "installed_sha256": "66acf6954f164acb4b989011029a85a063a481aa07ce52a519b3516fdfc35cc2",
+      "git_sha256": "66acf6954f164acb4b989011029a85a063a481aa07ce52a519b3516fdfc35cc2"
+    },
+    {
+      "file": "client_capabilities.py",
+      "installed_sha256": "fa35e1a373f00350cf2c06dd33fec8b7584b7207fd6e5198212b9a83a58a7bdf",
+      "git_sha256": "fa35e1a373f00350cf2c06dd33fec8b7584b7207fd6e5198212b9a83a58a7bdf"
+    },
+    {
+      "file": "auth.py",
+      "installed_sha256": "6d0e68bf3775558dfe7dfb8e0a15ebeb119673c420090f89cfc574167886dd2a",
+      "git_sha256": "6d0e68bf3775558dfe7dfb8e0a15ebeb119673c420090f89cfc574167886dd2a"
+    },
+    {
+      "file": "mission_reporting.py",
+      "installed_sha256": "c44dc8c5d971d7138c0d41dcef378324bfb691864baed6d41ba4d75e9c50f3a0",
+      "git_sha256": "c44dc8c5d971d7138c0d41dcef378324bfb691864baed6d41ba4d75e9c50f3a0"
+    },
+    {
+      "file": "operational_policy.py",
+      "installed_sha256": "f079ec62b8838d7352714ef68156197b7101e7368024498cffd393f91b7df520",
+      "git_sha256": "f079ec62b8838d7352714ef68156197b7101e7368024498cffd393f91b7df520"
+    },
+    {
+      "file": "launcher_api.py",
+      "installed_sha256": "ca9b8aa3db957f6f764b49a68c3c1de21d03a72211582a8966304da340e4f73d",
+      "git_sha256": "ca9b8aa3db957f6f764b49a68c3c1de21d03a72211582a8966304da340e4f73d"
+    },
+    {
+      "file": "server.py",
+      "installed_sha256": "f393499d653451513ad7b5c6a0f31a2b9458820aeaa076a9cfbe97b77d539898",
+      "git_sha256": "f393499d653451513ad7b5c6a0f31a2b9458820aeaa076a9cfbe97b77d539898"
+    },
+    {
+      "file": "cli.py",
+      "installed_sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29",
+      "git_sha256": "99e25106ba23e97d74bbf55a96ad4766727522df7d7786fa098a7c9b94516f29"
+    },
+    {
+      "file": "qwen_specialist.py",
+      "installed_sha256": "31d34815217abe5e8cbdce0f4b67bcbcfc742793587ecdbbc9ff87960f7bb3fd",
+      "git_sha256": "31d34815217abe5e8cbdce0f4b67bcbcfc742793587ecdbbc9ff87960f7bb3fd"
+    },
+    {
+      "file": "legacy_attempts.py",
+      "installed_sha256": "55d171d4bc45e9835a9fc62dd080daca41059d1d9904a276bd6ce2be5793fdb3",
+      "git_sha256": "55d171d4bc45e9835a9fc62dd080daca41059d1d9904a276bd6ce2be5793fdb3"
+    },
+    {
+      "file": "host_client.py",
+      "installed_sha256": "862c4af76ad17ab32547b3c989dd272b10b1a6aa45ddb5a77300f9145eb30c78",
+      "git_sha256": "862c4af76ad17ab32547b3c989dd272b10b1a6aa45ddb5a77300f9145eb30c78"
+    },
+    {
+      "file": "p2_reception.py",
+      "installed_sha256": "648ec1543c9b3101aab92a45b901f07ba0c161e840fdc6a115269d79b04d61e6",
+      "git_sha256": "648ec1543c9b3101aab92a45b901f07ba0c161e840fdc6a115269d79b04d61e6"
+    },
+    {
+      "file": "planning_progress.py",
+      "installed_sha256": "f77943901063b2ee4c8e89074c63fdfac407b920cbddd2d8fa4c94fe92bb44da",
+      "git_sha256": "f77943901063b2ee4c8e89074c63fdfac407b920cbddd2d8fa4c94fe92bb44da"
+    },
+    {
+      "file": "worker.py",
+      "installed_sha256": "e3cf2481820cbf40dffc30dd1b6e99bbbcfb6f06269ec3c45f112107e19a07f5",
+      "git_sha256": "c90962cee9e18e88c2c782b17149962b78857522def075b67d9d9338a14519ef"
+    },
+    {
+      "file": "worker_recovery.py",
+      "installed_sha256": "c55145645591fe83d2621c89b4805bbfe99de06a842e140cd0eef9ce94f77c86",
+      "git_sha256": "c55145645591fe83d2621c89b4805bbfe99de06a842e140cd0eef9ce94f77c86"
+    },
+    {
+      "file": "__init__.py",
+      "installed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "mission_context_budget.py",
+      "installed_sha256": "c8eb51d5d3345275a5cbe17645cfb7b9533bc6238c77970955d2acf080be7000",
+      "git_sha256": "c8eb51d5d3345275a5cbe17645cfb7b9533bc6238c77970955d2acf080be7000"
+    },
+    {
+      "file": "durable_tools.py",
+      "installed_sha256": "b996f2a22b87ddc308e7be6c670decb468b834151c7b4c324c41ac84d86fe5a6",
+      "git_sha256": "e04442e398e54cab936c319bfd33ecb60dba4b3f35927968738440a597e02777"
+    },
+    {
+      "file": "mission_store.py",
+      "installed_sha256": "51161332bbc4a731c1fbf917117e93117f57e599266b06fa24d916e414f24acd",
+      "git_sha256": "ada5b5b79a7ea573568feb3c3a2a7c2034fe783839d8c4d8d30b065388fc5dc2"
+    },
+    {
+      "file": "authority_identity.py",
+      "installed_sha256": "839355c7cf2ba6bc3a3d581426ad77e9870faa9157b4529726f87f6b66757edb",
+      "git_sha256": "839355c7cf2ba6bc3a3d581426ad77e9870faa9157b4529726f87f6b66757edb"
+    },
+    {
+      "file": "compute.py",
+      "installed_sha256": "2668741fdff2d296d880ffe546a47f7d94e3e08550cf848bc798a109bcd14cc8",
+      "git_sha256": "2668741fdff2d296d880ffe546a47f7d94e3e08550cf848bc798a109bcd14cc8"
+    },
+    {
+      "file": "voice_worker.py",
+      "installed_sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e",
+      "git_sha256": "5cf3dc70934b57c5958d5b65764e8124fe455d47acbc62ab75befb857d4c541e"
+    },
+    {
+      "file": "google_mcp.py",
+      "installed_sha256": "2e379ea1b4ceb76b8be8bbadbd2e3556a196fb05bc5f7fcea6ec25fe10b392cb",
+      "git_sha256": "2e379ea1b4ceb76b8be8bbadbd2e3556a196fb05bc5f7fcea6ec25fe10b392cb"
+    },
+    {
+      "file": "conversation_tools.py",
+      "installed_sha256": "529f37f87e16b2e39238f5d8ceb6e6fb731e7895cf907ba0a3cc35e92f7a950e",
+      "git_sha256": "529f37f87e16b2e39238f5d8ceb6e6fb731e7895cf907ba0a3cc35e92f7a950e"
+    },
+    {
+      "file": "launcher_telemetry.py",
+      "installed_sha256": "8e079b51495e10b89aeb078011fa53acbe4b92b1cf121c0973fe8ceeaa9fcb25",
+      "git_sha256": "8e079b51495e10b89aeb078011fa53acbe4b92b1cf121c0973fe8ceeaa9fcb25"
+    },
+    {
+      "file": "mission_assurance.py",
+      "installed_sha256": "5c707f5ac4a41380eef9ef58f9a04de1a732d62cd3956c089cb823217ce27698",
+      "git_sha256": "d3cf1e5d8ec18738f06b2b45a4f8082ec737af4ad1da5704c445a71ecf3641bd"
+    },
+    {
+      "file": "mcp_gateway.py",
+      "installed_sha256": "0a76a46856873a031b761ea76f2ed78d3b496f60c08622238e3873461d55f361",
+      "git_sha256": "0a76a46856873a031b761ea76f2ed78d3b496f60c08622238e3873461d55f361"
+    },
+    {
+      "file": "missions.py",
+      "installed_sha256": "b7f26c33495ff594da576ea84f2131fbe30e64611f1070e00872f4952817277b",
+      "git_sha256": "b7adb402edb12e3a6ead79368332013687d419bb6da64a0c84190ccecb5c5f8a"
+    },
+    {
+      "file": "authority_attempts.py",
+      "installed_sha256": "7092a79a3a8c5251bfbe66784a486d6119ec5d04fccdc07921bc5935f1afa97c",
+      "git_sha256": "7092a79a3a8c5251bfbe66784a486d6119ec5d04fccdc07921bc5935f1afa97c"
+    },
+    {
+      "file": "authority_draft.py",
+      "installed_sha256": "f1246e1f8de5b02320952aaa402952eee8b96003141f2e601cd876c9270955be",
+      "git_sha256": "f1246e1f8de5b02320952aaa402952eee8b96003141f2e601cd876c9270955be"
+    },
+    {
+      "file": "task_tools.py",
+      "installed_sha256": "9fcfd0693bce22c46fbade68ee1ab97ab2456d73fccebe81735b5cbc8c4488de",
+      "git_sha256": "9fcfd0693bce22c46fbade68ee1ab97ab2456d73fccebe81735b5cbc8c4488de"
+    },
+    {
+      "file": "durable_cycle.py",
+      "installed_sha256": "076deacaff24c6f8c0d709f36b64f6e69035034a67c4fa26b757b1af31144dda",
+      "git_sha256": "076deacaff24c6f8c0d709f36b64f6e69035034a67c4fa26b757b1af31144dda"
+    },
+    {
+      "file": "google_workspace.py",
+      "installed_sha256": "19d88f31d01e83cd94b7b563cd6be3d8a531b1661f7d8aa3db3d2db28af243d6",
+      "git_sha256": "19d88f31d01e83cd94b7b563cd6be3d8a531b1661f7d8aa3db3d2db28af243d6"
+    },
+    {
+      "file": "agent.py",
+      "installed_sha256": "41c3105c5f6f1f025fc29dc5646b29c2c48371bba9fc711b6f99040d0ff55938",
+      "git_sha256": "41c3105c5f6f1f025fc29dc5646b29c2c48371bba9fc711b6f99040d0ff55938"
+    },
+    {
+      "file": "client_mcp.py",
+      "installed_sha256": "b0ebef17577e54cea84655e659171097aa7f89cab9d79414123af45874f27b3d",
+      "git_sha256": "b0ebef17577e54cea84655e659171097aa7f89cab9d79414123af45874f27b3d"
+    },
+    {
+      "file": "structured_actions.py",
+      "installed_sha256": "9152d835beb43e061730cb5eeaafb88a4df6e21bb7c551fcc64ec6fe10208085",
+      "git_sha256": "9152d835beb43e061730cb5eeaafb88a4df6e21bb7c551fcc64ec6fe10208085"
+    },
+    {
+      "file": "skill_lab.py",
+      "installed_sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128",
+      "git_sha256": "3e76a4c10ec72b076d50c6e7908d2cdd83c3a6724a04fbacd736aa193723a128"
+    },
+    {
+      "file": "authority_probe.py",
+      "installed_sha256": "dc9462b53634302991abd98c45cabadea0fe4c01dc5e30bb6e423cf18b6d836d",
+      "git_sha256": "dc9462b53634302991abd98c45cabadea0fe4c01dc5e30bb6e423cf18b6d836d"
+    },
+    {
+      "file": "verification.py",
+      "installed_sha256": "470a05cc2a014e7cf32eafd9a19af2b7c7f8db7caec1bd85f5193a8296321b23",
+      "git_sha256": "470a05cc2a014e7cf32eafd9a19af2b7c7f8db7caec1bd85f5193a8296321b23"
+    },
+    {
+      "file": "intent.py",
+      "installed_sha256": "6934f70d12e79d3c75c0124946e2537fe14837cec46123e27c98fa96fb054d3b",
+      "git_sha256": "6934f70d12e79d3c75c0124946e2537fe14837cec46123e27c98fa96fb054d3b"
+    },
+    {
+      "file": "publication.py",
+      "installed_sha256": "ab430e04350ea6c38fdd512bfc0384600cc2a0572e74b72fe86f9b58ff0d7610",
+      "git_sha256": "ab430e04350ea6c38fdd512bfc0384600cc2a0572e74b72fe86f9b58ff0d7610"
+    },
+    {
+      "file": "tools.py",
+      "installed_sha256": "70d3888ec055a8b2e8bfe377aecfb2bb2f10aab80785dbb7df2b651808cec587",
+      "git_sha256": "ac3556a861e5a4e88e9bc3cea23e6840c3f421e487574857df298303b77c57d9"
+    },
+    {
+      "file": "preferences.py",
+      "installed_sha256": "71be4786c2259e818589ade213294e50f36d4aa1f2c307e24c63367c67083ad0",
+      "git_sha256": "71be4786c2259e818589ade213294e50f36d4aa1f2c307e24c63367c67083ad0"
+    },
+    {
+      "file": "attempt_ledger.py",
+      "installed_sha256": "f7ade71335a0c8506ca7eb3cb098a35ebdc3a6dd172bb1257b8b9a3afe67797a",
+      "git_sha256": "f7ade71335a0c8506ca7eb3cb098a35ebdc3a6dd172bb1257b8b9a3afe67797a"
+    },
+    {
+      "file": "attempt_execution.py",
+      "installed_sha256": "4c3907629956ce37039fc67ffbce6471287f749fac08ae45829651705d92f6d1",
+      "git_sha256": "4c3907629956ce37039fc67ffbce6471287f749fac08ae45829651705d92f6d1"
+    },
+    {
+      "file": "mission_actions.py",
+      "installed_sha256": "735d96cba35a31a5d955069f8b36d0ef353c7753c51c39d607c2c024a63ec212",
+      "git_sha256": "735d96cba35a31a5d955069f8b36d0ef353c7753c51c39d607c2c024a63ec212"
+    },
+    {
+      "file": "core.py",
+      "installed_sha256": "89b700824fa99d445345a576f71f2d527131aaebd7d154f792977b82338af36a",
+      "git_sha256": "89b700824fa99d445345a576f71f2d527131aaebd7d154f792977b82338af36a"
+    }
+  ],
+  "skills": [
+    {
+      "name": "config-repair",
+      "version": 6,
+      "author": "JARVIS",
+      "sha256": "409ca3b484ea4e5384b76dc7ec7d684653f0f2fbbbf5987577340ec16ceeb3a7"
+    },
+    {
+      "name": "debian-diagnostic",
+      "version": 1,
+      "author": "local-operator",
+      "sha256": "38379db1a9afc7621a36e91a2ba311d102de3a174f772ea13d276317ca47c8af"
+    },
+    {
+      "name": "dell-roundtrip",
+      "version": 1,
+      "author": "local-operator",
+      "sha256": "916481a3ae444b18447fe70bd82d338cb498dd770e41f417ee83a8c70e3eab47"
+    },
+    {
+      "name": "github-publish",
+      "version": 1,
+      "author": "local-operator",
+      "sha256": "8311fa9c42b3e6f2fa9bcda61a6646a76d2be49cfd64ad3fdb59507795b81f71"
+    }
+  ],
+  "registry": {
+    "registered": 87,
+    "visible": 65,
+    "client_exposed": 35
+  },
+  "google_education": {
+    "remote_calls": [
+      {
+        "service": "drive",
+        "ok": true,
+        "audit_id": 164
+      },
+      {
+        "service": "calendar",
+        "ok": true,
+        "audit_id": 166
+      },
+      {
+        "service": "gmail",
+        "ok": true,
+        "audit_id": 168
+      }
+    ]
+  },
+  "http_checks": {
+    "HTTPS": {
+      "status": 200,
+      "tls_verify_result": 0
+    },
+    "JL03": {
+      "status": 200
+    },
+    "conversation": {
+      "status": 200
+    },
+    "scope": "accessibilité des pages ; pas réception voix ni scénario applicatif"
+  }
+}

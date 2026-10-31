@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-31T20:03:48.119965+00:00",
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-launcher3": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-qwen-guard": "active",
+    "apache2": "active",
+    "jarvis-ollama": "active",
+    "jarvis-open-webui": "active"
+  },
+  "manual_hold": true,
+  "http": {
+    "WebUI": {
+      "status": 200,
+      "certificate_checked": true
+    },
+    "JL03": {
+      "status": 200,
+      "certificate_checked": false
+    },
+    "conversation": {
+      "status": 200,
+      "certificate_checked": false
+    }
+  }
+}

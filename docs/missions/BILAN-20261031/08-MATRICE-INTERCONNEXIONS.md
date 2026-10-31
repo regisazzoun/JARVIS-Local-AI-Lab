@@ -1,0 +1,29 @@
+# Matrice des flux observés
+
+| ID | Source | Destination | Protocole/port | Authentification | État | Preuve |
+|---|---|---|---|---|---|---|
+| F01 | user | tailscale | HTTPS / 443 | tailnet + session WebUI | historique reçu ; client Apple non retesté | docs/missions/QWEN-WEBUI/HTTPS-RECEPTION.json |
+| F02 | tailscale | apache | HTTP proxy / 8088 | loopback privé | démontré courant | preuves/mac.json; requête HTTPS200/TLS0 |
+| F03 | apache | webui | HTTP/WebSocket / 3000 | session WebUI | démontré HTTP ; WebSocket historique | preuves/mac.json; config Apache lue |
+| F04 | webui | ollama-mac | HTTP Ollama / 11434 | réseau local filtré | configuration actuelle + réception historique | preuves/webui.json; docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/ |
+| F05 | webui | registry | HTTP API / 8092 | jeton privé non exporté | historique reçu ; catalogue chargé courant | preuves/webui.json; preuves/catalogue-outils.json |
+| F06 | qwen-code | guard | OpenAI-compatible HTTP / 8091 | local | exécution courante bornée | preuves/qwen-observation.json |
+| F07 | guard | ollama-dell1-missions | HTTP Ollama / 11435 | LAN privé | config + modèle/PID chargé ; appels historiques | preuves/dell1.json |
+| F08 | conversation | ollama-mac | HTTP Ollama / 11434 | loopback | config + modèle chargé ; historique reçu | preuves/mac.json; config13e |
+| F09 | mission-engine | ollama-dell1-missions | HTTP Ollama / 11435 | profil de calcul | historique reçu ; mission M26-P4 suspendue | docs/missions/26-P1/RECEPTION.json; preuves/local.json |
+| F10 | qwen-code | registry | MCP stdio / stdio | identité locale | courant : appels réels, limites conservées | preuves/qwen-observation.json |
+| F11 | registry | broker | Unix socket / /run/jarvis-host/bridge.sock | SO_PEERCRED + politique root | courant via lectures Qwen si reçues ; historique reçu | docs/missions/24/RAPPORT-FINAL.md; preuves/qwen-observation.json |
+| F12 | broker | dell1 | SSH/Ansible / 22 | clé épinglée + garde matériel | SSH inventaire actuel ; délégation historique | preuves/dell1.json; docs/missions/26-P1/RECEPTION.json |
+| F13 | broker | dell2 | SSH/Ansible / 22 | clé épinglée + garde matériel | SSH inventaire actuel ; délégation historique | preuves/dell2.json; docs/missions/26-P1/RECEPTION.json |
+| F14 | registry | skill-lab | Python/SQLite / local | politique outils | catalogue courant ; exécutions reçues antérieurement | preuves/local.json; docs/missions/25/ |
+| F15 | registry | google-personal | MCP stdio + HTTPS OAuth/API / 443 | OAuth chiffré personal | historique reçu31oct ; stockage courant | docs/missions/GOOGLE-MCP-OAUTH/RECEPTION-PERSONAL.json |
+| F16 | registry | google-education | MCP stdio + HTTPS OAuth/API / 443 | OAuth chiffré education distinct | courant : lectures Drive/Calendar/Gmail reçues | preuves/local.json#google_education |
+| F17 | qwen-code | google-education | MCP via registry / stdio | profil education | non réceptionné pour ce profil | pas de test client Éducation au relevé |
+| F18 | registry | github | CLI gh / HTTPS / 443 | auth existante hors modèle | historique reçu ; pas rejoué | docs/missions/INTEGRATION-AGENTIQUE-WEBUI-CODE/BILAN-GITHUB.md |
+| F19 | mission-engine | memory | SQLite/FTS5 / local | permissions système | fichiers et schémas observés ; pas migration | preuves/local.json |
+| F20 | jl03 | conversation | HTTP/SSE / 8765 | session canonique | HTTP200 courant ; réception fonctionnelle historique | docs/missions/27-JL-03/RAPPORT-FINAL.md |
+| F21 | jl03 | telemetry | SSH/HTTP / 22/8765 | profils existants | historique reçu ; mesures directes actuelles | docs/missions/JL03-COR-P1/RAPPORT-RECEPTION-26-OCTOBRE.md; preuves/*.json |
+| F22 | mission-engine | ollama-dell2 | HTTP Ollama / aucun | absent | absent des services/ports/catalogues examinés | preuves/dell2.json |
+| F23 | telemetry | p7-agentic | événements/mission / prévu | à définir | envisagé ; P7 non reçu | branche docs/architecture-priorites-p0-p3-20261025 commit1a2ec67 |
+
+Les adresses LAN, tailnet, MAC et noms personnels sont exclus de la publication. Les ports sont ceux des contrats actifs, pas une ouverture Internet public. Un HTTP200 confirme une page accessible ; il ne reçoit ni streaming, ni microphone, ni exécution agentique. Les preuves historiques ne sont pas transformées en tests réalisés aujourd’hui.

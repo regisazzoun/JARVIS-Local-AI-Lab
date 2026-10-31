@@ -1,3 +1,11 @@
+## BILAN-20261031 — photographie technique du 31 octobre 2026
+
+**✅🟡 Audit réalisé avec réserves de couverture, sans transformation.** Trois machines accessibles ; quatre RTX3090 et une RTX3080 ; liens actifs à1Gb/s. Dell1 :256GiB et deux3090 avec80B chargé ; Dell2 :128GiB,3090+3080, exécuteurSSH sans Ollama observé.24groupes applicatifs,4935entrées logiciels,144composants/contrats et16domaines de développement analysés. Six modules installés diffèrent de la baseGit : réconciliation recommandée avant déploiement.
+
+Deux lectures MCP distantes Qwen Code reçues190/192, mais résumé erroné conservé et rejeté ; premier essai arrêté sur contexte. Google Éducation désormais reçu enlecture Drive/Calendar/Gmail164/166/168 ; aucune réception complète des écritures/clients Éducation. Les états historiques ci-dessous sont conservés. M26P4 reste enpause, aucun lancement14A/24-Old/P7 ni transformation d’inférenceDell2.
+
+[Rapport](docs/missions/BILAN-20261031/RAPPORT-FINAL.md) · [Comparatif Dell matériel](docs/missions/BILAN-20261031/02-COMPARATIF-DELL1-DELL2-MATERIEL.md) · [Applications](docs/missions/BILAN-20261031/04-COMPARATIF-DELL1-DELL2-APPLICATIONS.md) · [Plan proposé](docs/missions/BILAN-20261031/12-PLAN-DE-RATIONALISATION.md). Branche codex/bilan-20261031, PR dédiée sans fusion main.
+
 ## Google MCP — compte personnel reçu, Éducation à diagnostiquer — 31octobre2026
 
 **✅🟡 Personnel : cinqAPI utilisées réellement, Docs/Sheets créés et relus, lecturesWebUI/Code, persistance et renouvellementOAuth contrôlés.** Aucun projetCloud propriétaire ni abonnement.21tests ciblésPASS après ajustements, sans rejeu93/cinqcontrôlesPR35. Données et identifiantsGoogle privés non publiés.
