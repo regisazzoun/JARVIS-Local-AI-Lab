@@ -8,7 +8,7 @@ Depuis le **Terminal du MacBook connecté à Tailscale**, exécuter pour le comp
 ssh -t -L 8769:127.0.0.1:8769 adminjarvis@jarvis-macmini.tail805e83.ts.net '/home/adminjarvis/.local/bin/google-mcp-connect --profile personal'
 ```
 
-Laisser le Terminal ouvert, copier l’URL Google affichée dans le navigateur, sélectionner le compte personnel puis accorder les permissions souhaitées. Google affiche « Gemini CLI Workspace Extension ». Le retour sur127.0.0.1:8769 rejoint le Mac mini par le transfert SSH et enregistre les jetons chiffrés dans le profil personal. La page confirme le raccordement. La commande se termine ; le transfert n’est plus nécessaire pour l’utilisation quotidienne.
+Laisser le Terminal ouvert et ouvrir **http://127.0.0.1:8769/** dans le navigateur du MacBook. Ce lien court redirige vers l’URL Google générée ; il évite de copier sa longue ligne dans le Terminal. Ensuite, sélectionner le compte personnel puis accorder les permissions souhaitées. Google affiche « Gemini CLI Workspace Extension ». Le retour sur127.0.0.1:8769 rejoint le Mac mini par le transfert SSH et enregistre les jetons chiffrés dans le profil personal. La page confirme le raccordement. La commande se termine ; le transfert n’est plus nécessaire pour l’utilisation quotidienne.
 
 Répéter ensuite pour le compte Éducation :
 
@@ -23,3 +23,5 @@ Une autorisation Google incomplète ou une politique administrateur peut refuser
 Le logiciel et les appels MCP s’exécutent sur le Mac mini. Le client OAuth et l’échange/renouvellement des jetons utilisent le relais fourni par le projet, `google-workspace-extension.geminicli.com` : le refresh token lui est transmis lors du renouvellement. Ce n’est pas un OAuth entièrement autonome hors fournisseur. Aucun abonnement ni projet/facturation Cloud personnel n’est configuré.
 
 Après connexion, demander dans Open WebUI : « Avec google_mcp, consulte le statut du profil personal, puis découvre drive.search et cherche mes documents. » Les recherches/lectures puis création et relecture d’un document d’essai restent nécessaires pour réceptionner réellement les accès. Répéter avec education. Le serveur amont est limité à la lecture Sheets ; deux méthodes additionnelles JARVIS de création/écriture sont préparées mais restent à recevoir après authentification ; l’envoi Gmail n’est pas activé par cette mission.
+
+Si Codex a déjà démarré le parcours sur le Mac mini, ne pas lancer un second helper : établir uniquement `ssh -N -L 8769:127.0.0.1:8769 adminjarvis@jarvis-macmini.tail805e83.ts.net`, puis ouvrir le même lien court. Le parcours expire après dix minutes ; aucune authentification réussie n’est déduite de la redirection HTTP302.

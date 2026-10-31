@@ -28,6 +28,8 @@ def main():
     class Handler(BaseHTTPRequestHandler):
         def log_message(self,*unused):pass
         def do_GET(self):
+            if urlparse(self.path).path=='/':
+                self.send_response(302);self.send_header('Location',auth_url(settings,csrf,args.port));self.send_header('Cache-Control','no-store');self.send_header('Referrer-Policy','no-referrer');self.end_headers();return
             if urlparse(self.path).path!='/oauth2callback':self.send_error(404);return
             query=parse_qs(urlparse(self.path).query)
             try:credentials=validate_callback(query,csrf)
@@ -40,6 +42,7 @@ def main():
     with HTTPServer(('127.0.0.1',args.port),Handler) as server:
         server.timeout=5
         print('Profil :',args.profile,'— OAuth fourni par le connecteur, aucun projet Cloud personnel requis.',flush=True)
+        print(f'Lien court a ouvrir sur le MacBook avec le transfert SSH actif : http://127.0.0.1:{args.port}/',flush=True)
         print('Ouvre cette URL dans ton navigateur et selectionne le compte correspondant :\n'+auth_url(settings,csrf,args.port),flush=True)
         deadline=time.monotonic()+600
         while not outcome['saved'] and outcome['attempts']<3 and time.monotonic()<deadline:server.handle_request()
