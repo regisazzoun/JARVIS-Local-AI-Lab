@@ -1,3 +1,17 @@
+## Google MCP — compte personnel reçu, Éducation à diagnostiquer — 31octobre2026
+
+**✅🟡 Personnel : cinqAPI utilisées réellement, Docs/Sheets créés et relus, lecturesWebUI/Code, persistance et renouvellementOAuth contrôlés.** Aucun projetCloud propriétaire ni abonnement.21tests ciblésPASS après ajustements, sans rejeu93/cinqcontrôlesPR35. Données et identifiantsGoogle privés non publiés.
+
+**🟡 Éducation : aucunOAuth reçu**, message utilisateur d’accès au service refusé demandant la consoleadmin. Restriction de service/app probable, domaine/page exacte demandée ; aucune politique modifiée ou contournée. Rapport autonome de la sonde native toujours NONREÇU. [Rapport actuel](docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md) · [preuves personnelles expurgées](docs/missions/GOOGLE-MCP-OAUTH/RECEPTION-PERSONAL.json) · [blocageÉducation](docs/missions/GOOGLE-MCP-OAUTH/BLOCAGE-EDUCATION.md). PR37 sans fusion ; pauseM26P4 maintenue. L’instantané préauth ci-dessous reste historique.
+
+## Google MCP / OAuth fourni — 31 octobre2026
+
+**🟡 Authentification propriétaire en attente ; connecteur installé et préflight reçu avec réserves.** Serveur Workspace Apache2 épinglé089927e, clientOAuth/relais fournis, aucun projetCloud propriétaire ni abonnement. Profils personal/education séparés, stockage chiffré et permissions700/600.30méthodes amont et2extensionsSheets Codex préparées ; aucune fonctionGoogle distante reçue avant connexion.
+
+WebUI27B et Code80B ont réellement découvert/appelé les statuts des deuxprofils et l’outil de date local ; MCP canonique enrichi à9outils, huitanciens conservés, sixinterfacesclient inchangées. Sonde native : septappelsgoogle_mcp réels, plan2 fourniCodex, lectures répétées puis arrêt94552 ; rapport/autonomie NONREÇUS.20tests ciblésPASS, sans rejeu93/cinqcontrôlesPR35. Modèles, distribution et pauseM26P4 conservés.
+
+[Rapport](docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md) · [preuves](docs/missions/GOOGLE-MCP-OAUTH/PREUVES.json) · [authentification sans projetCloud personnel](docs/missions/GOOGLE-MCP-OAUTH/AUTHENTIFICATION.md). L’ancien guideCloudPR35 reste historique ; il n’est pas requis pour cette solution. Branche codex/google-mcp-oauth-existant, [PR37](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37), sans fusionmain.
+
 ## Intégration agentique WebUI / Qwen Code — 30 octobre 2026
 
 **✅🟡 Connecteurs déployés avec réserves ; réception globale incomplète.** WebUI27B Mac et profil80B Dell1 raccordés au registre/broker/Skills canoniques ; Code corrige une vraie source, appelle MCP et exécute des tests sur les deux Dell. Deux sessions indépendantes réalisent14étapes vérifiées en18/29tours, sans plafond12. Contrats JSON/non-streaming et contexte local32768 corrigés.93tests logiciels et5contrôles vivantsPASS ;8fichiers déployés identiques, services contrôlés actifs et HTTPS200.

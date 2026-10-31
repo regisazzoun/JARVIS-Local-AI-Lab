@@ -1,0 +1,796 @@
+{
+  "generated_utc": "2026-10-31T10:51:31.358811+00:00",
+  "base_pr": 35,
+  "base_commit": "eb823a03e1c2acb859cce608a2fb031b5dfc3cf5",
+  "implementation_commit": "1abd51d",
+  "upstream_installation": {
+    "upstream": "https://github.com/gemini-cli-extensions/workspace",
+    "commit": "089927ead01433f38c65c12cdcd2ed9a18165277",
+    "license": "Apache-2.0",
+    "owner_cloud_project_created": false,
+    "tokens_created": false,
+    "publisher_oauth_relay": "https://google-workspace-extension.geminicli.com",
+    "files": {
+      "index.js": "ecbc6909f1a77a84ac9b0e05839bec5ecd91ca5e764189de05de8da14f76fe31",
+      "auth-bridge.js": "384e534e112512ba7c6d44887922aeb294c292c59aca36fa94a8de3009b6c4de",
+      "connect.py": "11a22f39915b489bb9f4855a846c83a647398b63c5a979ed4af28af57bc22391"
+    }
+  },
+  "installed_modules": [
+    {
+      "name": "google_mcp.py",
+      "identical": true,
+      "sha256": "4f3768cf3c9ed91b9569cf351d7051abbed1c5d32e6eafa6a9d9c3a13e5a7b80"
+    },
+    {
+      "name": "google_workspace.py",
+      "identical": true,
+      "sha256": "19d88f31d01e83cd94b7b563cd6be3d8a531b1661f7d8aa3db3d2db28af243d6"
+    },
+    {
+      "name": "client_capabilities.py",
+      "identical": true,
+      "sha256": "fa35e1a373f00350cf2c06dd33fec8b7584b7207fd6e5198212b9a83a58a7bdf"
+    },
+    {
+      "name": "mcp_gateway.py",
+      "identical": true,
+      "sha256": "0a76a46856873a031b761ea76f2ed78d3b496f60c08622238e3873461d55f361"
+    }
+  ],
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-qwen-guard": "active",
+    "apache2": "active",
+    "tailscaled": "active"
+  },
+  "profiles": {
+    "personal": {
+      "status": {
+        "profile": "personal",
+        "installed": true,
+        "configured": false,
+        "has_access_token": false,
+        "expires_at": null,
+        "expired": false,
+        "granted_scopes": [],
+        "remote_access_verified": false,
+        "state": "AUTH_REQUIRED",
+        "setup": "google-mcp-connect --profile personal",
+        "setup_execution_location": "Terminal du MacBook via SSH avec transfert local8769 ; cette commande ne va pas dans la barre d’adresse du navigateur.",
+        "browser_step": "Ouvrir uniquement l’URL Google ensuite affichée par la commande.",
+        "owner_cloud_project_required": false
+      },
+      "directory_mode": "0o700",
+      "master_key_mode": "0o600",
+      "encrypted_token_present": false
+    },
+    "education": {
+      "status": {
+        "profile": "education",
+        "installed": true,
+        "configured": false,
+        "has_access_token": false,
+        "expires_at": null,
+        "expired": false,
+        "granted_scopes": [],
+        "remote_access_verified": false,
+        "state": "AUTH_REQUIRED",
+        "setup": "google-mcp-connect --profile education",
+        "setup_execution_location": "Terminal du MacBook via SSH avec transfert local8769 ; cette commande ne va pas dans la barre d’adresse du navigateur.",
+        "browser_step": "Ouvrir uniquement l’URL Google ensuite affichée par la commande.",
+        "owner_cloud_project_required": false
+      },
+      "directory_mode": "0o700",
+      "master_key_mode": "0o600",
+      "encrypted_token_present": false
+    }
+  },
+  "private_key_files_independent": true,
+  "counts": {
+    "upstream_tools_exposed": 30,
+    "additive_sheet_tools": 2,
+    "historical_mcp_tools_now": 9,
+    "historical_mcp_tools_preserved": 8,
+    "client_transport_tools_unchanged": 6,
+    "native_registry_definitions": 87,
+    "client_facade_names": 35
+  },
+  "oauth_prelogin": {
+    "scope": "Pre-login page only, no account authenticated",
+    "page_title": "Sign in - Google Accounts",
+    "signin_page_observed": true,
+    "oauth_error_text_present": false,
+    "publisher_endpoint": "https://google-workspace-extension.geminicli.com",
+    "requested_scopes": [
+      "https://www.googleapis.com/auth/documents",
+      "https://www.googleapis.com/auth/drive",
+      "https://www.googleapis.com/auth/calendar",
+      "https://www.googleapis.com/auth/gmail.modify",
+      "https://www.googleapis.com/auth/spreadsheets.readonly"
+    ]
+  },
+  "oauth_authenticated_profiles": [],
+  "real_google_data_operations_received": false,
+  "software_tests": {
+    "passed": 20,
+    "new": 15,
+    "focused_legacy_google_tests": 5,
+    "log_sha256": "6b32a052478bc08da0ab54ed725663539a67d6e0abbbb5191e94d8e5884d13dc",
+    "old_93_test_campaign_replayed": false,
+    "old_5_live_campaign_replayed": false
+  },
+  "webui": {
+    "real_authenticated_browser": true,
+    "original_text_sha256": "7ddd64868fce26f2d247fb1b9371d32a70db7bd207d1eb5e79cf4448fe4a9e6a",
+    "screenshot_sha256": "1dbf26c5f1c4855930f135365b663aa3c62d33f5c33db369dd40dfeccc83d132",
+    "original_privately_retained": true,
+    "statuses_and_local_time_received": true,
+    "google_data_received": false,
+    "wording_erratum": "CLI commands run in Terminal; only the printed OAuth URL opens in the browser. New structured setup fields and AUTHENTIFICATION.md clarify this."
+  },
+  "qwen_code": {
+    "real_model": "qwen3-coder-next:q4_K_M",
+    "inference_node": "Dell1 existing endpoint",
+    "session_id": "cc27b1f0-b44f-4e27-964d-63332e70a4e3",
+    "result": "success",
+    "num_turns": 6,
+    "duration_ms": 63552,
+    "tools": [
+      "mcp__jarvis__jarvis_catalog",
+      "mcp__jarvis__jarvis_schema",
+      "mcp__jarvis__jarvis_call",
+      "mcp__jarvis__jarvis_call",
+      "mcp__jarvis__jarvis_call"
+    ],
+    "trace_sha256": "437d356d4c23061ec2d8fe339fa7e391388935089238b7d8510dba98a8e136a4",
+    "google_data_received": false
+  },
+  "canonical_mcp_chain": {
+    "returncode": 0,
+    "transport": "stdio",
+    "server": {
+      "name": "jarvis-registry-25",
+      "title": null,
+      "version": "1.30.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "isError": false,
+    "responses": [
+      {
+        "ok": true,
+        "result": {
+          "profile": "personal",
+          "tool": "time.getCurrentDate",
+          "transport": "stdio",
+          "server": {
+            "name": "google-workspace-server",
+            "title": null,
+            "version": "0.0.8",
+            "websiteUrl": null,
+            "icons": null
+          },
+          "protocol_version": "2025-11-25",
+          "mcp_is_error": false,
+          "content": [
+            {
+              "utc": "2026-10-31",
+              "local": "2026-10-31",
+              "timeZone": "Europe/Paris"
+            }
+          ],
+          "remote_access_verified": false,
+          "verification_scope": "Tool result only; inspect content and independently read back writes. time.* is local computation, never Google API proof."
+        },
+        "risk": "host_authorized",
+        "tool": "google_mcp",
+        "elapsed_s": 1.145
+      }
+    ]
+  },
+  "canonical_engine": {
+    "id": "0cd10730c6b841839c5d62b4fef32359",
+    "state": "interrupted",
+    "plans": [
+      {
+        "version": 1,
+        "author": "JARVIS",
+        "sha256": "f1380f2d5c1ad611da5b3b0969194f2a507f5b8b0b8f1cf23a3d3a71b1b1a8f0"
+      },
+      {
+        "version": 2,
+        "author": "Codex",
+        "sha256": "05d82a40cbb3f77430da54dc2389df48a2b5b63177ac7ea466294c86af47c9be"
+      }
+    ],
+    "tool_calls": [
+      {
+        "event": 94413,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "personal"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "personal",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94421
+      },
+      {
+        "event": 94433,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "education"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "education",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94441
+      },
+      {
+        "event": 94453,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "personal"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "personal",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94464
+      },
+      {
+        "event": 94476,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "education"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "education",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94484
+      },
+      {
+        "event": 94496,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "personal"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "personal",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94504
+      },
+      {
+        "event": 94516,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "education"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "education",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94524
+      },
+      {
+        "event": 94536,
+        "task": "bbefe7e3997e43198aeccc72b54bcd92-001",
+        "actor": "JARVIS",
+        "arguments": {
+          "action": "status",
+          "profile": "personal"
+        },
+        "observed": {
+          "configured": false,
+          "expired": false,
+          "expires_at": null,
+          "granted_scopes": [],
+          "has_access_token": false,
+          "installed": true,
+          "profile": "personal",
+          "remote_access_verified": false,
+          "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
+          "state": "AUTH_REQUIRED"
+        },
+        "transport_ok": true,
+        "next_model_inference_event": 94544
+      }
+    ],
+    "original_goal_preserved": true,
+    "report_received": false,
+    "operator_stop": {
+      "mission": "0cd10730c6b841839c5d62b4fef32359",
+      "state": "interrupted",
+      "tool_events": [
+        94413,
+        94433,
+        94453,
+        94476,
+        94496,
+        94516,
+        94536
+      ],
+      "counts": {
+        "personal": 4,
+        "education": 3
+      },
+      "reception_event": 94552,
+      "report_received": false
+    },
+    "scope": "Native model tool calls received; operator supplied plan2, free report/autonomous planning not received. Repeated successful reads are not failed corrections.",
+    "inference_routes": [
+      {
+        "event": 94114,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94120,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94126,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94134,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94140,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94147,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94161,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94170,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94182,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94191,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94214,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94224,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94245,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94255,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94278,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94288,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94318,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94325,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94335,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94339,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94348,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94359,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94368,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94379,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94388,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94400,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94409,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94420,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94429,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94440,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94449,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94463,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94472,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94483,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94492,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94503,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94512,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94523,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94532,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94543,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94554,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      }
+    ]
+  },
+  "client_receipts": [
+    {
+      "audit_id": 120,
+      "origin": "OpenWebUI",
+      "arguments": {
+        "profile": "personal",
+        "action": "status"
+      },
+      "registry_ok": true,
+      "observed": {
+        "profile": "personal",
+        "installed": true,
+        "configured": false,
+        "has_access_token": false,
+        "expires_at": null,
+        "expired": false,
+        "granted_scopes": [],
+        "remote_access_verified": false,
+        "state": "AUTH_REQUIRED",
+        "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)"
+      },
+      "scope": "Actual tool receipt; no Google data API proof before authentication"
+    },
+    {
+      "audit_id": 122,
+      "origin": "OpenWebUI",
+      "arguments": {
+        "profile": "education",
+        "action": "status"
+      },
+      "registry_ok": true,
+      "observed": {
+        "profile": "education",
+        "installed": true,
+        "configured": false,
+        "has_access_token": false,
+        "expires_at": null,
+        "expired": false,
+        "granted_scopes": [],
+        "remote_access_verified": false,
+        "state": "AUTH_REQUIRED",
+        "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)"
+      },
+      "scope": "Actual tool receipt; no Google data API proof before authentication"
+    },
+    {
+      "audit_id": 124,
+      "origin": "OpenWebUI",
+      "arguments": {
+        "profile": "personal",
+        "action": "call",
+        "name": "time.getCurrentDate",
+        "arguments": {}
+      },
+      "registry_ok": true,
+      "observed": {
+        "profile": "personal",
+        "tool": "time.getCurrentDate",
+        "transport": "stdio",
+        "server": {
+          "name": "google-workspace-server",
+          "title": null,
+          "version": "0.0.8",
+          "websiteUrl": null,
+          "icons": null
+        },
+        "protocol_version": "2025-11-25",
+        "mcp_is_error": false,
+        "content": [
+          {
+            "utc": "2026-10-31",
+            "local": "2026-10-31",
+            "timeZone": "Europe/Paris"
+          }
+        ],
+        "returncode": 0,
+        "mcp_tool_dispatched": true,
+        "operation_executed": true,
+        "remote_access_verified": false,
+        "verification_scope": "Tool result only; inspect content and independently read back writes. time.* is local computation, never Google API proof."
+      },
+      "scope": "Actual tool receipt; no Google data API proof before authentication"
+    },
+    {
+      "audit_id": 126,
+      "origin": "QwenCode/MCP",
+      "arguments": {
+        "profile": "personal",
+        "action": "status"
+      },
+      "registry_ok": true,
+      "observed": {
+        "profile": "personal",
+        "installed": true,
+        "configured": false,
+        "has_access_token": false,
+        "expires_at": null,
+        "expired": false,
+        "granted_scopes": [],
+        "remote_access_verified": false,
+        "state": "AUTH_REQUIRED",
+        "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)"
+      },
+      "scope": "Actual tool receipt; no Google data API proof before authentication"
+    },
+    {
+      "audit_id": 128,
+      "origin": "QwenCode/MCP",
+      "arguments": {
+        "profile": "education",
+        "action": "status"
+      },
+      "registry_ok": true,
+      "observed": {
+        "profile": "education",
+        "installed": true,
+        "configured": false,
+        "has_access_token": false,
+        "expires_at": null,
+        "expired": false,
+        "granted_scopes": [],
+        "remote_access_verified": false,
+        "state": "AUTH_REQUIRED",
+        "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)"
+      },
+      "scope": "Actual tool receipt; no Google data API proof before authentication"
+    },
+    {
+      "audit_id": 130,
+      "origin": "QwenCode/MCP",
+      "arguments": {
+        "profile": "personal",
+        "action": "call",
+        "name": "time.getCurrentDate",
+        "arguments": {}
+      },
+      "registry_ok": true,
+      "observed": {
+        "profile": "personal",
+        "tool": "time.getCurrentDate",
+        "transport": "stdio",
+        "server": {
+          "name": "google-workspace-server",
+          "title": null,
+          "version": "0.0.8",
+          "websiteUrl": null,
+          "icons": null
+        },
+        "protocol_version": "2025-11-25",
+        "mcp_is_error": false,
+        "content": [
+          {
+            "utc": "2026-10-31",
+            "local": "2026-10-31",
+            "timeZone": "Europe/Paris"
+          }
+        ],
+        "returncode": 0,
+        "mcp_tool_dispatched": true,
+        "operation_executed": true,
+        "remote_access_verified": false,
+        "verification_scope": "Tool result only; inspect content and independently read back writes. time.* is local computation, never Google API proof."
+      },
+      "scope": "Actual tool receipt; no Google data API proof before authentication"
+    }
+  ],
+  "old_mission26_preserved": {
+    "manual_hold": true,
+    "resumed": false,
+    "p4_states": [
+      {
+        "id": "c32347de3edf4288a4751a3e65afa7eb",
+        "state": "interrupted"
+      }
+    ]
+  },
+  "auth_dependent_tests": "PENDING:Drive search/read/create/readback,Docs,Sheets read/write/readback,Calendar,Gmail,authenticated calls from clients and persistence after service restart",
+  "limitations": [
+    "Authentication still required on both accounts",
+    "Publisher OAuth exchange/refresh relay remains an external dependency",
+    "No real Google API write received, including additive Sheets methods",
+    "Native report/autonomous planning not received; original incorrect plan and drafts retained"
+  ],
+  "configuration_environment_presence_checked": {
+    "GOOGLE_OAUTH_CLIENT_ID": false,
+    "GOOGLE_OAUTH_CLIENT_SECRET": false,
+    "GOOGLE_APPLICATION_CREDENTIALS": false,
+    "GOOGLE_WORKSPACE_CLI_CLIENT_ID": false,
+    "GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE": false,
+    "WORKSPACE_CLIENT_ID": false,
+    "WORKSPACE_CLOUD_FUNCTION_URL": false
+  },
+  "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37"
+}

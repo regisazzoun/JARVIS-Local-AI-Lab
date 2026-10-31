@@ -1,3 +1,7 @@
+## Google MCP — 31octobre2026
+
+[Livraison préparatoire](GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md) · [connexion navigateur](GOOGLE-MCP-OAUTH/AUTHENTIFICATION.md) · [preuves](GOOGLE-MCP-OAUTH/PREUVES.json). Sans projetCloud personnel ; profils personal/education en attente d’authentification. Le connecteur est raccordé, les API Google ne sont pas encore réceptionnées.
+
 ## Intégration WebUI / Qwen Code — 30 octobre2026
 
 [Rapport](INTEGRATION-AGENTIQUE-WEBUI-CODE/RAPPORT-FINAL.md) · [preuves](INTEGRATION-AGENTIQUE-WEBUI-CODE/PREUVES-JARVIS.json) · [Google](INTEGRATION-AGENTIQUE-WEBUI-CODE/GOOGLE-RACCORDEMENT.md). Connecteurs déployés avec réserves ; réception globale incomplète, Google à connecter ; sonde native clôturée après correction structurelle et reprise assistée. Les réceptions historiques restent conservées.

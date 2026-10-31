@@ -28,6 +28,10 @@ def save_credentials(path,credentials):
 
 def connection(profile,root=PRIVATE):
     folder=profile_path(profile,root);token=folder/'token.json'
+    if root==PRIVATE and profile in ('personal','education') and not token.is_file():
+        from .google_mcp import credential_status
+        preferred=credential_status(profile)
+        if preferred.get('installed'):return {**preferred,'preferred_tool':'google_mcp','legacy_credentials_configured':False}
     return {'profile':profile,'configured':token.is_file() and not token.is_symlink(),'state':'CONFIGURED_NOT_TESTED' if token.is_file() and not token.is_symlink() else 'AUTH_REQUIRED','remote_access_verified':False,'setup':'google-connect --profile '+profile+' --client-file /private/path/client_secret.json; owner guidance provided at end of mission'}
 
 def session(profile,root=PRIVATE):
@@ -47,7 +51,9 @@ def perform(profile,action,parameters,root=PRIVATE):
     if action not in ACTIONS:raise ValueError('Unknown Google operation')
     if action=='status':return connection(profile,root)
     client=session(profile,root)
-    if client is None:return {'ok':False,**connection(profile,root),'operation_executed':False}
+    if client is None:
+        status=connection(profile,root)
+        return {'ok':False,**status,'operation_executed':False,**({'next_action':'Use google_mcp list/schema/call; the preferred connector supplies its publisher OAuth client.'} if status.get('preferred_tool') else {})}
     p=parameters
     def ident(name):
         value=str(p[name])

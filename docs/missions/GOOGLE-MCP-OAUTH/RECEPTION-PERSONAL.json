@@ -1,0 +1,177 @@
+{
+  "generated_utc": "2026-10-31T11:26:10.140526+00:00",
+  "implementation_followup": "5b98c9a",
+  "actor_independent_checks": "Codex",
+  "scope": "Authenticated personal account only; education remains blocked before OAuth",
+  "receipts": {
+    "drive-documents": {
+      "audit_id": 134,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "cbe3c75d3a7cc1c3cc0b7e2e082d23fc7388ddecbe0f7b01b2d9485f1aacc668",
+      "raw_google_data_published": false
+    },
+    "docs-create": {
+      "audit_id": 136,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "c411f94c491b6c9bbe5ed7de51e73c3b94de2798b4cb7fd99598f17a2c0b4acb",
+      "raw_google_data_published": false
+    },
+    "docs-readback": {
+      "audit_id": 144,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "98492a29b44cd74f6070965411b01f8f44b55e3a948dd02d78f6a0e2b1b3ef39",
+      "raw_google_data_published": false
+    },
+    "docs-existing-read": {
+      "audit_id": 146,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "4efe55e57e748de621d0cb57fc8477b82ddb93a85f318ae05b7721b2ca48b20b",
+      "raw_google_data_published": false
+    },
+    "sheets-create": {
+      "audit_id": 142,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "ab3103d865b20e0c0df4d4710aa1fe61a4fcf3d3c6c29393676a16fa24fe5142",
+      "raw_google_data_published": false
+    },
+    "sheets-write": {
+      "audit_id": 148,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "59f9dafd8fd98cd4ce3517a31a6eb65100c05f163ea2b4c543470b41a12d2830",
+      "raw_google_data_published": false
+    },
+    "sheets-readback": {
+      "audit_id": 150,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "85febe57cbbb3863fde7f4e968da9c9802f95782aeaf534ed0025c3a4bdeaf72",
+      "raw_google_data_published": false
+    },
+    "calendar-read": {
+      "audit_id": 138,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "2a98ced021d56c144f1cc251bf3213b7b5477e8987d7c0d71d9b90a7ba463289",
+      "raw_google_data_published": false
+    },
+    "gmail-search": {
+      "audit_id": 140,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "56f8a612304ca225fefd5c6174bdece13fa5b943e9b0af975552bb2ada49cd2a",
+      "raw_google_data_published": false
+    },
+    "gmail-read": {
+      "audit_id": 152,
+      "registry_ok": true,
+      "returncode": 0,
+      "original_receipt_sha256": "b1c9ab5292e7277c42d44727cad0dea596aba4e632f2c8092c96c0c83b6d7cb9",
+      "raw_google_data_published": false
+    }
+  },
+  "independent_checks": {
+    "drive_real_documents_found": true,
+    "existing_document_read_target_matches_search": true,
+    "created_doc_readback_target_matches_creation": true,
+    "created_document_export_exact": true,
+    "created_document_export_sha256": "32aa6ab8bbd96ec817c679f8255b889f76e6b1f5e7addef398efa91535616a33",
+    "existing_document_text_nonempty": true,
+    "sheets_write_target_is_created_spreadsheet": true,
+    "sheets_read_target_is_created_spreadsheet": true,
+    "sheets_formatted_values_exact": true,
+    "sheets_read_representation": "Formatted Google Sheets values: string42; integer42 sent using RAW, underlying number type not independently re-read as UNFORMATTED_VALUE",
+    "calendar_events_observed": 2,
+    "gmail_read_matches_search": true,
+    "gmail_read_scope": "metadata/snippet only, no message sent"
+  },
+  "clients_google_readback": {
+    "OpenWebUI": [
+      {
+        "audit_id": 154,
+        "origin": "OpenWebUI",
+        "marker_received_from_google": true,
+        "remote_api_reply_observed": true,
+        "target_matches_controlled_document": true
+      }
+    ],
+    "QwenCode": [
+      {
+        "audit_id": 160,
+        "origin": "QwenCode/MCP",
+        "marker_received_from_google": true,
+        "remote_api_reply_observed": true,
+        "target_matches_controlled_document": true
+      }
+    ]
+  },
+  "qwen_code": {
+    "success": true,
+    "num_turns": 7,
+    "duration_ms": 79177,
+    "original_trace_sha256": "0f929bd525513f2cba7315d4f0c26306afe75b1098a1316c09feef24ed3ac397"
+  },
+  "webui": {
+    "actual_marker_visible": true,
+    "original_body_sha256": "9bc5ea62e6e7d6d6418a5ccbcd9849f139eb6cb20b29acdbdd3ba2b8dfee0c28",
+    "screenshot_sha256": "c91c6057fd279a774a3ba6ad92bc1ad93017616fea795fc9281074a9b3f0d4e5"
+  },
+  "service_persistence": {
+    "service": "jarvis-webui-tools",
+    "restart_observed": "Sat 2026-10-31 12:21:05 CET",
+    "authenticated_google_read_after_restart": true,
+    "whole_machine_reboot_tested": false
+  },
+  "oauth_refresh": {
+    "actor": "Codex",
+    "method": "Only local expiry advanced; same upstream storage and AuthManager, then actual fresh Google read",
+    "original_cached_credential_configured": true,
+    "controlled_expiry_observed": true,
+    "after_configured": true,
+    "after_expired": false,
+    "expiry_extended": true,
+    "fresh_google_api_read_ok": true,
+    "audit_id": 162,
+    "secrets_printed": false,
+    "reverted": false,
+    "refresh_received": true
+  },
+  "account_states": {
+    "personal": {
+      "configured": true,
+      "expired": false,
+      "state": "CONFIGURED_NOT_TESTED"
+    },
+    "education": {
+      "configured": false,
+      "expired": false,
+      "state": "AUTH_REQUIRED"
+    }
+  },
+  "privacy": {
+    "tokens_or_personal_file_ids_published": false,
+    "existing_documents_and_mail_content_published": false,
+    "original_responses_retained_privately": true
+  },
+  "education": {
+    "owner_reported_error": "Désolé, vous n'avez pas accès à ce service. Pour l'activer, veuillez vous connecter à votre console d'administration.",
+    "exact_error_page_host_and_code": "REQUESTED_NOT_YET_PROVIDED",
+    "cause": "Likely service/app policy; exact service not established",
+    "oauth_received": false
+  },
+  "not_received": [
+    "Education OAuth and Google APIs",
+    "Gmail full message body and outbound mail (not sent)",
+    "Native autonomous mission report (historical interrupted probe remains)"
+  ],
+  "software_tests_followup": {
+    "passed": 21,
+    "log_sha256": "29e68e7d4d879f33b3e397b7ac7678388522ecb79c50f45df29ff0904dec7a79",
+    "old_93_tests_not_replayed": true
+  }
+}
