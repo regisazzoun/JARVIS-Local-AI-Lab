@@ -9,3 +9,18 @@ Déploiement opérateur : `sudo python3 agentic/engine_v2/install.py`. Sauvegard
 API : /api/missions soumet une mission persistante ; /api/chat agent_mode=true renvoie202 et mission_id ; une mutation décidée en chat ordinaire est transférée avant exécution au worker. Les appels JSON et l'authentification existants restent requis. Le Launcher sélectionne mission_id et lit le journal SQLite.
 
 Migration additive : anciennes missions et états interrompus conservés. Les baux expirés V2 sont repris automatiquement ; ne pas rejouer aveuglément une intention sans résultat. Une panne entre l'effet externe et son résultat enregistré reste une fenêtre d'incertitude : le modèle doit réobserver la cible. Il n'y a pas de garantie universelle exactly-once sur une commande shell arbitraire.
+
+## Prérequis permanent avant une extension du moteur ou des connecteurs
+
+Lire [AGENTS](../../AGENTS.md), la [charte](../../docs/CHARTE_DIRECTIVES_JARVIS.md), les états pertinents et les [prérequis de réutilisation](../../docs/PREREQUIS-REUTILISATION.md). Inventorier le moteur, le broker, le registre, les Skills, MCP et le code JARVIS déjà développé ; rechercher et comparer les bibliothèques/API/connecteurs/solutions open source existants. Réutiliser, configurer, raccorder et tester avant de coder. Tout complément doit être limité à un manque démontré et documenté avec sources, comparatif et preuves dans la mission et la PR, sans nouvelle validation humaine intermédiaire.
+
+### Priorité générale aux API disponibles sur Internet — précision propriétaire du 31 octobre 2026
+
+**PRIVILÉGIER LES API DISPONIBLES SUR INTERNET DE FAÇON GÉNÉRALE.**
+
+Pour tout besoin fonctionnel de JARVIS, rechercher d'abord sur Internet s'il existe déjà une API ou un service qui réalise la fonction, et privilégier son utilisation plutôt que de redévelopper cette fonction. Cette priorité s'applique à tous les domaines du projet, pas seulement à Google ou aux connecteurs déjà inventoriés.
+
+Réutiliser les clients, SDK et connecteurs existants pour appeler ces API ; configurer les accès, raccorder à JARVIS et tester le résultat. Si aucune API adaptée n'est retenue, documenter les API recherchées, leurs sources et la raison concrète de leur inadéquation (fonction manquante, incompatibilité avec une décision propriétaire, conditions d'accès ou coût inadaptés au besoin). Développer seulement le complément dont l'absence est démontrée. Une préférence spontanée pour une implémentation maison ne suffit pas.
+
+Les décisions propriétaires existantes restent applicables ; cette priorité n'ajoute aucune validation humaine intermédiaire et n'autorise aucune fusion automatique.
+

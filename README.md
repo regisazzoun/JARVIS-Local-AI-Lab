@@ -1,3 +1,9 @@
+## Prérequis permanents de développement — 31 octobre 2026
+
+Décision propriétaire : **inventorier JARVIS et rechercher/comparer bibliothèques, API, connecteurs MCP et solutions open source avant tout nouveau développement ; réutiliser, configurer, raccorder et tester d'abord ; ne développer que le manque démontré.** [Procédure et fiche obligatoire](docs/PREREQUIS-REUTILISATION.md) · [changements et preuves](docs/preuves/2026-10-31-prerequis-reutilisation.md).
+
+Livraison documentaire sur branche dédiée issue de PR35 ; décisions antérieures, états et preuves conservés. Aucun déploiement ni nouvelle réception technique ; M26-P4/MANUAL-HOLD restent en pause, aucune reprise14A/24-Old ni fusion automatique dans main.
+
 ## Mission25 — capacités reçues avec réserves,21 octobre2026
 
 Quatre compétences exécutables actives, création/réutilisation par JARVIS et MCP réel ;14A reste ouverte sur les limites mesurées. [Réception25](docs/missions/25/RAPPORT-FINAL.md) · [Bilan14A](docs/missions/25/BILAN-14A.md) · [PR18](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/18).
@@ -195,3 +201,14 @@ Les erreurs restent documentées pour être corrigées. Les rapports historiques
 ---
 
 *Un laboratoire qui progresse par l’expérimentation, la vérification et le partage des résultats. Présentation inspirée du [profil de Régis](https://github.com/regisazzoun/Regis-AZZOUN).*
+
+### Priorité générale aux API disponibles sur Internet — précision propriétaire du 31 octobre 2026
+
+**PRIVILÉGIER LES API DISPONIBLES SUR INTERNET DE FAÇON GÉNÉRALE.**
+
+Pour tout besoin fonctionnel de JARVIS, rechercher d'abord sur Internet s'il existe déjà une API ou un service qui réalise la fonction, et privilégier son utilisation plutôt que de redévelopper cette fonction. Cette priorité s'applique à tous les domaines du projet, pas seulement à Google ou aux connecteurs déjà inventoriés.
+
+Réutiliser les clients, SDK et connecteurs existants pour appeler ces API ; configurer les accès, raccorder à JARVIS et tester le résultat. Si aucune API adaptée n'est retenue, documenter les API recherchées, leurs sources et la raison concrète de leur inadéquation (fonction manquante, incompatibilité avec une décision propriétaire, conditions d'accès ou coût inadaptés au besoin). Développer seulement le complément dont l'absence est démontrée. Une préférence spontanée pour une implémentation maison ne suffit pas.
+
+Les décisions propriétaires existantes restent applicables ; cette priorité n'ajoute aucune validation humaine intermédiaire et n'autorise aucune fusion automatique.
+
