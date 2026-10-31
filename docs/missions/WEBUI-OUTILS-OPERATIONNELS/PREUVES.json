@@ -1,0 +1,100 @@
+{
+  "scope": "Observed execution receipts transcribed from this session; complete originals retained privately on JARVIS",
+  "tests_passed": 31,
+  "google_independent": {
+    "personal": {
+      "docs": true,
+      "sheets": true,
+      "calendar": true,
+      "gmail": true,
+      "drive_folder": true
+    },
+    "education": {
+      "docs": true,
+      "sheets": true,
+      "calendar": true,
+      "gmail": true,
+      "drive_folder": true
+    },
+    "distinct_organizers": true,
+    "cross_private_document_reads_denied": {
+      "personal": 364,
+      "education": 366
+    },
+    "drive_read_audits": {
+      "personal": 394,
+      "education": 396
+    }
+  },
+  "webui_receipts": {
+    "personal_docs_create": 234,
+    "personal_docs_read": 238,
+    "personal_sheets_create": 242,
+    "personal_sheets_write": 246,
+    "personal_sheets_read": 258,
+    "personal_calendar_create": 262,
+    "personal_calendar_read": 270,
+    "education_docs_create": 320,
+    "education_docs_read": 324,
+    "education_sheets_create": 328,
+    "education_sheets_write": 332,
+    "education_sheets_read": 334,
+    "education_calendar_create": 336,
+    "education_calendar_read": 338,
+    "education_gmail_draft": 344,
+    "personal_drive_folder": 382,
+    "education_drive_folder": 386,
+    "personal_gmail_final_read": 390,
+    "dell1_ssh": 248,
+    "dell2_ssh": 255,
+    "dell1_ansible": 264,
+    "dell2_ansible": 268,
+    "github_read": 276,
+    "github_branch_create": 278,
+    "github_skill": 343
+  },
+  "github": {
+    "branch": "jarvis/webui-operationnel-reception-20261031",
+    "commit": "14b64389960a254a8c64aae501bd4f110d545000",
+    "blob_sha": "9c9283b5f930432cae6eea32c457be224e1dfc95",
+    "independent_connector_matches": true
+  },
+  "skill": {
+    "run_id": "709e462c2b2f4d7aa69197ba32a67e17",
+    "state": "passed"
+  },
+  "mcp": {
+    "audit_id": 380,
+    "tool_count": 11,
+    "includes": [
+      "google_personal",
+      "google_education"
+    ]
+  },
+  "mission": {
+    "id": "3f64e6c1adc640e9847c9311d3350d8b",
+    "last_observed_state": "interrupted",
+    "report_received": false,
+    "target_service_reads": [
+      94768,
+      94788,
+      94808
+    ],
+    "capacity_incidents": 3,
+    "incident_resolution_approval_rejected": true,
+    "compact_contract_measurement": {
+      "sent_bytes": 25333,
+      "budget_bytes": 27648,
+      "isolated_sqlite_copies": true,
+      "no_real_mission_or_ledger_mutation": true,
+      "no_inference_dispatched": true
+    }
+  },
+  "final_transport": {
+    "ssh": "Operation timed out",
+    "current_service_state": "UNKNOWN",
+    "last_positive_control": "all five core services active, source matches confirmed, four authorized services reloaded without active missions"
+  },
+  "raw_private_archives": "/home/adminjarvis/JARVIS/webui-operationnel-private/",
+  "no_google_resource_ids_or_tokens_published": true
+}
