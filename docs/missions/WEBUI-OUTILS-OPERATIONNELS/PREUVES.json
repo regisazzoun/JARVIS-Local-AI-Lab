@@ -88,12 +88,22 @@
       "isolated_sqlite_copies": true,
       "no_real_mission_or_ledger_mutation": true,
       "no_inference_dispatched": true
-    }
+    },
+    "owner_authorized_measure_resolve_resume": true,
+    "resolution_applied": false,
+    "resume_applied_after_confirmation": false
   },
   "final_transport": {
     "ssh": "Operation timed out",
     "current_service_state": "UNKNOWN",
-    "last_positive_control": "all five core services active, source matches confirmed, four authorized services reloaded without active missions"
+    "last_positive_control": "all five core services active, source matches confirmed, four authorized services reloaded without active missions",
+    "local_tailscale_backend": "Running",
+    "local_tailscale_health": [],
+    "macmini_tailscale_online": false,
+    "macmini_last_seen_utc": "2026-10-31T20:50:00.1Z",
+    "ssh_lan": "Operation timed out",
+    "ssh_tailnet": "Operation timed out",
+    "dell1_online": true
   },
   "raw_private_archives": "/home/adminjarvis/JARVIS/webui-operationnel-private/",
   "no_google_resource_ids_or_tokens_published": true
