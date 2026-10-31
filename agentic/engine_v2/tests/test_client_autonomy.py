@@ -150,9 +150,43 @@ class ReportLifecycleTests(unittest.TestCase):
    effect=Mock()
    with self.assertRaisesRegex(ValueError,'observe existing effect'):guarded(self.reg,name,args,effect,True)
    effect.assert_not_called()
+ def test_attested_package_policy_refusal_is_not_an_unknown_effect(self):
+  from jarvis.legacy_attempts import guarded
+  from unittest.mock import Mock
+  error=PermissionError('denied');error.response={'error_code':'PermissionError','error':'Paquet absent de la politique propriétaire','diagnostic':{'operation':'host_package','error_category':'permission_denied'},'evidence_id':'actual-broker-refusal'}
+  with self.assertRaises(PermissionError):guarded(self.reg,'host_package',{'action':'install','package':'absent'},Mock(side_effect=error),True)
+  row=self.s.attempt_ledger(self.m).snapshot()['attempts'][0];self.assertEqual(row['state'],'NOT_EXECUTED');self.assertFalse(row['unknown_outcome'])
+  effect=Mock(return_value={'returncode':0});guarded(self.reg,'host_exec',{'command':'different operation'},effect,True);effect.assert_called_once()
+  with self.assertRaisesRegex(ValueError,'known non-execution'):guarded(self.reg,'host_package',{'action':'install','package':'absent'},Mock(),True)
  def test_existing_report_missions_retain_original_guard(self):
   from jarvis.legacy_attempts import guarded
   from unittest.mock import Mock
   with self.s.db() as c:c.execute('update missions set spec=? where id=?',(json.dumps({'planning_report_steps':True}),self.m))
   guarded(self.reg,'host_exec',{'command':'first'},Mock(return_value={'returncode':0}),True)
   with self.assertRaisesRegex(ValueError,'observe existing effect'):guarded(self.reg,'host_exec',{'command':'second'},Mock(),True)
+
+class ProcessContextTests(unittest.TestCase):
+ def test_owner_process_output_is_visible_bound_and_explicitly_excerpted(self):
+  from jarvis.mission_context_budget import observation_view
+  row={'id':'invocation','event_reference':12,'tool':'host_exec','arguments':{'command':'chosen command'},'result':{'ok':True,'result':{'returncode':0,'stdout':'actual output','stderr':'','evidence_id':'broker-proof'}}}
+  self.assertNotIn('stdout',observation_view(row)['result'])
+  result=observation_view(row,include_process_output=True)['result'];self.assertEqual(result['stdout'],'actual output');self.assertEqual(result['broker_evidence'],'broker-proof');self.assertEqual(result['full_output_reference'],12);self.assertFalse(result['stdout_excerpt'])
+  row['result']['result']['stdout']='x'*1500
+  self.assertTrue(observation_view(row,include_process_output=True)['result']['stdout_excerpt'])
+
+class ReportPhaseTests(unittest.TestCase):
+ def test_missing_report_waits_for_writer_but_unknown_effect_keeps_verifier(self):
+  from jarvis.durable_cycle import owner_report_phase
+  from jarvis.legacy_attempts import guarded
+  from types import SimpleNamespace
+  from unittest.mock import Mock
+  with tempfile.TemporaryDirectory() as tmp:
+   api=Capabilities(tmp,config={'test':True});s=api.store;path=str(Path(tmp)/'report.md');criterion={'kind':'report','source':{'tool':'host_read_file','arguments':{'path':path}}}
+   ident=s.create('goal','model','conv','p',{'client_autonomy':True,'planning_report_steps':True});s.plan(ident,[{'id':'t','title':'task','contract':{'report_path':path,'semantic':[criterion]}}]);task=s.tasks(ident)[0]
+   schemas=[{'function':{'name':n}} for n in ('host_exec','host_write_file','mission_verify','mission_task_complete','mission_report_review')]
+   offered,instruction=owner_report_phase(s,s.get(ident),task,schemas);self.assertEqual([x['function']['name'] for x in offered],['host_exec','host_write_file']);self.assertIn('n’est pas encore écrit',instruction)
+   Path(path).write_text('report');self.assertEqual(owner_report_phase(s,s.get(ident),task,schemas),(schemas,''));Path(path).unlink()
+   reg=SimpleNamespace(mission_store=s,context={'mission_id':ident,'task_id':'t'})
+   with self.assertRaises(ConnectionError):guarded(reg,'host_exec',{'command':'unknown'},Mock(side_effect=ConnectionError('lost')),True)
+   self.assertEqual(owner_report_phase(s,s.get(ident),task,schemas),(schemas,''))
+   row=s.get(ident);row['spec']='{}';self.assertEqual(owner_report_phase(s,row,task,schemas),(schemas,''))

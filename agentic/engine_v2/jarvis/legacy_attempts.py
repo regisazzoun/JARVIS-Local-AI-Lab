@@ -164,7 +164,10 @@ def guarded(reg,name,args,fn,mutating):
     begin=ledger.begin(problem,key,args.get('host','canonical-broker'),'execute',request,defer_report_validation=report_only)
     if begin.get('blocked'):raise ValueError('P2: problem escalated; no fourth operation. '+json.dumps(begin))
     if begin.get('requires_observation'):raise ValueError('P2: observe existing effect with mission_verify before another mutation; no action dispatched. '+json.dumps(begin))
-    if begin.get('cached'):return ledger.get(begin['attempt'])['result']['value']
+    if begin.get('cached'):
+        prior=ledger.get(begin['attempt'])
+        if prior['state']=='NOT_EXECUTED':raise ValueError('P2: known non-execution retained; no automatic repeat. '+str(prior['result'].get('error','See original receipt')))
+        return prior['result']['value']
     attempt=begin['attempt'];ledger.transition(attempt,'DISPATCHED')
     store.event(mission,'canonical_attempt_bound',reg.context['task_id'],'JARVIS-engine',result={'attempt':attempt,'tool':name,'arguments':args,'contract':contract['criteria']})
     before=observed_targets(reg,contract['criteria']) if hasattr(reg,'execute') else {}
@@ -172,8 +175,10 @@ def guarded(reg,name,args,fn,mutating):
         reg._p2_inside_effect=True
         value=fn(args)
     except Exception as exc:
-        proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'error':str(exc),'requires_independent_observation':True})
-        ledger.transition(attempt,'VALIDATION_INCONCLUSIVE',evidence=proof,result={'error':str(exc)},unknown=True)
+        response=getattr(exc,'response',{}) or {};diagnostic=response.get('diagnostic',{})
+        denied_before_execution=bool(report_only and name=='host_package' and response.get('error_code')=='PermissionError' and response.get('error')=='Paquet absent de la politique propriétaire' and diagnostic.get('operation')=='host_package' and diagnostic.get('error_category')=='permission_denied' and response.get('evidence_id'))
+        proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':denied_before_execution,'error':str(exc),'requires_independent_observation':not denied_before_execution,'broker_refusal_evidence':response.get('evidence_id') if denied_before_execution else None})
+        ledger.transition(attempt,'NOT_EXECUTED' if denied_before_execution else 'VALIDATION_INCONCLUSIVE',evidence=proof,result={'error':str(exc),'known_policy_refusal':denied_before_execution},unknown=not denied_before_execution)
         ledger.failure(attempt,infrastructure=True)
         raise
     finally:reg._p2_inside_effect=False

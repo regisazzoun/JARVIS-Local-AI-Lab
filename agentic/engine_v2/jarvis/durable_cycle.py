@@ -95,6 +95,17 @@ def semantic_reference_schemas(schemas, task, preserve_recall=False):
     return schemas
 
 
+def owner_report_phase(store,mission,task,schemas):
+    if not task or not json.loads(mission['spec']).get('client_autonomy'):return schemas,''
+    contract=task.get('contract',{});path=contract.get('report_path');criteria=contract.get('semantic',[])
+    report_only=bool(path and criteria and all(c.get('kind')=='report' and c.get('source',{}).get('arguments',{}).get('path')==path for c in criteria))
+    if not report_only:return schemas,''
+    store.attempt_ledger(mission['id'])
+    with store.db() as db:unknown=db.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND unknown_outcome=1 LIMIT 1",(mission['id'],)).fetchone()
+    if Path(path).is_file() or unknown:return schemas,''
+    offered=[item for item in schemas if item['function']['name'] not in ('mission_verify','mission_task_complete','mission_report_review')]
+    return offered,'\nPhase réelle : le rapport déclaré '+path+' n’est pas encore écrit et aucun effet inconnu n’est en attente. Réutilise les résultats reçus. Effectue seulement les opérations encore nécessaires puis écris TON rapport factuel. Ne vérifie pas un fichier absent : la vérification et la complétion reviendront après création. host_exec voit un système de fichiers confiné : l’absence de base de paquets visible ne prouve pas qu’un paquet est absent. Utilise host_package action=status pour son état installé ; ne réinstalle pas un outil déjà présent. Mentionne une limite observée sans boucler sur son inventaire. Aucun PASS n’est déduit de cette phase.'
+
 def coordinator_guidance(store, ident, task_id):
     """Include the authorized periodic relay only in its M26-P2 scope."""
     spec=json.loads(store.get(ident)['spec'])
@@ -792,6 +803,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     schemas=[item for item in core.tools.schemas() if item['function']['name'] in offered]
                     messages[0]['content']+='\nInterface de rédaction actuelle : utilise mission_report_compose. Le moteur assemblera les faits exacts et leur tableau ; tu fournis toutes les références latest et une explication courte des limites ou prochaines vérifications, sans chiffres, dates, codes ni recomptage des services. Ne recopie aucun tableau ni rapport complet dans explanation. Pas de host_write_file direct dans cette phase. La vérification du fichier reste obligatoire après écriture.'
 
+            schemas,phase_instruction=owner_report_phase(store,mission,task,schemas)
+            if phase_instruction:
+                messages=copy.deepcopy(messages);messages[0]['content']+=phase_instruction
             from .mission_context_budget import result_objective
             context_objective=result_objective(core.config)
             if context_objective:
