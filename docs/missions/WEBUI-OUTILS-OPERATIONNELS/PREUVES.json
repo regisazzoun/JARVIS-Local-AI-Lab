@@ -186,7 +186,8 @@
     "service_is_active": 402,
     "wrong_GitHub_route_via_SSH_rejected": 404,
     "correct_GitHub_route": 408,
-    "independent_mission_report_read": 406
+    "independent_mission_report_read": 406,
+    "report_body_recovered_in_WebUI": 410
   },
   "runtime": {
     "google_mcp.py": {
@@ -222,5 +223,6 @@
     "completed-mission-events.json": "3be4d5454e97358efbee8da65cc4474c92a5fefcfb891e8408a254a4aa7bda47",
     "authorized-resolution-and-resume.json": "f5cdd883f3d7f444e69ce10ad432d89e6b5ac8fdbd9ce8957105759eaec3cd4e",
     "recomposition-projection-check.json": "686ad54ed103e30b2408e6a510813d9d4144c4bd67bfc851ebcb2d893455d5a3"
-  }
+  },
+  "report_display_chat_url": "https://jarvis-macmini.tail805e83.ts.net/c/af5d9460-7558-474f-995d-cfa48e5da18e"
 }

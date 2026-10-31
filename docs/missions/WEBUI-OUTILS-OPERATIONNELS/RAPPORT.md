@@ -77,3 +77,7 @@ Cinq modules runtime et l’outil WebUI correspondent aux sources, empreintes da
 Sauvegardes privées : modules, outil/valves et politique, répertoire700 et réglages privés600. Les changements locaux du worktree ont été archivés et sauvegardés par stash avant synchronisation en avance rapide avec les publications GitHub faites pendant l’indisponibilité. Aucun changement local n’a été jeté.
 
 Retour arrière ciblé : restaurer les seules versions sauvegardées et, si nécessaire, le seul ajout de lecture du service WebUI ; recharger les seuls services concernés après contrôle des tâches. Conserver bases, incidents, missions, reçus et archives. Tous les échecs initiaux (champs vides, brouillon sans destinataire, BUSY, transport Skill, mauvaise route GitHub, blocages de capacité et FAIL de rapport) restent tracés ; aucun succès n’est rétroactivement attribué aux essais refusés.
+
+## Consultation du résultat reçu
+
+Le contenu réel du rapport de tâche a ensuite été récupéré par host_read_file depuis WebUI, reçu410, dans [une conversation dédiée](https://jarvis-macmini.tail805e83.ts.net/c/af5d9460-7558-474f-995d-cfa48e5da18e). L’historique précédent avait dépassé le budget de contexte ; cette requête a été séparée dans une conversation neuve, sans changement de plafond ni de moteur. Le refus de transmission initial est conservé. Le contenu brut du reçu est la source ; une éventuelle reformulation du modèle n’ajoute pas de réception de prose libre.
