@@ -4,7 +4,7 @@
 
 WebUI27B et Code80B ont réellement découvert/appelé les statuts des deuxprofils et l’outil de date local ; MCP canonique enrichi à9outils, huitanciens conservés, sixinterfacesclient inchangées. Sonde native : septappelsgoogle_mcp réels, plan2 fourniCodex, lectures répétées puis arrêt94552 ; rapport/autonomie NONREÇUS.20tests ciblésPASS, sans rejeu93/cinqcontrôlesPR35. Modèles, distribution et pauseM26P4 conservés.
 
-[Rapport](docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md) · [preuves](docs/missions/GOOGLE-MCP-OAUTH/PREUVES.json) · [authentification sans projetCloud personnel](docs/missions/GOOGLE-MCP-OAUTH/AUTHENTIFICATION.md). L’ancien guideCloudPR35 reste historique ; il n’est pas requis pour cette solution. Branche codex/google-mcp-oauth-existant, sans fusionmain.
+[Rapport](docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md) · [preuves](docs/missions/GOOGLE-MCP-OAUTH/PREUVES.json) · [authentification sans projetCloud personnel](docs/missions/GOOGLE-MCP-OAUTH/AUTHENTIFICATION.md). L’ancien guideCloudPR35 reste historique ; il n’est pas requis pour cette solution. Branche codex/google-mcp-oauth-existant, [PR37](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37), sans fusionmain.
 
 ## Intégration agentique WebUI / Qwen Code — 30 octobre 2026
 

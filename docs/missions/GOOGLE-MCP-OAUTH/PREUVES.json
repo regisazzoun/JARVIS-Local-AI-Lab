@@ -228,7 +228,8 @@
           "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94421
       },
       {
         "event": 94433,
@@ -250,7 +251,8 @@
           "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94441
       },
       {
         "event": 94453,
@@ -272,7 +274,8 @@
           "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94464
       },
       {
         "event": 94476,
@@ -294,7 +297,8 @@
           "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94484
       },
       {
         "event": 94496,
@@ -316,7 +320,8 @@
           "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94504
       },
       {
         "event": 94516,
@@ -338,7 +343,8 @@
           "setup": "google-mcp-connect --profile education (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94524
       },
       {
         "event": 94536,
@@ -360,7 +366,8 @@
           "setup": "google-mcp-connect --profile personal (browser; publisher OAuth client; no owner Cloud project)",
           "state": "AUTH_REQUIRED"
         },
-        "transport_ok": true
+        "transport_ok": true,
+        "next_model_inference_event": 94544
       }
     ],
     "original_goal_preserved": true,
@@ -384,7 +391,214 @@
       "reception_event": 94552,
       "report_received": false
     },
-    "scope": "Native model tool calls received; operator supplied plan2, free report/autonomous planning not received. Repeated successful reads are not failed corrections."
+    "scope": "Native model tool calls received; operator supplied plan2, free report/autonomous planning not received. Repeated successful reads are not failed corrections.",
+    "inference_routes": [
+      {
+        "event": 94114,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94120,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94126,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94134,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94140,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94147,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94161,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94170,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94182,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94191,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94214,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94224,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94245,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94255,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94278,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94288,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94318,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94325,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94335,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94339,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94348,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94359,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94368,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94379,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94388,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94400,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94409,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94420,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94429,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94440,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94449,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94463,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94472,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94483,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94492,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94503,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94512,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94523,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94532,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94543,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      },
+      {
+        "event": 94554,
+        "node": "Dell1",
+        "effective_model": "qwen3-coder-next:q4_K_M"
+      }
+    ]
   },
   "client_receipts": [
     {
@@ -554,7 +768,13 @@
   ],
   "old_mission26_preserved": {
     "manual_hold": true,
-    "resumed": false
+    "resumed": false,
+    "p4_states": [
+      {
+        "id": "c32347de3edf4288a4751a3e65afa7eb",
+        "state": "interrupted"
+      }
+    ]
   },
   "auth_dependent_tests": "PENDING:Drive search/read/create/readback,Docs,Sheets read/write/readback,Calendar,Gmail,authenticated calls from clients and persistence after service restart",
   "limitations": [
@@ -562,5 +782,15 @@
     "Publisher OAuth exchange/refresh relay remains an external dependency",
     "No real Google API write received, including additive Sheets methods",
     "Native report/autonomous planning not received; original incorrect plan and drafts retained"
-  ]
+  ],
+  "configuration_environment_presence_checked": {
+    "GOOGLE_OAUTH_CLIENT_ID": false,
+    "GOOGLE_OAUTH_CLIENT_SECRET": false,
+    "GOOGLE_APPLICATION_CREDENTIALS": false,
+    "GOOGLE_WORKSPACE_CLI_CLIENT_ID": false,
+    "GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE": false,
+    "WORKSPACE_CLIENT_ID": false,
+    "WORKSPACE_CLOUD_FUNCTION_URL": false
+  },
+  "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37"
 }

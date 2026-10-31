@@ -29,3 +29,5 @@ Le modèle27B dans WebUI et le80B dans QwenCode ont réellement appelé les stat
 Google/projet amont : serveur, clientOAuth, relais et stockage chiffré. Codex : inventaire/recherche, sélection, isolation des profils, adaptations du registre, callback sécurisé, deuxfonctionsSheets additionnelles, installation, tests et contrôles indépendants. JARVIS/WebUI et QwenCode : appels et restitutions réellement journalisés. JARVIS natif : appels de statut observés, plan initial imparfait, rapport non reçu. Propriétaire : authentification des comptes encore nécessaire.
 
 Code1abd51d, branche codex/google-mcp-oauth-existant à la suite dePR35 ; aucune fusionmain. M26P4 et MANUAL-HOLD conservés, modèles et distributionDell inchangés. Prochaine étape : suivre [AUTHENTIFICATION.md](AUTHENTIFICATION.md), puis recevoir les opérations Google réelles. Les composants et preuves déjà livrés restent utilisables pendant cette attente.
+
+Publication : [PR37](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37), empilée surPR35, sans fusion.
