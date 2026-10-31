@@ -19,3 +19,15 @@ class BoundGoogleWebUI(unittest.TestCase):
   result=asyncio.run(tool.jarvis_skill_run('fixture',{'files':['one.md'],'count':2}))
   self.assertEqual(result,'receipt');payload=tool._call.call_args.args[1];self.assertEqual(payload['name'],'skill_run')
   args=json.loads(payload['arguments']['parameters']);self.assertEqual(json.loads(args['files']),['one.md']);self.assertEqual(args['count'],2)
+ def test_github_structured_call_uses_existing_schema_and_broker(self):
+  path=Path(__file__).resolve().parents[3]/'tools/qwen_webui/webui_capabilities.py'
+  spec=importlib.util.spec_from_file_location('github_webui',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+  tool=module.Tools();tool._call=AsyncMock(side_effect=[json.dumps({'schema':{'properties':{'files':{'type':'string'}}}}),'receipt'])
+  self.assertEqual(asyncio.run(tool.jarvis_github('owner/repo','push_tree',{'files':['one.md'],'branch':'fixture'})),'receipt')
+  payload=tool._call.call_args.args[1];self.assertEqual(payload['name'],'host_github');self.assertEqual(payload['arguments']['repository'],'owner/repo');self.assertEqual(json.loads(payload['arguments']['files']),['one.md'])
+ def test_github_parameters_cannot_override_explicit_identity(self):
+  path=Path(__file__).resolve().parents[3]/'tools/qwen_webui/webui_capabilities.py'
+  spec=importlib.util.spec_from_file_location('github_webui_identity',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+  tool=module.Tools();tool._call=AsyncMock()
+  with self.assertRaises(ValueError):asyncio.run(tool.jarvis_github('owner/repo','file',{'repository':'other/repo'}))
+  tool._call.assert_not_called()

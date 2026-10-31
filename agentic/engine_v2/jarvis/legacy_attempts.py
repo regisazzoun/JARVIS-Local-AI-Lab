@@ -60,6 +60,21 @@ def pending_report_validation(store,mission,task_id):
                 if original.get('issues') and not issues and not rejected and erratum.get('reference'):
                     phase='verify'
                     feedback['all_findings_withdrawn_by']=erratum['reference']
+        recomposed=None
+        if phase=='correct' and verdict.get('verification_event'):
+            # A canonical composition may legitimately reuse an identical,
+            # already executed write while refreshing proof provenance. Offer
+            # verification again; never turn this into a PASS or erase a FAIL.
+            expected=hashlib.sha256(args.get('content','').encode()).hexdigest()
+            with store.db() as c:
+                compositions=c.execute("SELECT id,result FROM tool_calls WHERE mission=? AND task=? AND tool='mission_report_compose' AND state='finished' ORDER BY created DESC",(mission,task_id)).fetchall()
+                for composition in compositions:
+                    wrapper=json.loads(composition['result']);out=wrapper.get('result') or {};write=out.get('write') or {}
+                    prepared_ref=out.get('prepared_event')
+                    if not (wrapper.get('ok') and out.get('returncode')==0 and write.get('ok') and (write.get('result') or {}).get('returncode')==0 and type(prepared_ref) is int and prepared_ref>verdict['verification_event']):continue
+                    prepared=c.execute("SELECT result FROM mission_events WHERE mission=? AND task=? AND id=? AND actor='JARVIS-engine' AND kind='proof_bound_report_prepared'",(mission,task_id,prepared_ref)).fetchone()
+                    if prepared and json.loads(prepared['result']).get('draft_sha256')==expected:
+                        phase='verify';recomposed={'prepared_event':prepared_ref,'composition_invocation':composition['id'],'prior_failure_unchanged':True,'meaning':'Later completed canonical composition of the same bytes; independent file verification is required.'};break
         completion=None
         if phase in ('correct','verify'):
             status=store.contract_status(mission,task_id)
@@ -88,6 +103,7 @@ def pending_report_validation(store,mission,task_id):
                 **({'review_feedback':feedback} if phase=='correct' else {}),
                 **({'observed_draft':observed_draft} if observed_draft else {}),
                 **({'completed_by_later_verification':completion} if completion else {}),
+                **({'recomposed_after_failed_verification':recomposed} if recomposed else {}),
                 'meaning':{'verify':'Completed write only; verify the persisted report before another write. A rejected rewrite draft did not replace it.',
                            'correct':'Observed report verification failed; correct the recorded findings and verify the new file. Unrelated planning/service work is not needed for this correction.',
                            'complete':'Write and verification are recorded; normal task completion still checks freshness and every original criterion.'}[phase]}

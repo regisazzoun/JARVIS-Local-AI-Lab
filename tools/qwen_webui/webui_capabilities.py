@@ -54,3 +54,10 @@ class Tools:
         args={'name':name,'parameters':json.dumps(values,ensure_ascii=False)}
         if run_id:args['run_id']=run_id
         return await self._call('call',{'name':'skill_run','arguments':args})
+    async def jarvis_github(self,repository:str,action:str,parameters:dict)->str:
+        """GitHub réel via le broker JARVIS existant. repository : owner/repo. action : opération du schéma host_github. parameters : champs structurés (branch,file,path,query,files,...). Ne passe jamais par les outils SSH pour une lecture GitHub."""
+        if set(parameters)&{'repository','action'}:raise ValueError('Repository and action must use their explicit fields')
+        schema=json.loads(await self._call('schema',{'name':'host_github'}))['schema']
+        props=schema.get('properties',{})
+        values={k:json.dumps(v,ensure_ascii=False) if props.get(k,{}).get('type')=='string' and isinstance(v,(dict,list)) else v for k,v in parameters.items()}
+        return await self._call('call',{'name':'host_github','arguments':{'repository':repository,'action':action,**values}})

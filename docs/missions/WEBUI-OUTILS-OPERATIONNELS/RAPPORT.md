@@ -1,6 +1,6 @@
 # Accès opérationnel aux outils depuis Open WebUI
 
-**✅🟡 Accès outils déployés et reçus ; 🟡 réception globale de mission incomplète.** Google personnel et Éducation, GitHub, SSH/Ansible sur les deux Dell et le Skill ont été utilisés depuis le navigateur Open WebUI. La nouvelle mission a démarré et exécuté des lectures réelles, mais reste **interrupted**, sans rapport final reçu. Aucune fusion dans main.
+**✅🟡 GO avec réserves : accès outils reçus et mission clôturée après assistance.** Google personnel et Éducation, GitHub, SSH/Ansible sur les deux Dell, Skill et mission ont été utilisés depuis le navigateur Open WebUI. Réception indépendante de la tâche et de sa clôture native ; autonomie générale et prose libre non reçues. L’extinction du Mac mini reste inexpliquée. Aucune fusion dans main.
 
 ## Sources, autorisations et périmètre
 
@@ -44,32 +44,36 @@ Branche de test : `jarvis/webui-operationnel-reception-20261031`, fichier `docs/
 
 Les chats et captures sont conservés sur JARVIS ; leurs URL sont archivées dans le dossier privé. Leur rapatriement n’a pas été possible après la perte d’accès SSH. Les conversations de réception restent enregistrées dans WebUI. Le chat de réception relit les reçus persistants SSH/Ansible/Skill et l’état de mission. Les données et IDs Google restent dans le répertoire privé, pas dans cette PR. Les huit relectures indépendantes Docs/Sheets/Calendar/Gmail et les deux Drive sont des contrôles de résultats, distincts des textes du modèle. Les méthodes d’envoi/suppression sont exposées, mais aucun envoi ni suppression n’a été utilisé comme test.
 
-## Mission JARVIS : résultat et réserve essentielle
+## Mission reçue et raccordement final
 
-La mission `3f64e6c1adc640e9847c9311d3350d8b` a été créée depuis WebUI avec le profil existant service_observation. JARVIS a rédigé son propre plan, puis exécuté des lectures systemd. La politique initiale ne proposait pas son service cible ; après correction et import d’un reçu broker réel, status/show/is-active de jarvis-webui-tools.service ont réussi (94768/94788/94808).
+Même identifiant `3f64e6c1adc640e9847c9311d3350d8b`, même tâche et plan JARVIS conservés. Après trois incidents de capacité, le propriétaire a explicitement autorisé mesure, résolution native et reprise. Nouvelle mesure isolée : 25333 octets pour un budget conservateur de 27648, fenêtre inchangée de 32768 tokens. Résolution native 94844 : total historique d’incidents toujours 3, infra_resolved_through=3, sans effacement des historiques.
 
-Assistance Codex explicitement tracée : arrêt après répétitions de host_policy, sélection de l’interface de plan existante, correction de la permission manquante, sélection des références compactes et d’un périmètre d’outils pour cette seule tâche. Aucun plan ni rapport de sonde écrit à la place de JARVIS. Le plan contient une ancienne déduction erronée « non autorisé donc absent » ; elle reste historique et n’est pas reçue comme observation.
+La reprise a exécuté des écritures et vérifications réelles. Deux FAIL sont conservés : brouillon modèle incorrect, puis provenance du rendu à reprendre. Le rapport finalement écrit était exact, mais le cycle restait en correction lorsqu’une recomposition réutilisait légitimement les mêmes octets après un ancien FAIL. Correctif ciblé de legacy_attempts : une recomposition terminée et sa nouvelle provenance peuvent reproposer mission_verify. Aucun PASS ni remise à zéro n’est produit par ce correctif ; une écriture inconnue, une autre tâche ou un contenu différent ne sont pas débloqués par ce cas.
 
-Trois incidents ContextCapacityError ont ensuite arrêté la mission. Son entrée obligatoire dépassait le budget conservateur de 27648 octets estimés, pour une fenêtre serveur inchangée de 32768 tokens. Aucun OOM ni réduction de fenêtre n’est déduit de ces erreurs. Une mesure sur copies SQLite isolées du contrat compact donne **25333 octets**, sans inférence, sans résolution d’incident et sans modification de la mission réelle. Cette mesure n’est pas une réception d’exécution.
+JARVIS a ensuite choisi mission_verify : **PASS 95216**, tâche validée par mission_task_complete 95241, bilan déclenché par intervention_report, **completed 95261**. Réception indépendante : lecture broker 406, comparaison exacte au rendu des reçus PASS. SHA256 du rapport de tâche : `3cafb06bb64814c540e242a8df838faec2ab95e03086774b252af61982647c6b`. SHA256 du rapport final : `7fa558fe701e5e78dcc60ee8656e2e9f77e207a6eb0b90ec5105e10c75947a7d`.
 
-Le contrôle automatique d’approbation a rejeté l’enregistrement d’une résolution d’incident et la reprise après ce stop persistant. Motif : preuve locale jugée insuffisante pour lever l’escalade sans autorisation explicite de cet acte. Le propriétaire a ensuite explicitement autorisé la mesure, la résolution native et la reprise de cette même mission, avec tous les compteurs et historiques conservés. Cette autorisation n’a pas encore pu être exécutée : le Mac mini est inaccessible. **Rapport final de la sonde et autonomie sans assistance NON REÇUS.** Aucun succès global n’est déduit des lectures ou de la création de mission.
+[Rapport de tâche reçu](RAPPORT-TACHE-RECU.md) · [Rapport final canonique reçu](RAPPORT-MISSION-RECU.md). Ces copies sont inchangées. Le relevé distingue les instants des reçus historiques d’une mesure actuelle ; il inclut aussi les lectures de préparation d’un service voisin. La déduction initiale erronée du plan « non autorisé donc absent » reste historique et n’est pas reçue comme observation.
+
+Attribution : Codex a corrigé les adaptateurs, permissions et interfaces ; JARVIS a choisi son plan, appelé les outils, sélectionné les preuves et déclenché vérification/clôture. Les tableaux et le bilan factuel sont assemblés par le moteur existant. **Réception assistée ; aucune affirmation d’autonomie générale de planification ou de prose libre.** Pas de campagne générale de fiabilisation ni nouvelle réception14A.
+
+## Persistance après redémarrage et résultats visibles
+
+Après le démarrage manuel signalé par le propriétaire : cinq services actifs, quick_check SQLite mémoire/missions = ok, sources déployées conservées. Dans le navigateur WebUI, profil80B existant : Docs personnel398 et Éducation400 réellement relus, service402 actif, mission affichée completed/validated. Une lecture GitHub mal routée par Qwen vers SSH a été refusée404 ; ajout d’une entrée native jarvis_github vers le broker existant, puis lecture réelle GitHub408 et marqueur exact affiché. Aucun nouveau broker ni droit SSH n’a été ajouté pour contourner ce refus.
+
+Le contrôle27B après reboot a été arrêté pendant un long prétraitement à froid ; il n’est pas déclaré reçu. Les réceptions27B antérieures restent acquises. Le profil80B était déjà déployé ; aucun changement de modèle ou de routage global.
+
+[Conversation de réception dans WebUI](https://jarvis-macmini.tail805e83.ts.net/c/28b38c07-9361-47e3-ad61-501ac9032038). Les résultats des outils et le rapport de tâche y sont consultables ; les accès Google demeurent ceux du compte explicitement choisi.
+
+## Extinction : réserve matérielle/réseau conservée
+
+Le Mac mini s’est éteint ; le propriétaire l’a démarré. La fin du journal précédent est à21:49:40, onze secondes après le rechargement des services réalisé par Codex. Aucune trace examinée d’arrêt ordonné, OOM ou panic et aucun pstore conservé ne permettent d’établir la cause. La proximité est documentée, sans attribution ni exclusion de responsabilité non démontrée. [Traces et limites](EXTINCTION-ET-REPRISE.md).
 
 ## Tests, déploiement et retour arrière
 
-**31 tests ciblés PASS**, diff --check PASS : capacités client, Google MCP/OAuth/identités, transports WebUI et concurrence du même profil. Les deux défauts observés dans le navigateur ont des régressions ciblées. Aucun rejeu des anciennes campagnes générales.
+**93 tests distincts PASS au cours de la livraison :33 accès/transport et60 cycle de rapport.** La régression de recomposition échoue sur l’ancienne version ; elle passe après correction avec les cas négatifs et les tests existants. diff --check PASS. Pas de rejeu de campagne générale.
 
-Les quatre modules actifs et le contenu de l’outil WebUI correspondent aux sources de cette branche ; empreintes et services dans PREUVES.json. Le fichier tools.py préserve une description d’artefacts déjà différente au runtime avant cette mission ; cette ligne n’est pas attribuée au présent développement. Les services sont rechargés avec la dernière correction après vérification d’absence de mission active.
+Cinq modules runtime et l’outil WebUI correspondent aux sources, empreintes dans PREUVES.json. Le correctif de phase a nécessité la seule recharge des deux workers, sans mission active ; l’adaptateur natif GitHub a été actualisé par l’API WebUI, sans redémarrage. Les bases, comptes, clés, jetons, modèles et services sont préservés. Aucun main fusionné automatiquement.
 
-Sauvegardes privées : quatre modules, outil WebUI/valves et politique hôte. Répertoire protégé 700, fichiers de réglages privés 600. Retour arrière ciblé par restauration de ces seules versions, restauration du seul ajout de politique si nécessaire, puis rechargement des mêmes services. Ne pas supprimer bases, missions, archives, jetons ou accès.
+Sauvegardes privées : modules, outil/valves et politique, répertoire700 et réglages privés600. Les changements locaux du worktree ont été archivés et sauvegardés par stash avant synchronisation en avance rapide avec les publications GitHub faites pendant l’indisponibilité. Aucun changement local n’a été jeté.
 
-Échecs conservés : dix découvertes initiales rejetées à cause du champ query vide ; brouillon personnel initial refusé pour destinataire vide ; BUSY d’une lecture ; répétitions de transport JSON Skill avant l’adaptateur structuré ; refus/arrêts et incidents de la sonde. Leurs reçus et empreintes sont conservés dans les preuves et archives privées, sans réception fictive.
-
-## Incident de transport au contrôle final
-
-Après les réceptions et le rechargement final, les nouvelles connexions SSH au Mac mini ont expiré (Operation timed out). L’état actuel des services ne peut donc plus être reconfirmé : leur dernier contrôle positif reste historique à cette session. La cause réseau/hôte n’est pas établie. Aucune panne applicative ni causalité du déploiement n’est affirmée. La publication des sources et du présent rapport est poursuivie par le connecteur GitHub indépendant ; la copie de travail distante devra être resynchronisée avec cette branche avant toute nouvelle modification.
-
-## Reprise autorisée — accès hôte indisponible
-
-Le propriétaire a répondu « Oui, mesurer puis résoudre l’incident et reprendre ». Aucun nouvel accord de mission n’est nécessaire. Contrôle de reprise : Tailscale local Running, sans alerte ; pair jarvis-macmini Offline, dernière présence 2026-10-31T20:50:00.1Z (21 h 50 à Paris). SSH expire par l’adresse Tailscale et par l’adresse LAN documentée, avec la clé hôte existante conservée. Le Dell1 est en ligne, mais aucune clé hôte Dell n’est enregistrée sur ce MacBook : aucun nouvel accès n’a été créé.
-
-Aucune mesure nouvelle sur JARVIS, résolution de registre ou reprise de mission n’a été appliquée pendant cette tentative. La mesure isolée antérieure de 25333 octets demeure historique. Vérifier l’alimentation et le réseau du Mac mini ; à son retour, relire le checkpoint, remesurer le contrat compact, puis appliquer le mécanisme natif de résolution autorisé et reprendre le même identifiant. Ne pas effacer les incidents ni recréer la mission. Réconcilier également le worktree distant avec les publications GitHub effectuées durant l’indisponibilité, en conservant ses changements.
+Retour arrière ciblé : restaurer les seules versions sauvegardées et, si nécessaire, le seul ajout de lecture du service WebUI ; recharger les seuls services concernés après contrôle des tâches. Conserver bases, incidents, missions, reçus et archives. Tous les échecs initiaux (champs vides, brouillon sans destinataire, BUSY, transport Skill, mauvaise route GitHub, blocages de capacité et FAIL de rapport) restent tracés ; aucun succès n’est rétroactivement attribué aux essais refusés.
