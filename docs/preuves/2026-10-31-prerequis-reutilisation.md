@@ -56,3 +56,11 @@ Les textes antérieurs restent complets, y compris leurs corrections et historiq
 Aucun déploiement ni authentification OAuth effectué ; Google reste non reçu à distance selon le dernier état documentaire. Aucune autonomie générale nouvellement déclarée. Les agents devront lire la branche contenant ces directives ; elles ne sont pas encore intégrées dans main ou déployées dans les prompts actifs par cette livraison.
 
 Attribution : rédaction et contrôles documentaires Codex, sur décision explicite du propriétaire ; aucune exécution ou preuve nouvelle attribuée à JARVIS.
+
+## Précision propriétaire : priorité générale aux API Internet
+
+Le propriétaire juge la formulation précédente trop vague et précise : « PRIVILEGIE LES API DISPONIBLES SUR INTERNET DE FACON GENERAL ».
+
+La règle est explicitement ajoutée en dur dans AGENTS.md, la charte et les prérequis, puis propagée à la méthodologie, au guide du moteur, README, SUIVI et ROADMAP. Elle impose, pour tout besoin fonctionnel, de rechercher et privilégier les API disponibles sur Internet ; le périmètre dépasse Google et les connecteurs déjà connus. Configurer, raccorder et tester les API/clients existants avant toute implémentation maison ; motiver concrètement toute API écartée et limiter le code au complément manquant démontré.
+
+Vérification : présence de la formulation explicite dans les huit référentiels ; contenus précédents intégralement conservés par insertion, sans retrait. Aucun code, service, modèle, autorisation ou état de mission modifié ; aucun déploiement ni test applicatif. Publication dans la même PR36, sans fusion main.

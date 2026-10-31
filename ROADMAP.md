@@ -886,3 +886,14 @@ Mission21 : même identifiant, six premières réceptions conservées,07 validé
 ## Actualisation mission23 —20 octobre2026
 
 La mission23 LiveKit est lancée et en finalisation ; publication GitHub réellement exécutée par JARVIS, réception vocale encore partielle au jalon documenté. Correctifs persistants et vérification Codex : [pilotage23](docs/missions/23/finalisation/PILOTAGE.md), PR13 ; application JARVIS sur PR12. La mission24 reste **Mémoire enrichie et ingestion documentaire** et n'a pas été lancée par le diagnostic t12. Le [cycle23–31](docs/missions/CYCLE-23-31.md) demeure la référence d'ordonnancement. Aucun statut ancien ne révoque l'exécution autorisée.
+
+### Priorité générale aux API disponibles sur Internet — précision propriétaire du 31 octobre 2026
+
+**PRIVILÉGIER LES API DISPONIBLES SUR INTERNET DE FAÇON GÉNÉRALE.**
+
+Pour tout besoin fonctionnel de JARVIS, rechercher d'abord sur Internet s'il existe déjà une API ou un service qui réalise la fonction, et privilégier son utilisation plutôt que de redévelopper cette fonction. Cette priorité s'applique à tous les domaines du projet, pas seulement à Google ou aux connecteurs déjà inventoriés.
+
+Réutiliser les clients, SDK et connecteurs existants pour appeler ces API ; configurer les accès, raccorder à JARVIS et tester le résultat. Si aucune API adaptée n'est retenue, documenter les API recherchées, leurs sources et la raison concrète de leur inadéquation (fonction manquante, incompatibilité avec une décision propriétaire, conditions d'accès ou coût inadaptés au besoin). Développer seulement le complément dont l'absence est démontrée. Une préférence spontanée pour une implémentation maison ne suffit pas.
+
+Les décisions propriétaires existantes restent applicables ; cette priorité n'ajoute aucune validation humaine intermédiaire et n'autorise aucune fusion automatique.
+

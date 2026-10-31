@@ -669,3 +669,14 @@ Même exécution21 reprise depuis waiting_external ; six premières empreintes p
 Exécution originale `7971ec0311124fb4be9e3125dcb291fd`, reprise sans reset et onze validations historiques conservées. **En cours ; réception vocale partielle.** JARVIS a publié les sources et rapports08–11, vérifié les blobs distants et mis à jour la [PR12 applicative](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/12) après correction du connecteur par Codex. Le premier essai WebRTC indépendant a déclenché un job puis confirmé une erreur dans le callback agent ; aucun micro physique ni conversation complète n'est reçu à ce jalon.
 
 Codex complète les capacités GitHub persistantes, le client distant confiné et le routage des questions ; correctifs sur [PR13](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/13), à la suite de la [PR11](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/11). Sources/preuves et pilotage : [dossier finalisation23](docs/missions/23/finalisation/PILOTAGE.md). Les publications et validations de moteur ne constituent pas une réception vocale. Le diagnostic `df542051560b44b3851124b09d8319c2` reste lié23 ; la vraie mission24 mémoire n'est pas lancée. Aucun Dell2 ni fusion main.
+
+### Priorité générale aux API disponibles sur Internet — précision propriétaire du 31 octobre 2026
+
+**PRIVILÉGIER LES API DISPONIBLES SUR INTERNET DE FAÇON GÉNÉRALE.**
+
+Pour tout besoin fonctionnel de JARVIS, rechercher d'abord sur Internet s'il existe déjà une API ou un service qui réalise la fonction, et privilégier son utilisation plutôt que de redévelopper cette fonction. Cette priorité s'applique à tous les domaines du projet, pas seulement à Google ou aux connecteurs déjà inventoriés.
+
+Réutiliser les clients, SDK et connecteurs existants pour appeler ces API ; configurer les accès, raccorder à JARVIS et tester le résultat. Si aucune API adaptée n'est retenue, documenter les API recherchées, leurs sources et la raison concrète de leur inadéquation (fonction manquante, incompatibilité avec une décision propriétaire, conditions d'accès ou coût inadaptés au besoin). Développer seulement le complément dont l'absence est démontrée. Une préférence spontanée pour une implémentation maison ne suffit pas.
+
+Les décisions propriétaires existantes restent applicables ; cette priorité n'ajoute aucune validation humaine intermédiaire et n'autorise aucune fusion automatique.
+

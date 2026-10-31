@@ -13,3 +13,14 @@ Migration additive : anciennes missions et états interrompus conservés. Les ba
 ## Prérequis permanent avant une extension du moteur ou des connecteurs
 
 Lire [AGENTS](../../AGENTS.md), la [charte](../../docs/CHARTE_DIRECTIVES_JARVIS.md), les états pertinents et les [prérequis de réutilisation](../../docs/PREREQUIS-REUTILISATION.md). Inventorier le moteur, le broker, le registre, les Skills, MCP et le code JARVIS déjà développé ; rechercher et comparer les bibliothèques/API/connecteurs/solutions open source existants. Réutiliser, configurer, raccorder et tester avant de coder. Tout complément doit être limité à un manque démontré et documenté avec sources, comparatif et preuves dans la mission et la PR, sans nouvelle validation humaine intermédiaire.
+
+### Priorité générale aux API disponibles sur Internet — précision propriétaire du 31 octobre 2026
+
+**PRIVILÉGIER LES API DISPONIBLES SUR INTERNET DE FAÇON GÉNÉRALE.**
+
+Pour tout besoin fonctionnel de JARVIS, rechercher d'abord sur Internet s'il existe déjà une API ou un service qui réalise la fonction, et privilégier son utilisation plutôt que de redévelopper cette fonction. Cette priorité s'applique à tous les domaines du projet, pas seulement à Google ou aux connecteurs déjà inventoriés.
+
+Réutiliser les clients, SDK et connecteurs existants pour appeler ces API ; configurer les accès, raccorder à JARVIS et tester le résultat. Si aucune API adaptée n'est retenue, documenter les API recherchées, leurs sources et la raison concrète de leur inadéquation (fonction manquante, incompatibilité avec une décision propriétaire, conditions d'accès ou coût inadaptés au besoin). Développer seulement le complément dont l'absence est démontrée. Une préférence spontanée pour une implémentation maison ne suffit pas.
+
+Les décisions propriétaires existantes restent applicables ; cette priorité n'ajoute aucune validation humaine intermédiaire et n'autorise aucune fusion automatique.
+

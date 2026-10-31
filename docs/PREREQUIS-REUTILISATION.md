@@ -2,6 +2,16 @@
 
 Décision propriétaire du 31 octobre 2026. Références : [AGENTS](../AGENTS.md), [charte](CHARTE_DIRECTIVES_JARVIS.md), [méthodologie](methodologie.md). Ce document précise leur mise en œuvre pour toute nouvelle capacité, extension, bibliothèque ou connecteur, y compris Google.
 
+### Priorité générale aux API disponibles sur Internet — précision propriétaire du 31 octobre 2026
+
+**PRIVILÉGIER LES API DISPONIBLES SUR INTERNET DE FAÇON GÉNÉRALE.**
+
+Pour tout besoin fonctionnel de JARVIS, rechercher d'abord sur Internet s'il existe déjà une API ou un service qui réalise la fonction, et privilégier son utilisation plutôt que de redévelopper cette fonction. Cette priorité s'applique à tous les domaines du projet, pas seulement à Google ou aux connecteurs déjà inventoriés.
+
+Réutiliser les clients, SDK et connecteurs existants pour appeler ces API ; configurer les accès, raccorder à JARVIS et tester le résultat. Si aucune API adaptée n'est retenue, documenter les API recherchées, leurs sources et la raison concrète de leur inadéquation (fonction manquante, incompatibilité avec une décision propriétaire, conditions d'accès ou coût inadaptés au besoin). Développer seulement le complément dont l'absence est démontrée. Une préférence spontanée pour une implémentation maison ne suffit pas.
+
+Les décisions propriétaires existantes restent applicables ; cette priorité n'ajoute aucune validation humaine intermédiaire et n'autorise aucune fusion automatique.
+
 ## Prérequis permanent — rechercher et réutiliser avant de développer
 
 **Décision du propriétaire du 31 octobre 2026, applicable à ChatGPT, Codex et JARVIS, avant tout nouveau développement ou extension.**
