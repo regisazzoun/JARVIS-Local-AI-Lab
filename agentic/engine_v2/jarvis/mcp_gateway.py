@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path('/opt/jarvis/conversation')
 # Explicit useful slice, derived schemas and execution from the same registry.
-EXPOSED = {'capability_status','host_service','host_logs','host_read_file','host_remote','host_ansible','skill_list','skill_run'}
+EXPOSED = {'capability_status','host_service','host_logs','host_read_file','host_remote','host_ansible','skill_list','skill_run','google_mcp'}
 
 
 def is_mutating(arguments):
@@ -16,6 +16,9 @@ def is_mutating(arguments):
     value=json.loads(arguments.get('arguments','{}'))
     if not isinstance(value,dict):raise ValueError('MCP arguments must be a JSON object')
     if name=='skill_run':return True
+    if name=='google_mcp':
+        from .google_mcp import is_mutating as google_mutation
+        return google_mutation(value)
     if name=='host_service':return value.get('action') not in ('status','is-active','is-enabled')
     if name=='host_ansible':return value.get('action') not in ('ping','resources')
     if name=='host_remote':return value.get('action') not in ('identity','resources','services','proof','read_file','tailscale_status')
@@ -88,7 +91,7 @@ def register(registry):
                     for x in v.values():collect(x)
             collect(value.get('responses',[]))
         return value
-    registry.specs['mcp_tools']=('Use installed local MCP adapter over real stdio: action=list discovers actual schemas; action=call requires name and arguments JSON STRING object. Same broker/policy, no arbitrary server. Exposes capability_status, host_service/logs/read_file/remote/ansible, skill_list/run. Returns real protocol version and structured receipts; errors are not success.',{'action':{'type':'string','enum':['list','call']},'name':{'type':'string'},'arguments':{'type':'string','maxLength':16000}},['action'],'host_authorized',invoke)
+    registry.specs['mcp_tools']=('Use installed local MCP adapter over real stdio: action=list discovers actual schemas; action=call requires name and arguments JSON STRING object. Same broker/policy, no arbitrary server. Exposes capability_status, host_service/logs/read_file/remote/ansible, skill_list/run and google_mcp. Returns real protocol version and structured receipts; errors are not success.',{'action':{'type':'string','enum':['list','call']},'name':{'type':'string'},'arguments':{'type':'string','maxLength':16000}},['action'],'host_authorized',invoke)
 
 
 if __name__=='__main__':asyncio.run(serve())

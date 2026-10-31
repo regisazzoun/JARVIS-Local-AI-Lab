@@ -10,7 +10,7 @@ from .tools import Registry
 from .mission_store import MissionStore
 from .authority_identity import invocation_scope
 
-EXPOSED={'system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_workspace','qwen_code_run','qwen_code_status'}
+EXPOSED={'system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_mcp','google_workspace','qwen_code_run','qwen_code_status'}
 
 # Select existing received interfaces for NEW integrated-client missions. No
 # owner goal, operational tasks, permissions or historical mission are rewritten.

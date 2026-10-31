@@ -1,0 +1,3 @@
+const path=require('node:path');
+const [upstream,entry,outfile]=process.argv.slice(2);
+require(path.join(upstream,'node_modules/esbuild')).build({entryPoints:[entry],bundle:true,platform:'node',target:'node20',outfile,format:'cjs',minify:true,external:['keytar'],alias:{'workspace-manager':path.join(upstream,'workspace-server/src/auth/AuthManager.ts'),'workspace-auth':path.join(upstream,'workspace-server/src/auth/token-storage/oauth-credential-storage.ts'),'workspace-scopes':path.join(upstream,'workspace-server/src/auth/scopes.ts'),'workspace-config':path.join(upstream,'workspace-server/src/utils/config.ts')}}).catch(()=>process.exit(1));
