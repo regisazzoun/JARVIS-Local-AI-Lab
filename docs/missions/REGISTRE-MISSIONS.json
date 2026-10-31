@@ -2390,11 +2390,11 @@
         "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/google-mcp-oauth-existant/docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md"
       }
     ],
-    "etat": "EN ATTENTE AUTHENTIFICATION — préintégration GO avec réserves",
-    "resultats_prouves": "20tests ciblésPASS ;OAuthpréloginGoogleclientfourni ;2profilsisolés ;MCP9/8historiquesconservés ;30méthodesamont+2addonsSheets ;appelsréelsWebUI/Code/moteur ;servicesactifs",
-    "reserves": "Aucuncompteauthentifié niAPI Googledistante reçue ;Sheetsécriturepréparée nonreçue ;rapportautonomedusondenativerejeté/arrêté ;relaisOAuthexterne nécessaire",
-    "dependances": "PR35/eb823a0 ;code1abd51d ;interactionnavigateurpropriétaire",
-    "prochaine_action": "Authentifier personal puis education avec google-mcp-connect ;exécuter recherches/lectures/créations/relectures et contrôler persistance ;respecter les éventuelles politiques réelles Éducation",
+    "etat": "PERSONNEL GO avec réserves ; ÉDUCATION BLOQUÉ AVANT OAUTH",
+    "resultats_prouves": "20tests ciblésPASS ;OAuthpréloginGoogleclientfourni ;2profilsisolés ;MCP9/8historiquesconservés ;30méthodesamont+2addonsSheets ;appelsréelsWebUI/Code/moteur ;servicesactifs ;personnel cinqAPI réelles,Docs/Sheetscréésrelus,WebUI/Codelecture,persistanceetrefreshOAuth ;21testsciblés",
+    "reserves": "Éducation aucunjeton, refus de service rapporté, diagnostic du service/admin en attente ;rapportnatifaunonreçu ;Gmailsendnonactivé,corpcomplet/brouillonnonreçus",
+    "dependances": "PR35/eb823a0 ;code1abd51d ;interactionnavigateurpropriétaire ;suivi5b98c9a",
+    "prochaine_action": "Identifier le site/code du refusÉducation et le réglage à traiter par l’administrateur habilité ;conserver le personnel fonctionnel ;pas de reprise26P4",
     "derniere_actualisation": "2026-10-31",
     "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37"
   }

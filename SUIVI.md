@@ -1,3 +1,9 @@
+## Google MCP — compte personnel reçu, Éducation à diagnostiquer — 31octobre2026
+
+**✅🟡 Personnel : cinqAPI utilisées réellement, Docs/Sheets créés et relus, lecturesWebUI/Code, persistance et renouvellementOAuth contrôlés.** Aucun projetCloud propriétaire ni abonnement.21tests ciblésPASS après ajustements, sans rejeu93/cinqcontrôlesPR35. Données et identifiantsGoogle privés non publiés.
+
+**🟡 Éducation : aucunOAuth reçu**, message utilisateur d’accès au service refusé demandant la consoleadmin. Restriction de service/app probable, domaine/page exacte demandée ; aucune politique modifiée ou contournée. Rapport autonome de la sonde native toujours NONREÇU. [Rapport actuel](docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md) · [preuves personnelles expurgées](docs/missions/GOOGLE-MCP-OAUTH/RECEPTION-PERSONAL.json) · [blocageÉducation](docs/missions/GOOGLE-MCP-OAUTH/BLOCAGE-EDUCATION.md). PR37 sans fusion ; pauseM26P4 maintenue. L’instantané préauth ci-dessous reste historique.
+
 ## Google MCP / OAuth fourni — 31 octobre2026
 
 **🟡 Authentification propriétaire en attente ; connecteur installé et préflight reçu avec réserves.** Serveur Workspace Apache2 épinglé089927e, clientOAuth/relais fournis, aucun projetCloud propriétaire ni abonnement. Profils personal/education séparés, stockage chiffré et permissions700/600.30méthodes amont et2extensionsSheets Codex préparées ; aucune fonctionGoogle distante reçue avant connexion.

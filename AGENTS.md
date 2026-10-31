@@ -1,3 +1,9 @@
+## Google MCP — actualisation après authentification personnelle
+
+Compte personnel : cinqAPI réelles, Docs/Sheets et relectures, WebUI/Code, persistance et renouvellement reçus avec réserves. Éducation : accès au service refusé signalé, aucunjeton reçu, cause administrative précise à identifier. Ne pas généraliser ce blocage au compte personnel et ne pas imposer un projetCloud.
+
+PREUVES.json est le relevé préauth historique. **Ne pas relancer son export brut des audits après connexion : il inclurait des donnéesGoogle privées.** Utiliser RECEPTION-PERSONAL.json expurgé et les originaux privés.21tests ciblésPASS ; M26P4/MANUAL-HOLD et modèles/distribution préservés. [RéceptionGoogle](docs/missions/GOOGLE-MCP-OAUTH/RAPPORT-FINAL.md).
+
 ## Google MCP — décision propriétaire du31octobre2026
 
 Réutiliser prioritairement un connecteur open source gratuit, avec clientOAuth fourni et sans imposer au propriétaire un projetGoogleCloud. Serveur Workspace MCP installé en extensionPR35 ; profils personal/education privés et distincts. L’ancien guideBYOC PR35 reste historique, pas une obligation actuelle. Les seules interactions humaines nécessaires sont les connexionsGoogle par navigateur et les éventuelles politiques réelles du domaine.

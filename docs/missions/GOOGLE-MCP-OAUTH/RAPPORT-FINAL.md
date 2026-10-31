@@ -1,33 +1,27 @@
-# Google MCP / OAuth existant — livraison de préparation
+# Google MCP / OAuth existant — état de réception
 
-**31octobre2026 — 🟡 EN ATTENTE D’AUTHENTIFICATION.** Installation et interconnexions reçues avec réserves ; réception des comptes et des API Google non réalisée. La mission n’est pas déclarée terminée.
+**31octobre2026 — ✅🟡 compte personnel reçu avec réserves ; 🟡 compte Éducation bloqué avantOAuth.** La mission globale n’est pas entièrement réceptionnée.
 
-## Solution retenue
+## Résultats actuels
 
-Le serveur open source [gemini-cli-extensions/workspace](https://github.com/gemini-cli-extensions/workspace), Apache2.0, fournit son clientOAuth et son relais. Il fonctionne directement par MCP/Node sur le Mac mini sans installer GeminiCLI ni modifier Ollama. **Aucun projet Google Cloud personnel, client_secret.json, abonnement ou service payant n’a été créé/configuré.** Le parcours de PR35 reste historique ; le [nouveau guide](AUTHENTIFICATION.md) le remplace pour cette extension.
+Le compte personnel a été autorisé par le propriétaire. Drive, Docs, Sheets, Calendar et Gmail ont répondu réellement. Un document et un classeur de réception ont été créés, puis relus avec comparaison du contenu attendu. Un document existant et les métadonnées d’un messageGmail ont aussi été lus ; deuxévénementsCalendar ont été retournés. Les fichiers et données personnels restent dans les journaux privés, pas dansGitHub.
 
-Les alternatives ont été vérifiées, en distinguantOAuth fourni, BYOC applicatif, automatisation d’un projet et simple session navigateur. [Comparatif](COMPARATIF-CONNECTEURS.md), [sources](SOURCES.json). Le relais du fournisseur reste nécessaire pour l’échange et le renouvellement : les jetons sont stockés chiffrés sur le Mac, et le refresh token est transmis au relais lors du renouvellement. Cette dépendance est explicite.
+Open WebUI27B et QwenCode80B ont réellement lu le document de réception et restitué son marqueur. La connexion a persisté après recharge des services. Un test contrôlé d’échéance locale a déclenché le renouvellementOAuth, puis une nouvelle lectureDrive a réussi. [Réception personnelle](RECEPTION-PERSONAL.md) · [preuves expurgées](RECEPTION-PERSONAL.json).
 
-## Réalisation installée
+Le compteÉducation n’a pas fourni de jeton. Le propriétaire rapporte un message d’accès au service refusé demandant la console d’administration. Une politique de service/app est probable ; l’écran/service exact n’est pas encore identifié. Aucune politique n’est modifiée ou contournée. [Diagnostic Éducation](BLOCAGE-EDUCATION.md).
 
-Profils personal et education isolés, permissions700/600, registre et mémoire existants conservés. Le MCP historique compte neufoutils, dont les huitanciens ; le transport client PR35 reste à sixinterfaces. Un outil google_mcp découvre/appelle30méthodes amont. Deux opérations Sheets additionnelles de création/écriture réutilisent son AuthManager et le scopeDrive déjà demandé ; elles sont attribuées àCodex, pas au serveur amont. Elles restent non réceptionnées sur Google. [Catalogue](CATALOGUE-GOOGLE.json), [extensionSheets](EXTENSIONS-SHEETS.md).
+## Installation et attribution
 
-Le modèle27B dans WebUI et le80B dans QwenCode ont réellement appelé les statuts des deuxprofils et l’outil local de date. Le moteur JARVIS a également produit septappels natifs de statut. Ces résultats prouvent le raccordement au modèle, pas l’accès aux fichiers ou messages Google. L’interface de prélogin Google reconnaît l’application fournie ; aucun compte n’a été authentifié.
+Le serveur open source Workspace Apache2 fournit son clientOAuth et son relais : **aucun projetGoogleCloud personnel ni abonnement n’a été créé/configuré**. Deuxprofils chiffrés et distincts sont hébergés sur le Mac. Le relaisOAuth externe reste nécessaire à l’échange et au renouvellement des jetons. [Choix/architecture](CHOIX-ET-ARCHITECTURE.md), [comparatif](COMPARATIF-CONNECTEURS.md), [connexion](AUTHENTIFICATION.md).
 
-**20tests logiciels ciblésPASS**, contratSDK stdio et appels réels des troisclients observés. Les services contrôlés sont actifs. Les93tests/cinqcontrôles acquisPR35 n’ont pas été rejoués. [Tests et incidents](TESTS.md), [preuves](PREUVES.json), [installation/retour arrière](INSTALLATION.md).
+Trenteméthodes amont et deuxméthodesSheets additionnelles sont exposées par les registres/MCP existants. Les deuxextensionsSheets sont deCodex et réutilisent l’AuthManager amont ; leurs créations/écritures ont maintenant été testées surGoogle. Les huitoutils MCP historiques sont conservés, neuvenincluantGoogle ; les sixinterfaces de transportPR35 sont inchangées. Aucun nouveau moteur ou mémoire canonique.
 
-## Réserves précises
+Codex a sélectionné/intégré le connecteur, développé le callback et les extensions, exécuté les testsAPI et contrôles indépendants. JARVIS/WebUI et QwenCode ont exécuté les lecturesmodèles observées. Dans le moteur natif, septstatuts préauth ont été lus après un plan2 fourni explicitement parCodex ; la sonde a répété les lectures puis a été interrompue. Son rapport/autonomie restent NONREÇUS, sans effacer le plan initial incorrect ni les brouillons.
 
-- Les deuxcomptes restentAUTH_REQUIRED : recherche/lecture/création/relectureDocs,Sheets,Calendar,Gmail et persistance de l’authentification sont en attente. L’interaction navigateur du propriétaire a été demandée avec les seules commandes nécessaires ; aucun projetCloud demandé.
-- Les politiquesÉducation ne sont pas présumées permissives ou bloquantes. Un éventuel refus doit être observé et documenté séparément du compte personnel.
-- Le plan initial de la sonde native était incorrect. Codex a fourni le plan2 de préflight ; les appels ont eu lieu, puis les lectures ont bouclé et la sonde a été interrompue. Rapport et autonomie de cette sonde NONREÇUS ; pas de modification générale du moteur26 pour masquer ce résultat.
-- Une instruction de réponseWebUI confondait Terminal et navigateur. L’original est conservé et rectifié dans le guide et les champs structurés de configuration. La prose libre n’est pas déclarée globalement fiable.
-- Aucun envoi Gmail n’est activé. Le code amont prévoit l’envoi, mais son ouverture nécessite la demande utilisateur explicite correspondante. Aucun message externe n’a été envoyé pendant les tests.
+## Validation et réserves
 
-## Attribution et suite
+**21tests logiciels ciblésPASS** après les derniers ajustements, sans rejeu93tests/cinqcontrôlesPR35. Le dossier PREUVES.json reste l’instantané AVANTauthentification, conservé comme historique ; RECEPTION-PERSONAL.json porte les preuves actuelles expurgées. Aucun token, identifiant privé de document, contenu de message ou document personnel n’y est publié.
 
-Google/projet amont : serveur, clientOAuth, relais et stockage chiffré. Codex : inventaire/recherche, sélection, isolation des profils, adaptations du registre, callback sécurisé, deuxfonctionsSheets additionnelles, installation, tests et contrôles indépendants. JARVIS/WebUI et QwenCode : appels et restitutions réellement journalisés. JARVIS natif : appels de statut observés, plan initial imparfait, rapport non reçu. Propriétaire : authentification des comptes encore nécessaire.
+Restent : authentification et réceptionÉducation après diagnostic administratif précis ; Gmailenvoi non activé et corpscomplet/brouillon non reçus ; toutes les autres opérations avancées et une missionGoogle autonome complète non reçues. Un succèsGoogle est distingué d’une validation indépendante de l’artefact. Les sorties et erreurs originales sont conservées.
 
-Code1abd51d, branche codex/google-mcp-oauth-existant à la suite dePR35 ; aucune fusionmain. M26P4 et MANUAL-HOLD conservés, modèles et distributionDell inchangés. Prochaine étape : suivre [AUTHENTIFICATION.md](AUTHENTIFICATION.md), puis recevoir les opérations Google réelles. Les composants et preuves déjà livrés restent utilisables pendant cette attente.
-
-Publication : [PR37](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37), empilée surPR35, sans fusion.
+Code de raccordement1abd51d, lien court8f97bfd, ajustements de restitution/confinement5b98c9a. [PR37](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37), branche codex/google-mcp-oauth-existant surPR35, sans fusionmain. M26P4/MANUAL-HOLD, modèles et distributionDell restent inchangés.
