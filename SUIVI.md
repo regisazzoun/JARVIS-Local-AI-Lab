@@ -1,5 +1,12 @@
 ## BILAN-20261031 — photographie technique du 31 octobre 2026
 
+## WebUI — accès opérationnel aux outils — 31 octobre 2026
+
+**✅🟡 Accès outils reçus ; 🟡 réception globale de mission incomplète.** Google personnel/Éducation : lectures et écritures depuis le navigateur, dix relectures indépendantes PASS, identités effectives distinctes et lectures croisées refusées. SSH et Ansible sur les deux Dell, lecture et publication GitHub via le Skill existant reçus. 31 tests ciblés PASS ; aucune réinstallation ni fusion main.
+
+Sonde `3f64e6c1adc640e9847c9311d3350d8b` : lectures du service cible reçues après correction de permission, puis arrêt persistant de capacité ; rapport final et autonomie sans assistance NON REÇUS. Résolution/reprise rejetée par contrôle automatique, demande précise en attente ; historique et compteurs conservés. Après le dernier contrôle positif des services et leur rechargement, accès SSH expiré : état actuel non reconfirmé, cause inconnue. Publication poursuivie par connecteur GitHub indépendant. M26-P4/MANUAL-HOLD préservés. [Rapport](docs/missions/WEBUI-OUTILS-OPERATIONNELS/RAPPORT.md) · [Preuves](docs/missions/WEBUI-OUTILS-OPERATIONNELS/PREUVES.json) · [PR39](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/39).
+
+
 **✅🟡 Audit réalisé avec réserves de couverture, sans transformation.** Trois machines accessibles ; quatre RTX3090 et une RTX3080 ; liens actifs à1Gb/s. Dell1 :256GiB et deux3090 avec80B chargé ; Dell2 :128GiB,3090+3080, exécuteurSSH sans Ollama observé.24groupes applicatifs,4935entrées logiciels,144composants/contrats et16domaines de développement analysés. Six modules installés diffèrent de la baseGit : réconciliation recommandée avant déploiement.
 
 Deux lectures MCP distantes Qwen Code reçues190/192, mais résumé erroné conservé et rejeté ; premier essai arrêté sur contexte. Google Éducation désormais reçu enlecture Drive/Calendar/Gmail164/166/168 ; aucune réception complète des écritures/clients Éducation. Les états historiques ci-dessous sont conservés. M26P4 reste enpause, aucun lancement14A/24-Old/P7 ni transformation d’inférenceDell2.
