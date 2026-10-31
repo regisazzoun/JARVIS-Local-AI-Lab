@@ -49,6 +49,9 @@ def validate_call(name,arguments,profile):
         from jsonschema import validate
         validate(arguments,ADDITIONS[name]['inputSchema'])
     if name in ('calendar.createEvent','calendar.updateEvent') and arguments.get('attendees'):raise ValueError('No invitations in this reception; omit attendees')
+    if name=='gmail.createDraft':
+        for attachment in arguments.get('attachments',[]):
+            confined_download(attachment['filePath'],Path('/var/lib/jarvis/projects/google-mcp')/profile/'downloads')
     # Upstream download tools bypass the host broker: constrain their destinations.
     if name in ('drive.downloadFile','gmail.downloadAttachment'):
         root=Path('/var/lib/jarvis/projects/google-mcp')/profile/'downloads'
@@ -117,7 +120,7 @@ def perform(profile,action='status',name=None,arguments=None,query='',offset=0,r
         start=max(0,int(offset));page=tools[start:start+6]
         return {'profile':profile,'server':value['server'],'transport':'stdio','count':len(tools),'tools':[{'name':t['name'],'description':t.get('description','')[:140]} for t in page],'next_offset':start+len(page) if start+len(page)<len(tools) else None,'remote_access_verified':False}
     failed=bool(value.get('mcp_is_error') or any(isinstance(x,dict) and x.get('error') for x in value.get('content',[])))
-    return {'profile':profile,'tool':name,'transport':'stdio',**value,'returncode':1 if failed else 0,'mcp_tool_dispatched':True,'operation_executed':'UNKNOWN' if failed and is_mutating({'action':'call','name':name}) else not failed,'remote_access_verified':False,'verification_scope':'Tool result only; inspect content and independently read back writes. time.* is local computation, never Google API proof.'}
+    return {'profile':profile,'tool':name,'transport':'stdio',**value,'returncode':1 if failed else 0,'mcp_tool_dispatched':True,'operation_executed':'UNKNOWN' if failed and is_mutating({'action':'call','name':name}) else not failed,'remote_access_verified':not failed and not name.startswith('time.'),'application_result_independently_verified':False,'verification_scope':'This Google call only; independently read back writes. Credential status is a local cache check, and time.* is local computation, never Google API proof.'}
 
 def is_mutating(arguments):
     return arguments.get('action')=='call' and arguments.get('name') not in {'docs.getText','docs.getSuggestions','drive.search','drive.findFolder','drive.getComments','calendar.list','calendar.listEvents','calendar.getEvent','calendar.findFreeTime','gmail.search','gmail.get','gmail.listLabels','sheets.getText','sheets.getRange','sheets.getMetadata','time.getCurrentDate','time.getCurrentTime','time.getTimeZone'}

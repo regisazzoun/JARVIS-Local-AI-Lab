@@ -16,6 +16,7 @@ class Connector(unittest.TestCase):
   for name in ('gmail.send','gmail.sendDraft','auth.clear','drive.trashFile'):
    with self.assertRaises(ValueError):g.validate_call(name,{},'personal')
   with self.assertRaises(ValueError):g.validate_call('calendar.createEvent',{'attendees':['someone']},'personal')
+  with self.assertRaises(ValueError):g.validate_call('gmail.createDraft',{'attachments':[{'filePath':'/home/adminjarvis/.ssh/id_ed25519'}]},'personal')
  def test_actual_download_path_and_symlink_escape_are_rejected(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp)/'downloads';root.mkdir();(root/'escape').symlink_to('/tmp')
@@ -60,6 +61,13 @@ class Connector(unittest.TestCase):
    with patch.object(g,'credential_status',return_value={'configured':True}),patch.object(g,'upstream',side_effect=upstream):
     result=g.perform('personal','call','docs.create',{'title':'fixture'},root=Path(tmp))
    self.assertEqual(result['returncode'],1);self.assertEqual(result['operation_executed'],'UNKNOWN');self.assertFalse(result['remote_access_verified'])
+ def test_successful_google_response_is_distinct_from_local_time_and_independent_validation(self):
+  async def upstream(*args):return {'mcp_is_error':False,'content':[{'software_fixture':True}]}
+  with tempfile.TemporaryDirectory() as tmp:
+   folder=Path(tmp)/'personal';folder.mkdir();(folder/'index.js').write_text('fixture')
+   with patch.object(g,'credential_status',return_value={'configured':True}),patch.object(g,'upstream',side_effect=upstream):
+    google=g.perform('personal','call','docs.getText',{'documentId':'fixture'},root=Path(tmp));local=g.perform('personal','call','time.getCurrentDate',{},root=Path(tmp))
+   self.assertTrue(google['remote_access_verified']);self.assertFalse(google['application_result_independently_verified']);self.assertFalse(local['remote_access_verified'])
  def test_google_write_is_deferred_by_existing_controller_before_any_effect(self):
   from unittest.mock import Mock
   from jarvis.core import Core,ROOT
