@@ -12,6 +12,21 @@
 - Lorsqu'une directive récente remplace une consigne historique, la nouvelle décision prévaut dans son périmètre. Les textes historiques restent des traces, pas des ordres concurrents.
 - Ne pas relancer une mission, campagne VM ou suite de diagnostics déjà validée pour satisfaire une préférence de prudence de l'assistant.
 
+## Prérequis permanent — rechercher et réutiliser avant de développer
+
+**Décision du propriétaire du 31 octobre 2026, applicable à ChatGPT, Codex et JARVIS, avant tout nouveau développement ou extension.**
+
+1. Lire `AGENTS.md`, la charte, les états pertinents et le dernier prompt autorisé ; préserver les décisions propriétaires et les acquis.
+2. **Inventorier le code déjà développé dans JARVIS**, ses branches/PR pertinentes, services, bibliothèques installées, API, registre, Skills et connecteurs MCP. Distinguer disponible, configuré, raccordé, testé et réellement reçu.
+3. **Rechercher et comparer les solutions déjà existantes** : bibliothèques, SDK et API officiels, connecteurs MCP, projets open source et intégrations natives. Consigner les recherches datées, les sources consultées et les limites de couverture.
+4. **Réutiliser, configurer, raccorder et tester d'abord.** Une authentification manquante, une configuration absente ou un raccordement incomplet ne démontrent pas un manque fonctionnel et ne justifient pas de recréer le composant.
+5. **Ne développer qu'en cas de manque démontré**, avec preuve du critère non couvert ou de l'incompatibilité, résultat du test pertinent ou impossibilité technique explicitée. Limiter le code au complément nécessaire ; préférer un adaptateur minimal ou une correction de l'existant à une réécriture.
+6. Conserver dans le dossier de mission et la PR l'inventaire, le comparatif, la décision motivée et les preuves de réception. Chaque nouveau prompt de développement doit référencer ces éléments ; un simple « rien trouvé » sans sources ne satisfait pas ce prérequis.
+
+Cette exigence est une étape de travail autonome, **sans nouvelle validation humaine intermédiaire** dans le périmètre déjà autorisé. Elle ne relance aucune mission suspendue, ne modifie aucune architecture décidée et n'autorise aucune fusion automatique dans `main`. Une recherche indisponible doit être signalée comme incomplète ; elle ne démontre pas l'absence de solution.
+
+Procédure et fiche obligatoire : [prérequis de réutilisation](PREREQUIS-REUTILISATION.md).
+
 ## 2. Contexte de risque assumé
 
 - Le projet s'exécute dans un **laboratoire expérimental sur un réseau local privé et considéré isolé par le propriétaire**, avec du matériel dédié aux essais. L'utilisateur accepte explicitement que les machines cibles et leurs partitions puissent être réinstallées ou effacées dans le cadre du déploiement convenu ; pas d'exigence de continuité de production.

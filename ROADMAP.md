@@ -1,3 +1,9 @@
+## Prérequis permanents de développement — 31 octobre 2026
+
+Décision propriétaire : **inventorier JARVIS et rechercher/comparer bibliothèques, API, connecteurs MCP et solutions open source avant tout nouveau développement ; réutiliser, configurer, raccorder et tester d'abord ; ne développer que le manque démontré.** [Procédure et fiche obligatoire](docs/PREREQUIS-REUTILISATION.md) · [changements et preuves](docs/preuves/2026-10-31-prerequis-reutilisation.md).
+
+Livraison documentaire sur branche dédiée issue de PR35 ; décisions antérieures, états et preuves conservés. Aucun déploiement ni nouvelle réception technique ; M26-P4/MANUAL-HOLD restent en pause, aucune reprise14A/24-Old ni fusion automatique dans main.
+
 ## Intégration agentique WebUI / Qwen Code — 30 octobre 2026
 
 **✅🟡 Connecteurs déployés avec réserves ; réception globale incomplète.** WebUI27B Mac et profil80B Dell1 raccordés au registre/broker/Skills canoniques ; Code corrige une vraie source, appelle MCP et exécute des tests sur les deux Dell. Deux sessions indépendantes réalisent14étapes vérifiées en18/29tours, sans plafond12. Contrats JSON/non-streaming et contexte local32768 corrigés.93tests logiciels et5contrôles vivantsPASS ;8fichiers déployés identiques, services contrôlés actifs et HTTPS200.
