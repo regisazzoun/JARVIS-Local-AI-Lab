@@ -1,10 +1,10 @@
 ## BILAN-20261031 — photographie technique du 31 octobre 2026
 
-**✅🟡 Audit réalisé avec réserves de couverture, sans transformation.** Trois machines accessibles ; quatre RTX3090 et une RTX3080 ; liens actifs à1Gb/s. Dell1 :256GiB et deux3090 avec80B chargé ; Dell2 :128GiB,3090+3080, exécuteurSSH sans Ollama observé.24groupes applicatifs,4935entrées logiciels,144composants/contrats et16domaines de développement analysés. Six modules installés diffèrent de la baseGit : réconciliation recommandée avant déploiement.
+## WebUI — accès opérationnel aux outils — 31 octobre 2026
 
-Deux lectures MCP distantes Qwen Code reçues190/192, mais résumé erroné conservé et rejeté ; premier essai arrêté sur contexte. Google Éducation désormais reçu enlecture Drive/Calendar/Gmail164/166/168 ; aucune réception complète des écritures/clients Éducation. Les états historiques ci-dessous sont conservés. M26P4 reste enpause, aucun lancement14A/24-Old/P7 ni transformation d’inférenceDell2.
+**✅🟡 GO avec réserves : outils reçus et mission clôturée après assistance.** Google personnel/Éducation : lectures et écritures navigateur et dix relectures indépendantes PASS ; identités distinctes et lectures croisées refusées. SSH/Ansible sur les deux Dell, GitHub lecture/publication et Skill reçus. Sonde3f64e6c1… : PASS95216, tâche validée95241, completed95261 ; contrôle indépendant du fichier406 PASS.93 tests ciblés distincts PASS.
 
-[Rapport](docs/missions/BILAN-20261031/RAPPORT-FINAL.md) · [Comparatif Dell matériel](docs/missions/BILAN-20261031/02-COMPARATIF-DELL1-DELL2-MATERIEL.md) · [Applications](docs/missions/BILAN-20261031/04-COMPARATIF-DELL1-DELL2-APPLICATIONS.md) · [Plan proposé](docs/missions/BILAN-20261031/12-PLAN-DE-RATIONALISATION.md). Branche codex/bilan-20261031, PR dédiée sans fusion main.
+Reprise native autorisée et appliquée, compteurs conservés. Correctif ciblé du raccordement recomposition→vérification ; aucun PASS automatique. Après extinction et démarrage propriétaire : services et bases contrôlés, outils relus dans WebUI80B, résultats visibles. Cause de l’extinction inconnue ; proximité du rechargement consignée. Réception assistée, prose libre/autonomie générale et contrôle27B après reboot non reçus. M26-P4/MANUAL-HOLD préservés. [Rapport](docs/missions/WEBUI-OUTILS-OPERATIONNELS/RAPPORT.md) · [Preuves](docs/missions/WEBUI-OUTILS-OPERATIONNELS/PREUVES.json) · PR39, sans fusionmain.
 
 ## Google MCP — compte personnel reçu, Éducation à diagnostiquer — 31octobre2026
 

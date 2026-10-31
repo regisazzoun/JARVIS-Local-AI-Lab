@@ -1,0 +1,228 @@
+{
+  "scope": "Observed execution receipts transcribed from this session; complete originals retained privately on JARVIS",
+  "tests_passed": 93,
+  "google_independent": {
+    "personal": {
+      "docs": true,
+      "sheets": true,
+      "calendar": true,
+      "gmail": true,
+      "drive_folder": true
+    },
+    "education": {
+      "docs": true,
+      "sheets": true,
+      "calendar": true,
+      "gmail": true,
+      "drive_folder": true
+    },
+    "distinct_organizers": true,
+    "cross_private_document_reads_denied": {
+      "personal": 364,
+      "education": 366
+    },
+    "drive_read_audits": {
+      "personal": 394,
+      "education": 396
+    }
+  },
+  "webui_receipts": {
+    "personal_docs_create": 234,
+    "personal_docs_read": 238,
+    "personal_sheets_create": 242,
+    "personal_sheets_write": 246,
+    "personal_sheets_read": 258,
+    "personal_calendar_create": 262,
+    "personal_calendar_read": 270,
+    "education_docs_create": 320,
+    "education_docs_read": 324,
+    "education_sheets_create": 328,
+    "education_sheets_write": 332,
+    "education_sheets_read": 334,
+    "education_calendar_create": 336,
+    "education_calendar_read": 338,
+    "education_gmail_draft": 344,
+    "personal_drive_folder": 382,
+    "education_drive_folder": 386,
+    "personal_gmail_final_read": 390,
+    "dell1_ssh": 248,
+    "dell2_ssh": 255,
+    "dell1_ansible": 264,
+    "dell2_ansible": 268,
+    "github_read": 276,
+    "github_branch_create": 278,
+    "github_skill": 343
+  },
+  "github": {
+    "branch": "jarvis/webui-operationnel-reception-20261031",
+    "commit": "14b64389960a254a8c64aae501bd4f110d545000",
+    "blob_sha": "9c9283b5f930432cae6eea32c457be224e1dfc95",
+    "independent_connector_matches": true
+  },
+  "skill": {
+    "run_id": "709e462c2b2f4d7aa69197ba32a67e17",
+    "state": "passed"
+  },
+  "mcp": {
+    "audit_id": 380,
+    "tool_count": 11,
+    "includes": [
+      "google_personal",
+      "google_education"
+    ]
+  },
+  "mission": {
+    "id": "3f64e6c1adc640e9847c9311d3350d8b",
+    "last_observed_state": "completed",
+    "report_received": true,
+    "target_service_reads": [
+      94768,
+      94788,
+      94808
+    ],
+    "capacity_incidents": 3,
+    "incident_resolution_approval_rejected": true,
+    "compact_contract_measurement": {
+      "sent_bytes": 25333,
+      "budget_bytes": 27648,
+      "isolated_sqlite_copies": true,
+      "no_real_mission_or_ledger_mutation": true,
+      "no_inference_dispatched": true
+    },
+    "owner_authorized_measure_resolve_resume": true,
+    "resolution_applied": true,
+    "resume_applied_after_confirmation": true,
+    "independent_reception": {
+      "mission": "3f64e6c1adc640e9847c9311d3350d8b",
+      "state": "completed",
+      "task": {
+        "id": "webui-operationnel-service-20261031-step1",
+        "state": "validated",
+        "artifact": "/var/lib/jarvis/projects/mission26-phase2/reports/webui-operationnel-service-20261031.md",
+        "sha256": "3cafb06bb64814c540e242a8df838faec2ab95e03086774b252af61982647c6b"
+      },
+      "independent_registry_read_audit_id": 406,
+      "independent_exact_render_status": "PASS",
+      "native_pass_events": [
+        95216
+      ],
+      "native_completion_events": [
+        95261
+      ],
+      "final_report_path": "/opt/jarvis/conversation/runtime/reports/3f64e6c1adc640e9847c9311d3350d8b/RAPPORT-FINAL.md",
+      "final_report_sha256": "7fa558fe701e5e78dcc60ee8656e2e9f77e207a6eb0b90ec5105e10c75947a7d",
+      "renderer_attribution": "Facts and final factual report assembled by existing engine; Qwen selects evidence and triggers operations; infrastructure corrections by Codex",
+      "assisted_reception": true
+    },
+    "native_resolution_event": 94844,
+    "assisted_reception": true,
+    "general_free_prose_autonomy_received": false
+  },
+  "final_transport": {
+    "ssh": "restored",
+    "tailscale": "online",
+    "WebUI_HTTPS": 200,
+    "service_state": "active",
+    "shutdown_cause": "undetermined",
+    "last_previous_journal_Paris": "2026-10-31T21:49:40+01:00",
+    "prior_service_reload_Paris": "2026-10-31T21:49:29+01:00"
+  },
+  "raw_private_archives": "/home/adminjarvis/JARVIS/webui-operationnel-private/",
+  "no_google_resource_ids_or_tokens_published": true,
+  "status": "GO_WITH_RESERVES_ASSISTED_RECEPTION",
+  "software_tests": {
+    "access_groups_passed": 33,
+    "report_lifecycle_groups_passed": 60,
+    "distinct_total_passed": 93,
+    "recomposition_regression_fails_before_patch": true,
+    "groups": [
+      "test_client_capabilities",
+      "test_google_mcp",
+      "test_webui_bound_google",
+      "test_google_serialization",
+      "test_report_recomposition",
+      "test_legacy_attempts",
+      "test_report_plan_step"
+    ]
+  },
+  "historical_transport_incident": {
+    "ssh": "Operation timed out",
+    "current_service_state": "UNKNOWN",
+    "last_positive_control": "all five core services active, source matches confirmed, four authorized services reloaded without active missions",
+    "local_tailscale_backend": "Running",
+    "local_tailscale_health": [],
+    "macmini_tailscale_online": false,
+    "macmini_last_seen_utc": "2026-10-31T20:50:00.1Z",
+    "ssh_lan": "Operation timed out",
+    "ssh_tailnet": "Operation timed out",
+    "dell1_online": true
+  },
+  "postboot_health": {
+    "sqlite": {
+      "memory.sqlite": [
+        "ok"
+      ],
+      "missions.sqlite": [
+        "ok"
+      ]
+    },
+    "source_matches": {
+      "google_mcp.py": true,
+      "client_capabilities.py": true,
+      "tools.py": true,
+      "mcp_gateway.py": true
+    },
+    "services": {
+      "jarvis-conversation": "active",
+      "jarvis-webui-tools": "active",
+      "jarvis-host-bridge": "active",
+      "jarvis-mission-worker": "active",
+      "jarvis-mission-worker@2": "active"
+    }
+  },
+  "postboot_receipts": {
+    "personal_docs": 398,
+    "education_docs": 400,
+    "service_is_active": 402,
+    "wrong_GitHub_route_via_SSH_rejected": 404,
+    "correct_GitHub_route": 408,
+    "independent_mission_report_read": 406,
+    "report_body_recovered_in_WebUI": 410
+  },
+  "runtime": {
+    "google_mcp.py": {
+      "source_matches": true,
+      "sha256": "656ab0d9da498da71382d3d88e2036c38f6ace177494652f37f0c9bd87c416f8"
+    },
+    "client_capabilities.py": {
+      "source_matches": true,
+      "sha256": "768e8e4a2004bb615da2640b122dd3ad92fb08893d17373eb0feab5cfd9559a1"
+    },
+    "tools.py": {
+      "source_matches": true,
+      "sha256": "76ee7c8b922641c6fa564850b55c631652d881092aaa46b3360aa3c27ceea7f7"
+    },
+    "mcp_gateway.py": {
+      "source_matches": true,
+      "sha256": "c81e29acf6ba18e501cde72260fc94ce614b48d1354d8932335f4d5f8cb5c68f"
+    },
+    "legacy_attempts.py": {
+      "source_matches": true,
+      "sha256": "465badecb4cca66e2cbb320269c4459d682ef8c36e6c79075738f05af3da1d63"
+    },
+    "webui_tool": {
+      "source_matches": true,
+      "sha256": "e649468df55b9b7cae4f0d504ae446ee7b9bc00e1f03eb830a8ca301b240130f"
+    }
+  },
+  "reception_chat_url": "https://jarvis-macmini.tail805e83.ts.net/c/28b38c07-9361-47e3-ad61-501ac9032038",
+  "postboot_model_profile": "Existing WebUI 80B development profile; no global model/routing change",
+  "postboot_27b_check": "Stopped during lengthy cold prompt processing; not received as an after-reboot 27B test. Earlier 27B receptions retained.",
+  "last_snapshot_utc": "2026-10-31T21:28:58.086369+00:00",
+  "private_archive_sha256": {
+    "completed-mission-events.json": "3be4d5454e97358efbee8da65cc4474c92a5fefcfb891e8408a254a4aa7bda47",
+    "authorized-resolution-and-resume.json": "f5cdd883f3d7f444e69ce10ad432d89e6b5ac8fdbd9ce8957105759eaec3cd4e",
+    "recomposition-projection-check.json": "686ad54ed103e30b2408e6a510813d9d4144c4bd67bfc851ebcb2d893455d5a3"
+  },
+  "report_display_chat_url": "https://jarvis-macmini.tail805e83.ts.net/c/af5d9460-7558-474f-995d-cfa48e5da18e"
+}
