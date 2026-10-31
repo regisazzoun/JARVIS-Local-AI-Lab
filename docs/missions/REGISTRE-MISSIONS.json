@@ -2397,5 +2397,27 @@
     "prochaine_action": "Identifier le site/code du refusÉducation et le réglage à traiter par l’administrateur habilité ;conserver le personnel fonctionnel ;pas de reprise26P4",
     "derniere_actualisation": "2026-10-31",
     "publication": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/37"
+  },
+  {
+    "identifiant": "BILAN-20261031",
+    "nom": "Inventaire général et rationalisation documentaire",
+    "fonction_principale": "Photographie technique des trois machines et provenance des composants",
+    "objectifs": "Comparer matériel, applications, outils et contrats ; proposer standardisation sans transformation",
+    "materiel": "Mac mini ; Dell1 2x3090 ; Dell2 3090+3080",
+    "composants": "24 groupes applicatifs ;4935 logiciels ;144 contrats/composants ;16 domaines de développement",
+    "executant_reel": "Codex collecte, vérifie et publie ; Qwen Code effectue deux observations guidées ; prose rejetée",
+    "documents_sources": [
+      {
+        "path": "docs/missions/BILAN-20261031/RAPPORT-FINAL.md",
+        "url": "https://github.com/regisazzoun/JARVIS-Local-AI-Lab/blob/codex/bilan-20261031/docs/missions/BILAN-20261031/RAPPORT-FINAL.md"
+      }
+    ],
+    "etat": "GO avec réserves pour le bilan ; aucune transformation appliquée",
+    "resultats_prouves": "Trois hôtes accessibles ;5GPU ;liens1Gb/s ;RAIDUU ;80BDell1 et27BMac chargés ;2lecturesMCP190/192 ;6écartsSHA documentés",
+    "reserves": "Couverture de fichiers bornée ;prose Qwen incorrecte ;P4 en pause ;P7 non reçu ;Google Éducation trois lectures reçues, écritures/clients non reçus",
+    "dependances": "Base PR37/5018871 ;PR34/35 héritées ;notes priorités branche distincte citées",
+    "prochaine_action": "Choisir et lancer les transformations séparément ; ne pas relancer automatiquement P4",
+    "derniere_actualisation": "2026-10-31",
+    "publication": "branche codex/bilan-20261031 ; PR dédiée"
   }
 ]

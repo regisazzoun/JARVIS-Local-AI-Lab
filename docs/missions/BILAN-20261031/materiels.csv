@@ -1,0 +1,9 @@
+id,machine_id,type,model,cpu,threads,ram_gib,vram_mib,storage_bytes,raid,evidence,provenance
+mac,mac,machine,"Macmini8,1",Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz,12,32,24576,500277792768,pas de md RAID observé ; LVM/ext4 sur Mac,preuves/mac.json,observation directe
+mac-gpu0,mac,gpu,NVIDIA GeForce RTX 3090,,,,24576,,,preuves/mac.json,nvidia-smi ; empreinte c40b14b5a74b15de
+dell1,dell1,machine,Precision 5820 Tower X-Series,Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz,36,256,49152,4096816496640,RAID1 mdadm [2/2] [UU],preuves/dell1.json,observation directe
+dell1-gpu0,dell1,gpu,NVIDIA GeForce RTX 3090,,,,24576,,,preuves/dell1.json,nvidia-smi ; empreinte dcdd952392873055
+dell1-gpu1,dell1,gpu,NVIDIA GeForce RTX 3090,,,,24576,,,preuves/dell1.json,nvidia-smi ; empreinte aab1fd2809f106d0
+dell2,dell2,machine,Precision 5820 Tower X-Series,Intel(R) Core(TM) i9-10980XE CPU @ 3.00GHz,36,128,34816,4096816496640,RAID1 mdadm [2/2] [UU],preuves/dell2.json,observation directe
+dell2-gpu0,dell2,gpu,NVIDIA GeForce RTX 3090,,,,24576,,,preuves/dell2.json,nvidia-smi ; empreinte 165b9a7f874f0d32
+dell2-gpu1,dell2,gpu,NVIDIA GeForce RTX 3080,,,,10240,,,preuves/dell2.json,nvidia-smi ; empreinte 8c5de7129fd13aa9

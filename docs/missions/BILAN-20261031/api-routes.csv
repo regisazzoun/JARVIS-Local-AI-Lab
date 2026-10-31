@@ -1,0 +1,27 @@
+id,machine_id,source,path,version,state,interface,evidence
+api-4821ae982edede,mac,/opt/jarvis/conversation/jarvis/server.py,/api/session,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-7a3336e1c68b0b,mac,/opt/jarvis/conversation/jarvis/server.py,/api/stt,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-7cbdbe71b4fbc8,mac,/opt/jarvis/conversation/jarvis/server.py,/api/chat,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-a16b04acd3ce83,mac,/opt/jarvis/conversation/jarvis/server.py,/api/,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-40f4b0f2ec77ea,mac,/opt/jarvis/conversation/jarvis/server.py,/api/launcher/,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-b1e8cc4d97565d,mac,/opt/jarvis/conversation/jarvis/server.py,/api/tools,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-d691a035ae01e1,mac,/opt/jarvis/conversation/jarvis/server.py,/api/login,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-4e922cc5223b86,mac,/opt/jarvis/conversation/jarvis/server.py,/api/logout,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-2b556a39dbe889,mac,/opt/jarvis/conversation/jarvis/server.py,/api/missions,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-2a57ede95feddc,mac,/opt/jarvis/conversation/jarvis/server.py,/api/health,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-310c014c790e18,mac,/opt/jarvis/conversation/jarvis/server.py,/api/config,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-0029acfd22e55d,mac,/opt/jarvis/conversation/jarvis/server.py,/api/missions/resume,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-1bf06df0834503,mac,/opt/jarvis/conversation/jarvis/server.py,/api/missions/interrupt,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-8a966f73e1d110,mac,/opt/jarvis/conversation/jarvis/server.py,/api/conversations,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-1e9e790d5d8711,mac,/opt/jarvis/conversation/jarvis/server.py,/api/tts,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-3b3232780270ad,mac,/opt/jarvis/conversation/jarvis/server.py,/api/history,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-d6c089e9a47f15,mac,/opt/jarvis/conversation/jarvis/server.py,/api/preferences,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-b9dbdf6715d1ef,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memory/propose,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-c467766f8d55d6,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memories,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-6e03884f7b70dd,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memory/approve,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-bd491032719b8b,mac,/opt/jarvis/conversation/jarvis/server.py,/api/search,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-0aeb3f4f555bcc,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memory/obsolete,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-6e3fec9f840bbd,mac,/opt/jarvis/conversation/jarvis/server.py,/api/export,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-9e874491f4ca96,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memory/reject,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-e73724c3ae21b3,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memory/delete,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée
+api-7360c7006909fa,mac,/opt/jarvis/conversation/jarvis/server.py,/api/memory/edit,SHA dans preuves/local.json,déclaration/source installée ; non testée individuellement,HTTP REST,source AST observée

@@ -1,0 +1,242 @@
+[
+  {
+    "file": "00-SYNTHESE-EXECUTIVE.md",
+    "sha256": "f3802ee923c7e8eb3b1a2fbf5a9b60d8a9b595b75757f46d0a82968e51ade438",
+    "bytes": 2781
+  },
+  {
+    "file": "01-INVENTAIRE-MATERIEL.md",
+    "sha256": "2fd0cb1dd561554c779bd7c75401f1c9e83c5cc893b77b91538c3eef578c7c7e",
+    "bytes": 2501
+  },
+  {
+    "file": "02-COMPARATIF-DELL1-DELL2-MATERIEL.md",
+    "sha256": "082b5ff2c64fed2ebd6efb864ff8847397f5543a07f10a43c19f37a4cf6036cd",
+    "bytes": 2554
+  },
+  {
+    "file": "03-INVENTAIRE-LOGICIEL-PAR-MACHINE.md",
+    "sha256": "a8108692173d7861006e29f8be048a0901aa288542692beba9bb28706ccf416a",
+    "bytes": 2602
+  },
+  {
+    "file": "04-COMPARATIF-DELL1-DELL2-APPLICATIONS.md",
+    "sha256": "abe285c8641fa36914e95419a33a181686d9cd07ed4df5ba9c48dad524d78168",
+    "bytes": 3582
+  },
+  {
+    "file": "05-INVENTAIRE-MODELES-OLLAMA.md",
+    "sha256": "ce2b1aa9f7c474a2fccc44949ce878a7670b911fc1151291b110e29bd8ca5bab",
+    "bytes": 2544
+  },
+  {
+    "file": "06-CATALOGUE-API-MCP-SKILLS.md",
+    "sha256": "e824ba8d3f07cef88351174d2cad1f5b6a0402eb2a974c09a7b293ba116f8b49",
+    "bytes": 3171
+  },
+  {
+    "file": "07-AUDIT-DEVELOPPEMENTS-CODEX-JARVIS.md",
+    "sha256": "9280a6041742ad49e48b3214525edfe4fd336b7e47a2f92eaca10d624c027694",
+    "bytes": 6890
+  },
+  {
+    "file": "08-MATRICE-INTERCONNEXIONS.md",
+    "sha256": "8db1993a10a021e32571761737e03e8a67d5213ea6039990fd6a642f1351ca2c",
+    "bytes": 4399
+  },
+  {
+    "file": "09-DIAGRAMME-ARCHITECTURE-REELLE.md",
+    "sha256": "f44f9b211e82f1dad31cffcb3152c0e644a4dc3956675f6ec6d1573961dc82fe",
+    "bytes": 2677
+  },
+  {
+    "file": "10-ANALYSE-DOUBLONS-ET-STANDARDISATION.md",
+    "sha256": "9ff08059513c89e9460835f3713fc930c33534e9079fc2bfdac719f7ca998c5e",
+    "bytes": 2717
+  },
+  {
+    "file": "11-ARCHITECTURE-CIBLE-PROPOSEE.md",
+    "sha256": "46ede62a4a482d267b385c95b4842cf908e6eca9f8ff67c7580e3fbe71e6f0ed",
+    "bytes": 2690
+  },
+  {
+    "file": "12-PLAN-DE-RATIONALISATION.md",
+    "sha256": "40714dad8f2a5e998d5f10169058bd5df43a6e37bd7e12274b6c3324085c217c",
+    "bytes": 4663
+  },
+  {
+    "file": "13-REGISTRE-PREUVES-ET-RESERVES.md",
+    "sha256": "e72b0c77674c5e9fdb0f13f335e1161537dc2de6de9dce5e900b8275cce9d2e2",
+    "bytes": 3892
+  },
+  {
+    "file": "COMPARATIF-STANDARDS.md",
+    "sha256": "74975f13cc61efd1e9bce190204ea1f6653beb2cc0dd6ebad6dea8310bd29751",
+    "bytes": 3611
+  },
+  {
+    "file": "ERRATUM-JARVIS.md",
+    "sha256": "8884d21ea874cf475cf26955e82a7b32a9b5e980bc81443ed6850c09f0b4d04e",
+    "bytes": 1389
+  },
+  {
+    "file": "JARVIS-OBSERVATION-ORIGINALE.md",
+    "sha256": "878f246e4acb8436975f86106df1c98bf7fdc7d602bf5041839335e0caf71306",
+    "bytes": 669
+  },
+  {
+    "file": "RAPPORT-FINAL.md",
+    "sha256": "44f480f7f166c2a7e23acbcf5d8d2165e3104cc78de02f6fc3270b461bfee8d9",
+    "bytes": 5075
+  },
+  {
+    "file": "RECHERCHE-AMONTS.json",
+    "sha256": "0a03bf164afdd33ae5049fd0dd0074b496519da32f54b9dd067a6e7fb8ee6d76",
+    "bytes": 2883
+  },
+  {
+    "file": "SOURCES.json",
+    "sha256": "107b61d9c49d59820af876dc3cf76115f7e366612229a744a96179fdcdfabd80",
+    "bytes": 8227
+  },
+  {
+    "file": "STATISTIQUES.json",
+    "sha256": "ef86dc082e32bd287a25050bf152dc42b06e171183f4baa40e0a13c0c86e6508",
+    "bytes": 791
+  },
+  {
+    "file": "api-routes.csv",
+    "sha256": "387a16f89c8d0a615a4d8ca114bca2c9a3475843e9c928b61d566a016608b810",
+    "bytes": 5277
+  },
+  {
+    "file": "applications-dell.csv",
+    "sha256": "9cf440a7b9c44d271ba2d954dfd8fc77ee036eae472cbe1520067f3b573f0413",
+    "bytes": 5387
+  },
+  {
+    "file": "applications-detail.csv",
+    "sha256": "a75df07d0dd7ebb34e19410cf7b3dbe5660ef20c16d783f3e533832c7d569b37",
+    "bytes": 32793
+  },
+  {
+    "file": "collecte-inventaire.py",
+    "sha256": "72fcb42e21dd1867ca4dcdbeb35bafb7c66674880838495fd6b0c5ecd2dd9162",
+    "bytes": 4254
+  },
+  {
+    "file": "composants-enfichables.csv",
+    "sha256": "d7c8cad76f32b2e6cc6b0d91d02916470dcabbf6aa7dd412d75e6449b8e8a0dc",
+    "bytes": 102180
+  },
+  {
+    "file": "developpements.csv",
+    "sha256": "74349922f665c8a02dab9efed95b38b1380d71d6e8d6990c6189938f795e257c",
+    "bytes": 5191
+  },
+  {
+    "file": "interconnexions.csv",
+    "sha256": "adc84509129a79842648a043e30ea97fe58d803715c86b01f110655c86411349",
+    "bytes": 4031
+  },
+  {
+    "file": "logiciels.csv",
+    "sha256": "537d3de160195feb08964c5c89bc0bbd7e728c25a80aab535e72cb841d067ad2",
+    "bytes": 1082091
+  },
+  {
+    "file": "materiels.csv",
+    "sha256": "708b4bdf0ed26c3e919c0afded158c551b720970276afea33ea822add1774ece",
+    "bytes": 1201
+  },
+  {
+    "file": "modeles.csv",
+    "sha256": "5fb3a624e52df5eda40fe91faf91febddc5d7ff8e9a85d59f79361722d89585b",
+    "bytes": 4164
+  },
+  {
+    "file": "preuves/catalogue-google.json",
+    "sha256": "2e5732110629fb217a5ea24d10041c9abe2fb88abc44988e7d2525127583b7d6",
+    "bytes": 41337
+  },
+  {
+    "file": "preuves/catalogue-outils.json",
+    "sha256": "416c815e227d6221a1ab0cdd06e9515d6b8926a4e4ce9d1dee672ad895d51b71",
+    "bytes": 63738
+  },
+  {
+    "file": "preuves/configurations.json",
+    "sha256": "a9c145f7dde204b1bb9496e81fd96b40901bd65bacd99df6d7438117b9c61768",
+    "bytes": 20845
+  },
+  {
+    "file": "preuves/controle-final-services.json",
+    "sha256": "065a18c7531f98fb988733280cb0ebf5380f67b02f13bfab645cf7b8de2133f2",
+    "bytes": 702
+  },
+  {
+    "file": "preuves/dell1.json",
+    "sha256": "4484f76140511aa7ec388eebca202ab9acf1ec7b67b0a5c42a5807d308b6db81",
+    "bytes": 144163
+  },
+  {
+    "file": "preuves/dell2.json",
+    "sha256": "e1a99323288abce6b8fa8a6897d73324cc303f8c53230f58bc62f48f4af24181",
+    "bytes": 59597
+  },
+  {
+    "file": "preuves/local.json",
+    "sha256": "196a6b2d70d8bca331b9a96dc7e717645906fdbdc14542eb7df470da58a88594",
+    "bytes": 15881
+  },
+  {
+    "file": "preuves/mac.json",
+    "sha256": "7fc94608519edd6bf40834380ccc5cd33ab872cd6b6ffc0dbe6b2e9378b30e39",
+    "bytes": 297751
+  },
+  {
+    "file": "preuves/manifest-prive.json",
+    "sha256": "68138e48d9e252b9c0c114548314668dcd8254c4c3daeff6bc72ab3ffef5c9b3",
+    "bytes": 4700
+  },
+  {
+    "file": "preuves/node-projects.json",
+    "sha256": "99892e84741f021646100aa67d3f9fa73c4d9312d8613d212255a26f156c1247",
+    "bytes": 350
+  },
+  {
+    "file": "preuves/observations-dell-qwen.json",
+    "sha256": "36afcbb2b416c037c35f4169baf6e27fe86f33e8413dd397a75896a10a4fd89c",
+    "bytes": 1350
+  },
+  {
+    "file": "preuves/qwen-observation.json",
+    "sha256": "1c3dd499ff418754790ace2fa885b8026be5f90aaede4aef134eb025372a6ccc",
+    "bytes": 3469
+  },
+  {
+    "file": "preuves/webui.json",
+    "sha256": "175c89cb0f780978cdc80942cf960069c16ad2965ce844f2ff71652e4ec1cb62",
+    "bytes": 1388
+  },
+  {
+    "file": "rationalisation.csv",
+    "sha256": "80d21295b4d8c88ef4c955b100482af0291eed477c9b256005d4fd423090ff4e",
+    "bytes": 2810
+  },
+  {
+    "file": "services.csv",
+    "sha256": "1fd09868ca90ec89739840a9934114c7d8543d2bbd67d245f1e09acaef4fe72e",
+    "bytes": 21533
+  },
+  {
+    "file": "unites-installees.csv",
+    "sha256": "3a954bb54255f2edb6fd9096a84fa642f88097d1cac2f5e340cba3efd47b2f63",
+    "bytes": 43825
+  },
+  {
+    "file": "verifier-inventaires.py",
+    "sha256": "9a3a7c3b8fbe9265d6ff3997412689e2b6482dc108fb477ca4b558bd8f8ab7de",
+    "bytes": 962
+  }
+]
