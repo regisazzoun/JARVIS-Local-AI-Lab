@@ -38,7 +38,19 @@ class Tools:
 
     async def google_personal(self,action:str='list',name:str='',arguments:str='{}',query:str='',offset:int=0)->str:
         """Google PERSONNEL uniquement : list découvre les méthodes, schema décrit name, call exécute name avec arguments JSON. Drive/Docs/Sheets/Calendar/Gmail. Aucun changement implicite de compte."""
-        return await self._call('call',{'name':'google_personal','arguments':{'action':action,'name':name,'arguments':json.loads(arguments),'query':query,'offset':offset}})
+        return await self._call('call',{'name':'google_personal','arguments':{'action':action,'arguments':json.loads(arguments),'offset':offset,**({'name':name} if name else {}),**({'query':query} if query else {})}})
     async def google_education(self,action:str='list',name:str='',arguments:str='{}',query:str='',offset:int=0)->str:
         """Google ÉDUCATION uniquement : list découvre les méthodes, schema décrit name, call exécute name avec arguments JSON. Drive/Docs/Sheets/Calendar/Gmail. Identité distincte du compte personnel."""
-        return await self._call('call',{'name':'google_education','arguments':{'action':action,'name':name,'arguments':json.loads(arguments),'query':query,'offset':offset}})
+        return await self._call('call',{'name':'google_education','arguments':{'action':action,'arguments':json.loads(arguments),'offset':offset,**({'name':name} if name else {}),**({'query':query} if query else {})}})
+    async def jarvis_skill_run(self,name:str,parameters:dict,run_id:str='')->str:
+        """Exécuter un Skill existant avec paramètres structurés JSON. Découvre son manifeste actif et encode uniquement les conteneurs requis par les anciens champs texte JSON. Ne recrée ni n'active de Skill."""
+        listing=json.loads(await self._call('call',{'name':'skill_list','arguments':{'name':name}}))
+        if not listing.get('ok'):return json.dumps(listing,ensure_ascii=False)
+        skills=listing.get('result',{}).get('skills',[])
+        active=next((s for s in skills if s.get('name')==name and s.get('version')==s.get('active_version')),None)
+        if not active:raise ValueError('No active existing Skill with this name')
+        props=active.get('parameters',{}).get('properties',{})
+        values={k:json.dumps(v,ensure_ascii=False) if props.get(k,{}).get('type')=='string' and isinstance(v,(dict,list)) else v for k,v in parameters.items()}
+        args={'name':name,'parameters':json.dumps(values,ensure_ascii=False)}
+        if run_id:args['run_id']=run_id
+        return await self._call('call',{'name':'skill_run','arguments':args})
