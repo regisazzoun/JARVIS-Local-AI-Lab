@@ -43,9 +43,11 @@ Un processus terminé en erreur avec code entier et preuve broker liée était a
 
 Le paquet effectivement réduit contenait les anciennes consignes de préparation P4 : « Le présent paquet prépare uniquement : aucun déploiement applicatif » et « Ne clos jamais P4 ». Elles sont conservées pour les anciennes missions, mais remplacées pour les nouvelles missionsWebUI par l’exécution de leur propre objectif dans les droits courants du broker. Le filtre de phase est marqué pour retirer sa consigne précédente lorsque le rapport apparaît ; aucune restriction historique artificielle transportée vers la nouvelle mission.
 
+Une erreur Codex d’import manquant dans le nettoyage de phase a provoqué deux NameError avant inférence et action. Import corrigé, nettoyage directement testé (remplacement, retrait après changement de phase, contraintes restantes conservées). Cycle réel96206 atteint après ce nettoyage ; résolution native96218. Deux incidents originaux conservés, résolus2/2, aucune commande attribuée à ces tours échoués.
+
 ## Vérifications
 
-149 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.
+150 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.
 
 Question navigateur distincte : langue et environnement retrouvés automatiquement depuis préférences/contexte, sans création de mission. Préférences réelles observées : languefr, longueur vocale courte, sources citées, vérification demandée. Le contenu des souvenirs privés n’est pas publié ici.
 

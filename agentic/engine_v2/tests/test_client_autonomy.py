@@ -189,6 +189,16 @@ class OwnerPromptTests(unittest.TestCase):
    self.assertNotIn('prépare uniquement',text);self.assertNotIn('Ne clos jamais P4',text);self.assertIn('droits actuels du broker',text)
    self.assertIn('Ne clos jamais P4',report_execution_prompt('Canonical identity',True,phase))
 
+class PhaseMessageTests(unittest.TestCase):
+ def test_phase_is_replaced_then_removed_without_losing_other_instructions(self):
+  from jarvis.durable_cycle import owner_phase_messages
+  original=[{'role':'system','content':'Owner constraints'},{'role':'user','content':'Original goal'}]
+  hint='\n<JARVIS_OWNER_REPORT_PHASE>Report missing</JARVIS_OWNER_REPORT_PHASE>'
+  first=owner_phase_messages(original,hint);second=owner_phase_messages(first,hint)
+  self.assertEqual(first,second);self.assertEqual(original[0]['content'],'Owner constraints')
+  second[0]['content']+='\nIndependent verification now offered'
+  cleared=owner_phase_messages(second,'');self.assertNotIn('Report missing',cleared[0]['content']);self.assertIn('Independent verification',cleared[0]['content']);self.assertEqual(cleared[1],original[1])
+
 class ReportPhaseTests(unittest.TestCase):
  def test_missing_report_waits_for_writer_but_unknown_effect_keeps_verifier(self):
   from jarvis.durable_cycle import owner_report_phase

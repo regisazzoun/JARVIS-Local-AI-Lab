@@ -2,6 +2,7 @@
 All actions still pass through the installed Registry and privileged broker.
 """
 import hashlib
+import re
 import copy
 import json
 import time
@@ -93,6 +94,13 @@ def semantic_reference_schemas(schemas, task, preserve_recall=False):
                 'type':'string','enum':['active:'+str(i) for i in range(len((task or {}).get('contract',{}).get('semantic',[])))],
                 'description':'Exact persisted criterion reference. Pass this string literally, NOT an object copied from the compact view. Server reads the remote file and checks all original predicates.'}
     return schemas
+
+
+def owner_phase_messages(messages,instruction):
+    if not instruction and '<JARVIS_OWNER_REPORT_PHASE>' not in messages[0]['content']:return messages
+    result=copy.deepcopy(messages)
+    result[0]['content']=re.sub(r'\n<JARVIS_OWNER_REPORT_PHASE>.*?</JARVIS_OWNER_REPORT_PHASE>','',result[0]['content'],flags=re.S)+instruction
+    return result
 
 
 def owner_report_phase(store,mission,task,schemas):
@@ -811,9 +819,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     messages[0]['content']+='\nInterface de rédaction actuelle : utilise mission_report_compose. Le moteur assemblera les faits exacts et leur tableau ; tu fournis toutes les références latest et une explication courte des limites ou prochaines vérifications, sans chiffres, dates, codes ni recomptage des services. Ne recopie aucun tableau ni rapport complet dans explanation. Pas de host_write_file direct dans cette phase. La vérification du fichier reste obligatoire après écriture.'
 
             schemas,phase_instruction=owner_report_phase(store,mission,task,schemas)
-            if phase_instruction or '<JARVIS_OWNER_REPORT_PHASE>' in messages[0]['content']:
-                messages=copy.deepcopy(messages)
-                messages[0]['content']=re.sub(r'\n<JARVIS_OWNER_REPORT_PHASE>.*?</JARVIS_OWNER_REPORT_PHASE>','',messages[0]['content'],flags=re.S)+phase_instruction
+            messages=owner_phase_messages(messages,phase_instruction)
             from .mission_context_budget import result_objective
             context_objective=result_objective(core.config)
             if context_objective:
