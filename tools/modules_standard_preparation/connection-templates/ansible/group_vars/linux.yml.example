@@ -1,0 +1,3 @@
+ansible_connection: ssh
+# ansible_user: à renseigner
+# Réutiliser les identités SSH existantes, aucun secret ici.
