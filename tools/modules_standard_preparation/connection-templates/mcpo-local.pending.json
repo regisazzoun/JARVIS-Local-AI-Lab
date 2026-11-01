@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "standard-filesystem": {
+      "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/npm/filesystem/node_modules/.bin/mcp-server-filesystem",
+      "args": [
+        "/home/adminjarvis/JARVIS/qwen-code-projects/livraisons"
+      ],
+      "env": {
+        "PATH": "/home/adminjarvis/JARVIS/modules-standard-20261101/node-runtime/node_modules/.bin:/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/documents/bin:/usr/local/bin:/usr/bin:/bin"
+      }
+    },
+    "standard-drawio": {
+      "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/npm/drawio/node_modules/.bin/drawio-mcp",
+      "args": [],
+      "env": {
+        "PATH": "/home/adminjarvis/JARVIS/modules-standard-20261101/node-runtime/node_modules/.bin:/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/documents/bin:/usr/local/bin:/usr/bin:/bin"
+      }
+    },
+    "standard-markitdown": {
+      "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/markitdown/bin/markitdown-mcp",
+      "args": []
+    },
+    "standard-pandoc": {
+      "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/pandoc-mcp/bin/python",
+      "args": [
+        "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/pandoc-mcp/server.py"
+      ],
+      "env": {
+        "PYPANDOC_PANDOC": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/pandoc-mcp/lib/python3.12/site-packages/pypandoc/files/pandoc"
+      }
+    },
+    "standard-fetch": {
+      "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/fetch/bin/mcp-server-fetch",
+      "args": []
+    },
+    "standard-ansible": {
+      "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/npm/ansible-mcp/node_modules/.bin/ansible-mcp-server",
+      "args": [
+        "--stdio"
+      ],
+      "env": {
+        "PATH": "/home/adminjarvis/JARVIS/modules-standard-20261101/node-runtime/node_modules/.bin:/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/ansible/bin:/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/bootstrap/bin:/usr/local/bin:/usr/bin:/bin",
+        "WORKSPACE_ROOT": "/home/adminjarvis/JARVIS/modules-standard-20261101/connection-templates/ansible",
+        "ANSIBLE_CONFIG": "/home/adminjarvis/JARVIS/modules-standard-20261101/connection-templates/ansible/ansible.cfg",
+        "ANSIBLE_COLLECTIONS_PATH": "/home/adminjarvis/JARVIS/modules-standard-20261101/collections"
+      }
+    }
+  }
+}
