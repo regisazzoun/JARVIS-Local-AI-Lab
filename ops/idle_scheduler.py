@@ -31,12 +31,32 @@ def mem_available_fraction():
             vals[name] = int(rest.strip().split()[0])
     return vals["MemAvailable"] / vals["MemTotal"]
 
+def gpu_available(cfg):
+    """Fail closed if NVIDIA telemetry is unavailable or GPU/VRAM is busy."""
+    if not cfg.get("require_nvidia_gpu", True):
+        return True
+    try:
+        p = subprocess.run(
+            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,memory.total",
+             "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=5, check=True,
+        )
+        rows = [list(map(int, line.split(","))) for line in p.stdout.strip().splitlines()]
+        if not rows:
+            return False
+        return all(util <= cfg["max_gpu_utilization_percent"] and
+                   used / max(1, total) <= cfg["max_vram_used_fraction"]
+                   for util, used, total in rows)
+    except (OSError, subprocess.SubprocessError, ValueError, KeyError):
+        return False
+
+
 def eligible(cfg):
     a, idle_a = cpu_idle()
     time.sleep(cfg["sample_seconds"])
     b, idle_b = cpu_idle()
     idle = (idle_b - idle_a) / max(1, b - a)
-    return idle >= cfg["min_cpu_idle_fraction"] and mem_available_fraction() >= cfg["min_mem_available_fraction"]
+    return idle >= cfg["min_cpu_idle_fraction"] and mem_available_fraction() >= cfg["min_mem_available_fraction"] and gpu_available(cfg)
 
 def write_state(path, state):
     tmp = path.with_suffix(".tmp")
@@ -77,11 +97,11 @@ def run(cfg, execute):
         interrupted = False
         while proc.poll() is None:
             if STOP or time.monotonic() - started > cfg["max_job_seconds"] or not eligible(cfg):
-                proc.terminate()
+                os.killpg(proc.pid, signal.SIGTERM)
                 try:
                     proc.wait(timeout=10)
                 except subprocess.TimeoutExpired:
-                    proc.kill()
+                    os.killpg(proc.pid, signal.SIGKILL)
                     proc.wait()
                 interrupted = True
                 break
