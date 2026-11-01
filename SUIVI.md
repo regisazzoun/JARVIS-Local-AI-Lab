@@ -1,3 +1,7 @@
+## Skills WebUI — visibilité confirmée par le propriétaire, 1 novembre 2026
+
+✅ Visibilité/découverte confirmée dans WebUI par Régis après récupération du catalogue modèles. Aucun nouveau test Codex. Cette réception ne valide pas l’exécution des scripts, le rendu documentaire, les MCP Qwen Code ou les raccordements du lycée ; ces points restent ouverts. [Portée de la confirmation](docs/preparations/MODULES-STANDARD-20261101/RECEPTION-VISIBILITE-PROPRIETAIRE.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Les états ci-dessous restent historiques.
+
 ## Raccordement local des modules standard — 1 novembre 2026
 
 🟡 **Configuré, non testé.** Les 18 Skills ont leurs chemins natifs Open Terminal et Qwen Code standard ; la catégorie Skills est activée dans les deux profils WebUI avec chargement à la demande. Six MCP locaux (Filesystem, Draw.io, MarkItDown, Pandoc, Fetch, Ansible) sont configurés pour les prochaines sessions Qwen Code, sans démarrage aujourd’hui. WebUI direct utilise le terminal existant ; la configuration MCPO HTTP supplémentaire est préparée mais non chargée. Inventaires du lycée vides et candidats réseau non activés.
