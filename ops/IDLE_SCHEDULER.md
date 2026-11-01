@@ -20,3 +20,6 @@ Pour un véritable essai il faut d'abord copier le JSON dans une configuration l
 - Ne jamais stocker de secrets ni autoriser des opérations de production sans validation.
 
 **Il n'y a pas d'activation autonome de JM-01 sur les serveurs à ce stade.**
+
+## Réutilisation obligatoire de la supervision JARVIS existante
+Le projet possède déjà des mesures CPU/RAM/GPU multi-hôtes (affichées dans le Launcher et/ou via les outils JARVIS). **Avant tout déploiement**, identifier leur point d'accès exact, leur fraîcheur et les droits d'accès, et faire de cette source le pilote principal de l'ordonnanceur. Les sondes locales `/proc` et `nvidia-smi` de ce prototype sont des garde-fous temporaires, **pas un second système de supervision à mettre en production**. Si une mesure hôte manque ou est périmée, aucun lancement de tâche de fond sur cet hôte. Conserver en priorité les missions interactives et la charge de modèles Qwen.
