@@ -124,16 +124,7 @@ def units(dell1):
          'Matrice400à700mots des fonctions connexion/modèles/chat/streaming/outils serveur/voix/'
          'pièces jointes: sources réellement fournies, observé vs non vérifié. '
          'Ne déduis pas une fonction de la seule présence d’une dépendance.'),
-        ('03-prototype', ['tools/jm01/connection.mjs', 'tools/jm01/connection.test.mjs', base + '03-PROTOTYPE.md'],
-         'Crée un prototype Node ES modules sans dépendances. API exportée connect(baseUrl, '
-         '{token,timeoutMs=1000}={}) renvoyant {config,models}. Normalise une base http/https '
-         'et conserve le préfixe; refuse credentials/protocoles invalides. GET <base>/api/config '
-         'puis <base>/api/models (source config.ts/service.ts); Bearer en mémoire uniquement, '
-         'jamais dans les messages d’erreur. Timeout AbortController, erreurs HTTP/JSON explicites. '
-         'Tests node:test avec serveur local simulé: succès et préfixeURL,401,403,timeout,JSON '
-         'invalide,URLinvalide. Chaque test ferme son serveur; aucun service de production. '
-         'Rapport200à400mots avec sources et limites, tests à exécuter par le wrapper; '
-         'aucun build iOS annoncé. Retourne les trois fichiers complets.'),
+        ('03-prototype', ['docs/missions/JM-01/03-PROTOTYPE.md'], 'Rédige200à400mots de compte rendu du prototype déjà corrigé et testé, uniquement le fichier03-PROTOTYPE.md. Le code connection.mjs et les12tests sont une correction assistée par Codex, pas du code produit correctement par Qwen. Ton rôle maintenant est la documentation native de ce résultat. Ne réécris aucun moduleJS. Utilise le code et les résultats Node ci-dessous :12tests passés, dont8cas indépendants, compilations syntaxiques Node réussies. Cite routes primaires /api/config et /api/models et limites : protocole mock Node, pas applicationmobile, buildiOS ou compatibilité réelleWebUI reçus. Les brouillons01/02 ne sont pas validés et ne prouvent pas des absences de fonctions. Retourne directement structured_output, tous les éléments sont fournis.'),
         ('04-handoff', [base + '04-ETAT.md'],
          'Bilan300à500mots des seuls fichiers/checkpoints et résultats réels fournis: '
          'Qwen auteur, Codex infrastructure; prototype protocole seulement, pas client mobile '
@@ -207,13 +198,7 @@ def main():
             if test_result.exists():
                 context.append('OBSERVED NODE TESTS\n' + test_result.read_text()[-4000:])
             if ident == '03-prototype':
-                goal += (' REPAIR: the previous candidate had await import inside a non-async callback, '
-                         'a five-line test stub and broken HTTP error handling. Replace it with a small '
-                         'real implementation using global fetch (Node22), AbortController, timer cleanup '
-                         'in finally, response.ok/status and sanitized JSON errors. No createServer in '
-                         'the client. Preserve prefix; throw explicit HTTP401/403 without leaking tokens. '
-                         'Return complete valid JS, no Markdown fences, no literal nimport. Supply real '
-                         'node:test cases. An independent acceptance suite below must pass.')
+                goal += ' Reviewed JavaScript is already committed and must remain unchanged; return only the requested report.'
                 acceptance = PROJECT / 'tools/jm01/connection.contract.test.mjs'
                 if acceptance.exists():
                     context.append('INDEPENDENT ACCEPTANCE TESTS (Codex)\n' + acceptance.read_text()[:7000])
@@ -241,7 +226,7 @@ def main():
                    '--approval-mode', 'yolo', '--system-prompt', SYSTEM, '--output-format', 'stream-json',
                    '--json-schema', json.dumps(schema), '--exclude-tools', 'read_file', 'edit',
                    'notebook_edit', 'run_shell_command', 'get_goal', 'update_goal',
-                   '--max-wall-time', '15m', '--max-session-turns', '4', '--max-tool-calls', '2']
+                   '--max-wall-time', '15m', '--max-session-turns', '4', '--max-tool-calls', '6']
             # Continue only a genuinely interrupted unit; no journal is ever fed to the model.
             existing = any(p.is_file() for p in (ROOT / '.qwen-home').rglob('*' + session + '*'))
             cmd += session_arguments(session, prompt, existing)
