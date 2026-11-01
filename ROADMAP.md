@@ -1,5 +1,8 @@
 # Roadmap
 
+> **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](docs/missions/dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
+
+
 ## Nouveau cycle prioritaire — missions 23 à 31 (ordre révisé le 19 octobre 2026)
 
 **Décision du propriétaire :** 23 LiveKit → 24 mémoire → 25 MCP/skills → 26 moteur → 27 JL-03 → 28 routage → 29 satellites → 30 proactivité → 31 réception. Ces missions restent **planifiées, non exécutées**.
@@ -32,7 +35,7 @@
 | 13D-E / Dell n°1 | Réception complète du 17/10 par Codex ; une RTX 3090 alimentée | Corriger le reboot forcé du contrôleur avant un prochain déploiement ; causalité de la resynchronisation non certaine |
 | 11-Agentic / 11B | Outils hôte et raccordement SSH/Ansible validés ; Compute Expansion encore partielle | Checkpoint 11B observé incomplet après cinq tentatives ; reprise hors mission 00 pour les capacités restantes, notamment routage/repli |
 | 14A | Progrès réels en 13F, 11B, JL-02 et 00 ; réception globale ouverte | Confronter critères et preuves sans supposer un déploiement autonome complet |
-| 14 / Dell n°2 | Prévue ; JARVIS doit être exécutant, aucune installation dans cet audit | Identifier la cible, préparer JARVIS et corriger le contrôleur |
+| 14 / Dell n°2 | ✅ Qwen 80B et services de calcul vérifiés le 01/11/2026 | Préserver les moteurs fonctionnels ; réception de l’autonomie 14/14A distincte |
 | JL-01 / JL-02 | V1 préservée ; V2 livrée GO AVEC RÉSERVES, espace connecté confirmé | Fiabiliser l’agent et réceptionner les clients physiques ; réutiliser le tunnel actif |
 | 15A / 15B | Cahiers et cinq incréments chacun préparés, non lancés | Contrat API commun ; mission 14 non bloquante ; iOS gratuit via Xcode / Personal Team |
 | Architecture distribuée | Mac mini : mémoire, voix, outils et passerelle ; Dell n°1 : inférence Ollama | Placement dynamique, équilibrage, repli et orchestration multi-nœuds non réceptionnés globalement |
