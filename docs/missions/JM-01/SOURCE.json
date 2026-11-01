@@ -1,0 +1,17 @@
+{
+  "upstream_repository": "https://github.com/RonasIT/open-webui-react-native",
+  "upstream_branch_at_clone": "main",
+  "upstream_commit": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
+  "source_snapshot_sha256": {
+    "README.md": "63c1350d4962d55a3729e120f26347f29ba2ab01cc08cecc929898bae9db12ef",
+    "LICENSE": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b",
+    "package.json": "567ce3b30583b8791c816cbb8c69e5e2e2d2145c02892aad150b8ec8a9a1daa1"
+  },
+  "webui_version_observed": "0.12.0",
+  "canonical_connectors": "existing JARVIS Registry / broker / MCP exposed through MCPO; mobile accesses server API, not private keys",
+  "model": "qwen3-coder-next:jarvis-dell2-32k",
+  "context": 32768,
+  "task_host": "Dell2",
+  "scope": "audit/inventory/isolated mock connection prototype only; no device distribution or production modification",
+  "source_evidence": "PR39/PR41 and PR47 telemetry reception; no fresh claim of mobile runtime compatibility"
+}
