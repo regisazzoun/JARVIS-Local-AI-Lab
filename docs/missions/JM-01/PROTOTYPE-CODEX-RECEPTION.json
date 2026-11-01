@@ -1,0 +1,22 @@
+{
+  "attribution": "Client and supplemental regression corrections: Codex; independent acceptance: Codex. Earlier invalid Qwen candidates preserved privately; no claim of native code autonomy.",
+  "execution_host": "Dell2",
+  "node_version": "22.23.4",
+  "syntax_check_both_modules": "PASS",
+  "node_tests": {
+    "tests": 12,
+    "pass": 12,
+    "fail": 0
+  },
+  "limits": [
+    "Mock loopback API only",
+    "No WebUI production call",
+    "No iOS/Android build",
+    "Native documentation/handoff still pending"
+  ],
+  "retained_native_failures": {
+    "01-audit": 11,
+    "03-prototype": 3
+  },
+  "native_job_unchanged": true
+}
