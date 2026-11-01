@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "timezone": "Europe/Paris",
+  "scope": "Réception ciblée Qwen Code et WebUI après alignement 32k, deux Dell",
+  "provenance": "Relevé expurgé des sessions natives et relecture indépendante des journaux de commande ; aucune trace brute publiée",
+  "configuration": {
+    "context_window_tokens": 32768,
+    "client_output_limit_tokens": 4096,
+    "dell2_added_to_native_clients": true,
+    "dell1_remains_default": true,
+    "existing_webui_profiles_unchanged": true,
+    "gpu_monitoring_modified": false,
+    "services_restarted": false,
+    "weights_downloaded": false
+  },
+  "tests": [
+    {
+      "id": "QWEN-CODE-DELL1",
+      "node": "Dell 1",
+      "client": "Qwen Code",
+      "native_tool": "run_shell_command",
+      "operational_calls": 1,
+      "session_turns": 2,
+      "exit_code": 0,
+      "observed_states": [
+        "active",
+        "active"
+      ],
+      "first_input_tokens": 12628,
+      "second_input_tokens": 12862,
+      "requested_output_tokens": [
+        4000,
+        4096
+      ],
+      "client_success": true,
+      "exit_code_scope": "Qwen Code client; native tool result is_error=false"
+    },
+    {
+      "id": "WEBUI-DELL1",
+      "node": "Dell 1",
+      "client": "Open WebUI",
+      "native_tool": "run_command via Open Terminal",
+      "operational_calls": 1,
+      "exit_code": 0,
+      "observed_states": [
+        "active",
+        "active"
+      ],
+      "assistant_done": true,
+      "assistant_error": null,
+      "terminal_log_independently_read": true,
+      "terminal_log_sha256": "2cdafd815024abf12357724b2d30124d36bcdfdeeb8b6b3aea11bc43fbf255fd",
+      "output_excerpt": "active\nactive\n"
+    },
+    {
+      "id": "QWEN-CODE-DELL2",
+      "node": "Dell 2",
+      "client": "Qwen Code",
+      "native_tool": "run_shell_command",
+      "operational_calls": 1,
+      "session_turns": 2,
+      "exit_code": 0,
+      "observed_states": [
+        "active",
+        "active"
+      ],
+      "first_input_tokens": 12628,
+      "second_input_tokens": 12862,
+      "requested_output_tokens": [
+        4000,
+        4096
+      ],
+      "client_success": true,
+      "exit_code_scope": "Qwen Code client; native tool result is_error=false"
+    },
+    {
+      "id": "WEBUI-DELL2",
+      "node": "Dell 2",
+      "client": "Open WebUI",
+      "native_tool": "run_command via Open Terminal",
+      "operational_calls": 1,
+      "exit_code": 0,
+      "observed_states": [
+        "active",
+        "active"
+      ],
+      "assistant_done": true,
+      "assistant_error": null,
+      "terminal_log_independently_read": true,
+      "terminal_log_sha256": "6bf10bf21e79000c46a21753ee0cc87d0d8fb3025c9a78c6c549835300546a9b",
+      "output_excerpt": "active\nactive\n"
+    }
+  ],
+  "limits": [
+    "Commandes de lecture ciblées fournies par l’opérateur, pas une réception d’autonomie générale",
+    "Pas de test de remplissage intégral des 32768 tokens",
+    "Pas de réception de tous les outils métier, du repli ou de la charge concurrente",
+    "Aucun redémarrage demandé pour tester la persistance après reboot"
+  ]
+}
