@@ -1,4 +1,10 @@
-## Modules standard — installation brute du 1 novembre 2026
+## Raccordement local des modules standard — 1 novembre 2026
+
+🟡 **Configuré, non testé.** Les 18 Skills ont leurs chemins natifs Open Terminal et Qwen Code standard ; la catégorie Skills est activée dans les deux profils WebUI avec chargement à la demande. Six MCP locaux (Filesystem, Draw.io, MarkItDown, Pandoc, Fetch, Ansible) sont configurés pour les prochaines sessions Qwen Code, sans démarrage aujourd’hui. WebUI direct utilise le terminal existant ; la configuration MCPO HTTP supplémentaire est préparée mais non chargée. Inventaires du lycée vides et candidats réseau non activés.
+
+Ordre propriétaire conservé : aucun test fonctionnel, nouveau moteur, changement/reprise de mission ou redémarrage de service. Référentiels, gabarits, cibles et accès du lycée restent à fournir ; découverte limitée au périmètre explicitement autorisé. [État exact et limites](docs/preparations/MODULES-STANDARD-20261101/RACCORDEMENT-LOCAL.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Aucun endpoint non démarré déclaré opérationnel, aucune fusion main.
+
+## État initial historique — installation brute du 1 novembre 2026
 
 🟡 Installés/préparés, **non testés et non raccordés** : 18 Skills sélectionnés, connecteurs MCP et dépendances isolés sur le Mac mini dans `~/JARVIS/modules-standard-20261101`. Aucun nouveau moteur, service lancé/redémarré, modification de mission ni essai fonctionnel. Ordre propriétaire : raccordements et découverte de l’infrastructure au lycée après déplacement, à partir de la liste des cibles fournie ; aucun balayage implicite. Conserver M26-P4/MANUAL-HOLD et les services existants.
 
