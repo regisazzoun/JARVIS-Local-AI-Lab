@@ -37,7 +37,7 @@ with tarfile.open(archive) as tar:
 (R/'github-binary-lock.json').write_text(json.dumps({'version':d['tag_name'],'url':assets[name]['browser_download_url'],'sha256':sha,'checksum_match':True,'status':'installed-not-tested'},indent=2))
 print('GitHub MCP binary installed; not executed.')
 # A shared, explicit environment reference. No Hermes engine is installed.
-(R/'documents.env').write_text('export PY='+str(R/'venvs/documents/bin/python')+'\nexport PYPANDOC_PANDOC='+str(R/'venvs/documents/lib/python3.12/site-packages/pypandoc/files/pandoc')+'\n')
+(R/'documents.env').write_text('export PY='+str(R/'venvs/documents/bin/python')+'\nexport PYPANDOC_PANDOC='+str(R/'venvs/documents/lib/python3.12/site-packages/pypandoc/files/pandoc')+'\nexport PATH='+str(R/'venvs/documents/bin')+':\"$PATH\"\n')
 (R/'connection-templates').mkdir(exist_ok=True)
 (R/'connection-templates/inventory.yml').write_text('all:\n  children:\n    linux:\n      hosts: {}\n    windows:\n      hosts: {}\n    cisco:\n      hosts: {}\n# Renseigner uniquement les cibles fournies par Régis au lycée.\n')
 (R/'connection-templates/targets.env.example').write_text('NETBOX_URL=\nNETBOX_TOKEN=\nNAGIOS_URL=\nPFSENSE_URL=\nPFSENSE_API_KEY=\n# Paramètres exacts à reprendre des documentations amont ; aucun secret ici.\n')
