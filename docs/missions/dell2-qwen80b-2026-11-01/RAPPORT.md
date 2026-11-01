@@ -1,5 +1,7 @@
 # Dell 2 — vérification de Qwen3-Coder-Next 80B
 
+> **Complément postérieur :** profil 32k Dell 2 aligné et raccordé aux clients natifs ; quatre parcours Qwen Code/WebUI sur les deux Dell réellement reçus. Voir le [rapport de raccordement et ses preuves](../qwen-natif-deux-dell-2026-11-01/RAPPORT.md). Le présent rapport conserve son périmètre initial d’inférence ; monitoring GPU non modifié.
+
 Date : 1er novembre 2026. Publication des résultats sans détails d’infrastructure.
 
 **✅ Présence et exécution réelle confirmées.** Une requête adressée directement au moteur de Dell 2 avec Qwen3-Coder-Next 80B a produit une réponse correcte. Cette conclusion repose sur une inférence exécutée, et non sur une liste de modèles copiés.
