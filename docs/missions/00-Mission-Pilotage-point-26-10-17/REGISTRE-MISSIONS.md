@@ -2,6 +2,9 @@
 
 > **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](../dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
 
+> **Complément postérieur du 1er novembre 2026 — pilotage natif : ✅ profils 32k alignés et quatre parcours reçus**, Qwen Code et WebUI sur chacun des deux Dell. Commande de lecture exécutée une seule fois par parcours, code retour 0, deux services actifs ; plus de 12k tokens d’entrée réellement traités par Qwen Code sur chaque moteur. Voir le [rapport et les preuves expurgées](../qwen-natif-deux-dell-2026-11-01/RAPPORT.md). Monitoring GPU non modifié. Cette réception ciblée ne clôture ni l’autonomie générale ni les missions historiques 14/14A.
+
+
 
 **68 missions ou sous-missions explicitement attestées**, dont dix incréments15A/15B prévus. Les états représentent le dernier résultat documentaire connu, pas un nouveau test système. Les champs complets (objectifs, matériel, composants, exécutant, sources, preuves, réserves, dépendances, prochaine action et date) sont conservés pour chaque ligne dans [JSON](REGISTRE-MISSIONS.json) et [CSV](REGISTRE-MISSIONS.csv).
 
