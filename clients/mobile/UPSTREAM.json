@@ -1,0 +1,26 @@
+{
+  "upstream_repository": "https://github.com/RonasIT/open-webui-react-native",
+  "upstream_commit": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
+  "layout": "Reviewed overlay of four real client source files, not a standalone complete repository. Full isolated upstream checkouts on both Dell contain this overlay.",
+  "reconstruction": "Clone pinned upstream and overlay clients/mobile/apps and clients/mobile/libs; keep original upstream package-lock, notices and assets.",
+  "source_hashes": {
+    "clients/mobile/apps/mobile/global.css": "5a288226cfa782ad9f4fad994f6787903cdaca7d9933a8731311a801f201e85b",
+    "clients/mobile/libs/mobile/shared/ui/styles/src/lib/variables.ts": "edc458ebe4e821cef042e16430af877e96231da199049ea46d6c1d49e98aa034",
+    "clients/mobile/libs/shared/utils/config/src/normalize-server-url.ts": "8b34294914c934f9be38fe898ce10b2b027a0c12ae397d6d0b60c00df2b430f6",
+    "clients/mobile/libs/mobile/shared/utils/validation/src/server-url-validation.ts": "7a84171b5d9a2059f5a09149364ed314f9ff2d9b1ba5de81658f1a71b7fbf619"
+  },
+  "attribution": "Native Qwen proposals followed by independently tested Codex corrections; native outputs archived, no autonomy claim.",
+  "targeted_acceptance": {
+    "tests": 18,
+    "pass": 18,
+    "fail": 0
+  },
+  "pending": [
+    "Full TypeScript result",
+    "Expo Web export result",
+    "Visual verification",
+    "iOS/Android build/signature"
+  ],
+  "license_note": "Original LICENSE retained without alteration; package.json declares MIT while LICENSE header is GPLv3. Distribution licensing not resolved by this source integration.",
+  "formatting_note": "Published CSS overlay/fixture trailing whitespace normalized; semantic styles identical to tested integrated checkouts."
+}
