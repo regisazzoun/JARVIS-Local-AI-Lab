@@ -1,0 +1,74 @@
+{
+  "started_at": 1793555331.9529872,
+  "tests": [
+    {
+      "test": "failure_cap_and_immutable_manifest",
+      "result": "PASS",
+      "state": {
+        "status": "failed",
+        "failures": 3,
+        "runs": 3,
+        "updated_at": 1793555333.7182002,
+        "started_at": 1793555333.696965,
+        "supervisor_pid": 710348,
+        "task_pid": null,
+        "returncode": 1,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-ee4926396f11a304a1f4.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "test": "supervisor_crash_kills_descendants",
+      "result": "PASS",
+      "heartbeat": [
+        "11",
+        "11"
+      ],
+      "state": {
+        "status": "interrupted",
+        "failures": 1,
+        "runs": 1,
+        "updated_at": 1793555336.4305604,
+        "started_at": 1793555334.9840171,
+        "supervisor_pid": 710401,
+        "task_pid": 710406,
+        "reason": "Supervisor/cgroup disappeared",
+        "unit": "jarvis-idle-fedc175b6e3449a4a198.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "test": "external_inference_priority",
+      "result": "PASS",
+      "state": {
+        "status": "paused",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555340.7714212,
+        "started_at": 1793555338.3160946,
+        "supervisor_pid": 710471,
+        "task_pid": null,
+        "reason": "external inference client priority",
+        "unit": "jarvis-idle-bdd305a443c1d7f5452b.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    }
+  ],
+  "finished_at": 1793555341.131213
+}

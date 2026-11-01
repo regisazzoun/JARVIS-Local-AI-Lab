@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "grace_seconds": 6,
+  "observed_duration_seconds": 6.303065538406372,
+  "state": {
+    "status": "paused",
+    "failures": 0,
+    "runs": 2,
+    "updated_at": 1793555842.583232,
+    "started_at": 1793555836.5052211,
+    "supervisor_pid": 715083,
+    "task_pid": null,
+    "reason": "external inference client priority",
+    "unit": "jarvis-idle-bdd305a443c1d7f5452b.service",
+    "systemd": {
+      "MainPID": "0",
+      "ControlGroup": "",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    }
+  },
+  "note": "Grace exceeds the existing collector HTTP timeout3s and administrative HTTP timeout5s; persistent foreign client still preempts."
+}

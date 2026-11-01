@@ -41,9 +41,13 @@ def admission(cfg, job, snapshot, now=None):
     cpu, total, used = (machine[k] for k in ('cpu_percent', 'ram_total_mb', 'ram_used_mb'))
     if not number(cpu, 0, 100) or not number(total, 1, 2**40) or not number(used, 0, total):
         return False, 'invalid CPU/RAM'
-    if cpu > cfg['max_cpu_percent'] or (total-used)/total < cfg['min_mem_available_fraction']:
+    active_gpu = job.get('_running',False) and job.get('uses_gpu',False)
+    cpu_limit = cfg.get('max_active_cpu_percent',95) if active_gpu else cfg['max_cpu_percent']
+    if cpu > cpu_limit or (total-used)/total < cfg['min_mem_available_fraction']:
         return False, 'CPU/RAM busy'
     # Loaded weights are preserved. CPU units may coexist; GPU units may not evict them.
+    running = job.get('_running',False) and job.get('uses_gpu',False)
+    own_resident = bool(job.get('resident_model')) and machine.get('active_models') == [job['resident_model']]
     gpus = machine.get('gpu_all')
     if not fresh(machine.get('gpu_captured_at'), now, age) or not gpus:
         return False, 'missing complete GPU telemetry'
@@ -51,11 +55,11 @@ def admission(cfg, job, snapshot, now=None):
         util, free, capacity = (gpu[k] for k in ('utilization_percent', 'free_mib', 'total_mib'))
         if not number(util, 0, 100) or not number(capacity, 1, 2**30) or not number(free, 0, capacity):
             return False, 'invalid GPU telemetry'
-        if util > cfg['max_gpu_utilization_percent']:
+        if not running and util > cfg['max_gpu_utilization_percent']:
             return False, 'GPU busy'
-        if job.get('uses_gpu', False) and 1-free/capacity > cfg['max_vram_used_fraction']:
+        if job.get('uses_gpu', False) and not running and not own_resident and 1-free/capacity > cfg['max_vram_used_fraction']:
             return False, 'VRAM reserved'
-    if job.get('uses_gpu', False) and (not machine.get('ollama') or machine.get('active_models')):
+    if job.get('uses_gpu', False) and (not machine.get('ollama') or (machine.get('active_models') and not own_resident)):
         return False, 'model residency reserved'
     return True, 'eligible'
 
@@ -92,6 +96,9 @@ def eligible(cfg, job, telemetry):
         return False, 'telemetry unavailable: '+type(exc).__name__
 
 def terminate(proc):
+    from remote_client import RemoteProcess
+    if isinstance(proc, RemoteProcess):
+        return proc.terminate()
     try:
         os.killpg(proc.pid, signal.SIGTERM)
     except ProcessLookupError:
@@ -149,8 +156,9 @@ def run(cfg, execute, telemetry=None):
             save('waiting_resources', current=None, reason=blockers)
             wait()
             continue
+        remote = pending.get('kind') == 'remote-checkpoint'
         if pending['node'] != 'mac-mini':
-            if pending.get('kind') != 'service-check':
+            if not remote and pending.get('kind') != 'service-check':
                 raise ValueError('Remote mutation/checkpoint runner not qualified; only fixed read-only service-check supported')
             argv = ['/usr/bin/ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=4', {'dell-1':'jarvis-dell1','dell-2':'jarvis-dell2'}[pending['node']], '/usr/bin/systemctl', 'is-active', 'jarvis-ollama.service', 'jarvis-ollama-missions.service']
         else:
@@ -159,16 +167,17 @@ def run(cfg, execute, telemetry=None):
                 raise ValueError('Only explicit checkpoint-safe argv units with absolute executable')
         state['attempts'][ident] = state['attempts'].get(ident, 0)+1
         save('running', current=ident, reason=reason)
-        proc = subprocess.Popen(argv, start_new_session=True, cwd=cfg.get('working_directory', '/'), env={'PATH':'/usr/bin:/bin','HOME':str(Path.home()),'LANG':'C.UTF-8'})
+        from remote_client import RemoteProcess
+        proc = RemoteProcess(pending) if remote else subprocess.Popen(argv, start_new_session=True, cwd=cfg.get('working_directory', '/'), env={'PATH':'/usr/bin:/bin','HOME':str(Path.home()),'LANG':'C.UTF-8'})
         started = time.monotonic()
         interrupted = None
         while proc.poll() is None:
             if STOP or Path(cfg['pause_path']).exists():
                 interrupted = 'stop/pause'
-            elif time.monotonic()-started > cfg['max_job_seconds']:
+            elif time.monotonic()-started > pending.get('max_job_seconds',cfg['max_job_seconds']):
                 interrupted = 'deadline'
             else:
-                ready, reason = eligible(cfg, pending, telemetry)
+                ready, reason = eligible(cfg, {**pending,'_running':remote}, telemetry)
                 if not ready:
                     interrupted = reason
             if interrupted:
@@ -180,6 +189,9 @@ def run(cfg, execute, telemetry=None):
             if interrupted != 'deadline':
                 state['attempts'][ident] -= 1
             save('paused' if interrupted != 'deadline' else 'failed', reason=interrupted)
+        elif remote and proc.returncode == 75:
+            state['attempts'][ident] -= 1
+            save('paused', reason=proc.state.get('reason', 'Remote preemption'))
         elif proc.returncode == 0:
             state['completed'].append(ident)
             save('completed', returncode=0)

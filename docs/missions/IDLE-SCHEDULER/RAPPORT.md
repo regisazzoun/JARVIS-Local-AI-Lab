@@ -1,3 +1,5 @@
+> Suite reçue : missions distantes à checkpoints qualifiées, JM-01 lancée surDell2. Voir [réception distante](REMOTE-RECEPTION.md). Les états ci-dessous décrivent la première réception, conservée comme historique.
+
 # Ordonnanceur de fond — intégration et activation PR47
 
 **1 novembre 2026 — ✅🟡 GO avec réserves pour le service central et les unités courtes reçues.** `jarvis-idle-scheduler.service` installé sur Mac JARVIS, enabled, active/running. Deux unités terminées : smoke à checkpoints Mac, contrôle des deux services Ollama Dell2. Contrôleur ensuite idle, aucune mission utile JM-01 en cours. **🟡 Longues missions distantes avec modifications : non qualifiées, non activées.** Aucun service ordonnanceur installé sur les Dell.

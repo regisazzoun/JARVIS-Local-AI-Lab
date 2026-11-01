@@ -28,6 +28,21 @@ class AdmissionTests(unittest.TestCase):
     def test_models_preserved_cpu_allowed(self):
         self.machine['active_models']=['Qwen'];self.assertFalse(self.admit())
         self.job['uses_gpu']=False;self.assertTrue(self.admit())
+    def test_running_own_model_does_not_preempt_itself(self):
+        self.job.update(resident_model='Qwen',_running=True)
+        self.machine['active_models']=['Qwen']
+        self.machine['gpu_all'][0].update(utilization_percent=99,free_mib=2)
+        self.assertTrue(self.admit())
+        self.job['_running']=False;self.assertFalse(self.admit())
+    def test_active_inference_cpu_budget(self):
+        self.job.update(resident_model='Qwen',_running=True)
+        self.machine['active_models']=['Qwen'];self.machine['cpu_percent']=40
+        self.assertTrue(self.admit())
+        self.job['_running']=False;self.assertFalse(self.admit())
+        self.job['_running']=True;self.machine['cpu_percent']=100;self.assertFalse(self.admit())
+    def test_foreign_model_remains_reserved(self):
+        self.job.update(resident_model='Qwen',_running=True)
+        self.machine['active_models']=['OtherModel'];self.assertFalse(self.admit())
     def test_missing_gpu(self):self.machine['gpu_all']=[];self.assertFalse(self.admit())
     def test_bad_cpu(self):self.machine['cpu_percent']=float('nan');self.assertFalse(self.admit())
     def test_ram_busy(self):self.machine['ram_used_mb']=90;self.assertFalse(self.admit())

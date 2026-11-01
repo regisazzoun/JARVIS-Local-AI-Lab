@@ -1,0 +1,166 @@
+{
+  "captured_at": 1793556193.545839,
+  "remote": {
+    "status": "running",
+    "failures": 0,
+    "runs": 7,
+    "updated_at": 1793555853.0477798,
+    "started_at": 1793555853.0477793,
+    "supervisor_pid": 715465,
+    "task_pid": 715470,
+    "reason": "external inference client priority",
+    "progress": {
+      "status": "running",
+      "current": "01-audit",
+      "checkpoint_commit": null,
+      "completed": {},
+      "failures": {}
+    },
+    "unit": "jarvis-idle-adc8b0653adb3e956790.service",
+    "systemd": {
+      "MainPID": "715465",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-adc8b0653adb3e956790.service",
+      "ActiveState": "active",
+      "SubState": "running"
+    }
+  },
+  "native": {
+    "progress": {
+      "completed": {},
+      "failures": {},
+      "sessions": {
+        "01-audit": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5"
+      },
+      "current": "01-audit",
+      "status": "running",
+      "updated_at": 1793555853.13016
+    },
+    "native_log_metadata": {
+      "01-audit.jsonl": {
+        "counts": {
+          "system": 7,
+          "stream_event": 6,
+          "assistant": 5,
+          "user": 8
+        },
+        "sha256": "783ef6025fd2ee9ecf9d8547cc725a4cbd47e246894c6f27c75644f32016ecac",
+        "bytes": 37099
+      }
+    },
+    "native_initializations": [
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "session_id": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5",
+        "unit_log": "01-audit.jsonl"
+      }
+    ],
+    "observed_native_tool_uses": [
+      {
+        "name": "read_file",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "list_agents",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "read_file",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "read_file",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "read_file",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "glob",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "read_file",
+        "unit_log": "01-audit.jsonl"
+      },
+      {
+        "name": "list_agents",
+        "unit_log": "01-audit.jsonl"
+      }
+    ],
+    "native_results": [],
+    "git_head": "48dfec067c2fc78b359ecef30bd13860bbddc047",
+    "upstream_head": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
+    "runtime_hashes": {
+      "runtime/node": "94efd062ed066c1a0b332e18249859c905e920eeada5df55d24c99b919629a90",
+      "runtime/package/cli-entry.js": "113efe4104a9fc66f507d34bfd6abbd896ceb77de47f4b468a0825a327fdc6a5",
+      "jm01_units.py": "8ce20045f3d530dcda8b44cf53753435676362d97d433ef59490f3a40c562ae4"
+    },
+    "artifact_files": [
+      "docs/missions/JM-01/MISSION.md"
+    ]
+  },
+  "runtime_source_hashes": {
+    "runtime/node": "94efd062ed066c1a0b332e18249859c905e920eeada5df55d24c99b919629a90",
+    "runtime/package/cli-entry.js": "113efe4104a9fc66f507d34bfd6abbd896ceb77de47f4b468a0825a327fdc6a5"
+  },
+  "official_runtime_files_match": true,
+  "dell1_after": "MainPID=2090\nActiveState=active\n\nMainPID=44112\nActiveState=active\n",
+  "dell1_pids_unchanged_since_launch": true,
+  "config_hash_after": "8f4b61a741a4f31e8322b5dee8179088c82a52a505b20065766386e03b27f105",
+  "compute_config_unchanged": true,
+  "central": {
+    "completed": [
+      "reception-checkpoint-mac-v1",
+      "reception-service-check-dell2-v1",
+      "qualification-remote-central-v1",
+      "qualification-remote-central-v2"
+    ],
+    "attempts": {
+      "reception-checkpoint-mac-v1": 1,
+      "reception-service-check-dell2-v1": 1,
+      "qualification-remote-central-v1": 1,
+      "qualification-remote-central-v2": 1,
+      "jm01-mobile-dell2-v1": 1
+    },
+    "status": "running",
+    "updated_at": 1793555852.39011,
+    "current": "jm01-mobile-dell2-v1",
+    "reason": "eligible",
+    "returncode": 0
+  },
+  "services": [
+    "active",
+    "active",
+    "active",
+    "active",
+    "active",
+    "active",
+    "active"
+  ],
+  "webui_https": "200",
+  "scheduler_journal": "Nov 01 18:53:30 JARVIS-MacMIini python[62929]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:53:31 JARVIS-MacMIini python[62929]: {\"status\": \"stopped\", \"current\": null}\nNov 01 18:53:34 JARVIS-MacMIini python[65223]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\nNov 01 18:54:01 JARVIS-MacMIini python[65223]: {\"status\": \"paused\", \"reason\": \"CPU/RAM busy\"}\nNov 01 18:54:07 JARVIS-MacMIini python[65223]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\nNov 01 18:54:26 JARVIS-MacMIini python[65223]: {\"status\": \"paused\", \"reason\": \"CPU/RAM busy\"}\nNov 01 18:54:32 JARVIS-MacMIini python[65223]: {\"status\": \"waiting_resources\", \"current\": null, \"reason\": {\"jm01-mobile-dell2-v1\": \"CPU/RAM busy\"}}\nNov 01 18:54:38 JARVIS-MacMIini python[65223]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\nNov 01 18:55:03 JARVIS-MacMIini python[65223]: {\"status\": \"paused\", \"reason\": \"external inference client priority\"}\nNov 01 18:55:08 JARVIS-MacMIini python[65223]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\nNov 01 18:55:12 JARVIS-MacMIini python[65223]: {\"status\": \"paused\", \"reason\": \"external inference client priority\"}\nNov 01 18:55:17 JARVIS-MacMIini python[65223]: {\"status\": \"paused\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"Operator pause marker\"}\nNov 01 18:55:21 JARVIS-MacMIini python[65223]: {\"status\": \"stopped\", \"current\": \"jm01-mobile-dell2-v1\"}\nNov 01 18:55:23 JARVIS-MacMIini python[66132]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\nNov 01 18:57:08 JARVIS-MacMIini python[66132]: {\"status\": \"paused\", \"reason\": \"external inference client priority\"}\nNov 01 18:57:13 JARVIS-MacMIini python[66132]: {\"status\": \"stopped\", \"current\": \"jm01-mobile-dell2-v1\"}\nNov 01 18:57:15 JARVIS-MacMIini python[66838]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\nNov 01 18:57:26 JARVIS-MacMIini python[66838]: {\"status\": \"paused\", \"reason\": \"external inference client priority\"}\nNov 01 18:57:32 JARVIS-MacMIini python[66838]: {\"status\": \"running\", \"current\": \"jm01-mobile-dell2-v1\", \"reason\": \"eligible\"}\n"
+}

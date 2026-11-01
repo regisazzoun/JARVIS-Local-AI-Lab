@@ -1,3 +1,7 @@
+## Missions distantes et JM-01 — 1 novembre 2026
+
+✅ Qualification des unités distantes à checkpoints : pause/reprise, expiration du bail, arrêt de tout le groupe, plafond3erreurs et priorité interactive reçus ;16tests ciblésPASS. 🟡 JM-01 réellement lancée surDell2, QwenCode0.26.4 officiel/80B32k, première unitéaudit en cours au relevé ; aucun livrable final reçu. Dell1 préservé(PIDservicesidentiques), WebUIHTTPS200. CheckpointsGit locaux ; publication des futurs livrables après relecture, copie automatique non installée après refus du contrôle automatique. [Réception et preuves](docs/missions/IDLE-SCHEDULER/REMOTE-RECEPTION.md). Aucun main fusionné, aucune repriseM26-P4.
+
 ## Ordonnanceur de fond — réception du 1 novembre 2026
 
 ✅🟡 Service central `jarvis-idle-scheduler` installé et activé (enabled/active) ; pause/reprise/checkpoint/redémarrage reçus sur unité Mac, contrôle de services Dell2 terminé. Télémétrie des trois machines et cinq GPU via producteurs JARVIS existants ; Dell1 occupé préservé. 11 tests ciblés PASS. Contrôleur actuellement idle ; JM-01 non lancée. Longues missions distantes à mutations non qualifiées, explicitement rejetées. M26-P4/MANUAL-HOLD, Qwen/WebUI et workers préservés ; aucune fusion main. [Rapport et preuves](docs/missions/IDLE-SCHEDULER/RAPPORT.md).

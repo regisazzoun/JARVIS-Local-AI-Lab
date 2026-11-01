@@ -1,0 +1,118 @@
+{
+  "requested_at": 1793555611.0703197,
+  "availability_before": {
+    "eligible": true,
+    "reason": "eligible",
+    "machine": {
+      "available": true,
+      "sampled_at": 1793555603.7054949,
+      "cpu_percent": 0.0,
+      "cpu_threads": 36,
+      "load1": 0.025390625,
+      "ram_total_mb": 128525,
+      "ram_used_mb": 3030,
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3090",
+        "utilization": 0.0,
+        "temperature": 46.0,
+        "vram_used_mb": 2.0,
+        "vram_total_mb": 24576.0
+      },
+      "ollama": true,
+      "active_models": [],
+      "gpu_all": [
+        {
+          "index": 0.0,
+          "total_mib": 24576.0,
+          "free_mib": 24252.0,
+          "utilization_percent": 0.0,
+          "temperature_c": 46.0,
+          "power_w": 24.42
+        },
+        {
+          "index": 1.0,
+          "total_mib": 10240.0,
+          "free_mib": 10000.0,
+          "utilization_percent": 0.0,
+          "temperature_c": 35.0,
+          "power_w": 12.35
+        }
+      ],
+      "gpu_captured_at": 1793555610.2237942
+    }
+  },
+  "job": {
+    "id": "jm01-mobile-dell2-v1",
+    "node": "dell-2",
+    "kind": "remote-checkpoint",
+    "uses_gpu": true,
+    "resident_model": "qwen3-coder-next:jarvis-dell2-32k",
+    "manifest": {
+      "cwd": "/home/adminjarvis/JARVIS/idle-workspaces/jm01/project",
+      "argv": [
+        "/usr/bin/python3",
+        "/home/adminjarvis/JARVIS/idle-workspaces/jm01/jm01_units.py"
+      ],
+      "checkpoint_safe": true,
+      "lease_seconds": 45,
+      "max_seconds": 14400,
+      "memory_max": "2G",
+      "inference_port": 11435,
+      "local_inference_address": "192.168.1.61",
+      "progress_file": ".mission-state.json",
+      "environment": {
+        "QWEN_HOME": "/home/adminjarvis/JARVIS/idle-workspaces/jm01/.qwen-home",
+        "JM01_OLLAMA_KEY": "ollama",
+        "NO_COLOR": "1"
+      }
+    },
+    "max_job_seconds": 14400
+  },
+  "attribution": "Mission instructions/infrastructure Codex; generated artifacts native Qwen Code on Dell2",
+  "dell1_before": "MainPID=2090\nActiveState=active\n\nMainPID=44112\nActiveState=active\n",
+  "config_hash_before": "8f4b61a741a4f31e8322b5dee8179088c82a52a505b20065766386e03b27f105",
+  "remote_started": {
+    "status": "running",
+    "failures": 0,
+    "runs": 1,
+    "updated_at": 1793555614.8286111,
+    "started_at": 1793555614.8286107,
+    "supervisor_pid": 711290,
+    "task_pid": 711295,
+    "unit": "jarvis-idle-adc8b0653adb3e956790.service",
+    "systemd": {
+      "MainPID": "711290",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-adc8b0653adb3e956790.service",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "progress": {
+      "status": "running",
+      "current": "01-audit",
+      "checkpoint_commit": null,
+      "completed": {},
+      "failures": {}
+    }
+  },
+  "central_state": {
+    "completed": [
+      "reception-checkpoint-mac-v1",
+      "reception-service-check-dell2-v1",
+      "qualification-remote-central-v1",
+      "qualification-remote-central-v2"
+    ],
+    "attempts": {
+      "reception-checkpoint-mac-v1": 1,
+      "reception-service-check-dell2-v1": 1,
+      "qualification-remote-central-v1": 1,
+      "qualification-remote-central-v2": 1,
+      "jm01-mobile-dell2-v1": 1
+    },
+    "status": "running",
+    "updated_at": 1793555614.0941722,
+    "current": "jm01-mobile-dell2-v1",
+    "reason": "eligible",
+    "returncode": 0
+  },
+  "captured_at": 1793555615.5450764
+}
