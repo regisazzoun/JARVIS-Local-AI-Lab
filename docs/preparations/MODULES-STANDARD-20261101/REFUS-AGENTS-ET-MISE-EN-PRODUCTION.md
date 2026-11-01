@@ -32,3 +32,9 @@ La documentation officielle rappelle qu’AGENTS.md sert de consigne persistante
 - [ ] Examiner les refus injustifiés ou incohérents et leur procédure de résolution, sans supprimer globalement les protections.
 
 Aucun assouplissement des protections, modification de droits ou nouvel essai d’écriture AGENTS.md n’est demandé ni exécuté par ce document. Suivi : https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42 .
+
+## Reprise documentaire autorisée — 1 novembre 2026
+
+Après explication du refus, le propriétaire a demandé de reprendre la modification. Une courte note factuelle a été ajoutée à AGENTS.md sur la même branche : état configuré/non testé, liens vers le rapport courant, le manifeste et le suivi42. La revue automatique a accepté cette écriture, commit d969ba9b19f86e4d191d43d1bea4c8553ff91539.
+
+Le bloc refusé n’a pas été réappliqué tel quel : cette note n’ajoute aucune permission ni directive opérationnelle persistante. Le refus initial est conservé comme événement historique. Aucun contrôle de sécurité n’a été désactivé ; aucun test, service ou mission n’a été relancé. Le point de revue avant mise en production reste ouvert pour les mécanismes d’autorisation et la distinction entre statut et gouvernance.
