@@ -1,0 +1,23 @@
+[Unit]
+Description=JARVIS opt-in checkpoint background scheduler
+After=network-online.target jarvis-hardware.service jarvis-host-bridge.service
+Wants=network-online.target
+[Service]
+Type=simple
+User=adminjarvis
+Group=adminjarvis
+WorkingDirectory=/home/adminjarvis/JARVIS/idle-scheduler
+Environment=PYTHONPATH=/opt/jarvis/conversation
+ExecStart=/opt/jarvis/conversation/.venv/bin/python ops/idle_scheduler.py --config /home/adminjarvis/JARVIS/idle-scheduler-private/config.json --execute
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=30
+KillMode=control-group
+Nice=15
+CPUQuota=10%
+MemoryMax=256M
+TasksMax=32
+UMask=0077
+NoNewPrivileges=true
+[Install]
+WantedBy=multi-user.target

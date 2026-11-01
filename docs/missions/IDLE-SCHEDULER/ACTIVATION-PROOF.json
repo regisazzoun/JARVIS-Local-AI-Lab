@@ -1,0 +1,66 @@
+{
+  "started_at": 1793553353.8576157,
+  "observations": [
+    {
+      "completed": [],
+      "attempts": {},
+      "status": "paused",
+      "updated_at": 1793553354.2184806,
+      "current": "reception-checkpoint-mac-v1",
+      "reason": "Operator pause marker"
+    },
+    {
+      "completed": [],
+      "attempts": {
+        "reception-checkpoint-mac-v1": 1
+      },
+      "status": "running",
+      "updated_at": 1793553360.5163236,
+      "current": "reception-checkpoint-mac-v1",
+      "reason": "eligible"
+    },
+    {
+      "completed": [],
+      "attempts": {
+        "reception-checkpoint-mac-v1": 0
+      },
+      "status": "paused",
+      "updated_at": 1793553363.621956,
+      "current": "reception-checkpoint-mac-v1",
+      "reason": "stop/pause"
+    },
+    {
+      "completed": [
+        "reception-checkpoint-mac-v1"
+      ],
+      "attempts": {
+        "reception-checkpoint-mac-v1": 1
+      },
+      "status": "completed",
+      "updated_at": 1793553380.7211926,
+      "current": "reception-checkpoint-mac-v1",
+      "reason": "eligible",
+      "returncode": 0
+    },
+    {
+      "completed": [
+        "reception-checkpoint-mac-v1"
+      ],
+      "attempts": {
+        "reception-checkpoint-mac-v1": 1
+      },
+      "status": "idle",
+      "updated_at": 1793553381.6740503,
+      "current": null,
+      "reason": "No eligible pending configured unit",
+      "returncode": 0
+    }
+  ],
+  "checkpoint_while_paused": [
+    2,
+    2
+  ],
+  "checkpoint_final": 12,
+  "service": "MainPID=57195\nNRestarts=0\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+  "finished_at": 1793553381.8893895
+}

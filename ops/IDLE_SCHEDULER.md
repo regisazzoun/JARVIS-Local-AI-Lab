@@ -1,28 +1,32 @@
-# Mission de fond — ordonnanceur expérimental
+# Ordonnanceur de fond JARVIS
 
-**État : code préparé, non déployé, non actif.** Ticket de cadrage : #46.
+**1 novembre 2026 : ✅🟡 service central installé, enabled/active ; unités de réception Mac et Dell2 terminées.** Voir [rapport et limites](../docs/missions/IDLE-SCHEDULER/RAPPORT.md). Aucun JM-01 réel n'est déclaré commencé.
 
-## Contrôles
-L'ordonnanceur n'exécute rien par défaut. Il faut simultanément `enabled: true` dans un fichier de configuration local et l'option `--execute`. Il accepte des commandes structurées `argv` sans shell. Il attend la disponibilité CPU et mémoire puis exécute une unité courte. Il interrompt l'unité si la charge remonte ou au bout du délai ; l'application appelée DOIT prendre en charge les checkpoints et l'arrêt SIGTERM. Un fichier JSON conserve les étapes réussies et le nombre d'échecs (plafond 3). **Attention :** ceci n'est pas une préemption transactionnelle d'une mission arbitraire.
+Le contrôleur n'est ni un second moteur de missions ni un collecteur. Il exécute seulement une liste locale d'unités opt-in. Il ne consomme pas la file des workers durables et ne reprend aucune mission interrompue. Deux workers historiques restent actifs ; aucune répartition Ollama ni source du moteur n'a été modifiée.
 
-## Essai inoffensif, sur un hôte Linux de test
-```sh
-python3 ops/idle_scheduler.py --config ops/idle_scheduler.example.json
-```
+## Sources effectives
 
-Pour un véritable essai il faut d'abord copier le JSON dans une configuration locale, choisir un chemin d'état accessible en écriture et activer explicitement `enabled`, puis ajouter `--execute`. Ne pas l'installer comme service en production avant revue.
+- CPU/RAM : fichier atomique `branding-jarvis/metrics/latest.json` du service existant `jarvis-hardware`, trois machines, cadence environ8s. Aucun appel à une API JL-02.
+- Toutes les cartes GPU/VRAM : `operations28a/resource_probe.py` existant sur Mac ; opération broker `host_remote(host=dell-observe|dell2, action=hybrid_resources)` sur les Dell. Aucun nouveau collecteur ; interprétation et contrôle de fraîcheur dans le contrôleur.
+- Priorités : lecture seule de `compute_jobs` dans la SQLite canonique ; un calcul queued/running sur le nœud interdit une nouvelle unité. Les appels natifs directs WebUI/Qwen Code ne figurent pas nécessairement dans cette file : utilisation GPU et résidence Ollama complètent ce contrôle, sans prétendre connaître toutes les sessions.
 
-## Conditions avant déploiement
-- Vérifier l'architecture existante des workers JARVIS, ne pas lancer deux ordonnanceurs.
-- Ajouter mesure GPU/VRAM NVIDIA, charge des modèles Ollama et sessions actives, état Dell 1/Dell 2 et modèle de quotas.
-- Verrouillage monoinstance, journaux, reprise robuste après crash, protection contre tâches malveillantes, identités système restreintes.
-- Vérifier interruption/récupération, sécurité des chemins et de l'environnement, tests de non-régression.
-- Ne jamais stocker de secrets ni autoriser des opérations de production sans validation.
+## Contrat et limites
 
-**Il n'y a pas d'activation autonome de JM-01 sur les serveurs à ce stade.**
+Lancement par `--execute` ET `enabled=true`. Configuration exemple désactivée et jobs vide. Données manquantes, invalides, futures ou âgées de plus25s : aucun lancement, interruption d'une unité active. Toutes les cartes doivent être sous le plafond d'utilisation. Pour une unité GPU, réserve VRAM et absence de modèle résident requises ; aucune éviction des poids Qwen. Unité CPU : la résidence des poids est permise, l'activité GPU reste prioritaire.
 
-## Réutilisation obligatoire de la supervision JARVIS existante
-Le projet possède déjà des mesures CPU/RAM/GPU multi-hôtes (affichées dans le Launcher et/ou via les outils JARVIS). **Avant tout déploiement**, identifier leur point d'accès exact, leur fraîcheur et les droits d'accès, et faire de cette source le pilote principal de l'ordonnanceur. Les sondes locales `/proc` et `nvidia-smi` de ce prototype sont des garde-fous temporaires, **pas un second système de supervision à mettre en production**. Si une mesure hôte manque ou est périmée, aucun lancement de tâche de fond sur cet hôte. Conserver en priorité les missions interactives et la charge de modèles Qwen.
+Le scan saute les unités d'un nœud occupé pour considérer les autres nœuds. Une seule unité active dans ce contrôleur ; verrou flock commun, état atomique, trois tentatives maximum par ID, dont crash ambigu/deadline. Une préemption de ressources ou pause ne consomme pas un échec. Après trois échecs, unité écartée et compteur conservé ; pas de renommage automatique.
 
-## Décision d'architecture du 1er novembre 2026 — correction
-**Ne pas présumer que les API de JL-02 constituent la référence actuelle.** La configuration a évolué avec Open WebUI et JL-03. Avant d'intégrer l'ordonnanceur : inventorier sur les services réellement déployés les producteurs actuels de mesures, distinguer supervision native JARVIS et présentation Open WebUI/Launcher, relever endpoints, schémas, authentification et fraîcheur des données. Comparer avec l'ancienne API JL-02, sans la sélectionner par défaut. L'ordonnanceur dépendra d'une interface de télémétrie canonique JARVIS indépendante de l'interface utilisateur. Si aucun contrat stable n'est identifié, rester désactivé. Aucun déploiement sans preuve d'essai.
+- Mac : argv absolu explicitement `checkpoint_safe=true`. L'application doit sauvegarder ses checkpoints de manière atomique et supporter SIGTERM. Ce n'est pas une transaction automatique.
+- Dell : seul `kind=service-check` est pris en charge, avec commande SSH fixe en lecture seule utilisant les alias existants. Les unités distantes longues ou avec mutations sont rejetées : arrêt distant/checkpoints distribués non qualifiés. Aucun service ordonnanceur supplémentaire installé sur les Dell.
+- `PAUSE` dans le répertoire privé : interruption puis attente ; suppression : reprise depuis le checkpoint de l'application. SIGTERM arrête le groupe local, SIGKILL après5s si nécessaire. systemd tue tout le groupe de contrôle à l'arrêt.
+- Service Nice15, CPU10%, RAM256MiB ; il ne doit pas héberger des modèles. Budget limité au contrôleur et ses enfants locaux.
+
+Le contrat de télémétrie est celui des producteurs déployés, documenté dans le rapport. Une rupture de schéma ferme l'admission. Les chemins et identités restent locaux ; les permissions du broker ne sont pas élargies.
+
+## Exploitation
+
+`systemctl status jarvis-idle-scheduler` ; `journalctl -u jarvis-idle-scheduler`. Configuration et état sous `/home/adminjarvis/JARVIS/idle-scheduler-private/` (700, umask0077). Source du service dans ce dossier `ops/`.
+
+Pause : créer le fichier `PAUSE` ; reprise : supprimer ce marqueur. Désactivation ciblée : `sudo systemctl disable --now jarvis-idle-scheduler`. Conserver état/checkpoints et tous les services historiques. Restaurer uniquement la source du contrôleur depuis Git si nécessaire. Aucune base canonique à restaurer.
+
+Tests : `python3 -m unittest discover -s ops -p 'test_*.py' -v`. Les injections de charge des tests sont simulées ; les preuves de pause opérateur, checkpoint, redémarrage et contrôle Dell2 viennent du service réellement installé. Ne pas présenter le smoke test comme JM-01 ou comme une mission autonome de Qwen.

@@ -1,0 +1,16 @@
+test_bad_cpu (test_idle_scheduler.AdmissionTests.test_bad_cpu) ... ok
+test_idle (test_idle_scheduler.AdmissionTests.test_idle) ... ok
+test_missing_gpu (test_idle_scheduler.AdmissionTests.test_missing_gpu) ... ok
+test_models_preserved_cpu_allowed (test_idle_scheduler.AdmissionTests.test_models_preserved_cpu_allowed) ... ok
+test_ram_busy (test_idle_scheduler.AdmissionTests.test_ram_busy) ... ok
+test_second_gpu_busy (test_idle_scheduler.AdmissionTests.test_second_gpu_busy) ... ok
+test_stale_and_future (test_idle_scheduler.AdmissionTests.test_stale_and_future) ... ok
+test_stale_gpu (test_idle_scheduler.AdmissionTests.test_stale_gpu) ... ok
+test_three_failures_and_singleton (test_idle_scheduler.AdmissionTests.test_three_failures_and_singleton) ... ok
+test_vram_reserved (test_idle_scheduler.AdmissionTests.test_vram_reserved) ... ok
+test_resource_loss_resume_checkpoint (test_idle_scheduler.PreemptionTests.test_resource_loss_resume_checkpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 13.936s
+
+OK

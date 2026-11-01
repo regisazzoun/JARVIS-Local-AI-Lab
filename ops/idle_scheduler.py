@@ -1,131 +1,196 @@
 #!/usr/bin/env python3
-"""JARVIS idle worker. OFF by default; opt-in with --execute.
-
-No shell, no automatic network changes, no GPU work. Jobs use argv arrays.
-Job must be checkpoint-aware and safely resumable. Linux only.
-"""
+"""Opt-in checkpoint units, using existing JARVIS telemetry; no collector."""
 import argparse
+import fcntl
 import json
+import math
 import os
 from pathlib import Path
 import signal
+import sqlite3
 import subprocess
 import time
 
 STOP = False
 
-def stop(_sig, _frame):
+def stop(*_):
     global STOP
     STOP = True
 
-def cpu_idle():
-    with open("/proc/stat", encoding="utf-8") as f:
-        parts = list(map(int, f.readline().split()[1:]))
-    return sum(parts), parts[3] + parts[4]
-
-def mem_available_fraction():
-    vals = {}
-    with open("/proc/meminfo", encoding="utf-8") as f:
-        for line in f:
-            name, rest = line.split(":", 1)
-            vals[name] = int(rest.strip().split()[0])
-    return vals["MemAvailable"] / vals["MemTotal"]
-
-def gpu_available(cfg):
-    """Fail closed if NVIDIA telemetry is unavailable or GPU/VRAM is busy."""
-    if not cfg.get("require_nvidia_gpu", True):
-        return True
-    try:
-        p = subprocess.run(
-            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,memory.total",
-             "--format=csv,noheader,nounits"],
-            capture_output=True, text=True, timeout=5, check=True,
-        )
-        rows = [list(map(int, line.split(","))) for line in p.stdout.strip().splitlines()]
-        if not rows:
-            return False
-        return all(util <= cfg["max_gpu_utilization_percent"] and
-                   used / max(1, total) <= cfg["max_vram_used_fraction"]
-                   for util, used, total in rows)
-    except (OSError, subprocess.SubprocessError, ValueError, KeyError):
-        return False
-
-
-def eligible(cfg):
-    a, idle_a = cpu_idle()
-    time.sleep(cfg["sample_seconds"])
-    b, idle_b = cpu_idle()
-    idle = (idle_b - idle_a) / max(1, b - a)
-    return idle >= cfg["min_cpu_idle_fraction"] and mem_available_fraction() >= cfg["min_mem_available_fraction"] and gpu_available(cfg)
-
 def write_state(path, state):
-    tmp = path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(state, indent=2), encoding="utf-8")
+    tmp = path.with_suffix('.tmp')
+    with tmp.open('w') as f:
+        json.dump(state, f, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
     os.replace(tmp, path)
 
-def run(cfg, execute):
-    state_path = Path(cfg["state_path"]).expanduser()
-    if execute:
-        state_path.parent.mkdir(parents=True, exist_ok=True)
-    state = {"status": "disabled", "completed": [], "attempts": {}}
-    if state_path.exists():
-        state.update(json.loads(state_path.read_text(encoding="utf-8")))
-    if not execute:
-        print("DRY RUN ONLY: no job executed, no state changed.")
-        print(json.dumps({"job_count": len(cfg["jobs"]), "state": state}, indent=2))
+def fresh(stamp, now, age):
+    return isinstance(stamp, (int, float)) and math.isfinite(stamp) and 0 <= now-stamp <= age
+
+def admission(cfg, job, snapshot, now=None):
+    now = time.time() if now is None else now
+    age = cfg.get('max_sample_age_seconds', 25)
+    if not fresh(snapshot.get('sampled_at'), now, age):
+        return False, 'stale aggregate'
+    machine = snapshot['machines'][job['node']]
+    if not machine.get('available') or not fresh(machine.get('sampled_at'), now, age):
+        return False, 'unavailable or stale host'
+    def number(value, lo, hi):
+        return isinstance(value, (int, float)) and math.isfinite(value) and lo <= value <= hi
+    cpu, total, used = (machine[k] for k in ('cpu_percent', 'ram_total_mb', 'ram_used_mb'))
+    if not number(cpu, 0, 100) or not number(total, 1, 2**40) or not number(used, 0, total):
+        return False, 'invalid CPU/RAM'
+    if cpu > cfg['max_cpu_percent'] or (total-used)/total < cfg['min_mem_available_fraction']:
+        return False, 'CPU/RAM busy'
+    # Loaded weights are preserved. CPU units may coexist; GPU units may not evict them.
+    gpus = machine.get('gpu_all')
+    if not fresh(machine.get('gpu_captured_at'), now, age) or not gpus:
+        return False, 'missing complete GPU telemetry'
+    for gpu in gpus:
+        util, free, capacity = (gpu[k] for k in ('utilization_percent', 'free_mib', 'total_mib'))
+        if not number(util, 0, 100) or not number(capacity, 1, 2**30) or not number(free, 0, capacity):
+            return False, 'invalid GPU telemetry'
+        if util > cfg['max_gpu_utilization_percent']:
+            return False, 'GPU busy'
+        if job.get('uses_gpu', False) and 1-free/capacity > cfg['max_vram_used_fraction']:
+            return False, 'VRAM reserved'
+    if job.get('uses_gpu', False) and (not machine.get('ollama') or machine.get('active_models')):
+        return False, 'model residency reserved'
+    return True, 'eligible'
+
+class Telemetry:
+    def __init__(self, cfg):
+        self.cfg = cfg
+    def read(self, job):
+        # Existing collector artifact, independent of Launcher presentation/API.
+        data = json.loads(Path(self.cfg['telemetry_path']).read_text())
+        node = job['node']
+        if node == 'mac-mini':
+            proc = subprocess.run(['/usr/bin/python3', '/opt/jarvis/conversation/operations28a/resource_probe.py'], capture_output=True, text=True, timeout=8, check=True)
+            probe = json.loads(proc.stdout)
+        else:
+            host = {'dell-1':'dell-observe', 'dell-2':'dell2'}[node]
+            code = 'from jarvis.host_client import request; import json; print(json.dumps(request("host_remote",{"host":'+repr(host)+',"action":"hybrid_resources"},workload_class="mission")))'
+            proc = subprocess.run(['/opt/jarvis/conversation/.venv/bin/python', '-c', code], capture_output=True, text=True, timeout=10, check=True)
+            reply = json.loads(proc.stdout)
+            result = reply['result']
+            if result['returncode'] != 0:
+                raise ValueError('Existing admission probe failed')
+            probe = json.loads(result['stdout'])
+        data['machines'][node].update(gpu_all=probe['gpu'], gpu_captured_at=probe['captured_at'])
+        return data
+
+def eligible(cfg, job, telemetry):
+    try:
+        if cfg.get('compute_database'):
+            with sqlite3.connect('file:'+cfg['compute_database']+'?mode=ro', uri=True, timeout=1) as db:
+                if db.execute("SELECT 1 FROM compute_jobs WHERE node=? AND state IN ('queued','running') LIMIT 1", ({'mac-mini':'Mac-mini','dell-1':'Dell1','dell-2':'Dell2'}[job['node']],)).fetchone():
+                    return False, 'canonical inference queue reserved'
+        return admission(cfg, job, telemetry.read(job))
+    except Exception as exc:
+        return False, 'telemetry unavailable: '+type(exc).__name__
+
+def terminate(proc):
+    try:
+        os.killpg(proc.pid, signal.SIGTERM)
+    except ProcessLookupError:
         return
-    if not cfg.get("enabled", False):
-        print("Disabled in configuration; no jobs run.")
+    try:
+        proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        os.killpg(proc.pid, signal.SIGKILL)
+        proc.wait()
+
+def run(cfg, execute, telemetry=None):
+    if not execute or not cfg.get('enabled'):
+        print('Disabled/dry run; no state or job changed.', flush=True)
         return
+    path = Path(cfg['state_path'])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lock = path.with_suffix('.lock').open('a')
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    state = json.loads(path.read_text()) if path.exists() else {'completed': [], 'attempts': {}}
+    if state.get('status') == 'running':
+        state.update(status='interrupted', reason='Recovered after process loss; checkpoint contract required')
+        # An ambiguous crash counts toward the same three-attempt limit.
+    telemetry = telemetry or Telemetry(cfg)
     signal.signal(signal.SIGTERM, stop)
     signal.signal(signal.SIGINT, stop)
+    def save(status, **extra):
+        state.update(status=status, updated_at=time.time(), **extra)
+        write_state(path, state)
+        print(json.dumps({'status':status, **extra}), flush=True)
+    def wait():
+        until = time.monotonic()+cfg['poll_seconds']
+        while not STOP and time.monotonic() < until:
+            time.sleep(min(.2, max(0, until-time.monotonic())))
     while not STOP:
-        if not eligible(cfg):
-            time.sleep(cfg["poll_seconds"])
+        candidates = [j for j in cfg['jobs'] if j['id'] not in state['completed'] and state['attempts'].get(j['id'], 0) < 3]
+        pending = candidates[0] if candidates else None
+        if pending is None:
+            save('idle', current=None, reason='No eligible pending configured unit')
+            wait()
             continue
-        pending = next((j for j in cfg["jobs"] if j["id"] not in state["completed"] and state["attempts"].get(j["id"], 0) < 3), None)
-        if not pending:
-            break
-        ident = pending["id"]
-        state["status"] = "running"
-        state["current"] = ident
-        state["attempts"][ident] = state["attempts"].get(ident, 0) + 1
-        write_state(state_path, state)
-        # Jobs are single short units; a long job must support its own checkpoint.
-        proc = subprocess.Popen(pending["argv"], start_new_session=True)
-        started = time.monotonic()
-        interrupted = False
-        while proc.poll() is None:
-            if STOP or time.monotonic() - started > cfg["max_job_seconds"] or not eligible(cfg):
-                os.killpg(proc.pid, signal.SIGTERM)
-                try:
-                    proc.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    os.killpg(proc.pid, signal.SIGKILL)
-                    proc.wait()
-                interrupted = True
+        ident = pending['id']
+        if Path(cfg['pause_path']).exists():
+            save('paused', current=ident, reason='Operator pause marker')
+            wait()
+            continue
+        blockers = {}
+        for candidate in candidates:
+            ready, reason = eligible(cfg, candidate, telemetry)
+            if ready:
+                pending = candidate
+                ident = pending['id']
                 break
-        if not interrupted and proc.returncode == 0:
-            state["completed"].append(ident)
-            state["status"] = "completed"
-        elif interrupted:
-            # Do not count preemption as a failed attempt.
-            state["attempts"][ident] -= 1
-            state["status"] = "paused"
+            blockers[candidate['id']] = reason
         else:
-            state["status"] = "failed"
-        write_state(state_path, state)
-        if STOP:
-            break
-        time.sleep(cfg["poll_seconds"])
+            save('waiting_resources', current=None, reason=blockers)
+            wait()
+            continue
+        if pending['node'] != 'mac-mini':
+            if pending.get('kind') != 'service-check':
+                raise ValueError('Remote mutation/checkpoint runner not qualified; only fixed read-only service-check supported')
+            argv = ['/usr/bin/ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=4', {'dell-1':'jarvis-dell1','dell-2':'jarvis-dell2'}[pending['node']], '/usr/bin/systemctl', 'is-active', 'jarvis-ollama.service', 'jarvis-ollama-missions.service']
+        else:
+            argv = pending['argv']
+            if pending.get('checkpoint_safe') is not True or not isinstance(argv, list) or not argv or not Path(argv[0]).is_absolute():
+                raise ValueError('Only explicit checkpoint-safe argv units with absolute executable')
+        state['attempts'][ident] = state['attempts'].get(ident, 0)+1
+        save('running', current=ident, reason=reason)
+        proc = subprocess.Popen(argv, start_new_session=True, cwd=cfg.get('working_directory', '/'), env={'PATH':'/usr/bin:/bin','HOME':str(Path.home()),'LANG':'C.UTF-8'})
+        started = time.monotonic()
+        interrupted = None
+        while proc.poll() is None:
+            if STOP or Path(cfg['pause_path']).exists():
+                interrupted = 'stop/pause'
+            elif time.monotonic()-started > cfg['max_job_seconds']:
+                interrupted = 'deadline'
+            else:
+                ready, reason = eligible(cfg, pending, telemetry)
+                if not ready:
+                    interrupted = reason
+            if interrupted:
+                terminate(proc)
+                break
+            time.sleep(cfg.get('monitor_seconds', 2))
+        if interrupted:
+            # Resource preemption is not a failure; deadline remains bounded.
+            if interrupted != 'deadline':
+                state['attempts'][ident] -= 1
+            save('paused' if interrupted != 'deadline' else 'failed', reason=interrupted)
+        elif proc.returncode == 0:
+            state['completed'].append(ident)
+            save('completed', returncode=0)
+        else:
+            save('failed', returncode=proc.returncode)
+        wait()
+    save('stopped', current=state.get('current'))
 
-def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--config", required=True)
-    p.add_argument("--execute", action="store_true", help="opt in to execution; config must also have enabled=true")
-    args = p.parse_args()
-    cfg = json.loads(Path(args.config).read_text(encoding="utf-8"))
-    run(cfg, args.execute)
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config', required=True)
+    parser.add_argument('--execute', action='store_true')
+    args = parser.parse_args()
+    run(json.loads(Path(args.config).read_text()), args.execute)

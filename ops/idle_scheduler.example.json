@@ -1,22 +1,16 @@
 {
   "enabled": false,
-  "state_path": "/var/lib/jarvis/idle-scheduler/state.json",
-  "sample_seconds": 2,
-  "poll_seconds": 30,
-  "min_cpu_idle_fraction": 0.75,
+  "state_path": "/home/adminjarvis/JARVIS/idle-scheduler-private/state.json",
+  "pause_path": "/home/adminjarvis/JARVIS/idle-scheduler-private/PAUSE",
+  "telemetry_path": "/home/adminjarvis/JARVIS/open-webui/branding-jarvis/metrics/latest.json",
+  "compute_database": "/opt/jarvis/conversation/runtime/missions.sqlite",
+  "max_sample_age_seconds": 25,
+  "poll_seconds": 5,
+  "monitor_seconds": 2,
+  "max_cpu_percent": 25,
   "min_mem_available_fraction": 0.35,
   "max_job_seconds": 180,
-  "jobs": [
-    {
-      "id": "jm01-discovery",
-      "argv": [
-        "/usr/bin/python3",
-        "-c",
-        "print('JM-01: safe smoke test')"
-      ]
-    }
-  ],
-  "require_nvidia_gpu": true,
   "max_gpu_utilization_percent": 20,
-  "max_vram_used_fraction": 0.5
+  "max_vram_used_fraction": 0.5,
+  "jobs": []
 }
