@@ -1,3 +1,7 @@
+## Réception documentaire locale — 1 novembre 2026
+
+✅🟡 Réception ciblée avec réserves : Word, Excel (formule/cache5), PowerPoint3diapositives, PDF1page, Draw.io éditable et conversions créés/repris réellement par JARVIS80B depuis WebUI ; 25 contrôles indépendants de fichiers PASS, rendus inspectés. Après clarification, deux essais stricts (codes0et7) : une exécution, une attente, réponse finale sans autre outil. Échecs initiaux et limites conservés ; aucune autonomie universelle ni réception de tous les18Skills/MCP. Consignes natives et PATH documentaire corrigés sans moteur/service nouveau. [Rapport et preuves](docs/preparations/MODULES-STANDARD-20261101/RECEPTION-CAPACITES-LOCALES.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Raccordements du lycée, référentiels/gabarits et six MCP stdio Qwen Code restent à recevoir. Les états de préparation ci-dessous sont historiques.
+
 ## Skills WebUI — visibilité confirmée par le propriétaire, 1 novembre 2026
 
 ✅ Visibilité/découverte confirmée dans WebUI par Régis après récupération du catalogue modèles. Aucun nouveau test Codex. Cette réception ne valide pas l’exécution des scripts, le rendu documentaire, les MCP Qwen Code ou les raccordements du lycée ; ces points restent ouverts. [Portée de la confirmation](docs/preparations/MODULES-STANDARD-20261101/RECEPTION-VISIBILITE-PROPRIETAIRE.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Les états ci-dessous restent historiques.
