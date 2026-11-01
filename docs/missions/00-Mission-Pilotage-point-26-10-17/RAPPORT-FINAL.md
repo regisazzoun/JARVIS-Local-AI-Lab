@@ -1,5 +1,8 @@
 # Mission 00 — audit et consolidation du pilotage JARVIS
 
+> **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](../dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
+
+
 **Référence : 17 octobre 2026. Verdict : GO AVEC RÉSERVES.** Audit documentaire consolidé et délégation JARVIS réellement exécutée, avec guidage et corrections Codex explicites. Cette réception ne valide pas globalement 14A. Publication sur `codex/mission-00-pilotage-20261017`, [PR6](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6), sans fusion automatique.
 
 > **Publication effectuée le 18 octobre 2026 :** la [PR6](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/6) est fusionnée dans sa base et la [PR7](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/7) dans main. Le README réécrit, SUIVI et les rapports sont disponibles sur la page principale. Les [preuves GitHub](PUBLICATION-MAIN.json) confirment ces fusions autorisées explicitement par le propriétaire. Le code de déploiement de PR5 reste distinct.

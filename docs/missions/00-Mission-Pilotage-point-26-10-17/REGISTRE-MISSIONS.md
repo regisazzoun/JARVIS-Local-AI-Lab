@@ -1,5 +1,8 @@
 # Registre consolidé — point du 17 octobre 2026
 
+> **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](../dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
+
+
 **68 missions ou sous-missions explicitement attestées**, dont dix incréments15A/15B prévus. Les états représentent le dernier résultat documentaire connu, pas un nouveau test système. Les champs complets (objectifs, matériel, composants, exécutant, sources, preuves, réserves, dépendances, prochaine action et date) sont conservés pour chaque ligne dans [JSON](REGISTRE-MISSIONS.json) et [CSV](REGISTRE-MISSIONS.csv).
 
 Aucun numéro n'a été ajouté pour un trou. Les références `05`, `13`, `13BC`, `15` sont conservées comme familles/rapport commun/intitulé remplacé, pas comptées comme missions exécutées supplémentaires : voir [concordance](MATRICE-CONCORDANCE.md). `09 à11` reste une ancienne ligne de regroupement du suivi, désormais détaillée. `11` historique, `11-Agentic` (libellé de suivi existant) et `11B` gardent leurs périmètres ; aucun renumérotage propriétaire.

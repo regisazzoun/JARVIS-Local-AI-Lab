@@ -1,5 +1,8 @@
 # Index courant des missions JARVIS
 
+> **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
+
+
 ## Cycle 23–31 — planifié le 19 octobre 2026
 
 [Documentation détaillée des neuf missions](CYCLE-23-31.md) · [ROADMAP](../../ROADMAP.md) · [SUIVI](../../SUIVI.md). **Ordre : 23 LiveKit → 24 JL-03**, puis 25 Mission Engine, 26 MCP/Skill Lab, 27 routage multi-modèles, 28 mémoire, 29 satellites audio, 30 proactivité, 31 réception. Toutes sont planifiées, non exécutées ; aucun déploiement réalisé.
