@@ -15,5 +15,8 @@
         "print('JM-01: safe smoke test')"
       ]
     }
-  ]
+  ],
+  "require_nvidia_gpu": true,
+  "max_gpu_utilization_percent": 20,
+  "max_vram_used_fraction": 0.5
 }
