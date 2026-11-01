@@ -1,0 +1,454 @@
+{
+  "started_at": 1793560292.3917224,
+  "mobile_paused_before": true,
+  "events": [
+    {
+      "at": 1793560292.6805315,
+      "status": "new",
+      "failures": 0,
+      "runs": 0,
+      "reason": null,
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560293.2177484,
+      "status": "new",
+      "failures": 0,
+      "runs": 0,
+      "reason": null,
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560293.7709854,
+      "status": "new",
+      "failures": 0,
+      "runs": 0,
+      "reason": null,
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560294.371592,
+      "status": "new",
+      "failures": 0,
+      "runs": 0,
+      "reason": null,
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560294.9218595,
+      "status": "new",
+      "failures": 0,
+      "runs": 0,
+      "reason": null,
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560295.5045671,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560295.8494148,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560296.4025786,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560296.9291453,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560297.4588132,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560298.0000994,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560298.563172,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560299.093355,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560299.6290317,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560300.2439408,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560300.7833562,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560301.3439608,
+      "status": "running",
+      "failures": 0,
+      "runs": 1,
+      "reason": null,
+      "MainPID": "747925",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560301.8763754,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560303.822199,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560304.3375108,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560304.861932,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560305.3730578,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560305.8854327,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560306.421906,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560306.996069,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560307.5143762,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560308.0497587,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560308.5774028,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560309.1526365,
+      "status": "paused",
+      "failures": 0,
+      "runs": 1,
+      "reason": "external inference client priority",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560309.6711206,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560310.2189162,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560310.7891495,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560311.3071616,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560311.8947916,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560312.4666393,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560312.9963634,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560313.6237495,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560314.167635,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560314.6719987,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560315.2514403,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560315.7973337,
+      "status": "running",
+      "failures": 0,
+      "runs": 2,
+      "reason": "external inference client priority",
+      "MainPID": "748397",
+      "ActiveState": "active"
+    },
+    {
+      "at": 1793560316.3588562,
+      "status": "completed",
+      "failures": 0,
+      "runs": 2,
+      "reason": "Native task exited successfully",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    },
+    {
+      "at": 1793560319.511043,
+      "status": "completed",
+      "failures": 0,
+      "runs": 2,
+      "reason": "Native task exited successfully",
+      "MainPID": "0",
+      "ActiveState": "inactive"
+    }
+  ],
+  "native_state_unchanged": true,
+  "transport": {
+    "ssh_alias": "jarvis-dell2",
+    "address_family": "Tailscale100.x",
+    "route_interface": "tailscale0",
+    "ollama_remote_transport": "Tailscale socket relay; local backend loopback"
+  },
+  "checkpoint_during_pause": [
+    "6",
+    "6"
+  ],
+  "final_checkpoint": 12,
+  "fixture_final": {
+    "status": "completed",
+    "failures": 0,
+    "runs": 2,
+    "reason": "Native task exited successfully"
+  },
+  "mobile": {
+    "enabled": false,
+    "status": "paused",
+    "historical_remote_failures": 4,
+    "native_failures": {
+      "01-audit": 3
+    },
+    "checkpoints_not_modified": true
+  },
+  "scheduler": {
+    "completed": [
+      "reception-checkpoint-mac-v1",
+      "reception-service-check-dell2-v1",
+      "qualification-remote-central-v1",
+      "qualification-remote-central-v2",
+      "qualification-scheduler-tailnet-v1"
+    ],
+    "attempts": {
+      "reception-checkpoint-mac-v1": 1,
+      "reception-service-check-dell2-v1": 1,
+      "qualification-remote-central-v1": 1,
+      "qualification-remote-central-v2": 1,
+      "jm01-mobile-dell2-v1": 3,
+      "qualification-scheduler-tailnet-v1": 1
+    },
+    "status": "idle",
+    "updated_at": 1793560318.8803551,
+    "current": null,
+    "reason": "No eligible pending configured unit",
+    "returncode": 0
+  },
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+  "webui_https": "200",
+  "central_services": [
+    "active",
+    "active",
+    "active",
+    "active",
+    "active",
+    "active",
+    "active"
+  ],
+  "finished_at": 1793560320.069608
+}

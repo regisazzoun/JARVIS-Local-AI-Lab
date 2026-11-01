@@ -1,3 +1,7 @@
+## Ordonnanceur — réception finale du 1 novembre 2026
+
+✅ Service central activé ; unités distantes à checkpoints qualifiées sur Dell2 via Tailscale. Pause réelle au checkpoint6, reprise à12, redémarrage sans rejeu ;21tests ciblésPASS. Aucun collecteur créé. JM-01 reste suspendue individuellement(enabled:false), checkpoints et compteurs inchangés ; aucun développement mobile poursuivi ici. Sources, limites et déploiement versionné : [réception finale](docs/missions/IDLE-SCHEDULER/RECEPTION-FINALE.md). Services Qwen/WebUI préservés, aucune fusion main.
+
 ## Missions distantes et JM-01 — 1 novembre 2026
 
 ✅ Qualification des unités distantes à checkpoints : pause/reprise, expiration du bail, arrêt de tout le groupe, plafond3erreurs et priorité interactive reçus ;16tests ciblésPASS. 🟡 JM-01 réellement lancée surDell2, QwenCode0.26.4 officiel/80B32k, première unitéaudit en cours au relevé ; aucun livrable final reçu. Dell1 préservé(PIDservicesidentiques), WebUIHTTPS200. CheckpointsGit locaux ; publication des futurs livrables après relecture, copie automatique non installée après refus du contrôle automatique. [Réception et preuves](docs/missions/IDLE-SCHEDULER/REMOTE-RECEPTION.md). Aucun main fusionné, aucune repriseM26-P4.
@@ -507,3 +511,10 @@ RÉCEPTION COMPLÈTE VALIDÉE. Voir [réception de mission](docs/missions/13D-E/
 Le propriétaire autorise la fusion des documents consolidés dans main et demande un README plus lisible, cohérent avec SUIVI. Les anciens rappels de non-fusion décrivent la consigne précédente ; cette autorisation reste limitée à la publication documentaire, sans déploiement ni import du code d’installation de PR5.
 
 Publication effective : PR6 et PR7 fusionnées, documents disponibles sur main. Les 68 identifiants et états du catalogue README correspondent au suivi.
+
+
+## Migration réseau Tailscale — clôture technique du 1 novembre 2026
+
+✅ Migration à domicile terminée pour Dell 1 et Dell 2 : SSH/broker, supervision, WebUI, passerelle d'inférence et accès Ollama via Tailscale ; backends Ollama sur boucle locale, anciennes écoutes LAN retirées. Quatre endpoints distants vérifiés ; services centraux actifs, WebUI saine, télémétrie disponible. Tunnel bureau Dell 1 reconnecté via Tailscale. Sauvegardes et preuves détaillées conservées en privé ; aucune publication ni fusion.
+
+JM-01 reste en pause propriétaire, sans reprise ni remise à zéro des compteurs. Les mentions historiques antérieures de mission en cours ne constituent pas l'état actuel. 🟡 Déplacement au lycée : reste à confirmer après autorisation réseau, réception intersite, performances et récupération. Ce statut ne constitue pas une réception après reboot matériel. Voir la directive de migration ajoutée à AGENTS.md et le point de pause existant.

@@ -146,10 +146,14 @@ def supervisor(ident):
             state.update(status='failed',returncode=proc.returncode,failures=state.get('failures',0)+1,reason='Task failed')
     except BaseException as exc:
         if proc and proc.poll() is None:stop_group(proc)
-        state.update(status='failed',failures=state.get('failures',0)+1,reason=type(exc).__name__+': '+str(exc))
+        if STOP:
+            state.update(status='paused',reason='operator/controller stop during observation')
+        else:
+            state.update(status='failed',failures=state.get('failures',0)+1,reason=type(exc).__name__+': '+str(exc))
     finally:
         state.update(updated_at=time.time(),task_pid=None)
         atomic(root/'state.json',state)
+        lock.close()
 
 def rpc(request):
     ident=request['id'];root,unit=paths(ident)
@@ -166,7 +170,13 @@ def rpc(request):
             if state['status']=='completed' or alive(state['systemd']):
                 atomic(root/'lease.json',{'expires':time.time()+manifest.get('lease_seconds',30)})
                 return state
-            if state.get('failures',0)>=3:raise ValueError('Three failures reached; no restart')
+            resolved=0
+            if (root/'resolution.json').exists():
+                resolution=json.loads((root/'resolution.json').read_text())
+                if resolution.get('verified') and 0<=resolution.get('failed_through',0)<=state.get('failures',0):
+                    resolved=resolution['failed_through']
+                    state['resolution']=resolution
+            if state.get('failures',0)-resolved>=3:raise ValueError('Three failures reached; no restart')
             atomic(root/'manifest.json',manifest)
             atomic(root/'lease.json',{'expires':time.time()+manifest.get('lease_seconds',30)})
             state={k:v for k,v in state.items() if k not in ('systemd','unit')}
@@ -184,7 +194,14 @@ def rpc(request):
             manifest=json.loads((root/'manifest.json').read_text())
             atomic(root/'lease.json',{'expires':time.time()+manifest.get('lease_seconds',30)})
         elif action=='pause':
-            subprocess.run(['systemctl','--user','stop',unit],capture_output=True,text=True,timeout=12,check=True)
+            if alive(unit_info(unit)):
+                # Let the supervisor stop its task group before systemd kills
+                # transient observation children in the same cgroup.
+                subprocess.run(['systemctl','--user','kill','--kill-whom=main','--signal=TERM',unit],capture_output=True,text=True,timeout=3)
+                deadline=time.monotonic()+4
+                while alive(unit_info(unit)) and time.monotonic()<deadline:time.sleep(.1)
+                if alive(unit_info(unit)):
+                    subprocess.run(['systemctl','--user','stop',unit],capture_output=True,text=True,timeout=10,check=True)
             info=unit_info(unit)
             if alive(info) or info.get('MainPID','0')!='0':raise RuntimeError('Remote stop not confirmed')
         elif action!='status':raise ValueError('Unknown action')

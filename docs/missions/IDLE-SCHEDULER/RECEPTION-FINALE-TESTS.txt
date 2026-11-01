@@ -1,0 +1,26 @@
+test_active_inference_cpu_budget (test_idle_scheduler.AdmissionTests.test_active_inference_cpu_budget) ... ok
+test_bad_cpu (test_idle_scheduler.AdmissionTests.test_bad_cpu) ... ok
+test_foreign_model_remains_reserved (test_idle_scheduler.AdmissionTests.test_foreign_model_remains_reserved) ... ok
+test_idle (test_idle_scheduler.AdmissionTests.test_idle) ... ok
+test_missing_gpu (test_idle_scheduler.AdmissionTests.test_missing_gpu) ... ok
+test_models_preserved_cpu_allowed (test_idle_scheduler.AdmissionTests.test_models_preserved_cpu_allowed) ... ok
+test_ram_busy (test_idle_scheduler.AdmissionTests.test_ram_busy) ... ok
+test_running_own_model_does_not_preempt_itself (test_idle_scheduler.AdmissionTests.test_running_own_model_does_not_preempt_itself) ... ok
+test_second_gpu_busy (test_idle_scheduler.AdmissionTests.test_second_gpu_busy) ... ok
+test_stale_and_future (test_idle_scheduler.AdmissionTests.test_stale_and_future) ... ok
+test_stale_gpu (test_idle_scheduler.AdmissionTests.test_stale_gpu) ... ok
+test_three_failures_and_singleton (test_idle_scheduler.AdmissionTests.test_three_failures_and_singleton) ... ok
+test_vram_reserved (test_idle_scheduler.AdmissionTests.test_vram_reserved) ... ok
+test_native_escalation_stops_outer_retries (test_idle_scheduler.EscalationTests.test_native_escalation_stops_outer_retries) ... ok
+test_resource_loss_resume_checkpoint (test_idle_scheduler.PreemptionTests.test_resource_loss_resume_checkpoint) ... ok
+test_disabled_job_stays_paused_while_scheduler_runs (test_idle_scheduler.ScopedPauseTests.test_disabled_job_stays_paused_while_scheduler_runs) ... ok
+test_unverified_or_mismatched_resolution_cannot_open_segment (test_jm01_resolution.ResolutionTests.test_unverified_or_mismatched_resolution_cannot_open_segment) ... ok
+test_verified_change_keeps_failures_and_archives_context (test_jm01_resolution.ResolutionTests.test_verified_change_keeps_failures_and_archives_context) ... ok
+test_completed_write_racing_systemd_exit_is_not_failure (test_remote_runner.RemoteStateTests.test_completed_write_racing_systemd_exit_is_not_failure) ... ok
+test_lost_supervisor_counts_once (test_remote_runner.RemoteStateTests.test_lost_supervisor_counts_once) ... ok
+test_operator_stop_interrupting_probe_is_not_failure (test_remote_runner.SignalObservationTests.test_operator_stop_interrupting_probe_is_not_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 14.374s
+
+OK

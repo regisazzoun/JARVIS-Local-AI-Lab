@@ -6,9 +6,9 @@ Wants=network-online.target
 Type=simple
 User=adminjarvis
 Group=adminjarvis
-WorkingDirectory=/home/adminjarvis/JARVIS/idle-scheduler
+WorkingDirectory=/opt/jarvis/idle-scheduler/current
 Environment=PYTHONPATH=/opt/jarvis/conversation
-ExecStart=/opt/jarvis/conversation/.venv/bin/python ops/idle_scheduler.py --config /home/adminjarvis/JARVIS/idle-scheduler-private/config.json --execute
+ExecStart=/opt/jarvis/conversation/.venv/bin/python /opt/jarvis/idle-scheduler/current/ops/idle_scheduler.py --config /home/adminjarvis/JARVIS/idle-scheduler-private/config.json --execute
 Restart=on-failure
 RestartSec=10
 TimeoutStopSec=30

@@ -39,7 +39,8 @@ class AdmissionTests(unittest.TestCase):
         self.machine['active_models']=['Qwen'];self.machine['cpu_percent']=40
         self.assertTrue(self.admit())
         self.job['_running']=False;self.assertFalse(self.admit())
-        self.job['_running']=True;self.machine['cpu_percent']=100;self.assertFalse(self.admit())
+        self.job['_running']=True;self.machine['cpu_percent']=100;self.assertTrue(self.admit())
+        self.machine['ram_used_mb']=90;self.assertFalse(self.admit())
     def test_foreign_model_remains_reserved(self):
         self.job.update(resident_model='Qwen',_running=True)
         self.machine['active_models']=['OtherModel'];self.assertFalse(self.admit())
@@ -86,5 +87,38 @@ class PreemptionTests(unittest.TestCase):
                 gate.unlink();wait_for(lambda:'checkpoint' in json.loads(state.read_text())['completed'])
                 self.assertEqual(checkpoint.read_text(),'12')
             finally:p.terminate();p.wait(timeout=4)
+
+class EscalationTests(unittest.TestCase):
+    def test_native_escalation_stops_outer_retries(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);path=root/'state.json';starts=root/'starts'
+            cfg={'enabled':True,'state_path':str(path),'pause_path':str(root/'PAUSE'),'poll_seconds':.03,'monitor_seconds':.01,'max_job_seconds':10,'jobs':[{'id':'native','node':'dell-2','kind':'remote-checkpoint','manifest':{}}]}
+            code='import sys,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);import idle_scheduler as s,remote_client; s.eligible=lambda *a:(True,"fixture")\nclass Remote:\n def __init__(self,job):\n  p=Path(sys.argv[3]);p.write_text(str(int(p.read_text())+1) if p.exists() else "1");self.returncode=1;self.state={"progress":{"status":"blocked","failures":{"01-audit":3}}}\n def poll(self):return 1\nremote_client.RemoteProcess=Remote;s.run(json.loads(sys.argv[2]),True)'
+            p=subprocess.Popen([sys.executable,'-c',code,str(Path(__file__).parent),json.dumps(cfg),str(starts)],stdout=subprocess.DEVNULL)
+            try:
+                end=time.monotonic()+4
+                while time.monotonic()<end:
+                    if path.exists() and json.loads(path.read_text()).get('blocked_jobs'):break
+                    time.sleep(.02)
+                self.assertEqual(json.loads(path.read_text())['blocked_jobs']['native'],'initial')
+                time.sleep(.2);self.assertEqual(starts.read_text(),'1')
+                self.assertEqual(json.loads(path.read_text())['attempts']['native'],1)
+            finally:p.terminate();p.wait(timeout=3)
+
+class ScopedPauseTests(unittest.TestCase):
+    def test_disabled_job_stays_paused_while_scheduler_runs(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);state=root/'state.json';marker=root/'should-not-exist'
+            cfg={'enabled':True,'state_path':str(state),'pause_path':str(root/'PAUSE'),'poll_seconds':.03,'monitor_seconds':.01,'max_job_seconds':3,'jobs':[{'id':'paused','enabled':False,'node':'mac-mini','checkpoint_safe':True,'argv':[sys.executable,'-c','from pathlib import Path;Path('+repr(str(marker))+').touch()']},{'id':'active','node':'mac-mini','checkpoint_safe':True,'argv':['/usr/bin/true']}]}
+            code='import sys,json;sys.path.insert(0,sys.argv[1]);import idle_scheduler as s;s.eligible=lambda *a:(True,"fixture");s.run(json.loads(sys.argv[2]),True)'
+            p=subprocess.Popen([sys.executable,'-c',code,str(Path(__file__).parent),json.dumps(cfg)],stdout=subprocess.DEVNULL)
+            try:
+                until=time.monotonic()+4
+                while time.monotonic()<until:
+                    if state.exists() and json.loads(state.read_text()).get('status')=='idle':break
+                    time.sleep(.02)
+                saved=json.loads(state.read_text());self.assertEqual(saved['completed'],['active'])
+                self.assertNotIn('paused',saved['attempts']);self.assertFalse(marker.exists())
+            finally:p.terminate();p.wait(timeout=3)
 
 if __name__=='__main__':unittest.main()

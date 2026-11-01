@@ -1,3 +1,5 @@
+> État courant : voir [la réception finale](../docs/missions/IDLE-SCHEDULER/RECEPTION-FINALE.md). Ordonnanceur activé, pause par entrée jobs via enabled:false, appels distants par alias Tailscale existants. Les états ci-dessous conservent l’historique des premières réceptions.
+
 > Actualisation : `kind=remote-checkpoint` est maintenant pris en charge sous contrat applicatif explicite ; superviseur systemd utilisateur, bail renouvelable, arrêt du cgroup et session/checkpoints natifs. JM-01 lancée surDell2. Voir [réception distante](../docs/missions/IDLE-SCHEDULER/REMOTE-RECEPTION.md). Les limitations de la première réception ci-dessous sont historiques pour ce nouveau type, et restent valides pour les tâches arbitraires sans contrat.
 
 # Ordonnanceur de fond JARVIS

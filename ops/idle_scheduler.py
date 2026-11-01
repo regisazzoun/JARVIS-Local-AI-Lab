@@ -42,7 +42,7 @@ def admission(cfg, job, snapshot, now=None):
     if not number(cpu, 0, 100) or not number(total, 1, 2**40) or not number(used, 0, total):
         return False, 'invalid CPU/RAM'
     active_gpu = job.get('_running',False) and job.get('uses_gpu',False)
-    cpu_limit = cfg.get('max_active_cpu_percent',95) if active_gpu else cfg['max_cpu_percent']
+    cpu_limit = cfg.get('max_active_cpu_percent',100) if active_gpu else cfg['max_cpu_percent']
     if cpu > cpu_limit or (total-used)/total < cfg['min_mem_available_fraction']:
         return False, 'CPU/RAM busy'
     # Loaded weights are preserved. CPU units may coexist; GPU units may not evict them.
@@ -133,10 +133,11 @@ def run(cfg, execute, telemetry=None):
         while not STOP and time.monotonic() < until:
             time.sleep(min(.2, max(0, until-time.monotonic())))
     while not STOP:
-        candidates = [j for j in cfg['jobs'] if j['id'] not in state['completed'] and state['attempts'].get(j['id'], 0) < 3]
+        candidates = [j for j in cfg['jobs'] if j.get('enabled',True) and j['id'] not in state['completed'] and (j['id'] not in state.get('blocked_jobs',{}) or state['blocked_jobs'][j['id']]!=cfg.get('verified_resolutions',{}).get(j['id'],{}).get('id','initial')) and state['attempts'].get(j['id'], 0)-cfg.get('verified_resolutions',{}).get(j['id'],{}).get('failed_through',0) < 3]
         pending = candidates[0] if candidates else None
         if pending is None:
-            save('idle', current=None, reason='No eligible pending configured unit')
+            blocked=[j['id'] for j in cfg['jobs'] if j.get('enabled',True) and j['id'] not in state['completed']]
+            save('blocked' if blocked else 'idle', current=None, reason={'exhausted':blocked} if blocked else 'No eligible pending configured unit')
             wait()
             continue
         ident = pending['id']
@@ -192,6 +193,9 @@ def run(cfg, execute, telemetry=None):
         elif remote and proc.returncode == 75:
             state['attempts'][ident] -= 1
             save('paused', reason=proc.state.get('reason', 'Remote preemption'))
+        elif remote and proc.state.get('progress',{}).get('status')=='blocked':
+            state.setdefault('blocked_jobs',{})[ident]=cfg.get('verified_resolutions',{}).get(ident,{}).get('id','initial')
+            save('blocked', reason='Native task escalated; verified change required', native_failures=proc.state['progress'].get('failures'))
         elif proc.returncode == 0:
             state['completed'].append(ident)
             save('completed', returncode=0)
