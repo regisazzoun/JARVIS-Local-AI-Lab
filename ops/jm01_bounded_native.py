@@ -206,6 +206,21 @@ def main():
             test_result = logs / '03-prototype-tests.txt'
             if test_result.exists():
                 context.append('OBSERVED NODE TESTS\n' + test_result.read_text()[-4000:])
+            if ident == '03-prototype':
+                goal += (' REPAIR: the previous candidate had await import inside a non-async callback, '
+                         'a five-line test stub and broken HTTP error handling. Replace it with a small '
+                         'real implementation using global fetch (Node22), AbortController, timer cleanup '
+                         'in finally, response.ok/status and sanitized JSON errors. No createServer in '
+                         'the client. Preserve prefix; throw explicit HTTP401/403 without leaking tokens. '
+                         'Return complete valid JS, no Markdown fences, no literal nimport. Supply real '
+                         'node:test cases. An independent acceptance suite below must pass.')
+                acceptance = PROJECT / 'tools/jm01/connection.contract.test.mjs'
+                if acceptance.exists():
+                    context.append('INDEPENDENT ACCEPTANCE TESTS (Codex)\n' + acceptance.read_text()[:7000])
+                for candidate in ('connection.mjs','connection.test.mjs'):
+                    candidate_path = PROJECT / 'tools/jm01' / candidate
+                    if candidate_path.exists():
+                        context.append('FAILED CANDIDATE '+candidate+'\n'+candidate_path.read_text()[:5000])
             prompt = goal + '\nENVIRONMENT\n' + json.dumps(env) + '\nPRIMARY SOURCES\n' + pack
             prompt += '\nPREVIOUS CHECKPOINT ARTIFACTS (bounded excerpts)\n' + '\n'.join(context)
             prompt += '\nReturn exactly the required files. Reports cite only supplied evidence.'
@@ -252,11 +267,20 @@ def main():
                     temp.write_text(content)
                     temp.replace(p)
                 if ident in ('03-prototype', '04-handoff'):
-                    test = subprocess.run([str(ROOT / 'runtime/node'), '--test', 'tools/jm01/connection.test.mjs'],
+                    for module in ('connection.mjs','connection.test.mjs'):
+                        syntax = subprocess.run([str(ROOT / 'runtime/node'), '--check', 'tools/jm01/'+module],
+                                                cwd=PROJECT, capture_output=True, text=True, timeout=10)
+                        if syntax.returncode:
+                            test_result.write_text(syntax.stdout+syntax.stderr)
+                            raise ValueError('Prototype JavaScript syntax failed')
+                    test = subprocess.run([str(ROOT / 'runtime/node'), '--test', 'tools/jm01/connection.test.mjs',
+                                           'tools/jm01/connection.contract.test.mjs'],
                                           cwd=PROJECT, capture_output=True, text=True, timeout=60)
                     test_result.write_text(test.stdout + test.stderr)
-                    if test.returncode:
-                        raise ValueError('Prototype Node tests failed; diagnostics retained outside model context')
+                    import re
+                    counts = re.findall(r'^# tests (\d+)$', test.stdout, re.M)
+                    if test.returncode or not counts or int(counts[-1]) < 8:
+                        raise ValueError('Prototype independent Node acceptance failed or insufficient tests')
                 if STOP:
                     state.update(status='paused', updated_at=time.time())
                     atomic(STATE, state)
