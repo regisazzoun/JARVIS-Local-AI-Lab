@@ -1,3 +1,9 @@
+## WebUI — priorité au socle standard — décision propriétaire du 1 novembre 2026
+
+« Je veux du standard qu’on personnalisera à la fin ». Le pilotage des nouvelles tâches WebUI doit utiliser les mécanismes natifs Open WebUI et Qwen Code amont non modifié. Retirer du parcours WebUI la création automatique de missions par le filtre propriétaire, la préparation/revue de rapports du moteur durable maison et les adaptations locales d’inférence. Réutiliser les connecteurs, identités Google, permissions et journaux existants via les interfaces natives MCP/OpenAPI ; aucun nouveau moteur d’agent, mémoire ou résumé maison. Personnalisation d’identité/mémoire différée jusqu’à réception du socle.
+
+La preuve historique mission22/RESSOURCES-FINALES.json confirme Qwen27B à32768 sur Dell1, entièrement en VRAM ; elle ne mesure pas le Mac à32768. Ne pas refaire le benchmark Dell. Cible commune32768, contrôle fonctionnel ciblé du Mac seulement. Préserver les services historiques, bases, accès et M26-P4/MANUAL-HOLD ; aucune reprise de la sonde interrompue ni fusion automatique main. Sources/préparations standard réversibles, essais réels et limites documentées.
+
 # JARVIS — Directives fondamentales du propriétaire
 
 **Statut : décisions de référence pour ChatGPT, Codex et les agents JARVIS.**

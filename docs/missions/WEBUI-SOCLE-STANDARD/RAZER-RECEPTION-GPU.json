@@ -1,0 +1,124 @@
+{
+  "received_at": 1793535529.83819,
+  "state": "GPU_RESTORED_AND_VERIFIED",
+  "boot_changed": true,
+  "kernel": "6.18.54-1-t2-trixie",
+  "cmdline": "BOOT_IMAGE=/vmlinuz-6.18.54-1-t2-trixie root=/dev/mapper/JARVIS--MacMIini--vg-root ro quiet intel_iommu=on iommu=pt pm_async=off module_blacklist=nouveau pci=realloc=on pci=hpmmioprefsize=512M pci=hpmmiosize=32M pci=resource_alignment=0000:00:01.2;0000:7b:00.0;0000:7c:01.0",
+  "authorization": {
+    "automatic_after_reboot_and_replug": true,
+    "authorized": 1,
+    "persistent_policy": "auto",
+    "identity_matches_native_store": true,
+    "global_auth_mode": "enabled"
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 3090",
+    "driver": "595.91.07",
+    "pci_driver": "nvidia",
+    "nvidia_smi": "NVIDIA GeForce RTX 3090, 24576 MiB, 18913 MiB, 595.91.07"
+  },
+  "model": {
+    "name": "qwen3.5:27b-q4_K_M",
+    "size": 18547275201,
+    "size_vram": 18547275201,
+    "context_length": 32768
+  },
+  "short_inference": {
+    "done": true,
+    "response": "OK",
+    "eval_count": 2,
+    "private_sha256": "639979da57614a600b576c9f89c278d217c19c81c6867216f44d9c0bf9db7886"
+  },
+  "webui_test": {
+    "chat": "481d8669-35a5-4156-8562-66365086ce66",
+    "done": true,
+    "model": "jarvis-tools-conversation",
+    "answer_sha256": "3c407a52839a18afebd1283c2a08d236da0846c20dc8260c3d5d97416d2e064a",
+    "tools": [
+      "run_command",
+      "get_process_status"
+    ],
+    "command": "uname -s",
+    "independent_process_exit_code": 0,
+    "independent_process_log_sha256": "e601a2e7567a807b002e193aaf7517f33a7f483360b14c94bea39bd59a06cad5",
+    "private_chat_sha256": "b34942f180bd2363eeae439700440129b2f4eb26477f3eb86d308f4deff9ee45"
+  },
+  "grub": {
+    "default": "jarvis-t2-egpu-np32-pref512",
+    "generated_config_sha256": "726b416722abf36cf93ce0cfa5c4ca1e17062e7c89af42b22ac9921d90dcfe39",
+    "both_debian_fallbacks_preserved": true
+  },
+  "webui_configuration_persistence": {
+    "configuration_equal_after_webui_restart": true,
+    "deployment_env_persistence_enabled": true,
+    "native_configuration": {
+      "ollama_urls": [
+        "http://127.0.0.1:11434",
+        "http://192.168.1.75:11435"
+      ],
+      "mcp_present": true,
+      "terminal_present": true,
+      "owner_filter_active": false,
+      "default_model": "jarvis-tools-conversation",
+      "compaction": {
+        "chat.context_compaction.model": "",
+        "chat.context_compaction.enable": true,
+        "chat.context_compaction.token_threshold": 24000,
+        "chat.context_compaction.token_cap": 24000,
+        "chat.context_compaction.retention_percentage": 40
+      },
+      "profiles": {
+        "jarvis-tools-conversation": {
+          "params": {
+            "system": "",
+            "function_calling": "native",
+            "num_ctx": 32768,
+            "num_predict": 4096,
+            "think": false,
+            "temperature": 0.1,
+            "compact_token_threshold": 24000
+          },
+          "base_model_id": "qwen3.5:27b-q4_K_M",
+          "filterIds": [],
+          "toolIds": [
+            "server:jarvis-standard-mcp"
+          ],
+          "capabilities": {
+            "builtin_tools": true,
+            "terminal": true
+          }
+        },
+        "jarvis-qwen-code-lab": {
+          "params": {
+            "system": "",
+            "function_calling": "native",
+            "num_ctx": 32768,
+            "num_predict": 4096,
+            "think": false,
+            "temperature": 0.1,
+            "compact_token_threshold": 24000
+          },
+          "base_model_id": "qwen3-coder-next:jarvis-standard-32k",
+          "filterIds": [],
+          "toolIds": [
+            "server:jarvis-standard-mcp"
+          ],
+          "capabilities": {
+            "vision": false,
+            "usage": true,
+            "builtin_tools": true,
+            "terminal": true
+          }
+        }
+      }
+    },
+    "same_data_volume": "jarvis-open-webui-data",
+    "mac_reboot_count_for_gpu_recovery": 1,
+    "dell_restart_count": 0
+  },
+  "driver_or_kernel_installation": false,
+  "dell_commands_or_transfer_changes": false,
+  "mac_reboots": 1,
+  "tested_boot_protocol": "Razer disconnected for T2 boot, then reconnected; automatic authorization observed",
+  "cold_boot_with_Razer_already_connected_received": false
+}

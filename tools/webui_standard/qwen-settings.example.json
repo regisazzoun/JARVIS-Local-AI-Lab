@@ -1,0 +1,27 @@
+{
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "qwen3-coder-next:jarvis-standard-32k",
+        "name": "Qwen Coder Next standard 32k",
+        "baseUrl": "http://192.168.1.75:11435/v1",
+        "envKey": "JARVIS_LOCAL_OLLAMA_KEY",
+        "generationConfig": {
+          "contextWindowSize": 32768,
+          "samplingParams": {
+            "max_tokens": 4096
+          }
+        }
+      }
+    ]
+  },
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  },
+  "model": {
+    "name": "qwen3-coder-next:jarvis-standard-32k"
+  },
+  "$version": 4
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Native delayed Thunderbolt activation and NVIDIA readiness
+Wants=network-online.target
+Requires=bolt.service
+After=network-online.target bolt.service
+Before=jarvis-ollama.service
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/modprobe thunderbolt
+ExecStartPost=/usr/bin/udevadm settle --timeout=60
+ExecStartPost=/usr/bin/nvidia-smi --query-gpu=name,driver_version --format=csv,noheader
+TimeoutStartSec=90

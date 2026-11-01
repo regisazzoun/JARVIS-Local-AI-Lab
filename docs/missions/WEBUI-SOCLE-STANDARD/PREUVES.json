@@ -1,0 +1,172 @@
+{
+  "captured_at": 1793531378.7366965,
+  "owner_decision": "Standard first, personalization after reception",
+  "versions": {
+    "OpenWebUI": "0.12.0",
+    "QwenCode": "0.26.4",
+    "MCPO": "0.0.20",
+    "MCPO_MCP_SDK": "1.17.0",
+    "OpenTerminal": "0.14.7"
+  },
+  "profiles": {
+    "jarvis-tools-conversation": {
+      "base_model_id": "qwen3.5:27b-q4_K_M",
+      "params": {
+        "system": "",
+        "function_calling": "native",
+        "num_ctx": 32768,
+        "num_predict": 4096,
+        "think": false,
+        "temperature": 0.1,
+        "compact_token_threshold": 24000
+      },
+      "filterIds": [],
+      "toolIds": [
+        "server:jarvis-standard-mcp"
+      ],
+      "capabilities": {
+        "builtin_tools": true,
+        "terminal": true
+      }
+    },
+    "jarvis-qwen-code-lab": {
+      "base_model_id": "qwen3-coder-next:jarvis-standard-32k",
+      "params": {
+        "system": "",
+        "function_calling": "native",
+        "num_ctx": 32768,
+        "num_predict": 4096,
+        "think": false,
+        "temperature": 0.1,
+        "compact_token_threshold": 24000
+      },
+      "filterIds": [],
+      "toolIds": [
+        "server:jarvis-standard-mcp"
+      ],
+      "capabilities": {
+        "vision": false,
+        "usage": true,
+        "builtin_tools": true,
+        "terminal": true
+      }
+    }
+  },
+  "services": {
+    "jarvis-open-terminal": "active",
+    "jarvis-mcpo-standard": "active",
+    "jarvis-conversation": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-qwen-guard": "active"
+  },
+  "browser_tests": [
+    {
+      "case": "native-27b",
+      "chat": "04be0d4c-097d-4f67-b916-c99caf1376ee",
+      "done": true,
+      "answer_chars": 0,
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tools": [
+        "tool_jarvis_catalog_post",
+        "tool_jarvis_catalog_post",
+        "tool_jarvis_catalog_post",
+        "tool_jarvis_catalog_post",
+        "tool_jarvis_catalog_post",
+        "tool_jarvis_schema_post",
+        "tool_jarvis_call_post"
+      ],
+      "qwen_standard_command_observed": false,
+      "raw_private_sha256": "1089443a480aa3f03e84be6c52c436e82eddb5bcfd3cac615b94c6905271a597",
+      "received": false,
+      "note": "Partial tool discovery only; stopped by Codex, CPU-only, concurrent owner copy"
+    },
+    {
+      "case": "native-terminal",
+      "chat": "b64a2684-3ff4-4a24-a363-78f67e65c023",
+      "done": true,
+      "answer_chars": 529,
+      "answer_sha256": "16277c2f5e0f4062a01fff4992ef93a8609ebe63c564f6cba01763ba51bdda62",
+      "tools": [
+        "list_files",
+        "run_command",
+        "get_process_status",
+        "read_file",
+        "display_file"
+      ],
+      "qwen_standard_command_observed": false,
+      "raw_private_sha256": "77cb0800128951bc15e4d72d0f71930c4db837110b1c0b7147d614c53be63e3d",
+      "received": true,
+      "note": "Native terminal write/read, no Qwen Code delegation in first case"
+    },
+    {
+      "case": "native-qwen-terminal",
+      "chat": "bb43bf6a-5c7e-4b64-981b-9a7e2d1578bb",
+      "done": true,
+      "answer_chars": 210,
+      "answer_sha256": "b8d6203ec972136ff27b0d427d35c73af6577c38845058dbe74b0d05bca1e70f",
+      "tools": [
+        "run_command",
+        "get_process_status",
+        "get_process_status",
+        "read_file"
+      ],
+      "qwen_standard_command_observed": true,
+      "raw_private_sha256": "8db598ee988a2b275b494810251eeefc1ab1ec526e30c24fea42ff413e06502a",
+      "received": true,
+      "note": "Explicit command compatibility test, not automatic natural-language delegation"
+    }
+  ],
+  "default_new_chat_model": "jarvis-tools-conversation",
+  "owner_filter_active": false,
+  "ollama_urls": [
+    "http://127.0.0.1:11434",
+    "http://192.168.1.75:11435"
+  ],
+  "native_compaction": {
+    "chat.context_compaction.model": "",
+    "chat.context_compaction.enable": true,
+    "chat.context_compaction.token_threshold": 24000,
+    "chat.context_compaction.token_cap": 24000,
+    "chat.context_compaction.retention_percentage": 40
+  },
+  "independent_artifacts": {
+    "output.txt": {
+      "exact_content": true,
+      "sha256": "ecd852340c3d57da85b9c8a6308106713fdf2979d23186f732ae5fc3fdaba810"
+    },
+    "ui-result.txt": {
+      "exact_content": true,
+      "sha256": "4ac3041e50c063c12724c8ec969f9c4dd41a7d38098163b3eb740575afaa94e0"
+    },
+    "ui-qwen-result.txt": {
+      "exact_content": true,
+      "sha256": "afd7559baf0b25d1e71893aa7f9d84226535216ba8623c7082ca2445f0061cdb"
+    }
+  },
+  "native_process": {
+    "process_id": "20261101-120213-8bf9a0",
+    "status": "done",
+    "exit_code": 0,
+    "independent_log_sha256": "b574318ffceca5ba1919d153bf6a3c4741deef496d2b08184195c8da959cfa63",
+    "qwen_standard_in_independent_log": true
+  },
+  "upstream_qwen": {
+    "qwen_code_version": "0.26.4",
+    "official_archive_integrity_verified": true,
+    "archive_sha256": "a7640f1c0656b7e54ea5995335ed6cc18ee219b8b4200fe8a6141cff148aaa89",
+    "historical_27b_32768": "docs/missions/22/RESSOURCES-FINALES.json",
+    "new_owner_decision_recorded": true
+  },
+  "mcpo_upstream_lock_sha256": "4f3055dad2d20f02bd9f43b41e0f3c5fdcc3778e6f11c84a87f0f5363343f89d",
+  "Mac_loaded_models": [
+    {
+      "name": "qwen3.5:27b-q4_K_M",
+      "context_length": 32768,
+      "size_vram": 0
+    }
+  ],
+  "Dell1_loaded_models": [],
+  "performance_reception": "NOT_RECEIVED: Mac CPU-only observed, owner reports heavy Dell1 to Dell2 copy; no benchmark or transfer change"
+}
