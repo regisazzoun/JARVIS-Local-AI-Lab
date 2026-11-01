@@ -1,0 +1,19 @@
+{
+  "enabled": false,
+  "state_path": "/var/lib/jarvis/idle-scheduler/state.json",
+  "sample_seconds": 2,
+  "poll_seconds": 30,
+  "min_cpu_idle_fraction": 0.75,
+  "min_mem_available_fraction": 0.35,
+  "max_job_seconds": 180,
+  "jobs": [
+    {
+      "id": "jm01-discovery",
+      "argv": [
+        "/usr/bin/python3",
+        "-c",
+        "print('JM-01: safe smoke test')"
+      ]
+    }
+  ]
+}
