@@ -1,0 +1,138 @@
+{
+  "reviewer": "Codex independent source review",
+  "reviewed_at": 1793569515.6570392,
+  "upstream_commit": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
+  "purpose": "Corrections to native draft claims, originals/checkpoint hashes preserved; this review does not constitute mobile runtime reception",
+  "corrections": [
+    {
+      "drafts": [
+        "01-AUDIT.md",
+        "05-RECETTE-API-DELL1.md"
+      ],
+      "claim": "React Native0.79",
+      "finding": "Declared react-native dependency is0.86.0, not0.79; declared expo range is^57.0.0. Installed/build compatibility is unverified.",
+      "evidence": [
+        {
+          "path": "package.json",
+          "lines": [
+            83
+          ],
+          "sha256": "567ce3b30583b8791c816cbb8c69e5e2e2d2145c02892aad150b8ec8a9a1daa1"
+        },
+        {
+          "path": "package.json",
+          "lines": [
+            41
+          ],
+          "sha256": "567ce3b30583b8791c816cbb8c69e5e2e2d2145c02892aad150b8ec8a9a1daa1"
+        }
+      ]
+    },
+    {
+      "draft": "02-FONCTIONS.md",
+      "claim": "No socket.io/WebSocket dependency, no chat/stream implementation",
+      "finding": "socket.io-client^4.8.1 and @pusher/pusher-websocket-react-native^1.3.1 are declared. Source contains socket-streaming/voice-related code. Absence cannot be inferred from truncated excerpts; functionality itself remains untested.",
+      "evidence": [
+        {
+          "path": "package.json",
+          "lines": [
+            108
+          ],
+          "sha256": "567ce3b30583b8791c816cbb8c69e5e2e2d2145c02892aad150b8ec8a9a1daa1"
+        },
+        {
+          "path": "libs/mobile/chat/features/use-create-new-chat/src/use-create-new-chat.ts",
+          "lines": [
+            109
+          ],
+          "sha256": "4ac01f8fca61db564f66c7cbb0d792729a558dc1cc2ab8840172d6bcaa7d8ad4"
+        }
+      ]
+    },
+    {
+      "draft": "02-FONCTIONS.md",
+      "claim": "Voice not implemented, expo-speech unused",
+      "finding": "speech-streaming-service imports expo-speech. This disproves the asserted absence; no voice runtime test performed.",
+      "evidence": [
+        {
+          "path": "libs/mobile/shared/data-access/speech-streaming-service/src/service.ts",
+          "lines": [
+            2
+          ],
+          "sha256": "6d39ea868c26a605d45f3d65ebfda91a3fccae9519524ebda4ed09648d37f7a9"
+        }
+      ]
+    },
+    {
+      "draft": "02-FONCTIONS.md",
+      "claim": "No attachment upload implementation",
+      "finding": "attachments-menu-sheet uses the uploadFile mutation with document form data. Runtime upload remains untested.",
+      "evidence": [
+        {
+          "path": "libs/mobile/chat/features/form-chat-input/src/lib/components/attachments-menu-sheet/component.tsx",
+          "lines": [
+            99
+          ],
+          "sha256": "a35810f77de47d71c10f8ae6bedbe04d22942c4861af9f6df45c05b32721473a"
+        }
+      ]
+    },
+    {
+      "drafts": [
+        "01-AUDIT.md",
+        "05-RECETTE-API-DELL1.md"
+      ],
+      "claim": "Auth routes shown without base prefix, logout claims inferred from comments",
+      "finding": "API client base appends /api/; auth route v1/auths produces /api/v1/auths/..., not root /v1/auths. The inspected service passes the token explicitly to signOut; its comment does not prove every storage-clearing step or device behavior.",
+      "evidence": [
+        {
+          "path": "libs/shared/data-access/api-client/src/service.ts",
+          "lines": [
+            47
+          ],
+          "sha256": "0a2fafe95656499cd3145ec62478388783c825aca7d54a2d37616f101a6efc3d"
+        },
+        {
+          "path": "libs/shared/data-access/api/src/lib/auth/config.ts",
+          "lines": [
+            2
+          ],
+          "sha256": "0ff519082670a2e9767c12cd951167c36eda5b7ff543b7ff927cc64f4808ebbf"
+        },
+        {
+          "path": "libs/shared/data-access/api/src/lib/auth/service.ts",
+          "lines": [
+            21
+          ],
+          "sha256": "7d1041952800c121ea8d11fe50abeb61861226632e9b4fdd90cc9f06b83eab67"
+        }
+      ]
+    },
+    {
+      "drafts": [
+        "01-AUDIT.md",
+        "05-RECETTE-API-DELL1.md"
+      ],
+      "claim": "Legal conformity, active telemetry, minimum OS, version compatibility or complete absence of features inferred from excerpts",
+      "finding": "Unsupported conclusions are not received. LICENSE header identifies GNU GPLv3; full distribution obligations and store compatibility require separate review. Dependency presence does not establish active telemetry, installed versions, minimum OS or runtime support.",
+      "evidence": [
+        {
+          "path": "LICENSE",
+          "lines": [
+            2
+          ],
+          "sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b"
+        }
+      ]
+    }
+  ],
+  "accepted_scope": {
+    "prototype": "Codex-corrected isolated protocol client, 12/12 mock Node tests; PR48 commit36938cc",
+    "native_documents": "Generated drafts and checkpoints preserved; factual corrections above supersede disputed statements",
+    "not_received": [
+      "Native mobile build/distribution",
+      "Real OpenWebUI API compatibility",
+      "Whole mobile mission or general native model autonomy"
+    ]
+  }
+}
