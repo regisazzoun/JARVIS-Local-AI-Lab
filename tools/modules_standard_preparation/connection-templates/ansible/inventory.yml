@@ -1,0 +1,15 @@
+# Aucun hôte : remplir au lycée à partir de la liste autorisée.
+all:
+  children:
+    linux:
+      hosts: {}
+    windows:
+      hosts: {}
+    cisco:
+      hosts: {}
+    pfsense:
+      hosts: {}
+    nagios:
+      hosts: {}
+    netbox:
+      hosts: {}
