@@ -1,0 +1,15 @@
+{
+  "candidate_only": true,
+  "installed": false,
+  "default_boot_unchanged": true,
+  "reboot_scheduled": false,
+  "profile": "jarvis-t2-egpu-delayed-thunderbolt-test",
+  "native_kernel_option": "modprobe.blacklist=thunderbolt",
+  "unit_syntax_checked": true,
+  "grub_syntax_checked": true,
+  "existing_T2_memory_arguments_preserved": true,
+  "Ollama_waits_for_GPU": true,
+  "SSH_and_network_not_dependent_on_GPU": true,
+  "firmware_limitation": "Does not prevent Apple firmware from seeing a physically connected Razer before Linux",
+  "test_requires_local_recovery_available": true
+}
