@@ -1,3 +1,9 @@
+## Modules standard — installation brute du 1 novembre 2026
+
+🟡 Installés/préparés, **non testés et non raccordés** : 18 Skills sélectionnés, connecteurs MCP et dépendances isolés sur le Mac mini dans `~/JARVIS/modules-standard-20261101`. Aucun nouveau moteur, service lancé/redémarré, modification de mission ni essai fonctionnel. Ordre propriétaire : raccordements et découverte de l’infrastructure au lycée après déplacement, à partir de la liste des cibles fournie ; aucun balayage implicite. Conserver M26-P4/MANUAL-HOLD et les services existants.
+
+Lire le [rapport et les versions](docs/preparations/MODULES-STANDARD-20261101/RAPPORT.md) avant reprise ; suivi ouvert [issue42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Ne pas confondre présence sur disque, chargement dans le registre actif et réception fonctionnelle. Aucun test maintenant, aucune fusion automatique main.
+
 ## Réception GPU après retour sur T2 — 1 novembre 2026
 
 Autorisation native persistante du Razer enregistrée et observée automatiquement après redémarrage/rebranchement. Mac revenu sur le noyau T2 existant6.18 avec réserves mémoire ; RTX3090 liée à NVIDIA595.91.07 et BAR attribués. Le27B à32768 est entièrement chargé en VRAM, inférence réelle reçue ; lecture `uname -s` via WebUI/Open Terminal reçue indépendamment. Entrée T2 fixée comme défaut GRUB, secours Debian conservés.
