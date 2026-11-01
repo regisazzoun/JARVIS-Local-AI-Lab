@@ -1,3 +1,7 @@
+## WebUI — quatre raccordements d’autonomie — 31 octobre 2026
+
+🟡 Corrections installées ; réception réelle partielle. Contexte canonique et mémoire approuvée automatiques, demande naturelle vers moteur existant avec idempotence, retour du véritable état/rapport dans WebUI. 176 tests ciblés PASS ; demande exacte de scan crée une seule mission30dde783… et question de suivi relit cette même mission. Commande host_exec réelle95472. Incidents de format/capacité et reprises conservés ; scan réel12machines reçu après relance assistée ; nouvel essai sans relance reçu techniquement (14appels/13succès, réponse automatique), analyse matérielle erronée NONREÇUE ; mission durable encore interrompue sur capacité. Deux profils seulement, identité propriétaire vérifiée ; modèles/routes et M26-P4/MANUAL-HOLD préservés. [Rapport](docs/missions/WEBUI-AUTONOMIE-4POINTS/RAPPORT.md). Sans fusionmain.
+
 ## BILAN-20261031 — photographie technique du 31 octobre 2026
 
 ## WebUI — accès opérationnel aux outils — 31 octobre 2026

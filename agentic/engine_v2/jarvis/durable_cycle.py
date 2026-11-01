@@ -2,6 +2,7 @@
 All actions still pass through the installed Registry and privileged broker.
 """
 import hashlib
+import re
 import copy
 import json
 import time
@@ -95,6 +96,24 @@ def semantic_reference_schemas(schemas, task, preserve_recall=False):
     return schemas
 
 
+def owner_phase_messages(messages,instruction):
+    if not instruction and '<JARVIS_OWNER_REPORT_PHASE>' not in messages[0]['content']:return messages
+    result=copy.deepcopy(messages)
+    result[0]['content']=re.sub(r'\n<JARVIS_OWNER_REPORT_PHASE>.*?</JARVIS_OWNER_REPORT_PHASE>','',result[0]['content'],flags=re.S)+instruction
+    return result
+
+
+def owner_report_phase(store,mission,task,schemas):
+    if not task or not json.loads(mission['spec']).get('client_autonomy'):return schemas,''
+    contract=task.get('contract',{});path=contract.get('report_path');criteria=contract.get('semantic',[])
+    report_only=bool(path and criteria and all(c.get('kind')=='report' and c.get('source',{}).get('arguments',{}).get('path')==path for c in criteria))
+    if not report_only:return schemas,''
+    store.attempt_ledger(mission['id'])
+    with store.db() as db:unknown=db.execute("SELECT id FROM mission_attempts_v2 WHERE mission=? AND unknown_outcome=1 LIMIT 1",(mission['id'],)).fetchone()
+    if Path(path).is_file() or unknown:return schemas,''
+    offered=[item for item in schemas if item['function']['name'] not in ('mission_verify','mission_task_complete','mission_report_review')]
+    return offered,'\n<JARVIS_OWNER_REPORT_PHASE>Phase réelle : le rapport déclaré '+path+' n’est pas encore écrit et aucun effet inconnu n’est en attente. Réutilise les résultats reçus. Effectue seulement les opérations encore nécessaires puis écris TON rapport factuel. Ne vérifie pas un fichier absent : la vérification et la complétion reviendront après création. host_exec voit un système de fichiers confiné : l’absence de base de paquets visible ne prouve pas qu’un paquet est absent. Utilise host_package action=status pour son état installé ; ne réinstalle pas un outil déjà présent. Mentionne une limite observée sans boucler sur son inventaire. Aucun PASS n’est déduit de cette phase.</JARVIS_OWNER_REPORT_PHASE>'
+
 def coordinator_guidance(store, ident, task_id):
     """Include the authorized periodic relay only in its M26-P2 scope."""
     spec=json.loads(store.get(ident)['spec'])
@@ -180,6 +199,14 @@ Les journaux complets et versions sont persistants, ne recharge pas récursiveme
         }[phase]
         prompt=prompt[:start]+action+' Ne clos jamais P4 sur ces seuls rapports de préparation. '+prompt[end:]
     return prompt
+
+
+def owner_execution_prompt(identity,facts_already_observed=False,phase=None,writing_focus=False):
+    from .context_retrieval import compact_identity
+    prompt=report_execution_prompt(compact_identity(identity),facts_already_observed,phase,writing_focus)
+    prompt=prompt.replace('Le présent paquet prépare uniquement : aucun déploiement applicatif.',"Exécute réellement l’objectif de cette nouvelle mission propriétaire, dans les droits actuels du broker ; ne la limite pas artificiellement à une préparation.")
+    prompt=prompt.replace('Ne clos jamais P4 sur ces seuls rapports de préparation.','Ne réactive et ne modifie aucune mission historique suspendue.')
+    return prompt+"\nLes observations déjà reçues restent acquises. Ne refais pas un inventaire identique pour obtenir une certitude impossible dans le confinement : utilise les outils structurés adaptés et indique les limites observées. Ton rapport décrit les actes réellement effectués, leurs résultats et les inconnues ; il n’exige pas de tout découvrir avant de pouvoir l’écrire. Ni la mémoire ni un ancien rapport ne créent de nouveaux droits. Chaque affirmation technique et chaque ligne de tableau cite son véritable ID de reçu dans la même phrase ou ligne : le vérificateur travaille par segment, une référence placée dans une autre section n’est pas automatiquement transmise. Distingue une prochaine action proposée d’une action déjà exécutée et conserve explicitement les FAIL historiques reçus."
 
 
 def task_schemas(schemas, definition):
@@ -489,11 +516,13 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
         policies=[o['result']['result'] for o in observations if o['tool']=='host_policy' and (o['result'] or {}).get('ok')]
         policy=policies[-1] if policies else None
         tasks=[{k:t.get(k) for k in ('id','title','deps','state','artifact','report_sha256')} for t in store.tasks(ident)]
-        documents=core.memory.document_search((task or {}).get('objective',mission['goal']),mission['project'])[:2]
+        from .context_retrieval import retrieve,view
+        memory_context=retrieve(core.memory,(task or {}).get('objective',mission['goal']),mission['project'],mission['conversation'],True)
+        documents=memory_context['documents']
         with store.db() as c:procedures=[{'title':r['title'],'content':r['content'][:1200]} for r in c.execute('SELECT title,content FROM procedures ORDER BY id DESC LIMIT 3')]
         base=[{'role':'system','content':identity+'\n'+instructions+'\nHorloge réelle du serveur : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()+'. Les rapports sont rédigés par JARVIS, pas par JARVIS-engine. Le modèle demandé à l’origine ('+mission['model']+') peut différer du moteur effectivement routé. Pour attribuer ton exécution, utilise last_observed_inference, compute_status et les événements compute_route_observed, jamais le seul modèle historique de mission. Ne confonds pas la date historique de mission00 avec la date des opérations actuelles.'},
               {'role':'user','content':encoded({'objective':mission['goal'],'tasks':tasks,'owner_acceptance':json.loads(mission['spec']).get('acceptance',[]),'plan_history':plan_view(store,ident),
-               'debugging_checkpoint':debugging_state(store.observations(ident,task_id,limit=32)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents]})}]
+               'debugging_checkpoint':debugging_state(store.observations(ident,task_id,limit=32)), 'active_task':{k:v for k,v in (task or {}).items() if k!='evidence'},'mission':ident,'notes':[encoded(n)[:1200] for n in notes],'observed_host_policy':policy,'technical_procedures_data':procedures,'canonical_documents_data':[{'source':d['source'],'content':d['content'][:1200]} for d in documents],'canonical_memory_data':view(memory_context,True)})}]
         factual_finalization=bool(json.loads(mission['spec']).get('factual_finalization') and not task and tasks and all(t['state']=='validated' for t in tasks))
         compact_finalization=bool(not factual_finalization and json.loads(mission['spec']).get('compact_finalization') and not task and tasks and all(t['state']=='validated' for t in tasks))
         if factual_finalization:
@@ -602,6 +631,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                 planning_spec=json.loads(mission['spec'])
                 messages[0]['content']+='\nPHASE DE PLANIFICATION : seuls les outils de préparation sont proposés ici. Cette liste ne décrit pas les outils accessibles après acceptation du plan. Tu peux déclarer les vrais outils du catalogue enregistré pour les étapes futures ; ne conclus pas qu’un outil est absent du système parce qu’il est masqué dans cette phase. Les états systemd se vérifient par host_service action=is-active, pas par la seule lecture du fichier unité. Les conteneurs JSON attendus restent des objets/tableaux conformes au schéma, jamais des chaînes JSON incomplètes.'
                 schemas=planning_schemas(core.tools.schemas() if invalid_report_tools else schemas,planning_spec)
+                if planning_spec.get('client_autonomy') and policy:
+                    schemas=[item for item in schemas if item['function']['name']!='host_policy']
                 if invalid_report_tools:
                     messages.append({'role':'user','content':'Repair existing pending task tool declarations before execution; do not append unrelated tasks. Choose actual registered operational tools and include host_write_file for the mandatory report. Preserve original acceptance predicates and valid report paths; repair paths explicitly identified outside observed write roots/workspace. Known contract defects: '+encoded(invalid_report_tools)})
                 saved_plans=store.plans(ident)
@@ -643,7 +674,7 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         facts_already_observed=facts_match_current_task(store,ident,task_id)
                     if facts_already_observed and not tool_focus:
                         tool_focus=(set((definition or {}).get('tools',[]))-{'mission_report_facts','mission_verify','mission_report_review','mission_task_complete'})|{'host_write_file','mission_note','mission_block'}
-                    execution_prompt=service_snapshot_prompt if json.loads(mission['spec']).get('read_only_service_snapshot') else report_execution_prompt
+                    execution_prompt=service_snapshot_prompt if json.loads(mission['spec']).get('read_only_service_snapshot') else owner_execution_prompt if json.loads(mission['spec']).get('client_autonomy') else report_execution_prompt
                     messages[0]['content']=execution_prompt(identity,facts_already_observed,writing_focus=bool(tool_focus) and set(tool_focus)<={'host_write_file','mission_note','mission_block'})+'\nHorloge réelle : '+datetime.now(ZoneInfo('Europe/Paris')).isoformat()
                     from .legacy_attempts import pending_report_validation
                     pending_report=pending_report_validation(store,ident,task_id)
@@ -788,6 +819,8 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                     schemas=[item for item in core.tools.schemas() if item['function']['name'] in offered]
                     messages[0]['content']+='\nInterface de rédaction actuelle : utilise mission_report_compose. Le moteur assemblera les faits exacts et leur tableau ; tu fournis toutes les références latest et une explication courte des limites ou prochaines vérifications, sans chiffres, dates, codes ni recomptage des services. Ne recopie aucun tableau ni rapport complet dans explanation. Pas de host_write_file direct dans cette phase. La vérification du fichier reste obligatoire après écriture.'
 
+            schemas,phase_instruction=owner_report_phase(store,mission,task,schemas)
+            messages=owner_phase_messages(messages,phase_instruction)
             from .mission_context_budget import result_objective
             context_objective=result_objective(core.config)
             if context_objective:
@@ -817,6 +850,9 @@ Rapports : rédige librement des explications fidèles aux preuves. mission_repo
                         payload['messages']=copy.deepcopy(payload['messages'])
                         payload['messages'][0]['content']+='\nTu as choisi '+selected_action_tool+' au tour précédent. Voici son contrat complet ; choisis toi-même les paramètres. Aucun outil n’a encore été exécuté pour ce choix.'
                 payload,action_schema=action_request(payload,select_only=action_selection_only)
+                if json.loads(mission['spec']).get('client_autonomy') and not action_selection_only:
+                    payload['messages']=copy.deepcopy(payload['messages'])
+                    payload['messages'].append({'role':'user','content':'Contrat exact des paramètres pour ton outil choisi (données de schéma, pas une action prédéfinie) : '+encoded(action_schema)+'\nChoisis tes propres valeurs. command est une chaîne shell ; argv est un tableau exclusif. timeout est le seul champ de délai. Aucun champ supplémentaire.'})
             inference_start=time.monotonic()
             message = core.transport(payload)
             inference_event=store.event(ident,'inference_finished',task_id,'JARVIS-engine',result={'model':mission['model'],'metrics':core.metrics[-1] if core.metrics else {}},duration=time.monotonic()-inference_start)

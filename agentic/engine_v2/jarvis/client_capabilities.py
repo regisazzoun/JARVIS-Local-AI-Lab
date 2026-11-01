@@ -10,7 +10,7 @@ from .tools import Registry
 from .mission_store import MissionStore
 from .authority_identity import invocation_scope
 
-EXPOSED={'google_personal','google_education','skill_define','skill_test','skill_activate','system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_mcp','google_workspace','qwen_code_run','qwen_code_status'}
+EXPOSED={'memory_context','google_personal','google_education','skill_define','skill_test','skill_activate','system_status','disk_usage','jarvis_services','software_versions','hardware_inventory','service_logs','read_configuration','web_search','web_fetch','active_memories','propose_memory','host_policy','host_exec','host_read_file','host_write_file','host_edit_file','host_delete_file','host_package','host_service','host_logs','host_diagnostics','host_resources','host_github','host_remote','host_ansible','host_project_service','capability_status','skill_list','skill_run','mcp_tools','compute_status','google_mcp','google_workspace','qwen_code_run','qwen_code_status'}
 
 # Select existing received interfaces for NEW integrated-client missions. No
 # owner goal, operational tasks, permissions or historical mission are rewritten.
@@ -57,12 +57,12 @@ class Capabilities:
             if f['name']=='qwen_code_run' and self.origin.startswith('QwenCode'):continue
             if f['name'] in EXPOSED and str(query).casefold() in (f['name']+' '+f['description']).casefold():rows.append({'name':f['name'],'description':f['description'][:78]})
         offset=max(0,int(offset));page=rows[offset:offset+12]
-        return {'source':'canonical active JARVIS Registry','origin':self.origin,'tools':page,'matching_count':len(rows),'next_offset':offset+12 if offset+12<len(rows) else None,'schema_lookup':'jarvis_schema(name), then jarvis_call(name, arguments JSON). Search catalog query or page offset.','mission_tools':'jarvis_missions: list/read/create; creates canonical missions only on explicit owner request','limitations':'Configured does not mean executed. Direct tool receipt is not autonomous mission reception. Google availability must be checked.'}
+        return {'source':'canonical active JARVIS Registry','origin':self.origin,'tools':page,'matching_count':len(rows),'next_offset':offset+12 if offset+12<len(rows) else None,'names_are':'BROKER OPERATIONS, not native client function names. Never call a listed name such as host_exec directly.','native_entrypoint':'jarvis_call','schema_lookup':'Use native jarvis_schema(name), then native jarvis_call(name=<listed operation>, arguments=<JSON OBJECT matching schema>). Do not create a native function named after the operation. Search query or page offset.','mission_tools':'jarvis_missions: list/read/create; creates canonical missions only on explicit owner request','limitations':'Configured does not mean executed. Direct tool receipt is not autonomous mission reception. Google availability must be checked.'}
     def schema(self,name):
         if name not in EXPOSED:raise ValueError('Unknown client tool '+str(name)+'. Discover jarvis_catalog. Google methods such as drive.search are nested: use google_personal or google_education with action=schema/call and name='+str(name))
         reg=self.registry()
         if name not in reg.specs:raise ValueError('Tool not installed in active Registry')
-        return {'name':name,'schema':reg.active_schema(name),'description':reg.specs[name][0]}
+        return {'name':name,'schema':reg.active_schema(name),'description':reg.specs[name][0],'native_function':'jarvis_call','binding':{'name':name,'arguments_type':'object','arguments_value':'Pass your chosen object conforming to schema directly, not as a quoted string'},'important':'This is the arguments schema of a broker operation. It does NOT register a native function with that name. Execute only through the offered native jarvis_call function.'}
     def _audit(self,operation,value):
         with self.memory.connect() as c:return c.execute('INSERT INTO audit(operation,target,created) VALUES(?,?,?)',(operation,json.dumps(value,ensure_ascii=False),now())).lastrowid
     def receipt(self,ident,offset=0,limit=600):
@@ -73,6 +73,21 @@ class Capabilities:
         return {'audit_id':row['id'],'explicit_excerpt':raw[offset:offset+limit].decode('utf-8','replace'),'offset_bytes':offset,'next_offset_bytes':offset+limit if offset+limit<len(raw) else None,'total_bytes':len(raw),'full_sha256':hashlib.sha256(raw).hexdigest(),'meaning':'Byte-window of original canonical receipt, not a complete JSON object. The original remains intact.'}
     def _model_result(self,result,receipt):
         raw=json.dumps(result,ensure_ascii=False).encode()
+        if self.origin.startswith('OpenWebUI'):
+            # Model transport only. The exact original result is already stored
+            # under receipt.audit_id and remains available through pagination.
+            value=result.get('result');view=dict(value) if isinstance(value,dict) else value
+            if isinstance(view,dict):
+                diagnostic=view.pop('diagnostic',None)
+                for field in ('stdout','stderr'):
+                    text=view.get(field)
+                    if isinstance(text,str) and len(text)>800:
+                        view[field]=text[:800];view[field+'_explicit_excerpt']=True;view[field+'_full_sha256']=hashlib.sha256(text.encode()).hexdigest();view[field+'_original_chars']=len(text)
+            model_receipt={k:v for k,v in receipt.items() if k in ('audit_id','request_id','cached','call_completed','application_result_independently_verified')}
+            candidate={**result,'result':view,'client_receipt':model_receipt,'_model_view':True}
+            if len(json.dumps(candidate,ensure_ascii=False).encode())<=2200:return candidate
+            value_raw=json.dumps(view,ensure_ascii=False).encode()
+            return {'ok':result.get('ok'),'tool':result.get('tool'),'error':result.get('error'),'result':{'explicit_excerpt':value_raw[:1100].decode('utf-8','replace'),'full_sha256':hashlib.sha256(raw).hexdigest(),'full_result_bytes':len(raw),'full_receipt_audit_id':receipt['audit_id'],'meaning':'Model view only; complete original receipt available through native jarvis_receipt.'},'client_receipt':model_receipt}
         if len(raw)<=6500:return {**result,'client_receipt':receipt}
         return {'ok':result.get('ok'),'tool':result.get('tool'),'result':{**{k:v for k,v in (result.get('result') or {}).items() if k in ('returncode','status','evidence_id')},'explicit_excerpt':raw[:3500].decode('utf-8','replace'),'full_sha256':hashlib.sha256(raw).hexdigest(),'full_result_bytes':len(raw),'full_receipt_audit_id':receipt['audit_id'],'meaning':'Original complete result archived, not inferred absent; page jarvis_receipt or request a targeted observation.'},'client_receipt':receipt}
     def call(self,name,arguments,request_id=None):

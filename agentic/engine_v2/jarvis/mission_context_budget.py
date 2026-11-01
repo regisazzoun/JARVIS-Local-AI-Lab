@@ -43,9 +43,12 @@ def capacity(config,model):
  hard=node.get('hard_context_limit',configured)
  return {'limit':min(configured,observed or configured,hard),'configured_limit':configured,'hard_context_limit':hard,'observed_loaded_limit':observed,'source':'configured limit and actual api/ps' if observed else 'configured fallback pending loaded observation','observation_error':error,'node':name,'model':node.get('mission_model',model),'observed_at':time.time()}
 
-def observation_view(o):
+def observation_view(o,include_process_output=False):
  wrapper=o.get('result') or {};value=wrapper.get('result') or {};execution=value.get('execution') or {}
- return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','service','service_action','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})}
+ process={}
+ if include_process_output and isinstance(value.get('stdout'),str):
+  output=value['stdout'];process={'stdout':preview(output,900),'stdout_excerpt':len(output)>900 or value.get('stdout_truncated',False),'stdout_sha256':hashlib.sha256(output.encode()).hexdigest(),'stderr':preview(value.get('stderr',''),250),'broker_evidence':value.get('evidence_id'),'command':preview(o['arguments'].get('command',o['arguments'].get('argv','')),500),'full_output_reference':o.get('event_reference')}
+ return {'reference':o.get('event_reference'),'invocation_id':o['id'],'tool':o['tool'],'ok':wrapper.get('ok'),'error':preview(wrapper.get('error'),250),'parameters':{k:v for k,v in o['arguments'].items() if k in ('path','host','service','service_action','action','issue','kind','operation_id','reference','stream','start_line','max_lines')},'parameters_sha256':sha(o['arguments']),'result':{k:value[k] for k in ('reference','delivery_count','already_delivered','source_reference','version','state','status','returncode','verification_event','failed_cycles','test_executed','new_process','same_task','counters_preserved','counters_unchanged','interface_counters_unchanged','authority_counters_unchanged','previous_reference','excerpt_is_not_complete_source','next_offset','total_chars') if k in value}|({'content':preview(value['content'],900)} if 'content' in value else {})|({'execution_returncode':execution.get('returncode'),'stdout':preview(execution.get('stdout'),600),'stderr':preview(execution.get('stderr'),350)} if execution else {})|process}
 
 def service_observation_view(rows,snapshot):
  """Deduplicate only exact observations, preserving their event/invocation binding."""
@@ -83,6 +86,12 @@ class ContextBudget:
    counters=[dict(r) for r in c.execute('SELECT scope,fingerprint,failed_cycles,correction_resolved_through,failed_cycles-correction_resolved_through AS active_failed_cycles,infra_incidents,state,escalation_event FROM mission_problems_v2 WHERE mission=? ORDER BY scope',(self.m,))]
    pending=[dict(r) for r in c.execute("SELECT id,problem,executor,phase,state,unknown_outcome FROM mission_attempts_v2 WHERE mission=? AND state IN ('PENDING','DISPATCHED','RUNNING','VALIDATION_INCONCLUSIVE') ORDER BY created,id",(self.m,))]
    rows=c.execute("SELECT t.id,t.tool,t.arguments,t.result,(SELECT max(e.id) FROM mission_events e WHERE e.mission=t.mission AND e.invocation=t.id AND e.kind='tool_finished') event_reference FROM tool_calls t WHERE t.mission=? AND (? IS NULL OR t.task=?) ORDER BY t.created DESC,t.rowid DESC LIMIT 3",(self.m,self.task,self.task)).fetchall()
+  if spec.get('client_autonomy'):
+   for item in pending:
+    if item['state']=='VALIDATION_INCONCLUSIVE' and not item['unknown_outcome']:
+     attempt=self.store.attempt_ledger(self.m).get(item['id']);known=attempt['result']
+     if known.get('returncode')==0 and known.get('started',{}).get('child_started'):
+      item['execution_completed']=True;item['report_validation_pending']=True
   observations=[{**dict(o),'arguments':json.loads(o['arguments']),'result':json.loads(o['result'] or '{}')} for o in reversed(rows)]
   authority=self.latest('authority_state');executions=list(authority[0]['result'].get('executions',{}).items()) if authority else []
   if spec.get('authority_task_scoped_evidence'):
@@ -120,10 +129,14 @@ class ContextBudget:
   with self.store.db() as c:
    interfaces=[dict(r) for r in c.execute("SELECT json_extract(result,'$.epoch') epoch,json_extract(result,'$.category') category,max(json_extract(result,'$.count')) count FROM mission_events WHERE mission=? AND kind='authority_interface_failure' GROUP BY epoch,category ORDER BY epoch,category",(self.m,))]
   route=self.latest('compute_route_observed');last_inference={k:route[0]['result'].get(k) for k in ('node','effective_model','num_ctx','prompt_eval_count')} if route else None
-  checkpoint={'retained_service_observations':list(service_reads.values()),'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':current_guidance,'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
+  checkpoint={'retained_service_observations':list(service_reads.values()),'version':1,'automatic':automatic,'coordinator_host':socket.gethostname(),'process_id':os.getpid(),'mission':self.m,'parent_mission':spec.get('parent_mission'),'priority':spec.get('owner_priority'),'task':self.task,'objective':(task.get('objective') or task.get('title')) if task else mission['goal'],'owner_goal':mission['goal'],'mission_state':mission['state'],'task_state':task.get('state') if task else None,'task_contract':task.get('contract',{}) if task else {},'task_dependencies':task.get('deps',[]) if task else [],'plan':dict(plan) if plan else None,'workspace':spec.get('authority_workspace'),'model':mission['model'],'counters':counters,'authority_counters':authority_counters,'reserved_operation_ids':reserved_operation_ids,'interface_counters':interfaces,'last_inference':last_inference,'pending_effects':pending,'decisions':self.latest('authority_model_decision',2),'model_notes':self.latest('working_note',3),'verified_api_observations':self.latest('coordinator_verified_api',2),'coordinator_instructions':current_guidance,'modifications':modifications,'tests':tests,'observed_evidence':observed_evidence,'last_observations':[observation_view(o,include_process_output=bool(spec.get('client_autonomy'))) for o in observations],'next_authorized_action':'Continue current owner task with offered tools; observe unknown effects before any replay','reason':reason}
   from .operational_policy import observed_policy,planning_feedback
   checkpoint['planning_feedback']=planning_feedback(self.store,self.m)
   checkpoint['report_workspace']=spec.get('report_workspace')
+  if spec.get('client_autonomy'):
+   from .context_retrieval import retrieve,view
+   from .memory import Memory
+   checkpoint['canonical_memory_data']=view(retrieve(Memory(self.store.root/'runtime/memory.sqlite'),mission['goal'],mission['project'],mission['conversation'],True),True)
   if spec.get('read_only_service_snapshot'):
    from .operational_policy import observed_service_reads,service_snapshot_summary,observed_policy
    checkpoint['observed_service_reads']=observed_service_reads(self.store,self.m)
@@ -231,8 +244,19 @@ class ContextBudget:
   original=payload['messages'];system=copy.deepcopy(next((x for x in original if x.get('role')=='system'),{'role':'system','content':'Authorized mission; original owner constraints remain canonical.'}))
   system['content']+='\nLe checkpoint ci-dessous contient déjà l’état utile. Les références archive/checkpoint automatiques prouvent le stockage ; ne les recharge pas récursivement. Applique la dernière instruction coordinateur, puis décide une action dans la tâche. context_recall sert à un ancien incident précis, context_resume à une reprise manuelle.'
   active={k:checkpoint[k] for k in ('mission','parent_mission','priority','task','objective','task_contract','task_dependencies','plan','workspace','model','authority_counters','reserved_operation_ids','interface_counters','last_inference','pending_effects','modifications','tests','observed_evidence','next_authorized_action')}
+  if json.loads(self.store.get(self.m)['spec']).get('client_autonomy') and checkpoint.get('task'):
+   active['active_task']={'id':checkpoint['task'],'objective':checkpoint['objective'],'state':checkpoint['task_state'],'contract':checkpoint['task_contract'],'deps':checkpoint['task_dependencies']}
+   from .context_retrieval import runtime_environment
+   active['execution_environment']=runtime_environment()
+   active['request_project']=self.store.get(self.m)['project']
+   active['mission_identity_rule']='The current mission id and owner goal define this request. A storage directory named mission26 is only an authorized root, not a different mission identity.'
+   active['completed_process_rule']='execution_completed=true means observed finished process, not unknown effect. Reuse its receipt; do not repeat it. The task report still needs writing and verification; no functional PASS is inferred.'
   active['operation_identity_rule']='All reserved_operation_ids belong to durable operations. A different intended operation needs an unused id; retry requires ALL original arguments unchanged. Never replay unknown effects. Counters and backend refusals remain authoritative.'
   active['offered_tools']=([branch['properties']['tool']['enum'][0] for branch in payload['format']['oneOf']] if structured_action else [t['function']['name'] for t in payload.get('tools',[])]);active['owner_goal']=checkpoint['owner_goal'];active['checkpoint_reference']=checkpoint_id;active['archive_reference']=archive
+  if structured_action and json.loads(self.store.get(self.m)['spec']).get('client_autonomy') and any('arguments' in branch.get('properties',{}) for branch in payload.get('format',{}).get('oneOf',[])):
+   active['current_action_schema']=payload['format']
+   active['current_action_schema_meaning']='Exact tool and argument fields; choose your own values. command is a string, argv an exclusive array; timeout is the timeout field. No extra fields.'
+
   # Initial planning has no separate task objective. Keep the exact owner text
   # once; the complete checkpoint still stores both canonical fields.
   if active['owner_goal']==active['objective']:
@@ -245,6 +269,7 @@ class ContextBudget:
   active['last_observations']=checkpoint['last_observations']
   active['planning_feedback']=checkpoint['planning_feedback']
   active['report_workspace']=checkpoint.get('report_workspace')
+  if checkpoint.get('canonical_memory_data'):active['canonical_memory_data']=checkpoint['canonical_memory_data']
   if 'observed_service_reads' in checkpoint:active['observed_service_reads']=checkpoint['observed_service_reads']
   if 'service_snapshot_summary' in checkpoint:active['service_snapshot_summary']=checkpoint['service_snapshot_summary']
   if 'report_reference_contract' in checkpoint:active['report_reference_contract']=checkpoint['report_reference_contract']

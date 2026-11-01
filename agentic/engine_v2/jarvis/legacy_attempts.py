@@ -156,10 +156,18 @@ def guarded(reg,name,args,fn,mutating):
     problem=ledger.problem('canonical-action:'+digest(binding),binding)
     key=str(reg.context.get('durable_operation_key') or digest({'tool':name,'arguments':args}))
     request={'tool':name,'arguments':args,'contract':contract['criteria'],'task':reg.context['task_id']}
-    begin=ledger.begin(problem,key,args.get('host','canonical-broker'),'execute',request)
+    spec=json.loads(store.get(mission)['spec'])
+    report_path=contract['task'].get('contract',{}).get('report_path')
+    report_only=bool(spec.get('client_autonomy') and spec.get('planning_report_steps') and report_path and all(c.get('kind')=='report' and c.get('source',{}).get('tool')=='host_read_file' and c.get('source',{}).get('arguments',{}).get('path')==report_path for c in contract['criteria']))
+    # The report validates the whole task after its operations. Known completed
+    # processes may precede that report; unknown effects still forbid replay.
+    begin=ledger.begin(problem,key,args.get('host','canonical-broker'),'execute',request,defer_report_validation=report_only)
     if begin.get('blocked'):raise ValueError('P2: problem escalated; no fourth operation. '+json.dumps(begin))
     if begin.get('requires_observation'):raise ValueError('P2: observe existing effect with mission_verify before another mutation; no action dispatched. '+json.dumps(begin))
-    if begin.get('cached'):return ledger.get(begin['attempt'])['result']['value']
+    if begin.get('cached'):
+        prior=ledger.get(begin['attempt'])
+        if prior['state']=='NOT_EXECUTED':raise ValueError('P2: known non-execution retained; no automatic repeat. '+str(prior['result'].get('error','See original receipt')))
+        return prior['result']['value']
     attempt=begin['attempt'];ledger.transition(attempt,'DISPATCHED')
     store.event(mission,'canonical_attempt_bound',reg.context['task_id'],'JARVIS-engine',result={'attempt':attempt,'tool':name,'arguments':args,'contract':contract['criteria']})
     before=observed_targets(reg,contract['criteria']) if hasattr(reg,'execute') else {}
@@ -167,8 +175,21 @@ def guarded(reg,name,args,fn,mutating):
         reg._p2_inside_effect=True
         value=fn(args)
     except Exception as exc:
-        proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'error':str(exc),'requires_independent_observation':True})
-        ledger.transition(attempt,'VALIDATION_INCONCLUSIVE',evidence=proof,result={'error':str(exc)},unknown=True)
+        response=getattr(exc,'response',{}) or {};diagnostic=response.get('diagnostic',{})
+        completed=response.get('result',{}) or {}
+        if report_only and type(completed.get('returncode')) is int and response.get('evidence_id') and diagnostic.get('operation')==name:
+            marker={'child_started':True,'basis':'completed broker failure receipt, not a live PID observation','broker_evidence':response['evidence_id']}
+            proof=store.event(mission,'p2_started_observed',actor='JARVIS-engine',result={'attempt':attempt,'marker':marker})
+            ledger.transition(attempt,'RUNNING',evidence=proof)
+            result={'value':completed,'returncode':completed['returncode'],'started':marker,'verified':False,'deferred_to_report':True,'change_observed':False,'error':str(exc)}
+            state='EXECUTION_FAILED' if completed['returncode'] else 'VALIDATION_INCONCLUSIVE'
+            proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':attempt,'observation':result,'state':state})
+            ledger.transition(attempt,state,evidence=proof,result=result,unknown=False)
+            if completed['returncode']:ledger.failure(attempt,correction_changed=False)
+            raise
+        denied_before_execution=bool(report_only and name=='host_package' and response.get('error_code')=='PermissionError' and response.get('error')=='Paquet absent de la politique propriétaire' and diagnostic.get('operation')=='host_package' and diagnostic.get('error_category')=='permission_denied' and response.get('evidence_id'))
+        proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':denied_before_execution,'error':str(exc),'requires_independent_observation':not denied_before_execution,'broker_refusal_evidence':response.get('evidence_id') if denied_before_execution else None})
+        ledger.transition(attempt,'NOT_EXECUTED' if denied_before_execution else 'VALIDATION_INCONCLUSIVE',evidence=proof,result={'error':str(exc),'known_policy_refusal':denied_before_execution},unknown=not denied_before_execution)
         ledger.failure(attempt,infrastructure=True)
         raise
     finally:reg._p2_inside_effect=False
@@ -182,7 +203,7 @@ def guarded(reg,name,args,fn,mutating):
     if type(execution.get('returncode')) is int:code=execution['returncode']
     after=observed_targets(reg,contract['criteria']) if hasattr(reg,'execute') else {}
     changed=any(b.get('sha256') and before.get(k,{}).get('sha256') and b['sha256']!=before[k]['sha256'] for k,b in after.items())
-    result={'change_observed':bool(changed),'before':before,'after':after,'value':value,'returncode':code,'verified':False,'validation_scope':'persisted task contract','execution':execution}
+    result={'deferred_to_report':report_only,'change_observed':bool(changed),'before':before,'after':after,'value':value,'returncode':code,'verified':False,'validation_scope':'persisted task contract','execution':execution}
     if type(code) is not int:
         proof=store.event(mission,'p2_dispatch_failure_observed',actor='JARVIS-engine',result={'attempt':attempt,'known_not_executed':False,'observed_value':value})
         ledger.transition(attempt,'VALIDATION_INCONCLUSIVE',evidence=proof,result=result,unknown=True)
@@ -215,7 +236,12 @@ def settle(reg,verdict):
             proof=store.event(mission,'p2_result_observed',actor='JARVIS-engine',result={'attempt':raw['id'],'observation':result,'state':'EXECUTED_TEST_FAILED'})
             if result.get('started'):
                 ledger.transition(raw['id'],'EXECUTED_TEST_FAILED',evidence=proof,result=result,unknown=False)
-                ledger.failure(raw['id'],correction_changed=bool(result.get('change_observed')))
+                spec=json.loads(store.get(mission)['spec'])
+                report_group=bool(spec.get('client_autonomy') and spec.get('planning_report_steps') and all(c.get('kind')=='report' for c in contract['criteria']))
+                if not report_group or raw['id']==pending[-1]['id']:
+                    ledger.failure(raw['id'],correction_changed=bool(result.get('change_observed')))
+                else:
+                    store.event(mission,'report_verdict_shared',contract['task']['id'],'JARVIS-engine',result={'attempt':raw['id'],'counted_in_attempt':pending[-1]['id'],'verification_event':verdict.get('verification_event'),'meaning':'One report verdict across several known operations; not several correction cycles'})
         elif len(latest)==len(contract['criteria']) and all(v['status']=='PASS' for v in latest.values()):
             if not attempt['result'].get('started') or attempt['unknown_outcome']:
                 store.event(mission,'canonical_effect_verified_execution_unknown',actor='JARVIS-engine',result={'attempt':raw['id'],'verification':verdict,'no_execution_success_claimed':True})
