@@ -1,0 +1,39 @@
+{
+  "authorization": {
+    "vendor": "Razer",
+    "name": "Core",
+    "authorized": "1",
+    "stored_policy": "auto",
+    "current_identity_matches_persistent_file": true,
+    "global_auth_mode": "enabled",
+    "identity_sha256": "e1d3ee9d51d0718c2dd76bbba9b1aa88f9c3e2bff44ed0aaa18492ca01ea3f3e",
+    "old_entries_preserved": true
+  },
+  "pci_gpu_visible": true,
+  "gpu_initialization_received": false,
+  "driver_failure": "NVRM BAR1 is 0M @ 0x0; driver probe failed",
+  "current_kernel": "6.12.111+deb13-amd64",
+  "current_effective_grub_default": "Debian 6.12.111 via /etc/default/grub.d/99-jarvis-t2.cfg",
+  "existing_target_entry": "jarvis-t2-egpu-np32-pref512",
+  "target_kernel": "6.18.54-1-t2-trixie",
+  "target_nvidia_module_version": "595.91.07",
+  "candidate_default_shell_syntax_ok": true,
+  "current_grub_syntax_ok": true,
+  "candidate_installed": false,
+  "reboot_scheduled": false,
+  "grub_current_sha256": "807ead453c16826f35b3b87782161ce8b81430119e735ef47a858d4bd49b65bb",
+  "default_source_before_sha256": "8e347a7e9a5b6a21f90caaa2ad27ab52ab24ab0e87a0d00d1b539d444782a617",
+  "candidate_default_sha256": "cfebed4c05b82ff847e0d26ce9eda8418e5c04e2122b8a0666f5fa34bc76efcc",
+  "historical_gpu_evidence": {
+    "source": "docs/missions/BILAN-20261031/preuves/mac.json",
+    "collected_at": "2026-10-31T19:50:51.381905+00:00",
+    "kernel": "6.18.54-1-t2-trixie",
+    "gpu_model": "NVIDIA GeForce RTX 3090",
+    "used_vram_mib": 17889,
+    "gpu_process_count": 1
+  },
+  "no_driver_installation": true,
+  "no_dell_command_or_transfer_change": true,
+  "no_mac_or_dell_reboot": true,
+  "remaining": "T2 boot validation with owner physically available after Dell copy; then NVIDIA and real 27B GPU inference verification"
+}
