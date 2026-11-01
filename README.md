@@ -1,5 +1,8 @@
 # 🤖 JARVIS — Local AI Lab
 
+> **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](docs/missions/dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
+
+
 ![JARVIS : IA locale, voix, mémoire et outils](docs/assets/jarvis-banner.svg)
 
 ### Construire une IA locale capable de converser, mémoriser et agir
@@ -62,7 +65,7 @@ L’intégration distante existe. Le placement automatique des modèles, l’éq
 | **JL-01 / JL-02** | V1 conservée ; V2 livrée **GO avec réserves**, avec actions agentiques réelles | Fiabiliser l’agent et compléter les réceptions des clients physiques |
 | **00 — Pilotage** | **68 missions/sous-missions**, **28 anomalies** et **129 documents/preuves** récupérés ; cinq tâches JARVIS exécutées | Conserver la traçabilité et la concordance README/SUIVI ; analyses guidées et corrections Codex explicites |
 | **14A — Capacité agentique** | Progrès démontrés sur des scénarios ciblés | Réception globale ouverte |
-| **14 — Dell n°2** | Périmètre défini, installation future par JARVIS | Préparer le déploiement selon ses critères ; aucune installation du second Dell dans l’audit 00 |
+| **14 — Dell n°2** | ✅ Qwen 80B et services de calcul vérifiés le 01/11/2026 | Installation présente et inférences réelles réussies ; réception globale de l’autonomie 14/14A distincte |
 | **15A / 15B — Clients natifs** | Cahiers macOS/iOS et cinq incréments chacun définis | Non lancés ; mission 14 non bloquante ; installation iOS gratuite Xcode / Personal Team retenue |
 
 **À retenir :** le titre historique « 13D-E / 14 » de la réception du premier Dell ne clôture pas la mission 14 du deuxième Dell.
@@ -133,7 +136,7 @@ Le registre historique 00 comptait **68 identifiants** au 18 octobre ; le suivi 
 | **13D.3** | Accès Mac mini macOS et MacBook, SSH/Tailscale, secours | ✅🟡 Accès multi-postes validés, contrôles finaux à compléter |
 | **13E** | Passerelle conversation, voix et mémoire | ✅🟡 GO AVEC RÉSERVES retrouvé |
 | **13F** | Conversation, mémoire v3 et outils agentiques | ✅🟡 **GO AVEC RÉSERVES** |
-| **14** | **Deuxième Dell Precision — déploiement par JARVIS lui-même, sans Codex comme opérateur** | ⏳ Prévue, non réceptionnée |
+| **14** | **Deuxième Dell Precision — déploiement par JARVIS lui-même, sans Codex comme opérateur** | 🟡 Réception globale 14 distincte ; calcul Dell 2 ✅ vérifié le 01/11/2026 |
 | **14A** | Aptitude agentique de JARVIS avant deuxième Dell | 🟡 Progression prouvée ; réception globale ouverte |
 | **15A** | Application native SwiftUI macOS | 📋 Préparée, non lancée |
 | **15A.1** | macOS — Architecture/UI | 📋 Prévue, non exécutée |
