@@ -11,3 +11,7 @@ MCPO transforme ce serveur stdio en serveur OpenAPI déclaré dans les intégrat
 Les clés des deux services restent dans des fichiers privés. Ne jamais copier les unités runtime contenant une clé dans le dépôt. Préserver toutes les autres intégrations et restaurer les réglages sauvegardés pour revenir en arrière ; aucune base historique à restaurer ou effacer.
 
 Voir `docs/missions/WEBUI-SOCLE-STANDARD/` pour la réception et ses réserves.
+
+## Persistance après redémarrage
+
+Le déploiement historique utilisait `ENABLE_PERSISTENT_CONFIG=false`, ce qui perdait les réglages API au redémarrage. La source Compose active utilise désormais `true`. Le fichier `compose.override.example.yaml` montre la surcharge native sans clé ; conserver le volume de données et tous les autres paramètres de la base Compose. Les connexions natives et profils ont été réappliqués par leurs API standard, puis un redémarrage du seul conteneur a confirmé leur conservation. Aucun script de réapplication au démarrage ajouté.

@@ -1,5 +1,7 @@
 # WebUI — retour au socle standard
 
+> Actualisation : GPU du Mac rétabli,27B entièrement en VRAM à32768 et lecture WebUI réelle reçue. Choix GRUB corrigé et persistance native WebUI reçue après redémarrage du conteneur. Voir [réception GPU](RAZER-RECEPTION-GPU.md). Les relevés CPU et états en attente ci-dessous décrivent la première étape, conservée comme historique.
+
 Décision propriétaire du 1 novembre 2026 : « Je veux du standard qu’on personnalisera à la fin ». Cette décision remplace, pour les nouvelles tâches WebUI, l’approche consistant à corriger le moteur durable maison. Les historiques et les services JARVIS restent conservés ; aucune fusion automatique dans main.
 
 ## Avant / après installé

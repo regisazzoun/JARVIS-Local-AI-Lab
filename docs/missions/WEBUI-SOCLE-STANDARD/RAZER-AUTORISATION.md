@@ -1,3 +1,5 @@
+> Étape initiale avant redémarrage. **Rétablissement GPU reçu ensuite** : voir [réception finale ciblée](RAZER-RECEPTION-GPU.md) et ses preuves. Les constats ci-dessous restent historiques.
+
 # Razer Core — autorisation persistante et blocage GPU après redémarrage
 
 Demande propriétaire du 1 novembre 2026 : corriger l’autorisation du boîtier pour qu’elle persiste, vérifier le 27B sur NVIDIA, sans perturber la copie Dell1 → Dell2.

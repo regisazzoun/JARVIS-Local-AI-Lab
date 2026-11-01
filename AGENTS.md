@@ -1,3 +1,9 @@
+## Réception GPU après retour sur T2 — 1 novembre 2026
+
+Autorisation native persistante du Razer enregistrée et observée automatiquement après redémarrage/rebranchement. Mac revenu sur le noyau T2 existant6.18 avec réserves mémoire ; RTX3090 liée à NVIDIA595.91.07 et BAR attribués. Le27B à32768 est entièrement chargé en VRAM, inférence réelle reçue ; lecture `uname -s` via WebUI/Open Terminal reçue indépendamment. Entrée T2 fixée comme défaut GRUB, secours Debian conservés.
+
+Le redémarrage a aussi révélé `ENABLE_PERSISTENT_CONFIG=false` dans le déploiement WebUI : option native corrigée àtrue, réglages standard réappliqués, puis conservation vérifiée après redémarrage du seul conteneur. Même image et volume, aucune couche de réapplication ajoutée. Aucune commande sur les Dell ni modification de leur transfert. Protocole reçu : démarrage Razer débranché, puis rebranchement ; démarrage tout branché et autonomie universelle non déclarés reçus. Voir [réception GPU](docs/missions/WEBUI-SOCLE-STANDARD/RAZER-RECEPTION-GPU.md).
+
 ## WebUI — priorité au socle standard — décision propriétaire du 1 novembre 2026
 
 « Je veux du standard qu’on personnalisera à la fin ». Le pilotage des nouvelles tâches WebUI doit utiliser les mécanismes natifs Open WebUI et Qwen Code amont non modifié. Retirer du parcours WebUI la création automatique de missions par le filtre propriétaire, la préparation/revue de rapports du moteur durable maison et les adaptations locales d’inférence. Réutiliser les connecteurs, identités Google, permissions et journaux existants via les interfaces natives MCP/OpenAPI ; aucun nouveau moteur d’agent, mémoire ou résumé maison. Personnalisation d’identité/mémoire différée jusqu’à réception du socle.
