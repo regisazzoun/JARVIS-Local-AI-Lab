@@ -1,0 +1,37 @@
+# Copyright 2026 Cisco Systems, Inc. and its affiliates
+#
+# SPDX-License-Identifier: Apache-2.0
+
+testbed:
+  name: cml-lab
+  credentials:
+    default:
+      username: "%ENV{CML_DEVICE_USERNAME}"
+      password: "%ENV{CML_DEVICE_PASSWORD}"
+    enable:
+      password: "%ENV{CML_DEVICE_ENABLE_PASSWORD}"
+
+devices:
+  # Rename this key to match your device hostname in Cisco Modeling Labs.
+  iosv-0:
+    os: ios
+    type: router
+    # Replace with the management IP of your CML node, without a protocol prefix
+    # and without a trailing slash. Example: 192.0.2.10
+    connections:
+      cli:
+        protocol: ssh
+        ip: "%ENV{CML_DEVICE_IP}"
+        port: 22
+        arguments:
+          connection_timeout: 60
+
+  # Add further devices by copying the block above, for example:
+  # iosv-1:
+  #   os: ios
+  #   type: router
+  #   connections:
+  #     cli:
+  #       protocol: ssh
+  #       ip: "%ENV{CML_DEVICE_IP_2}"
+  #       port: 22

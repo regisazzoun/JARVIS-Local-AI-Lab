@@ -1,3 +1,23 @@
+## Réception documentaire locale — 1 novembre 2026
+
+✅🟡 Réception ciblée avec réserves : Word, Excel (formule/cache5), PowerPoint3diapositives, PDF1page, Draw.io éditable et conversions créés/repris réellement par JARVIS80B depuis WebUI ; 25 contrôles indépendants de fichiers PASS, rendus inspectés. Après clarification, deux essais stricts (codes0et7) : une exécution, une attente, réponse finale sans autre outil. Échecs initiaux et limites conservés ; aucune autonomie universelle ni réception de tous les18Skills/MCP. Consignes natives et PATH documentaire corrigés sans moteur/service nouveau. [Rapport et preuves](docs/preparations/MODULES-STANDARD-20261101/RECEPTION-CAPACITES-LOCALES.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Raccordements du lycée, référentiels/gabarits et six MCP stdio Qwen Code restent à recevoir. Les états de préparation ci-dessous sont historiques.
+
+## Skills WebUI — visibilité confirmée par le propriétaire, 1 novembre 2026
+
+✅ Visibilité/découverte confirmée dans WebUI par Régis après récupération du catalogue modèles. Aucun nouveau test Codex. Cette réception ne valide pas l’exécution des scripts, le rendu documentaire, les MCP Qwen Code ou les raccordements du lycée ; ces points restent ouverts. [Portée de la confirmation](docs/preparations/MODULES-STANDARD-20261101/RECEPTION-VISIBILITE-PROPRIETAIRE.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Les états ci-dessous restent historiques.
+
+## Raccordement local des modules standard — 1 novembre 2026
+
+🟡 **Configuré, non testé.** Les 18 Skills ont leurs chemins natifs Open Terminal et Qwen Code standard ; la catégorie Skills est activée dans les deux profils WebUI avec chargement à la demande. Six MCP locaux (Filesystem, Draw.io, MarkItDown, Pandoc, Fetch, Ansible) sont configurés pour les prochaines sessions Qwen Code, sans démarrage aujourd’hui. WebUI direct utilise le terminal existant ; la configuration MCPO HTTP supplémentaire est préparée mais non chargée. Inventaires du lycée vides et candidats réseau non activés.
+
+Ordre propriétaire conservé : aucun test fonctionnel, nouveau moteur, changement/reprise de mission ou redémarrage de service. Référentiels, gabarits, cibles et accès du lycée restent à fournir ; découverte limitée au périmètre explicitement autorisé. [État exact et limites](docs/preparations/MODULES-STANDARD-20261101/RACCORDEMENT-LOCAL.md), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Aucun endpoint non démarré déclaré opérationnel, aucune fusion main.
+
+## État initial historique — installation brute du 1 novembre 2026
+
+🟡 Installés/préparés, **non testés et non raccordés** : 18 Skills sélectionnés, connecteurs MCP et dépendances isolés sur le Mac mini dans `~/JARVIS/modules-standard-20261101`. Aucun nouveau moteur, service lancé/redémarré, modification de mission ni essai fonctionnel. Ordre propriétaire : raccordements et découverte de l’infrastructure au lycée après déplacement, à partir de la liste des cibles fournie ; aucun balayage implicite. Conserver M26-P4/MANUAL-HOLD et les services existants.
+
+Lire le [rapport et les versions](docs/preparations/MODULES-STANDARD-20261101/RAPPORT.md) avant reprise ; suivi ouvert [issue42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Ne pas confondre présence sur disque, chargement dans le registre actif et réception fonctionnelle. Aucun test maintenant, aucune fusion automatique main.
+
 ## Réception GPU après retour sur T2 — 1 novembre 2026
 
 Autorisation native persistante du Razer enregistrée et observée automatiquement après redémarrage/rebranchement. Mac revenu sur le noyau T2 existant6.18 avec réserves mémoire ; RTX3090 liée à NVIDIA595.91.07 et BAR attribués. Le27B à32768 est entièrement chargé en VRAM, inférence réelle reçue ; lecture `uname -s` via WebUI/Open Terminal reçue indépendamment. Entrée T2 fixée comme défaut GRUB, secours Debian conservés.

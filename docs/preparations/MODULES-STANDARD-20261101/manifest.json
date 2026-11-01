@@ -1,0 +1,3088 @@
+{
+  "date": "2026-11-01",
+  "host": "Mac mini JARVIS / Debian",
+  "root": "/home/adminjarvis/JARVIS/modules-standard-20261101",
+  "status": "installed-not-tested",
+  "functional_tests_run": false,
+  "new_agent_engine": false,
+  "services_started_or_restarted": false,
+  "existing_missions_modified": false,
+  "sources": [
+    {
+      "name": "hermes-skills",
+      "repository": "NousResearch/hermes-agent",
+      "commit": "c627ec84664d43e0b18b95d9d86d8963747d56c7",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/hermes-skills"
+    },
+    {
+      "name": "learning-commons",
+      "repository": "learning-commons-org/agent-skills",
+      "commit": "8b0599c244696d9a8e6978dd58a426f475f37c45",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/learning-commons"
+    },
+    {
+      "name": "education-skills",
+      "repository": "GarethManning/education-agent-skills",
+      "commit": "135d6275e7db0657d70b147f46d3191c5430677d",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/education-skills"
+    },
+    {
+      "name": "devops-skills",
+      "repository": "Jeffallan/claude-skills",
+      "commit": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/devops-skills"
+    },
+    {
+      "name": "mcp-reference",
+      "repository": "modelcontextprotocol/servers",
+      "commit": "194cc86e3ae6400958555bd4116849d822d69263",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/mcp-reference"
+    },
+    {
+      "name": "ansible-devtools",
+      "repository": "ansible/vscode-ansible",
+      "commit": "3cffa8cd4a03feffc760ca7ac44e3c0fa00b6c92",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/ansible-devtools"
+    },
+    {
+      "name": "cisco-pyats",
+      "repository": "CiscoDevNet/cisco-pyats-mcp-network-automation",
+      "commit": "65779735c1914171d3513c0429797033e8d2a173",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/cisco-pyats"
+    },
+    {
+      "name": "pfsense",
+      "repository": "gensecaihq/pfsense-mcp-server",
+      "commit": "445bb718d99fcdd3c481876d9cfaee9ccb5a0634",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/pfsense"
+    },
+    {
+      "name": "nagios",
+      "repository": "equilibrise/nagios-mcp",
+      "commit": "26a7d7d4025205a1288fe2745d75e645e6931eb2",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/nagios"
+    },
+    {
+      "name": "netbox-enhanced",
+      "repository": "skuldgerry/netbox-mcp",
+      "commit": "2a05815dca86c911bcb2030ec9060f8f7c315b83",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/netbox-enhanced"
+    },
+    {
+      "name": "drawio",
+      "repository": "jgraph/drawio-mcp",
+      "commit": "30c232a35a924e193cd419013b3deb35536ec79b",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/drawio"
+    },
+    {
+      "name": "markitdown",
+      "repository": "microsoft/markitdown",
+      "commit": "7482c092d9c0074a89803c9fdb63a969e7fe17fc",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/markitdown"
+    },
+    {
+      "name": "pandoc-mcp",
+      "repository": "dullroar/pandoc_mcp",
+      "commit": "b27d0776aeb029a77ac9df05f19a02d71d412836",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/pandoc-mcp"
+    },
+    {
+      "name": "playwright",
+      "repository": "microsoft/playwright-mcp",
+      "commit": "be26c080edfae7c761db1e757c4aff9f6453b4d7",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/playwright"
+    },
+    {
+      "name": "github-mcp",
+      "repository": "github/github-mcp-server",
+      "commit": "f2a07cd13243ea9773a0ef42692e5b0e156f0951",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/github-mcp"
+    },
+    {
+      "name": "netbox-official",
+      "repository": "netboxlabs/netbox-mcp-server",
+      "commit": "8850301ab542565f37cef39c6c1523c86ec2a02e",
+      "source": "downloaded",
+      "path": "/home/adminjarvis/JARVIS/modules-standard-20261101/sources/netbox-official"
+    }
+  ],
+  "installation": {
+    "documents": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/documents"
+    },
+    "markitdown": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/markitdown"
+    },
+    "pfsense": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/pfsense"
+    },
+    "nagios": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/nagios"
+    },
+    "netbox-enhanced": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/netbox-enhanced"
+    },
+    "netbox-official": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/netbox-official"
+    },
+    "cisco-pyats": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/cisco-pyats"
+    },
+    "pandoc-mcp": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/pandoc-mcp"
+    },
+    "fetch": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/fetch"
+    },
+    "ansible": {
+      "status": "installed-not-tested",
+      "venv": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/ansible"
+    },
+    "node24": {
+      "status": "installed-not-tested"
+    },
+    "filesystem": {
+      "status": "installed-not-tested",
+      "package": "@modelcontextprotocol/server-filesystem"
+    },
+    "playwright": {
+      "status": "installed-not-tested",
+      "package": "@playwright/mcp"
+    },
+    "drawio": {
+      "status": "installed-not-tested",
+      "package": "@drawio/mcp"
+    },
+    "ansible-mcp": {
+      "status": "installed-not-tested",
+      "package": "@ansible/ansible-mcp-server"
+    },
+    "ansible-collections": {
+      "status": "installed-not-tested"
+    }
+  },
+  "skills": [
+    {
+      "name": "microsoft-office",
+      "source": "sources/hermes-skills/skills/productivity/microsoft-office",
+      "repository_folder": "hermes-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+        "SKILL.md": "3b626570f7583a6a95ef4f97cebc572d419d2d037fc73f8eca98d0a126fadb32",
+        "LICENSE": "8aa3c7717d57a68490c31eef4b57b6887e892f0566ff866078ebd76113d357e2",
+        "scripts/xlsx_edit.py": "f689b1c3ae284656a95b149cef95c0599b2774cb639c0103926bf25fa4c4a9cc",
+        "scripts/pptx_edit.py": "edba76ade302c9889ffbe78b1ff8512f7b898b7871b60c24a6affa57c5ec403a",
+        "scripts/xlsx_create.py": "f6be8af8dfe1ad70c3456cf3063276e74d9453b7f1d2b65e08b0dad5bfeed417",
+        "scripts/xlsx_recalc.py": "33b4143ce9dcf73e7f98c2a62030c6449fe7263d87254f916050d552b32bd496",
+        "scripts/docx_common.py": "2f25c7b13aa9f5f12d7ac14eabade638bf9b2dc6b8e54739f73fb42b68a27029",
+        "scripts/csv_to_xlsx.py": "4fb97f8e656d50c02d3c890c53b7864d5066a282b2568e552e168bd297c27c91",
+        "scripts/pptx_from_template.py": "69101b5e8d5b34f732539673fc27100b8a9454242bd5715c221c169d0214f063",
+        "scripts/pptx_read.py": "b2a6e246e40a6728e5e0e8bf2c4cbe4f788ab8c40bdb1b89e339571a34fdbc71",
+        "scripts/docx_template.py": "aed1b1db212b72995bd47a28e6c9928a4d02d7596615f1dadf12cd43a4f34219",
+        "scripts/docx_create.py": "8391869c97ab804374dddadff4fbebc060120c0b973d06133f84487cc2c442d5",
+        "scripts/docx_edit.py": "00feef0a58a318406077020a017dd0b2673daaef93e0bda81fa9437b237180ff",
+        "scripts/pptx_render.py": "c50e972b35ad1586e2a73d80c31d8744dda0a60c9d25e888fe04c349ecc1e7af",
+        "scripts/xlsx_restructure.py": "8a039e0cd04e70d3f329c4919ce68d5570280955e4a6987e4867e6bc6bb3535e",
+        "scripts/docx_revisions.py": "d0eed5c718ebc8a0d7e9f8ae80fe22b19e922202ba57a936db28092f2031e15b",
+        "scripts/docx_validate.py": "66c1d307e940803e1505002477ced7ac156524566f16d29913807443a8d8826c",
+        "scripts/xlsx_read.py": "5ab31b1b417efea11a8af7b15c6aa5f26d6d966effefaa19af604c1fa0ca0916",
+        "scripts/pptx_create.py": "06f52918293b3440b9cdc372b65dbf3d1da0e50ca0ccaeedfa1f5eef0d975fb8",
+        "scripts/docx_read.py": "00b4eaea70eef5e4eb8993ae1357ed35f74b765d998740e3edde13b7327bc3e3",
+        "scripts/docx_comments.py": "1ab18ff6d84532f64d0a640c079ad37bee2d0e8ee91db203c438e5a98a1a5871",
+        "scripts/xlsx_to_csv.py": "a141b37a01bad031970177fc48aa501524067cd882b58c9a4cf4e543e52fc896",
+        "references/powerpoint.md": "cd471bc9033618d98a70d891b1654cc7f1c0aabdeba0cb52bc928ab5dea7305a",
+        "references/word.md": "102ed2e3986f3b0c283062ae020f9569255f1894f5fa989a26a970db81023455",
+        "references/excel.md": "11a810e41d6e51dbdda6937328e8b9c1d7490271e9522d287bbef2de5c34af7d",
+        "references/restructuring.md": "75ad895aabfc5e48d6226384d268efd2cea4feca230b2835fcef6c50672e6e04",
+        "references/revisions-and-comments.md": "cd861f6e9ea77767b1a5e2ec3f48dd620b0664811d8f204c59c61571b408e9ba",
+        "tests/test_docx_skill.py": "ce979eafad377f1abd2e57afe255198cc3d635a2000976f6b5e7166ef39654c3",
+        "tests/test_xlsx_skill.py": "867939b73c109c0d3fbe05d8e0b88a9a0e6dad73ffafab26d222e7384a8d8c1e",
+        "tests/test_powerpoint_skill.py": "3e26726b2e2918b012bafeeee31c5c9b704350393f3124529e69a431ab6d93b3"
+      }
+    },
+    {
+      "name": "pdf",
+      "source": "sources/hermes-skills/skills/productivity/pdf",
+      "repository_folder": "hermes-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6",
+        "SKILL.md": "407a5c1afdf9b596e6835499483ac2f712774250c1367f459efafb1293f6ef45",
+        "LICENSE": "8aa3c7717d57a68490c31eef4b57b6887e892f0566ff866078ebd76113d357e2",
+        "scripts/pdf_form_layout.py": "f654e386a8b1e5a26a1530b16d36177310dd48c6cb589ec6cf3dc1898a8ccdf9",
+        "scripts/pdf_watermark.py": "9eae814f1c53773703cc0df65a69972b348b0e14f348d10aeefe673e118d6396",
+        "scripts/pdf_fill_form.py": "4f0d90d37c951dac3cac49e925085ea7621845df49f37f7b20b33010bcc0e779",
+        "scripts/pdf_stamp.py": "f4c3a83899d75249ecfa93cd3f60b107e3ebc6c6c1cd97193ab40bad9b36cd36",
+        "scripts/extract_pymupdf.py": "784d233ee9849ce78cddc8253c87172c06a0b62c41aff7215fd97b77766babc8",
+        "scripts/pdf_split.py": "6a691e4d9d60c224279b40c9758d7bb6c07b08559f368be8a64226d66c7db9e4",
+        "scripts/pdf_make_form.py": "74ecfcbad0e49fdc5bfd018c75f53201e13a70be8ed9babd6e26dd7073095d6e",
+        "scripts/extract_marker.py": "a115ee1da5b88f7ab61c480ef9efb2b371350bed8f1cface7668898ba80aae38",
+        "scripts/_raster.py": "4c76a4037404177b3dcb8d28397d258a103e0e96c9dc97557a1815bbb73a1dd7",
+        "scripts/pdf_page_image.py": "6d877773e990d1f131868647421f9fcf3f715a57396dae71b240e46d453bf2cc",
+        "scripts/pdf_merge.py": "3d98a3f91cb1708503d5e02493f7e52029751dacb37d8d04c50f7559cbb40e51",
+        "scripts/pdf_secure.py": "fd0c1885f5da2627c70bf7b6df6b0514fe59c2e57cdfa93a5f2e1839d65951ca",
+        "scripts/pdf_meta.py": "7119b7e5672dd95ca614e5e7e634aa3d7dc39586d958a45f7c0c67ed1e94d7db",
+        "scripts/pdf_create.py": "fa8fcfaf609c45cb33cb9872eaa33e2e191f10755607c4f6f04f0ab8ec9a54bd",
+        "scripts/pdf_read.py": "a6db8a581b7d2e1c8230b2bb5fd7d21acdc383f3c81eb87b07c690ee829d8504",
+        "references/nano-pdf-editing.md": "2f0b15bd1ebbd45cf37ed257723ad63aa70b623b97f5242c886c14f8968cd773",
+        "references/forms.md": "471517e0b154fb765d04416f089b7e999103804b964a84675af49e2d53ee8da0",
+        "references/ocr-extraction.md": "070921cb4de98207f9bb05e9b29851ee9c080b6d88c556105fe7592bb221d222",
+        "tests/test_pdf_skill.py": "07605dd13db140c189eb57633afb213cfbe677bceaa0c69e36b97e45b8c5ceaa"
+      }
+    },
+    {
+      "name": "devops-engineer",
+      "source": "sources/devops-skills/skills/devops-engineer",
+      "repository_folder": "devops-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+        "SKILL.md": "552f6b0f31bc5d6cad3c692034407f22319424d2cdb94ade99ec108f760e4285",
+        "references/kubernetes.md": "658ddf774b90f5eef6a97c117bb41dbcab3b3a551e3888ed7d1c53b7ce02cf28",
+        "references/platform-engineering.md": "1256d7f015cb45c8e35ad708cf9a51ef429c95945d07705fb416bc89e3bc1bfd",
+        "references/github-actions.md": "04d2d1c339762948dd513c268482d3ffada30068bbea92f282bf753837cb5e4b",
+        "references/incident-response.md": "8410ae3e9c7295f4fda94d7fa85438292e675a4e10dc64a61aead4df162522a4",
+        "references/deployment-strategies.md": "d09fd909526bac88579c993b85294c210ca76959e38a0018f4d4181f48e2302b",
+        "references/release-automation.md": "bf546d38622d8f9185939d5d3bafea8859f44a7c60e85957afc39347052abc45",
+        "references/terraform-iac.md": "0d629d4b9826cbd97c1d5a6e826d701bacd3f057d4092cda0e5bb9da692e922b",
+        "references/docker-patterns.md": "09f2deadb4ff260b09e09c25ad2037ea90357e04e2ba2f3fe4711adf61bc59b2",
+        "references/gitlab-ci.md": "8b4e6492a96ff5b94c07dcddca3a093121845a13bc4f2699844c06f42f3043e2"
+      }
+    },
+    {
+      "name": "netbox-mcp-operator",
+      "source": "sources/netbox-enhanced/skills/netbox-mcp-operator",
+      "repository_folder": "netbox-enhanced",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "SKILL.md": "779f0e758058993a74c6d55aeb05fae2a6fe40667abadf8d5b9cff1eab46ebee",
+        "agents/openai.yaml": "f30fa7dbc88bcfd8da27dcdcd54c6341d2981a6fe9cc2cf622a461da391acd0e",
+        "references/tool-catalog.md": "879d38bce0e9d76ac2d4aec531884b3d91506fbf5f592dc9e9716c514b10362a"
+      }
+    },
+    {
+      "name": "drawio",
+      "source": "sources/drawio/plugins/codex/drawio/skills/drawio",
+      "repository_folder": "drawio",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "006e61a1b8c97620d75ceacc283de7a363d78da7da9a5b92203324c40feb7232",
+        "SKILL.md": "78a7a57cb7ddb8712783cdea0139ed9b4b0038810bc4df38da8f966205e786e4",
+        "scripts/find-shapes.js": "374010b6c82387c552dd9ce0207d784b0229015d96e2bef1856bb3745a943944"
+      }
+    },
+    {
+      "name": "k12-check-for-understanding",
+      "source": "sources/learning-commons/skills/k12-check-for-understanding",
+      "repository_folder": "learning-commons",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "c4a2cd14eb3abe621891b235bbe2cfd65f1f71afcfcd5c9b691bb016387dfe88",
+        "SKILL.md": "152e3272fbd108fedf2b7ee43fba71422c807b379500dabc04688b3185809e7f",
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "NOTICE": "069fd4b90c886db2dbed74fcf5ebf45f886d7fec194b63a3f0d3186833cf2c09",
+        "references/math.md": "a2a73b86b8a6bc00e9d08d4ab4dc377cbb553387a9a7aa02bf2e57e104f5f2ef",
+        "references/learning-commons-kg.md": "fba868d6d52e4ffe790fd356c7acfdd0ae044e12c99f0f4391397277c9d32e93",
+        "references/verification.md": "5a42b87056233f406a5eaecab36b737b43194dc40b2517b3731bbc28510d5412",
+        "references/output.md": "a45f5742f4040f383ffbf5c47b3528e0dbae913a1a96613bf965b792923b9ec5",
+        "rendering/claude-artifact.md": "7581899c842efcd7a62daca5bbae86aad326606b798ab7ab50dce54ab370517d"
+      }
+    },
+    {
+      "name": "k12-lesson-differentiation",
+      "source": "sources/learning-commons/skills/k12-lesson-differentiation",
+      "repository_folder": "learning-commons",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "c4a2cd14eb3abe621891b235bbe2cfd65f1f71afcfcd5c9b691bb016387dfe88",
+        "SKILL.md": "01fa34f4a5a657b3e9af471abccf382a3d0e992b763ce0638e5f8500d132a716",
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "NOTICE": "25f5d605c8b6c8729dfaa9c969d93bcfbd4cd2d91e1753a2e60f207b695b6c19",
+        "scripts/render_documents.py": "b448cc28fda0c8a24364e83c73e9b29ef1f6c7d53748dc3dd7854f571030b442",
+        "scripts/render_lesson_docx.py": "1c09071be8de48479d03646df7068551bcc9bcc5df5ae1fdb4cc7883f7ca7586",
+        "scripts/render_all.sh": "03f4397c31f9f9a5b50beac5f001b77f6cd923c72611bdaba2410e47ce42cec2",
+        "scripts/lesson_common.py": "cb5e33b03ddebf19a82cb76e84237077d565a872bfa6a81918d3e0d7dca9e2ce",
+        "scripts/theme.css": "89edea0fa28473d61f1a18a950af7cf8d836b20b071f5a42322275ac57d4b5a6",
+        "scripts/render_lesson_html.py": "037501bf3b72eb1caea00d52ed23f50310f59c786230ba9c62520602a96cc4de",
+        "references/math.md": "f086a08eb6c6a0b4fb9482d40c6a7f359e89c2423d6b1b24877d2f9a7d32b810",
+        "references/ela.md": "3efe3154c23c23dec49d92140b38168f41ae10a85969fa5414a97815dd865b63",
+        "references/learning-commons-kg.md": "c7ba40f3f3c0f835d710af3dac322da8992c9213695c8d31dee830321a63845f",
+        "references/science.md": "6ee14b9e8cc76b8c7be2cf22d1e5a7dfd3e83dcd8b5b4220635a07f5fedcd82d",
+        "references/output.md": "8f4d39475cf1565614cfb4d15b26ef32622be3c21dc0fe9ddacdd88696710bc5",
+        "references/example_differentiation.json": "f17755c592150851ab6ee3f985284f5f7d6a84c940b791c5bf9f022c43ebfc4a",
+        "references/differentiation-json.md": "c642e239ad4a147cfb43a7a208d40987d3b087472377cb8ee09d5705fdf6de6a",
+        "references/social_studies.md": "68c9f91d417485832b752dcb16aebbe6c0b86943c11a265f9a5429f4075fdc63",
+        "rendering/claude-artifact.md": "415f9921c07b1cf366489812bf20f3789610a4e0c35f14e58d38ba952171a614",
+        "rendering/docx.md": "36efab64b14b6488cdefd537dc7bf0551b231a17262f9057b9b25750f5d342c3"
+      }
+    },
+    {
+      "name": "k12-lesson-plan-creation",
+      "source": "sources/learning-commons/skills/k12-lesson-plan-creation",
+      "repository_folder": "learning-commons",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "c4a2cd14eb3abe621891b235bbe2cfd65f1f71afcfcd5c9b691bb016387dfe88",
+        "SKILL.md": "c4ed0b8cf2bad05c60a887634b95a3e392a342aad9e9ad6d12b407445aecdfb5",
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "NOTICE": "25f5d605c8b6c8729dfaa9c969d93bcfbd4cd2d91e1753a2e60f207b695b6c19",
+        "scripts/render_documents.py": "b448cc28fda0c8a24364e83c73e9b29ef1f6c7d53748dc3dd7854f571030b442",
+        "scripts/render_lesson_docx.py": "1c09071be8de48479d03646df7068551bcc9bcc5df5ae1fdb4cc7883f7ca7586",
+        "scripts/render_all.sh": "f04b7a89f828ba3c16b1ac7941aa36f3d2f872c38ffa5420cd5a6e46ac27249b",
+        "scripts/lesson_common.py": "cb5e33b03ddebf19a82cb76e84237077d565a872bfa6a81918d3e0d7dca9e2ce",
+        "scripts/theme.css": "89edea0fa28473d61f1a18a950af7cf8d836b20b071f5a42322275ac57d4b5a6",
+        "scripts/render_lesson_html.py": "037501bf3b72eb1caea00d52ed23f50310f59c786230ba9c62520602a96cc4de",
+        "references/math.md": "4d510d6579e35b1a4ef9cb65a7d77681bc64dfe30d3064e4628a964c5f8277a2",
+        "references/ela.md": "9c1de76d87afbe87b2a95c7f192c9595b4b756fd036c0804f22df1213714ab71",
+        "references/learning-commons-kg.md": "ebde94cfac4aa1475f5149db7e0c3912136aec869289c6139438e2bfd7e9793b",
+        "references/science.md": "7f0401e77ef55d7f7ec043c09de394fcd334f0585d4afe108f428fd0865602a9",
+        "references/example_lesson.json": "0ad133f291bae290102f05368934128869cdccced5994371baca9668f95c2026",
+        "references/lesson-json.md": "8b27d2ee40a43256fe3aa4708950c1de895c982540cc8ce213717d49489c26d3",
+        "references/output.md": "e6832eb472ab52fcd91b5ff547213dcfc911c116949a9a4698ce5843928407c6",
+        "references/social_studies.md": "1b85c811d4a07207947d2bab9459cf4895ec3d828c281f0dd5102d06e0a784c3",
+        "rendering/claude-artifact.md": "a575c3d129893cbf6bb98dc3e65e06672f68cb53969a0c5c1339c3e6025d8d74",
+        "rendering/docx.md": "536662a19f097d16de9d9415c38fe0123132a4e47cb1e7ec1a6e60aad01c3363"
+      }
+    },
+    {
+      "name": "k12-lesson-prep",
+      "source": "sources/learning-commons/skills/k12-lesson-prep",
+      "repository_folder": "learning-commons",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "c4a2cd14eb3abe621891b235bbe2cfd65f1f71afcfcd5c9b691bb016387dfe88",
+        "SKILL.md": "cfca47967fc70625f92756a7f1228ed1176050772a46e43e73e38112c85354a3",
+        "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "NOTICE": "25f5d605c8b6c8729dfaa9c969d93bcfbd4cd2d91e1753a2e60f207b695b6c19"
+      }
+    },
+    {
+      "name": "error-analysis-protocol",
+      "source": "sources/education-skills/skills/self-regulated-learning/error-analysis-protocol",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "c58a67e286c73a607ec7d24b86c6ec4a855829d43c5d32d094c387e46d2647b7"
+      }
+    },
+    {
+      "name": "criterion-referenced-rubric-generator",
+      "source": "sources/education-skills/skills/curriculum-assessment/criterion-referenced-rubric-generator",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "b8f404c14ad9e33b275be384e390dce7946268436dc1cefc9620317c2b0cbc70"
+      }
+    },
+    {
+      "name": "assessment-validity-checker",
+      "source": "sources/education-skills/skills/curriculum-assessment/assessment-validity-checker",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "7cd36cbcd1f57d5216931d1c231b3e8774e4b5c9fec42e9ee1cb689e457bf33f"
+      }
+    },
+    {
+      "name": "competency-unpacker",
+      "source": "sources/education-skills/skills/curriculum-assessment/competency-unpacker",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "f7491dd4e9c38cf707067f8e4b1818069c501f39963d3628852f65bdd7031b46"
+      }
+    },
+    {
+      "name": "learning-progression-builder",
+      "source": "sources/education-skills/skills/curriculum-assessment/learning-progression-builder",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "17e59b772ef0e249b7a392865c68c113d38d8cbf0c2c59fba0ce76c34d96bcd7"
+      }
+    },
+    {
+      "name": "project-brief-designer",
+      "source": "sources/education-skills/skills/curriculum-assessment/project-brief-designer",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "14f314ee2575140998e26edf22d5e1818172353d9e150431be91e722c40a5345"
+      }
+    },
+    {
+      "name": "differentiation-adapter",
+      "source": "sources/education-skills/skills/curriculum-assessment/differentiation-adapter",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "13b3cbb8caf57f12bb988d3c243da16b3fcb1db3c5bac797b24866f2a0c84935"
+      }
+    },
+    {
+      "name": "competency-framework-translator",
+      "source": "sources/education-skills/skills/professional-learning/competency-framework-translator",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "d0f2cddba419200e44fb96e5b46704e6a6fbd079d7da72c10b229ae7caeb4e2e"
+      }
+    },
+    {
+      "name": "progressive-hint-ladder",
+      "source": "sources/education-skills/skills/student-learning/progressive-hint-ladder",
+      "repository_folder": "education-skills",
+      "licenses": [
+        "LICENSE"
+      ],
+      "activation": "staged-only-not-loaded",
+      "files": {
+        "UPSTREAM-LICENSE": "f952182df4eb7dd43335fbb429388dbb0b101c944c734a8dc05643b189cb87b7",
+        "SKILL.md": "563603c626673cf1f3ab2c3ed5ca58024b4e2dfbe8f0e446b06aed47f645d768"
+      }
+    }
+  ],
+  "github_binary": {
+    "version": "v2.0.3",
+    "url": "https://github.com/github/github-mcp-server/releases/download/v2.0.3/github-mcp-server_Linux_x86_64.tar.gz",
+    "sha256": "f797c20fe02a755865d0e2d46184ab47e31bf1619b0855b8d89c531e45a651c2",
+    "checksum_match": true,
+    "status": "installed-not-tested"
+  },
+  "python_environments": {
+    "markitdown": [
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "azure-ai-contentunderstanding",
+        "version": "1.2.0b3"
+      },
+      {
+        "name": "azure-ai-documentintelligence",
+        "version": "1.0.2"
+      },
+      {
+        "name": "azure-core",
+        "version": "1.41.0"
+      },
+      {
+        "name": "azure-identity",
+        "version": "1.27.0"
+      },
+      {
+        "name": "beautifulsoup4",
+        "version": "4.15.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cobble",
+        "version": "0.1.4"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "defusedxml",
+        "version": "0.7.1"
+      },
+      {
+        "name": "et_xmlfile",
+        "version": "2.0.0"
+      },
+      {
+        "name": "flatbuffers",
+        "version": "25.12.19"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "httpx2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "isodate",
+        "version": "0.7.2"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.3"
+      },
+      {
+        "name": "magika",
+        "version": "1.0.3"
+      },
+      {
+        "name": "mammoth",
+        "version": "1.13.0"
+      },
+      {
+        "name": "markdownify",
+        "version": "1.2.3"
+      },
+      {
+        "name": "markitdown",
+        "version": "0.1.9"
+      },
+      {
+        "name": "markitdown-mcp",
+        "version": "0.0.1a8"
+      },
+      {
+        "name": "mcp",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.3.0"
+      },
+      {
+        "name": "msal",
+        "version": "1.39.0"
+      },
+      {
+        "name": "msal-extensions",
+        "version": "1.3.1"
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.4"
+      },
+      {
+        "name": "olefile",
+        "version": "0.47"
+      },
+      {
+        "name": "onnxruntime",
+        "version": "1.31.1"
+      },
+      {
+        "name": "openpyxl",
+        "version": "3.1.5"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pandas",
+        "version": "3.1.0"
+      },
+      {
+        "name": "pdfminer.six",
+        "version": "20260107"
+      },
+      {
+        "name": "pdfplumber",
+        "version": "0.11.10"
+      },
+      {
+        "name": "pillow",
+        "version": "13.0.0"
+      },
+      {
+        "name": "protobuf",
+        "version": "7.36.2"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "pydub",
+        "version": "0.25.1"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "pypdfium2",
+        "version": "5.14.0"
+      },
+      {
+        "name": "python-dateutil",
+        "version": "4.0.0"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "python-pptx",
+        "version": "1.0.2"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "name": "soupsieve",
+        "version": "3.0.4"
+      },
+      {
+        "name": "SpeechRecognition",
+        "version": "3.17.0"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.6"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "xlrd",
+        "version": "2.0.2"
+      },
+      {
+        "name": "xlsxwriter",
+        "version": "3.3.1"
+      },
+      {
+        "name": "youtube-transcript-api",
+        "version": "1.2.4"
+      }
+    ],
+    "netbox-official": [
+      {
+        "name": "aiofile",
+        "version": "3.12.3"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "Authlib",
+        "version": "1.9.1"
+      },
+      {
+        "name": "beartype",
+        "version": "0.23.1"
+      },
+      {
+        "name": "cachetools",
+        "version": "7.2.8"
+      },
+      {
+        "name": "caio",
+        "version": "0.12.10"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "cyclopts",
+        "version": "5.3.2"
+      },
+      {
+        "name": "dnspython",
+        "version": "2.9.1"
+      },
+      {
+        "name": "docstring_parser",
+        "version": "0.18.0"
+      },
+      {
+        "name": "email-validator",
+        "version": "2.3.0"
+      },
+      {
+        "name": "exceptiongroup",
+        "version": "1.3.1"
+      },
+      {
+        "name": "fastmcp",
+        "version": "3.4.11"
+      },
+      {
+        "name": "fastmcp-slim",
+        "version": "3.4.11"
+      },
+      {
+        "name": "griffelib",
+        "version": "2.4.1"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "httpx-sse",
+        "version": "0.4.3"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "jaraco.classes",
+        "version": "3.4.0"
+      },
+      {
+        "name": "jaraco.context",
+        "version": "6.1.2"
+      },
+      {
+        "name": "jaraco.functools",
+        "version": "4.6.0"
+      },
+      {
+        "name": "jeepney",
+        "version": "0.9.0"
+      },
+      {
+        "name": "joserfc",
+        "version": "1.7.7"
+      },
+      {
+        "name": "jsonref",
+        "version": "1.1.0"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-path",
+        "version": "0.5.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "keyring",
+        "version": "25.7.0"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "mcp",
+        "version": "1.30.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "more-itertools",
+        "version": "11.2.1"
+      },
+      {
+        "name": "netbox-mcp-server",
+        "version": "1.2.2"
+      },
+      {
+        "name": "openapi-pydantic",
+        "version": "0.6.0"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pathable",
+        "version": "0.6.0"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.14.2"
+      },
+      {
+        "name": "py-key-value-aio",
+        "version": "0.4.6"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic-settings",
+        "version": "2.16.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "pyperclip",
+        "version": "1.11.0"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
+        "name": "rich-rst",
+        "version": "2.2.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "SecretStorage",
+        "version": "3.5.0"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "uncalled-for",
+        "version": "0.4.1"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "watchfiles",
+        "version": "1.3.0"
+      },
+      {
+        "name": "websockets",
+        "version": "17.4"
+      }
+    ],
+    "cisco-pyats": [
+      {
+        "name": "aiofiles",
+        "version": "25.1.0"
+      },
+      {
+        "name": "aiohappyeyeballs",
+        "version": "2.7.1"
+      },
+      {
+        "name": "aiohttp",
+        "version": "3.14.5"
+      },
+      {
+        "name": "aiosignal",
+        "version": "1.4.0"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "async-lru",
+        "version": "2.4.0"
+      },
+      {
+        "name": "asyncssh",
+        "version": "2.24.1"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "bcrypt",
+        "version": "5.0.0"
+      },
+      {
+        "name": "bidict",
+        "version": "0.24.1"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "chardet",
+        "version": "4.0.0"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "cisco-pyats-mcp-network-automation",
+        "version": "1.0.0"
+      },
+      {
+        "name": "ciscoisesdk",
+        "version": "0.1.1"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "dict2xml",
+        "version": "1.7.8"
+      },
+      {
+        "name": "dill",
+        "version": "0.4.1"
+      },
+      {
+        "name": "distro",
+        "version": "1.9.0"
+      },
+      {
+        "name": "f5-icontrol-rest",
+        "version": "1.3.13"
+      },
+      {
+        "name": "fastjsonschema",
+        "version": "2.22.2"
+      },
+      {
+        "name": "frozenlist",
+        "version": "1.8.0"
+      },
+      {
+        "name": "future",
+        "version": "0.18.3"
+      },
+      {
+        "name": "genie",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.clean",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.conf",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.filetransferutils",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.health",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.ops",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.parser",
+        "version": "26.9"
+      },
+      {
+        "name": "genie.libs.sdk",
+        "version": "26.9"
+      },
+      {
+        "name": "gitdb",
+        "version": "4.0.12"
+      },
+      {
+        "name": "GitPython",
+        "version": "3.2.1"
+      },
+      {
+        "name": "grpcio",
+        "version": "1.85.1"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "httpx2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "invoke",
+        "version": "3.0.3"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonpickle",
+        "version": "4.1.4"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "junit-xml",
+        "version": "1.9"
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.3"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.4"
+      },
+      {
+        "name": "mcp",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.3.0"
+      },
+      {
+        "name": "multidict",
+        "version": "7.2.1"
+      },
+      {
+        "name": "ncclient",
+        "version": "0.7.1"
+      },
+      {
+        "name": "netaddr",
+        "version": "1.3.0"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "paramiko",
+        "version": "5.1.0"
+      },
+      {
+        "name": "pathspec",
+        "version": "1.1.1"
+      },
+      {
+        "name": "prettytable",
+        "version": "3.18.0"
+      },
+      {
+        "name": "propcache",
+        "version": "0.5.4"
+      },
+      {
+        "name": "protobuf",
+        "version": "7.36.2"
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2"
+      },
+      {
+        "name": "pyasn1",
+        "version": "0.6.5"
+      },
+      {
+        "name": "pyasynchat",
+        "version": "1.0.5"
+      },
+      {
+        "name": "pyasyncore",
+        "version": "1.0.5"
+      },
+      {
+        "name": "pyats",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.aereport",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.aetest",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.async",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.connections",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.datastructures",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.easypy",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.kleenex",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.log",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.reporter",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.results",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.tcl",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.topology",
+        "version": "26.9"
+      },
+      {
+        "name": "pyats.utils",
+        "version": "26.9"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "pyftpdlib",
+        "version": "2.2.0"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "PyNaCl",
+        "version": "1.6.2"
+      },
+      {
+        "name": "pysnmp",
+        "version": "7.1.22"
+      },
+      {
+        "name": "python-engineio",
+        "version": "4.9.1"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "python-socketio",
+        "version": "5.11.2"
+      },
+      {
+        "name": "pyvmomi",
+        "version": "9.1.1.0"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "requests-toolbelt",
+        "version": "0.9.1"
+      },
+      {
+        "name": "rest.connector",
+        "version": "26.9"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "ruamel.yaml",
+        "version": "0.19.1"
+      },
+      {
+        "name": "ruamel.yaml.clib",
+        "version": "0.2.14"
+      },
+      {
+        "name": "setuptools",
+        "version": "79.0.1"
+      },
+      {
+        "name": "simple-websocket",
+        "version": "1.1.0"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "name": "smmap",
+        "version": "5.0.3"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "tftpy",
+        "version": "0.8.0"
+      },
+      {
+        "name": "tqdm",
+        "version": "4.70.1"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "unicon",
+        "version": "26.9"
+      },
+      {
+        "name": "unicon.plugins",
+        "version": "26.9"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "wcwidth",
+        "version": "0.9.4"
+      },
+      {
+        "name": "wheel",
+        "version": "0.48.0"
+      },
+      {
+        "name": "wsproto",
+        "version": "1.3.2"
+      },
+      {
+        "name": "xmltodict",
+        "version": "1.0.4"
+      },
+      {
+        "name": "yamllint",
+        "version": "1.38.0"
+      },
+      {
+        "name": "yang.connector",
+        "version": "26.9"
+      },
+      {
+        "name": "yarl",
+        "version": "1.25.1"
+      }
+    ],
+    "fetch": [
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "beautifulsoup4",
+        "version": "4.15.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "html5lib",
+        "version": "1.1"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "httpx2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.3"
+      },
+      {
+        "name": "markdownify",
+        "version": "1.2.3"
+      },
+      {
+        "name": "mcp",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mcp-server-fetch",
+        "version": "2026.10.28"
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.3.0"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "Protego",
+        "version": "0.7.0"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "readabilipy",
+        "version": "0.3.0"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "regex",
+        "version": "2026.9.29"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "name": "socksio",
+        "version": "1.0.0"
+      },
+      {
+        "name": "soupsieve",
+        "version": "3.0.4"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "webencodings",
+        "version": "0.6.1"
+      }
+    ],
+    "bootstrap": [
+      {
+        "name": "pip",
+        "version": "25.1.1"
+      },
+      {
+        "name": "uv",
+        "version": "0.13.6"
+      }
+    ],
+    "pfsense": [
+      {
+        "name": "aiofile",
+        "version": "3.12.3"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "Authlib",
+        "version": "1.9.1"
+      },
+      {
+        "name": "beartype",
+        "version": "0.23.1"
+      },
+      {
+        "name": "cachetools",
+        "version": "7.2.8"
+      },
+      {
+        "name": "caio",
+        "version": "0.12.10"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "cyclopts",
+        "version": "5.3.2"
+      },
+      {
+        "name": "dnspython",
+        "version": "2.9.1"
+      },
+      {
+        "name": "docstring_parser",
+        "version": "0.18.0"
+      },
+      {
+        "name": "email-validator",
+        "version": "2.3.0"
+      },
+      {
+        "name": "exceptiongroup",
+        "version": "1.3.1"
+      },
+      {
+        "name": "fastmcp",
+        "version": "3.4.11"
+      },
+      {
+        "name": "fastmcp-slim",
+        "version": "3.4.11"
+      },
+      {
+        "name": "griffelib",
+        "version": "2.4.1"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "httpx-sse",
+        "version": "0.4.3"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "jaraco.classes",
+        "version": "3.4.0"
+      },
+      {
+        "name": "jaraco.context",
+        "version": "6.1.2"
+      },
+      {
+        "name": "jaraco.functools",
+        "version": "4.6.0"
+      },
+      {
+        "name": "jeepney",
+        "version": "0.9.0"
+      },
+      {
+        "name": "joserfc",
+        "version": "1.7.7"
+      },
+      {
+        "name": "jsonref",
+        "version": "1.1.0"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-path",
+        "version": "0.5.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "keyring",
+        "version": "25.7.0"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "mcp",
+        "version": "1.30.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "more-itertools",
+        "version": "11.2.1"
+      },
+      {
+        "name": "openapi-pydantic",
+        "version": "0.6.0"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pathable",
+        "version": "0.6.0"
+      },
+      {
+        "name": "pfsense-mcp-server",
+        "version": "1.1.0"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.14.2"
+      },
+      {
+        "name": "py-key-value-aio",
+        "version": "0.4.6"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic-settings",
+        "version": "2.16.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "pyperclip",
+        "version": "1.11.0"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
+        "name": "rich-rst",
+        "version": "2.2.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "SecretStorage",
+        "version": "3.5.0"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "uncalled-for",
+        "version": "0.4.1"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "watchfiles",
+        "version": "1.3.0"
+      },
+      {
+        "name": "websockets",
+        "version": "17.4"
+      }
+    ],
+    "ansible": [
+      {
+        "name": "ansible-builder",
+        "version": "3.2.0"
+      },
+      {
+        "name": "ansible-compat",
+        "version": "26.10.0"
+      },
+      {
+        "name": "ansible-core",
+        "version": "2.21.5"
+      },
+      {
+        "name": "ansible-lint",
+        "version": "26.10.1"
+      },
+      {
+        "name": "ansible-navigator",
+        "version": "26.10.0"
+      },
+      {
+        "name": "ansible-runner",
+        "version": "2.4.3"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "bindep",
+        "version": "2.14.0"
+      },
+      {
+        "name": "black",
+        "version": "26.10.1"
+      },
+      {
+        "name": "bracex",
+        "version": "3.2"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "distro",
+        "version": "1.9.0"
+      },
+      {
+        "name": "filelock",
+        "version": "4.2.6"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "lockfile",
+        "version": "0.12.2"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.4"
+      },
+      {
+        "name": "mypy_extensions",
+        "version": "1.1.0"
+      },
+      {
+        "name": "onigurumacffi",
+        "version": "1.5.0"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "Parsley",
+        "version": "1.3"
+      },
+      {
+        "name": "pathspec",
+        "version": "1.1.1"
+      },
+      {
+        "name": "pbr",
+        "version": "7.1.3"
+      },
+      {
+        "name": "pexpect",
+        "version": "4.9.0"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.14.2"
+      },
+      {
+        "name": "ptyprocess",
+        "version": "0.7.0"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "python-daemon",
+        "version": "3.1.2"
+      },
+      {
+        "name": "pytokens",
+        "version": "0.4.1"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "resolvelib",
+        "version": "1.2.1"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "ruamel.yaml",
+        "version": "0.19.1"
+      },
+      {
+        "name": "setuptools",
+        "version": "84.2.1"
+      },
+      {
+        "name": "subprocess-tee",
+        "version": "0.4.2"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.6"
+      },
+      {
+        "name": "wcmatch",
+        "version": "11.2"
+      },
+      {
+        "name": "yamllint",
+        "version": "1.38.0"
+      }
+    ],
+    "netbox-enhanced": [
+      {
+        "name": "aiofile",
+        "version": "3.12.3"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "Authlib",
+        "version": "1.9.1"
+      },
+      {
+        "name": "beartype",
+        "version": "0.23.1"
+      },
+      {
+        "name": "cachetools",
+        "version": "7.2.8"
+      },
+      {
+        "name": "caio",
+        "version": "0.12.10"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "cyclopts",
+        "version": "5.3.2"
+      },
+      {
+        "name": "dnspython",
+        "version": "2.9.1"
+      },
+      {
+        "name": "docstring_parser",
+        "version": "0.18.0"
+      },
+      {
+        "name": "email-validator",
+        "version": "2.3.0"
+      },
+      {
+        "name": "exceptiongroup",
+        "version": "1.3.1"
+      },
+      {
+        "name": "fastmcp",
+        "version": "3.4.11"
+      },
+      {
+        "name": "fastmcp-slim",
+        "version": "3.4.11"
+      },
+      {
+        "name": "griffelib",
+        "version": "2.4.1"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "httpx-sse",
+        "version": "0.4.3"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "jaraco.classes",
+        "version": "3.4.0"
+      },
+      {
+        "name": "jaraco.context",
+        "version": "6.1.2"
+      },
+      {
+        "name": "jaraco.functools",
+        "version": "4.6.0"
+      },
+      {
+        "name": "jeepney",
+        "version": "0.9.0"
+      },
+      {
+        "name": "joserfc",
+        "version": "1.7.7"
+      },
+      {
+        "name": "jsonref",
+        "version": "1.1.0"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-path",
+        "version": "0.5.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "keyring",
+        "version": "25.7.0"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "mcp",
+        "version": "1.30.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "more-itertools",
+        "version": "11.2.1"
+      },
+      {
+        "name": "netbox-mcp-server",
+        "version": "1.1.1"
+      },
+      {
+        "name": "openapi-pydantic",
+        "version": "0.6.0"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pathable",
+        "version": "0.6.0"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.14.2"
+      },
+      {
+        "name": "py-key-value-aio",
+        "version": "0.4.6"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic-settings",
+        "version": "2.16.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "pyperclip",
+        "version": "1.11.0"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
+        "name": "rich-rst",
+        "version": "2.2.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "SecretStorage",
+        "version": "3.5.0"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "uncalled-for",
+        "version": "0.4.1"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "watchfiles",
+        "version": "1.3.0"
+      },
+      {
+        "name": "websockets",
+        "version": "17.4"
+      }
+    ],
+    "nagios": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "blinker",
+        "version": "1.9.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.10.23"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "Flask",
+        "version": "3.1.3"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "httpx2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "itsdangerous",
+        "version": "2.2.0"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.4"
+      },
+      {
+        "name": "mcp",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "nagios-mcp",
+        "version": "0.1.4"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "shellingham",
+        "version": "1.5.4"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5"
+      },
+      {
+        "name": "typer",
+        "version": "0.27.3"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      },
+      {
+        "name": "Werkzeug",
+        "version": "3.1.9"
+      }
+    ],
+    "documents": [
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "et_xmlfile",
+        "version": "2.0.0"
+      },
+      {
+        "name": "flatbuffers",
+        "version": "25.12.19"
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.3"
+      },
+      {
+        "name": "networkx",
+        "version": "3.7"
+      },
+      {
+        "name": "numpy",
+        "version": "2.5.4"
+      },
+      {
+        "name": "onnxruntime",
+        "version": "1.31.1"
+      },
+      {
+        "name": "openpyxl",
+        "version": "3.1.5"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pdfminer.six",
+        "version": "20260107"
+      },
+      {
+        "name": "pdfplumber",
+        "version": "0.11.10"
+      },
+      {
+        "name": "pillow",
+        "version": "13.0.0"
+      },
+      {
+        "name": "protobuf",
+        "version": "7.36.2"
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pymupdf",
+        "version": "2.0"
+      },
+      {
+        "name": "pymupdf4llm",
+        "version": "2.0"
+      },
+      {
+        "name": "pymupdf_layout",
+        "version": "2.0"
+      },
+      {
+        "name": "pypandoc_binary",
+        "version": "1.17"
+      },
+      {
+        "name": "pypdf",
+        "version": "6.21.2"
+      },
+      {
+        "name": "pypdfium2",
+        "version": "5.14.0"
+      },
+      {
+        "name": "pytesseract",
+        "version": "0.3.13"
+      },
+      {
+        "name": "python-docx",
+        "version": "1.2.0"
+      },
+      {
+        "name": "python-pptx",
+        "version": "1.0.2"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      },
+      {
+        "name": "reportlab",
+        "version": "5.1.0"
+      },
+      {
+        "name": "tabulate",
+        "version": "0.10.0"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "xlsxwriter",
+        "version": "3.3.1"
+      }
+    ],
+    "pandoc-mcp": [
+      {
+        "name": "annotated-doc",
+        "version": "0.0.5"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.16.0"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "cffi",
+        "version": "2.1.1"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "cryptography",
+        "version": "50.0.2"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "httpcore2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "httpx2",
+        "version": "2.16.0"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "mcp",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mcp-types",
+        "version": "2.3.0"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "opentelemetry-api",
+        "version": "1.45.2"
+      },
+      {
+        "name": "pycparser",
+        "version": "3.12"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.2"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "PyJWT",
+        "version": "2.15.1"
+      },
+      {
+        "name": "pypandoc_binary",
+        "version": "1.17"
+      },
+      {
+        "name": "python-dotenv",
+        "version": "1.2.4"
+      },
+      {
+        "name": "python-multipart",
+        "version": "0.0.33"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "shellingham",
+        "version": "1.5.4"
+      },
+      {
+        "name": "sse-starlette",
+        "version": "3.6.0"
+      },
+      {
+        "name": "starlette",
+        "version": "1.10.0"
+      },
+      {
+        "name": "truststore",
+        "version": "0.10.5"
+      },
+      {
+        "name": "typer",
+        "version": "0.27.3"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "uvicorn",
+        "version": "0.54.0"
+      }
+    ]
+  },
+  "npm": {
+    "drawio": {
+      "@drawio/mcp": "1.10.1"
+    },
+    "filesystem": {
+      "@modelcontextprotocol/server-filesystem": "2.1.0"
+    },
+    "playwright": {
+      "@playwright/mcp": "0.0.84"
+    },
+    "ansible-mcp": {
+      "@ansible/ansible-mcp-server": "26.6.0"
+    }
+  },
+  "collections": [
+    {
+      "namespace": "microsoft",
+      "name": "ad",
+      "version": "1.12.1",
+      "license": [],
+      "repository": "https://github.com/ansible-collections/microsoft.ad"
+    },
+    {
+      "namespace": "ansible",
+      "name": "netcommon",
+      "version": "8.7.1",
+      "license": [],
+      "repository": "https://github.com/ansible-collections/ansible.netcommon"
+    },
+    {
+      "namespace": "ansible",
+      "name": "windows",
+      "version": "3.9.2",
+      "license": [],
+      "repository": "https://github.com/ansible-collections/ansible.windows"
+    },
+    {
+      "namespace": "ansible",
+      "name": "utils",
+      "version": "6.1.1",
+      "license": [],
+      "repository": "https://github.com/ansible-collections/ansible.utils"
+    },
+    {
+      "namespace": "cisco",
+      "name": "ios",
+      "version": "11.6.0",
+      "license": [],
+      "repository": "https://github.com/ansible-collections/cisco.ios"
+    }
+  ],
+  "ocr": {
+    "installation": "extracted-debian-packages-not-tested",
+    "packages": [
+      {
+        "name": "tesseract-ocr_5.5.0-1+b1_amd64.deb",
+        "sha256": "9075f944564f5e567f77b218696530125cf2cf70ee64b497df3d5173bf422c7e"
+      },
+      {
+        "name": "tesseract-ocr-osd_1%3a4.1.0-2_all.deb",
+        "sha256": "72cc0ba5a04e4d38e5d7901ae2f0319f4941fddaa4a77d1a86110909c036bacb"
+      },
+      {
+        "name": "libleptonica6_1.84.1-4_amd64.deb",
+        "sha256": "e1f5fbc6fb616f5912b3cd843031ffe8e3a4fc1d0aa021b5858922c5c3655ac9"
+      },
+      {
+        "name": "libtesseract5_5.5.0-1+b1_amd64.deb",
+        "sha256": "3261b2b3e1d6f5207512b93f531ef4b531f4160890b8e5cf4e65b989f6ba3ceb"
+      },
+      {
+        "name": "tesseract-ocr-fra_1%3a4.1.0-2_all.deb",
+        "sha256": "9987c4124bc6ee3f49d89710735cd5493a02b6c66f85c92385234dfc4de9b4ec"
+      },
+      {
+        "name": "tesseract-ocr-eng_1%3a4.1.0-2_all.deb",
+        "sha256": "9242d054563262398f8cf41fbd96fcc72f9dde70db16de18539882a6cff74f9d"
+      }
+    ],
+    "root": "/home/adminjarvis/JARVIS/modules-standard-20261101/sysroot"
+  },
+  "playwright_browser": {
+    "downloaded": true,
+    "directories": [
+      "ffmpeg-1013",
+      "chromium_headless_shell-1252",
+      "chromium-1252",
+      ".links"
+    ],
+    "tested": false
+  },
+  "reused": [
+    "Open Terminal 0.14.7",
+    "MCPO 0.0.20",
+    "Qwen Code 0.26.4",
+    "Open WebUI",
+    "LibreOffice",
+    "SSH keys and pinned hosts"
+  ],
+  "pending": [
+    "native WebUI/Qwen Code registration",
+    "authorized school inventory and infrastructure discovery",
+    "NetBox/Nagios/pfSense/Windows/AD/Cisco credentials and compatibility",
+    "functional tests and document visual review",
+    "optional marker-pdf/nano-pdf and external-model OCR not installed",
+    "draw.io desktop optional export dependency not installed"
+  ]
+}

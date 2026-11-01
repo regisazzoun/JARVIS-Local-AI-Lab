@@ -1,0 +1,220 @@
+{
+  "date": "2026-11-01",
+  "status": "configured-not-tested",
+  "skills": [
+    {
+      "name": "microsoft-office",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/microsoft-office",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/microsoft-office",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/microsoft-office",
+      "sha256": "908384a0096156205837e4a0e210a77f7c508e18a2b03b667ad0e565f4c42d6f"
+    },
+    {
+      "name": "pdf",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/pdf",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/pdf",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/pdf",
+      "sha256": "5d8fff55d825dcec855bd6e6d6cdc54625367ee2e3ce68b0b92b3c3b76d38f40"
+    },
+    {
+      "name": "devops-engineer",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/devops-engineer",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/devops-engineer",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/devops-engineer",
+      "sha256": "3ad00ce39d9a89a7f1b2d9d20664cba8eaed73836559b48a9962cc7dbd1f4cd7"
+    },
+    {
+      "name": "netbox-mcp-operator",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/netbox-mcp-operator",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/netbox-mcp-operator",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/netbox-mcp-operator",
+      "sha256": "031b44876b89034094bd745531597a59a6e2bb68ec0717433e6facca6e3e7e87"
+    },
+    {
+      "name": "drawio",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/drawio",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/drawio",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/drawio",
+      "sha256": "75f96aafc60c1bdcdc1065de8108333c87b6ec1aa9d10b34cd8d07c428997338"
+    },
+    {
+      "name": "k12-check-for-understanding",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/k12-check-for-understanding",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/k12-check-for-understanding",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/k12-check-for-understanding",
+      "sha256": "2772fd5e332a232957d5ac23563110d8f7324f919dbc43e4d51a6146c96355ce"
+    },
+    {
+      "name": "k12-lesson-differentiation",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/k12-lesson-differentiation",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/k12-lesson-differentiation",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/k12-lesson-differentiation",
+      "sha256": "4460888c6c5c80b9ee8d02779c5d9c043493f3651c9d294fd59bf919686248be"
+    },
+    {
+      "name": "k12-lesson-plan-creation",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/k12-lesson-plan-creation",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/k12-lesson-plan-creation",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/k12-lesson-plan-creation",
+      "sha256": "38a4c7c79356ceb85edd90790b7a0f112f11cee89fb35642b15642e03e131a3b"
+    },
+    {
+      "name": "k12-lesson-prep",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/k12-lesson-prep",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/k12-lesson-prep",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/k12-lesson-prep",
+      "sha256": "39f450ed94664ae1f13520844be90f753ab07c2fd9157a90f0e3fd2ce21bc912"
+    },
+    {
+      "name": "error-analysis-protocol",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/error-analysis-protocol",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/error-analysis-protocol",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/error-analysis-protocol",
+      "sha256": "3c4c6904385d98b4eafdb18b5b39a3a965abfcb2b42a992df2ab927623ba576a"
+    },
+    {
+      "name": "criterion-referenced-rubric-generator",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/criterion-referenced-rubric-generator",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/criterion-referenced-rubric-generator",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/criterion-referenced-rubric-generator",
+      "sha256": "235fccde29ad7974da9cc1b0d18f81204dbd10aaff7c34b9f3fb43a5d84f0b8d"
+    },
+    {
+      "name": "assessment-validity-checker",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/assessment-validity-checker",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/assessment-validity-checker",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/assessment-validity-checker",
+      "sha256": "aade29be6e186e6e20c65bc6ce04c68a9e139cb67b82f0fc876efd277fac38ca"
+    },
+    {
+      "name": "competency-unpacker",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/competency-unpacker",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/competency-unpacker",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/competency-unpacker",
+      "sha256": "ea1dbcc6dc4504063d87451ea9d806747b4fc3f76026756990a77aa3ccc6e2b0"
+    },
+    {
+      "name": "learning-progression-builder",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/learning-progression-builder",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/learning-progression-builder",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/learning-progression-builder",
+      "sha256": "ef377dd8580524dbadbe2f2c0420c36c9a8e212c47178d352c00e1f1c76c713d"
+    },
+    {
+      "name": "project-brief-designer",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/project-brief-designer",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/project-brief-designer",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/project-brief-designer",
+      "sha256": "c2ba3dabf2aeeb429b6860f48766b04d5edf4814ba5de3d553dc084ea37ccdca"
+    },
+    {
+      "name": "differentiation-adapter",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/differentiation-adapter",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/differentiation-adapter",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/differentiation-adapter",
+      "sha256": "35fd6469d4ed37b23d8064379c6e0a956522779ca6690d70c0dda569ed7af724"
+    },
+    {
+      "name": "competency-framework-translator",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/competency-framework-translator",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/competency-framework-translator",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/competency-framework-translator",
+      "sha256": "24497645a1e4039a388bebe425b1d1089465292ab361dcde59e2464321f266b7"
+    },
+    {
+      "name": "progressive-hint-ladder",
+      "directory": "/home/adminjarvis/JARVIS/modules-standard-20261101/native-skills/progressive-hint-ladder",
+      "native_terminal_link": "/home/adminjarvis/JARVIS/qwen-code-projects/.agents/skills/progressive-hint-ladder",
+      "qwen_link": "/home/adminjarvis/.qwen-standard/skills/progressive-hint-ladder",
+      "sha256": "328c0cc492ebf53207537f0dc1563d6b34f68fea3f55bac7275de28777896be7"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "jarvis-qwen-code-lab",
+      "builtinTools.skills": {
+        "before": false,
+        "after": true
+      },
+      "system_append": "\n\nSkills standard locaux — raccordement du 1 novembre 2026 : les 18 Skills Office/PDF, pédagogiques, DevOps, Draw.io et méthode NetBox sont installés sur le Mac et raccordés au catalogue natif du terminal sélectionné. Activer le chargement à la demande par view_skill ; lire seulement les références nécessaires avec les outils disponibles et utiliser les scripts via run_command. Ne pas recopier tous les Skills dans le contexte. Les chemins d’exécution et l’interpréteur documentaire sont dans chaque Skill ; charger /home/adminjarvis/JARVIS/modules-standard-20261101/documents.env pour Office/PDF/OCR/Pandoc, ou utiliser les chemins absolus indiqués. MarkItDown est installé à /home/adminjarvis/JARVIS/modules-standard-20261101/venvs/markitdown/bin/markitdown. Les livrables vont dans /home/adminjarvis/JARVIS/qwen-code-projects/livraisons. Ces raccordements ne sont pas encore testés : ne pas annoncer de résultat sans sortie réelle. Les MCP locaux configurés pour Qwen Code ne sont pas de nouveaux serveurs HTTP WebUI ; WebUI direct utilise le terminal existant. Les accès et inventaires du lycée seront fournis demain ; ne pas découvrir de cibles non autorisées. Référentiels CIEL/BTS et gabarits restent à fournir. Conserver les règles d’arrêt, missions et services existants.",
+      "other_fields": "preserved"
+    },
+    {
+      "id": "jarvis-tools-conversation",
+      "builtinTools.skills": {
+        "before": null,
+        "after": true
+      },
+      "system_append": "\n\nSkills standard locaux — raccordement du 1 novembre 2026 : les 18 Skills Office/PDF, pédagogiques, DevOps, Draw.io et méthode NetBox sont installés sur le Mac et raccordés au catalogue natif du terminal sélectionné. Activer le chargement à la demande par view_skill ; lire seulement les références nécessaires avec les outils disponibles et utiliser les scripts via run_command. Ne pas recopier tous les Skills dans le contexte. Les chemins d’exécution et l’interpréteur documentaire sont dans chaque Skill ; charger /home/adminjarvis/JARVIS/modules-standard-20261101/documents.env pour Office/PDF/OCR/Pandoc, ou utiliser les chemins absolus indiqués. MarkItDown est installé à /home/adminjarvis/JARVIS/modules-standard-20261101/venvs/markitdown/bin/markitdown. Les livrables vont dans /home/adminjarvis/JARVIS/qwen-code-projects/livraisons. Ces raccordements ne sont pas encore testés : ne pas annoncer de résultat sans sortie réelle. Les MCP locaux configurés pour Qwen Code ne sont pas de nouveaux serveurs HTTP WebUI ; WebUI direct utilise le terminal existant. Les accès et inventaires du lycée seront fournis demain ; ne pas découvrir de cibles non autorisées. Référentiels CIEL/BTS et gabarits restent à fournir. Conserver les règles d’arrêt, missions et services existants.",
+      "other_fields": "preserved"
+    }
+  ],
+  "qwen_mcp_added": [
+    "standard-filesystem",
+    "standard-drawio",
+    "standard-markitdown",
+    "standard-pandoc",
+    "standard-fetch",
+    "standard-ansible"
+  ],
+  "qwen_existing_mcp_preserved": [
+    "jarvis"
+  ],
+  "webui_transport": "existing Open Terminal, native terminal Skills",
+  "qwen_transport": "native stdio on next session",
+  "functional_tests_run": false,
+  "services_restarted": false,
+  "missions_modified": false,
+  "private_backup": "/home/adminjarvis/JARVIS/modules-standard-20261101-private/native-connection-before",
+  "pending_candidates": [
+    "netbox-enhanced",
+    "nagios",
+    "cisco-pyats",
+    "pfsense",
+    "github-official-optional"
+  ],
+  "ansible_inventory": "empty",
+  "mcpo_http": "prepared-only-not-loaded",
+  "terminal_home_from_source_and_service": "/home/adminjarvis/JARVIS/qwen-code-projects",
+  "dependency_adjustments": {
+    "pandoc-mcp": [
+      {
+        "name": "mcp",
+        "version": "1.30.0"
+      }
+    ],
+    "ansible": [
+      {
+        "name": "pywinrm",
+        "version": "0.5.0"
+      },
+      {
+        "name": "ansible-pylibssh",
+        "version": "1.4.0"
+      },
+      {
+        "name": "pypsrp",
+        "version": "0.9.1"
+      },
+      {
+        "name": "paramiko",
+        "version": "5.1.0"
+      }
+    ]
+  },
+  "persisted_profile_configuration": [
+    {
+      "id": "jarvis-qwen-code-lab",
+      "builtinTools.skills": true,
+      "terminalId": "jarvis-standard-terminal",
+      "system_marker_present": true
+    },
+    {
+      "id": "jarvis-tools-conversation",
+      "builtinTools.skills": true,
+      "terminalId": "jarvis-standard-terminal",
+      "system_marker_present": true
+    }
+  ],
+  "configuration_readback_only": true
+}

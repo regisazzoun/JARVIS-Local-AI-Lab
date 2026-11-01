@@ -1,3 +1,15 @@
+## État documentaire — raccordements locaux du 1 novembre 2026
+
+🟡 Configuré, non testé : 18 Skills sont reliés aux chemins natifs Open Terminal et Qwen Code standard ; la catégorie Skills est activée dans les deux profils WebUI. Six MCP locaux sont configurés pour les prochaines sessions Qwen Code. WebUI direct conserve le terminal existant ; l’exposition HTTP MCP supplémentaire est seulement préparée. Les inventaires du lycée sont vides et les candidats réseau non activés.
+
+État courant : [raccordement local](docs/preparations/MODULES-STANDARD-20261101/RACCORDEMENT-LOCAL.md), [manifeste](docs/preparations/MODULES-STANDARD-20261101/native-connection-manifest.json), [suivi42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Le propriétaire a demandé de reprendre cette mise à jour documentaire après explication du refus automatique initial. Cette note ne modifie aucune permission ni règle de gouvernance ; les états d’installation brute ci-dessous sont historiques.
+
+## État initial historique — installation brute du 1 novembre 2026
+
+🟡 Installés/préparés, **non testés et non raccordés** : 18 Skills sélectionnés, connecteurs MCP et dépendances isolés sur le Mac mini dans `~/JARVIS/modules-standard-20261101`. Aucun nouveau moteur, service lancé/redémarré, modification de mission ni essai fonctionnel. Ordre propriétaire : raccordements et découverte de l’infrastructure au lycée après déplacement, à partir de la liste des cibles fournie ; aucun balayage implicite. Conserver M26-P4/MANUAL-HOLD et les services existants.
+
+Lire le [rapport et les versions](docs/preparations/MODULES-STANDARD-20261101/RAPPORT.md) avant reprise ; suivi ouvert [issue42](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/issues/42). Ne pas confondre présence sur disque, chargement dans le registre actif et réception fonctionnelle. Aucun test maintenant, aucune fusion automatique main.
+
 ## Réception GPU après retour sur T2 — 1 novembre 2026
 
 Autorisation native persistante du Razer enregistrée et observée automatiquement après redémarrage/rebranchement. Mac revenu sur le noyau T2 existant6.18 avec réserves mémoire ; RTX3090 liée à NVIDIA595.91.07 et BAR attribués. Le27B à32768 est entièrement chargé en VRAM, inférence réelle reçue ; lecture `uname -s` via WebUI/Open Terminal reçue indépendamment. Entrée T2 fixée comme défaut GRUB, secours Debian conservés.

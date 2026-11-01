@@ -1,0 +1,93 @@
+{
+  "NOT_A_LIVE_CLIENT_CONFIG": true,
+  "candidates": [
+    {
+      "name": "netbox-enhanced",
+      "missing": [
+        "URL NetBox",
+        "référence privée du jeton",
+        "droits objets"
+      ],
+      "client_config": {
+        "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/netbox-enhanced/bin/netbox-mcp-server",
+        "args": [],
+        "env": {
+          "NETBOX_URL": "A_RENSEIGNER",
+          "NETBOX_TOKEN": "REFERENCE_PRIVEE_A_RENSEIGNER",
+          "VERIFY_SSL": "true"
+        }
+      },
+      "enabled": false
+    },
+    {
+      "name": "nagios",
+      "missing": [
+        "URL Nagios Core",
+        "compte",
+        "certificat et CGI"
+      ],
+      "client_config": {
+        "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/nagios/bin/nagios-mcp",
+        "args": [
+          "--config",
+          "FICHIER_PRIVE_A_RENSEIGNER"
+        ]
+      },
+      "enabled": false
+    },
+    {
+      "name": "cisco-pyats",
+      "missing": [
+        "testbed réel",
+        "comptes",
+        "liste de devices autorisés"
+      ],
+      "client_config": {
+        "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/cisco-pyats/bin/cisco-pyats-mcp",
+        "args": [],
+        "env": {
+          "PYATS_TESTBED": "FICHIER_PRIVE_A_RENSEIGNER",
+          "PYATS_MCP_ALLOWED_DEVICES": "A_RENSEIGNER"
+        }
+      },
+      "enabled": false
+    },
+    {
+      "name": "pfsense",
+      "missing": [
+        "URL et version",
+        "REST API v2",
+        "identité API et CA"
+      ],
+      "client_config": {
+        "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/venvs/pfsense/bin/pfsense-mcp-server",
+        "args": [],
+        "env": {
+          "PFSENSE_URL": "A_RENSEIGNER",
+          "PFSENSE_VERSION": "A_RENSEIGNER",
+          "AUTH_METHOD": "api_key",
+          "PFSENSE_API_KEY": "REFERENCE_PRIVEE_A_RENSEIGNER",
+          "VERIFY_SSL": "true"
+        }
+      },
+      "enabled": false
+    },
+    {
+      "name": "github-official-optional",
+      "missing": [
+        "décider si remplacement utile du connecteur JARVIS déjà actif",
+        "réutilisation du secret existant sans copie publique"
+      ],
+      "client_config": {
+        "command": "/home/adminjarvis/JARVIS/modules-standard-20261101/bin/github-mcp-server",
+        "args": [
+          "stdio"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "REFERENCE_PRIVEE_A_RENSEIGNER"
+        }
+      },
+      "enabled": false
+    }
+  ]
+}

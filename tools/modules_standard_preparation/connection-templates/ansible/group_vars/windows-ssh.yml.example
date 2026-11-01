@@ -1,0 +1,4 @@
+ansible_connection: ssh
+ansible_shell_type: powershell
+# ansible_user: à renseigner
+# Vérifier OpenSSH Server, version Windows et shell distant avant activation.
