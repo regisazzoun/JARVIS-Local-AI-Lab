@@ -1,5 +1,8 @@
 # Niveaux de preuve consolidés — Codex
 
+> **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](../dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
+
+
 Les niveaux décrivent les rapports historiques et les éléments retrouvés, sans relancer leurs tests. Les lectures JARVIS et leurs limites figurent séparément dans ses lots et les traces. Les références complètes sont dans le registre et l’inventaire GitHub.
 
 | Mission | Affirmation et niveau établi | Réserve |
