@@ -8,6 +8,14 @@ import jm01_bounded_native as m
 
 
 class BoundedNativeTests(unittest.TestCase):
+    def test_resume_does_not_append_primary_source_pack_again(self):
+        pack = 'UNIQUE PRIMARY SOURCE ' * 1000
+        initial = m.session_arguments('id', pack, False)
+        resumed = m.session_arguments('id', pack, True)
+        self.assertIn(pack, initial)
+        self.assertNotIn('UNIQUE PRIMARY SOURCE', ' '.join(resumed))
+        self.assertLess(len(resumed[-1]), 300)
+
     def test_failure_totals_and_old_session_survive_verified_resolution(self):
         for failures in (3, 9):
             state = {'failures': {'unit': failures}, 'sessions': {'unit': 'old'},
