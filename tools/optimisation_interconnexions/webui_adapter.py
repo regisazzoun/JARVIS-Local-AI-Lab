@@ -77,7 +77,7 @@ class Handler(BaseHTTPRequestHandler):
                 elif operation in ('owner_status','owner_render'):
                     from jarvis.client_autonomy import OwnerClient,render
                     client=OwnerClient(api=api);client.authorize(d['user_id'])
-                    receipt=client.status(d['id']) if d.get('id') else {'state':'UNKNOWN','meaning':'No valid canonical mission receipt; inspect before retrying.'}
+                    receipt=(client.ui_receipt(d['id']) if operation=='owner_render' else client.status(d['id'])) if d.get('id') else {'state':'UNKNOWN','meaning':'No valid canonical mission receipt; inspect before retrying.'}
                     result={'content':render(receipt)} if operation=='owner_render' else receipt
                 elif operation=='catalog':result=api.catalog(d.get('query',''),d.get('offset',0))
                 elif operation=='schema':result=api.schema(d['name'])

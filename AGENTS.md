@@ -1,6 +1,6 @@
 ## WebUI — correction des quatre raccordements d’autonomie autorisée
 
-Ordre propriétaire « corrige ces4points alors » : contexte/capacités actuels, mémoire canonique pertinente automatique, demande naturelle vers moteur existant, refus/résultats liés à des reçus réels. Extension cibléePR39, aucun nouveau moteur/mémoire ; autorisations de déploiement antérieures conservées. Réception navigateur sur sonde30dde783… en cours, assistance et incidents conservés ; ne pas déclarer autonomie générale depuis des tests logiciels ou une création de mission. M26-P4/MANUAL-HOLD et modèles/routes préservés. Voir docs/missions/WEBUI-AUTONOMIE-4POINTS/RAPPORT.md. Aucune fusion automatique main.
+Ordre propriétaire « corrige ces4points alors » : contexte/capacités actuels, mémoire canonique pertinente automatique, demande naturelle vers moteur existant, refus/résultats liés à des reçus réels. Extension cibléePR39, aucun nouveau moteur/mémoire ; autorisations de déploiement antérieures conservées. Réception partielle : mémoire/contexte et opérations WebUI réels, réponse automatique sans relance reçue techniquement ; attribution matérielle erronée NONREÇUE. Sonde30dde783… interrupted sur capacité, assistance et incidents conservés ; ne pas déclarer autonomie générale depuis des tests logiciels ou une création de mission. M26-P4/MANUAL-HOLD et modèles/routes préservés. Voir docs/missions/WEBUI-AUTONOMIE-4POINTS/RAPPORT.md. Aucune fusion automatique main.
 
 ## BILAN-20261031 — inventaire et rationalisation documentaire
 

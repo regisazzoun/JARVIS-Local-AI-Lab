@@ -1,0 +1,1472 @@
+{
+  "captured_at": 1793492918.237243,
+  "mission": "30dde783a2ff4b6c80914c89f9f4302f",
+  "state": "interrupted",
+  "goal_sha256": "1d853a5f7192bfc34570cba2481d597437e449a99de2e89b1ab3ce675d6833b7",
+  "task_states": [
+    {
+      "id": "step-01",
+      "title": "Analyser les capacités de scanning réseau disponibles sur l’hôte",
+      "state": "running"
+    },
+    {
+      "id": "step-02",
+      "title": "Exécuter un scan réseau actif avec nmap pour identifier les machines",
+      "state": "pending"
+    }
+  ],
+  "models": {
+    "jarvis-tools-conversation": {
+      "params_unchanged": true,
+      "base_unchanged": true,
+      "toolIds_unchanged": true,
+      "filter_attached": true
+    },
+    "jarvis-qwen-code-lab": {
+      "params_unchanged": true,
+      "base_unchanged": true,
+      "toolIds_unchanged": true,
+      "filter_attached": true
+    }
+  },
+  "code": {
+    "attempt_ledger": {
+      "sha256": "83e037113ddd92e0983dc8f79e950bcd7d1f90e14148d6800140505101c69dad",
+      "matches": true
+    },
+    "legacy_attempts": {
+      "sha256": "18492d16f81674c5f56e5dab0cd6b7a62555cb482acbf454205de46b82c35e0b",
+      "matches": true
+    },
+    "client_autonomy": {
+      "sha256": "da6fae8907a3d2b5022f76762e6fb5d4b8ae854d6071840ea9b747a30b66fb5e",
+      "matches": true
+    },
+    "context_retrieval": {
+      "sha256": "518b35f6db7bcb5d5a43fd94027651f5906654e23949da0c7efae90de68544cd",
+      "matches": true
+    },
+    "core": {
+      "sha256": "2bf01fba84f580eb3ece6ca4ef6fe97ede8139f9ab206e1cea66f41bda713930",
+      "matches": true
+    },
+    "intent": {
+      "sha256": "bc44a540aa0ece1447cdf175fa01f318416ba62c86468be30322bc06afab0d7a",
+      "matches": true
+    },
+    "durable_cycle": {
+      "sha256": "df4e90450444ae8400bb37eb46fca243af8a51d84c321aa682ebb00767ffd72c",
+      "matches": true
+    },
+    "mission_context_budget": {
+      "sha256": "0d6023a0ea226d5209e436ea9901fa2cce07a405845b01876a5d7ffa65f7dab3",
+      "matches": true
+    },
+    "client_capabilities": {
+      "sha256": "196bfd51b8f5be726b458673485d40085d628f61abb81fb54802eb7cc048b1b3",
+      "matches": true
+    },
+    "tools": {
+      "sha256": "f065e6abff56138263566122f4f6f657b9fa457a110ffedd3117bedb218169fc",
+      "matches": true
+    },
+    "missions": {
+      "sha256": "40e66679c09dc4aa10be8b18610f6af251c0dd2b7ea8315aa3fcfbaa7a58c800",
+      "matches": true
+    },
+    "inference_gateway": {
+      "matches": true,
+      "sha256": "27fa845a4fb16fc0412fce33423e510ca56fc666ec45707a238002a0a248676c"
+    }
+  },
+  "units": {
+    "jarvis-conversation": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-mission-worker@2": "active",
+    "jarvis-webui-tools": "active",
+    "jarvis-qwen-guard": "active"
+  },
+  "filter": {
+    "active": true,
+    "global": false,
+    "source_matches": true
+  },
+  "client_turns": [
+    {
+      "audit_id": 424,
+      "intent": "execute",
+      "context_audit_id": 421,
+      "mission": "30dde783a2ff4b6c80914c89f9f4302f"
+    },
+    {
+      "audit_id": 426,
+      "intent": "question",
+      "context_audit_id": 425,
+      "mission": null
+    },
+    {
+      "audit_id": 428,
+      "intent": "question",
+      "context_audit_id": 427,
+      "mission": "30dde783a2ff4b6c80914c89f9f4302f"
+    },
+    {
+      "audit_id": 430,
+      "intent": "question",
+      "context_audit_id": 429,
+      "mission": null
+    },
+    {
+      "audit_id": 432,
+      "intent": "question",
+      "context_audit_id": 431,
+      "mission": null
+    },
+    {
+      "audit_id": 448,
+      "intent": "conversation",
+      "context_audit_id": 447,
+      "mission": null
+    },
+    {
+      "audit_id": 450,
+      "intent": "question",
+      "context_audit_id": 449,
+      "mission": null
+    },
+    {
+      "audit_id": 472,
+      "intent": "question",
+      "context_audit_id": 471,
+      "mission": null
+    },
+    {
+      "audit_id": 508,
+      "intent": "question",
+      "context_audit_id": 507,
+      "mission": null
+    },
+    {
+      "audit_id": 532,
+      "intent": "question",
+      "context_audit_id": 531,
+      "mission": null
+    },
+    {
+      "audit_id": 536,
+      "intent": "question",
+      "context_audit_id": 535,
+      "mission": null
+    }
+  ],
+  "mission_count_for_request_key": 1,
+  "event_references": [
+    {
+      "id": 95262,
+      "kind": "mission_created",
+      "tool": null
+    },
+    {
+      "id": 95265,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95283,
+      "kind": "tool_finished",
+      "tool": "host_policy"
+    },
+    {
+      "id": 95286,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95298,
+      "kind": "tool_finished",
+      "tool": "host_policy"
+    },
+    {
+      "id": 95300,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95318,
+      "kind": "coverage_review",
+      "tool": null
+    },
+    {
+      "id": 95320,
+      "kind": "tool_finished",
+      "tool": "mission_plan_report_step"
+    },
+    {
+      "id": 95322,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95323,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95327,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95344,
+      "kind": "coverage_review",
+      "tool": null
+    },
+    {
+      "id": 95346,
+      "kind": "tool_finished",
+      "tool": "mission_plan_report_step"
+    },
+    {
+      "id": 95348,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95350,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95390,
+      "kind": "authority_escalation",
+      "tool": null
+    },
+    {
+      "id": 95391,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95392,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95394,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95397,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 95400,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95402,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95410,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95411,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95420,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95421,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95423,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95432,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95433,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95437,
+      "kind": "coordinator_infrastructure_verified",
+      "tool": null
+    },
+    {
+      "id": 95438,
+      "kind": "p2_infrastructure_resolution",
+      "tool": null
+    },
+    {
+      "id": 95439,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95446,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95465,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95467,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95472,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95476,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95493,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95495,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95516,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95518,
+      "kind": "tool_finished",
+      "tool": "mission_verify"
+    },
+    {
+      "id": 95520,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95526,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95541,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95548,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95564,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95566,
+      "kind": "tool_finished",
+      "tool": "mission_verify"
+    },
+    {
+      "id": 95568,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95588,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95590,
+      "kind": "authority_escalation",
+      "tool": null
+    },
+    {
+      "id": 95591,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95592,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95593,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 95595,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95602,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95621,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95623,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95624,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95629,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95635,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95650,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95656,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95675,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95679,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95680,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 95687,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95688,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95689,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95698,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 95701,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95708,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95723,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95725,
+      "kind": "authority_escalation",
+      "tool": null
+    },
+    {
+      "id": 95726,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95727,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95730,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 95733,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95735,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95741,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95760,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95762,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95767,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95768,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95792,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95794,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95799,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95800,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95806,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95825,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95827,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95832,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95838,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95853,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95859,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95874,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95878,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95895,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95896,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95898,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95904,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95905,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95911,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 95913,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 95920,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95935,
+      "kind": "tool_finished",
+      "tool": "mission_report_facts"
+    },
+    {
+      "id": 95941,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95956,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 95959,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 95981,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 95985,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 95987,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96007,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96011,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96028,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 96035,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96045,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96046,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96056,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 96059,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96061,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96085,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96087,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96092,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 96093,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96099,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96114,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96120,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96135,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96141,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96159,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96166,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96176,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96177,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96183,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 96185,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96189,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96190,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96194,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96195,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96196,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96197,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96198,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96199,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 96200,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96207,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96217,
+      "kind": "coordinator_infrastructure_verified",
+      "tool": null
+    },
+    {
+      "id": 96218,
+      "kind": "p2_infrastructure_resolution",
+      "tool": null
+    },
+    {
+      "id": 96228,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96230,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96235,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 96236,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96242,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96261,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96263,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96268,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 96272,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96289,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96294,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96311,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 96317,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96332,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96339,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96340,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96341,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96353,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 96355,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96362,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96377,
+      "kind": "tool_finished",
+      "tool": "host_exec"
+    },
+    {
+      "id": 96378,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96398,
+      "kind": "tool_finished",
+      "tool": "host_package"
+    },
+    {
+      "id": 96400,
+      "kind": "authority_escalation",
+      "tool": null
+    },
+    {
+      "id": 96401,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96402,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96405,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96412,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96431,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96433,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96438,
+      "kind": "tool_finished",
+      "tool": "host_write_file"
+    },
+    {
+      "id": 96443,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96462,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96465,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96663,
+      "kind": "tool_finished",
+      "tool": "mission_verify"
+    },
+    {
+      "id": 96669,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96687,
+      "kind": "tool_finished",
+      "tool": "mission_note"
+    },
+    {
+      "id": 96688,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96703,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96704,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96713,
+      "kind": "coordinator_infrastructure_verified",
+      "tool": null
+    },
+    {
+      "id": 96714,
+      "kind": "p2_infrastructure_resolution",
+      "tool": null
+    },
+    {
+      "id": 96715,
+      "kind": "coordinator_verified_api",
+      "tool": null
+    },
+    {
+      "id": 96718,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96726,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96740,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96741,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96748,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96763,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96764,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96772,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96787,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96788,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96795,
+      "kind": "coordinator_infrastructure_verified",
+      "tool": null
+    },
+    {
+      "id": 96796,
+      "kind": "p2_infrastructure_resolution",
+      "tool": null
+    },
+    {
+      "id": 96797,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 96800,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96807,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96827,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96829,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96830,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96835,
+      "kind": "tool_finished",
+      "tool": "host_write_file"
+    },
+    {
+      "id": 96842,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96859,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 96860,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96969,
+      "kind": "tool_finished",
+      "tool": "mission_verify"
+    },
+    {
+      "id": 96977,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 96994,
+      "kind": "tool_finished",
+      "tool": "mission_note"
+    },
+    {
+      "id": 97001,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97018,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 97021,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97168,
+      "kind": "tool_finished",
+      "tool": "mission_verify"
+    },
+    {
+      "id": 97171,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97197,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 97199,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 97204,
+      "kind": "tool_finished",
+      "tool": "host_write_file"
+    },
+    {
+      "id": 97210,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97229,
+      "kind": "tool_finished",
+      "tool": "host_read_file"
+    },
+    {
+      "id": 97232,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97385,
+      "kind": "tool_finished",
+      "tool": "mission_verify"
+    },
+    {
+      "id": 97387,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 97396,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97409,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 97410,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97418,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97432,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 97433,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97440,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    },
+    {
+      "id": 97456,
+      "kind": "state_changed",
+      "tool": null
+    },
+    {
+      "id": 97457,
+      "kind": "webui_receipt_delivered",
+      "tool": null
+    }
+  ],
+  "counters": [
+    {
+      "scope": "canonical-action:4668a3d6cca5f2873b20a3fadecaf4085f2ebe1aa8353feb3cefca4fa3f1debc",
+      "failed_cycles": 2,
+      "infra_incidents": 3,
+      "infra_resolved_through": 3,
+      "state": "RESOLVED"
+    },
+    {
+      "scope": "worker-recovery:ContextCapacityError",
+      "failed_cycles": 0,
+      "infra_incidents": 9,
+      "infra_resolved_through": 6,
+      "state": "ESCALATED"
+    },
+    {
+      "scope": "worker-recovery:NameError",
+      "failed_cycles": 0,
+      "infra_incidents": 2,
+      "infra_resolved_through": 2,
+      "state": "RESOLVED"
+    }
+  ],
+  "targeted_tests": {
+    "passed": 176,
+    "log_private_sha256": "a46e0238495beace4baa4124437f6b8c2d228ccc89441d0bcad12ecea5f81e6d"
+  },
+  "native_tool_source_matches": true,
+  "model_only_readout_probe": {
+    "valid_final_text": true,
+    "tool_calls": 0,
+    "text_chars": 2682,
+    "source_receipts": [
+      510,
+      512,
+      514,
+      516,
+      518,
+      520,
+      522,
+      524,
+      526,
+      528,
+      530
+    ],
+    "forwarded_input_bytes": 24891,
+    "budget": 27648,
+    "response_private_sha256": "3ba7e899e218e33c623321f8558fc7cebc05244db1f76267797410140009f15c",
+    "not_a_fresh_browser_reception": true
+  },
+  "network_browser_receptions": [
+    {
+      "name": "autonomie-network-existing-results",
+      "chat": "ef9f77dd-96bd-4524-b691-a0cdfea5ad2b",
+      "canonical_receipts": [
+        434,
+        436,
+        438,
+        440,
+        442,
+        444,
+        446
+      ],
+      "signatures_match": true,
+      "native_errors": 0,
+      "answer_chars": 1724,
+      "answer_sha256": "a390a78da92199548e5d122edb6f38d30dd1ae62068295a99eec1454e774d7c5",
+      "assisted_followup": true,
+      "hardware_interpretation_received": false
+    },
+    {
+      "name": "autonomie-network-readout-final",
+      "chat": "76f968eb-69fa-4269-9152-55dc4f68e27e",
+      "canonical_receipts": [
+        534
+      ],
+      "signatures_match": true,
+      "native_errors": 0,
+      "answer_chars": 0,
+      "answer_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "assisted_followup": false,
+      "hardware_interpretation_received": false
+    },
+    {
+      "name": "autonomie-network-object",
+      "chat": "9e0f32d4-bcde-4c7a-8936-bc2e85b53620",
+      "canonical_receipts": [
+        538,
+        540,
+        542,
+        544,
+        546,
+        548,
+        550,
+        552,
+        554,
+        556,
+        558,
+        560,
+        562,
+        564
+      ],
+      "signatures_match": true,
+      "native_errors": 0,
+      "answer_chars": 2232,
+      "answer_sha256": "cf2f6afd4826a6667717201ef63dc9d59bc4ab22c6e02a52f6f180bb07c2f7a2",
+      "assisted_followup": false,
+      "hardware_interpretation_received": false
+    }
+  ],
+  "browser_readout": {
+    "http_status": 200,
+    "original_input_bytes": 28114,
+    "forwarded_input_bytes": 24268,
+    "budget": 27648,
+    "messages_preserved": true,
+    "new_tools_allowed": false,
+    "original_source_sha256": "9ba4c31a4d83f4a3ddc092b0982c4dd8dc0c0afe444a3ebe3523596cad86fd35",
+    "answer_automatically_delivered": true,
+    "analysis_independently_received": false,
+    "reason": "Incorrect Dell versus Mac mini hardware attribution retained in original answer"
+  }
+}

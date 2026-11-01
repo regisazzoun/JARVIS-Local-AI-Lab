@@ -202,7 +202,8 @@ Les journaux complets et versions sont persistants, ne recharge pas récursiveme
 
 
 def owner_execution_prompt(identity,facts_already_observed=False,phase=None,writing_focus=False):
-    prompt=report_execution_prompt(identity,facts_already_observed,phase,writing_focus)
+    from .context_retrieval import compact_identity
+    prompt=report_execution_prompt(compact_identity(identity),facts_already_observed,phase,writing_focus)
     prompt=prompt.replace('Le présent paquet prépare uniquement : aucun déploiement applicatif.',"Exécute réellement l’objectif de cette nouvelle mission propriétaire, dans les droits actuels du broker ; ne la limite pas artificiellement à une préparation.")
     prompt=prompt.replace('Ne clos jamais P4 sur ces seuls rapports de préparation.','Ne réactive et ne modifie aucune mission historique suspendue.')
     return prompt+"\nLes observations déjà reçues restent acquises. Ne refais pas un inventaire identique pour obtenir une certitude impossible dans le confinement : utilise les outils structurés adaptés et indique les limites observées. Ton rapport décrit les actes réellement effectués, leurs résultats et les inconnues ; il n’exige pas de tout découvrir avant de pouvoir l’écrire. Ni la mémoire ni un ancien rapport ne créent de nouveaux droits. Chaque affirmation technique et chaque ligne de tableau cite son véritable ID de reçu dans la même phrase ou ligne : le vérificateur travaille par segment, une référence placée dans une autre section n’est pas automatiquement transmise. Distingue une prochaine action proposée d’une action déjà exécutée et conserve explicitement les FAIL historiques reçus."

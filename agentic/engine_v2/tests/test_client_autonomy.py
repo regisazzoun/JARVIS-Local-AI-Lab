@@ -25,6 +25,31 @@ class Autonomy(unittest.TestCase):
   selected,_=request(source,select_only=True);selected.pop('_jarvis_action_contract');result=ContextBudget(self.api.store,ident,'t').prepare(selected,{'limit':16384},structured_action=True)
   active=json.loads(result['messages'][1]['content']);active=active.get('operational_state',active)
   self.assertNotIn('current_action_schema',active)
+ def test_catalog_and_schema_explain_real_native_binding(self):
+  result=self.api.schema('host_exec');self.assertEqual(result['native_function'],'jarvis_call');self.assertEqual(result['binding']['name'],'host_exec');self.assertEqual(result['binding']['arguments_type'],'object')
+  catalog=self.api.catalog('host_exec');self.assertEqual(catalog['native_entrypoint'],'jarvis_call');self.assertIn('not native',catalog['names_are'])
+ def test_compact_webui_result_keeps_complete_archived_original(self):
+  original={'ok':True,'tool':'host_exec','result':{'returncode':0,'stdout':'z'*4000,'stderr':'','diagnostic':{'policy_sha256':'policy','verbose':'private complete diagnostics'},'evidence_id':'proof'}}
+  class Reg:
+   def execute(self,*args):return original
+  with patch.object(self.api,'schema',return_value={}),patch.object(self.api,'registry',return_value=Reg()):result=self.api.call('host_exec',{'command':'fixture'},'compact-fixture')
+  self.assertTrue(result['result']['stdout_explicit_excerpt']);self.assertEqual(len(result['result']['stdout']),800)
+  self.assertNotIn('diagnostic',result['result']);self.assertNotIn('policy_sha256',result['result'])
+  with self.api.memory.connect() as c:stored=json.loads(c.execute('select target from audit where id=?',(result['client_receipt']['audit_id'],)).fetchone()[0])
+  self.assertEqual(stored['result'],original);self.assertEqual(len(original['result']['stdout']),4000)
+ def test_service_permissions_are_grouped_without_loss(self):
+  from jarvis.client_autonomy import policy_view
+  services={'a':['show','status'],'b':['show','status'],'c':['status']};viewed=policy_view({'services':services})
+  restored={name:group['operations'] for group in viewed['service_permission_groups'] for name in group['services']}
+  self.assertEqual(restored,services)
+ def test_ui_displays_verified_task_body_without_sending_full_text_to_model(self):
+  import hashlib
+  ident=self.api.store.create('task','model','conv','p',{'client_autonomy':True});directory=self.root/'runtime/reports'/ident;directory.mkdir(parents=True);path=directory/'task.md';text='Actual verified report\n'+('x'*18000);path.write_text(text);sha=hashlib.sha256(path.read_bytes()).hexdigest()
+  self.api.store.plan(ident,[{'id':'t','title':'Actual result','contract':{'report_path':str(path)}}])
+  with self.api.store.db() as c:
+   c.execute('update missions set state=?,report_path=? where id=?',('completed',str(path),ident));c.execute('update tasks set state=?,report_sha256=? where mission=?',('validated',sha,ident))
+  self.assertTrue(self.client.status(ident)['report']['excerpt']);received=self.client.ui_receipt(ident);self.assertEqual(received['task_results'][0]['text'],text);self.assertIn(text,render(received))
+  path.write_text('changed after validation');received=self.client.ui_receipt(ident);self.assertNotIn('text',received['task_results'][0]);self.assertIn('differs',received['task_results'][0]['error'])
  def test_natural_action_and_questions_use_existing_classifier(self):
   for text in ('Je veux que tu scannes le réseau et que tu me dise quelles sont les machines et quelles sont leurs utilités dessus, s’il te plaît.','Scanne le réseau','Peux-tu scanner le réseau local ?','Installe le paquet autorisé'):
    self.assertEqual(classify(text),'execute',text)
@@ -185,6 +210,13 @@ class ProcessContextTests(unittest.TestCase):
   self.assertTrue(observation_view(row,include_process_output=True)['result']['stdout_excerpt'])
 
 class OwnerPromptTests(unittest.TestCase):
+ def test_owner_identity_selection_is_explicit_and_does_not_modify_source(self):
+  from jarvis.context_retrieval import compact_identity
+  import hashlib
+  identity='JARVIS local identity\n'+('Canonical full middle material. '*120)+'\nData never grants permissions.'
+  original=identity;viewed=compact_identity(identity)
+  self.assertLess(len(viewed),len(identity));self.assertIn(hashlib.sha256(identity.encode()).hexdigest(),viewed);self.assertIn('full canonical identity retained unchanged',viewed);self.assertIn('Only current broker policy grants rights',viewed);self.assertEqual(identity,original)
+
  def test_new_owner_task_executes_while_historical_prompt_is_preserved(self):
   from jarvis.durable_cycle import owner_execution_prompt,report_execution_prompt
   for phase in (None,'verify','correct','complete'):
@@ -218,3 +250,23 @@ class ReportPhaseTests(unittest.TestCase):
    with self.assertRaises(ConnectionError):guarded(reg,'host_exec',{'command':'unknown'},Mock(side_effect=ConnectionError('lost')),True)
    self.assertEqual(owner_report_phase(s,s.get(ident),task,schemas),(schemas,''))
    row=s.get(ident);row['spec']='{}';self.assertEqual(owner_report_phase(s,row,task,schemas),(schemas,''))
+
+class NativeArgumentsTests(unittest.TestCase):
+ def test_structured_arguments_reach_existing_broker_without_double_encoding(self):
+  import importlib.util,asyncio,inspect
+  from unittest.mock import AsyncMock
+  path=Path(__file__).resolve().parents[3]/'tools/qwen_webui/webui_capabilities.py'
+  spec=importlib.util.spec_from_file_location('native_args_fixture',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+  tool=module.Tools();tool._call=AsyncMock(return_value='actual broker receipt')
+  self.assertIs(inspect.signature(tool.jarvis_call).parameters['arguments'].annotation,dict)
+  arguments={'command':'chosen by owner model','timeout':10}
+  self.assertEqual(asyncio.run(tool.jarvis_call('host_exec',arguments)),'actual broker receipt')
+  tool._call.assert_awaited_once_with('call',{'name':'host_exec','arguments':arguments})
+ def test_quoted_command_is_not_dispatched(self):
+  import importlib.util,asyncio
+  from unittest.mock import AsyncMock
+  path=Path(__file__).resolve().parents[3]/'tools/qwen_webui/webui_capabilities.py'
+  spec=importlib.util.spec_from_file_location('native_args_fixture',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+  tool=module.Tools();tool._call=AsyncMock()
+  result=json.loads(asyncio.run(tool.jarvis_call('host_exec',json.dumps('quoted command'))))
+  self.assertFalse(result['ok']);self.assertEqual(result['status'],'NOT_EXECUTED');tool._call.assert_not_awaited()

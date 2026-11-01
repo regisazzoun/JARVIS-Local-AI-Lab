@@ -24,9 +24,11 @@ class Tools:
         """Exécuter réellement une commande dans un projet distant autorisé. host : dell-observe ou dell2, obligatoire. project : projet accordé. command : commande choisie par JARVIS. Aucun repli local ne vaut résultat distant."""
         if host not in ('dell-observe','dell2'):raise ValueError('Unknown Dell profile')
         return await self._call('call',{'name':'host_remote','arguments':{'host':host,'action':'project_exec','project':project,'command':command}})
-    async def jarvis_call(self,name:str,arguments:str,request_id:str='')->str:
-        """Exécuter un outil réel du catalogue, selon son schéma. arguments : objet JSON encodé en texte. request_id : identifiant stable facultatif évitant une double exécution. Un reçu n’est pas une vérification indépendante."""
-        data={'name':name,'arguments':json.loads(arguments)}
+    async def jarvis_call(self,name:str,arguments:dict,request_id:str='')->str:
+        """Exécuter un outil réel du catalogue, selon son schéma. arguments : objet JSON structuré conforme au schéma, sans encodage en texte. request_id : identifiant stable facultatif évitant une double exécution. Un reçu n’est pas une vérification indépendante."""
+        parameters=json.loads(arguments) if isinstance(arguments,str) else arguments
+        if not isinstance(parameters,dict):return json.dumps({'ok':False,'status':'NOT_EXECUTED','error':'arguments must be a JSON object conforming to jarvis_schema; never a quoted command'})
+        data={'name':name,'arguments':parameters}
         if request_id:data['request_id']=request_id
         return await self._call('call',data)
     async def jarvis_receipt(self,id:int,offset:int=0)->str:

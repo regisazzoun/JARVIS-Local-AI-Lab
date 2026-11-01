@@ -51,15 +51,27 @@ La sonde historique continuant les lectures, Codex utilise ponctuellement le ré
 
 Clarification du contrat existant : les citations techniques doivent être dans chaque phrase/ligne contrôlée, les références d’une autre section n’étant pas automatiquement transportées par le contrôle atomique. Aucun algorithme de vérification modifié ni PASS forcé. Le rapport96631 reste FAIL ; les trois incidents d’interface de la tâche sont résolus nativement96714 après contexte corrigé et mesure24989/27648, totaux et états historiques conservés.
 
+## Raccordement natif et restitution des résultats
+
+Le navigateur a montré un autre écart réel : les noms du catalogue sont des opérations broker, pas des fonctions natives WebUI. Le catalogue, le schéma et le contexte présentent maintenant explicitement `jarvis_schema` puis `jarvis_call`. Aucun nouvel outil métier n’est développé. La fonction native `jarvis_call` reçoit désormais un objet structuré `arguments`, plutôt qu’un objet JSON doublement encodé dans une chaîne. L’ancienne forme objet encodé reste acceptée pour compatibilité ; une chaîne de commande seule est refusée avant dispatch. Les essais mal formés restent archivés : quarante appels/recherches dans le chat76f968eb…, interrompus par Codex, aucune commande exécutée pour ces refus. Ce cas n’est pas une réception autonome.
+
+Les réponses modèle n’embarquent plus les diagnostics dupliqués ; les grandes sorties sont explicitement marquées comme extraits avec empreinte et référence du reçu intégral paginé. Le résultat exact demeure dans le journal canonique. L’interface reçoit le corps complet des rapports de tâches seulement si chemin et SHA correspondent au rapport validé, avant le wrapper final de mission. Test de lecture seule sur une ancienne mission terminée :11442caractères rendus, un corps de tâche reçu, aucun nouveau PASS ni changement de mission.
+
+Une demande naturelle distincte a réellement exécuté la découverte réseau depuis WebUI : douze machines observées, reçus434/436/438/440/442/444/446 reliés aux arguments UI par leurs signatures. Les rôles déduits de noms/services restent des hypothèses ; un SSH brut sans clé a échoué, distinct des accès SSH structurés déjà reçus dans PR39. La table a été affichée sur une relance explicite « montre les résultats déjà obtenus » : réception assistée, réponse1724caractères SHAa390a78da92199548e5d122edb6f38d30dd1ae62068295a99eec1454e774d7c5. Aucune identité privée des machines n’est publiée.
+
+Les essais en un seul tour ont révélé l’accumulation de contexte avant restitution. Le relais existant conserve désormais l’intégralité des messages et résultats et peut retirer uniquement les définitions d’outils pour une phase finale de restitution, si le paquet tient dans27648octets et qu’un vrai reçu canonique OpenWebUI est présent. Aucun objectif/résultat n’est tronqué ; formats structurés exclus ; original archivé privé avec SHA. La réponse est tamponnée : sans texte final ou avec nouvel appel d’outil, refus409 avant toute nouvelle opération. Même ComputeQueue, modèles, fenêtre32768 et sortie4096 ; aucun nouveau moteur ni base. Première sonde refusée correctement car le modèle voulait encore un outil. Consigne de fin de tour corrigée ; rejeu modèle seul du paquet exact :2682caractères, zéro appel d’outil,24891/27648octets. Ce contrôle ne remplace pas une réception navigateur complète.
+
+La sonde durable30dde783… reste interrupted : dernière frontière de capacité97454, neuf incidents historiques dont six résolus, aucun quatrième cycle identique réémis. Rapport révisé5366octets écrit96835 après premier FAIL96631 ; aucun rapport de scan final reçu. Le dépassement77ko brut n’est pas contourné par une augmentation de fenêtre, une suppression de consigne ou un compteur remis à zéro. La campagne générale de qualité des rapports reste hors périmètre.
+
 ## Vérifications
 
-150 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.
+176 tests logiciels ciblés PASS : autonomie, catalogue client, intentHTTP, budget/contexte, mémoire canonique, moteur durable, adaptateur asynchrone, transport structuré et reprise worker. Tests du cas exact, questions/citations, propriétaire distinct, scopes mémoire, attente/expiration, idempotence, résultat inconnu sans réémission, échec de livraison sans succès artificiel et conservation du schéma après compaction.
 
 Question navigateur distincte : langue et environnement retrouvés automatiquement depuis préférences/contexte, sans création de mission. Préférences réelles observées : languefr, longueur vocale courte, sources citées, vérification demandée. Le contenu des souvenirs privés n’est pas publié ici.
 
 ## Déploiement et retour arrière
 
-Sources installées dans `/opt/jarvis/conversation/jarvis`, adaptateur existant dans `/opt/jarvis/webui-tools`. Filtre natif créé par API puis attaché seulement aux deux profils ; aucune fonction globale activée. Aucun redémarrage de Docker, WebUI, Ollama ou des Dell. Rechargements ciblés des services conversation, deux workers et adaptateur, après vérification d’absence de mission active. Sauvegardes privées datées, versions antérieures des modèles et filtre, conservées dans `webui-autonomie-private`.
+Sources installées dans `/opt/jarvis/conversation/jarvis`, adaptateur existant dans `/opt/jarvis/webui-tools`. Filtre natif créé par API puis attaché seulement aux deux profils ; aucune fonction globale activée. Aucun redémarrage de Docker, WebUI, Ollama ou des Dell. Le seul relais client `jarvis-qwen-guard` a également été rechargé pour le raccordement de restitution, sans recharger l’inférence. Rechargements ciblés des services conversation, deux workers et adaptateur, après vérification d’absence de mission active. Sauvegardes privées datées, versions antérieures des modèles et filtre, conservées dans `webui-autonomie-private`.
 
 La synchronisation du module missions conserve également les protections de lease déjà actives sur le runtime avant cette intervention et absentes de la base Git ; ces protections ne sont pas un développement nouveau de cette mission.
 
@@ -67,4 +79,15 @@ Retour arrière : désactiver ce filtre et retirer son ID des deux profils en co
 
 ## Réception finale
 
-En cours : attendre les opérations réelles et leur réception indépendante. Les raccordements installés et les tests logiciels ne constituent pas une réception d’autonomie générale ni une preuve que tout objectif futur réussira.
+Réception partielle : mémoire/contexte, création unique de mission et opérations réseau réelles reçus. La restitution navigateur en un seul tour est reçue techniquement, mais son analyse contient une mauvaise attribution matérielle ; la mission durable reste interrompue sur capacité. Aucune autonomie générale fiable déclarée. Les raccordements installés et les tests logiciels ne constituent pas une réception d’autonomie générale ni une preuve que tout objectif futur réussira.
+
+
+## Dernière réception navigateur indépendante
+
+Chat9e0f32d4-bcde-4c7a-8936-bc2e85b53620 : une seule question naturelle, sans nom d’outil/CIDR/relance. Quatorze reçus538à564 par pas de2, treize succès broker et une expiration de scan exhaustif conservée ; tous les arguments UI correspondent aux signatures canoniques, zéro erreur de fonction native. Le modèle passe après expiration à des ports ciblés ; aucune commande de scan rédigée par Codex dans ce chat.
+
+Réponse2232caractères affichée automatiquement après191secondes, SHAcf2f6afd4826a6667717201ef63dc9d59bc4ab22c6e02a52f6f180bb07c2f7a2. Le relais a effectivement fermé les outils pour la restitution :28114octets entrants,24268 transmis, tous les messages conservés, HTTP200 et aucune opération supplémentaire dans cette phase. Le test modèle seul précédent reste distingué de cette réception UI.
+
+**Réserve fonctionnelle bloquante pour la fiabilité de l’analyse** : le texte assimile à tort un Dell à un Mac mini. Les ports observés et la livraison sont reçus ; cette attribution matérielle et l’analyse globale ne le sont pas. Les résultats bruts privés et la réponse originale sont conservés sans correction silencieuse. Une découverte de ports/noms/fabricants ne prouve pas seule l’utilité ou le matériel d’une machine. Les raccordements corrigés ne permettent pas de déclarer toutes les conclusions Qwen fiables.
+
+La sonde durable reste à son arrêt97454, neuf incidents de capacité dont six résolus. Une mesure supplémentaire sans inférence montre qu’une simple déduplication du contrat ne suffit pas ; cette hypothèse n’est pas déployée et aucun compteur ni état n’est modifié. Pas de nouvelle campagne générale de standardisation ni de quatrième cycle inchangé.
