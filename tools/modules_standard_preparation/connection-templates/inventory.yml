@@ -1,0 +1,9 @@
+all:
+  children:
+    linux:
+      hosts: {}
+    windows:
+      hosts: {}
+    cisco:
+      hosts: {}
+# Renseigner uniquement les cibles fournies par Régis au lycée.
