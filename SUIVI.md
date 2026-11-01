@@ -1,3 +1,7 @@
+## Ordonnanceur — essais réels complémentaires du 1 novembre 2026
+
+✅ Sept scénarios réels reçus : tâche utile de vérification1384fichiers, pause/reprise, perte du contrôleur avec expiration du bail, récupération et absence de doublons/rejeu. Erreur initiale d’ordre de tri dans le harnais corrigée par vérification indépendante ; aucun écart sur les fichiers. Service actif/en attente ; JM-01 suspendue, services Qwen/WebUI actifs. [Résultats et limites](docs/missions/IDLE-SCHEDULER/ESSAIS-REELS-20261101.md).
+
 ## Ordonnanceur — réception finale du 1 novembre 2026
 
 ✅ Service central activé ; unités distantes à checkpoints qualifiées sur Dell2 via Tailscale. Pause réelle au checkpoint6, reprise à12, redémarrage sans rejeu ;21tests ciblésPASS. Aucun collecteur créé. JM-01 reste suspendue individuellement(enabled:false), checkpoints et compteurs inchangés ; aucun développement mobile poursuivi ici. Sources, limites et déploiement versionné : [réception finale](docs/missions/IDLE-SCHEDULER/RECEPTION-FINALE.md). Services Qwen/WebUI préservés, aucune fusion main.

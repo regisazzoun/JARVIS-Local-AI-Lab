@@ -1,0 +1,76 @@
+{
+  "started_at": 1793561837.338667,
+  "workload": "Read-only integrity check of copied Qwen Code package",
+  "tests": [
+    {
+      "test": "automatic_start_with_real_read_only_work",
+      "result": "PASS",
+      "at": 1793561841.7131722,
+      "checkpoint": 49
+    },
+    {
+      "test": "operator_pause_preserves_checkpoint",
+      "result": "PASS",
+      "at": 1793561846.6017969,
+      "checkpoint_before": 112,
+      "checkpoint_after": 112
+    },
+    {
+      "test": "resume_advances_existing_checkpoint",
+      "result": "PASS",
+      "at": 1793561853.2849019,
+      "checkpoint": 152
+    },
+    {
+      "test": "controller_crash_remote_lease_stop_and_native_recovery",
+      "result": "PASS",
+      "at": 1793561863.670415,
+      "checkpoint": 311,
+      "remote_failures": 0,
+      "controller_pid_changed": true,
+      "systemd_restarts": 1
+    },
+    {
+      "test": "full_source_integrity_and_exactly_once_committed_units",
+      "result": "PASS",
+      "at": 1793562022.9677227,
+      "files": 1384,
+      "mismatches": 0,
+      "duplicate_commits": 0,
+      "canonical_root_sha256": "481dd9ce7940f794df2149082f1ac0925ea68549ccc0b17f2bc2038fe58b0392",
+      "remote_runs": 3,
+      "retained_controller_attempts": 2
+    },
+    {
+      "test": "completed_enabled_task_not_replayed_after_restart",
+      "result": "PASS",
+      "at": 1793562025.7434392,
+      "remote_runs": 3,
+      "attempts_unchanged": true
+    },
+    {
+      "test": "other_services_and_paused_mobile_preserved",
+      "result": "PASS",
+      "at": 1793562026.0843346,
+      "jm01_paused": true,
+      "mobile_MainPID": 0,
+      "central_services_active": true,
+      "webui_https": 200
+    }
+  ],
+  "result": "PASS",
+  "finished_at": 1793562026.0843363,
+  "initial_harness": {
+    "result": "FAIL",
+    "error": "AssertionError: ",
+    "cause": "Reference used Path ordering, report used relative-string ordering. Per-file hashes all matched; canonical sorting fixes the aggregate oracle. Original failure retained privately."
+  },
+  "validation": "Independent per-file verification and canonical root digest; original oracle failure retained",
+  "scheduler_state": "idle",
+  "deployed_release_unchanged": "2c3edbf37f5fb095b416c2334364ccdec8548e06",
+  "fixture_source_sha256": {
+    "integrity_unit.py": "afb1fa3035f9033fdf2e0a29e0d18acca549022481a93e00b6a12828f92a5b0f",
+    "test_verify_integrity.py": "cc77aacbea2d276953e660cd48646aa09f5574e51f85d8e57d1b1c5e15c962dd",
+    "verify_integrity.py": "c76be31c20f2309dbd5bb39f82ecafe18e34a44b4ace3efdca382983f857e5f4"
+  }
+}
