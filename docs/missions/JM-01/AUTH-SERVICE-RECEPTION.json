@@ -1,0 +1,33 @@
+{
+  "at": "2026-11-02T20:08:34.522553+00:00",
+  "source_module": "libs/shared/data-access/api/src/lib/auth/service.ts",
+  "native_draft_commit": "a7c4d12177e8cb1d20a9d70bb10d670f9203b586",
+  "native_failures_preserved": 0,
+  "original_run": "FAIL missing dependency mapping; original draft also did not register node:test cases and had incorrect transport assertions. Archived unchanged.",
+  "attribution": "Native Qwen supplied draft scenarios; Codex independently replaced defective harness with executable tests of actual service",
+  "result": {
+    "tests": 12,
+    "pass": 12,
+    "fail": 0
+  },
+  "scope": "Real AuthService transpiled/CommonJS and executed; API transport, auth-state boundary, class-transformer and model classes mocked; no network",
+  "cases": [
+    "token sign-in state/route/body",
+    "401 and403 same-error propagation without state change",
+    "token-free challenge and pending responses",
+    "POST logout bearer/skipToast",
+    "405 GET fallback with same bearer",
+    "403/500 do not retry GET",
+    "profile options/route",
+    "profile/password serialization boundaries"
+  ],
+  "limits": [
+    "No actual token persistence, complete MFA user flow or real backend authentication",
+    "No native platform build or distribution"
+  ],
+  "identity_sync": {
+    "both_Dell_component_sha256": "23b59a6a430dfbcf9066fa83200f9b8ddc43526f19ee4f77f80018ca65407c40",
+    "Dell2": "Source sync, unchanged globalTypeScript and6formtests completed without failure"
+  },
+  "reproduce": "JM01_PROJECT_ROOT=/full/pinned/checkout node --test tools/jm01/auth-service.contract.test.cjs; locked dependencies required"
+}
