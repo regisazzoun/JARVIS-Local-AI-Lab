@@ -1,3 +1,19 @@
+## Ordonnanceur — essais réels complémentaires du 1 novembre 2026
+
+✅ Sept scénarios réels reçus : tâche utile de vérification1384fichiers, pause/reprise, perte du contrôleur avec expiration du bail, récupération et absence de doublons/rejeu. Erreur initiale d’ordre de tri dans le harnais corrigée par vérification indépendante ; aucun écart sur les fichiers. Service actif/en attente ; JM-01 suspendue, services Qwen/WebUI actifs. [Résultats et limites](docs/missions/IDLE-SCHEDULER/ESSAIS-REELS-20261101.md).
+
+## Ordonnanceur — réception finale du 1 novembre 2026
+
+✅ Service central activé ; unités distantes à checkpoints qualifiées sur Dell2 via Tailscale. Pause réelle au checkpoint6, reprise à12, redémarrage sans rejeu ;21tests ciblésPASS. Aucun collecteur créé. JM-01 reste suspendue individuellement(enabled:false), checkpoints et compteurs inchangés ; aucun développement mobile poursuivi ici. Sources, limites et déploiement versionné : [réception finale](docs/missions/IDLE-SCHEDULER/RECEPTION-FINALE.md). Services Qwen/WebUI préservés, aucune fusion main.
+
+## Missions distantes et JM-01 — 1 novembre 2026
+
+✅ Qualification des unités distantes à checkpoints : pause/reprise, expiration du bail, arrêt de tout le groupe, plafond3erreurs et priorité interactive reçus ;16tests ciblésPASS. 🟡 JM-01 réellement lancée surDell2, QwenCode0.26.4 officiel/80B32k, première unitéaudit en cours au relevé ; aucun livrable final reçu. Dell1 préservé(PIDservicesidentiques), WebUIHTTPS200. CheckpointsGit locaux ; publication des futurs livrables après relecture, copie automatique non installée après refus du contrôle automatique. [Réception et preuves](docs/missions/IDLE-SCHEDULER/REMOTE-RECEPTION.md). Aucun main fusionné, aucune repriseM26-P4.
+
+## Ordonnanceur de fond — réception du 1 novembre 2026
+
+✅🟡 Service central `jarvis-idle-scheduler` installé et activé (enabled/active) ; pause/reprise/checkpoint/redémarrage reçus sur unité Mac, contrôle de services Dell2 terminé. Télémétrie des trois machines et cinq GPU via producteurs JARVIS existants ; Dell1 occupé préservé. 11 tests ciblés PASS. Contrôleur actuellement idle ; JM-01 non lancée. Longues missions distantes à mutations non qualifiées, explicitement rejetées. M26-P4/MANUAL-HOLD, Qwen/WebUI et workers préservés ; aucune fusion main. [Rapport et preuves](docs/missions/IDLE-SCHEDULER/RAPPORT.md).
+
 # JARVIS — SUIVI GLOBAL DES MISSIONS
 
 > **Actualisation du 1er novembre 2026 — Dell 2 : ✅ Qwen3-Coder-Next 80B présent et réellement exécutable.** Inférence directe réussie avec contexte 32k et usage GPU, code vérifié sur six cas, second moteur d’inférence et supervision fonctionnels. Voir le [rapport factuel et les preuves](docs/missions/dell2-qwen80b-2026-11-01/RAPPORT.md). Les mentions ci-dessous de Dell 2 « futur », « non installé » ou « indisponible » décrivent l’état historique de leur rédaction et sont dépassées pour ces critères. Cette réception ne valide pas rétroactivement l’autonomie de déploiement JARVIS (14/14A), le parcours Launcher/WebUI, les outils natifs ou tous les autres critères des anciennes missions.
@@ -267,3 +283,10 @@ PR6 fusionnée dans sa branche de base ; [PR7](https://github.com/regisazzoun/JA
 ### Ajout documentaire du 19 octobre 2026 — missions 23 à 31
 
 Neuf identifiants ajoutés au suivi courant (77 au total). Ordre révisé : LiveKit → mémoire → skills → moteur → JL-03 → routage → satellites → proactivité → réception. Aucun service déployé, aucun résultat d'essai ni réception déduit de cet ajout. Les chiffres du bilan mission 00 demeurent des instantanés historiques.
+
+
+## Migration réseau Tailscale — clôture technique du 1 novembre 2026
+
+✅ Migration à domicile terminée pour Dell 1 et Dell 2 : SSH/broker, supervision, WebUI, passerelle d'inférence et accès Ollama via Tailscale ; backends Ollama sur boucle locale, anciennes écoutes LAN retirées. Quatre endpoints distants vérifiés ; services centraux actifs, WebUI saine, télémétrie disponible. Tunnel bureau Dell 1 reconnecté via Tailscale. Sauvegardes et preuves détaillées conservées en privé ; aucune publication ni fusion.
+
+JM-01 reste en pause propriétaire, sans reprise ni remise à zéro des compteurs. Les mentions historiques antérieures de mission en cours ne constituent pas l'état actuel. 🟡 Déplacement au lycée : reste à confirmer après autorisation réseau, réception intersite, performances et récupération. Ce statut ne constitue pas une réception après reboot matériel. Voir la directive de migration ajoutée à AGENTS.md et le point de pause existant.

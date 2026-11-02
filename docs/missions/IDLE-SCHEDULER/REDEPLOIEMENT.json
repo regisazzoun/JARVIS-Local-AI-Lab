@@ -1,0 +1,37 @@
+{
+  "deployed_at": 1793560677.3172185,
+  "source_commit": "2c3edbf37f5fb095b416c2334364ccdec8548e06",
+  "release_path": "/opt/jarvis/idle-scheduler/releases/2c3edbf37f5fb095b416c2334364ccdec8548e06",
+  "current_link": "/opt/jarvis/idle-scheduler/current",
+  "service": "MainPID=84906\nNRestarts=0\nWorkingDirectory=/opt/jarvis/idle-scheduler/current\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+  "ledger_preserved": true,
+  "jm01_enabled": false,
+  "only_service_restarted": "jarvis-idle-scheduler.service",
+  "source_hashes": {
+    "ops/checkpoint_smoke.py": "97bb2c0fd4f1fbcdf45bda4abde28687c3fb2459349cd89fb9d2b4fd04e70f20",
+    "ops/idle_scheduler.py": "9261e86bac0201700567debf4a29c2b16d6c541fb7a93a789d00d858f5ed019f",
+    "ops/jm01_units.py": "c79e6d474684ed7ca2b7a52825a6511c6571be77bfc6a360238864e5b5e03ef4",
+    "ops/remote_client.py": "a4e2e05fb56b9ca853fe274cd9538a4a67c1e29c7c979a3ef5d4ba0d81431a8f",
+    "ops/remote_runner.py": "83fb9e43536716c0a472cf39f7f60eafba7eccf8e36deaffa129f58c86733a3a",
+    "ops/test_idle_scheduler.py": "18129b9716868abeff997d4b7cf024261bc25ae6accca494fca313c388efdf5c",
+    "ops/test_jm01_resolution.py": "3e06d1b8a04daa686e9710a9b1b636ed4f860c931842c424db78ec9acd7d0777",
+    "ops/test_remote_runner.py": "5cf6c5c83ce49427e13f943573688140cc19b0f72fb89a62f3ca1d9c00fd2b9a"
+  },
+  "rollback": "Restore the saved service unit and previous current link; reload systemd and restart only this scheduler. Preserve the state/checkpoints.",
+  "remote_transport_check_from_deployed_client": {
+    "result": "PASS",
+    "path": "SSH alias through Tailscale",
+    "mobile_status": "paused",
+    "mobile_MainPID": 0
+  },
+  "central_health": [
+    "active",
+    "active",
+    "active",
+    "active",
+    "active",
+    "active",
+    "active"
+  ],
+  "final_checked_at": 1793560724.7884216
+}

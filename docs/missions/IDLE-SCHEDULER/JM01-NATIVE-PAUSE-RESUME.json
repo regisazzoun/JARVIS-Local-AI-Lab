@@ -1,0 +1,73 @@
+{
+  "at": 1793555718.3766403,
+  "events": [],
+  "paused": {
+    "status": "paused",
+    "failures": 0,
+    "runs": 4,
+    "updated_at": 1793555712.1085773,
+    "started_at": 1793555709.295277,
+    "supervisor_pid": 712926,
+    "task_pid": null,
+    "reason": "external inference client priority",
+    "progress": {
+      "status": "paused",
+      "current": "01-audit",
+      "checkpoint_commit": null,
+      "completed": {},
+      "failures": {}
+    },
+    "unit": "jarvis-idle-adc8b0653adb3e956790.service",
+    "systemd": {
+      "MainPID": "0",
+      "ControlGroup": "",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    }
+  },
+  "native_state_while_stopped": {
+    "completed": {},
+    "failures": {},
+    "sessions": {
+      "01-audit": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5"
+    },
+    "current": "01-audit",
+    "status": "paused",
+    "updated_at": 1793555712.0900476
+  },
+  "resumed": {
+    "status": "running",
+    "failures": 0,
+    "runs": 5,
+    "updated_at": 1793555724.0459852,
+    "started_at": 1793555724.045985,
+    "supervisor_pid": 713130,
+    "task_pid": 713134,
+    "reason": "external inference client priority",
+    "progress": {
+      "status": "running",
+      "current": "01-audit",
+      "checkpoint_commit": null,
+      "completed": {},
+      "failures": {}
+    },
+    "unit": "jarvis-idle-adc8b0653adb3e956790.service",
+    "systemd": {
+      "MainPID": "713130",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-adc8b0653adb3e956790.service",
+      "ActiveState": "active",
+      "SubState": "running"
+    }
+  },
+  "native_state_after": {
+    "completed": {},
+    "failures": {},
+    "sessions": {
+      "01-audit": "e07c8cfd-d4da-4b6d-b197-d377ef5b0de5"
+    },
+    "current": "01-audit",
+    "status": "running",
+    "updated_at": 1793555724.1032937
+  },
+  "finished_at": 1793555724.3838906
+}

@@ -1,0 +1,9 @@
+test_content_mismatch_is_rejected (test_verify_integrity.AuditOracleTests.test_content_mismatch_is_rejected) ... ok
+test_different_path_sort_orders_do_not_create_false_failure (test_verify_integrity.AuditOracleTests.test_different_path_sort_orders_do_not_create_false_failure) ... ok
+test_duplicate_commit_is_rejected (test_verify_integrity.AuditOracleTests.test_duplicate_commit_is_rejected) ... ok
+test_missing_checkpoint_is_rejected (test_verify_integrity.AuditOracleTests.test_missing_checkpoint_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

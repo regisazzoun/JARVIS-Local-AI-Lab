@@ -1,0 +1,41 @@
+{
+  "captured_at": 1793553720.3581653,
+  "state": {
+    "completed": [
+      "reception-checkpoint-mac-v1",
+      "reception-service-check-dell2-v1"
+    ],
+    "attempts": {
+      "reception-checkpoint-mac-v1": 1,
+      "reception-service-check-dell2-v1": 1
+    },
+    "status": "idle",
+    "updated_at": 1793553720.057037,
+    "current": null,
+    "reason": "No eligible pending configured unit",
+    "returncode": 0
+  },
+  "service": "MainPID=57891\nNRestarts=0\nActiveState=active\nSubState=running\nUnitFileState=enabled\n",
+  "services": {
+    "mac-mini": {
+      "jarvis-conversation": "active",
+      "jarvis-ollama": "active",
+      "jarvis-hardware": "active",
+      "jarvis-host-bridge": "active",
+      "jarvis-mcpo-standard": "active",
+      "jarvis-mission-worker": "active",
+      "jarvis-mission-worker@2": "active"
+    },
+    "jarvis-dell1": {
+      "jarvis-ollama": "active",
+      "jarvis-ollama-missions": "active"
+    },
+    "jarvis-dell2": {
+      "jarvis-ollama": "active",
+      "jarvis-ollama-missions": "active"
+    }
+  },
+  "webui_http": "200",
+  "configuration_sha256": "8f4b61a741a4f31e8322b5dee8179088c82a52a505b20065766386e03b27f105",
+  "journal": "Nov 01 18:20:24 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:29 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:34 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:39 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:44 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:49 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:54 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:20:59 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:04 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:09 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:14 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:19 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:24 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:29 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:34 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:39 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:44 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:50 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:21:55 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\nNov 01 18:22:00 JARVIS-MacMIini python[57891]: {\"status\": \"idle\", \"current\": null, \"reason\": \"No eligible pending configured unit\"}\n"
+}

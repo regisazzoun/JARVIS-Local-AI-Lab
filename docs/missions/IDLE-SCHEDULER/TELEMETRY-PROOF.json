@@ -1,0 +1,337 @@
+{
+  "captured_at": 1793553325.4638624,
+  "telemetry": {
+    "mac-mini": {
+      "machine": {
+        "available": true,
+        "sampled_at": 1793553322.7436945,
+        "cpu_percent": 8.3,
+        "cpu_threads": 12,
+        "load1": 0.3642578125,
+        "ram_total_mb": 31948,
+        "ram_used_mb": 4592,
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "utilization": 0.0,
+          "temperature": 42.0,
+          "vram_used_mb": 6.0,
+          "vram_total_mb": 24576.0
+        },
+        "ollama": true,
+        "active_models": [],
+        "gpu_all": [
+          {
+            "index": 0.0,
+            "total_mib": 24576.0,
+            "free_mib": 24121.0,
+            "utilization_percent": 0.0,
+            "temperature_c": 42.0,
+            "power_w": 17.89
+          }
+        ],
+        "gpu_captured_at": 1793553325.4835837
+      },
+      "admission_cpu_unit": [
+        true,
+        "eligible"
+      ],
+      "admission_gpu_unit": [
+        true,
+        "eligible"
+      ]
+    },
+    "dell-1": {
+      "machine": {
+        "available": true,
+        "sampled_at": 1793553323.0155175,
+        "cpu_percent": 2.9,
+        "cpu_threads": 36,
+        "load1": 3.48046875,
+        "ram_total_mb": 257452,
+        "ram_used_mb": 15163,
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "utilization": 50.0,
+          "temperature": 60.0,
+          "vram_used_mb": 23287.0,
+          "vram_total_mb": 24576.0
+        },
+        "ollama": true,
+        "active_models": [
+          "qwen3-coder-next:jarvis-standard-32k"
+        ],
+        "gpu_all": [
+          {
+            "index": 0.0,
+            "total_mib": 24576.0,
+            "free_mib": 967.0,
+            "utilization_percent": 27.0,
+            "temperature_c": 61.0,
+            "power_w": 172.88
+          },
+          {
+            "index": 1.0,
+            "total_mib": 24576.0,
+            "free_mib": 1161.0,
+            "utilization_percent": 35.0,
+            "temperature_c": 75.0,
+            "power_w": 196.43
+          }
+        ],
+        "gpu_captured_at": 1793553326.1201384
+      },
+      "admission_cpu_unit": [
+        false,
+        "GPU busy"
+      ],
+      "admission_gpu_unit": [
+        false,
+        "GPU busy"
+      ]
+    },
+    "dell-2": {
+      "machine": {
+        "available": true,
+        "sampled_at": 1793553323.0348675,
+        "cpu_percent": 0.0,
+        "cpu_threads": 36,
+        "load1": 0.1005859375,
+        "ram_total_mb": 128525,
+        "ram_used_mb": 3031,
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "utilization": 0.0,
+          "temperature": 46.0,
+          "vram_used_mb": 2.0,
+          "vram_total_mb": 24576.0
+        },
+        "ollama": true,
+        "active_models": [],
+        "gpu_all": [
+          {
+            "index": 0.0,
+            "total_mib": 24576.0,
+            "free_mib": 24252.0,
+            "utilization_percent": 0.0,
+            "temperature_c": 46.0,
+            "power_w": 24.66
+          },
+          {
+            "index": 1.0,
+            "total_mib": 10240.0,
+            "free_mib": 10000.0,
+            "utilization_percent": 0.0,
+            "temperature_c": 35.0,
+            "power_w": 12.3
+          }
+        ],
+        "gpu_captured_at": 1793553326.7728577
+      },
+      "admission_cpu_unit": [
+        true,
+        "eligible"
+      ],
+      "admission_gpu_unit": [
+        true,
+        "eligible"
+      ]
+    }
+  },
+  "mcp": {
+    "paths": [
+      "/jarvis_catalog",
+      "/jarvis_schema",
+      "/jarvis_call",
+      "/jarvis_receipt",
+      "/jarvis_remote_project"
+    ],
+    "system_status": {
+      "schema": {
+        "name": "system_status",
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        },
+        "description": "\u00c9tat r\u00e9el CPU/RAM et syst\u00e8me, lecture seule",
+        "native_function": "jarvis_call",
+        "binding": {
+          "name": "system_status",
+          "arguments_type": "object",
+          "arguments_value": "Pass your chosen object conforming to schema directly, not as a quoted string"
+        },
+        "important": "This is the arguments schema of a broker operation. It does NOT register a native function with that name. Execute only through the offered native jarvis_call function."
+      },
+      "response_top_keys": [
+        "ok",
+        "result",
+        "risk",
+        "tool",
+        "elapsed_s",
+        "client_receipt"
+      ],
+      "response": {
+        "ok": true,
+        "result": {
+          "system": "Linux",
+          "release": "6.18.54-1-t2-trixie",
+          "load": [
+            0.49560546875,
+            0.54443359375,
+            0.53125
+          ],
+          "memory": {
+            "returncode": 0,
+            "stdout": "               total        used        free      shared  buff/cache   available\nMem:           31948        4613        3813         296       24172       27334\nSwap:          24059           0       24059\n",
+            "stderr": ""
+          }
+        },
+        "risk": "read_only",
+        "tool": "system_status",
+        "elapsed_s": 0.002,
+        "client_receipt": {
+          "audit_id": 702,
+          "request_id": "a1b5b582085d4402934b07f2dab98cf5",
+          "mission_id": null,
+          "invocation_id": null,
+          "origin": "QwenCode/MCP",
+          "call_completed": true,
+          "application_result_independently_verified": false
+        }
+      }
+    },
+    "host_resources": {
+      "schema": {
+        "name": "host_resources",
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        },
+        "description": "Ressources CPU RAM GPU et inventaire Tailscale r\u00e9el",
+        "native_function": "jarvis_call",
+        "binding": {
+          "name": "host_resources",
+          "arguments_type": "object",
+          "arguments_value": "Pass your chosen object conforming to schema directly, not as a quoted string"
+        },
+        "important": "This is the arguments schema of a broker operation. It does NOT register a native function with that name. Execute only through the offered native jarvis_call function."
+      },
+      "response_top_keys": [
+        "ok",
+        "result",
+        "risk",
+        "tool",
+        "elapsed_s",
+        "client_receipt"
+      ],
+      "response": {
+        "ok": true,
+        "client_receipt": {
+          "audit_id": 704,
+          "request_id": "ae0d823b093e4462beec26b76262fc0e",
+          "mission_id": null,
+          "invocation_id": null,
+          "origin": "QwenCode/MCP",
+          "call_completed": true,
+          "application_result_independently_verified": false
+        },
+        "result_keys": [
+          "cpu",
+          "ram",
+          "gpu",
+          "tailscale",
+          "evidence_id",
+          "diagnostic"
+        ]
+      },
+      "canonical_result": {
+        "keys": [
+          "cpu",
+          "ram",
+          "gpu",
+          "tailscale",
+          "evidence_id",
+          "diagnostic"
+        ],
+        "command_returncodes": {
+          "cpu": 0,
+          "ram": 0,
+          "gpu": 0,
+          "tailscale": 0
+        }
+      }
+    },
+    "compute_status": {
+      "schema": {
+        "name": "compute_status",
+        "schema": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        },
+        "description": "Observer les n\u0153uds r\u00e9ellement disponibles, mod\u00e8les install\u00e9s et file partag\u00e9e. Dell2 reste offline sans requ\u00eate r\u00e9seau tant qu\u2019il n\u2019est pas enr\u00f4l\u00e9.",
+        "native_function": "jarvis_call",
+        "binding": {
+          "name": "compute_status",
+          "arguments_type": "object",
+          "arguments_value": "Pass your chosen object conforming to schema directly, not as a quoted string"
+        },
+        "important": "This is the arguments schema of a broker operation. It does NOT register a native function with that name. Execute only through the offered native jarvis_call function."
+      },
+      "response_top_keys": [
+        "ok",
+        "tool",
+        "result",
+        "client_receipt"
+      ],
+      "response": {
+        "ok": true,
+        "client_receipt": {
+          "audit_id": 706,
+          "request_id": "a2ba936223bd409dbd9cb39e87210489",
+          "mission_id": null,
+          "invocation_id": null,
+          "origin": "QwenCode/MCP",
+          "call_completed": true,
+          "application_result_independently_verified": false
+        },
+        "result_keys": [
+          "explicit_excerpt",
+          "full_sha256",
+          "full_result_bytes",
+          "full_receipt_audit_id",
+          "meaning"
+        ]
+      },
+      "canonical_result": {
+        "keys": [
+          "nodes",
+          "jobs",
+          "conversation_model"
+        ],
+        "nodes": [
+          {
+            "node": "Mac-mini",
+            "state": "ready",
+            "enabled": true
+          },
+          {
+            "node": "Dell1",
+            "state": "ready",
+            "enabled": true
+          },
+          {
+            "node": "Dell2",
+            "state": "offline_pending",
+            "enabled": false
+          }
+        ],
+        "jobs_count": 20
+      }
+    }
+  }
+}

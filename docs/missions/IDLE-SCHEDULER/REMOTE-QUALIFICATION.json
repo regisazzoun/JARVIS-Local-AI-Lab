@@ -1,0 +1,943 @@
+{
+  "started_at": 1793555155.6925747,
+  "events": [
+    {
+      "at": 1793555156.185789,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "failed",
+        "failures": 1,
+        "runs": 1,
+        "updated_at": 1793555065.0436015,
+        "started_at": 1793555060.3991323,
+        "supervisor_pid": 707771,
+        "task_pid": null,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555156.4583826,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "failed",
+        "failures": 1,
+        "runs": 1,
+        "updated_at": 1793555065.0436015,
+        "started_at": 1793555060.3991323,
+        "supervisor_pid": 707771,
+        "task_pid": null,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555157.0387785,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "failed",
+        "failures": 1,
+        "runs": 1,
+        "updated_at": 1793555065.0436015,
+        "started_at": 1793555060.3991323,
+        "supervisor_pid": 707771,
+        "task_pid": null,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555157.6639652,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "failed",
+        "failures": 1,
+        "runs": 1,
+        "updated_at": 1793555065.0436015,
+        "started_at": 1793555060.3991323,
+        "supervisor_pid": 707771,
+        "task_pid": null,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555158.2598648,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "failed",
+        "failures": 1,
+        "runs": 1,
+        "updated_at": 1793555065.0436015,
+        "started_at": 1793555060.3991323,
+        "supervisor_pid": 707771,
+        "task_pid": null,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555158.8647873,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555159.3555975,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555159.951796,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555160.582512,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555161.1638052,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555161.7605186,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555162.331694,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "running",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555158.4347048,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": 709220,
+        "returncode": -15,
+        "reason": "Task failed",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "709214",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-fa6323c1819ee0f81ec3.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555163.0097902,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "paused",
+        "failures": 1,
+        "runs": 2,
+        "updated_at": 1793555162.8699973,
+        "started_at": 1793555158.4347043,
+        "supervisor_pid": 709214,
+        "task_pid": null,
+        "returncode": -15,
+        "reason": "operator/controller stop",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555177.9339647,
+      "action": "status",
+      "id": "qualification-remote-central-v2",
+      "state": {
+        "status": "completed",
+        "failures": 1,
+        "runs": 3,
+        "updated_at": 1793555174.4386623,
+        "started_at": 1793555170.1987765,
+        "supervisor_pid": 709469,
+        "task_pid": null,
+        "returncode": 0,
+        "reason": "Native task exited successfully",
+        "unit": "jarvis-idle-fa6323c1819ee0f81ec3.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555178.3173428,
+      "action": "start",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "starting",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.2401621,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555178.596087,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555179.164844,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555179.7336774,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555180.2854383,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555180.8748143,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555181.4339616,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555181.988007,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555182.5543377,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555183.1302092,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555178.3707418,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": 709612,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709607",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555183.711326,
+      "action": "status",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "paused",
+        "failures": 0,
+        "runs": 1,
+        "updated_at": 1793555183.4108698,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": null,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555186.4487867,
+      "action": "start",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "starting",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.3674896,
+        "started_at": 1793555178.3707411,
+        "supervisor_pid": 709607,
+        "task_pid": null,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555186.7358468,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555187.3432076,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555187.9418879,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555188.5356858,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555189.1416502,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555189.7484176,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555190.3462055,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555190.9512217,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555191.5503438,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555192.1736586,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555192.7747848,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555193.3797963,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555193.9691973,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555194.5884306,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "running",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555186.4695182,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": 709786,
+        "reason": "controller lease expired",
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "709776",
+          "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/jarvis-idle-7c84494f1f3b7136178d.service",
+          "ActiveState": "active",
+          "SubState": "running"
+        }
+      }
+    },
+    {
+      "at": 1793555195.1760824,
+      "action": "renew",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "completed",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555194.714077,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": null,
+        "reason": "Native task exited successfully",
+        "returncode": 0,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    },
+    {
+      "at": 1793555195.6612117,
+      "action": "start",
+      "id": "qualification-lease-expiry-v1",
+      "state": {
+        "status": "completed",
+        "failures": 0,
+        "runs": 2,
+        "updated_at": 1793555194.714077,
+        "started_at": 1793555186.4695175,
+        "supervisor_pid": 709776,
+        "task_pid": null,
+        "reason": "Native task exited successfully",
+        "returncode": 0,
+        "unit": "jarvis-idle-7c84494f1f3b7136178d.service",
+        "systemd": {
+          "MainPID": "0",
+          "ControlGroup": "",
+          "ActiveState": "inactive",
+          "SubState": "dead"
+        }
+      }
+    }
+  ],
+  "pause_checkpoints": [
+    "8",
+    "8"
+  ],
+  "checkpoint_final": "12",
+  "lease_expiry_checkpoints": [
+    "4",
+    "4"
+  ],
+  "lease_final": "12",
+  "finished_at": 1793555195.6612144
+}
