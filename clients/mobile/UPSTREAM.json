@@ -1,7 +1,7 @@
 {
   "upstream_repository": "https://github.com/RonasIT/open-webui-react-native",
   "upstream_commit": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
-  "layout": "Reviewed source/assets/package/lock overlay, not a standalone repository. Complete native-branding+systemUI snapshot with independent dependencies validated on Dell2; original earlier checkpoints preserved.",
+  "layout": "Reviewed overlay with final native-branding/systemUI revision reconstructed and independently checked on both Dell; original upstream checkout still required.",
   "reconstruction": "Clone exact upstream commit and overlay clients/mobile/apps, clients/mobile/libs, and clients/mobile/package-lock.json. npmci --ignore-scripts --no-audit --no-fund, then apply reviewed dependency patch helper as documented; retain notices. Exact added expo-system-ui57.0.1 is locked. No generated native directories or dependency tree published.",
   "source_hashes": {
     "clients/mobile/apps/mobile/global.css": "5a288226cfa782ad9f4fad994f6787903cdaca7d9933a8731311a801f201e85b",
@@ -28,9 +28,9 @@
     "fail": 0
   },
   "pending": [
+    "Final-revision native platform JS bundle checks",
     "Real authenticated backend session",
     "Xcode/Gradle native binary compilation and device reception",
-    "Complete final-snapshot parity on Dell1",
     "Licensing clarification before distribution"
   ],
   "license_note": "Original LICENSE retained without alteration; package.json declares MIT while LICENSE header is GPLv3. Distribution licensing not resolved by this source integration.",
@@ -44,6 +44,7 @@
     "ANDROID-GENERATION-RECEPTION.json",
     "NATIVE-JS-BUNDLES-RECEPTION.json",
     "NATIVE-BRANDING-RECEPTION.json",
-    "NATIVE-SYSTEM-UI-RECEPTION.json"
+    "NATIVE-SYSTEM-UI-RECEPTION.json",
+    "FINAL-SOURCE-PARITY-RECEPTION.json"
   ]
 }
