@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-02T19:34:45.745134+00:00",
+  "attribution": "Codex authored limited identity patch; scheduler Dell1 executed source/typecheck/export stages",
+  "source": "clients/mobile/libs/mobile/auth/features/sign-in/src/lib/component.tsx",
+  "source_sha256": "23b59a6a430dfbcf9066fa83200f9b8ddc43526f19ee4f77f80018ca65407c40",
+  "verification": {
+    "TypeScript": "PASS unchanged global compiler",
+    "export": "New actual web-export-jarvis-identity completed",
+    "visual": {
+      "width": 430,
+      "height": 932,
+      "screenWidth": 430,
+      "inputs": 3,
+      "text": "JARVIS Mobile\nConnexion\nURL de l’API\nAdresse e-mail\nMot de passe\nSe connecter\nBesoin d’aide ou un commentaire ?\nÉcrire à Ronas IT"
+    },
+    "screenshot": "docs/missions/JM-01/evidence/connexion-jarvis-430x932.png",
+    "screenshot_sha256": "4856c093efe58fabcbb016b6282dbbbc8180a21f56942d5e5e9f5ccfb76652af"
+  },
+  "limits": [
+    "No authenticated backend session",
+    "No native iOS/Android build",
+    "Upstream support link intentionally preserved; no invented owner support address"
+  ],
+  "history": "Old artifacts, jobs, failure counters and checkpoints retained",
+  "next": "Interactive real form and API contract tests; native Qwen draft currently being generated on Dell2, not yet received"
+}
