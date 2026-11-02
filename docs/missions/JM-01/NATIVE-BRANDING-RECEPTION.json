@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-02T21:06:30.982805+00:00",
+  "result": "Expo prebuild generated both iOS/Android native projects successfully after actual native assets/config changes",
+  "source": "Existing Launcher mission22 icon.svg, same J geometry adapted to mobile dark/aqua palette; deterministic Chromium SVG rasterization, visually inspected",
+  "source_sha256": "7e289802ba71ffae1024b4fe517d08fec496d1ab5d512ea05f08825f393f0515",
+  "attribution": "Codex asset/config integration, scheduler execution; not native Qwen-generated graphics",
+  "received": [
+    "1024x1024 opaque app icon with dark background",
+    "1024x1024 transparent adaptive/splash J mark",
+    "Generated iOS AppIcon and light/dark splash resources",
+    "Generated Android icons and density-specific light/dark splash resources",
+    "iOS CFBundleDisplayName JARVIS Mobile and permission descriptions updated to product name",
+    "Root/app package.json and package-lock.json unchanged"
+  ],
+  "source_hashes": {
+    "clients/mobile/apps/mobile/app.config.ts": "4e9d529d111951532db81140863a949cbf6c99bc1f4bf9296606f0dbd6977ffa",
+    "clients/mobile/apps/mobile/assets/icon.png": "6cfc9763047af0784fb9482e326fd7bec87482b745804195518337a136e061c8",
+    "clients/mobile/apps/mobile/assets/adaptive-icon.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
+    "clients/mobile/apps/mobile/assets/splash.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
+    "clients/mobile/apps/mobile/assets/splash-dark.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
+    "clients/mobile/apps/mobile/assets/jarvis-launcher.svg": "9f1ce3be01c70426ce32f49992afd99c124b23a0c6309cd1fb2b9c1fd85db210"
+  },
+  "scope": "Separate native-branding snapshot; prior artifacts and integrated checkouts preserved. Generated source/resources validated, no native binary or device reception",
+  "remaining": [
+    "expo-system-ui missing for Android automatic userInterfaceStyle; compatible57.0.1 metadata verified, not installed",
+    "Native binary compilation and runtime/device theme/splash behavior",
+    "Real backend authentication",
+    "Reconstruction of final full integrated snapshot across both Dell remains to be consolidated"
+  ],
+  "reference": "https://docs.expo.dev/versions/latest/sdk/system-ui/"
+}
