@@ -27,5 +27,18 @@
   },
   "limits": "Headless preview with external domains blocked; no production credentials or server requests; native cookie/compressor source hashes verified unchanged",
   "history": "Prior blank screenshots, logs, artifacts, jobs and counters retained; no completed job replay",
-  "deadline": "2026-11-02 06:00 Europe/Paris unchanged"
+  "deadline": "2026-11-02 06:00 Europe/Paris unchanged",
+  "measured_browser_metrics": {
+    "width": 430,
+    "height": 932,
+    "screenWidth": 430,
+    "inputs": 3,
+    "text": "Connexion\nURL de l’API\nAdresse e-mail\nMot de passe\nSe connecter\nBesoin d’aide ou un commentaire ?\nÉcrire à Ronas IT"
+  },
+  "screenshot": {
+    "path": "docs/missions/JM-01/evidence/connexion-web-430x932.png",
+    "sha256": "d5843c1ccb8f752905f02d9ceac9846e092134f5c25fb4b507e4b1f0f32996a0",
+    "scope": "Real ExpoWeb client, true emulated CSS viewport430x932 via CDP, no credentials or backend login; fields empty"
+  },
+  "remaining_branding": "Header/login label is visible; legacy RonasIT help contact remains. Owner-specific textual branding and form interaction reception still pending."
 }
