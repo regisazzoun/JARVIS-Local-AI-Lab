@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-02T20:14:55.000968+00:00",
+  "result": "Android native project generated successfully by installed Expo CLI through scheduler, no installation",
+  "command": "expo prebuild --platform android --no-install --skip-dependency-update react,react-native,expo",
+  "scope": "Separate full current-source snapshot, dependency directory reused; original integrated checkouts unchanged",
+  "package_and_lock_unchanged": {
+    "package-lock.json": true,
+    "package.json": true,
+    "apps/mobile/package.json": true
+  },
+  "generated_file_sha256": {
+    "app/src/main/AndroidManifest.xml": "04f2968a941925a8a5d3fe5b37b0a1d809365c6635c476f286ced8acc9e4986d",
+    "app/src/main/res/values/strings.xml": "b0f28200fd19033e06101f542c1284bf1b11514278e0a5dbd497095b5e7bfa4c",
+    "app/build.gradle": "3589a6d5821c4a89b8eb49b166d9a92cc21df3b12b79074812ca8cfce1c8371b",
+    "gradle/wrapper/gradle-wrapper.properties": "a180163249c7252412ddaee1c7adcf59f6494b1183136f690fbd9a3b8aaed00e"
+  },
+  "verified": [
+    "Native app label JARVIS Mobile",
+    "jarvismobile scheme",
+    "HTTP self-hosting enabled by existing reviewed plugin"
+  ],
+  "warning": "expo-system-ui missing: automatic native userInterfaceStyle is not received",
+  "limits": [
+    "No JDK/Android SDK present, no Gradle/APK compilation",
+    "No signing or distribution",
+    "Generated icons/splash remain upstream assets, owner-native branding unfinished",
+    "Fake isolated Expo projectID; update URL exists in generated config, not a production-ready configuration"
+  ],
+  "reference": "https://docs.expo.dev/workflow/continuous-native-generation/"
+}
