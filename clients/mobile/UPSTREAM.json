@@ -1,8 +1,8 @@
 {
   "upstream_repository": "https://github.com/RonasIT/open-webui-react-native",
   "upstream_commit": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
-  "layout": "Reviewed source/assets overlay, not a standalone repository. Isolated native-branding revision exists on Dell2; earlier integrated checkouts/artifacts remain preserved.",
-  "reconstruction": "Clone exact upstream commit, overlay clients/mobile/apps and clients/mobile/libs, retain upstream notices and locked dependencies. Apply separately reviewed dependency patch helper described in DEPENDENCY-PATCH-RECEPTION.json. This includes native branding sources/assets; no complete native binary or runtime receipt.",
+  "layout": "Reviewed source/assets/package/lock overlay, not a standalone repository. Complete native-branding+systemUI snapshot with independent dependencies validated on Dell2; original earlier checkpoints preserved.",
+  "reconstruction": "Clone exact upstream commit and overlay clients/mobile/apps, clients/mobile/libs, and clients/mobile/package-lock.json. npmci --ignore-scripts --no-audit --no-fund, then apply reviewed dependency patch helper as documented; retain notices. Exact added expo-system-ui57.0.1 is locked. No generated native directories or dependency tree published.",
   "source_hashes": {
     "clients/mobile/apps/mobile/global.css": "5a288226cfa782ad9f4fad994f6787903cdaca7d9933a8731311a801f201e85b",
     "clients/mobile/libs/mobile/shared/ui/styles/src/lib/variables.ts": "edc458ebe4e821cef042e16430af877e96231da199049ea46d6c1d49e98aa034",
@@ -17,7 +17,9 @@
     "clients/mobile/apps/mobile/assets/adaptive-icon.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
     "clients/mobile/apps/mobile/assets/splash.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
     "clients/mobile/apps/mobile/assets/splash-dark.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
-    "clients/mobile/apps/mobile/assets/jarvis-launcher.svg": "9f1ce3be01c70426ce32f49992afd99c124b23a0c6309cd1fb2b9c1fd85db210"
+    "clients/mobile/apps/mobile/assets/jarvis-launcher.svg": "9f1ce3be01c70426ce32f49992afd99c124b23a0c6309cd1fb2b9c1fd85db210",
+    "clients/mobile/apps/mobile/package.json": "dfd95129a4f0684a2e218b4ab5f1073b47a1e8c337b8fd97c98eefd973b2f7a0",
+    "clients/mobile/package-lock.json": "fd61d6edaa020657d0584153615627b663defa6facbf1e5b5dd86ca63c159b47"
   },
   "attribution": "Native Qwen proposals followed by independently tested Codex corrections; native outputs archived, no autonomy claim.",
   "targeted_acceptance": {
@@ -28,8 +30,8 @@
   "pending": [
     "Real authenticated backend session",
     "Xcode/Gradle native binary compilation and device reception",
-    "Android automatic system theme dependency",
-    "Final full-snapshot consolidation and licensing clarification before distribution"
+    "Complete final-snapshot parity on Dell1",
+    "Licensing clarification before distribution"
   ],
   "license_note": "Original LICENSE retained without alteration; package.json declares MIT while LICENSE header is GPLv3. Distribution licensing not resolved by this source integration.",
   "formatting_note": "Published CSS overlay/fixture trailing whitespace normalized; semantic styles identical to tested integrated checkouts.",
@@ -41,6 +43,7 @@
     "AUTH-SERVICE-RECEPTION.json",
     "ANDROID-GENERATION-RECEPTION.json",
     "NATIVE-JS-BUNDLES-RECEPTION.json",
-    "NATIVE-BRANDING-RECEPTION.json"
+    "NATIVE-BRANDING-RECEPTION.json",
+    "NATIVE-SYSTEM-UI-RECEPTION.json"
   ]
 }
