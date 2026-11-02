@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-02T22:01:41.345029+00:00",
+  "result": "Final consolidated native-branding+systemUI revision assembled successfully on both native JS platforms",
+  "source_revision": "cd0dced, same2025sourcefiles on both Dell, exactlockedexpo-system-ui57.0.1",
+  "platforms": {
+    "ios": {
+      "bundle_bytes": 16272910,
+      "bundle_sha256": "eeeaba295b2f668301ed5c3a60bc0e62db2b2949ad8ff2f047e753dbb79722b6",
+      "assets": 26,
+      "all_assets_present": true,
+      "metadata_sha256": "ad90d3070d8113c27629ec74aa05c814aef2f928da3a2d24aa6c1e7f64da627e"
+    },
+    "android": {
+      "bundle_bytes": 16464879,
+      "bundle_sha256": "e979b02abbd3d171a1f348dd6c2518babd19cc25e282597fb979d5859914f70c",
+      "assets": 30,
+      "all_assets_present": true,
+      "metadata_sha256": "9fede5dd30a8450f5ff1882fb9ae3f27321ab71ef21537d756d98aaa65bb2a8e"
+    }
+  },
+  "execution": "Existing scheduler, iOS onDell1 andAndroid onDell2, independent dependencies; no failed stages",
+  "limits": [
+    "Hermes platform bundles/assets, not IPA/APK native binary builds",
+    "No real device, microphone/photo/nativeview integration or theme runtime reception",
+    "No actual authenticated backend session",
+    "No signing/distribution/cloud/mainmerge"
+  ],
+  "history": "All previous artifacts/jobs/counters and original native drafts retained"
+}
