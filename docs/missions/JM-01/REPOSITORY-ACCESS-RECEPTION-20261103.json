@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-02T23:13:18.889023+00:00",
+  "result": "Repository access restored and verified on both Dell",
+  "cause": "Static resolv.conf still referred to old home-network DNS after relocation; current networkd DHCP lease already provided valid resolvers",
+  "repair": "Only DNS nameserver lines updated atomically from current DHCP values after direct DNS query tests; backup retained privately. Existing routes and resolver file mode preserved; no Tailscale, SSH or production service configuration changed",
+  "checks": {
+    "both_Dell": {
+      "MavenCentral": {
+        "status": 200,
+        "bytes": 2322
+      },
+      "GoogleAndroidMaven": {
+        "status": 200,
+        "bytes": 11994
+      },
+      "npm": {
+        "status": 200,
+        "bytes": 2704
+      }
+    },
+    "privateJavaDell2": "MavenCentral andGoogleAndroidMaven200 with defaultTLS after privateJKSformat repair"
+  },
+  "additional_correction": "Private JDK CA store rebuilt from same148systemCA entries as JKS because default JVM could not use password-protected PKCS12 store; exact certificate identities verified and initial failure log preserved. No TLS validation bypass or system trust changes",
+  "access_health": "Both Tailscale backends Running and local Ollama model-list endpoints200; no inference or model eviction",
+  "persistence": "Resolver file updated on disk, no reboot performed; future network/DHCP changes require checking against current lease",
+  "automation": "Five-minute surveillance active again; intervene on blockers within authorized scope, preserve all counters/checkpoints",
+  "resumption": "New isolated Gradle configuration-only job queued/running through existing scheduler; guard forbids application tasks excepthelp, no app packaging/signing or SDK acceptance",
+  "limits": "Gradle application configuration result pending; no APK/IPA/device/backend reception claimed"
+}
