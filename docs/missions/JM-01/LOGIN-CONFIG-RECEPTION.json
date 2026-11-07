@@ -1,0 +1,25 @@
+{
+  "at": "2026-11-02T19:53:37.736315+00:00",
+  "native_draft_commit": "947d984a9e2319450316d239284800ec0ea4bc2e",
+  "native_failures_preserved": 1,
+  "original_candidate_run": "FAIL: AMD transpilation generated define() unavailable in VM; original archived",
+  "Codex_corrections": [
+    "Use explicit CommonJS TypeScript enum and real dependency path",
+    "Share module.exports/exports and provide URL; reject unknown imports and bound VM runtime",
+    "Correct false expectations: /api and prefixed paths valid, host retains port, custom HTTP not silently upgraded",
+    "Cross-realm array assertions; four independent prefix/storage/alias/query cases added"
+  ],
+  "result": {
+    "tests": 19,
+    "pass": 19,
+    "fail": 0,
+    "log_sha256": "1041d022c610f71cf29a290ea034869e6658d47dc8914c8e6c23088cc2a418f7"
+  },
+  "scope": "Actual four TypeScript modules compiled; appEnv and storage mocked; no network or actual sign-in",
+  "finding": "Existing demo alias and empty-storage fallback point to upstream provider. Documented actual behavior, not newly enabled or contacted. Interactive self-hosted QA must check explicit URL before any request.",
+  "report_corrections": [
+    "Native draft wrongly labels title Codex, calls fifteen tests ten, claims paths rejected, suggests relative URLs/admin checkbox not implemented, and invents human approval requirement. Draft not accepted or published."
+  ],
+  "reconstruction": "Set JM01_PROJECT_ROOT to full pinned upstream checkout plus reviewed overlay, containing locked node_modules; run Node --test. Tests do not require external services.",
+  "next": "Interactive real client form with isolated simulated backend, then auth contract transport; no real production/native build received"
+}

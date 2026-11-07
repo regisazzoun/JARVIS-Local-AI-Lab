@@ -1,0 +1,13 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { normalizeServerUrl, isValidServerUrl } from '../../clients/mobile/libs/shared/utils/config/src/normalize-server-url.ts';
+test('prefix retained and configured api suffix removed',()=>{assert.equal(normalizeServerUrl(' https://example.invalid/prefix/api/ '),'https://example.invalid/prefix');assert.equal(normalizeServerUrl('https://example.invalid/api'),'https://example.invalid');});
+test('scheme default remains https',()=>assert.equal(normalizeServerUrl('example.invalid/prefix'),'https://example.invalid/prefix'));
+test('empty input remains empty',()=>{assert.equal(normalizeServerUrl(), '');assert.equal(normalizeServerUrl('  '),'');});
+test('self-hosted HTTP and prefix valid',()=>{for(const u of ['http://127.0.0.1:8080/prefix','https://example.invalid/prefix/api/','example.invalid/prefix'])assert.equal(isValidServerUrl(u),true,u);});
+test('credentials rejected',()=>{for(const u of ['https://u:p@example.invalid','https://u@example.invalid'])assert.equal(isValidServerUrl(u),false,u);});
+test('unsupported schemes and partial URL rejected',()=>{for(const u of ['file:///etc/passwd','ftp://example.invalid','https:','http://','javascript:alert(1)'])assert.equal(isValidServerUrl(u),false,u);});
+test('query and fragment rejected',()=>{for(const u of ['https://example.invalid/?token=x','https://example.invalid/prefix#x'])assert.equal(isValidServerUrl(u),false,u);});
+test('validation helper requires nonempty URL',()=>{assert.equal(isValidServerUrl(''),false);assert.equal(isValidServerUrl(undefined),false);});
+test('actual Yup mobile validator uses shared helper rather than root-only restriction',()=>{const s=readFileSync(new URL('../../clients/mobile/libs/mobile/shared/utils/validation/src/server-url-validation.ts',import.meta.url),'utf8');assert.match(s,/isValidServerUrl/);assert.doesNotMatch(s,/pathname\s*===\s*['"]\/['"]/);assert.match(s,/Yup\.string/);});

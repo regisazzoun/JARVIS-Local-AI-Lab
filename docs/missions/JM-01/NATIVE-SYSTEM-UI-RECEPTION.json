@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-02T21:47:08.660652+00:00",
+  "result": "expo-system-ui57.0.1 integrated and independently verified in separate complete native-branded snapshot on Dell2",
+  "compatibility": "Installed Expo57 bundledNativeModules specifies~57.0.1; exact package metadata from official registry",
+  "integrity": "sha512-r8a6Jk2suL0vI7Uq4iKJab5Eesk8dkB56Q6HksVNkzuAExV0axoikQwZv8aAyHGbu2VHp0artB0N1/PQDLSgBg==",
+  "execution": [
+    "Verified archive transferred via existing pinnedSSH; no DNS/network changes",
+    "Offline npmci installed2365packages with scripts disabled in independent node_modules",
+    "Two previously reviewed dependency patches and syntax checks reapplied to new independent dependencies",
+    "Global TypeScript unchanged PASS",
+    "iOS and Android prebuild PASS, missing-system-ui warning gone",
+    "Android expo_system_ui_user_interface_style resource verified automatic",
+    "Actual Yup6 plus CJS/ESM dependency runtime8 checks PASS in new dependency tree"
+  ],
+  "lock_delta": "Only apps/mobile dependency expo-system-ui57.0.1 and its new node_modules/expo-system-ui locked entry; all previous package entries unchanged, semantic comparison checked",
+  "source_hashes": {
+    "clients/mobile/apps/mobile/package.json": "dfd95129a4f0684a2e218b4ab5f1073b47a1e8c337b8fd97c98eefd973b2f7a0",
+    "clients/mobile/package-lock.json": "fd61d6edaa020657d0584153615627b663defa6facbf1e5b5dd86ca63c159b47"
+  },
+  "scope": "Static/generated native configuration received; actual theme switching on device not received",
+  "limits": [
+    "No Xcode/Gradle binary, signing/distribution or device test",
+    "No real backend auth",
+    "New complete snapshot not yet reconstructed/validated on Dell1"
+  ],
+  "reference": "https://docs.expo.dev/versions/latest/sdk/system-ui/"
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-02T21:51:07.002551+00:00",
+  "result": "Final consolidated native-branding+systemUI source revision reconstructed and verified on both Dell",
+  "source_file_count": 2025,
+  "cross_host_hash_maps_equal": true,
+  "source_manifest_sha256": "36e3b5629dc08f9884a807df1ddedb5befcf2a912012cf053a2bafa324024075",
+  "public_overlay_check": "All published source hashes match except previously documented CSS trailing whitespace normalization; independently normalized lines match exactly",
+  "both_hosts": [
+    "Independent npmci offline2365packages, no scripts",
+    "Reviewed dependency patches applied and syntax verified",
+    "Unchanged full globalTypeScript PASS",
+    "iOS andAndroid native project generation PASS with automatic systemUI configured",
+    "14targeted tests PASS, no failed build stages"
+  ],
+  "canonical_workspace": "jm01-native-system-ui/project on each Dell; earlier integrated and native snapshots/jobs remain historical and preserved",
+  "limits": [
+    "Hermes iOS/Android bundles previously received before final asset/systemUI revision; no final-revision bundles claimed yet",
+    "No Xcode/Gradle native binary or physical-device run",
+    "No actual authenticated backend session",
+    "Upstream notices/license conflict retained, no distribution conformity claim"
+  ]
+}

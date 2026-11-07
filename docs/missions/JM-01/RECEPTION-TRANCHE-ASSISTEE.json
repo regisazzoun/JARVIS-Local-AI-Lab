@@ -1,0 +1,68 @@
+{
+  "at": 1793569595.4980762,
+  "result": "Assisted first tranche completed, mobile mission remains open",
+  "execution": [
+    {
+      "host_label": "Dell1",
+      "status": "completed",
+      "failures": {
+        "05-api-testplan": 6
+      },
+      "completed": {
+        "05-api-testplan": {
+          "local_checkpoint": "ae328831aebf8254ab0f57a06e1e0b86638ef5d8",
+          "artifact": "docs/missions/JM-01/05-RECETTE-API-DELL1.md",
+          "sha256": "d883de430fa818f4bce5a19b2169b3a51f5b2f58ad9a36ec2ba1b50abf24730d"
+        }
+      },
+      "code_hashes": {}
+    },
+    {
+      "host_label": "Dell2",
+      "status": "completed",
+      "failures": {
+        "01-audit": 11,
+        "03-prototype": 3
+      },
+      "completed": {
+        "01-audit": {
+          "local_checkpoint": "e54458fe8f79e51dd662cc7a05a0fbd7cc85d50d",
+          "artifact": "docs/missions/JM-01/01-AUDIT.md",
+          "sha256": "31cda9562d3ec9000443359be6b9ea1f76919385f02d725188e28ab8037a4cba"
+        },
+        "02-inventory": {
+          "local_checkpoint": "e0017c5948b014a68ecb462b16a52c38d6cc3ed2",
+          "artifact": "docs/missions/JM-01/02-FONCTIONS.md",
+          "sha256": "79f24098430fd8551060bff71c3f41f1128f3beec92eedb4c6de3b53722cb317"
+        },
+        "03-prototype": {
+          "local_checkpoint": "00f2ad6c76016d3a327b65f26a7d1ea91c58983f",
+          "artifact": "docs/missions/JM-01/03-PROTOTYPE.md",
+          "sha256": "b07898599b08b4a8d04efc6911c08de2abff4e311bbbc3cfa9968a9593024123"
+        },
+        "04-handoff": {
+          "local_checkpoint": "07a73a1dba494e59dec1c0697aa53a4104d63cf0",
+          "artifact": "docs/missions/JM-01/04-ETAT.md",
+          "sha256": "d16a8ff04e1a49e6b71372b393e224b06b989e4870c55ac39d20d617c61e0f37"
+        }
+      },
+      "code_hashes": {
+        "tools/jm01/connection.contract.test.mjs": "6a5142298c64984279c92b8ebf8156cbdda0c0e98b23d6ea18bd50653cfbc086",
+        "tools/jm01/connection.mjs": "7e36cff6dff758bc876a5f1a83a3d853b2c9094c67e97300a905faa2087e2886",
+        "tools/jm01/connection.test.mjs": "ed6072187c4b6877225a2ba0f7469b0ff93c427aa70a3a406267020ba95e42db"
+      }
+    }
+  ],
+  "reception": {
+    "protocol_client": "Codex correction, 12/12 mock Node tests PASS and syntax checks PASS",
+    "native_units": "All five assigned native units checkpointed; completion is not semantic approval",
+    "native_reports": "Independent factual corrections supersede unsupported claims; raw drafts retained privately",
+    "not_received": [
+      "Production WebUI compatibility",
+      "Native iOS/Android app build/signature/distribution",
+      "General autonomous coding capability"
+    ]
+  },
+  "next": "Integrate the actual React Native client and Launcher styling in a later explicitly scoped tranche; no automatic expansion tonight",
+  "deadline": "2026-11-02 06:00 Europe/Paris, persistent pause and shutdown of both Dell retained"
+}

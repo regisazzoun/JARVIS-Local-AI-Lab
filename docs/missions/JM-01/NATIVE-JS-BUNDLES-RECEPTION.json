@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-02T20:27:47.361715+00:00",
+  "scope": "Real React Native iOS and Android branches assembled by Metro and compiled to Hermes bytecode; no Xcode/Gradle binary or device execution",
+  "platforms": {
+    "ios": {
+      "status": "PASS",
+      "bundle_bytes": 16273127,
+      "bundle_sha256": "0c19b5c6613a1aaf78df7a79569cf868149aec5a331b06d2ce8e18295e68d781",
+      "asset_count": 26,
+      "all_assets_present": true,
+      "metadata_sha256": "ddbf191eaa8a63bfd3dc2fc041237903c722f753a821f21cf05ffd5f79c4b62a"
+    },
+    "android": {
+      "status": "PASS",
+      "bundle_bytes": 16464349,
+      "bundle_sha256": "40fdb1ec77e199bd115d17a63b8e6a8e1826ce92f8f75b138cb5c0c9b59f7967",
+      "asset_count": 30,
+      "all_assets_present": true,
+      "metadata_sha256": "7e8adc673e67d079bdef7e66ce496b34ec234f29bdecafe451235d7f05736926"
+    }
+  },
+  "limits": [
+    "No iPhone/Android device reception",
+    "No IPA/APK compilation, signing or distribution",
+    "No real backend auth",
+    "Native icons/splash and automatic system theme not finalized"
+  ],
+  "attribution": "Scheduler executed installed Expo CLI on real source snapshot; no new model-generated app source"
+}

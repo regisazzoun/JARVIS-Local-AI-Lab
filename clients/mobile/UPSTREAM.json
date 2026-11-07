@@ -1,0 +1,50 @@
+{
+  "upstream_repository": "https://github.com/RonasIT/open-webui-react-native",
+  "upstream_commit": "84360a5cfd0c805edf70b121e35e13eeae6810a1",
+  "layout": "Reviewed overlay with final native-branding/systemUI revision reconstructed and independently checked on both Dell; original upstream checkout still required.",
+  "reconstruction": "Clone exact upstream commit and overlay clients/mobile/apps, clients/mobile/libs, and clients/mobile/package-lock.json. npmci --ignore-scripts --no-audit --no-fund, then apply reviewed dependency patch helper as documented; retain notices. Exact added expo-system-ui57.0.1 is locked. No generated native directories or dependency tree published.",
+  "source_hashes": {
+    "clients/mobile/apps/mobile/global.css": "5a288226cfa782ad9f4fad994f6787903cdaca7d9933a8731311a801f201e85b",
+    "clients/mobile/libs/mobile/shared/ui/styles/src/lib/variables.ts": "edc458ebe4e821cef042e16430af877e96231da199049ea46d6c1d49e98aa034",
+    "clients/mobile/libs/shared/utils/config/src/normalize-server-url.ts": "8b34294914c934f9be38fe898ce10b2b027a0c12ae397d6d0b60c00df2b430f6",
+    "clients/mobile/libs/mobile/shared/utils/validation/src/server-url-validation.ts": "7a84171b5d9a2059f5a09149364ed314f9ff2d9b1ba5de81658f1a71b7fbf619",
+    "clients/mobile/libs/shared/data-access/cookie/src/service.web.ts": "d6d08784e9de42998c9c48b0095b5c6fecdaeb1f56341120258fba304930c1c1",
+    "clients/mobile/libs/mobile/shared/utils/compressor/src/image-compressor.web.ts": "87973418f4b7e1b29e7c935abd2a10c62c1e46d64f152b7d3d4568e639aeb56f",
+    "clients/mobile/libs/shared/utils/supabase-service/src/service.ts": "96c291cba1a925eebbd5475dcd374866c55224b1fddd755910b2cb404f4fe16e",
+    "clients/mobile/libs/mobile/auth/features/sign-in/src/lib/component.tsx": "23b59a6a430dfbcf9066fa83200f9b8ddc43526f19ee4f77f80018ca65407c40",
+    "clients/mobile/apps/mobile/app.config.ts": "4e9d529d111951532db81140863a949cbf6c99bc1f4bf9296606f0dbd6977ffa",
+    "clients/mobile/apps/mobile/assets/icon.png": "6cfc9763047af0784fb9482e326fd7bec87482b745804195518337a136e061c8",
+    "clients/mobile/apps/mobile/assets/adaptive-icon.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
+    "clients/mobile/apps/mobile/assets/splash.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
+    "clients/mobile/apps/mobile/assets/splash-dark.png": "6964dda628d54e3843b111be9fe8d76b326ce0de8fd1f299969c3e5bc4d8959f",
+    "clients/mobile/apps/mobile/assets/jarvis-launcher.svg": "9f1ce3be01c70426ce32f49992afd99c124b23a0c6309cd1fb2b9c1fd85db210",
+    "clients/mobile/apps/mobile/package.json": "dfd95129a4f0684a2e218b4ab5f1073b47a1e8c337b8fd97c98eefd973b2f7a0",
+    "clients/mobile/package-lock.json": "fd61d6edaa020657d0584153615627b663defa6facbf1e5b5dd86ca63c159b47"
+  },
+  "attribution": "Native Qwen proposals followed by independently tested Codex corrections; native outputs archived, no autonomy claim.",
+  "targeted_acceptance": {
+    "tests": 18,
+    "pass": 18,
+    "fail": 0
+  },
+  "pending": [
+    "Real authenticated backend session",
+    "Xcode/Gradle native binary compilation and device reception",
+    "Licensing clarification before distribution"
+  ],
+  "license_note": "Original LICENSE retained without alteration; package.json declares MIT while LICENSE header is GPLv3. Distribution licensing not resolved by this source integration.",
+  "formatting_note": "Published CSS overlay/fixture trailing whitespace normalized; semantic styles identical to tested integrated checkouts.",
+  "web_platform_note": "Native cookie/compressor .ts originals unchanged. Browser adapter does not mirror bearer tokens into cookies, cannot clear HttpOnly cookies; main Bearer flow retained. Web compression returns original URI, no native compression claim. Optional feedback absence no longer blocks self-host startup; configured feedback preserved in scoped tests.",
+  "verified_receipts": [
+    "JARVIS-IDENTITY-RECEPTION.json",
+    "INTERACTIVE-LOGIN-RECEPTION.json",
+    "LOGIN-CONFIG-RECEPTION.json",
+    "AUTH-SERVICE-RECEPTION.json",
+    "ANDROID-GENERATION-RECEPTION.json",
+    "NATIVE-JS-BUNDLES-RECEPTION.json",
+    "NATIVE-BRANDING-RECEPTION.json",
+    "NATIVE-SYSTEM-UI-RECEPTION.json",
+    "FINAL-SOURCE-PARITY-RECEPTION.json",
+    "FINAL-NATIVE-BUNDLES-RECEPTION.json"
+  ]
+}

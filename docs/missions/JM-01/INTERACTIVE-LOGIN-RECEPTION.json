@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Actual ExpoWeb client; HTTP responses simulated by CDP, no real backend authentication",
+  "checks": [
+    "Empty real form cannot submit",
+    "Invalid query URL rejected without API request",
+    "Actual config request preserves prefix and displays simulated server",
+    "Invalid email blocks sign-in despite server configuration",
+    "Valid dummy credentials enable real submit button",
+    "Real submit reaches prefixed auth endpoint; simulated401 stays on login"
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:18930/selfhost/api/config?skipToast=true&skipSentryReport=true",
+      "method": "GET",
+      "postData": null
+    },
+    {
+      "url": "http://127.0.0.1:18930/selfhost/api/v1/auths/signin",
+      "method": "POST",
+      "postData": "{\"email\":\"qa@example.invalid\",\"password\":\"dummy-local-only\"}"
+    }
+  ],
+  "text": "JARVIS Mobile\nConnexion\nURL de l’API\nJM-01 LOCAL SIMULATION 0.0-test\nAdresse e-mail\nMot de passe\nSe connecter\nBesoin d’aide ou un commentaire ?\nÉcrire à Ronas IT",
+  "exceptions": [],
+  "limits": [
+    "HTTP fulfilled by Chrome DevTools interception; no real server authentication",
+    "Successful token login,403,MFA and native platforms not yet received",
+    "No external domains allowed; local HEAD liveness checks passed through"
+  ],
+  "harness_corrections": [
+    "Serve SPA routes via index fallback after initial404",
+    "Distinguish local Expo HEAD liveness probes from API calls",
+    "Select input content before insertText; OS shortcut unreliable headless",
+    "Observe and explicitly match actual config URL with skipToast/skipSentryReport query options"
+  ],
+  "reproduce": {
+    "export": "Actual compiled branded artifact from full pinned checkout plus PR48 overlay",
+    "preview": "JM01_WEB_EXPORT=/path/to/export python3 tools/jm01/browser-preview-server.py (localhost18930, auto-stop600s)",
+    "browser": "Disposable Chrome headless profile, remote debugging18932, localhost18930; block all external DNS as in prior receipt",
+    "run": "python3 tools/jm01/browser-login.interaction.py; closes disposable browser in finally",
+    "attribution": "Codex test harness, real client source/DOM/events unchanged"
+  }
+}

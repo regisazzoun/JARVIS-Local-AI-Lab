@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-02T03:10:28.507480+00:00",
+  "actual_failures_reproduced": [
+    "Native bridge unavailable on web (NitroCookies/Compressor)",
+    "Missing optional feedback supabaseUrl prevented startup"
+  ],
+  "corrections": "Platform-specific adapters preserve native modules; optional feedback configuration guard with explicit unavailable errors and no token duplication",
+  "checks": {
+    "web_adapters": {
+      "tests": 4,
+      "pass": 4
+    },
+    "feedback_configuration_and_submission_contract": {
+      "tests": 6,
+      "pass": 6,
+      "scope": "Actual TS service compiled in isolated VM; transport/config mocked, no external service"
+    },
+    "global_TypeScript_after_both_changes": "PASS exit0",
+    "new_export": "COMPLETED separate web-export-selfhost-startup artifact",
+    "visual": "Actual exported client login screen rendered in isolated Chrome430x932; French fields visible, Launcher dark/aqua styling visible; no uncaught JS error observed",
+    "not_received": [
+      "Authenticated backend session",
+      "Actual iOS/Android build/signature",
+      "Web image compression",
+      "Native OAuth/webview behavior"
+    ]
+  },
+  "limits": "Headless preview with external domains blocked; no production credentials or server requests; native cookie/compressor source hashes verified unchanged",
+  "history": "Prior blank screenshots, logs, artifacts, jobs and counters retained; no completed job replay",
+  "deadline": "2026-11-02 06:00 Europe/Paris unchanged",
+  "measured_browser_metrics": {
+    "width": 430,
+    "height": 932,
+    "screenWidth": 430,
+    "inputs": 3,
+    "text": "Connexion\nURL de l’API\nAdresse e-mail\nMot de passe\nSe connecter\nBesoin d’aide ou un commentaire ?\nÉcrire à Ronas IT"
+  },
+  "screenshot": {
+    "path": "docs/missions/JM-01/evidence/connexion-web-430x932.png",
+    "sha256": "d5843c1ccb8f752905f02d9ceac9846e092134f5c25fb4b507e4b1f0f32996a0",
+    "scope": "Real ExpoWeb client, true emulated CSS viewport430x932 via CDP, no credentials or backend login; fields empty"
+  },
+  "remaining_branding": "Header/login label is visible; legacy RonasIT help contact remains. Owner-specific textual branding and form interaction reception still pending."
+}

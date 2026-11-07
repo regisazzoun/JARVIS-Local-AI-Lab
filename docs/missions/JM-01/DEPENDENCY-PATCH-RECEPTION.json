@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-01T23:49:13.365007+00:00",
+  "cause": "npm ci intentionally omitted hooks; two upstream dependency patches required for declared client types/runtime",
+  "fix": "Explicit reviewed patch helper; corrected invalid upstream ESM import and explicit Dayjs plugin file extensions; no changed dependency versions, lockfile or typecheck flags",
+  "checks": {
+    "dependency_CJS_ESM_syntax": "PASS",
+    "scoped_actual_TransformDate_cases": {
+      "tests": 8,
+      "pass": 8,
+      "timezone": "Europe/Paris",
+      "scope": "Actual patched CJS/ESM date-decorator code extracted to test without ReactNative host module; UTC serialization behavior preserved"
+    },
+    "full_unchanged_TypeScript_preflight": {
+      "exit": 0
+    },
+    "initial_test_note": "First formatted-date fixture expected a local-calendar roundtrip but upstream contract serializes UTC; fixture corrected to explicit timezone/UTC expectation. Initial6/8 result retained privately."
+  },
+  "state": "Scheduled Dell1 typecheck rerun after verified correction, counters retained; original Dell2 static web export completed. Corrected-runtime export queued separately, old artifact retained. No native mobile build or visual reception claimed."
+}
