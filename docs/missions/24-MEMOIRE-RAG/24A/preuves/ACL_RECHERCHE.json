@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-11-13T20:36:17.804644+00:00",
+  "search_all_projects": [
+    {
+      "query": "S407",
+      "fts_matches_before_project_filter": 0,
+      "projects_with_hits": 0,
+      "sum_of_capped_per_project_hits": 0
+    },
+    {
+      "query": "salle 407",
+      "fts_matches_before_project_filter": 5,
+      "projects_with_hits": 1,
+      "sum_of_capped_per_project_hits": 4
+    },
+    {
+      "query": "FusionPBX",
+      "fts_matches_before_project_filter": 0,
+      "projects_with_hits": 0,
+      "sum_of_capped_per_project_hits": 0
+    },
+    {
+      "query": "SIP",
+      "fts_matches_before_project_filter": 0,
+      "projects_with_hits": 0,
+      "sum_of_capped_per_project_hits": 0
+    }
+  ],
+  "secret_candidate_documents_by_pattern": {
+    "private_key": 0,
+    "github_token": 0,
+    "bearer": 0,
+    "cisco_secret_line": 0
+  },
+  "secret_values_published": false,
+  "secret_scan_scope": "102 documents uniquement, pas messages ni traces privées ; motifs indicatifs, faux positifs possibles",
+  "canonical_schema_has_document_acl_column": false,
+  "document_query_first_10_terms": [
+    "Dans",
+    "le",
+    "Drive",
+    "Éducation",
+    "du",
+    "lycée",
+    "Christophe",
+    "Colomb",
+    "section",
+    "SEP"
+  ],
+  "s407_target_lost_by_term_cap": true,
+  "auth_module_on_local_fixture": {
+    "wrong_password_rejected": true,
+    "valid_login_accepted": true,
+    "logout_revokes": true,
+    "missing_cookie_rejected": true,
+    "invalid_cookie_rejected": true,
+    "production_login_requests": 0
+  }
+}

@@ -1,13 +1,18 @@
 source;proprietaire;droits_observes;type;fraicheur;chemin_canonique;lecture;statut
-GitHub JARVIS;regisazzoun;lecture connecteur démontrée;documentation versionnée;caa6f5e1c9a126bec953de3d418378192f7318af;regisazzoun/JARVIS-Local-AI-Lab;GitHub fetch arbre et fichiers;vérifié sur sélection
-Drive S407;identité propriétaire masquée/non déterminée;1 owner et 4 writer individuels;Google Doc;2026-11-12;Mon Drive/SEP CIEL/Archi-Reseau/00-Documentation;Drive fetch + métadonnées;contenu réellement lu
-Drive télémaintenance;non déterminé;lecture connecteur réussie ACL non inspectées;export conversation;2026-11-06;SEP CIEL parent observé;Drive fetch;état historique PBX documenté
-Drive orientation RAG;non déterminé;lecture connecteur réussie ACL non inspectées;Google Doc;2026-11-12;parent Drive référencé par métadonnées;Drive fetch;cadrage seulement
-Tableau accès sensible;identité propriétaire non déterminée;1 owner et 4 writer individuels;Google Sheet;2026-11-10;SEP CIEL;metadata seulement;exclu du corpus et des exports
-Configurations Cisco;non déterminé;métadonnées seulement;anciens cfg et exports privés;anciens fichiers 2024-2026;emplacements multiples non consolidés;recherche metadata et références S407;pas de lecture brute ni revalidation live
-Mac mini mémoire;propriétaire laboratoire;SSH refusé avec clé disponible;SQLite FTS5 et API historiques;non vérifiée en live;runtime/memory.sqlite selon 13F;SSH strict existant;non accessible dans cette session
-Dell1;propriétaire laboratoire;SSH direct refusé;services et configurations;non vérifiée;alias via Mac mini documenté;SSH existant;inventaire non exécuté
-Dell2;propriétaire laboratoire;trajet via Mac mini inaccessible;services et configurations;non vérifiée;alias via Mac mini documenté;pas de nouvel hôte ajouté;non testé
-Raspberry FusionPBX;administration lycée à confirmer;trajet via Dell1 non disponible;FreeSWITCH Nginx PostgreSQL;état rapporté au 2026-11-05;emplacement privé dans source télémaintenance;source documentaire seulement;live non testé
-Work ChatGPT;utilisateur/conversations privées;aucun accès global démontré;décisions et historiques;preview Mission 24 fourni;conversation référencée dans demande;preview seulement;pas d'export global
-Codex;utilisateur;lecture espace local disponible;anciens livrables locaux;2026-11-01 et 2026-11-08;espaces de travail locaux;rg et fichiers sélectionnés;pas de synchronisation canonique démontrée
+GitHub JARVIS;regisazzoun;lecture et publication documentaire autorisées;documentation versionnée;caa6f5e1c9a126bec953de3d418378192f7318af;regisazzoun/JARVIS-Local-AI-Lab;GitHub arbre + fichiers choisis;253 fichiers inventoriés contenus partiels
+Drive S407;identité owner non déterminée;1 owner et 4 writer individuels;Google Doc;2026-11-12;Mon Drive/SEP CIEL/Archi-Reseau/00-Documentation;Drive fetch + metadata;contenu réellement lu
+Drive Télémaintenance;non déterminé;lecture connecteur réussie ACL non inspectées;export conversation;2026-11-06;SEP CIEL parent observé;Drive fetch;état PBX historique
+Drive orientation RAG;non déterminé;lecture connecteur réussie ACL non inspectées;Google Doc;2026-11-12;parent Drive observé;Drive fetch;cadrage seulement
+Tableau accès sensible;identité owner non déterminée;1 owner et 4 writer individuels;Google Sheet;2026-11-10;SEP CIEL;metadata puis consultation privée pour authentification explicitement demandée;exclu corpus et preuves brutes
+Mac mini mémoire historique;propriétaire laboratoire;SSH clé existante déverrouillée et Unix 0600;SQLite FTS5 v3;2026-11-13;/opt/jarvis/conversation/runtime/memory.sqlite;source mode=ro puis snapshot privé et restauration locale;102 documents 419 messages
+Mac mini copie personnelle;propriétaire laboratoire;metadata SSH;ancienne SQLite;2026-10-13;~/JARVIS/conversation/runtime/memory.sqlite;metadata seulement;ancienne copie distincte de la base service
+Mac mini natif;utilisateurs Open WebUI 3 comptes observés;jeton existant et user_id / access_grant;SQLite + Chroma;2026-11-13;volume jarvis-open-webui-data;backup ro SQLite et API mémoire en lecture;46 mémoires 50 notes
+Sauvegardes historiques;propriétaire laboratoire;0600 dans dossier 0700;SQLite;2026-11-13 00:00 Paris;/opt/jarvis/conversation/runtime/backups;metadata et integrity_check de la plus récente en ro;33 sauvegardes observées
+Google depuis JARVIS;comptes education/personal non exposés;configured=true scopes réels à confirmer;connecteur MCP existant;2026-11-13;profiles google-mcp existants;status seulement;lecture distante JARVIS non prouvée par lecture Codex
+Dell1;propriétaire laboratoire;SSH mot de passe existant puis alias depuis Mac mini;services IA VNC et copies de recette;2026-11-13;alias jarvis-dell1;SSH lecture et metadata;services actifs et 26 bases de recette non canoniques
+Dell2;propriétaire laboratoire;alias SSH existant depuis Mac mini;services IA VNC SSH;2026-11-13;alias jarvis-dell2;systemctl is-active;trois services actifs
+Raspberry FusionPBX;administration lycée à confirmer;TCP SSH joignable depuis Dell1;services PBX;TCP 2026-11-13 état services rapporté 2026-11-05;trajet privé via Dell1;TCP et documentation;session et services actuels non vérifiés
+Configurations Cisco;administration lycée;fichiers privés et anciens cfg identifiés;exports réels et gabarits;références S407 au 2026-11-12;dossiers privés locaux distincts des ZIP historiques;metadata et document S407;pas de nouvelle session Cisco live
+Work ChatGPT;utilisateur;lecture de la discussion ciblée disponible;historique et synthèses;2026-11-13;discussion Tellemaintenance LCC et synthèses sélectionnées;read_thread et code pont;pas de collecte universelle prouvée
+Codex;utilisateur;espace local et discussion ciblée accessibles;livrables et historique;2026-11-13;espaces Codex et ChatGPT locaux;rg sélection et read_thread;aucune synchronisation universelle présumée
+

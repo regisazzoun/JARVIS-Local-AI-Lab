@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-13",
+  "type": "consolidation expurgée des sorties SSH de reprise 24A",
+  "dell1": {"authenticated": true, "method": "mot de passe existant puis alias SSH existant", "inference_service": "active", "mission_inference_service": "active", "desktop_vnc": "active", "desktop_plasma": "active"},
+  "dell2": {"authenticated": true, "method": "alias SSH existant depuis Mac mini, hôte épinglé", "inference_service": "active", "desktop_vnc": "active", "ssh": "active"},
+  "raspberry_fusionpbx": {"tested_from": "Dell1", "ssh_tcp_reachable": true, "authenticated_session_executed": false, "freeswitch_live_checked": false},
+  "production_service_changes": false,
+  "credentials_published": false
+}

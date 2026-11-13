@@ -1,71 +1,105 @@
 # Mission JARVIS 24A — Audit en lecture seule
 
-**Date : 13 novembre 2026, heure de Paris. Statut : 🟡 COMMENCÉE / EXÉCUTÉE PARTIELLEMENT — réception 24A non acquise.**
-**24B : NON LANCÉE, en attente de validation explicite. Aucun GO de production.**
+**13 novembre 2026 — reprise vérifiée jusqu'à 21 h 40 (Paris).**
+**Statut : 🟡 audit réellement exécuté, réception 24A avec critères encore ouverts. 24B NON LANCÉE.**
+Rapport initial corrigé après récupération des accès existants ; les premiers refus restent conservés comme observations historiques.
 
-## Autorité et référence
-Demande explicite du propriétaire dans ce chat : lancer 24A et publier rapport/preuves sur branche/PR.
-Plan PR [#49](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/49), branche docs/mission-24-rag-plan-20261113, commit figé caa6f5e1c9a126bec953de3d418378192f7318af ; plan blob dd59e163f5d0d45058a01d98a67c3f8901a24287.
-Directives consultées : AGENTS.md, docs/CHARTE_DIRECTIVES_JARVIS.md, SUIVI.md, ROADMAP.md, plan 24 et utilisation/architecture 13F historiques. Autorisations préservées : lectures des sources et services par accès existants, rédaction/publication documentaire. Restrictions actuelles : aucune modification production, aucun secret publié, aucune activation 24B, aucune fusion.
-SUIVI indique encore 24 planifiée : état documentaire antérieur au déclenchement présent, pas preuve d'exécution.
-L'inspection locale utilise uniquement les anciens espaces Codex sélectionnés et les métadonnées SSH ; aucune clé privée ni base n'est copiée.
+## Autorité et références
+Demande du propriétaire : audit des sources/services réels, preuves expurgées et publication sur branche/PR, aucune modification de production ni lancement 24B.
+Plan [PR #49](https://github.com/regisazzoun/JARVIS-Local-AI-Lab/pull/49), branche docs/mission-24-rag-plan-20261113, commit caa6f5e1c9a126bec953de3d418378192f7318af, blob du plan dd59e163f5d0d45058a01d98a67c3f8901a24287.
+Directives consultées : AGENTS.md, CHARTE_DIRECTIVES_JARVIS.md, SUIVI.md, ROADMAP.md, plan 24, architecture/utilisation 13F ; puis code réellement déployé, pont de continuité et discussion « Tellemaintenance LCC » indiquée par le propriétaire.
+AUTORISÉ : lectures, accès existants, copies privées d'audit, tests sur copies et publication documentaire expurgée.
+INTERDIT : migration/ingestion/réindexation de production, modification des comptes/ACL/services, secret publié, fusion ou 24B sans validation.
+La discussion historique est utilisée comme source d'accès et de contexte, pas comme autorisation de reprendre ses opérations anciennes.
 
-## Résultat et limites essentielles
-L'arbre GitHub figé a été inventorié (328 entrées, 253 fichiers, truncated=false) ; sélection des directives réellement lue, pas les 253 contenus.
-Drive a fourni le document S407, l'export Télémaintenance et le cadrage RAG. Leurs résumés expurgés et liens sont en [preuves](preuves/EXTRAITS_EXPURGES.md). La [matrice](MATRICE_SOURCES.csv) distingue accès réels, droits inconnus et états rapportés.
-La clé SSH disponible est refusée sur le Mac mini (Tailscale et LAN) et Dell1 direct ; agent SSH sans identité chargée. Les hôtes ont été vérifiés contre known_hosts existant, sans modifier les empreintes ni tenter de mot de passe. Pas de contournement, de nouvelle identité ou d'hôte inconnu ajouté.
-Un GET vers la racine du service documenté historiquement sur le Mac mini échoue côté transport (URLError, aucun statut HTTP). Cela ne prouve ni arrêt du service local, ni refus applicatif.
-Conséquence : base SQLite réelle, tables/index, connecteurs installés, sauvegardes, API authentifiée et services Dell/Raspberry non inventoriés en live. **Aucune restauration, aucun test FTS5 et aucune réponse JARVIS obtenus.** Le schéma v3 et runtime/memory.sqlite sont des références 13F historiques, pas des constatations actuelles.
+## Résultat essentiel
+- **Mac mini : accès SSH rétabli avec la clé existante, sans modification.** Elle était chiffrée : sa phrase existante, retrouvée dans la discussion, permet la connexion. Les refus BatchMode ne prouvaient pas une expiration ni une révocation.
+- **Dell1 : accès par mot de passe existant réussi**, puis alias existants depuis Mac mini confirmés. **Dell2 : alias existant réussi**, services IA/VNC/SSH actifs. **Raspberry FusionPBX : port SSH joignable depuis Dell1**, session authentifiée et services PBX non revalidés.
+- Mémoire historique 13F active sur **/opt/jarvis/conversation/runtime/memory.sqlite**, schéma v3, FTS5. La copie sous ~/JARVIS/conversation est ancienne et n'est pas la base du service.
+- **Open WebUI natif v0.12.0 est aussi actif**, avec SQLite webui.db, Chroma et un pont de continuité. La mémoire historique ne décrit donc pas, seule, le parcours courant.
+- Deux snapshots cohérents obtenus par SQLite backup avec source **mode=ro**, destination en mémoire puis flux SSH privé vers ce poste. Restaurations locales vérifiées ; aucune base ou sauvegarde brute publiée.
+- Baselines réelles : FTS5 sur copie et recherche mémoire native authentifiée sur service actif. La synthèse finale complète dans le client JARVIS/JM-01 reste non rejouée.
 
-## État des critères
-| Critère | Statut | Preuve / limite |
+## Matrice et inventaire
+Voir [MATRICE_SOURCES.csv](MATRICE_SOURCES.csv), [MAC_LIVE.json](preuves/MAC_LIVE.json), [REPRISE_DELL1.json](preuves/REPRISE_DELL1.json), [CONNECTEURS_SAUVEGARDES.json](preuves/CONNECTEURS_SAUVEGARDES.json).
+GitHub : arbre figé complet, 328 entrées/253 fichiers, non tronqué ; directives sélectionnées lues, pas les 253 contenus.
+Drive : 3 requêtes ciblées bornées, 3 documents de contexte/scénario lus, métadonnées et ACL choisies. Le tableau d'accès a ensuite été consulté **uniquement pour l'authentification**, sur instruction explicite du propriétaire ; ses valeurs restent hors corpus et hors preuves.
+Les propriétaires Drive individuels ne sont pas identifiés par les métadonnées normalisées ; aucun rôle nominal inventé.
+
+### Mémoire historique réelle
+Snapshot : 6 320 128 octets ; 102 documents, 20 projets, 419 messages, 5 souvenirs, 4 préférences, 13 819 entrées tool_audit.
+FTS5 documents/messages/souvenirs présents. Schéma versions 1/2/3. Intégrité ok, aucune violation de clé étrangère.
+102 documents sans projet global ; dernier created documentaire : 31 octobre 2026. Aucun contenu exactement dupliqué ; 3 lignes supplémentaires partagent source/projet avec une autre version (pas des doublons de contenu établis).
+Les 102 champs source n'ont pas de lien Google/GitHub reconnu par le comptage simple : cela ne prouve pas l'absence de liens dans le contenu.
+Droits : base/auth/credentials/traces en 0600, répertoire runtime/backups en 0700 ; test Unix sous utilisateur non privilégié : lecture de la base refusée.
+33 sauvegardes memory-*.sqlite en 0600 ; dernière au 13 novembre 00:00 Paris. Intégrité de cette sauvegarde historique vérifiée, schéma v3/102 documents. Restauration testée sur le snapshot courant, pas sur chacune des 33 sauvegardes.
+Voir [SQLITE_AUDIT.json](preuves/SQLITE_AUDIT.json) pour schéma/index/comptages et hashes des sources réellement lues.
+
+### Mémoire native et continuité
+Snapshot webui.db : 8 499 200 octets, intégrité ok ; 46 mémoires, 50 notes, 1 base de connaissances, 6 fichiers, 2 liaisons knowledge_file, 3 utilisateurs, 3 access_grant.
+Chroma existant observé, chroma.sqlite3 de 2 400 256 octets. Aucun nouveau modèle ni index déployé, aucune ingestion ou réindexation ; la requête de test utilise la fonction d'embedding déjà installée.
+Pont actif : lecture des documents/préférences historiques et de 9 JSON de synthèses sélectionnés, écriture habituelle du pont vers notes/mémoires natives. **24A n'a pas exécuté ce pont** ; timer et code seulement inspectés.
+20 chemins d'archives héritées et 9 chemins de synthèses retrouvés dans les mémoires natives. Ce mécanisme concret remplace l'hypothèse initiale d'absence de pont, mais ne démontre pas une récupération universelle des conversations.
+Aucun lien vers les deux documents récents S407/télémaintenance de référence retrouvé dans les 46 contenus mémoire ; les notes, fichiers et conversations n'ont pas fait l'objet d'une recherche exhaustive.
+Voir [NATIVE_SQLITE_AUDIT.json](preuves/NATIVE_SQLITE_AUDIT.json).
+
+## Baseline recherche/RAG salle 407
+[BASELINE_S407.md](BASELINE_S407.md) distingue trois mesures, sans mélanger leurs latences.
+
+1. **Connecteur documentaire Codex** : S407 du 12 novembre et Télémaintenance du 6 novembre réellement lus ; synthèse de référence sourcée. Source RAG du 12 novembre lue pour le cadrage.
+2. **Moteur historique, code déployé sur copie réelle** : sans projet, 0 document pour S407/salle 407/FusionPBX/SIP. Sur l'ensemble des projets, « salle 407 » donne 5 correspondances FTS via OR, dont 4 retournées par la limite ; S407/FusionPBX/SIP : 0. Ce n'est pas une preuve de 5 documents pertinents : « salle OR 407 » est une recherche large.
+3. **Mémoire native live authentifiée** : S407 → 3 résultats (7,50 ms), salle 407 → 0 (6,69 ms), FusionPBX → 0 (6,38 ms), SIP → 1 (6,45 ms). Une requête vectorielle existante sur la question complète donne 4 éléments en 426,30 ms ; 2 mentionnent S407/salle 407, aucun FusionPBX. Une seule mesure vectorielle, pas un percentile ni une comparaison de gain.
+Les contenus natifs retournés ont été reçus par le script en mémoire, puis seuls comptes, identifiants hachés et métriques ont été conservés. Pas de réponse finale LLM, de citations générées ou d'hallucinations attribuables au client évaluées.
+Voir [BASELINE_NATIVE_LIVE.json](preuves/BASELINE_NATIVE_LIVE.json) et [ACL_RECHERCHE.json](preuves/ACL_RECHERCHE.json).
+
+## Tests réellement exécutés
+| Test | Résultat | Limite |
 |---|---|---|
-| Lecture plan et référentiels | vérifié sur sélection | commit et blob figés |
-| Inventaire GitHub | exécuté, arbre vérifié | 253 fichiers, contenu partiel |
-| Inventaire Drive | exécuté partiellement | 3 requêtes bornées, 3 documents lus |
-| Matrice sources/propriétaires/ACL | exécutée partiellement | propriétaires réels non déterminés pour Drive |
-| Mémoire réelle/API/services | échec d'accès SSH ; inventaire non exécuté | sorties expurgées OBSERVATIONS.json |
-| Baseline documentaire S407 | exécutée | BASELINE_S407.md et mesures par appel |
-| Baseline moteur JARVIS | non exécutée | accès authentifié indisponible |
-| Sauvegarde/restauration sur copie | non exécutée | aucune base disponible ; ne pas créer une fixture pour prétendre valider la production |
-| ACL lecture positive | vérifiée sur S407 | fetch réussi, rôles owner/writer agrégés |
-| ACL négative/révocation/isolation RAG | non exécutées | aucune identité secondaire ou copie dédiée disponible |
-| Expurgation livrables | revue par liste blanche | aucun export brut, base, identifiant matériel ou secret |
-| 24B | prévue seulement | attente de validation propriétaire |
+| Clé SSH Mac mini avec déverrouillage existant | vérifié, accès réussi | aucun changement de clé/compte |
+| Dell1 et Dell2 | accès authentifié, services IA/VNC actifs | pas de benchmark ni reboot |
+| Raspberry | TCP SSH joignable depuis Dell1 | pas de session/service PBX live validé |
+| Snapshot cohérent 13F + restauration locale | intégrité/schema/comptages concordants | base privée, aucune restauration production |
+| Snapshot natif + restauration locale | intégrité/comptages concordants | vecteurs Chroma non restaurés : pas une restauration RAG complète |
+| SQLite mode=ro | écriture refusée sur snapshot source local | tentative d'écriture jamais dirigée vers production |
+| Unix utilisateur non privilégié | base historique illisible | ne couvre pas tous les groupes/ACL système |
+| API historique sans session | search/memories/export → 401 | health/session lisibles volontairement |
+| Host/Origin invalides | 403 sur API historique | pas de balayage offensif |
+| API native | liste authentifiée 200/46 mémoires ; sans jeton 401 | identité secondaire/révocation native non testées |
+| Filtre projet historique sur copie | global + bon projet visibles ; autre projet absent | filtre de classement, pas ACL par utilisateur |
+| Auth historique sur fixture locale | mauvais secret refusé, bon login accepté, logout invalide le jeton | pas de login/révocation production |
+| Lecture Drive S407 et ACL | contenu lu, 1 owner/4 writer individuels | pas d'identité secondaire ni révocation réelle Drive |
+| Motifs sensibles dans contenus | 0 clé privée/jeton/Bearer détecté ; 2 documents historiques avec libellé de credential | candidats à revue, ni preuve d'absence de secrets ni secrets confirmés |
+| Expurgation publication | liste blanche + scan du paquet | pas de garantie sur sources privées non auditées |
 
-## Découvertes vérifiées et anomalies
-1. **A01 — accès réel bloqué.** Le réseau atteint un serveur SSH mais l'authentification échoue (code 255). Cela ne démontre ni perte globale des accès existants ni révocation de la clé côté serveur. Reprendre avec un accès existant confirmé par le propriétaire.
-2. **A02 — FusionPBX dispose d'une source documentaire.** L'export du 6 novembre contient un constat utilisateur du 5 novembre : services FreeSWITCH/Nginx/PostgreSQL actifs et accès via Dell1. Le document S407 seul ne prouvait pas l'IPBX ; l'absence totale de documentation FusionPBX n'est donc pas retenue. Configuration actuelle et état live : non vérifiés.
-3. **A03 — secrets à exclure à la source.** L'export rapporte un dépôt de mots de passe dans un tableau partagé. Ses métadonnées montrent 1 rôle owner et 4 writer individuels ; le contenu n'a pas été ouvert. Risque de source sensible identifié, pas une fuite publique démontrée ni une remise en cause des décisions de partage du propriétaire. Exclure le fichier entier de l'ingestion pilote tant qu'une vue expurgée indépendante n'est pas disponible.
-4. **A04 — chemin/source institutionnelle non établis.** Le parent réel du document est Mon Drive / SEP CIEL / Archi-Reseau / 00-Documentation. Le libellé « Téléphonie » demandé ne correspond pas à son parent. Le caractère institutionnel Éducation/lycée n'est pas prouvé par les métadonnées disponibles.
-5. **A05 — fraîcheur et doublons.** Le document récent déclare les 24 configurations historiques anciennes. Plusieurs guides téléphones homonymes et de même taille apparaissent en recherche : candidats doublons, non certifiés sans hash. Une date 1979 apparaît dans des métadonnées de supports anciens : date technique non fiable comme preuve de fraîcheur métier. La recherche n'est pas un inventaire complet.
-6. **A06 — droits excessifs disponibles pour une simple lecture.** Les rôles writer observés ne sont pas des jetons limités à la lecture. 24A n'a utilisé que des lectures ; les ACL applicatives effectives pour JARVIS et l'isolation des projets restent à tester.
-7. **A07 — continuité non démontrée.** Les anciens livrables Codex locaux sont accessibles ; aucun mécanisme de dépôt canonique automatique de toutes les conversations Work/ChatGPT/Codex n'a été prouvé.
+## Anomalies et backlog vérifié
+| ID | Priorité / état | Fait et suite |
+|---|---|---|
+| A01 | résolu | refus initial dû à clé verrouillée ; accès existant réutilisé. Ne pas remplacer la clé. |
+| A02 | P1 / documenté | FusionPBX est documenté historiquement dans Télémaintenance ; sa configuration actuelle reste non vérifiée. |
+| A03 | P0 avant ingestion | tableau d'accès sensible : exclure intégralement du corpus ; consultation ponctuelle de coffre distincte de l'indexation. 2 contenus historiques portent un marqueur de credential, valeurs non publiées, revue privée à terminer. |
+| A04 | P1 | document S407 sous Mon Drive/SEP CIEL/Archi-Reseau/00-Documentation, pas sous Téléphonie ; identité institutionnelle du Drive non établie. |
+| A05 | P1 | références Cisco de 24 configurations explicitement anciennes ; guides homonymes candidats doublons non certifiés. Versions documentaires source/projet à gérer. |
+| A06 | P0 avant corpus multiutilisateur | historique sans champ ACL par document ; filtre project contrôlé par l'appelant. Natif scoped user_id, access_grant présent ; propagation ACL Drive et révocation multiidentité non démontrées. |
+| A07 | P1 | pont de continuité réel, mais seulement archives et synthèses sélectionnées ; pas de collecte universelle des conversations. |
+| A08 | P0 de cadrage | écart entre plan 24 actuel et runtime : Open WebUI natif/Chroma/pont/anciens répertoires mission24 déjà présents. Clarifier l'autorité logique et le parcours à recevoir avant 24B, sans recréer une base concurrente. |
+| A09 | P1 recherche | document_search coupe aux 10 premiers termes : la question complète perd salle/407/SIP/FusionPBX dans ce moteur historique. OR, LIMIT 4 puis injection 2 sans ORDER BY de pertinence explicitée. Observation de code, pas défaut automatiquement attribuable au natif. |
+| A10 | P1 corpus | aucun résultat natif FusionPBX malgré sa source Drive accessible à Codex ; aucun lien des deux sources récentes dans les 46 mémoires. Vérifier la couverture réelle du connecteur/notes/fichiers avant de conclure à une absence globale. |
+| A11 | P1 réception | scénario écrit complet dans le client courant non rejoué ; qualité, citations, latence bout en bout et erreurs de synthèse restent à mesurer sur copie avec outils strictement limités à la lecture. |
+| A12 | P1 exploitation | traces historiques ~454 Mo, base missions ~3,19 Go observée ; rétention à inventorier séparément. Aucune suppression/rotation imposée par 24A. |
 
-## Baseline et scénario salle 407
-Voir [réponse de référence et protocole](BASELINE_S407.md) et [mesures](preuves/BASELINE.json).
-Deux sources de scénario effectivement lues et citées, plus une source d'orientation. Réseau bancs 1–2 documenté, dix téléphones banc 1 repérés, SIP/appels restant à recetter ; bancs 3–6 restant à déployer. IPBX documenté historiquement par une autre source.
-Mesures du connecteur Codex uniquement : elles ne sont pas une mesure du RAG JARVIS, ne permettent pas d'attribuer une hallucination à ce moteur et ne valident pas l'essai vocal JM-01.
-Les citations ont été résolues par lecture authentifiée dans cette session ; aucun accès public/anonyme garanti.
+Les services Google education/personal sont installés et configured=true via leur pont existant. Cela ne prouve pas une lecture Drive réussie depuis JARVIS : les lectures Drive de cet audit utilisent le connecteur Codex. Ne pas confondre leurs identités, scopes et résultats.
+Aucun GO n'est déduit des seuls fichiers présents, timers actifs ou récits historiques.
 
-## Lecture seule et conservation des preuves
-Actions distantes : GitHub GET/lecture connecteur, Drive recherche/fetch/métadonnées, tentatives SSH strictes avec commande de consultation (non exécutée car authentification refusée), GET HTTP racine sans corps conservé.
-Aucune migration, ingestion, réindexation, édition ACL, redémarrage, changement de compte, installation ou écriture de données de production. Les journaux d'accès des services peuvent enregistrer les lectures/tentatives.
-Écritures limitées aux livrables locaux et à la branche documentaire demandée. Aucune fusion.
-Les preuves publiées sont des observations structurées expurgées, pas des journaux bruts complets. Leurs hashes assurent l'intégrité du paquet publié, pas l'authenticité cryptographique des sources ni une sauvegarde de la production.
-Le contrôle de secrets du paquet est une revue de contenu généré par liste blanche complétée par un balayage de motifs ; pas une garantie exhaustive de détection de secrets dans les sources non lues.
+## Conservation, non-modification et publication
+Écritures de 24A : espace local privé d'audit, copies locales de test, livrables expurgés et branche documentaire.
+Sur production : lectures SSH/SQL/HTTP, inspection de code et métadonnées ; les POST natifs utilisés sont **search/query de lecture** après inspection des handlers, aucun endpoint de mutation appelé. Aucun login production généré ; un jeton existant a été utilisé en mémoire.
+Aucune migration, ingestion, réindexation, édition ACL, redémarrage, changement de compte, installation distante ou restauration production. Les journaux d'accès habituels et les tâches préexistantes peuvent évoluer pendant l'audit ; absence de changement de hash production non revendiquée.
+Preuves : observations structurées, schémas et métriques autorisés, pas exports bruts. Copies SQLite avec données privées et aides d'authentification hors outputs et hors GitHub.
+Le manifeste SHA-256 couvre le paquet publié, pas une attestation cryptographique des sources.
+Voir [PROCEDURE_REPRODUCTION.md](PROCEDURE_REPRODUCTION.md) pour rejouer les mesures et limites.
 
-## Backlog vérifiable pour achever 24A
-| Priorité | Écart | Action autorisée à reprendre | Critère de clôture |
-|---|---|---|---|
-| P0 | A01 accès | utiliser un accès SSH existant valide, conserver empreintes | identité/cible confirmées, consultation réussie |
-| P0 | base réelle inconnue | inventorier chemin canonique, mode/owner, schéma/index/version et volumes sans exporter le contenu sensible | preuve expurgée issue de la base réelle |
-| P0 | copie/restauration absente | snapshot cohérent vers espace privé d'audit uniquement, source ouverte mode=ro, restauration dans une deuxième copie privée | integrity_check, schéma/comptages comparés, aucun chemin production en destination |
-| P0 | baseline JARVIS absente | sur copie/corpus figé, question S407, journal requêtes/outils/documents/réponse et durée bout en bout | trace expurgée rejouable, pas de mémorisation de test en production |
-| P0 | ACL incomplètes | identités de test autorisées/copie, accès positif et négatif, isolation, révocation sur copie | refus effectif sans fuite, citation inaccessible gérée |
-| P1 | services non observés | inventaire lecture seule Mac/Dell/Raspberry via alias existants | santé actuelle, API et connecteurs avec preuves datées |
-| P1 | sources sensibles/anciennes | exclusion du tableau d'accès et des identifiants, sélection des références fraîches, hash des copies autorisées | manifeste pilote expurgé et dédoublonné |
-| P1 | sources dispersées | confirmer propriétaires/Drive institutionnel, originaux, exports Work/Codex et politique de rétention | chemins et droits explicitement établis |
+## Verdict 24A et porte 24B
+**Audit réel largement exécuté ; réception 24A encore incomplète** : synthèse client complète, propagation ACL/révocation multiidentité, restauration cohérente du RAG natif incluant vecteurs et couverture live PBX/Cisco restent ouverts.
+Les résultats positifs SQLite/restauration/recherche/contrôle d'accès sont vérifiés dans les périmètres ci-dessus ; les anomalies ont un backlog exploitable.
+**24B non lancée. Validation explicite du propriétaire indispensable avant toute ingestion ou évolution de schéma/index. Aucune fusion automatique.**
 
-## Décision de sortie
-**🟡 24A partiellement exécutée, preuves documentaires publiables ; critères de sortie non satisfaits.** Les échecs d'accès et tests non exécutés restent ouverts. Reprise 24A requise avant réception. **24B non démarrée et subordonnée à validation explicite.**

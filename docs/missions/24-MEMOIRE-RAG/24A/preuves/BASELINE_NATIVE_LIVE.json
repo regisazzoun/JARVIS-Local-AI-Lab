@@ -1,0 +1,78 @@
+{
+  "captured_at_utc": "2026-11-13T20:39:06.913423+00:00",
+  "target": "Open WebUI natif actif, v0.12.0",
+  "authentication": "jeton existant lu en mémoire uniquement ; aucune connexion ni nouvelle session créée",
+  "queries": [
+    {
+      "method": "POST read-only selon code inspecté",
+      "path": "/api/v1/memories/search",
+      "query": "S407",
+      "status": 200,
+      "elapsed_ms": 7.5,
+      "results": 3,
+      "ids_sha256": [
+        "d707854e95a4576b974c6bf575a34298a7aae6a779a3e3c2fe44c035128b0b4d",
+        "61f49f45f4d5165724a81bd6e02205b6439f4ca6aebd3596d811f3b0e69ca483",
+        "d610b0156490d3e5ab4d48ad2f1212defec35b38bb74c4747f5cb930479b7371"
+      ]
+    },
+    {
+      "method": "POST read-only selon code inspecté",
+      "path": "/api/v1/memories/search",
+      "query": "salle 407",
+      "status": 200,
+      "elapsed_ms": 6.69,
+      "results": 0,
+      "ids_sha256": []
+    },
+    {
+      "method": "POST read-only selon code inspecté",
+      "path": "/api/v1/memories/search",
+      "query": "FusionPBX",
+      "status": 200,
+      "elapsed_ms": 6.38,
+      "results": 0,
+      "ids_sha256": []
+    },
+    {
+      "method": "POST read-only selon code inspecté",
+      "path": "/api/v1/memories/search",
+      "query": "SIP",
+      "status": 200,
+      "elapsed_ms": 6.45,
+      "results": 1,
+      "ids_sha256": [
+        "d707854e95a4576b974c6bf575a34298a7aae6a779a3e3c2fe44c035128b0b4d"
+      ]
+    }
+  ],
+  "production_mutating_requests": 0,
+  "raw_content_saved": false,
+  "authenticated_list": {
+    "status": 200,
+    "count": 46,
+    "elapsed_ms": 19.43
+  },
+  "unauthenticated_list": {
+    "status": 401,
+    "elapsed_ms": 1.16
+  },
+  "existing_native_vector_query": {
+    "query": "Dans le Drive Éducation du lycée Christophe Colomb, section SEP / Archi-Réseau / Téléphonie, quel est l’état d’avancement du déploiement téléphonie IP de la salle 407 ? Distingue réseau, IPBX, téléphones, SIP, appels et reste à faire ; cite tes sources.",
+    "status": 200,
+    "elapsed_ms": 426.3,
+    "documents_returned": 4,
+    "documents_containing_s407_or_salle407": 2,
+    "documents_containing_fusionpbx": 0,
+    "distances": [
+      [
+        0.6993350386619568,
+        0.6781460642814636,
+        0.6781139969825745,
+        0.6778124570846558
+      ]
+    ],
+    "is_new_ingestion_or_reindex": false,
+    "full_chat_synthesis_executed": false
+  }
+}

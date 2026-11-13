@@ -3,7 +3,25 @@
 ## Question figée
 « Dans le Drive Éducation du lycée Christophe Colomb, section SEP / Archi-Réseau / Téléphonie, quel est l'état d'avancement du déploiement téléphonie IP de la salle 407 ? Distingue réseau, IPBX, téléphones, SIP, appels et reste à faire ; cite tes sources. »
 
-## Nature de la mesure
+## Mesures ajoutées après reprise des accès
+Les paragraphes de synthèse ci-dessous restent la référence documentaire Codex, pas une réponse générée par le client JARVIS.
+
+| Surface | Mesure réellement exécutée | Résultat |
+|---|---|---|
+| Mémoire historique FTS5, copie de la base réelle | S407 / FusionPBX / SIP dans tous les projets | 0 correspondance |
+| Mémoire historique FTS5, copie réelle | salle OR 407 avant filtre de projet | 5 correspondances lexicales, pertinence non garantie |
+| Mémoire native live | S407 | 3 éléments, 7,50 ms |
+| Mémoire native live | salle 407 | 0 élément, 6,69 ms |
+| Mémoire native live | FusionPBX | 0 élément, 6,38 ms |
+| Mémoire native live | SIP | 1 élément, 6,45 ms |
+| Recherche vectorielle native existante live | question complète, k=4 | 4 éléments, 426,30 ms ; 2 mentionnent S407/salle 407, aucun FusionPBX |
+
+Preuves : [SQLITE_AUDIT.json](preuves/SQLITE_AUDIT.json), [ACL_RECHERCHE.json](preuves/ACL_RECHERCHE.json), [BASELINE_NATIVE_LIVE.json](preuves/BASELINE_NATIVE_LIVE.json).
+Les itérations FTS5 (5 par requête) sont des mesures locales sur copie et ont une médiane proche de 1 ms pour les termes courts : elles ne sont pas comparables directement aux appels natifs HTTP ou au connecteur Drive.
+La limite de 10 termes du moteur documentaire historique élimine salle/407 de la question complète. Le natif a sa propre recherche et ne doit pas être confondu avec ce moteur.
+Synthèse finale, outils Google proposés/appelés par le modèle, citations générées, latence bout en bout, erreurs FreePBX/FusionPBX et hallucinations du client courant : **non mesurés**. Aucun POST de chat ou d'ingestion n'a été envoyé. L'API native search/query est de lecture selon le code déployé inspecté.
+
+## Nature de la mesure documentaire initiale
 Baseline documentaire du connecteur disponible dans Codex. **Aucune réponse du moteur JARVIS n'a été obtenue.** Les résultats ci-dessous ne mesurent donc ni ses performances, ni ses hallucinations, ni sa qualité de classement.
 Les durées par appel réellement mesurées, les cardinalités retournées et les valeurs non mesurables (null) sont dans preuves/BASELINE.json. Une répétition de lecture S407 est identifiée comme telle, pas comme seconde source.
 Deux sources de scénario lues intégralement : S407 et TELEMAINTENANCE. Une troisième source lue pour le cadrage mémoire : ORIENTATION_RAG. PDF/VSDX/ZIP et contenus du tableau sensible non lus.
@@ -19,3 +37,4 @@ Les recherches sont bornées et hors parcours vocal JM-01. Pas de latence bout e
 ## Évaluation
 Synthèse ci-dessus : 2 sources citées et réellement lues, 6 rubriques présentes, aucun appel réussi affirmé, état rapporté distingué du live. Auto-contrôle documentaire seulement, pas validation indépendante de JARVIS.
 L'observation antérieure « un document lu, réponse trop large » demeure historique : sa trace de réponse originale n'a pas été récupérée et n'est pas un benchmark rejoué.
+

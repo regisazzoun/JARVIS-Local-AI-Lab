@@ -19,7 +19,7 @@ Métadonnées : modification 2026-11-06T10:53:10.266Z.
 - Message utilisateur du 5 novembre : trajet Mac → Mac mini JARVIS → Dell1 → Raspberry FusionPBX testé.
 - Le message rapporte FreeSWITCH, Nginx et PostgreSQL actifs. Ceci documente un état historique, pas un contrôle de service exécuté par 24A.
 - Trajet complet via Dell2 restant à tester à cette date.
-- L'export signale ensuite des mots de passe renseignés dans un tableau partagé sur décision du propriétaire. Le tableau n'a pas été ouvert en contenu par 24A ; seules ses ACL agrégées ont été lues. Aucun secret extrait.
+- L'export signale ensuite des mots de passe renseignés dans un tableau partagé sur décision du propriétaire. Initialement seules ses ACL avaient été lues. Lors de la reprise, le propriétaire a demandé sa consultation : les rubriques utiles ont servi à l'authentification privée, sans aucune valeur publiée ou indexée dans le corpus.
 - Cette source infirme l'idée d'une absence totale de documentation FusionPBX, mais ne fournit pas sa configuration actuelle ni la recette des téléphones S407.
 
 ## ORIENTATION_RAG — document réellement lu
@@ -36,3 +36,4 @@ L'identité « Drive Éducation du lycée Christophe Colomb » n'est pas attest�
 
 ## Périmètre des recherches
 Requêtes Salle 407, FusionPBX et Téléphonie, résultats limités à 30/30/40 : inventaire ciblé, pas exhaustif. Des supports Trixbox historiques et des guides téléphones homonymes existent. Les guides de même nom/taille sont des candidats doublons, pas des doublons certifiés par hash.
+
