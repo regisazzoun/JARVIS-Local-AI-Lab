@@ -1,0 +1,13 @@
+source;proprietaire;droits_observes;type;fraicheur;chemin_canonique;lecture;statut
+GitHub JARVIS;regisazzoun;lecture connecteur démontrée;documentation versionnée;caa6f5e1c9a126bec953de3d418378192f7318af;regisazzoun/JARVIS-Local-AI-Lab;GitHub fetch arbre et fichiers;vérifié sur sélection
+Drive S407;identité propriétaire masquée/non déterminée;1 owner et 4 writer individuels;Google Doc;2026-11-12;Mon Drive/SEP CIEL/Archi-Reseau/00-Documentation;Drive fetch + métadonnées;contenu réellement lu
+Drive télémaintenance;non déterminé;lecture connecteur réussie ACL non inspectées;export conversation;2026-11-06;SEP CIEL parent observé;Drive fetch;état historique PBX documenté
+Drive orientation RAG;non déterminé;lecture connecteur réussie ACL non inspectées;Google Doc;2026-11-12;parent Drive référencé par métadonnées;Drive fetch;cadrage seulement
+Tableau accès sensible;identité propriétaire non déterminée;1 owner et 4 writer individuels;Google Sheet;2026-11-10;SEP CIEL;metadata seulement;exclu du corpus et des exports
+Configurations Cisco;non déterminé;métadonnées seulement;anciens cfg et exports privés;anciens fichiers 2024-2026;emplacements multiples non consolidés;recherche metadata et références S407;pas de lecture brute ni revalidation live
+Mac mini mémoire;propriétaire laboratoire;SSH refusé avec clé disponible;SQLite FTS5 et API historiques;non vérifiée en live;runtime/memory.sqlite selon 13F;SSH strict existant;non accessible dans cette session
+Dell1;propriétaire laboratoire;SSH direct refusé;services et configurations;non vérifiée;alias via Mac mini documenté;SSH existant;inventaire non exécuté
+Dell2;propriétaire laboratoire;trajet via Mac mini inaccessible;services et configurations;non vérifiée;alias via Mac mini documenté;pas de nouvel hôte ajouté;non testé
+Raspberry FusionPBX;administration lycée à confirmer;trajet via Dell1 non disponible;FreeSWITCH Nginx PostgreSQL;état rapporté au 2026-11-05;emplacement privé dans source télémaintenance;source documentaire seulement;live non testé
+Work ChatGPT;utilisateur/conversations privées;aucun accès global démontré;décisions et historiques;preview Mission 24 fourni;conversation référencée dans demande;preview seulement;pas d'export global
+Codex;utilisateur;lecture espace local disponible;anciens livrables locaux;2026-11-01 et 2026-11-08;espaces de travail locaux;rg et fichiers sélectionnés;pas de synchronisation canonique démontrée

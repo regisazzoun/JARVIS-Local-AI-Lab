@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-13",
+  "scope": "24A lecture seule",
+  "plan": {
+    "pr": 49,
+    "commit": "caa6f5e1c9a126bec953de3d418378192f7318af",
+    "blob": "dd59e163f5d0d45058a01d98a67c3f8901a24287"
+  },
+  "repository": {
+    "sha": "caa6f5e1c9a126bec953de3d418378192f7318af",
+    "truncated": false,
+    "entries": 328,
+    "blobs": 253
+  },
+  "ssh_tests": [
+    {
+      "target": "Mac mini via Tailscale",
+      "user": "compte existant documenté",
+      "host_key_check": "strict,known_hosts existant",
+      "authentication": "clé existante, BatchMode",
+      "exit": 255,
+      "result": "Permission denied (publickey,password)."
+    },
+    {
+      "target": "Mac mini via LAN",
+      "host_key_check": "strict",
+      "exit": 255,
+      "result": "Permission denied (publickey,password)."
+    },
+    {
+      "target": "Dell1 via Tailscale",
+      "host_key_check": "strict",
+      "exit": 255,
+      "result": "Permission denied (publickey,password)."
+    }
+  ],
+  "ssh_agent": "aucune identité chargée",
+  "http_get": {
+    "target": "Mac mini port documentaire 13F, /",
+    "result": "URLError",
+    "elapsed_ms": 19,
+    "http_status": null,
+    "body_saved": false
+  },
+  "acl": {
+    "source407": [
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "owner"
+      }
+    ],
+    "sensitive_sheet": [
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "writer"
+      },
+      {
+        "type": "user",
+        "role": "owner"
+      }
+    ],
+    "negative_identity_test": "non exécuté, aucune identité secondaire autorisée disponible",
+    "revocation_test": "non exécuté, aucune modification des droits"
+  },
+  "redaction": "Liste blanche : statuts, agrégats ACL sans identités, résumés rédigés. Aucune clé, adresse machine, MAC, compte personnel, mot de passe, export brut ou base publié."
+}
