@@ -1,8 +1,10 @@
 # Mission JARVIS 24A — Audit en lecture seule
 
-**13 novembre 2026 — reprise vérifiée jusqu'à 21 h 40 (Paris).**
-**Statut : 🟡 audit réellement exécuté, réception 24A avec critères encore ouverts. 24B NON LANCÉE.**
-Rapport initial corrigé après récupération des accès existants ; les premiers refus restent conservés comme observations historiques.
+**13 novembre 2026 — clôture après les compléments client et multiutilisateur.**
+**Statut : ✅ 24A terminée comme audit/diagnostic vérifié. Réception fonctionnelle du RAG : ❌ NO-GO. 24B NON LANCÉE.**
+Le diagnostic est achevé ; cela ne valide pas les capacités auditées. Les premiers refus d’accès et mesures intermédiaires sont conservés comme observations historiques, sans effacer les corrections documentées.
+
+**Complément décisif :** [tests client et ACL](TESTS_CLIENT_ET_ACL.md). Réponse complète observée dans le client de copie, trois documents réellement lus, 45 contrôles conformes et un échec fonctionnel de modèle utilisateur. La restitution d’une information d’authentification et l’absence de citations ouvrables imposent le NO-GO. Les valeurs et la règle d’attribution sont expurgées.
 
 ## Autorité et références
 Demande du propriétaire : audit des sources/services réels, preuves expurgées et publication sur branche/PR, aucune modification de production ni lancement 24B.
@@ -18,7 +20,9 @@ La discussion historique est utilisée comme source d'accès et de contexte, pas
 - Mémoire historique 13F active sur **/opt/jarvis/conversation/runtime/memory.sqlite**, schéma v3, FTS5. La copie sous ~/JARVIS/conversation est ancienne et n'est pas la base du service.
 - **Open WebUI natif v0.12.0 est aussi actif**, avec SQLite webui.db, Chroma et un pont de continuité. La mémoire historique ne décrit donc pas, seule, le parcours courant.
 - Deux snapshots cohérents obtenus par SQLite backup avec source **mode=ro**, destination en mémoire puis flux SSH privé vers ce poste. Restaurations locales vérifiées ; aucune base ou sauvegarde brute publiée.
-- Baselines réelles : FTS5 sur copie et recherche mémoire native authentifiée sur service actif. La synthèse finale complète dans le client JARVIS/JM-01 reste non rejouée.
+- Baselines réelles : FTS5 sur copie, recherche native live et réponse complète dans le client web natif de copie, avec le modèle courant et des lectures Google réelles. Cette dernière ne valide pas une app iPhone physique ni le chantier vocal JM-01.
+- Restauration native SQLite + Chroma vérifiée fonctionnellement : quatre mêmes identifiants de résultats hachés entre service réel et copie sur la requête de référence.
+- Droits natifs entre comptes, partages, révocations, fichiers et vecteurs testés par les APIs réelles de la copie. Aucun compte ou partage réel changé.
 
 ## Matrice et inventaire
 Voir [MATRICE_SOURCES.csv](MATRICE_SOURCES.csv), [MAC_LIVE.json](preuves/MAC_LIVE.json), [REPRISE_DELL1.json](preuves/REPRISE_DELL1.json), [CONNECTEURS_SAUVEGARDES.json](preuves/CONNECTEURS_SAUVEGARDES.json).
@@ -43,13 +47,17 @@ Pont actif : lecture des documents/préférences historiques et de 9 JSON de syn
 Aucun lien vers les deux documents récents S407/télémaintenance de référence retrouvé dans les 46 contenus mémoire ; les notes, fichiers et conversations n'ont pas fait l'objet d'une recherche exhaustive.
 Voir [NATIVE_SQLITE_AUDIT.json](preuves/NATIVE_SQLITE_AUDIT.json).
 
-## Baseline recherche/RAG salle 407
+## Baseline recherche/RAG salle 407 — mesures initiales puis clôture
 [BASELINE_S407.md](BASELINE_S407.md) distingue trois mesures, sans mélanger leurs latences.
 
 1. **Connecteur documentaire Codex** : S407 du 12 novembre et Télémaintenance du 6 novembre réellement lus ; synthèse de référence sourcée. Source RAG du 12 novembre lue pour le cadrage.
 2. **Moteur historique, code déployé sur copie réelle** : sans projet, 0 document pour S407/salle 407/FusionPBX/SIP. Sur l'ensemble des projets, « salle 407 » donne 5 correspondances FTS via OR, dont 4 retournées par la limite ; S407/FusionPBX/SIP : 0. Ce n'est pas une preuve de 5 documents pertinents : « salle OR 407 » est une recherche large.
 3. **Mémoire native live authentifiée** : S407 → 3 résultats (7,50 ms), salle 407 → 0 (6,69 ms), FusionPBX → 0 (6,38 ms), SIP → 1 (6,45 ms). Une requête vectorielle existante sur la question complète donne 4 éléments en 426,30 ms ; 2 mentionnent S407/salle 407, aucun FusionPBX. Une seule mesure vectorielle, pas un percentile ni une comparaison de gain.
-Les contenus natifs retournés ont été reçus par le script en mémoire, puis seuls comptes, identifiants hachés et métriques ont été conservés. Pas de réponse finale LLM, de citations générées ou d'hallucinations attribuables au client évaluées.
+Ces trois mesures initiales précédaient la synthèse client. Les contenus étaient traités en mémoire et seuls comptes, identifiants hachés et métriques étaient conservés dans les preuves publiques.
+
+4. **Client web natif complet, copie confinée :** six appels d’outils, trois sources distinctes effectivement lues, réponse de 6 143 caractères avec les six rubriques. Environ 104,3 s entre soumission et dernière mise à jour du chat ; observation UI terminée avant 148,9 s. Trois titres cités, aucun lien et aucune carte source native. Voir [CLIENT_COMPLET_S407.json](preuves/CLIENT_COMPLET_S407.json) et [réponse expurgée](REPONSE_CLIENT_EXPURGEE.md).
+
+**Référence actualisée :** une documentation FusionPBX du 13 novembre, réellement lue au dernier essai, rapporte onze téléphones physiques enregistrés et des services actifs, avec recette complète encore distincte. Elle remplace sur ces critères l’état SIP non recetté du seul document réseau du 12 novembre. Les anciens constats datés restent vrais à leur date ; ce sont des documents, pas des observations PBX live exécutées par 24A.
 Voir [BASELINE_NATIVE_LIVE.json](preuves/BASELINE_NATIVE_LIVE.json) et [ACL_RECHERCHE.json](preuves/ACL_RECHERCHE.json).
 
 ## Tests réellement exécutés
@@ -59,47 +67,52 @@ Voir [BASELINE_NATIVE_LIVE.json](preuves/BASELINE_NATIVE_LIVE.json) et [ACL_RECH
 | Dell1 et Dell2 | accès authentifié, services IA/VNC actifs | pas de benchmark ni reboot |
 | Raspberry | TCP SSH joignable depuis Dell1 | pas de session/service PBX live validé |
 | Snapshot cohérent 13F + restauration locale | intégrité/schema/comptages concordants | base privée, aucune restauration production |
-| Snapshot natif + restauration locale | intégrité/comptages concordants | vecteurs Chroma non restaurés : pas une restauration RAG complète |
+| Snapshot natif + Chroma restaurés en copie | intégrité et scénario vectoriel concordants | photographie atomique multi-stores sous écritures concurrentes non revendiquée |
 | SQLite mode=ro | écriture refusée sur snapshot source local | tentative d'écriture jamais dirigée vers production |
 | Unix utilisateur non privilégié | base historique illisible | ne couvre pas tous les groupes/ACL système |
 | API historique sans session | search/memories/export → 401 | health/session lisibles volontairement |
 | Host/Origin invalides | 403 sur API historique | pas de balayage offensif |
-| API native | liste authentifiée 200/46 mémoires ; sans jeton 401 | identité secondaire/révocation native non testées |
+| API native et comptes de copie B/C | isolation notes/mémoires/fichiers/vecteurs, partage et révocation vérifiés | 45 contrôles conformes, un échec fonctionnel de modèle utilisateur ; pas une révocation Drive réelle |
 | Filtre projet historique sur copie | global + bon projet visibles ; autre projet absent | filtre de classement, pas ACL par utilisateur |
 | Auth historique sur fixture locale | mauvais secret refusé, bon login accepté, logout invalide le jeton | pas de login/révocation production |
 | Lecture Drive S407 et ACL | contenu lu, 1 owner/4 writer individuels | pas d'identité secondaire ni révocation réelle Drive |
-| Motifs sensibles dans contenus | 0 clé privée/jeton/Bearer détecté ; 2 documents historiques avec libellé de credential | candidats à revue, ni preuve d'absence de secrets ni secrets confirmés |
+| Motifs sensibles et sortie réelle | motifs initiaux limités ; restitution d’authentification confirmée dans la réponse complète | règle et valeurs expurgées ; aucune garantie d’absence de secrets déduite d’un scan |
 | Expurgation publication | liste blanche + scan du paquet | pas de garantie sur sources privées non auditées |
 
 ## Anomalies et backlog vérifié
 | ID | Priorité / état | Fait et suite |
 |---|---|---|
 | A01 | résolu | refus initial dû à clé verrouillée ; accès existant réutilisé. Ne pas remplacer la clé. |
-| A02 | P1 / documenté | FusionPBX est documenté historiquement dans Télémaintenance ; sa configuration actuelle reste non vérifiée. |
-| A03 | P0 avant ingestion | tableau d'accès sensible : exclure intégralement du corpus ; consultation ponctuelle de coffre distincte de l'indexation. 2 contenus historiques portent un marqueur de credential, valeurs non publiées, revue privée à terminer. |
+| A02 | documenté | Télémaintenance historique complétée par une source FusionPBX du 13 novembre réellement lue. État récent rapporté ; pas de nouvelle session PBX authentifiée par 24A. |
+| A03 | P0 bloquant | coffre exclu ; deux marqueurs historiques et surtout une information d’authentification effectivement restituée depuis une source documentaire au test client. Filtrer sources, contexte et sortie avant toute réception ; aucune valeur publiée. |
 | A04 | P1 | document S407 sous Mon Drive/SEP CIEL/Archi-Reseau/00-Documentation, pas sous Téléphonie ; identité institutionnelle du Drive non établie. |
 | A05 | P1 | références Cisco de 24 configurations explicitement anciennes ; guides homonymes candidats doublons non certifiés. Versions documentaires source/projet à gérer. |
-| A06 | P0 avant corpus multiutilisateur | historique sans champ ACL par document ; filtre project contrôlé par l'appelant. Natif scoped user_id, access_grant présent ; propagation ACL Drive et révocation multiidentité non démontrées. |
+| A06 | natif testé ; écart documentaire P0 | isolation native et révocations de ressources/sessions vérifiées entre comptes fictifs. Historique sans champ ACL documentaire ; propagation des révocations Drive réelles non établie et non modifiée. Le résultat applicatif ne valide pas cette propagation. |
 | A07 | P1 | pont de continuité réel, mais seulement archives et synthèses sélectionnées ; pas de collecte universelle des conversations. |
 | A08 | P0 de cadrage | écart entre plan 24 actuel et runtime : Open WebUI natif/Chroma/pont/anciens répertoires mission24 déjà présents. Clarifier l'autorité logique et le parcours à recevoir avant 24B, sans recréer une base concurrente. |
 | A09 | P1 recherche | document_search coupe aux 10 premiers termes : la question complète perd salle/407/SIP/FusionPBX dans ce moteur historique. OR, LIMIT 4 puis injection 2 sans ORDER BY de pertinence explicitée. Observation de code, pas défaut automatiquement attribuable au natif. |
-| A10 | P1 corpus | aucun résultat natif FusionPBX malgré sa source Drive accessible à Codex ; aucun lien des deux sources récentes dans les 46 mémoires. Vérifier la couverture réelle du connecteur/notes/fichiers avant de conclure à une absence globale. |
-| A11 | P1 réception | scénario écrit complet dans le client courant non rejoué ; qualité, citations, latence bout en bout et erreurs de synthèse restent à mesurer sur copie avec outils strictement limités à la lecture. |
+| A10 | diagnostiqué | index natif sans résultat FusionPBX dans la mesure initiale ; le client avec accès propriétaire retrouve ensuite et lit la documentation récente via Google Éducation. Ne pas assimiler absence dans l’index mémoire et absence de source accessible au connecteur. |
+| A11 | test clos / NO-GO fonctionnel | scénario client complet exécuté et réponse observée. Trois lectures prouvées ; authentification restituée, liens de citation absents et synthèse temporelle ambiguë. Voir le rapport de tests. |
 | A12 | P1 exploitation | traces historiques ~454 Mo, base missions ~3,19 Go observée ; rétention à inventorier séparément. Aucune suppression/rotation imposée par 24A. |
+| A13 | P1 fonctionnel vérifié | modèle annoncé à B dans son catalogue mais appel direct refusé car modèle de base inaccessible ; contrôle positif après grant temporaire sur copie puis retrait. Aucune correction production. |
+| A14 | P1 provenance | trois titres cités mais aucune URL ni carte source dans la réponse ; lecteurs dépendants des traces pour retrouver les sources. |
+| A15 | P1 qualité | rapprochement imparfait des états du 12 et du 13 novembre et d’un guide de déploiement ; absence d’observation transformée en conclusion matérielle. |
+| A16 | P1 traces | deux appels marqués completed dans le client malgré returncode=1 du provider ; six tentatives ne signifient pas six réussites. Les trois lectures documentaires ont bien réussi. |
 
-Les services Google education/personal sont installés et configured=true via leur pont existant. Cela ne prouve pas une lecture Drive réussie depuis JARVIS : les lectures Drive de cet audit utilisent le connecteur Codex. Ne pas confondre leurs identités, scopes et résultats.
+Les profils Google education/personal étaient installés/configurés à la première passe. La seconde démontre les lectures réelles Éducation par le connecteur JARVIS copié, avec credentials copiés et résultat distant vérifié. Le profil personnel n’a pas été testé en lecture distante. Ces lectures ne sont pas celles du connecteur Codex initial, et aucune seconde identité Google n’est inventée.
 Aucun GO n'est déduit des seuls fichiers présents, timers actifs ou récits historiques.
 
 ## Conservation, non-modification et publication
-Écritures de 24A : espace local privé d'audit, copies locales de test, livrables expurgés et branche documentaire.
+Écritures de 24A : espaces privés d’audit locaux et distants, conteneur de copie isolé, canaris et données de recette dans ces copies, livrables expurgés et branche documentaire. Les authentifications, partages et révocations des tests concernent exclusivement les comptes et ressources fictifs de copie.
 Sur production : lectures SSH/SQL/HTTP, inspection de code et métadonnées ; les POST natifs utilisés sont **search/query de lecture** après inspection des handlers, aucun endpoint de mutation appelé. Aucun login production généré ; un jeton existant a été utilisé en mémoire.
-Aucune migration, ingestion, réindexation, édition ACL, redémarrage, changement de compte, installation distante ou restauration production. Les journaux d'accès habituels et les tâches préexistantes peuvent évoluer pendant l'audit ; absence de changement de hash production non revendiquée.
+Aucune migration, ingestion, réindexation, édition ACL, interruption, changement de compte, installation ou restauration **en production**. Les canaris synthétiques sont indexés uniquement dans la copie de recette. Les journaux d’accès habituels et les tâches préexistantes peuvent évoluer pendant l’audit ; absence de changement de hash de toutes les données de production non revendiquée. Le client réel reste actif, avec un démarrage antérieur à l’audit ; seule l’instance de recette est arrêtée après collecte.
 Preuves : observations structurées, schémas et métriques autorisés, pas exports bruts. Copies SQLite avec données privées et aides d'authentification hors outputs et hors GitHub.
 Le manifeste SHA-256 couvre le paquet publié, pas une attestation cryptographique des sources.
 Voir [PROCEDURE_REPRODUCTION.md](PROCEDURE_REPRODUCTION.md) pour rejouer les mesures et limites.
 
 ## Verdict 24A et porte 24B
-**Audit réel largement exécuté ; réception 24A encore incomplète** : synthèse client complète, propagation ACL/révocation multiidentité, restauration cohérente du RAG natif incluant vecteurs et couverture live PBX/Cisco restent ouverts.
-Les résultats positifs SQLite/restauration/recherche/contrôle d'accès sont vérifiés dans les périmètres ci-dessus ; les anomalies ont un backlog exploitable.
+**✅ Audit 24A terminé et clôturé comme diagnostic. ❌ Réception fonctionnelle du RAG : NO-GO.**
+La réponse complète, l’isolation applicative entre utilisateurs, les révocations et la restauration vectorielle demandées ont été exécutées et qualifiées. Les échecs fonctionnels restent des résultats de l’audit, pas des tests manquants.
+La propagation d’ACL Drive réelles, une sauvegarde atomique multi-stores et les états live PBX/Cisco non relus directement sont des limites explicitement identifiées : aucune réussite globale n’est prétendue sur ces périmètres. Les écarts de filtrage, provenance, fraîcheur, droits des modèles et autorité mémoire forment le backlog avant toute réception ultérieure.
 **24B non lancée. Validation explicite du propriétaire indispensable avant toute ingestion ou évolution de schéma/index. Aucune fusion automatique.**
 

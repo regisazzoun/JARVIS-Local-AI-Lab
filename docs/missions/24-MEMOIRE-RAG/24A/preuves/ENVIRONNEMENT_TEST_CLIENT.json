@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-11-13T21:18:09.579883+00:00",
+  "audit_image_same_as_production": true,
+  "python_source_tree_unchanged": true,
+  "python_tree_sha256": "5b4d6885ef84c42c27e39bb08a4881e49484dc2c0c19777e5a0081a38ecd3027",
+  "audit": {
+    "image": "sha256:b2513e99135d670ecfe6d6c2d43425d3484c3e59d1274b8a290022597838088c",
+    "running": true,
+    "started_at": "2026-11-13T21:01:01.90768518Z",
+    "network_mode": "none",
+    "read_only_rootfs": true
+  },
+  "production": {
+    "image": "sha256:b2513e99135d670ecfe6d6c2d43425d3484c3e59d1274b8a290022597838088c",
+    "running": true,
+    "started_at": "2026-11-01T19:55:17.974326908Z",
+    "network_mode": "host",
+    "read_only_rootfs": false
+  },
+  "data_copies_only": true,
+  "production_user_changes": 0,
+  "production_grant_changes": 0,
+  "education_credentials_copy_used": true,
+  "production_snapshot_mode": "ro",
+  "ui_model_params_preserved": true,
+  "safety_differences": [
+    "outils externes limités aux lectures nécessaires",
+    "terminal et exécution désactivés dans copie",
+    "jetons utilisateurs et paramètres de connexion remplacés dans copie",
+    "compte A rôle admin de source, B et C standards fictifs"
+  ]
+}

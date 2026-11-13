@@ -1,5 +1,9 @@
 # Baseline S407 — 24A
 
+**Clôture :** la réponse complète et les droits entre utilisateurs sont désormais testés. Voir [TESTS_CLIENT_ET_ACL.md](TESTS_CLIENT_ET_ACL.md), [CLIENT_COMPLET_S407.json](preuves/CLIENT_COMPLET_S407.json) et la [sortie expurgée](REPONSE_CLIENT_EXPURGEE.md). Les mesures ci-dessous conservent la première passe et sa référence documentaire à cette date.
+
+Dernière baseline client : trois documents réellement lus, six appels d’outils, environ 104,3 s jusqu’à la dernière mise à jour du chat. Le document FusionPBX du 13 novembre rapporte onze téléphones physiques enregistrés : la seule mention SIP à réaliser du document réseau du 12 novembre ne décrit plus à elle seule l’état récent. Réception fonctionnelle NO-GO pour restitution d’authentification, citations non ouvrables et synthèse temporelle ambiguë. Aucune valeur ni règle de credential n’est publiée.
+
 ## Question figée
 « Dans le Drive Éducation du lycée Christophe Colomb, section SEP / Archi-Réseau / Téléphonie, quel est l'état d'avancement du déploiement téléphonie IP de la salle 407 ? Distingue réseau, IPBX, téléphones, SIP, appels et reste à faire ; cite tes sources. »
 
@@ -19,7 +23,7 @@ Les paragraphes de synthèse ci-dessous restent la référence documentaire Code
 Preuves : [SQLITE_AUDIT.json](preuves/SQLITE_AUDIT.json), [ACL_RECHERCHE.json](preuves/ACL_RECHERCHE.json), [BASELINE_NATIVE_LIVE.json](preuves/BASELINE_NATIVE_LIVE.json).
 Les itérations FTS5 (5 par requête) sont des mesures locales sur copie et ont une médiane proche de 1 ms pour les termes courts : elles ne sont pas comparables directement aux appels natifs HTTP ou au connecteur Drive.
 La limite de 10 termes du moteur documentaire historique élimine salle/407 de la question complète. Le natif a sa propre recherche et ne doit pas être confondu avec ce moteur.
-Synthèse finale, outils Google proposés/appelés par le modèle, citations générées, latence bout en bout, erreurs FreePBX/FusionPBX et hallucinations du client courant : **non mesurés**. Aucun POST de chat ou d'ingestion n'a été envoyé. L'API native search/query est de lecture selon le code déployé inspecté.
+À ce stade initial, synthèse finale et appels d’outils du modèle n’étaient pas mesurés ; aucun chat n’avait été envoyé. Le complément de clôture les mesure dans la copie privée, jamais en production. Les appels natifs search/query de la première passe restent des lectures selon le code inspecté.
 
 ## Nature de la mesure documentaire initiale
 Baseline documentaire du connecteur disponible dans Codex. **Aucune réponse du moteur JARVIS n'a été obtenue.** Les résultats ci-dessous ne mesurent donc ni ses performances, ni ses hallucinations, ni sa qualité de classement.

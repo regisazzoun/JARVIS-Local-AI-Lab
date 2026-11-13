@@ -1,0 +1,26 @@
+{
+  "scope": "passerelle de recette, données de copie privées, aucune mutation transmise à production",
+  "checks": [
+    {
+      "test": "écriture Docs",
+      "http": 403,
+      "passed": true
+    },
+    {
+      "test": "mutation générique Workspace",
+      "http": 403,
+      "passed": true
+    },
+    {
+      "test": "lecture du coffre explicitement exclu",
+      "http": 403,
+      "passed": true
+    },
+    {
+      "test": "installation de modèle",
+      "http": 403,
+      "passed": true
+    }
+  ],
+  "production_mutating_operations_forwarded": 0
+}

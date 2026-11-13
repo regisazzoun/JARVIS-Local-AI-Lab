@@ -71,3 +71,17 @@ Les traces privées volumineuses ne sont pas exportées ; scanner des motifs en 
 ## Publication
 Conserver prévu/exécuté/vérifié/non exécuté séparés. Générer un manifeste SHA-256 de tous les livrables sauf le manifeste lui-même, contrôler tous les JSON/liens relatifs et les motifs sensibles/IP/MAC, puis publier uniquement ce paquet expurgé sur la branche documentaire.
 Aucune fusion, aucune 24B sans validation.
+
+
+## Complément : client complet et comptes de copie
+1. Copier l’image et le code effectivement déployés, SQLite natif, Chroma et son cache de modèle d’embedding. Ouvrir les sources SQLite en mode=ro et sauvegarder vers destinations d’audit privées. Ne pas mettre les bases actives en immutable.
+2. Pseudonymiser les comptes copiés, retirer les tokens/API keys/OAuth réels et générer des credentials de recette. Conserver le rôle administrateur de la source pour la baseline propriétaire ; utiliser deux comptes standards distincts pour l’isolation. Ne jamais modifier les comptes réels.
+3. Lancer uniquement la copie, réseau none et racine en lecture seule, sur ses volumes privés. Relayer l’inférence vers le moteur existant et les seules lectures Éducation nécessaires via une liste d’opérations explicitement contrôlée. Les credentials du connecteur sont copiés dans l’espace d’audit pour éviter ses écritures de cache/rafraîchissement sur le profil original.
+4. Préserver le modèle, son prompt et ses paramètres ; désactiver les chemins d’exécution/mutation externes dans la copie. Admettre les sources pertinentes effectivement découvertes et exclure le coffre sensible. Un refus dû à une liste de sources de test trop étroite doit être distingué d’un échec provider.
+5. Dans le vrai frontend copié, saisir la question figée dans un nouveau chat. Conserver en privé la réponse et la trace complète ; vérifier done=true et la réponse affichée. Publier uniquement la réponse expurgée, les appels/métriques et le jugement des affirmations. Ne pas réutiliser les textes de credentials comme exemples publics.
+6. Créer seulement des canaris synthétiques dans notes, mémoires, fichiers et knowledge de la copie. Tester propriétaires B/C, IDs directs, listes/recherche, vecteurs, lecture partagée sans écriture, révocation avec le même jeton, contenu de fichier après révocation et anonymes. Tester aussi la révocation d’une session fictive et la persistance de la session de l’autre acteur.
+7. Vérifier le modèle proposé à l’utilisateur standard. Si son appel échoue alors qu’il est listé, enregistrer un échec fonctionnel ; un éventuel grant temporaire de contrôle n’est permis que sur copie, doit être qualifié et retiré.
+8. Comparer la requête vectorielle live de lecture et la copie avant les canaris : même identité logique, mêmes quatre IDs hachés dans ce scénario. Ce test ne rend pas la capture atomique multi-stores.
+9. Arrêter la seule instance de recette et son relais après collecte, retirer les credentials temporaires de connexion/Google copiés, conserver les copies d’audit en privé et confirmer que le client de production est toujours actif. Aucune ingestion 24B.
+
+Les paramètres, résultats, limites et hash du code sont dans TESTS_CLIENT_ET_ACL.md et les preuves JSON de clôture. La réponse expurgée conserve ses erreurs pour permettre la revue ; elle ne doit pas être utilisée comme une nouvelle vérité documentaire du lycée.
