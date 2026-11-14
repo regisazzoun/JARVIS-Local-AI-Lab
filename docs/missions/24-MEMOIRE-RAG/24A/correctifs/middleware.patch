@@ -1,0 +1,50 @@
+--- a/open_webui/utils/middleware.py
++++ b/open_webui/utils/middleware.py
+@@ -1,5 +1,6 @@
+ import ast
+ import asyncio
++from open_webui.utils.provenance24a import citation_sources as verified_document_sources
+ import base64
+ import copy
+ import hashlib
+@@ -160,6 +161,9 @@
+ 
+ 
+ def _is_tool_result_error(value: Any) -> bool:
++    from open_webui.utils.provenance24a import result_failed
++    if result_failed(value):
++        return True
+     if isinstance(value, str):
+         text = value.strip().lower()
+         if (
+@@ -460,6 +464,11 @@
+             pass  # keep tool_result as-is (e.g. fetch_url returns plain text)
+         if isinstance(tool_result, dict) and 'error' in tool_result:
+             return []
++
++        from open_webui.utils.provenance24a import citation_sources
++        verified_sources = citation_sources(tool_result)
++        if verified_sources:
++            return verified_sources
+ 
+         if tool_name in ('view_knowledge_file', 'view_file'):
+             if not isinstance(tool_result, dict):
+@@ -6103,14 +6112,10 @@
+                         # Extract citation sources from tool results
+                         if (
+                             citations_enabled
+-                            and tool_function_name
+-                            in [
+-                                'fetch_url',
+-                                'view_file',
+-                                'view_knowledge_file',
+-                                'query_knowledge_files',
+-                                'query_chat_files',
+-                            ]
++                            and (tool_function_name in [
++                                "fetch_url", "view_file", "view_knowledge_file",
++                                "query_knowledge_files", "query_chat_files",
++                            ] or verified_document_sources(tool_result))
+                             and tool_result
+                         ):
+                             try:

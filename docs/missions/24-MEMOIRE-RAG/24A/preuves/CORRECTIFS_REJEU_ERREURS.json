@@ -1,0 +1,50 @@
+{
+  "scope": "Replay des six reçus privés réels dans les fonctions exactes du middleware corrigé, sans nouvel appel distant",
+  "cases": [
+    {
+      "test": "Receipt réel 1",
+      "connector_returncode": 1,
+      "before_status": "completed",
+      "corrected_status": "failed",
+      "pass": true
+    },
+    {
+      "test": "Receipt réel 2",
+      "connector_returncode": 0,
+      "before_status": "completed",
+      "corrected_status": "completed",
+      "pass": true
+    },
+    {
+      "test": "Receipt réel 3",
+      "connector_returncode": 0,
+      "before_status": "completed",
+      "corrected_status": "completed",
+      "pass": true
+    },
+    {
+      "test": "Receipt réel 4",
+      "connector_returncode": 0,
+      "before_status": "completed",
+      "corrected_status": "completed",
+      "pass": true
+    },
+    {
+      "test": "Receipt réel 5",
+      "connector_returncode": 0,
+      "before_status": "completed",
+      "corrected_status": "completed",
+      "pass": true
+    },
+    {
+      "test": "Receipt réel 6",
+      "connector_returncode": 1,
+      "before_status": "completed",
+      "corrected_status": "failed",
+      "pass": true
+    }
+  ],
+  "passed": 6,
+  "failed": 0,
+  "middleware_sha256": "3726f92db8328b5e56515c4157d6a5adfb0e0681890c6f9d7f442aea138f5bc0"
+}

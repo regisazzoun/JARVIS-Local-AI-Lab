@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "test": "successful read yields URL hash timestamp excerpt",
+      "pass": true
+    },
+    {
+      "test": "modified date not invented as observation date",
+      "pass": true
+    },
+    {
+      "test": "returncode 1 yields no citation",
+      "pass": true
+    },
+    {
+      "test": "MCP error yields no citation",
+      "pass": true
+    },
+    {
+      "test": "remote read unverified yields no citation",
+      "pass": true
+    },
+    {
+      "test": "nested error yields no citation",
+      "pass": true
+    },
+    {
+      "test": "HTTP success with failed receipt detected",
+      "pass": true
+    },
+    {
+      "test": "nested MCP error detected",
+      "pass": true
+    },
+    {
+      "test": "metadata-free read keeps date unknown",
+      "pass": true
+    },
+    {
+      "test": "invalid document ID never promoted to source",
+      "pass": true
+    },
+    {
+      "test": "unrelated builtin nonerror unchanged",
+      "pass": true
+    },
+    {
+      "test": "content remains unchanged",
+      "pass": true
+    }
+  ],
+  "passed": 12,
+  "failed": 0
+}

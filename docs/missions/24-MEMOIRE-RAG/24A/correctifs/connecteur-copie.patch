@@ -1,0 +1,47 @@
+--- a/control/audit-gate.py
++++ b/control/audit-gate.py
+@@ -1,5 +1,6 @@
+ import os,sys,pathlib,json,urllib.request,urllib.error,subprocess,hashlib,time,socket,socketserver,threading,select
+ from http.server import BaseHTTPRequestHandler
++sys.path.insert(0,str(pathlib.Path(__file__).parent))
+ ROOT=pathlib.Path('/home/adminjarvis/JARVIS/mission24a-correctifs-private-20261114')
+ CONTROL=ROOT/'control';os.umask(0o077)
+ ALLOWED={'drive.search','drive.findFolder','docs.getText','sheets.getMetadata','time.getCurrentDate','time.getCurrentTime','time.getTimeZone'}
+@@ -8,9 +9,9 @@
+  if depth>16:return
+  if isinstance(v,dict):
+   name=v.get('name','');ident=v.get('id');mime=v.get('mimeType','')
+-  if isinstance(name,str) and isinstance(ident,str) and mime and ident!=SENSITIVE:
++  if isinstance(name,str) and isinstance(ident,str) and mime:
+    import re
+-   if not re.search(r'(?i)password|mot.?de.?passe|identifiant|credential|secret|accès.?d.administration',name):DOCS.add(ident)
++   DOCS.add(ident); SOURCE_META[ident]=v.copy()
+   for child in v.values():learn_sources(child,depth+1)
+  elif isinstance(v,list):
+   for child in v:learn_sources(child,depth+1)
+@@ -18,6 +19,7 @@
+   try:learn_sources(json.loads(v),depth+1)
+   except ValueError:pass
+ SENSITIVE='1zUjWeQblc7ymVzKy1TDDnVB4vZ0v1YGoBEp6szF4uIk'
++SOURCE_META={}
+ KEY=(CONTROL/'proxy-key').read_text()
+ def receipt(value):
+  with (CONTROL/'gate-receipts.jsonl').open('a') as f:f.write(json.dumps({'utc_epoch':time.time(),**value},ensure_ascii=False)+'\n')
+@@ -81,7 +83,6 @@
+   else:return self.respond({'error':'audit-tool-denied'},403)
+   if action not in ['status','list','schema','call'] or (action in ['call','schema'] and name not in ALLOWED):
+    receipt({'kind':'denied','surface':'google','action':action,'name':name});return self.respond({'error':'24A read-only gate: mutation or unsupported tool denied'},403)
+-  if SENSITIVE in json.dumps(arguments):return self.respond({'error':'sensitive-source-excluded'},403)
+   if action=='call' and name=='docs.getText' and not any(i in json.dumps(arguments) for i in DOCS):return self.respond({'error':'document-outside-audit-corpus'},403)
+   receipt({'kind':'google','action':action,'name':name,'arguments_sha256':hashlib.sha256(json.dumps(arguments,sort_keys=True).encode()).hexdigest()})
+   if action=='list':return self.respond({'profile':'education','count':len(ALLOWED),'tools':[{'name':n,'description':'Existing connector read operation, audit subset'} for n in sorted(ALLOWED)],'next_offset':None,'remote_access_verified':False})
+@@ -92,6 +93,9 @@
+   except Exception:return self.respond({'error':'invalid-connector-result'},502)
+   if name=='drive.search':learn_sources(v)
+   receipt({'kind':'google_result','action':action,'name':name,'returncode':v.get('returncode'),'remote_access_verified':v.get('remote_access_verified'),'response_bytes':len(proc.stdout)})
++  if action=='call' and name=='docs.getText' and v.get('returncode')==0 and v.get('remote_access_verified') is True:
++   from provenance24a import enrich_document
++   v=enrich_document(v,arguments,SOURCE_META)
+   return self.respond(v)
+ class UnixHTTP(socketserver.ThreadingMixIn,socketserver.UnixStreamServer):daemon_threads=True
+ class Frontend(socketserver.BaseRequestHandler):

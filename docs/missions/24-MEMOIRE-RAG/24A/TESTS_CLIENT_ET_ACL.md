@@ -1,5 +1,7 @@
 # Clôture des tests manquants — 24A
 
+> Ce document conserve la baseline du 13 novembre. Voir le [complément du 14 novembre](CORRECTIFS_COPIE_PRIVEE.md) pour les corrections de copie, nouveaux tests et décision propriétaire sur la recherche d’informations d’authentification.
+
 **13 novembre 2026. Audit terminé ; réception fonctionnelle RAG : NO-GO. 24B non lancée.**
 
 ## Dispositif et fidélité au système existant

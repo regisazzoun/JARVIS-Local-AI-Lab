@@ -1,5 +1,7 @@
 # Mission JARVIS 24A — Audit en lecture seule
 
+> **Complément du 14 novembre 2026 :** [correctifs sur copie privée et nouveaux tests](CORRECTIFS_COPIE_PRIVEE.md). Citations/erreurs et accès au modèle standard vérifiés ; synthèse multi-sources non réceptionnée après trois essais. Le propriétaire a rejeté le filtrage des informations d’authentification auxquelles il a droit : leur récupération autorisée n’est plus, à elle seule, un critère d’échec. Leur publication reste exclue. Les constats et verdicts datés du 13 novembre ci-dessous restent historiques. Production préservée, 24B non lancée.
+
 **13 novembre 2026 — clôture après les compléments client et multiutilisateur.**
 **Statut : ✅ 24A terminée comme audit/diagnostic vérifié. Réception fonctionnelle du RAG : ❌ NO-GO. 24B NON LANCÉE.**
 Le diagnostic est achevé ; cela ne valide pas les capacités auditées. Les premiers refus d’accès et mesures intermédiaires sont conservés comme observations historiques, sans effacer les corrections documentées.
