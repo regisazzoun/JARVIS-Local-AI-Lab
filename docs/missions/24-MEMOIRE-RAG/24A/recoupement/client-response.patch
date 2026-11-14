@@ -1,0 +1,28 @@
+--- a/open_webui/main.py
++++ b/open_webui/main.py
+@@ -1661,7 +1661,24 @@
+                 if paused:
+                     return {'status': True, 'chat_id': metadata.get('chat_id'), 'paused': True}
+ 
+-                response = await chat_completion_handler(request, form_data, user)
++                if 'crosscheck_answer' in metadata:
++                    # Native client still handles sources, streaming, persistence and ACL.
++                    # Only verified verbatim passages become factual output in this opt-in pilot.
++                    answer = metadata['crosscheck_answer']
++                    if form_data.get('stream'):
++                        async def quoted_stream():
++                            chunk = {'id': 'crosscheck24a', 'object': 'chat.completion.chunk',
++                                     'model': form_data['model'],
++                                     'choices': [{'index': 0, 'delta': {'role': 'assistant', 'content': answer}, 'finish_reason': None}]}
++                            yield 'data: ' + JSONCodec.dumps(chunk) + '\n\n'
++                            yield 'data: ' + JSONCodec.dumps({'choices': [{'index': 0, 'delta': {}, 'finish_reason': 'stop'}]}) + '\n\n'
++                            yield 'data: [DONE]\n\n'
++                        response = StreamingResponse(quoted_stream(), media_type='text/event-stream')
++                    else:
++                        response = {'model': form_data['model'], 'choices': [{'index': 0,
++                            'message': {'role': 'assistant', 'content': answer}, 'finish_reason': 'stop'}]}
++                else:
++                    response = await chat_completion_handler(request, form_data, user)
+ 
+                 if isinstance(response, Response) and response.status_code >= 400:
+                     error_detail = get_response_error_detail(response)

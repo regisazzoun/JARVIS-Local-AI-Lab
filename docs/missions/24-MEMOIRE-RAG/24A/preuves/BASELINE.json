@@ -1,0 +1,47 @@
+{
+  "captured_at_utc": "2026-11-13T20:21:51Z",
+  "kind": "baseline connecteur documentaire Codex, pas moteur RAG JARVIS",
+  "searches": [
+    {
+      "query": "Salle 407",
+      "elapsed_ms": 1049,
+      "results_returned": 14,
+      "exhaustive": false
+    },
+    {
+      "query": "FusionPBX",
+      "elapsed_ms": 607,
+      "results_returned": 3,
+      "exhaustive": false
+    },
+    {
+      "query": "Téléphonie",
+      "elapsed_ms": 1074,
+      "results_returned": 40,
+      "exhaustive": false
+    }
+  ],
+  "reads": [
+    {
+      "source": "S407",
+      "success": true,
+      "timed_repeat_ms": 1232
+    },
+    {
+      "source": "TELEMAINTENANCE",
+      "success": true,
+      "elapsed_ms": 1615
+    },
+    {
+      "source": "ORIENTATION_RAG",
+      "success": true,
+      "elapsed_ms": 1456
+    }
+  ],
+  "scenario_sources_read": 2,
+  "context_sources_read": 1,
+  "jarvis_end_to_end_latency_ms": null,
+  "jarvis_tool_calls": null,
+  "jarvis_answer": null
+}
+

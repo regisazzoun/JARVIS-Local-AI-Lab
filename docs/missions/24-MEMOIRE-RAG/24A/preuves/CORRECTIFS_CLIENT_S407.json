@@ -1,0 +1,175 @@
+{
+  "date_utc": "2026-11-14T10:08:44.496185+00:00",
+  "question_unchanged": true,
+  "model": "jarvis-tools-conversation → qwen3.5:27b-q4_K_M",
+  "runs": [
+    {
+      "attempt": 1,
+      "stored_done": true,
+      "answer_chars": 977,
+      "answer_sha256_private_original": "9049cad976191cde4d975ef24073cc870c29d03acbbccd1426cf898648b306b5",
+      "tools": [
+        {
+          "tool": "tool_education_drive_search_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": false
+        }
+      ],
+      "successful_document_reads": 0,
+      "provenance": [],
+      "native_source_cards": 1,
+      "textual_urls": 0,
+      "stored_duration_seconds_approx": 37,
+      "latency_note": "stockage à la seconde ; sources non figées et inférences concurrentes, pas un benchmark de gain",
+      "tokens": {
+        "input_tokens": 19708,
+        "output_tokens": 307,
+        "prompt_tokens": 10067,
+        "completion_tokens": 217
+      },
+      "quality_pass": false
+    },
+    {
+      "attempt": 2,
+      "stored_done": true,
+      "answer_chars": 4343,
+      "answer_sha256_private_original": "94a78bed05404b907371121fa1c92280c83133a63933a89bed15d4f5826999a2",
+      "tools": [
+        {
+          "tool": "tool_education_drive_search_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": false
+        },
+        {
+          "tool": "tool_education_docs_get_text_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": true
+        },
+        {
+          "tool": "tool_education_docs_get_text_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": true
+        },
+        {
+          "tool": "tool_education_docs_get_text_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": true
+        }
+      ],
+      "successful_document_reads": 3,
+      "provenance": [
+        {
+          "id": "1Brl27YGD0KcP7_mTFLPj1-ZBsBge3KKj",
+          "title": "Salle-407-Documentation-deploiement.md",
+          "url": "https://drive.google.com/file/d/1Brl27YGD0KcP7_mTFLPj1-ZBsBge3KKj/view",
+          "modified_time": "2026-11-13T20:39:38.159Z",
+          "version_kind": "sha256_of_read_text_not_drive_revision",
+          "content_sha256": "90813d60fab0b101761b1cbc01fa8c063f5fd65f9f053d22b8df53d569703d12",
+          "read_at_utc": "2026-11-14T10:02:50.888077+00:00",
+          "successful_read": true
+        },
+        {
+          "id": "1acU_Eldah1TP1ogSj2zdLsPuQmQCDAVamp6h80i5wyk",
+          "title": "Salle 407 — Architecture réseau et six bancs élèves",
+          "url": "https://docs.google.com/document/d/1acU_Eldah1TP1ogSj2zdLsPuQmQCDAVamp6h80i5wyk/edit",
+          "modified_time": "2026-11-12T13:08:50.063Z",
+          "version_kind": "sha256_of_read_text_not_drive_revision",
+          "content_sha256": "af71741cc76c4b622ff6c5c432737c6d4c108e93f076a0bc0865216fc4d1c994",
+          "read_at_utc": "2026-11-14T10:02:53.716387+00:00",
+          "successful_read": true
+        },
+        {
+          "id": "176Ui1LYH2doDGX7mpaQmX75EprSesGQrSkT_E0l9oQw",
+          "title": "FusionPBX — Installation, configuration et exploitation — SEP CIEL — 13-11-2026",
+          "url": "https://docs.google.com/document/d/176Ui1LYH2doDGX7mpaQmX75EprSesGQrSkT_E0l9oQw/edit",
+          "modified_time": "2026-11-13T20:41:26.009Z",
+          "version_kind": "sha256_of_read_text_not_drive_revision",
+          "content_sha256": "9cd84a542455e8ab2e3b61a3bbeeb0b03d6cc8dc3c83d00c5a69913fe188d621",
+          "read_at_utc": "2026-11-14T10:02:56.624539+00:00",
+          "successful_read": true
+        }
+      ],
+      "native_source_cards": 3,
+      "textual_urls": 0,
+      "stored_duration_seconds_approx": 141,
+      "latency_note": "stockage à la seconde ; sources non figées et inférences concurrentes, pas un benchmark de gain",
+      "tokens": {
+        "input_tokens": 48697,
+        "output_tokens": 1679,
+        "prompt_tokens": 26633,
+        "completion_tokens": 1424
+      },
+      "quality_pass": false
+    },
+    {
+      "attempt": 3,
+      "stored_done": true,
+      "answer_chars": 4177,
+      "answer_sha256_private_original": "4ccf6a1af5d0477c64318d3d1f975dd05e2334652ef3b07abaef9a6ba6eb522c",
+      "tools": [
+        {
+          "tool": "tool_education_drive_search_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": false
+        },
+        {
+          "tool": "tool_education_docs_get_text_post",
+          "status": "completed",
+          "returncode": 0,
+          "remote_access_verified": true,
+          "document_read": true
+        }
+      ],
+      "successful_document_reads": 1,
+      "provenance": [
+        {
+          "id": "1Brl27YGD0KcP7_mTFLPj1-ZBsBge3KKj",
+          "title": "Salle-407-Documentation-deploiement.md",
+          "url": "https://drive.google.com/file/d/1Brl27YGD0KcP7_mTFLPj1-ZBsBge3KKj/view",
+          "modified_time": "2026-11-13T20:39:38.159Z",
+          "version_kind": "sha256_of_read_text_not_drive_revision",
+          "content_sha256": "90813d60fab0b101761b1cbc01fa8c063f5fd65f9f053d22b8df53d569703d12",
+          "read_at_utc": "2026-11-14T10:06:01.275860+00:00",
+          "successful_read": true
+        }
+      ],
+      "native_source_cards": 1,
+      "textual_urls": 0,
+      "stored_duration_seconds_approx": 94,
+      "latency_note": "stockage à la seconde ; sources non figées et inférences concurrentes, pas un benchmark de gain",
+      "tokens": {
+        "input_tokens": 36329,
+        "output_tokens": 1536,
+        "prompt_tokens": 14679,
+        "completion_tokens": 1409
+      },
+      "quality_pass": false
+    }
+  ],
+  "ui_citation_verified": {
+    "native_source_panel_expanded": true,
+    "citation_modal_opened": true,
+    "actual_link_href": "https://drive.google.com/file/d/1Brl27YGD0KcP7_mTFLPj1-ZBsBge3KKj/view",
+    "target_document_read_successfully": true,
+    "google_browser_authentication_not_retested": true,
+    "screenshot_scope": "CLIENT_ENTETE.jpg montre seulement le titre du client ; le lien est attesté par lecture UI structurée et reçu"
+  },
+  "correction_attempt_limit_reached": 3,
+  "functional_rag_acceptance": "NO-GO",
+  "first_correction_rejected_by_owner": true,
+  "source_filter_added": false,
+  "production_modified": false,
+  "mission_24b_started": false
+}

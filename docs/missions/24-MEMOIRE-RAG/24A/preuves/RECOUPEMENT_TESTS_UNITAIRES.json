@@ -1,0 +1,28 @@
+{
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "pass": true,
+  "source": "test_crosscheck.py, données synthétiques",
+  "cases": [
+    "test_bounded_three_distinct_reads_before_synthesis",
+    "test_exact_quoted_answer_rendered_without_free_claims",
+    "test_fabricated_scope_fails_exact_quote_check",
+    "test_failed_read_never_counts_as_family",
+    "test_foreign_connection_no_calls",
+    "test_invalid_model_passage_abstains",
+    "test_large_document_explicitly_not_truncated",
+    "test_missing_candidate_is_explicit_gap",
+    "test_missing_topic_prevents_ready",
+    "test_newer_spreadsheet_cannot_replace_readable_document",
+    "test_no_authorized_tools_no_calls",
+    "test_passages_preserve_source_words",
+    "test_request_isolation",
+    "test_required_cross_source_comparison_cannot_be_skipped",
+    "test_selection_does_not_use_known_document_ids",
+    "test_sip_history_cannot_replace_physical_registration_state",
+    "test_unknown_passage_id_abstains",
+    "test_unrelated_question_does_not_activate"
+  ],
+  "code_sha256": "66207705b9779a56295b419e90d8e06aa3e830e94e2b61f0bde3c69385ff5488"
+}

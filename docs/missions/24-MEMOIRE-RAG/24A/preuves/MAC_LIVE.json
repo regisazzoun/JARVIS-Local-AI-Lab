@@ -1,0 +1,106 @@
+{
+  "captured_at_utc": "2026-11-13T20:35:26.274235+00:00",
+  "target": "Mac mini",
+  "authenticated_ssh": true,
+  "auth_cause": "clé chiffrée, phrase existante retrouvée dans discussion Tellemaintenance LCC, pas expiration",
+  "canonical_runtime": "/opt/jarvis/conversation/runtime",
+  "files": {
+    "memory.sqlite": {
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 6320128,
+      "mtime_utc": "2026-11-13T17:26:34.655998+00:00"
+    },
+    "auth.json": {
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 156,
+      "mtime_utc": "2026-10-17T11:07:17.610241+00:00"
+    },
+    "credentials.txt": {
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 66,
+      "mtime_utc": "2026-10-13T22:56:32.805843+00:00"
+    },
+    "backups": {
+      "mode": "0o700",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 4096,
+      "mtime_utc": "2026-11-12T23:00:08.664318+00:00"
+    },
+    "tool-traces.jsonl": {
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "bytes": 454361705,
+      "mtime_utc": "2026-11-13T17:26:34.611996+00:00"
+    }
+  },
+  "services": {
+    "jarvis-conversation": "active",
+    "jarvis-host-bridge": "active",
+    "jarvis-mcpo-standard": "active",
+    "jarvis-livekit-webui": "active",
+    "jarvis-mission-worker": "active",
+    "jarvis-idle-scheduler": "active"
+  },
+  "http_tests": [
+    {
+      "path": "/api/health",
+      "headers_kind": "normal",
+      "status": 200,
+      "raw_body_published": false
+    },
+    {
+      "path": "/api/session",
+      "headers_kind": "normal",
+      "status": 200,
+      "body": {
+        "authenticated": false
+      },
+      "raw_body_published": false
+    },
+    {
+      "path": "/api/search?q=S407",
+      "headers_kind": "normal",
+      "status": 401,
+      "raw_body_published": false
+    },
+    {
+      "path": "/api/memories",
+      "headers_kind": "normal",
+      "status": 401,
+      "raw_body_published": false
+    },
+    {
+      "path": "/api/export",
+      "headers_kind": "normal",
+      "status": 401,
+      "raw_body_published": false
+    },
+    {
+      "path": "/api/health",
+      "headers_kind": "Origin",
+      "status": 403,
+      "raw_body_published": false
+    },
+    {
+      "path": "/api/health",
+      "headers_kind": "Host",
+      "status": 403,
+      "raw_body_published": false
+    }
+  ],
+  "backups": {
+    "count": 33,
+    "newest_mtime_utc": "2026-11-12T23:00:08.637671+00:00",
+    "all_mode_0600": true,
+    "restoration_of_historical_backup_tested": false
+  },
+  "production_post_requests": 0
+}

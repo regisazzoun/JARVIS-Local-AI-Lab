@@ -1,0 +1,47 @@
+{
+  "environment": {
+    "network": "none",
+    "read_only_root": true,
+    "source_bind_read_only": true,
+    "same_image": true,
+    "corrected_python_tree_sha256": "fdee2735ea3e3b894c04a05e40d3c95b52dac4cac38a9c0f987ddc4596b86b74",
+    "production_started_at": "2026-11-01T19:55:17.974326908Z",
+    "production_running": true,
+    "standard_forced_tool_probes": 2,
+    "all_probes_without_admin_tools": true,
+    "source_redaction_filter_added": false,
+    "mission_24b_started": false
+  },
+  "guard": {
+    "cases": [
+      {
+        "test": "Mutation Docs",
+        "http": 403,
+        "pass": true
+      },
+      {
+        "test": "Mutation Workspace",
+        "http": 403,
+        "pass": true
+      },
+      {
+        "test": "Installation modèle",
+        "http": 403,
+        "pass": true
+      }
+    ],
+    "passed": 3,
+    "failed": 0,
+    "credential_source_block_added": false,
+    "source_content_filter_added": false,
+    "production_mutations_forwarded": 0
+  },
+  "explicit_base_read_grants": 2,
+  "standard_forced_tool_probes": 2,
+  "all_standard_probes_without_tools": true,
+  "production_middleware_sha256": "a0f6d33dd7e657347a4b4e639a237e0f940823a018dd4ec62291f31bcde2209a",
+  "temporal_prompt_sha256": "80180f129bd1a5d7fedfbbc55492cad3b8ae7bc5216d1fd0ea34fb0a41ea9845",
+  "source_content_filter_added": false,
+  "model_access_bypass_added": false,
+  "production_middleware_matches_original": true
+}

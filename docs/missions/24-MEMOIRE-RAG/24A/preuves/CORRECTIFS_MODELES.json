@@ -1,0 +1,93 @@
+{
+  "date_utc": "2026-11-14T09:58:54.200280+00:00",
+  "cases": [
+    {
+      "test": "B voit le modèle utilisateur",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 46.63
+    },
+    {
+      "test": "Modèle utilisateur répond réellement pour B",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 2067.75
+    },
+    {
+      "test": "Modèle utilisateur répond réellement pour ADMIN",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 751.69
+    },
+    {
+      "test": "B ne peut utiliser le modèle administrateur",
+      "actor": "B",
+      "http": 400,
+      "expected_http": [
+        400,
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 32.57
+    },
+    {
+      "test": "B ne peut ouvrir configuration outils administrateur",
+      "actor": "B",
+      "http": 401,
+      "expected_http": [
+        401,
+        403,
+        404,
+        405
+      ],
+      "pass": true,
+      "elapsed_ms": 11.29
+    },
+    {
+      "test": "A révoque sessions B fictif",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 105.54
+    },
+    {
+      "test": "Jeton B refusé après révocation",
+      "actor": "B",
+      "http": 401,
+      "expected_http": [
+        401,
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 7.83
+    },
+    {
+      "test": "Session C reste utilisable",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 14.53
+    }
+  ],
+  "passed": 8,
+  "failed": 0,
+  "production_grants_changed": 0
+}

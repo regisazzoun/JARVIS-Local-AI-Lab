@@ -1,0 +1,43 @@
+{
+  "captured_at_utc": "2026-11-13T20:36:55.586792+00:00",
+  "google_profiles": {
+    "education": {
+      "bridge_present": true,
+      "index_present": true,
+      "status_remote_access_verified": false,
+      "status_exit": 0,
+      "configured": true
+    },
+    "personal": {
+      "bridge_present": true,
+      "index_present": true,
+      "status_remote_access_verified": false,
+      "status_exit": 0,
+      "configured": true
+    }
+  },
+  "timers": {
+    "jarvis-memory-backup.timer": [
+      "LastTriggerUSec=Fri 2026-11-13 00:00:08 CET",
+      "LoadState=loaded",
+      "ActiveState=active"
+    ],
+    "jarvis-continuite-backup.timer": [
+      "LastTriggerUSec=Fri 2026-11-13 00:20:05 CET",
+      "LoadState=loaded",
+      "ActiveState=active"
+    ],
+    "jarvis-continuite-bridge.timer": [
+      "LastTriggerUSec=Fri 2026-11-13 21:23:22 CET",
+      "LoadState=loaded",
+      "ActiveState=active"
+    ]
+  },
+  "historical_backup": {
+    "integrity": "ok",
+    "documents": 102,
+    "schema_version": 3,
+    "source_open_mode": "ro",
+    "restored_to_production": false
+  }
+}

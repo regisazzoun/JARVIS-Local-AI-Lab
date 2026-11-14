@@ -1,0 +1,513 @@
+{
+  "date_utc": "2026-11-14T09:57:59.527448+00:00",
+  "scope": "code client natif déployé, même image, données et comptes de copie privée uniquement",
+  "actors": {
+    "A": "administrateur de copie, rôle du propriétaire source",
+    "B": "utilisateur standard fictif",
+    "C": "utilisateur standard fictif"
+  },
+  "production_users_or_grants_modified": 0,
+  "cases": [
+    {
+      "test": "B crée note privée",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 110.56,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C crée note privée",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 48.71,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B lit sa note",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 28.82,
+      "canary_present": true,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C ne lit pas note B par ID",
+      "actor": "C",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 19.61,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B ne lit pas note C par ID",
+      "actor": "B",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 20.99,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "C ne trouve pas note B en recherche",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 77.4,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "C ne liste pas note B",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 22.37,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "C ne modifie pas note B",
+      "actor": "C",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 20.26,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C ne délègue pas note B",
+      "actor": "C",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 17.83,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "A admin accorde lecture de note B à C sur copie",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 19.85,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C lit note B après partage",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 20.68,
+      "canary_present": true,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C lecture seule ne peut modifier note B",
+      "actor": "C",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 20.09,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "A révoque partage de note B",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 22.16,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C refusé après révocation même jeton",
+      "actor": "C",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 16.4,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B crée mémoire privée sur copie",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 344.27,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C crée mémoire privée sur copie",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 381.77,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B recherche sa mémoire exacte",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 39.68,
+      "canary_present": true,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "C ne recherche pas mémoire B par ID",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 24.5,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B ne liste pas mémoire C",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 19.09,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "C ne lit pas chemin mémoire B",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 20.96,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "C vecteurs ne divulguent pas mémoire B",
+      "actor": "C",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 40.91,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B vecteurs ne divulguent pas mémoire C",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 45.75,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "C ne modifie pas mémoire B",
+      "actor": "C",
+      "http": 404,
+      "expected_http": [
+        400,
+        403,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 17.2,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "A crée corpus canari de copie",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 171.59,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B refuse métadonnées knowledge privé",
+      "actor": "B",
+      "http": 401,
+      "expected_http": [
+        401,
+        403,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 108.09,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B refuse fichier privé par ID",
+      "actor": "B",
+      "http": 404,
+      "expected_http": [
+        401,
+        403,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 87.55,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B refuse téléchargement fichier privé",
+      "actor": "B",
+      "http": 404,
+      "expected_http": [
+        401,
+        403,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 54.14,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "A ajoute fichier canari au corpus de copie",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 439.9,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B refuse requête vectorielle collection privée knowledge",
+      "actor": "B",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 25.0,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B refuse requête vectorielle collection privée file",
+      "actor": "B",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 45.34,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "A accorde lecture corpus à B",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 21.61,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B lit métadonnées après partage",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 21.84,
+      "canary_present": true,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B lit vecteurs après partage",
+      "actor": "B",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 46.31,
+      "canary_present": true,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B ne modifie pas corpus en lecture seule",
+      "actor": "B",
+      "http": 400,
+      "expected_http": [
+        400,
+        401,
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 15.65,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "A révoque accès corpus B",
+      "actor": "A",
+      "http": 200,
+      "expected_http": [
+        200
+      ],
+      "pass": true,
+      "elapsed_ms": 15.33,
+      "canary_present": null,
+      "foreign_canary_absent": null
+    },
+    {
+      "test": "B refus métadonnées après révocation même jeton",
+      "actor": "B",
+      "http": 401,
+      "expected_http": [
+        401,
+        403,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 15.23,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B refus vecteurs après révocation même jeton",
+      "actor": "B",
+      "http": 403,
+      "expected_http": [
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 16.38,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "B refus contenu fichier après révocation corpus",
+      "actor": "B",
+      "http": 404,
+      "expected_http": [
+        401,
+        403,
+        404
+      ],
+      "pass": true,
+      "elapsed_ms": 105.39,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "Anonyme refuse notes",
+      "actor": "anonymous",
+      "http": 401,
+      "expected_http": [
+        401,
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 13.02,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    },
+    {
+      "test": "Anonyme refuse vecteurs",
+      "actor": "anonymous",
+      "http": 401,
+      "expected_http": [
+        401,
+        403
+      ],
+      "pass": true,
+      "elapsed_ms": 10.73,
+      "canary_present": null,
+      "foreign_canary_absent": true
+    }
+  ],
+  "passed": 40,
+  "failed": 0,
+  "provider_google_multiidentity_test": false,
+  "provider_google_limit": "Pas de modification des ACL Drive réelles ni de seconde identité Google inventée."
+}

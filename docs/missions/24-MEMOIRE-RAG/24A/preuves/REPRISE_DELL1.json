@@ -1,0 +1,20 @@
+{
+  "captured_at_utc": "2026-11-13T20:30:47.304669+00:00",
+  "target": "Dell1",
+  "auth": "mot de passe existant via fichier privé, aucune modification",
+  "services": {
+    "jarvis-ollama": "active",
+    "jarvis-ollama-missions": "active",
+    "jarvis-desktop-vnc": "active",
+    "jarvis-desktop-plasma": "active",
+    "ssh": "active"
+  },
+  "database_files_count_in_selected_tree": 26,
+  "database_kinds": {
+    "webui.db": 13,
+    "chroma.sqlite3": 13
+  },
+  "canonical_memory_found_in_selected_tree": false,
+  "database_scope": "idle-workspaces/jm01-backend-recipe : copies de recette WebUI/Chroma, ne pas assimiler à mémoire canonique Mac mini",
+  "writes_to_production": false
+}

@@ -1,0 +1,419 @@
+{
+  "captured_at_utc": "2026-11-13T20:34:42.438500+00:00",
+  "source_open_mode": "ro, SQLite online backup vers mémoire distante puis flux SSH privé local",
+  "source_path": "/opt/jarvis/conversation/runtime/memory.sqlite",
+  "snapshot": {
+    "integrity": "ok",
+    "foreign_key_violations": 0,
+    "schema_versions": [
+      1,
+      2,
+      3
+    ],
+    "counts": {
+      "audit": 864,
+      "auth_sessions": 1,
+      "conversations": 184,
+      "documents": 102,
+      "documents_fts": 102,
+      "documents_fts_config": 1,
+      "documents_fts_content": 102,
+      "documents_fts_data": 67,
+      "documents_fts_docsize": 102,
+      "documents_fts_idx": 65,
+      "jl03_conversation_titles": 2,
+      "jl03_projects": 2,
+      "memories": 5,
+      "memories_fts": 5,
+      "memories_fts_config": 1,
+      "memories_fts_content": 5,
+      "memories_fts_data": 9,
+      "memories_fts_docsize": 5,
+      "memories_fts_idx": 7,
+      "messages": 419,
+      "messages_fts": 419,
+      "messages_fts_config": 1,
+      "messages_fts_content": 419,
+      "messages_fts_data": 123,
+      "messages_fts_docsize": 419,
+      "messages_fts_idx": 121,
+      "mission_messages": 60,
+      "preference_history": 13,
+      "preferences": 4,
+      "schema_version": 3,
+      "tool_audit": 13819
+    },
+    "schema": [
+      {
+        "type": "table",
+        "name": "audit",
+        "table": "audit",
+        "sql": "CREATE TABLE audit(id INTEGER PRIMARY KEY, operation TEXT NOT NULL, target TEXT NOT NULL, created TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "auth_sessions",
+        "table": "auth_sessions",
+        "sql": "CREATE TABLE auth_sessions(digest TEXT PRIMARY KEY,expires REAL NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "conversations",
+        "table": "conversations",
+        "sql": "CREATE TABLE conversations(id TEXT PRIMARY KEY, project TEXT NOT NULL, created TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "documents",
+        "table": "documents",
+        "sql": "CREATE TABLE documents(id TEXT PRIMARY KEY,project TEXT NOT NULL,source TEXT NOT NULL,content TEXT NOT NULL,created TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "documents_fts",
+        "table": "documents_fts",
+        "sql": "CREATE VIRTUAL TABLE documents_fts USING fts5(id UNINDEXED,content)"
+      },
+      {
+        "type": "table",
+        "name": "documents_fts_config",
+        "table": "documents_fts_config",
+        "sql": "CREATE TABLE 'documents_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID"
+      },
+      {
+        "type": "table",
+        "name": "documents_fts_content",
+        "table": "documents_fts_content",
+        "sql": "CREATE TABLE 'documents_fts_content'(id INTEGER PRIMARY KEY, c0, c1)"
+      },
+      {
+        "type": "table",
+        "name": "documents_fts_data",
+        "table": "documents_fts_data",
+        "sql": "CREATE TABLE 'documents_fts_data'(id INTEGER PRIMARY KEY, block BLOB)"
+      },
+      {
+        "type": "table",
+        "name": "documents_fts_docsize",
+        "table": "documents_fts_docsize",
+        "sql": "CREATE TABLE 'documents_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB)"
+      },
+      {
+        "type": "table",
+        "name": "documents_fts_idx",
+        "table": "documents_fts_idx",
+        "sql": "CREATE TABLE 'documents_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID"
+      },
+      {
+        "type": "table",
+        "name": "jl03_conversation_titles",
+        "table": "jl03_conversation_titles",
+        "sql": "CREATE TABLE jl03_conversation_titles(conversation TEXT PRIMARY KEY REFERENCES conversations(id),title TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "jl03_projects",
+        "table": "jl03_projects",
+        "sql": "CREATE TABLE jl03_projects(name TEXT PRIMARY KEY,created REAL)"
+      },
+      {
+        "type": "table",
+        "name": "memories",
+        "table": "memories",
+        "sql": "CREATE TABLE memories(id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK(kind IN ('persistent','temporary','project')), project TEXT NOT NULL, conversation TEXT, content TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN ('pending','approved','rejected')), created TEXT NOT NULL, updated TEXT NOT NULL, active INTEGER NOT NULL DEFAULT 1, expires TEXT)"
+      },
+      {
+        "type": "table",
+        "name": "memories_fts",
+        "table": "memories_fts",
+        "sql": "CREATE VIRTUAL TABLE memories_fts USING fts5(id UNINDEXED,content)"
+      },
+      {
+        "type": "table",
+        "name": "memories_fts_config",
+        "table": "memories_fts_config",
+        "sql": "CREATE TABLE 'memories_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID"
+      },
+      {
+        "type": "table",
+        "name": "memories_fts_content",
+        "table": "memories_fts_content",
+        "sql": "CREATE TABLE 'memories_fts_content'(id INTEGER PRIMARY KEY, c0, c1)"
+      },
+      {
+        "type": "table",
+        "name": "memories_fts_data",
+        "table": "memories_fts_data",
+        "sql": "CREATE TABLE 'memories_fts_data'(id INTEGER PRIMARY KEY, block BLOB)"
+      },
+      {
+        "type": "table",
+        "name": "memories_fts_docsize",
+        "table": "memories_fts_docsize",
+        "sql": "CREATE TABLE 'memories_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB)"
+      },
+      {
+        "type": "table",
+        "name": "memories_fts_idx",
+        "table": "memories_fts_idx",
+        "sql": "CREATE TABLE 'memories_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID"
+      },
+      {
+        "type": "table",
+        "name": "messages",
+        "table": "messages",
+        "sql": "CREATE TABLE messages(id TEXT PRIMARY KEY, conversation TEXT REFERENCES conversations(id) ON DELETE CASCADE, role TEXT NOT NULL CHECK(role IN ('user','assistant')), content TEXT NOT NULL, model TEXT NOT NULL, created TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "messages_fts",
+        "table": "messages_fts",
+        "sql": "CREATE VIRTUAL TABLE messages_fts USING fts5(id UNINDEXED,content)"
+      },
+      {
+        "type": "table",
+        "name": "messages_fts_config",
+        "table": "messages_fts_config",
+        "sql": "CREATE TABLE 'messages_fts_config'(k PRIMARY KEY, v) WITHOUT ROWID"
+      },
+      {
+        "type": "table",
+        "name": "messages_fts_content",
+        "table": "messages_fts_content",
+        "sql": "CREATE TABLE 'messages_fts_content'(id INTEGER PRIMARY KEY, c0, c1)"
+      },
+      {
+        "type": "table",
+        "name": "messages_fts_data",
+        "table": "messages_fts_data",
+        "sql": "CREATE TABLE 'messages_fts_data'(id INTEGER PRIMARY KEY, block BLOB)"
+      },
+      {
+        "type": "table",
+        "name": "messages_fts_docsize",
+        "table": "messages_fts_docsize",
+        "sql": "CREATE TABLE 'messages_fts_docsize'(id INTEGER PRIMARY KEY, sz BLOB)"
+      },
+      {
+        "type": "table",
+        "name": "messages_fts_idx",
+        "table": "messages_fts_idx",
+        "sql": "CREATE TABLE 'messages_fts_idx'(segid, term, pgno, PRIMARY KEY(segid, term)) WITHOUT ROWID"
+      },
+      {
+        "type": "table",
+        "name": "mission_messages",
+        "table": "mission_messages",
+        "sql": "CREATE TABLE mission_messages(mission TEXT,kind TEXT,message TEXT,PRIMARY KEY(mission,kind))"
+      },
+      {
+        "type": "table",
+        "name": "preference_history",
+        "table": "preference_history",
+        "sql": "CREATE TABLE preference_history(id INTEGER PRIMARY KEY,key TEXT NOT NULL,old_value TEXT,new_value TEXT,operation TEXT NOT NULL,created TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "preferences",
+        "table": "preferences",
+        "sql": "CREATE TABLE preferences(key TEXT PRIMARY KEY, memory_id TEXT NOT NULL REFERENCES memories(id) ON DELETE CASCADE, value TEXT NOT NULL)"
+      },
+      {
+        "type": "table",
+        "name": "schema_version",
+        "table": "schema_version",
+        "sql": "CREATE TABLE schema_version(version INTEGER PRIMARY KEY)"
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_auth_sessions_1",
+        "table": "auth_sessions",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_conversations_1",
+        "table": "conversations",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_documents_1",
+        "table": "documents",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_jl03_conversation_titles_1",
+        "table": "jl03_conversation_titles",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_jl03_projects_1",
+        "table": "jl03_projects",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_memories_1",
+        "table": "memories",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_messages_1",
+        "table": "messages",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_mission_messages_1",
+        "table": "mission_messages",
+        "sql": null
+      },
+      {
+        "type": "index",
+        "name": "sqlite_autoindex_preferences_1",
+        "table": "preferences",
+        "sql": null
+      },
+      {
+        "type": "table",
+        "name": "tool_audit",
+        "table": "tool_audit",
+        "sql": "CREATE TABLE tool_audit(id INTEGER PRIMARY KEY,tool TEXT NOT NULL,risk TEXT NOT NULL,ok INTEGER NOT NULL,elapsed REAL NOT NULL,created TEXT NOT NULL)"
+      }
+    ],
+    "file_bytes": 6320128,
+    "documents": {
+      "project_count": 20,
+      "empty_project_count": 0,
+      "latest_created": "2026-10-31T21:22:53.246554+00:00",
+      "exact_content_duplicate_rows": 0,
+      "same_source_project_repeated_rows": 3,
+      "source_kinds": {
+        "google_link": 0,
+        "github_link": 0,
+        "other": 102
+      }
+    }
+  },
+  "restore": {
+    "integrity": "ok",
+    "foreign_key_violations": 0,
+    "same_schema": true,
+    "same_counts": true,
+    "destination_is_local_audit_copy": true
+  },
+  "source_code_sha256": {
+    "google_direct.py": "8bf12fa89dcab8ca4f71b2e11eea239e0538ae7813dafb2b85ca831b8702cf29",
+    "auth.py": "6d0e68bf3775558dfe7dfb8e0a15ebeb119673c420090f89cfc574167886dd2a",
+    "server.py": "f393499d653451513ad7b5c6a0f31a2b9458820aeaa076a9cfbe97b77d539898",
+    "memory.py": "66acf6954f164acb4b989011029a85a063a481aa07ce52a519b3516fdfc35cc2",
+    "tools.py": "f065e6abff56138263566122f4f6f657b9fa457a110ffedd3117bedb218169fc",
+    "core.py": "2bf01fba84f580eb3ece6ca4ef6fe97ede8139f9ab206e1cea66f41bda713930",
+    "google_mcp.py": "656ab0d9da498da71382d3d88e2036c38f6ace177494652f37f0c9bd87c416f8",
+    "google_workspace.py": "19d88f31d01e83cd94b7b563cd6be3d8a531b1661f7d8aa3db3d2db28af243d6",
+    "context_retrieval.py": "518b35f6db7bcb5d5a43fd94027651f5906654e23949da0c7efae90de68544cd"
+  },
+  "retrieval_baseline": [
+    {
+      "query": "S407",
+      "iterations": 5,
+      "median_ms": 1.007,
+      "min_ms": 0.999,
+      "max_ms": 1.182,
+      "documents_returned": 0,
+      "documents_injected_by_retrieve": 0,
+      "approved_memories_returned": 0,
+      "documents_containing_s407_or_salle407": 0,
+      "documents_containing_fusionpbx": 0,
+      "document_ids_sha256": []
+    },
+    {
+      "query": "salle 407",
+      "iterations": 5,
+      "median_ms": 1.148,
+      "min_ms": 1.14,
+      "max_ms": 1.162,
+      "documents_returned": 0,
+      "documents_injected_by_retrieve": 0,
+      "approved_memories_returned": 0,
+      "documents_containing_s407_or_salle407": 0,
+      "documents_containing_fusionpbx": 0,
+      "document_ids_sha256": []
+    },
+    {
+      "query": "FusionPBX",
+      "iterations": 5,
+      "median_ms": 1.009,
+      "min_ms": 1.008,
+      "max_ms": 1.124,
+      "documents_returned": 0,
+      "documents_injected_by_retrieve": 0,
+      "approved_memories_returned": 0,
+      "documents_containing_s407_or_salle407": 0,
+      "documents_containing_fusionpbx": 0,
+      "document_ids_sha256": []
+    },
+    {
+      "query": "FreePBX",
+      "iterations": 5,
+      "median_ms": 1.003,
+      "min_ms": 1.001,
+      "max_ms": 1.018,
+      "documents_returned": 0,
+      "documents_injected_by_retrieve": 0,
+      "approved_memories_returned": 0,
+      "documents_containing_s407_or_salle407": 0,
+      "documents_containing_fusionpbx": 0,
+      "document_ids_sha256": []
+    },
+    {
+      "query": "SIP",
+      "iterations": 5,
+      "median_ms": 1.008,
+      "min_ms": 1.001,
+      "max_ms": 1.019,
+      "documents_returned": 0,
+      "documents_injected_by_retrieve": 0,
+      "approved_memories_returned": 0,
+      "documents_containing_s407_or_salle407": 0,
+      "documents_containing_fusionpbx": 0,
+      "document_ids_sha256": []
+    },
+    {
+      "query": "Dans le Drive Éducation du lycée Christophe Colomb, section SEP / Archi-Réseau / Téléphonie, quel est l’état d’avancement du déploiement téléphonie IP de la salle 407 ? Distingue réseau, IPBX, téléphones, SIP, appels et reste à faire ; cite tes sources.",
+      "iterations": 5,
+      "median_ms": 2.59,
+      "min_ms": 2.432,
+      "max_ms": 3.007,
+      "documents_returned": 0,
+      "documents_injected_by_retrieve": 0,
+      "approved_memories_returned": 1,
+      "documents_containing_s407_or_salle407": 0,
+      "documents_containing_fusionpbx": 0,
+      "document_ids_sha256": []
+    }
+  ],
+  "project_filter_tests": {
+    "(vide)": {
+      "global_visible": true,
+      "A_visible": false,
+      "B_visible": false
+    },
+    "audit-A": {
+      "global_visible": true,
+      "A_visible": true,
+      "B_visible": false
+    },
+    "audit-B": {
+      "global_visible": true,
+      "A_visible": false,
+      "B_visible": true
+    }
+  },
+  "readonly_write_rejected": true,
+  "production_mutations": false
+}

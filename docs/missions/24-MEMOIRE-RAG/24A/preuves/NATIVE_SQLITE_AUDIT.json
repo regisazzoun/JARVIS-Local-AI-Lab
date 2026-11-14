@@ -1,0 +1,56 @@
+{
+  "captured_at_utc": "2026-11-13T20:39:56.121362+00:00",
+  "native_version": "0.12.0",
+  "database_bytes": 8499200,
+  "integrity": "ok",
+  "counts": {
+    "memory": 46,
+    "note": 50,
+    "knowledge": 1,
+    "file": 6,
+    "knowledge_file": 2,
+    "access_grant": 3,
+    "user": 3
+  },
+  "access_grants_aggregated": [
+    {
+      "resource_type": "knowledge",
+      "principal_type": "user",
+      "permission": "read",
+      "count": 1
+    },
+    {
+      "resource_type": "model",
+      "principal_type": "user",
+      "permission": "read",
+      "count": 2
+    }
+  ],
+  "memory_scoping": "user_id column + route get_verified_user puis get_memories_by_user_id(user.id), code inspecté",
+  "native_fts_virtual_tables": 0,
+  "vectors": "Chroma existant, base chroma.sqlite3 observée 2400256 octets ; aucune réindexation",
+  "memory_stats": {
+    "legacy_archive_paths": 20,
+    "discussion_summary_paths": 9,
+    "s407_literal_count": 3,
+    "fusionpbx_literal_count": 0,
+    "known_current_source_document_links_count": 0
+  },
+  "secret_candidate_documents_by_pattern": {
+    "private_key": 0,
+    "github_token": 0,
+    "bearer": 0
+  },
+  "scan_scope": "46 mémoires natives uniquement, pas notes/chats/fichiers ni traces",
+  "bridge": {
+    "source": "SQLite historique et JSON de synthèses de discussions sélectionnées",
+    "destination": "notes privées et mémoire native via API locale",
+    "universality": "aucune preuve d’import universel des conversations",
+    "timer_active": true
+  },
+  "restore": {
+    "integrity": "ok",
+    "same_counts": true,
+    "local_copy_only": true
+  }
+}

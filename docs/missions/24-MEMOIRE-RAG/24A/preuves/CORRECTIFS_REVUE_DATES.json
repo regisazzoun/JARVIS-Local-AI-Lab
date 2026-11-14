@@ -1,0 +1,38 @@
+{
+  "review": "revue manuelle de la réponse effectivement générée, pas un score automatique de factualité universelle",
+  "cases": [
+    {
+      "test": "Dates observation prioritaires sur modification",
+      "pass": true
+    },
+    {
+      "test": "Critères repéré et SIP séparés",
+      "pass": true
+    },
+    {
+      "test": "Emplacements inconnus conservés",
+      "pass": true
+    },
+    {
+      "test": "Adresses proposées non tenues pour réservées",
+      "pass": true
+    },
+    {
+      "test": "Recette complète non déduite d’un appel",
+      "pass": true
+    },
+    {
+      "test": "Sources fictives non présentées comme lectures live",
+      "pass": true
+    },
+    {
+      "test": "Aucune nouvelle valeur calculée selon consigne",
+      "pass": false
+    }
+  ],
+  "passed": 6,
+  "failed": 1,
+  "scope": "sources fictives explicites, sans données privées",
+  "preparatory_attempt_1800_tokens": "finish_reason length, raisonnement sans contenu final ; non compté comme réussite",
+  "final_attempt_limit": 4096
+}
