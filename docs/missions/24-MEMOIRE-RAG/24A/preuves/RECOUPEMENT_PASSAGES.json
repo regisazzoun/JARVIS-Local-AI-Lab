@@ -1,0 +1,64 @@
+{
+  "normalization": "espaces et retours de ligne uniquement ; aucune paraphrase",
+  "facts": {
+    "reseau": [
+      {
+        "source_family": "reseau",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "État vérifié le 12 novembre 2026 après récupération du 3560G du banc 2. Les deux centraux, les deux têtes et les deux 3560G ont été relus en SSH authentifié. Po1 est actif en trunk sur les bancs 1 et 2. Les bancs 3 à 6 restent à inventorier et déployer."
+      }
+    ],
+    "ipbx": [
+      {
+        "source_family": "ipbx",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "Au contrôle du 13 novembre, FreeSWITCH, Nginx et PostgreSQL sont actifs. Les quatre profils SIP sont chargés. Les onze extensions [EXTENSION EXPURGÉE] à [EXTENSION EXPURGÉE] sont actives et enregistrées par des téléphones physiques. Un enregistrement SIP confirme l’authentification et la présence du poste à cet instant. La validation de tous les appels, de chaque caméra et de la persistance après une coupure électrique reste une étape distincte."
+      }
+    ],
+    "telephones": [
+      {
+        "source_family": "deploiement",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "[PASSAGE D’AUTHENTIFICATION EXPURGÉ — contenu conservé uniquement en copie privée]"
+      },
+      {
+        "source_family": "ipbx",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "[EXTENSION EXPURGÉE] — Cisco SPA504G — Salle 407 - poste 01"
+      }
+    ],
+    "sip": [
+      {
+        "source_family": "ipbx",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "Au contrôle du 13 novembre, FreeSWITCH, Nginx et PostgreSQL sont actifs. Les quatre profils SIP sont chargés. Les onze extensions [EXTENSION EXPURGÉE] à [EXTENSION EXPURGÉE] sont actives et enregistrées par des téléphones physiques. Un enregistrement SIP confirme l’authentification et la présence du poste à cet instant. La validation de tous les appels, de chaque caméra et de la persistance après une coupure électrique reste une étape distincte."
+      },
+      {
+        "source_family": "reseau",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "Les ports Gi0/1–12 du 3560G sont en access VLAN407. Dix MAC de téléphones sont apprises et leurs IP sont recoupées avec les entrées ARP du cœur et, pour plusieurs téléphones, les annonces CDP. Gi0/8 porte [MAC EXPURGÉE] et 192.4.7.65. Les autres IP observées vont de [ADRESSE EXPURGÉE] à .64. La recette SIP et les appels restent à réaliser."
+      }
+    ],
+    "appels": [
+      {
+        "source_family": "deploiement",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "Appels avec audio validés par l’utilisateur uniquement entre [EXTENSION EXPURGÉE] et [EXTENSION EXPURGÉE]. Tester les appels du [EXTENSION EXPURGÉE] dans les deux sens."
+      }
+    ],
+    "reste_a_faire": [
+      {
+        "source_family": "deploiement",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "Profil [PROFIL EXPURGÉ].xml reçu avec HTTP 200, dictionnaire français reçu avec HTTP 200. Configuration active : [EXTENSION EXPURGÉE], serveur [ADRESSE EXPURGÉE]:5060 UDP, nom Banc 1, français, fr.pool.ntp.org, Paris avec heure d’été automatique, format 24 h. L’heure affichée est cohérente. Le service XML « Salle 407 » est configuré vers l’annuaire central existant de onze contacts et l’accès HTTP est autorisé pour ce poste. L’ouverture du répertoire sur l’écran physique et un appel avec audio restent à tester."
+      },
+      {
+        "source_family": "reseau",
+        "normalized_exact_match": true,
+        "quote_public_redacted": "État vérifié le 12 novembre 2026 après récupération du 3560G du banc 2. Les deux centraux, les deux têtes et les deux 3560G ont été relus en SSH authentifié. Po1 est actif en trunk sur les bancs 1 et 2. Les bancs 3 à 6 restent à inventorier et déployer."
+      }
+    ]
+  },
+  "quote_count": 9,
+  "all_required_source_families_present": true
+}

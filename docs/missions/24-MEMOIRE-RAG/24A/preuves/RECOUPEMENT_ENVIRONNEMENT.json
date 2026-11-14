@@ -1,0 +1,23 @@
+{
+  "same_image": true,
+  "image": "sha256:b2513e99135d670ecfe6d6c2d43425d3484c3e59d1274b8a290022597838088c",
+  "network": "none",
+  "read_only_root": true,
+  "read_only_source": true,
+  "production_running": true,
+  "production_started_at": "2026-11-01T19:55:17.974326908Z",
+  "production_code_sha256": {
+    "main": "80aa62bbccc935dd3acc04e6a9b7e05a22543ebc7625e5ffe6ab1c50221e7db0",
+    "middleware": "a0f6d33dd7e657347a4b4e639a237e0f940823a018dd4ec62291f31bcde2209a"
+  },
+  "copy_python_tree_sha256": "de402ef8b3af9e885c9056f6c01690df202e45183ebd6785b6303a6f0648e712",
+  "controller_sha256": "66207705b9779a56295b419e90d8e06aa3e830e94e2b61f0bde3c69385ff5488",
+  "production_modified_by_this_run": false,
+  "source_content_filter_added": false,
+  "persistent_index_or_embeddings_added": false,
+  "mission_24b_started": false,
+  "production_code_matches_initial_copy": {
+    "main": true,
+    "middleware": true
+  }
+}

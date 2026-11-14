@@ -1,0 +1,47 @@
+--- a/open_webui/utils/middleware.py
++++ b/open_webui/utils/middleware.py
+@@ -3324,6 +3324,44 @@
+         except Exception as e:
+             log.exception(e)
+ 
++    # Opt-in private-copy pilot: resolve source coverage before allowing synthesis.
++    if (model.get('info', {}).get('meta') or {}).get('crosscheck_24a') is True:
++        from open_webui.utils.crosscheck24a import run as run_crosscheck, write_private_receipt, quoted_report
++
++        async def crosscheck_invoke(name, arguments):
++            call = {'id': str(uuid4()), 'function': {'name': name, 'arguments': JSONCodec.dumps(arguments)}}
++            _, result, _, _, _ = await execute_tool_call(form_data, metadata, event_caller, call)
++            return result
++
++        if metadata.get('params', {}).get('tool_approval_mode', 'full') == 'full':
++            checked = await run_crosscheck(prompt, metadata.get('tools', {}), crosscheck_invoke)
++        else:
++            checked = None
++        if checked is not None and checked.get('status') in ('ready', 'incomplete'):
++            try:
++                await quoted_report(checked)
++            except Exception as exc:
++                checked['status'] = 'extractor_failed'
++                checked['quote_check'] = {'error_type': type(exc).__name__}
++                checked['answer'] = 'Recoupement non validé : le contrôle des extraits a échoué. Aucune synthèse complète n’est déclarée.'
++            metadata['crosscheck_answer'] = checked['answer']
++        if checked is not None:
++            write_private_receipt(checked, metadata.get('chat_id', ''))
++            if checked.get('status') in ('ready', 'incomplete', 'unverified_quotes', 'extractor_failed'):
++                sources.extend(checked['sources'])
++                form_data['messages'] = add_or_update_system_message(
++                    'Contrôle de recoupement effectué par le client :\n' + checked['context'],
++                    form_data['messages'], append=True,
++                )
++                # The bounded plan has already performed the permitted reads for this turn.
++                form_data.pop('tools', None)
++                metadata['tools'] = {}
++                await event_emitter({'type': 'status', 'data': {
++                    'action': 'knowledge_search', 'description':
++                    f"Recoupement : {len(checked.get('reads', []))} sources lues ; statut {checked['status']}",
++                    'done': True,
++                }})
++
+     # The tool loop restores these prompts before rebuilding file and tool source context.
+     system_message = get_system_message(form_data['messages'])
+     base_system_prompt = get_content_from_message(system_message) if system_message else ''

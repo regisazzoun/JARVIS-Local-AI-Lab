@@ -1,5 +1,7 @@
 # Correctifs autorisés sur copie privée — 14 novembre 2026
 
+> **Complément ultérieur :** le [recoupement extractif sur copie](RECOUPEMENT_SOURCES.md) a depuis passé la recette ciblée S407. Le présent document conserve les résultats des trois essais de synthèse libre précédents.
+
 **✅ Citations et statuts d’erreurs vérifiés. ✅ Accès au modèle standard corrigé. ❌ Synthèse multi-sources non réceptionnée après trois essais. Réception fonctionnelle globale : NO-GO. Production préservée ; 24B non lancée.**
 
 ## Décision du propriétaire et périmètre

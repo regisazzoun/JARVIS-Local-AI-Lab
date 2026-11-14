@@ -1,5 +1,7 @@
 # Mission JARVIS 24A — Audit en lecture seule
 
+> **Dernier complément — recoupement S407 :** [correctif et recette sur copie privée](RECOUPEMENT_SOURCES.md). ✅ Parcours extractif vérifié : trois lectures, neuf passages, six rubriques et liens ouvrables. Ce résultat lève le défaut ciblé pour ce pilote, sans réception générale du RAG ni déploiement. Les bilans antérieurs ci-dessous restent datés et historiques. 24B non lancée.
+
 > **Complément du 14 novembre 2026 :** [correctifs sur copie privée et nouveaux tests](CORRECTIFS_COPIE_PRIVEE.md). Citations/erreurs et accès au modèle standard vérifiés ; synthèse multi-sources non réceptionnée après trois essais. Le propriétaire a rejeté le filtrage des informations d’authentification auxquelles il a droit : leur récupération autorisée n’est plus, à elle seule, un critère d’échec. Leur publication reste exclue. Les constats et verdicts datés du 13 novembre ci-dessous restent historiques. Production préservée, 24B non lancée.
 
 **13 novembre 2026 — clôture après les compléments client et multiutilisateur.**
